@@ -1,0 +1,26 @@
+<dec f='include/stdio.h' l='709' type='size_t fread(void *__restrict __ptr, size_t __size, size_t __n, FILE *__restrict __stream)'/>
+<doc f='include/stdio.h' l='705'>/* Read chunks of generic data from STREAM.
+
+   This function is a possible cancellation point and therefore not
+   marked with __THROW.  */</doc>
+<use f='codebrowser/curl/lib/formdata.c' l='1227' u='c' c='Curl_getFormData'/>
+<use f='codebrowser/curl/lib/url.c' l='288' u='r' c='Curl_open'/>
+<use f='codebrowser/curl/lib/url.c' l='1039' u='r' c='Curl_setopt'/>
+<use f='codebrowser/curl/src/main.c' l='571' u='c' c='file2memory'/>
+<use f='codebrowser/curl/src/main.c' l='2317' u='c' c='my_fread'/>
+<use f='codebrowser/framework/File.cpp' l='1068' u='c' c='_ZN16idFile_Permanent4ReadEPvi'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='726' u='c' c='_ZN17idFileSystemLocal8CopyFileEPKcS1_'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='3646' u='c' c='_Z24BackgroundDownloadThreadPv'/>
+<use f='codebrowser/framework/Unzip.cpp' l='1105' u='c' c='_ZL17unzlocal_getShortP8_IO_FILEPm'/>
+<use f='codebrowser/framework/Unzip.cpp' l='1134' u='c' c='_ZL16unzlocal_getLongP8_IO_FILEPm'/>
+<use f='codebrowser/framework/Unzip.cpp' l='1264' u='c' c='_ZL25unzlocal_SearchCentralDirP8_IO_FILE'/>
+<use f='codebrowser/framework/Unzip.cpp' l='1546' u='c' c='_ZL35unzlocal_GetCurrentFileInfoInternalPvP15unz_file_info_sP24unz_file_info_internal_sPcmS_mS4_m'/>
+<use f='codebrowser/framework/Unzip.cpp' l='1566' u='c' c='_ZL35unzlocal_GetCurrentFileInfoInternalPvP15unz_file_info_sP24unz_file_info_internal_sPcmS_mS4_m'/>
+<use f='codebrowser/framework/Unzip.cpp' l='1591' u='c' c='_ZL35unzlocal_GetCurrentFileInfoInternalPvP15unz_file_info_sP24unz_file_info_internal_sPcmS_mS4_m'/>
+<use f='codebrowser/framework/Unzip.cpp' l='1995' u='c' c='_Z18unzReadCurrentFilePvS_j'/>
+<use f='codebrowser/framework/Unzip.cpp' l='2162' u='c' c='_Z21unzGetLocalExtrafieldPvS_j'/>
+<use f='codebrowser/framework/Unzip.cpp' l='2231' u='c' c='_Z19unzGetGlobalCommentPvPcm'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='738' u='r' c='ov_open'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='738' u='r' c='ov_open'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='788' u='r' c='ov_test'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='788' u='r' c='ov_test'/>

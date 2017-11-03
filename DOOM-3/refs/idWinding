@@ -1,0 +1,84 @@
+<def f='codebrowser/idlib/geometry/Winding.h' l='40' ll='130'/>
+<ovr f='codebrowser/idlib/geometry/Winding.h' l='281' c='idFixedWinding'/>
+<size>16</size>
+<doc f='codebrowser/idlib/geometry/Winding.h' l='32'>/*
+===============================================================================
+
+	A winding is an arbitrary convex polygon defined by an array of points.
+
+===============================================================================
+*/</doc>
+<fun r='_ZN9idWindingC1Ev'/>
+<fun r='_ZN9idWindingC1Ei'/>
+<fun r='_ZN9idWindingC1EPK6idVec3i'/>
+<fun r='_ZN9idWindingC1ERK6idVec3f'/>
+<fun r='_ZN9idWindingC1ERK7idPlane'/>
+<fun r='_ZN9idWindingC1ERKS_'/>
+<fun r='_ZN9idWindingD1Ev'/>
+<fun r='_ZN9idWindingaSERKS_'/>
+<fun r='_ZNK9idWindingixEi'/>
+<fun r='_ZN9idWindingixEi'/>
+<fun r='_ZN9idWindingpLERK6idVec3'/>
+<fun r='_ZN9idWindingpLERK6idVec5'/>
+<fun r='_ZN9idWinding8AddPointERK6idVec3'/>
+<fun r='_ZN9idWinding8AddPointERK6idVec5'/>
+<fun r='_ZNK9idWinding12GetNumPointsEv'/>
+<fun r='_ZN9idWinding12SetNumPointsEi'/>
+<fun r='_ZN9idWinding5ClearEv'/>
+<fun r='_ZN9idWinding12BaseForPlaneERK6idVec3f'/>
+<fun r='_ZN9idWinding12BaseForPlaneERK7idPlane'/>
+<fun r='_ZNK9idWinding5SplitERK7idPlanefPPS_S4_'/>
+<fun r='_ZN9idWinding4ClipERK7idPlanefb'/>
+<fun r='_ZN9idWinding11ClipInPlaceERK7idPlanefb'/>
+<fun r='_ZNK9idWinding4CopyEv'/>
+<fun r='_ZNK9idWinding7ReverseEv'/>
+<fun r='_ZN9idWinding11ReverseSelfEv'/>
+<fun r='_ZN9idWinding17RemoveEqualPointsEf'/>
+<fun r='_ZN9idWinding20RemoveColinearPointsERK6idVec3f'/>
+<fun r='_ZN9idWinding11RemovePointEi'/>
+<fun r='_ZN9idWinding11InsertPointERK6idVec3i'/>
+<fun r='_ZN9idWinding19InsertPointIfOnEdgeERK6idVec3RK7idPlanef'/>
+<fun r='_ZN9idWinding15AddToConvexHullEPKS_RK6idVec3f'/>
+<fun r='_ZN9idWinding15AddToConvexHullERK6idVec3S2_f'/>
+<fun r='_ZNK9idWinding8TryMergeERKS_RK6idVec3i'/>
+<fun r='_ZNK9idWinding5CheckEb'/>
+<fun r='_ZNK9idWinding7GetAreaEv'/>
+<fun r='_ZNK9idWinding9GetCenterEv'/>
+<fun r='_ZNK9idWinding9GetRadiusERK6idVec3'/>
+<fun r='_ZNK9idWinding8GetPlaneER6idVec3Rf'/>
+<fun r='_ZNK9idWinding8GetPlaneER7idPlane'/>
+<fun r='_ZNK9idWinding9GetBoundsER8idBounds'/>
+<fun r='_ZNK9idWinding6IsTinyEv'/>
+<fun r='_ZNK9idWinding6IsHugeEv'/>
+<fun r='_ZNK9idWinding5PrintEv'/>
+<fun r='_ZNK9idWinding13PlaneDistanceERK7idPlane'/>
+<fun r='_ZNK9idWinding9PlaneSideERK7idPlanef'/>
+<fun r='_ZNK9idWinding13PlanesConcaveERKS_RK6idVec3S4_ff'/>
+<fun r='_ZNK9idWinding11PointInsideERK6idVec3S2_f'/>
+<fun r='_ZNK9idWinding16LineIntersectionERK7idPlaneRK6idVec3S5_b'/>
+<fun r='_ZNK9idWinding15RayIntersectionERK7idPlaneRK6idVec3S5_Rfb'/>
+<fun r='_ZN9idWinding12TriangleAreaERK6idVec3S2_S2_'/>
+<mbr r='idWinding::numPoints' o='32' t='int'/>
+<mbr r='idWinding::p' o='64' t='idVec5 *'/>
+<mbr r='idWinding::allocedSize' o='96' t='int'/>
+<fun r='_ZN9idWinding13EnsureAllocedEib'/>
+<fun r='_ZN9idWinding10ReAllocateEib'/>
+<fun r='_ZN9idWindingC1Ev'/>
+<fun r='_ZN9idWindingC1Ei'/>
+<fun r='_ZN9idWindingC1EPK6idVec3i'/>
+<fun r='_ZN9idWindingC1ERK6idVec3f'/>
+<fun r='_ZN9idWindingC1ERK7idPlane'/>
+<fun r='_ZN9idWindingC1ERKS_'/>
+<fun r='_ZN9idWindingD1Ev'/>
+<fun r='_ZN9idWindingaSERKS_'/>
+<fun r='_ZNK9idWindingixEi'/>
+<fun r='_ZN9idWindingixEi'/>
+<fun r='_ZN9idWindingpLERK6idVec3'/>
+<fun r='_ZN9idWindingpLERK6idVec5'/>
+<fun r='_ZN9idWinding8AddPointERK6idVec3'/>
+<fun r='_ZN9idWinding8AddPointERK6idVec5'/>
+<fun r='_ZNK9idWinding12GetNumPointsEv'/>
+<fun r='_ZN9idWinding12SetNumPointsEi'/>
+<fun r='_ZN9idWinding5ClearEv'/>
+<fun r='_ZN9idWinding12BaseForPlaneERK7idPlane'/>
+<fun r='_ZN9idWinding13EnsureAllocedEib'/>

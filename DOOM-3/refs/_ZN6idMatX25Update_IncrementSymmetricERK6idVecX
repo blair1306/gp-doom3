@@ -1,0 +1,16 @@
+<dec f='codebrowser/idlib/math/Matrix.h' l='1902' type='void idMatX::Update_IncrementSymmetric(const idVecX &amp; v)'/>
+<def f='codebrowser/idlib/math/Matrix.cpp' l='3586' ll='3600' type='void idMatX::Update_IncrementSymmetric(const idVecX &amp; v)'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7819' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7973' u='c' c='_ZN6idMatX4TestEv'/>
+<doc f='codebrowser/idlib/math/Matrix.cpp' l='3574'>/*
+============
+idMatX::Update_IncrementSymmetric
+
+  Updates the matrix to obtain the matrix:
+
+  [ A  a ]
+  [ a  b ]
+
+  where: a = v[0,numRows-1], b = v[numRows]
+============
+*/</doc>

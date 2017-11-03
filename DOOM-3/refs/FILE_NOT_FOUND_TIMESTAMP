@@ -1,0 +1,33 @@
+<def f='codebrowser/framework/FileSystem.h' l='55' type='const time_t'/>
+<doc f='codebrowser/framework/FileSystem.h' l='32'>/*
+===============================================================================
+
+	File System
+
+	No stdio calls should be used by any part of the game, because of all sorts
+	of directory and separator char issues. Throughout the game a forward slash
+	should be used as a separator. The file system takes care of the conversion
+	to an OS specific separator. The file system treats all file and directory
+	names as case insensitive.
+
+	The following cvars store paths used by the file system:
+
+	&quot;fs_basepath&quot;		path to local install, read-only
+	&quot;fs_savepath&quot;		path to config, save game, etc. files, read &amp; write
+	&quot;fs_cdpath&quot;			path to cd, read-only
+	&quot;fs_devpath&quot;		path to files created during development, read &amp; write
+
+	The base path for file saving can be set to &quot;fs_savepath&quot; or &quot;fs_devpath&quot;.
+
+===============================================================================
+*/</doc>
+<use f='codebrowser/framework/FileSystem.cpp' l='1056' u='r' c='_ZN17idFileSystemLocal8ReadFileEPKcPPvPl'/>
+<use f='codebrowser/renderer/Image_files.cpp' l='1121' u='r' c='_Z16R_LoadCubeImagesPKc11cubeFiles_tPPhPiPl'/>
+<use f='codebrowser/renderer/Image_load.cpp' l='1306' u='r' c='_ZN7idImage26ShouldImageBePartialCachedEv'/>
+<use f='codebrowser/renderer/Image_load.cpp' l='1365' u='r' c='_ZN7idImage23CheckPrecompressedImageEb'/>
+<use f='codebrowser/renderer/Image_load.cpp' l='1369' u='r' c='_ZN7idImage23CheckPrecompressedImageEb'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='129' u='r' c='_ZN18idRenderWorldLocalC1Ev'/>
+<use f='codebrowser/renderer/RenderWorld_load.cpp' l='504' u='r' c='_ZN18idRenderWorldLocal11InitFromMapEPKc'/>
+<use f='codebrowser/sound/snd_cache.cpp' l='419' u='r' c='_ZNK13idSoundSample15GetNewTimeStampEv'/>
+<use f='codebrowser/sound/snd_cache.cpp' l='441' u='r' c='_ZN13idSoundSample4LoadEv'/>
+<use f='codebrowser/sound/snd_cache.cpp' l='665' u='r' c='_ZN13idSoundSample6ReloadEb'/>

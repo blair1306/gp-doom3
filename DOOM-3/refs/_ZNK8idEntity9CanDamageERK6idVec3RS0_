@@ -1,0 +1,32 @@
+<dec f='codebrowser/d3xp/Entity.h' l='309' type='bool idEntity::CanDamage(const idVec3 &amp; origin, idVec3 &amp; damagePoint) const'/>
+<doc f='codebrowser/d3xp/Entity.h' l='307'>// damage
+							// returns true if this entity can be damaged from the given origin</doc>
+<def f='codebrowser/d3xp/Entity.cpp' l='2961' ll='3031' type='bool idEntity::CanDamage(const idVec3 &amp; origin, idVec3 &amp; damagePoint) const'/>
+<doc f='codebrowser/d3xp/Entity.cpp' l='2953'>/*
+============
+idEntity::CanDamage
+
+Returns true if the inflictor can directly damage the target.  Used for
+explosions and melee attacks.
+============
+*/</doc>
+<use f='codebrowser/d3xp/Game_local.cpp' l='3919' u='c' c='_ZN11idGameLocal12RadiusDamageERK6idVec3P8idEntityS4_S4_S4_PKcf'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='2027' u='c' c='_ZN15idBFGProjectile5ThinkEv'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='2129' u='c' c='_ZN15idBFGProjectile6LaunchERK6idVec3S2_S2_fff'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='2250' u='c' c='_ZN15idBFGProjectile7ExplodeERK7trace_sP8idEntity'/>
+<dec f='codebrowser/game/Entity.h' l='293' type='bool idEntity::CanDamage(const idVec3 &amp; origin, idVec3 &amp; damagePoint) const'/>
+<doc f='codebrowser/game/Entity.h' l='291'>// damage
+							// returns true if this entity can be damaged from the given origin</doc>
+<def f='codebrowser/game/Entity.cpp' l='2869' ll='2939' type='bool idEntity::CanDamage(const idVec3 &amp; origin, idVec3 &amp; damagePoint) const'/>
+<doc f='codebrowser/game/Entity.cpp' l='2861'>/*
+============
+idEntity::CanDamage
+
+Returns true if the inflictor can directly damage the target.  Used for
+explosions and melee attacks.
+============
+*/</doc>
+<use f='codebrowser/game/Game_local.cpp' l='3621' u='c' c='_ZN11idGameLocal12RadiusDamageERK6idVec3P8idEntityS4_S4_S4_PKcf'/>
+<use f='codebrowser/game/Projectile.cpp' l='1818' u='c' c='_ZN15idBFGProjectile5ThinkEv'/>
+<use f='codebrowser/game/Projectile.cpp' l='1917' u='c' c='_ZN15idBFGProjectile6LaunchERK6idVec3S2_S2_fff'/>
+<use f='codebrowser/game/Projectile.cpp' l='1994' u='c' c='_ZN15idBFGProjectile7ExplodeERK7trace_sP8idEntity'/>

@@ -1,0 +1,15 @@
+<dec f='codebrowser/framework/Unzip.cpp' l='743' type='gzFile gzdopen(int fd, const char * mode)'/>
+<doc f='codebrowser/framework/Unzip.cpp' l='728'>/*
+     Opens a gzip (.gz) file for reading or writing. The mode parameter
+   is as in fopen (&quot;rb&quot; or &quot;wb&quot;) but can also include a compression level
+   (&quot;wb9&quot;) or a strategy: &apos;f&apos; for filtered data as in &quot;wb6f&quot;, &apos;h&apos; for
+   Huffman only compression as in &quot;wb1h&quot;. (See the description
+   of deflateInit2 for more information about the strategy parameter.)
+
+     gzopen can be used to read a file which is not in gzip format; in this
+   case gzread will directly read from the file without decompression.
+
+     gzopen returns NULL if the file could not be opened or if there was
+   insufficient memory to allocate the (de)compression state; errno
+   can be checked to distinguish the two cases (if errno is zero, the
+   zlib error is Z_MEM_ERROR).  */</doc>

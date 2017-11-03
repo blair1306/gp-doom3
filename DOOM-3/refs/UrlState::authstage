@@ -1,0 +1,14 @@
+<dec f='codebrowser/curl/lib/urldata.h' l='712' type='long'/>
+<offset>263424</offset>
+<doc f='codebrowser/curl/lib/urldata.h' l='712'>/*   0 - authwant and authavail are still not initialized
+                     401 - web authentication is performed
+                     407 - proxy authentication is performed */</doc>
+<use f='codebrowser/curl/lib/http.c' l='209' u='r' c='http_auth_headers'/>
+<use f='codebrowser/curl/lib/http.c' l='228' u='r' c='http_auth_headers'/>
+<use f='codebrowser/curl/lib/http.c' l='255' u='r' c='http_auth_headers'/>
+<use f='codebrowser/curl/lib/http.c' l='342' u='r' c='Curl_http_auth'/>
+<use f='codebrowser/curl/lib/http.c' l='345' u='r' c='Curl_http_auth'/>
+<use f='codebrowser/curl/lib/http.c' l='427' u='r' c='Curl_http_auth'/>
+<use f='codebrowser/curl/lib/http.c' l='1053' u='w' c='Curl_http_auth_stage'/>
+<use f='codebrowser/curl/lib/transfer.c' l='1473' u='w' c='Curl_pretransfer'/>
+<use f='codebrowser/curl/lib/url.c' l='1333' u='w' c='Curl_disconnect'/>

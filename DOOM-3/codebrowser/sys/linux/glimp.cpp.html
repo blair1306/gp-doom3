@@ -1,0 +1,686 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>glimp.cpp source code [codebrowser/sys/linux/glimp.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/sys/linux/glimp.cpp'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>sys</a>/<a href='./'>linux</a>/<a href='glimp.cpp.html'>glimp.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td><u>#include <a href="../../idlib/precompiled.h.html">"../../idlib/precompiled.h"</a></u></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="../../renderer/tr_local.h.html">"../../renderer/tr_local.h"</a></u></td></tr>
+<tr><th id="30">30</th><td><u>#include <a href="local.h.html">"local.h"</a></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="../../../include/x86_64-linux-gnu/sys/types.h.html">&lt;sys/types.h&gt;</a></u></td></tr>
+<tr><th id="33">33</th><td><u>#include <a href="../../../include/x86_64-linux-gnu/sys/stat.h.html">&lt;sys/stat.h&gt;</a></u></td></tr>
+<tr><th id="34">34</th><td><u>#include <a href="../../../include/fcntl.h.html">&lt;fcntl.h&gt;</a></u></td></tr>
+<tr><th id="35">35</th><td><u>#include <a href="../../../include/unistd.h.html">&lt;unistd.h&gt;</a></u></td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><b>extern</b> <q>"C"</q> {</td></tr>
+<tr><th id="38">38</th><td><u>#	include <a href="libXNVCtrl/NVCtrlLib.h.html">"libXNVCtrl/NVCtrlLib.h"</a></u></td></tr>
+<tr><th id="39">39</th><td>}</td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><a class="type" href="../../framework/CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a> <dfn class="decl def" id="sys_videoRam" title='sys_videoRam' data-ref="sys_videoRam">sys_videoRam</dfn><a class="ref" href="../../framework/CVarSystem.h.html#_ZN6idCVarC1EPKcS1_iS1_ffPFvRK9idCmdArgsPFvS1_EE" title='idCVar::idCVar' data-ref="_ZN6idCVarC1EPKcS1_iS1_ffPFvRK9idCmdArgsPFvS1_EE">(</a> <q>"sys_videoRam"</q>, <q>"0"</q>, <a class="enum" href="../../framework/CVarSystem.h.html#CVAR_SYSTEM" title='CVAR_SYSTEM' data-ref="CVAR_SYSTEM">CVAR_SYSTEM</a> | <a class="enum" href="../../framework/CVarSystem.h.html#CVAR_ARCHIVE" title='CVAR_ARCHIVE' data-ref="CVAR_ARCHIVE">CVAR_ARCHIVE</a> | <a class="enum" href="../../framework/CVarSystem.h.html#CVAR_INTEGER" title='CVAR_INTEGER' data-ref="CVAR_INTEGER">CVAR_INTEGER</a>, <q>"Texture memory on the video card (in megabytes) - 0: autodetect"</q>, <var>0</var>, <var>512</var> );</td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td><a class="typedef" href="../../../include/X11/Xlib.h.html#Display" title='Display' data-type='struct _XDisplay' data-ref="Display">Display</a> *<dfn class="decl def" id="dpy" title='dpy' data-ref="dpy">dpy</dfn> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="44">44</th><td><em>static</em> <em>int</em> <dfn class="tu decl def" id="scrnum" title='scrnum' data-type='int' data-ref="scrnum">scrnum</dfn> = <var>0</var>;</td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td><a class="typedef" href="../../../include/X11/X.h.html#Window" title='Window' data-type='XID' data-ref="Window">Window</a> <dfn class="decl def" id="win" title='win' data-ref="win">win</dfn> = <var>0</var>;</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td><em>bool</em> <dfn class="decl def" id="dga_found" title='dga_found' data-ref="dga_found">dga_found</dfn> = <b>false</b>;</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td><em>static</em> <a class="typedef" href="../../../include/GL/glx.h.html#GLXContext" title='GLXContext' data-type='struct __GLXcontextRec *' data-ref="GLXContext">GLXContext</a> <dfn class="tu decl def" id="ctx" title='ctx' data-type='GLXContext' data-ref="ctx">ctx</dfn> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td><em>static</em> <em>bool</em> <dfn class="tu decl def" id="vidmode_ext" title='vidmode_ext' data-type='bool' data-ref="vidmode_ext">vidmode_ext</dfn> = <b>false</b>;</td></tr>
+<tr><th id="53">53</th><td><em>static</em> <em>int</em> <dfn class="tu decl def" id="vidmode_MajorVersion" title='vidmode_MajorVersion' data-type='int' data-ref="vidmode_MajorVersion">vidmode_MajorVersion</dfn> = <var>0</var>, <dfn class="tu decl def" id="vidmode_MinorVersion" title='vidmode_MinorVersion' data-type='int' data-ref="vidmode_MinorVersion">vidmode_MinorVersion</dfn> = <var>0</var>;	<i>// major and minor of XF86VidExtensions</i></td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td><em>static</em> <a class="typedef" href="../../../include/X11/extensions/xf86vmode.h.html#XF86VidModeModeInfo" title='XF86VidModeModeInfo' data-type='struct XF86VidModeModeInfo' data-ref="XF86VidModeModeInfo">XF86VidModeModeInfo</a> **<dfn class="tu decl def" id="vidmodes" title='vidmodes' data-type='XF86VidModeModeInfo **' data-ref="vidmodes">vidmodes</dfn>;</td></tr>
+<tr><th id="56">56</th><td><em>static</em> <em>int</em> <dfn class="tu decl def" id="num_vidmodes" title='num_vidmodes' data-type='int' data-ref="num_vidmodes">num_vidmodes</dfn>;</td></tr>
+<tr><th id="57">57</th><td><em>static</em> <em>bool</em> <dfn class="tu decl def" id="vidmode_active" title='vidmode_active' data-type='bool' data-ref="vidmode_active">vidmode_active</dfn> = <b>false</b>;</td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td><i  data-doc="save_rampsize">// backup gamma ramp</i></td></tr>
+<tr><th id="60">60</th><td><em>static</em> <em>int</em> <dfn class="tu decl def" id="save_rampsize" title='save_rampsize' data-type='int' data-ref="save_rampsize">save_rampsize</dfn> = <var>0</var>;</td></tr>
+<tr><th id="61">61</th><td><em>static</em> <em>unsigned</em> <em>short</em> *<dfn class="tu decl def" id="save_red" title='save_red' data-type='unsigned short *' data-ref="save_red">save_red</dfn>, *<dfn class="tu decl def" id="save_green" title='save_green' data-type='unsigned short *' data-ref="save_green">save_green</dfn>, *<dfn class="tu decl def" id="save_blue" title='save_blue' data-type='unsigned short *' data-ref="save_blue">save_blue</dfn>;</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td><em>void</em> <dfn class="decl def" id="_Z17GLimp_WakeBackEndPv" title='GLimp_WakeBackEnd' data-ref="_Z17GLimp_WakeBackEndPv">GLimp_WakeBackEnd</dfn>(<em>void</em> *<dfn class="local col3 decl" id="33a" title='a' data-type='void *' data-ref="33a">a</dfn>) {</td></tr>
+<tr><th id="64">64</th><td>	<a class="ref" href="../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../framework/Common.h.html#_ZN8idCommon7DPrintfEPKcz" title='idCommon::DPrintf' data-ref="_ZN8idCommon7DPrintfEPKcz">DPrintf</a>(<q>"GLimp_WakeBackEnd stub\n"</q>);</td></tr>
+<tr><th id="65">65</th><td>}</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td><u>#<span data-ppcond="67">ifdef</span> <span class="macro" data-ref="_M/ID_GL_HARDLINK">ID_GL_HARDLINK</span></u></td></tr>
+<tr><th id="68">68</th><td><em>void</em> GLimp_EnableLogging(<em>bool</em> log) {</td></tr>
+<tr><th id="69">69</th><td>	<em>static</em> <em>bool</em> logging;</td></tr>
+<tr><th id="70">70</th><td>	<b>if</b> (log != logging)</td></tr>
+<tr><th id="71">71</th><td>	{</td></tr>
+<tr><th id="72">72</th><td>		common-&gt;DPrintf(<q>"GLimp_EnableLogging - disabled at compile time (ID_GL_HARDLINK)\n"</q>);</td></tr>
+<tr><th id="73">73</th><td>		logging = log;</td></tr>
+<tr><th id="74">74</th><td>	}</td></tr>
+<tr><th id="75">75</th><td>}</td></tr>
+<tr><th id="76">76</th><td><u>#<span data-ppcond="67">endif</span></u></td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td><em>void</em> <dfn class="decl def" id="_Z19GLimp_FrontEndSleepv" title='GLimp_FrontEndSleep' data-ref="_Z19GLimp_FrontEndSleepv">GLimp_FrontEndSleep</dfn>() {</td></tr>
+<tr><th id="79">79</th><td>	<a class="ref" href="../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../framework/Common.h.html#_ZN8idCommon7DPrintfEPKcz" title='idCommon::DPrintf' data-ref="_ZN8idCommon7DPrintfEPKcz">DPrintf</a>(<q>"GLimp_FrontEndSleep stub\n"</q>);</td></tr>
+<tr><th id="80">80</th><td>}</td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td><em>void</em> *<dfn class="decl def" id="_Z18GLimp_BackEndSleepv" title='GLimp_BackEndSleep' data-ref="_Z18GLimp_BackEndSleepv">GLimp_BackEndSleep</dfn>() {</td></tr>
+<tr><th id="83">83</th><td>	<a class="ref" href="../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../framework/Common.h.html#_ZN8idCommon7DPrintfEPKcz" title='idCommon::DPrintf' data-ref="_ZN8idCommon7DPrintfEPKcz">DPrintf</a>(<q>"GLimp_BackEndSleep stub\n"</q>);</td></tr>
+<tr><th id="84">84</th><td>	<b>return</b> <var>0</var>;</td></tr>
+<tr><th id="85">85</th><td>}</td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td><em>bool</em> <dfn class="decl def" id="_Z23GLimp_SpawnRenderThreadPFvvE" title='GLimp_SpawnRenderThread' data-ref="_Z23GLimp_SpawnRenderThreadPFvvE">GLimp_SpawnRenderThread</dfn>(<em>void</em> (*<dfn class="local col4 decl" id="34a" title='a' data-type='void (*)()' data-ref="34a">a</dfn>) ()) {</td></tr>
+<tr><th id="88">88</th><td>	<a class="ref" href="../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../framework/Common.h.html#_ZN8idCommon7DPrintfEPKcz" title='idCommon::DPrintf' data-ref="_ZN8idCommon7DPrintfEPKcz">DPrintf</a>(<q>"GLimp_SpawnRenderThread stub\n"</q>);</td></tr>
+<tr><th id="89">89</th><td>	<b>return</b> <b>false</b>;</td></tr>
+<tr><th id="90">90</th><td>}</td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td><em>void</em> <dfn class="decl def" id="_Z21GLimp_ActivateContextv" title='GLimp_ActivateContext' data-ref="_Z21GLimp_ActivateContextv">GLimp_ActivateContext</dfn>() {</td></tr>
+<tr><th id="93">93</th><td>	<a class="macro" href="../../idlib/Lib.h.html#147" title="if ( dpy ) { } else AssertFailed( &quot;/home/jon/workspace/id-software/DOOM-3/neo/sys/linux/glimp.cpp&quot;, 93, &quot;dpy&quot; )" data-ref="_M/assert">assert</a>( <a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a> );</td></tr>
+<tr><th id="94">94</th><td>	<a class="macro" href="../../idlib/Lib.h.html#147" title="if ( ctx ) { } else AssertFailed( &quot;/home/jon/workspace/id-software/DOOM-3/neo/sys/linux/glimp.cpp&quot;, 94, &quot;ctx&quot; )" data-ref="_M/assert">assert</a>( <a class="tu ref" href="#ctx" title='ctx' data-use='r' data-ref="ctx">ctx</a> );</td></tr>
+<tr><th id="95">95</th><td>	<a class="ref" href="../../renderer/qgl.h.html#qglXMakeCurrent" title='qglXMakeCurrent' data-ref="qglXMakeCurrent">qglXMakeCurrent</a>( <a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a>, <a class="ref" href="local.h.html#win" title='win' data-ref="win">win</a>, <a class="tu ref" href="#ctx" title='ctx' data-use='r' data-ref="ctx">ctx</a> );</td></tr>
+<tr><th id="96">96</th><td>}</td></tr>
+<tr><th id="97">97</th><td></td></tr>
+<tr><th id="98">98</th><td><em>void</em> <dfn class="decl def" id="_Z23GLimp_DeactivateContextv" title='GLimp_DeactivateContext' data-ref="_Z23GLimp_DeactivateContextv">GLimp_DeactivateContext</dfn>() {</td></tr>
+<tr><th id="99">99</th><td>	<a class="macro" href="../../idlib/Lib.h.html#147" title="if ( dpy ) { } else AssertFailed( &quot;/home/jon/workspace/id-software/DOOM-3/neo/sys/linux/glimp.cpp&quot;, 99, &quot;dpy&quot; )" data-ref="_M/assert">assert</a>( <a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a> );</td></tr>
+<tr><th id="100">100</th><td>	<a class="ref" href="../../renderer/qgl.h.html#qglXMakeCurrent" title='qglXMakeCurrent' data-ref="qglXMakeCurrent">qglXMakeCurrent</a>( <a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a>, <a class="macro" href="../../../include/X11/X.h.html#115" title="0L" data-ref="_M/None">None</a>, <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> );</td></tr>
+<tr><th id="101">101</th><td>}</td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td><i>/*</i></td></tr>
+<tr><th id="104">104</th><td><i>=================</i></td></tr>
+<tr><th id="105">105</th><td><i>GLimp_SaveGamma</i></td></tr>
+<tr><th id="106">106</th><td><i></i></td></tr>
+<tr><th id="107">107</th><td><i>save and restore the original gamma of the system</i></td></tr>
+<tr><th id="108">108</th><td><i>=================</i></td></tr>
+<tr><th id="109">109</th><td><i>*/</i></td></tr>
+<tr><th id="110">110</th><td><em>void</em> <dfn class="decl def" id="_Z15GLimp_SaveGammav" title='GLimp_SaveGamma' data-ref="_Z15GLimp_SaveGammav">GLimp_SaveGamma</dfn>() {</td></tr>
+<tr><th id="111">111</th><td>	<b>if</b> ( <a class="tu ref" href="#save_rampsize" title='save_rampsize' data-use='r' data-ref="save_rampsize">save_rampsize</a> ) {</td></tr>
+<tr><th id="112">112</th><td>		<b>return</b>;</td></tr>
+<tr><th id="113">113</th><td>	}</td></tr>
+<tr><th id="114">114</th><td></td></tr>
+<tr><th id="115">115</th><td>	<a class="macro" href="../../idlib/Lib.h.html#147" title="if ( dpy ) { } else AssertFailed( &quot;/home/jon/workspace/id-software/DOOM-3/neo/sys/linux/glimp.cpp&quot;, 115, &quot;dpy&quot; )" data-ref="_M/assert">assert</a>( <a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a> );</td></tr>
+<tr><th id="116">116</th><td>	</td></tr>
+<tr><th id="117">117</th><td>	<a class="ref" href="../../../include/X11/extensions/xf86vmode.h.html#XF86VidModeGetGammaRampSize" title='XF86VidModeGetGammaRampSize' data-ref="XF86VidModeGetGammaRampSize">XF86VidModeGetGammaRampSize</a>( <a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a>, <a class="tu ref" href="#scrnum" title='scrnum' data-use='r' data-ref="scrnum">scrnum</a>, &amp;<a class="tu ref" href="#save_rampsize" title='save_rampsize' data-use='a' data-ref="save_rampsize">save_rampsize</a>);</td></tr>
+<tr><th id="118">118</th><td>	<a class="tu ref" href="#save_red" title='save_red' data-use='w' data-ref="save_red">save_red</a> = (<em>unsigned</em> <em>short</em> *)<a class="ref" href="../../../include/stdlib.h.html#malloc" title='malloc' data-ref="malloc">malloc</a>(<a class="tu ref" href="#save_rampsize" title='save_rampsize' data-use='r' data-ref="save_rampsize">save_rampsize</a>*<b>sizeof</b>(<em>unsigned</em> <em>short</em>));</td></tr>
+<tr><th id="119">119</th><td>	<a class="tu ref" href="#save_green" title='save_green' data-use='w' data-ref="save_green">save_green</a> = (<em>unsigned</em> <em>short</em> *)<a class="ref" href="../../../include/stdlib.h.html#malloc" title='malloc' data-ref="malloc">malloc</a>(<a class="tu ref" href="#save_rampsize" title='save_rampsize' data-use='r' data-ref="save_rampsize">save_rampsize</a>*<b>sizeof</b>(<em>unsigned</em> <em>short</em>));</td></tr>
+<tr><th id="120">120</th><td>	<a class="tu ref" href="#save_blue" title='save_blue' data-use='w' data-ref="save_blue">save_blue</a> = (<em>unsigned</em> <em>short</em> *)<a class="ref" href="../../../include/stdlib.h.html#malloc" title='malloc' data-ref="malloc">malloc</a>(<a class="tu ref" href="#save_rampsize" title='save_rampsize' data-use='r' data-ref="save_rampsize">save_rampsize</a>*<b>sizeof</b>(<em>unsigned</em> <em>short</em>));</td></tr>
+<tr><th id="121">121</th><td>	<a class="ref" href="../../../include/X11/extensions/xf86vmode.h.html#XF86VidModeGetGammaRamp" title='XF86VidModeGetGammaRamp' data-ref="XF86VidModeGetGammaRamp">XF86VidModeGetGammaRamp</a>( <a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a>, <a class="tu ref" href="#scrnum" title='scrnum' data-use='r' data-ref="scrnum">scrnum</a>, <a class="tu ref" href="#save_rampsize" title='save_rampsize' data-use='r' data-ref="save_rampsize">save_rampsize</a>, <a class="tu ref" href="#save_red" title='save_red' data-use='r' data-ref="save_red">save_red</a>, <a class="tu ref" href="#save_green" title='save_green' data-use='r' data-ref="save_green">save_green</a>, <a class="tu ref" href="#save_blue" title='save_blue' data-use='r' data-ref="save_blue">save_blue</a>);</td></tr>
+<tr><th id="122">122</th><td>}</td></tr>
+<tr><th id="123">123</th><td></td></tr>
+<tr><th id="124">124</th><td><i>/*</i></td></tr>
+<tr><th id="125">125</th><td><i>=================</i></td></tr>
+<tr><th id="126">126</th><td><i>GLimp_RestoreGamma</i></td></tr>
+<tr><th id="127">127</th><td><i></i></td></tr>
+<tr><th id="128">128</th><td><i>save and restore the original gamma of the system</i></td></tr>
+<tr><th id="129">129</th><td><i>=================</i></td></tr>
+<tr><th id="130">130</th><td><i>*/</i></td></tr>
+<tr><th id="131">131</th><td><em>void</em> <dfn class="decl def" id="_Z18GLimp_RestoreGammav" title='GLimp_RestoreGamma' data-ref="_Z18GLimp_RestoreGammav">GLimp_RestoreGamma</dfn>() {</td></tr>
+<tr><th id="132">132</th><td>	<b>if</b> (!<a class="tu ref" href="#save_rampsize" title='save_rampsize' data-use='r' data-ref="save_rampsize">save_rampsize</a>)</td></tr>
+<tr><th id="133">133</th><td>		<b>return</b>;</td></tr>
+<tr><th id="134">134</th><td>	</td></tr>
+<tr><th id="135">135</th><td>	<a class="ref" href="../../../include/X11/extensions/xf86vmode.h.html#XF86VidModeSetGammaRamp" title='XF86VidModeSetGammaRamp' data-ref="XF86VidModeSetGammaRamp">XF86VidModeSetGammaRamp</a>( <a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a>, <a class="tu ref" href="#scrnum" title='scrnum' data-use='r' data-ref="scrnum">scrnum</a>, <a class="tu ref" href="#save_rampsize" title='save_rampsize' data-use='r' data-ref="save_rampsize">save_rampsize</a>, <a class="tu ref" href="#save_red" title='save_red' data-use='r' data-ref="save_red">save_red</a>, <a class="tu ref" href="#save_green" title='save_green' data-use='r' data-ref="save_green">save_green</a>, <a class="tu ref" href="#save_blue" title='save_blue' data-use='r' data-ref="save_blue">save_blue</a>);</td></tr>
+<tr><th id="136">136</th><td>	</td></tr>
+<tr><th id="137">137</th><td>	<a class="ref" href="../../../include/stdlib.h.html#free" title='free' data-ref="free">free</a>(<a class="tu ref" href="#save_red" title='save_red' data-use='r' data-ref="save_red">save_red</a>); <a class="ref" href="../../../include/stdlib.h.html#free" title='free' data-ref="free">free</a>(<a class="tu ref" href="#save_green" title='save_green' data-use='r' data-ref="save_green">save_green</a>); <a class="ref" href="../../../include/stdlib.h.html#free" title='free' data-ref="free">free</a>(<a class="tu ref" href="#save_blue" title='save_blue' data-use='r' data-ref="save_blue">save_blue</a>);</td></tr>
+<tr><th id="138">138</th><td>	<a class="tu ref" href="#save_rampsize" title='save_rampsize' data-use='w' data-ref="save_rampsize">save_rampsize</a> = <var>0</var>;</td></tr>
+<tr><th id="139">139</th><td>}</td></tr>
+<tr><th id="140">140</th><td></td></tr>
+<tr><th id="141">141</th><td><i>/*</i></td></tr>
+<tr><th id="142">142</th><td><i>=================</i></td></tr>
+<tr><th id="143">143</th><td><i>GLimp_SetGamma</i></td></tr>
+<tr><th id="144">144</th><td><i></i></td></tr>
+<tr><th id="145">145</th><td><i>gamma ramp is generated by the renderer from r_gamma and r_brightness for 256 elements</i></td></tr>
+<tr><th id="146">146</th><td><i>the size of the gamma ramp can not be changed on X (I need to confirm this)</i></td></tr>
+<tr><th id="147">147</th><td><i>=================</i></td></tr>
+<tr><th id="148">148</th><td><i>*/</i></td></tr>
+<tr><th id="149">149</th><td><em>void</em> <dfn class="decl def" id="_Z14GLimp_SetGammaPtS_S_" title='GLimp_SetGamma' data-ref="_Z14GLimp_SetGammaPtS_S_">GLimp_SetGamma</dfn>(<em>unsigned</em> <em>short</em> <dfn class="local col5 decl" id="35red" title='red' data-type='unsigned short *' data-ref="35red">red</dfn>[<var>256</var>], <em>unsigned</em> <em>short</em> <dfn class="local col6 decl" id="36green" title='green' data-type='unsigned short *' data-ref="36green">green</dfn>[<var>256</var>], <em>unsigned</em> <em>short</em> <dfn class="local col7 decl" id="37blue" title='blue' data-type='unsigned short *' data-ref="37blue">blue</dfn>[<var>256</var>]) {</td></tr>
+<tr><th id="150">150</th><td>	<b>if</b> ( <a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a> ) {		</td></tr>
+<tr><th id="151">151</th><td>		<em>int</em> <dfn class="local col8 decl" id="38size" title='size' data-type='int' data-ref="38size">size</dfn>;</td></tr>
+<tr><th id="152">152</th><td>		</td></tr>
+<tr><th id="153">153</th><td>		<a class="ref" href="#_Z15GLimp_SaveGammav" title='GLimp_SaveGamma' data-ref="_Z15GLimp_SaveGammav">GLimp_SaveGamma</a>();</td></tr>
+<tr><th id="154">154</th><td>		<a class="ref" href="../../../include/X11/extensions/xf86vmode.h.html#XF86VidModeGetGammaRampSize" title='XF86VidModeGetGammaRampSize' data-ref="XF86VidModeGetGammaRampSize">XF86VidModeGetGammaRampSize</a>( <a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a>, <a class="tu ref" href="#scrnum" title='scrnum' data-use='r' data-ref="scrnum">scrnum</a>, &amp;<a class="local col8 ref" href="#38size" title='size' data-ref="38size">size</a>);</td></tr>
+<tr><th id="155">155</th><td>		<a class="ref" href="../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../framework/Common.h.html#_ZN8idCommon7DPrintfEPKcz" title='idCommon::DPrintf' data-ref="_ZN8idCommon7DPrintfEPKcz">DPrintf</a>(<q>"XF86VidModeGetGammaRampSize: %d\n"</q>, <a class="local col8 ref" href="#38size" title='size' data-ref="38size">size</a>);</td></tr>
+<tr><th id="156">156</th><td>		<b>if</b> ( <a class="local col8 ref" href="#38size" title='size' data-ref="38size">size</a> &gt; <var>256</var> ) {</td></tr>
+<tr><th id="157">157</th><td>			<i>// silly generic resample</i></td></tr>
+<tr><th id="158">158</th><td>			<em>int</em> <dfn class="local col9 decl" id="39i" title='i' data-type='int' data-ref="39i">i</dfn>;</td></tr>
+<tr><th id="159">159</th><td>			<em>unsigned</em> <em>short</em> *<dfn class="local col0 decl" id="40l_red" title='l_red' data-type='unsigned short *' data-ref="40l_red">l_red</dfn>, *<dfn class="local col1 decl" id="41l_green" title='l_green' data-type='unsigned short *' data-ref="41l_green">l_green</dfn>, *<dfn class="local col2 decl" id="42l_blue" title='l_blue' data-type='unsigned short *' data-ref="42l_blue">l_blue</dfn>;</td></tr>
+<tr><th id="160">160</th><td>			<a class="local col0 ref" href="#40l_red" title='l_red' data-ref="40l_red">l_red</a> = (<em>unsigned</em> <em>short</em> *)<a class="ref" href="../../../include/stdlib.h.html#malloc" title='malloc' data-ref="malloc">malloc</a>(<a class="local col8 ref" href="#38size" title='size' data-ref="38size">size</a>*<b>sizeof</b>(<em>unsigned</em> <em>short</em>));</td></tr>
+<tr><th id="161">161</th><td>			<a class="local col1 ref" href="#41l_green" title='l_green' data-ref="41l_green">l_green</a> = (<em>unsigned</em> <em>short</em> *)<a class="ref" href="../../../include/stdlib.h.html#malloc" title='malloc' data-ref="malloc">malloc</a>(<a class="local col8 ref" href="#38size" title='size' data-ref="38size">size</a>*<b>sizeof</b>(<em>unsigned</em> <em>short</em>));</td></tr>
+<tr><th id="162">162</th><td>			<a class="local col2 ref" href="#42l_blue" title='l_blue' data-ref="42l_blue">l_blue</a> = (<em>unsigned</em> <em>short</em> *)<a class="ref" href="../../../include/stdlib.h.html#malloc" title='malloc' data-ref="malloc">malloc</a>(<a class="local col8 ref" href="#38size" title='size' data-ref="38size">size</a>*<b>sizeof</b>(<em>unsigned</em> <em>short</em>));</td></tr>
+<tr><th id="163">163</th><td>			<i>//int r_size = 256;</i></td></tr>
+<tr><th id="164">164</th><td>			<em>int</em> <dfn class="local col3 decl" id="43r_i" title='r_i' data-type='int' data-ref="43r_i">r_i</dfn>; <em>float</em> <dfn class="local col4 decl" id="44r_f" title='r_f' data-type='float' data-ref="44r_f">r_f</dfn>;</td></tr>
+<tr><th id="165">165</th><td>			<b>for</b>(<a class="local col9 ref" href="#39i" title='i' data-ref="39i">i</a>=<var>0</var>; <a class="local col9 ref" href="#39i" title='i' data-ref="39i">i</a>&lt;<a class="local col8 ref" href="#38size" title='size' data-ref="38size">size</a>-<var>1</var>; <a class="local col9 ref" href="#39i" title='i' data-ref="39i">i</a>++) {</td></tr>
+<tr><th id="166">166</th><td>				<a class="local col4 ref" href="#44r_f" title='r_f' data-ref="44r_f">r_f</a> = (<em>float</em>)<a class="local col9 ref" href="#39i" title='i' data-ref="39i">i</a>*<var>255.0f</var>/(<em>float</em>)(<a class="local col8 ref" href="#38size" title='size' data-ref="38size">size</a>-<var>1</var>);</td></tr>
+<tr><th id="167">167</th><td>				<a class="local col3 ref" href="#43r_i" title='r_i' data-ref="43r_i">r_i</a> = (<em>int</em>)<a class="ref" href="../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#184" title='floor' data-ref="floor">floor</a>(<a class="local col4 ref" href="#44r_f" title='r_f' data-ref="44r_f">r_f</a>);</td></tr>
+<tr><th id="168">168</th><td>				<a class="local col4 ref" href="#44r_f" title='r_f' data-ref="44r_f">r_f</a> -= (<em>float</em>)<a class="local col3 ref" href="#43r_i" title='r_i' data-ref="43r_i">r_i</a>;</td></tr>
+<tr><th id="169">169</th><td>				<a class="local col0 ref" href="#40l_red" title='l_red' data-ref="40l_red">l_red</a>[<a class="local col9 ref" href="#39i" title='i' data-ref="39i">i</a>] = (<em>int</em>)<a class="ref" href="../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#319" title='round' data-ref="round">round</a>((<var>1.0f</var>-<a class="local col4 ref" href="#44r_f" title='r_f' data-ref="44r_f">r_f</a>)*(<em>float</em>)<a class="local col5 ref" href="#35red" title='red' data-ref="35red">red</a>[<a class="local col3 ref" href="#43r_i" title='r_i' data-ref="43r_i">r_i</a>]+<a class="local col4 ref" href="#44r_f" title='r_f' data-ref="44r_f">r_f</a>*(<em>float</em>)<a class="local col5 ref" href="#35red" title='red' data-ref="35red">red</a>[<a class="local col3 ref" href="#43r_i" title='r_i' data-ref="43r_i">r_i</a>+<var>1</var>]);</td></tr>
+<tr><th id="170">170</th><td>				<a class="local col1 ref" href="#41l_green" title='l_green' data-ref="41l_green">l_green</a>[<a class="local col9 ref" href="#39i" title='i' data-ref="39i">i</a>] = (<em>int</em>)<a class="ref" href="../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#319" title='round' data-ref="round">round</a>((<var>1.0f</var>-<a class="local col4 ref" href="#44r_f" title='r_f' data-ref="44r_f">r_f</a>)*(<em>float</em>)<a class="local col6 ref" href="#36green" title='green' data-ref="36green">green</a>[<a class="local col3 ref" href="#43r_i" title='r_i' data-ref="43r_i">r_i</a>]+<a class="local col4 ref" href="#44r_f" title='r_f' data-ref="44r_f">r_f</a>*(<em>float</em>)<a class="local col6 ref" href="#36green" title='green' data-ref="36green">green</a>[<a class="local col3 ref" href="#43r_i" title='r_i' data-ref="43r_i">r_i</a>+<var>1</var>]);</td></tr>
+<tr><th id="171">171</th><td>				<a class="local col2 ref" href="#42l_blue" title='l_blue' data-ref="42l_blue">l_blue</a>[<a class="local col9 ref" href="#39i" title='i' data-ref="39i">i</a>] = (<em>int</em>)<a class="ref" href="../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#319" title='round' data-ref="round">round</a>((<var>1.0f</var>-<a class="local col4 ref" href="#44r_f" title='r_f' data-ref="44r_f">r_f</a>)*(<em>float</em>)<a class="local col7 ref" href="#37blue" title='blue' data-ref="37blue">blue</a>[<a class="local col3 ref" href="#43r_i" title='r_i' data-ref="43r_i">r_i</a>]+<a class="local col4 ref" href="#44r_f" title='r_f' data-ref="44r_f">r_f</a>*(<em>float</em>)<a class="local col7 ref" href="#37blue" title='blue' data-ref="37blue">blue</a>[<a class="local col3 ref" href="#43r_i" title='r_i' data-ref="43r_i">r_i</a>+<var>1</var>]);				</td></tr>
+<tr><th id="172">172</th><td>			}</td></tr>
+<tr><th id="173">173</th><td>			<a class="local col0 ref" href="#40l_red" title='l_red' data-ref="40l_red">l_red</a>[<a class="local col8 ref" href="#38size" title='size' data-ref="38size">size</a>-<var>1</var>] = <a class="local col5 ref" href="#35red" title='red' data-ref="35red">red</a>[<var>255</var>]; <a class="local col1 ref" href="#41l_green" title='l_green' data-ref="41l_green">l_green</a>[<a class="local col8 ref" href="#38size" title='size' data-ref="38size">size</a>-<var>1</var>] = <a class="local col6 ref" href="#36green" title='green' data-ref="36green">green</a>[<var>255</var>]; <a class="local col2 ref" href="#42l_blue" title='l_blue' data-ref="42l_blue">l_blue</a>[<a class="local col8 ref" href="#38size" title='size' data-ref="38size">size</a>-<var>1</var>] = <a class="local col7 ref" href="#37blue" title='blue' data-ref="37blue">blue</a>[<var>255</var>];</td></tr>
+<tr><th id="174">174</th><td>			<a class="ref" href="../../../include/X11/extensions/xf86vmode.h.html#XF86VidModeSetGammaRamp" title='XF86VidModeSetGammaRamp' data-ref="XF86VidModeSetGammaRamp">XF86VidModeSetGammaRamp</a>( <a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a>, <a class="tu ref" href="#scrnum" title='scrnum' data-use='r' data-ref="scrnum">scrnum</a>, <a class="local col8 ref" href="#38size" title='size' data-ref="38size">size</a>, <a class="local col0 ref" href="#40l_red" title='l_red' data-ref="40l_red">l_red</a>, <a class="local col1 ref" href="#41l_green" title='l_green' data-ref="41l_green">l_green</a>, <a class="local col2 ref" href="#42l_blue" title='l_blue' data-ref="42l_blue">l_blue</a> );</td></tr>
+<tr><th id="175">175</th><td>			<a class="ref" href="../../../include/stdlib.h.html#free" title='free' data-ref="free">free</a>(<a class="local col0 ref" href="#40l_red" title='l_red' data-ref="40l_red">l_red</a>); <a class="ref" href="../../../include/stdlib.h.html#free" title='free' data-ref="free">free</a>(<a class="local col1 ref" href="#41l_green" title='l_green' data-ref="41l_green">l_green</a>); <a class="ref" href="../../../include/stdlib.h.html#free" title='free' data-ref="free">free</a>(<a class="local col2 ref" href="#42l_blue" title='l_blue' data-ref="42l_blue">l_blue</a>);</td></tr>
+<tr><th id="176">176</th><td>		} <b>else</b> {</td></tr>
+<tr><th id="177">177</th><td>			<a class="ref" href="../../../include/X11/extensions/xf86vmode.h.html#XF86VidModeSetGammaRamp" title='XF86VidModeSetGammaRamp' data-ref="XF86VidModeSetGammaRamp">XF86VidModeSetGammaRamp</a>( <a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a>, <a class="tu ref" href="#scrnum" title='scrnum' data-use='r' data-ref="scrnum">scrnum</a>, <a class="local col8 ref" href="#38size" title='size' data-ref="38size">size</a>, <a class="local col5 ref" href="#35red" title='red' data-ref="35red">red</a>, <a class="local col6 ref" href="#36green" title='green' data-ref="36green">green</a>, <a class="local col7 ref" href="#37blue" title='blue' data-ref="37blue">blue</a> );</td></tr>
+<tr><th id="178">178</th><td>		}</td></tr>
+<tr><th id="179">179</th><td>	}</td></tr>
+<tr><th id="180">180</th><td>}</td></tr>
+<tr><th id="181">181</th><td></td></tr>
+<tr><th id="182">182</th><td><em>void</em> <dfn class="decl def" id="_Z14GLimp_Shutdownv" title='GLimp_Shutdown' data-ref="_Z14GLimp_Shutdownv">GLimp_Shutdown</dfn>() {</td></tr>
+<tr><th id="183">183</th><td>	<b>if</b> ( <a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a> ) {</td></tr>
+<tr><th id="184">184</th><td>		</td></tr>
+<tr><th id="185">185</th><td>		<a class="ref" href="local.h.html#_Z19Sys_XUninstallGrabsv" title='Sys_XUninstallGrabs' data-ref="_Z19Sys_XUninstallGrabsv">Sys_XUninstallGrabs</a>();</td></tr>
+<tr><th id="186">186</th><td>	</td></tr>
+<tr><th id="187">187</th><td>		<a class="ref" href="#_Z18GLimp_RestoreGammav" title='GLimp_RestoreGamma' data-ref="_Z18GLimp_RestoreGammav">GLimp_RestoreGamma</a>();</td></tr>
+<tr><th id="188">188</th><td></td></tr>
+<tr><th id="189">189</th><td>		<a class="ref" href="../../renderer/qgl.h.html#qglXDestroyContext" title='qglXDestroyContext' data-ref="qglXDestroyContext">qglXDestroyContext</a>( <a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a>, <a class="tu ref" href="#ctx" title='ctx' data-use='r' data-ref="ctx">ctx</a> );</td></tr>
+<tr><th id="190">190</th><td>		</td></tr>
+<tr><th id="191">191</th><td><u>#<span data-ppcond="191">if</span> !defined( <span class="macro" data-ref="_M/ID_GL_HARDLINK">ID_GL_HARDLINK</span> )</u></td></tr>
+<tr><th id="192">192</th><td>		<a class="ref" href="local.h.html#_Z13GLimp_dlclosev" title='GLimp_dlclose' data-ref="_Z13GLimp_dlclosev">GLimp_dlclose</a>();</td></tr>
+<tr><th id="193">193</th><td><u>#<span data-ppcond="191">endif</span></u></td></tr>
+<tr><th id="194">194</th><td>		</td></tr>
+<tr><th id="195">195</th><td>		<a class="ref" href="../../../include/X11/Xlib.h.html#XDestroyWindow" title='XDestroyWindow' data-ref="XDestroyWindow">XDestroyWindow</a>( <a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a>, <a class="ref" href="local.h.html#win" title='win' data-ref="win">win</a> );</td></tr>
+<tr><th id="196">196</th><td>		<b>if</b> ( <a class="tu ref" href="#vidmode_active" title='vidmode_active' data-use='r' data-ref="vidmode_active">vidmode_active</a> ) {</td></tr>
+<tr><th id="197">197</th><td>			<a class="ref" href="../../../include/X11/extensions/xf86vmode.h.html#XF86VidModeSwitchToMode" title='XF86VidModeSwitchToMode' data-ref="XF86VidModeSwitchToMode">XF86VidModeSwitchToMode</a>( <a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a>, <a class="tu ref" href="#scrnum" title='scrnum' data-use='r' data-ref="scrnum">scrnum</a>, <a class="tu ref" href="#vidmodes" title='vidmodes' data-use='r' data-ref="vidmodes">vidmodes</a>[<var>0</var>] );</td></tr>
+<tr><th id="198">198</th><td>		}</td></tr>
+<tr><th id="199">199</th><td></td></tr>
+<tr><th id="200">200</th><td>		<a class="ref" href="../../../include/X11/Xlib.h.html#XFlush" title='XFlush' data-ref="XFlush">XFlush</a>( <a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a> );</td></tr>
+<tr><th id="201">201</th><td></td></tr>
+<tr><th id="202">202</th><td>		<i>// FIXME: that's going to crash</i></td></tr>
+<tr><th id="203">203</th><td><i>		//XCloseDisplay( dpy );</i></td></tr>
+<tr><th id="204">204</th><td></td></tr>
+<tr><th id="205">205</th><td>		<a class="tu ref" href="#vidmode_active" title='vidmode_active' data-use='w' data-ref="vidmode_active">vidmode_active</a> = <b>false</b>;</td></tr>
+<tr><th id="206">206</th><td>		<a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="207">207</th><td>		<a class="ref" href="local.h.html#win" title='win' data-ref="win">win</a> = <var>0</var>;</td></tr>
+<tr><th id="208">208</th><td>		<a class="tu ref" href="#ctx" title='ctx' data-use='w' data-ref="ctx">ctx</a> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="209">209</th><td>	}</td></tr>
+<tr><th id="210">210</th><td>}</td></tr>
+<tr><th id="211">211</th><td></td></tr>
+<tr><th id="212">212</th><td><em>void</em> <dfn class="decl def" id="_Z17GLimp_SwapBuffersv" title='GLimp_SwapBuffers' data-ref="_Z17GLimp_SwapBuffersv">GLimp_SwapBuffers</dfn>() {</td></tr>
+<tr><th id="213">213</th><td>	<a class="macro" href="../../idlib/Lib.h.html#147" title="if ( dpy ) { } else AssertFailed( &quot;/home/jon/workspace/id-software/DOOM-3/neo/sys/linux/glimp.cpp&quot;, 213, &quot;dpy&quot; )" data-ref="_M/assert">assert</a>( <a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a> );</td></tr>
+<tr><th id="214">214</th><td>	<a class="ref" href="../../renderer/qgl.h.html#qglXSwapBuffers" title='qglXSwapBuffers' data-ref="qglXSwapBuffers">qglXSwapBuffers</a>( <a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a>, <a class="ref" href="local.h.html#win" title='win' data-ref="win">win</a> );</td></tr>
+<tr><th id="215">215</th><td>}</td></tr>
+<tr><th id="216">216</th><td></td></tr>
+<tr><th id="217">217</th><td><i>/*</i></td></tr>
+<tr><th id="218">218</th><td><i>GLX_TestDGA</i></td></tr>
+<tr><th id="219">219</th><td><i>Check for DGA	- update in_dgamouse if needed</i></td></tr>
+<tr><th id="220">220</th><td><i>*/</i></td></tr>
+<tr><th id="221">221</th><td><em>void</em> <dfn class="decl def" id="_Z11GLX_TestDGAv" title='GLX_TestDGA' data-ref="_Z11GLX_TestDGAv">GLX_TestDGA</dfn>() {</td></tr>
+<tr><th id="222">222</th><td>	<em>int</em> <span class='warning' title="unused variable &apos;dga_MajorVersion&apos;"><dfn class="local col5 decl" id="45dga_MajorVersion" title='dga_MajorVersion' data-type='int' data-ref="45dga_MajorVersion">dga_MajorVersion</dfn></span> = <var>0</var>, <span class='warning' title="unused variable &apos;dga_MinorVersion&apos;"><dfn class="local col6 decl" id="46dga_MinorVersion" title='dga_MinorVersion' data-type='int' data-ref="46dga_MinorVersion">dga_MinorVersion</dfn></span> = <var>0</var>;</td></tr>
+<tr><th id="223">223</th><td></td></tr>
+<tr><th id="224">224</th><td>	<a class="macro" href="../../idlib/Lib.h.html#147" title="if ( dpy ) { } else AssertFailed( &quot;/home/jon/workspace/id-software/DOOM-3/neo/sys/linux/glimp.cpp&quot;, 224, &quot;dpy&quot; )" data-ref="_M/assert">assert</a>( <a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a> );</td></tr>
+<tr><th id="225">225</th><td></td></tr>
+<tr><th id="226">226</th><td><u>#<span data-ppcond="226">if</span> defined( <span class="macro" data-ref="_M/ID_ENABLE_DGA">ID_ENABLE_DGA</span> )</u></td></tr>
+<tr><th id="227">227</th><td>	<b>if</b> ( !XF86DGAQueryVersion( dpy, &amp;dga_MajorVersion, &amp;dga_MinorVersion ) ) {</td></tr>
+<tr><th id="228">228</th><td>		<i>// unable to query, probalby not supported</i></td></tr>
+<tr><th id="229">229</th><td>		common-&gt;Printf( <q>"Failed to detect DGA DirectVideo Mouse\n"</q> );</td></tr>
+<tr><th id="230">230</th><td>		cvarSystem-&gt;SetCVarBool( <q>"in_dgamouse"</q>, <b>false</b> );</td></tr>
+<tr><th id="231">231</th><td>		dga_found = <b>false</b>;</td></tr>
+<tr><th id="232">232</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="233">233</th><td>		common-&gt;Printf( <q>"DGA DirectVideo Mouse (Version %d.%d) initialized\n"</q>,</td></tr>
+<tr><th id="234">234</th><td>				   dga_MajorVersion, dga_MinorVersion );</td></tr>
+<tr><th id="235">235</th><td>		dga_found = <b>true</b>;</td></tr>
+<tr><th id="236">236</th><td>	}</td></tr>
+<tr><th id="237">237</th><td><u>#<span data-ppcond="226">else</span></u></td></tr>
+<tr><th id="238">238</th><td>    <a class="ref" href="local.h.html#dga_found" title='dga_found' data-ref="dga_found">dga_found</a> = <b>false</b>;</td></tr>
+<tr><th id="239">239</th><td><u>#<span data-ppcond="226">endif</span></u></td></tr>
+<tr><th id="240">240</th><td>}</td></tr>
+<tr><th id="241">241</th><td></td></tr>
+<tr><th id="242">242</th><td><i>/*</i></td></tr>
+<tr><th id="243">243</th><td><i>** XErrorHandler</i></td></tr>
+<tr><th id="244">244</th><td><i>**   the default X error handler exits the application</i></td></tr>
+<tr><th id="245">245</th><td><i>**   I found out that on some hosts some operations would raise X errors (GLXUnsupportedPrivateRequest)</i></td></tr>
+<tr><th id="246">246</th><td><i>**   but those don't seem to be fatal .. so the default would be to just ignore them</i></td></tr>
+<tr><th id="247">247</th><td><i>**   our implementation mimics the default handler behaviour (not completely cause I'm lazy)</i></td></tr>
+<tr><th id="248">248</th><td><i>*/</i></td></tr>
+<tr><th id="249">249</th><td><em>int</em> <dfn class="decl def" id="_Z15idXErrorHandlerP9_XDisplayP11XErrorEvent" title='idXErrorHandler' data-ref="_Z15idXErrorHandlerP9_XDisplayP11XErrorEvent">idXErrorHandler</dfn>(<a class="typedef" href="../../../include/X11/Xlib.h.html#Display" title='Display' data-type='struct _XDisplay' data-ref="Display">Display</a> * <dfn class="local col7 decl" id="47l_dpy" title='l_dpy' data-type='Display *' data-ref="47l_dpy">l_dpy</dfn>, <a class="typedef" href="../../../include/X11/Xlib.h.html#XErrorEvent" title='XErrorEvent' data-type='struct XErrorEvent' data-ref="XErrorEvent">XErrorEvent</a> * <dfn class="local col8 decl" id="48ev" title='ev' data-type='XErrorEvent *' data-ref="48ev">ev</dfn>) {</td></tr>
+<tr><th id="250">250</th><td>	<em>char</em> <dfn class="local col9 decl" id="49buf" title='buf' data-type='char [1024]' data-ref="49buf">buf</dfn>[<var>1024</var>];</td></tr>
+<tr><th id="251">251</th><td>	<a class="ref" href="../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"Fatal X Error:\n"</q> );</td></tr>
+<tr><th id="252">252</th><td>	<a class="ref" href="../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"  Major opcode of failed request: %d\n"</q>, <a class="local col8 ref" href="#48ev" title='ev' data-ref="48ev">ev</a>-&gt;<a class="ref" href="../../../include/X11/Xlib.h.html#(anonymous)::request_code" title='(anonymous struct)::request_code' data-ref="(anonymous)::request_code">request_code</a> );</td></tr>
+<tr><th id="253">253</th><td>	<a class="ref" href="../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"  Minor opcode of failed request: %d\n"</q>, <a class="local col8 ref" href="#48ev" title='ev' data-ref="48ev">ev</a>-&gt;<a class="ref" href="../../../include/X11/Xlib.h.html#(anonymous)::minor_code" title='(anonymous struct)::minor_code' data-ref="(anonymous)::minor_code">minor_code</a> );</td></tr>
+<tr><th id="254">254</th><td>	<a class="ref" href="../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"  Serial number of failed request: %lu\n"</q>, <a class="local col8 ref" href="#48ev" title='ev' data-ref="48ev">ev</a>-&gt;<a class="ref" href="../../../include/X11/Xlib.h.html#(anonymous)::serial" title='(anonymous struct)::serial' data-ref="(anonymous)::serial">serial</a> );</td></tr>
+<tr><th id="255">255</th><td>	<a class="ref" href="../../../include/X11/Xlib.h.html#XGetErrorText" title='XGetErrorText' data-ref="XGetErrorText">XGetErrorText</a>( <a class="local col7 ref" href="#47l_dpy" title='l_dpy' data-ref="47l_dpy">l_dpy</a>, <a class="local col8 ref" href="#48ev" title='ev' data-ref="48ev">ev</a>-&gt;<a class="ref" href="../../../include/X11/Xlib.h.html#(anonymous)::error_code" title='(anonymous struct)::error_code' data-ref="(anonymous)::error_code">error_code</a>, <a class="local col9 ref" href="#49buf" title='buf' data-ref="49buf">buf</a>, <var>1024</var> );</td></tr>
+<tr><th id="256">256</th><td>	<a class="ref" href="../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"%s\n"</q>, <a class="local col9 ref" href="#49buf" title='buf' data-ref="49buf">buf</a> );</td></tr>
+<tr><th id="257">257</th><td>	<b>return</b> <var>0</var>;</td></tr>
+<tr><th id="258">258</th><td>}</td></tr>
+<tr><th id="259">259</th><td></td></tr>
+<tr><th id="260">260</th><td><em>bool</em> <dfn class="decl def" id="_Z17GLimp_OpenDisplayv" title='GLimp_OpenDisplay' data-ref="_Z17GLimp_OpenDisplayv">GLimp_OpenDisplay</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="261">261</th><td>	<b>if</b> ( <a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a> ) {</td></tr>
+<tr><th id="262">262</th><td>		<b>return</b> <b>true</b>;</td></tr>
+<tr><th id="263">263</th><td>	}</td></tr>
+<tr><th id="264">264</th><td></td></tr>
+<tr><th id="265">265</th><td>	<b>if</b> ( <a class="ref" href="../../framework/CVarSystem.h.html#cvarSystem" title='cvarSystem' data-ref="cvarSystem">cvarSystem</a>-&gt;<a class="virtual ref" href="../../framework/CVarSystem.h.html#_ZNK12idCVarSystem14GetCVarIntegerEPKc" title='idCVarSystem::GetCVarInteger' data-ref="_ZNK12idCVarSystem14GetCVarIntegerEPKc">GetCVarInteger</a>( <q>"net_serverDedicated"</q> ) == <var>1</var> ) {</td></tr>
+<tr><th id="266">266</th><td>		<a class="ref" href="../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../framework/Common.h.html#_ZN8idCommon7DPrintfEPKcz" title='idCommon::DPrintf' data-ref="_ZN8idCommon7DPrintfEPKcz">DPrintf</a>( <q>"not opening the display: dedicated server\n"</q> );</td></tr>
+<tr><th id="267">267</th><td>		<b>return</b> <b>false</b>;</td></tr>
+<tr><th id="268">268</th><td>	}</td></tr>
+<tr><th id="269">269</th><td></td></tr>
+<tr><th id="270">270</th><td>	<a class="ref" href="../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"Setup X display connection\n"</q> );</td></tr>
+<tr><th id="271">271</th><td></td></tr>
+<tr><th id="272">272</th><td>	<i>// that should be the first call into X</i></td></tr>
+<tr><th id="273">273</th><td>	<b>if</b> ( !<a class="ref" href="../../../include/X11/Xlib.h.html#XInitThreads" title='XInitThreads' data-ref="XInitThreads">XInitThreads</a>() ) {</td></tr>
+<tr><th id="274">274</th><td>		<a class="ref" href="../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>(<q>"XInitThreads failed\n"</q>);</td></tr>
+<tr><th id="275">275</th><td>		<b>return</b> <b>false</b>;</td></tr>
+<tr><th id="276">276</th><td>	}</td></tr>
+<tr><th id="277">277</th><td>	</td></tr>
+<tr><th id="278">278</th><td>	<i>// set up our custom error handler for X failures</i></td></tr>
+<tr><th id="279">279</th><td>	<a class="ref" href="../../../include/X11/Xlib.h.html#XSetErrorHandler" title='XSetErrorHandler' data-ref="XSetErrorHandler">XSetErrorHandler</a>( &amp;<a class="ref" href="#_Z15idXErrorHandlerP9_XDisplayP11XErrorEvent" title='idXErrorHandler' data-ref="_Z15idXErrorHandlerP9_XDisplayP11XErrorEvent">idXErrorHandler</a> );</td></tr>
+<tr><th id="280">280</th><td></td></tr>
+<tr><th id="281">281</th><td>	<b>if</b> ( !( <a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a> = <a class="ref" href="../../../include/X11/Xlib.h.html#XOpenDisplay" title='XOpenDisplay' data-ref="XOpenDisplay">XOpenDisplay</a>(<span class="macro" title="__null" data-ref="_M/NULL">NULL</span>) ) ) {</td></tr>
+<tr><th id="282">282</th><td>		<a class="ref" href="../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"Couldn't open the X display\n"</q> );</td></tr>
+<tr><th id="283">283</th><td>		<b>return</b> <b>false</b>;</td></tr>
+<tr><th id="284">284</th><td>	}</td></tr>
+<tr><th id="285">285</th><td>	<a class="tu ref" href="#scrnum" title='scrnum' data-use='w' data-ref="scrnum">scrnum</a> = <a class="macro" href="../../../include/X11/Xlib.h.html#93" title="(((_XPrivDisplay)dpy)-&gt;default_screen)" data-ref="_M/DefaultScreen">DefaultScreen</a>( <a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a> );</td></tr>
+<tr><th id="286">286</th><td>	<b>return</b> <b>true</b>;</td></tr>
+<tr><th id="287">287</th><td>}</td></tr>
+<tr><th id="288">288</th><td></td></tr>
+<tr><th id="289">289</th><td><i>/*</i></td></tr>
+<tr><th id="290">290</th><td><i>===============</i></td></tr>
+<tr><th id="291">291</th><td><i>GLX_Init</i></td></tr>
+<tr><th id="292">292</th><td><i>===============</i></td></tr>
+<tr><th id="293">293</th><td><i>*/</i></td></tr>
+<tr><th id="294">294</th><td><em>int</em> <dfn class="decl def" id="_Z8GLX_Init12glimpParms_t" title='GLX_Init' data-ref="_Z8GLX_Init12glimpParms_t">GLX_Init</dfn>(<a class="typedef" href="../../renderer/tr_local.h.html#glimpParms_t" title='glimpParms_t' data-type='struct glimpParms_t' data-ref="glimpParms_t">glimpParms_t</a> <dfn class="local col0 decl" id="50a" title='a' data-type='glimpParms_t' data-ref="50a">a</dfn>) {</td></tr>
+<tr><th id="295">295</th><td>	<em>int</em> <dfn class="local col1 decl" id="51attrib" title='attrib' data-type='int [15]' data-ref="51attrib">attrib</dfn>[] = {</td></tr>
+<tr><th id="296">296</th><td>		<a class="macro" href="../../../include/GL/glx.h.html#60" title="4" data-ref="_M/GLX_RGBA">GLX_RGBA</a>,				<i>// 0</i></td></tr>
+<tr><th id="297">297</th><td>		<a class="macro" href="../../../include/GL/glx.h.html#64" title="8" data-ref="_M/GLX_RED_SIZE">GLX_RED_SIZE</a>, <var>8</var>,		<i>// 1, 2</i></td></tr>
+<tr><th id="298">298</th><td>		<a class="macro" href="../../../include/GL/glx.h.html#65" title="9" data-ref="_M/GLX_GREEN_SIZE">GLX_GREEN_SIZE</a>, <var>8</var>,		<i>// 3, 4</i></td></tr>
+<tr><th id="299">299</th><td>		<a class="macro" href="../../../include/GL/glx.h.html#66" title="10" data-ref="_M/GLX_BLUE_SIZE">GLX_BLUE_SIZE</a>, <var>8</var>,		<i>// 5, 6</i></td></tr>
+<tr><th id="300">300</th><td>		<a class="macro" href="../../../include/GL/glx.h.html#61" title="5" data-ref="_M/GLX_DOUBLEBUFFER">GLX_DOUBLEBUFFER</a>,		<i>// 7</i></td></tr>
+<tr><th id="301">301</th><td>		<a class="macro" href="../../../include/GL/glx.h.html#68" title="12" data-ref="_M/GLX_DEPTH_SIZE">GLX_DEPTH_SIZE</a>, <var>24</var>,		<i>// 8, 9</i></td></tr>
+<tr><th id="302">302</th><td>		<a class="macro" href="../../../include/GL/glx.h.html#69" title="13" data-ref="_M/GLX_STENCIL_SIZE">GLX_STENCIL_SIZE</a>, <var>8</var>,	<i>// 10, 11</i></td></tr>
+<tr><th id="303">303</th><td>		<a class="macro" href="../../../include/GL/glx.h.html#67" title="11" data-ref="_M/GLX_ALPHA_SIZE">GLX_ALPHA_SIZE</a>, <var>8</var>, <i>// 12, 13</i></td></tr>
+<tr><th id="304">304</th><td>		<a class="macro" href="../../../include/X11/X.h.html#115" title="0L" data-ref="_M/None">None</a></td></tr>
+<tr><th id="305">305</th><td>	};</td></tr>
+<tr><th id="306">306</th><td>	<i>// these match in the array</i></td></tr>
+<tr><th id="307">307</th><td><u>#define <dfn class="macro" id="_M/ATTR_RED_IDX" data-ref="_M/ATTR_RED_IDX">ATTR_RED_IDX</dfn> 2</u></td></tr>
+<tr><th id="308">308</th><td><u>#define <dfn class="macro" id="_M/ATTR_GREEN_IDX" data-ref="_M/ATTR_GREEN_IDX">ATTR_GREEN_IDX</dfn> 4</u></td></tr>
+<tr><th id="309">309</th><td><u>#define <dfn class="macro" id="_M/ATTR_BLUE_IDX" data-ref="_M/ATTR_BLUE_IDX">ATTR_BLUE_IDX</dfn> 6</u></td></tr>
+<tr><th id="310">310</th><td><u>#define <dfn class="macro" id="_M/ATTR_DEPTH_IDX" data-ref="_M/ATTR_DEPTH_IDX">ATTR_DEPTH_IDX</dfn> 9</u></td></tr>
+<tr><th id="311">311</th><td><u>#define <dfn class="macro" id="_M/ATTR_STENCIL_IDX" data-ref="_M/ATTR_STENCIL_IDX">ATTR_STENCIL_IDX</dfn> 11</u></td></tr>
+<tr><th id="312">312</th><td><u>#define <dfn class="macro" id="_M/ATTR_ALPHA_IDX" data-ref="_M/ATTR_ALPHA_IDX">ATTR_ALPHA_IDX</dfn> 13</u></td></tr>
+<tr><th id="313">313</th><td>	<a class="typedef" href="../../../include/X11/X.h.html#Window" title='Window' data-type='XID' data-ref="Window">Window</a> <dfn class="local col2 decl" id="52root" title='root' data-type='Window' data-ref="52root">root</dfn>;</td></tr>
+<tr><th id="314">314</th><td>	<a class="typedef" href="../../../include/X11/Xutil.h.html#XVisualInfo" title='XVisualInfo' data-type='struct XVisualInfo' data-ref="XVisualInfo">XVisualInfo</a> *<dfn class="local col3 decl" id="53visinfo" title='visinfo' data-type='XVisualInfo *' data-ref="53visinfo">visinfo</dfn>;</td></tr>
+<tr><th id="315">315</th><td>	<a class="typedef" href="../../../include/X11/Xlib.h.html#XSetWindowAttributes" title='XSetWindowAttributes' data-type='struct XSetWindowAttributes' data-ref="XSetWindowAttributes">XSetWindowAttributes</a> <a class="ref fake" href="../../../include/X11/Xlib.h.html#290" title='(anonymous struct)::' data-ref="_ZN20XSetWindowAttributesC1Ev"></a><dfn class="local col4 decl" id="54attr" title='attr' data-type='XSetWindowAttributes' data-ref="54attr">attr</dfn>;</td></tr>
+<tr><th id="316">316</th><td>	<a class="typedef" href="../../../include/X11/Xutil.h.html#XSizeHints" title='XSizeHints' data-type='struct XSizeHints' data-ref="XSizeHints">XSizeHints</a> <a class="ref fake" href="../../../include/X11/Xutil.h.html#81" title='(anonymous struct)::' data-ref="_ZN10XSizeHintsC1Ev"></a><dfn class="local col5 decl" id="55sizehints" title='sizehints' data-type='XSizeHints' data-ref="55sizehints">sizehints</dfn>;</td></tr>
+<tr><th id="317">317</th><td>	<em>unsigned</em> <em>long</em> <dfn class="local col6 decl" id="56mask" title='mask' data-type='unsigned long' data-ref="56mask">mask</dfn>;</td></tr>
+<tr><th id="318">318</th><td>	<em>int</em> <dfn class="local col7 decl" id="57colorbits" title='colorbits' data-type='int' data-ref="57colorbits">colorbits</dfn>, <dfn class="local col8 decl" id="58depthbits" title='depthbits' data-type='int' data-ref="58depthbits">depthbits</dfn>, <dfn class="local col9 decl" id="59stencilbits" title='stencilbits' data-type='int' data-ref="59stencilbits">stencilbits</dfn>;</td></tr>
+<tr><th id="319">319</th><td>	<em>int</em> <dfn class="local col0 decl" id="60tcolorbits" title='tcolorbits' data-type='int' data-ref="60tcolorbits">tcolorbits</dfn>, <dfn class="local col1 decl" id="61tdepthbits" title='tdepthbits' data-type='int' data-ref="61tdepthbits">tdepthbits</dfn>, <dfn class="local col2 decl" id="62tstencilbits" title='tstencilbits' data-type='int' data-ref="62tstencilbits">tstencilbits</dfn>;</td></tr>
+<tr><th id="320">320</th><td>	<em>int</em> <dfn class="local col3 decl" id="63actualWidth" title='actualWidth' data-type='int' data-ref="63actualWidth">actualWidth</dfn>, <dfn class="local col4 decl" id="64actualHeight" title='actualHeight' data-type='int' data-ref="64actualHeight">actualHeight</dfn>;</td></tr>
+<tr><th id="321">321</th><td>	<em>int</em> <dfn class="local col5 decl" id="65i" title='i' data-type='int' data-ref="65i">i</dfn>;</td></tr>
+<tr><th id="322">322</th><td>	<em>const</em> <em>char</em> *<dfn class="local col6 decl" id="66glstring" title='glstring' data-type='const char *' data-ref="66glstring">glstring</dfn>;</td></tr>
+<tr><th id="323">323</th><td></td></tr>
+<tr><th id="324">324</th><td>	<b>if</b> ( !<a class="ref" href="#_Z17GLimp_OpenDisplayv" title='GLimp_OpenDisplay' data-ref="_Z17GLimp_OpenDisplayv">GLimp_OpenDisplay</a>() ) {</td></tr>
+<tr><th id="325">325</th><td>		<b>return</b> <b>false</b>;</td></tr>
+<tr><th id="326">326</th><td>	}</td></tr>
+<tr><th id="327">327</th><td></td></tr>
+<tr><th id="328">328</th><td>	<a class="ref" href="../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"Initializing OpenGL display\n"</q> );</td></tr>
+<tr><th id="329">329</th><td></td></tr>
+<tr><th id="330">330</th><td>	<a class="local col2 ref" href="#52root" title='root' data-ref="52root">root</a> = <a class="macro" href="../../../include/X11/Xlib.h.html#92" title="((&amp;((_XPrivDisplay)dpy)-&gt;screens[scrnum])-&gt;root)" data-ref="_M/RootWindow">RootWindow</a>( <a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a>, <a class="tu ref" href="#scrnum" title='scrnum' data-use='r' data-ref="scrnum">scrnum</a> );</td></tr>
+<tr><th id="331">331</th><td></td></tr>
+<tr><th id="332">332</th><td>	<a class="local col3 ref" href="#63actualWidth" title='actualWidth' data-ref="63actualWidth">actualWidth</a> = <a class="ref" href="../../renderer/tr_local.h.html#glConfig" title='glConfig' data-ref="glConfig">glConfig</a>.<a class="ref" href="../../renderer/RenderSystem.h.html#glconfig_s::vidWidth" title='glconfig_s::vidWidth' data-ref="glconfig_s::vidWidth">vidWidth</a>;</td></tr>
+<tr><th id="333">333</th><td>	<a class="local col4 ref" href="#64actualHeight" title='actualHeight' data-ref="64actualHeight">actualHeight</a> = <a class="ref" href="../../renderer/tr_local.h.html#glConfig" title='glConfig' data-ref="glConfig">glConfig</a>.<a class="ref" href="../../renderer/RenderSystem.h.html#glconfig_s::vidHeight" title='glconfig_s::vidHeight' data-ref="glconfig_s::vidHeight">vidHeight</a>;</td></tr>
+<tr><th id="334">334</th><td></td></tr>
+<tr><th id="335">335</th><td>	<i>// Get video mode list</i></td></tr>
+<tr><th id="336">336</th><td>	<b>if</b> ( !<a class="ref" href="../../../include/X11/extensions/xf86vmode.h.html#XF86VidModeQueryVersion" title='XF86VidModeQueryVersion' data-ref="XF86VidModeQueryVersion">XF86VidModeQueryVersion</a>( <a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a>, &amp;<a class="tu ref" href="#vidmode_MajorVersion" title='vidmode_MajorVersion' data-use='a' data-ref="vidmode_MajorVersion">vidmode_MajorVersion</a>, &amp;<a class="tu ref" href="#vidmode_MinorVersion" title='vidmode_MinorVersion' data-use='a' data-ref="vidmode_MinorVersion">vidmode_MinorVersion</a> ) ) {</td></tr>
+<tr><th id="337">337</th><td>		<a class="tu ref" href="#vidmode_ext" title='vidmode_ext' data-use='w' data-ref="vidmode_ext">vidmode_ext</a> = <b>false</b>;</td></tr>
+<tr><th id="338">338</th><td>		<a class="ref" href="../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>(<q>"XFree86-VidModeExtension not available\n"</q>);</td></tr>
+<tr><th id="339">339</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="340">340</th><td>		<a class="tu ref" href="#vidmode_ext" title='vidmode_ext' data-use='w' data-ref="vidmode_ext">vidmode_ext</a> = <b>true</b>;</td></tr>
+<tr><th id="341">341</th><td>		<a class="ref" href="../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>(<q>"Using XFree86-VidModeExtension Version %d.%d\n"</q>,</td></tr>
+<tr><th id="342">342</th><td>				   <a class="tu ref" href="#vidmode_MajorVersion" title='vidmode_MajorVersion' data-use='r' data-ref="vidmode_MajorVersion">vidmode_MajorVersion</a>, <a class="tu ref" href="#vidmode_MinorVersion" title='vidmode_MinorVersion' data-use='r' data-ref="vidmode_MinorVersion">vidmode_MinorVersion</a>);</td></tr>
+<tr><th id="343">343</th><td>	}</td></tr>
+<tr><th id="344">344</th><td></td></tr>
+<tr><th id="345">345</th><td>	<a class="ref" href="#_Z11GLX_TestDGAv" title='GLX_TestDGA' data-ref="_Z11GLX_TestDGAv">GLX_TestDGA</a>();</td></tr>
+<tr><th id="346">346</th><td></td></tr>
+<tr><th id="347">347</th><td>	<b>if</b> ( <a class="tu ref" href="#vidmode_ext" title='vidmode_ext' data-use='r' data-ref="vidmode_ext">vidmode_ext</a> ) {</td></tr>
+<tr><th id="348">348</th><td>		<em>int</em> <dfn class="local col7 decl" id="67best_fit" title='best_fit' data-type='int' data-ref="67best_fit">best_fit</dfn>, <dfn class="local col8 decl" id="68best_dist" title='best_dist' data-type='int' data-ref="68best_dist">best_dist</dfn>, <dfn class="local col9 decl" id="69dist" title='dist' data-type='int' data-ref="69dist">dist</dfn>, <dfn class="local col0 decl" id="70x" title='x' data-type='int' data-ref="70x">x</dfn>, <dfn class="local col1 decl" id="71y" title='y' data-type='int' data-ref="71y">y</dfn>;</td></tr>
+<tr><th id="349">349</th><td></td></tr>
+<tr><th id="350">350</th><td>		<a class="ref" href="../../../include/X11/extensions/xf86vmode.h.html#XF86VidModeGetAllModeLines" title='XF86VidModeGetAllModeLines' data-ref="XF86VidModeGetAllModeLines">XF86VidModeGetAllModeLines</a>( <a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a>, <a class="tu ref" href="#scrnum" title='scrnum' data-use='r' data-ref="scrnum">scrnum</a>, &amp;<a class="tu ref" href="#num_vidmodes" title='num_vidmodes' data-use='a' data-ref="num_vidmodes">num_vidmodes</a>, &amp;<a class="tu ref" href="#vidmodes" title='vidmodes' data-use='a' data-ref="vidmodes">vidmodes</a> );</td></tr>
+<tr><th id="351">351</th><td></td></tr>
+<tr><th id="352">352</th><td>		<i>// Are we going fullscreen?  If so, let's change video mode</i></td></tr>
+<tr><th id="353">353</th><td>		<b>if</b> ( <a class="local col0 ref" href="#50a" title='a' data-ref="50a">a</a>.<a class="ref" href="../../renderer/tr_local.h.html#(anonymous)::fullScreen" title='(anonymous struct)::fullScreen' data-ref="(anonymous)::fullScreen">fullScreen</a> ) {</td></tr>
+<tr><th id="354">354</th><td>			<a class="local col8 ref" href="#68best_dist" title='best_dist' data-ref="68best_dist">best_dist</a> = <var>9999999</var>;</td></tr>
+<tr><th id="355">355</th><td>			<a class="local col7 ref" href="#67best_fit" title='best_fit' data-ref="67best_fit">best_fit</a> = -<var>1</var>;</td></tr>
+<tr><th id="356">356</th><td></td></tr>
+<tr><th id="357">357</th><td>			<b>for</b> (<a class="local col5 ref" href="#65i" title='i' data-ref="65i">i</a> = <var>0</var>; <a class="local col5 ref" href="#65i" title='i' data-ref="65i">i</a> &lt; <a class="tu ref" href="#num_vidmodes" title='num_vidmodes' data-use='r' data-ref="num_vidmodes">num_vidmodes</a>; <a class="local col5 ref" href="#65i" title='i' data-ref="65i">i</a>++) {</td></tr>
+<tr><th id="358">358</th><td>				<b>if</b> (<a class="local col0 ref" href="#50a" title='a' data-ref="50a">a</a>.<a class="ref" href="../../renderer/tr_local.h.html#(anonymous)::width" title='(anonymous struct)::width' data-ref="(anonymous)::width">width</a> &gt; <a class="tu ref" href="#vidmodes" title='vidmodes' data-use='r' data-ref="vidmodes">vidmodes</a>[<a class="local col5 ref" href="#65i" title='i' data-ref="65i">i</a>]-&gt;<a class="ref" href="../../../include/X11/extensions/xf86vmode.h.html#(anonymous)::hdisplay" title='(anonymous struct)::hdisplay' data-ref="(anonymous)::hdisplay">hdisplay</a> ||</td></tr>
+<tr><th id="359">359</th><td>					<a class="local col0 ref" href="#50a" title='a' data-ref="50a">a</a>.<a class="ref" href="../../renderer/tr_local.h.html#(anonymous)::height" title='(anonymous struct)::height' data-ref="(anonymous)::height">height</a> &gt; <a class="tu ref" href="#vidmodes" title='vidmodes' data-use='r' data-ref="vidmodes">vidmodes</a>[<a class="local col5 ref" href="#65i" title='i' data-ref="65i">i</a>]-&gt;<a class="ref" href="../../../include/X11/extensions/xf86vmode.h.html#(anonymous)::vdisplay" title='(anonymous struct)::vdisplay' data-ref="(anonymous)::vdisplay">vdisplay</a>)</td></tr>
+<tr><th id="360">360</th><td>					<b>continue</b>;</td></tr>
+<tr><th id="361">361</th><td></td></tr>
+<tr><th id="362">362</th><td>				<a class="local col0 ref" href="#70x" title='x' data-ref="70x">x</a> = <a class="local col0 ref" href="#50a" title='a' data-ref="50a">a</a>.<a class="ref" href="../../renderer/tr_local.h.html#(anonymous)::width" title='(anonymous struct)::width' data-ref="(anonymous)::width">width</a> - <a class="tu ref" href="#vidmodes" title='vidmodes' data-use='r' data-ref="vidmodes">vidmodes</a>[<a class="local col5 ref" href="#65i" title='i' data-ref="65i">i</a>]-&gt;<a class="ref" href="../../../include/X11/extensions/xf86vmode.h.html#(anonymous)::hdisplay" title='(anonymous struct)::hdisplay' data-ref="(anonymous)::hdisplay">hdisplay</a>;</td></tr>
+<tr><th id="363">363</th><td>				<a class="local col1 ref" href="#71y" title='y' data-ref="71y">y</a> = <a class="local col0 ref" href="#50a" title='a' data-ref="50a">a</a>.<a class="ref" href="../../renderer/tr_local.h.html#(anonymous)::height" title='(anonymous struct)::height' data-ref="(anonymous)::height">height</a> - <a class="tu ref" href="#vidmodes" title='vidmodes' data-use='r' data-ref="vidmodes">vidmodes</a>[<a class="local col5 ref" href="#65i" title='i' data-ref="65i">i</a>]-&gt;<a class="ref" href="../../../include/X11/extensions/xf86vmode.h.html#(anonymous)::vdisplay" title='(anonymous struct)::vdisplay' data-ref="(anonymous)::vdisplay">vdisplay</a>;</td></tr>
+<tr><th id="364">364</th><td>				<a class="local col9 ref" href="#69dist" title='dist' data-ref="69dist">dist</a> = (<a class="local col0 ref" href="#70x" title='x' data-ref="70x">x</a> * <a class="local col0 ref" href="#70x" title='x' data-ref="70x">x</a>) + (<a class="local col1 ref" href="#71y" title='y' data-ref="71y">y</a> * <a class="local col1 ref" href="#71y" title='y' data-ref="71y">y</a>);</td></tr>
+<tr><th id="365">365</th><td>				<b>if</b> (<a class="local col9 ref" href="#69dist" title='dist' data-ref="69dist">dist</a> &lt; <a class="local col8 ref" href="#68best_dist" title='best_dist' data-ref="68best_dist">best_dist</a>) {</td></tr>
+<tr><th id="366">366</th><td>					<a class="local col8 ref" href="#68best_dist" title='best_dist' data-ref="68best_dist">best_dist</a> = <a class="local col9 ref" href="#69dist" title='dist' data-ref="69dist">dist</a>;</td></tr>
+<tr><th id="367">367</th><td>					<a class="local col7 ref" href="#67best_fit" title='best_fit' data-ref="67best_fit">best_fit</a> = <a class="local col5 ref" href="#65i" title='i' data-ref="65i">i</a>;</td></tr>
+<tr><th id="368">368</th><td>				}</td></tr>
+<tr><th id="369">369</th><td>			}</td></tr>
+<tr><th id="370">370</th><td></td></tr>
+<tr><th id="371">371</th><td>			<b>if</b> (<a class="local col7 ref" href="#67best_fit" title='best_fit' data-ref="67best_fit">best_fit</a> != -<var>1</var>) {</td></tr>
+<tr><th id="372">372</th><td>				<a class="local col3 ref" href="#63actualWidth" title='actualWidth' data-ref="63actualWidth">actualWidth</a> = <a class="tu ref" href="#vidmodes" title='vidmodes' data-use='r' data-ref="vidmodes">vidmodes</a>[<a class="local col7 ref" href="#67best_fit" title='best_fit' data-ref="67best_fit">best_fit</a>]-&gt;<a class="ref" href="../../../include/X11/extensions/xf86vmode.h.html#(anonymous)::hdisplay" title='(anonymous struct)::hdisplay' data-ref="(anonymous)::hdisplay">hdisplay</a>;</td></tr>
+<tr><th id="373">373</th><td>				<a class="local col4 ref" href="#64actualHeight" title='actualHeight' data-ref="64actualHeight">actualHeight</a> = <a class="tu ref" href="#vidmodes" title='vidmodes' data-use='r' data-ref="vidmodes">vidmodes</a>[<a class="local col7 ref" href="#67best_fit" title='best_fit' data-ref="67best_fit">best_fit</a>]-&gt;<a class="ref" href="../../../include/X11/extensions/xf86vmode.h.html#(anonymous)::vdisplay" title='(anonymous struct)::vdisplay' data-ref="(anonymous)::vdisplay">vdisplay</a>;</td></tr>
+<tr><th id="374">374</th><td></td></tr>
+<tr><th id="375">375</th><td>				<i>// change to the mode</i></td></tr>
+<tr><th id="376">376</th><td>				<a class="ref" href="../../../include/X11/extensions/xf86vmode.h.html#XF86VidModeSwitchToMode" title='XF86VidModeSwitchToMode' data-ref="XF86VidModeSwitchToMode">XF86VidModeSwitchToMode</a>(<a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a>, <a class="tu ref" href="#scrnum" title='scrnum' data-use='r' data-ref="scrnum">scrnum</a>, <a class="tu ref" href="#vidmodes" title='vidmodes' data-use='r' data-ref="vidmodes">vidmodes</a>[<a class="local col7 ref" href="#67best_fit" title='best_fit' data-ref="67best_fit">best_fit</a>]);</td></tr>
+<tr><th id="377">377</th><td>				<a class="tu ref" href="#vidmode_active" title='vidmode_active' data-use='w' data-ref="vidmode_active">vidmode_active</a> = <b>true</b>;</td></tr>
+<tr><th id="378">378</th><td></td></tr>
+<tr><th id="379">379</th><td>				<i>// Move the viewport to top left</i></td></tr>
+<tr><th id="380">380</th><td><i>				// FIXME: center?</i></td></tr>
+<tr><th id="381">381</th><td>				<a class="ref" href="../../../include/X11/extensions/xf86vmode.h.html#XF86VidModeSetViewPort" title='XF86VidModeSetViewPort' data-ref="XF86VidModeSetViewPort">XF86VidModeSetViewPort</a>(<a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a>, <a class="tu ref" href="#scrnum" title='scrnum' data-use='r' data-ref="scrnum">scrnum</a>, <var>0</var>, <var>0</var>);</td></tr>
+<tr><th id="382">382</th><td></td></tr>
+<tr><th id="383">383</th><td>				<a class="ref" href="../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"Free86-VidModeExtension Activated at %dx%d\n"</q>, <a class="local col3 ref" href="#63actualWidth" title='actualWidth' data-ref="63actualWidth">actualWidth</a>, <a class="local col4 ref" href="#64actualHeight" title='actualHeight' data-ref="64actualHeight">actualHeight</a> );</td></tr>
+<tr><th id="384">384</th><td></td></tr>
+<tr><th id="385">385</th><td>			} <b>else</b> {</td></tr>
+<tr><th id="386">386</th><td>				<a class="local col0 ref" href="#50a" title='a' data-ref="50a">a</a>.<a class="ref" href="../../renderer/tr_local.h.html#(anonymous)::fullScreen" title='(anonymous struct)::fullScreen' data-ref="(anonymous)::fullScreen">fullScreen</a> = <b>false</b>;</td></tr>
+<tr><th id="387">387</th><td>				<a class="ref" href="../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"Free86-VidModeExtension: No acceptable modes found\n"</q> );</td></tr>
+<tr><th id="388">388</th><td>			}</td></tr>
+<tr><th id="389">389</th><td>		} <b>else</b> {</td></tr>
+<tr><th id="390">390</th><td>			<a class="ref" href="../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"XFree86-VidModeExtension: not fullscreen, ignored\n"</q> );</td></tr>
+<tr><th id="391">391</th><td>		}</td></tr>
+<tr><th id="392">392</th><td>	}</td></tr>
+<tr><th id="393">393</th><td>	<i>// color, depth and stencil</i></td></tr>
+<tr><th id="394">394</th><td>	<a class="local col7 ref" href="#57colorbits" title='colorbits' data-ref="57colorbits">colorbits</a> = <var>24</var>;</td></tr>
+<tr><th id="395">395</th><td>	<a class="local col8 ref" href="#58depthbits" title='depthbits' data-ref="58depthbits">depthbits</a> = <var>24</var>;</td></tr>
+<tr><th id="396">396</th><td>	<a class="local col9 ref" href="#59stencilbits" title='stencilbits' data-ref="59stencilbits">stencilbits</a> = <var>8</var>;</td></tr>
+<tr><th id="397">397</th><td></td></tr>
+<tr><th id="398">398</th><td>	<b>for</b> (<a class="local col5 ref" href="#65i" title='i' data-ref="65i">i</a> = <var>0</var>; <a class="local col5 ref" href="#65i" title='i' data-ref="65i">i</a> &lt; <var>16</var>; <a class="local col5 ref" href="#65i" title='i' data-ref="65i">i</a>++) {</td></tr>
+<tr><th id="399">399</th><td>		<i>// 0 - default</i></td></tr>
+<tr><th id="400">400</th><td><i>		// 1 - minus colorbits</i></td></tr>
+<tr><th id="401">401</th><td><i>		// 2 - minus depthbits</i></td></tr>
+<tr><th id="402">402</th><td><i>		// 3 - minus stencil</i></td></tr>
+<tr><th id="403">403</th><td>		<b>if</b> ((<a class="local col5 ref" href="#65i" title='i' data-ref="65i">i</a> % <var>4</var>) == <var>0</var> &amp;&amp; <a class="local col5 ref" href="#65i" title='i' data-ref="65i">i</a>) {</td></tr>
+<tr><th id="404">404</th><td>			<i>// one pass, reduce</i></td></tr>
+<tr><th id="405">405</th><td>			<b>switch</b> (<a class="local col5 ref" href="#65i" title='i' data-ref="65i">i</a> / <var>4</var>) {</td></tr>
+<tr><th id="406">406</th><td>			<b>case</b> <var>2</var>:</td></tr>
+<tr><th id="407">407</th><td>				<b>if</b> (<a class="local col7 ref" href="#57colorbits" title='colorbits' data-ref="57colorbits">colorbits</a> == <var>24</var>)</td></tr>
+<tr><th id="408">408</th><td>					<a class="local col7 ref" href="#57colorbits" title='colorbits' data-ref="57colorbits">colorbits</a> = <var>16</var>;</td></tr>
+<tr><th id="409">409</th><td>				<b>break</b>;</td></tr>
+<tr><th id="410">410</th><td>			<b>case</b> <var>1</var>:</td></tr>
+<tr><th id="411">411</th><td>				<b>if</b> (<a class="local col8 ref" href="#58depthbits" title='depthbits' data-ref="58depthbits">depthbits</a> == <var>24</var>)</td></tr>
+<tr><th id="412">412</th><td>					<a class="local col8 ref" href="#58depthbits" title='depthbits' data-ref="58depthbits">depthbits</a> = <var>16</var>;</td></tr>
+<tr><th id="413">413</th><td>				<b>else</b> <b>if</b> (<a class="local col8 ref" href="#58depthbits" title='depthbits' data-ref="58depthbits">depthbits</a> == <var>16</var>)</td></tr>
+<tr><th id="414">414</th><td>					<a class="local col8 ref" href="#58depthbits" title='depthbits' data-ref="58depthbits">depthbits</a> = <var>8</var>;</td></tr>
+<tr><th id="415">415</th><td>			<b>case</b> <var>3</var>:</td></tr>
+<tr><th id="416">416</th><td>				<b>if</b> (<a class="local col9 ref" href="#59stencilbits" title='stencilbits' data-ref="59stencilbits">stencilbits</a> == <var>24</var>)</td></tr>
+<tr><th id="417">417</th><td>					<a class="local col9 ref" href="#59stencilbits" title='stencilbits' data-ref="59stencilbits">stencilbits</a> = <var>16</var>;</td></tr>
+<tr><th id="418">418</th><td>				<b>else</b> <b>if</b> (<a class="local col9 ref" href="#59stencilbits" title='stencilbits' data-ref="59stencilbits">stencilbits</a> == <var>16</var>)</td></tr>
+<tr><th id="419">419</th><td>					<a class="local col9 ref" href="#59stencilbits" title='stencilbits' data-ref="59stencilbits">stencilbits</a> = <var>8</var>;</td></tr>
+<tr><th id="420">420</th><td>			}</td></tr>
+<tr><th id="421">421</th><td>		}</td></tr>
+<tr><th id="422">422</th><td></td></tr>
+<tr><th id="423">423</th><td>		<a class="local col0 ref" href="#60tcolorbits" title='tcolorbits' data-ref="60tcolorbits">tcolorbits</a> = <a class="local col7 ref" href="#57colorbits" title='colorbits' data-ref="57colorbits">colorbits</a>;</td></tr>
+<tr><th id="424">424</th><td>		<a class="local col1 ref" href="#61tdepthbits" title='tdepthbits' data-ref="61tdepthbits">tdepthbits</a> = <a class="local col8 ref" href="#58depthbits" title='depthbits' data-ref="58depthbits">depthbits</a>;</td></tr>
+<tr><th id="425">425</th><td>		<a class="local col2 ref" href="#62tstencilbits" title='tstencilbits' data-ref="62tstencilbits">tstencilbits</a> = <a class="local col9 ref" href="#59stencilbits" title='stencilbits' data-ref="59stencilbits">stencilbits</a>;</td></tr>
+<tr><th id="426">426</th><td></td></tr>
+<tr><th id="427">427</th><td>		<b>if</b> ((<a class="local col5 ref" href="#65i" title='i' data-ref="65i">i</a> % <var>4</var>) == <var>3</var>) {		<i>// reduce colorbits</i></td></tr>
+<tr><th id="428">428</th><td>			<b>if</b> (<a class="local col0 ref" href="#60tcolorbits" title='tcolorbits' data-ref="60tcolorbits">tcolorbits</a> == <var>24</var>)</td></tr>
+<tr><th id="429">429</th><td>				<a class="local col0 ref" href="#60tcolorbits" title='tcolorbits' data-ref="60tcolorbits">tcolorbits</a> = <var>16</var>;</td></tr>
+<tr><th id="430">430</th><td>		}</td></tr>
+<tr><th id="431">431</th><td></td></tr>
+<tr><th id="432">432</th><td>		<b>if</b> ((<a class="local col5 ref" href="#65i" title='i' data-ref="65i">i</a> % <var>4</var>) == <var>2</var>) {		<i>// reduce depthbits</i></td></tr>
+<tr><th id="433">433</th><td>			<b>if</b> (<a class="local col1 ref" href="#61tdepthbits" title='tdepthbits' data-ref="61tdepthbits">tdepthbits</a> == <var>24</var>)</td></tr>
+<tr><th id="434">434</th><td>				<a class="local col1 ref" href="#61tdepthbits" title='tdepthbits' data-ref="61tdepthbits">tdepthbits</a> = <var>16</var>;</td></tr>
+<tr><th id="435">435</th><td>			<b>else</b> <b>if</b> (<a class="local col1 ref" href="#61tdepthbits" title='tdepthbits' data-ref="61tdepthbits">tdepthbits</a> == <var>16</var>)</td></tr>
+<tr><th id="436">436</th><td>				<a class="local col1 ref" href="#61tdepthbits" title='tdepthbits' data-ref="61tdepthbits">tdepthbits</a> = <var>8</var>;</td></tr>
+<tr><th id="437">437</th><td>		}</td></tr>
+<tr><th id="438">438</th><td></td></tr>
+<tr><th id="439">439</th><td>		<b>if</b> ((<a class="local col5 ref" href="#65i" title='i' data-ref="65i">i</a> % <var>4</var>) == <var>1</var>) {		<i>// reduce stencilbits</i></td></tr>
+<tr><th id="440">440</th><td>			<b>if</b> (<a class="local col2 ref" href="#62tstencilbits" title='tstencilbits' data-ref="62tstencilbits">tstencilbits</a> == <var>24</var>)</td></tr>
+<tr><th id="441">441</th><td>				<a class="local col2 ref" href="#62tstencilbits" title='tstencilbits' data-ref="62tstencilbits">tstencilbits</a> = <var>16</var>;</td></tr>
+<tr><th id="442">442</th><td>			<b>else</b> <b>if</b> (<a class="local col2 ref" href="#62tstencilbits" title='tstencilbits' data-ref="62tstencilbits">tstencilbits</a> == <var>16</var>)</td></tr>
+<tr><th id="443">443</th><td>				<a class="local col2 ref" href="#62tstencilbits" title='tstencilbits' data-ref="62tstencilbits">tstencilbits</a> = <var>8</var>;</td></tr>
+<tr><th id="444">444</th><td>			<b>else</b></td></tr>
+<tr><th id="445">445</th><td>				<a class="local col2 ref" href="#62tstencilbits" title='tstencilbits' data-ref="62tstencilbits">tstencilbits</a> = <var>0</var>;</td></tr>
+<tr><th id="446">446</th><td>		}</td></tr>
+<tr><th id="447">447</th><td></td></tr>
+<tr><th id="448">448</th><td>		<b>if</b> (<a class="local col0 ref" href="#60tcolorbits" title='tcolorbits' data-ref="60tcolorbits">tcolorbits</a> == <var>24</var>) {</td></tr>
+<tr><th id="449">449</th><td>			<a class="local col1 ref" href="#51attrib" title='attrib' data-ref="51attrib">attrib</a>[<a class="macro" href="#307" title="2" data-ref="_M/ATTR_RED_IDX">ATTR_RED_IDX</a>] = <var>8</var>;</td></tr>
+<tr><th id="450">450</th><td>			<a class="local col1 ref" href="#51attrib" title='attrib' data-ref="51attrib">attrib</a>[<a class="macro" href="#308" title="4" data-ref="_M/ATTR_GREEN_IDX">ATTR_GREEN_IDX</a>] = <var>8</var>;</td></tr>
+<tr><th id="451">451</th><td>			<a class="local col1 ref" href="#51attrib" title='attrib' data-ref="51attrib">attrib</a>[<a class="macro" href="#309" title="6" data-ref="_M/ATTR_BLUE_IDX">ATTR_BLUE_IDX</a>] = <var>8</var>;</td></tr>
+<tr><th id="452">452</th><td>		} <b>else</b> {</td></tr>
+<tr><th id="453">453</th><td>			<i>// must be 16 bit</i></td></tr>
+<tr><th id="454">454</th><td>			<a class="local col1 ref" href="#51attrib" title='attrib' data-ref="51attrib">attrib</a>[<a class="macro" href="#307" title="2" data-ref="_M/ATTR_RED_IDX">ATTR_RED_IDX</a>] = <var>4</var>;</td></tr>
+<tr><th id="455">455</th><td>			<a class="local col1 ref" href="#51attrib" title='attrib' data-ref="51attrib">attrib</a>[<a class="macro" href="#308" title="4" data-ref="_M/ATTR_GREEN_IDX">ATTR_GREEN_IDX</a>] = <var>4</var>;</td></tr>
+<tr><th id="456">456</th><td>			<a class="local col1 ref" href="#51attrib" title='attrib' data-ref="51attrib">attrib</a>[<a class="macro" href="#309" title="6" data-ref="_M/ATTR_BLUE_IDX">ATTR_BLUE_IDX</a>] = <var>4</var>;</td></tr>
+<tr><th id="457">457</th><td>		}</td></tr>
+<tr><th id="458">458</th><td>		</td></tr>
+<tr><th id="459">459</th><td>		<a class="local col1 ref" href="#51attrib" title='attrib' data-ref="51attrib">attrib</a>[<a class="macro" href="#310" title="9" data-ref="_M/ATTR_DEPTH_IDX">ATTR_DEPTH_IDX</a>] = <a class="local col1 ref" href="#61tdepthbits" title='tdepthbits' data-ref="61tdepthbits">tdepthbits</a>;	<i>// default to 24 depth</i></td></tr>
+<tr><th id="460">460</th><td>		<a class="local col1 ref" href="#51attrib" title='attrib' data-ref="51attrib">attrib</a>[<a class="macro" href="#311" title="11" data-ref="_M/ATTR_STENCIL_IDX">ATTR_STENCIL_IDX</a>] = <a class="local col2 ref" href="#62tstencilbits" title='tstencilbits' data-ref="62tstencilbits">tstencilbits</a>;</td></tr>
+<tr><th id="461">461</th><td></td></tr>
+<tr><th id="462">462</th><td>		<a class="local col3 ref" href="#53visinfo" title='visinfo' data-ref="53visinfo">visinfo</a> = <a class="ref" href="../../renderer/qgl.h.html#qglXChooseVisual" title='qglXChooseVisual' data-ref="qglXChooseVisual">qglXChooseVisual</a>(<a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a>, <a class="tu ref" href="#scrnum" title='scrnum' data-use='r' data-ref="scrnum">scrnum</a>, <a class="local col1 ref" href="#51attrib" title='attrib' data-ref="51attrib">attrib</a>);</td></tr>
+<tr><th id="463">463</th><td>		<b>if</b> (!<a class="local col3 ref" href="#53visinfo" title='visinfo' data-ref="53visinfo">visinfo</a>) {</td></tr>
+<tr><th id="464">464</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="465">465</th><td>		}</td></tr>
+<tr><th id="466">466</th><td></td></tr>
+<tr><th id="467">467</th><td>		<a class="ref" href="../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"Using %d/%d/%d Color bits, %d Alpha bits, %d depth, %d stencil display.\n"</q>,</td></tr>
+<tr><th id="468">468</th><td>			 <a class="local col1 ref" href="#51attrib" title='attrib' data-ref="51attrib">attrib</a>[<a class="macro" href="#307" title="2" data-ref="_M/ATTR_RED_IDX">ATTR_RED_IDX</a>], <a class="local col1 ref" href="#51attrib" title='attrib' data-ref="51attrib">attrib</a>[<a class="macro" href="#308" title="4" data-ref="_M/ATTR_GREEN_IDX">ATTR_GREEN_IDX</a>],</td></tr>
+<tr><th id="469">469</th><td>			 <a class="local col1 ref" href="#51attrib" title='attrib' data-ref="51attrib">attrib</a>[<a class="macro" href="#309" title="6" data-ref="_M/ATTR_BLUE_IDX">ATTR_BLUE_IDX</a>], <a class="local col1 ref" href="#51attrib" title='attrib' data-ref="51attrib">attrib</a>[<a class="macro" href="#312" title="13" data-ref="_M/ATTR_ALPHA_IDX">ATTR_ALPHA_IDX</a>],</td></tr>
+<tr><th id="470">470</th><td>			 <a class="local col1 ref" href="#51attrib" title='attrib' data-ref="51attrib">attrib</a>[<a class="macro" href="#310" title="9" data-ref="_M/ATTR_DEPTH_IDX">ATTR_DEPTH_IDX</a>],</td></tr>
+<tr><th id="471">471</th><td>			 <a class="local col1 ref" href="#51attrib" title='attrib' data-ref="51attrib">attrib</a>[<a class="macro" href="#311" title="11" data-ref="_M/ATTR_STENCIL_IDX">ATTR_STENCIL_IDX</a>]);</td></tr>
+<tr><th id="472">472</th><td></td></tr>
+<tr><th id="473">473</th><td>		<a class="ref" href="../../renderer/tr_local.h.html#glConfig" title='glConfig' data-ref="glConfig">glConfig</a>.<a class="ref" href="../../renderer/RenderSystem.h.html#glconfig_s::colorBits" title='glconfig_s::colorBits' data-ref="glconfig_s::colorBits">colorBits</a> = <a class="local col0 ref" href="#60tcolorbits" title='tcolorbits' data-ref="60tcolorbits">tcolorbits</a>;</td></tr>
+<tr><th id="474">474</th><td>		<a class="ref" href="../../renderer/tr_local.h.html#glConfig" title='glConfig' data-ref="glConfig">glConfig</a>.<a class="ref" href="../../renderer/RenderSystem.h.html#glconfig_s::depthBits" title='glconfig_s::depthBits' data-ref="glconfig_s::depthBits">depthBits</a> = <a class="local col1 ref" href="#61tdepthbits" title='tdepthbits' data-ref="61tdepthbits">tdepthbits</a>;</td></tr>
+<tr><th id="475">475</th><td>		<a class="ref" href="../../renderer/tr_local.h.html#glConfig" title='glConfig' data-ref="glConfig">glConfig</a>.<a class="ref" href="../../renderer/RenderSystem.h.html#glconfig_s::stencilBits" title='glconfig_s::stencilBits' data-ref="glconfig_s::stencilBits">stencilBits</a> = <a class="local col2 ref" href="#62tstencilbits" title='tstencilbits' data-ref="62tstencilbits">tstencilbits</a>;</td></tr>
+<tr><th id="476">476</th><td>		<b>break</b>;</td></tr>
+<tr><th id="477">477</th><td>	}</td></tr>
+<tr><th id="478">478</th><td></td></tr>
+<tr><th id="479">479</th><td>	<b>if</b> (!<a class="local col3 ref" href="#53visinfo" title='visinfo' data-ref="53visinfo">visinfo</a>) {</td></tr>
+<tr><th id="480">480</th><td>		<a class="ref" href="../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>(<q>"Couldn't get a visual\n"</q>);</td></tr>
+<tr><th id="481">481</th><td>		<b>return</b> <b>false</b>;</td></tr>
+<tr><th id="482">482</th><td>	}</td></tr>
+<tr><th id="483">483</th><td>	<i>// window attributes</i></td></tr>
+<tr><th id="484">484</th><td>	<a class="local col4 ref" href="#54attr" title='attr' data-ref="54attr">attr</a>.<a class="ref" href="../../../include/X11/Xlib.h.html#(anonymous)::background_pixel" title='(anonymous struct)::background_pixel' data-ref="(anonymous)::background_pixel">background_pixel</a> = <a class="macro" href="../../../include/X11/Xlib.h.html#97" title="((&amp;((_XPrivDisplay)dpy)-&gt;screens[scrnum])-&gt;black_pixel)" data-ref="_M/BlackPixel">BlackPixel</a>(<a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a>, <a class="tu ref" href="#scrnum" title='scrnum' data-use='r' data-ref="scrnum">scrnum</a>);</td></tr>
+<tr><th id="485">485</th><td>	<a class="local col4 ref" href="#54attr" title='attr' data-ref="54attr">attr</a>.<a class="ref" href="../../../include/X11/Xlib.h.html#(anonymous)::border_pixel" title='(anonymous struct)::border_pixel' data-ref="(anonymous)::border_pixel">border_pixel</a> = <var>0</var>;</td></tr>
+<tr><th id="486">486</th><td>	<a class="local col4 ref" href="#54attr" title='attr' data-ref="54attr">attr</a>.<a class="ref" href="../../../include/X11/Xlib.h.html#(anonymous)::colormap" title='(anonymous struct)::colormap' data-ref="(anonymous)::colormap">colormap</a> = <a class="ref" href="../../../include/X11/Xlib.h.html#XCreateColormap" title='XCreateColormap' data-ref="XCreateColormap">XCreateColormap</a>(<a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a>, <a class="local col2 ref" href="#52root" title='root' data-ref="52root">root</a>, <a class="local col3 ref" href="#53visinfo" title='visinfo' data-ref="53visinfo">visinfo</a>-&gt;<a class="ref" href="../../../include/X11/Xutil.h.html#(anonymous)::visual" title='(anonymous struct)::visual' data-ref="(anonymous)::visual">visual</a>, <a class="macro" href="../../../include/X11/X.h.html#616" title="0" data-ref="_M/AllocNone">AllocNone</a>);</td></tr>
+<tr><th id="487">487</th><td>	<a class="local col4 ref" href="#54attr" title='attr' data-ref="54attr">attr</a>.<a class="ref" href="../../../include/X11/Xlib.h.html#(anonymous)::event_mask" title='(anonymous struct)::event_mask' data-ref="(anonymous)::event_mask">event_mask</a> = <a class="macro" href="local.h.html#53" title="(((1L&lt;&lt;0) | (1L&lt;&lt;1)) | ((1L&lt;&lt;2) | (1L&lt;&lt;3) | (1L&lt;&lt;6) | (1L&lt;&lt;13) ) | (1L&lt;&lt;16) | (1L&lt;&lt;17) )" data-ref="_M/X_MASK">X_MASK</a>;</td></tr>
+<tr><th id="488">488</th><td>	<b>if</b> (<a class="tu ref" href="#vidmode_active" title='vidmode_active' data-use='r' data-ref="vidmode_active">vidmode_active</a>) {</td></tr>
+<tr><th id="489">489</th><td>		<a class="local col6 ref" href="#56mask" title='mask' data-ref="56mask">mask</a> = <a class="macro" href="../../../include/X11/X.h.html#393" title="(1L&lt;&lt;1)" data-ref="_M/CWBackPixel">CWBackPixel</a> | <a class="macro" href="../../../include/X11/X.h.html#405" title="(1L&lt;&lt;13)" data-ref="_M/CWColormap">CWColormap</a> | <a class="macro" href="../../../include/X11/X.h.html#402" title="(1L&lt;&lt;10)" data-ref="_M/CWSaveUnder">CWSaveUnder</a> | <a class="macro" href="../../../include/X11/X.h.html#398" title="(1L&lt;&lt;6)" data-ref="_M/CWBackingStore">CWBackingStore</a> |</td></tr>
+<tr><th id="490">490</th><td>			<a class="macro" href="../../../include/X11/X.h.html#403" title="(1L&lt;&lt;11)" data-ref="_M/CWEventMask">CWEventMask</a> | <a class="macro" href="../../../include/X11/X.h.html#401" title="(1L&lt;&lt;9)" data-ref="_M/CWOverrideRedirect">CWOverrideRedirect</a>;</td></tr>
+<tr><th id="491">491</th><td>		<a class="local col4 ref" href="#54attr" title='attr' data-ref="54attr">attr</a>.<a class="ref" href="../../../include/X11/Xlib.h.html#(anonymous)::override_redirect" title='(anonymous struct)::override_redirect' data-ref="(anonymous)::override_redirect">override_redirect</a> = <a class="macro" href="../../../include/X11/Xlib.h.html#84" title="1" data-ref="_M/True">True</a>;</td></tr>
+<tr><th id="492">492</th><td>		<a class="local col4 ref" href="#54attr" title='attr' data-ref="54attr">attr</a>.<a class="ref" href="../../../include/X11/Xlib.h.html#(anonymous)::backing_store" title='(anonymous struct)::backing_store' data-ref="(anonymous)::backing_store">backing_store</a> = <a class="macro" href="../../../include/X11/X.h.html#439" title="0" data-ref="_M/NotUseful">NotUseful</a>;</td></tr>
+<tr><th id="493">493</th><td>		<a class="local col4 ref" href="#54attr" title='attr' data-ref="54attr">attr</a>.<a class="ref" href="../../../include/X11/Xlib.h.html#(anonymous)::save_under" title='(anonymous struct)::save_under' data-ref="(anonymous)::save_under">save_under</a> = <a class="macro" href="../../../include/X11/Xlib.h.html#85" title="0" data-ref="_M/False">False</a>;</td></tr>
+<tr><th id="494">494</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="495">495</th><td>		<a class="local col6 ref" href="#56mask" title='mask' data-ref="56mask">mask</a> = <a class="macro" href="../../../include/X11/X.h.html#393" title="(1L&lt;&lt;1)" data-ref="_M/CWBackPixel">CWBackPixel</a> | <a class="macro" href="../../../include/X11/X.h.html#395" title="(1L&lt;&lt;3)" data-ref="_M/CWBorderPixel">CWBorderPixel</a> | <a class="macro" href="../../../include/X11/X.h.html#405" title="(1L&lt;&lt;13)" data-ref="_M/CWColormap">CWColormap</a> | <a class="macro" href="../../../include/X11/X.h.html#403" title="(1L&lt;&lt;11)" data-ref="_M/CWEventMask">CWEventMask</a>;</td></tr>
+<tr><th id="496">496</th><td>	}</td></tr>
+<tr><th id="497">497</th><td></td></tr>
+<tr><th id="498">498</th><td>	<a class="ref" href="local.h.html#win" title='win' data-ref="win">win</a> = <a class="ref" href="../../../include/X11/Xlib.h.html#XCreateWindow" title='XCreateWindow' data-ref="XCreateWindow">XCreateWindow</a>(<a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a>, <a class="local col2 ref" href="#52root" title='root' data-ref="52root">root</a>, <var>0</var>, <var>0</var>,</td></tr>
+<tr><th id="499">499</th><td>						<a class="local col3 ref" href="#63actualWidth" title='actualWidth' data-ref="63actualWidth">actualWidth</a>, <a class="local col4 ref" href="#64actualHeight" title='actualHeight' data-ref="64actualHeight">actualHeight</a>,</td></tr>
+<tr><th id="500">500</th><td>						<var>0</var>, <a class="local col3 ref" href="#53visinfo" title='visinfo' data-ref="53visinfo">visinfo</a>-&gt;<a class="ref" href="../../../include/X11/Xutil.h.html#(anonymous)::depth" title='(anonymous struct)::depth' data-ref="(anonymous)::depth">depth</a>, <a class="macro" href="../../../include/X11/X.h.html#387" title="1" data-ref="_M/InputOutput">InputOutput</a>,</td></tr>
+<tr><th id="501">501</th><td>						<a class="local col3 ref" href="#53visinfo" title='visinfo' data-ref="53visinfo">visinfo</a>-&gt;<a class="ref" href="../../../include/X11/Xutil.h.html#(anonymous)::visual" title='(anonymous struct)::visual' data-ref="(anonymous)::visual">visual</a>, <a class="local col6 ref" href="#56mask" title='mask' data-ref="56mask">mask</a>, &amp;<a class="local col4 ref" href="#54attr" title='attr' data-ref="54attr">attr</a>);</td></tr>
+<tr><th id="502">502</th><td></td></tr>
+<tr><th id="503">503</th><td>	<a class="ref" href="../../../include/X11/Xlib.h.html#XStoreName" title='XStoreName' data-ref="XStoreName">XStoreName</a>(<a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a>, <a class="ref" href="local.h.html#win" title='win' data-ref="win">win</a>, <a class="macro" href="../../framework/Licensee.h.html#37" title="&quot;DOOM 3&quot;" data-ref="_M/GAME_NAME">GAME_NAME</a>);</td></tr>
+<tr><th id="504">504</th><td></td></tr>
+<tr><th id="505">505</th><td>	<i>// don't let the window be resized</i></td></tr>
+<tr><th id="506">506</th><td><i>	// FIXME: allow resize (win32 does)</i></td></tr>
+<tr><th id="507">507</th><td>	<a class="local col5 ref" href="#55sizehints" title='sizehints' data-ref="55sizehints">sizehints</a>.<a class="ref" href="../../../include/X11/Xutil.h.html#(anonymous)::flags" title='(anonymous struct)::flags' data-ref="(anonymous)::flags">flags</a> = <a class="macro" href="../../../include/X11/Xutil.h.html#107" title="(1L &lt;&lt; 4)" data-ref="_M/PMinSize">PMinSize</a> | <a class="macro" href="../../../include/X11/Xutil.h.html#108" title="(1L &lt;&lt; 5)" data-ref="_M/PMaxSize">PMaxSize</a>;</td></tr>
+<tr><th id="508">508</th><td>	<a class="local col5 ref" href="#55sizehints" title='sizehints' data-ref="55sizehints">sizehints</a>.<a class="ref" href="../../../include/X11/Xutil.h.html#(anonymous)::min_width" title='(anonymous struct)::min_width' data-ref="(anonymous)::min_width">min_width</a> = <a class="local col5 ref" href="#55sizehints" title='sizehints' data-ref="55sizehints">sizehints</a>.<a class="ref" href="../../../include/X11/Xutil.h.html#(anonymous)::max_width" title='(anonymous struct)::max_width' data-ref="(anonymous)::max_width">max_width</a> = <a class="local col3 ref" href="#63actualWidth" title='actualWidth' data-ref="63actualWidth">actualWidth</a>;</td></tr>
+<tr><th id="509">509</th><td>	<a class="local col5 ref" href="#55sizehints" title='sizehints' data-ref="55sizehints">sizehints</a>.<a class="ref" href="../../../include/X11/Xutil.h.html#(anonymous)::min_height" title='(anonymous struct)::min_height' data-ref="(anonymous)::min_height">min_height</a> = <a class="local col5 ref" href="#55sizehints" title='sizehints' data-ref="55sizehints">sizehints</a>.<a class="ref" href="../../../include/X11/Xutil.h.html#(anonymous)::max_height" title='(anonymous struct)::max_height' data-ref="(anonymous)::max_height">max_height</a> = <a class="local col4 ref" href="#64actualHeight" title='actualHeight' data-ref="64actualHeight">actualHeight</a>;</td></tr>
+<tr><th id="510">510</th><td></td></tr>
+<tr><th id="511">511</th><td>	<a class="ref" href="../../../include/X11/Xutil.h.html#XSetWMNormalHints" title='XSetWMNormalHints' data-ref="XSetWMNormalHints">XSetWMNormalHints</a>(<a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a>, <a class="ref" href="local.h.html#win" title='win' data-ref="win">win</a>, &amp;<a class="local col5 ref" href="#55sizehints" title='sizehints' data-ref="55sizehints">sizehints</a>);</td></tr>
+<tr><th id="512">512</th><td></td></tr>
+<tr><th id="513">513</th><td>	<a class="ref" href="../../../include/X11/Xlib.h.html#XMapWindow" title='XMapWindow' data-ref="XMapWindow">XMapWindow</a>( <a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a>, <a class="ref" href="local.h.html#win" title='win' data-ref="win">win</a> );</td></tr>
+<tr><th id="514">514</th><td></td></tr>
+<tr><th id="515">515</th><td>	<b>if</b> ( <a class="tu ref" href="#vidmode_active" title='vidmode_active' data-use='r' data-ref="vidmode_active">vidmode_active</a> ) {</td></tr>
+<tr><th id="516">516</th><td>		<a class="ref" href="../../../include/X11/Xlib.h.html#XMoveWindow" title='XMoveWindow' data-ref="XMoveWindow">XMoveWindow</a>( <a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a>, <a class="ref" href="local.h.html#win" title='win' data-ref="win">win</a>, <var>0</var>, <var>0</var> );</td></tr>
+<tr><th id="517">517</th><td>	}</td></tr>
+<tr><th id="518">518</th><td></td></tr>
+<tr><th id="519">519</th><td>	<a class="ref" href="../../../include/X11/Xlib.h.html#XFlush" title='XFlush' data-ref="XFlush">XFlush</a>(<a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a>);</td></tr>
+<tr><th id="520">520</th><td>	<a class="ref" href="../../../include/X11/Xlib.h.html#XSync" title='XSync' data-ref="XSync">XSync</a>(<a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a>, <a class="macro" href="../../../include/X11/Xlib.h.html#85" title="0" data-ref="_M/False">False</a>);</td></tr>
+<tr><th id="521">521</th><td>	<a class="tu ref" href="#ctx" title='ctx' data-use='w' data-ref="ctx">ctx</a> = <a class="ref" href="../../renderer/qgl.h.html#qglXCreateContext" title='qglXCreateContext' data-ref="qglXCreateContext">qglXCreateContext</a>(<a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a>, <a class="local col3 ref" href="#53visinfo" title='visinfo' data-ref="53visinfo">visinfo</a>, <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>, <a class="macro" href="../../../include/X11/Xlib.h.html#84" title="1" data-ref="_M/True">True</a>);</td></tr>
+<tr><th id="522">522</th><td>	<a class="ref" href="../../../include/X11/Xlib.h.html#XSync" title='XSync' data-ref="XSync">XSync</a>(<a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a>, <a class="macro" href="../../../include/X11/Xlib.h.html#85" title="0" data-ref="_M/False">False</a>);</td></tr>
+<tr><th id="523">523</th><td></td></tr>
+<tr><th id="524">524</th><td>	<i>// Free the visinfo after we're done with it</i></td></tr>
+<tr><th id="525">525</th><td>	<a class="ref" href="../../../include/X11/Xlib.h.html#XFree" title='XFree' data-ref="XFree">XFree</a>(<a class="local col3 ref" href="#53visinfo" title='visinfo' data-ref="53visinfo">visinfo</a>);</td></tr>
+<tr><th id="526">526</th><td></td></tr>
+<tr><th id="527">527</th><td>	<a class="ref" href="../../renderer/qgl.h.html#qglXMakeCurrent" title='qglXMakeCurrent' data-ref="qglXMakeCurrent">qglXMakeCurrent</a>(<a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a>, <a class="ref" href="local.h.html#win" title='win' data-ref="win">win</a>, <a class="tu ref" href="#ctx" title='ctx' data-use='r' data-ref="ctx">ctx</a>);</td></tr>
+<tr><th id="528">528</th><td></td></tr>
+<tr><th id="529">529</th><td>	<a class="local col6 ref" href="#66glstring" title='glstring' data-ref="66glstring">glstring</a> = (<em>const</em> <em>char</em> *) <a class="ref" href="../../renderer/qgl.h.html#qglGetString" title='qglGetString' data-ref="qglGetString">qglGetString</a>(<a class="macro" href="../../../include/GL/gl.h.html#659" title="0x1F01" data-ref="_M/GL_RENDERER">GL_RENDERER</a>);</td></tr>
+<tr><th id="530">530</th><td>	<a class="ref" href="../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>(<q>"GL_RENDERER: %s\n"</q>, <a class="local col6 ref" href="#66glstring" title='glstring' data-ref="66glstring">glstring</a>);</td></tr>
+<tr><th id="531">531</th><td>	</td></tr>
+<tr><th id="532">532</th><td>	<a class="local col6 ref" href="#66glstring" title='glstring' data-ref="66glstring">glstring</a> = (<em>const</em> <em>char</em> *) <a class="ref" href="../../renderer/qgl.h.html#qglGetString" title='qglGetString' data-ref="qglGetString">qglGetString</a>(<a class="macro" href="../../../include/GL/gl.h.html#661" title="0x1F03" data-ref="_M/GL_EXTENSIONS">GL_EXTENSIONS</a>);</td></tr>
+<tr><th id="533">533</th><td>	<a class="ref" href="../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>(<q>"GL_EXTENSIONS: %s\n"</q>, <a class="local col6 ref" href="#66glstring" title='glstring' data-ref="66glstring">glstring</a>);</td></tr>
+<tr><th id="534">534</th><td></td></tr>
+<tr><th id="535">535</th><td>	<i>// FIXME: here, software GL test</i></td></tr>
+<tr><th id="536">536</th><td></td></tr>
+<tr><th id="537">537</th><td>	<a class="ref" href="../../renderer/tr_local.h.html#glConfig" title='glConfig' data-ref="glConfig">glConfig</a>.<a class="ref" href="../../renderer/RenderSystem.h.html#glconfig_s::isFullscreen" title='glconfig_s::isFullscreen' data-ref="glconfig_s::isFullscreen">isFullscreen</a> = <a class="local col0 ref" href="#50a" title='a' data-ref="50a">a</a>.<a class="ref" href="../../renderer/tr_local.h.html#(anonymous)::fullScreen" title='(anonymous struct)::fullScreen' data-ref="(anonymous)::fullScreen">fullScreen</a>;</td></tr>
+<tr><th id="538">538</th><td>	</td></tr>
+<tr><th id="539">539</th><td>	<b>if</b> ( <a class="ref" href="../../renderer/tr_local.h.html#glConfig" title='glConfig' data-ref="glConfig">glConfig</a>.<a class="ref" href="../../renderer/RenderSystem.h.html#glconfig_s::isFullscreen" title='glconfig_s::isFullscreen' data-ref="glconfig_s::isFullscreen">isFullscreen</a> ) {</td></tr>
+<tr><th id="540">540</th><td>		<a class="ref" href="../sys_public.h.html#_Z19Sys_GrabMouseCursorb" title='Sys_GrabMouseCursor' data-ref="_Z19Sys_GrabMouseCursorb">Sys_GrabMouseCursor</a>( <b>true</b> );</td></tr>
+<tr><th id="541">541</th><td>	}</td></tr>
+<tr><th id="542">542</th><td>	</td></tr>
+<tr><th id="543">543</th><td>	<b>return</b> <b>true</b>;</td></tr>
+<tr><th id="544">544</th><td>}</td></tr>
+<tr><th id="545">545</th><td></td></tr>
+<tr><th id="546">546</th><td><i>/*</i></td></tr>
+<tr><th id="547">547</th><td><i>===================</i></td></tr>
+<tr><th id="548">548</th><td><i>GLimp_Init</i></td></tr>
+<tr><th id="549">549</th><td><i></i></td></tr>
+<tr><th id="550">550</th><td><i>This is the platform specific OpenGL initialization function.  It</i></td></tr>
+<tr><th id="551">551</th><td><i>is responsible for loading OpenGL, initializing it,</i></td></tr>
+<tr><th id="552">552</th><td><i>creating a window of the appropriate size, doing</i></td></tr>
+<tr><th id="553">553</th><td><i>fullscreen manipulations, etc.  Its overall responsibility is</i></td></tr>
+<tr><th id="554">554</th><td><i>to make sure that a functional OpenGL subsystem is operating</i></td></tr>
+<tr><th id="555">555</th><td><i>when it returns to the ref.</i></td></tr>
+<tr><th id="556">556</th><td><i></i></td></tr>
+<tr><th id="557">557</th><td><i>If there is any failure, the renderer will revert back to safe</i></td></tr>
+<tr><th id="558">558</th><td><i>parameters and try again.</i></td></tr>
+<tr><th id="559">559</th><td><i>===================</i></td></tr>
+<tr><th id="560">560</th><td><i>*/</i></td></tr>
+<tr><th id="561">561</th><td><em>bool</em> <dfn class="decl def" id="_Z10GLimp_Init12glimpParms_t" title='GLimp_Init' data-ref="_Z10GLimp_Init12glimpParms_t">GLimp_Init</dfn>( <a class="typedef" href="../../renderer/tr_local.h.html#glimpParms_t" title='glimpParms_t' data-type='struct glimpParms_t' data-ref="glimpParms_t">glimpParms_t</a> <dfn class="local col2 decl" id="72a" title='a' data-type='glimpParms_t' data-ref="72a">a</dfn> ) {</td></tr>
+<tr><th id="562">562</th><td></td></tr>
+<tr><th id="563">563</th><td>	<b>if</b> ( !<a class="ref" href="#_Z17GLimp_OpenDisplayv" title='GLimp_OpenDisplay' data-ref="_Z17GLimp_OpenDisplayv">GLimp_OpenDisplay</a>() ) {</td></tr>
+<tr><th id="564">564</th><td>		<b>return</b> <b>false</b>;</td></tr>
+<tr><th id="565">565</th><td>	}</td></tr>
+<tr><th id="566">566</th><td>	</td></tr>
+<tr><th id="567">567</th><td><u>#<span data-ppcond="567">ifndef</span> <span class="macro" data-ref="_M/ID_GL_HARDLINK">ID_GL_HARDLINK</span></u></td></tr>
+<tr><th id="568">568</th><td>	<b>if</b> ( !<a class="ref" href="local.h.html#_Z12GLimp_dlopenv" title='GLimp_dlopen' data-ref="_Z12GLimp_dlopenv">GLimp_dlopen</a>() ) {</td></tr>
+<tr><th id="569">569</th><td>		<b>return</b> <b>false</b>;</td></tr>
+<tr><th id="570">570</th><td>	}</td></tr>
+<tr><th id="571">571</th><td><u>#<span data-ppcond="567">endif</span></u></td></tr>
+<tr><th id="572">572</th><td>	</td></tr>
+<tr><th id="573">573</th><td>	<b>if</b> (!<a class="ref" href="#_Z8GLX_Init12glimpParms_t" title='GLX_Init' data-ref="_Z8GLX_Init12glimpParms_t">GLX_Init</a>(<a class="ref fake" href="../../renderer/tr_local.h.html#1070" title='(anonymous struct)::' data-ref="_ZN12glimpParms_tC1ERKS_"></a><a class="local col2 ref" href="#72a" title='a' data-ref="72a">a</a>)) {</td></tr>
+<tr><th id="574">574</th><td>		<b>return</b> <b>false</b>;</td></tr>
+<tr><th id="575">575</th><td>	}</td></tr>
+<tr><th id="576">576</th><td>	</td></tr>
+<tr><th id="577">577</th><td>	<b>return</b> <b>true</b>;</td></tr>
+<tr><th id="578">578</th><td>}</td></tr>
+<tr><th id="579">579</th><td></td></tr>
+<tr><th id="580">580</th><td><i>/*</i></td></tr>
+<tr><th id="581">581</th><td><i>===================</i></td></tr>
+<tr><th id="582">582</th><td><i>GLimp_SetScreenParms</i></td></tr>
+<tr><th id="583">583</th><td><i>===================</i></td></tr>
+<tr><th id="584">584</th><td><i>*/</i></td></tr>
+<tr><th id="585">585</th><td><em>bool</em> <dfn class="decl def" id="_Z20GLimp_SetScreenParms12glimpParms_t" title='GLimp_SetScreenParms' data-ref="_Z20GLimp_SetScreenParms12glimpParms_t">GLimp_SetScreenParms</dfn>( <a class="typedef" href="../../renderer/tr_local.h.html#glimpParms_t" title='glimpParms_t' data-type='struct glimpParms_t' data-ref="glimpParms_t">glimpParms_t</a> <dfn class="local col3 decl" id="73parms" title='parms' data-type='glimpParms_t' data-ref="73parms">parms</dfn> ) {</td></tr>
+<tr><th id="586">586</th><td>	<b>return</b> <b>true</b>;</td></tr>
+<tr><th id="587">587</th><td>}</td></tr>
+<tr><th id="588">588</th><td></td></tr>
+<tr><th id="589">589</th><td><i>/*</i></td></tr>
+<tr><th id="590">590</th><td><i>================</i></td></tr>
+<tr><th id="591">591</th><td><i>Sys_GetVideoRam</i></td></tr>
+<tr><th id="592">592</th><td><i>returns in megabytes</i></td></tr>
+<tr><th id="593">593</th><td><i>open your own display connection for the query and close it</i></td></tr>
+<tr><th id="594">594</th><td><i>using the one shared with GLimp_Init is not stable</i></td></tr>
+<tr><th id="595">595</th><td><i>================</i></td></tr>
+<tr><th id="596">596</th><td><i>*/</i></td></tr>
+<tr><th id="597">597</th><td><em>int</em> <dfn class="decl def" id="_Z15Sys_GetVideoRamv" title='Sys_GetVideoRam' data-ref="_Z15Sys_GetVideoRamv">Sys_GetVideoRam</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="598">598</th><td>	<em>static</em> <em>int</em> <dfn class="local col4 decl" id="74run_once" title='run_once' data-type='int' data-ref="74run_once">run_once</dfn> = <var>0</var>;</td></tr>
+<tr><th id="599">599</th><td>	<em>int</em> <dfn class="local col5 decl" id="75major" title='major' data-type='int' data-ref="75major">major</dfn>, <dfn class="local col6 decl" id="76minor" title='minor' data-type='int' data-ref="76minor">minor</dfn>, <dfn class="local col7 decl" id="77value" title='value' data-type='int' data-ref="77value">value</dfn>;</td></tr>
+<tr><th id="600">600</th><td>	<a class="typedef" href="../../../include/X11/Xlib.h.html#Display" title='Display' data-type='struct _XDisplay' data-ref="Display">Display</a> *<dfn class="local col8 decl" id="78l_dpy" title='l_dpy' data-type='Display *' data-ref="78l_dpy">l_dpy</dfn>;</td></tr>
+<tr><th id="601">601</th><td>	<em>int</em> <dfn class="local col9 decl" id="79l_scrnum" title='l_scrnum' data-type='int' data-ref="79l_scrnum">l_scrnum</dfn>;</td></tr>
+<tr><th id="602">602</th><td></td></tr>
+<tr><th id="603">603</th><td>	<b>if</b> ( <a class="local col4 ref" href="#74run_once" title='run_once' data-ref="74run_once">run_once</a> ) {</td></tr>
+<tr><th id="604">604</th><td>		<b>return</b> <a class="local col4 ref" href="#74run_once" title='run_once' data-ref="74run_once">run_once</a>;</td></tr>
+<tr><th id="605">605</th><td>	}</td></tr>
+<tr><th id="606">606</th><td></td></tr>
+<tr><th id="607">607</th><td>	<b>if</b> ( <a class="ref" href="#sys_videoRam" title='sys_videoRam' data-ref="sys_videoRam">sys_videoRam</a>.<a class="ref" href="../../framework/CVarSystem.h.html#_ZNK6idCVar10GetIntegerEv" title='idCVar::GetInteger' data-ref="_ZNK6idCVar10GetIntegerEv">GetInteger</a>() ) {</td></tr>
+<tr><th id="608">608</th><td>		<a class="local col4 ref" href="#74run_once" title='run_once' data-ref="74run_once">run_once</a> = <a class="ref" href="#sys_videoRam" title='sys_videoRam' data-ref="sys_videoRam">sys_videoRam</a>.<a class="ref" href="../../framework/CVarSystem.h.html#_ZNK6idCVar10GetIntegerEv" title='idCVar::GetInteger' data-ref="_ZNK6idCVar10GetIntegerEv">GetInteger</a>();</td></tr>
+<tr><th id="609">609</th><td>		<b>return</b> <a class="ref" href="#sys_videoRam" title='sys_videoRam' data-ref="sys_videoRam">sys_videoRam</a>.<a class="ref" href="../../framework/CVarSystem.h.html#_ZNK6idCVar10GetIntegerEv" title='idCVar::GetInteger' data-ref="_ZNK6idCVar10GetIntegerEv">GetInteger</a>();</td></tr>
+<tr><th id="610">610</th><td>	}</td></tr>
+<tr><th id="611">611</th><td></td></tr>
+<tr><th id="612">612</th><td>	<i>// try a few strategies to guess the amount of video ram</i></td></tr>
+<tr><th id="613">613</th><td>	<a class="ref" href="../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"guessing video ram ( use +set sys_videoRam to force ) ..\n"</q> );</td></tr>
+<tr><th id="614">614</th><td>	<b>if</b> ( !<a class="ref" href="#_Z17GLimp_OpenDisplayv" title='GLimp_OpenDisplay' data-ref="_Z17GLimp_OpenDisplayv">GLimp_OpenDisplay</a>( ) ) {</td></tr>
+<tr><th id="615">615</th><td>		<a class="local col4 ref" href="#74run_once" title='run_once' data-ref="74run_once">run_once</a> = <var>64</var>;</td></tr>
+<tr><th id="616">616</th><td>		<b>return</b> <a class="local col4 ref" href="#74run_once" title='run_once' data-ref="74run_once">run_once</a>;</td></tr>
+<tr><th id="617">617</th><td>	}</td></tr>
+<tr><th id="618">618</th><td>	<a class="local col8 ref" href="#78l_dpy" title='l_dpy' data-ref="78l_dpy">l_dpy</a> = <a class="ref" href="local.h.html#dpy" title='dpy' data-ref="dpy">dpy</a>;</td></tr>
+<tr><th id="619">619</th><td>	<a class="local col9 ref" href="#79l_scrnum" title='l_scrnum' data-ref="79l_scrnum">l_scrnum</a> = <a class="tu ref" href="#scrnum" title='scrnum' data-use='r' data-ref="scrnum">scrnum</a>;</td></tr>
+<tr><th id="620">620</th><td>	<i>// go for nvidia ext first</i></td></tr>
+<tr><th id="621">621</th><td>	<b>if</b> ( <a class="ref" href="libXNVCtrl/NVCtrlLib.h.html#XNVCTRLQueryVersion" title='XNVCTRLQueryVersion' data-ref="XNVCTRLQueryVersion">XNVCTRLQueryVersion</a>( <a class="local col8 ref" href="#78l_dpy" title='l_dpy' data-ref="78l_dpy">l_dpy</a>, &amp;<a class="local col5 ref" href="#75major" title='major' data-ref="75major">major</a>, &amp;<a class="local col6 ref" href="#76minor" title='minor' data-ref="76minor">minor</a> ) ) {</td></tr>
+<tr><th id="622">622</th><td>		<a class="ref" href="../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"found XNVCtrl extension %d.%d\n"</q>, <a class="local col5 ref" href="#75major" title='major' data-ref="75major">major</a>, <a class="local col6 ref" href="#76minor" title='minor' data-ref="76minor">minor</a> );</td></tr>
+<tr><th id="623">623</th><td>		<b>if</b> ( <a class="ref" href="libXNVCtrl/NVCtrlLib.h.html#XNVCTRLIsNvScreen" title='XNVCTRLIsNvScreen' data-ref="XNVCTRLIsNvScreen">XNVCTRLIsNvScreen</a>( <a class="local col8 ref" href="#78l_dpy" title='l_dpy' data-ref="78l_dpy">l_dpy</a>, <a class="local col9 ref" href="#79l_scrnum" title='l_scrnum' data-ref="79l_scrnum">l_scrnum</a> ) ) {</td></tr>
+<tr><th id="624">624</th><td>			<b>if</b> ( <a class="ref" href="libXNVCtrl/NVCtrlLib.h.html#XNVCTRLQueryAttribute" title='XNVCTRLQueryAttribute' data-ref="XNVCTRLQueryAttribute">XNVCTRLQueryAttribute</a>( <a class="local col8 ref" href="#78l_dpy" title='l_dpy' data-ref="78l_dpy">l_dpy</a>, <a class="local col9 ref" href="#79l_scrnum" title='l_scrnum' data-ref="79l_scrnum">l_scrnum</a>, <var>0</var>, <a class="macro" href="libXNVCtrl/NVCtrl.h.html#95" title="6" data-ref="_M/NV_CTRL_VIDEO_RAM">NV_CTRL_VIDEO_RAM</a>, &amp;<a class="local col7 ref" href="#77value" title='value' data-ref="77value">value</a> ) ) {</td></tr>
+<tr><th id="625">625</th><td>				<a class="local col4 ref" href="#74run_once" title='run_once' data-ref="74run_once">run_once</a> = <a class="local col7 ref" href="#77value" title='value' data-ref="77value">value</a> / <var>1024</var>;</td></tr>
+<tr><th id="626">626</th><td>				<b>return</b> <a class="local col4 ref" href="#74run_once" title='run_once' data-ref="74run_once">run_once</a>;</td></tr>
+<tr><th id="627">627</th><td>			} <b>else</b> {</td></tr>
+<tr><th id="628">628</th><td>				<a class="ref" href="../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"XNVCtrlQueryAttribute NV_CTRL_VIDEO_RAM failed\n"</q> );</td></tr>
+<tr><th id="629">629</th><td>			}</td></tr>
+<tr><th id="630">630</th><td>		} <b>else</b> {</td></tr>
+<tr><th id="631">631</th><td>			<a class="ref" href="../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"default screen %d is not controlled by NVIDIA driver\n"</q>, <a class="local col9 ref" href="#79l_scrnum" title='l_scrnum' data-ref="79l_scrnum">l_scrnum</a> );</td></tr>
+<tr><th id="632">632</th><td>		}</td></tr>
+<tr><th id="633">633</th><td>	}</td></tr>
+<tr><th id="634">634</th><td>	<i>// try ATI /proc read ( for the lack of a better option )</i></td></tr>
+<tr><th id="635">635</th><td>	<em>int</em> <dfn class="local col0 decl" id="80fd" title='fd' data-type='int' data-ref="80fd">fd</dfn>;</td></tr>
+<tr><th id="636">636</th><td>	<b>if</b> ( ( <a class="local col0 ref" href="#80fd" title='fd' data-ref="80fd">fd</a> = <a class="ref" href="../../../include/fcntl.h.html#open" title='open' data-ref="open">open</a>( <q>"/proc/dri/0/umm"</q>, <a class="macro" href="../../../include/x86_64-linux-gnu/bits/fcntl-linux.h.html#43" title="00" data-ref="_M/O_RDONLY">O_RDONLY</a> ) ) != -<var>1</var> ) {</td></tr>
+<tr><th id="637">637</th><td>		<em>int</em> <dfn class="local col1 decl" id="81len" title='len' data-type='int' data-ref="81len">len</dfn>;</td></tr>
+<tr><th id="638">638</th><td>		<em>char</em> <dfn class="local col2 decl" id="82umm_buf" title='umm_buf' data-type='char [1024]' data-ref="82umm_buf">umm_buf</dfn>[ <var>1024</var> ];</td></tr>
+<tr><th id="639">639</th><td>		<em>char</em> *<dfn class="local col3 decl" id="83line" title='line' data-type='char *' data-ref="83line">line</dfn>;</td></tr>
+<tr><th id="640">640</th><td>		<b>if</b> ( ( <a class="local col1 ref" href="#81len" title='len' data-ref="81len">len</a> = <a class="ref" href="../../../include/unistd.h.html#read" title='read' data-ref="read">read</a>( <a class="local col0 ref" href="#80fd" title='fd' data-ref="80fd">fd</a>, <a class="local col2 ref" href="#82umm_buf" title='umm_buf' data-ref="82umm_buf">umm_buf</a>, <var>1024</var> ) ) != -<var>1</var> ) {</td></tr>
+<tr><th id="641">641</th><td>			<i>// should be way enough to get the full file</i></td></tr>
+<tr><th id="642">642</th><td><i>			// grab "free  LFB = " line and "free  Inv = " lines</i></td></tr>
+<tr><th id="643">643</th><td>			<a class="local col2 ref" href="#82umm_buf" title='umm_buf' data-ref="82umm_buf">umm_buf</a>[ <a class="local col1 ref" href="#81len" title='len' data-ref="81len">len</a>-<var>1</var> ] = <kbd>'\0'</kbd>;</td></tr>
+<tr><th id="644">644</th><td>			<a class="local col3 ref" href="#83line" title='line' data-ref="83line">line</a> = <a class="local col2 ref" href="#82umm_buf" title='umm_buf' data-ref="82umm_buf">umm_buf</a>;</td></tr>
+<tr><th id="645">645</th><td>			<a class="local col3 ref" href="#83line" title='line' data-ref="83line">line</a> = <a class="ref" href="../../../include/string.h.html#strtok" title='strtok' data-ref="strtok">strtok</a>( <a class="local col2 ref" href="#82umm_buf" title='umm_buf' data-ref="82umm_buf">umm_buf</a>, <q>"\n"</q> );</td></tr>
+<tr><th id="646">646</th><td>			<em>int</em> <dfn class="local col4 decl" id="84total" title='total' data-type='int' data-ref="84total">total</dfn> = <var>0</var>;</td></tr>
+<tr><th id="647">647</th><td>			<b>while</b> ( <a class="local col3 ref" href="#83line" title='line' data-ref="83line">line</a> ) {</td></tr>
+<tr><th id="648">648</th><td>				<b>if</b> ( <a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>( <a class="local col3 ref" href="#83line" title='line' data-ref="83line">line</a> ) &gt;= <var>13</var> &amp;&amp; <a class="ref" href="../../../include/string.h.html#strstr" title='strstr' data-ref="strstr">strstr</a>( <a class="local col3 ref" href="#83line" title='line' data-ref="83line">line</a>, <q>"max   LFB ="</q> ) == <a class="local col3 ref" href="#83line" title='line' data-ref="83line">line</a> ) {</td></tr>
+<tr><th id="649">649</th><td>					<a class="local col4 ref" href="#84total" title='total' data-ref="84total">total</a> += <a class="ref" href="../../../include/stdlib.h.html#atoi" title='atoi' data-ref="atoi">atoi</a>( <a class="local col3 ref" href="#83line" title='line' data-ref="83line">line</a> + <var>12</var> );</td></tr>
+<tr><th id="650">650</th><td>				} <b>else</b> <b>if</b> ( <a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>( <a class="local col3 ref" href="#83line" title='line' data-ref="83line">line</a> ) &gt;= <var>13</var> &amp;&amp; <a class="ref" href="../../../include/string.h.html#strstr" title='strstr' data-ref="strstr">strstr</a>( <a class="local col3 ref" href="#83line" title='line' data-ref="83line">line</a>, <q>"max   Inv ="</q> ) == <a class="local col3 ref" href="#83line" title='line' data-ref="83line">line</a> ) {</td></tr>
+<tr><th id="651">651</th><td>					<a class="local col4 ref" href="#84total" title='total' data-ref="84total">total</a> += <a class="ref" href="../../../include/stdlib.h.html#atoi" title='atoi' data-ref="atoi">atoi</a>( <a class="local col3 ref" href="#83line" title='line' data-ref="83line">line</a> + <var>12</var> );</td></tr>
+<tr><th id="652">652</th><td>				}</td></tr>
+<tr><th id="653">653</th><td>				<a class="local col3 ref" href="#83line" title='line' data-ref="83line">line</a> = <a class="ref" href="../../../include/string.h.html#strtok" title='strtok' data-ref="strtok">strtok</a>( <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>, <q>"\n"</q> );</td></tr>
+<tr><th id="654">654</th><td>			}</td></tr>
+<tr><th id="655">655</th><td>			<b>if</b> ( <a class="local col4 ref" href="#84total" title='total' data-ref="84total">total</a> ) {</td></tr>
+<tr><th id="656">656</th><td>				<a class="local col4 ref" href="#74run_once" title='run_once' data-ref="74run_once">run_once</a> = <a class="local col4 ref" href="#84total" title='total' data-ref="84total">total</a> / <var>1048576</var>;</td></tr>
+<tr><th id="657">657</th><td>				<i>// round to the lower 16Mb</i></td></tr>
+<tr><th id="658">658</th><td>				<a class="local col4 ref" href="#74run_once" title='run_once' data-ref="74run_once">run_once</a> &amp;= ~<var>15</var>;</td></tr>
+<tr><th id="659">659</th><td>				<b>return</b> <a class="local col4 ref" href="#74run_once" title='run_once' data-ref="74run_once">run_once</a>;</td></tr>
+<tr><th id="660">660</th><td>			}</td></tr>
+<tr><th id="661">661</th><td>		} <b>else</b> {</td></tr>
+<tr><th id="662">662</th><td>			<a class="ref" href="../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"read /proc/dri/0/umm failed: %s\n"</q>, <a class="ref" href="../../../include/string.h.html#strerror" title='strerror' data-ref="strerror">strerror</a>( <a class="macro" href="../../../include/x86_64-linux-gnu/bits/errno.h.html#54" title="(*__errno_location ())" data-ref="_M/errno">errno</a> ) );</td></tr>
+<tr><th id="663">663</th><td>		}</td></tr>
+<tr><th id="664">664</th><td>	}</td></tr>
+<tr><th id="665">665</th><td>	<a class="ref" href="../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"guess failed, return default low-end VRAM setting ( 64MB VRAM )\n"</q> );</td></tr>
+<tr><th id="666">666</th><td>	<a class="local col4 ref" href="#74run_once" title='run_once' data-ref="74run_once">run_once</a> = <var>64</var>;</td></tr>
+<tr><th id="667">667</th><td>	<b>return</b> <a class="local col4 ref" href="#74run_once" title='run_once' data-ref="74run_once">run_once</a>;</td></tr>
+<tr><th id="668">668</th><td>}</td></tr>
+<tr><th id="669">669</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,14 @@
+<def f='codebrowser/renderer/jpeg-6/jpeglib.h' l='743' ll='787'/>
+<size>48</size>
+<mbr r='jpeg_memory_mgr::alloc_small' o='0' t='void *(*)(j_common_ptr, int, size_t)'/>
+<mbr r='jpeg_memory_mgr::alloc_large' o='32' t='void *(*)(j_common_ptr, int, size_t)'/>
+<mbr r='jpeg_memory_mgr::alloc_sarray' o='64' t='JSAMPARRAY (*)(j_common_ptr, int, JDIMENSION, JDIMENSION)'/>
+<mbr r='jpeg_memory_mgr::alloc_barray' o='96' t='JBLOCKARRAY (*)(j_common_ptr, int, JDIMENSION, JDIMENSION)'/>
+<mbr r='jpeg_memory_mgr::request_virt_sarray' o='128' t='jvirt_sarray_ptr (*)(j_common_ptr, int, boolean, JDIMENSION, JDIMENSION, JDIMENSION)'/>
+<mbr r='jpeg_memory_mgr::request_virt_barray' o='160' t='jvirt_barray_ptr (*)(j_common_ptr, int, boolean, JDIMENSION, JDIMENSION, JDIMENSION)'/>
+<mbr r='jpeg_memory_mgr::realize_virt_arrays' o='192' t='void (*)(j_common_ptr)'/>
+<mbr r='jpeg_memory_mgr::access_virt_sarray' o='224' t='JSAMPARRAY (*)(j_common_ptr, jvirt_sarray_ptr, JDIMENSION, JDIMENSION, boolean)'/>
+<mbr r='jpeg_memory_mgr::access_virt_barray' o='256' t='JBLOCKARRAY (*)(j_common_ptr, jvirt_barray_ptr, JDIMENSION, JDIMENSION, boolean)'/>
+<mbr r='jpeg_memory_mgr::free_pool' o='288' t='void (*)(j_common_ptr, int)'/>
+<mbr r='jpeg_memory_mgr::self_destruct' o='320' t='void (*)(j_common_ptr)'/>
+<mbr r='jpeg_memory_mgr::max_memory_to_use' o='352' t='long'/>

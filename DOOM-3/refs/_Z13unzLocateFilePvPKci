@@ -1,0 +1,14 @@
+<dec f='codebrowser/framework/Unzip.h' l='259' type='int unzLocateFile(unzFile file, const char * szFileName, int iCaseSensitivity)'/>
+<doc f='codebrowser/framework/Unzip.h' l='254'>/*
+  Set the position of the info of the current file in the zip.
+  return UNZ_OK if there is no problem
+*/</doc>
+<def f='codebrowser/framework/Unzip.cpp' l='1716' ll='1756' type='int unzLocateFile(unzFile file, const char * szFileName, int iCaseSensitivity)'/>
+<doc f='codebrowser/framework/Unzip.cpp' l='1708'>/*
+  Try locate the file szFileName in the zipfile.
+  For the iCaseSensitivity signification, see unzipStringFileNameCompare
+
+  return value :
+  UNZ_OK if the file is found. It becomes the current file.
+  UNZ_END_OF_LIST_OF_FILE if the file is not found
+*/</doc>

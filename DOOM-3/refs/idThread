@@ -1,0 +1,333 @@
+<inh f='codebrowser/d3xp/gamesys/Class.h' l='174' c='idClass'/>
+<def f='codebrowser/d3xp/script/Script_Thread.h' l='77' ll='275'/>
+<size>7068</size>
+<smbr r='idThread::currentThread' t='idThread *'/>
+<mbr r='idThread::waitingForThread' o='32' t='idThread *'/>
+<mbr r='idThread::waitingFor' o='64' t='int'/>
+<mbr r='idThread::waitingUntil' o='96' t='int'/>
+<mbr r='idThread::interpreter' o='128' t='idInterpreter'/>
+<mbr r='idThread::spawnArgs' o='55808' t='idDict'/>
+<mbr r='idThread::threadNum' o='56160' t='int'/>
+<mbr r='idThread::threadName' o='56192' t='idStr'/>
+<mbr r='idThread::lastExecuteTime' o='56448' t='int'/>
+<mbr r='idThread::creationTime' o='56480' t='int'/>
+<mbr r='idThread::manualControl' o='56512' t='bool'/>
+<smbr r='idThread::threadIndex' t='int'/>
+<smbr r='idThread::threadList' t='idList&lt;idThread *&gt;'/>
+<smbr r='idThread::trace' t='trace_t'/>
+<fun r='_ZN8idThread4InitEv'/>
+<fun r='_ZN8idThread5PauseEv'/>
+<fun r='_ZN8idThread13Event_ExecuteEv'/>
+<fun r='_ZN8idThread19Event_SetThreadNameEPKc'/>
+<fun r='_ZN8idThread21Event_TerminateThreadEi'/>
+<fun r='_ZN8idThread11Event_PauseEv'/>
+<fun r='_ZN8idThread10Event_WaitEf'/>
+<fun r='_ZN8idThread15Event_WaitFrameEv'/>
+<fun r='_ZN8idThread13Event_WaitForEP8idEntity'/>
+<fun r='_ZN8idThread19Event_WaitForThreadEi'/>
+<fun r='_ZN8idThread11Event_PrintEPKc'/>
+<fun r='_ZN8idThread13Event_PrintLnEPKc'/>
+<fun r='_ZN8idThread9Event_SayEPKc'/>
+<fun r='_ZN8idThread12Event_AssertEf'/>
+<fun r='_ZN8idThread13Event_TriggerEP8idEntity'/>
+<fun r='_ZNK8idThread13Event_SetCvarEPKcS1_'/>
+<fun r='_ZNK8idThread13Event_GetCvarEPKc'/>
+<fun r='_ZNK8idThread12Event_RandomEf'/>
+<fun r='_ZNK8idThread15Event_RandomIntEi'/>
+<fun r='_ZN8idThread13Event_GetTimeEv'/>
+<fun r='_ZN8idThread16Event_KillThreadEPKc'/>
+<fun r='_ZN8idThread15Event_GetEntityEPKc'/>
+<fun r='_ZN8idThread11Event_SpawnEPKc'/>
+<fun r='_ZN8idThread19Event_CopySpawnArgsEP8idEntity'/>
+<fun r='_ZN8idThread17Event_SetSpawnArgEPKcS1_'/>
+<fun r='_ZN8idThread17Event_SpawnStringEPKcS1_'/>
+<fun r='_ZN8idThread16Event_SpawnFloatEPKcf'/>
+<fun r='_ZN8idThread17Event_SpawnVectorEPKcR6idVec3'/>
+<fun r='_ZN8idThread25Event_ClearPersistantArgsEv'/>
+<fun r='_ZN8idThread22Event_SetPersistantArgEPKcS1_'/>
+<fun r='_ZN8idThread25Event_GetPersistantStringEPKc'/>
+<fun r='_ZN8idThread24Event_GetPersistantFloatEPKc'/>
+<fun r='_ZN8idThread25Event_GetPersistantVectorEPKc'/>
+<fun r='_ZN8idThread18Event_AngToForwardER8idAngles'/>
+<fun r='_ZN8idThread16Event_AngToRightER8idAngles'/>
+<fun r='_ZN8idThread13Event_AngToUpER8idAngles'/>
+<fun r='_ZN8idThread13Event_GetSineEf'/>
+<fun r='_ZN8idThread15Event_GetCosineEf'/>
+<fun r='_ZN8idThread16Event_GetArcSineEf'/>
+<fun r='_ZN8idThread18Event_GetArcCosineEf'/>
+<fun r='_ZN8idThread19Event_GetSquareRootEf'/>
+<fun r='_ZN8idThread18Event_VecNormalizeER6idVec3'/>
+<fun r='_ZN8idThread15Event_VecLengthER6idVec3'/>
+<fun r='_ZN8idThread19Event_VecDotProductER6idVec3S1_'/>
+<fun r='_ZN8idThread21Event_VecCrossProductER6idVec3S1_'/>
+<fun r='_ZN8idThread17Event_VecToAnglesER6idVec3'/>
+<fun r='_ZN8idThread27Event_VecToOrthoBasisAnglesER6idVec3'/>
+<fun r='_ZN8idThread18Event_RotateVectorER6idVec3S1_'/>
+<fun r='_ZN8idThread14Event_OnSignalEiP8idEntityPKc'/>
+<fun r='_ZN8idThread23Event_ClearSignalThreadEiP8idEntity'/>
+<fun r='_ZN8idThread15Event_SetCameraEP8idEntity'/>
+<fun r='_ZN8idThread17Event_FirstPersonEv'/>
+<fun r='_ZN8idThread11Event_TraceERK6idVec3S2_S2_S2_iP8idEntity'/>
+<fun r='_ZN8idThread16Event_TracePointERK6idVec3S2_iP8idEntity'/>
+<fun r='_ZN8idThread22Event_GetTraceFractionEv'/>
+<fun r='_ZN8idThread20Event_GetTraceEndPosEv'/>
+<fun r='_ZN8idThread20Event_GetTraceNormalEv'/>
+<fun r='_ZN8idThread20Event_GetTraceEntityEv'/>
+<fun r='_ZN8idThread19Event_GetTraceJointEv'/>
+<fun r='_ZN8idThread18Event_GetTraceBodyEv'/>
+<fun r='_ZN8idThread12Event_FadeInER6idVec3f'/>
+<fun r='_ZN8idThread13Event_FadeOutER6idVec3f'/>
+<fun r='_ZN8idThread12Event_FadeToER6idVec3ff'/>
+<fun r='_ZN8idThread19Event_SetShaderParmEif'/>
+<fun r='_ZN8idThread16Event_StartMusicEPKc'/>
+<fun r='_ZN8idThread13Event_WarningEPKc'/>
+<fun r='_ZN8idThread11Event_ErrorEPKc'/>
+<fun r='_ZN8idThread12Event_StrLenEPKc'/>
+<fun r='_ZN8idThread13Event_StrLeftEPKci'/>
+<fun r='_ZN8idThread14Event_StrRightEPKci'/>
+<fun r='_ZN8idThread13Event_StrSkipEPKci'/>
+<fun r='_ZN8idThread12Event_StrMidEPKcii'/>
+<fun r='_ZN8idThread16Event_StrToFloatEPKc'/>
+<fun r='_ZN8idThread18Event_RadiusDamageERK6idVec3P8idEntityS4_S4_PKcf'/>
+<fun r='_ZN8idThread14Event_IsClientEv'/>
+<fun r='_ZN8idThread19Event_IsMultiplayerEv'/>
+<fun r='_ZN8idThread18Event_GetFrameTimeEv'/>
+<fun r='_ZN8idThread22Event_GetTicsPerSecondEv'/>
+<fun r='_ZN8idThread22Event_CacheSoundShaderEPKc'/>
+<fun r='_ZN8idThread15Event_DebugLineERK6idVec3S2_S2_f'/>
+<fun r='_ZN8idThread16Event_DebugArrowERK6idVec3S2_S2_if'/>
+<fun r='_ZN8idThread17Event_DebugCircleERK6idVec3S2_S2_fif'/>
+<fun r='_ZN8idThread17Event_DebugBoundsERK6idVec3S2_S2_f'/>
+<fun r='_ZN8idThread14Event_DrawTextEPKcRK6idVec3fS4_if'/>
+<fun r='_ZN8idThread21Event_InfluenceActiveEv'/>
+<smbr r='idThread::Type' t='idTypeInfo'/>
+<fun r='_ZN8idThread14CreateInstanceEv'/>
+<fun r='_ZNK8idThread7GetTypeEv'/>
+<smbr r='idThread::eventCallbacks' t='idEventFunc&lt;idThread&gt; []'/>
+<fun r='_ZN8idThreadC1Ev'/>
+<fun r='_ZN8idThreadC1EP8idEntityPK10function_t'/>
+<fun r='_ZN8idThreadC1EPK10function_t'/>
+<fun r='_ZN8idThreadC1EP13idInterpreterPK10function_ti'/>
+<fun r='_ZN8idThreadC1EP13idInterpreterP8idEntityPK10function_ti'/>
+<fun r='_ZN8idThreadD1Ev'/>
+<fun r='_ZN8idThread12ManualDeleteEv'/>
+<fun r='_ZNK8idThread4SaveEP10idSaveGame'/>
+<fun r='_ZN8idThread7RestoreEP13idRestoreGame'/>
+<fun r='_ZN8idThread15EnableDebugInfoEv'/>
+<fun r='_ZN8idThread16DisableDebugInfoEv'/>
+<fun r='_ZN8idThread6WaitMSEi'/>
+<fun r='_ZN8idThread7WaitSecEf'/>
+<fun r='_ZN8idThread9WaitFrameEv'/>
+<fun r='_ZN8idThread12CallFunctionEPK10function_tb'/>
+<fun r='_ZN8idThread12CallFunctionEP8idEntityPK10function_tb'/>
+<fun r='_ZN8idThread11DisplayInfoEv'/>
+<fun r='_ZN8idThread9GetThreadEi'/>
+<fun r='_ZN8idThread13ListThreads_fERK9idCmdArgs'/>
+<fun r='_ZN8idThread7RestartEv'/>
+<fun r='_ZN8idThread14ObjectMoveDoneEiP8idEntity'/>
+<fun r='_ZN8idThread10GetThreadsEv'/>
+<fun r='_ZN8idThread16IsDoneProcessingEv'/>
+<fun r='_ZN8idThread7IsDyingEv'/>
+<fun r='_ZN8idThread3EndEv'/>
+<fun r='_ZN8idThread10KillThreadEPKc'/>
+<fun r='_ZN8idThread10KillThreadEi'/>
+<fun r='_ZN8idThread7ExecuteEv'/>
+<fun r='_ZN8idThread13ManualControlEv'/>
+<fun r='_ZN8idThread14DoneProcessingEv'/>
+<fun r='_ZN8idThread18ContinueProcessingEv'/>
+<fun r='_ZN8idThread11ThreadDyingEv'/>
+<fun r='_ZN8idThread9EndThreadEv'/>
+<fun r='_ZN8idThread9IsWaitingEv'/>
+<fun r='_ZN8idThread12ClearWaitForEv'/>
+<fun r='_ZN8idThread12IsWaitingForEP8idEntity'/>
+<fun r='_ZN8idThread14ObjectMoveDoneEP8idEntity'/>
+<fun r='_ZN8idThread14ThreadCallbackEPS_'/>
+<fun r='_ZN8idThread12DelayedStartEi'/>
+<fun r='_ZN8idThread5StartEv'/>
+<fun r='_ZN8idThread15WaitingOnThreadEv'/>
+<fun r='_ZN8idThread12SetThreadNumEi'/>
+<fun r='_ZN8idThread12GetThreadNumEv'/>
+<fun r='_ZN8idThread13SetThreadNameEPKc'/>
+<fun r='_ZN8idThread13GetThreadNameEv'/>
+<fun r='_ZNK8idThread5ErrorEPKcz'/>
+<fun r='_ZNK8idThread7WarningEPKcz'/>
+<fun r='_ZN8idThread13CurrentThreadEv'/>
+<fun r='_ZN8idThread16CurrentThreadNumEv'/>
+<fun r='_ZN8idThread20BeginMultiFrameEventEP8idEntityPK10idEventDef'/>
+<fun r='_ZN8idThread18EndMultiFrameEventEP8idEntityPK10idEventDef'/>
+<fun r='_ZN8idThread12ReturnStringEPKc'/>
+<fun r='_ZN8idThread11ReturnFloatEf'/>
+<fun r='_ZN8idThread9ReturnIntEi'/>
+<fun r='_ZN8idThread12ReturnVectorERK6idVec3'/>
+<fun r='_ZN8idThread12ReturnEntityEP8idEntity'/>
+<fun r='_ZN8idThread15WaitingOnThreadEv'/>
+<fun r='_ZN8idThread12SetThreadNumEi'/>
+<fun r='_ZN8idThread12GetThreadNumEv'/>
+<fun r='_ZN8idThread13GetThreadNameEv'/>
+<fun r='_ZN8idThread10GetThreadsEv'/>
+<fun r='_ZN8idThread16IsDoneProcessingEv'/>
+<fun r='_ZN8idThread7IsDyingEv'/>
+<inh f='codebrowser/game/gamesys/Class.h' l='174' c='idClass'/>
+<def f='codebrowser/game/script/Script_Thread.h' l='77' ll='264'/>
+<size>7068</size>
+<smbr r='idThread::currentThread' t='idThread *'/>
+<mbr r='idThread::waitingForThread' o='32' t='idThread *'/>
+<mbr r='idThread::waitingFor' o='64' t='int'/>
+<mbr r='idThread::waitingUntil' o='96' t='int'/>
+<mbr r='idThread::interpreter' o='128' t='idInterpreter'/>
+<mbr r='idThread::spawnArgs' o='55808' t='idDict'/>
+<mbr r='idThread::threadNum' o='56160' t='int'/>
+<mbr r='idThread::threadName' o='56192' t='idStr'/>
+<mbr r='idThread::lastExecuteTime' o='56448' t='int'/>
+<mbr r='idThread::creationTime' o='56480' t='int'/>
+<mbr r='idThread::manualControl' o='56512' t='bool'/>
+<smbr r='idThread::threadIndex' t='int'/>
+<smbr r='idThread::threadList' t='idList&lt;idThread *&gt;'/>
+<smbr r='idThread::trace' t='trace_t'/>
+<fun r='_ZN8idThread4InitEv'/>
+<fun r='_ZN8idThread5PauseEv'/>
+<fun r='_ZN8idThread13Event_ExecuteEv'/>
+<fun r='_ZN8idThread19Event_SetThreadNameEPKc'/>
+<fun r='_ZN8idThread21Event_TerminateThreadEi'/>
+<fun r='_ZN8idThread11Event_PauseEv'/>
+<fun r='_ZN8idThread10Event_WaitEf'/>
+<fun r='_ZN8idThread15Event_WaitFrameEv'/>
+<fun r='_ZN8idThread13Event_WaitForEP8idEntity'/>
+<fun r='_ZN8idThread19Event_WaitForThreadEi'/>
+<fun r='_ZN8idThread11Event_PrintEPKc'/>
+<fun r='_ZN8idThread13Event_PrintLnEPKc'/>
+<fun r='_ZN8idThread9Event_SayEPKc'/>
+<fun r='_ZN8idThread12Event_AssertEf'/>
+<fun r='_ZN8idThread13Event_TriggerEP8idEntity'/>
+<fun r='_ZNK8idThread13Event_SetCvarEPKcS1_'/>
+<fun r='_ZNK8idThread13Event_GetCvarEPKc'/>
+<fun r='_ZNK8idThread12Event_RandomEf'/>
+<fun r='_ZN8idThread13Event_GetTimeEv'/>
+<fun r='_ZN8idThread16Event_KillThreadEPKc'/>
+<fun r='_ZN8idThread15Event_GetEntityEPKc'/>
+<fun r='_ZN8idThread11Event_SpawnEPKc'/>
+<fun r='_ZN8idThread19Event_CopySpawnArgsEP8idEntity'/>
+<fun r='_ZN8idThread17Event_SetSpawnArgEPKcS1_'/>
+<fun r='_ZN8idThread17Event_SpawnStringEPKcS1_'/>
+<fun r='_ZN8idThread16Event_SpawnFloatEPKcf'/>
+<fun r='_ZN8idThread17Event_SpawnVectorEPKcR6idVec3'/>
+<fun r='_ZN8idThread25Event_ClearPersistantArgsEv'/>
+<fun r='_ZN8idThread22Event_SetPersistantArgEPKcS1_'/>
+<fun r='_ZN8idThread25Event_GetPersistantStringEPKc'/>
+<fun r='_ZN8idThread24Event_GetPersistantFloatEPKc'/>
+<fun r='_ZN8idThread25Event_GetPersistantVectorEPKc'/>
+<fun r='_ZN8idThread18Event_AngToForwardER8idAngles'/>
+<fun r='_ZN8idThread16Event_AngToRightER8idAngles'/>
+<fun r='_ZN8idThread13Event_AngToUpER8idAngles'/>
+<fun r='_ZN8idThread13Event_GetSineEf'/>
+<fun r='_ZN8idThread15Event_GetCosineEf'/>
+<fun r='_ZN8idThread19Event_GetSquareRootEf'/>
+<fun r='_ZN8idThread18Event_VecNormalizeER6idVec3'/>
+<fun r='_ZN8idThread15Event_VecLengthER6idVec3'/>
+<fun r='_ZN8idThread19Event_VecDotProductER6idVec3S1_'/>
+<fun r='_ZN8idThread21Event_VecCrossProductER6idVec3S1_'/>
+<fun r='_ZN8idThread17Event_VecToAnglesER6idVec3'/>
+<fun r='_ZN8idThread14Event_OnSignalEiP8idEntityPKc'/>
+<fun r='_ZN8idThread23Event_ClearSignalThreadEiP8idEntity'/>
+<fun r='_ZN8idThread15Event_SetCameraEP8idEntity'/>
+<fun r='_ZN8idThread17Event_FirstPersonEv'/>
+<fun r='_ZN8idThread11Event_TraceERK6idVec3S2_S2_S2_iP8idEntity'/>
+<fun r='_ZN8idThread16Event_TracePointERK6idVec3S2_iP8idEntity'/>
+<fun r='_ZN8idThread22Event_GetTraceFractionEv'/>
+<fun r='_ZN8idThread20Event_GetTraceEndPosEv'/>
+<fun r='_ZN8idThread20Event_GetTraceNormalEv'/>
+<fun r='_ZN8idThread20Event_GetTraceEntityEv'/>
+<fun r='_ZN8idThread19Event_GetTraceJointEv'/>
+<fun r='_ZN8idThread18Event_GetTraceBodyEv'/>
+<fun r='_ZN8idThread12Event_FadeInER6idVec3f'/>
+<fun r='_ZN8idThread13Event_FadeOutER6idVec3f'/>
+<fun r='_ZN8idThread12Event_FadeToER6idVec3ff'/>
+<fun r='_ZN8idThread19Event_SetShaderParmEif'/>
+<fun r='_ZN8idThread16Event_StartMusicEPKc'/>
+<fun r='_ZN8idThread13Event_WarningEPKc'/>
+<fun r='_ZN8idThread11Event_ErrorEPKc'/>
+<fun r='_ZN8idThread12Event_StrLenEPKc'/>
+<fun r='_ZN8idThread13Event_StrLeftEPKci'/>
+<fun r='_ZN8idThread14Event_StrRightEPKci'/>
+<fun r='_ZN8idThread13Event_StrSkipEPKci'/>
+<fun r='_ZN8idThread12Event_StrMidEPKcii'/>
+<fun r='_ZN8idThread16Event_StrToFloatEPKc'/>
+<fun r='_ZN8idThread18Event_RadiusDamageERK6idVec3P8idEntityS4_S4_PKcf'/>
+<fun r='_ZN8idThread14Event_IsClientEv'/>
+<fun r='_ZN8idThread19Event_IsMultiplayerEv'/>
+<fun r='_ZN8idThread18Event_GetFrameTimeEv'/>
+<fun r='_ZN8idThread22Event_GetTicsPerSecondEv'/>
+<fun r='_ZN8idThread22Event_CacheSoundShaderEPKc'/>
+<fun r='_ZN8idThread15Event_DebugLineERK6idVec3S2_S2_f'/>
+<fun r='_ZN8idThread16Event_DebugArrowERK6idVec3S2_S2_if'/>
+<fun r='_ZN8idThread17Event_DebugCircleERK6idVec3S2_S2_fif'/>
+<fun r='_ZN8idThread17Event_DebugBoundsERK6idVec3S2_S2_f'/>
+<fun r='_ZN8idThread14Event_DrawTextEPKcRK6idVec3fS4_if'/>
+<fun r='_ZN8idThread21Event_InfluenceActiveEv'/>
+<smbr r='idThread::Type' t='idTypeInfo'/>
+<fun r='_ZN8idThread14CreateInstanceEv'/>
+<fun r='_ZNK8idThread7GetTypeEv'/>
+<smbr r='idThread::eventCallbacks' t='idEventFunc&lt;idThread&gt; []'/>
+<fun r='_ZN8idThreadC1Ev'/>
+<fun r='_ZN8idThreadC1EP8idEntityPK10function_t'/>
+<fun r='_ZN8idThreadC1EPK10function_t'/>
+<fun r='_ZN8idThreadC1EP13idInterpreterPK10function_ti'/>
+<fun r='_ZN8idThreadC1EP13idInterpreterP8idEntityPK10function_ti'/>
+<fun r='_ZN8idThreadD1Ev'/>
+<fun r='_ZN8idThread12ManualDeleteEv'/>
+<fun r='_ZNK8idThread4SaveEP10idSaveGame'/>
+<fun r='_ZN8idThread7RestoreEP13idRestoreGame'/>
+<fun r='_ZN8idThread15EnableDebugInfoEv'/>
+<fun r='_ZN8idThread16DisableDebugInfoEv'/>
+<fun r='_ZN8idThread6WaitMSEi'/>
+<fun r='_ZN8idThread7WaitSecEf'/>
+<fun r='_ZN8idThread9WaitFrameEv'/>
+<fun r='_ZN8idThread12CallFunctionEPK10function_tb'/>
+<fun r='_ZN8idThread12CallFunctionEP8idEntityPK10function_tb'/>
+<fun r='_ZN8idThread11DisplayInfoEv'/>
+<fun r='_ZN8idThread9GetThreadEi'/>
+<fun r='_ZN8idThread13ListThreads_fERK9idCmdArgs'/>
+<fun r='_ZN8idThread7RestartEv'/>
+<fun r='_ZN8idThread14ObjectMoveDoneEiP8idEntity'/>
+<fun r='_ZN8idThread10GetThreadsEv'/>
+<fun r='_ZN8idThread16IsDoneProcessingEv'/>
+<fun r='_ZN8idThread7IsDyingEv'/>
+<fun r='_ZN8idThread3EndEv'/>
+<fun r='_ZN8idThread10KillThreadEPKc'/>
+<fun r='_ZN8idThread10KillThreadEi'/>
+<fun r='_ZN8idThread7ExecuteEv'/>
+<fun r='_ZN8idThread13ManualControlEv'/>
+<fun r='_ZN8idThread14DoneProcessingEv'/>
+<fun r='_ZN8idThread18ContinueProcessingEv'/>
+<fun r='_ZN8idThread11ThreadDyingEv'/>
+<fun r='_ZN8idThread9EndThreadEv'/>
+<fun r='_ZN8idThread9IsWaitingEv'/>
+<fun r='_ZN8idThread12ClearWaitForEv'/>
+<fun r='_ZN8idThread12IsWaitingForEP8idEntity'/>
+<fun r='_ZN8idThread14ObjectMoveDoneEP8idEntity'/>
+<fun r='_ZN8idThread14ThreadCallbackEPS_'/>
+<fun r='_ZN8idThread12DelayedStartEi'/>
+<fun r='_ZN8idThread5StartEv'/>
+<fun r='_ZN8idThread15WaitingOnThreadEv'/>
+<fun r='_ZN8idThread12SetThreadNumEi'/>
+<fun r='_ZN8idThread12GetThreadNumEv'/>
+<fun r='_ZN8idThread13SetThreadNameEPKc'/>
+<fun r='_ZN8idThread13GetThreadNameEv'/>
+<fun r='_ZNK8idThread5ErrorEPKcz'/>
+<fun r='_ZNK8idThread7WarningEPKcz'/>
+<fun r='_ZN8idThread13CurrentThreadEv'/>
+<fun r='_ZN8idThread16CurrentThreadNumEv'/>
+<fun r='_ZN8idThread20BeginMultiFrameEventEP8idEntityPK10idEventDef'/>
+<fun r='_ZN8idThread18EndMultiFrameEventEP8idEntityPK10idEventDef'/>
+<fun r='_ZN8idThread12ReturnStringEPKc'/>
+<fun r='_ZN8idThread11ReturnFloatEf'/>
+<fun r='_ZN8idThread9ReturnIntEi'/>
+<fun r='_ZN8idThread12ReturnVectorERK6idVec3'/>
+<fun r='_ZN8idThread12ReturnEntityEP8idEntity'/>
+<fun r='_ZN8idThread15WaitingOnThreadEv'/>
+<fun r='_ZN8idThread12SetThreadNumEi'/>
+<fun r='_ZN8idThread12GetThreadNumEv'/>
+<fun r='_ZN8idThread13GetThreadNameEv'/>
+<fun r='_ZN8idThread10GetThreadsEv'/>
+<fun r='_ZN8idThread16IsDoneProcessingEv'/>
+<fun r='_ZN8idThread7IsDyingEv'/>

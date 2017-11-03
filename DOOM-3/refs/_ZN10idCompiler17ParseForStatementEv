@@ -1,0 +1,84 @@
+<dec f='codebrowser/d3xp/script/Script_Compiler.h' l='259' type='void idCompiler::ParseForStatement()'/>
+<def f='codebrowser/d3xp/script/Script_Compiler.cpp' l='1802' ll='1867' type='void idCompiler::ParseForStatement()'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='1957' u='c' c='_ZN10idCompiler14ParseStatementEv'/>
+<doc f='codebrowser/d3xp/script/Script_Compiler.cpp' l='1763'>/*
+================
+idCompiler::ParseForStatement
+
+Form of for statement with a counter:
+
+	a = 0;
+start:					&lt;&lt; patch4
+	if ( !( a &lt; 10 ) ) {
+		goto end;		&lt;&lt; patch1
+	} else {
+		goto process;	&lt;&lt; patch3
+	}
+
+increment:				&lt;&lt; patch2
+	a = a + 1;
+	goto start;			&lt;&lt; goto patch4
+
+process:
+	statements;
+	goto increment;		&lt;&lt; goto patch2
+
+end:
+
+Form of for statement without a counter:
+
+	a = 0;
+start:					&lt;&lt; patch2
+	if ( !( a &lt; 10 ) ) {
+		goto end;		&lt;&lt; patch1
+	}
+
+process:
+	statements;
+	goto start;			&lt;&lt; goto patch2
+
+end:
+================
+*/</doc>
+<dec f='codebrowser/game/script/Script_Compiler.h' l='259' type='void idCompiler::ParseForStatement()'/>
+<def f='codebrowser/game/script/Script_Compiler.cpp' l='1802' ll='1867' type='void idCompiler::ParseForStatement()'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='1957' u='c' c='_ZN10idCompiler14ParseStatementEv'/>
+<doc f='codebrowser/game/script/Script_Compiler.cpp' l='1763'>/*
+================
+idCompiler::ParseForStatement
+
+Form of for statement with a counter:
+
+	a = 0;
+start:					&lt;&lt; patch4
+	if ( !( a &lt; 10 ) ) {
+		goto end;		&lt;&lt; patch1
+	} else {
+		goto process;	&lt;&lt; patch3
+	}
+
+increment:				&lt;&lt; patch2
+	a = a + 1;
+	goto start;			&lt;&lt; goto patch4
+
+process:
+	statements;
+	goto increment;		&lt;&lt; goto patch2
+
+end:
+
+Form of for statement without a counter:
+
+	a = 0;
+start:					&lt;&lt; patch2
+	if ( !( a &lt; 10 ) ) {
+		goto end;		&lt;&lt; patch1
+	}
+
+process:
+	statements;
+	goto start;			&lt;&lt; goto patch2
+
+end:
+================
+*/</doc>

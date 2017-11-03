@@ -1,0 +1,60 @@
+<inh f='codebrowser/d3xp/IK.h' l='42' c='idIK'/>
+<def f='codebrowser/d3xp/IK.h' l='148' ll='180'/>
+<size>280</size>
+<doc f='codebrowser/d3xp/IK.h' l='140'>/*
+===============================================================================
+
+  IK controller for reaching a position with an arm or leg.
+
+===============================================================================
+*/</doc>
+<fun r='_ZN10idIK_ReachC1Ev'/>
+<fun r='_ZN10idIK_ReachD1Ev'/>
+<fun r='_ZNK10idIK_Reach4SaveEP10idSaveGame'/>
+<fun r='_ZN10idIK_Reach7RestoreEP13idRestoreGame'/>
+<fun r='_ZN10idIK_Reach4InitEP8idEntityPKcRK6idVec3'/>
+<fun r='_ZN10idIK_Reach8EvaluateEv'/>
+<fun r='_ZN10idIK_Reach14ClearJointModsEv'/>
+<smbr r='idIK_Reach::MAX_ARMS' t='const int'/>
+<mbr r='idIK_Reach::numArms' o='256' t='int'/>
+<mbr r='idIK_Reach::enabledArms' o='288' t='int'/>
+<mbr r='idIK_Reach::handJoints' o='320' t='jointHandle_t [2]'/>
+<mbr r='idIK_Reach::elbowJoints' o='384' t='jointHandle_t [2]'/>
+<mbr r='idIK_Reach::shoulderJoints' o='448' t='jointHandle_t [2]'/>
+<mbr r='idIK_Reach::dirJoints' o='512' t='jointHandle_t [2]'/>
+<mbr r='idIK_Reach::shoulderForward' o='576' t='idVec3 [2]'/>
+<mbr r='idIK_Reach::elbowForward' o='768' t='idVec3 [2]'/>
+<mbr r='idIK_Reach::upperArmLength' o='960' t='float [2]'/>
+<mbr r='idIK_Reach::lowerArmLength' o='1024' t='float [2]'/>
+<mbr r='idIK_Reach::upperArmToShoulderJoint' o='1088' t='idMat3 [2]'/>
+<mbr r='idIK_Reach::lowerArmToElbowJoint' o='1664' t='idMat3 [2]'/>
+<inh f='codebrowser/game/IK.h' l='42' c='idIK'/>
+<def f='codebrowser/game/IK.h' l='148' ll='180'/>
+<size>280</size>
+<doc f='codebrowser/game/IK.h' l='140'>/*
+===============================================================================
+
+  IK controller for reaching a position with an arm or leg.
+
+===============================================================================
+*/</doc>
+<fun r='_ZN10idIK_ReachC1Ev'/>
+<fun r='_ZN10idIK_ReachD1Ev'/>
+<fun r='_ZNK10idIK_Reach4SaveEP10idSaveGame'/>
+<fun r='_ZN10idIK_Reach7RestoreEP13idRestoreGame'/>
+<fun r='_ZN10idIK_Reach4InitEP8idEntityPKcRK6idVec3'/>
+<fun r='_ZN10idIK_Reach8EvaluateEv'/>
+<fun r='_ZN10idIK_Reach14ClearJointModsEv'/>
+<smbr r='idIK_Reach::MAX_ARMS' t='const int'/>
+<mbr r='idIK_Reach::numArms' o='256' t='int'/>
+<mbr r='idIK_Reach::enabledArms' o='288' t='int'/>
+<mbr r='idIK_Reach::handJoints' o='320' t='jointHandle_t [2]'/>
+<mbr r='idIK_Reach::elbowJoints' o='384' t='jointHandle_t [2]'/>
+<mbr r='idIK_Reach::shoulderJoints' o='448' t='jointHandle_t [2]'/>
+<mbr r='idIK_Reach::dirJoints' o='512' t='jointHandle_t [2]'/>
+<mbr r='idIK_Reach::shoulderForward' o='576' t='idVec3 [2]'/>
+<mbr r='idIK_Reach::elbowForward' o='768' t='idVec3 [2]'/>
+<mbr r='idIK_Reach::upperArmLength' o='960' t='float [2]'/>
+<mbr r='idIK_Reach::lowerArmLength' o='1024' t='float [2]'/>
+<mbr r='idIK_Reach::upperArmToShoulderJoint' o='1088' t='idMat3 [2]'/>
+<mbr r='idIK_Reach::lowerArmToElbowJoint' o='1664' t='idMat3 [2]'/>

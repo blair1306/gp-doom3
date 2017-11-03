@@ -1,0 +1,35 @@
+<dec f='codebrowser/renderer/RenderWorld_local.h' l='259' type='void idRenderWorldLocal::CreateLightDefInteractions(idRenderLightLocal * ldef)'/>
+<doc f='codebrowser/renderer/RenderWorld_local.h' l='257'>//-------------------------------
+	// tr_light.c</doc>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1466' u='c' c='_ZN18idRenderWorldLocal23GenerateAllInteractionsEv'/>
+<def f='codebrowser/renderer/tr_light.cpp' l='541' ll='649' type='void idRenderWorldLocal::CreateLightDefInteractions(idRenderLightLocal * ldef)'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='995' u='c' c='_Z18R_AddLightSurfacesv'/>
+<doc f='codebrowser/renderer/tr_light.cpp' l='512'>/*
+=================
+idRenderWorldLocal::CreateLightDefInteractions
+
+When a lightDef is determined to effect the view (contact the frustum and non-0 light), it will check to
+make sure that it has interactions for all the entityDefs that it might possibly contact.
+
+This does not guarantee that all possible interactions for this light are generated, only that
+the ones that may effect the current view are generated. so it does need to be called every view.
+
+This does not cause entityDefs to create dynamic models, all work is done on the referenceBounds.
+
+All entities that have non-empty interactions with viewLights will
+have viewEntities made for them and be put on the viewEntity list,
+even if their surfaces aren&apos;t visible, because they may need to cast shadows.
+
+Interactions are usually removed when a entityDef or lightDef is modified, unless the change
+is known to not effect them, so there is no danger of getting a stale interaction, we just need to
+check that needed ones are created.
+
+An interaction can be at several levels:
+
+Don&apos;t interact (but share an area) (numSurfaces = 0)
+Entity reference bounds touches light frustum, but surfaces haven&apos;t been generated (numSurfaces = -1)
+Shadow surfaces have been generated, but light surfaces have not.  The shadow surface may still be empty due to bounds being conservative.
+Both shadow and light surfaces have been generated.  Either or both surfaces may still be empty due to conservative bounds.
+
+=================
+*/</doc>

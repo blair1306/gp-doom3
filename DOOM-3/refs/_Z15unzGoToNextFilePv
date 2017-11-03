@@ -1,0 +1,13 @@
+<dec f='codebrowser/framework/Unzip.h' l='237' type='int unzGoToNextFile(unzFile file)'/>
+<doc f='codebrowser/framework/Unzip.h' l='232'>/*
+  Set the current file of the zipfile to the first file.
+  return UNZ_OK if there is no problem
+*/</doc>
+<use f='codebrowser/framework/FileSystem.cpp' l='1364' u='c' c='_ZN17idFileSystemLocal11LoadZipFileEPKc'/>
+<def f='codebrowser/framework/Unzip.cpp' l='1648' ll='1669' type='int unzGoToNextFile(unzFile file)'/>
+<use f='codebrowser/framework/Unzip.cpp' l='1750' u='c' c='_Z13unzLocateFilePvPKci'/>
+<doc f='codebrowser/framework/Unzip.cpp' l='1643'>/*
+  Set the current file of the zipfile to the next file.
+  return UNZ_OK if there is no problem
+  return UNZ_END_OF_LIST_OF_FILE if the actual file was the latest.
+*/</doc>

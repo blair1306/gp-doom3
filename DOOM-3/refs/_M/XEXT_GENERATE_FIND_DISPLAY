@@ -1,0 +1,8 @@
+<dec f='codebrowser/sys/linux/libXNVCtrl/extutil.h' l='187'/>
+<use f='codebrowser/sys/linux/libXNVCtrl/NVCtrl.c' l='39' u='c'/>
+<doc f='codebrowser/sys/linux/libXNVCtrl/extutil.h' l='181'>/*
+ * helper macros to generate code that is common to all extensions; caller
+ * should prefix it with static if extension source is in one file; this
+ * could be a utility function, but have to stack 6 unused arguments for 
+ * something that is called many, many times would be bad.
+ */</doc>

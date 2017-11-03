@@ -1,0 +1,41 @@
+<dec f='codebrowser/idlib/containers/HashIndex.h' l='61' type='int idHashIndex::First(const int key) const'/>
+<def f='codebrowser/idlib/containers/HashIndex.h' l='238' ll='240' macro='1' type='int idHashIndex::First(const int key) const'/>
+<use f='codebrowser/idlib/containers/StrPool.h' l='104' u='c' c='_ZN9idStrPool11AllocStringEPKc'/>
+<use f='codebrowser/idlib/containers/StrPool.h' l='111' u='c' c='_ZN9idStrPool11AllocStringEPKc'/>
+<use f='codebrowser/idlib/containers/StrPool.h' l='142' u='c' c='_ZN9idStrPool10FreeStringEPK9idPoolStr'/>
+<use f='codebrowser/idlib/containers/StrPool.h' l='148' u='c' c='_ZN9idStrPool10FreeStringEPK9idPoolStr'/>
+<use f='codebrowser/idlib/containers/VectorSet.h' l='131' u='c' c='_ZN11idVectorSet10FindVectorERKT_f'/>
+<use f='codebrowser/idlib/containers/VectorSet.h' l='247' u='c' c='_ZN14idVectorSubset10FindVectorEPKT_if'/>
+<use f='codebrowser/idlib/containers/PlaneSet.h' l='58' u='c' c='_ZN10idPlaneSet9FindPlaneERK7idPlaneff'/>
+<doc f='codebrowser/idlib/containers/HashIndex.h' l='60'>// get the first index from the hash, returns -1 if empty hash entry</doc>
+<use f='codebrowser/cm/CollisionModel_load.cpp' l='2289' u='c' c='_ZN28idCollisionModelManagerLocal9GetVertexEP10cm_model_sRK6idVec3Pi'/>
+<use f='codebrowser/cm/CollisionModel_load.cpp' l='2352' u='c' c='_ZN28idCollisionModelManagerLocal7GetEdgeEP10cm_model_sRK6idVec3S4_Pii'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='3547' u='c' c='_ZN11idGameLocal20RemoveEntityFromHashEPKcP8idEntity'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='3634' u='c' c='_ZNK11idGameLocal10FindEntityEPKc'/>
+<use f='codebrowser/d3xp/anim/Anim.cpp' l='1008' u='c' c='_ZN13idAnimManager10JointIndexEPKc'/>
+<use f='codebrowser/d3xp/physics/Clip.cpp' l='105' u='c' c='_ZN11idClipModel15AllocTraceModelERK12idTraceModel'/>
+<use f='codebrowser/d3xp/script/Script_Program.cpp' l='1200' u='c' c='_ZNK9idProgram10GetDefListEPKc'/>
+<use f='codebrowser/d3xp/script/Script_Program.cpp' l='1217' u='c' c='_ZN9idProgram16AddDefToNameListEP8idVarDefPKc'/>
+<use f='codebrowser/framework/CVarSystem.cpp' l='525' u='c' c='_ZNK17idCVarSystemLocal12FindInternalEPKc'/>
+<use f='codebrowser/framework/Compressor.cpp' l='2341' u='c' c='_ZN16idCompressor_LZW6LookupEii'/>
+<use f='codebrowser/framework/DeclManager.cpp' l='1361' u='c' c='_ZN18idDeclManagerLocal13CreateNewDeclE10declType_tPKcS2_'/>
+<use f='codebrowser/framework/DeclManager.cpp' l='1439' u='c' c='_ZN18idDeclManagerLocal10RenameDeclE10declType_tPKcS2_'/>
+<use f='codebrowser/framework/DeclManager.cpp' l='1706' u='c' c='_ZN18idDeclManagerLocal22FindTypeWithoutParsingE10declType_tPKcb'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='1440' u='c' c='_ZNK17idFileSystemLocal9AddUniqueEPKcR6idListI5idStrER11idHashIndex'/>
+<use f='codebrowser/game/Game_local.cpp' l='3257' u='c' c='_ZN11idGameLocal20RemoveEntityFromHashEPKcP8idEntity'/>
+<use f='codebrowser/game/Game_local.cpp' l='3344' u='c' c='_ZNK11idGameLocal10FindEntityEPKc'/>
+<use f='codebrowser/game/anim/Anim.cpp' l='1008' u='c' c='_ZN13idAnimManager10JointIndexEPKc'/>
+<use f='codebrowser/game/physics/Clip.cpp' l='105' u='c' c='_ZN11idClipModel15AllocTraceModelERK12idTraceModel'/>
+<use f='codebrowser/game/script/Script_Program.cpp' l='1200' u='c' c='_ZNK9idProgram10GetDefListEPKc'/>
+<use f='codebrowser/game/script/Script_Program.cpp' l='1217' u='c' c='_ZN9idProgram16AddDefToNameListEP8idVarDefPKc'/>
+<use f='codebrowser/idlib/Dict.cpp' l='460' u='c' c='_ZNK6idDict7FindKeyEPKc'/>
+<use f='codebrowser/idlib/Dict.cpp' l='482' u='c' c='_ZNK6idDict12FindKeyIndexEPKc'/>
+<use f='codebrowser/idlib/Dict.cpp' l='500' u='c' c='_ZN6idDict6DeleteEPKc'/>
+<use f='codebrowser/idlib/LangDict.cpp' l='159' u='c' c='_ZNK10idLangDict9GetStringEPKc'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='2160' u='c' c='_ZN14idImageManager13AddDDSCommandEPKc'/>
+<use f='codebrowser/renderer/ModelManager.cpp' l='266' u='c' c='_ZN25idRenderModelManagerLocal8GetModelEPKcb'/>
+<use f='codebrowser/renderer/tr_trisurf.cpp' l='737' u='c' c='_ZL16R_CreateSilRemapPK14srfTriangles_s'/>
+<use f='codebrowser/renderer/tr_trisurf.cpp' l='936' u='c' c='_ZL12R_DefineEdgeiii'/>
+<use f='codebrowser/tools/compilers/aas/AASBuild_file.cpp' l='132' u='c' c='_ZN10idAASBuild9GetVertexERK6idVec3Pi'/>
+<use f='codebrowser/tools/compilers/aas/AASBuild_file.cpp' l='177' u='c' c='_ZN10idAASBuild7GetEdgeERK6idVec3S2_Pii'/>
+<use f='codebrowser/ui/RegExp.cpp' l='325' u='c' c='_ZN14idRegisterList7FindRegEPKc'/>

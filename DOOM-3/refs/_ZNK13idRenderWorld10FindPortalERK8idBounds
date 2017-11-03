@@ -1,0 +1,16 @@
+<dec f='codebrowser/renderer/RenderWorld.h' l='336' type='qhandle_t idRenderWorld::FindPortal(const idBounds &amp; b) const'/>
+<doc f='codebrowser/renderer/RenderWorld.h' l='332'>// returns 0 if no portal contacts the bounds
+	// This is used by the game to identify portals that are contained
+	// inside doors, so the connection between areas can be topologically
+	// terminated when the door shuts.</doc>
+<use f='codebrowser/d3xp/Misc.cpp' l='2036' u='c' c='_ZN23idVacuumSeparatorEntity5SpawnEv'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='2077' u='c' c='_ZN25idLocationSeparatorEntity5SpawnEv'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='2720' u='c' c='_ZN12idFuncPortal5SpawnEv'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='366' u='c' c='_ZN7idMover5SpawnEv'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='3340' u='c' c='_ZN6idDoor5SpawnEv'/>
+<use f='codebrowser/game/Misc.cpp' l='1970' u='c' c='_ZN23idVacuumSeparatorEntity5SpawnEv'/>
+<use f='codebrowser/game/Misc.cpp' l='2011' u='c' c='_ZN25idLocationSeparatorEntity5SpawnEv'/>
+<use f='codebrowser/game/Misc.cpp' l='2654' u='c' c='_ZN12idFuncPortal5SpawnEv'/>
+<use f='codebrowser/game/Mover.cpp' l='364' u='c' c='_ZN7idMover5SpawnEv'/>
+<use f='codebrowser/game/Mover.cpp' l='3306' u='c' c='_ZN6idDoor5SpawnEv'/>
+<ovr f='codebrowser/renderer/RenderWorld_portals.cpp' l='908' c='_ZNK18idRenderWorldLocal10FindPortalERK8idBounds'/>

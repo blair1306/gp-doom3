@@ -1,0 +1,52 @@
+<dec f='codebrowser/game/Game.h' l='212' type='const idSoundShader *'/>
+<offset>160</offset>
+<doc f='codebrowser/game/Game.h' l='211'>// no spatialization will be performed if == listenerID</doc>
+<doc f='codebrowser/game/Game.h' l='212'>// this really shouldn&apos;t be here, it is a holdover from single channel behavior</doc>
+<dec f='codebrowser/renderer/Interaction.h' l='76' type='const idMaterial *'/>
+<offset>96</offset>
+<dec f='codebrowser/d3xp/Game.h' l='214' type='const idSoundShader *'/>
+<offset>160</offset>
+<doc f='codebrowser/d3xp/Game.h' l='213'>// no spatialization will be performed if == listenerID</doc>
+<doc f='codebrowser/d3xp/Game.h' l='214'>// this really shouldn&apos;t be here, it is a holdover from single channel behavior</doc>
+<use f='codebrowser/d3xp/Entity.cpp' l='363' u='w' c='_ZN10idGameEdit24ParseSpawnArgsToRefSoundEPK6idDictP10refSound_t'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='584' u='r' c='_ZN8idEntity5SpawnEv'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='585' u='r' c='_ZN8idEntity5SpawnEv'/>
+<use f='codebrowser/d3xp/Light.cpp' l='178' u='r' c='_ZN7idLight25UpdateChangeableSpawnArgsEPK6idDict'/>
+<use f='codebrowser/d3xp/Light.cpp' l='179' u='r' c='_ZN7idLight25UpdateChangeableSpawnArgsEPK6idDict'/>
+<use f='codebrowser/d3xp/Light.cpp' l='567' u='r' c='_ZN7idLight2OnEv'/>
+<use f='codebrowser/d3xp/Light.cpp' l='568' u='r' c='_ZN7idLight2OnEv'/>
+<use f='codebrowser/d3xp/Light.cpp' l='682' u='r' c='_ZN7idLight12BecomeBrokenEP8idEntity'/>
+<use f='codebrowser/d3xp/Light.cpp' l='684' u='r' c='_ZN7idLight12BecomeBrokenEP8idEntity'/>
+<use f='codebrowser/d3xp/Light.cpp' l='684' u='r' c='_ZN7idLight12BecomeBrokenEP8idEntity'/>
+<use f='codebrowser/d3xp/Sound.cpp' l='245' u='r' c='_ZN7idSound8SetSoundEPKci'/>
+<use f='codebrowser/d3xp/Sound.cpp' l='249' u='w' c='_ZN7idSound8SetSoundEPKci'/>
+<use f='codebrowser/d3xp/Sound.cpp' l='263' u='r' c='_ZN7idSound7DoSoundEb'/>
+<use f='codebrowser/d3xp/gamesys/SaveGame.cpp' l='608' u='r' c='_ZN10idSaveGame13WriteRefSoundERK10refSound_t'/>
+<use f='codebrowser/d3xp/gamesys/SaveGame.cpp' l='1384' u='a' c='_ZN13idRestoreGame12ReadRefSoundER10refSound_t'/>
+<use f='codebrowser/game/Entity.cpp' l='347' u='w' c='_ZN10idGameEdit24ParseSpawnArgsToRefSoundEPK6idDictP10refSound_t'/>
+<use f='codebrowser/game/Entity.cpp' l='546' u='r' c='_ZN8idEntity5SpawnEv'/>
+<use f='codebrowser/game/Entity.cpp' l='547' u='r' c='_ZN8idEntity5SpawnEv'/>
+<use f='codebrowser/game/Light.cpp' l='178' u='r' c='_ZN7idLight25UpdateChangeableSpawnArgsEPK6idDict'/>
+<use f='codebrowser/game/Light.cpp' l='179' u='r' c='_ZN7idLight25UpdateChangeableSpawnArgsEPK6idDict'/>
+<use f='codebrowser/game/Light.cpp' l='560' u='r' c='_ZN7idLight2OnEv'/>
+<use f='codebrowser/game/Light.cpp' l='561' u='r' c='_ZN7idLight2OnEv'/>
+<use f='codebrowser/game/Light.cpp' l='675' u='r' c='_ZN7idLight12BecomeBrokenEP8idEntity'/>
+<use f='codebrowser/game/Light.cpp' l='677' u='r' c='_ZN7idLight12BecomeBrokenEP8idEntity'/>
+<use f='codebrowser/game/Light.cpp' l='677' u='r' c='_ZN7idLight12BecomeBrokenEP8idEntity'/>
+<use f='codebrowser/game/Sound.cpp' l='245' u='r' c='_ZN7idSound8SetSoundEPKci'/>
+<use f='codebrowser/game/Sound.cpp' l='249' u='w' c='_ZN7idSound8SetSoundEPKci'/>
+<use f='codebrowser/game/Sound.cpp' l='263' u='r' c='_ZN7idSound7DoSoundEb'/>
+<use f='codebrowser/game/gamesys/SaveGame.cpp' l='603' u='r' c='_ZN10idSaveGame13WriteRefSoundERK10refSound_t'/>
+<use f='codebrowser/game/gamesys/SaveGame.cpp' l='1374' u='a' c='_ZN13idRestoreGame12ReadRefSoundER10refSound_t'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='884' u='w' c='_ZN13idInteraction17CreateInteractionEPK13idRenderModel'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='1104' u='r' c='_ZN13idInteraction20AddActiveInteractionEv'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='1120' u='r' c='_ZN13idInteraction20AddActiveInteractionEv'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='1154' u='r' c='_ZN13idInteraction20AddActiveInteractionEv'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='1159' u='r' c='_ZN13idInteraction20AddActiveInteractionEv'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='1162' u='r' c='_ZN13idInteraction20AddActiveInteractionEv'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='1235' u='r' c='_ZN13idInteraction20AddActiveInteractionEv'/>
+<dec f='codebrowser/renderer/Model_md3.h' l='109' type='const idMaterial *'/>
+<use f='codebrowser/renderer/Model_md3.cpp' l='171' u='w' c='_ZN16idRenderModelMD312InitFromFileEPKc'/>
+<use f='codebrowser/renderer/Model_md3.cpp' l='313' u='r' c='_ZN16idRenderModelMD323InstantiateDynamicModelEPK14renderEntity_sPK9viewDef_sP13idRenderModel'/>
+<offset>512</offset>
+<doc f='codebrowser/renderer/Model_md3.h' l='109'>// for in-game use</doc>

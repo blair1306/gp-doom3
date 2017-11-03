@@ -1,0 +1,53 @@
+<dec f='codebrowser/idlib/Str.h' l='236' type='idStr &amp; idStr::StripFileExtension()'/>
+<doc f='codebrowser/idlib/Str.h' l='236'>// remove any file extension</doc>
+<use f='codebrowser/d3xp/AF.cpp' l='814' u='c' c='_ZN4idAF4LoadEP8idEntityPKc'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='2862' u='c' c='_ZN10idGameEdit17AF_UpdateEntitiesEPKc'/>
+<use f='codebrowser/d3xp/Item.cpp' l='1412' u='c' c='_ZN11idObjective13Event_CamShotEv'/>
+<use f='codebrowser/d3xp/Item.cpp' l='1484' u='c' c='_ZN11idObjective13Event_TriggerEP8idEntity'/>
+<use f='codebrowser/d3xp/Player.cpp' l='9996' u='c' c='_ZN8idPlayer18Event_LevelTriggerEv'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='2148' u='c' c='_ZL19Cmd_ShowViewNotes_fRK9idCmdArgs'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='4198' u='c' c='_ZN17idFileSystemLocal17FindMapScreenshotEPKcPci'/>
+<use f='codebrowser/framework/Session.cpp' l='95' u='c' c='_ZL13Session_Map_fRK9idCmdArgs'/>
+<use f='codebrowser/framework/Session.cpp' l='136' u='c' c='_ZL16Session_DevMap_fRK9idCmdArgs'/>
+<use f='codebrowser/framework/Session.cpp' l='173' u='c' c='_ZL17Session_TestMap_fRK9idCmdArgs'/>
+<use f='codebrowser/framework/Session.cpp' l='1102' u='c' c='_ZN14idSessionLocal16CompressDemoFileEPKcS1_'/>
+<use f='codebrowser/framework/Session.cpp' l='1294' u='c' c='_ZN14idSessionLocal12WriteCmdDemoEPKcb'/>
+<use f='codebrowser/framework/Session.cpp' l='1441' u='c' c='_ZN14idSessionLocal14LoadLoadingGuiEPKc'/>
+<use f='codebrowser/framework/Session.cpp' l='1554' u='c' c='_ZN14idSessionLocal16ExecuteMapChangeEb'/>
+<use f='codebrowser/framework/Session.cpp' l='1869' u='c' c='_ZNK14idSessionLocal21ScrubSaveGameFileNameER5idStr'/>
+<use f='codebrowser/framework/Session.cpp' l='2015' u='c' c='_ZN14idSessionLocal8SaveGameEPKcb'/>
+<use f='codebrowser/framework/Session_menu.cpp' l='168' u='c' c='_ZN14idSessionLocal15GetSaveGameListER6idListI5idStrERS0_I10fileTIME_TE'/>
+<use f='codebrowser/framework/Session_menu.cpp' l='1577' u='c' c='_ZN14idSessionLocal18HandleNoteCommandsEPKc'/>
+<use f='codebrowser/framework/Session_menu.cpp' l='1594' u='c' c='_ZN14idSessionLocal18HandleNoteCommandsEPKc'/>
+<use f='codebrowser/framework/Session_menu.cpp' l='1609' u='c' c='_ZN14idSessionLocal18HandleNoteCommandsEPKc'/>
+<use f='codebrowser/game/AF.cpp' l='814' u='c' c='_ZN4idAF4LoadEP8idEntityPKc'/>
+<use f='codebrowser/game/AFEntity.cpp' l='2584' u='c' c='_ZN10idGameEdit17AF_UpdateEntitiesEPKc'/>
+<use f='codebrowser/game/Item.cpp' l='700' u='c' c='_ZN11idObjective13Event_CamShotEv'/>
+<use f='codebrowser/game/Item.cpp' l='734' u='c' c='_ZN11idObjective13Event_TriggerEP8idEntity'/>
+<use f='codebrowser/game/Player.cpp' l='8442' u='c' c='_ZN8idPlayer18Event_LevelTriggerEv'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='2073' u='c' c='_ZL19Cmd_ShowViewNotes_fRK9idCmdArgs'/>
+<use f='codebrowser/idlib/MapFile.cpp' l='729' u='c' c='_ZN9idMapFile5ParseEPKcbb'/>
+<use f='codebrowser/idlib/Str.cpp' l='744' u='c' c='_ZN5idStr16SetFileExtensionEPKc'/>
+<def f='codebrowser/idlib/Str.cpp' l='757' ll='768' type='idStr &amp; idStr::StripFileExtension()'/>
+<doc f='codebrowser/idlib/Str.cpp' l='752'>/*
+============
+idStr::StripFileExtension
+============
+*/</doc>
+<use f='codebrowser/renderer/Image_files.cpp' l='1027' u='c' c='_Z11R_LoadImagePKcPPhPiS3_Plb'/>
+<use f='codebrowser/renderer/Image_load.cpp' l='1107' u='c' c='_ZN7idImage23WritePrecompressedImageEv'/>
+<use f='codebrowser/renderer/MegaTexture.cpp' l='90' u='c' c='_ZN13idMegaTexture16InitFromMegaFileEPKc'/>
+<use f='codebrowser/renderer/MegaTexture.cpp' l='592' u='c' c='_ZN13idMegaTexture19GenerateMegaPreviewEPKc'/>
+<use f='codebrowser/renderer/MegaTexture.cpp' l='666' u='c' c='_ZN13idMegaTexture17MakeMegaTexture_fERK9idCmdArgs'/>
+<use f='codebrowser/renderer/MegaTexture.cpp' l='731' u='c' c='_ZN13idMegaTexture17MakeMegaTexture_fERK9idCmdArgs'/>
+<use f='codebrowser/renderer/Model.cpp' l='1983' u='c' c='_ZN19idRenderModelStatic7LoadFLTEPKc'/>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='898' u='c' c='_Z13R_TestVideo_fRK9idCmdArgs'/>
+<use f='codebrowser/renderer/draw_arb2.cpp' l='470' u='c' c='_Z16R_FindARBProgramjPKc'/>
+<use f='codebrowser/renderer/draw_arb2.cpp' l='479' u='c' c='_Z16R_FindARBProgramjPKc'/>
+<use f='codebrowser/tools/compilers/aas/Brush.cpp' l='1509' u='c' c='_ZN10idBrushMapC1ERK5idStrS2_'/>
+<use f='codebrowser/tools/compilers/dmap/dmap.cpp' l='306' u='c' c='_Z4DmapRK9idCmdArgs'/>
+<use f='codebrowser/tools/compilers/renderbump/renderbump.cpp' l='1055' u='c' c='_ZL15WriteRenderBumpP12renderBump_ti'/>
+<use f='codebrowser/tools/compilers/renderbump/renderbump.cpp' l='1063' u='c' c='_ZL15WriteRenderBumpP12renderBump_ti'/>
+<use f='codebrowser/tools/compilers/renderbump/renderbump.cpp' l='1604' u='c' c='_Z16RenderBumpFlat_fRK9idCmdArgs'/>
+<use f='codebrowser/tools/compilers/renderbump/renderbump.cpp' l='1620' u='c' c='_Z16RenderBumpFlat_fRK9idCmdArgs'/>
+<use f='codebrowser/ui/MarkerWindow.cpp' l='317' u='c' c='_ZN14idMarkerWindow8ActivateEbR5idStr'/>

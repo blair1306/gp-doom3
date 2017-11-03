@@ -1,0 +1,14 @@
+<dec f='codebrowser/sound/OggVorbis/vorbis/vorbisfile.h' l='129' type='long ov_read_float(OggVorbis_File * vf, float *** pcm_channels, int samples, int * bitstream)'/>
+<def f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1672' ll='1700' type='long ov_read_float(OggVorbis_File * vf, float *** pcm_channels, int length, int * bitstream)'/>
+<doc f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1658'>/* input values: pcm_channels) a float vector per channel of output
+		 length) the sample length being read by the app
+
+   return values: &lt;0) error/hole in data (OV_HOLE), partial open (OV_EINVAL)
+                   0) EOF
+		   n) number of samples of PCM actually returned.  The
+		   below works on a packet-by-packet basis, so the
+		   return length is not related to the &apos;length&apos; passed
+		   in, just guaranteed to fit.
+
+	    *section) set to the logical bitstream number */</doc>
+<use f='codebrowser/sound/snd_decoder.cpp' l='552' u='c' c='_ZN20idSampleDecoderLocal9DecodeOGGEP13idSoundSampleiiPf'/>

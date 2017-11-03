@@ -1,0 +1,18 @@
+<dec f='codebrowser/curl/include/curl/curl.h' l='1038' type='void curl_free(void * p)'/>
+<doc f='codebrowser/curl/include/curl/curl.h' l='1030'>/*
+ * NAME curl_free()
+ *
+ * DESCRIPTION
+ *
+ * Provided for de-allocation in the same translation unit that did the
+ * allocation. Added in libcurl 7.10
+ */</doc>
+<def f='codebrowser/curl/lib/escape.c' l='125' ll='128' type='void curl_free(void * p)'/>
+<doc f='codebrowser/curl/lib/escape.c' l='122'>/* For operating systems/environments that use different malloc/free
+   ssystems for the app and for this library, we provide a free that uses
+   the library&apos;s memory system */</doc>
+<use f='codebrowser/curl/src/main.c' l='2407' u='c' c='progressbarinit'/>
+<use f='codebrowser/curl/src/main.c' l='2644' u='c' c='operate'/>
+<use f='codebrowser/curl/src/main.c' l='2650' u='c' c='operate'/>
+<use f='codebrowser/curl/src/main.c' l='2757' u='c' c='operate'/>
+<use f='codebrowser/curl/src/main.c' l='3022' u='c' c='operate'/>

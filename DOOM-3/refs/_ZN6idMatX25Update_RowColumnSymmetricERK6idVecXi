@@ -1,0 +1,17 @@
+<dec f='codebrowser/idlib/math/Matrix.h' l='1900' type='void idMatX::Update_RowColumnSymmetric(const idVecX &amp; v, int r)'/>
+<def f='codebrowser/idlib/math/Matrix.cpp' l='3528' ll='3543' type='void idMatX::Update_RowColumnSymmetric(const idVecX &amp; v, int r)'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7786' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7940' u='c' c='_ZN6idMatX4TestEv'/>
+<doc f='codebrowser/idlib/math/Matrix.cpp' l='3515'>/*
+============
+idMatX::Update_RowColumnSymmetric
+
+  Updates the matrix to obtain the matrix:
+
+      [ 0  a  0 ]
+  A + [ a  b  c ]
+      [ 0  c  0 ]
+
+  where: a = v[0,r-1], b = v[r], c = v[r+1,numRows-1]
+============
+*/</doc>

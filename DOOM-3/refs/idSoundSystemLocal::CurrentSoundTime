@@ -1,0 +1,10 @@
+<dec f='codebrowser/sound/snd_local.h' l='742' type='int'/>
+<offset>192</offset>
+<doc f='codebrowser/sound/snd_local.h' l='742'>// set by the async thread and only used by the main thread</doc>
+<use f='codebrowser/sound/snd_decoder.cpp' l='434' u='r' c='_ZN20idSampleDecoderLocal6DecodeEP13idSoundSampleiiPf'/>
+<use f='codebrowser/sound/snd_system.cpp' l='311' u='w' c='_ZN18idSoundSystemLocal4InitEv'/>
+<use f='codebrowser/sound/snd_system.cpp' l='561' u='r' c='_ZNK18idSoundSystemLocal19GetCurrent44kHzTimeEv'/>
+<use f='codebrowser/sound/snd_system.cpp' l='615' u='w' c='_ZN18idSoundSystemLocal8AsyncMixEiPf'/>
+<use f='codebrowser/sound/snd_system.cpp' l='697' u='r' c='_ZN18idSoundSystemLocal11AsyncUpdateEi'/>
+<use f='codebrowser/sound/snd_system.cpp' l='733' u='w' c='_ZN18idSoundSystemLocal11AsyncUpdateEi'/>
+<use f='codebrowser/sound/snd_system.cpp' l='810' u='w' c='_ZN18idSoundSystemLocal16AsyncUpdateWriteEi'/>

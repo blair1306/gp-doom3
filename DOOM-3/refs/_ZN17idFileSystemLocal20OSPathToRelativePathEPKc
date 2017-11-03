@@ -1,0 +1,15 @@
+<dec f='codebrowser/framework/FileSystem.cpp' l='355' type='const char * idFileSystemLocal::OSPathToRelativePath(const char * OSPath)'/>
+<inh f='codebrowser/framework/FileSystem.h' l='181' c='_ZN12idFileSystem20OSPathToRelativePathEPKc'/>
+<def f='codebrowser/framework/FileSystem.cpp' l='851' ll='932' type='const char * idFileSystemLocal::OSPathToRelativePath(const char * OSPath)'/>
+<doc f='codebrowser/framework/FileSystem.cpp' l='839'>/*
+================
+idFileSystemLocal::OSPathToRelativePath
+
+takes a full OS path, as might be found in data from a media creation
+program, and converts it to a relativePath by stripping off directories
+
+Returns false if the osPath tree doesn&apos;t match any of the existing
+search paths.
+
+================
+*/</doc>

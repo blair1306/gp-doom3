@@ -1,0 +1,15 @@
+<dec f='codebrowser/framework/Session_local.h' l='121' type='bool idSessionLocal::CDKeysAreValid(bool strict)'/>
+<use f='codebrowser/framework/Session.cpp' l='237' u='c' c='_ZL19Session_PromptKey_fRK9idCmdArgs'/>
+<use f='codebrowser/framework/Session.cpp' l='254' u='c' c='_ZL19Session_PromptKey_fRK9idCmdArgs'/>
+<use f='codebrowser/framework/Session.cpp' l='1157' u='c' c='_ZN14idSessionLocal12StartNewGameEPKcb'/>
+<use f='codebrowser/framework/Session.cpp' l='1161' u='c' c='_ZN14idSessionLocal12StartNewGameEPKcb'/>
+<inh f='codebrowser/framework/Session.h' l='136' c='_ZN9idSession14CDKeysAreValidEb'/>
+<def f='codebrowser/framework/Session.cpp' l='3205' ll='3254' type='bool idSessionLocal::CDKeysAreValid(bool strict)'/>
+<doc f='codebrowser/framework/Session.cpp' l='3197'>/*
+===============
+idSessionLocal::CDKeysAreValid
+checking that the key is present and uses only valid characters
+if d3xp is installed, check for a valid xpkey as well
+emit an auth packet to the master if possible and needed
+===============
+*/</doc>

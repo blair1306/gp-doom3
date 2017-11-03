@@ -1,0 +1,20 @@
+<dec f='codebrowser/renderer/jpeg-6/jpeglib.h' l='583' type='int'/>
+<offset>2272</offset>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='578'>/*
+   * These fields are valid during any one scan.
+   * They describe the components and MCUs actually appearing in the scan.
+   * Note that the decompressor output side must not use these fields.
+   */</doc>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='583'>/* # of JPEG components in this scan */</doc>
+<use f='codebrowser/renderer/jpeg-6/jdcoefct.c' l='88' u='r' c='start_iMCU_row'/>
+<use f='codebrowser/renderer/jpeg-6/jdcoefct.c' l='179' u='r' c='decompress_onepass'/>
+<use f='codebrowser/renderer/jpeg-6/jdhuff.c' l='91' u='r' c='start_pass_huff_decoder'/>
+<use f='codebrowser/renderer/jpeg-6/jdhuff.c' l='408' u='r' c='process_restart'/>
+<use f='codebrowser/renderer/jpeg-6/jdinput.c' l='113' u='r' c='initial_setup'/>
+<use f='codebrowser/renderer/jpeg-6/jdinput.c' l='128' u='r' c='per_scan_setup'/>
+<use f='codebrowser/renderer/jpeg-6/jdinput.c' l='157' u='r' c='per_scan_setup'/>
+<use f='codebrowser/renderer/jpeg-6/jdinput.c' l='157' u='r' c='per_scan_setup'/>
+<use f='codebrowser/renderer/jpeg-6/jdinput.c' l='158' u='r' c='per_scan_setup'/>
+<use f='codebrowser/renderer/jpeg-6/jdinput.c' l='171' u='r' c='per_scan_setup'/>
+<use f='codebrowser/renderer/jpeg-6/jdinput.c' l='226' u='r' c='latch_quant_tables'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='288' u='w' c='get_sos'/>

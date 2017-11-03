@@ -1,0 +1,31 @@
+<dec f='codebrowser/renderer/Model_local.h' l='59' type='void idRenderModelStatic::FinishSurfaces()'/>
+<use f='codebrowser/renderer/Model.cpp' l='259' u='c' c='_ZN19idRenderModelStatic16MakeDefaultModelEv'/>
+<use f='codebrowser/renderer/Model.cpp' l='314' u='c' c='_ZN19idRenderModelStatic12InitFromFileEPKc'/>
+<inh f='codebrowser/renderer/Model.h' l='196' c='_ZN13idRenderModel14FinishSurfacesEv'/>
+<def f='codebrowser/renderer/Model.cpp' l='580' ll='708' type='void idRenderModelStatic::FinishSurfaces()'/>
+<use f='codebrowser/renderer/Model.cpp' l='2191' u='c' c='_ZN19idRenderModelStatic16ReadFromDemoFileEP10idDemoFile'/>
+<doc f='codebrowser/renderer/Model.cpp' l='555'>/*
+================
+idRenderModelStatic::FinishSurfaces
+
+The mergeShadows option allows surfaces with different textures to share
+silhouette edges for shadow calculation, instead of leaving shared edges
+hanging.
+
+If any of the original shaders have the noSelfShadow flag set, the surfaces
+can&apos;t be merged, because they will need to be drawn in different order.
+
+If there is only one surface, a separate merged surface won&apos;t be generated.
+
+A model with multiple surfaces can&apos;t later have a skinned shader change the
+state of the noSelfShadow flag.
+
+-----------------
+
+Creates mirrored copies of two sided surfaces with normal maps, which would
+otherwise light funny.
+
+Extends the bounds of deformed surfaces so they don&apos;t cull incorrectly at screen edges.
+
+================
+*/</doc>

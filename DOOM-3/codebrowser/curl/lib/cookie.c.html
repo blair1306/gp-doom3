@@ -1,0 +1,866 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>cookie.c source code [codebrowser/curl/lib/cookie.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/curl/lib/cookie.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>curl</a>/<a href='./'>lib</a>/<a href='cookie.c.html'>cookie.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/***************************************************************************</i></td></tr>
+<tr><th id="2">2</th><td><i> *                                  _   _ ____  _     </i></td></tr>
+<tr><th id="3">3</th><td><i> *  Project                     ___| | | |  _ \| |    </i></td></tr>
+<tr><th id="4">4</th><td><i> *                             / __| | | | |_) | |    </i></td></tr>
+<tr><th id="5">5</th><td><i> *                            | (__| |_| |  _ &lt;| |___ </i></td></tr>
+<tr><th id="6">6</th><td><i> *                             \___|\___/|_| \_\_____|</i></td></tr>
+<tr><th id="7">7</th><td><i> *</i></td></tr>
+<tr><th id="8">8</th><td><i> * Copyright (C) 1998 - 2004, Daniel Stenberg, &lt;daniel@haxx.se&gt;, et al.</i></td></tr>
+<tr><th id="9">9</th><td><i> *</i></td></tr>
+<tr><th id="10">10</th><td><i> * This software is licensed as described in the file COPYING, which</i></td></tr>
+<tr><th id="11">11</th><td><i> * you should have received as part of this distribution. The terms</i></td></tr>
+<tr><th id="12">12</th><td><i> * are also available at <a href="http://curl.haxx.se/docs/copyright.html">http://curl.haxx.se/docs/copyright.html</a>.</i></td></tr>
+<tr><th id="13">13</th><td><i> * </i></td></tr>
+<tr><th id="14">14</th><td><i> * You may opt to use, copy, modify, merge, publish, distribute and/or sell</i></td></tr>
+<tr><th id="15">15</th><td><i> * copies of the Software, and permit persons to whom the Software is</i></td></tr>
+<tr><th id="16">16</th><td><i> * furnished to do so, under the terms of the COPYING file.</i></td></tr>
+<tr><th id="17">17</th><td><i> *</i></td></tr>
+<tr><th id="18">18</th><td><i> * This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY</i></td></tr>
+<tr><th id="19">19</th><td><i> * KIND, either express or implied.</i></td></tr>
+<tr><th id="20">20</th><td><i> *</i></td></tr>
+<tr><th id="21">21</th><td><i> * $Id: cookie.c,v 1.52 2004/03/10 09:41:37 bagder Exp $</i></td></tr>
+<tr><th id="22">22</th><td><i> ***************************************************************************/</i></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><i>/***</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i></i></td></tr>
+<tr><th id="27">27</th><td><i>RECEIVING COOKIE INFORMATION</i></td></tr>
+<tr><th id="28">28</th><td><i>============================</i></td></tr>
+<tr><th id="29">29</th><td><i></i></td></tr>
+<tr><th id="30">30</th><td><i>struct CookieInfo *cookie_init(char *file);</i></td></tr>
+<tr><th id="31">31</th><td><i>	</i></td></tr>
+<tr><th id="32">32</th><td><i>	Inits a cookie struct to store data in a local file. This is always</i></td></tr>
+<tr><th id="33">33</th><td><i>	called before any cookies are set.</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>int cookies_set(struct CookieInfo *cookie, char *cookie_line);</i></td></tr>
+<tr><th id="36">36</th><td><i></i></td></tr>
+<tr><th id="37">37</th><td><i>	The 'cookie_line' parameter is a full "Set-cookie:" line as</i></td></tr>
+<tr><th id="38">38</th><td><i>	received from a server.</i></td></tr>
+<tr><th id="39">39</th><td><i></i></td></tr>
+<tr><th id="40">40</th><td><i>	The function need to replace previously stored lines that this new</i></td></tr>
+<tr><th id="41">41</th><td><i>	line superceeds.</i></td></tr>
+<tr><th id="42">42</th><td><i></i></td></tr>
+<tr><th id="43">43</th><td><i>	It may remove lines that are expired.</i></td></tr>
+<tr><th id="44">44</th><td><i></i></td></tr>
+<tr><th id="45">45</th><td><i>	It should return an indication of success/error.</i></td></tr>
+<tr><th id="46">46</th><td><i></i></td></tr>
+<tr><th id="47">47</th><td><i></i></td></tr>
+<tr><th id="48">48</th><td><i>SENDING COOKIE INFORMATION</i></td></tr>
+<tr><th id="49">49</th><td><i>==========================</i></td></tr>
+<tr><th id="50">50</th><td><i></i></td></tr>
+<tr><th id="51">51</th><td><i>struct Cookies *cookie_getlist(struct CookieInfo *cookie,</i></td></tr>
+<tr><th id="52">52</th><td><i>                               char *host, char *path, bool secure);</i></td></tr>
+<tr><th id="53">53</th><td><i></i></td></tr>
+<tr><th id="54">54</th><td><i>	For a given host and path, return a linked list of cookies that</i></td></tr>
+<tr><th id="55">55</th><td><i>	the client should send to the server if used now. The secure</i></td></tr>
+<tr><th id="56">56</th><td><i>	boolean informs the cookie if a secure connection is achieved or</i></td></tr>
+<tr><th id="57">57</th><td><i>	not.</i></td></tr>
+<tr><th id="58">58</th><td><i></i></td></tr>
+<tr><th id="59">59</th><td><i>	It shall only return cookies that haven't expired.</i></td></tr>
+<tr><th id="60">60</th><td><i></i></td></tr>
+<tr><th id="61">61</th><td><i>    </i></td></tr>
+<tr><th id="62">62</th><td><i>Example set of cookies:</i></td></tr>
+<tr><th id="63">63</th><td><i>    </i></td></tr>
+<tr><th id="64">64</th><td><i>    Set-cookie: PRODUCTINFO=webxpress; domain=.fidelity.com; path=/; secure</i></td></tr>
+<tr><th id="65">65</th><td><i>    Set-cookie: PERSONALIZE=none;expires=Monday, 13-Jun-1988 03:04:55 GMT;</i></td></tr>
+<tr><th id="66">66</th><td><i>    domain=.fidelity.com; path=/ftgw; secure</i></td></tr>
+<tr><th id="67">67</th><td><i>    Set-cookie: FidHist=none;expires=Monday, 13-Jun-1988 03:04:55 GMT;</i></td></tr>
+<tr><th id="68">68</th><td><i>    domain=.fidelity.com; path=/; secure</i></td></tr>
+<tr><th id="69">69</th><td><i>    Set-cookie: FidOrder=none;expires=Monday, 13-Jun-1988 03:04:55 GMT;</i></td></tr>
+<tr><th id="70">70</th><td><i>    domain=.fidelity.com; path=/; secure</i></td></tr>
+<tr><th id="71">71</th><td><i>    Set-cookie: DisPend=none;expires=Monday, 13-Jun-1988 03:04:55 GMT;</i></td></tr>
+<tr><th id="72">72</th><td><i>    domain=.fidelity.com; path=/; secure</i></td></tr>
+<tr><th id="73">73</th><td><i>    Set-cookie: FidDis=none;expires=Monday, 13-Jun-1988 03:04:55 GMT;</i></td></tr>
+<tr><th id="74">74</th><td><i>    domain=.fidelity.com; path=/; secure</i></td></tr>
+<tr><th id="75">75</th><td><i>    Set-cookie:</i></td></tr>
+<tr><th id="76">76</th><td><i>    Session_Key@6791a9e0-901a-11d0-a1c8-9b012c88aa77=none;expires=Monday,</i></td></tr>
+<tr><th id="77">77</th><td><i>    13-Jun-1988 03:04:55 GMT; domain=.fidelity.com; path=/; secure</i></td></tr>
+<tr><th id="78">78</th><td><i>****/</i></td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td><u>#include <a href="setup.h.html">"setup.h"</a></u></td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td><u>#<span data-ppcond="83">ifndef</span> <span class="macro" data-ref="_M/CURL_DISABLE_HTTP">CURL_DISABLE_HTTP</span></u></td></tr>
+<tr><th id="84">84</th><td></td></tr>
+<tr><th id="85">85</th><td><u>#include <a href="../../../include/stdlib.h.html">&lt;stdlib.h&gt;</a></u></td></tr>
+<tr><th id="86">86</th><td><u>#include <a href="../../../include/string.h.html">&lt;string.h&gt;</a></u></td></tr>
+<tr><th id="87">87</th><td><u>#include <a href="../../../include/ctype.h.html">&lt;ctype.h&gt;</a></u></td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td><u>#include <a href="urldata.h.html">"urldata.h"</a></u></td></tr>
+<tr><th id="90">90</th><td><u>#include <a href="cookie.h.html">"cookie.h"</a></u></td></tr>
+<tr><th id="91">91</th><td><u>#include <a href="getdate.h.html">"getdate.h"</a></u></td></tr>
+<tr><th id="92">92</th><td><u>#include <a href="strequal.h.html">"strequal.h"</a></u></td></tr>
+<tr><th id="93">93</th><td><u>#include <a href="strtok.h.html">"strtok.h"</a></u></td></tr>
+<tr><th id="94">94</th><td><u>#include <a href="sendf.h.html">"sendf.h"</a></u></td></tr>
+<tr><th id="95">95</th><td></td></tr>
+<tr><th id="96">96</th><td><i>/* The last #include file should be: */</i></td></tr>
+<tr><th id="97">97</th><td><u>#<span data-ppcond="97">ifdef</span> <span class="macro" data-ref="_M/CURLDEBUG">CURLDEBUG</span></u></td></tr>
+<tr><th id="98">98</th><td><u>#include <a href="memdebug.h.html">"memdebug.h"</a></u></td></tr>
+<tr><th id="99">99</th><td><u>#<span data-ppcond="97">endif</span></u></td></tr>
+<tr><th id="100">100</th><td></td></tr>
+<tr><th id="101">101</th><td><em>static</em> <em>void</em></td></tr>
+<tr><th id="102">102</th><td><dfn class="tu decl def" id="free_cookiemess" title='free_cookiemess' data-type='void free_cookiemess(struct Cookie * co)' data-ref="free_cookiemess">free_cookiemess</dfn>(<b>struct</b> <a class="type" href="cookie.h.html#Cookie" title='Cookie' data-ref="Cookie">Cookie</a> *<dfn class="local col1 decl" id="11co" title='co' data-type='struct Cookie *' data-ref="11co">co</dfn>)</td></tr>
+<tr><th id="103">103</th><td>{</td></tr>
+<tr><th id="104">104</th><td>  <b>if</b>(<a class="local col1 ref" href="#11co" title='co' data-ref="11co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::domain" title='Cookie::domain' data-ref="Cookie::domain">domain</a>)</td></tr>
+<tr><th id="105">105</th><td>    <a class="macro" href="memdebug.h.html#78" title="curl_dofree(co-&gt;domain, 105, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col1 ref" href="#11co" title='co' data-ref="11co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::domain" title='Cookie::domain' data-ref="Cookie::domain">domain</a>);</td></tr>
+<tr><th id="106">106</th><td>  <b>if</b>(<a class="local col1 ref" href="#11co" title='co' data-ref="11co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::path" title='Cookie::path' data-ref="Cookie::path">path</a>)</td></tr>
+<tr><th id="107">107</th><td>    <a class="macro" href="memdebug.h.html#78" title="curl_dofree(co-&gt;path, 107, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col1 ref" href="#11co" title='co' data-ref="11co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::path" title='Cookie::path' data-ref="Cookie::path">path</a>);</td></tr>
+<tr><th id="108">108</th><td>  <b>if</b>(<a class="local col1 ref" href="#11co" title='co' data-ref="11co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::name" title='Cookie::name' data-ref="Cookie::name">name</a>)</td></tr>
+<tr><th id="109">109</th><td>    <a class="macro" href="memdebug.h.html#78" title="curl_dofree(co-&gt;name, 109, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col1 ref" href="#11co" title='co' data-ref="11co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::name" title='Cookie::name' data-ref="Cookie::name">name</a>);</td></tr>
+<tr><th id="110">110</th><td>  <b>if</b>(<a class="local col1 ref" href="#11co" title='co' data-ref="11co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::value" title='Cookie::value' data-ref="Cookie::value">value</a>)</td></tr>
+<tr><th id="111">111</th><td>    <a class="macro" href="memdebug.h.html#78" title="curl_dofree(co-&gt;value, 111, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col1 ref" href="#11co" title='co' data-ref="11co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::value" title='Cookie::value' data-ref="Cookie::value">value</a>);</td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td>  <a class="macro" href="memdebug.h.html#78" title="curl_dofree(co, 113, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col1 ref" href="#11co" title='co' data-ref="11co">co</a>);</td></tr>
+<tr><th id="114">114</th><td>}</td></tr>
+<tr><th id="115">115</th><td></td></tr>
+<tr><th id="116">116</th><td><em>static</em> <a class="typedef" href="setup.h.html#bool" title='bool' data-type='unsigned char' data-ref="bool">bool</a> <dfn class="tu decl def" id="tailmatch" title='tailmatch' data-type='bool tailmatch(const char * little, const char * bigone)' data-ref="tailmatch">tailmatch</dfn>(<em>const</em> <em>char</em> *<dfn class="local col2 decl" id="12little" title='little' data-type='const char *' data-ref="12little">little</dfn>, <em>const</em> <em>char</em> *<dfn class="local col3 decl" id="13bigone" title='bigone' data-type='const char *' data-ref="13bigone">bigone</dfn>)</td></tr>
+<tr><th id="117">117</th><td>{</td></tr>
+<tr><th id="118">118</th><td>  <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col4 decl" id="14littlelen" title='littlelen' data-type='size_t' data-ref="14littlelen">littlelen</dfn> = <a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>(<a class="local col2 ref" href="#12little" title='little' data-ref="12little">little</a>);</td></tr>
+<tr><th id="119">119</th><td>  <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col5 decl" id="15biglen" title='biglen' data-type='size_t' data-ref="15biglen">biglen</dfn> = <a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>(<a class="local col3 ref" href="#13bigone" title='bigone' data-ref="13bigone">bigone</a>);</td></tr>
+<tr><th id="120">120</th><td></td></tr>
+<tr><th id="121">121</th><td>  <b>if</b>(<a class="local col4 ref" href="#14littlelen" title='littlelen' data-ref="14littlelen">littlelen</a> &gt; <a class="local col5 ref" href="#15biglen" title='biglen' data-ref="15biglen">biglen</a>)</td></tr>
+<tr><th id="122">122</th><td>    <b>return</b> <a class="macro" href="setup.h.html#70" title="0" data-ref="_M/FALSE">FALSE</a>;</td></tr>
+<tr><th id="123">123</th><td></td></tr>
+<tr><th id="124">124</th><td>  <b>return</b> (<a class="typedef" href="setup.h.html#bool" title='bool' data-type='unsigned char' data-ref="bool">bool</a>)<a class="macro" href="strequal.h.html#32" title="curl_strequal(little,bigone+biglen-littlelen)" data-ref="_M/strequal">strequal</a>(<a class="local col2 ref" href="#12little" title='little' data-ref="12little">little</a>, <a class="local col3 ref" href="#13bigone" title='bigone' data-ref="13bigone">bigone</a>+<a class="local col5 ref" href="#15biglen" title='biglen' data-ref="15biglen">biglen</a>-<a class="local col4 ref" href="#14littlelen" title='littlelen' data-ref="14littlelen">littlelen</a>);</td></tr>
+<tr><th id="125">125</th><td>}</td></tr>
+<tr><th id="126">126</th><td></td></tr>
+<tr><th id="127">127</th><td><i>/****************************************************************************</i></td></tr>
+<tr><th id="128">128</th><td><i> *</i></td></tr>
+<tr><th id="129">129</th><td><i> * Curl_cookie_add()</i></td></tr>
+<tr><th id="130">130</th><td><i> *</i></td></tr>
+<tr><th id="131">131</th><td><i> * Add a single cookie line to the cookie keeping object.</i></td></tr>
+<tr><th id="132">132</th><td><i> *</i></td></tr>
+<tr><th id="133">133</th><td><i> ***************************************************************************/</i></td></tr>
+<tr><th id="134">134</th><td></td></tr>
+<tr><th id="135">135</th><td><b>struct</b> <a class="type" href="cookie.h.html#Cookie" title='Cookie' data-ref="Cookie">Cookie</a> *</td></tr>
+<tr><th id="136">136</th><td><dfn class="decl def" id="Curl_cookie_add" title='Curl_cookie_add' data-ref="Curl_cookie_add">Curl_cookie_add</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *<dfn class="local col6 decl" id="16data" title='data' data-type='struct SessionHandle *' data-ref="16data">data</dfn>,</td></tr>
+<tr><th id="137">137</th><td>                <i>/* The 'data' pointer here may be NULL at times, and thus</i></td></tr>
+<tr><th id="138">138</th><td><i>                   must only be used very carefully for things that can deal</i></td></tr>
+<tr><th id="139">139</th><td><i>                   with data being NULL. Such as infof() and similar */</i></td></tr>
+<tr><th id="140">140</th><td>                </td></tr>
+<tr><th id="141">141</th><td>                <b>struct</b> <a class="type" href="cookie.h.html#CookieInfo" title='CookieInfo' data-ref="CookieInfo">CookieInfo</a> *<dfn class="local col7 decl" id="17c" title='c' data-type='struct CookieInfo *' data-ref="17c">c</dfn>,</td></tr>
+<tr><th id="142">142</th><td>                <a class="typedef" href="setup.h.html#bool" title='bool' data-type='unsigned char' data-ref="bool">bool</a> <dfn class="local col8 decl" id="18httpheader" title='httpheader' data-type='bool' data-ref="18httpheader">httpheader</dfn>, <i>/* TRUE if HTTP header-style line */</i></td></tr>
+<tr><th id="143">143</th><td>                <em>char</em> *<dfn class="local col9 decl" id="19lineptr" title='lineptr' data-type='char *' data-ref="19lineptr">lineptr</dfn>,   <i>/* first character of the line */</i></td></tr>
+<tr><th id="144">144</th><td>                <em>char</em> *<dfn class="local col0 decl" id="20domain" title='domain' data-type='char *' data-ref="20domain">domain</dfn>,    <i>/* default domain */</i></td></tr>
+<tr><th id="145">145</th><td>                <em>char</em> *<dfn class="local col1 decl" id="21path" title='path' data-type='char *' data-ref="21path">path</dfn>)      <i>/* full path used when this cookie is set,</i></td></tr>
+<tr><th id="146">146</th><td><i>                                    used to get default path for the cookie</i></td></tr>
+<tr><th id="147">147</th><td><i>                                    unless set */</i></td></tr>
+<tr><th id="148">148</th><td>{</td></tr>
+<tr><th id="149">149</th><td>  <b>struct</b> <a class="type" href="cookie.h.html#Cookie" title='Cookie' data-ref="Cookie">Cookie</a> *<dfn class="local col2 decl" id="22clist" title='clist' data-type='struct Cookie *' data-ref="22clist">clist</dfn>;</td></tr>
+<tr><th id="150">150</th><td>  <em>char</em> <dfn class="local col3 decl" id="23what" title='what' data-type='char [2048]' data-ref="23what">what</dfn>[<a class="macro" href="cookie.h.html#64" title="2048" data-ref="_M/MAX_COOKIE_LINE">MAX_COOKIE_LINE</a>];</td></tr>
+<tr><th id="151">151</th><td>  <em>char</em> <dfn class="local col4 decl" id="24name" title='name' data-type='char [256]' data-ref="24name">name</dfn>[<a class="macro" href="cookie.h.html#68" title="256" data-ref="_M/MAX_NAME">MAX_NAME</a>];</td></tr>
+<tr><th id="152">152</th><td>  <em>char</em> *<dfn class="local col5 decl" id="25ptr" title='ptr' data-type='char *' data-ref="25ptr">ptr</dfn>;</td></tr>
+<tr><th id="153">153</th><td>  <em>char</em> *<dfn class="local col6 decl" id="26semiptr" title='semiptr' data-type='char *' data-ref="26semiptr">semiptr</dfn>;</td></tr>
+<tr><th id="154">154</th><td>  <b>struct</b> <a class="type" href="cookie.h.html#Cookie" title='Cookie' data-ref="Cookie">Cookie</a> *<dfn class="local col7 decl" id="27co" title='co' data-type='struct Cookie *' data-ref="27co">co</dfn>;</td></tr>
+<tr><th id="155">155</th><td>  <b>struct</b> <a class="type" href="cookie.h.html#Cookie" title='Cookie' data-ref="Cookie">Cookie</a> *<dfn class="local col8 decl" id="28lastc" title='lastc' data-type='struct Cookie *' data-ref="28lastc">lastc</dfn>=<span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="156">156</th><td>  <a class="typedef" href="../../../include/time.h.html#time_t" title='time_t' data-type='__time_t' data-ref="time_t">time_t</a> <dfn class="local col9 decl" id="29now" title='now' data-type='time_t' data-ref="29now">now</dfn> = <a class="ref" href="../../../include/time.h.html#time" title='time' data-ref="time">time</a>(<span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>);</td></tr>
+<tr><th id="157">157</th><td>  <a class="typedef" href="setup.h.html#bool" title='bool' data-type='unsigned char' data-ref="bool">bool</a> <dfn class="local col0 decl" id="30replace_old" title='replace_old' data-type='bool' data-ref="30replace_old">replace_old</dfn> = <a class="macro" href="setup.h.html#70" title="0" data-ref="_M/FALSE">FALSE</a>;</td></tr>
+<tr><th id="158">158</th><td>  <a class="typedef" href="setup.h.html#bool" title='bool' data-type='unsigned char' data-ref="bool">bool</a> <dfn class="local col1 decl" id="31badcookie" title='badcookie' data-type='bool' data-ref="31badcookie">badcookie</dfn> = <a class="macro" href="setup.h.html#70" title="0" data-ref="_M/FALSE">FALSE</a>; <i>/* cookies are good by default. mmmmm yummy */</i></td></tr>
+<tr><th id="159">159</th><td></td></tr>
+<tr><th id="160">160</th><td>  <i>/* First, alloc and init a new struct for it */</i></td></tr>
+<tr><th id="161">161</th><td>  <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a> = (<b>struct</b> <a class="type" href="cookie.h.html#Cookie" title='Cookie' data-ref="Cookie">Cookie</a> *)<a class="macro" href="memdebug.h.html#76" title="curl_docalloc(sizeof(struct Cookie), 1, 161, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/calloc">calloc</a>(<b>sizeof</b>(<b>struct</b> <a class="type" href="cookie.h.html#Cookie" title='Cookie' data-ref="Cookie">Cookie</a>), <var>1</var>);</td></tr>
+<tr><th id="162">162</th><td>  <b>if</b>(!<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>)</td></tr>
+<tr><th id="163">163</th><td>    <b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>; <i>/* bail out if we're this low on memory */</i></td></tr>
+<tr><th id="164">164</th><td></td></tr>
+<tr><th id="165">165</th><td>  <b>if</b>(<a class="local col8 ref" href="#18httpheader" title='httpheader' data-ref="18httpheader">httpheader</a>) {</td></tr>
+<tr><th id="166">166</th><td>    <i>/* This line was read off a HTTP-header */</i></td></tr>
+<tr><th id="167">167</th><td>    <em>char</em> *<dfn class="local col2 decl" id="32sep" title='sep' data-type='char *' data-ref="32sep">sep</dfn>;</td></tr>
+<tr><th id="168">168</th><td>    <a class="local col6 ref" href="#26semiptr" title='semiptr' data-ref="26semiptr">semiptr</a>=<a class="ref" href="../../../include/string.h.html#strchr" title='strchr' data-ref="strchr">strchr</a>(<a class="local col9 ref" href="#19lineptr" title='lineptr' data-ref="19lineptr">lineptr</a>, <kbd>';'</kbd>); <i>/* first, find a semicolon */</i></td></tr>
+<tr><th id="169">169</th><td></td></tr>
+<tr><th id="170">170</th><td>    <b>while</b>(*<a class="local col9 ref" href="#19lineptr" title='lineptr' data-ref="19lineptr">lineptr</a> &amp;&amp; <a class="macro" href="../../../include/ctype.h.html#205" title="((*__ctype_b_loc ())[(int) (((int)*lineptr))] &amp; (unsigned short int) _ISspace)" data-ref="_M/isspace">isspace</a>((<em>int</em>)*<a class="local col9 ref" href="#19lineptr" title='lineptr' data-ref="19lineptr">lineptr</a>))</td></tr>
+<tr><th id="171">171</th><td>      <a class="local col9 ref" href="#19lineptr" title='lineptr' data-ref="19lineptr">lineptr</a>++;</td></tr>
+<tr><th id="172">172</th><td></td></tr>
+<tr><th id="173">173</th><td>    <a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a> = <a class="local col9 ref" href="#19lineptr" title='lineptr' data-ref="19lineptr">lineptr</a>;</td></tr>
+<tr><th id="174">174</th><td>    <b>do</b> {</td></tr>
+<tr><th id="175">175</th><td>      <i>/* we have a &lt;what&gt;=&lt;this&gt; pair or a 'secure' word here */</i></td></tr>
+<tr><th id="176">176</th><td>      <a class="local col2 ref" href="#32sep" title='sep' data-ref="32sep">sep</a> = <a class="ref" href="../../../include/string.h.html#strchr" title='strchr' data-ref="strchr">strchr</a>(<a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a>, <kbd>'='</kbd>);</td></tr>
+<tr><th id="177">177</th><td>      <b>if</b>(<a class="local col2 ref" href="#32sep" title='sep' data-ref="32sep">sep</a> &amp;&amp; (!<a class="local col6 ref" href="#26semiptr" title='semiptr' data-ref="26semiptr">semiptr</a> || (<a class="local col6 ref" href="#26semiptr" title='semiptr' data-ref="26semiptr">semiptr</a>&gt;<a class="local col2 ref" href="#32sep" title='sep' data-ref="32sep">sep</a>)) ) {</td></tr>
+<tr><th id="178">178</th><td>        <i>/*</i></td></tr>
+<tr><th id="179">179</th><td><i>         * There is a = sign and if there was a semicolon too, which make sure</i></td></tr>
+<tr><th id="180">180</th><td><i>         * that the semicolon comes _after_ the equal sign.</i></td></tr>
+<tr><th id="181">181</th><td><i>         */</i></td></tr>
+<tr><th id="182">182</th><td></td></tr>
+<tr><th id="183">183</th><td>        <a class="local col4 ref" href="#24name" title='name' data-ref="24name">name</a>[<var>0</var>]=<a class="local col3 ref" href="#23what" title='what' data-ref="23what">what</a>[<var>0</var>]=<var>0</var>; <i>/* init the buffers */</i></td></tr>
+<tr><th id="184">184</th><td>        <b>if</b>(<var>1</var> &lt;= <a class="ref" href="../../../include/stdio.h.html#__isoc99_sscanf" title='sscanf' data-ref="__isoc99_sscanf">sscanf</a>(<a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a>, <q>"%"</q> <a class="macro" href="cookie.h.html#69" title="&quot;255&quot;" data-ref="_M/MAX_NAME_TXT">MAX_NAME_TXT</a> <q>"[^;=]=%"</q></td></tr>
+<tr><th id="185">185</th><td>                       <a class="macro" href="cookie.h.html#65" title="&quot;2047&quot;" data-ref="_M/MAX_COOKIE_LINE_TXT">MAX_COOKIE_LINE_TXT</a> <q>"[^;\r\n]"</q>,</td></tr>
+<tr><th id="186">186</th><td>                       <a class="local col4 ref" href="#24name" title='name' data-ref="24name">name</a>, <a class="local col3 ref" href="#23what" title='what' data-ref="23what">what</a>)) {</td></tr>
+<tr><th id="187">187</th><td>          <i>/* this is a &lt;name&gt;=&lt;what&gt; pair */</i></td></tr>
+<tr><th id="188">188</th><td></td></tr>
+<tr><th id="189">189</th><td>          <em>char</em> *<dfn class="local col3 decl" id="33whatptr" title='whatptr' data-type='char *' data-ref="33whatptr">whatptr</dfn>;</td></tr>
+<tr><th id="190">190</th><td></td></tr>
+<tr><th id="191">191</th><td>          <i>/* Strip off trailing whitespace from the 'what' */</i></td></tr>
+<tr><th id="192">192</th><td>          <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col4 decl" id="34len" title='len' data-type='size_t' data-ref="34len">len</dfn>=<a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>(<a class="local col3 ref" href="#23what" title='what' data-ref="23what">what</a>);</td></tr>
+<tr><th id="193">193</th><td>          <b>while</b>(<a class="local col4 ref" href="#34len" title='len' data-ref="34len">len</a> &amp;&amp; <a class="macro" href="../../../include/ctype.h.html#205" title="((*__ctype_b_loc ())[(int) (((int)what[len-1]))] &amp; (unsigned short int) _ISspace)" data-ref="_M/isspace">isspace</a>((<em>int</em>)<a class="local col3 ref" href="#23what" title='what' data-ref="23what">what</a>[<a class="local col4 ref" href="#34len" title='len' data-ref="34len">len</a>-<var>1</var>])) {</td></tr>
+<tr><th id="194">194</th><td>            <a class="local col3 ref" href="#23what" title='what' data-ref="23what">what</a>[<a class="local col4 ref" href="#34len" title='len' data-ref="34len">len</a>-<var>1</var>]=<var>0</var>;</td></tr>
+<tr><th id="195">195</th><td>            <a class="local col4 ref" href="#34len" title='len' data-ref="34len">len</a>--;</td></tr>
+<tr><th id="196">196</th><td>          }</td></tr>
+<tr><th id="197">197</th><td></td></tr>
+<tr><th id="198">198</th><td>          <i>/* Skip leading whitespace from the 'what' */</i></td></tr>
+<tr><th id="199">199</th><td>          <a class="local col3 ref" href="#33whatptr" title='whatptr' data-ref="33whatptr">whatptr</a>=<a class="local col3 ref" href="#23what" title='what' data-ref="23what">what</a>;</td></tr>
+<tr><th id="200">200</th><td>          <b>while</b>(<a class="macro" href="../../../include/ctype.h.html#205" title="((*__ctype_b_loc ())[(int) (((int)*whatptr))] &amp; (unsigned short int) _ISspace)" data-ref="_M/isspace">isspace</a>((<em>int</em>)*<a class="local col3 ref" href="#33whatptr" title='whatptr' data-ref="33whatptr">whatptr</a>)) {</td></tr>
+<tr><th id="201">201</th><td>            <a class="local col3 ref" href="#33whatptr" title='whatptr' data-ref="33whatptr">whatptr</a>++;</td></tr>
+<tr><th id="202">202</th><td>          }</td></tr>
+<tr><th id="203">203</th><td></td></tr>
+<tr><th id="204">204</th><td>          <b>if</b>(<a class="macro" href="strequal.h.html#32" title="curl_strequal(&quot;path&quot;,name)" data-ref="_M/strequal">strequal</a>(<q>"path"</q>, <a class="local col4 ref" href="#24name" title='name' data-ref="24name">name</a>)) {</td></tr>
+<tr><th id="205">205</th><td>            <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::path" title='Cookie::path' data-ref="Cookie::path">path</a>=<a class="macro" href="memdebug.h.html#74" title="curl_dostrdup(whatptr, 205, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/strdup">strdup</a>(<a class="local col3 ref" href="#33whatptr" title='whatptr' data-ref="33whatptr">whatptr</a>);</td></tr>
+<tr><th id="206">206</th><td>          }</td></tr>
+<tr><th id="207">207</th><td>          <b>else</b> <b>if</b>(<a class="macro" href="strequal.h.html#32" title="curl_strequal(&quot;domain&quot;,name)" data-ref="_M/strequal">strequal</a>(<q>"domain"</q>, <a class="local col4 ref" href="#24name" title='name' data-ref="24name">name</a>)) {</td></tr>
+<tr><th id="208">208</th><td>            <i>/* note that this name may or may not have a preceeding dot, but</i></td></tr>
+<tr><th id="209">209</th><td><i>               we don't care about that, we treat the names the same anyway */</i></td></tr>
+<tr><th id="210">210</th><td></td></tr>
+<tr><th id="211">211</th><td>            <em>const</em> <em>char</em> *<dfn class="local col5 decl" id="35domptr" title='domptr' data-type='const char *' data-ref="35domptr">domptr</dfn>=<a class="local col3 ref" href="#33whatptr" title='whatptr' data-ref="33whatptr">whatptr</a>;</td></tr>
+<tr><th id="212">212</th><td>            <em>int</em> <dfn class="local col6 decl" id="36dotcount" title='dotcount' data-type='int' data-ref="36dotcount">dotcount</dfn>=<var>1</var>;</td></tr>
+<tr><th id="213">213</th><td>            <em>unsigned</em> <em>int</em> <dfn class="local col7 decl" id="37i" title='i' data-type='unsigned int' data-ref="37i">i</dfn>;</td></tr>
+<tr><th id="214">214</th><td></td></tr>
+<tr><th id="215">215</th><td>            <em>static</em> <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="38seventhree" title='seventhree' data-type='const char *[7]' data-ref="38seventhree">seventhree</dfn>[]= {</td></tr>
+<tr><th id="216">216</th><td>              <q>"com"</q>, <q>"edu"</q>, <q>"net"</q>, <q>"org"</q>, <q>"gov"</q>, <q>"mil"</q>, <q>"int"</q></td></tr>
+<tr><th id="217">217</th><td>            };</td></tr>
+<tr><th id="218">218</th><td></td></tr>
+<tr><th id="219">219</th><td>            <i>/* Count the dots, we need to make sure that there are THREE dots</i></td></tr>
+<tr><th id="220">220</th><td><i>               in the normal domains, or TWO in the seventhree-domains. */</i></td></tr>
+<tr><th id="221">221</th><td></td></tr>
+<tr><th id="222">222</th><td>            <b>if</b>(<kbd>'.'</kbd> == <a class="local col3 ref" href="#33whatptr" title='whatptr' data-ref="33whatptr">whatptr</a>[<var>0</var>])</td></tr>
+<tr><th id="223">223</th><td>              <i>/* don't count the initial dot, assume it */</i></td></tr>
+<tr><th id="224">224</th><td>              <a class="local col5 ref" href="#35domptr" title='domptr' data-ref="35domptr">domptr</a>++;</td></tr>
+<tr><th id="225">225</th><td></td></tr>
+<tr><th id="226">226</th><td>            <b>do</b> {</td></tr>
+<tr><th id="227">227</th><td>              <a class="local col5 ref" href="#35domptr" title='domptr' data-ref="35domptr">domptr</a> = <a class="ref" href="../../../include/string.h.html#strchr" title='strchr' data-ref="strchr">strchr</a>(<a class="local col5 ref" href="#35domptr" title='domptr' data-ref="35domptr">domptr</a>, <kbd>'.'</kbd>);</td></tr>
+<tr><th id="228">228</th><td>              <b>if</b>(<a class="local col5 ref" href="#35domptr" title='domptr' data-ref="35domptr">domptr</a>) {</td></tr>
+<tr><th id="229">229</th><td>                <a class="local col5 ref" href="#35domptr" title='domptr' data-ref="35domptr">domptr</a>++;</td></tr>
+<tr><th id="230">230</th><td>                <a class="local col6 ref" href="#36dotcount" title='dotcount' data-ref="36dotcount">dotcount</a>++;</td></tr>
+<tr><th id="231">231</th><td>              }</td></tr>
+<tr><th id="232">232</th><td>            } <b>while</b>(<a class="local col5 ref" href="#35domptr" title='domptr' data-ref="35domptr">domptr</a>);</td></tr>
+<tr><th id="233">233</th><td></td></tr>
+<tr><th id="234">234</th><td>            <b>for</b>(<a class="local col7 ref" href="#37i" title='i' data-ref="37i">i</a>=<var>0</var>;</td></tr>
+<tr><th id="235">235</th><td>                <a class="local col7 ref" href="#37i" title='i' data-ref="37i">i</a>&lt;<b>sizeof</b>(<a class="local col8 ref" href="#38seventhree" title='seventhree' data-ref="38seventhree">seventhree</a>)/<b>sizeof</b>(<a class="local col8 ref" href="#38seventhree" title='seventhree' data-ref="38seventhree">seventhree</a>[<var>0</var>]); <a class="local col7 ref" href="#37i" title='i' data-ref="37i">i</a>++) {</td></tr>
+<tr><th id="236">236</th><td>              <b>if</b>(<a class="tu ref" href="#tailmatch" title='tailmatch' data-use='c' data-ref="tailmatch">tailmatch</a>(<a class="local col8 ref" href="#38seventhree" title='seventhree' data-ref="38seventhree">seventhree</a>[<a class="local col7 ref" href="#37i" title='i' data-ref="37i">i</a>], <a class="local col3 ref" href="#33whatptr" title='whatptr' data-ref="33whatptr">whatptr</a>)) {</td></tr>
+<tr><th id="237">237</th><td>                <a class="local col6 ref" href="#36dotcount" title='dotcount' data-ref="36dotcount">dotcount</a>++; <i>/* we allow one dot less for these */</i></td></tr>
+<tr><th id="238">238</th><td>                <b>break</b>;</td></tr>
+<tr><th id="239">239</th><td>              }</td></tr>
+<tr><th id="240">240</th><td>            }</td></tr>
+<tr><th id="241">241</th><td>            <i>/* The original Netscape cookie spec defined that this domain name</i></td></tr>
+<tr><th id="242">242</th><td><i>               MUST have three dots (or two if one of the seven holy TLDs),</i></td></tr>
+<tr><th id="243">243</th><td><i>               but it seems that these kinds of cookies are in use "out there"</i></td></tr>
+<tr><th id="244">244</th><td><i>               so we cannot be that strict. I've therefore lowered the check</i></td></tr>
+<tr><th id="245">245</th><td><i>               to not allow less than two dots. */</i></td></tr>
+<tr><th id="246">246</th><td>            </td></tr>
+<tr><th id="247">247</th><td>            <b>if</b>(<a class="local col6 ref" href="#36dotcount" title='dotcount' data-ref="36dotcount">dotcount</a> &lt; <var>2</var>) {</td></tr>
+<tr><th id="248">248</th><td>              <i>/* Received and skipped a cookie with a domain using too few</i></td></tr>
+<tr><th id="249">249</th><td><i>                 dots. */</i></td></tr>
+<tr><th id="250">250</th><td>              <a class="local col1 ref" href="#31badcookie" title='badcookie' data-ref="31badcookie">badcookie</a>=<a class="macro" href="setup.h.html#67" title="1" data-ref="_M/TRUE">TRUE</a>; <i>/* mark this as a bad cookie */</i></td></tr>
+<tr><th id="251">251</th><td>              <a class="macro" href="sendf.h.html#31" title="Curl_infof" data-ref="_M/infof">infof</a>(<a class="local col6 ref" href="#16data" title='data' data-ref="16data">data</a>, <q>"skipped cookie with illegal dotcount domain: %s"</q>,</td></tr>
+<tr><th id="252">252</th><td>                    <a class="local col3 ref" href="#33whatptr" title='whatptr' data-ref="33whatptr">whatptr</a>);</td></tr>
+<tr><th id="253">253</th><td>            }</td></tr>
+<tr><th id="254">254</th><td>            <b>else</b> {</td></tr>
+<tr><th id="255">255</th><td>              <i>/* Now, we make sure that our host is within the given domain,</i></td></tr>
+<tr><th id="256">256</th><td><i>                 or the given domain is not valid and thus cannot be set. */</i></td></tr>
+<tr><th id="257">257</th><td></td></tr>
+<tr><th id="258">258</th><td>              <b>if</b>(!<a class="local col0 ref" href="#20domain" title='domain' data-ref="20domain">domain</a> || <a class="tu ref" href="#tailmatch" title='tailmatch' data-use='c' data-ref="tailmatch">tailmatch</a>(<a class="local col3 ref" href="#33whatptr" title='whatptr' data-ref="33whatptr">whatptr</a>, <a class="local col0 ref" href="#20domain" title='domain' data-ref="20domain">domain</a>)) {</td></tr>
+<tr><th id="259">259</th><td>                <em>const</em> <em>char</em> *<dfn class="local col9 decl" id="39tailptr" title='tailptr' data-type='const char *' data-ref="39tailptr">tailptr</dfn>=<a class="local col3 ref" href="#33whatptr" title='whatptr' data-ref="33whatptr">whatptr</a>;</td></tr>
+<tr><th id="260">260</th><td>                <b>if</b>(<a class="local col9 ref" href="#39tailptr" title='tailptr' data-ref="39tailptr">tailptr</a>[<var>0</var>] == <kbd>'.'</kbd>)</td></tr>
+<tr><th id="261">261</th><td>                  <a class="local col9 ref" href="#39tailptr" title='tailptr' data-ref="39tailptr">tailptr</a>++;</td></tr>
+<tr><th id="262">262</th><td>                <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::domain" title='Cookie::domain' data-ref="Cookie::domain">domain</a>=<a class="macro" href="memdebug.h.html#74" title="curl_dostrdup(tailptr, 262, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/strdup">strdup</a>(<a class="local col9 ref" href="#39tailptr" title='tailptr' data-ref="39tailptr">tailptr</a>); <i>/* don't prefix w/dots internally */</i></td></tr>
+<tr><th id="263">263</th><td>                <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::tailmatch" title='Cookie::tailmatch' data-ref="Cookie::tailmatch">tailmatch</a>=<a class="macro" href="setup.h.html#67" title="1" data-ref="_M/TRUE">TRUE</a>; <i>/* we always do that if the domain name was</i></td></tr>
+<tr><th id="264">264</th><td><i>                                       given */</i></td></tr>
+<tr><th id="265">265</th><td>              }</td></tr>
+<tr><th id="266">266</th><td>              <b>else</b> {</td></tr>
+<tr><th id="267">267</th><td>                <i>/* we did not get a tailmatch and then the attempted set domain</i></td></tr>
+<tr><th id="268">268</th><td><i>                   is not a domain to which the current host belongs. Mark as</i></td></tr>
+<tr><th id="269">269</th><td><i>                   bad. */</i></td></tr>
+<tr><th id="270">270</th><td>                <a class="local col1 ref" href="#31badcookie" title='badcookie' data-ref="31badcookie">badcookie</a>=<a class="macro" href="setup.h.html#67" title="1" data-ref="_M/TRUE">TRUE</a>;</td></tr>
+<tr><th id="271">271</th><td>                <a class="macro" href="sendf.h.html#31" title="Curl_infof" data-ref="_M/infof">infof</a>(<a class="local col6 ref" href="#16data" title='data' data-ref="16data">data</a>, <q>"skipped cookie with bad tailmatch domain: %s"</q>,</td></tr>
+<tr><th id="272">272</th><td>                      <a class="local col3 ref" href="#33whatptr" title='whatptr' data-ref="33whatptr">whatptr</a>);</td></tr>
+<tr><th id="273">273</th><td>              }</td></tr>
+<tr><th id="274">274</th><td>            }</td></tr>
+<tr><th id="275">275</th><td>          }</td></tr>
+<tr><th id="276">276</th><td>          <b>else</b> <b>if</b>(<a class="macro" href="strequal.h.html#32" title="curl_strequal(&quot;version&quot;,name)" data-ref="_M/strequal">strequal</a>(<q>"version"</q>, <a class="local col4 ref" href="#24name" title='name' data-ref="24name">name</a>)) {</td></tr>
+<tr><th id="277">277</th><td>            <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::version" title='Cookie::version' data-ref="Cookie::version">version</a>=<a class="macro" href="memdebug.h.html#74" title="curl_dostrdup(whatptr, 277, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/strdup">strdup</a>(<a class="local col3 ref" href="#33whatptr" title='whatptr' data-ref="33whatptr">whatptr</a>);</td></tr>
+<tr><th id="278">278</th><td>          }</td></tr>
+<tr><th id="279">279</th><td>          <b>else</b> <b>if</b>(<a class="macro" href="strequal.h.html#32" title="curl_strequal(&quot;max-age&quot;,name)" data-ref="_M/strequal">strequal</a>(<q>"max-age"</q>, <a class="local col4 ref" href="#24name" title='name' data-ref="24name">name</a>)) {</td></tr>
+<tr><th id="280">280</th><td>            <i>/* Defined in RFC2109:</i></td></tr>
+<tr><th id="281">281</th><td><i></i></td></tr>
+<tr><th id="282">282</th><td><i>               Optional.  The Max-Age attribute defines the lifetime of the</i></td></tr>
+<tr><th id="283">283</th><td><i>               cookie, in seconds.  The delta-seconds value is a decimal non-</i></td></tr>
+<tr><th id="284">284</th><td><i>               negative integer.  After delta-seconds seconds elapse, the</i></td></tr>
+<tr><th id="285">285</th><td><i>               client should discard the cookie.  A value of zero means the</i></td></tr>
+<tr><th id="286">286</th><td><i>               cookie should be discarded immediately.</i></td></tr>
+<tr><th id="287">287</th><td><i></i></td></tr>
+<tr><th id="288">288</th><td><i>             */</i></td></tr>
+<tr><th id="289">289</th><td>            <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::maxage" title='Cookie::maxage' data-ref="Cookie::maxage">maxage</a> = <a class="macro" href="memdebug.h.html#74" title="curl_dostrdup(whatptr, 289, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/strdup">strdup</a>(<a class="local col3 ref" href="#33whatptr" title='whatptr' data-ref="33whatptr">whatptr</a>);</td></tr>
+<tr><th id="290">290</th><td>            <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::expires" title='Cookie::expires' data-ref="Cookie::expires">expires</a> =</td></tr>
+<tr><th id="291">291</th><td>              <a class="ref" href="../../../include/stdlib.h.html#atoi" title='atoi' data-ref="atoi">atoi</a>((*<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::maxage" title='Cookie::maxage' data-ref="Cookie::maxage">maxage</a>==<kbd>'\"'</kbd>)?&amp;<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::maxage" title='Cookie::maxage' data-ref="Cookie::maxage">maxage</a>[<var>1</var>]:&amp;<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::maxage" title='Cookie::maxage' data-ref="Cookie::maxage">maxage</a>[<var>0</var>]) + <a class="local col9 ref" href="#29now" title='now' data-ref="29now">now</a>;</td></tr>
+<tr><th id="292">292</th><td>          }</td></tr>
+<tr><th id="293">293</th><td>          <b>else</b> <b>if</b>(<a class="macro" href="strequal.h.html#32" title="curl_strequal(&quot;expires&quot;,name)" data-ref="_M/strequal">strequal</a>(<q>"expires"</q>, <a class="local col4 ref" href="#24name" title='name' data-ref="24name">name</a>)) {</td></tr>
+<tr><th id="294">294</th><td>            <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::expirestr" title='Cookie::expirestr' data-ref="Cookie::expirestr">expirestr</a>=<a class="macro" href="memdebug.h.html#74" title="curl_dostrdup(whatptr, 294, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/strdup">strdup</a>(<a class="local col3 ref" href="#33whatptr" title='whatptr' data-ref="33whatptr">whatptr</a>);</td></tr>
+<tr><th id="295">295</th><td>            <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::expires" title='Cookie::expires' data-ref="Cookie::expires">expires</a> = <a class="ref" href="../include/curl/curl.h.html#curl_getdate" title='curl_getdate' data-ref="curl_getdate">curl_getdate</a>(<a class="local col3 ref" href="#23what" title='what' data-ref="23what">what</a>, &amp;<a class="local col9 ref" href="#29now" title='now' data-ref="29now">now</a>);</td></tr>
+<tr><th id="296">296</th><td>          }</td></tr>
+<tr><th id="297">297</th><td>          <b>else</b> <b>if</b>(!<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::name" title='Cookie::name' data-ref="Cookie::name">name</a>) {</td></tr>
+<tr><th id="298">298</th><td>            <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::name" title='Cookie::name' data-ref="Cookie::name">name</a> = <a class="macro" href="memdebug.h.html#74" title="curl_dostrdup(name, 298, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/strdup">strdup</a>(<a class="local col4 ref" href="#24name" title='name' data-ref="24name">name</a>);</td></tr>
+<tr><th id="299">299</th><td>            <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::value" title='Cookie::value' data-ref="Cookie::value">value</a> = <a class="macro" href="memdebug.h.html#74" title="curl_dostrdup(whatptr, 299, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/strdup">strdup</a>(<a class="local col3 ref" href="#33whatptr" title='whatptr' data-ref="33whatptr">whatptr</a>);</td></tr>
+<tr><th id="300">300</th><td>          }</td></tr>
+<tr><th id="301">301</th><td>          <i>/*</i></td></tr>
+<tr><th id="302">302</th><td><i>            else this is the second (or more) name we don't know</i></td></tr>
+<tr><th id="303">303</th><td><i>            about! */</i></td></tr>
+<tr><th id="304">304</th><td>        }</td></tr>
+<tr><th id="305">305</th><td>        <b>else</b> {</td></tr>
+<tr><th id="306">306</th><td>          <i>/* this is an "illegal" &lt;what&gt;=&lt;this&gt; pair */</i></td></tr>
+<tr><th id="307">307</th><td>        }</td></tr>
+<tr><th id="308">308</th><td>      }</td></tr>
+<tr><th id="309">309</th><td>      <b>else</b> {</td></tr>
+<tr><th id="310">310</th><td>        <b>if</b>(<a class="ref" href="../../../include/stdio.h.html#__isoc99_sscanf" title='sscanf' data-ref="__isoc99_sscanf">sscanf</a>(<a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a>, <q>"%"</q> <a class="macro" href="cookie.h.html#65" title="&quot;2047&quot;" data-ref="_M/MAX_COOKIE_LINE_TXT">MAX_COOKIE_LINE_TXT</a> <q>"[^;\r\n]"</q>,</td></tr>
+<tr><th id="311">311</th><td>                  <a class="local col3 ref" href="#23what" title='what' data-ref="23what">what</a>)) {</td></tr>
+<tr><th id="312">312</th><td>          <b>if</b>(<a class="macro" href="strequal.h.html#32" title="curl_strequal(&quot;secure&quot;,what)" data-ref="_M/strequal">strequal</a>(<q>"secure"</q>, <a class="local col3 ref" href="#23what" title='what' data-ref="23what">what</a>))</td></tr>
+<tr><th id="313">313</th><td>            <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::secure" title='Cookie::secure' data-ref="Cookie::secure">secure</a> = <a class="macro" href="setup.h.html#67" title="1" data-ref="_M/TRUE">TRUE</a>;</td></tr>
+<tr><th id="314">314</th><td>          <i>/* else,</i></td></tr>
+<tr><th id="315">315</th><td><i>             unsupported keyword without assign! */</i></td></tr>
+<tr><th id="316">316</th><td></td></tr>
+<tr><th id="317">317</th><td>        }</td></tr>
+<tr><th id="318">318</th><td>      }</td></tr>
+<tr><th id="319">319</th><td>      <b>if</b>(!<a class="local col6 ref" href="#26semiptr" title='semiptr' data-ref="26semiptr">semiptr</a> || !*<a class="local col6 ref" href="#26semiptr" title='semiptr' data-ref="26semiptr">semiptr</a>) {</td></tr>
+<tr><th id="320">320</th><td>        <i>/* we already know there are no more cookies */</i></td></tr>
+<tr><th id="321">321</th><td>        <a class="local col6 ref" href="#26semiptr" title='semiptr' data-ref="26semiptr">semiptr</a> = <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="322">322</th><td>        <b>continue</b>;</td></tr>
+<tr><th id="323">323</th><td>      }</td></tr>
+<tr><th id="324">324</th><td></td></tr>
+<tr><th id="325">325</th><td>      <a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a>=<a class="local col6 ref" href="#26semiptr" title='semiptr' data-ref="26semiptr">semiptr</a>+<var>1</var>;</td></tr>
+<tr><th id="326">326</th><td>      <b>while</b>(<a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a> &amp;&amp; *<a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a> &amp;&amp; <a class="macro" href="../../../include/ctype.h.html#205" title="((*__ctype_b_loc ())[(int) (((int)*ptr))] &amp; (unsigned short int) _ISspace)" data-ref="_M/isspace">isspace</a>((<em>int</em>)*<a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a>))</td></tr>
+<tr><th id="327">327</th><td>        <a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a>++;</td></tr>
+<tr><th id="328">328</th><td>      <a class="local col6 ref" href="#26semiptr" title='semiptr' data-ref="26semiptr">semiptr</a>=<a class="ref" href="../../../include/string.h.html#strchr" title='strchr' data-ref="strchr">strchr</a>(<a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a>, <kbd>';'</kbd>); <i>/* now, find the next semicolon */</i></td></tr>
+<tr><th id="329">329</th><td></td></tr>
+<tr><th id="330">330</th><td>      <b>if</b>(!<a class="local col6 ref" href="#26semiptr" title='semiptr' data-ref="26semiptr">semiptr</a> &amp;&amp; *<a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a>)</td></tr>
+<tr><th id="331">331</th><td>        <i>/* There are no more semicolons, but there's a final name=value pair</i></td></tr>
+<tr><th id="332">332</th><td><i>           coming up */</i></td></tr>
+<tr><th id="333">333</th><td>        <a class="local col6 ref" href="#26semiptr" title='semiptr' data-ref="26semiptr">semiptr</a>=<a class="ref" href="../../../include/string.h.html#strchr" title='strchr' data-ref="strchr">strchr</a>(<a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a>, <kbd>'\0'</kbd>);</td></tr>
+<tr><th id="334">334</th><td>    } <b>while</b>(<a class="local col6 ref" href="#26semiptr" title='semiptr' data-ref="26semiptr">semiptr</a>);</td></tr>
+<tr><th id="335">335</th><td></td></tr>
+<tr><th id="336">336</th><td>    <b>if</b>(<a class="local col1 ref" href="#31badcookie" title='badcookie' data-ref="31badcookie">badcookie</a> || (<span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span> == <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::name" title='Cookie::name' data-ref="Cookie::name">name</a>)) {</td></tr>
+<tr><th id="337">337</th><td>      <i>/* we didn't get a cookie name or a bad one,</i></td></tr>
+<tr><th id="338">338</th><td><i>         this is an illegal line, bail out */</i></td></tr>
+<tr><th id="339">339</th><td>      <b>if</b>(<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::expirestr" title='Cookie::expirestr' data-ref="Cookie::expirestr">expirestr</a>)</td></tr>
+<tr><th id="340">340</th><td>        <a class="macro" href="memdebug.h.html#78" title="curl_dofree(co-&gt;expirestr, 340, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::expirestr" title='Cookie::expirestr' data-ref="Cookie::expirestr">expirestr</a>);</td></tr>
+<tr><th id="341">341</th><td>      <b>if</b>(<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::domain" title='Cookie::domain' data-ref="Cookie::domain">domain</a>)</td></tr>
+<tr><th id="342">342</th><td>        <a class="macro" href="memdebug.h.html#78" title="curl_dofree(co-&gt;domain, 342, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::domain" title='Cookie::domain' data-ref="Cookie::domain">domain</a>);</td></tr>
+<tr><th id="343">343</th><td>      <b>if</b>(<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::path" title='Cookie::path' data-ref="Cookie::path">path</a>)</td></tr>
+<tr><th id="344">344</th><td>        <a class="macro" href="memdebug.h.html#78" title="curl_dofree(co-&gt;path, 344, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::path" title='Cookie::path' data-ref="Cookie::path">path</a>);</td></tr>
+<tr><th id="345">345</th><td>      <b>if</b>(<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::name" title='Cookie::name' data-ref="Cookie::name">name</a>)</td></tr>
+<tr><th id="346">346</th><td>        <a class="macro" href="memdebug.h.html#78" title="curl_dofree(co-&gt;name, 346, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::name" title='Cookie::name' data-ref="Cookie::name">name</a>);</td></tr>
+<tr><th id="347">347</th><td>      <b>if</b>(<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::value" title='Cookie::value' data-ref="Cookie::value">value</a>)</td></tr>
+<tr><th id="348">348</th><td>        <a class="macro" href="memdebug.h.html#78" title="curl_dofree(co-&gt;value, 348, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::value" title='Cookie::value' data-ref="Cookie::value">value</a>);</td></tr>
+<tr><th id="349">349</th><td>      <a class="macro" href="memdebug.h.html#78" title="curl_dofree(co, 349, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>);</td></tr>
+<tr><th id="350">350</th><td>      <b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="351">351</th><td>    }</td></tr>
+<tr><th id="352">352</th><td></td></tr>
+<tr><th id="353">353</th><td>    <b>if</b>(<span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span> == <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::domain" title='Cookie::domain' data-ref="Cookie::domain">domain</a>)</td></tr>
+<tr><th id="354">354</th><td>      <i>/* no domain was given in the header line, set the default now */</i></td></tr>
+<tr><th id="355">355</th><td>      <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::domain" title='Cookie::domain' data-ref="Cookie::domain">domain</a>=<a class="local col0 ref" href="#20domain" title='domain' data-ref="20domain">domain</a>?<a class="macro" href="memdebug.h.html#74" title="curl_dostrdup(domain, 355, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/strdup">strdup</a>(<a class="local col0 ref" href="#20domain" title='domain' data-ref="20domain">domain</a>):<span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="356">356</th><td>    <b>if</b>((<span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span> == <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::path" title='Cookie::path' data-ref="Cookie::path">path</a>) &amp;&amp; <a class="local col1 ref" href="#21path" title='path' data-ref="21path">path</a>) {</td></tr>
+<tr><th id="357">357</th><td>      <i>/* no path was given in the header line, set the default now */</i></td></tr>
+<tr><th id="358">358</th><td>      <em>char</em> *<dfn class="local col0 decl" id="40endslash" title='endslash' data-type='char *' data-ref="40endslash">endslash</dfn> = <a class="ref" href="../../../include/string.h.html#strrchr" title='strrchr' data-ref="strrchr">strrchr</a>(<a class="local col1 ref" href="#21path" title='path' data-ref="21path">path</a>, <kbd>'/'</kbd>);</td></tr>
+<tr><th id="359">359</th><td>      <b>if</b>(<a class="local col0 ref" href="#40endslash" title='endslash' data-ref="40endslash">endslash</a>) {</td></tr>
+<tr><th id="360">360</th><td>        <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col1 decl" id="41pathlen" title='pathlen' data-type='size_t' data-ref="41pathlen">pathlen</dfn> = <a class="local col0 ref" href="#40endslash" title='endslash' data-ref="40endslash">endslash</a>-<a class="local col1 ref" href="#21path" title='path' data-ref="21path">path</a>+<var>1</var>; <i>/* include the ending slash */</i></td></tr>
+<tr><th id="361">361</th><td>        <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::path" title='Cookie::path' data-ref="Cookie::path">path</a>=<a class="macro" href="memdebug.h.html#75" title="curl_domalloc(pathlen+1, 361, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/malloc">malloc</a>(<a class="local col1 ref" href="#41pathlen" title='pathlen' data-ref="41pathlen">pathlen</a>+<var>1</var>); <i>/* one extra for the zero byte */</i></td></tr>
+<tr><th id="362">362</th><td>        <b>if</b>(<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::path" title='Cookie::path' data-ref="Cookie::path">path</a>) {</td></tr>
+<tr><th id="363">363</th><td>          <a class="ref" href="../../../include/string.h.html#memcpy" title='memcpy' data-ref="memcpy">memcpy</a>(<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::path" title='Cookie::path' data-ref="Cookie::path">path</a>, <a class="local col1 ref" href="#21path" title='path' data-ref="21path">path</a>, <a class="local col1 ref" href="#41pathlen" title='pathlen' data-ref="41pathlen">pathlen</a>);</td></tr>
+<tr><th id="364">364</th><td>          <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::path" title='Cookie::path' data-ref="Cookie::path">path</a>[<a class="local col1 ref" href="#41pathlen" title='pathlen' data-ref="41pathlen">pathlen</a>]=<var>0</var>; <i>/* zero terminate */</i></td></tr>
+<tr><th id="365">365</th><td>        }</td></tr>
+<tr><th id="366">366</th><td>      }</td></tr>
+<tr><th id="367">367</th><td>    }</td></tr>
+<tr><th id="368">368</th><td>  }</td></tr>
+<tr><th id="369">369</th><td>  <b>else</b> {</td></tr>
+<tr><th id="370">370</th><td>    <i>/* This line is NOT a HTTP header style line, we do offer support for</i></td></tr>
+<tr><th id="371">371</th><td><i>       reading the odd netscape cookies-file format here */</i></td></tr>
+<tr><th id="372">372</th><td>    <em>char</em> *<dfn class="local col2 decl" id="42firstptr" title='firstptr' data-type='char *' data-ref="42firstptr">firstptr</dfn>;</td></tr>
+<tr><th id="373">373</th><td>    <em>char</em> *<dfn class="local col3 decl" id="43tok_buf" title='tok_buf' data-type='char *' data-ref="43tok_buf">tok_buf</dfn>;</td></tr>
+<tr><th id="374">374</th><td>    <em>int</em> <dfn class="local col4 decl" id="44fields" title='fields' data-type='int' data-ref="44fields">fields</dfn>;</td></tr>
+<tr><th id="375">375</th><td></td></tr>
+<tr><th id="376">376</th><td>    <b>if</b>(<a class="local col9 ref" href="#19lineptr" title='lineptr' data-ref="19lineptr">lineptr</a>[<var>0</var>]==<kbd>'#'</kbd>) {</td></tr>
+<tr><th id="377">377</th><td>      <i>/* don't even try the comments */</i></td></tr>
+<tr><th id="378">378</th><td>      <a class="macro" href="memdebug.h.html#78" title="curl_dofree(co, 378, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>);</td></tr>
+<tr><th id="379">379</th><td>      <b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="380">380</th><td>    }</td></tr>
+<tr><th id="381">381</th><td>    <i>/* strip off the possible end-of-line characters */</i></td></tr>
+<tr><th id="382">382</th><td>    <a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a>=<a class="ref" href="../../../include/string.h.html#strchr" title='strchr' data-ref="strchr">strchr</a>(<a class="local col9 ref" href="#19lineptr" title='lineptr' data-ref="19lineptr">lineptr</a>, <kbd>'\r'</kbd>);</td></tr>
+<tr><th id="383">383</th><td>    <b>if</b>(<a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a>)</td></tr>
+<tr><th id="384">384</th><td>      *<a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a>=<var>0</var>; <i>/* clear it */</i></td></tr>
+<tr><th id="385">385</th><td>    <a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a>=<a class="ref" href="../../../include/string.h.html#strchr" title='strchr' data-ref="strchr">strchr</a>(<a class="local col9 ref" href="#19lineptr" title='lineptr' data-ref="19lineptr">lineptr</a>, <kbd>'\n'</kbd>);</td></tr>
+<tr><th id="386">386</th><td>    <b>if</b>(<a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a>)</td></tr>
+<tr><th id="387">387</th><td>      *<a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a>=<var>0</var>; <i>/* clear it */</i></td></tr>
+<tr><th id="388">388</th><td></td></tr>
+<tr><th id="389">389</th><td>    <a class="local col2 ref" href="#42firstptr" title='firstptr' data-ref="42firstptr">firstptr</a>=<a class="ref" href="../../../include/string.h.html#strtok_r" title='strtok_r' data-ref="strtok_r">strtok_r</a>(<a class="local col9 ref" href="#19lineptr" title='lineptr' data-ref="19lineptr">lineptr</a>, <q>"\t"</q>, &amp;<a class="local col3 ref" href="#43tok_buf" title='tok_buf' data-ref="43tok_buf">tok_buf</a>); <i>/* first tokenize it on the TAB */</i></td></tr>
+<tr><th id="390">390</th><td></td></tr>
+<tr><th id="391">391</th><td>    <i>/* Here's a quick check to eliminate normal HTTP-headers from this */</i></td></tr>
+<tr><th id="392">392</th><td>    <b>if</b>(!<a class="local col2 ref" href="#42firstptr" title='firstptr' data-ref="42firstptr">firstptr</a> || <a class="ref" href="../../../include/string.h.html#strchr" title='strchr' data-ref="strchr">strchr</a>(<a class="local col2 ref" href="#42firstptr" title='firstptr' data-ref="42firstptr">firstptr</a>, <kbd>':'</kbd>)) {</td></tr>
+<tr><th id="393">393</th><td>      <a class="macro" href="memdebug.h.html#78" title="curl_dofree(co, 393, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>);</td></tr>
+<tr><th id="394">394</th><td>      <b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="395">395</th><td>    }</td></tr>
+<tr><th id="396">396</th><td></td></tr>
+<tr><th id="397">397</th><td>    <i>/* Now loop through the fields and init the struct we already have</i></td></tr>
+<tr><th id="398">398</th><td><i>       allocated */</i></td></tr>
+<tr><th id="399">399</th><td>    <b>for</b>(<a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a>=<a class="local col2 ref" href="#42firstptr" title='firstptr' data-ref="42firstptr">firstptr</a>, <a class="local col4 ref" href="#44fields" title='fields' data-ref="44fields">fields</a>=<var>0</var>; <a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a>;</td></tr>
+<tr><th id="400">400</th><td>        <a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a>=<a class="ref" href="../../../include/string.h.html#strtok_r" title='strtok_r' data-ref="strtok_r">strtok_r</a>(<span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>, <q>"\t"</q>, &amp;<a class="local col3 ref" href="#43tok_buf" title='tok_buf' data-ref="43tok_buf">tok_buf</a>), <a class="local col4 ref" href="#44fields" title='fields' data-ref="44fields">fields</a>++) {</td></tr>
+<tr><th id="401">401</th><td>      <b>switch</b>(<a class="local col4 ref" href="#44fields" title='fields' data-ref="44fields">fields</a>) {</td></tr>
+<tr><th id="402">402</th><td>      <b>case</b> <var>0</var>:</td></tr>
+<tr><th id="403">403</th><td>        <b>if</b>(<a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a>[<var>0</var>]==<kbd>'.'</kbd>) <i>/* skip preceeding dots */</i></td></tr>
+<tr><th id="404">404</th><td>          <a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a>++;</td></tr>
+<tr><th id="405">405</th><td>        <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::domain" title='Cookie::domain' data-ref="Cookie::domain">domain</a> = <a class="macro" href="memdebug.h.html#74" title="curl_dostrdup(ptr, 405, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/strdup">strdup</a>(<a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a>);</td></tr>
+<tr><th id="406">406</th><td>        <b>break</b>;</td></tr>
+<tr><th id="407">407</th><td>      <b>case</b> <var>1</var>:</td></tr>
+<tr><th id="408">408</th><td>        <i>/* This field got its explanation on the 23rd of May 2001 by</i></td></tr>
+<tr><th id="409">409</th><td><i>           Andrés García:</i></td></tr>
+<tr><th id="410">410</th><td><i></i></td></tr>
+<tr><th id="411">411</th><td><i>           flag: A TRUE/FALSE value indicating if all machines within a given</i></td></tr>
+<tr><th id="412">412</th><td><i>           domain can access the variable. This value is set automatically by</i></td></tr>
+<tr><th id="413">413</th><td><i>           the browser, depending on the value you set for the domain.</i></td></tr>
+<tr><th id="414">414</th><td><i></i></td></tr>
+<tr><th id="415">415</th><td><i>           As far as I can see, it is set to true when the cookie says</i></td></tr>
+<tr><th id="416">416</th><td><i>           .domain.com and to false when the domain is complete www.domain.com</i></td></tr>
+<tr><th id="417">417</th><td><i>        */</i></td></tr>
+<tr><th id="418">418</th><td>        <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::tailmatch" title='Cookie::tailmatch' data-ref="Cookie::tailmatch">tailmatch</a>=(<a class="typedef" href="setup.h.html#bool" title='bool' data-type='unsigned char' data-ref="bool">bool</a>)<a class="macro" href="strequal.h.html#32" title="curl_strequal(ptr,&quot;TRUE&quot;)" data-ref="_M/strequal">strequal</a>(<a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a>, <q>"TRUE"</q>); <i>/* store information */</i></td></tr>
+<tr><th id="419">419</th><td>        <b>break</b>;</td></tr>
+<tr><th id="420">420</th><td>      <b>case</b> <var>2</var>:</td></tr>
+<tr><th id="421">421</th><td>        <i>/* It turns out, that sometimes the file format allows the path</i></td></tr>
+<tr><th id="422">422</th><td><i>           field to remain not filled in, we try to detect this and work</i></td></tr>
+<tr><th id="423">423</th><td><i>           around it! Andrés García made us aware of this... */</i></td></tr>
+<tr><th id="424">424</th><td>        <b>if</b> (<a class="ref" href="../../../include/string.h.html#strcmp" title='strcmp' data-ref="strcmp">strcmp</a>(<q>"TRUE"</q>, <a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a>) &amp;&amp; <a class="ref" href="../../../include/string.h.html#strcmp" title='strcmp' data-ref="strcmp">strcmp</a>(<q>"FALSE"</q>, <a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a>)) {</td></tr>
+<tr><th id="425">425</th><td>          <i>/* only if the path doesn't look like a boolean option! */</i></td></tr>
+<tr><th id="426">426</th><td>          <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::path" title='Cookie::path' data-ref="Cookie::path">path</a> = <a class="macro" href="memdebug.h.html#74" title="curl_dostrdup(ptr, 426, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/strdup">strdup</a>(<a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a>);</td></tr>
+<tr><th id="427">427</th><td>          <b>break</b>;</td></tr>
+<tr><th id="428">428</th><td>        }</td></tr>
+<tr><th id="429">429</th><td>        <i>/* this doesn't look like a path, make one up! */</i></td></tr>
+<tr><th id="430">430</th><td>        <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::path" title='Cookie::path' data-ref="Cookie::path">path</a> = <a class="macro" href="memdebug.h.html#74" title="curl_dostrdup(&quot;/&quot;, 430, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/strdup">strdup</a>(<q>"/"</q>);</td></tr>
+<tr><th id="431">431</th><td>        <a class="local col4 ref" href="#44fields" title='fields' data-ref="44fields">fields</a>++; <i>/* add a field and fall down to secure */</i></td></tr>
+<tr><th id="432">432</th><td>        <i>/* FALLTHROUGH */</i></td></tr>
+<tr><th id="433">433</th><td>      <b>case</b> <var>3</var>:</td></tr>
+<tr><th id="434">434</th><td>        <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::secure" title='Cookie::secure' data-ref="Cookie::secure">secure</a> = (<a class="typedef" href="setup.h.html#bool" title='bool' data-type='unsigned char' data-ref="bool">bool</a>)<a class="macro" href="strequal.h.html#32" title="curl_strequal(ptr,&quot;TRUE&quot;)" data-ref="_M/strequal">strequal</a>(<a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a>, <q>"TRUE"</q>);</td></tr>
+<tr><th id="435">435</th><td>        <b>break</b>;</td></tr>
+<tr><th id="436">436</th><td>      <b>case</b> <var>4</var>:</td></tr>
+<tr><th id="437">437</th><td>        <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::expires" title='Cookie::expires' data-ref="Cookie::expires">expires</a> = <a class="ref" href="../../../include/stdlib.h.html#atoi" title='atoi' data-ref="atoi">atoi</a>(<a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a>);</td></tr>
+<tr><th id="438">438</th><td>        <b>break</b>;</td></tr>
+<tr><th id="439">439</th><td>      <b>case</b> <var>5</var>:</td></tr>
+<tr><th id="440">440</th><td>        <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::name" title='Cookie::name' data-ref="Cookie::name">name</a> = <a class="macro" href="memdebug.h.html#74" title="curl_dostrdup(ptr, 440, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/strdup">strdup</a>(<a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a>);</td></tr>
+<tr><th id="441">441</th><td>        <b>break</b>;</td></tr>
+<tr><th id="442">442</th><td>      <b>case</b> <var>6</var>:</td></tr>
+<tr><th id="443">443</th><td>        <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::value" title='Cookie::value' data-ref="Cookie::value">value</a> = <a class="macro" href="memdebug.h.html#74" title="curl_dostrdup(ptr, 443, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/strdup">strdup</a>(<a class="local col5 ref" href="#25ptr" title='ptr' data-ref="25ptr">ptr</a>);</td></tr>
+<tr><th id="444">444</th><td>        <b>break</b>;</td></tr>
+<tr><th id="445">445</th><td>      }</td></tr>
+<tr><th id="446">446</th><td>    }</td></tr>
+<tr><th id="447">447</th><td></td></tr>
+<tr><th id="448">448</th><td>    <b>if</b>(<var>6</var> == <a class="local col4 ref" href="#44fields" title='fields' data-ref="44fields">fields</a>) {</td></tr>
+<tr><th id="449">449</th><td>      <i>/* we got a cookie with blank contents, fix it */</i></td></tr>
+<tr><th id="450">450</th><td>      <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::value" title='Cookie::value' data-ref="Cookie::value">value</a> = <a class="macro" href="memdebug.h.html#74" title="curl_dostrdup(&quot;&quot;, 450, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/strdup">strdup</a>(<q>""</q>);</td></tr>
+<tr><th id="451">451</th><td>    }</td></tr>
+<tr><th id="452">452</th><td>    <b>else</b> <b>if</b>(<var>7</var> != <a class="local col4 ref" href="#44fields" title='fields' data-ref="44fields">fields</a>) {</td></tr>
+<tr><th id="453">453</th><td>      <i>/* we did not find the sufficient number of fields to recognize this</i></td></tr>
+<tr><th id="454">454</th><td><i>         as a valid line, abort and go home */</i></td></tr>
+<tr><th id="455">455</th><td>      <a class="tu ref" href="#free_cookiemess" title='free_cookiemess' data-use='c' data-ref="free_cookiemess">free_cookiemess</a>(<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>);</td></tr>
+<tr><th id="456">456</th><td>      <b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="457">457</th><td>    }</td></tr>
+<tr><th id="458">458</th><td>  }</td></tr>
+<tr><th id="459">459</th><td></td></tr>
+<tr><th id="460">460</th><td>  <b>if</b>(!<a class="local col7 ref" href="#17c" title='c' data-ref="17c">c</a>-&gt;<a class="ref" href="cookie.h.html#CookieInfo::running" title='CookieInfo::running' data-ref="CookieInfo::running">running</a> &amp;&amp;    <i>/* read from a file */</i></td></tr>
+<tr><th id="461">461</th><td>     <a class="local col7 ref" href="#17c" title='c' data-ref="17c">c</a>-&gt;<a class="ref" href="cookie.h.html#CookieInfo::newsession" title='CookieInfo::newsession' data-ref="CookieInfo::newsession">newsession</a> &amp;&amp;  <i>/* clean session cookies */</i></td></tr>
+<tr><th id="462">462</th><td>     !<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::expires" title='Cookie::expires' data-ref="Cookie::expires">expires</a>) {   <i>/* this is a session cookie since it doesn't expire! */</i></td></tr>
+<tr><th id="463">463</th><td>    <a class="tu ref" href="#free_cookiemess" title='free_cookiemess' data-use='c' data-ref="free_cookiemess">free_cookiemess</a>(<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>);</td></tr>
+<tr><th id="464">464</th><td>    <b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="465">465</th><td>  }</td></tr>
+<tr><th id="466">466</th><td></td></tr>
+<tr><th id="467">467</th><td>  <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::livecookie" title='Cookie::livecookie' data-ref="Cookie::livecookie">livecookie</a> = <a class="local col7 ref" href="#17c" title='c' data-ref="17c">c</a>-&gt;<a class="ref" href="cookie.h.html#CookieInfo::running" title='CookieInfo::running' data-ref="CookieInfo::running">running</a>;</td></tr>
+<tr><th id="468">468</th><td></td></tr>
+<tr><th id="469">469</th><td>  <i>/* now, we have parsed the incoming line, we must now check if this</i></td></tr>
+<tr><th id="470">470</th><td><i>     superceeds an already existing cookie, which it may if the previous have</i></td></tr>
+<tr><th id="471">471</th><td><i>     the same domain and path as this */</i></td></tr>
+<tr><th id="472">472</th><td></td></tr>
+<tr><th id="473">473</th><td>  <a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a> = <a class="local col7 ref" href="#17c" title='c' data-ref="17c">c</a>-&gt;<a class="ref" href="cookie.h.html#CookieInfo::cookies" title='CookieInfo::cookies' data-ref="CookieInfo::cookies">cookies</a>;</td></tr>
+<tr><th id="474">474</th><td>  <a class="local col0 ref" href="#30replace_old" title='replace_old' data-ref="30replace_old">replace_old</a> = <a class="macro" href="setup.h.html#70" title="0" data-ref="_M/FALSE">FALSE</a>;</td></tr>
+<tr><th id="475">475</th><td>  <b>while</b>(<a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a>) {</td></tr>
+<tr><th id="476">476</th><td>    <b>if</b>(<a class="macro" href="strequal.h.html#32" title="curl_strequal(clist-&gt;name,co-&gt;name)" data-ref="_M/strequal">strequal</a>(<a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::name" title='Cookie::name' data-ref="Cookie::name">name</a>, <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::name" title='Cookie::name' data-ref="Cookie::name">name</a>)) {</td></tr>
+<tr><th id="477">477</th><td>      <i>/* the names are identical */</i></td></tr>
+<tr><th id="478">478</th><td></td></tr>
+<tr><th id="479">479</th><td>      <b>if</b>(<a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::domain" title='Cookie::domain' data-ref="Cookie::domain">domain</a> &amp;&amp; <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::domain" title='Cookie::domain' data-ref="Cookie::domain">domain</a>) {</td></tr>
+<tr><th id="480">480</th><td>        <b>if</b>(<a class="macro" href="strequal.h.html#32" title="curl_strequal(clist-&gt;domain,co-&gt;domain)" data-ref="_M/strequal">strequal</a>(<a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::domain" title='Cookie::domain' data-ref="Cookie::domain">domain</a>, <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::domain" title='Cookie::domain' data-ref="Cookie::domain">domain</a>))</td></tr>
+<tr><th id="481">481</th><td>          <i>/* The domains are identical */</i></td></tr>
+<tr><th id="482">482</th><td>          <a class="local col0 ref" href="#30replace_old" title='replace_old' data-ref="30replace_old">replace_old</a>=<a class="macro" href="setup.h.html#67" title="1" data-ref="_M/TRUE">TRUE</a>;</td></tr>
+<tr><th id="483">483</th><td>      }</td></tr>
+<tr><th id="484">484</th><td>      <b>else</b> <b>if</b>(!<a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::domain" title='Cookie::domain' data-ref="Cookie::domain">domain</a> &amp;&amp; !<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::domain" title='Cookie::domain' data-ref="Cookie::domain">domain</a>)</td></tr>
+<tr><th id="485">485</th><td>        <a class="local col0 ref" href="#30replace_old" title='replace_old' data-ref="30replace_old">replace_old</a> = <a class="macro" href="setup.h.html#67" title="1" data-ref="_M/TRUE">TRUE</a>;</td></tr>
+<tr><th id="486">486</th><td></td></tr>
+<tr><th id="487">487</th><td>      <b>if</b>(<a class="local col0 ref" href="#30replace_old" title='replace_old' data-ref="30replace_old">replace_old</a>) {</td></tr>
+<tr><th id="488">488</th><td>        <i>/* the domains were identical */</i></td></tr>
+<tr><th id="489">489</th><td></td></tr>
+<tr><th id="490">490</th><td>        <b>if</b>(<a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::path" title='Cookie::path' data-ref="Cookie::path">path</a> &amp;&amp; <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::path" title='Cookie::path' data-ref="Cookie::path">path</a>) {</td></tr>
+<tr><th id="491">491</th><td>          <b>if</b>(<a class="macro" href="strequal.h.html#32" title="curl_strequal(clist-&gt;path,co-&gt;path)" data-ref="_M/strequal">strequal</a>(<a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::path" title='Cookie::path' data-ref="Cookie::path">path</a>, <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::path" title='Cookie::path' data-ref="Cookie::path">path</a>)) {</td></tr>
+<tr><th id="492">492</th><td>            <a class="local col0 ref" href="#30replace_old" title='replace_old' data-ref="30replace_old">replace_old</a> = <a class="macro" href="setup.h.html#67" title="1" data-ref="_M/TRUE">TRUE</a>;</td></tr>
+<tr><th id="493">493</th><td>          }</td></tr>
+<tr><th id="494">494</th><td>          <b>else</b></td></tr>
+<tr><th id="495">495</th><td>            <a class="local col0 ref" href="#30replace_old" title='replace_old' data-ref="30replace_old">replace_old</a> = <a class="macro" href="setup.h.html#70" title="0" data-ref="_M/FALSE">FALSE</a>;</td></tr>
+<tr><th id="496">496</th><td>        }</td></tr>
+<tr><th id="497">497</th><td>        <b>else</b> <b>if</b>(!<a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::path" title='Cookie::path' data-ref="Cookie::path">path</a> &amp;&amp; !<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::path" title='Cookie::path' data-ref="Cookie::path">path</a>)</td></tr>
+<tr><th id="498">498</th><td>          <a class="local col0 ref" href="#30replace_old" title='replace_old' data-ref="30replace_old">replace_old</a> = <a class="macro" href="setup.h.html#67" title="1" data-ref="_M/TRUE">TRUE</a>;</td></tr>
+<tr><th id="499">499</th><td>        <b>else</b></td></tr>
+<tr><th id="500">500</th><td>          <a class="local col0 ref" href="#30replace_old" title='replace_old' data-ref="30replace_old">replace_old</a> = <a class="macro" href="setup.h.html#70" title="0" data-ref="_M/FALSE">FALSE</a>;</td></tr>
+<tr><th id="501">501</th><td>        </td></tr>
+<tr><th id="502">502</th><td>      }</td></tr>
+<tr><th id="503">503</th><td></td></tr>
+<tr><th id="504">504</th><td>      <b>if</b>(<a class="local col0 ref" href="#30replace_old" title='replace_old' data-ref="30replace_old">replace_old</a> &amp;&amp; !<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::livecookie" title='Cookie::livecookie' data-ref="Cookie::livecookie">livecookie</a> &amp;&amp; <a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::livecookie" title='Cookie::livecookie' data-ref="Cookie::livecookie">livecookie</a>) {</td></tr>
+<tr><th id="505">505</th><td>        <i>/* Both cookies matched fine, except that the already present</i></td></tr>
+<tr><th id="506">506</th><td><i>           cookie is "live", which means it was set from a header, while</i></td></tr>
+<tr><th id="507">507</th><td><i>           the new one isn't "live" and thus only read from a file. We let</i></td></tr>
+<tr><th id="508">508</th><td><i>           live cookies stay alive */</i></td></tr>
+<tr><th id="509">509</th><td></td></tr>
+<tr><th id="510">510</th><td>        <i>/* Free the newcomer and get out of here! */</i></td></tr>
+<tr><th id="511">511</th><td>        <b>if</b>(<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::domain" title='Cookie::domain' data-ref="Cookie::domain">domain</a>)</td></tr>
+<tr><th id="512">512</th><td>          <a class="macro" href="memdebug.h.html#78" title="curl_dofree(co-&gt;domain, 512, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::domain" title='Cookie::domain' data-ref="Cookie::domain">domain</a>);</td></tr>
+<tr><th id="513">513</th><td>        <b>if</b>(<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::path" title='Cookie::path' data-ref="Cookie::path">path</a>)</td></tr>
+<tr><th id="514">514</th><td>          <a class="macro" href="memdebug.h.html#78" title="curl_dofree(co-&gt;path, 514, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::path" title='Cookie::path' data-ref="Cookie::path">path</a>);</td></tr>
+<tr><th id="515">515</th><td>        <b>if</b>(<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::name" title='Cookie::name' data-ref="Cookie::name">name</a>)</td></tr>
+<tr><th id="516">516</th><td>          <a class="macro" href="memdebug.h.html#78" title="curl_dofree(co-&gt;name, 516, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::name" title='Cookie::name' data-ref="Cookie::name">name</a>);</td></tr>
+<tr><th id="517">517</th><td>        <b>if</b>(<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::value" title='Cookie::value' data-ref="Cookie::value">value</a>)</td></tr>
+<tr><th id="518">518</th><td>          <a class="macro" href="memdebug.h.html#78" title="curl_dofree(co-&gt;value, 518, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::value" title='Cookie::value' data-ref="Cookie::value">value</a>);</td></tr>
+<tr><th id="519">519</th><td></td></tr>
+<tr><th id="520">520</th><td>        <a class="macro" href="memdebug.h.html#78" title="curl_dofree(co, 520, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>);</td></tr>
+<tr><th id="521">521</th><td>        <b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="522">522</th><td>      }</td></tr>
+<tr><th id="523">523</th><td></td></tr>
+<tr><th id="524">524</th><td>      <b>if</b>(<a class="local col0 ref" href="#30replace_old" title='replace_old' data-ref="30replace_old">replace_old</a>) {</td></tr>
+<tr><th id="525">525</th><td>        <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::next" title='Cookie::next' data-ref="Cookie::next">next</a> = <a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::next" title='Cookie::next' data-ref="Cookie::next">next</a>; <i>/* get the next-pointer first */</i></td></tr>
+<tr><th id="526">526</th><td></td></tr>
+<tr><th id="527">527</th><td>        <i>/* then free all the old pointers */</i></td></tr>
+<tr><th id="528">528</th><td>        <b>if</b>(<a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::name" title='Cookie::name' data-ref="Cookie::name">name</a>)</td></tr>
+<tr><th id="529">529</th><td>          <a class="macro" href="memdebug.h.html#78" title="curl_dofree(clist-&gt;name, 529, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::name" title='Cookie::name' data-ref="Cookie::name">name</a>);</td></tr>
+<tr><th id="530">530</th><td>        <b>if</b>(<a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::value" title='Cookie::value' data-ref="Cookie::value">value</a>)</td></tr>
+<tr><th id="531">531</th><td>          <a class="macro" href="memdebug.h.html#78" title="curl_dofree(clist-&gt;value, 531, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::value" title='Cookie::value' data-ref="Cookie::value">value</a>);</td></tr>
+<tr><th id="532">532</th><td>        <b>if</b>(<a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::domain" title='Cookie::domain' data-ref="Cookie::domain">domain</a>)</td></tr>
+<tr><th id="533">533</th><td>          <a class="macro" href="memdebug.h.html#78" title="curl_dofree(clist-&gt;domain, 533, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::domain" title='Cookie::domain' data-ref="Cookie::domain">domain</a>);</td></tr>
+<tr><th id="534">534</th><td>        <b>if</b>(<a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::path" title='Cookie::path' data-ref="Cookie::path">path</a>)</td></tr>
+<tr><th id="535">535</th><td>          <a class="macro" href="memdebug.h.html#78" title="curl_dofree(clist-&gt;path, 535, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::path" title='Cookie::path' data-ref="Cookie::path">path</a>);</td></tr>
+<tr><th id="536">536</th><td>        <b>if</b>(<a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::expirestr" title='Cookie::expirestr' data-ref="Cookie::expirestr">expirestr</a>)</td></tr>
+<tr><th id="537">537</th><td>          <a class="macro" href="memdebug.h.html#78" title="curl_dofree(clist-&gt;expirestr, 537, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::expirestr" title='Cookie::expirestr' data-ref="Cookie::expirestr">expirestr</a>);</td></tr>
+<tr><th id="538">538</th><td></td></tr>
+<tr><th id="539">539</th><td>        <b>if</b>(<a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::version" title='Cookie::version' data-ref="Cookie::version">version</a>)</td></tr>
+<tr><th id="540">540</th><td>          <a class="macro" href="memdebug.h.html#78" title="curl_dofree(clist-&gt;version, 540, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::version" title='Cookie::version' data-ref="Cookie::version">version</a>);</td></tr>
+<tr><th id="541">541</th><td>        <b>if</b>(<a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::maxage" title='Cookie::maxage' data-ref="Cookie::maxage">maxage</a>)</td></tr>
+<tr><th id="542">542</th><td>          <a class="macro" href="memdebug.h.html#78" title="curl_dofree(clist-&gt;maxage, 542, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::maxage" title='Cookie::maxage' data-ref="Cookie::maxage">maxage</a>);</td></tr>
+<tr><th id="543">543</th><td></td></tr>
+<tr><th id="544">544</th><td>        *<a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a> = *<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>;  <i>/* then store all the new data */</i></td></tr>
+<tr><th id="545">545</th><td></td></tr>
+<tr><th id="546">546</th><td>        <a class="macro" href="memdebug.h.html#78" title="curl_dofree(co, 546, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>);   <i>/* free the newly alloced memory */</i></td></tr>
+<tr><th id="547">547</th><td>        <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a> = <a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a>; <i>/* point to the previous struct instead */</i></td></tr>
+<tr><th id="548">548</th><td></td></tr>
+<tr><th id="549">549</th><td>        <i>/* We have replaced a cookie, now skip the rest of the list but</i></td></tr>
+<tr><th id="550">550</th><td><i>           make sure the 'lastc' pointer is properly set */</i></td></tr>
+<tr><th id="551">551</th><td>        <b>do</b> {</td></tr>
+<tr><th id="552">552</th><td>          <a class="local col8 ref" href="#28lastc" title='lastc' data-ref="28lastc">lastc</a> = <a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a>;</td></tr>
+<tr><th id="553">553</th><td>          <a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a> = <a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::next" title='Cookie::next' data-ref="Cookie::next">next</a>;</td></tr>
+<tr><th id="554">554</th><td>        } <b>while</b>(<a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a>);</td></tr>
+<tr><th id="555">555</th><td>        <b>break</b>;</td></tr>
+<tr><th id="556">556</th><td>      }</td></tr>
+<tr><th id="557">557</th><td>    }</td></tr>
+<tr><th id="558">558</th><td>    <a class="local col8 ref" href="#28lastc" title='lastc' data-ref="28lastc">lastc</a> = <a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a>;</td></tr>
+<tr><th id="559">559</th><td>    <a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a> = <a class="local col2 ref" href="#22clist" title='clist' data-ref="22clist">clist</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::next" title='Cookie::next' data-ref="Cookie::next">next</a>;</td></tr>
+<tr><th id="560">560</th><td>  }</td></tr>
+<tr><th id="561">561</th><td></td></tr>
+<tr><th id="562">562</th><td>  <b>if</b>(<a class="local col7 ref" href="#17c" title='c' data-ref="17c">c</a>-&gt;<a class="ref" href="cookie.h.html#CookieInfo::running" title='CookieInfo::running' data-ref="CookieInfo::running">running</a>)</td></tr>
+<tr><th id="563">563</th><td>    <i>/* Only show this when NOT reading the cookies from a file */</i></td></tr>
+<tr><th id="564">564</th><td>    <a class="macro" href="sendf.h.html#31" title="Curl_infof" data-ref="_M/infof">infof</a>(<a class="local col6 ref" href="#16data" title='data' data-ref="16data">data</a>, <q>"%s cookie %s=\"%s\" for domain %s, path %s, expire %d\n"</q>,</td></tr>
+<tr><th id="565">565</th><td>          <a class="local col0 ref" href="#30replace_old" title='replace_old' data-ref="30replace_old">replace_old</a>?<q>"Replaced"</q>:<q>"Added"</q>, <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::name" title='Cookie::name' data-ref="Cookie::name">name</a>, <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::value" title='Cookie::value' data-ref="Cookie::value">value</a>,</td></tr>
+<tr><th id="566">566</th><td>          <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::domain" title='Cookie::domain' data-ref="Cookie::domain">domain</a>, <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::path" title='Cookie::path' data-ref="Cookie::path">path</a>, <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::expires" title='Cookie::expires' data-ref="Cookie::expires">expires</a>);</td></tr>
+<tr><th id="567">567</th><td></td></tr>
+<tr><th id="568">568</th><td>  <b>if</b>(!<a class="local col0 ref" href="#30replace_old" title='replace_old' data-ref="30replace_old">replace_old</a>) {</td></tr>
+<tr><th id="569">569</th><td>    <i>/* then make the last item point on this new one */</i></td></tr>
+<tr><th id="570">570</th><td>    <b>if</b>(<a class="local col8 ref" href="#28lastc" title='lastc' data-ref="28lastc">lastc</a>)</td></tr>
+<tr><th id="571">571</th><td>      <a class="local col8 ref" href="#28lastc" title='lastc' data-ref="28lastc">lastc</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::next" title='Cookie::next' data-ref="Cookie::next">next</a> = <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>;</td></tr>
+<tr><th id="572">572</th><td>    <b>else</b></td></tr>
+<tr><th id="573">573</th><td>      <a class="local col7 ref" href="#17c" title='c' data-ref="17c">c</a>-&gt;<a class="ref" href="cookie.h.html#CookieInfo::cookies" title='CookieInfo::cookies' data-ref="CookieInfo::cookies">cookies</a> = <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>;</td></tr>
+<tr><th id="574">574</th><td>  }</td></tr>
+<tr><th id="575">575</th><td></td></tr>
+<tr><th id="576">576</th><td>  <a class="local col7 ref" href="#17c" title='c' data-ref="17c">c</a>-&gt;<a class="ref" href="cookie.h.html#CookieInfo::numcookies" title='CookieInfo::numcookies' data-ref="CookieInfo::numcookies">numcookies</a>++; <i>/* one more cookie in the jar */</i></td></tr>
+<tr><th id="577">577</th><td>  <b>return</b> <a class="local col7 ref" href="#27co" title='co' data-ref="27co">co</a>;</td></tr>
+<tr><th id="578">578</th><td>}</td></tr>
+<tr><th id="579">579</th><td></td></tr>
+<tr><th id="580">580</th><td><i>/*****************************************************************************</i></td></tr>
+<tr><th id="581">581</th><td><i> *</i></td></tr>
+<tr><th id="582">582</th><td><i> * Curl_cookie_init()</i></td></tr>
+<tr><th id="583">583</th><td><i> *</i></td></tr>
+<tr><th id="584">584</th><td><i> * Inits a cookie struct to read data from a local file. This is always</i></td></tr>
+<tr><th id="585">585</th><td><i> * called before any cookies are set. File may be NULL.</i></td></tr>
+<tr><th id="586">586</th><td><i> *</i></td></tr>
+<tr><th id="587">587</th><td><i> * If 'newsession' is TRUE, discard all "session cookies" on read from file.</i></td></tr>
+<tr><th id="588">588</th><td><i> *</i></td></tr>
+<tr><th id="589">589</th><td><i> ****************************************************************************/</i></td></tr>
+<tr><th id="590">590</th><td><b>struct</b> <a class="type" href="cookie.h.html#CookieInfo" title='CookieInfo' data-ref="CookieInfo">CookieInfo</a> *<dfn class="decl def" id="Curl_cookie_init" title='Curl_cookie_init' data-ref="Curl_cookie_init">Curl_cookie_init</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *<dfn class="local col5 decl" id="45data" title='data' data-type='struct SessionHandle *' data-ref="45data">data</dfn>,</td></tr>
+<tr><th id="591">591</th><td>                                    <em>char</em> *<dfn class="local col6 decl" id="46file" title='file' data-type='char *' data-ref="46file">file</dfn>,</td></tr>
+<tr><th id="592">592</th><td>                                    <b>struct</b> <a class="type" href="cookie.h.html#CookieInfo" title='CookieInfo' data-ref="CookieInfo">CookieInfo</a> *<dfn class="local col7 decl" id="47inc" title='inc' data-type='struct CookieInfo *' data-ref="47inc">inc</dfn>,</td></tr>
+<tr><th id="593">593</th><td>                                    <a class="typedef" href="setup.h.html#bool" title='bool' data-type='unsigned char' data-ref="bool">bool</a> <dfn class="local col8 decl" id="48newsession" title='newsession' data-type='bool' data-ref="48newsession">newsession</dfn>)</td></tr>
+<tr><th id="594">594</th><td>{</td></tr>
+<tr><th id="595">595</th><td>  <em>char</em> <dfn class="local col9 decl" id="49line" title='line' data-type='char [2048]' data-ref="49line">line</dfn>[<a class="macro" href="cookie.h.html#64" title="2048" data-ref="_M/MAX_COOKIE_LINE">MAX_COOKIE_LINE</a>];</td></tr>
+<tr><th id="596">596</th><td>  <b>struct</b> <a class="type" href="cookie.h.html#CookieInfo" title='CookieInfo' data-ref="CookieInfo">CookieInfo</a> *<dfn class="local col0 decl" id="50c" title='c' data-type='struct CookieInfo *' data-ref="50c">c</dfn>;</td></tr>
+<tr><th id="597">597</th><td>  <a class="typedef" href="../../../include/stdio.h.html#FILE" title='FILE' data-type='struct _IO_FILE' data-ref="FILE">FILE</a> *<dfn class="local col1 decl" id="51fp" title='fp' data-type='FILE *' data-ref="51fp">fp</dfn>;</td></tr>
+<tr><th id="598">598</th><td>  <a class="typedef" href="setup.h.html#bool" title='bool' data-type='unsigned char' data-ref="bool">bool</a> <dfn class="local col2 decl" id="52fromfile" title='fromfile' data-type='bool' data-ref="52fromfile">fromfile</dfn>=<a class="macro" href="setup.h.html#67" title="1" data-ref="_M/TRUE">TRUE</a>;</td></tr>
+<tr><th id="599">599</th><td>  </td></tr>
+<tr><th id="600">600</th><td>  <b>if</b>(<span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span> == <a class="local col7 ref" href="#47inc" title='inc' data-ref="47inc">inc</a>) {</td></tr>
+<tr><th id="601">601</th><td>    <i>/* we didn't get a struct, create one */</i></td></tr>
+<tr><th id="602">602</th><td>    <a class="local col0 ref" href="#50c" title='c' data-ref="50c">c</a> = (<b>struct</b> <a class="type" href="cookie.h.html#CookieInfo" title='CookieInfo' data-ref="CookieInfo">CookieInfo</a> *)<a class="macro" href="memdebug.h.html#75" title="curl_domalloc(sizeof(struct CookieInfo), 602, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/malloc">malloc</a>(<b>sizeof</b>(<b>struct</b> <a class="type" href="cookie.h.html#CookieInfo" title='CookieInfo' data-ref="CookieInfo">CookieInfo</a>));</td></tr>
+<tr><th id="603">603</th><td>    <b>if</b>(!<a class="local col0 ref" href="#50c" title='c' data-ref="50c">c</a>)</td></tr>
+<tr><th id="604">604</th><td>      <b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>; <i>/* failed to get memory */</i></td></tr>
+<tr><th id="605">605</th><td>    <a class="ref" href="../../../include/string.h.html#memset" title='memset' data-ref="memset">memset</a>(<a class="local col0 ref" href="#50c" title='c' data-ref="50c">c</a>, <var>0</var>, <b>sizeof</b>(<b>struct</b> <a class="type" href="cookie.h.html#CookieInfo" title='CookieInfo' data-ref="CookieInfo">CookieInfo</a>));</td></tr>
+<tr><th id="606">606</th><td>    <a class="local col0 ref" href="#50c" title='c' data-ref="50c">c</a>-&gt;<a class="ref" href="cookie.h.html#CookieInfo::filename" title='CookieInfo::filename' data-ref="CookieInfo::filename">filename</a> = <a class="macro" href="memdebug.h.html#74" title="curl_dostrdup(file?file:&quot;none&quot;, 606, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/strdup">strdup</a>(<a class="local col6 ref" href="#46file" title='file' data-ref="46file">file</a>?<a class="local col6 ref" href="#46file" title='file' data-ref="46file">file</a>:<q>"none"</q>); <i>/* copy the name just in case */</i></td></tr>
+<tr><th id="607">607</th><td>  }</td></tr>
+<tr><th id="608">608</th><td>  <b>else</b> {</td></tr>
+<tr><th id="609">609</th><td>    <i>/* we got an already existing one, use that */</i></td></tr>
+<tr><th id="610">610</th><td>    <a class="local col0 ref" href="#50c" title='c' data-ref="50c">c</a> = <a class="local col7 ref" href="#47inc" title='inc' data-ref="47inc">inc</a>;</td></tr>
+<tr><th id="611">611</th><td>  }</td></tr>
+<tr><th id="612">612</th><td>  <a class="local col0 ref" href="#50c" title='c' data-ref="50c">c</a>-&gt;<a class="ref" href="cookie.h.html#CookieInfo::running" title='CookieInfo::running' data-ref="CookieInfo::running">running</a> = <a class="macro" href="setup.h.html#70" title="0" data-ref="_M/FALSE">FALSE</a>; <i>/* this is not running, this is init */</i></td></tr>
+<tr><th id="613">613</th><td></td></tr>
+<tr><th id="614">614</th><td>  <b>if</b>(<a class="local col6 ref" href="#46file" title='file' data-ref="46file">file</a> &amp;&amp; <a class="macro" href="strequal.h.html#32" title="curl_strequal(file,&quot;-&quot;)" data-ref="_M/strequal">strequal</a>(<a class="local col6 ref" href="#46file" title='file' data-ref="46file">file</a>, <q>"-"</q>)) {</td></tr>
+<tr><th id="615">615</th><td>    <a class="local col1 ref" href="#51fp" title='fp' data-ref="51fp">fp</a> = <a class="macro" href="../../../include/stdio.h.html#172" title="stdin" data-ref="_M/stdin">stdin</a>;</td></tr>
+<tr><th id="616">616</th><td>    <a class="local col2 ref" href="#52fromfile" title='fromfile' data-ref="52fromfile">fromfile</a>=<a class="macro" href="setup.h.html#70" title="0" data-ref="_M/FALSE">FALSE</a>;</td></tr>
+<tr><th id="617">617</th><td>  }</td></tr>
+<tr><th id="618">618</th><td>  <b>else</b></td></tr>
+<tr><th id="619">619</th><td>    <a class="local col1 ref" href="#51fp" title='fp' data-ref="51fp">fp</a> = <a class="local col6 ref" href="#46file" title='file' data-ref="46file">file</a>?<a class="macro" href="memdebug.h.html#99" title="curl_fopen(file,&quot;r&quot;,619,&quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/fopen">fopen</a>(<a class="local col6 ref" href="#46file" title='file' data-ref="46file">file</a>, <q>"r"</q>):<span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="620">620</th><td></td></tr>
+<tr><th id="621">621</th><td>  <a class="local col0 ref" href="#50c" title='c' data-ref="50c">c</a>-&gt;<a class="ref" href="cookie.h.html#CookieInfo::newsession" title='CookieInfo::newsession' data-ref="CookieInfo::newsession">newsession</a> = <a class="local col8 ref" href="#48newsession" title='newsession' data-ref="48newsession">newsession</a>; <i>/* new session? */</i></td></tr>
+<tr><th id="622">622</th><td></td></tr>
+<tr><th id="623">623</th><td>  <b>if</b>(<a class="local col1 ref" href="#51fp" title='fp' data-ref="51fp">fp</a>) {</td></tr>
+<tr><th id="624">624</th><td>    <em>char</em> *<dfn class="local col3 decl" id="53lineptr" title='lineptr' data-type='char *' data-ref="53lineptr">lineptr</dfn>;</td></tr>
+<tr><th id="625">625</th><td>    <a class="typedef" href="setup.h.html#bool" title='bool' data-type='unsigned char' data-ref="bool">bool</a> <dfn class="local col4 decl" id="54headerline" title='headerline' data-type='bool' data-ref="54headerline">headerline</dfn>;</td></tr>
+<tr><th id="626">626</th><td>    <b>while</b>(<a class="ref" href="../../../include/stdio.h.html#fgets" title='fgets' data-ref="fgets">fgets</a>(<a class="local col9 ref" href="#49line" title='line' data-ref="49line">line</a>, <a class="macro" href="cookie.h.html#64" title="2048" data-ref="_M/MAX_COOKIE_LINE">MAX_COOKIE_LINE</a>, <a class="local col1 ref" href="#51fp" title='fp' data-ref="51fp">fp</a>)) {</td></tr>
+<tr><th id="627">627</th><td>      <b>if</b>(<a class="macro" href="strequal.h.html#37" title="curl_strnequal(&quot;Set-Cookie:&quot;,line,strlen(&quot;Set-Cookie:&quot;))" data-ref="_M/checkprefix">checkprefix</a>(<q>"Set-Cookie:"</q>, <a class="local col9 ref" href="#49line" title='line' data-ref="49line">line</a>)) {</td></tr>
+<tr><th id="628">628</th><td>        <i>/* This is a cookie line, get it! */</i></td></tr>
+<tr><th id="629">629</th><td>        <a class="local col3 ref" href="#53lineptr" title='lineptr' data-ref="53lineptr">lineptr</a>=&amp;<a class="local col9 ref" href="#49line" title='line' data-ref="49line">line</a>[<var>11</var>];</td></tr>
+<tr><th id="630">630</th><td>        <a class="local col4 ref" href="#54headerline" title='headerline' data-ref="54headerline">headerline</a>=<a class="macro" href="setup.h.html#67" title="1" data-ref="_M/TRUE">TRUE</a>;</td></tr>
+<tr><th id="631">631</th><td>      }</td></tr>
+<tr><th id="632">632</th><td>      <b>else</b> {</td></tr>
+<tr><th id="633">633</th><td>        <a class="local col3 ref" href="#53lineptr" title='lineptr' data-ref="53lineptr">lineptr</a>=<a class="local col9 ref" href="#49line" title='line' data-ref="49line">line</a>;</td></tr>
+<tr><th id="634">634</th><td>        <a class="local col4 ref" href="#54headerline" title='headerline' data-ref="54headerline">headerline</a>=<a class="macro" href="setup.h.html#70" title="0" data-ref="_M/FALSE">FALSE</a>;</td></tr>
+<tr><th id="635">635</th><td>      }</td></tr>
+<tr><th id="636">636</th><td>      <b>while</b>(*<a class="local col3 ref" href="#53lineptr" title='lineptr' data-ref="53lineptr">lineptr</a> &amp;&amp; <a class="macro" href="../../../include/ctype.h.html#205" title="((*__ctype_b_loc ())[(int) (((int)*lineptr))] &amp; (unsigned short int) _ISspace)" data-ref="_M/isspace">isspace</a>((<em>int</em>)*<a class="local col3 ref" href="#53lineptr" title='lineptr' data-ref="53lineptr">lineptr</a>))</td></tr>
+<tr><th id="637">637</th><td>        <a class="local col3 ref" href="#53lineptr" title='lineptr' data-ref="53lineptr">lineptr</a>++;</td></tr>
+<tr><th id="638">638</th><td></td></tr>
+<tr><th id="639">639</th><td>      <a class="ref" href="#Curl_cookie_add" title='Curl_cookie_add' data-ref="Curl_cookie_add">Curl_cookie_add</a>(<a class="local col5 ref" href="#45data" title='data' data-ref="45data">data</a>, <a class="local col0 ref" href="#50c" title='c' data-ref="50c">c</a>, <a class="local col4 ref" href="#54headerline" title='headerline' data-ref="54headerline">headerline</a>, <a class="local col3 ref" href="#53lineptr" title='lineptr' data-ref="53lineptr">lineptr</a>, <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>, <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>);</td></tr>
+<tr><th id="640">640</th><td>    }</td></tr>
+<tr><th id="641">641</th><td>    <b>if</b>(<a class="local col2 ref" href="#52fromfile" title='fromfile' data-ref="52fromfile">fromfile</a>)</td></tr>
+<tr><th id="642">642</th><td>      <a class="macro" href="memdebug.h.html#100" title="curl_fclose(fp,642,&quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/fclose">fclose</a>(<a class="local col1 ref" href="#51fp" title='fp' data-ref="51fp">fp</a>);</td></tr>
+<tr><th id="643">643</th><td>  }</td></tr>
+<tr><th id="644">644</th><td></td></tr>
+<tr><th id="645">645</th><td>  <a class="local col0 ref" href="#50c" title='c' data-ref="50c">c</a>-&gt;<a class="ref" href="cookie.h.html#CookieInfo::running" title='CookieInfo::running' data-ref="CookieInfo::running">running</a> = <a class="macro" href="setup.h.html#67" title="1" data-ref="_M/TRUE">TRUE</a>;          <i>/* now, we're running */</i></td></tr>
+<tr><th id="646">646</th><td></td></tr>
+<tr><th id="647">647</th><td>  <b>return</b> <a class="local col0 ref" href="#50c" title='c' data-ref="50c">c</a>;</td></tr>
+<tr><th id="648">648</th><td>}</td></tr>
+<tr><th id="649">649</th><td></td></tr>
+<tr><th id="650">650</th><td><i>/*****************************************************************************</i></td></tr>
+<tr><th id="651">651</th><td><i> *</i></td></tr>
+<tr><th id="652">652</th><td><i> * Curl_cookie_getlist()</i></td></tr>
+<tr><th id="653">653</th><td><i> *</i></td></tr>
+<tr><th id="654">654</th><td><i> * For a given host and path, return a linked list of cookies that the</i></td></tr>
+<tr><th id="655">655</th><td><i> * client should send to the server if used now. The secure boolean informs</i></td></tr>
+<tr><th id="656">656</th><td><i> * the cookie if a secure connection is achieved or not.</i></td></tr>
+<tr><th id="657">657</th><td><i> *</i></td></tr>
+<tr><th id="658">658</th><td><i> * It shall only return cookies that haven't expired.</i></td></tr>
+<tr><th id="659">659</th><td><i> *</i></td></tr>
+<tr><th id="660">660</th><td><i> ****************************************************************************/</i></td></tr>
+<tr><th id="661">661</th><td></td></tr>
+<tr><th id="662">662</th><td><b>struct</b> <a class="type" href="cookie.h.html#Cookie" title='Cookie' data-ref="Cookie">Cookie</a> *<dfn class="decl def" id="Curl_cookie_getlist" title='Curl_cookie_getlist' data-ref="Curl_cookie_getlist">Curl_cookie_getlist</dfn>(<b>struct</b> <a class="type" href="cookie.h.html#CookieInfo" title='CookieInfo' data-ref="CookieInfo">CookieInfo</a> *<dfn class="local col5 decl" id="55c" title='c' data-type='struct CookieInfo *' data-ref="55c">c</dfn>,</td></tr>
+<tr><th id="663">663</th><td>                                   <em>char</em> *<dfn class="local col6 decl" id="56host" title='host' data-type='char *' data-ref="56host">host</dfn>, <em>char</em> *<dfn class="local col7 decl" id="57path" title='path' data-type='char *' data-ref="57path">path</dfn>, <a class="typedef" href="setup.h.html#bool" title='bool' data-type='unsigned char' data-ref="bool">bool</a> <dfn class="local col8 decl" id="58secure" title='secure' data-type='bool' data-ref="58secure">secure</dfn>)</td></tr>
+<tr><th id="664">664</th><td>{</td></tr>
+<tr><th id="665">665</th><td>   <b>struct</b> <a class="type" href="cookie.h.html#Cookie" title='Cookie' data-ref="Cookie">Cookie</a> *<dfn class="local col9 decl" id="59newco" title='newco' data-type='struct Cookie *' data-ref="59newco">newco</dfn>;</td></tr>
+<tr><th id="666">666</th><td>   <b>struct</b> <a class="type" href="cookie.h.html#Cookie" title='Cookie' data-ref="Cookie">Cookie</a> *<dfn class="local col0 decl" id="60co" title='co' data-type='struct Cookie *' data-ref="60co">co</dfn>;</td></tr>
+<tr><th id="667">667</th><td>   <a class="typedef" href="../../../include/time.h.html#time_t" title='time_t' data-type='__time_t' data-ref="time_t">time_t</a> <dfn class="local col1 decl" id="61now" title='now' data-type='time_t' data-ref="61now">now</dfn> = <a class="ref" href="../../../include/time.h.html#time" title='time' data-ref="time">time</a>(<span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>);</td></tr>
+<tr><th id="668">668</th><td>   <b>struct</b> <a class="type" href="cookie.h.html#Cookie" title='Cookie' data-ref="Cookie">Cookie</a> *<dfn class="local col2 decl" id="62mainco" title='mainco' data-type='struct Cookie *' data-ref="62mainco">mainco</dfn>=<span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="669">669</th><td></td></tr>
+<tr><th id="670">670</th><td>   <b>if</b>(!<a class="local col5 ref" href="#55c" title='c' data-ref="55c">c</a> || !<a class="local col5 ref" href="#55c" title='c' data-ref="55c">c</a>-&gt;<a class="ref" href="cookie.h.html#CookieInfo::cookies" title='CookieInfo::cookies' data-ref="CookieInfo::cookies">cookies</a>)</td></tr>
+<tr><th id="671">671</th><td>      <b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>; <i>/* no cookie struct or no cookies in the struct */</i></td></tr>
+<tr><th id="672">672</th><td></td></tr>
+<tr><th id="673">673</th><td>   <a class="local col0 ref" href="#60co" title='co' data-ref="60co">co</a> = <a class="local col5 ref" href="#55c" title='c' data-ref="55c">c</a>-&gt;<a class="ref" href="cookie.h.html#CookieInfo::cookies" title='CookieInfo::cookies' data-ref="CookieInfo::cookies">cookies</a>;</td></tr>
+<tr><th id="674">674</th><td></td></tr>
+<tr><th id="675">675</th><td>   <b>while</b>(<a class="local col0 ref" href="#60co" title='co' data-ref="60co">co</a>) {</td></tr>
+<tr><th id="676">676</th><td>     <i>/* only process this cookie if it is not expired or had no expire</i></td></tr>
+<tr><th id="677">677</th><td><i>        date AND that if the cookie requires we're secure we must only</i></td></tr>
+<tr><th id="678">678</th><td><i>        continue if we are! */</i></td></tr>
+<tr><th id="679">679</th><td>     <b>if</b>( (<a class="local col0 ref" href="#60co" title='co' data-ref="60co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::expires" title='Cookie::expires' data-ref="Cookie::expires">expires</a>&lt;=<var>0</var> || (<a class="local col0 ref" href="#60co" title='co' data-ref="60co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::expires" title='Cookie::expires' data-ref="Cookie::expires">expires</a>&gt; <a class="local col1 ref" href="#61now" title='now' data-ref="61now">now</a>)) &amp;&amp;</td></tr>
+<tr><th id="680">680</th><td>         (<a class="local col0 ref" href="#60co" title='co' data-ref="60co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::secure" title='Cookie::secure' data-ref="Cookie::secure">secure</a>?<a class="local col8 ref" href="#58secure" title='secure' data-ref="58secure">secure</a>:<a class="macro" href="setup.h.html#67" title="1" data-ref="_M/TRUE">TRUE</a>) ) {</td></tr>
+<tr><th id="681">681</th><td>       </td></tr>
+<tr><th id="682">682</th><td>       <i>/* now check if the domain is correct */</i></td></tr>
+<tr><th id="683">683</th><td>       <b>if</b>(!<a class="local col0 ref" href="#60co" title='co' data-ref="60co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::domain" title='Cookie::domain' data-ref="Cookie::domain">domain</a> ||</td></tr>
+<tr><th id="684">684</th><td>          (<a class="local col0 ref" href="#60co" title='co' data-ref="60co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::tailmatch" title='Cookie::tailmatch' data-ref="Cookie::tailmatch">tailmatch</a> &amp;&amp; <a class="tu ref" href="#tailmatch" title='tailmatch' data-use='c' data-ref="tailmatch">tailmatch</a>(<a class="local col0 ref" href="#60co" title='co' data-ref="60co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::domain" title='Cookie::domain' data-ref="Cookie::domain">domain</a>, <a class="local col6 ref" href="#56host" title='host' data-ref="56host">host</a>)) ||</td></tr>
+<tr><th id="685">685</th><td>          (!<a class="local col0 ref" href="#60co" title='co' data-ref="60co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::tailmatch" title='Cookie::tailmatch' data-ref="Cookie::tailmatch">tailmatch</a> &amp;&amp; <a class="macro" href="strequal.h.html#32" title="curl_strequal(host,co-&gt;domain)" data-ref="_M/strequal">strequal</a>(<a class="local col6 ref" href="#56host" title='host' data-ref="56host">host</a>, <a class="local col0 ref" href="#60co" title='co' data-ref="60co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::domain" title='Cookie::domain' data-ref="Cookie::domain">domain</a>)) ) {</td></tr>
+<tr><th id="686">686</th><td>         <i>/* the right part of the host matches the domain stuff in the</i></td></tr>
+<tr><th id="687">687</th><td><i>            cookie data */</i></td></tr>
+<tr><th id="688">688</th><td>         </td></tr>
+<tr><th id="689">689</th><td>         <i>/* now check the left part of the path with the cookies path</i></td></tr>
+<tr><th id="690">690</th><td><i>            requirement */</i></td></tr>
+<tr><th id="691">691</th><td>         <b>if</b>(!<a class="local col0 ref" href="#60co" title='co' data-ref="60co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::path" title='Cookie::path' data-ref="Cookie::path">path</a> ||</td></tr>
+<tr><th id="692">692</th><td>            <a class="macro" href="strequal.h.html#37" title="curl_strnequal(co-&gt;path,path,strlen(co-&gt;path))" data-ref="_M/checkprefix">checkprefix</a>(<a class="local col0 ref" href="#60co" title='co' data-ref="60co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::path" title='Cookie::path' data-ref="Cookie::path">path</a>, <a class="local col7 ref" href="#57path" title='path' data-ref="57path">path</a>) ) {</td></tr>
+<tr><th id="693">693</th><td></td></tr>
+<tr><th id="694">694</th><td>           <i>/* and now, we know this is a match and we should create an</i></td></tr>
+<tr><th id="695">695</th><td><i>              entry for the return-linked-list */</i></td></tr>
+<tr><th id="696">696</th><td>           </td></tr>
+<tr><th id="697">697</th><td>           <a class="local col9 ref" href="#59newco" title='newco' data-ref="59newco">newco</a> = (<b>struct</b> <a class="type" href="cookie.h.html#Cookie" title='Cookie' data-ref="Cookie">Cookie</a> *)<a class="macro" href="memdebug.h.html#75" title="curl_domalloc(sizeof(struct Cookie), 697, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/malloc">malloc</a>(<b>sizeof</b>(<b>struct</b> <a class="type" href="cookie.h.html#Cookie" title='Cookie' data-ref="Cookie">Cookie</a>));</td></tr>
+<tr><th id="698">698</th><td>           <b>if</b>(<a class="local col9 ref" href="#59newco" title='newco' data-ref="59newco">newco</a>) {</td></tr>
+<tr><th id="699">699</th><td>             <i>/* first, copy the whole source cookie: */</i></td></tr>
+<tr><th id="700">700</th><td>             <a class="ref" href="../../../include/string.h.html#memcpy" title='memcpy' data-ref="memcpy">memcpy</a>(<a class="local col9 ref" href="#59newco" title='newco' data-ref="59newco">newco</a>, <a class="local col0 ref" href="#60co" title='co' data-ref="60co">co</a>, <b>sizeof</b>(<b>struct</b> <a class="type" href="cookie.h.html#Cookie" title='Cookie' data-ref="Cookie">Cookie</a>));</td></tr>
+<tr><th id="701">701</th><td></td></tr>
+<tr><th id="702">702</th><td>             <i>/* then modify our next */</i></td></tr>
+<tr><th id="703">703</th><td>             <a class="local col9 ref" href="#59newco" title='newco' data-ref="59newco">newco</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::next" title='Cookie::next' data-ref="Cookie::next">next</a> = <a class="local col2 ref" href="#62mainco" title='mainco' data-ref="62mainco">mainco</a>;</td></tr>
+<tr><th id="704">704</th><td>             </td></tr>
+<tr><th id="705">705</th><td>             <i>/* point the main to us */</i></td></tr>
+<tr><th id="706">706</th><td>             <a class="local col2 ref" href="#62mainco" title='mainco' data-ref="62mainco">mainco</a> = <a class="local col9 ref" href="#59newco" title='newco' data-ref="59newco">newco</a>;</td></tr>
+<tr><th id="707">707</th><td>           }</td></tr>
+<tr><th id="708">708</th><td>         }</td></tr>
+<tr><th id="709">709</th><td>       }</td></tr>
+<tr><th id="710">710</th><td>     }</td></tr>
+<tr><th id="711">711</th><td>     <a class="local col0 ref" href="#60co" title='co' data-ref="60co">co</a> = <a class="local col0 ref" href="#60co" title='co' data-ref="60co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::next" title='Cookie::next' data-ref="Cookie::next">next</a>;</td></tr>
+<tr><th id="712">712</th><td>   }</td></tr>
+<tr><th id="713">713</th><td></td></tr>
+<tr><th id="714">714</th><td>   <b>return</b> <a class="local col2 ref" href="#62mainco" title='mainco' data-ref="62mainco">mainco</a>; <i>/* return the new list */</i></td></tr>
+<tr><th id="715">715</th><td>}</td></tr>
+<tr><th id="716">716</th><td></td></tr>
+<tr><th id="717">717</th><td></td></tr>
+<tr><th id="718">718</th><td><i>/*****************************************************************************</i></td></tr>
+<tr><th id="719">719</th><td><i> *</i></td></tr>
+<tr><th id="720">720</th><td><i> * Curl_cookie_freelist()</i></td></tr>
+<tr><th id="721">721</th><td><i> *</i></td></tr>
+<tr><th id="722">722</th><td><i> * Free a list of cookies previously returned by Curl_cookie_getlist();</i></td></tr>
+<tr><th id="723">723</th><td><i> *</i></td></tr>
+<tr><th id="724">724</th><td><i> ****************************************************************************/</i></td></tr>
+<tr><th id="725">725</th><td></td></tr>
+<tr><th id="726">726</th><td><em>void</em> <dfn class="decl def" id="Curl_cookie_freelist" title='Curl_cookie_freelist' data-ref="Curl_cookie_freelist">Curl_cookie_freelist</dfn>(<b>struct</b> <a class="type" href="cookie.h.html#Cookie" title='Cookie' data-ref="Cookie">Cookie</a> *<dfn class="local col3 decl" id="63co" title='co' data-type='struct Cookie *' data-ref="63co">co</dfn>)</td></tr>
+<tr><th id="727">727</th><td>{</td></tr>
+<tr><th id="728">728</th><td>   <b>struct</b> <a class="type" href="cookie.h.html#Cookie" title='Cookie' data-ref="Cookie">Cookie</a> *<dfn class="local col4 decl" id="64next" title='next' data-type='struct Cookie *' data-ref="64next">next</dfn>;</td></tr>
+<tr><th id="729">729</th><td>   <b>if</b>(<a class="local col3 ref" href="#63co" title='co' data-ref="63co">co</a>) {</td></tr>
+<tr><th id="730">730</th><td>      <b>while</b>(<a class="local col3 ref" href="#63co" title='co' data-ref="63co">co</a>) {</td></tr>
+<tr><th id="731">731</th><td>	 <a class="local col4 ref" href="#64next" title='next' data-ref="64next">next</a> = <a class="local col3 ref" href="#63co" title='co' data-ref="63co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::next" title='Cookie::next' data-ref="Cookie::next">next</a>;</td></tr>
+<tr><th id="732">732</th><td>	 <a class="macro" href="memdebug.h.html#78" title="curl_dofree(co, 732, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col3 ref" href="#63co" title='co' data-ref="63co">co</a>); <i>/* we only free the struct since the "members" are all</i></td></tr>
+<tr><th id="733">733</th><td><i>		      just copied! */</i></td></tr>
+<tr><th id="734">734</th><td>	 <a class="local col3 ref" href="#63co" title='co' data-ref="63co">co</a> = <a class="local col4 ref" href="#64next" title='next' data-ref="64next">next</a>;</td></tr>
+<tr><th id="735">735</th><td>      }</td></tr>
+<tr><th id="736">736</th><td>   }</td></tr>
+<tr><th id="737">737</th><td>}</td></tr>
+<tr><th id="738">738</th><td></td></tr>
+<tr><th id="739">739</th><td><i>/*****************************************************************************</i></td></tr>
+<tr><th id="740">740</th><td><i> *</i></td></tr>
+<tr><th id="741">741</th><td><i> * Curl_cookie_cleanup()</i></td></tr>
+<tr><th id="742">742</th><td><i> *</i></td></tr>
+<tr><th id="743">743</th><td><i> * Free a "cookie object" previous created with cookie_init().</i></td></tr>
+<tr><th id="744">744</th><td><i> *</i></td></tr>
+<tr><th id="745">745</th><td><i> ****************************************************************************/</i></td></tr>
+<tr><th id="746">746</th><td><em>void</em> <dfn class="decl def" id="Curl_cookie_cleanup" title='Curl_cookie_cleanup' data-ref="Curl_cookie_cleanup">Curl_cookie_cleanup</dfn>(<b>struct</b> <a class="type" href="cookie.h.html#CookieInfo" title='CookieInfo' data-ref="CookieInfo">CookieInfo</a> *<dfn class="local col5 decl" id="65c" title='c' data-type='struct CookieInfo *' data-ref="65c">c</dfn>)</td></tr>
+<tr><th id="747">747</th><td>{</td></tr>
+<tr><th id="748">748</th><td>   <b>struct</b> <a class="type" href="cookie.h.html#Cookie" title='Cookie' data-ref="Cookie">Cookie</a> *<dfn class="local col6 decl" id="66co" title='co' data-type='struct Cookie *' data-ref="66co">co</dfn>;</td></tr>
+<tr><th id="749">749</th><td>   <b>struct</b> <a class="type" href="cookie.h.html#Cookie" title='Cookie' data-ref="Cookie">Cookie</a> *<dfn class="local col7 decl" id="67next" title='next' data-type='struct Cookie *' data-ref="67next">next</dfn>;</td></tr>
+<tr><th id="750">750</th><td>   <b>if</b>(<a class="local col5 ref" href="#65c" title='c' data-ref="65c">c</a>) {</td></tr>
+<tr><th id="751">751</th><td>      <b>if</b>(<a class="local col5 ref" href="#65c" title='c' data-ref="65c">c</a>-&gt;<a class="ref" href="cookie.h.html#CookieInfo::filename" title='CookieInfo::filename' data-ref="CookieInfo::filename">filename</a>)</td></tr>
+<tr><th id="752">752</th><td>	 <a class="macro" href="memdebug.h.html#78" title="curl_dofree(c-&gt;filename, 752, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col5 ref" href="#65c" title='c' data-ref="65c">c</a>-&gt;<a class="ref" href="cookie.h.html#CookieInfo::filename" title='CookieInfo::filename' data-ref="CookieInfo::filename">filename</a>);</td></tr>
+<tr><th id="753">753</th><td>      <a class="local col6 ref" href="#66co" title='co' data-ref="66co">co</a> = <a class="local col5 ref" href="#65c" title='c' data-ref="65c">c</a>-&gt;<a class="ref" href="cookie.h.html#CookieInfo::cookies" title='CookieInfo::cookies' data-ref="CookieInfo::cookies">cookies</a>;</td></tr>
+<tr><th id="754">754</th><td></td></tr>
+<tr><th id="755">755</th><td>      <b>while</b>(<a class="local col6 ref" href="#66co" title='co' data-ref="66co">co</a>) {</td></tr>
+<tr><th id="756">756</th><td>	 <b>if</b>(<a class="local col6 ref" href="#66co" title='co' data-ref="66co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::name" title='Cookie::name' data-ref="Cookie::name">name</a>)</td></tr>
+<tr><th id="757">757</th><td>	    <a class="macro" href="memdebug.h.html#78" title="curl_dofree(co-&gt;name, 757, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col6 ref" href="#66co" title='co' data-ref="66co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::name" title='Cookie::name' data-ref="Cookie::name">name</a>);</td></tr>
+<tr><th id="758">758</th><td>	 <b>if</b>(<a class="local col6 ref" href="#66co" title='co' data-ref="66co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::value" title='Cookie::value' data-ref="Cookie::value">value</a>)</td></tr>
+<tr><th id="759">759</th><td>	    <a class="macro" href="memdebug.h.html#78" title="curl_dofree(co-&gt;value, 759, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col6 ref" href="#66co" title='co' data-ref="66co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::value" title='Cookie::value' data-ref="Cookie::value">value</a>);</td></tr>
+<tr><th id="760">760</th><td>	 <b>if</b>(<a class="local col6 ref" href="#66co" title='co' data-ref="66co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::domain" title='Cookie::domain' data-ref="Cookie::domain">domain</a>)</td></tr>
+<tr><th id="761">761</th><td>	    <a class="macro" href="memdebug.h.html#78" title="curl_dofree(co-&gt;domain, 761, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col6 ref" href="#66co" title='co' data-ref="66co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::domain" title='Cookie::domain' data-ref="Cookie::domain">domain</a>);</td></tr>
+<tr><th id="762">762</th><td>	 <b>if</b>(<a class="local col6 ref" href="#66co" title='co' data-ref="66co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::path" title='Cookie::path' data-ref="Cookie::path">path</a>)</td></tr>
+<tr><th id="763">763</th><td>	    <a class="macro" href="memdebug.h.html#78" title="curl_dofree(co-&gt;path, 763, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col6 ref" href="#66co" title='co' data-ref="66co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::path" title='Cookie::path' data-ref="Cookie::path">path</a>);</td></tr>
+<tr><th id="764">764</th><td>	 <b>if</b>(<a class="local col6 ref" href="#66co" title='co' data-ref="66co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::expirestr" title='Cookie::expirestr' data-ref="Cookie::expirestr">expirestr</a>)</td></tr>
+<tr><th id="765">765</th><td>	    <a class="macro" href="memdebug.h.html#78" title="curl_dofree(co-&gt;expirestr, 765, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col6 ref" href="#66co" title='co' data-ref="66co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::expirestr" title='Cookie::expirestr' data-ref="Cookie::expirestr">expirestr</a>);</td></tr>
+<tr><th id="766">766</th><td></td></tr>
+<tr><th id="767">767</th><td>	 <b>if</b>(<a class="local col6 ref" href="#66co" title='co' data-ref="66co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::version" title='Cookie::version' data-ref="Cookie::version">version</a>)</td></tr>
+<tr><th id="768">768</th><td>	    <a class="macro" href="memdebug.h.html#78" title="curl_dofree(co-&gt;version, 768, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col6 ref" href="#66co" title='co' data-ref="66co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::version" title='Cookie::version' data-ref="Cookie::version">version</a>);</td></tr>
+<tr><th id="769">769</th><td>	 <b>if</b>(<a class="local col6 ref" href="#66co" title='co' data-ref="66co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::maxage" title='Cookie::maxage' data-ref="Cookie::maxage">maxage</a>)</td></tr>
+<tr><th id="770">770</th><td>	    <a class="macro" href="memdebug.h.html#78" title="curl_dofree(co-&gt;maxage, 770, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col6 ref" href="#66co" title='co' data-ref="66co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::maxage" title='Cookie::maxage' data-ref="Cookie::maxage">maxage</a>);</td></tr>
+<tr><th id="771">771</th><td></td></tr>
+<tr><th id="772">772</th><td>	 <a class="local col7 ref" href="#67next" title='next' data-ref="67next">next</a> = <a class="local col6 ref" href="#66co" title='co' data-ref="66co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::next" title='Cookie::next' data-ref="Cookie::next">next</a>;</td></tr>
+<tr><th id="773">773</th><td>	 <a class="macro" href="memdebug.h.html#78" title="curl_dofree(co, 773, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col6 ref" href="#66co" title='co' data-ref="66co">co</a>);</td></tr>
+<tr><th id="774">774</th><td>	 <a class="local col6 ref" href="#66co" title='co' data-ref="66co">co</a> = <a class="local col7 ref" href="#67next" title='next' data-ref="67next">next</a>;</td></tr>
+<tr><th id="775">775</th><td>      }</td></tr>
+<tr><th id="776">776</th><td>      <a class="macro" href="memdebug.h.html#78" title="curl_dofree(c, 776, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/free">free</a>(<a class="local col5 ref" href="#65c" title='c' data-ref="65c">c</a>); <i>/* free the base struct as well */</i></td></tr>
+<tr><th id="777">777</th><td>   }</td></tr>
+<tr><th id="778">778</th><td>}</td></tr>
+<tr><th id="779">779</th><td></td></tr>
+<tr><th id="780">780</th><td><i>/*</i></td></tr>
+<tr><th id="781">781</th><td><i> * Curl_cookie_output()</i></td></tr>
+<tr><th id="782">782</th><td><i> *</i></td></tr>
+<tr><th id="783">783</th><td><i> * Writes all internally known cookies to the specified file. Specify</i></td></tr>
+<tr><th id="784">784</th><td><i> * "-" as file name to write to stdout.</i></td></tr>
+<tr><th id="785">785</th><td><i> *</i></td></tr>
+<tr><th id="786">786</th><td><i> * The function returns non-zero on write failure.</i></td></tr>
+<tr><th id="787">787</th><td><i> */</i></td></tr>
+<tr><th id="788">788</th><td><em>int</em> <dfn class="decl def" id="Curl_cookie_output" title='Curl_cookie_output' data-ref="Curl_cookie_output">Curl_cookie_output</dfn>(<b>struct</b> <a class="type" href="cookie.h.html#CookieInfo" title='CookieInfo' data-ref="CookieInfo">CookieInfo</a> *<dfn class="local col8 decl" id="68c" title='c' data-type='struct CookieInfo *' data-ref="68c">c</dfn>, <em>char</em> *<dfn class="local col9 decl" id="69dumphere" title='dumphere' data-type='char *' data-ref="69dumphere">dumphere</dfn>)</td></tr>
+<tr><th id="789">789</th><td>{</td></tr>
+<tr><th id="790">790</th><td>  <b>struct</b> <a class="type" href="cookie.h.html#Cookie" title='Cookie' data-ref="Cookie">Cookie</a> *<dfn class="local col0 decl" id="70co" title='co' data-type='struct Cookie *' data-ref="70co">co</dfn>;</td></tr>
+<tr><th id="791">791</th><td>  <a class="typedef" href="../../../include/stdio.h.html#FILE" title='FILE' data-type='struct _IO_FILE' data-ref="FILE">FILE</a> *<dfn class="local col1 decl" id="71out" title='out' data-type='FILE *' data-ref="71out">out</dfn>;</td></tr>
+<tr><th id="792">792</th><td>  <a class="typedef" href="setup.h.html#bool" title='bool' data-type='unsigned char' data-ref="bool">bool</a> <dfn class="local col2 decl" id="72use_stdout" title='use_stdout' data-type='bool' data-ref="72use_stdout">use_stdout</dfn>=<a class="macro" href="setup.h.html#70" title="0" data-ref="_M/FALSE">FALSE</a>;</td></tr>
+<tr><th id="793">793</th><td></td></tr>
+<tr><th id="794">794</th><td>  <b>if</b>((<span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span> == <a class="local col8 ref" href="#68c" title='c' data-ref="68c">c</a>) || (<var>0</var> == <a class="local col8 ref" href="#68c" title='c' data-ref="68c">c</a>-&gt;<a class="ref" href="cookie.h.html#CookieInfo::numcookies" title='CookieInfo::numcookies' data-ref="CookieInfo::numcookies">numcookies</a>))</td></tr>
+<tr><th id="795">795</th><td>    <i>/* If there are no known cookies, we don't write or even create any</i></td></tr>
+<tr><th id="796">796</th><td><i>       destination file */</i></td></tr>
+<tr><th id="797">797</th><td>    <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="798">798</th><td></td></tr>
+<tr><th id="799">799</th><td>  <b>if</b>(<a class="macro" href="strequal.h.html#32" title="curl_strequal(&quot;-&quot;,dumphere)" data-ref="_M/strequal">strequal</a>(<q>"-"</q>, <a class="local col9 ref" href="#69dumphere" title='dumphere' data-ref="69dumphere">dumphere</a>)) {</td></tr>
+<tr><th id="800">800</th><td>    <i>/* use stdout */</i></td></tr>
+<tr><th id="801">801</th><td>    <a class="local col1 ref" href="#71out" title='out' data-ref="71out">out</a> = <a class="macro" href="../../../include/stdio.h.html#173" title="stdout" data-ref="_M/stdout">stdout</a>;</td></tr>
+<tr><th id="802">802</th><td>    <a class="local col2 ref" href="#72use_stdout" title='use_stdout' data-ref="72use_stdout">use_stdout</a>=<a class="macro" href="setup.h.html#67" title="1" data-ref="_M/TRUE">TRUE</a>;</td></tr>
+<tr><th id="803">803</th><td>  }</td></tr>
+<tr><th id="804">804</th><td>  <b>else</b> {</td></tr>
+<tr><th id="805">805</th><td>    <a class="local col1 ref" href="#71out" title='out' data-ref="71out">out</a> = <a class="macro" href="memdebug.h.html#99" title="curl_fopen(dumphere,&quot;w&quot;,805,&quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/fopen">fopen</a>(<a class="local col9 ref" href="#69dumphere" title='dumphere' data-ref="69dumphere">dumphere</a>, <q>"w"</q>);</td></tr>
+<tr><th id="806">806</th><td>    <b>if</b>(!<a class="local col1 ref" href="#71out" title='out' data-ref="71out">out</a>)</td></tr>
+<tr><th id="807">807</th><td>      <b>return</b> <var>1</var>; <i>/* failure */</i></td></tr>
+<tr><th id="808">808</th><td>  }</td></tr>
+<tr><th id="809">809</th><td></td></tr>
+<tr><th id="810">810</th><td>  <b>if</b>(<a class="local col8 ref" href="#68c" title='c' data-ref="68c">c</a>) {</td></tr>
+<tr><th id="811">811</th><td>    <a class="ref" href="../../../include/stdio.h.html#fputs" title='fputs' data-ref="fputs">fputs</a>(<q>"# Netscape HTTP Cookie File\n"</q></td></tr>
+<tr><th id="812">812</th><td>          <q>"# http://www.netscape.com/newsref/std/cookie_spec.html\n"</q></td></tr>
+<tr><th id="813">813</th><td>          <q>"# This file was generated by libcurl! Edit at your own risk.\n\n"</q>,</td></tr>
+<tr><th id="814">814</th><td>          <a class="local col1 ref" href="#71out" title='out' data-ref="71out">out</a>);</td></tr>
+<tr><th id="815">815</th><td>    <a class="local col0 ref" href="#70co" title='co' data-ref="70co">co</a> = <a class="local col8 ref" href="#68c" title='c' data-ref="68c">c</a>-&gt;<a class="ref" href="cookie.h.html#CookieInfo::cookies" title='CookieInfo::cookies' data-ref="CookieInfo::cookies">cookies</a>;</td></tr>
+<tr><th id="816">816</th><td>     </td></tr>
+<tr><th id="817">817</th><td>    <b>while</b>(<a class="local col0 ref" href="#70co" title='co' data-ref="70co">co</a>) {</td></tr>
+<tr><th id="818">818</th><td>      <a class="ref" href="../../../include/stdio.h.html#fprintf" title='fprintf' data-ref="fprintf">fprintf</a>(<a class="local col1 ref" href="#71out" title='out' data-ref="71out">out</a>,</td></tr>
+<tr><th id="819">819</th><td>              <q>"%s%s\t"</q> <i>/* domain */</i></td></tr>
+<tr><th id="820">820</th><td>              <q>"%s\t"</q> <i>/* tailmatch */</i></td></tr>
+<tr><th id="821">821</th><td>              <q>"%s\t"</q> <i>/* path */</i></td></tr>
+<tr><th id="822">822</th><td>              <q>"%s\t"</q> <i>/* secure */</i></td></tr>
+<tr><th id="823">823</th><td>              <q>"%u\t"</q> <i>/* expires */</i></td></tr>
+<tr><th id="824">824</th><td>              <q>"%s\t"</q> <i>/* name */</i></td></tr>
+<tr><th id="825">825</th><td>              <q>"%s\n"</q>, <i>/* value */</i></td></tr>
+<tr><th id="826">826</th><td></td></tr>
+<tr><th id="827">827</th><td>              <i>/* Make sure all domains are prefixed with a dot if they allow</i></td></tr>
+<tr><th id="828">828</th><td><i>                 tailmatching. This is Mozilla-style. */</i></td></tr>
+<tr><th id="829">829</th><td>              (<a class="local col0 ref" href="#70co" title='co' data-ref="70co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::tailmatch" title='Cookie::tailmatch' data-ref="Cookie::tailmatch">tailmatch</a> &amp;&amp; <a class="local col0 ref" href="#70co" title='co' data-ref="70co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::domain" title='Cookie::domain' data-ref="Cookie::domain">domain</a> &amp;&amp; <a class="local col0 ref" href="#70co" title='co' data-ref="70co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::domain" title='Cookie::domain' data-ref="Cookie::domain">domain</a>[<var>0</var>] != <kbd>'.'</kbd>)? <q>"."</q>:<q>""</q>,</td></tr>
+<tr><th id="830">830</th><td>              <a class="local col0 ref" href="#70co" title='co' data-ref="70co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::domain" title='Cookie::domain' data-ref="Cookie::domain">domain</a>?<a class="local col0 ref" href="#70co" title='co' data-ref="70co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::domain" title='Cookie::domain' data-ref="Cookie::domain">domain</a>:<q>"unknown"</q>,</td></tr>
+<tr><th id="831">831</th><td>              <a class="local col0 ref" href="#70co" title='co' data-ref="70co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::tailmatch" title='Cookie::tailmatch' data-ref="Cookie::tailmatch">tailmatch</a>?<q>"TRUE"</q>:<q>"FALSE"</q>,</td></tr>
+<tr><th id="832">832</th><td>              <a class="local col0 ref" href="#70co" title='co' data-ref="70co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::path" title='Cookie::path' data-ref="Cookie::path">path</a>?<a class="local col0 ref" href="#70co" title='co' data-ref="70co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::path" title='Cookie::path' data-ref="Cookie::path">path</a>:<q>"/"</q>,</td></tr>
+<tr><th id="833">833</th><td>              <a class="local col0 ref" href="#70co" title='co' data-ref="70co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::secure" title='Cookie::secure' data-ref="Cookie::secure">secure</a>?<q>"TRUE"</q>:<q>"FALSE"</q>,</td></tr>
+<tr><th id="834">834</th><td>              (<em>unsigned</em> <em>int</em>)<a class="local col0 ref" href="#70co" title='co' data-ref="70co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::expires" title='Cookie::expires' data-ref="Cookie::expires">expires</a>,</td></tr>
+<tr><th id="835">835</th><td>              <a class="local col0 ref" href="#70co" title='co' data-ref="70co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::name" title='Cookie::name' data-ref="Cookie::name">name</a>,</td></tr>
+<tr><th id="836">836</th><td>              <a class="local col0 ref" href="#70co" title='co' data-ref="70co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::value" title='Cookie::value' data-ref="Cookie::value">value</a>?<a class="local col0 ref" href="#70co" title='co' data-ref="70co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::value" title='Cookie::value' data-ref="Cookie::value">value</a>:<q>""</q>);</td></tr>
+<tr><th id="837">837</th><td></td></tr>
+<tr><th id="838">838</th><td>      <a class="local col0 ref" href="#70co" title='co' data-ref="70co">co</a>=<a class="local col0 ref" href="#70co" title='co' data-ref="70co">co</a>-&gt;<a class="ref" href="cookie.h.html#Cookie::next" title='Cookie::next' data-ref="Cookie::next">next</a>;</td></tr>
+<tr><th id="839">839</th><td>    }</td></tr>
+<tr><th id="840">840</th><td>  }</td></tr>
+<tr><th id="841">841</th><td></td></tr>
+<tr><th id="842">842</th><td>  <b>if</b>(!<a class="local col2 ref" href="#72use_stdout" title='use_stdout' data-ref="72use_stdout">use_stdout</a>)</td></tr>
+<tr><th id="843">843</th><td>    <a class="macro" href="memdebug.h.html#100" title="curl_fclose(out,843,&quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/cookie.c&quot;)" data-ref="_M/fclose">fclose</a>(<a class="local col1 ref" href="#71out" title='out' data-ref="71out">out</a>);</td></tr>
+<tr><th id="844">844</th><td></td></tr>
+<tr><th id="845">845</th><td>  <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="846">846</th><td>}</td></tr>
+<tr><th id="847">847</th><td></td></tr>
+<tr><th id="848">848</th><td><u>#<span data-ppcond="83">endif</span> /* CURL_DISABLE_HTTP */</u></td></tr>
+<tr><th id="849">849</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

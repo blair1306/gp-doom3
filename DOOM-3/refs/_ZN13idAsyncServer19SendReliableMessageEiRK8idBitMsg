@@ -1,0 +1,23 @@
+<dec f='codebrowser/framework/async/AsyncServer.h' l='253' type='void idAsyncServer::SendReliableMessage(int clientNum, const idBitMsg &amp; msg)'/>
+<doc f='codebrowser/framework/async/AsyncServer.h' l='253'>// checks for overflow and disconnects the faulty client</doc>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='296' u='c' c='_ZN13idAsyncServer16ExecuteMapChangeEv'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='777' u='c' c='_ZN13idAsyncServer10DropClientEiPKc'/>
+<def f='codebrowser/framework/async/AsyncServer.cpp' l='797' ll='805' type='void idAsyncServer::SendReliableMessage(int clientNum, const idBitMsg &amp; msg)'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='859' u='c' c='_ZN13idAsyncServer18SendPrintBroadcastEPKc'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='883' u='c' c='_ZN13idAsyncServer17SendPrintToClientEiPKc'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='934' u='c' c='_ZN13idAsyncServer21SendUserInfoBroadcastEiRK6idDictb'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='985' u='c' c='_ZN13idAsyncServer20SendUserInfoToClientEiiRK6idDict'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1004' u='c' c='_ZN13idAsyncServer24SendSyncedCvarsBroadcastERK6idDict'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1028' u='c' c='_ZN13idAsyncServer23SendSyncedCvarsToClientEiRK6idDict'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1044' u='c' c='_ZN13idAsyncServer25SendApplySnapshotToClientEii'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1626' u='c' c='_ZN13idAsyncServer24SendReliablePureToClientEi'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1985' u='c' c='_ZN13idAsyncServer19ProcessReliablePureEiRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='2274' u='c' c='_ZN13idAsyncServer23SendReliableGameMessageEiRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='2283' u='c' c='_ZN13idAsyncServer23SendReliableGameMessageEiRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='2310' u='c' c='_ZN13idAsyncServer32SendReliableGameMessageExcludingEiRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='2631' u='c' c='_ZN13idAsyncServer21SendEnterGameToClientEi'/>
+<doc f='codebrowser/framework/async/AsyncServer.cpp' l='792'>/*
+==================
+idAsyncServer::SendReliableMessage
+==================
+*/</doc>

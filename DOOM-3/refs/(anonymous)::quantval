@@ -1,0 +1,21 @@
+<dec f='codebrowser/renderer/jpeg-6/jpeglib.h' l='100' type='UINT16 [64]'/>
+<offset>0</offset>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='97'>/* This field directly represents the contents of a JPEG DQT marker.
+   * Note: the values are always given in zigzag order.
+   */</doc>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='100'>/* quantization step for each coefficient */</doc>
+<use f='codebrowser/renderer/jpeg-6/jcdctmgr.c' l='156' u='r' c='start_pass_fdctmgr'/>
+<use f='codebrowser/renderer/jpeg-6/jcmarker.c' l='146' u='r' c='emit_dqt'/>
+<use f='codebrowser/renderer/jpeg-6/jcmarker.c' l='159' u='r' c='emit_dqt'/>
+<use f='codebrowser/renderer/jpeg-6/jcmarker.c' l='160' u='r' c='emit_dqt'/>
+<use f='codebrowser/renderer/jpeg-6/jcparam.c' l='50' u='w' c='jpeg_add_quant_table'/>
+<use f='codebrowser/renderer/jpeg-6/jddctmgr.c' l='227' u='r' c='start_pass'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='577' u='w' c='get_dqt'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='582' u='r' c='get_dqt'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='582' u='r' c='get_dqt'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='583' u='r' c='get_dqt'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='583' u='r' c='get_dqt'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='584' u='r' c='get_dqt'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='584' u='r' c='get_dqt'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='585' u='r' c='get_dqt'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='585' u='r' c='get_dqt'/>

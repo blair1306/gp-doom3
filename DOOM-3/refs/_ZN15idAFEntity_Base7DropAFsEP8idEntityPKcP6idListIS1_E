@@ -1,0 +1,32 @@
+<dec f='codebrowser/d3xp/AFEntity.h' l='189' type='static void idAFEntity_Base::DropAFs(idEntity * ent, const char * type, idList&lt;idEntity *&gt; * list)'/>
+<def f='codebrowser/d3xp/AFEntity.cpp' l='892' ll='926' type='static void idAFEntity_Base::DropAFs(idEntity * ent, const char * type, idList&lt;idEntity *&gt; * list)'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='1176' u='c' c='_ZN19idAFEntity_Gibbable9SpawnGibsERK6idVec3PKc'/>
+<doc f='codebrowser/d3xp/AFEntity.cpp' l='880'>/*
+================
+idAFEntity_Base::DropAFs
+
+  The entity should have the following key/value pairs set:
+	&quot;def_drop&lt;type&gt;AF&quot;		&quot;af def&quot;
+	&quot;drop&lt;type&gt;Skin&quot;		&quot;skin name&quot;
+  To drop multiple articulated figures the following key/value pairs can be used:
+	&quot;def_drop&lt;type&gt;AF*&quot;		&quot;af def&quot;
+  where * is an aribtrary string.
+================
+*/</doc>
+<use f='codebrowser/d3xp/Actor.cpp' l='1696' u='c' c='_ZN7idActor12StartRagdollEv'/>
+<dec f='codebrowser/game/AFEntity.h' l='189' type='static void idAFEntity_Base::DropAFs(idEntity * ent, const char * type, idList&lt;idEntity *&gt; * list)'/>
+<def f='codebrowser/game/AFEntity.cpp' l='892' ll='926' type='static void idAFEntity_Base::DropAFs(idEntity * ent, const char * type, idList&lt;idEntity *&gt; * list)'/>
+<use f='codebrowser/game/AFEntity.cpp' l='1114' u='c' c='_ZN19idAFEntity_Gibbable9SpawnGibsERK6idVec3PKc'/>
+<doc f='codebrowser/game/AFEntity.cpp' l='880'>/*
+================
+idAFEntity_Base::DropAFs
+
+  The entity should have the following key/value pairs set:
+	&quot;def_drop&lt;type&gt;AF&quot;		&quot;af def&quot;
+	&quot;drop&lt;type&gt;Skin&quot;		&quot;skin name&quot;
+  To drop multiple articulated figures the following key/value pairs can be used:
+	&quot;def_drop&lt;type&gt;AF*&quot;		&quot;af def&quot;
+  where * is an aribtrary string.
+================
+*/</doc>
+<use f='codebrowser/game/Actor.cpp' l='1648' u='c' c='_ZN7idActor12StartRagdollEv'/>

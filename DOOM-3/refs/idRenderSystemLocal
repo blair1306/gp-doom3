@@ -1,0 +1,85 @@
+<inh f='codebrowser/renderer/RenderSystem.h' l='159' c='idRenderSystem'/>
+<def f='codebrowser/renderer/tr_local.h' l='692' ll='806'/>
+<size>1200</size>
+<doc f='codebrowser/renderer/tr_local.h' l='686'>/*
+** Most renderer globals are defined here.
+** backend functions should never modify any of these fields,
+** but may read fields that aren&apos;t dynamically modified
+** by the frontend.
+*/</doc>
+<fun r='_ZN19idRenderSystemLocal4InitEv'/>
+<fun r='_ZN19idRenderSystemLocal8ShutdownEv'/>
+<fun r='_ZN19idRenderSystemLocal10InitOpenGLEv'/>
+<fun r='_ZN19idRenderSystemLocal14ShutdownOpenGLEv'/>
+<fun r='_ZNK19idRenderSystemLocal15IsOpenGLRunningEv'/>
+<fun r='_ZNK19idRenderSystemLocal12IsFullScreenEv'/>
+<fun r='_ZNK19idRenderSystemLocal14GetScreenWidthEv'/>
+<fun r='_ZNK19idRenderSystemLocal15GetScreenHeightEv'/>
+<fun r='_ZN19idRenderSystemLocal16AllocRenderWorldEv'/>
+<fun r='_ZN19idRenderSystemLocal15FreeRenderWorldEP13idRenderWorld'/>
+<fun r='_ZN19idRenderSystemLocal14BeginLevelLoadEv'/>
+<fun r='_ZN19idRenderSystemLocal12EndLevelLoadEv'/>
+<fun r='_ZN19idRenderSystemLocal12RegisterFontEPKcR12fontInfoEx_t'/>
+<fun r='_ZN19idRenderSystemLocal8SetColorERK6idVec4'/>
+<fun r='_ZN19idRenderSystemLocal9SetColor4Effff'/>
+<fun r='_ZN19idRenderSystemLocal14DrawStretchPicEPK10idDrawVertPKiiiPK10idMaterialbffff'/>
+<fun r='_ZN19idRenderSystemLocal14DrawStretchPicEffffffffPK10idMaterial'/>
+<fun r='_ZN19idRenderSystemLocal14DrawStretchTriE6idVec2S0_S0_S0_S0_S0_PK10idMaterial'/>
+<fun r='_ZN19idRenderSystemLocal35GlobalToNormalizedDeviceCoordinatesERK6idVec3RS0_'/>
+<fun r='_ZN19idRenderSystemLocal13GetGLSettingsERiS0_'/>
+<fun r='_ZN19idRenderSystemLocal12PrintMemInfoEP9MemInfo_t'/>
+<fun r='_ZN19idRenderSystemLocal13DrawSmallCharEiiiPK10idMaterial'/>
+<fun r='_ZN19idRenderSystemLocal18DrawSmallStringExtEiiPKcRK6idVec4bPK10idMaterial'/>
+<fun r='_ZN19idRenderSystemLocal11DrawBigCharEiiiPK10idMaterial'/>
+<fun r='_ZN19idRenderSystemLocal16DrawBigStringExtEiiPKcRK6idVec4bPK10idMaterial'/>
+<fun r='_ZN19idRenderSystemLocal13WriteDemoPicsEv'/>
+<fun r='_ZN19idRenderSystemLocal12DrawDemoPicsEv'/>
+<fun r='_ZN19idRenderSystemLocal10BeginFrameEii'/>
+<fun r='_ZN19idRenderSystemLocal8EndFrameEPiS0_'/>
+<fun r='_ZN19idRenderSystemLocal14TakeScreenshotEiiPKciP12renderView_s'/>
+<fun r='_ZN19idRenderSystemLocal14CropRenderSizeEiibb'/>
+<fun r='_ZN19idRenderSystemLocal20CaptureRenderToImageEPKc'/>
+<fun r='_ZN19idRenderSystemLocal19CaptureRenderToFileEPKcb'/>
+<fun r='_ZN19idRenderSystemLocal6UnCropEv'/>
+<fun r='_ZN19idRenderSystemLocal11GetCardCapsERbS0_'/>
+<fun r='_ZN19idRenderSystemLocal11UploadImageEPKcPKhii'/>
+<fun r='_ZN19idRenderSystemLocalC1Ev'/>
+<fun r='_ZN19idRenderSystemLocalD1Ev'/>
+<fun r='_ZN19idRenderSystemLocal5ClearEv'/>
+<fun r='_ZN19idRenderSystemLocal18SetBackEndRendererEv'/>
+<fun r='_ZN19idRenderSystemLocal20RenderViewToViewportEPK12renderView_sP12idScreenRect'/>
+<mbr r='idRenderSystemLocal::registered' o='32' t='bool'/>
+<mbr r='idRenderSystemLocal::takingScreenshot' o='40' t='bool'/>
+<mbr r='idRenderSystemLocal::frameCount' o='64' t='int'/>
+<mbr r='idRenderSystemLocal::viewCount' o='96' t='int'/>
+<mbr r='idRenderSystemLocal::staticAllocCount' o='128' t='int'/>
+<mbr r='idRenderSystemLocal::frameShaderTime' o='160' t='float'/>
+<mbr r='idRenderSystemLocal::viewportOffset' o='192' t='int [2]'/>
+<mbr r='idRenderSystemLocal::tiledViewport' o='256' t='int [2]'/>
+<mbr r='idRenderSystemLocal::backEndRenderer' o='320' t='backEndName_t'/>
+<mbr r='idRenderSystemLocal::backEndRendererHasVertexPrograms' o='352' t='bool'/>
+<mbr r='idRenderSystemLocal::backEndRendererMaxLight' o='384' t='float'/>
+<mbr r='idRenderSystemLocal::ambientLightVector' o='416' t='idVec4'/>
+<mbr r='idRenderSystemLocal::sortOffset' o='544' t='float'/>
+<mbr r='idRenderSystemLocal::worlds' o='576' t='idList&lt;idRenderWorldLocal *&gt;'/>
+<mbr r='idRenderSystemLocal::primaryWorld' o='704' t='idRenderWorldLocal *'/>
+<mbr r='idRenderSystemLocal::primaryRenderView' o='736' t='renderView_t'/>
+<mbr r='idRenderSystemLocal::primaryView' o='1824' t='viewDef_t *'/>
+<mbr r='idRenderSystemLocal::defaultMaterial' o='1856' t='const idMaterial *'/>
+<mbr r='idRenderSystemLocal::testImage' o='1888' t='idImage *'/>
+<mbr r='idRenderSystemLocal::testVideo' o='1920' t='idCinematic *'/>
+<mbr r='idRenderSystemLocal::testVideoStartTime' o='1952' t='float'/>
+<mbr r='idRenderSystemLocal::ambientCubeImage' o='1984' t='idImage *'/>
+<mbr r='idRenderSystemLocal::viewDef' o='2016' t='viewDef_t *'/>
+<mbr r='idRenderSystemLocal::pc' o='2048' t='performanceCounters_t'/>
+<mbr r='idRenderSystemLocal::lockSurfacesCmd' o='2880' t='drawSurfsCommand_t'/>
+<mbr r='idRenderSystemLocal::identitySpace' o='2976' t='viewEntity_t'/>
+<mbr r='idRenderSystemLocal::logFile' o='4256' t='FILE *'/>
+<mbr r='idRenderSystemLocal::stencilIncr' o='4288' t='int'/>
+<mbr r='idRenderSystemLocal::stencilDecr' o='4320' t='int'/>
+<mbr r='idRenderSystemLocal::renderCrops' o='4352' t='renderCrop_t [8]'/>
+<mbr r='idRenderSystemLocal::currentRenderCrop' o='5376' t='int'/>
+<mbr r='idRenderSystemLocal::guiRecursionLevel' o='5408' t='int'/>
+<mbr r='idRenderSystemLocal::guiModel' o='5440' t='class idGuiModel *'/>
+<mbr r='idRenderSystemLocal::demoGuiModel' o='5472' t='class idGuiModel *'/>
+<mbr r='idRenderSystemLocal::gammaTable' o='5504' t='unsigned short [256]'/>

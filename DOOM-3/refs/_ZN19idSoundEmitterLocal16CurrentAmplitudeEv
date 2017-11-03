@@ -1,0 +1,12 @@
+<dec f='codebrowser/sound/snd_local.h' l='463' type='float idSoundEmitterLocal::CurrentAmplitude()'/>
+<doc f='codebrowser/sound/snd_local.h' l='462'>// can pass SCHANNEL_ANY</doc>
+<inh f='codebrowser/sound/sound.h' l='180' c='_ZN14idSoundEmitter16CurrentAmplitudeEv'/>
+<def f='codebrowser/sound/snd_emitter.cpp' l='1049' ll='1070' type='float idSoundEmitterLocal::CurrentAmplitude()'/>
+<doc f='codebrowser/sound/snd_emitter.cpp' l='1041'>/*
+===================
+idSoundEmitterLocal::CurrentAmplitude
+
+this is called from the main thread by the material shader system
+to allow lights and surface flares to vary with the sound amplitude
+===================
+*/</doc>

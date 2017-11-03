@@ -1,0 +1,33 @@
+<def f='codebrowser/renderer/Model.h' l='86' ll='140'/>
+<size>128</size>
+<doc f='codebrowser/renderer/Model.h' l='85'>// our only drawing geometry type</doc>
+<mbr r='srfTriangles_s::bounds' o='0' t='idBounds'/>
+<mbr r='srfTriangles_s::ambientViewCount' o='192' t='int'/>
+<mbr r='srfTriangles_s::generateNormals' o='224' t='bool'/>
+<mbr r='srfTriangles_s::tangentsCalculated' o='232' t='bool'/>
+<mbr r='srfTriangles_s::facePlanesCalculated' o='240' t='bool'/>
+<mbr r='srfTriangles_s::perfectHull' o='248' t='bool'/>
+<mbr r='srfTriangles_s::deformedSurface' o='256' t='bool'/>
+<mbr r='srfTriangles_s::numVerts' o='288' t='int'/>
+<mbr r='srfTriangles_s::verts' o='320' t='idDrawVert *'/>
+<mbr r='srfTriangles_s::numIndexes' o='352' t='int'/>
+<mbr r='srfTriangles_s::indexes' o='384' t='glIndex_t *'/>
+<mbr r='srfTriangles_s::silIndexes' o='416' t='glIndex_t *'/>
+<mbr r='srfTriangles_s::numMirroredVerts' o='448' t='int'/>
+<mbr r='srfTriangles_s::mirroredVerts' o='480' t='int *'/>
+<mbr r='srfTriangles_s::numDupVerts' o='512' t='int'/>
+<mbr r='srfTriangles_s::dupVerts' o='544' t='int *'/>
+<mbr r='srfTriangles_s::numSilEdges' o='576' t='int'/>
+<mbr r='srfTriangles_s::silEdges' o='608' t='silEdge_t *'/>
+<mbr r='srfTriangles_s::facePlanes' o='640' t='idPlane *'/>
+<mbr r='srfTriangles_s::dominantTris' o='672' t='dominantTri_t *'/>
+<mbr r='srfTriangles_s::numShadowIndexesNoFrontCaps' o='704' t='int'/>
+<mbr r='srfTriangles_s::numShadowIndexesNoCaps' o='736' t='int'/>
+<mbr r='srfTriangles_s::shadowCapPlaneBits' o='768' t='int'/>
+<mbr r='srfTriangles_s::shadowVertexes' o='800' t='shadowCache_t *'/>
+<mbr r='srfTriangles_s::ambientSurface' o='832' t='struct srfTriangles_s *'/>
+<mbr r='srfTriangles_s::nextDeferredFree' o='864' t='struct srfTriangles_s *'/>
+<mbr r='srfTriangles_s::indexCache' o='896' t='struct vertCache_s *'/>
+<mbr r='srfTriangles_s::ambientCache' o='928' t='struct vertCache_s *'/>
+<mbr r='srfTriangles_s::lightingCache' o='960' t='struct vertCache_s *'/>
+<mbr r='srfTriangles_s::shadowCache' o='992' t='struct vertCache_s *'/>

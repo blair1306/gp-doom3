@@ -1,0 +1,5 @@
+<dec f='codebrowser/sound/OggVorbis/vorbis/codec.h' l='207' type='int vorbis_synthesis_trackonly(vorbis_block * vb, ogg_packet * op)'/>
+<def f='codebrowser/sound/OggVorbis/vorbissrc/synthesis.c' l='82' ll='125' type='int vorbis_synthesis_trackonly(vorbis_block * vb, ogg_packet * op)'/>
+<doc f='codebrowser/sound/OggVorbis/vorbissrc/synthesis.c' l='80'>/* used to track pcm position without actually performing decode.
+   Useful for sequential &apos;fast forward&apos; */</doc>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1292' u='c' c='ov_pcm_seek'/>

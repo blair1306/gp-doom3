@@ -1,0 +1,15 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1222' type='void R_FreeEntityDefDerivedData(idRenderEntityLocal * def, bool keepDecals, bool keepCachedDynamicModel)'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='258' u='c' c='_ZN18idRenderWorldLocal15UpdateEntityDefEiPK14renderEntity_s'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='260' u='c' c='_ZN18idRenderWorldLocal15UpdateEntityDefEiPK14renderEntity_s'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='313' u='c' c='_ZN18idRenderWorldLocal13FreeEntityDefEi'/>
+<def f='codebrowser/renderer/tr_lightrun.cpp' l='633' ll='688' type='void R_FreeEntityDefDerivedData(idRenderEntityLocal * def, bool keepDecals, bool keepCachedDynamicModel)'/>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='767' u='c' c='_Z17R_FreeDerivedDatav'/>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='801' u='c' c='_Z30R_CheckForEntityDefsUsingModelP13idRenderModel'/>
+<doc f='codebrowser/renderer/tr_lightrun.cpp' l='625'>/*
+===================
+R_FreeEntityDefDerivedData
+
+Used by both RE_FreeEntityDef and RE_UpdateEntityDef
+Does not actually free the entityDef.
+===================
+*/</doc>

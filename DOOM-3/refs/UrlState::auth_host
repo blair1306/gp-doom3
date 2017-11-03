@@ -1,0 +1,13 @@
+<dec f='codebrowser/curl/lib/urldata.h' l='685' type='char *'/>
+<offset>262720</offset>
+<doc f='codebrowser/curl/lib/urldata.h' l='685'>/* if set, this should be the host name that we will
+                      sent authorization to, no else. Used to make Location:
+                      following not keep sending user+password... This is
+                      strdup() data.
+                    */</doc>
+<use f='codebrowser/curl/lib/http.c' l='223' u='r' c='http_auth_headers'/>
+<use f='codebrowser/curl/lib/http.c' l='224' u='r' c='http_auth_headers'/>
+<use f='codebrowser/curl/lib/http.c' l='990' u='r' c='Curl_http_connect'/>
+<use f='codebrowser/curl/lib/http.c' l='992' u='r' c='Curl_http_connect'/>
+<use f='codebrowser/curl/lib/http.c' l='994' u='w' c='Curl_http_connect'/>
+<use f='codebrowser/curl/lib/url.c' l='200' u='r' c='Curl_close'/>

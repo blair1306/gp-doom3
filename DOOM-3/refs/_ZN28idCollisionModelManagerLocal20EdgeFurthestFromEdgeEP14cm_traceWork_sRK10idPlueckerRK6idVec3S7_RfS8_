@@ -1,0 +1,12 @@
+<dec f='codebrowser/cm/CollisionModel_local.h' l='365' type='int idCollisionModelManagerLocal::EdgeFurthestFromEdge(cm_traceWork_t * tw, const idPluecker &amp; pl1, const idVec3 &amp; vc, const idVec3 &amp; vd, float &amp; tanHalfAngle, float &amp; dir)'/>
+<def f='codebrowser/cm/CollisionModel_rotate.cpp' l='359' ll='471' type='int idCollisionModelManagerLocal::EdgeFurthestFromEdge(cm_traceWork_t * tw, const idPluecker &amp; pl1, const idVec3 &amp; vc, const idVec3 &amp; vd, float &amp; tanHalfAngle, float &amp; dir)'/>
+<use f='codebrowser/cm/CollisionModel_rotate.cpp' l='552' u='c' c='_ZN28idCollisionModelManagerLocal27RotateTrmEdgeThroughPolygonEP14cm_traceWork_sP12cm_polygon_sP12cm_trmEdge_s'/>
+<doc f='codebrowser/cm/CollisionModel_rotate.cpp' l='350'>/*
+================
+idCollisionModelManagerLocal::EdgeFurthestFromEdge
+
+  calculates the direction of motion at the initial position, where dir &lt; 0 means the edges move towards each other
+  if the edges move away from each other the tangent of half the rotation angle at which
+  the edges are furthest apart is also calculated
+================
+*/</doc>

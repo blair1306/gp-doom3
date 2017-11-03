@@ -1,0 +1,14 @@
+<dec f='codebrowser/sys/sys_public.h' l='375' type='const char * Sys_DefaultBasePath()'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='2864' u='c' c='_ZN17idFileSystemLocal4InitEv'/>
+<def f='codebrowser/sys/linux/main.cpp' l='158' ll='182' type='const char * Sys_DefaultBasePath()'/>
+<doc f='codebrowser/sys/linux/main.cpp' l='147'>/*
+================
+Sys_DefaultBasePath
+
+Get the default base path
+- binary image path
+- current directory
+- hardcoded
+Try to be intelligent: if there is no BASE_GAMEDIR, try the next path
+================
+*/</doc>

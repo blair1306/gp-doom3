@@ -1,0 +1,44 @@
+<dec f='codebrowser/d3xp/Item.h' l='173' type='static void idMoveableItem::DropItems(idAnimatedEntity * ent, const char * type, idList&lt;idEntity *&gt; * list)'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='1179' u='c' c='_ZN19idAFEntity_Gibbable9SpawnGibsERK6idVec3PKc'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='1693' u='c' c='_ZN7idActor12StartRagdollEv'/>
+<def f='codebrowser/d3xp/Item.cpp' l='1873' ll='1929' type='static void idMoveableItem::DropItems(idAnimatedEntity * ent, const char * type, idList&lt;idEntity *&gt; * list)'/>
+<doc f='codebrowser/d3xp/Item.cpp' l='1855'>/*
+================
+idMoveableItem::DropItems
+
+  The entity should have the following key/value pairs set:
+	&quot;def_drop&lt;type&gt;Item&quot;			&quot;item def&quot;
+	&quot;drop&lt;type&gt;ItemJoint&quot;			&quot;joint name&quot;
+	&quot;drop&lt;type&gt;ItemRotation&quot;		&quot;pitch yaw roll&quot;
+	&quot;drop&lt;type&gt;ItemOffset&quot;			&quot;x y z&quot;
+	&quot;skin_drop&lt;type&gt;&quot;				&quot;skin name&quot;
+  To drop multiple items the following key/value pairs can be used:
+	&quot;def_drop&lt;type&gt;Item&lt;X&gt;&quot;			&quot;item def&quot;
+	&quot;drop&lt;type&gt;Item&lt;X&gt;Joint&quot;		&quot;joint name&quot;
+	&quot;drop&lt;type&gt;Item&lt;X&gt;Rotation&quot;		&quot;pitch yaw roll&quot;
+	&quot;drop&lt;type&gt;Item&lt;X&gt;Offset&quot;		&quot;x y z&quot;
+  where &lt;X&gt; is an aribtrary string.
+================
+*/</doc>
+<dec f='codebrowser/game/Item.h' l='164' type='static void idMoveableItem::DropItems(idAnimatedEntity * ent, const char * type, idList&lt;idEntity *&gt; * list)'/>
+<use f='codebrowser/game/AFEntity.cpp' l='1117' u='c' c='_ZN19idAFEntity_Gibbable9SpawnGibsERK6idVec3PKc'/>
+<use f='codebrowser/game/Actor.cpp' l='1645' u='c' c='_ZN7idActor12StartRagdollEv'/>
+<def f='codebrowser/game/Item.cpp' l='1068' ll='1124' type='static void idMoveableItem::DropItems(idAnimatedEntity * ent, const char * type, idList&lt;idEntity *&gt; * list)'/>
+<doc f='codebrowser/game/Item.cpp' l='1050'>/*
+================
+idMoveableItem::DropItems
+
+  The entity should have the following key/value pairs set:
+	&quot;def_drop&lt;type&gt;Item&quot;			&quot;item def&quot;
+	&quot;drop&lt;type&gt;ItemJoint&quot;			&quot;joint name&quot;
+	&quot;drop&lt;type&gt;ItemRotation&quot;		&quot;pitch yaw roll&quot;
+	&quot;drop&lt;type&gt;ItemOffset&quot;			&quot;x y z&quot;
+	&quot;skin_drop&lt;type&gt;&quot;				&quot;skin name&quot;
+  To drop multiple items the following key/value pairs can be used:
+	&quot;def_drop&lt;type&gt;Item&lt;X&gt;&quot;			&quot;item def&quot;
+	&quot;drop&lt;type&gt;Item&lt;X&gt;Joint&quot;		&quot;joint name&quot;
+	&quot;drop&lt;type&gt;Item&lt;X&gt;Rotation&quot;		&quot;pitch yaw roll&quot;
+	&quot;drop&lt;type&gt;Item&lt;X&gt;Offset&quot;		&quot;x y z&quot;
+  where &lt;X&gt; is an aribtrary string.
+================
+*/</doc>

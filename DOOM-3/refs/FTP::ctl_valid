@@ -1,0 +1,9 @@
+<dec f='codebrowser/curl/lib/urldata.h' l='261' type='bool'/>
+<offset>7040</offset>
+<doc f='codebrowser/curl/lib/urldata.h' l='261'>/* Tells Curl_ftp_quit() whether or not to do 
+                         anything. If the connection has timed out or
+                         been closed, this should be FALSE when it gets
+                         to Curl_ftp_quit() */</doc>
+<use f='codebrowser/curl/lib/ftp.c' l='2320' u='w' c='Curl_ftp'/>
+<use f='codebrowser/curl/lib/ftp.c' l='2403' u='w' c='Curl_ftp'/>
+<use f='codebrowser/curl/lib/ftp.c' l='2472' u='r' c='Curl_ftp_quit'/>

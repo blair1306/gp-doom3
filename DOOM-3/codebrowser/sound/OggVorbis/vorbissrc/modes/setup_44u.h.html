@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>setup_44u.h source code [codebrowser/sound/OggVorbis/vorbissrc/modes/setup_44u.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/sound/OggVorbis/vorbissrc/modes/setup_44u.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>codebrowser</a>/<a href='../../..'>sound</a>/<a href='../..'>OggVorbis</a>/<a href='..'>vorbissrc</a>/<a href='./'>modes</a>/<a href='setup_44u.h.html'>setup_44u.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/********************************************************************</i></td></tr>
+<tr><th id="2">2</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="3">3</th><td><i> * THIS FILE IS PART OF THE OggVorbis SOFTWARE CODEC SOURCE CODE.   *</i></td></tr>
+<tr><th id="4">4</th><td><i> * USE, DISTRIBUTION AND REPRODUCTION OF THIS LIBRARY SOURCE IS     *</i></td></tr>
+<tr><th id="5">5</th><td><i> * GOVERNED BY A BSD-STYLE SOURCE LICENSE INCLUDED WITH THIS SOURCE *</i></td></tr>
+<tr><th id="6">6</th><td><i> * IN 'COPYING'. PLEASE READ THESE TERMS BEFORE DISTRIBUTING.       *</i></td></tr>
+<tr><th id="7">7</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="8">8</th><td><i> * THE OggVorbis SOURCE CODE IS (C) COPYRIGHT 1994-2002             *</i></td></tr>
+<tr><th id="9">9</th><td><i> * by the XIPHOPHORUS Company <a href="http://www.xiph.org/">http://www.xiph.org/</a>                  *</i></td></tr>
+<tr><th id="10">10</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="11">11</th><td><i> ********************************************************************</i></td></tr>
+<tr><th id="12">12</th><td><i></i></td></tr>
+<tr><th id="13">13</th><td><i> function: toplevel settings for 44.1/48kHz uncoupled modes</i></td></tr>
+<tr><th id="14">14</th><td><i> last mod: $Id: setup_44u.h,v 1.3 2002/07/11 06:41:05 xiphmont Exp $</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i> ********************************************************************/</i></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="residue_44u.h.html">"modes/residue_44u.h"</a></u></td></tr>
+<tr><th id="19">19</th><td></td></tr>
+<tr><th id="20">20</th><td><em>static</em> <em>double</em> <dfn class="decl def" id="rate_mapping_44_un" title='rate_mapping_44_un' data-ref="rate_mapping_44_un">rate_mapping_44_un</dfn>[<var>11</var>]={</td></tr>
+<tr><th id="21">21</th><td>  <var>48000.</var>,<var>60000.</var>,<var>70000.</var>,<var>80000.</var>,<var>86000.</var>,</td></tr>
+<tr><th id="22">22</th><td>  <var>96000.</var>,<var>110000.</var>,<var>120000.</var>,<var>140000.</var>,<var>160000.</var>,<var>240001.</var></td></tr>
+<tr><th id="23">23</th><td>};</td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><em>static</em> <em>double</em> <dfn class="decl def" id="rate_mapping_44_un_low" title='rate_mapping_44_un_low' data-ref="rate_mapping_44_un_low">rate_mapping_44_un_low</dfn>[<var>2</var>]={</td></tr>
+<tr><th id="26">26</th><td>  <var>32000.</var>,<var>48000.</var></td></tr>
+<tr><th id="27">27</th><td>};</td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><a class="typedef" href="../vorbisenc.c.html#ve_setup_data_template" title='ve_setup_data_template' data-type='struct ve_setup_data_template' data-ref="ve_setup_data_template">ve_setup_data_template</a> <dfn class="decl def" id="ve_setup_44_uncoupled" title='ve_setup_44_uncoupled' data-ref="ve_setup_44_uncoupled">ve_setup_44_uncoupled</dfn>={</td></tr>
+<tr><th id="30">30</th><td>  <var>10</var>,</td></tr>
+<tr><th id="31">31</th><td>  <a class="ref" href="#rate_mapping_44_un" title='rate_mapping_44_un' data-ref="rate_mapping_44_un">rate_mapping_44_un</a>,</td></tr>
+<tr><th id="32">32</th><td>  <a class="ref" href="setup_44.h.html#quality_mapping_44" title='quality_mapping_44' data-ref="quality_mapping_44">quality_mapping_44</a>,</td></tr>
+<tr><th id="33">33</th><td>  -<var>1</var>,</td></tr>
+<tr><th id="34">34</th><td>  <var>40000</var>,</td></tr>
+<tr><th id="35">35</th><td>  <var>50000</var>,</td></tr>
+<tr><th id="36">36</th><td>  </td></tr>
+<tr><th id="37">37</th><td>  <a class="ref" href="setup_44.h.html#blocksize_short_44" title='blocksize_short_44' data-ref="blocksize_short_44">blocksize_short_44</a>,</td></tr>
+<tr><th id="38">38</th><td>  <a class="ref" href="setup_44.h.html#blocksize_long_44" title='blocksize_long_44' data-ref="blocksize_long_44">blocksize_long_44</a>,</td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td>  <a class="ref" href="psych_44.h.html#_psy_tone_masteratt_44" title='_psy_tone_masteratt_44' data-ref="_psy_tone_masteratt_44">_psy_tone_masteratt_44</a>,</td></tr>
+<tr><th id="41">41</th><td>  <a class="ref" href="psych_44.h.html#_psy_tone_0dB" title='_psy_tone_0dB' data-ref="_psy_tone_0dB">_psy_tone_0dB</a>,</td></tr>
+<tr><th id="42">42</th><td>  <a class="ref" href="psych_44.h.html#_psy_tone_suppress" title='_psy_tone_suppress' data-ref="_psy_tone_suppress">_psy_tone_suppress</a>,</td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td>  <a class="ref" href="psych_44.h.html#_vp_tonemask_adj_otherblock" title='_vp_tonemask_adj_otherblock' data-ref="_vp_tonemask_adj_otherblock">_vp_tonemask_adj_otherblock</a>,</td></tr>
+<tr><th id="45">45</th><td>  <a class="ref" href="psych_44.h.html#_vp_tonemask_adj_longblock" title='_vp_tonemask_adj_longblock' data-ref="_vp_tonemask_adj_longblock">_vp_tonemask_adj_longblock</a>,</td></tr>
+<tr><th id="46">46</th><td>  <a class="ref" href="psych_44.h.html#_vp_tonemask_adj_otherblock" title='_vp_tonemask_adj_otherblock' data-ref="_vp_tonemask_adj_otherblock">_vp_tonemask_adj_otherblock</a>,</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td>  <a class="ref" href="psych_44.h.html#_psy_noiseguards_44" title='_psy_noiseguards_44' data-ref="_psy_noiseguards_44">_psy_noiseguards_44</a>,</td></tr>
+<tr><th id="49">49</th><td>  <a class="ref" href="psych_44.h.html#_psy_noisebias_impulse" title='_psy_noisebias_impulse' data-ref="_psy_noisebias_impulse">_psy_noisebias_impulse</a>,</td></tr>
+<tr><th id="50">50</th><td>  <a class="ref" href="psych_44.h.html#_psy_noisebias_padding" title='_psy_noisebias_padding' data-ref="_psy_noisebias_padding">_psy_noisebias_padding</a>,</td></tr>
+<tr><th id="51">51</th><td>  <a class="ref" href="psych_44.h.html#_psy_noisebias_trans" title='_psy_noisebias_trans' data-ref="_psy_noisebias_trans">_psy_noisebias_trans</a>,</td></tr>
+<tr><th id="52">52</th><td>  <a class="ref" href="psych_44.h.html#_psy_noisebias_long" title='_psy_noisebias_long' data-ref="_psy_noisebias_long">_psy_noisebias_long</a>,</td></tr>
+<tr><th id="53">53</th><td>  <a class="ref" href="psych_44.h.html#_psy_noise_suppress" title='_psy_noise_suppress' data-ref="_psy_noise_suppress">_psy_noise_suppress</a>,</td></tr>
+<tr><th id="54">54</th><td>  </td></tr>
+<tr><th id="55">55</th><td>  <a class="ref" href="psych_44.h.html#_psy_compand_44" title='_psy_compand_44' data-ref="_psy_compand_44">_psy_compand_44</a>,</td></tr>
+<tr><th id="56">56</th><td>  <a class="ref" href="setup_44.h.html#_psy_compand_short_mapping" title='_psy_compand_short_mapping' data-ref="_psy_compand_short_mapping">_psy_compand_short_mapping</a>,</td></tr>
+<tr><th id="57">57</th><td>  <a class="ref" href="setup_44.h.html#_psy_compand_long_mapping" title='_psy_compand_long_mapping' data-ref="_psy_compand_long_mapping">_psy_compand_long_mapping</a>,</td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td>  {<a class="ref" href="psych_44.h.html#_noise_start_short_44" title='_noise_start_short_44' data-ref="_noise_start_short_44">_noise_start_short_44</a>,<a class="ref" href="psych_44.h.html#_noise_start_long_44" title='_noise_start_long_44' data-ref="_noise_start_long_44">_noise_start_long_44</a>},</td></tr>
+<tr><th id="60">60</th><td>  {<a class="ref" href="psych_44.h.html#_noise_part_short_44" title='_noise_part_short_44' data-ref="_noise_part_short_44">_noise_part_short_44</a>,<a class="ref" href="psych_44.h.html#_noise_part_long_44" title='_noise_part_long_44' data-ref="_noise_part_long_44">_noise_part_long_44</a>},</td></tr>
+<tr><th id="61">61</th><td>  <a class="ref" href="psych_44.h.html#_noise_thresh_44_2" title='_noise_thresh_44_2' data-ref="_noise_thresh_44_2">_noise_thresh_44_2</a>,</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td>  <a class="ref" href="psych_44.h.html#_psy_ath_floater" title='_psy_ath_floater' data-ref="_psy_ath_floater">_psy_ath_floater</a>,</td></tr>
+<tr><th id="64">64</th><td>  <a class="ref" href="psych_44.h.html#_psy_ath_abs" title='_psy_ath_abs' data-ref="_psy_ath_abs">_psy_ath_abs</a>,</td></tr>
+<tr><th id="65">65</th><td>  </td></tr>
+<tr><th id="66">66</th><td>  <a class="ref" href="psych_44.h.html#_psy_lowpass_44" title='_psy_lowpass_44' data-ref="_psy_lowpass_44">_psy_lowpass_44</a>,</td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td>  <a class="ref" href="psych_44.h.html#_psy_global_44" title='_psy_global_44' data-ref="_psy_global_44">_psy_global_44</a>,</td></tr>
+<tr><th id="69">69</th><td>  <a class="ref" href="setup_44.h.html#_global_mapping_44" title='_global_mapping_44' data-ref="_global_mapping_44">_global_mapping_44</a>,</td></tr>
+<tr><th id="70">70</th><td>  <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>,</td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td>  <a class="ref" href="floor_all.h.html#_floor_books" title='_floor_books' data-ref="_floor_books">_floor_books</a>,</td></tr>
+<tr><th id="73">73</th><td>  <a class="ref" href="floor_all.h.html#_floor" title='_floor' data-ref="_floor">_floor</a>,</td></tr>
+<tr><th id="74">74</th><td>  <a class="ref" href="setup_44.h.html#_floor_short_mapping_44" title='_floor_short_mapping_44' data-ref="_floor_short_mapping_44">_floor_short_mapping_44</a>,</td></tr>
+<tr><th id="75">75</th><td>  <a class="ref" href="setup_44.h.html#_floor_long_mapping_44" title='_floor_long_mapping_44' data-ref="_floor_long_mapping_44">_floor_long_mapping_44</a>,</td></tr>
+<tr><th id="76">76</th><td></td></tr>
+<tr><th id="77">77</th><td>  <a class="ref" href="residue_44u.h.html#_mapres_template_44_uncoupled" title='_mapres_template_44_uncoupled' data-ref="_mapres_template_44_uncoupled">_mapres_template_44_uncoupled</a></td></tr>
+<tr><th id="78">78</th><td>};</td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td><a class="typedef" href="../vorbisenc.c.html#ve_setup_data_template" title='ve_setup_data_template' data-type='struct ve_setup_data_template' data-ref="ve_setup_data_template">ve_setup_data_template</a> <dfn class="decl def" id="ve_setup_44_uncoupled_low" title='ve_setup_44_uncoupled_low' data-ref="ve_setup_44_uncoupled_low">ve_setup_44_uncoupled_low</dfn>={</td></tr>
+<tr><th id="81">81</th><td>  <var>1</var>,</td></tr>
+<tr><th id="82">82</th><td>  <a class="ref" href="#rate_mapping_44_un_low" title='rate_mapping_44_un_low' data-ref="rate_mapping_44_un_low">rate_mapping_44_un_low</a>,</td></tr>
+<tr><th id="83">83</th><td>  <a class="ref" href="setup_44.h.html#quality_mapping_44_stereo_low" title='quality_mapping_44_stereo_low' data-ref="quality_mapping_44_stereo_low">quality_mapping_44_stereo_low</a>,</td></tr>
+<tr><th id="84">84</th><td>  -<var>1</var>,</td></tr>
+<tr><th id="85">85</th><td>  <var>40000</var>,</td></tr>
+<tr><th id="86">86</th><td>  <var>50000</var>,</td></tr>
+<tr><th id="87">87</th><td>  </td></tr>
+<tr><th id="88">88</th><td>  <a class="ref" href="setup_44.h.html#blocksize_short_44_low" title='blocksize_short_44_low' data-ref="blocksize_short_44_low">blocksize_short_44_low</a>,</td></tr>
+<tr><th id="89">89</th><td>  <a class="ref" href="setup_44.h.html#blocksize_long_44_low" title='blocksize_long_44_low' data-ref="blocksize_long_44_low">blocksize_long_44_low</a>,</td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td>  <a class="ref" href="psych_44.h.html#_psy_tone_masteratt_44_low" title='_psy_tone_masteratt_44_low' data-ref="_psy_tone_masteratt_44_low">_psy_tone_masteratt_44_low</a>,</td></tr>
+<tr><th id="92">92</th><td>  <a class="ref" href="psych_44.h.html#_psy_tone_0dB" title='_psy_tone_0dB' data-ref="_psy_tone_0dB">_psy_tone_0dB</a>,</td></tr>
+<tr><th id="93">93</th><td>  <a class="ref" href="psych_44.h.html#_psy_tone_suppress" title='_psy_tone_suppress' data-ref="_psy_tone_suppress">_psy_tone_suppress</a>,</td></tr>
+<tr><th id="94">94</th><td></td></tr>
+<tr><th id="95">95</th><td>  <a class="ref" href="psych_44.h.html#_vp_tonemask_adj_otherblock" title='_vp_tonemask_adj_otherblock' data-ref="_vp_tonemask_adj_otherblock">_vp_tonemask_adj_otherblock</a>,</td></tr>
+<tr><th id="96">96</th><td>  <a class="ref" href="psych_44.h.html#_vp_tonemask_adj_longblock" title='_vp_tonemask_adj_longblock' data-ref="_vp_tonemask_adj_longblock">_vp_tonemask_adj_longblock</a>,</td></tr>
+<tr><th id="97">97</th><td>  <a class="ref" href="psych_44.h.html#_vp_tonemask_adj_otherblock" title='_vp_tonemask_adj_otherblock' data-ref="_vp_tonemask_adj_otherblock">_vp_tonemask_adj_otherblock</a>,</td></tr>
+<tr><th id="98">98</th><td></td></tr>
+<tr><th id="99">99</th><td>  <a class="ref" href="psych_44.h.html#_psy_noiseguards_44" title='_psy_noiseguards_44' data-ref="_psy_noiseguards_44">_psy_noiseguards_44</a>,</td></tr>
+<tr><th id="100">100</th><td>  <a class="ref" href="psych_44.h.html#_psy_noisebias_trans_low" title='_psy_noisebias_trans_low' data-ref="_psy_noisebias_trans_low">_psy_noisebias_trans_low</a>,</td></tr>
+<tr><th id="101">101</th><td>  <a class="ref" href="psych_44.h.html#_psy_noisebias_trans_low" title='_psy_noisebias_trans_low' data-ref="_psy_noisebias_trans_low">_psy_noisebias_trans_low</a>,</td></tr>
+<tr><th id="102">102</th><td>  <a class="ref" href="psych_44.h.html#_psy_noisebias_trans_low" title='_psy_noisebias_trans_low' data-ref="_psy_noisebias_trans_low">_psy_noisebias_trans_low</a>,</td></tr>
+<tr><th id="103">103</th><td>  <a class="ref" href="psych_44.h.html#_psy_noisebias_long_low" title='_psy_noisebias_long_low' data-ref="_psy_noisebias_long_low">_psy_noisebias_long_low</a>,</td></tr>
+<tr><th id="104">104</th><td>  <a class="ref" href="psych_44.h.html#_psy_noise_suppress" title='_psy_noise_suppress' data-ref="_psy_noise_suppress">_psy_noise_suppress</a>,</td></tr>
+<tr><th id="105">105</th><td>  </td></tr>
+<tr><th id="106">106</th><td>  <a class="ref" href="psych_44.h.html#_psy_compand_44" title='_psy_compand_44' data-ref="_psy_compand_44">_psy_compand_44</a>,</td></tr>
+<tr><th id="107">107</th><td>  <a class="ref" href="setup_44.h.html#_psy_compand_short_mapping" title='_psy_compand_short_mapping' data-ref="_psy_compand_short_mapping">_psy_compand_short_mapping</a>,</td></tr>
+<tr><th id="108">108</th><td>  <a class="ref" href="setup_44.h.html#_psy_compand_long_mapping" title='_psy_compand_long_mapping' data-ref="_psy_compand_long_mapping">_psy_compand_long_mapping</a>,</td></tr>
+<tr><th id="109">109</th><td></td></tr>
+<tr><th id="110">110</th><td>  {<a class="ref" href="psych_44.h.html#_noise_start_short_44_low" title='_noise_start_short_44_low' data-ref="_noise_start_short_44_low">_noise_start_short_44_low</a>,<a class="ref" href="psych_44.h.html#_noise_start_long_44_low" title='_noise_start_long_44_low' data-ref="_noise_start_long_44_low">_noise_start_long_44_low</a>},</td></tr>
+<tr><th id="111">111</th><td>  {<a class="ref" href="psych_44.h.html#_noise_part_short_44" title='_noise_part_short_44' data-ref="_noise_part_short_44">_noise_part_short_44</a>,<a class="ref" href="psych_44.h.html#_noise_part_long_44" title='_noise_part_long_44' data-ref="_noise_part_long_44">_noise_part_long_44</a>},</td></tr>
+<tr><th id="112">112</th><td>  <a class="ref" href="psych_44.h.html#_noise_thresh_44_2" title='_noise_thresh_44_2' data-ref="_noise_thresh_44_2">_noise_thresh_44_2</a>,</td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td>  <a class="ref" href="psych_44.h.html#_psy_ath_floater" title='_psy_ath_floater' data-ref="_psy_ath_floater">_psy_ath_floater</a>,</td></tr>
+<tr><th id="115">115</th><td>  <a class="ref" href="psych_44.h.html#_psy_ath_abs" title='_psy_ath_abs' data-ref="_psy_ath_abs">_psy_ath_abs</a>,</td></tr>
+<tr><th id="116">116</th><td>  </td></tr>
+<tr><th id="117">117</th><td>  <a class="ref" href="psych_44.h.html#_psy_lowpass_44_low" title='_psy_lowpass_44_low' data-ref="_psy_lowpass_44_low">_psy_lowpass_44_low</a>,</td></tr>
+<tr><th id="118">118</th><td></td></tr>
+<tr><th id="119">119</th><td>  <a class="ref" href="psych_44.h.html#_psy_global_44" title='_psy_global_44' data-ref="_psy_global_44">_psy_global_44</a>,</td></tr>
+<tr><th id="120">120</th><td>  <a class="ref" href="setup_44.h.html#_global_mapping_44_low" title='_global_mapping_44_low' data-ref="_global_mapping_44_low">_global_mapping_44_low</a>,</td></tr>
+<tr><th id="121">121</th><td>  <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>,</td></tr>
+<tr><th id="122">122</th><td></td></tr>
+<tr><th id="123">123</th><td>  <a class="ref" href="floor_all.h.html#_floor_books" title='_floor_books' data-ref="_floor_books">_floor_books</a>,</td></tr>
+<tr><th id="124">124</th><td>  <a class="ref" href="floor_all.h.html#_floor" title='_floor' data-ref="_floor">_floor</a>,</td></tr>
+<tr><th id="125">125</th><td>  <a class="ref" href="setup_44.h.html#_floor_short_mapping_44_low" title='_floor_short_mapping_44_low' data-ref="_floor_short_mapping_44_low">_floor_short_mapping_44_low</a>,</td></tr>
+<tr><th id="126">126</th><td>  <a class="ref" href="setup_44.h.html#_floor_long_mapping_44_low" title='_floor_long_mapping_44_low' data-ref="_floor_long_mapping_44_low">_floor_long_mapping_44_low</a>,</td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td>  <a class="ref" href="residue_44u.h.html#_mapres_template_44_uncoupled" title='_mapres_template_44_uncoupled' data-ref="_mapres_template_44_uncoupled">_mapres_template_44_uncoupled</a></td></tr>
+<tr><th id="129">129</th><td>};</td></tr>
+<tr><th id="130">130</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../vorbisenc.c.html'>codebrowser/sound/OggVorbis/vorbissrc/vorbisenc.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

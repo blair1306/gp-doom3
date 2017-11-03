@@ -1,0 +1,11 @@
+<def f='codebrowser/renderer/tr_local.h' l='514' ll='520'/>
+<size>20</size>
+<doc f='codebrowser/renderer/tr_local.h' l='510'>// a request for frame memory will never fail
+// (until malloc fails), but it may force the
+// allocation of a new memory block that will
+// be discontinuous with the existing memory</doc>
+<mbr r='frameMemoryBlock_s::next' o='0' t='struct frameMemoryBlock_s *'/>
+<mbr r='frameMemoryBlock_s::size' o='32' t='int'/>
+<mbr r='frameMemoryBlock_s::used' o='64' t='int'/>
+<mbr r='frameMemoryBlock_s::poop' o='96' t='int'/>
+<mbr r='frameMemoryBlock_s::base' o='128' t='byte [4]'/>

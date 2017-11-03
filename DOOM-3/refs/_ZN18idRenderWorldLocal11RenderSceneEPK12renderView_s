@@ -1,0 +1,16 @@
+<dec f='codebrowser/renderer/RenderWorld_local.h' l='104' type='void idRenderWorldLocal::RenderScene(const renderView_t * renderView)'/>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='1081' u='c' c='_ZL14R_RenderingFPSPK12renderView_s'/>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='1174' u='c' c='_Z17R_ReadTiledPixelsiiPhP12renderView_s'/>
+<inh f='codebrowser/renderer/RenderWorld.h' l='325' c='_ZN13idRenderWorld11RenderSceneEPK12renderView_s'/>
+<def f='codebrowser/renderer/RenderWorld.cpp' l='675' ll='784' type='void idRenderWorldLocal::RenderScene(const renderView_t * renderView)'/>
+<doc f='codebrowser/renderer/RenderWorld.cpp' l='664'>/*
+====================
+RenderScene
+
+Draw a 3D view into a part of the window, then return
+to 2D drawing.
+
+Rendering a scene may require multiple views to be rendered
+to handle mirrors,
+====================
+*/</doc>

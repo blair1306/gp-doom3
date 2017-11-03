@@ -1,0 +1,18 @@
+<dec f='codebrowser/framework/async/MsgChannel.h' l='127' type='void idMsgChannel::SendNextFragment(idPort &amp; port, const int time)'/>
+<doc f='codebrowser/framework/async/MsgChannel.h' l='126'>// Sends the next fragment if the last message was too large to send at once.</doc>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='632' u='c' c='_ZN13idAsyncClient17SendEmptyToServerEbb'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='660' u='c' c='_ZN13idAsyncClient24SendPingResponseToServerEi'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='706' u='c' c='_ZN13idAsyncClient20SendUsercmdsToServerEv'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='220' u='c' c='_ZN13idAsyncServer4KillEv'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1133' u='c' c='_ZN13idAsyncServer20SendGameInitToClientEi'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='2499' u='c' c='_ZN13idAsyncServer8RunFrameEv'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='2561' u='c' c='_ZN13idAsyncServer14PacifierUpdateEv'/>
+<def f='codebrowser/framework/async/MsgChannel.cpp' l='414' ll='461' type='void idMsgChannel::SendNextFragment(idPort &amp; port, const int time)'/>
+<use f='codebrowser/framework/async/MsgChannel.cpp' l='502' u='c' c='_ZN12idMsgChannel11SendMessageER6idPortiRK8idBitMsg'/>
+<doc f='codebrowser/framework/async/MsgChannel.cpp' l='407'>/*
+=================
+idMsgChannel::SendNextFragment
+
+  Sends one fragment of the current message.
+=================
+*/</doc>

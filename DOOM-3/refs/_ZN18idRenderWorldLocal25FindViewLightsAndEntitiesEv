@@ -1,0 +1,14 @@
+<dec f='codebrowser/renderer/RenderWorld_local.h' l='208' type='void idRenderWorldLocal::FindViewLightsAndEntities()'/>
+<def f='codebrowser/renderer/RenderWorld_portals.cpp' l='840' ll='889' type='void idRenderWorldLocal::FindViewLightsAndEntities()'/>
+<doc f='codebrowser/renderer/RenderWorld_portals.cpp' l='829'>/*
+=============
+FindViewLightsAndEntites
+
+All the modelrefs and lightrefs that are in visible areas
+will have viewEntitys and viewLights created for them.
+
+The scissorRects on the viewEntitys and viewLights may be empty if
+they were considered, but not actually visible.
+=============
+*/</doc>
+<use f='codebrowser/renderer/tr_main.cpp' l='1124' u='c' c='_Z12R_RenderViewP9viewDef_s'/>

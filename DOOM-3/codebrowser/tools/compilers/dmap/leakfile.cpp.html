@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>leakfile.cpp source code [codebrowser/tools/compilers/dmap/leakfile.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/tools/compilers/dmap/leakfile.cpp'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>tools</a>/<a href='..'>compilers</a>/<a href='./'>dmap</a>/<a href='leakfile.cpp.html'>leakfile.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="../../../idlib/precompiled.h.html">"../../../idlib/precompiled.h"</a></u></td></tr>
+<tr><th id="30">30</th><td><u>#pragma hdrstop</u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="dmap.h.html">"dmap.h"</a></u></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><i>/*</i></td></tr>
+<tr><th id="35">35</th><td><i>==============================================================================</i></td></tr>
+<tr><th id="36">36</th><td><i></i></td></tr>
+<tr><th id="37">37</th><td><i>LEAF FILE GENERATION</i></td></tr>
+<tr><th id="38">38</th><td><i></i></td></tr>
+<tr><th id="39">39</th><td><i>Save out name.line for qe3 to read</i></td></tr>
+<tr><th id="40">40</th><td><i>==============================================================================</i></td></tr>
+<tr><th id="41">41</th><td><i>*/</i></td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td><i>/*</i></td></tr>
+<tr><th id="45">45</th><td><i>=============</i></td></tr>
+<tr><th id="46">46</th><td><i>LeakFile</i></td></tr>
+<tr><th id="47">47</th><td><i></i></td></tr>
+<tr><th id="48">48</th><td><i>Finds the shortest possible chain of portals</i></td></tr>
+<tr><th id="49">49</th><td><i>that leads from the outside leaf to a specifically</i></td></tr>
+<tr><th id="50">50</th><td><i>occupied leaf</i></td></tr>
+<tr><th id="51">51</th><td><i>=============</i></td></tr>
+<tr><th id="52">52</th><td><i>*/</i></td></tr>
+<tr><th id="53">53</th><td><em>void</em> <dfn class="decl def" id="_Z8LeakFileP6tree_s" title='LeakFile' data-ref="_Z8LeakFileP6tree_s">LeakFile</dfn> (<a class="typedef" href="dmap.h.html#tree_t" title='tree_t' data-type='struct tree_s' data-ref="tree_t">tree_t</a> *<dfn class="local col1 decl" id="1tree" title='tree' data-type='tree_t *' data-ref="1tree">tree</dfn>)</td></tr>
+<tr><th id="54">54</th><td>{</td></tr>
+<tr><th id="55">55</th><td>	<a class="type" href="../../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a>	<a class="ref fake" href="../../../idlib/math/Vector.h.html#_ZN6idVec3C1Ev" title='idVec3::idVec3' data-ref="_ZN6idVec3C1Ev"></a><dfn class="local col2 decl" id="2mid" title='mid' data-type='idVec3' data-ref="2mid">mid</dfn>;</td></tr>
+<tr><th id="56">56</th><td>	<a class="typedef" href="../../../../include/stdio.h.html#FILE" title='FILE' data-type='struct _IO_FILE' data-ref="FILE">FILE</a>	*<dfn class="local col3 decl" id="3linefile" title='linefile' data-type='FILE *' data-ref="3linefile">linefile</dfn>;</td></tr>
+<tr><th id="57">57</th><td>	<a class="type" href="../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>	<a class="ref fake" href="../../../idlib/Str.h.html#_ZN5idStrC1Ev" title='idStr::idStr' data-ref="_ZN5idStrC1Ev"></a><dfn class="local col4 decl" id="4filename" title='filename' data-type='idStr' data-ref="4filename">filename</dfn>;</td></tr>
+<tr><th id="58">58</th><td>	<a class="type" href="../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>	<a class="ref fake" href="../../../idlib/Str.h.html#_ZN5idStrC1Ev" title='idStr::idStr' data-ref="_ZN5idStrC1Ev"></a><dfn class="local col5 decl" id="5ospath" title='ospath' data-type='idStr' data-ref="5ospath">ospath</dfn>;</td></tr>
+<tr><th id="59">59</th><td>	<a class="typedef" href="dmap.h.html#node_t" title='node_t' data-type='struct node_s' data-ref="node_t">node_t</a>	*<dfn class="local col6 decl" id="6node" title='node' data-type='node_t *' data-ref="6node">node</dfn>;</td></tr>
+<tr><th id="60">60</th><td>	<em>int</em>		<dfn class="local col7 decl" id="7count" title='count' data-type='int' data-ref="7count">count</dfn>;</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td>	<b>if</b> (!<a class="local col1 ref" href="#1tree" title='tree' data-ref="1tree">tree</a>-&gt;<a class="ref" href="dmap.h.html#tree_s::outside_node" title='tree_s::outside_node' data-ref="tree_s::outside_node">outside_node</a>.<a class="ref" href="dmap.h.html#node_s::occupied" title='node_s::occupied' data-ref="node_s::occupied">occupied</a>)</td></tr>
+<tr><th id="63">63</th><td>		<b>return</b>;</td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td>	<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a> (<q>"--- LeakFile ---\n"</q>);</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td>	<i>//</i></td></tr>
+<tr><th id="68">68</th><td><i>	// write the points to the file</i></td></tr>
+<tr><th id="69">69</th><td><i>	//</i></td></tr>
+<tr><th id="70">70</th><td>	<a class="ref" href="../../../idlib/Str.h.html#_Z7sprintfR5idStrPKcz" title='sprintf' data-ref="_Z7sprintfR5idStrPKcz">sprintf</a>( <span class='refarg'><a class="local col4 ref" href="#4filename" title='filename' data-ref="4filename">filename</a></span>, <q>"%s.lin"</q>, <a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::mapFileBase" title='(anonymous struct)::mapFileBase' data-ref="(anonymous)::mapFileBase">mapFileBase</a> );</td></tr>
+<tr><th id="71">71</th><td>	<a class="local col5 ref" href="#5ospath" title='ospath' data-ref="5ospath">ospath</a> <a class="ref" href="../../../idlib/Str.h.html#_ZN5idStraSEPKc" title='idStr::operator=' data-ref="_ZN5idStraSEPKc">=</a> <a class="ref" href="../../../framework/FileSystem.h.html#fileSystem" title='fileSystem' data-ref="fileSystem">fileSystem</a>-&gt;<a class="virtual ref" href="../../../framework/FileSystem.h.html#_ZN12idFileSystem20RelativePathToOSPathEPKcS1_" title='idFileSystem::RelativePathToOSPath' data-ref="_ZN12idFileSystem20RelativePathToOSPathEPKcS1_">RelativePathToOSPath</a>( <a class="ref fake" href="../../../idlib/Str.h.html#_ZN5idStrcvPKcEv" title='idStr::operator const char *' data-ref="_ZN5idStrcvPKcEv"></a><a class="local col4 ref" href="#4filename" title='filename' data-ref="4filename">filename</a> );</td></tr>
+<tr><th id="72">72</th><td>	<a class="local col3 ref" href="#3linefile" title='linefile' data-ref="3linefile">linefile</a> = <a class="ref" href="../../../../include/stdio.h.html#fopen" title='fopen' data-ref="fopen">fopen</a>( <a class="ref fake" href="../../../idlib/Str.h.html#_ZN5idStrcvPKcEv" title='idStr::operator const char *' data-ref="_ZN5idStrcvPKcEv"></a><a class="local col5 ref" href="#5ospath" title='ospath' data-ref="5ospath">ospath</a>, <q>"w"</q> );</td></tr>
+<tr><th id="73">73</th><td>	<b>if</b> ( !<a class="local col3 ref" href="#3linefile" title='linefile' data-ref="3linefile">linefile</a> ) {</td></tr>
+<tr><th id="74">74</th><td>		<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon5ErrorEPKcz" title='idCommon::Error' data-ref="_ZN8idCommon5ErrorEPKcz">Error</a>( <q>"Couldn't open %s\n"</q>, <a class="local col4 ref" href="#4filename" title='filename' data-ref="4filename">filename</a>.<a class="ref" href="../../../idlib/Str.h.html#_ZNK5idStr5c_strEv" title='idStr::c_str' data-ref="_ZNK5idStr5c_strEv">c_str</a>() );</td></tr>
+<tr><th id="75">75</th><td>	}</td></tr>
+<tr><th id="76">76</th><td></td></tr>
+<tr><th id="77">77</th><td>	<a class="local col7 ref" href="#7count" title='count' data-ref="7count">count</a> = <var>0</var>;</td></tr>
+<tr><th id="78">78</th><td>	<a class="local col6 ref" href="#6node" title='node' data-ref="6node">node</a> = &amp;<a class="local col1 ref" href="#1tree" title='tree' data-ref="1tree">tree</a>-&gt;<a class="ref" href="dmap.h.html#tree_s::outside_node" title='tree_s::outside_node' data-ref="tree_s::outside_node">outside_node</a>;</td></tr>
+<tr><th id="79">79</th><td>	<b>while</b> (<a class="local col6 ref" href="#6node" title='node' data-ref="6node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::occupied" title='node_s::occupied' data-ref="node_s::occupied">occupied</a> &gt; <var>1</var>)</td></tr>
+<tr><th id="80">80</th><td>	{</td></tr>
+<tr><th id="81">81</th><td>		<em>int</em>			<dfn class="local col8 decl" id="8next" title='next' data-type='int' data-ref="8next">next</dfn>;</td></tr>
+<tr><th id="82">82</th><td>		<a class="typedef" href="dmap.h.html#uPortal_t" title='uPortal_t' data-type='struct uPortal_s' data-ref="uPortal_t">uPortal_t</a>	*<dfn class="local col9 decl" id="9p" title='p' data-type='uPortal_t *' data-ref="9p">p</dfn>, *<dfn class="local col0 decl" id="10nextportal" title='nextportal' data-type='uPortal_t *' data-ref="10nextportal">nextportal</dfn>;</td></tr>
+<tr><th id="83">83</th><td>		<a class="typedef" href="dmap.h.html#node_t" title='node_t' data-type='struct node_s' data-ref="node_t">node_t</a>		*<dfn class="local col1 decl" id="11nextnode" title='nextnode' data-type='node_t *' data-ref="11nextnode">nextnode</dfn>;</td></tr>
+<tr><th id="84">84</th><td>		<em>int</em>			<dfn class="local col2 decl" id="12s" title='s' data-type='int' data-ref="12s">s</dfn>;</td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td>		<i>// find the best portal exit</i></td></tr>
+<tr><th id="87">87</th><td>		<a class="local col8 ref" href="#8next" title='next' data-ref="8next">next</a> = <a class="local col6 ref" href="#6node" title='node' data-ref="6node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::occupied" title='node_s::occupied' data-ref="node_s::occupied">occupied</a>;</td></tr>
+<tr><th id="88">88</th><td>		<b>for</b> (<a class="local col9 ref" href="#9p" title='p' data-ref="9p">p</a>=<a class="local col6 ref" href="#6node" title='node' data-ref="6node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::portals" title='node_s::portals' data-ref="node_s::portals">portals</a> ; <a class="local col9 ref" href="#9p" title='p' data-ref="9p">p</a> ; <a class="local col9 ref" href="#9p" title='p' data-ref="9p">p</a> = <a class="local col9 ref" href="#9p" title='p' data-ref="9p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::next" title='uPortal_s::next' data-ref="uPortal_s::next">next</a>[!<a class="local col2 ref" href="#12s" title='s' data-ref="12s">s</a>])</td></tr>
+<tr><th id="89">89</th><td>		{</td></tr>
+<tr><th id="90">90</th><td>			<a class="local col2 ref" href="#12s" title='s' data-ref="12s">s</a> = (<a class="local col9 ref" href="#9p" title='p' data-ref="9p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>0</var>] == <a class="local col6 ref" href="#6node" title='node' data-ref="6node">node</a>);</td></tr>
+<tr><th id="91">91</th><td>			<b>if</b> (<a class="local col9 ref" href="#9p" title='p' data-ref="9p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<a class="local col2 ref" href="#12s" title='s' data-ref="12s">s</a>]-&gt;<a class="ref" href="dmap.h.html#node_s::occupied" title='node_s::occupied' data-ref="node_s::occupied">occupied</a></td></tr>
+<tr><th id="92">92</th><td>				&amp;&amp; <a class="local col9 ref" href="#9p" title='p' data-ref="9p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<a class="local col2 ref" href="#12s" title='s' data-ref="12s">s</a>]-&gt;<a class="ref" href="dmap.h.html#node_s::occupied" title='node_s::occupied' data-ref="node_s::occupied">occupied</a> &lt; <a class="local col8 ref" href="#8next" title='next' data-ref="8next">next</a>)</td></tr>
+<tr><th id="93">93</th><td>			{</td></tr>
+<tr><th id="94">94</th><td>				<a class="local col0 ref" href="#10nextportal" title='nextportal' data-ref="10nextportal">nextportal</a> = <a class="local col9 ref" href="#9p" title='p' data-ref="9p">p</a>;</td></tr>
+<tr><th id="95">95</th><td>				<a class="local col1 ref" href="#11nextnode" title='nextnode' data-ref="11nextnode">nextnode</a> = <a class="local col9 ref" href="#9p" title='p' data-ref="9p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<a class="local col2 ref" href="#12s" title='s' data-ref="12s">s</a>];</td></tr>
+<tr><th id="96">96</th><td>				<a class="local col8 ref" href="#8next" title='next' data-ref="8next">next</a> = <a class="local col1 ref" href="#11nextnode" title='nextnode' data-ref="11nextnode">nextnode</a>-&gt;<a class="ref" href="dmap.h.html#node_s::occupied" title='node_s::occupied' data-ref="node_s::occupied">occupied</a>;</td></tr>
+<tr><th id="97">97</th><td>			}</td></tr>
+<tr><th id="98">98</th><td>		}</td></tr>
+<tr><th id="99">99</th><td>		<a class="local col6 ref" href="#6node" title='node' data-ref="6node">node</a> = <a class="local col1 ref" href="#11nextnode" title='nextnode' data-ref="11nextnode">nextnode</a>;</td></tr>
+<tr><th id="100">100</th><td>		<a class="local col2 ref" href="#2mid" title='mid' data-ref="2mid">mid</a> <a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec3aSERKS_" title='idVec3::operator=' data-ref="_ZN6idVec3aSERKS_">=</a> <a class="local col0 ref" href="#10nextportal" title='nextportal' data-ref="10nextportal">nextportal</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::winding" title='uPortal_s::winding' data-ref="uPortal_s::winding">winding</a>-&gt;<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZNK9idWinding9GetCenterEv" title='idWinding::GetCenter' data-ref="_ZNK9idWinding9GetCenterEv">GetCenter</a>();</td></tr>
+<tr><th id="101">101</th><td>		<a class="ref" href="../../../../include/stdio.h.html#fprintf" title='fprintf' data-ref="fprintf">fprintf</a> (<a class="local col3 ref" href="#3linefile" title='linefile' data-ref="3linefile">linefile</a>, <q>"%f %f %f\n"</q>, <a class="local col2 ref" href="#2mid" title='mid' data-ref="2mid">mid</a><a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[<var>0</var>]</a>, <a class="local col2 ref" href="#2mid" title='mid' data-ref="2mid">mid</a><a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[<var>1</var>]</a>, <a class="local col2 ref" href="#2mid" title='mid' data-ref="2mid">mid</a><a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[<var>2</var>]</a>);</td></tr>
+<tr><th id="102">102</th><td>		<a class="local col7 ref" href="#7count" title='count' data-ref="7count">count</a>++;</td></tr>
+<tr><th id="103">103</th><td>	}</td></tr>
+<tr><th id="104">104</th><td>	<i>// add the occupant center</i></td></tr>
+<tr><th id="105">105</th><td>	<a class="local col6 ref" href="#6node" title='node' data-ref="6node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::occupant" title='node_s::occupant' data-ref="node_s::occupant">occupant</a>-&gt;<a class="ref" href="dmap.h.html#(anonymous)::mapEntity" title='(anonymous struct)::mapEntity' data-ref="(anonymous)::mapEntity">mapEntity</a>-&gt;<a class="ref" href="../../../idlib/MapFile.h.html#idMapEntity::epairs" title='idMapEntity::epairs' data-ref="idMapEntity::epairs">epairs</a>.<a class="ref" href="../../../idlib/Dict.h.html#_ZNK6idDict9GetVectorEPKcS1_R6idVec3" title='idDict::GetVector' data-ref="_ZNK6idDict9GetVectorEPKcS1_R6idVec3">GetVector</a>( <q>"origin"</q>, <q>""</q>, <span class='refarg'><a class="local col2 ref" href="#2mid" title='mid' data-ref="2mid">mid</a></span> );</td></tr>
+<tr><th id="106">106</th><td></td></tr>
+<tr><th id="107">107</th><td>	<a class="ref" href="../../../../include/stdio.h.html#fprintf" title='fprintf' data-ref="fprintf">fprintf</a> (<a class="local col3 ref" href="#3linefile" title='linefile' data-ref="3linefile">linefile</a>, <q>"%f %f %f\n"</q>, <a class="local col2 ref" href="#2mid" title='mid' data-ref="2mid">mid</a><a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[<var>0</var>]</a>, <a class="local col2 ref" href="#2mid" title='mid' data-ref="2mid">mid</a><a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[<var>1</var>]</a>, <a class="local col2 ref" href="#2mid" title='mid' data-ref="2mid">mid</a><a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[<var>2</var>]</a>);</td></tr>
+<tr><th id="108">108</th><td>	<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a> (<q>"%5i point linefile\n"</q>, <a class="local col7 ref" href="#7count" title='count' data-ref="7count">count</a>+<var>1</var>);</td></tr>
+<tr><th id="109">109</th><td></td></tr>
+<tr><th id="110">110</th><td>	<a class="ref" href="../../../../include/stdio.h.html#fclose" title='fclose' data-ref="fclose">fclose</a> (<a class="local col3 ref" href="#3linefile" title='linefile' data-ref="3linefile">linefile</a>);</td></tr>
+<tr><th id="111">111</th><td>}</td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

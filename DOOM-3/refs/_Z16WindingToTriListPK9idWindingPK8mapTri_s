@@ -1,0 +1,17 @@
+<dec f='codebrowser/tools/compilers/dmap/dmap.h' l='468' type='mapTri_t * WindingToTriList(const idWinding * w, const mapTri_t * originalTri)'/>
+<def f='codebrowser/tools/compilers/dmap/tritools.cpp' l='310' ll='348' type='mapTri_t * WindingToTriList(const idWinding * w, const mapTri_t * originalTri)'/>
+<use f='codebrowser/tools/compilers/dmap/tritools.cpp' l='369' u='c' c='_Z11ClipTriListPK8mapTri_sRK7idPlanefPPS_S6_'/>
+<use f='codebrowser/tools/compilers/dmap/tritools.cpp' l='372' u='c' c='_Z11ClipTriListPK8mapTri_sRK7idPlanefPPS_S6_'/>
+<doc f='codebrowser/tools/compilers/dmap/tritools.cpp' l='300'>/*
+================
+WindingToTriList
+
+Generates a new list of triangles with proper texcoords from a winding
+created by clipping the originalTri
+
+OriginalTri can be NULL if you don&apos;t care about texCoords
+================
+*/</doc>
+<use f='codebrowser/tools/compilers/dmap/usurface.cpp' l='393' u='c' c='_Z17ClipTriIntoTree_rP9idWindingP8mapTri_sP9uEntity_tP6node_s'/>
+<use f='codebrowser/tools/compilers/dmap/usurface.cpp' l='760' u='c' c='_ZL14ClipTriByLightPK10mapLight_tPK8mapTri_sPPS2_S6_'/>
+<use f='codebrowser/tools/compilers/dmap/usurface.cpp' l='768' u='c' c='_ZL14ClipTriByLightPK10mapLight_tPK8mapTri_sPPS2_S6_'/>

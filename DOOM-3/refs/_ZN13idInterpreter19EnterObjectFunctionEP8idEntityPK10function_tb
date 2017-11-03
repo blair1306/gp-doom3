@@ -1,0 +1,26 @@
+<dec f='codebrowser/d3xp/script/Script_Interpreter.h' l='106' type='void idInterpreter::EnterObjectFunction(idEntity * self, const function_t * func, bool clearStack)'/>
+<def f='codebrowser/d3xp/script/Script_Interpreter.cpp' l='533' ll='543' type='void idInterpreter::EnterObjectFunction(idEntity * self, const function_t * func, bool clearStack)'/>
+<doc f='codebrowser/d3xp/script/Script_Interpreter.cpp' l='524'>/*
+================
+idInterpreter::EnterObjectFunction
+
+Calls a function on a script object.
+
+NOTE: If this is called from within a event called by this interpreter, the function arguments will be invalid after calling this function.
+================
+*/</doc>
+<use f='codebrowser/d3xp/script/Script_Thread.cpp' l='291' u='c' c='_ZN8idThreadC1EP8idEntityPK10function_t'/>
+<use f='codebrowser/d3xp/script/Script_Thread.cpp' l='741' u='c' c='_ZN8idThread12CallFunctionEP8idEntityPK10function_tb'/>
+<dec f='codebrowser/game/script/Script_Interpreter.h' l='106' type='void idInterpreter::EnterObjectFunction(idEntity * self, const function_t * func, bool clearStack)'/>
+<def f='codebrowser/game/script/Script_Interpreter.cpp' l='533' ll='543' type='void idInterpreter::EnterObjectFunction(idEntity * self, const function_t * func, bool clearStack)'/>
+<doc f='codebrowser/game/script/Script_Interpreter.cpp' l='524'>/*
+================
+idInterpreter::EnterObjectFunction
+
+Calls a function on a script object.
+
+NOTE: If this is called from within a event called by this interpreter, the function arguments will be invalid after calling this function.
+================
+*/</doc>
+<use f='codebrowser/game/script/Script_Thread.cpp' l='269' u='c' c='_ZN8idThreadC1EP8idEntityPK10function_t'/>
+<use f='codebrowser/game/script/Script_Thread.cpp' l='719' u='c' c='_ZN8idThread12CallFunctionEP8idEntityPK10function_tb'/>

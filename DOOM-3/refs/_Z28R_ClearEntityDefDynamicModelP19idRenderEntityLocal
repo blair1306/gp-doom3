@@ -1,0 +1,13 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1221' type='void R_ClearEntityDefDynamicModel(idRenderEntityLocal * def)'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='249' u='c' c='_ZN18idRenderWorldLocal15UpdateEntityDefEiPK14renderEntity_s'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1128' u='c' c='_Z23R_EntityDefDynamicModelP19idRenderEntityLocal'/>
+<def f='codebrowser/renderer/tr_lightrun.cpp' l='699' ll='709' type='void R_ClearEntityDefDynamicModel(idRenderEntityLocal * def)'/>
+<doc f='codebrowser/renderer/tr_lightrun.cpp' l='690'>/*
+==================
+R_ClearEntityDefDynamicModel
+
+If we know the reference bounds stays the same, we
+only need to do this on entity update, not the full
+R_FreeEntityDefDerivedData
+==================
+*/</doc>

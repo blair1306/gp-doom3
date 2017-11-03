@@ -1,0 +1,15 @@
+<def f='codebrowser/renderer/tr_local.h' l='344' ll='362'/>
+<size>160</size>
+<doc f='codebrowser/renderer/tr_local.h' l='338'>// a viewEntity is created whenever a idRenderEntityLocal is considered for inclusion
+// in the current view, but it may still turn out to be culled.
+// viewEntity are allocated on the frame temporary stack memory
+// a viewEntity contains everything that the back end needs out of a idRenderEntityLocal,
+// which the front end may be modifying simultaniously if running in SMP mode.
+// A single entityDef can generate multiple viewEntity_t in a single frame, as when seen in a mirror</doc>
+<mbr r='viewEntity_s::next' o='0' t='struct viewEntity_s *'/>
+<mbr r='viewEntity_s::entityDef' o='32' t='idRenderEntityLocal *'/>
+<mbr r='viewEntity_s::scissorRect' o='64' t='idScreenRect'/>
+<mbr r='viewEntity_s::weaponDepthHack' o='192' t='bool'/>
+<mbr r='viewEntity_s::modelDepthHack' o='224' t='float'/>
+<mbr r='viewEntity_s::modelMatrix' o='256' t='float [16]'/>
+<mbr r='viewEntity_s::modelViewMatrix' o='768' t='float [16]'/>

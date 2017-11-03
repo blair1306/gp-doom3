@@ -1,0 +1,597 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>sys_public.h source code [codebrowser/sys/sys_public.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idPort,idSys,idTCP,sysEvent_s,sysMemoryStats_s "/>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/sys/sys_public.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>sys</a>/<a href='sys_public.h.html'>sys_public.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__SYS_PUBLIC__">__SYS_PUBLIC__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__SYS_PUBLIC__" data-ref="_M/__SYS_PUBLIC__">__SYS_PUBLIC__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>	Non-portable system services.</i></td></tr>
+<tr><th id="36">36</th><td><i></i></td></tr>
+<tr><th id="37">37</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="38">38</th><td><i>*/</i></td></tr>
+<tr><th id="39">39</th><td><i></i></td></tr>
+<tr><th id="40">40</th><td><i></i></td></tr>
+<tr><th id="41">41</th><td><i>// Win32</i></td></tr>
+<tr><th id="42">42</th><td><u>#<span data-ppcond="42">if</span> defined(<span class="macro" data-ref="_M/WIN32">WIN32</span>) || defined(<span class="macro" data-ref="_M/_WIN32">_WIN32</span>)</u></td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td><u>#define	BUILD_STRING					"win-x86"</u></td></tr>
+<tr><th id="45">45</th><td><u>#define BUILD_OS_ID						0</u></td></tr>
+<tr><th id="46">46</th><td><u>#define	CPUSTRING						"x86"</u></td></tr>
+<tr><th id="47">47</th><td><u>#define CPU_EASYARGS					1</u></td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td><u>#define ALIGN16( x )					__declspec(align(16)) x</u></td></tr>
+<tr><th id="50">50</th><td><u>#define PACKED</u></td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td><u>#define _alloca16( x )					((void *)((((int)_alloca( (x)+15 )) + 15) &amp; ~15))</u></td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td><u>#define PATHSEPERATOR_STR				"\\"</u></td></tr>
+<tr><th id="55">55</th><td><u>#define PATHSEPERATOR_CHAR				'\\'</u></td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td><u>#define ID_INLINE						__forceinline</u></td></tr>
+<tr><th id="58">58</th><td><u>#define ID_STATIC_TEMPLATE				static</u></td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td><u>#define assertmem( x, y )				assert( _CrtIsValidPointer( x, y, true ) )</u></td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td><u>#<span data-ppcond="42">endif</span></u></td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td><i>// Mac OSX</i></td></tr>
+<tr><th id="65">65</th><td><u>#<span data-ppcond="65">if</span> defined(<span class="macro" data-ref="_M/MACOS_X">MACOS_X</span>) || defined(<span class="macro" data-ref="_M/__APPLE__">__APPLE__</span>)</u></td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td><u>#define BUILD_STRING				"MacOSX-universal"</u></td></tr>
+<tr><th id="68">68</th><td><u>#define BUILD_OS_ID					1</u></td></tr>
+<tr><th id="69">69</th><td><u>#ifdef __ppc__</u></td></tr>
+<tr><th id="70">70</th><td>	<u>#define	CPUSTRING					"ppc"</u></td></tr>
+<tr><th id="71">71</th><td>	<u>#define CPU_EASYARGS				0</u></td></tr>
+<tr><th id="72">72</th><td><u>#elif defined(__i386__)</u></td></tr>
+<tr><th id="73">73</th><td>	<u>#define	CPUSTRING					"x86"</u></td></tr>
+<tr><th id="74">74</th><td>	<u>#define CPU_EASYARGS				1</u></td></tr>
+<tr><th id="75">75</th><td><u>#endif</u></td></tr>
+<tr><th id="76">76</th><td></td></tr>
+<tr><th id="77">77</th><td><u>#define ALIGN16( x )					x __attribute__ ((aligned (16)))</u></td></tr>
+<tr><th id="78">78</th><td></td></tr>
+<tr><th id="79">79</th><td><u>#ifdef __MWERKS__</u></td></tr>
+<tr><th id="80">80</th><td><u>#define PACKED</u></td></tr>
+<tr><th id="81">81</th><td><u>#include &lt;alloca.h&gt;</u></td></tr>
+<tr><th id="82">82</th><td><u>#else</u></td></tr>
+<tr><th id="83">83</th><td><u>#define PACKED							__attribute__((packed))</u></td></tr>
+<tr><th id="84">84</th><td><u>#endif</u></td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td><u>#define _alloca							alloca</u></td></tr>
+<tr><th id="87">87</th><td><u>#define _alloca16( x )					((void *)((((int)alloca( (x)+15 )) + 15) &amp; ~15))</u></td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td><u>#define PATHSEPERATOR_STR				"/"</u></td></tr>
+<tr><th id="90">90</th><td><u>#define PATHSEPERATOR_CHAR				'/'</u></td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td><u>#define __cdecl</u></td></tr>
+<tr><th id="93">93</th><td><u>#define ASSERT							assert</u></td></tr>
+<tr><th id="94">94</th><td></td></tr>
+<tr><th id="95">95</th><td><u>#define ID_INLINE						inline</u></td></tr>
+<tr><th id="96">96</th><td><u>#define ID_STATIC_TEMPLATE</u></td></tr>
+<tr><th id="97">97</th><td></td></tr>
+<tr><th id="98">98</th><td><u>#define assertmem( x, y )</u></td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td><u>#<span data-ppcond="65">endif</span></u></td></tr>
+<tr><th id="101">101</th><td></td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td><i>// Linux</i></td></tr>
+<tr><th id="104">104</th><td><u>#<span data-ppcond="104">ifdef</span> <span class="macro" data-ref="_M/__linux__">__linux__</span></u></td></tr>
+<tr><th id="105">105</th><td></td></tr>
+<tr><th id="106">106</th><td><u>#<span data-ppcond="106">ifdef</span> <span class="macro" data-ref="_M/__i386__">__i386__</span></u></td></tr>
+<tr><th id="107">107</th><td>	<u>#define	<dfn class="macro" id="_M/BUILD_STRING" data-ref="_M/BUILD_STRING">BUILD_STRING</dfn>				"linux-x86"</u></td></tr>
+<tr><th id="108">108</th><td>	<u>#define <dfn class="macro" id="_M/BUILD_OS_ID" data-ref="_M/BUILD_OS_ID">BUILD_OS_ID</dfn>					2</u></td></tr>
+<tr><th id="109">109</th><td>	<u>#define <dfn class="macro" id="_M/CPUSTRING" data-ref="_M/CPUSTRING">CPUSTRING</dfn>					"x86"</u></td></tr>
+<tr><th id="110">110</th><td>	<u>#define <dfn class="macro" id="_M/CPU_EASYARGS" data-ref="_M/CPU_EASYARGS">CPU_EASYARGS</dfn>				1</u></td></tr>
+<tr><th id="111">111</th><td><u>#<span data-ppcond="106">elif</span> defined(__ppc__)</u></td></tr>
+<tr><th id="112">112</th><td>	<u>#define	BUILD_STRING				"linux-ppc"</u></td></tr>
+<tr><th id="113">113</th><td>	<u>#define CPUSTRING					"ppc"</u></td></tr>
+<tr><th id="114">114</th><td>	<u>#define CPU_EASYARGS				0</u></td></tr>
+<tr><th id="115">115</th><td><u>#<span data-ppcond="106">endif</span></u></td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td><u>#define <dfn class="macro" id="_M/_alloca" data-ref="_M/_alloca">_alloca</dfn>							alloca</u></td></tr>
+<tr><th id="118">118</th><td><u>#define <dfn class="macro" id="_M/_alloca16" data-ref="_M/_alloca16">_alloca16</dfn>( x )					((void *)((((int)alloca( (x)+15 )) + 15) &amp; ~15))</u></td></tr>
+<tr><th id="119">119</th><td></td></tr>
+<tr><th id="120">120</th><td><u>#define <dfn class="macro" id="_M/ALIGN16" data-ref="_M/ALIGN16">ALIGN16</dfn>( x )					x</u></td></tr>
+<tr><th id="121">121</th><td><u>#define <dfn class="macro" id="_M/PACKED" data-ref="_M/PACKED">PACKED</dfn>							__attribute__((packed))</u></td></tr>
+<tr><th id="122">122</th><td></td></tr>
+<tr><th id="123">123</th><td><u>#define <dfn class="macro" id="_M/PATHSEPERATOR_STR" data-ref="_M/PATHSEPERATOR_STR">PATHSEPERATOR_STR</dfn>				"/"</u></td></tr>
+<tr><th id="124">124</th><td><u>#define <dfn class="macro" id="_M/PATHSEPERATOR_CHAR" data-ref="_M/PATHSEPERATOR_CHAR">PATHSEPERATOR_CHAR</dfn>				'/'</u></td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td><u>#define <dfn class="macro" id="_M/__cdecl" data-ref="_M/__cdecl">__cdecl</dfn></u></td></tr>
+<tr><th id="127">127</th><td><u>#define <dfn class="macro" id="_M/ASSERT" data-ref="_M/ASSERT">ASSERT</dfn>							assert</u></td></tr>
+<tr><th id="128">128</th><td></td></tr>
+<tr><th id="129">129</th><td><u>#define <dfn class="macro" id="_M/ID_INLINE" data-ref="_M/ID_INLINE">ID_INLINE</dfn>						inline</u></td></tr>
+<tr><th id="130">130</th><td><u>#define <dfn class="macro" id="_M/ID_STATIC_TEMPLATE" data-ref="_M/ID_STATIC_TEMPLATE">ID_STATIC_TEMPLATE</dfn></u></td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td><u>#define <dfn class="macro" id="_M/assertmem" data-ref="_M/assertmem">assertmem</dfn>( x, y )</u></td></tr>
+<tr><th id="133">133</th><td></td></tr>
+<tr><th id="134">134</th><td><u>#<span data-ppcond="104">endif</span></u></td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td><u>#<span data-ppcond="136">ifdef</span> <span class="macro" data-ref="_M/__GNUC__">__GNUC__</span></u></td></tr>
+<tr><th id="137">137</th><td><u>#define <dfn class="macro" id="_M/id_attribute" data-ref="_M/id_attribute">id_attribute</dfn>(x) __attribute__(x)</u></td></tr>
+<tr><th id="138">138</th><td><u>#<span data-ppcond="136">else</span></u></td></tr>
+<tr><th id="139">139</th><td><u>#define id_attribute(x)</u>  </td></tr>
+<tr><th id="140">140</th><td><u>#<span data-ppcond="136">endif</span></u></td></tr>
+<tr><th id="141">141</th><td></td></tr>
+<tr><th id="142">142</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="143">143</th><td>	<dfn class="enum" id="CPUID_NONE" title='CPUID_NONE' data-ref="CPUID_NONE">CPUID_NONE</dfn>							= <var>0x00000</var>,</td></tr>
+<tr><th id="144">144</th><td>	<dfn class="enum" id="CPUID_UNSUPPORTED" title='CPUID_UNSUPPORTED' data-ref="CPUID_UNSUPPORTED">CPUID_UNSUPPORTED</dfn>					= <var>0x00001</var>,	<i>// unsupported (386/486)</i></td></tr>
+<tr><th id="145">145</th><td>	<dfn class="enum" id="CPUID_GENERIC" title='CPUID_GENERIC' data-ref="CPUID_GENERIC">CPUID_GENERIC</dfn>						= <var>0x00002</var>,	<i>// unrecognized processor</i></td></tr>
+<tr><th id="146">146</th><td>	<dfn class="enum" id="CPUID_INTEL" title='CPUID_INTEL' data-ref="CPUID_INTEL">CPUID_INTEL</dfn>							= <var>0x00004</var>,	<i>// Intel</i></td></tr>
+<tr><th id="147">147</th><td>	<dfn class="enum" id="CPUID_AMD" title='CPUID_AMD' data-ref="CPUID_AMD">CPUID_AMD</dfn>							= <var>0x00008</var>,	<i>// AMD</i></td></tr>
+<tr><th id="148">148</th><td>	<dfn class="enum" id="CPUID_MMX" title='CPUID_MMX' data-ref="CPUID_MMX">CPUID_MMX</dfn>							= <var>0x00010</var>,	<i>// Multi Media Extensions</i></td></tr>
+<tr><th id="149">149</th><td>	<dfn class="enum" id="CPUID_3DNOW" title='CPUID_3DNOW' data-ref="CPUID_3DNOW">CPUID_3DNOW</dfn>							= <var>0x00020</var>,	<i>// 3DNow!</i></td></tr>
+<tr><th id="150">150</th><td>	<dfn class="enum" id="CPUID_SSE" title='CPUID_SSE' data-ref="CPUID_SSE">CPUID_SSE</dfn>							= <var>0x00040</var>,	<i>// Streaming SIMD Extensions</i></td></tr>
+<tr><th id="151">151</th><td>	<dfn class="enum" id="CPUID_SSE2" title='CPUID_SSE2' data-ref="CPUID_SSE2">CPUID_SSE2</dfn>							= <var>0x00080</var>,	<i>// Streaming SIMD Extensions 2</i></td></tr>
+<tr><th id="152">152</th><td>	<dfn class="enum" id="CPUID_SSE3" title='CPUID_SSE3' data-ref="CPUID_SSE3">CPUID_SSE3</dfn>							= <var>0x00100</var>,	<i>// Streaming SIMD Extentions 3 aka Prescott's New Instructions</i></td></tr>
+<tr><th id="153">153</th><td>	<dfn class="enum" id="CPUID_ALTIVEC" title='CPUID_ALTIVEC' data-ref="CPUID_ALTIVEC">CPUID_ALTIVEC</dfn>						= <var>0x00200</var>,	<i>// AltiVec</i></td></tr>
+<tr><th id="154">154</th><td>	<dfn class="enum" id="CPUID_HTT" title='CPUID_HTT' data-ref="CPUID_HTT">CPUID_HTT</dfn>							= <var>0x01000</var>,	<i>// Hyper-Threading Technology</i></td></tr>
+<tr><th id="155">155</th><td>	<dfn class="enum" id="CPUID_CMOV" title='CPUID_CMOV' data-ref="CPUID_CMOV">CPUID_CMOV</dfn>							= <var>0x02000</var>,	<i>// Conditional Move (CMOV) and fast floating point comparison (FCOMI) instructions</i></td></tr>
+<tr><th id="156">156</th><td>	<dfn class="enum" id="CPUID_FTZ" title='CPUID_FTZ' data-ref="CPUID_FTZ">CPUID_FTZ</dfn>							= <var>0x04000</var>,	<i>// Flush-To-Zero mode (denormal results are flushed to zero)</i></td></tr>
+<tr><th id="157">157</th><td>	<dfn class="enum" id="CPUID_DAZ" title='CPUID_DAZ' data-ref="CPUID_DAZ">CPUID_DAZ</dfn>							= <var>0x08000</var>	<i>// Denormals-Are-Zero mode (denormal source operands are set to zero)</i></td></tr>
+<tr><th id="158">158</th><td>} <dfn class="typedef" id="cpuid_t" title='cpuid_t' data-type='enum cpuid_t' data-ref="cpuid_t">cpuid_t</dfn>;</td></tr>
+<tr><th id="159">159</th><td></td></tr>
+<tr><th id="160">160</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="161">161</th><td>	<dfn class="enum" id="FPU_EXCEPTION_INVALID_OPERATION" title='FPU_EXCEPTION_INVALID_OPERATION' data-ref="FPU_EXCEPTION_INVALID_OPERATION">FPU_EXCEPTION_INVALID_OPERATION</dfn>		= <var>1</var>,</td></tr>
+<tr><th id="162">162</th><td>	<dfn class="enum" id="FPU_EXCEPTION_DENORMALIZED_OPERAND" title='FPU_EXCEPTION_DENORMALIZED_OPERAND' data-ref="FPU_EXCEPTION_DENORMALIZED_OPERAND">FPU_EXCEPTION_DENORMALIZED_OPERAND</dfn>	= <var>2</var>,</td></tr>
+<tr><th id="163">163</th><td>	<dfn class="enum" id="FPU_EXCEPTION_DIVIDE_BY_ZERO" title='FPU_EXCEPTION_DIVIDE_BY_ZERO' data-ref="FPU_EXCEPTION_DIVIDE_BY_ZERO">FPU_EXCEPTION_DIVIDE_BY_ZERO</dfn>		= <var>4</var>,</td></tr>
+<tr><th id="164">164</th><td>	<dfn class="enum" id="FPU_EXCEPTION_NUMERIC_OVERFLOW" title='FPU_EXCEPTION_NUMERIC_OVERFLOW' data-ref="FPU_EXCEPTION_NUMERIC_OVERFLOW">FPU_EXCEPTION_NUMERIC_OVERFLOW</dfn>		= <var>8</var>,</td></tr>
+<tr><th id="165">165</th><td>	<dfn class="enum" id="FPU_EXCEPTION_NUMERIC_UNDERFLOW" title='FPU_EXCEPTION_NUMERIC_UNDERFLOW' data-ref="FPU_EXCEPTION_NUMERIC_UNDERFLOW">FPU_EXCEPTION_NUMERIC_UNDERFLOW</dfn>		= <var>16</var>,</td></tr>
+<tr><th id="166">166</th><td>	<dfn class="enum" id="FPU_EXCEPTION_INEXACT_RESULT" title='FPU_EXCEPTION_INEXACT_RESULT' data-ref="FPU_EXCEPTION_INEXACT_RESULT">FPU_EXCEPTION_INEXACT_RESULT</dfn>		= <var>32</var></td></tr>
+<tr><th id="167">167</th><td>} <dfn class="typedef" id="fpuExceptions_t" title='fpuExceptions_t' data-type='enum fpuExceptions_t' data-ref="fpuExceptions_t">fpuExceptions_t</dfn>;</td></tr>
+<tr><th id="168">168</th><td></td></tr>
+<tr><th id="169">169</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="170">170</th><td>	<dfn class="enum" id="FPU_PRECISION_SINGLE" title='FPU_PRECISION_SINGLE' data-ref="FPU_PRECISION_SINGLE">FPU_PRECISION_SINGLE</dfn>				= <var>0</var>,</td></tr>
+<tr><th id="171">171</th><td>	<dfn class="enum" id="FPU_PRECISION_DOUBLE" title='FPU_PRECISION_DOUBLE' data-ref="FPU_PRECISION_DOUBLE">FPU_PRECISION_DOUBLE</dfn>				= <var>1</var>,</td></tr>
+<tr><th id="172">172</th><td>	<dfn class="enum" id="FPU_PRECISION_DOUBLE_EXTENDED" title='FPU_PRECISION_DOUBLE_EXTENDED' data-ref="FPU_PRECISION_DOUBLE_EXTENDED">FPU_PRECISION_DOUBLE_EXTENDED</dfn>		= <var>2</var></td></tr>
+<tr><th id="173">173</th><td>} <dfn class="typedef" id="fpuPrecision_t" title='fpuPrecision_t' data-type='enum fpuPrecision_t' data-ref="fpuPrecision_t">fpuPrecision_t</dfn>;</td></tr>
+<tr><th id="174">174</th><td></td></tr>
+<tr><th id="175">175</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="176">176</th><td>	<dfn class="enum" id="FPU_ROUNDING_TO_NEAREST" title='FPU_ROUNDING_TO_NEAREST' data-ref="FPU_ROUNDING_TO_NEAREST">FPU_ROUNDING_TO_NEAREST</dfn>				= <var>0</var>,</td></tr>
+<tr><th id="177">177</th><td>	<dfn class="enum" id="FPU_ROUNDING_DOWN" title='FPU_ROUNDING_DOWN' data-ref="FPU_ROUNDING_DOWN">FPU_ROUNDING_DOWN</dfn>					= <var>1</var>,</td></tr>
+<tr><th id="178">178</th><td>	<dfn class="enum" id="FPU_ROUNDING_UP" title='FPU_ROUNDING_UP' data-ref="FPU_ROUNDING_UP">FPU_ROUNDING_UP</dfn>						= <var>2</var>,</td></tr>
+<tr><th id="179">179</th><td>	<dfn class="enum" id="FPU_ROUNDING_TO_ZERO" title='FPU_ROUNDING_TO_ZERO' data-ref="FPU_ROUNDING_TO_ZERO">FPU_ROUNDING_TO_ZERO</dfn>				= <var>3</var></td></tr>
+<tr><th id="180">180</th><td>} <dfn class="typedef" id="fpuRounding_t" title='fpuRounding_t' data-type='enum fpuRounding_t' data-ref="fpuRounding_t">fpuRounding_t</dfn>;</td></tr>
+<tr><th id="181">181</th><td></td></tr>
+<tr><th id="182">182</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="183">183</th><td>	<dfn class="enum" id="AXIS_SIDE" title='AXIS_SIDE' data-ref="AXIS_SIDE">AXIS_SIDE</dfn>,</td></tr>
+<tr><th id="184">184</th><td>	<dfn class="enum" id="AXIS_FORWARD" title='AXIS_FORWARD' data-ref="AXIS_FORWARD">AXIS_FORWARD</dfn>,</td></tr>
+<tr><th id="185">185</th><td>	<dfn class="enum" id="AXIS_UP" title='AXIS_UP' data-ref="AXIS_UP">AXIS_UP</dfn>,</td></tr>
+<tr><th id="186">186</th><td>	<dfn class="enum" id="AXIS_ROLL" title='AXIS_ROLL' data-ref="AXIS_ROLL">AXIS_ROLL</dfn>,</td></tr>
+<tr><th id="187">187</th><td>	<dfn class="enum" id="AXIS_YAW" title='AXIS_YAW' data-ref="AXIS_YAW">AXIS_YAW</dfn>,</td></tr>
+<tr><th id="188">188</th><td>	<dfn class="enum" id="AXIS_PITCH" title='AXIS_PITCH' data-ref="AXIS_PITCH">AXIS_PITCH</dfn>,</td></tr>
+<tr><th id="189">189</th><td>	<dfn class="enum" id="MAX_JOYSTICK_AXIS" title='MAX_JOYSTICK_AXIS' data-ref="MAX_JOYSTICK_AXIS">MAX_JOYSTICK_AXIS</dfn></td></tr>
+<tr><th id="190">190</th><td>} <dfn class="typedef" id="joystickAxis_t" title='joystickAxis_t' data-type='enum joystickAxis_t' data-ref="joystickAxis_t">joystickAxis_t</dfn>;</td></tr>
+<tr><th id="191">191</th><td></td></tr>
+<tr><th id="192">192</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="193">193</th><td>	<dfn class="enum" id="SE_NONE" title='SE_NONE' data-ref="SE_NONE">SE_NONE</dfn>,				<i>// evTime is still valid</i></td></tr>
+<tr><th id="194">194</th><td>	<dfn class="enum" id="SE_KEY" title='SE_KEY' data-ref="SE_KEY">SE_KEY</dfn>,					<i>// evValue is a key code, evValue2 is the down flag</i></td></tr>
+<tr><th id="195">195</th><td>	<dfn class="enum" id="SE_CHAR" title='SE_CHAR' data-ref="SE_CHAR">SE_CHAR</dfn>,				<i>// evValue is an ascii char</i></td></tr>
+<tr><th id="196">196</th><td>	<dfn class="enum" id="SE_MOUSE" title='SE_MOUSE' data-ref="SE_MOUSE">SE_MOUSE</dfn>,				<i>// evValue and evValue2 are reletive signed x / y moves</i></td></tr>
+<tr><th id="197">197</th><td>	<dfn class="enum" id="SE_JOYSTICK_AXIS" title='SE_JOYSTICK_AXIS' data-ref="SE_JOYSTICK_AXIS">SE_JOYSTICK_AXIS</dfn>,		<i>// evValue is an axis number and evValue2 is the current state (-127 to 127)</i></td></tr>
+<tr><th id="198">198</th><td>	<dfn class="enum" id="SE_CONSOLE" title='SE_CONSOLE' data-ref="SE_CONSOLE">SE_CONSOLE</dfn>				<i>// evPtr is a char*, from typing something at a non-game console</i></td></tr>
+<tr><th id="199">199</th><td>} <dfn class="typedef" id="sysEventType_t" title='sysEventType_t' data-type='enum sysEventType_t' data-ref="sysEventType_t">sysEventType_t</dfn>;</td></tr>
+<tr><th id="200">200</th><td></td></tr>
+<tr><th id="201">201</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="202">202</th><td>	<dfn class="enum" id="M_ACTION1" title='M_ACTION1' data-ref="M_ACTION1">M_ACTION1</dfn>,</td></tr>
+<tr><th id="203">203</th><td>	<dfn class="enum" id="M_ACTION2" title='M_ACTION2' data-ref="M_ACTION2">M_ACTION2</dfn>,</td></tr>
+<tr><th id="204">204</th><td>	<dfn class="enum" id="M_ACTION3" title='M_ACTION3' data-ref="M_ACTION3">M_ACTION3</dfn>,</td></tr>
+<tr><th id="205">205</th><td>	<dfn class="enum" id="M_ACTION4" title='M_ACTION4' data-ref="M_ACTION4">M_ACTION4</dfn>,</td></tr>
+<tr><th id="206">206</th><td>	<dfn class="enum" id="M_ACTION5" title='M_ACTION5' data-ref="M_ACTION5">M_ACTION5</dfn>,</td></tr>
+<tr><th id="207">207</th><td>	<dfn class="enum" id="M_ACTION6" title='M_ACTION6' data-ref="M_ACTION6">M_ACTION6</dfn>,</td></tr>
+<tr><th id="208">208</th><td>	<dfn class="enum" id="M_ACTION7" title='M_ACTION7' data-ref="M_ACTION7">M_ACTION7</dfn>,</td></tr>
+<tr><th id="209">209</th><td>	<dfn class="enum" id="M_ACTION8" title='M_ACTION8' data-ref="M_ACTION8">M_ACTION8</dfn>,</td></tr>
+<tr><th id="210">210</th><td>	<dfn class="enum" id="M_DELTAX" title='M_DELTAX' data-ref="M_DELTAX">M_DELTAX</dfn>,</td></tr>
+<tr><th id="211">211</th><td>	<dfn class="enum" id="M_DELTAY" title='M_DELTAY' data-ref="M_DELTAY">M_DELTAY</dfn>,</td></tr>
+<tr><th id="212">212</th><td>	<dfn class="enum" id="M_DELTAZ" title='M_DELTAZ' data-ref="M_DELTAZ">M_DELTAZ</dfn></td></tr>
+<tr><th id="213">213</th><td>} <dfn class="typedef" id="sys_mEvents" title='sys_mEvents' data-type='enum sys_mEvents' data-ref="sys_mEvents">sys_mEvents</dfn>;</td></tr>
+<tr><th id="214">214</th><td></td></tr>
+<tr><th id="215">215</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="sysEvent_s" title='sysEvent_s' data-ref="sysEvent_s"><a class="type" href="#sysEvent_s" title='sysEvent_s' data-ref="sysEvent_s">sysEvent_s</a></dfn> {</td></tr>
+<tr><th id="216">216</th><td>	<a class="typedef" href="#sysEventType_t" title='sysEventType_t' data-type='enum sysEventType_t' data-ref="sysEventType_t">sysEventType_t</a>	<dfn class="decl" id="sysEvent_s::evType" title='sysEvent_s::evType' data-ref="sysEvent_s::evType">evType</dfn>;</td></tr>
+<tr><th id="217">217</th><td>	<em>int</em>				<dfn class="decl" id="sysEvent_s::evValue" title='sysEvent_s::evValue' data-ref="sysEvent_s::evValue">evValue</dfn>;</td></tr>
+<tr><th id="218">218</th><td>	<em>int</em>				<dfn class="decl" id="sysEvent_s::evValue2" title='sysEvent_s::evValue2' data-ref="sysEvent_s::evValue2">evValue2</dfn>;</td></tr>
+<tr><th id="219">219</th><td>	<em>int</em>				<dfn class="decl" id="sysEvent_s::evPtrLength" title='sysEvent_s::evPtrLength' data-ref="sysEvent_s::evPtrLength">evPtrLength</dfn>;		<i>// bytes of data pointed to by evPtr, for journaling</i></td></tr>
+<tr><th id="220">220</th><td>	<em>void</em> *			<dfn class="decl" id="sysEvent_s::evPtr" title='sysEvent_s::evPtr' data-ref="sysEvent_s::evPtr">evPtr</dfn>;				<i>// this must be manually freed if not NULL</i></td></tr>
+<tr><th id="221">221</th><td>} <dfn class="typedef" id="sysEvent_t" title='sysEvent_t' data-type='struct sysEvent_s' data-ref="sysEvent_t">sysEvent_t</dfn>;</td></tr>
+<tr><th id="222">222</th><td></td></tr>
+<tr><th id="223">223</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="sysMemoryStats_s" title='sysMemoryStats_s' data-ref="sysMemoryStats_s"><a class="type" href="#sysMemoryStats_s" title='sysMemoryStats_s' data-ref="sysMemoryStats_s">sysMemoryStats_s</a></dfn> {</td></tr>
+<tr><th id="224">224</th><td>	<em>int</em> <dfn class="decl" id="sysMemoryStats_s::memoryLoad" title='sysMemoryStats_s::memoryLoad' data-ref="sysMemoryStats_s::memoryLoad">memoryLoad</dfn>;</td></tr>
+<tr><th id="225">225</th><td>	<em>int</em> <dfn class="decl" id="sysMemoryStats_s::totalPhysical" title='sysMemoryStats_s::totalPhysical' data-ref="sysMemoryStats_s::totalPhysical">totalPhysical</dfn>;</td></tr>
+<tr><th id="226">226</th><td>	<em>int</em> <dfn class="decl" id="sysMemoryStats_s::availPhysical" title='sysMemoryStats_s::availPhysical' data-ref="sysMemoryStats_s::availPhysical">availPhysical</dfn>;</td></tr>
+<tr><th id="227">227</th><td>	<em>int</em> <dfn class="decl" id="sysMemoryStats_s::totalPageFile" title='sysMemoryStats_s::totalPageFile' data-ref="sysMemoryStats_s::totalPageFile">totalPageFile</dfn>;</td></tr>
+<tr><th id="228">228</th><td>	<em>int</em> <dfn class="decl" id="sysMemoryStats_s::availPageFile" title='sysMemoryStats_s::availPageFile' data-ref="sysMemoryStats_s::availPageFile">availPageFile</dfn>;</td></tr>
+<tr><th id="229">229</th><td>	<em>int</em> <dfn class="decl" id="sysMemoryStats_s::totalVirtual" title='sysMemoryStats_s::totalVirtual' data-ref="sysMemoryStats_s::totalVirtual">totalVirtual</dfn>;</td></tr>
+<tr><th id="230">230</th><td>	<em>int</em> <dfn class="decl" id="sysMemoryStats_s::availVirtual" title='sysMemoryStats_s::availVirtual' data-ref="sysMemoryStats_s::availVirtual">availVirtual</dfn>;</td></tr>
+<tr><th id="231">231</th><td>	<em>int</em> <dfn class="decl" id="sysMemoryStats_s::availExtendedVirtual" title='sysMemoryStats_s::availExtendedVirtual' data-ref="sysMemoryStats_s::availExtendedVirtual">availExtendedVirtual</dfn>;</td></tr>
+<tr><th id="232">232</th><td>} <dfn class="typedef" id="sysMemoryStats_t" title='sysMemoryStats_t' data-type='struct sysMemoryStats_s' data-ref="sysMemoryStats_t">sysMemoryStats_t</dfn>;</td></tr>
+<tr><th id="233">233</th><td></td></tr>
+<tr><th id="234">234</th><td><b>typedef</b> <em>unsigned</em> <em>long</em> <dfn class="typedef" id="address_t" title='address_t' data-type='unsigned long' data-ref="address_t">address_t</dfn>;</td></tr>
+<tr><th id="235">235</th><td></td></tr>
+<tr><th id="236">236</th><td><b>template</b>&lt;<b>class</b> type&gt; <b>class</b> <a class="type" href="../idlib/containers/List.h.html#idList" title='idList' data-ref="idList" id="idList">idList</a>;		<i>// for Sys_ListFiles</i></td></tr>
+<tr><th id="237">237</th><td></td></tr>
+<tr><th id="238">238</th><td></td></tr>
+<tr><th id="239">239</th><td><em>void</em>			<dfn class="decl" id="_Z8Sys_Initv" title='Sys_Init' data-ref="_Z8Sys_Initv">Sys_Init</dfn>( <em>void</em> );</td></tr>
+<tr><th id="240">240</th><td><em>void</em>			<dfn class="decl" id="_Z12Sys_Shutdownv" title='Sys_Shutdown' data-ref="_Z12Sys_Shutdownv">Sys_Shutdown</dfn>( <em>void</em> );</td></tr>
+<tr><th id="241">241</th><td><em>void</em>			<dfn class="decl" id="_Z9Sys_ErrorPKcz" title='Sys_Error' data-ref="_Z9Sys_ErrorPKcz">Sys_Error</dfn>( <em>const</em> <em>char</em> *<dfn class="local col0 decl" id="1310error" title='error' data-type='const char *' data-ref="1310error">error</dfn>, ...);</td></tr>
+<tr><th id="242">242</th><td><em>void</em>			<dfn class="decl" id="_Z8Sys_Quitv" title='Sys_Quit' data-ref="_Z8Sys_Quitv">Sys_Quit</dfn>( <em>void</em> );</td></tr>
+<tr><th id="243">243</th><td></td></tr>
+<tr><th id="244">244</th><td><em>bool</em>			<dfn class="decl" id="_Z18Sys_AlreadyRunningv" title='Sys_AlreadyRunning' data-ref="_Z18Sys_AlreadyRunningv">Sys_AlreadyRunning</dfn>( <em>void</em> );</td></tr>
+<tr><th id="245">245</th><td></td></tr>
+<tr><th id="246">246</th><td><i>// note that this isn't journaled...</i></td></tr>
+<tr><th id="247">247</th><td><em>char</em> *			<dfn class="decl" id="_Z20Sys_GetClipboardDatav" title='Sys_GetClipboardData' data-ref="_Z20Sys_GetClipboardDatav">Sys_GetClipboardData</dfn>( <em>void</em> );</td></tr>
+<tr><th id="248">248</th><td><em>void</em>			<dfn class="decl" id="_Z20Sys_SetClipboardDataPKc" title='Sys_SetClipboardData' data-ref="_Z20Sys_SetClipboardDataPKc">Sys_SetClipboardData</dfn>( <em>const</em> <em>char</em> *<dfn class="local col1 decl" id="1311string" title='string' data-type='const char *' data-ref="1311string">string</dfn> );</td></tr>
+<tr><th id="249">249</th><td></td></tr>
+<tr><th id="250">250</th><td><i>// will go to the various text consoles</i></td></tr>
+<tr><th id="251">251</th><td><i>// NOT thread safe - never use in the async paths</i></td></tr>
+<tr><th id="252">252</th><td><em>void</em>			<dfn class="decl" id="_Z10Sys_PrintfPKcz" title='Sys_Printf' data-ref="_Z10Sys_PrintfPKcz">Sys_Printf</dfn>( <em>const</em> <em>char</em> *<dfn class="local col2 decl" id="1312msg" title='msg' data-type='const char *' data-ref="1312msg">msg</dfn>, ... )<a class="macro" href="#137" title="__attribute__((format(printf,1,2)))" data-ref="_M/id_attribute">id_attribute</a>((format(printf,<var>1</var>,<var>2</var>)));</td></tr>
+<tr><th id="253">253</th><td></td></tr>
+<tr><th id="254">254</th><td><i>// guaranteed to be thread-safe</i></td></tr>
+<tr><th id="255">255</th><td><em>void</em>			<dfn class="decl" id="_Z15Sys_DebugPrintfPKcz" title='Sys_DebugPrintf' data-ref="_Z15Sys_DebugPrintfPKcz">Sys_DebugPrintf</dfn>( <em>const</em> <em>char</em> *<dfn class="local col3 decl" id="1313fmt" title='fmt' data-type='const char *' data-ref="1313fmt">fmt</dfn>, ... )<a class="macro" href="#137" title="__attribute__((format(printf,1,2)))" data-ref="_M/id_attribute">id_attribute</a>((format(printf,<var>1</var>,<var>2</var>)));</td></tr>
+<tr><th id="256">256</th><td><em>void</em>			<dfn class="decl" id="_Z16Sys_DebugVPrintfPKcPc" title='Sys_DebugVPrintf' data-ref="_Z16Sys_DebugVPrintfPKcPc">Sys_DebugVPrintf</dfn>( <em>const</em> <em>char</em> *<dfn class="local col4 decl" id="1314fmt" title='fmt' data-type='const char *' data-ref="1314fmt">fmt</dfn>, <span class='typedef' title='va_list' data-type='__gnuc_va_list' data-ref="va_list">va_list</span> <dfn class="local col5 decl" id="1315arg" title='arg' data-type='va_list' data-ref="1315arg">arg</dfn> );</td></tr>
+<tr><th id="257">257</th><td></td></tr>
+<tr><th id="258">258</th><td><i>// a decent minimum sleep time to avoid going below the process scheduler speeds</i></td></tr>
+<tr><th id="259">259</th><td><u>#define			<dfn class="macro" id="_M/SYS_MINSLEEP" data-ref="_M/SYS_MINSLEEP">SYS_MINSLEEP</dfn>	20</u></td></tr>
+<tr><th id="260">260</th><td></td></tr>
+<tr><th id="261">261</th><td><i>// allow game to yield CPU time</i></td></tr>
+<tr><th id="262">262</th><td><i>// NOTE: due to SYS_MINSLEEP this is very bad portability karma, and should be completely removed</i></td></tr>
+<tr><th id="263">263</th><td><em>void</em>			<dfn class="decl" id="_Z9Sys_Sleepi" title='Sys_Sleep' data-ref="_Z9Sys_Sleepi">Sys_Sleep</dfn>( <em>int</em> <dfn class="local col6 decl" id="1316msec" title='msec' data-type='int' data-ref="1316msec">msec</dfn> );</td></tr>
+<tr><th id="264">264</th><td></td></tr>
+<tr><th id="265">265</th><td><i>// Sys_Milliseconds should only be used for profiling purposes,</i></td></tr>
+<tr><th id="266">266</th><td><i>// any game related timing information should come from event timestamps</i></td></tr>
+<tr><th id="267">267</th><td><em>int</em>				<dfn class="decl" id="_Z16Sys_Millisecondsv" title='Sys_Milliseconds' data-ref="_Z16Sys_Millisecondsv">Sys_Milliseconds</dfn>( <em>void</em> );</td></tr>
+<tr><th id="268">268</th><td></td></tr>
+<tr><th id="269">269</th><td><i>// for accurate performance testing</i></td></tr>
+<tr><th id="270">270</th><td><em>double</em>			<dfn class="decl" id="_Z17Sys_GetClockTicksv" title='Sys_GetClockTicks' data-ref="_Z17Sys_GetClockTicksv">Sys_GetClockTicks</dfn>( <em>void</em> );</td></tr>
+<tr><th id="271">271</th><td><em>double</em>			<dfn class="decl" id="_Z23Sys_ClockTicksPerSecondv" title='Sys_ClockTicksPerSecond' data-ref="_Z23Sys_ClockTicksPerSecondv">Sys_ClockTicksPerSecond</dfn>( <em>void</em> );</td></tr>
+<tr><th id="272">272</th><td></td></tr>
+<tr><th id="273">273</th><td><i>// returns a selection of the CPUID_* flags</i></td></tr>
+<tr><th id="274">274</th><td><a class="typedef" href="#cpuid_t" title='cpuid_t' data-type='enum cpuid_t' data-ref="cpuid_t">cpuid_t</a>			<dfn class="decl" id="_Z18Sys_GetProcessorIdv" title='Sys_GetProcessorId' data-ref="_Z18Sys_GetProcessorIdv">Sys_GetProcessorId</dfn>( <em>void</em> );</td></tr>
+<tr><th id="275">275</th><td><em>const</em> <em>char</em> *	<dfn class="decl" id="_Z22Sys_GetProcessorStringv" title='Sys_GetProcessorString' data-ref="_Z22Sys_GetProcessorStringv">Sys_GetProcessorString</dfn>( <em>void</em> );</td></tr>
+<tr><th id="276">276</th><td></td></tr>
+<tr><th id="277">277</th><td><i>// returns true if the FPU stack is empty</i></td></tr>
+<tr><th id="278">278</th><td><em>bool</em>			<dfn class="decl" id="_Z20Sys_FPU_StackIsEmptyv" title='Sys_FPU_StackIsEmpty' data-ref="_Z20Sys_FPU_StackIsEmptyv">Sys_FPU_StackIsEmpty</dfn>( <em>void</em> );</td></tr>
+<tr><th id="279">279</th><td></td></tr>
+<tr><th id="280">280</th><td><i>// empties the FPU stack</i></td></tr>
+<tr><th id="281">281</th><td><em>void</em>			<dfn class="decl" id="_Z18Sys_FPU_ClearStackv" title='Sys_FPU_ClearStack' data-ref="_Z18Sys_FPU_ClearStackv">Sys_FPU_ClearStack</dfn>( <em>void</em> );</td></tr>
+<tr><th id="282">282</th><td></td></tr>
+<tr><th id="283">283</th><td><i>// returns the FPU state as a string</i></td></tr>
+<tr><th id="284">284</th><td><em>const</em> <em>char</em> *	<dfn class="decl" id="_Z16Sys_FPU_GetStatev" title='Sys_FPU_GetState' data-ref="_Z16Sys_FPU_GetStatev">Sys_FPU_GetState</dfn>( <em>void</em> );</td></tr>
+<tr><th id="285">285</th><td></td></tr>
+<tr><th id="286">286</th><td><i>// enables the given FPU exceptions</i></td></tr>
+<tr><th id="287">287</th><td><em>void</em>			<dfn class="decl" id="_Z24Sys_FPU_EnableExceptionsi" title='Sys_FPU_EnableExceptions' data-ref="_Z24Sys_FPU_EnableExceptionsi">Sys_FPU_EnableExceptions</dfn>( <em>int</em> <dfn class="local col7 decl" id="1317exceptions" title='exceptions' data-type='int' data-ref="1317exceptions">exceptions</dfn> );</td></tr>
+<tr><th id="288">288</th><td></td></tr>
+<tr><th id="289">289</th><td><i>// sets the FPU precision</i></td></tr>
+<tr><th id="290">290</th><td><em>void</em>			<dfn class="decl" id="_Z20Sys_FPU_SetPrecisioni" title='Sys_FPU_SetPrecision' data-ref="_Z20Sys_FPU_SetPrecisioni">Sys_FPU_SetPrecision</dfn>( <em>int</em> <dfn class="local col8 decl" id="1318precision" title='precision' data-type='int' data-ref="1318precision">precision</dfn> );</td></tr>
+<tr><th id="291">291</th><td></td></tr>
+<tr><th id="292">292</th><td><i>// sets the FPU rounding mode</i></td></tr>
+<tr><th id="293">293</th><td><em>void</em>			<dfn class="decl" id="_Z19Sys_FPU_SetRoundingi" title='Sys_FPU_SetRounding' data-ref="_Z19Sys_FPU_SetRoundingi">Sys_FPU_SetRounding</dfn>( <em>int</em> <dfn class="local col9 decl" id="1319rounding" title='rounding' data-type='int' data-ref="1319rounding">rounding</dfn> );</td></tr>
+<tr><th id="294">294</th><td></td></tr>
+<tr><th id="295">295</th><td><i>// sets Flush-To-Zero mode (only available when CPUID_FTZ is set)</i></td></tr>
+<tr><th id="296">296</th><td><em>void</em>			<dfn class="decl" id="_Z14Sys_FPU_SetFTZb" title='Sys_FPU_SetFTZ' data-ref="_Z14Sys_FPU_SetFTZb">Sys_FPU_SetFTZ</dfn>( <em>bool</em> <dfn class="local col0 decl" id="1320enable" title='enable' data-type='bool' data-ref="1320enable">enable</dfn> );</td></tr>
+<tr><th id="297">297</th><td></td></tr>
+<tr><th id="298">298</th><td><i>// sets Denormals-Are-Zero mode (only available when CPUID_DAZ is set)</i></td></tr>
+<tr><th id="299">299</th><td><em>void</em>			<dfn class="decl" id="_Z14Sys_FPU_SetDAZb" title='Sys_FPU_SetDAZ' data-ref="_Z14Sys_FPU_SetDAZb">Sys_FPU_SetDAZ</dfn>( <em>bool</em> <dfn class="local col1 decl" id="1321enable" title='enable' data-type='bool' data-ref="1321enable">enable</dfn> );</td></tr>
+<tr><th id="300">300</th><td></td></tr>
+<tr><th id="301">301</th><td><i>// returns amount of system ram</i></td></tr>
+<tr><th id="302">302</th><td><em>int</em>				<dfn class="decl" id="_Z16Sys_GetSystemRamv" title='Sys_GetSystemRam' data-ref="_Z16Sys_GetSystemRamv">Sys_GetSystemRam</dfn>( <em>void</em> );</td></tr>
+<tr><th id="303">303</th><td></td></tr>
+<tr><th id="304">304</th><td><i>// returns amount of video ram</i></td></tr>
+<tr><th id="305">305</th><td><em>int</em>				<dfn class="decl" id="_Z15Sys_GetVideoRamv" title='Sys_GetVideoRam' data-ref="_Z15Sys_GetVideoRamv">Sys_GetVideoRam</dfn>( <em>void</em> );</td></tr>
+<tr><th id="306">306</th><td></td></tr>
+<tr><th id="307">307</th><td><i>// returns amount of drive space in path</i></td></tr>
+<tr><th id="308">308</th><td><em>int</em>				<dfn class="decl" id="_Z21Sys_GetDriveFreeSpacePKc" title='Sys_GetDriveFreeSpace' data-ref="_Z21Sys_GetDriveFreeSpacePKc">Sys_GetDriveFreeSpace</dfn>( <em>const</em> <em>char</em> *<dfn class="local col2 decl" id="1322path" title='path' data-type='const char *' data-ref="1322path">path</dfn> );</td></tr>
+<tr><th id="309">309</th><td></td></tr>
+<tr><th id="310">310</th><td><i>// returns memory stats</i></td></tr>
+<tr><th id="311">311</th><td><em>void</em>			<dfn class="decl" id="_Z26Sys_GetCurrentMemoryStatusR16sysMemoryStats_s" title='Sys_GetCurrentMemoryStatus' data-ref="_Z26Sys_GetCurrentMemoryStatusR16sysMemoryStats_s">Sys_GetCurrentMemoryStatus</dfn>( <a class="typedef" href="#sysMemoryStats_t" title='sysMemoryStats_t' data-type='struct sysMemoryStats_s' data-ref="sysMemoryStats_t">sysMemoryStats_t</a> &amp;<dfn class="local col3 decl" id="1323stats" title='stats' data-type='sysMemoryStats_t &amp;' data-ref="1323stats">stats</dfn> );</td></tr>
+<tr><th id="312">312</th><td><em>void</em>			<dfn class="decl" id="_Z28Sys_GetExeLaunchMemoryStatusR16sysMemoryStats_s" title='Sys_GetExeLaunchMemoryStatus' data-ref="_Z28Sys_GetExeLaunchMemoryStatusR16sysMemoryStats_s">Sys_GetExeLaunchMemoryStatus</dfn>( <a class="typedef" href="#sysMemoryStats_t" title='sysMemoryStats_t' data-type='struct sysMemoryStats_s' data-ref="sysMemoryStats_t">sysMemoryStats_t</a> &amp;<dfn class="local col4 decl" id="1324stats" title='stats' data-type='sysMemoryStats_t &amp;' data-ref="1324stats">stats</dfn> );</td></tr>
+<tr><th id="313">313</th><td></td></tr>
+<tr><th id="314">314</th><td><i>// lock and unlock memory</i></td></tr>
+<tr><th id="315">315</th><td><em>bool</em>			<dfn class="decl" id="_Z14Sys_LockMemoryPvi" title='Sys_LockMemory' data-ref="_Z14Sys_LockMemoryPvi">Sys_LockMemory</dfn>( <em>void</em> *<dfn class="local col5 decl" id="1325ptr" title='ptr' data-type='void *' data-ref="1325ptr">ptr</dfn>, <em>int</em> <dfn class="local col6 decl" id="1326bytes" title='bytes' data-type='int' data-ref="1326bytes">bytes</dfn> );</td></tr>
+<tr><th id="316">316</th><td><em>bool</em>			<dfn class="decl" id="_Z16Sys_UnlockMemoryPvi" title='Sys_UnlockMemory' data-ref="_Z16Sys_UnlockMemoryPvi">Sys_UnlockMemory</dfn>( <em>void</em> *<dfn class="local col7 decl" id="1327ptr" title='ptr' data-type='void *' data-ref="1327ptr">ptr</dfn>, <em>int</em> <dfn class="local col8 decl" id="1328bytes" title='bytes' data-type='int' data-ref="1328bytes">bytes</dfn> );</td></tr>
+<tr><th id="317">317</th><td></td></tr>
+<tr><th id="318">318</th><td><i>// set amount of physical work memory</i></td></tr>
+<tr><th id="319">319</th><td><em>void</em>			<dfn class="decl" id="_Z25Sys_SetPhysicalWorkMemoryii" title='Sys_SetPhysicalWorkMemory' data-ref="_Z25Sys_SetPhysicalWorkMemoryii">Sys_SetPhysicalWorkMemory</dfn>( <em>int</em> <dfn class="local col9 decl" id="1329minBytes" title='minBytes' data-type='int' data-ref="1329minBytes">minBytes</dfn>, <em>int</em> <dfn class="local col0 decl" id="1330maxBytes" title='maxBytes' data-type='int' data-ref="1330maxBytes">maxBytes</dfn> );</td></tr>
+<tr><th id="320">320</th><td></td></tr>
+<tr><th id="321">321</th><td><i>// allows retrieving the call stack at execution points</i></td></tr>
+<tr><th id="322">322</th><td><em>void</em>			<dfn class="decl" id="_Z16Sys_GetCallStackPmi" title='Sys_GetCallStack' data-ref="_Z16Sys_GetCallStackPmi">Sys_GetCallStack</dfn>( <a class="typedef" href="#address_t" title='address_t' data-type='unsigned long' data-ref="address_t">address_t</a> *<dfn class="local col1 decl" id="1331callStack" title='callStack' data-type='address_t *' data-ref="1331callStack">callStack</dfn>, <em>const</em> <em>int</em> <dfn class="local col2 decl" id="1332callStackSize" title='callStackSize' data-type='const int' data-ref="1332callStackSize">callStackSize</dfn> );</td></tr>
+<tr><th id="323">323</th><td><em>const</em> <em>char</em> *	<dfn class="decl" id="_Z19Sys_GetCallStackStrPKmi" title='Sys_GetCallStackStr' data-ref="_Z19Sys_GetCallStackStrPKmi">Sys_GetCallStackStr</dfn>( <em>const</em> <a class="typedef" href="#address_t" title='address_t' data-type='unsigned long' data-ref="address_t">address_t</a> *<dfn class="local col3 decl" id="1333callStack" title='callStack' data-type='const address_t *' data-ref="1333callStack">callStack</dfn>, <em>const</em> <em>int</em> <dfn class="local col4 decl" id="1334callStackSize" title='callStackSize' data-type='const int' data-ref="1334callStackSize">callStackSize</dfn> );</td></tr>
+<tr><th id="324">324</th><td><em>const</em> <em>char</em> *	<dfn class="decl" id="_Z22Sys_GetCallStackCurStri" title='Sys_GetCallStackCurStr' data-ref="_Z22Sys_GetCallStackCurStri">Sys_GetCallStackCurStr</dfn>( <em>int</em> <dfn class="local col5 decl" id="1335depth" title='depth' data-type='int' data-ref="1335depth">depth</dfn> );</td></tr>
+<tr><th id="325">325</th><td><em>const</em> <em>char</em> *	<dfn class="decl" id="_Z29Sys_GetCallStackCurAddressStri" title='Sys_GetCallStackCurAddressStr' data-ref="_Z29Sys_GetCallStackCurAddressStri">Sys_GetCallStackCurAddressStr</dfn>( <em>int</em> <dfn class="local col6 decl" id="1336depth" title='depth' data-type='int' data-ref="1336depth">depth</dfn> );</td></tr>
+<tr><th id="326">326</th><td><em>void</em>			<dfn class="decl" id="_Z19Sys_ShutdownSymbolsv" title='Sys_ShutdownSymbols' data-ref="_Z19Sys_ShutdownSymbolsv">Sys_ShutdownSymbols</dfn>( <em>void</em> );</td></tr>
+<tr><th id="327">327</th><td></td></tr>
+<tr><th id="328">328</th><td><i>// DLL loading, the path should be a fully qualified OS path to the DLL file to be loaded</i></td></tr>
+<tr><th id="329">329</th><td><em>int</em>				<dfn class="decl" id="_Z12Sys_DLL_LoadPKc" title='Sys_DLL_Load' data-ref="_Z12Sys_DLL_LoadPKc">Sys_DLL_Load</dfn>( <em>const</em> <em>char</em> *<dfn class="local col7 decl" id="1337dllName" title='dllName' data-type='const char *' data-ref="1337dllName">dllName</dfn> );</td></tr>
+<tr><th id="330">330</th><td><em>void</em> *			<dfn class="decl" id="_Z22Sys_DLL_GetProcAddressiPKc" title='Sys_DLL_GetProcAddress' data-ref="_Z22Sys_DLL_GetProcAddressiPKc">Sys_DLL_GetProcAddress</dfn>( <em>int</em> <dfn class="local col8 decl" id="1338dllHandle" title='dllHandle' data-type='int' data-ref="1338dllHandle">dllHandle</dfn>, <em>const</em> <em>char</em> *<dfn class="local col9 decl" id="1339procName" title='procName' data-type='const char *' data-ref="1339procName">procName</dfn> );</td></tr>
+<tr><th id="331">331</th><td><em>void</em>			<dfn class="decl" id="_Z14Sys_DLL_Unloadi" title='Sys_DLL_Unload' data-ref="_Z14Sys_DLL_Unloadi">Sys_DLL_Unload</dfn>( <em>int</em> <dfn class="local col0 decl" id="1340dllHandle" title='dllHandle' data-type='int' data-ref="1340dllHandle">dllHandle</dfn> );</td></tr>
+<tr><th id="332">332</th><td></td></tr>
+<tr><th id="333">333</th><td><i>// event generation</i></td></tr>
+<tr><th id="334">334</th><td><em>void</em>			<dfn class="decl" id="_Z18Sys_GenerateEventsv" title='Sys_GenerateEvents' data-ref="_Z18Sys_GenerateEventsv">Sys_GenerateEvents</dfn>( <em>void</em> );</td></tr>
+<tr><th id="335">335</th><td><a class="typedef" href="#sysEvent_t" title='sysEvent_t' data-type='struct sysEvent_s' data-ref="sysEvent_t">sysEvent_t</a>		<dfn class="decl" id="_Z12Sys_GetEventv" title='Sys_GetEvent' data-ref="_Z12Sys_GetEventv">Sys_GetEvent</dfn>( <em>void</em> );</td></tr>
+<tr><th id="336">336</th><td><em>void</em>			<dfn class="decl" id="_Z15Sys_ClearEventsv" title='Sys_ClearEvents' data-ref="_Z15Sys_ClearEventsv">Sys_ClearEvents</dfn>( <em>void</em> );</td></tr>
+<tr><th id="337">337</th><td></td></tr>
+<tr><th id="338">338</th><td><i>// input is tied to windows, so it needs to be started up and shut down whenever </i></td></tr>
+<tr><th id="339">339</th><td><i>// the main window is recreated</i></td></tr>
+<tr><th id="340">340</th><td><em>void</em>			<dfn class="decl" id="_Z13Sys_InitInputv" title='Sys_InitInput' data-ref="_Z13Sys_InitInputv">Sys_InitInput</dfn>( <em>void</em> );</td></tr>
+<tr><th id="341">341</th><td><em>void</em>			<dfn class="decl" id="_Z17Sys_ShutdownInputv" title='Sys_ShutdownInput' data-ref="_Z17Sys_ShutdownInputv">Sys_ShutdownInput</dfn>( <em>void</em> );</td></tr>
+<tr><th id="342">342</th><td><em>void</em>			<dfn class="decl" id="_Z17Sys_InitScanTablev" title='Sys_InitScanTable' data-ref="_Z17Sys_InitScanTablev">Sys_InitScanTable</dfn>( <em>void</em> );</td></tr>
+<tr><th id="343">343</th><td><em>const</em> <em>unsigned</em> <em>char</em> *<dfn class="decl" id="_Z16Sys_GetScanTablev" title='Sys_GetScanTable' data-ref="_Z16Sys_GetScanTablev">Sys_GetScanTable</dfn>( <em>void</em> );</td></tr>
+<tr><th id="344">344</th><td><em>unsigned</em> <em>char</em>	<dfn class="decl" id="_Z17Sys_GetConsoleKeyb" title='Sys_GetConsoleKey' data-ref="_Z17Sys_GetConsoleKeyb">Sys_GetConsoleKey</dfn>( <em>bool</em> <dfn class="local col1 decl" id="1341shifted" title='shifted' data-type='bool' data-ref="1341shifted">shifted</dfn> );</td></tr>
+<tr><th id="345">345</th><td><i>// map a scancode key to a char</i></td></tr>
+<tr><th id="346">346</th><td><i>// does nothing on win32, as SE_KEY == SE_CHAR there</i></td></tr>
+<tr><th id="347">347</th><td><i>// on other OSes, consider the keyboard mapping</i></td></tr>
+<tr><th id="348">348</th><td><em>unsigned</em> <em>char</em>	<dfn class="decl" id="_Z17Sys_MapCharForKeyi" title='Sys_MapCharForKey' data-ref="_Z17Sys_MapCharForKeyi">Sys_MapCharForKey</dfn>( <em>int</em> <dfn class="local col2 decl" id="1342key" title='key' data-type='int' data-ref="1342key">key</dfn> );</td></tr>
+<tr><th id="349">349</th><td></td></tr>
+<tr><th id="350">350</th><td><i>// keyboard input polling</i></td></tr>
+<tr><th id="351">351</th><td><em>int</em>				<dfn class="decl" id="_Z27Sys_PollKeyboardInputEventsv" title='Sys_PollKeyboardInputEvents' data-ref="_Z27Sys_PollKeyboardInputEventsv">Sys_PollKeyboardInputEvents</dfn>( <em>void</em> );</td></tr>
+<tr><th id="352">352</th><td><em>int</em>				<dfn class="decl" id="_Z28Sys_ReturnKeyboardInputEventiRiRb" title='Sys_ReturnKeyboardInputEvent' data-ref="_Z28Sys_ReturnKeyboardInputEventiRiRb">Sys_ReturnKeyboardInputEvent</dfn>( <em>const</em> <em>int</em> <dfn class="local col3 decl" id="1343n" title='n' data-type='const int' data-ref="1343n">n</dfn>, <em>int</em> &amp;<dfn class="local col4 decl" id="1344ch" title='ch' data-type='int &amp;' data-ref="1344ch">ch</dfn>, <em>bool</em> &amp;<dfn class="local col5 decl" id="1345state" title='state' data-type='bool &amp;' data-ref="1345state">state</dfn> );</td></tr>
+<tr><th id="353">353</th><td><em>void</em>			<dfn class="decl" id="_Z26Sys_EndKeyboardInputEventsv" title='Sys_EndKeyboardInputEvents' data-ref="_Z26Sys_EndKeyboardInputEventsv">Sys_EndKeyboardInputEvents</dfn>( <em>void</em> );</td></tr>
+<tr><th id="354">354</th><td></td></tr>
+<tr><th id="355">355</th><td><i>// mouse input polling</i></td></tr>
+<tr><th id="356">356</th><td><em>int</em>				<dfn class="decl" id="_Z24Sys_PollMouseInputEventsv" title='Sys_PollMouseInputEvents' data-ref="_Z24Sys_PollMouseInputEventsv">Sys_PollMouseInputEvents</dfn>( <em>void</em> );</td></tr>
+<tr><th id="357">357</th><td><em>int</em>				<dfn class="decl" id="_Z25Sys_ReturnMouseInputEventiRiS_" title='Sys_ReturnMouseInputEvent' data-ref="_Z25Sys_ReturnMouseInputEventiRiS_">Sys_ReturnMouseInputEvent</dfn>( <em>const</em> <em>int</em> <dfn class="local col6 decl" id="1346n" title='n' data-type='const int' data-ref="1346n">n</dfn>, <em>int</em> &amp;<dfn class="local col7 decl" id="1347action" title='action' data-type='int &amp;' data-ref="1347action">action</dfn>, <em>int</em> &amp;<dfn class="local col8 decl" id="1348value" title='value' data-type='int &amp;' data-ref="1348value">value</dfn> );</td></tr>
+<tr><th id="358">358</th><td><em>void</em>			<dfn class="decl" id="_Z23Sys_EndMouseInputEventsv" title='Sys_EndMouseInputEvents' data-ref="_Z23Sys_EndMouseInputEventsv">Sys_EndMouseInputEvents</dfn>( <em>void</em> );</td></tr>
+<tr><th id="359">359</th><td></td></tr>
+<tr><th id="360">360</th><td><i>// when the console is down, or the game is about to perform a lengthy</i></td></tr>
+<tr><th id="361">361</th><td><i>// operation like map loading, the system can release the mouse cursor</i></td></tr>
+<tr><th id="362">362</th><td><i>// when in windowed mode</i></td></tr>
+<tr><th id="363">363</th><td><em>void</em>			<dfn class="decl" id="_Z19Sys_GrabMouseCursorb" title='Sys_GrabMouseCursor' data-ref="_Z19Sys_GrabMouseCursorb">Sys_GrabMouseCursor</dfn>( <em>bool</em> <dfn class="local col9 decl" id="1349grabIt" title='grabIt' data-type='bool' data-ref="1349grabIt">grabIt</dfn> );</td></tr>
+<tr><th id="364">364</th><td></td></tr>
+<tr><th id="365">365</th><td><em>void</em>			<dfn class="decl" id="_Z14Sys_ShowWindowb" title='Sys_ShowWindow' data-ref="_Z14Sys_ShowWindowb">Sys_ShowWindow</dfn>( <em>bool</em> <dfn class="local col0 decl" id="1350show" title='show' data-type='bool' data-ref="1350show">show</dfn> );</td></tr>
+<tr><th id="366">366</th><td><em>bool</em>			<dfn class="decl" id="_Z19Sys_IsWindowVisiblev" title='Sys_IsWindowVisible' data-ref="_Z19Sys_IsWindowVisiblev">Sys_IsWindowVisible</dfn>( <em>void</em> );</td></tr>
+<tr><th id="367">367</th><td><em>void</em>			<dfn class="decl" id="_Z15Sys_ShowConsoleib" title='Sys_ShowConsole' data-ref="_Z15Sys_ShowConsoleib">Sys_ShowConsole</dfn>( <em>int</em> <dfn class="local col1 decl" id="1351visLevel" title='visLevel' data-type='int' data-ref="1351visLevel">visLevel</dfn>, <em>bool</em> <dfn class="local col2 decl" id="1352quitOnClose" title='quitOnClose' data-type='bool' data-ref="1352quitOnClose">quitOnClose</dfn> );</td></tr>
+<tr><th id="368">368</th><td></td></tr>
+<tr><th id="369">369</th><td></td></tr>
+<tr><th id="370">370</th><td><em>void</em>			<dfn class="decl" id="_Z9Sys_MkdirPKc" title='Sys_Mkdir' data-ref="_Z9Sys_MkdirPKc">Sys_Mkdir</dfn>( <em>const</em> <em>char</em> *<dfn class="local col3 decl" id="1353path" title='path' data-type='const char *' data-ref="1353path">path</dfn> );</td></tr>
+<tr><th id="371">371</th><td><a class="macro" href="../idlib/precompiled.h.html#36" title="time_t" data-ref="_M/ID_TIME_T">ID_TIME_T</a>			<dfn class="decl" id="_Z17Sys_FileTimeStampP8_IO_FILE" title='Sys_FileTimeStamp' data-ref="_Z17Sys_FileTimeStampP8_IO_FILE">Sys_FileTimeStamp</dfn>( <a class="typedef" href="../../include/stdio.h.html#FILE" title='FILE' data-type='struct _IO_FILE' data-ref="FILE">FILE</a> *<dfn class="local col4 decl" id="1354fp" title='fp' data-type='FILE *' data-ref="1354fp">fp</dfn> );</td></tr>
+<tr><th id="372">372</th><td><i>// NOTE: do we need to guarantee the same output on all platforms?</i></td></tr>
+<tr><th id="373">373</th><td><em>const</em> <em>char</em> *	<dfn class="decl" id="_Z18Sys_TimeStampToStrl" title='Sys_TimeStampToStr' data-ref="_Z18Sys_TimeStampToStrl">Sys_TimeStampToStr</dfn>( <a class="macro" href="../idlib/precompiled.h.html#36" title="time_t" data-ref="_M/ID_TIME_T">ID_TIME_T</a> <dfn class="local col5 decl" id="1355timeStamp" title='timeStamp' data-type='time_t' data-ref="1355timeStamp">timeStamp</dfn> );</td></tr>
+<tr><th id="374">374</th><td><em>const</em> <em>char</em> *	<dfn class="decl" id="_Z17Sys_DefaultCDPathv" title='Sys_DefaultCDPath' data-ref="_Z17Sys_DefaultCDPathv">Sys_DefaultCDPath</dfn>( <em>void</em> );</td></tr>
+<tr><th id="375">375</th><td><em>const</em> <em>char</em> *	<dfn class="decl" id="_Z19Sys_DefaultBasePathv" title='Sys_DefaultBasePath' data-ref="_Z19Sys_DefaultBasePathv">Sys_DefaultBasePath</dfn>( <em>void</em> );</td></tr>
+<tr><th id="376">376</th><td><em>const</em> <em>char</em> *	<dfn class="decl" id="_Z19Sys_DefaultSavePathv" title='Sys_DefaultSavePath' data-ref="_Z19Sys_DefaultSavePathv">Sys_DefaultSavePath</dfn>( <em>void</em> );</td></tr>
+<tr><th id="377">377</th><td><em>const</em> <em>char</em> *	<dfn class="decl" id="_Z11Sys_EXEPathv" title='Sys_EXEPath' data-ref="_Z11Sys_EXEPathv">Sys_EXEPath</dfn>( <em>void</em> );</td></tr>
+<tr><th id="378">378</th><td></td></tr>
+<tr><th id="379">379</th><td><i>// use fs_debug to verbose Sys_ListFiles</i></td></tr>
+<tr><th id="380">380</th><td><i>// returns -1 if directory was not found (the list is cleared)</i></td></tr>
+<tr><th id="381">381</th><td><em>int</em>				<dfn class="decl" id="_Z13Sys_ListFilesPKcS0_R6idListI5idStrE" title='Sys_ListFiles' data-ref="_Z13Sys_ListFilesPKcS0_R6idListI5idStrE">Sys_ListFiles</dfn>( <em>const</em> <em>char</em> *<dfn class="local col6 decl" id="1356directory" title='directory' data-type='const char *' data-ref="1356directory">directory</dfn>, <em>const</em> <em>char</em> *<dfn class="local col7 decl" id="1357extension" title='extension' data-type='const char *' data-ref="1357extension">extension</dfn>, <a class="type" href="#idList" title='idList' data-ref="idList">idList</a>&lt;<b>class</b> <a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr" id="idStr"><a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a></a>&gt; &amp;<dfn class="local col8 decl" id="1358list" title='list' data-type='idList&lt;class idStr&gt; &amp;' data-ref="1358list">list</dfn> );</td></tr>
+<tr><th id="382">382</th><td></td></tr>
+<tr><th id="383">383</th><td><i>// know early if we are performing a fatal error shutdown so the error message doesn't get lost</i></td></tr>
+<tr><th id="384">384</th><td><em>void</em>			<dfn class="decl" id="_Z17Sys_SetFatalErrorPKc" title='Sys_SetFatalError' data-ref="_Z17Sys_SetFatalErrorPKc">Sys_SetFatalError</dfn>( <em>const</em> <em>char</em> *<dfn class="local col9 decl" id="1359error" title='error' data-type='const char *' data-ref="1359error">error</dfn> );</td></tr>
+<tr><th id="385">385</th><td></td></tr>
+<tr><th id="386">386</th><td><i>// display perference dialog</i></td></tr>
+<tr><th id="387">387</th><td><em>void</em>			<dfn class="decl" id="_Z17Sys_DoPreferencesv" title='Sys_DoPreferences' data-ref="_Z17Sys_DoPreferencesv">Sys_DoPreferences</dfn>( <em>void</em> );</td></tr>
+<tr><th id="388">388</th><td></td></tr>
+<tr><th id="389">389</th><td><i>/*</i></td></tr>
+<tr><th id="390">390</th><td><i>==============================================================</i></td></tr>
+<tr><th id="391">391</th><td><i></i></td></tr>
+<tr><th id="392">392</th><td><i>	Networking</i></td></tr>
+<tr><th id="393">393</th><td><i></i></td></tr>
+<tr><th id="394">394</th><td><i>==============================================================</i></td></tr>
+<tr><th id="395">395</th><td><i>*/</i></td></tr>
+<tr><th id="396">396</th><td></td></tr>
+<tr><th id="397">397</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="398">398</th><td>	<dfn class="enum" id="NA_BAD" title='NA_BAD' data-ref="NA_BAD">NA_BAD</dfn>,					<i>// an address lookup failed</i></td></tr>
+<tr><th id="399">399</th><td>	<dfn class="enum" id="NA_LOOPBACK" title='NA_LOOPBACK' data-ref="NA_LOOPBACK">NA_LOOPBACK</dfn>,</td></tr>
+<tr><th id="400">400</th><td>	<dfn class="enum" id="NA_BROADCAST" title='NA_BROADCAST' data-ref="NA_BROADCAST">NA_BROADCAST</dfn>,</td></tr>
+<tr><th id="401">401</th><td>	<dfn class="enum" id="NA_IP" title='NA_IP' data-ref="NA_IP">NA_IP</dfn></td></tr>
+<tr><th id="402">402</th><td>} <dfn class="typedef" id="netadrtype_t" title='netadrtype_t' data-type='enum netadrtype_t' data-ref="netadrtype_t">netadrtype_t</dfn>;</td></tr>
+<tr><th id="403">403</th><td></td></tr>
+<tr><th id="404">404</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="405">405</th><td>	<a class="typedef" href="#netadrtype_t" title='netadrtype_t' data-type='enum netadrtype_t' data-ref="netadrtype_t">netadrtype_t</a>	<dfn class="decl" id="(anonymous)::type" title='(anonymous struct)::type' data-ref="(anonymous)::type">type</dfn>;</td></tr>
+<tr><th id="406">406</th><td>	<em>unsigned</em> <em>char</em>	<dfn class="decl" id="(anonymous)::ip" title='(anonymous struct)::ip' data-ref="(anonymous)::ip">ip</dfn>[<var>4</var>];</td></tr>
+<tr><th id="407">407</th><td>	<em>unsigned</em> <em>short</em>	<dfn class="decl" id="(anonymous)::port" title='(anonymous struct)::port' data-ref="(anonymous)::port">port</dfn>;</td></tr>
+<tr><th id="408">408</th><td>} <dfn class="typedef" id="netadr_t" title='netadr_t' data-type='struct netadr_t' data-ref="netadr_t">netadr_t</dfn>;</td></tr>
+<tr><th id="409">409</th><td></td></tr>
+<tr><th id="410">410</th><td><u>#define	<dfn class="macro" id="_M/PORT_ANY" data-ref="_M/PORT_ANY">PORT_ANY</dfn>			-1</u></td></tr>
+<tr><th id="411">411</th><td></td></tr>
+<tr><th id="412">412</th><td><b>class</b> <dfn class="type def" id="idPort" title='idPort' data-ref="idPort">idPort</dfn> {</td></tr>
+<tr><th id="413">413</th><td><b>public</b>:</td></tr>
+<tr><th id="414">414</th><td>				<dfn class="decl" id="_ZN6idPortC1Ev" title='idPort::idPort' data-ref="_ZN6idPortC1Ev">idPort</dfn>();				<i>// this just zeros netSocket and port</i></td></tr>
+<tr><th id="415">415</th><td>	<b>virtual</b>		<dfn class="virtual decl" id="_ZN6idPortD1Ev" title='idPort::~idPort' data-ref="_ZN6idPortD1Ev">~idPort</dfn>();</td></tr>
+<tr><th id="416">416</th><td></td></tr>
+<tr><th id="417">417</th><td>	<i>// if the InitForPort fails, the idPort.port field will remain 0</i></td></tr>
+<tr><th id="418">418</th><td>	<em>bool</em>		<dfn class="decl" id="_ZN6idPort11InitForPortEi" title='idPort::InitForPort' data-ref="_ZN6idPort11InitForPortEi">InitForPort</dfn>( <em>int</em> <dfn class="local col0 decl" id="1360portNumber" title='portNumber' data-type='int' data-ref="1360portNumber">portNumber</dfn> );</td></tr>
+<tr><th id="419">419</th><td>	<em>int</em>			<dfn class="decl def" id="_ZNK6idPort7GetPortEv" title='idPort::GetPort' data-ref="_ZNK6idPort7GetPortEv">GetPort</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idPort::bound_to" title='idPort::bound_to' data-ref="idPort::bound_to">bound_to</a>.<a class="ref" href="#(anonymous)::port" title='(anonymous struct)::port' data-ref="(anonymous)::port">port</a>; }</td></tr>
+<tr><th id="420">420</th><td>	<a class="typedef" href="#netadr_t" title='netadr_t' data-type='struct netadr_t' data-ref="netadr_t">netadr_t</a>	<dfn class="decl def" id="_ZNK6idPort6GetAdrEv" title='idPort::GetAdr' data-ref="_ZNK6idPort6GetAdrEv">GetAdr</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="ref fake" href="#404" title='(anonymous struct)::' data-ref="_ZN8netadr_tC1ERKS_"></a><a class="member" href="#idPort::bound_to" title='idPort::bound_to' data-ref="idPort::bound_to">bound_to</a>; }</td></tr>
+<tr><th id="421">421</th><td>	<em>void</em>		<dfn class="decl" id="_ZN6idPort5CloseEv" title='idPort::Close' data-ref="_ZN6idPort5CloseEv">Close</dfn>();</td></tr>
+<tr><th id="422">422</th><td></td></tr>
+<tr><th id="423">423</th><td>	<em>bool</em>		<dfn class="decl" id="_ZN6idPort9GetPacketER8netadr_tPvRii" title='idPort::GetPacket' data-ref="_ZN6idPort9GetPacketER8netadr_tPvRii">GetPacket</dfn>( <a class="typedef" href="#netadr_t" title='netadr_t' data-type='struct netadr_t' data-ref="netadr_t">netadr_t</a> &amp;<dfn class="local col1 decl" id="1361from" title='from' data-type='netadr_t &amp;' data-ref="1361from">from</dfn>, <em>void</em> *<dfn class="local col2 decl" id="1362data" title='data' data-type='void *' data-ref="1362data">data</dfn>, <em>int</em> &amp;<dfn class="local col3 decl" id="1363size" title='size' data-type='int &amp;' data-ref="1363size">size</dfn>, <em>int</em> <dfn class="local col4 decl" id="1364maxSize" title='maxSize' data-type='int' data-ref="1364maxSize">maxSize</dfn> );</td></tr>
+<tr><th id="424">424</th><td>	<em>bool</em>		<dfn class="decl" id="_ZN6idPort17GetPacketBlockingER8netadr_tPvRiii" title='idPort::GetPacketBlocking' data-ref="_ZN6idPort17GetPacketBlockingER8netadr_tPvRiii">GetPacketBlocking</dfn>( <a class="typedef" href="#netadr_t" title='netadr_t' data-type='struct netadr_t' data-ref="netadr_t">netadr_t</a> &amp;<dfn class="local col5 decl" id="1365from" title='from' data-type='netadr_t &amp;' data-ref="1365from">from</dfn>, <em>void</em> *<dfn class="local col6 decl" id="1366data" title='data' data-type='void *' data-ref="1366data">data</dfn>, <em>int</em> &amp;<dfn class="local col7 decl" id="1367size" title='size' data-type='int &amp;' data-ref="1367size">size</dfn>, <em>int</em> <dfn class="local col8 decl" id="1368maxSize" title='maxSize' data-type='int' data-ref="1368maxSize">maxSize</dfn>, <em>int</em> <dfn class="local col9 decl" id="1369timeout" title='timeout' data-type='int' data-ref="1369timeout">timeout</dfn> );</td></tr>
+<tr><th id="425">425</th><td>	<em>void</em>		<dfn class="decl" id="_ZN6idPort10SendPacketE8netadr_tPKvi" title='idPort::SendPacket' data-ref="_ZN6idPort10SendPacketE8netadr_tPKvi">SendPacket</dfn>( <em>const</em> <a class="typedef" href="#netadr_t" title='netadr_t' data-type='struct netadr_t' data-ref="netadr_t">netadr_t</a> <dfn class="local col0 decl" id="1370to" title='to' data-type='const netadr_t' data-ref="1370to">to</dfn>, <em>const</em> <em>void</em> *<dfn class="local col1 decl" id="1371data" title='data' data-type='const void *' data-ref="1371data">data</dfn>, <em>int</em> <dfn class="local col2 decl" id="1372size" title='size' data-type='int' data-ref="1372size">size</dfn> );</td></tr>
+<tr><th id="426">426</th><td></td></tr>
+<tr><th id="427">427</th><td>	<em>int</em>			<dfn class="decl" id="idPort::packetsRead" title='idPort::packetsRead' data-ref="idPort::packetsRead">packetsRead</dfn>;</td></tr>
+<tr><th id="428">428</th><td>	<em>int</em>			<dfn class="decl" id="idPort::bytesRead" title='idPort::bytesRead' data-ref="idPort::bytesRead">bytesRead</dfn>;</td></tr>
+<tr><th id="429">429</th><td></td></tr>
+<tr><th id="430">430</th><td>	<em>int</em>			<dfn class="decl" id="idPort::packetsWritten" title='idPort::packetsWritten' data-ref="idPort::packetsWritten">packetsWritten</dfn>;</td></tr>
+<tr><th id="431">431</th><td>	<em>int</em>			<dfn class="decl" id="idPort::bytesWritten" title='idPort::bytesWritten' data-ref="idPort::bytesWritten">bytesWritten</dfn>;</td></tr>
+<tr><th id="432">432</th><td></td></tr>
+<tr><th id="433">433</th><td><b>private</b>:</td></tr>
+<tr><th id="434">434</th><td>	<a class="typedef" href="#netadr_t" title='netadr_t' data-type='struct netadr_t' data-ref="netadr_t">netadr_t</a>	<dfn class="decl" id="idPort::bound_to" title='idPort::bound_to' data-ref="idPort::bound_to">bound_to</dfn>;		<i>// interface and port</i></td></tr>
+<tr><th id="435">435</th><td>	<em>int</em>			<dfn class="decl" id="idPort::netSocket" title='idPort::netSocket' data-ref="idPort::netSocket">netSocket</dfn>;		<i>// OS specific socket</i></td></tr>
+<tr><th id="436">436</th><td>};</td></tr>
+<tr><th id="437">437</th><td></td></tr>
+<tr><th id="438">438</th><td><b>class</b> <dfn class="type def" id="idTCP" title='idTCP' data-ref="idTCP">idTCP</dfn> {</td></tr>
+<tr><th id="439">439</th><td><b>public</b>:</td></tr>
+<tr><th id="440">440</th><td>				<dfn class="decl" id="_ZN5idTCPC1Ev" title='idTCP::idTCP' data-ref="_ZN5idTCPC1Ev">idTCP</dfn>();</td></tr>
+<tr><th id="441">441</th><td>	<b>virtual</b>		<dfn class="virtual decl" id="_ZN5idTCPD1Ev" title='idTCP::~idTCP' data-ref="_ZN5idTCPD1Ev">~idTCP</dfn>();</td></tr>
+<tr><th id="442">442</th><td></td></tr>
+<tr><th id="443">443</th><td>	<i>// if host is host:port, the value of port is ignored</i></td></tr>
+<tr><th id="444">444</th><td>	<em>bool</em>		<dfn class="decl" id="_ZN5idTCP4InitEPKcs" title='idTCP::Init' data-ref="_ZN5idTCP4InitEPKcs">Init</dfn>( <em>const</em> <em>char</em> *<dfn class="local col3 decl" id="1373host" title='host' data-type='const char *' data-ref="1373host">host</dfn>, <em>short</em> <dfn class="local col4 decl" id="1374port" title='port' data-type='short' data-ref="1374port">port</dfn> );</td></tr>
+<tr><th id="445">445</th><td>	<em>void</em>		<dfn class="decl" id="_ZN5idTCP5CloseEv" title='idTCP::Close' data-ref="_ZN5idTCP5CloseEv">Close</dfn>();</td></tr>
+<tr><th id="446">446</th><td></td></tr>
+<tr><th id="447">447</th><td>	<i>// returns -1 on failure (and closes socket)</i></td></tr>
+<tr><th id="448">448</th><td><i>	// those are non blocking, can be used for polling</i></td></tr>
+<tr><th id="449">449</th><td><i>	// there is no buffering, you are not guaranteed to Read or Write everything in a single call</i></td></tr>
+<tr><th id="450">450</th><td><i>	// (specially on win32, see recv and send documentation)</i></td></tr>
+<tr><th id="451">451</th><td>	<em>int</em>			<dfn class="decl" id="_ZN5idTCP4ReadEPvi" title='idTCP::Read' data-ref="_ZN5idTCP4ReadEPvi">Read</dfn>( <em>void</em> *<dfn class="local col5 decl" id="1375data" title='data' data-type='void *' data-ref="1375data">data</dfn>, <em>int</em> <dfn class="local col6 decl" id="1376size" title='size' data-type='int' data-ref="1376size">size</dfn> );</td></tr>
+<tr><th id="452">452</th><td>	<em>int</em>			<dfn class="decl" id="_ZN5idTCP5WriteEPvi" title='idTCP::Write' data-ref="_ZN5idTCP5WriteEPvi">Write</dfn>( <em>void</em> *<dfn class="local col7 decl" id="1377data" title='data' data-type='void *' data-ref="1377data">data</dfn>, <em>int</em> <dfn class="local col8 decl" id="1378size" title='size' data-type='int' data-ref="1378size">size</dfn> );</td></tr>
+<tr><th id="453">453</th><td></td></tr>
+<tr><th id="454">454</th><td><b>private</b>:</td></tr>
+<tr><th id="455">455</th><td>	<a class="typedef" href="#netadr_t" title='netadr_t' data-type='struct netadr_t' data-ref="netadr_t">netadr_t</a>	<dfn class="decl" id="idTCP::address" title='idTCP::address' data-ref="idTCP::address">address</dfn>;		<i>// remote address</i></td></tr>
+<tr><th id="456">456</th><td>	<em>int</em>			<dfn class="decl" id="idTCP::fd" title='idTCP::fd' data-ref="idTCP::fd">fd</dfn>;				<i>// OS specific socket</i></td></tr>
+<tr><th id="457">457</th><td>};</td></tr>
+<tr><th id="458">458</th><td></td></tr>
+<tr><th id="459">459</th><td>				<i>// parses the port number</i></td></tr>
+<tr><th id="460">460</th><td><i>				// can also do DNS resolve if you ask for it.</i></td></tr>
+<tr><th id="461">461</th><td><i>				// NOTE: DNS resolve is a slow/blocking call, think before you use</i></td></tr>
+<tr><th id="462">462</th><td><i>				// ( could be exploited for server DoS )</i></td></tr>
+<tr><th id="463">463</th><td><em>bool</em>			<dfn class="decl" id="_Z18Sys_StringToNetAdrPKcP8netadr_tb" title='Sys_StringToNetAdr' data-ref="_Z18Sys_StringToNetAdrPKcP8netadr_tb">Sys_StringToNetAdr</dfn>( <em>const</em> <em>char</em> *<dfn class="local col9 decl" id="1379s" title='s' data-type='const char *' data-ref="1379s">s</dfn>, <a class="typedef" href="#netadr_t" title='netadr_t' data-type='struct netadr_t' data-ref="netadr_t">netadr_t</a> *<dfn class="local col0 decl" id="1380a" title='a' data-type='netadr_t *' data-ref="1380a">a</dfn>, <em>bool</em> <dfn class="local col1 decl" id="1381doDNSResolve" title='doDNSResolve' data-type='bool' data-ref="1381doDNSResolve">doDNSResolve</dfn> );</td></tr>
+<tr><th id="464">464</th><td><em>const</em> <em>char</em> *	<dfn class="decl" id="_Z18Sys_NetAdrToString8netadr_t" title='Sys_NetAdrToString' data-ref="_Z18Sys_NetAdrToString8netadr_t">Sys_NetAdrToString</dfn>( <em>const</em> <a class="typedef" href="#netadr_t" title='netadr_t' data-type='struct netadr_t' data-ref="netadr_t">netadr_t</a> <dfn class="local col2 decl" id="1382a" title='a' data-type='const netadr_t' data-ref="1382a">a</dfn> );</td></tr>
+<tr><th id="465">465</th><td><em>bool</em>			<dfn class="decl" id="_Z16Sys_IsLANAddress8netadr_t" title='Sys_IsLANAddress' data-ref="_Z16Sys_IsLANAddress8netadr_t">Sys_IsLANAddress</dfn>( <em>const</em> <a class="typedef" href="#netadr_t" title='netadr_t' data-type='struct netadr_t' data-ref="netadr_t">netadr_t</a> <dfn class="local col3 decl" id="1383a" title='a' data-type='const netadr_t' data-ref="1383a">a</dfn> );</td></tr>
+<tr><th id="466">466</th><td><em>bool</em>			<dfn class="decl" id="_Z21Sys_CompareNetAdrBase8netadr_tS_" title='Sys_CompareNetAdrBase' data-ref="_Z21Sys_CompareNetAdrBase8netadr_tS_">Sys_CompareNetAdrBase</dfn>( <em>const</em> <a class="typedef" href="#netadr_t" title='netadr_t' data-type='struct netadr_t' data-ref="netadr_t">netadr_t</a> <dfn class="local col4 decl" id="1384a" title='a' data-type='const netadr_t' data-ref="1384a">a</dfn>, <em>const</em> <a class="typedef" href="#netadr_t" title='netadr_t' data-type='struct netadr_t' data-ref="netadr_t">netadr_t</a> <dfn class="local col5 decl" id="1385b" title='b' data-type='const netadr_t' data-ref="1385b">b</dfn> );</td></tr>
+<tr><th id="467">467</th><td></td></tr>
+<tr><th id="468">468</th><td><em>void</em>			<dfn class="decl" id="_Z18Sys_InitNetworkingv" title='Sys_InitNetworking' data-ref="_Z18Sys_InitNetworkingv">Sys_InitNetworking</dfn>( <em>void</em> );</td></tr>
+<tr><th id="469">469</th><td><em>void</em>			<dfn class="decl" id="_Z22Sys_ShutdownNetworkingv" title='Sys_ShutdownNetworking' data-ref="_Z22Sys_ShutdownNetworkingv">Sys_ShutdownNetworking</dfn>( <em>void</em> );</td></tr>
+<tr><th id="470">470</th><td></td></tr>
+<tr><th id="471">471</th><td></td></tr>
+<tr><th id="472">472</th><td><i>/*</i></td></tr>
+<tr><th id="473">473</th><td><i>==============================================================</i></td></tr>
+<tr><th id="474">474</th><td><i></i></td></tr>
+<tr><th id="475">475</th><td><i>	Multi-threading</i></td></tr>
+<tr><th id="476">476</th><td><i></i></td></tr>
+<tr><th id="477">477</th><td><i>==============================================================</i></td></tr>
+<tr><th id="478">478</th><td><i>*/</i></td></tr>
+<tr><th id="479">479</th><td></td></tr>
+<tr><th id="480">480</th><td><b>typedef</b> <em>unsigned</em> <em>int</em> (*<dfn class="typedef" id="xthread_t" title='xthread_t' data-type='unsigned int (*)(void *)' data-ref="xthread_t">xthread_t</dfn>)( <em>void</em> * );</td></tr>
+<tr><th id="481">481</th><td></td></tr>
+<tr><th id="482">482</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="483">483</th><td>	<dfn class="enum" id="THREAD_NORMAL" title='THREAD_NORMAL' data-ref="THREAD_NORMAL">THREAD_NORMAL</dfn>,</td></tr>
+<tr><th id="484">484</th><td>	<dfn class="enum" id="THREAD_ABOVE_NORMAL" title='THREAD_ABOVE_NORMAL' data-ref="THREAD_ABOVE_NORMAL">THREAD_ABOVE_NORMAL</dfn>,</td></tr>
+<tr><th id="485">485</th><td>	<dfn class="enum" id="THREAD_HIGHEST" title='THREAD_HIGHEST' data-ref="THREAD_HIGHEST">THREAD_HIGHEST</dfn></td></tr>
+<tr><th id="486">486</th><td>} <dfn class="typedef" id="xthreadPriority" title='xthreadPriority' data-type='enum xthreadPriority' data-ref="xthreadPriority">xthreadPriority</dfn>;</td></tr>
+<tr><th id="487">487</th><td></td></tr>
+<tr><th id="488">488</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="489">489</th><td>	<em>const</em> <em>char</em> *	<dfn class="decl" id="(anonymous)::name" title='(anonymous struct)::name' data-ref="(anonymous)::name">name</dfn>;</td></tr>
+<tr><th id="490">490</th><td>	<em>int</em>				<dfn class="decl" id="(anonymous)::threadHandle" title='(anonymous struct)::threadHandle' data-ref="(anonymous)::threadHandle">threadHandle</dfn>;</td></tr>
+<tr><th id="491">491</th><td>	<em>unsigned</em> <em>long</em>	<dfn class="decl" id="(anonymous)::threadId" title='(anonymous struct)::threadId' data-ref="(anonymous)::threadId">threadId</dfn>;</td></tr>
+<tr><th id="492">492</th><td>} <dfn class="typedef" id="xthreadInfo" title='xthreadInfo' data-type='struct xthreadInfo' data-ref="xthreadInfo">xthreadInfo</dfn>;</td></tr>
+<tr><th id="493">493</th><td></td></tr>
+<tr><th id="494">494</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="MAX_THREADS" title='MAX_THREADS' data-ref="MAX_THREADS">MAX_THREADS</dfn>				= <var>10</var>;</td></tr>
+<tr><th id="495">495</th><td><b>extern</b> <a class="typedef" href="#xthreadInfo" title='xthreadInfo' data-type='struct xthreadInfo' data-ref="xthreadInfo">xthreadInfo</a> *<dfn class="decl" id="g_threads" title='g_threads' data-ref="g_threads">g_threads</dfn>[<a class="ref" href="#MAX_THREADS" title='MAX_THREADS' data-ref="MAX_THREADS">MAX_THREADS</a>];</td></tr>
+<tr><th id="496">496</th><td><b>extern</b> <em>int</em>			<dfn class="decl" id="g_thread_count" title='g_thread_count' data-ref="g_thread_count">g_thread_count</dfn>;</td></tr>
+<tr><th id="497">497</th><td></td></tr>
+<tr><th id="498">498</th><td><em>void</em>				<dfn class="decl" id="_Z16Sys_CreateThreadPFjPvES_15xthreadPriorityR11xthreadInfoPKcPPS3_Pi" title='Sys_CreateThread' data-ref="_Z16Sys_CreateThreadPFjPvES_15xthreadPriorityR11xthreadInfoPKcPPS3_Pi">Sys_CreateThread</dfn>( <a class="typedef" href="#xthread_t" title='xthread_t' data-type='unsigned int (*)(void *)' data-ref="xthread_t">xthread_t</a> <dfn class="local col6 decl" id="1386function" title='function' data-type='xthread_t' data-ref="1386function">function</dfn>, <em>void</em> *<dfn class="local col7 decl" id="1387parms" title='parms' data-type='void *' data-ref="1387parms">parms</dfn>, <a class="typedef" href="#xthreadPriority" title='xthreadPriority' data-type='enum xthreadPriority' data-ref="xthreadPriority">xthreadPriority</a> <dfn class="local col8 decl" id="1388priority" title='priority' data-type='xthreadPriority' data-ref="1388priority">priority</dfn>, <a class="typedef" href="#xthreadInfo" title='xthreadInfo' data-type='struct xthreadInfo' data-ref="xthreadInfo">xthreadInfo</a> &amp;<dfn class="local col9 decl" id="1389info" title='info' data-type='xthreadInfo &amp;' data-ref="1389info">info</dfn>, <em>const</em> <em>char</em> *<dfn class="local col0 decl" id="1390name" title='name' data-type='const char *' data-ref="1390name">name</dfn>, <a class="typedef" href="#xthreadInfo" title='xthreadInfo' data-type='struct xthreadInfo' data-ref="xthreadInfo">xthreadInfo</a> *<dfn class="local col1 decl" id="1391threads" title='threads' data-type='xthreadInfo **' data-ref="1391threads">threads</dfn>[<a class="ref" href="#MAX_THREADS" title='MAX_THREADS' data-ref="MAX_THREADS">MAX_THREADS</a>], <em>int</em> *<dfn class="local col2 decl" id="1392thread_count" title='thread_count' data-type='int *' data-ref="1392thread_count">thread_count</dfn> );</td></tr>
+<tr><th id="499">499</th><td><em>void</em>				<dfn class="decl" id="_Z17Sys_DestroyThreadR11xthreadInfo" title='Sys_DestroyThread' data-ref="_Z17Sys_DestroyThreadR11xthreadInfo">Sys_DestroyThread</dfn>( <a class="typedef" href="#xthreadInfo" title='xthreadInfo' data-type='struct xthreadInfo' data-ref="xthreadInfo">xthreadInfo</a>&amp; <dfn class="local col3 decl" id="1393info" title='info' data-type='xthreadInfo &amp;' data-ref="1393info">info</dfn> ); <i>// sets threadHandle back to 0</i></td></tr>
+<tr><th id="500">500</th><td></td></tr>
+<tr><th id="501">501</th><td><i>// find the name of the calling thread</i></td></tr>
+<tr><th id="502">502</th><td><i>// if index != NULL, set the index in g_threads array (use -1 for "main" thread)</i></td></tr>
+<tr><th id="503">503</th><td><em>const</em> <em>char</em> *		<dfn class="decl" id="_Z17Sys_GetThreadNamePi" title='Sys_GetThreadName' data-ref="_Z17Sys_GetThreadNamePi">Sys_GetThreadName</dfn>( <em>int</em> *<dfn class="local col4 decl" id="1394index" title='index' data-type='int *' data-ref="1394index">index</dfn> = <var>0</var> );</td></tr>
+<tr><th id="504">504</th><td> </td></tr>
+<tr><th id="505">505</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="MAX_CRITICAL_SECTIONS" title='MAX_CRITICAL_SECTIONS' data-ref="MAX_CRITICAL_SECTIONS">MAX_CRITICAL_SECTIONS</dfn>		= <var>4</var>;</td></tr>
+<tr><th id="506">506</th><td></td></tr>
+<tr><th id="507">507</th><td><b>enum</b> {</td></tr>
+<tr><th id="508">508</th><td>	<dfn class="enum" id="CRITICAL_SECTION_ZERO" title='CRITICAL_SECTION_ZERO' data-ref="CRITICAL_SECTION_ZERO">CRITICAL_SECTION_ZERO</dfn> = <var>0</var>,</td></tr>
+<tr><th id="509">509</th><td>	<dfn class="enum" id="CRITICAL_SECTION_ONE" title='CRITICAL_SECTION_ONE' data-ref="CRITICAL_SECTION_ONE">CRITICAL_SECTION_ONE</dfn>,</td></tr>
+<tr><th id="510">510</th><td>	<dfn class="enum" id="CRITICAL_SECTION_TWO" title='CRITICAL_SECTION_TWO' data-ref="CRITICAL_SECTION_TWO">CRITICAL_SECTION_TWO</dfn>,</td></tr>
+<tr><th id="511">511</th><td>	<dfn class="enum" id="CRITICAL_SECTION_THREE" title='CRITICAL_SECTION_THREE' data-ref="CRITICAL_SECTION_THREE">CRITICAL_SECTION_THREE</dfn></td></tr>
+<tr><th id="512">512</th><td>};</td></tr>
+<tr><th id="513">513</th><td></td></tr>
+<tr><th id="514">514</th><td><em>void</em>				<dfn class="decl" id="_Z24Sys_EnterCriticalSectioni" title='Sys_EnterCriticalSection' data-ref="_Z24Sys_EnterCriticalSectioni">Sys_EnterCriticalSection</dfn>( <em>int</em> <dfn class="local col5 decl" id="1395index" title='index' data-type='int' data-ref="1395index">index</dfn> = <a class="enum" href="#CRITICAL_SECTION_ZERO" title='CRITICAL_SECTION_ZERO' data-ref="CRITICAL_SECTION_ZERO">CRITICAL_SECTION_ZERO</a> );</td></tr>
+<tr><th id="515">515</th><td><em>void</em>				<dfn class="decl" id="_Z24Sys_LeaveCriticalSectioni" title='Sys_LeaveCriticalSection' data-ref="_Z24Sys_LeaveCriticalSectioni">Sys_LeaveCriticalSection</dfn>( <em>int</em> <dfn class="local col6 decl" id="1396index" title='index' data-type='int' data-ref="1396index">index</dfn> = <a class="enum" href="#CRITICAL_SECTION_ZERO" title='CRITICAL_SECTION_ZERO' data-ref="CRITICAL_SECTION_ZERO">CRITICAL_SECTION_ZERO</a> );</td></tr>
+<tr><th id="516">516</th><td></td></tr>
+<tr><th id="517">517</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="MAX_TRIGGER_EVENTS" title='MAX_TRIGGER_EVENTS' data-ref="MAX_TRIGGER_EVENTS">MAX_TRIGGER_EVENTS</dfn>		= <var>4</var>;</td></tr>
+<tr><th id="518">518</th><td></td></tr>
+<tr><th id="519">519</th><td><b>enum</b> {</td></tr>
+<tr><th id="520">520</th><td>	<dfn class="enum" id="TRIGGER_EVENT_ZERO" title='TRIGGER_EVENT_ZERO' data-ref="TRIGGER_EVENT_ZERO">TRIGGER_EVENT_ZERO</dfn> = <var>0</var>,</td></tr>
+<tr><th id="521">521</th><td>	<dfn class="enum" id="TRIGGER_EVENT_ONE" title='TRIGGER_EVENT_ONE' data-ref="TRIGGER_EVENT_ONE">TRIGGER_EVENT_ONE</dfn>,</td></tr>
+<tr><th id="522">522</th><td>	<dfn class="enum" id="TRIGGER_EVENT_TWO" title='TRIGGER_EVENT_TWO' data-ref="TRIGGER_EVENT_TWO">TRIGGER_EVENT_TWO</dfn>,</td></tr>
+<tr><th id="523">523</th><td>	<dfn class="enum" id="TRIGGER_EVENT_THREE" title='TRIGGER_EVENT_THREE' data-ref="TRIGGER_EVENT_THREE">TRIGGER_EVENT_THREE</dfn></td></tr>
+<tr><th id="524">524</th><td>};</td></tr>
+<tr><th id="525">525</th><td></td></tr>
+<tr><th id="526">526</th><td><em>void</em>				<dfn class="decl" id="_Z16Sys_WaitForEventi" title='Sys_WaitForEvent' data-ref="_Z16Sys_WaitForEventi">Sys_WaitForEvent</dfn>( <em>int</em> <dfn class="local col7 decl" id="1397index" title='index' data-type='int' data-ref="1397index">index</dfn> = <a class="enum" href="#TRIGGER_EVENT_ZERO" title='TRIGGER_EVENT_ZERO' data-ref="TRIGGER_EVENT_ZERO">TRIGGER_EVENT_ZERO</a> );</td></tr>
+<tr><th id="527">527</th><td><em>void</em>				<dfn class="decl" id="_Z16Sys_TriggerEventi" title='Sys_TriggerEvent' data-ref="_Z16Sys_TriggerEventi">Sys_TriggerEvent</dfn>( <em>int</em> <dfn class="local col8 decl" id="1398index" title='index' data-type='int' data-ref="1398index">index</dfn> = <a class="enum" href="#TRIGGER_EVENT_ZERO" title='TRIGGER_EVENT_ZERO' data-ref="TRIGGER_EVENT_ZERO">TRIGGER_EVENT_ZERO</a> );</td></tr>
+<tr><th id="528">528</th><td></td></tr>
+<tr><th id="529">529</th><td><i>/*</i></td></tr>
+<tr><th id="530">530</th><td><i>==============================================================</i></td></tr>
+<tr><th id="531">531</th><td><i></i></td></tr>
+<tr><th id="532">532</th><td><i>	idSys</i></td></tr>
+<tr><th id="533">533</th><td><i></i></td></tr>
+<tr><th id="534">534</th><td><i>==============================================================</i></td></tr>
+<tr><th id="535">535</th><td><i>*/</i></td></tr>
+<tr><th id="536">536</th><td></td></tr>
+<tr><th id="537">537</th><td><b>class</b> <dfn class="type def" id="idSys" title='idSys' data-ref="idSys">idSys</dfn> {</td></tr>
+<tr><th id="538">538</th><td><b>public</b>:</td></tr>
+<tr><th id="539">539</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN5idSys11DebugPrintfEPKcz" title='idSys::DebugPrintf' data-ref="_ZN5idSys11DebugPrintfEPKcz">DebugPrintf</dfn>( <em>const</em> <em>char</em> *<dfn class="local col9 decl" id="1399fmt" title='fmt' data-type='const char *' data-ref="1399fmt">fmt</dfn>, ... )<a class="macro" href="#137" title="__attribute__((format(printf,2,3)))" data-ref="_M/id_attribute">id_attribute</a>((format(printf,<var>2</var>,<var>3</var>))) = <var>0</var>;</td></tr>
+<tr><th id="540">540</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN5idSys12DebugVPrintfEPKcPc" title='idSys::DebugVPrintf' data-ref="_ZN5idSys12DebugVPrintfEPKcPc">DebugVPrintf</dfn>( <em>const</em> <em>char</em> *<dfn class="local col0 decl" id="1400fmt" title='fmt' data-type='const char *' data-ref="1400fmt">fmt</dfn>, <span class='typedef' title='va_list' data-type='__gnuc_va_list' data-ref="va_list">va_list</span> <dfn class="local col1 decl" id="1401arg" title='arg' data-type='va_list' data-ref="1401arg">arg</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="541">541</th><td></td></tr>
+<tr><th id="542">542</th><td>	<b>virtual</b> <em>double</em>			<dfn class="virtual decl" id="_ZN5idSys13GetClockTicksEv" title='idSys::GetClockTicks' data-ref="_ZN5idSys13GetClockTicksEv">GetClockTicks</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="543">543</th><td>	<b>virtual</b> <em>double</em>			<dfn class="virtual decl" id="_ZN5idSys19ClockTicksPerSecondEv" title='idSys::ClockTicksPerSecond' data-ref="_ZN5idSys19ClockTicksPerSecondEv">ClockTicksPerSecond</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="544">544</th><td>	<b>virtual</b> <a class="typedef" href="#cpuid_t" title='cpuid_t' data-type='enum cpuid_t' data-ref="cpuid_t">cpuid_t</a>			<dfn class="virtual decl" id="_ZN5idSys14GetProcessorIdEv" title='idSys::GetProcessorId' data-ref="_ZN5idSys14GetProcessorIdEv">GetProcessorId</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="545">545</th><td>	<b>virtual</b> <em>const</em> <em>char</em> *	<dfn class="virtual decl" id="_ZN5idSys18GetProcessorStringEv" title='idSys::GetProcessorString' data-ref="_ZN5idSys18GetProcessorStringEv">GetProcessorString</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="546">546</th><td>	<b>virtual</b> <em>const</em> <em>char</em> *	<dfn class="virtual decl" id="_ZN5idSys12FPU_GetStateEv" title='idSys::FPU_GetState' data-ref="_ZN5idSys12FPU_GetStateEv">FPU_GetState</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="547">547</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN5idSys16FPU_StackIsEmptyEv" title='idSys::FPU_StackIsEmpty' data-ref="_ZN5idSys16FPU_StackIsEmptyEv">FPU_StackIsEmpty</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="548">548</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN5idSys10FPU_SetFTZEb" title='idSys::FPU_SetFTZ' data-ref="_ZN5idSys10FPU_SetFTZEb">FPU_SetFTZ</dfn>( <em>bool</em> <dfn class="local col2 decl" id="1402enable" title='enable' data-type='bool' data-ref="1402enable">enable</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="549">549</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN5idSys10FPU_SetDAZEb" title='idSys::FPU_SetDAZ' data-ref="_ZN5idSys10FPU_SetDAZEb">FPU_SetDAZ</dfn>( <em>bool</em> <dfn class="local col3 decl" id="1403enable" title='enable' data-type='bool' data-ref="1403enable">enable</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="550">550</th><td></td></tr>
+<tr><th id="551">551</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN5idSys20FPU_EnableExceptionsEi" title='idSys::FPU_EnableExceptions' data-ref="_ZN5idSys20FPU_EnableExceptionsEi">FPU_EnableExceptions</dfn>( <em>int</em> <dfn class="local col4 decl" id="1404exceptions" title='exceptions' data-type='int' data-ref="1404exceptions">exceptions</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="552">552</th><td></td></tr>
+<tr><th id="553">553</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN5idSys10LockMemoryEPvi" title='idSys::LockMemory' data-ref="_ZN5idSys10LockMemoryEPvi">LockMemory</dfn>( <em>void</em> *<dfn class="local col5 decl" id="1405ptr" title='ptr' data-type='void *' data-ref="1405ptr">ptr</dfn>, <em>int</em> <dfn class="local col6 decl" id="1406bytes" title='bytes' data-type='int' data-ref="1406bytes">bytes</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="554">554</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN5idSys12UnlockMemoryEPvi" title='idSys::UnlockMemory' data-ref="_ZN5idSys12UnlockMemoryEPvi">UnlockMemory</dfn>( <em>void</em> *<dfn class="local col7 decl" id="1407ptr" title='ptr' data-type='void *' data-ref="1407ptr">ptr</dfn>, <em>int</em> <dfn class="local col8 decl" id="1408bytes" title='bytes' data-type='int' data-ref="1408bytes">bytes</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="555">555</th><td></td></tr>
+<tr><th id="556">556</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN5idSys12GetCallStackEPmi" title='idSys::GetCallStack' data-ref="_ZN5idSys12GetCallStackEPmi">GetCallStack</dfn>( <a class="typedef" href="#address_t" title='address_t' data-type='unsigned long' data-ref="address_t">address_t</a> *<dfn class="local col9 decl" id="1409callStack" title='callStack' data-type='address_t *' data-ref="1409callStack">callStack</dfn>, <em>const</em> <em>int</em> <dfn class="local col0 decl" id="1410callStackSize" title='callStackSize' data-type='const int' data-ref="1410callStackSize">callStackSize</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="557">557</th><td>	<b>virtual</b> <em>const</em> <em>char</em> *	<dfn class="virtual decl" id="_ZN5idSys15GetCallStackStrEPKmi" title='idSys::GetCallStackStr' data-ref="_ZN5idSys15GetCallStackStrEPKmi">GetCallStackStr</dfn>( <em>const</em> <a class="typedef" href="#address_t" title='address_t' data-type='unsigned long' data-ref="address_t">address_t</a> *<dfn class="local col1 decl" id="1411callStack" title='callStack' data-type='const address_t *' data-ref="1411callStack">callStack</dfn>, <em>const</em> <em>int</em> <dfn class="local col2 decl" id="1412callStackSize" title='callStackSize' data-type='const int' data-ref="1412callStackSize">callStackSize</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="558">558</th><td>	<b>virtual</b> <em>const</em> <em>char</em> *	<dfn class="virtual decl" id="_ZN5idSys18GetCallStackCurStrEi" title='idSys::GetCallStackCurStr' data-ref="_ZN5idSys18GetCallStackCurStrEi">GetCallStackCurStr</dfn>( <em>int</em> <dfn class="local col3 decl" id="1413depth" title='depth' data-type='int' data-ref="1413depth">depth</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="559">559</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN5idSys15ShutdownSymbolsEv" title='idSys::ShutdownSymbols' data-ref="_ZN5idSys15ShutdownSymbolsEv">ShutdownSymbols</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="560">560</th><td></td></tr>
+<tr><th id="561">561</th><td>	<b>virtual</b> <em>int</em>				<dfn class="virtual decl" id="_ZN5idSys8DLL_LoadEPKc" title='idSys::DLL_Load' data-ref="_ZN5idSys8DLL_LoadEPKc">DLL_Load</dfn>( <em>const</em> <em>char</em> *<dfn class="local col4 decl" id="1414dllName" title='dllName' data-type='const char *' data-ref="1414dllName">dllName</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="562">562</th><td>	<b>virtual</b> <em>void</em> *			<dfn class="virtual decl" id="_ZN5idSys18DLL_GetProcAddressEiPKc" title='idSys::DLL_GetProcAddress' data-ref="_ZN5idSys18DLL_GetProcAddressEiPKc">DLL_GetProcAddress</dfn>( <em>int</em> <dfn class="local col5 decl" id="1415dllHandle" title='dllHandle' data-type='int' data-ref="1415dllHandle">dllHandle</dfn>, <em>const</em> <em>char</em> *<dfn class="local col6 decl" id="1416procName" title='procName' data-type='const char *' data-ref="1416procName">procName</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="563">563</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN5idSys10DLL_UnloadEi" title='idSys::DLL_Unload' data-ref="_ZN5idSys10DLL_UnloadEi">DLL_Unload</dfn>( <em>int</em> <dfn class="local col7 decl" id="1417dllHandle" title='dllHandle' data-type='int' data-ref="1417dllHandle">dllHandle</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="564">564</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN5idSys15DLL_GetFileNameEPKcPci" title='idSys::DLL_GetFileName' data-ref="_ZN5idSys15DLL_GetFileNameEPKcPci">DLL_GetFileName</dfn>( <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="1418baseName" title='baseName' data-type='const char *' data-ref="1418baseName">baseName</dfn>, <em>char</em> *<dfn class="local col9 decl" id="1419dllName" title='dllName' data-type='char *' data-ref="1419dllName">dllName</dfn>, <em>int</em> <dfn class="local col0 decl" id="1420maxLength" title='maxLength' data-type='int' data-ref="1420maxLength">maxLength</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="565">565</th><td></td></tr>
+<tr><th id="566">566</th><td>	<b>virtual</b> <a class="typedef" href="#sysEvent_t" title='sysEvent_t' data-type='struct sysEvent_s' data-ref="sysEvent_t">sysEvent_t</a>		<dfn class="virtual decl" id="_ZN5idSys24GenerateMouseButtonEventEib" title='idSys::GenerateMouseButtonEvent' data-ref="_ZN5idSys24GenerateMouseButtonEventEib">GenerateMouseButtonEvent</dfn>( <em>int</em> <dfn class="local col1 decl" id="1421button" title='button' data-type='int' data-ref="1421button">button</dfn>, <em>bool</em> <dfn class="local col2 decl" id="1422down" title='down' data-type='bool' data-ref="1422down">down</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="567">567</th><td>	<b>virtual</b> <a class="typedef" href="#sysEvent_t" title='sysEvent_t' data-type='struct sysEvent_s' data-ref="sysEvent_t">sysEvent_t</a>		<dfn class="virtual decl" id="_ZN5idSys22GenerateMouseMoveEventEii" title='idSys::GenerateMouseMoveEvent' data-ref="_ZN5idSys22GenerateMouseMoveEventEii">GenerateMouseMoveEvent</dfn>( <em>int</em> <dfn class="local col3 decl" id="1423deltax" title='deltax' data-type='int' data-ref="1423deltax">deltax</dfn>, <em>int</em> <dfn class="local col4 decl" id="1424deltay" title='deltay' data-type='int' data-ref="1424deltay">deltay</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="568">568</th><td></td></tr>
+<tr><th id="569">569</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN5idSys7OpenURLEPKcb" title='idSys::OpenURL' data-ref="_ZN5idSys7OpenURLEPKcb">OpenURL</dfn>( <em>const</em> <em>char</em> *<dfn class="local col5 decl" id="1425url" title='url' data-type='const char *' data-ref="1425url">url</dfn>, <em>bool</em> <dfn class="local col6 decl" id="1426quit" title='quit' data-type='bool' data-ref="1426quit">quit</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="570">570</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN5idSys12StartProcessEPKcb" title='idSys::StartProcess' data-ref="_ZN5idSys12StartProcessEPKcb">StartProcess</dfn>( <em>const</em> <em>char</em> *<dfn class="local col7 decl" id="1427exePath" title='exePath' data-type='const char *' data-ref="1427exePath">exePath</dfn>, <em>bool</em> <dfn class="local col8 decl" id="1428quit" title='quit' data-type='bool' data-ref="1428quit">quit</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="571">571</th><td>};</td></tr>
+<tr><th id="572">572</th><td></td></tr>
+<tr><th id="573">573</th><td><b>extern</b> <a class="type" href="#idSys" title='idSys' data-ref="idSys">idSys</a> *				<dfn class="decl" id="sys" title='sys' data-ref="sys">sys</dfn>;</td></tr>
+<tr><th id="574">574</th><td></td></tr>
+<tr><th id="575">575</th><td><em>bool</em> <dfn class="decl" id="_Z14Sys_LoadOpenALv" title='Sys_LoadOpenAL' data-ref="_Z14Sys_LoadOpenALv">Sys_LoadOpenAL</dfn>( <em>void</em> );</td></tr>
+<tr><th id="576">576</th><td><em>void</em> <dfn class="decl" id="_Z14Sys_FreeOpenALv" title='Sys_FreeOpenAL' data-ref="_Z14Sys_FreeOpenALv">Sys_FreeOpenAL</dfn>( <em>void</em> );</td></tr>
+<tr><th id="577">577</th><td></td></tr>
+<tr><th id="578">578</th><td><u>#<span data-ppcond="29">endif</span> /* !__SYS_PUBLIC__ */</u></td></tr>
+<tr><th id="579">579</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../TypeInfo/TypeInfoGen.cpp.html'>codebrowser/TypeInfo/TypeInfoGen.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

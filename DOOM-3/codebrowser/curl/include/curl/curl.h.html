@@ -1,0 +1,1301 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>curl.h source code [codebrowser/curl/include/curl/curl.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="CURL_NETRC_OPTION,curl_forms,curl_httppost,curl_slist "/>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/curl/include/curl/curl.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>curl</a>/<a href='..'>include</a>/<a href='./'>curl</a>/<a href='curl.h.html'>curl.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><u>#<span data-ppcond="1">ifndef</span> <span class="macro" data-ref="_M/__CURL_CURL_H">__CURL_CURL_H</span></u></td></tr>
+<tr><th id="2">2</th><td><u>#define <dfn class="macro" id="_M/__CURL_CURL_H" data-ref="_M/__CURL_CURL_H">__CURL_CURL_H</dfn></u></td></tr>
+<tr><th id="3">3</th><td><i>/***************************************************************************</i></td></tr>
+<tr><th id="4">4</th><td><i> *                                  _   _ ____  _     </i></td></tr>
+<tr><th id="5">5</th><td><i> *  Project                     ___| | | |  _ \| |    </i></td></tr>
+<tr><th id="6">6</th><td><i> *                             / __| | | | |_) | |    </i></td></tr>
+<tr><th id="7">7</th><td><i> *                            | (__| |_| |  _ &lt;| |___ </i></td></tr>
+<tr><th id="8">8</th><td><i> *                             \___|\___/|_| \_\_____|</i></td></tr>
+<tr><th id="9">9</th><td><i> *</i></td></tr>
+<tr><th id="10">10</th><td><i> * Copyright (C) 1998 - 2004, Daniel Stenberg, &lt;daniel@haxx.se&gt;, et al.</i></td></tr>
+<tr><th id="11">11</th><td><i> *</i></td></tr>
+<tr><th id="12">12</th><td><i> * This software is licensed as described in the file COPYING, which</i></td></tr>
+<tr><th id="13">13</th><td><i> * you should have received as part of this distribution. The terms</i></td></tr>
+<tr><th id="14">14</th><td><i> * are also available at <a href="http://curl.haxx.se/docs/copyright.html">http://curl.haxx.se/docs/copyright.html</a>.</i></td></tr>
+<tr><th id="15">15</th><td><i> * </i></td></tr>
+<tr><th id="16">16</th><td><i> * You may opt to use, copy, modify, merge, publish, distribute and/or sell</i></td></tr>
+<tr><th id="17">17</th><td><i> * copies of the Software, and permit persons to whom the Software is</i></td></tr>
+<tr><th id="18">18</th><td><i> * furnished to do so, under the terms of the COPYING file.</i></td></tr>
+<tr><th id="19">19</th><td><i> *</i></td></tr>
+<tr><th id="20">20</th><td><i> * This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY</i></td></tr>
+<tr><th id="21">21</th><td><i> * KIND, either express or implied.</i></td></tr>
+<tr><th id="22">22</th><td><i> *</i></td></tr>
+<tr><th id="23">23</th><td><i> * $Id: curl.h,v 1.243 2004/03/12 08:55:50 bagder Exp $</i></td></tr>
+<tr><th id="24">24</th><td><i> ***************************************************************************/</i></td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><i>/* If you have problems, all libcurl docs and details are found here:</i></td></tr>
+<tr><th id="27">27</th><td><i>   <a href="http://curl.haxx.se/libcurl/">http://curl.haxx.se/libcurl/</a></i></td></tr>
+<tr><th id="28">28</th><td><i>*/</i></td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td><i>/* This is the version number of the libcurl package from which this header</i></td></tr>
+<tr><th id="31">31</th><td><i>   file origins: */</i></td></tr>
+<tr><th id="32">32</th><td><u>#define <dfn class="macro" id="_M/LIBCURL_VERSION" data-ref="_M/LIBCURL_VERSION">LIBCURL_VERSION</dfn> "7.11.1"</u></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><i>/* This is the numeric version of the libcurl version number, meant for easier</i></td></tr>
+<tr><th id="35">35</th><td><i>   parsing and comparions by programs. The LIBCURL_VERSION_NUM define will</i></td></tr>
+<tr><th id="36">36</th><td><i>   always follow this syntax:</i></td></tr>
+<tr><th id="37">37</th><td><i></i></td></tr>
+<tr><th id="38">38</th><td><i>         0xXXYYZZ</i></td></tr>
+<tr><th id="39">39</th><td><i></i></td></tr>
+<tr><th id="40">40</th><td><i>   Where XX, YY and ZZ are the main version, release and patch numbers in</i></td></tr>
+<tr><th id="41">41</th><td><i>   hexadecimal. All three numbers are always represented using two digits.  1.2</i></td></tr>
+<tr><th id="42">42</th><td><i>   would appear as "0x010200" while version 9.11.7 appears as "0x090b07".</i></td></tr>
+<tr><th id="43">43</th><td><i></i></td></tr>
+<tr><th id="44">44</th><td><i>   This 6-digit hexadecimal number does not show pre-release number, and it is</i></td></tr>
+<tr><th id="45">45</th><td><i>   always a greater number in a more recent release. It makes comparisons with</i></td></tr>
+<tr><th id="46">46</th><td><i>   greater than and less than work.</i></td></tr>
+<tr><th id="47">47</th><td><i>*/</i></td></tr>
+<tr><th id="48">48</th><td><u>#define <dfn class="macro" id="_M/LIBCURL_VERSION_NUM" data-ref="_M/LIBCURL_VERSION_NUM">LIBCURL_VERSION_NUM</dfn> 0x70B01</u></td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td><i>/* The numeric version number is also available "in parts" by using these</i></td></tr>
+<tr><th id="51">51</th><td><i>   defines: */</i></td></tr>
+<tr><th id="52">52</th><td><u>#define <dfn class="macro" id="_M/LIBCURL_VERSION_MAJOR" data-ref="_M/LIBCURL_VERSION_MAJOR">LIBCURL_VERSION_MAJOR</dfn> 7</u></td></tr>
+<tr><th id="53">53</th><td><u>#define <dfn class="macro" id="_M/LIBCURL_VERSION_MINOR" data-ref="_M/LIBCURL_VERSION_MINOR">LIBCURL_VERSION_MINOR</dfn> 11</u></td></tr>
+<tr><th id="54">54</th><td><u>#define <dfn class="macro" id="_M/LIBCURL_VERSION_PATCH" data-ref="_M/LIBCURL_VERSION_PATCH">LIBCURL_VERSION_PATCH</dfn> 1</u></td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td><u>#include <a href="../../../../include/stdio.h.html">&lt;stdio.h&gt;</a></u></td></tr>
+<tr><th id="57">57</th><td><u>#include &lt;limits.h&gt;</u></td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td><i>/* The include stuff here below is mainly for time_t! */</i></td></tr>
+<tr><th id="60">60</th><td><u>#<span data-ppcond="60">ifdef</span> <span class="macro" data-ref="_M/vms">vms</span></u></td></tr>
+<tr><th id="61">61</th><td><u># include &lt;types.h&gt;</u></td></tr>
+<tr><th id="62">62</th><td><u># include &lt;time.h&gt;</u></td></tr>
+<tr><th id="63">63</th><td><u>#<span data-ppcond="60">else</span></u></td></tr>
+<tr><th id="64">64</th><td><u>#<span data-ppcond="64">if</span> !<span class='warning' title="&apos;__MACH__&apos; is not defined, evaluates to 0">__MACH__</span> &amp;&amp; <span class='warning' title="&apos;__MWERKS__&apos; is not defined, evaluates to 0">__MWERKS__</span></u> </td></tr>
+<tr><th id="65">65</th><td><u># include &lt;types.h&gt;</u></td></tr>
+<tr><th id="66">66</th><td><u>#<span data-ppcond="64">else</span></u></td></tr>
+<tr><th id="67">67</th><td><u># include <a href="../../../../include/x86_64-linux-gnu/sys/types.h.html">&lt;sys/types.h&gt;</a></u></td></tr>
+<tr><th id="68">68</th><td><u>#<span data-ppcond="64">endif</span></u></td></tr>
+<tr><th id="69">69</th><td><u># include <a href="../../../../include/time.h.html">&lt;time.h&gt;</a></u></td></tr>
+<tr><th id="70">70</th><td><u>#<span data-ppcond="60">endif</span> /* defined (vms) */</u></td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td><u>#include <a href="types.h.html">"types.h"</a></u></td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td><u>#<span data-ppcond="74">ifdef</span>  <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="75">75</th><td><b>extern</b> <q>"C"</q> {</td></tr>
+<tr><th id="76">76</th><td><u>#<span data-ppcond="74">endif</span></u></td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td><i>/*</i></td></tr>
+<tr><th id="79">79</th><td><i> * We want the typedef curl_off_t setup for large file support on all</i></td></tr>
+<tr><th id="80">80</th><td><i> * platforms. We also provide a CURL_FORMAT_OFF_T define to use in *printf</i></td></tr>
+<tr><th id="81">81</th><td><i> * format strings when outputting a variable of type curl_off_t.</i></td></tr>
+<tr><th id="82">82</th><td><i> */</i></td></tr>
+<tr><th id="83">83</th><td><u>#<span data-ppcond="83">if</span> defined(<span class="macro" data-ref="_M/_MSC_VER">_MSC_VER</span>)</u></td></tr>
+<tr><th id="84">84</th><td><i>/* MSVC */</i></td></tr>
+<tr><th id="85">85</th><td>  <b>typedef</b> <em>signed</em> __int64 curl_off_t;</td></tr>
+<tr><th id="86">86</th><td><u>#define CURL_FORMAT_OFF_T "%I64d"</u></td></tr>
+<tr><th id="87">87</th><td><u>#<span data-ppcond="83">else</span> /* MSC_VER */</u></td></tr>
+<tr><th id="88">88</th><td><u>#<span data-ppcond="88">if</span> (defined(<span class="macro" data-ref="_M/__GNUC__">__GNUC__</span>) &amp;&amp; defined(<span class="macro" data-ref="_M/WIN32">WIN32</span>)) || defined(<span class="macro" data-ref="_M/__WATCOMC__">__WATCOMC__</span>)</u></td></tr>
+<tr><th id="89">89</th><td><i>/* gcc on windows or Watcom */</i></td></tr>
+<tr><th id="90">90</th><td>  <b>typedef</b> <em>long</em> <em>long</em> curl_off_t;</td></tr>
+<tr><th id="91">91</th><td><u>#define CURL_FORMAT_OFF_T "%I64d"</u></td></tr>
+<tr><th id="92">92</th><td><u>#<span data-ppcond="88">else</span> /* GCC or Watcom on Windows  */</u></td></tr>
+<tr><th id="93">93</th><td></td></tr>
+<tr><th id="94">94</th><td><i>/* "normal" POSIX approach, do note that this does not necessarily mean that</i></td></tr>
+<tr><th id="95">95</th><td><i>   the type is &gt;32 bits, see the SIZEOF_CURL_OFF_T define for that! */</i></td></tr>
+<tr><th id="96">96</th><td>  <b>typedef</b> <a class="typedef" href="../../../../include/stdio.h.html#off_t" title='off_t' data-type='__off_t' data-ref="off_t">off_t</a> <dfn class="typedef" id="curl_off_t" title='curl_off_t' data-type='off_t' data-ref="curl_off_t">curl_off_t</dfn>;</td></tr>
+<tr><th id="97">97</th><td></td></tr>
+<tr><th id="98">98</th><td><i>/* Check a range of defines to detect large file support. On Linux it seems</i></td></tr>
+<tr><th id="99">99</th><td><i>   none of these are set by default, so if you don't explicitly switches on</i></td></tr>
+<tr><th id="100">100</th><td><i>   large file support, this define will be made for "small file" support. */</i></td></tr>
+<tr><th id="101">101</th><td><u>#<span data-ppcond="101">ifndef</span> <span class="macro" data-ref="_M/_FILE_OFFSET_BITS">_FILE_OFFSET_BITS</span></u></td></tr>
+<tr><th id="102">102</th><td><u>#define <dfn class="macro" id="_M/_FILE_OFFSET_BITS" data-ref="_M/_FILE_OFFSET_BITS">_FILE_OFFSET_BITS</dfn> 0 /* to prevent warnings in the check below */</u></td></tr>
+<tr><th id="103">103</th><td><u>#define <dfn class="macro" id="_M/UNDEF_FILE_OFFSET_BITS" data-ref="_M/UNDEF_FILE_OFFSET_BITS">UNDEF_FILE_OFFSET_BITS</dfn></u></td></tr>
+<tr><th id="104">104</th><td><u>#<span data-ppcond="101">endif</span></u></td></tr>
+<tr><th id="105">105</th><td><u>#<span data-ppcond="105">ifndef</span> <span class="macro" data-ref="_M/FILESIZEBITS">FILESIZEBITS</span></u></td></tr>
+<tr><th id="106">106</th><td><u>#define <dfn class="macro" id="_M/FILESIZEBITS" data-ref="_M/FILESIZEBITS">FILESIZEBITS</dfn> 0 /* to prevent warnings in the check below */</u></td></tr>
+<tr><th id="107">107</th><td><u>#define <dfn class="macro" id="_M/UNDEF_FILESIZEBITS" data-ref="_M/UNDEF_FILESIZEBITS">UNDEF_FILESIZEBITS</dfn></u></td></tr>
+<tr><th id="108">108</th><td><u>#<span data-ppcond="105">endif</span></u></td></tr>
+<tr><th id="109">109</th><td></td></tr>
+<tr><th id="110">110</th><td><u>#<span data-ppcond="110">if</span> defined(<span class="macro" data-ref="_M/_LARGE_FILES">_LARGE_FILES</span>) || (<a class="macro" href="#102" title="0" data-ref="_M/_FILE_OFFSET_BITS">_FILE_OFFSET_BITS</a> &gt; 32) || (<a class="macro" href="#106" title="0" data-ref="_M/FILESIZEBITS">FILESIZEBITS</a> &gt; 32) \</u></td></tr>
+<tr><th id="111">111</th><td><u>   || defined(<span class="macro" data-ref="_M/_LARGEFILE_SOURCE">_LARGEFILE_SOURCE</span>) || defined(<span class="macro" data-ref="_M/_LARGEFILE64_SOURCE">_LARGEFILE64_SOURCE</span>)</u></td></tr>
+<tr><th id="112">112</th><td>  <i>/* For now, we assume at least one of these to be set for large files to</i></td></tr>
+<tr><th id="113">113</th><td><i>     work! */</i></td></tr>
+<tr><th id="114">114</th><td><u>#define CURL_FORMAT_OFF_T "%lld"</u></td></tr>
+<tr><th id="115">115</th><td><u>#<span data-ppcond="110">else</span> /* LARGE_FILE support */</u></td></tr>
+<tr><th id="116">116</th><td><u>#define <dfn class="macro" id="_M/CURL_FORMAT_OFF_T" data-ref="_M/CURL_FORMAT_OFF_T">CURL_FORMAT_OFF_T</dfn> "%ld"</u></td></tr>
+<tr><th id="117">117</th><td><u>#<span data-ppcond="110">endif</span></u></td></tr>
+<tr><th id="118">118</th><td><u>#<span data-ppcond="88">endif</span> /* GCC or Watcom on Windows */</u></td></tr>
+<tr><th id="119">119</th><td><u>#<span data-ppcond="83">endif</span> /* MSC_VER */</u></td></tr>
+<tr><th id="120">120</th><td></td></tr>
+<tr><th id="121">121</th><td><u>#<span data-ppcond="121">ifdef</span> <a class="macro" href="#103" data-ref="_M/UNDEF_FILE_OFFSET_BITS">UNDEF_FILE_OFFSET_BITS</a></u></td></tr>
+<tr><th id="122">122</th><td><i>/* this was defined above for our checks, undefine it again */</i></td></tr>
+<tr><th id="123">123</th><td><u>#undef <a class="macro" href="#102" data-ref="_M/_FILE_OFFSET_BITS">_FILE_OFFSET_BITS</a></u></td></tr>
+<tr><th id="124">124</th><td><u>#<span data-ppcond="121">endif</span></u></td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td><u>#<span data-ppcond="126">ifdef</span> <a class="macro" href="#107" data-ref="_M/UNDEF_FILESIZEBITS">UNDEF_FILESIZEBITS</a></u></td></tr>
+<tr><th id="127">127</th><td><i>/* this was defined above for our checks, undefine it again */</i></td></tr>
+<tr><th id="128">128</th><td><u>#undef <a class="macro" href="#106" data-ref="_M/FILESIZEBITS">FILESIZEBITS</a></u></td></tr>
+<tr><th id="129">129</th><td><u>#<span data-ppcond="126">endif</span></u></td></tr>
+<tr><th id="130">130</th><td></td></tr>
+<tr><th id="131">131</th><td><b>struct</b> <dfn class="type def" id="curl_httppost" title='curl_httppost' data-ref="curl_httppost">curl_httppost</dfn> {</td></tr>
+<tr><th id="132">132</th><td>  <b>struct</b> <a class="type" href="#curl_httppost" title='curl_httppost' data-ref="curl_httppost">curl_httppost</a> *<dfn class="decl" id="curl_httppost::next" title='curl_httppost::next' data-ref="curl_httppost::next">next</dfn>;       <i>/* next entry in the list */</i></td></tr>
+<tr><th id="133">133</th><td>  <em>char</em> *<dfn class="decl" id="curl_httppost::name" title='curl_httppost::name' data-ref="curl_httppost::name">name</dfn>;                       <i>/* pointer to allocated name */</i></td></tr>
+<tr><th id="134">134</th><td>  <em>long</em> <dfn class="decl" id="curl_httppost::namelength" title='curl_httppost::namelength' data-ref="curl_httppost::namelength">namelength</dfn>;                  <i>/* length of name length */</i></td></tr>
+<tr><th id="135">135</th><td>  <em>char</em> *<dfn class="decl" id="curl_httppost::contents" title='curl_httppost::contents' data-ref="curl_httppost::contents">contents</dfn>;                   <i>/* pointer to allocated data contents */</i></td></tr>
+<tr><th id="136">136</th><td>  <em>long</em> <dfn class="decl" id="curl_httppost::contentslength" title='curl_httppost::contentslength' data-ref="curl_httppost::contentslength">contentslength</dfn>;              <i>/* length of contents field */</i></td></tr>
+<tr><th id="137">137</th><td>  <em>char</em> *<dfn class="decl" id="curl_httppost::buffer" title='curl_httppost::buffer' data-ref="curl_httppost::buffer">buffer</dfn>;                     <i>/* pointer to allocated buffer contents */</i></td></tr>
+<tr><th id="138">138</th><td>  <em>long</em> <dfn class="decl" id="curl_httppost::bufferlength" title='curl_httppost::bufferlength' data-ref="curl_httppost::bufferlength">bufferlength</dfn>;                <i>/* length of buffer field */</i></td></tr>
+<tr><th id="139">139</th><td>  <em>char</em> *<dfn class="decl" id="curl_httppost::contenttype" title='curl_httppost::contenttype' data-ref="curl_httppost::contenttype">contenttype</dfn>;                <i>/* Content-Type */</i></td></tr>
+<tr><th id="140">140</th><td>  <b>struct</b> <a class="type" href="#curl_slist" title='curl_slist' data-ref="curl_slist">curl_slist</a>* <dfn class="decl" id="curl_httppost::contentheader" title='curl_httppost::contentheader' data-ref="curl_httppost::contentheader">contentheader</dfn>; <i>/* list of extra headers for this form */</i></td></tr>
+<tr><th id="141">141</th><td>  <b>struct</b> <a class="type" href="#curl_httppost" title='curl_httppost' data-ref="curl_httppost">curl_httppost</a> *<dfn class="decl" id="curl_httppost::more" title='curl_httppost::more' data-ref="curl_httppost::more">more</dfn>;       <i>/* if one field name has more than one</i></td></tr>
+<tr><th id="142">142</th><td><i>                                       file, this link should link to following</i></td></tr>
+<tr><th id="143">143</th><td><i>                                       files */</i></td></tr>
+<tr><th id="144">144</th><td>  <em>long</em> <dfn class="decl" id="curl_httppost::flags" title='curl_httppost::flags' data-ref="curl_httppost::flags">flags</dfn>;                       <i>/* as defined below */</i></td></tr>
+<tr><th id="145">145</th><td><u>#define <dfn class="macro" id="_M/HTTPPOST_FILENAME" data-ref="_M/HTTPPOST_FILENAME">HTTPPOST_FILENAME</dfn> (1&lt;&lt;0)    /* specified content is a file name */</u></td></tr>
+<tr><th id="146">146</th><td><u>#define <dfn class="macro" id="_M/HTTPPOST_READFILE" data-ref="_M/HTTPPOST_READFILE">HTTPPOST_READFILE</dfn> (1&lt;&lt;1)    /* specified content is a file name */</u></td></tr>
+<tr><th id="147">147</th><td><u>#define <dfn class="macro" id="_M/HTTPPOST_PTRNAME" data-ref="_M/HTTPPOST_PTRNAME">HTTPPOST_PTRNAME</dfn> (1&lt;&lt;2)     /* name is only stored pointer</u></td></tr>
+<tr><th id="148">148</th><td><u>                                       do not free in formfree */</u></td></tr>
+<tr><th id="149">149</th><td><u>#define <dfn class="macro" id="_M/HTTPPOST_PTRCONTENTS" data-ref="_M/HTTPPOST_PTRCONTENTS">HTTPPOST_PTRCONTENTS</dfn> (1&lt;&lt;3) /* contents is only stored pointer</u></td></tr>
+<tr><th id="150">150</th><td><u>                                       do not free in formfree */</u></td></tr>
+<tr><th id="151">151</th><td><u>#define <dfn class="macro" id="_M/HTTPPOST_BUFFER" data-ref="_M/HTTPPOST_BUFFER">HTTPPOST_BUFFER</dfn> (1&lt;&lt;4)      /* upload file from buffer */</u></td></tr>
+<tr><th id="152">152</th><td><u>#define <dfn class="macro" id="_M/HTTPPOST_PTRBUFFER" data-ref="_M/HTTPPOST_PTRBUFFER">HTTPPOST_PTRBUFFER</dfn> (1&lt;&lt;5)   /* upload file from pointer contents */</u></td></tr>
+<tr><th id="153">153</th><td></td></tr>
+<tr><th id="154">154</th><td>  <em>char</em> *<dfn class="decl" id="curl_httppost::showfilename" title='curl_httppost::showfilename' data-ref="curl_httppost::showfilename">showfilename</dfn>;               <i>/* The file name to show. If not set, the</i></td></tr>
+<tr><th id="155">155</th><td><i>                                       actual file name will be used (if this</i></td></tr>
+<tr><th id="156">156</th><td><i>                                       is a file part) */</i></td></tr>
+<tr><th id="157">157</th><td>};</td></tr>
+<tr><th id="158">158</th><td></td></tr>
+<tr><th id="159">159</th><td><b>typedef</b> <em>int</em> (*<dfn class="typedef" id="curl_progress_callback" title='curl_progress_callback' data-type='int (*)(void *, double, double, double, double)' data-ref="curl_progress_callback">curl_progress_callback</dfn>)(<em>void</em> *<dfn class="local col3 decl" id="263clientp" title='clientp' data-type='void *' data-ref="263clientp">clientp</dfn>,</td></tr>
+<tr><th id="160">160</th><td>                                      <em>double</em> <dfn class="local col4 decl" id="264dltotal" title='dltotal' data-type='double' data-ref="264dltotal">dltotal</dfn>,</td></tr>
+<tr><th id="161">161</th><td>                                      <em>double</em> <dfn class="local col5 decl" id="265dlnow" title='dlnow' data-type='double' data-ref="265dlnow">dlnow</dfn>,</td></tr>
+<tr><th id="162">162</th><td>                                      <em>double</em> <dfn class="local col6 decl" id="266ultotal" title='ultotal' data-type='double' data-ref="266ultotal">ultotal</dfn>,</td></tr>
+<tr><th id="163">163</th><td>                                      <em>double</em> <dfn class="local col7 decl" id="267ulnow" title='ulnow' data-type='double' data-ref="267ulnow">ulnow</dfn>);</td></tr>
+<tr><th id="164">164</th><td></td></tr>
+<tr><th id="165">165</th><td>  <i>/* Tests have proven that 20K is a very bad buffer size for uploads on</i></td></tr>
+<tr><th id="166">166</th><td><i>     Windows, while 16K for some odd reason performed a lot better. */</i></td></tr>
+<tr><th id="167">167</th><td><u>#define <dfn class="macro" id="_M/CURL_MAX_WRITE_SIZE" data-ref="_M/CURL_MAX_WRITE_SIZE">CURL_MAX_WRITE_SIZE</dfn> 16384</u></td></tr>
+<tr><th id="168">168</th><td></td></tr>
+<tr><th id="169">169</th><td><b>typedef</b> <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> (*<dfn class="typedef" id="curl_write_callback" title='curl_write_callback' data-type='size_t (*)(char *, size_t, size_t, void *)' data-ref="curl_write_callback">curl_write_callback</dfn>)(<em>char</em> *<dfn class="local col8 decl" id="268buffer" title='buffer' data-type='char *' data-ref="268buffer">buffer</dfn>,</td></tr>
+<tr><th id="170">170</th><td>                                      <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col9 decl" id="269size" title='size' data-type='size_t' data-ref="269size">size</dfn>,</td></tr>
+<tr><th id="171">171</th><td>                                      <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col0 decl" id="270nitems" title='nitems' data-type='size_t' data-ref="270nitems">nitems</dfn>,</td></tr>
+<tr><th id="172">172</th><td>                                      <em>void</em> *<dfn class="local col1 decl" id="271outstream" title='outstream' data-type='void *' data-ref="271outstream">outstream</dfn>);</td></tr>
+<tr><th id="173">173</th><td></td></tr>
+<tr><th id="174">174</th><td><b>typedef</b> <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> (*<dfn class="typedef" id="curl_read_callback" title='curl_read_callback' data-type='size_t (*)(char *, size_t, size_t, void *)' data-ref="curl_read_callback">curl_read_callback</dfn>)(<em>char</em> *<dfn class="local col2 decl" id="272buffer" title='buffer' data-type='char *' data-ref="272buffer">buffer</dfn>,</td></tr>
+<tr><th id="175">175</th><td>                                     <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col3 decl" id="273size" title='size' data-type='size_t' data-ref="273size">size</dfn>,</td></tr>
+<tr><th id="176">176</th><td>                                     <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col4 decl" id="274nitems" title='nitems' data-type='size_t' data-ref="274nitems">nitems</dfn>,</td></tr>
+<tr><th id="177">177</th><td>                                     <em>void</em> *<dfn class="local col5 decl" id="275instream" title='instream' data-type='void *' data-ref="275instream">instream</dfn>);</td></tr>
+<tr><th id="178">178</th><td></td></tr>
+<tr><th id="179">179</th><td>  <i>/* not used since 7.10.8, will be removed in a future release */</i></td></tr>
+<tr><th id="180">180</th><td><b>typedef</b> <em>int</em> (*<dfn class="typedef" id="curl_passwd_callback" title='curl_passwd_callback' data-type='int (*)(void *, const char *, char *, int)' data-ref="curl_passwd_callback">curl_passwd_callback</dfn>)(<em>void</em> *<dfn class="local col6 decl" id="276clientp" title='clientp' data-type='void *' data-ref="276clientp">clientp</dfn>,</td></tr>
+<tr><th id="181">181</th><td>                                    <em>const</em> <em>char</em> *<dfn class="local col7 decl" id="277prompt" title='prompt' data-type='const char *' data-ref="277prompt">prompt</dfn>,</td></tr>
+<tr><th id="182">182</th><td>                                    <em>char</em> *<dfn class="local col8 decl" id="278buffer" title='buffer' data-type='char *' data-ref="278buffer">buffer</dfn>,</td></tr>
+<tr><th id="183">183</th><td>                                    <em>int</em> <dfn class="local col9 decl" id="279buflen" title='buflen' data-type='int' data-ref="279buflen">buflen</dfn>);</td></tr>
+<tr><th id="184">184</th><td></td></tr>
+<tr><th id="185">185</th><td><i>/* the kind of data that is passed to information_callback*/</i></td></tr>
+<tr><th id="186">186</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="187">187</th><td>  <dfn class="enum" id="CURLINFO_TEXT" title='CURLINFO_TEXT' data-ref="CURLINFO_TEXT">CURLINFO_TEXT</dfn> = <var>0</var>,</td></tr>
+<tr><th id="188">188</th><td>  <dfn class="enum" id="CURLINFO_HEADER_IN" title='CURLINFO_HEADER_IN' data-ref="CURLINFO_HEADER_IN">CURLINFO_HEADER_IN</dfn>,    <i>/* 1 */</i></td></tr>
+<tr><th id="189">189</th><td>  <dfn class="enum" id="CURLINFO_HEADER_OUT" title='CURLINFO_HEADER_OUT' data-ref="CURLINFO_HEADER_OUT">CURLINFO_HEADER_OUT</dfn>,   <i>/* 2 */</i></td></tr>
+<tr><th id="190">190</th><td>  <dfn class="enum" id="CURLINFO_DATA_IN" title='CURLINFO_DATA_IN' data-ref="CURLINFO_DATA_IN">CURLINFO_DATA_IN</dfn>,      <i>/* 3 */</i></td></tr>
+<tr><th id="191">191</th><td>  <dfn class="enum" id="CURLINFO_DATA_OUT" title='CURLINFO_DATA_OUT' data-ref="CURLINFO_DATA_OUT">CURLINFO_DATA_OUT</dfn>,     <i>/* 4 */</i></td></tr>
+<tr><th id="192">192</th><td>  <dfn class="enum" id="CURLINFO_END" title='CURLINFO_END' data-ref="CURLINFO_END">CURLINFO_END</dfn></td></tr>
+<tr><th id="193">193</th><td>} <dfn class="typedef" id="curl_infotype" title='curl_infotype' data-type='enum curl_infotype' data-ref="curl_infotype">curl_infotype</dfn>;</td></tr>
+<tr><th id="194">194</th><td></td></tr>
+<tr><th id="195">195</th><td><b>typedef</b> <em>int</em> (*<dfn class="typedef" id="curl_debug_callback" title='curl_debug_callback' data-type='int (*)(CURL *, curl_infotype, char *, size_t, void *)' data-ref="curl_debug_callback">curl_debug_callback</dfn>)</td></tr>
+<tr><th id="196">196</th><td>       (<a class="typedef" href="types.h.html#CURL" title='CURL' data-type='void' data-ref="CURL">CURL</a> *<dfn class="local col0 decl" id="280handle" title='handle' data-type='CURL *' data-ref="280handle">handle</dfn>,      <i>/* the handle/transfer this concerns */</i></td></tr>
+<tr><th id="197">197</th><td>        <a class="typedef" href="#curl_infotype" title='curl_infotype' data-type='enum curl_infotype' data-ref="curl_infotype">curl_infotype</a> <dfn class="local col1 decl" id="281type" title='type' data-type='curl_infotype' data-ref="281type">type</dfn>, <i>/* what kind of data */</i></td></tr>
+<tr><th id="198">198</th><td>        <em>char</em> *<dfn class="local col2 decl" id="282data" title='data' data-type='char *' data-ref="282data">data</dfn>,        <i>/* points to the data */</i></td></tr>
+<tr><th id="199">199</th><td>        <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col3 decl" id="283size" title='size' data-type='size_t' data-ref="283size">size</dfn>,       <i>/* size of the data pointed to */</i></td></tr>
+<tr><th id="200">200</th><td>        <em>void</em> *<dfn class="local col4 decl" id="284userptr" title='userptr' data-type='void *' data-ref="284userptr">userptr</dfn>);    <i>/* whatever the user please */</i></td></tr>
+<tr><th id="201">201</th><td>  </td></tr>
+<tr><th id="202">202</th><td><i>/* All possible error codes from all sorts of curl functions. Future versions</i></td></tr>
+<tr><th id="203">203</th><td><i>   may return other values, stay prepared.</i></td></tr>
+<tr><th id="204">204</th><td><i></i></td></tr>
+<tr><th id="205">205</th><td><i>   Always add new return codes last. Never *EVER* remove any. The return</i></td></tr>
+<tr><th id="206">206</th><td><i>   codes must remain the same!</i></td></tr>
+<tr><th id="207">207</th><td><i> */</i></td></tr>
+<tr><th id="208">208</th><td></td></tr>
+<tr><th id="209">209</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="210">210</th><td>  <dfn class="enum" id="CURLE_OK" title='CURLE_OK' data-ref="CURLE_OK">CURLE_OK</dfn> = <var>0</var>,</td></tr>
+<tr><th id="211">211</th><td>  <dfn class="enum" id="CURLE_UNSUPPORTED_PROTOCOL" title='CURLE_UNSUPPORTED_PROTOCOL' data-ref="CURLE_UNSUPPORTED_PROTOCOL">CURLE_UNSUPPORTED_PROTOCOL</dfn>,    <i>/* 1 */</i></td></tr>
+<tr><th id="212">212</th><td>  <dfn class="enum" id="CURLE_FAILED_INIT" title='CURLE_FAILED_INIT' data-ref="CURLE_FAILED_INIT">CURLE_FAILED_INIT</dfn>,             <i>/* 2 */</i></td></tr>
+<tr><th id="213">213</th><td>  <dfn class="enum" id="CURLE_URL_MALFORMAT" title='CURLE_URL_MALFORMAT' data-ref="CURLE_URL_MALFORMAT">CURLE_URL_MALFORMAT</dfn>,           <i>/* 3 */</i></td></tr>
+<tr><th id="214">214</th><td>  <dfn class="enum" id="CURLE_URL_MALFORMAT_USER" title='CURLE_URL_MALFORMAT_USER' data-ref="CURLE_URL_MALFORMAT_USER">CURLE_URL_MALFORMAT_USER</dfn>,      <i>/* 4 */</i></td></tr>
+<tr><th id="215">215</th><td>  <dfn class="enum" id="CURLE_COULDNT_RESOLVE_PROXY" title='CURLE_COULDNT_RESOLVE_PROXY' data-ref="CURLE_COULDNT_RESOLVE_PROXY">CURLE_COULDNT_RESOLVE_PROXY</dfn>,   <i>/* 5 */</i></td></tr>
+<tr><th id="216">216</th><td>  <dfn class="enum" id="CURLE_COULDNT_RESOLVE_HOST" title='CURLE_COULDNT_RESOLVE_HOST' data-ref="CURLE_COULDNT_RESOLVE_HOST">CURLE_COULDNT_RESOLVE_HOST</dfn>,    <i>/* 6 */</i></td></tr>
+<tr><th id="217">217</th><td>  <dfn class="enum" id="CURLE_COULDNT_CONNECT" title='CURLE_COULDNT_CONNECT' data-ref="CURLE_COULDNT_CONNECT">CURLE_COULDNT_CONNECT</dfn>,         <i>/* 7 */</i></td></tr>
+<tr><th id="218">218</th><td>  <dfn class="enum" id="CURLE_FTP_WEIRD_SERVER_REPLY" title='CURLE_FTP_WEIRD_SERVER_REPLY' data-ref="CURLE_FTP_WEIRD_SERVER_REPLY">CURLE_FTP_WEIRD_SERVER_REPLY</dfn>,  <i>/* 8 */</i></td></tr>
+<tr><th id="219">219</th><td>  <dfn class="enum" id="CURLE_FTP_ACCESS_DENIED" title='CURLE_FTP_ACCESS_DENIED' data-ref="CURLE_FTP_ACCESS_DENIED">CURLE_FTP_ACCESS_DENIED</dfn>,       <i>/* 9 */</i></td></tr>
+<tr><th id="220">220</th><td>  <dfn class="enum" id="CURLE_FTP_USER_PASSWORD_INCORRECT" title='CURLE_FTP_USER_PASSWORD_INCORRECT' data-ref="CURLE_FTP_USER_PASSWORD_INCORRECT">CURLE_FTP_USER_PASSWORD_INCORRECT</dfn>, <i>/* 10 */</i></td></tr>
+<tr><th id="221">221</th><td>  <dfn class="enum" id="CURLE_FTP_WEIRD_PASS_REPLY" title='CURLE_FTP_WEIRD_PASS_REPLY' data-ref="CURLE_FTP_WEIRD_PASS_REPLY">CURLE_FTP_WEIRD_PASS_REPLY</dfn>,    <i>/* 11 */</i></td></tr>
+<tr><th id="222">222</th><td>  <dfn class="enum" id="CURLE_FTP_WEIRD_USER_REPLY" title='CURLE_FTP_WEIRD_USER_REPLY' data-ref="CURLE_FTP_WEIRD_USER_REPLY">CURLE_FTP_WEIRD_USER_REPLY</dfn>,    <i>/* 12 */</i></td></tr>
+<tr><th id="223">223</th><td>  <dfn class="enum" id="CURLE_FTP_WEIRD_PASV_REPLY" title='CURLE_FTP_WEIRD_PASV_REPLY' data-ref="CURLE_FTP_WEIRD_PASV_REPLY">CURLE_FTP_WEIRD_PASV_REPLY</dfn>,    <i>/* 13 */</i></td></tr>
+<tr><th id="224">224</th><td>  <dfn class="enum" id="CURLE_FTP_WEIRD_227_FORMAT" title='CURLE_FTP_WEIRD_227_FORMAT' data-ref="CURLE_FTP_WEIRD_227_FORMAT">CURLE_FTP_WEIRD_227_FORMAT</dfn>,    <i>/* 14 */</i></td></tr>
+<tr><th id="225">225</th><td>  <dfn class="enum" id="CURLE_FTP_CANT_GET_HOST" title='CURLE_FTP_CANT_GET_HOST' data-ref="CURLE_FTP_CANT_GET_HOST">CURLE_FTP_CANT_GET_HOST</dfn>,       <i>/* 15 */</i></td></tr>
+<tr><th id="226">226</th><td>  <dfn class="enum" id="CURLE_FTP_CANT_RECONNECT" title='CURLE_FTP_CANT_RECONNECT' data-ref="CURLE_FTP_CANT_RECONNECT">CURLE_FTP_CANT_RECONNECT</dfn>,      <i>/* 16 */</i></td></tr>
+<tr><th id="227">227</th><td>  <dfn class="enum" id="CURLE_FTP_COULDNT_SET_BINARY" title='CURLE_FTP_COULDNT_SET_BINARY' data-ref="CURLE_FTP_COULDNT_SET_BINARY">CURLE_FTP_COULDNT_SET_BINARY</dfn>,  <i>/* 17 */</i></td></tr>
+<tr><th id="228">228</th><td>  <dfn class="enum" id="CURLE_PARTIAL_FILE" title='CURLE_PARTIAL_FILE' data-ref="CURLE_PARTIAL_FILE">CURLE_PARTIAL_FILE</dfn>,            <i>/* 18 */</i></td></tr>
+<tr><th id="229">229</th><td>  <dfn class="enum" id="CURLE_FTP_COULDNT_RETR_FILE" title='CURLE_FTP_COULDNT_RETR_FILE' data-ref="CURLE_FTP_COULDNT_RETR_FILE">CURLE_FTP_COULDNT_RETR_FILE</dfn>,   <i>/* 19 */</i></td></tr>
+<tr><th id="230">230</th><td>  <dfn class="enum" id="CURLE_FTP_WRITE_ERROR" title='CURLE_FTP_WRITE_ERROR' data-ref="CURLE_FTP_WRITE_ERROR">CURLE_FTP_WRITE_ERROR</dfn>,         <i>/* 20 */</i></td></tr>
+<tr><th id="231">231</th><td>  <dfn class="enum" id="CURLE_FTP_QUOTE_ERROR" title='CURLE_FTP_QUOTE_ERROR' data-ref="CURLE_FTP_QUOTE_ERROR">CURLE_FTP_QUOTE_ERROR</dfn>,         <i>/* 21 */</i></td></tr>
+<tr><th id="232">232</th><td>  <dfn class="enum" id="CURLE_HTTP_RETURNED_ERROR" title='CURLE_HTTP_RETURNED_ERROR' data-ref="CURLE_HTTP_RETURNED_ERROR">CURLE_HTTP_RETURNED_ERROR</dfn>,     <i>/* 22 */</i></td></tr>
+<tr><th id="233">233</th><td>  <dfn class="enum" id="CURLE_WRITE_ERROR" title='CURLE_WRITE_ERROR' data-ref="CURLE_WRITE_ERROR">CURLE_WRITE_ERROR</dfn>,             <i>/* 23 */</i></td></tr>
+<tr><th id="234">234</th><td>  <dfn class="enum" id="CURLE_MALFORMAT_USER" title='CURLE_MALFORMAT_USER' data-ref="CURLE_MALFORMAT_USER">CURLE_MALFORMAT_USER</dfn>,          <i>/* 24 - user name is illegally specified */</i></td></tr>
+<tr><th id="235">235</th><td>  <dfn class="enum" id="CURLE_FTP_COULDNT_STOR_FILE" title='CURLE_FTP_COULDNT_STOR_FILE' data-ref="CURLE_FTP_COULDNT_STOR_FILE">CURLE_FTP_COULDNT_STOR_FILE</dfn>,   <i>/* 25 - failed FTP upload */</i></td></tr>
+<tr><th id="236">236</th><td>  <dfn class="enum" id="CURLE_READ_ERROR" title='CURLE_READ_ERROR' data-ref="CURLE_READ_ERROR">CURLE_READ_ERROR</dfn>,              <i>/* 26 - could open/read from file */</i></td></tr>
+<tr><th id="237">237</th><td>  <dfn class="enum" id="CURLE_OUT_OF_MEMORY" title='CURLE_OUT_OF_MEMORY' data-ref="CURLE_OUT_OF_MEMORY">CURLE_OUT_OF_MEMORY</dfn>,           <i>/* 27 */</i></td></tr>
+<tr><th id="238">238</th><td>  <dfn class="enum" id="CURLE_OPERATION_TIMEOUTED" title='CURLE_OPERATION_TIMEOUTED' data-ref="CURLE_OPERATION_TIMEOUTED">CURLE_OPERATION_TIMEOUTED</dfn>,     <i>/* 28 - the timeout time was reached */</i></td></tr>
+<tr><th id="239">239</th><td>  <dfn class="enum" id="CURLE_FTP_COULDNT_SET_ASCII" title='CURLE_FTP_COULDNT_SET_ASCII' data-ref="CURLE_FTP_COULDNT_SET_ASCII">CURLE_FTP_COULDNT_SET_ASCII</dfn>,   <i>/* 29 - TYPE A failed */</i></td></tr>
+<tr><th id="240">240</th><td>  <dfn class="enum" id="CURLE_FTP_PORT_FAILED" title='CURLE_FTP_PORT_FAILED' data-ref="CURLE_FTP_PORT_FAILED">CURLE_FTP_PORT_FAILED</dfn>,         <i>/* 30 - FTP PORT operation failed */</i></td></tr>
+<tr><th id="241">241</th><td>  <dfn class="enum" id="CURLE_FTP_COULDNT_USE_REST" title='CURLE_FTP_COULDNT_USE_REST' data-ref="CURLE_FTP_COULDNT_USE_REST">CURLE_FTP_COULDNT_USE_REST</dfn>,    <i>/* 31 - the REST command failed */</i></td></tr>
+<tr><th id="242">242</th><td>  <dfn class="enum" id="CURLE_FTP_COULDNT_GET_SIZE" title='CURLE_FTP_COULDNT_GET_SIZE' data-ref="CURLE_FTP_COULDNT_GET_SIZE">CURLE_FTP_COULDNT_GET_SIZE</dfn>,    <i>/* 32 - the SIZE command failed */</i></td></tr>
+<tr><th id="243">243</th><td>  <dfn class="enum" id="CURLE_HTTP_RANGE_ERROR" title='CURLE_HTTP_RANGE_ERROR' data-ref="CURLE_HTTP_RANGE_ERROR">CURLE_HTTP_RANGE_ERROR</dfn>,        <i>/* 33 - RANGE "command" didn't work */</i></td></tr>
+<tr><th id="244">244</th><td>  <dfn class="enum" id="CURLE_HTTP_POST_ERROR" title='CURLE_HTTP_POST_ERROR' data-ref="CURLE_HTTP_POST_ERROR">CURLE_HTTP_POST_ERROR</dfn>,         <i>/* 34 */</i></td></tr>
+<tr><th id="245">245</th><td>  <dfn class="enum" id="CURLE_SSL_CONNECT_ERROR" title='CURLE_SSL_CONNECT_ERROR' data-ref="CURLE_SSL_CONNECT_ERROR">CURLE_SSL_CONNECT_ERROR</dfn>,       <i>/* 35 - wrong when connecting with SSL */</i></td></tr>
+<tr><th id="246">246</th><td>  <dfn class="enum" id="CURLE_BAD_DOWNLOAD_RESUME" title='CURLE_BAD_DOWNLOAD_RESUME' data-ref="CURLE_BAD_DOWNLOAD_RESUME">CURLE_BAD_DOWNLOAD_RESUME</dfn>,     <i>/* 36 - couldn't resume download */</i></td></tr>
+<tr><th id="247">247</th><td>  <dfn class="enum" id="CURLE_FILE_COULDNT_READ_FILE" title='CURLE_FILE_COULDNT_READ_FILE' data-ref="CURLE_FILE_COULDNT_READ_FILE">CURLE_FILE_COULDNT_READ_FILE</dfn>,  <i>/* 37 */</i></td></tr>
+<tr><th id="248">248</th><td>  <dfn class="enum" id="CURLE_LDAP_CANNOT_BIND" title='CURLE_LDAP_CANNOT_BIND' data-ref="CURLE_LDAP_CANNOT_BIND">CURLE_LDAP_CANNOT_BIND</dfn>,        <i>/* 38 */</i></td></tr>
+<tr><th id="249">249</th><td>  <dfn class="enum" id="CURLE_LDAP_SEARCH_FAILED" title='CURLE_LDAP_SEARCH_FAILED' data-ref="CURLE_LDAP_SEARCH_FAILED">CURLE_LDAP_SEARCH_FAILED</dfn>,      <i>/* 39 */</i></td></tr>
+<tr><th id="250">250</th><td>  <dfn class="enum" id="CURLE_LIBRARY_NOT_FOUND" title='CURLE_LIBRARY_NOT_FOUND' data-ref="CURLE_LIBRARY_NOT_FOUND">CURLE_LIBRARY_NOT_FOUND</dfn>,       <i>/* 40 */</i></td></tr>
+<tr><th id="251">251</th><td>  <dfn class="enum" id="CURLE_FUNCTION_NOT_FOUND" title='CURLE_FUNCTION_NOT_FOUND' data-ref="CURLE_FUNCTION_NOT_FOUND">CURLE_FUNCTION_NOT_FOUND</dfn>,      <i>/* 41 */</i></td></tr>
+<tr><th id="252">252</th><td>  <dfn class="enum" id="CURLE_ABORTED_BY_CALLBACK" title='CURLE_ABORTED_BY_CALLBACK' data-ref="CURLE_ABORTED_BY_CALLBACK">CURLE_ABORTED_BY_CALLBACK</dfn>,     <i>/* 42 */</i></td></tr>
+<tr><th id="253">253</th><td>  <dfn class="enum" id="CURLE_BAD_FUNCTION_ARGUMENT" title='CURLE_BAD_FUNCTION_ARGUMENT' data-ref="CURLE_BAD_FUNCTION_ARGUMENT">CURLE_BAD_FUNCTION_ARGUMENT</dfn>,   <i>/* 43 */</i></td></tr>
+<tr><th id="254">254</th><td>  <dfn class="enum" id="CURLE_BAD_CALLING_ORDER" title='CURLE_BAD_CALLING_ORDER' data-ref="CURLE_BAD_CALLING_ORDER">CURLE_BAD_CALLING_ORDER</dfn>,       <i>/* 44 */</i></td></tr>
+<tr><th id="255">255</th><td>  <dfn class="enum" id="CURLE_HTTP_PORT_FAILED" title='CURLE_HTTP_PORT_FAILED' data-ref="CURLE_HTTP_PORT_FAILED">CURLE_HTTP_PORT_FAILED</dfn>,        <i>/* 45 - HTTP Interface operation failed */</i></td></tr>
+<tr><th id="256">256</th><td>  <dfn class="enum" id="CURLE_BAD_PASSWORD_ENTERED" title='CURLE_BAD_PASSWORD_ENTERED' data-ref="CURLE_BAD_PASSWORD_ENTERED">CURLE_BAD_PASSWORD_ENTERED</dfn>,    <i>/* 46 - my_getpass() returns fail */</i></td></tr>
+<tr><th id="257">257</th><td>  <dfn class="enum" id="CURLE_TOO_MANY_REDIRECTS" title='CURLE_TOO_MANY_REDIRECTS' data-ref="CURLE_TOO_MANY_REDIRECTS">CURLE_TOO_MANY_REDIRECTS</dfn> ,     <i>/* 47 - catch endless re-direct loops */</i></td></tr>
+<tr><th id="258">258</th><td>  <dfn class="enum" id="CURLE_UNKNOWN_TELNET_OPTION" title='CURLE_UNKNOWN_TELNET_OPTION' data-ref="CURLE_UNKNOWN_TELNET_OPTION">CURLE_UNKNOWN_TELNET_OPTION</dfn>,   <i>/* 48 - User specified an unknown option */</i></td></tr>
+<tr><th id="259">259</th><td>  <dfn class="enum" id="CURLE_TELNET_OPTION_SYNTAX" title='CURLE_TELNET_OPTION_SYNTAX' data-ref="CURLE_TELNET_OPTION_SYNTAX">CURLE_TELNET_OPTION_SYNTAX</dfn> ,   <i>/* 49 - Malformed telnet option */</i></td></tr>
+<tr><th id="260">260</th><td>  <dfn class="enum" id="CURLE_OBSOLETE" title='CURLE_OBSOLETE' data-ref="CURLE_OBSOLETE">CURLE_OBSOLETE</dfn>,	         <i>/* 50 - removed after 7.7.3 */</i></td></tr>
+<tr><th id="261">261</th><td>  <dfn class="enum" id="CURLE_SSL_PEER_CERTIFICATE" title='CURLE_SSL_PEER_CERTIFICATE' data-ref="CURLE_SSL_PEER_CERTIFICATE">CURLE_SSL_PEER_CERTIFICATE</dfn>,    <i>/* 51 - peer's certificate wasn't ok */</i></td></tr>
+<tr><th id="262">262</th><td>  <dfn class="enum" id="CURLE_GOT_NOTHING" title='CURLE_GOT_NOTHING' data-ref="CURLE_GOT_NOTHING">CURLE_GOT_NOTHING</dfn>,             <i>/* 52 - when this is a specific error */</i></td></tr>
+<tr><th id="263">263</th><td>  <dfn class="enum" id="CURLE_SSL_ENGINE_NOTFOUND" title='CURLE_SSL_ENGINE_NOTFOUND' data-ref="CURLE_SSL_ENGINE_NOTFOUND">CURLE_SSL_ENGINE_NOTFOUND</dfn>,     <i>/* 53 - SSL crypto engine not found */</i></td></tr>
+<tr><th id="264">264</th><td>  <dfn class="enum" id="CURLE_SSL_ENGINE_SETFAILED" title='CURLE_SSL_ENGINE_SETFAILED' data-ref="CURLE_SSL_ENGINE_SETFAILED">CURLE_SSL_ENGINE_SETFAILED</dfn>,    <i>/* 54 - can not set SSL crypto engine as</i></td></tr>
+<tr><th id="265">265</th><td><i>                                    default */</i></td></tr>
+<tr><th id="266">266</th><td>  <dfn class="enum" id="CURLE_SEND_ERROR" title='CURLE_SEND_ERROR' data-ref="CURLE_SEND_ERROR">CURLE_SEND_ERROR</dfn>,              <i>/* 55 - failed sending network data */</i></td></tr>
+<tr><th id="267">267</th><td>  <dfn class="enum" id="CURLE_RECV_ERROR" title='CURLE_RECV_ERROR' data-ref="CURLE_RECV_ERROR">CURLE_RECV_ERROR</dfn>,              <i>/* 56 - failure in receiving network data */</i></td></tr>
+<tr><th id="268">268</th><td>  <dfn class="enum" id="CURLE_SHARE_IN_USE" title='CURLE_SHARE_IN_USE' data-ref="CURLE_SHARE_IN_USE">CURLE_SHARE_IN_USE</dfn>,            <i>/* 57 - share is in use */</i></td></tr>
+<tr><th id="269">269</th><td>  <dfn class="enum" id="CURLE_SSL_CERTPROBLEM" title='CURLE_SSL_CERTPROBLEM' data-ref="CURLE_SSL_CERTPROBLEM">CURLE_SSL_CERTPROBLEM</dfn>,         <i>/* 58 - problem with the local certificate */</i></td></tr>
+<tr><th id="270">270</th><td>  <dfn class="enum" id="CURLE_SSL_CIPHER" title='CURLE_SSL_CIPHER' data-ref="CURLE_SSL_CIPHER">CURLE_SSL_CIPHER</dfn>,              <i>/* 59 - couldn't use specified cipher */</i></td></tr>
+<tr><th id="271">271</th><td>  <dfn class="enum" id="CURLE_SSL_CACERT" title='CURLE_SSL_CACERT' data-ref="CURLE_SSL_CACERT">CURLE_SSL_CACERT</dfn>,              <i>/* 60 - problem with the CA cert (path?) */</i></td></tr>
+<tr><th id="272">272</th><td>  <dfn class="enum" id="CURLE_BAD_CONTENT_ENCODING" title='CURLE_BAD_CONTENT_ENCODING' data-ref="CURLE_BAD_CONTENT_ENCODING">CURLE_BAD_CONTENT_ENCODING</dfn>,    <i>/* 61 - Unrecognized transfer encoding */</i></td></tr>
+<tr><th id="273">273</th><td>  <dfn class="enum" id="CURLE_LDAP_INVALID_URL" title='CURLE_LDAP_INVALID_URL' data-ref="CURLE_LDAP_INVALID_URL">CURLE_LDAP_INVALID_URL</dfn>,        <i>/* 62 - Invalid LDAP URL */</i></td></tr>
+<tr><th id="274">274</th><td>  <dfn class="enum" id="CURLE_FILESIZE_EXCEEDED" title='CURLE_FILESIZE_EXCEEDED' data-ref="CURLE_FILESIZE_EXCEEDED">CURLE_FILESIZE_EXCEEDED</dfn>,       <i>/* 63 - Maximum file size exceeded */</i></td></tr>
+<tr><th id="275">275</th><td>  <dfn class="enum" id="CURLE_FTP_SSL_FAILED" title='CURLE_FTP_SSL_FAILED' data-ref="CURLE_FTP_SSL_FAILED">CURLE_FTP_SSL_FAILED</dfn>,          <i>/* 64 - Requested FTP SSL level failed */</i> </td></tr>
+<tr><th id="276">276</th><td></td></tr>
+<tr><th id="277">277</th><td>  <dfn class="enum" id="CURL_LAST" title='CURL_LAST' data-ref="CURL_LAST">CURL_LAST</dfn> <i>/* never use! */</i></td></tr>
+<tr><th id="278">278</th><td>} <dfn class="typedef" id="CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</dfn>;</td></tr>
+<tr><th id="279">279</th><td></td></tr>
+<tr><th id="280">280</th><td><b>typedef</b> <a class="typedef" href="#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> (*<dfn class="typedef" id="curl_ssl_ctx_callback" title='curl_ssl_ctx_callback' data-type='CURLcode (*)(CURL *, void *, void *)' data-ref="curl_ssl_ctx_callback">curl_ssl_ctx_callback</dfn>)(<a class="typedef" href="types.h.html#CURL" title='CURL' data-type='void' data-ref="CURL">CURL</a> *<dfn class="local col5 decl" id="285curl" title='curl' data-type='CURL *' data-ref="285curl">curl</dfn>,    <i>/* easy handle */</i></td></tr>
+<tr><th id="281">281</th><td>                                          <em>void</em> *<dfn class="local col6 decl" id="286ssl_ctx" title='ssl_ctx' data-type='void *' data-ref="286ssl_ctx">ssl_ctx</dfn>, <i>/* actually an</i></td></tr>
+<tr><th id="282">282</th><td><i>                                                            OpenSSL SSL_CTX */</i></td></tr>
+<tr><th id="283">283</th><td>                                          <em>void</em> *<dfn class="local col7 decl" id="287userptr" title='userptr' data-type='void *' data-ref="287userptr">userptr</dfn>);</td></tr>
+<tr><th id="284">284</th><td></td></tr>
+<tr><th id="285">285</th><td><i>/* Make a spelling correction for the operation timed-out define */</i></td></tr>
+<tr><th id="286">286</th><td><u>#define <dfn class="macro" id="_M/CURLE_OPERATION_TIMEDOUT" data-ref="_M/CURLE_OPERATION_TIMEDOUT">CURLE_OPERATION_TIMEDOUT</dfn> CURLE_OPERATION_TIMEOUTED</u></td></tr>
+<tr><th id="287">287</th><td><u>#define <dfn class="macro" id="_M/CURLE_HTTP_NOT_FOUND" data-ref="_M/CURLE_HTTP_NOT_FOUND">CURLE_HTTP_NOT_FOUND</dfn> CURLE_HTTP_RETURNED_ERROR</u></td></tr>
+<tr><th id="288">288</th><td></td></tr>
+<tr><th id="289">289</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="290">290</th><td>  <dfn class="enum" id="CURLPROXY_HTTP" title='CURLPROXY_HTTP' data-ref="CURLPROXY_HTTP">CURLPROXY_HTTP</dfn> = <var>0</var>,</td></tr>
+<tr><th id="291">291</th><td>  <dfn class="enum" id="CURLPROXY_SOCKS4" title='CURLPROXY_SOCKS4' data-ref="CURLPROXY_SOCKS4">CURLPROXY_SOCKS4</dfn> = <var>4</var>,</td></tr>
+<tr><th id="292">292</th><td>  <dfn class="enum" id="CURLPROXY_SOCKS5" title='CURLPROXY_SOCKS5' data-ref="CURLPROXY_SOCKS5">CURLPROXY_SOCKS5</dfn> = <var>5</var></td></tr>
+<tr><th id="293">293</th><td>} <dfn class="typedef" id="curl_proxytype" title='curl_proxytype' data-type='enum curl_proxytype' data-ref="curl_proxytype">curl_proxytype</dfn>;</td></tr>
+<tr><th id="294">294</th><td></td></tr>
+<tr><th id="295">295</th><td><u>#define <dfn class="macro" id="_M/CURLAUTH_NONE" data-ref="_M/CURLAUTH_NONE">CURLAUTH_NONE</dfn>         0       /* nothing */</u></td></tr>
+<tr><th id="296">296</th><td><u>#define <dfn class="macro" id="_M/CURLAUTH_BASIC" data-ref="_M/CURLAUTH_BASIC">CURLAUTH_BASIC</dfn>        (1&lt;&lt;0)  /* Basic (default) */</u></td></tr>
+<tr><th id="297">297</th><td><u>#define <dfn class="macro" id="_M/CURLAUTH_DIGEST" data-ref="_M/CURLAUTH_DIGEST">CURLAUTH_DIGEST</dfn>       (1&lt;&lt;1)  /* Digest */</u></td></tr>
+<tr><th id="298">298</th><td><u>#define <dfn class="macro" id="_M/CURLAUTH_GSSNEGOTIATE" data-ref="_M/CURLAUTH_GSSNEGOTIATE">CURLAUTH_GSSNEGOTIATE</dfn> (1&lt;&lt;2)  /* GSS-Negotiate */</u></td></tr>
+<tr><th id="299">299</th><td><u>#define <dfn class="macro" id="_M/CURLAUTH_NTLM" data-ref="_M/CURLAUTH_NTLM">CURLAUTH_NTLM</dfn>         (1&lt;&lt;3)  /* NTLM */</u></td></tr>
+<tr><th id="300">300</th><td><u>#define <dfn class="macro" id="_M/CURLAUTH_ANY" data-ref="_M/CURLAUTH_ANY">CURLAUTH_ANY</dfn> ~0               /* all types set */</u></td></tr>
+<tr><th id="301">301</th><td><u>#define <dfn class="macro" id="_M/CURLAUTH_ANYSAFE" data-ref="_M/CURLAUTH_ANYSAFE">CURLAUTH_ANYSAFE</dfn> (~CURLAUTH_BASIC)</u></td></tr>
+<tr><th id="302">302</th><td></td></tr>
+<tr><th id="303">303</th><td><i>/* this was the error code 50 in 7.7.3 and a few earlier versions, this</i></td></tr>
+<tr><th id="304">304</th><td><i>   is no longer used by libcurl but is instead #defined here only to not</i></td></tr>
+<tr><th id="305">305</th><td><i>   make programs break */</i></td></tr>
+<tr><th id="306">306</th><td><u>#define <dfn class="macro" id="_M/CURLE_ALREADY_COMPLETE" data-ref="_M/CURLE_ALREADY_COMPLETE">CURLE_ALREADY_COMPLETE</dfn> 99999</u></td></tr>
+<tr><th id="307">307</th><td></td></tr>
+<tr><th id="308">308</th><td><i>/* This is just to make older programs not break: */</i></td></tr>
+<tr><th id="309">309</th><td><u>#define <dfn class="macro" id="_M/CURLE_FTP_PARTIAL_FILE" data-ref="_M/CURLE_FTP_PARTIAL_FILE">CURLE_FTP_PARTIAL_FILE</dfn> CURLE_PARTIAL_FILE</u></td></tr>
+<tr><th id="310">310</th><td><u>#define <dfn class="macro" id="_M/CURLE_FTP_BAD_DOWNLOAD_RESUME" data-ref="_M/CURLE_FTP_BAD_DOWNLOAD_RESUME">CURLE_FTP_BAD_DOWNLOAD_RESUME</dfn> CURLE_BAD_DOWNLOAD_RESUME</u></td></tr>
+<tr><th id="311">311</th><td></td></tr>
+<tr><th id="312">312</th><td><u>#define <dfn class="macro" id="_M/CURL_ERROR_SIZE" data-ref="_M/CURL_ERROR_SIZE">CURL_ERROR_SIZE</dfn> 256</u></td></tr>
+<tr><th id="313">313</th><td></td></tr>
+<tr><th id="314">314</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="315">315</th><td>  <dfn class="enum" id="CURLFTPSSL_NONE" title='CURLFTPSSL_NONE' data-ref="CURLFTPSSL_NONE">CURLFTPSSL_NONE</dfn>,    <i>/* do not attempt to use SSL */</i></td></tr>
+<tr><th id="316">316</th><td>  <dfn class="enum" id="CURLFTPSSL_TRY" title='CURLFTPSSL_TRY' data-ref="CURLFTPSSL_TRY">CURLFTPSSL_TRY</dfn>,     <i>/* try using SSL, proceed anyway otherwise */</i></td></tr>
+<tr><th id="317">317</th><td>  <dfn class="enum" id="CURLFTPSSL_CONTROL" title='CURLFTPSSL_CONTROL' data-ref="CURLFTPSSL_CONTROL">CURLFTPSSL_CONTROL</dfn>, <i>/* SSL for the control connection or fail */</i></td></tr>
+<tr><th id="318">318</th><td>  <dfn class="enum" id="CURLFTPSSL_ALL" title='CURLFTPSSL_ALL' data-ref="CURLFTPSSL_ALL">CURLFTPSSL_ALL</dfn>,     <i>/* SSL for all communication or fail */</i></td></tr>
+<tr><th id="319">319</th><td>  <dfn class="enum" id="CURLFTPSSL_LAST" title='CURLFTPSSL_LAST' data-ref="CURLFTPSSL_LAST">CURLFTPSSL_LAST</dfn>     <i>/* not an option, never use */</i></td></tr>
+<tr><th id="320">320</th><td>} <dfn class="typedef" id="curl_ftpssl" title='curl_ftpssl' data-type='enum curl_ftpssl' data-ref="curl_ftpssl">curl_ftpssl</dfn>;</td></tr>
+<tr><th id="321">321</th><td></td></tr>
+<tr><th id="322">322</th><td><i>/* long may be 32 or 64 bits, but we should never depend on anything else</i></td></tr>
+<tr><th id="323">323</th><td><i>   but 32 */</i></td></tr>
+<tr><th id="324">324</th><td><u>#define <dfn class="macro" id="_M/CURLOPTTYPE_LONG" data-ref="_M/CURLOPTTYPE_LONG">CURLOPTTYPE_LONG</dfn>          0</u></td></tr>
+<tr><th id="325">325</th><td><u>#define <dfn class="macro" id="_M/CURLOPTTYPE_OBJECTPOINT" data-ref="_M/CURLOPTTYPE_OBJECTPOINT">CURLOPTTYPE_OBJECTPOINT</dfn>   10000</u></td></tr>
+<tr><th id="326">326</th><td><u>#define <dfn class="macro" id="_M/CURLOPTTYPE_FUNCTIONPOINT" data-ref="_M/CURLOPTTYPE_FUNCTIONPOINT">CURLOPTTYPE_FUNCTIONPOINT</dfn> 20000</u></td></tr>
+<tr><th id="327">327</th><td><u>#define <dfn class="macro" id="_M/CURLOPTTYPE_OFF_T" data-ref="_M/CURLOPTTYPE_OFF_T">CURLOPTTYPE_OFF_T</dfn>         30000</u></td></tr>
+<tr><th id="328">328</th><td></td></tr>
+<tr><th id="329">329</th><td><i>/* name is uppercase CURLOPT_&lt;name&gt;,</i></td></tr>
+<tr><th id="330">330</th><td><i>   type is one of the defined CURLOPTTYPE_&lt;type&gt;</i></td></tr>
+<tr><th id="331">331</th><td><i>   number is unique identifier */</i></td></tr>
+<tr><th id="332">332</th><td><u>#<span data-ppcond="332">ifdef</span> <span class="macro" data-ref="_M/CINIT">CINIT</span></u></td></tr>
+<tr><th id="333">333</th><td><u>#undef CINIT</u></td></tr>
+<tr><th id="334">334</th><td><u>#<span data-ppcond="332">endif</span></u></td></tr>
+<tr><th id="335">335</th><td><i>/*</i></td></tr>
+<tr><th id="336">336</th><td><i> * Figure out if we can use the ## operator, which is supported by ISO/ANSI C</i></td></tr>
+<tr><th id="337">337</th><td><i> * and C++. Some compilers support it without setting __STDC__ or __cplusplus</i></td></tr>
+<tr><th id="338">338</th><td><i> * so we need to carefully check for them too. We don't use configure-checks</i></td></tr>
+<tr><th id="339">339</th><td><i> * for these since we want these headers to remain generic and working for all</i></td></tr>
+<tr><th id="340">340</th><td><i> * platforms.</i></td></tr>
+<tr><th id="341">341</th><td><i> */</i></td></tr>
+<tr><th id="342">342</th><td><u>#<span data-ppcond="342">if</span> defined(<span class="macro" data-ref="_M/__STDC__">__STDC__</span>) || defined(<span class="macro" data-ref="_M/_MSC_VER">_MSC_VER</span>) || defined(<span class="macro" data-ref="_M/__cplusplus">__cplusplus</span>) || \</u></td></tr>
+<tr><th id="343">343</th><td><u>  defined(<span class="macro" data-ref="_M/__HP_aCC">__HP_aCC</span>) || defined(<span class="macro" data-ref="_M/__BORLANDC__">__BORLANDC__</span>)</u></td></tr>
+<tr><th id="344">344</th><td>  <i>/* This compiler is believed to have an ISO compatible preprocessor */</i></td></tr>
+<tr><th id="345">345</th><td><u>#define <dfn class="macro" id="_M/CURL_ISOCPP" data-ref="_M/CURL_ISOCPP">CURL_ISOCPP</dfn></u></td></tr>
+<tr><th id="346">346</th><td><u>#<span data-ppcond="342">else</span></u></td></tr>
+<tr><th id="347">347</th><td>  <i>/* This compiler is believed NOT to have an ISO compatible preprocessor */</i></td></tr>
+<tr><th id="348">348</th><td><u>#undef CURL_ISOCPP</u></td></tr>
+<tr><th id="349">349</th><td><u>#<span data-ppcond="342">endif</span></u></td></tr>
+<tr><th id="350">350</th><td></td></tr>
+<tr><th id="351">351</th><td><u>#<span data-ppcond="351">ifdef</span> <a class="macro" href="#345" data-ref="_M/CURL_ISOCPP">CURL_ISOCPP</a></u></td></tr>
+<tr><th id="352">352</th><td><u>#define <dfn class="macro" id="_M/CINIT" data-ref="_M/CINIT">CINIT</dfn>(name,type,number) CURLOPT_ ## name = CURLOPTTYPE_ ## type + number</u></td></tr>
+<tr><th id="353">353</th><td><u>#<span data-ppcond="351">else</span></u></td></tr>
+<tr><th id="354">354</th><td><i>/* The macro "##" is ISO C, we assume pre-ISO C doesn't support it. */</i></td></tr>
+<tr><th id="355">355</th><td><u>#define LONG          CURLOPTTYPE_LONG</u></td></tr>
+<tr><th id="356">356</th><td><u>#define OBJECTPOINT   CURLOPTTYPE_OBJECTPOINT</u></td></tr>
+<tr><th id="357">357</th><td><u>#define FUNCTIONPOINT CURLOPTTYPE_FUNCTIONPOINT</u></td></tr>
+<tr><th id="358">358</th><td><u>#define OFF_T         CURLOPTTYPE_OFF_T</u></td></tr>
+<tr><th id="359">359</th><td><u>#define CINIT(name,type,number) CURLOPT_/**/name = type + number</u></td></tr>
+<tr><th id="360">360</th><td><u>#<span data-ppcond="351">endif</span></u></td></tr>
+<tr><th id="361">361</th><td></td></tr>
+<tr><th id="362">362</th><td><i>/*</i></td></tr>
+<tr><th id="363">363</th><td><i> * This macro-mania below setups the CURLOPT_[what] enum, to be used with</i></td></tr>
+<tr><th id="364">364</th><td><i> * curl_easy_setopt(). The first argument in the CINIT() macro is the [what]</i></td></tr>
+<tr><th id="365">365</th><td><i> * word.</i></td></tr>
+<tr><th id="366">366</th><td><i> */</i></td></tr>
+<tr><th id="367">367</th><td></td></tr>
+<tr><th id="368">368</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="369">369</th><td>  <i>/* This is the FILE * or void * the regular output should be written to. */</i></td></tr>
+<tr><th id="370">370</th><td>  <a class="macro" href="#352" title="CURLOPT_FILE = 10000 + 1" data-ref="_M/CINIT">CINIT</a>(FILE, OBJECTPOINT, <var>1</var>),</td></tr>
+<tr><th id="371">371</th><td></td></tr>
+<tr><th id="372">372</th><td>  <i>/* The full URL to get/put */</i></td></tr>
+<tr><th id="373">373</th><td>  <a class="macro" href="#352" title="CURLOPT_URL = 10000 + 2" data-ref="_M/CINIT">CINIT</a>(URL,  OBJECTPOINT, <var>2</var>),</td></tr>
+<tr><th id="374">374</th><td></td></tr>
+<tr><th id="375">375</th><td>  <i>/* Port number to connect to, if other than default. */</i></td></tr>
+<tr><th id="376">376</th><td>  <a class="macro" href="#352" title="CURLOPT_PORT = 0 + 3" data-ref="_M/CINIT">CINIT</a>(PORT, LONG, <var>3</var>),</td></tr>
+<tr><th id="377">377</th><td></td></tr>
+<tr><th id="378">378</th><td>  <i>/* Name of proxy to use. */</i></td></tr>
+<tr><th id="379">379</th><td>  <a class="macro" href="#352" title="CURLOPT_PROXY = 10000 + 4" data-ref="_M/CINIT">CINIT</a>(PROXY, OBJECTPOINT, <var>4</var>),</td></tr>
+<tr><th id="380">380</th><td>  </td></tr>
+<tr><th id="381">381</th><td>  <i>/* "name:password" to use when fetching. */</i></td></tr>
+<tr><th id="382">382</th><td>  <a class="macro" href="#352" title="CURLOPT_USERPWD = 10000 + 5" data-ref="_M/CINIT">CINIT</a>(USERPWD, OBJECTPOINT, <var>5</var>),</td></tr>
+<tr><th id="383">383</th><td></td></tr>
+<tr><th id="384">384</th><td>  <i>/* "name:password" to use with proxy. */</i></td></tr>
+<tr><th id="385">385</th><td>  <a class="macro" href="#352" title="CURLOPT_PROXYUSERPWD = 10000 + 6" data-ref="_M/CINIT">CINIT</a>(PROXYUSERPWD, OBJECTPOINT, <var>6</var>),</td></tr>
+<tr><th id="386">386</th><td></td></tr>
+<tr><th id="387">387</th><td>  <i>/* Range to get, specified as an ASCII string. */</i></td></tr>
+<tr><th id="388">388</th><td>  <a class="macro" href="#352" title="CURLOPT_RANGE = 10000 + 7" data-ref="_M/CINIT">CINIT</a>(RANGE, OBJECTPOINT, <var>7</var>),</td></tr>
+<tr><th id="389">389</th><td></td></tr>
+<tr><th id="390">390</th><td>  <i>/* not used */</i></td></tr>
+<tr><th id="391">391</th><td></td></tr>
+<tr><th id="392">392</th><td>  <i>/* Specified file stream to upload from (use as input): */</i></td></tr>
+<tr><th id="393">393</th><td>  <a class="macro" href="#352" title="CURLOPT_INFILE = 10000 + 9" data-ref="_M/CINIT">CINIT</a>(INFILE, OBJECTPOINT, <var>9</var>),</td></tr>
+<tr><th id="394">394</th><td></td></tr>
+<tr><th id="395">395</th><td>  <i>/* Buffer to receive error messages in, must be at least CURL_ERROR_SIZE</i></td></tr>
+<tr><th id="396">396</th><td><i>   * bytes big. If this is not used, error messages go to stderr instead: */</i></td></tr>
+<tr><th id="397">397</th><td>  <a class="macro" href="#352" title="CURLOPT_ERRORBUFFER = 10000 + 10" data-ref="_M/CINIT">CINIT</a>(ERRORBUFFER, OBJECTPOINT, <var>10</var>),</td></tr>
+<tr><th id="398">398</th><td></td></tr>
+<tr><th id="399">399</th><td>  <i>/* Function that will be called to store the output (instead of fwrite). The</i></td></tr>
+<tr><th id="400">400</th><td><i>   * parameters will use fwrite() syntax, make sure to follow them. */</i></td></tr>
+<tr><th id="401">401</th><td>  <a class="macro" href="#352" title="CURLOPT_WRITEFUNCTION = 20000 + 11" data-ref="_M/CINIT">CINIT</a>(WRITEFUNCTION, FUNCTIONPOINT, <var>11</var>),</td></tr>
+<tr><th id="402">402</th><td></td></tr>
+<tr><th id="403">403</th><td>  <i>/* Function that will be called to read the input (instead of fread). The</i></td></tr>
+<tr><th id="404">404</th><td><i>   * parameters will use fread() syntax, make sure to follow them. */</i></td></tr>
+<tr><th id="405">405</th><td>  <a class="macro" href="#352" title="CURLOPT_READFUNCTION = 20000 + 12" data-ref="_M/CINIT">CINIT</a>(READFUNCTION, FUNCTIONPOINT, <var>12</var>),</td></tr>
+<tr><th id="406">406</th><td></td></tr>
+<tr><th id="407">407</th><td>  <i>/* Time-out the read operation after this amount of seconds */</i></td></tr>
+<tr><th id="408">408</th><td>  <a class="macro" href="#352" title="CURLOPT_TIMEOUT = 0 + 13" data-ref="_M/CINIT">CINIT</a>(TIMEOUT, LONG, <var>13</var>),</td></tr>
+<tr><th id="409">409</th><td></td></tr>
+<tr><th id="410">410</th><td>  <i>/* If the CURLOPT_INFILE is used, this can be used to inform libcurl about</i></td></tr>
+<tr><th id="411">411</th><td><i>   * how large the file being sent really is. That allows better error</i></td></tr>
+<tr><th id="412">412</th><td><i>   * checking and better verifies that the upload was succcessful. -1 means</i></td></tr>
+<tr><th id="413">413</th><td><i>   * unknown size.</i></td></tr>
+<tr><th id="414">414</th><td><i>   *</i></td></tr>
+<tr><th id="415">415</th><td><i>   * For large file support, there is also a _LARGE version of the key</i></td></tr>
+<tr><th id="416">416</th><td><i>   * which takes an off_t type, allowing platforms with larger off_t</i></td></tr>
+<tr><th id="417">417</th><td><i>   * sizes to handle larger files.  See below for INFILESIZE_LARGE.</i></td></tr>
+<tr><th id="418">418</th><td><i>   */</i></td></tr>
+<tr><th id="419">419</th><td>  <a class="macro" href="#352" title="CURLOPT_INFILESIZE = 0 + 14" data-ref="_M/CINIT">CINIT</a>(INFILESIZE, LONG, <var>14</var>),</td></tr>
+<tr><th id="420">420</th><td></td></tr>
+<tr><th id="421">421</th><td>  <i>/* POST input fields. */</i></td></tr>
+<tr><th id="422">422</th><td>  <a class="macro" href="#352" title="CURLOPT_POSTFIELDS = 10000 + 15" data-ref="_M/CINIT">CINIT</a>(POSTFIELDS, OBJECTPOINT, <var>15</var>),</td></tr>
+<tr><th id="423">423</th><td></td></tr>
+<tr><th id="424">424</th><td>  <i>/* Set the referer page (needed by some CGIs) */</i></td></tr>
+<tr><th id="425">425</th><td>  <a class="macro" href="#352" title="CURLOPT_REFERER = 10000 + 16" data-ref="_M/CINIT">CINIT</a>(REFERER, OBJECTPOINT, <var>16</var>),</td></tr>
+<tr><th id="426">426</th><td></td></tr>
+<tr><th id="427">427</th><td>  <i>/* Set the FTP PORT string (interface name, named or numerical IP address)</i></td></tr>
+<tr><th id="428">428</th><td><i>     Use i.e '-' to use default address. */</i></td></tr>
+<tr><th id="429">429</th><td>  <a class="macro" href="#352" title="CURLOPT_FTPPORT = 10000 + 17" data-ref="_M/CINIT">CINIT</a>(FTPPORT, OBJECTPOINT, <var>17</var>),</td></tr>
+<tr><th id="430">430</th><td></td></tr>
+<tr><th id="431">431</th><td>  <i>/* Set the User-Agent string (examined by some CGIs) */</i></td></tr>
+<tr><th id="432">432</th><td>  <a class="macro" href="#352" title="CURLOPT_USERAGENT = 10000 + 18" data-ref="_M/CINIT">CINIT</a>(USERAGENT, OBJECTPOINT, <var>18</var>),</td></tr>
+<tr><th id="433">433</th><td></td></tr>
+<tr><th id="434">434</th><td>  <i>/* If the download receives less than "low speed limit" bytes/second</i></td></tr>
+<tr><th id="435">435</th><td><i>   * during "low speed time" seconds, the operations is aborted.</i></td></tr>
+<tr><th id="436">436</th><td><i>   * You could i.e if you have a pretty high speed connection, abort if</i></td></tr>
+<tr><th id="437">437</th><td><i>   * it is less than 2000 bytes/sec during 20 seconds.   </i></td></tr>
+<tr><th id="438">438</th><td><i>   */</i></td></tr>
+<tr><th id="439">439</th><td></td></tr>
+<tr><th id="440">440</th><td>  <i>/* Set the "low speed limit" */</i></td></tr>
+<tr><th id="441">441</th><td>  <a class="macro" href="#352" title="CURLOPT_LOW_SPEED_LIMIT = 0 + 19" data-ref="_M/CINIT">CINIT</a>(LOW_SPEED_LIMIT, LONG , <var>19</var>),</td></tr>
+<tr><th id="442">442</th><td></td></tr>
+<tr><th id="443">443</th><td>  <i>/* Set the "low speed time" */</i></td></tr>
+<tr><th id="444">444</th><td>  <a class="macro" href="#352" title="CURLOPT_LOW_SPEED_TIME = 0 + 20" data-ref="_M/CINIT">CINIT</a>(LOW_SPEED_TIME, LONG, <var>20</var>),</td></tr>
+<tr><th id="445">445</th><td></td></tr>
+<tr><th id="446">446</th><td>  <i>/* Set the continuation offset.</i></td></tr>
+<tr><th id="447">447</th><td><i>   *</i></td></tr>
+<tr><th id="448">448</th><td><i>   * Note there is also a _LARGE version of this key which uses</i></td></tr>
+<tr><th id="449">449</th><td><i>   * off_t types, allowing for large file offsets on platforms which</i></td></tr>
+<tr><th id="450">450</th><td><i>   * use larger-than-32-bit off_t's.  Look below for RESUME_FROM_LARGE.</i></td></tr>
+<tr><th id="451">451</th><td><i>   */</i></td></tr>
+<tr><th id="452">452</th><td>  <a class="macro" href="#352" title="CURLOPT_RESUME_FROM = 0 + 21" data-ref="_M/CINIT">CINIT</a>(RESUME_FROM, LONG, <var>21</var>),</td></tr>
+<tr><th id="453">453</th><td></td></tr>
+<tr><th id="454">454</th><td>  <i>/* Set cookie in request: */</i></td></tr>
+<tr><th id="455">455</th><td>  <a class="macro" href="#352" title="CURLOPT_COOKIE = 10000 + 22" data-ref="_M/CINIT">CINIT</a>(COOKIE, OBJECTPOINT, <var>22</var>),</td></tr>
+<tr><th id="456">456</th><td></td></tr>
+<tr><th id="457">457</th><td>  <i>/* This points to a linked list of headers, struct curl_slist kind */</i></td></tr>
+<tr><th id="458">458</th><td>  <a class="macro" href="#352" title="CURLOPT_HTTPHEADER = 10000 + 23" data-ref="_M/CINIT">CINIT</a>(HTTPHEADER, OBJECTPOINT, <var>23</var>),</td></tr>
+<tr><th id="459">459</th><td></td></tr>
+<tr><th id="460">460</th><td>  <i>/* This points to a linked list of post entries, struct HttpPost */</i></td></tr>
+<tr><th id="461">461</th><td>  <a class="macro" href="#352" title="CURLOPT_HTTPPOST = 10000 + 24" data-ref="_M/CINIT">CINIT</a>(HTTPPOST, OBJECTPOINT, <var>24</var>),</td></tr>
+<tr><th id="462">462</th><td></td></tr>
+<tr><th id="463">463</th><td>  <i>/* name of the file keeping your private SSL-certificate */</i></td></tr>
+<tr><th id="464">464</th><td>  <a class="macro" href="#352" title="CURLOPT_SSLCERT = 10000 + 25" data-ref="_M/CINIT">CINIT</a>(SSLCERT, OBJECTPOINT, <var>25</var>),</td></tr>
+<tr><th id="465">465</th><td></td></tr>
+<tr><th id="466">466</th><td>  <i>/* password for the SSL-private key, keep this for compatibility */</i></td></tr>
+<tr><th id="467">467</th><td>  <a class="macro" href="#352" title="CURLOPT_SSLCERTPASSWD = 10000 + 26" data-ref="_M/CINIT">CINIT</a>(SSLCERTPASSWD, OBJECTPOINT, <var>26</var>),</td></tr>
+<tr><th id="468">468</th><td>  <i>/* password for the SSL private key */</i></td></tr>
+<tr><th id="469">469</th><td>  <a class="macro" href="#352" title="CURLOPT_SSLKEYPASSWD = 10000 + 26" data-ref="_M/CINIT">CINIT</a>(SSLKEYPASSWD, OBJECTPOINT, <var>26</var>),</td></tr>
+<tr><th id="470">470</th><td>  </td></tr>
+<tr><th id="471">471</th><td>  <i>/* send TYPE parameter? */</i></td></tr>
+<tr><th id="472">472</th><td>  <a class="macro" href="#352" title="CURLOPT_CRLF = 0 + 27" data-ref="_M/CINIT">CINIT</a>(CRLF, LONG, <var>27</var>),</td></tr>
+<tr><th id="473">473</th><td></td></tr>
+<tr><th id="474">474</th><td>  <i>/* send linked-list of QUOTE commands */</i></td></tr>
+<tr><th id="475">475</th><td>  <a class="macro" href="#352" title="CURLOPT_QUOTE = 10000 + 28" data-ref="_M/CINIT">CINIT</a>(QUOTE, OBJECTPOINT, <var>28</var>),</td></tr>
+<tr><th id="476">476</th><td></td></tr>
+<tr><th id="477">477</th><td>  <i>/* send FILE * or void * to store headers to, if you use a callback it</i></td></tr>
+<tr><th id="478">478</th><td><i>     is simply passed to the callback unmodified */</i></td></tr>
+<tr><th id="479">479</th><td>  <a class="macro" href="#352" title="CURLOPT_WRITEHEADER = 10000 + 29" data-ref="_M/CINIT">CINIT</a>(WRITEHEADER, OBJECTPOINT, <var>29</var>),</td></tr>
+<tr><th id="480">480</th><td></td></tr>
+<tr><th id="481">481</th><td>  <i>/* point to a file to read the initial cookies from, also enables</i></td></tr>
+<tr><th id="482">482</th><td><i>     "cookie awareness" */</i></td></tr>
+<tr><th id="483">483</th><td>  <a class="macro" href="#352" title="CURLOPT_COOKIEFILE = 10000 + 31" data-ref="_M/CINIT">CINIT</a>(COOKIEFILE, OBJECTPOINT, <var>31</var>),</td></tr>
+<tr><th id="484">484</th><td></td></tr>
+<tr><th id="485">485</th><td>  <i>/* What version to specifly try to use.</i></td></tr>
+<tr><th id="486">486</th><td><i>     See CURL_SSLVERSION defines below. */</i></td></tr>
+<tr><th id="487">487</th><td>  <a class="macro" href="#352" title="CURLOPT_SSLVERSION = 0 + 32" data-ref="_M/CINIT">CINIT</a>(SSLVERSION, LONG, <var>32</var>),</td></tr>
+<tr><th id="488">488</th><td></td></tr>
+<tr><th id="489">489</th><td>  <i>/* What kind of HTTP time condition to use, see defines */</i></td></tr>
+<tr><th id="490">490</th><td>  <a class="macro" href="#352" title="CURLOPT_TIMECONDITION = 0 + 33" data-ref="_M/CINIT">CINIT</a>(TIMECONDITION, LONG, <var>33</var>),</td></tr>
+<tr><th id="491">491</th><td></td></tr>
+<tr><th id="492">492</th><td>  <i>/* Time to use with the above condition. Specified in number of seconds</i></td></tr>
+<tr><th id="493">493</th><td><i>     since 1 Jan 1970 */</i></td></tr>
+<tr><th id="494">494</th><td>  <a class="macro" href="#352" title="CURLOPT_TIMEVALUE = 0 + 34" data-ref="_M/CINIT">CINIT</a>(TIMEVALUE, LONG, <var>34</var>),</td></tr>
+<tr><th id="495">495</th><td></td></tr>
+<tr><th id="496">496</th><td>  <i>/* 35 = OBSOLETE */</i></td></tr>
+<tr><th id="497">497</th><td></td></tr>
+<tr><th id="498">498</th><td>  <i>/* Custom request, for customizing the get command like</i></td></tr>
+<tr><th id="499">499</th><td><i>     HTTP: DELETE, TRACE and others</i></td></tr>
+<tr><th id="500">500</th><td><i>     FTP: to use a different list command</i></td></tr>
+<tr><th id="501">501</th><td><i>     */</i></td></tr>
+<tr><th id="502">502</th><td>  <a class="macro" href="#352" title="CURLOPT_CUSTOMREQUEST = 10000 + 36" data-ref="_M/CINIT">CINIT</a>(CUSTOMREQUEST, OBJECTPOINT, <var>36</var>),</td></tr>
+<tr><th id="503">503</th><td></td></tr>
+<tr><th id="504">504</th><td>  <i>/* HTTP request, for odd commands like DELETE, TRACE and others */</i></td></tr>
+<tr><th id="505">505</th><td>  <a class="macro" href="#352" title="CURLOPT_STDERR = 10000 + 37" data-ref="_M/CINIT">CINIT</a>(STDERR, OBJECTPOINT, <var>37</var>),</td></tr>
+<tr><th id="506">506</th><td></td></tr>
+<tr><th id="507">507</th><td>  <i>/* 38 is not used */</i></td></tr>
+<tr><th id="508">508</th><td></td></tr>
+<tr><th id="509">509</th><td>  <i>/* send linked-list of post-transfer QUOTE commands */</i></td></tr>
+<tr><th id="510">510</th><td>  <a class="macro" href="#352" title="CURLOPT_POSTQUOTE = 10000 + 39" data-ref="_M/CINIT">CINIT</a>(POSTQUOTE, OBJECTPOINT, <var>39</var>),</td></tr>
+<tr><th id="511">511</th><td></td></tr>
+<tr><th id="512">512</th><td>  <i>/* Pass a pointer to string of the output using full variable-replacement</i></td></tr>
+<tr><th id="513">513</th><td><i>     as described elsewhere. */</i></td></tr>
+<tr><th id="514">514</th><td>  <a class="macro" href="#352" title="CURLOPT_WRITEINFO = 10000 + 40" data-ref="_M/CINIT">CINIT</a>(WRITEINFO, OBJECTPOINT, <var>40</var>),</td></tr>
+<tr><th id="515">515</th><td></td></tr>
+<tr><th id="516">516</th><td>  <a class="macro" href="#352" title="CURLOPT_VERBOSE = 0 + 41" data-ref="_M/CINIT">CINIT</a>(VERBOSE, LONG, <var>41</var>),      <i>/* talk a lot */</i></td></tr>
+<tr><th id="517">517</th><td>  <a class="macro" href="#352" title="CURLOPT_HEADER = 0 + 42" data-ref="_M/CINIT">CINIT</a>(HEADER, LONG, <var>42</var>),       <i>/* throw the header out too */</i></td></tr>
+<tr><th id="518">518</th><td>  <a class="macro" href="#352" title="CURLOPT_NOPROGRESS = 0 + 43" data-ref="_M/CINIT">CINIT</a>(NOPROGRESS, LONG, <var>43</var>),   <i>/* shut off the progress meter */</i></td></tr>
+<tr><th id="519">519</th><td>  <a class="macro" href="#352" title="CURLOPT_NOBODY = 0 + 44" data-ref="_M/CINIT">CINIT</a>(NOBODY, LONG, <var>44</var>),       <i>/* use HEAD to get http document */</i></td></tr>
+<tr><th id="520">520</th><td>  <a class="macro" href="#352" title="CURLOPT_FAILONERROR = 0 + 45" data-ref="_M/CINIT">CINIT</a>(FAILONERROR, LONG, <var>45</var>),  <i>/* no output on http error codes &gt;= 300 */</i></td></tr>
+<tr><th id="521">521</th><td>  <a class="macro" href="#352" title="CURLOPT_UPLOAD = 0 + 46" data-ref="_M/CINIT">CINIT</a>(UPLOAD, LONG, <var>46</var>),       <i>/* this is an upload */</i></td></tr>
+<tr><th id="522">522</th><td>  <a class="macro" href="#352" title="CURLOPT_POST = 0 + 47" data-ref="_M/CINIT">CINIT</a>(POST, LONG, <var>47</var>),         <i>/* HTTP POST method */</i></td></tr>
+<tr><th id="523">523</th><td>  <a class="macro" href="#352" title="CURLOPT_FTPLISTONLY = 0 + 48" data-ref="_M/CINIT">CINIT</a>(FTPLISTONLY, LONG, <var>48</var>),  <i>/* Use NLST when listing ftp dir */</i></td></tr>
+<tr><th id="524">524</th><td></td></tr>
+<tr><th id="525">525</th><td>  <a class="macro" href="#352" title="CURLOPT_FTPAPPEND = 0 + 50" data-ref="_M/CINIT">CINIT</a>(FTPAPPEND, LONG, <var>50</var>),    <i>/* Append instead of overwrite on upload! */</i></td></tr>
+<tr><th id="526">526</th><td></td></tr>
+<tr><th id="527">527</th><td>  <i>/* Specify whether to read the user+password from the .netrc or the URL.</i></td></tr>
+<tr><th id="528">528</th><td><i>   * This must be one of the CURL_NETRC_* enums below. */</i></td></tr>
+<tr><th id="529">529</th><td>  <a class="macro" href="#352" title="CURLOPT_NETRC = 0 + 51" data-ref="_M/CINIT">CINIT</a>(NETRC, LONG, <var>51</var>),</td></tr>
+<tr><th id="530">530</th><td></td></tr>
+<tr><th id="531">531</th><td>  <a class="macro" href="#352" title="CURLOPT_FOLLOWLOCATION = 0 + 52" data-ref="_M/CINIT">CINIT</a>(FOLLOWLOCATION, LONG, <var>52</var>),  <i>/* use Location: Luke! */</i></td></tr>
+<tr><th id="532">532</th><td></td></tr>
+<tr><th id="533">533</th><td>  <a class="macro" href="#352" title="CURLOPT_TRANSFERTEXT = 0 + 53" data-ref="_M/CINIT">CINIT</a>(TRANSFERTEXT, LONG, <var>53</var>), <i>/* transfer data in text/ASCII format */</i></td></tr>
+<tr><th id="534">534</th><td>  <a class="macro" href="#352" title="CURLOPT_PUT = 0 + 54" data-ref="_M/CINIT">CINIT</a>(PUT, LONG, <var>54</var>),          <i>/* PUT the input file */</i></td></tr>
+<tr><th id="535">535</th><td></td></tr>
+<tr><th id="536">536</th><td>  <i>/* 55 = OBSOLETE */</i></td></tr>
+<tr><th id="537">537</th><td></td></tr>
+<tr><th id="538">538</th><td>  <i>/* Function that will be called instead of the internal progress display</i></td></tr>
+<tr><th id="539">539</th><td><i>   * function. This function should be defined as the curl_progress_callback</i></td></tr>
+<tr><th id="540">540</th><td><i>   * prototype defines. */</i></td></tr>
+<tr><th id="541">541</th><td>  <a class="macro" href="#352" title="CURLOPT_PROGRESSFUNCTION = 20000 + 56" data-ref="_M/CINIT">CINIT</a>(PROGRESSFUNCTION, FUNCTIONPOINT, <var>56</var>),</td></tr>
+<tr><th id="542">542</th><td></td></tr>
+<tr><th id="543">543</th><td>  <i>/* Data passed to the progress callback */</i></td></tr>
+<tr><th id="544">544</th><td>  <a class="macro" href="#352" title="CURLOPT_PROGRESSDATA = 10000 + 57" data-ref="_M/CINIT">CINIT</a>(PROGRESSDATA, OBJECTPOINT, <var>57</var>),</td></tr>
+<tr><th id="545">545</th><td></td></tr>
+<tr><th id="546">546</th><td>  <i>/* We want the referer field set automatically when following locations */</i></td></tr>
+<tr><th id="547">547</th><td>  <a class="macro" href="#352" title="CURLOPT_AUTOREFERER = 0 + 58" data-ref="_M/CINIT">CINIT</a>(AUTOREFERER, LONG, <var>58</var>),</td></tr>
+<tr><th id="548">548</th><td></td></tr>
+<tr><th id="549">549</th><td>  <i>/* Port of the proxy, can be set in the proxy string as well with:</i></td></tr>
+<tr><th id="550">550</th><td><i>     "[host]:[port]" */</i></td></tr>
+<tr><th id="551">551</th><td>  <a class="macro" href="#352" title="CURLOPT_PROXYPORT = 0 + 59" data-ref="_M/CINIT">CINIT</a>(PROXYPORT, LONG, <var>59</var>),</td></tr>
+<tr><th id="552">552</th><td></td></tr>
+<tr><th id="553">553</th><td>  <i>/* size of the POST input data, if strlen() is not good to use */</i></td></tr>
+<tr><th id="554">554</th><td>  <a class="macro" href="#352" title="CURLOPT_POSTFIELDSIZE = 0 + 60" data-ref="_M/CINIT">CINIT</a>(POSTFIELDSIZE, LONG, <var>60</var>),</td></tr>
+<tr><th id="555">555</th><td></td></tr>
+<tr><th id="556">556</th><td>  <i>/* tunnel non-http operations through a HTTP proxy */</i></td></tr>
+<tr><th id="557">557</th><td>  <a class="macro" href="#352" title="CURLOPT_HTTPPROXYTUNNEL = 0 + 61" data-ref="_M/CINIT">CINIT</a>(HTTPPROXYTUNNEL, LONG, <var>61</var>),</td></tr>
+<tr><th id="558">558</th><td></td></tr>
+<tr><th id="559">559</th><td>  <i>/* Set the interface string to use as outgoing network interface */</i></td></tr>
+<tr><th id="560">560</th><td>  <a class="macro" href="#352" title="CURLOPT_INTERFACE = 10000 + 62" data-ref="_M/CINIT">CINIT</a>(INTERFACE, OBJECTPOINT, <var>62</var>),</td></tr>
+<tr><th id="561">561</th><td></td></tr>
+<tr><th id="562">562</th><td>  <i>/* Set the krb4 security level, this also enables krb4 awareness.  This is a</i></td></tr>
+<tr><th id="563">563</th><td><i>   * string, 'clear', 'safe', 'confidential' or 'private'.  If the string is</i></td></tr>
+<tr><th id="564">564</th><td><i>   * set but doesn't match one of these, 'private' will be used.  */</i></td></tr>
+<tr><th id="565">565</th><td>  <a class="macro" href="#352" title="CURLOPT_KRB4LEVEL = 10000 + 63" data-ref="_M/CINIT">CINIT</a>(KRB4LEVEL, OBJECTPOINT, <var>63</var>),</td></tr>
+<tr><th id="566">566</th><td></td></tr>
+<tr><th id="567">567</th><td>  <i>/* Set if we should verify the peer in ssl handshake, set 1 to verify. */</i></td></tr>
+<tr><th id="568">568</th><td>  <a class="macro" href="#352" title="CURLOPT_SSL_VERIFYPEER = 0 + 64" data-ref="_M/CINIT">CINIT</a>(SSL_VERIFYPEER, LONG, <var>64</var>),</td></tr>
+<tr><th id="569">569</th><td>  </td></tr>
+<tr><th id="570">570</th><td>  <i>/* The CApath or CAfile used to validate the peer certificate</i></td></tr>
+<tr><th id="571">571</th><td><i>     this option is used only if SSL_VERIFYPEER is true */</i></td></tr>
+<tr><th id="572">572</th><td>  <a class="macro" href="#352" title="CURLOPT_CAINFO = 10000 + 65" data-ref="_M/CINIT">CINIT</a>(CAINFO, OBJECTPOINT, <var>65</var>),</td></tr>
+<tr><th id="573">573</th><td></td></tr>
+<tr><th id="574">574</th><td>  <i>/* 66 = OBSOLETE */</i></td></tr>
+<tr><th id="575">575</th><td>  <i>/* 67 = OBSOLETE */</i></td></tr>
+<tr><th id="576">576</th><td>  </td></tr>
+<tr><th id="577">577</th><td>  <i>/* Maximum number of http redirects to follow */</i></td></tr>
+<tr><th id="578">578</th><td>  <a class="macro" href="#352" title="CURLOPT_MAXREDIRS = 0 + 68" data-ref="_M/CINIT">CINIT</a>(MAXREDIRS, LONG, <var>68</var>),</td></tr>
+<tr><th id="579">579</th><td></td></tr>
+<tr><th id="580">580</th><td>  <i>/* Pass a pointer to a time_t to get a possible date of the requested</i></td></tr>
+<tr><th id="581">581</th><td><i>     document! Pass a NULL to shut it off. */</i></td></tr>
+<tr><th id="582">582</th><td>  <a class="macro" href="#352" title="CURLOPT_FILETIME = 10000 + 69" data-ref="_M/CINIT">CINIT</a>(FILETIME, OBJECTPOINT, <var>69</var>),</td></tr>
+<tr><th id="583">583</th><td></td></tr>
+<tr><th id="584">584</th><td>  <i>/* This points to a linked list of telnet options */</i></td></tr>
+<tr><th id="585">585</th><td>  <a class="macro" href="#352" title="CURLOPT_TELNETOPTIONS = 10000 + 70" data-ref="_M/CINIT">CINIT</a>(TELNETOPTIONS, OBJECTPOINT, <var>70</var>),</td></tr>
+<tr><th id="586">586</th><td></td></tr>
+<tr><th id="587">587</th><td>  <i>/* Max amount of cached alive connections */</i></td></tr>
+<tr><th id="588">588</th><td>  <a class="macro" href="#352" title="CURLOPT_MAXCONNECTS = 0 + 71" data-ref="_M/CINIT">CINIT</a>(MAXCONNECTS, LONG, <var>71</var>),</td></tr>
+<tr><th id="589">589</th><td></td></tr>
+<tr><th id="590">590</th><td>  <i>/* What policy to use when closing connections when the cache is filled</i></td></tr>
+<tr><th id="591">591</th><td><i>     up */</i></td></tr>
+<tr><th id="592">592</th><td>  <a class="macro" href="#352" title="CURLOPT_CLOSEPOLICY = 0 + 72" data-ref="_M/CINIT">CINIT</a>(CLOSEPOLICY, LONG, <var>72</var>),</td></tr>
+<tr><th id="593">593</th><td></td></tr>
+<tr><th id="594">594</th><td>  <i>/* 73 = OBSOLETE */</i></td></tr>
+<tr><th id="595">595</th><td></td></tr>
+<tr><th id="596">596</th><td>  <i>/* Set to explicitly use a new connection for the upcoming transfer.</i></td></tr>
+<tr><th id="597">597</th><td><i>     Do not use this unless you're absolutely sure of this, as it makes the</i></td></tr>
+<tr><th id="598">598</th><td><i>     operation slower and is less friendly for the network. */</i></td></tr>
+<tr><th id="599">599</th><td>  <a class="macro" href="#352" title="CURLOPT_FRESH_CONNECT = 0 + 74" data-ref="_M/CINIT">CINIT</a>(FRESH_CONNECT, LONG, <var>74</var>),</td></tr>
+<tr><th id="600">600</th><td></td></tr>
+<tr><th id="601">601</th><td>  <i>/* Set to explicitly forbid the upcoming transfer's connection to be re-used</i></td></tr>
+<tr><th id="602">602</th><td><i>     when done. Do not use this unless you're absolutely sure of this, as it</i></td></tr>
+<tr><th id="603">603</th><td><i>     makes the operation slower and is less friendly for the network. */</i></td></tr>
+<tr><th id="604">604</th><td>  <a class="macro" href="#352" title="CURLOPT_FORBID_REUSE = 0 + 75" data-ref="_M/CINIT">CINIT</a>(FORBID_REUSE, LONG, <var>75</var>),</td></tr>
+<tr><th id="605">605</th><td></td></tr>
+<tr><th id="606">606</th><td>  <i>/* Set to a file name that contains random data for libcurl to use to</i></td></tr>
+<tr><th id="607">607</th><td><i>     seed the random engine when doing SSL connects. */</i></td></tr>
+<tr><th id="608">608</th><td>  <a class="macro" href="#352" title="CURLOPT_RANDOM_FILE = 10000 + 76" data-ref="_M/CINIT">CINIT</a>(RANDOM_FILE, OBJECTPOINT, <var>76</var>),</td></tr>
+<tr><th id="609">609</th><td></td></tr>
+<tr><th id="610">610</th><td>  <i>/* Set to the Entropy Gathering Daemon socket pathname */</i></td></tr>
+<tr><th id="611">611</th><td>  <a class="macro" href="#352" title="CURLOPT_EGDSOCKET = 10000 + 77" data-ref="_M/CINIT">CINIT</a>(EGDSOCKET, OBJECTPOINT, <var>77</var>),</td></tr>
+<tr><th id="612">612</th><td></td></tr>
+<tr><th id="613">613</th><td>  <i>/* Time-out connect operations after this amount of seconds, if connects</i></td></tr>
+<tr><th id="614">614</th><td><i>     are OK within this time, then fine... This only aborts the connect</i></td></tr>
+<tr><th id="615">615</th><td><i>     phase. [Only works on unix-style/SIGALRM operating systems] */</i></td></tr>
+<tr><th id="616">616</th><td>  <a class="macro" href="#352" title="CURLOPT_CONNECTTIMEOUT = 0 + 78" data-ref="_M/CINIT">CINIT</a>(CONNECTTIMEOUT, LONG, <var>78</var>),</td></tr>
+<tr><th id="617">617</th><td></td></tr>
+<tr><th id="618">618</th><td>  <i>/* Function that will be called to store headers (instead of fwrite). The</i></td></tr>
+<tr><th id="619">619</th><td><i>   * parameters will use fwrite() syntax, make sure to follow them. */</i></td></tr>
+<tr><th id="620">620</th><td>  <a class="macro" href="#352" title="CURLOPT_HEADERFUNCTION = 20000 + 79" data-ref="_M/CINIT">CINIT</a>(HEADERFUNCTION, FUNCTIONPOINT, <var>79</var>),</td></tr>
+<tr><th id="621">621</th><td></td></tr>
+<tr><th id="622">622</th><td>  <i>/* Set this to force the HTTP request to get back to GET. Only really usable</i></td></tr>
+<tr><th id="623">623</th><td><i>     if POST, PUT or a custom request have been used first.</i></td></tr>
+<tr><th id="624">624</th><td><i>   */</i></td></tr>
+<tr><th id="625">625</th><td>  <a class="macro" href="#352" title="CURLOPT_HTTPGET = 0 + 80" data-ref="_M/CINIT">CINIT</a>(HTTPGET, LONG, <var>80</var>),</td></tr>
+<tr><th id="626">626</th><td></td></tr>
+<tr><th id="627">627</th><td>  <i>/* Set if we should verify the Common name from the peer certificate in ssl</i></td></tr>
+<tr><th id="628">628</th><td><i>   * handshake, set 1 to check existence, 2 to ensure that it matches the</i></td></tr>
+<tr><th id="629">629</th><td><i>   * provided hostname. */</i></td></tr>
+<tr><th id="630">630</th><td>  <a class="macro" href="#352" title="CURLOPT_SSL_VERIFYHOST = 0 + 81" data-ref="_M/CINIT">CINIT</a>(SSL_VERIFYHOST, LONG, <var>81</var>),</td></tr>
+<tr><th id="631">631</th><td></td></tr>
+<tr><th id="632">632</th><td>  <i>/* Specify which file name to write all known cookies in after completed</i></td></tr>
+<tr><th id="633">633</th><td><i>     operation. Set file name to "-" (dash) to make it go to stdout. */</i></td></tr>
+<tr><th id="634">634</th><td>  <a class="macro" href="#352" title="CURLOPT_COOKIEJAR = 10000 + 82" data-ref="_M/CINIT">CINIT</a>(COOKIEJAR, OBJECTPOINT, <var>82</var>),</td></tr>
+<tr><th id="635">635</th><td></td></tr>
+<tr><th id="636">636</th><td>  <i>/* Specify which SSL ciphers to use */</i></td></tr>
+<tr><th id="637">637</th><td>  <a class="macro" href="#352" title="CURLOPT_SSL_CIPHER_LIST = 10000 + 83" data-ref="_M/CINIT">CINIT</a>(SSL_CIPHER_LIST, OBJECTPOINT, <var>83</var>),</td></tr>
+<tr><th id="638">638</th><td></td></tr>
+<tr><th id="639">639</th><td>  <i>/* Specify which HTTP version to use! This must be set to one of the</i></td></tr>
+<tr><th id="640">640</th><td><i>     CURL_HTTP_VERSION* enums set below. */</i></td></tr>
+<tr><th id="641">641</th><td>  <a class="macro" href="#352" title="CURLOPT_HTTP_VERSION = 0 + 84" data-ref="_M/CINIT">CINIT</a>(HTTP_VERSION, LONG, <var>84</var>),</td></tr>
+<tr><th id="642">642</th><td></td></tr>
+<tr><th id="643">643</th><td>  <i>/* Specificly switch on or off the FTP engine's use of the EPSV command. By</i></td></tr>
+<tr><th id="644">644</th><td><i>     default, that one will always be attempted before the more traditional</i></td></tr>
+<tr><th id="645">645</th><td><i>     PASV command. */</i>     </td></tr>
+<tr><th id="646">646</th><td>  <a class="macro" href="#352" title="CURLOPT_FTP_USE_EPSV = 0 + 85" data-ref="_M/CINIT">CINIT</a>(FTP_USE_EPSV, LONG, <var>85</var>),</td></tr>
+<tr><th id="647">647</th><td></td></tr>
+<tr><th id="648">648</th><td>  <i>/* type of the file keeping your SSL-certificate ("DER", "PEM", "ENG") */</i></td></tr>
+<tr><th id="649">649</th><td>  <a class="macro" href="#352" title="CURLOPT_SSLCERTTYPE = 10000 + 86" data-ref="_M/CINIT">CINIT</a>(SSLCERTTYPE, OBJECTPOINT, <var>86</var>),</td></tr>
+<tr><th id="650">650</th><td></td></tr>
+<tr><th id="651">651</th><td>  <i>/* name of the file keeping your private SSL-key */</i></td></tr>
+<tr><th id="652">652</th><td>  <a class="macro" href="#352" title="CURLOPT_SSLKEY = 10000 + 87" data-ref="_M/CINIT">CINIT</a>(SSLKEY, OBJECTPOINT, <var>87</var>),</td></tr>
+<tr><th id="653">653</th><td></td></tr>
+<tr><th id="654">654</th><td>  <i>/* type of the file keeping your private SSL-key ("DER", "PEM", "ENG") */</i></td></tr>
+<tr><th id="655">655</th><td>  <a class="macro" href="#352" title="CURLOPT_SSLKEYTYPE = 10000 + 88" data-ref="_M/CINIT">CINIT</a>(SSLKEYTYPE, OBJECTPOINT, <var>88</var>),</td></tr>
+<tr><th id="656">656</th><td></td></tr>
+<tr><th id="657">657</th><td>  <i>/* crypto engine for the SSL-sub system */</i></td></tr>
+<tr><th id="658">658</th><td>  <a class="macro" href="#352" title="CURLOPT_SSLENGINE = 10000 + 89" data-ref="_M/CINIT">CINIT</a>(SSLENGINE, OBJECTPOINT, <var>89</var>),</td></tr>
+<tr><th id="659">659</th><td></td></tr>
+<tr><th id="660">660</th><td>  <i>/* set the crypto engine for the SSL-sub system as default</i></td></tr>
+<tr><th id="661">661</th><td><i>     the param has no meaning...</i></td></tr>
+<tr><th id="662">662</th><td><i>   */</i></td></tr>
+<tr><th id="663">663</th><td>  <a class="macro" href="#352" title="CURLOPT_SSLENGINE_DEFAULT = 0 + 90" data-ref="_M/CINIT">CINIT</a>(SSLENGINE_DEFAULT, LONG, <var>90</var>),</td></tr>
+<tr><th id="664">664</th><td></td></tr>
+<tr><th id="665">665</th><td>  <i>/* Non-zero value means to use the global dns cache */</i></td></tr>
+<tr><th id="666">666</th><td>  <a class="macro" href="#352" title="CURLOPT_DNS_USE_GLOBAL_CACHE = 0 + 91" data-ref="_M/CINIT">CINIT</a>(DNS_USE_GLOBAL_CACHE, LONG, <var>91</var>), <i>/* To become OBSOLETE soon */</i></td></tr>
+<tr><th id="667">667</th><td></td></tr>
+<tr><th id="668">668</th><td>  <i>/* DNS cache timeout */</i></td></tr>
+<tr><th id="669">669</th><td>  <a class="macro" href="#352" title="CURLOPT_DNS_CACHE_TIMEOUT = 0 + 92" data-ref="_M/CINIT">CINIT</a>(DNS_CACHE_TIMEOUT, LONG, <var>92</var>),</td></tr>
+<tr><th id="670">670</th><td></td></tr>
+<tr><th id="671">671</th><td>  <i>/* send linked-list of pre-transfer QUOTE commands (Wesley Laxton)*/</i></td></tr>
+<tr><th id="672">672</th><td>  <a class="macro" href="#352" title="CURLOPT_PREQUOTE = 10000 + 93" data-ref="_M/CINIT">CINIT</a>(PREQUOTE, OBJECTPOINT, <var>93</var>),</td></tr>
+<tr><th id="673">673</th><td></td></tr>
+<tr><th id="674">674</th><td>  <i>/* set the debug function */</i></td></tr>
+<tr><th id="675">675</th><td>  <a class="macro" href="#352" title="CURLOPT_DEBUGFUNCTION = 20000 + 94" data-ref="_M/CINIT">CINIT</a>(DEBUGFUNCTION, FUNCTIONPOINT, <var>94</var>),</td></tr>
+<tr><th id="676">676</th><td></td></tr>
+<tr><th id="677">677</th><td>  <i>/* set the data for the debug function */</i></td></tr>
+<tr><th id="678">678</th><td>  <a class="macro" href="#352" title="CURLOPT_DEBUGDATA = 10000 + 95" data-ref="_M/CINIT">CINIT</a>(DEBUGDATA, OBJECTPOINT, <var>95</var>),</td></tr>
+<tr><th id="679">679</th><td></td></tr>
+<tr><th id="680">680</th><td>  <i>/* mark this as start of a cookie session */</i></td></tr>
+<tr><th id="681">681</th><td>  <a class="macro" href="#352" title="CURLOPT_COOKIESESSION = 0 + 96" data-ref="_M/CINIT">CINIT</a>(COOKIESESSION, LONG, <var>96</var>),</td></tr>
+<tr><th id="682">682</th><td></td></tr>
+<tr><th id="683">683</th><td>  <i>/* The CApath directory used to validate the peer certificate</i></td></tr>
+<tr><th id="684">684</th><td><i>     this option is used only if SSL_VERIFYPEER is true */</i></td></tr>
+<tr><th id="685">685</th><td>  <a class="macro" href="#352" title="CURLOPT_CAPATH = 10000 + 97" data-ref="_M/CINIT">CINIT</a>(CAPATH, OBJECTPOINT, <var>97</var>),</td></tr>
+<tr><th id="686">686</th><td></td></tr>
+<tr><th id="687">687</th><td>  <i>/* Instruct libcurl to use a smaller receive buffer */</i></td></tr>
+<tr><th id="688">688</th><td>  <a class="macro" href="#352" title="CURLOPT_BUFFERSIZE = 0 + 98" data-ref="_M/CINIT">CINIT</a>(BUFFERSIZE, LONG, <var>98</var>),</td></tr>
+<tr><th id="689">689</th><td></td></tr>
+<tr><th id="690">690</th><td>  <i>/* Instruct libcurl to not use any signal/alarm handlers, even when using</i></td></tr>
+<tr><th id="691">691</th><td><i>     timeouts. This option is useful for multi-threaded applications.</i></td></tr>
+<tr><th id="692">692</th><td><i>     See libcurl-the-guide for more background information. */</i></td></tr>
+<tr><th id="693">693</th><td>  <a class="macro" href="#352" title="CURLOPT_NOSIGNAL = 0 + 99" data-ref="_M/CINIT">CINIT</a>(NOSIGNAL, LONG, <var>99</var>),</td></tr>
+<tr><th id="694">694</th><td>  </td></tr>
+<tr><th id="695">695</th><td>  <i>/* Provide a CURLShare for mutexing non-ts data */</i></td></tr>
+<tr><th id="696">696</th><td>  <a class="macro" href="#352" title="CURLOPT_SHARE = 10000 + 100" data-ref="_M/CINIT">CINIT</a>(SHARE, OBJECTPOINT, <var>100</var>),</td></tr>
+<tr><th id="697">697</th><td></td></tr>
+<tr><th id="698">698</th><td>  <i>/* indicates type of proxy. accepted values are CURLPROXY_HTTP (default),</i></td></tr>
+<tr><th id="699">699</th><td><i>     CURLPROXY_SOCKS4 and CURLPROXY_SOCKS5. */</i></td></tr>
+<tr><th id="700">700</th><td>  <a class="macro" href="#352" title="CURLOPT_PROXYTYPE = 0 + 101" data-ref="_M/CINIT">CINIT</a>(PROXYTYPE, LONG, <var>101</var>),</td></tr>
+<tr><th id="701">701</th><td></td></tr>
+<tr><th id="702">702</th><td>  <i>/* Set the Accept-Encoding string. Use this to tell a server you would like</i></td></tr>
+<tr><th id="703">703</th><td><i>     the response to be compressed. */</i></td></tr>
+<tr><th id="704">704</th><td>  <a class="macro" href="#352" title="CURLOPT_ENCODING = 10000 + 102" data-ref="_M/CINIT">CINIT</a>(ENCODING, OBJECTPOINT, <var>102</var>),</td></tr>
+<tr><th id="705">705</th><td> </td></tr>
+<tr><th id="706">706</th><td>  <i>/* Set pointer to private data */</i></td></tr>
+<tr><th id="707">707</th><td>  <a class="macro" href="#352" title="CURLOPT_PRIVATE = 10000 + 103" data-ref="_M/CINIT">CINIT</a>(PRIVATE, OBJECTPOINT, <var>103</var>),</td></tr>
+<tr><th id="708">708</th><td></td></tr>
+<tr><th id="709">709</th><td>  <i>/* Set aliases for HTTP 200 in the HTTP Response header */</i></td></tr>
+<tr><th id="710">710</th><td>  <a class="macro" href="#352" title="CURLOPT_HTTP200ALIASES = 10000 + 104" data-ref="_M/CINIT">CINIT</a>(HTTP200ALIASES, OBJECTPOINT, <var>104</var>),</td></tr>
+<tr><th id="711">711</th><td></td></tr>
+<tr><th id="712">712</th><td>  <i>/* Continue to send authentication (user+password) when following locations,</i></td></tr>
+<tr><th id="713">713</th><td><i>     even when hostname changed. This can potentionally send off the name</i></td></tr>
+<tr><th id="714">714</th><td><i>     and password to whatever host the server decides. */</i></td></tr>
+<tr><th id="715">715</th><td>  <a class="macro" href="#352" title="CURLOPT_UNRESTRICTED_AUTH = 0 + 105" data-ref="_M/CINIT">CINIT</a>(UNRESTRICTED_AUTH, LONG, <var>105</var>),</td></tr>
+<tr><th id="716">716</th><td></td></tr>
+<tr><th id="717">717</th><td>  <i>/* Specificly switch on or off the FTP engine's use of the EPRT command ( it</i></td></tr>
+<tr><th id="718">718</th><td><i>     also disables the LPRT attempt). By default, those ones will always be</i></td></tr>
+<tr><th id="719">719</th><td><i>     attempted before the good old traditional PORT command. */</i>     </td></tr>
+<tr><th id="720">720</th><td>  <a class="macro" href="#352" title="CURLOPT_FTP_USE_EPRT = 0 + 106" data-ref="_M/CINIT">CINIT</a>(FTP_USE_EPRT, LONG, <var>106</var>),</td></tr>
+<tr><th id="721">721</th><td></td></tr>
+<tr><th id="722">722</th><td>  <i>/* Set this to a bitmask value to enable the particular authentications</i></td></tr>
+<tr><th id="723">723</th><td><i>     methods you like. Use this in combination with CURLOPT_USERPWD.</i></td></tr>
+<tr><th id="724">724</th><td><i>     Note that setting multiple bits may cause extra network round-trips. */</i></td></tr>
+<tr><th id="725">725</th><td>  <a class="macro" href="#352" title="CURLOPT_HTTPAUTH = 0 + 107" data-ref="_M/CINIT">CINIT</a>(HTTPAUTH, LONG, <var>107</var>),</td></tr>
+<tr><th id="726">726</th><td></td></tr>
+<tr><th id="727">727</th><td>  <i>/* Set the ssl context callback function, currently only for OpenSSL ssl_ctx</i></td></tr>
+<tr><th id="728">728</th><td><i>     in second argument. The function must be matching the</i></td></tr>
+<tr><th id="729">729</th><td><i>     curl_ssl_ctx_callback proto. */</i></td></tr>
+<tr><th id="730">730</th><td>  <a class="macro" href="#352" title="CURLOPT_SSL_CTX_FUNCTION = 20000 + 108" data-ref="_M/CINIT">CINIT</a>(SSL_CTX_FUNCTION, FUNCTIONPOINT, <var>108</var>),</td></tr>
+<tr><th id="731">731</th><td></td></tr>
+<tr><th id="732">732</th><td>  <i>/* Set the userdata for the ssl context callback function's third</i></td></tr>
+<tr><th id="733">733</th><td><i>     argument */</i></td></tr>
+<tr><th id="734">734</th><td>  <a class="macro" href="#352" title="CURLOPT_SSL_CTX_DATA = 10000 + 109" data-ref="_M/CINIT">CINIT</a>(SSL_CTX_DATA, OBJECTPOINT, <var>109</var>),</td></tr>
+<tr><th id="735">735</th><td></td></tr>
+<tr><th id="736">736</th><td>  <i>/* FTP Option that causes missing dirs to be created on the remote server */</i></td></tr>
+<tr><th id="737">737</th><td>  <a class="macro" href="#352" title="CURLOPT_FTP_CREATE_MISSING_DIRS = 0 + 110" data-ref="_M/CINIT">CINIT</a>(FTP_CREATE_MISSING_DIRS, LONG, <var>110</var>),</td></tr>
+<tr><th id="738">738</th><td></td></tr>
+<tr><th id="739">739</th><td>  <i>/* Set this to a bitmask value to enable the particular authentications</i></td></tr>
+<tr><th id="740">740</th><td><i>     methods you like. Use this in combination with CURLOPT_PROXYUSERPWD.</i></td></tr>
+<tr><th id="741">741</th><td><i>     Note that setting multiple bits may cause extra network round-trips. */</i></td></tr>
+<tr><th id="742">742</th><td>  <a class="macro" href="#352" title="CURLOPT_PROXYAUTH = 0 + 111" data-ref="_M/CINIT">CINIT</a>(PROXYAUTH, LONG, <var>111</var>),</td></tr>
+<tr><th id="743">743</th><td></td></tr>
+<tr><th id="744">744</th><td>  <i>/* FTP option that changes the timeout, in seconds, associated with </i></td></tr>
+<tr><th id="745">745</th><td><i>     getting a response.  This is different from transfer timeout time and</i></td></tr>
+<tr><th id="746">746</th><td><i>     essentially places a demand on the FTP server to acknowledge commands</i></td></tr>
+<tr><th id="747">747</th><td><i>     in a timely manner. */</i></td></tr>
+<tr><th id="748">748</th><td>  <a class="macro" href="#352" title="CURLOPT_FTP_RESPONSE_TIMEOUT = 0 + 112" data-ref="_M/CINIT">CINIT</a>(FTP_RESPONSE_TIMEOUT, LONG , <var>112</var>),</td></tr>
+<tr><th id="749">749</th><td></td></tr>
+<tr><th id="750">750</th><td>  <i>/* Set this option to one of the CURL_IPRESOLVE_* defines (see below) to</i></td></tr>
+<tr><th id="751">751</th><td><i>     tell libcurl to resolve names to those IP versions only. This only has</i></td></tr>
+<tr><th id="752">752</th><td><i>     affect on systems with support for more than one, i.e IPv4 _and_ IPv6. */</i></td></tr>
+<tr><th id="753">753</th><td>  <a class="macro" href="#352" title="CURLOPT_IPRESOLVE = 0 + 113" data-ref="_M/CINIT">CINIT</a>(IPRESOLVE, LONG, <var>113</var>),</td></tr>
+<tr><th id="754">754</th><td></td></tr>
+<tr><th id="755">755</th><td>  <i>/* Set this option to limit the size of a file that will be downloaded from</i></td></tr>
+<tr><th id="756">756</th><td><i>     an HTTP or FTP server.</i></td></tr>
+<tr><th id="757">757</th><td><i></i></td></tr>
+<tr><th id="758">758</th><td><i>     Note there is also _LARGE version which adds large file support for</i></td></tr>
+<tr><th id="759">759</th><td><i>     platforms which have larger off_t sizes.  See MAXFILESIZE_LARGE below. */</i></td></tr>
+<tr><th id="760">760</th><td>  <a class="macro" href="#352" title="CURLOPT_MAXFILESIZE = 0 + 114" data-ref="_M/CINIT">CINIT</a>(MAXFILESIZE, LONG, <var>114</var>),</td></tr>
+<tr><th id="761">761</th><td></td></tr>
+<tr><th id="762">762</th><td>  <i>/* See the comment for INFILESIZE above, but in short, specifies</i></td></tr>
+<tr><th id="763">763</th><td><i>   * the size of the file being uploaded.  -1 means unknown.</i></td></tr>
+<tr><th id="764">764</th><td><i>   */</i></td></tr>
+<tr><th id="765">765</th><td>  <a class="macro" href="#352" title="CURLOPT_INFILESIZE_LARGE = 30000 + 115" data-ref="_M/CINIT">CINIT</a>(INFILESIZE_LARGE, OFF_T, <var>115</var>),</td></tr>
+<tr><th id="766">766</th><td></td></tr>
+<tr><th id="767">767</th><td>  <i>/* Sets the continuation offset.  There is also a LONG version of this;</i></td></tr>
+<tr><th id="768">768</th><td><i>   * look above for RESUME_FROM.</i></td></tr>
+<tr><th id="769">769</th><td><i>   */</i></td></tr>
+<tr><th id="770">770</th><td>  <a class="macro" href="#352" title="CURLOPT_RESUME_FROM_LARGE = 30000 + 116" data-ref="_M/CINIT">CINIT</a>(RESUME_FROM_LARGE, OFF_T, <var>116</var>),</td></tr>
+<tr><th id="771">771</th><td></td></tr>
+<tr><th id="772">772</th><td>  <i>/* Sets the maximum size of data that will be downloaded from</i></td></tr>
+<tr><th id="773">773</th><td><i>   * an HTTP or FTP server.  See MAXFILESIZE above for the LONG version.</i></td></tr>
+<tr><th id="774">774</th><td><i>   */</i></td></tr>
+<tr><th id="775">775</th><td>  <a class="macro" href="#352" title="CURLOPT_MAXFILESIZE_LARGE = 30000 + 117" data-ref="_M/CINIT">CINIT</a>(MAXFILESIZE_LARGE, OFF_T, <var>117</var>),</td></tr>
+<tr><th id="776">776</th><td></td></tr>
+<tr><th id="777">777</th><td>  <i>/* Set this option to the file name of your .netrc file you want libcurl</i></td></tr>
+<tr><th id="778">778</th><td><i>     to parse (using the CURLOPT_NETRC option). If not set, libcurl will do</i></td></tr>
+<tr><th id="779">779</th><td><i>     a poor attempt to find the user's home directory and check for a .netrc</i></td></tr>
+<tr><th id="780">780</th><td><i>     file in there. */</i></td></tr>
+<tr><th id="781">781</th><td>  <a class="macro" href="#352" title="CURLOPT_NETRC_FILE = 10000 + 118" data-ref="_M/CINIT">CINIT</a>(NETRC_FILE, OBJECTPOINT, <var>118</var>),</td></tr>
+<tr><th id="782">782</th><td></td></tr>
+<tr><th id="783">783</th><td>  <i>/* Enable SSL/TLS for FTP, pick one of:</i></td></tr>
+<tr><th id="784">784</th><td><i>     CURLFTPSSL_TRY     - try using SSL, proceed anyway otherwise</i></td></tr>
+<tr><th id="785">785</th><td><i>     CURLFTPSSL_CONTROL - SSL for the control connection or fail</i></td></tr>
+<tr><th id="786">786</th><td><i>     CURLFTPSSL_ALL     - SSL for all communication or fail</i></td></tr>
+<tr><th id="787">787</th><td><i>  */</i></td></tr>
+<tr><th id="788">788</th><td>  <a class="macro" href="#352" title="CURLOPT_FTP_SSL = 0 + 119" data-ref="_M/CINIT">CINIT</a>(FTP_SSL, LONG, <var>119</var>),</td></tr>
+<tr><th id="789">789</th><td></td></tr>
+<tr><th id="790">790</th><td>  <i>/* The _LARGE version of the standard POSTFIELDSIZE option */</i></td></tr>
+<tr><th id="791">791</th><td>  <a class="macro" href="#352" title="CURLOPT_POSTFIELDSIZE_LARGE = 30000 + 120" data-ref="_M/CINIT">CINIT</a>(POSTFIELDSIZE_LARGE, OFF_T, <var>120</var>),</td></tr>
+<tr><th id="792">792</th><td></td></tr>
+<tr><th id="793">793</th><td>  <dfn class="enum" id="CURLOPT_LASTENTRY" title='CURLOPT_LASTENTRY' data-ref="CURLOPT_LASTENTRY">CURLOPT_LASTENTRY</dfn> <i>/* the last unused */</i></td></tr>
+<tr><th id="794">794</th><td>} <dfn class="typedef" id="CURLoption" title='CURLoption' data-type='enum CURLoption' data-ref="CURLoption">CURLoption</dfn>;</td></tr>
+<tr><th id="795">795</th><td></td></tr>
+<tr><th id="796">796</th><td>  <i>/* Below here follows defines for the CURLOPT_IPRESOLVE option. If a host</i></td></tr>
+<tr><th id="797">797</th><td><i>     name resolves addresses using more than one IP protocol version, this</i></td></tr>
+<tr><th id="798">798</th><td><i>     option might be handy to force libcurl to use a specific IP version. */</i></td></tr>
+<tr><th id="799">799</th><td><u>#define <dfn class="macro" id="_M/CURL_IPRESOLVE_WHATEVER" data-ref="_M/CURL_IPRESOLVE_WHATEVER">CURL_IPRESOLVE_WHATEVER</dfn> 0 /* default, resolves addresses to all IP</u></td></tr>
+<tr><th id="800">800</th><td><u>                                     versions that your system allows */</u></td></tr>
+<tr><th id="801">801</th><td><u>#define <dfn class="macro" id="_M/CURL_IPRESOLVE_V4" data-ref="_M/CURL_IPRESOLVE_V4">CURL_IPRESOLVE_V4</dfn>       1 /* resolve to ipv4 addresses */</u></td></tr>
+<tr><th id="802">802</th><td><u>#define <dfn class="macro" id="_M/CURL_IPRESOLVE_V6" data-ref="_M/CURL_IPRESOLVE_V6">CURL_IPRESOLVE_V6</dfn>       2 /* resolve to ipv6 addresses */</u></td></tr>
+<tr><th id="803">803</th><td></td></tr>
+<tr><th id="804">804</th><td>  <i>/* three convenient "aliases" that follow the name scheme better */</i></td></tr>
+<tr><th id="805">805</th><td><u>#define <dfn class="macro" id="_M/CURLOPT_WRITEDATA" data-ref="_M/CURLOPT_WRITEDATA">CURLOPT_WRITEDATA</dfn> CURLOPT_FILE</u></td></tr>
+<tr><th id="806">806</th><td><u>#define <dfn class="macro" id="_M/CURLOPT_READDATA" data-ref="_M/CURLOPT_READDATA">CURLOPT_READDATA</dfn>  CURLOPT_INFILE</u> </td></tr>
+<tr><th id="807">807</th><td><u>#define <dfn class="macro" id="_M/CURLOPT_HEADERDATA" data-ref="_M/CURLOPT_HEADERDATA">CURLOPT_HEADERDATA</dfn> CURLOPT_WRITEHEADER</u></td></tr>
+<tr><th id="808">808</th><td></td></tr>
+<tr><th id="809">809</th><td><u>#<span data-ppcond="809">ifndef</span> <span class="macro" data-ref="_M/CURL_NO_OLDIES">CURL_NO_OLDIES</span> /* define this to test if your app builds with all</u></td></tr>
+<tr><th id="810">810</th><td><u>                          the obsolete stuff removed! */</u></td></tr>
+<tr><th id="811">811</th><td><u>#define <dfn class="macro" id="_M/CURLOPT_HTTPREQUEST" data-ref="_M/CURLOPT_HTTPREQUEST">CURLOPT_HTTPREQUEST</dfn>    0</u></td></tr>
+<tr><th id="812">812</th><td><u>#define <dfn class="macro" id="_M/CURLOPT_FTPASCII" data-ref="_M/CURLOPT_FTPASCII">CURLOPT_FTPASCII</dfn>       CURLOPT_TRANSFERTEXT</u></td></tr>
+<tr><th id="813">813</th><td><u>#define <dfn class="macro" id="_M/CURLOPT_MUTE" data-ref="_M/CURLOPT_MUTE">CURLOPT_MUTE</dfn>           0</u></td></tr>
+<tr><th id="814">814</th><td><u>#define <dfn class="macro" id="_M/CURLOPT_PASSWDFUNCTION" data-ref="_M/CURLOPT_PASSWDFUNCTION">CURLOPT_PASSWDFUNCTION</dfn> 0</u></td></tr>
+<tr><th id="815">815</th><td><u>#define <dfn class="macro" id="_M/CURLOPT_PASSWDDATA" data-ref="_M/CURLOPT_PASSWDDATA">CURLOPT_PASSWDDATA</dfn>     0</u></td></tr>
+<tr><th id="816">816</th><td><u>#define <dfn class="macro" id="_M/CURLOPT_CLOSEFUNCTION" data-ref="_M/CURLOPT_CLOSEFUNCTION">CURLOPT_CLOSEFUNCTION</dfn>  0</u></td></tr>
+<tr><th id="817">817</th><td></td></tr>
+<tr><th id="818">818</th><td><u>#<span data-ppcond="809">else</span></u></td></tr>
+<tr><th id="819">819</th><td><i>/* This is set if CURL_NO_OLDIES is defined at compile-time */</i></td></tr>
+<tr><th id="820">820</th><td><u>#define curl_formparse "curl_formparse is obsolete"</u></td></tr>
+<tr><th id="821">821</th><td><u>#undef CURLOPT_DNS_USE_GLOBAL_CACHE /* soon obsolete */</u></td></tr>
+<tr><th id="822">822</th><td><u>#<span data-ppcond="809">endif</span></u></td></tr>
+<tr><th id="823">823</th><td></td></tr>
+<tr><th id="824">824</th><td></td></tr>
+<tr><th id="825">825</th><td>  <i>/* These enums are for use with the CURLOPT_HTTP_VERSION option. */</i></td></tr>
+<tr><th id="826">826</th><td><b>enum</b> {</td></tr>
+<tr><th id="827">827</th><td>  <dfn class="enum" id="CURL_HTTP_VERSION_NONE" title='CURL_HTTP_VERSION_NONE' data-ref="CURL_HTTP_VERSION_NONE">CURL_HTTP_VERSION_NONE</dfn>, <i>/* setting this means we don't care, and that we'd</i></td></tr>
+<tr><th id="828">828</th><td><i>                             like the library to choose the best possible</i></td></tr>
+<tr><th id="829">829</th><td><i>                             for us! */</i></td></tr>
+<tr><th id="830">830</th><td>  <dfn class="enum" id="CURL_HTTP_VERSION_1_0" title='CURL_HTTP_VERSION_1_0' data-ref="CURL_HTTP_VERSION_1_0">CURL_HTTP_VERSION_1_0</dfn>,  <i>/* please use HTTP 1.0 in the request */</i></td></tr>
+<tr><th id="831">831</th><td>  <dfn class="enum" id="CURL_HTTP_VERSION_1_1" title='CURL_HTTP_VERSION_1_1' data-ref="CURL_HTTP_VERSION_1_1">CURL_HTTP_VERSION_1_1</dfn>,  <i>/* please use HTTP 1.1 in the request */</i></td></tr>
+<tr><th id="832">832</th><td>  </td></tr>
+<tr><th id="833">833</th><td>  <dfn class="enum" id="CURL_HTTP_VERSION_LAST" title='CURL_HTTP_VERSION_LAST' data-ref="CURL_HTTP_VERSION_LAST">CURL_HTTP_VERSION_LAST</dfn> <i>/* *ILLEGAL* http version */</i></td></tr>
+<tr><th id="834">834</th><td>};</td></tr>
+<tr><th id="835">835</th><td></td></tr>
+<tr><th id="836">836</th><td>  <i>/* These enums are for use with the CURLOPT_NETRC option. */</i></td></tr>
+<tr><th id="837">837</th><td><b>enum</b> <dfn class="type def" id="CURL_NETRC_OPTION" title='CURL_NETRC_OPTION' data-ref="CURL_NETRC_OPTION">CURL_NETRC_OPTION</dfn> {</td></tr>
+<tr><th id="838">838</th><td>  <dfn class="enum" id="CURL_NETRC_OPTION::CURL_NETRC_IGNORED" title='CURL_NETRC_OPTION::CURL_NETRC_IGNORED' data-ref="CURL_NETRC_OPTION::CURL_NETRC_IGNORED">CURL_NETRC_IGNORED</dfn>,     <i>/* The .netrc will never be read.</i></td></tr>
+<tr><th id="839">839</th><td><i>                           * This is the default. */</i></td></tr>
+<tr><th id="840">840</th><td>  <dfn class="enum" id="CURL_NETRC_OPTION::CURL_NETRC_OPTIONAL" title='CURL_NETRC_OPTION::CURL_NETRC_OPTIONAL' data-ref="CURL_NETRC_OPTION::CURL_NETRC_OPTIONAL">CURL_NETRC_OPTIONAL</dfn>,    <i>/* A user:password in the URL will be preferred</i></td></tr>
+<tr><th id="841">841</th><td><i>                           * to one in the .netrc. */</i></td></tr>
+<tr><th id="842">842</th><td>  <dfn class="enum" id="CURL_NETRC_OPTION::CURL_NETRC_REQUIRED" title='CURL_NETRC_OPTION::CURL_NETRC_REQUIRED' data-ref="CURL_NETRC_OPTION::CURL_NETRC_REQUIRED">CURL_NETRC_REQUIRED</dfn>,    <i>/* A user:password in the URL will be ignored.</i></td></tr>
+<tr><th id="843">843</th><td><i>                           * Unless one is set programmatically, the .netrc</i></td></tr>
+<tr><th id="844">844</th><td><i>                           * will be queried. */</i></td></tr>
+<tr><th id="845">845</th><td>  <dfn class="enum" id="CURL_NETRC_OPTION::CURL_NETRC_LAST" title='CURL_NETRC_OPTION::CURL_NETRC_LAST' data-ref="CURL_NETRC_OPTION::CURL_NETRC_LAST">CURL_NETRC_LAST</dfn></td></tr>
+<tr><th id="846">846</th><td>};</td></tr>
+<tr><th id="847">847</th><td></td></tr>
+<tr><th id="848">848</th><td><b>enum</b> {</td></tr>
+<tr><th id="849">849</th><td>  <dfn class="enum" id="CURL_SSLVERSION_DEFAULT" title='CURL_SSLVERSION_DEFAULT' data-ref="CURL_SSLVERSION_DEFAULT">CURL_SSLVERSION_DEFAULT</dfn>,</td></tr>
+<tr><th id="850">850</th><td>  <dfn class="enum" id="CURL_SSLVERSION_TLSv1" title='CURL_SSLVERSION_TLSv1' data-ref="CURL_SSLVERSION_TLSv1">CURL_SSLVERSION_TLSv1</dfn>,</td></tr>
+<tr><th id="851">851</th><td>  <dfn class="enum" id="CURL_SSLVERSION_SSLv2" title='CURL_SSLVERSION_SSLv2' data-ref="CURL_SSLVERSION_SSLv2">CURL_SSLVERSION_SSLv2</dfn>,</td></tr>
+<tr><th id="852">852</th><td>  <dfn class="enum" id="CURL_SSLVERSION_SSLv3" title='CURL_SSLVERSION_SSLv3' data-ref="CURL_SSLVERSION_SSLv3">CURL_SSLVERSION_SSLv3</dfn>,</td></tr>
+<tr><th id="853">853</th><td></td></tr>
+<tr><th id="854">854</th><td>  <dfn class="enum" id="CURL_SSLVERSION_LAST" title='CURL_SSLVERSION_LAST' data-ref="CURL_SSLVERSION_LAST">CURL_SSLVERSION_LAST</dfn> <i>/* never use, keep last */</i></td></tr>
+<tr><th id="855">855</th><td>};</td></tr>
+<tr><th id="856">856</th><td></td></tr>
+<tr><th id="857">857</th><td></td></tr>
+<tr><th id="858">858</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="859">859</th><td>  <dfn class="enum" id="CURL_TIMECOND_NONE" title='CURL_TIMECOND_NONE' data-ref="CURL_TIMECOND_NONE">CURL_TIMECOND_NONE</dfn>,</td></tr>
+<tr><th id="860">860</th><td></td></tr>
+<tr><th id="861">861</th><td>  <dfn class="enum" id="CURL_TIMECOND_IFMODSINCE" title='CURL_TIMECOND_IFMODSINCE' data-ref="CURL_TIMECOND_IFMODSINCE">CURL_TIMECOND_IFMODSINCE</dfn>,</td></tr>
+<tr><th id="862">862</th><td>  <dfn class="enum" id="CURL_TIMECOND_IFUNMODSINCE" title='CURL_TIMECOND_IFUNMODSINCE' data-ref="CURL_TIMECOND_IFUNMODSINCE">CURL_TIMECOND_IFUNMODSINCE</dfn>,</td></tr>
+<tr><th id="863">863</th><td>  <dfn class="enum" id="CURL_TIMECOND_LASTMOD" title='CURL_TIMECOND_LASTMOD' data-ref="CURL_TIMECOND_LASTMOD">CURL_TIMECOND_LASTMOD</dfn>,</td></tr>
+<tr><th id="864">864</th><td></td></tr>
+<tr><th id="865">865</th><td>  <dfn class="enum" id="CURL_TIMECOND_LAST" title='CURL_TIMECOND_LAST' data-ref="CURL_TIMECOND_LAST">CURL_TIMECOND_LAST</dfn></td></tr>
+<tr><th id="866">866</th><td>} <dfn class="typedef" id="curl_TimeCond" title='curl_TimeCond' data-type='enum curl_TimeCond' data-ref="curl_TimeCond">curl_TimeCond</dfn>;</td></tr>
+<tr><th id="867">867</th><td></td></tr>
+<tr><th id="868">868</th><td><u>#<span data-ppcond="868">ifdef</span> <span class="macro" data-ref="_M/__BEOS__">__BEOS__</span></u></td></tr>
+<tr><th id="869">869</th><td><u>#include &lt;support/SupportDefs.h&gt;</u></td></tr>
+<tr><th id="870">870</th><td><u>#<span data-ppcond="868">endif</span></u></td></tr>
+<tr><th id="871">871</th><td></td></tr>
+<tr><th id="872">872</th><td></td></tr>
+<tr><th id="873">873</th><td><i>/* These functions are in libcurl, they're here for portable reasons and they</i></td></tr>
+<tr><th id="874">874</th><td><i>   are used by the 'curl' client. They really should be moved to some kind of</i></td></tr>
+<tr><th id="875">875</th><td><i>   "portability library" since it has nothing to do with file transfers and</i></td></tr>
+<tr><th id="876">876</th><td><i>   might be usable to other programs...</i></td></tr>
+<tr><th id="877">877</th><td><i></i></td></tr>
+<tr><th id="878">878</th><td><i>   NOTE: they return TRUE if the strings match *case insensitively*.</i></td></tr>
+<tr><th id="879">879</th><td><i> */</i></td></tr>
+<tr><th id="880">880</th><td><b>extern</b> <em>int</em> (<dfn class="decl" id="curl_strequal" title='curl_strequal' data-ref="curl_strequal">curl_strequal</dfn>)(<em>const</em> <em>char</em> *<dfn class="local col8 decl" id="288s1" title='s1' data-type='const char *' data-ref="288s1">s1</dfn>, <em>const</em> <em>char</em> *<dfn class="local col9 decl" id="289s2" title='s2' data-type='const char *' data-ref="289s2">s2</dfn>);</td></tr>
+<tr><th id="881">881</th><td><b>extern</b> <em>int</em> (<dfn class="decl" id="curl_strnequal" title='curl_strnequal' data-ref="curl_strnequal">curl_strnequal</dfn>)(<em>const</em> <em>char</em> *<dfn class="local col0 decl" id="290s1" title='s1' data-type='const char *' data-ref="290s1">s1</dfn>, <em>const</em> <em>char</em> *<dfn class="local col1 decl" id="291s2" title='s2' data-type='const char *' data-ref="291s2">s2</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col2 decl" id="292n" title='n' data-type='size_t' data-ref="292n">n</dfn>);</td></tr>
+<tr><th id="882">882</th><td></td></tr>
+<tr><th id="883">883</th><td><u>#<span data-ppcond="883">ifdef</span> <span class="macro" data-ref="_M/CURL_OLDSTYLE">CURL_OLDSTYLE</span></u></td></tr>
+<tr><th id="884">884</th><td><i>/* DEPRECATED function to build formdata. Stop using this, it will cease</i></td></tr>
+<tr><th id="885">885</th><td><i>   to exist. */</i></td></tr>
+<tr><th id="886">886</th><td><em>int</em> curl_formparse(<em>char</em> *, <b>struct</b> curl_httppost **,</td></tr>
+<tr><th id="887">887</th><td>                   <b>struct</b> curl_httppost **_post);</td></tr>
+<tr><th id="888">888</th><td><u>#<span data-ppcond="883">endif</span></u></td></tr>
+<tr><th id="889">889</th><td></td></tr>
+<tr><th id="890">890</th><td><i>/* name is uppercase CURLFORM_&lt;name&gt; */</i></td></tr>
+<tr><th id="891">891</th><td><u>#<span data-ppcond="891">ifdef</span> <span class="macro" data-ref="_M/CFINIT">CFINIT</span></u></td></tr>
+<tr><th id="892">892</th><td><u>#undef CFINIT</u></td></tr>
+<tr><th id="893">893</th><td><u>#<span data-ppcond="891">endif</span></u></td></tr>
+<tr><th id="894">894</th><td></td></tr>
+<tr><th id="895">895</th><td><u>#<span data-ppcond="895">ifdef</span> <a class="macro" href="#345" data-ref="_M/CURL_ISOCPP">CURL_ISOCPP</a></u></td></tr>
+<tr><th id="896">896</th><td><u>#define <dfn class="macro" id="_M/CFINIT" data-ref="_M/CFINIT">CFINIT</dfn>(name) CURLFORM_ ## name</u></td></tr>
+<tr><th id="897">897</th><td><u>#<span data-ppcond="895">else</span></u></td></tr>
+<tr><th id="898">898</th><td><i>/* The macro "##" is ISO C, we assume pre-ISO C doesn't support it. */</i></td></tr>
+<tr><th id="899">899</th><td><u>#define CFINIT(name) CURLFORM_/**/name</u></td></tr>
+<tr><th id="900">900</th><td><u>#<span data-ppcond="895">endif</span></u></td></tr>
+<tr><th id="901">901</th><td></td></tr>
+<tr><th id="902">902</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="903">903</th><td>  <a class="macro" href="#896" title="CURLFORM_NOTHING" data-ref="_M/CFINIT">CFINIT</a>(NOTHING),        <i>/********* the first one is unused ************/</i></td></tr>
+<tr><th id="904">904</th><td>  </td></tr>
+<tr><th id="905">905</th><td>  <i>/*  */</i></td></tr>
+<tr><th id="906">906</th><td>  <a class="macro" href="#896" title="CURLFORM_COPYNAME" data-ref="_M/CFINIT">CFINIT</a>(COPYNAME),</td></tr>
+<tr><th id="907">907</th><td>  <a class="macro" href="#896" title="CURLFORM_PTRNAME" data-ref="_M/CFINIT">CFINIT</a>(PTRNAME),</td></tr>
+<tr><th id="908">908</th><td>  <a class="macro" href="#896" title="CURLFORM_NAMELENGTH" data-ref="_M/CFINIT">CFINIT</a>(NAMELENGTH),</td></tr>
+<tr><th id="909">909</th><td>  <a class="macro" href="#896" title="CURLFORM_COPYCONTENTS" data-ref="_M/CFINIT">CFINIT</a>(COPYCONTENTS),</td></tr>
+<tr><th id="910">910</th><td>  <a class="macro" href="#896" title="CURLFORM_PTRCONTENTS" data-ref="_M/CFINIT">CFINIT</a>(PTRCONTENTS),</td></tr>
+<tr><th id="911">911</th><td>  <a class="macro" href="#896" title="CURLFORM_CONTENTSLENGTH" data-ref="_M/CFINIT">CFINIT</a>(CONTENTSLENGTH),</td></tr>
+<tr><th id="912">912</th><td>  <a class="macro" href="#896" title="CURLFORM_FILECONTENT" data-ref="_M/CFINIT">CFINIT</a>(FILECONTENT),</td></tr>
+<tr><th id="913">913</th><td>  <a class="macro" href="#896" title="CURLFORM_ARRAY" data-ref="_M/CFINIT">CFINIT</a>(ARRAY),</td></tr>
+<tr><th id="914">914</th><td>  <a class="macro" href="#896" title="CURLFORM_OBSOLETE" data-ref="_M/CFINIT">CFINIT</a>(OBSOLETE),</td></tr>
+<tr><th id="915">915</th><td>  <a class="macro" href="#896" title="CURLFORM_FILE" data-ref="_M/CFINIT">CFINIT</a>(FILE),</td></tr>
+<tr><th id="916">916</th><td></td></tr>
+<tr><th id="917">917</th><td>  <a class="macro" href="#896" title="CURLFORM_BUFFER" data-ref="_M/CFINIT">CFINIT</a>(BUFFER),</td></tr>
+<tr><th id="918">918</th><td>  <a class="macro" href="#896" title="CURLFORM_BUFFERPTR" data-ref="_M/CFINIT">CFINIT</a>(BUFFERPTR),</td></tr>
+<tr><th id="919">919</th><td>  <a class="macro" href="#896" title="CURLFORM_BUFFERLENGTH" data-ref="_M/CFINIT">CFINIT</a>(BUFFERLENGTH),</td></tr>
+<tr><th id="920">920</th><td></td></tr>
+<tr><th id="921">921</th><td>  <a class="macro" href="#896" title="CURLFORM_CONTENTTYPE" data-ref="_M/CFINIT">CFINIT</a>(CONTENTTYPE),</td></tr>
+<tr><th id="922">922</th><td>  <a class="macro" href="#896" title="CURLFORM_CONTENTHEADER" data-ref="_M/CFINIT">CFINIT</a>(CONTENTHEADER),</td></tr>
+<tr><th id="923">923</th><td>  <a class="macro" href="#896" title="CURLFORM_FILENAME" data-ref="_M/CFINIT">CFINIT</a>(FILENAME),</td></tr>
+<tr><th id="924">924</th><td>  <a class="macro" href="#896" title="CURLFORM_END" data-ref="_M/CFINIT">CFINIT</a>(END),</td></tr>
+<tr><th id="925">925</th><td>  <a class="macro" href="#896" title="CURLFORM_OBSOLETE2" data-ref="_M/CFINIT">CFINIT</a>(OBSOLETE2),</td></tr>
+<tr><th id="926">926</th><td></td></tr>
+<tr><th id="927">927</th><td>  <dfn class="enum" id="CURLFORM_LASTENTRY" title='CURLFORM_LASTENTRY' data-ref="CURLFORM_LASTENTRY">CURLFORM_LASTENTRY</dfn> <i>/* the last unusued */</i></td></tr>
+<tr><th id="928">928</th><td>} <dfn class="typedef" id="CURLformoption" title='CURLformoption' data-type='enum CURLformoption' data-ref="CURLformoption">CURLformoption</dfn>;</td></tr>
+<tr><th id="929">929</th><td></td></tr>
+<tr><th id="930">930</th><td><u>#undef <a class="macro" href="#896" data-ref="_M/CFINIT">CFINIT</a> /* done */</u></td></tr>
+<tr><th id="931">931</th><td></td></tr>
+<tr><th id="932">932</th><td><i>/* structure to be used as parameter for CURLFORM_ARRAY */</i></td></tr>
+<tr><th id="933">933</th><td><b>struct</b> <dfn class="type def" id="curl_forms" title='curl_forms' data-ref="curl_forms">curl_forms</dfn> {</td></tr>
+<tr><th id="934">934</th><td>	<a class="typedef" href="#CURLformoption" title='CURLformoption' data-type='enum CURLformoption' data-ref="CURLformoption">CURLformoption</a>		<dfn class="decl" id="curl_forms::option" title='curl_forms::option' data-ref="curl_forms::option">option</dfn>;</td></tr>
+<tr><th id="935">935</th><td>	<em>const</em> <em>char</em>		*<dfn class="decl" id="curl_forms::value" title='curl_forms::value' data-ref="curl_forms::value">value</dfn>;</td></tr>
+<tr><th id="936">936</th><td>};</td></tr>
+<tr><th id="937">937</th><td></td></tr>
+<tr><th id="938">938</th><td><i>/* use this for multipart formpost building */</i></td></tr>
+<tr><th id="939">939</th><td><i>/* Returns code for curl_formadd()</i></td></tr>
+<tr><th id="940">940</th><td><i> * </i></td></tr>
+<tr><th id="941">941</th><td><i> * Returns:</i></td></tr>
+<tr><th id="942">942</th><td><i> * CURL_FORMADD_OK             on success</i></td></tr>
+<tr><th id="943">943</th><td><i> * CURL_FORMADD_MEMORY         if the FormInfo allocation fails</i></td></tr>
+<tr><th id="944">944</th><td><i> * CURL_FORMADD_OPTION_TWICE   if one option is given twice for one Form</i></td></tr>
+<tr><th id="945">945</th><td><i> * CURL_FORMADD_NULL           if a null pointer was given for a char</i></td></tr>
+<tr><th id="946">946</th><td><i> * CURL_FORMADD_MEMORY         if the allocation of a FormInfo struct failed</i></td></tr>
+<tr><th id="947">947</th><td><i> * CURL_FORMADD_UNKNOWN_OPTION if an unknown option was used</i></td></tr>
+<tr><th id="948">948</th><td><i> * CURL_FORMADD_INCOMPLETE     if the some FormInfo is not complete (or error)</i></td></tr>
+<tr><th id="949">949</th><td><i> * CURL_FORMADD_MEMORY         if a HttpPost struct cannot be allocated</i></td></tr>
+<tr><th id="950">950</th><td><i> * CURL_FORMADD_MEMORY         if some allocation for string copying failed.</i></td></tr>
+<tr><th id="951">951</th><td><i> * CURL_FORMADD_ILLEGAL_ARRAY  if an illegal option is used in an array</i></td></tr>
+<tr><th id="952">952</th><td><i> *</i></td></tr>
+<tr><th id="953">953</th><td><i> ***************************************************************************/</i></td></tr>
+<tr><th id="954">954</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="955">955</th><td>  <dfn class="enum" id="CURL_FORMADD_OK" title='CURL_FORMADD_OK' data-ref="CURL_FORMADD_OK">CURL_FORMADD_OK</dfn>, <i>/* first, no error */</i></td></tr>
+<tr><th id="956">956</th><td></td></tr>
+<tr><th id="957">957</th><td>  <dfn class="enum" id="CURL_FORMADD_MEMORY" title='CURL_FORMADD_MEMORY' data-ref="CURL_FORMADD_MEMORY">CURL_FORMADD_MEMORY</dfn>,</td></tr>
+<tr><th id="958">958</th><td>  <dfn class="enum" id="CURL_FORMADD_OPTION_TWICE" title='CURL_FORMADD_OPTION_TWICE' data-ref="CURL_FORMADD_OPTION_TWICE">CURL_FORMADD_OPTION_TWICE</dfn>,</td></tr>
+<tr><th id="959">959</th><td>  <dfn class="enum" id="CURL_FORMADD_NULL" title='CURL_FORMADD_NULL' data-ref="CURL_FORMADD_NULL">CURL_FORMADD_NULL</dfn>,</td></tr>
+<tr><th id="960">960</th><td>  <dfn class="enum" id="CURL_FORMADD_UNKNOWN_OPTION" title='CURL_FORMADD_UNKNOWN_OPTION' data-ref="CURL_FORMADD_UNKNOWN_OPTION">CURL_FORMADD_UNKNOWN_OPTION</dfn>,</td></tr>
+<tr><th id="961">961</th><td>  <dfn class="enum" id="CURL_FORMADD_INCOMPLETE" title='CURL_FORMADD_INCOMPLETE' data-ref="CURL_FORMADD_INCOMPLETE">CURL_FORMADD_INCOMPLETE</dfn>,</td></tr>
+<tr><th id="962">962</th><td>  <dfn class="enum" id="CURL_FORMADD_ILLEGAL_ARRAY" title='CURL_FORMADD_ILLEGAL_ARRAY' data-ref="CURL_FORMADD_ILLEGAL_ARRAY">CURL_FORMADD_ILLEGAL_ARRAY</dfn>,</td></tr>
+<tr><th id="963">963</th><td></td></tr>
+<tr><th id="964">964</th><td>  <dfn class="enum" id="CURL_FORMADD_LAST" title='CURL_FORMADD_LAST' data-ref="CURL_FORMADD_LAST">CURL_FORMADD_LAST</dfn> <i>/* last */</i></td></tr>
+<tr><th id="965">965</th><td>} <dfn class="typedef" id="CURLFORMcode" title='CURLFORMcode' data-type='enum CURLFORMcode' data-ref="CURLFORMcode">CURLFORMcode</dfn>;</td></tr>
+<tr><th id="966">966</th><td></td></tr>
+<tr><th id="967">967</th><td><i>/*</i></td></tr>
+<tr><th id="968">968</th><td><i> * NAME curl_formadd()</i></td></tr>
+<tr><th id="969">969</th><td><i> *</i></td></tr>
+<tr><th id="970">970</th><td><i> * DESCRIPTION</i></td></tr>
+<tr><th id="971">971</th><td><i> *</i></td></tr>
+<tr><th id="972">972</th><td><i> * Pretty advanved function for building multi-part formposts. Each invoke</i></td></tr>
+<tr><th id="973">973</th><td><i> * adds one part that together construct a full post. Then use</i></td></tr>
+<tr><th id="974">974</th><td><i> * CURLOPT_HTTPPOST to send it off to libcurl.</i></td></tr>
+<tr><th id="975">975</th><td><i> */</i></td></tr>
+<tr><th id="976">976</th><td><a class="typedef" href="#CURLFORMcode" title='CURLFORMcode' data-type='enum CURLFORMcode' data-ref="CURLFORMcode">CURLFORMcode</a> <dfn class="decl" id="curl_formadd" title='curl_formadd' data-ref="curl_formadd">curl_formadd</dfn>(<b>struct</b> <a class="type" href="#curl_httppost" title='curl_httppost' data-ref="curl_httppost">curl_httppost</a> **<dfn class="local col3 decl" id="293httppost" title='httppost' data-type='struct curl_httppost **' data-ref="293httppost">httppost</dfn>,</td></tr>
+<tr><th id="977">977</th><td>                          <b>struct</b> <a class="type" href="#curl_httppost" title='curl_httppost' data-ref="curl_httppost">curl_httppost</a> **<dfn class="local col4 decl" id="294last_post" title='last_post' data-type='struct curl_httppost **' data-ref="294last_post">last_post</dfn>,</td></tr>
+<tr><th id="978">978</th><td>                          ...);</td></tr>
+<tr><th id="979">979</th><td></td></tr>
+<tr><th id="980">980</th><td><i>/*</i></td></tr>
+<tr><th id="981">981</th><td><i> * NAME curl_formfree()</i></td></tr>
+<tr><th id="982">982</th><td><i> *</i></td></tr>
+<tr><th id="983">983</th><td><i> * DESCRIPTION</i></td></tr>
+<tr><th id="984">984</th><td><i> *</i></td></tr>
+<tr><th id="985">985</th><td><i> * Free a multipart formpost previously built with curl_formadd().</i></td></tr>
+<tr><th id="986">986</th><td><i> */</i></td></tr>
+<tr><th id="987">987</th><td><em>void</em> <dfn class="decl" id="curl_formfree" title='curl_formfree' data-ref="curl_formfree">curl_formfree</dfn>(<b>struct</b> <a class="type" href="#curl_httppost" title='curl_httppost' data-ref="curl_httppost">curl_httppost</a> *<dfn class="local col5 decl" id="295form" title='form' data-type='struct curl_httppost *' data-ref="295form">form</dfn>);</td></tr>
+<tr><th id="988">988</th><td></td></tr>
+<tr><th id="989">989</th><td><i>/*</i></td></tr>
+<tr><th id="990">990</th><td><i> * NAME curl_getenv()</i></td></tr>
+<tr><th id="991">991</th><td><i> *</i></td></tr>
+<tr><th id="992">992</th><td><i> * DESCRIPTION</i></td></tr>
+<tr><th id="993">993</th><td><i> *</i></td></tr>
+<tr><th id="994">994</th><td><i> * Returns a malloc()'ed string that MUST be curl_free()ed after usage is</i></td></tr>
+<tr><th id="995">995</th><td><i> * complete.</i></td></tr>
+<tr><th id="996">996</th><td><i> */</i></td></tr>
+<tr><th id="997">997</th><td><em>char</em> *<dfn class="decl" id="curl_getenv" title='curl_getenv' data-ref="curl_getenv">curl_getenv</dfn>(<em>const</em> <em>char</em> *<dfn class="local col6 decl" id="296variable" title='variable' data-type='const char *' data-ref="296variable">variable</dfn>);</td></tr>
+<tr><th id="998">998</th><td></td></tr>
+<tr><th id="999">999</th><td><i>/*</i></td></tr>
+<tr><th id="1000">1000</th><td><i> * NAME curl_version()</i></td></tr>
+<tr><th id="1001">1001</th><td><i> *</i></td></tr>
+<tr><th id="1002">1002</th><td><i> * DESCRIPTION</i></td></tr>
+<tr><th id="1003">1003</th><td><i> *</i></td></tr>
+<tr><th id="1004">1004</th><td><i> * Returns a static ascii string of the libcurl version.</i></td></tr>
+<tr><th id="1005">1005</th><td><i> */</i></td></tr>
+<tr><th id="1006">1006</th><td><em>char</em> *<dfn class="decl" id="curl_version" title='curl_version' data-ref="curl_version">curl_version</dfn>(<em>void</em>);</td></tr>
+<tr><th id="1007">1007</th><td></td></tr>
+<tr><th id="1008">1008</th><td><i>/*</i></td></tr>
+<tr><th id="1009">1009</th><td><i> * NAME curl_escape()</i></td></tr>
+<tr><th id="1010">1010</th><td><i> *</i></td></tr>
+<tr><th id="1011">1011</th><td><i> * DESCRIPTION</i></td></tr>
+<tr><th id="1012">1012</th><td><i> *</i></td></tr>
+<tr><th id="1013">1013</th><td><i> * Escapes URL strings (converts all letters consider illegal in URLs to their</i></td></tr>
+<tr><th id="1014">1014</th><td><i> * %XX versions). This function returns a new allocated string or NULL if an</i></td></tr>
+<tr><th id="1015">1015</th><td><i> * error occurred.</i></td></tr>
+<tr><th id="1016">1016</th><td><i> */</i></td></tr>
+<tr><th id="1017">1017</th><td><em>char</em> *<dfn class="decl" id="curl_escape" title='curl_escape' data-ref="curl_escape">curl_escape</dfn>(<em>const</em> <em>char</em> *<dfn class="local col7 decl" id="297string" title='string' data-type='const char *' data-ref="297string">string</dfn>, <em>int</em> <dfn class="local col8 decl" id="298length" title='length' data-type='int' data-ref="298length">length</dfn>);</td></tr>
+<tr><th id="1018">1018</th><td></td></tr>
+<tr><th id="1019">1019</th><td><i>/*</i></td></tr>
+<tr><th id="1020">1020</th><td><i> * NAME curl_unescape()</i></td></tr>
+<tr><th id="1021">1021</th><td><i> *</i></td></tr>
+<tr><th id="1022">1022</th><td><i> * DESCRIPTION</i></td></tr>
+<tr><th id="1023">1023</th><td><i> *</i></td></tr>
+<tr><th id="1024">1024</th><td><i> * Unescapes URL encoding in strings (converts all %XX codes to their 8bit</i></td></tr>
+<tr><th id="1025">1025</th><td><i> * versions). This function returns a new allocated string or NULL if an error</i></td></tr>
+<tr><th id="1026">1026</th><td><i> * occurred.</i></td></tr>
+<tr><th id="1027">1027</th><td><i> */</i></td></tr>
+<tr><th id="1028">1028</th><td><em>char</em> *<dfn class="decl" id="curl_unescape" title='curl_unescape' data-ref="curl_unescape">curl_unescape</dfn>(<em>const</em> <em>char</em> *<dfn class="local col9 decl" id="299string" title='string' data-type='const char *' data-ref="299string">string</dfn>, <em>int</em> <dfn class="local col0 decl" id="300length" title='length' data-type='int' data-ref="300length">length</dfn>);</td></tr>
+<tr><th id="1029">1029</th><td></td></tr>
+<tr><th id="1030">1030</th><td><i>/*</i></td></tr>
+<tr><th id="1031">1031</th><td><i> * NAME curl_free()</i></td></tr>
+<tr><th id="1032">1032</th><td><i> *</i></td></tr>
+<tr><th id="1033">1033</th><td><i> * DESCRIPTION</i></td></tr>
+<tr><th id="1034">1034</th><td><i> *</i></td></tr>
+<tr><th id="1035">1035</th><td><i> * Provided for de-allocation in the same translation unit that did the</i></td></tr>
+<tr><th id="1036">1036</th><td><i> * allocation. Added in libcurl 7.10</i></td></tr>
+<tr><th id="1037">1037</th><td><i> */</i></td></tr>
+<tr><th id="1038">1038</th><td><em>void</em> <dfn class="decl" id="curl_free" title='curl_free' data-ref="curl_free">curl_free</dfn>(<em>void</em> *<dfn class="local col1 decl" id="301p" title='p' data-type='void *' data-ref="301p">p</dfn>);</td></tr>
+<tr><th id="1039">1039</th><td></td></tr>
+<tr><th id="1040">1040</th><td><i>/*</i></td></tr>
+<tr><th id="1041">1041</th><td><i> * NAME curl_global_init()</i></td></tr>
+<tr><th id="1042">1042</th><td><i> *</i></td></tr>
+<tr><th id="1043">1043</th><td><i> * DESCRIPTION</i></td></tr>
+<tr><th id="1044">1044</th><td><i> *</i></td></tr>
+<tr><th id="1045">1045</th><td><i> * curl_global_init() should be invoked exactly once for each application that</i></td></tr>
+<tr><th id="1046">1046</th><td><i> * uses libcurl</i></td></tr>
+<tr><th id="1047">1047</th><td><i> */</i></td></tr>
+<tr><th id="1048">1048</th><td><a class="typedef" href="#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="decl" id="curl_global_init" title='curl_global_init' data-ref="curl_global_init">curl_global_init</dfn>(<em>long</em> <dfn class="local col2 decl" id="302flags" title='flags' data-type='long' data-ref="302flags">flags</dfn>);</td></tr>
+<tr><th id="1049">1049</th><td></td></tr>
+<tr><th id="1050">1050</th><td><i>/*</i></td></tr>
+<tr><th id="1051">1051</th><td><i> * NAME curl_global_cleanup()</i></td></tr>
+<tr><th id="1052">1052</th><td><i> *</i></td></tr>
+<tr><th id="1053">1053</th><td><i> * DESCRIPTION</i></td></tr>
+<tr><th id="1054">1054</th><td><i> *</i></td></tr>
+<tr><th id="1055">1055</th><td><i> * curl_global_cleanup() should be invoked exactly once for each application</i></td></tr>
+<tr><th id="1056">1056</th><td><i> * that uses libcurl</i></td></tr>
+<tr><th id="1057">1057</th><td><i> */</i></td></tr>
+<tr><th id="1058">1058</th><td><em>void</em> <dfn class="decl" id="curl_global_cleanup" title='curl_global_cleanup' data-ref="curl_global_cleanup">curl_global_cleanup</dfn>(<em>void</em>);</td></tr>
+<tr><th id="1059">1059</th><td></td></tr>
+<tr><th id="1060">1060</th><td><i>/* linked-list structure for the CURLOPT_QUOTE option (and other) */</i></td></tr>
+<tr><th id="1061">1061</th><td><b>struct</b> <dfn class="type def" id="curl_slist" title='curl_slist' data-ref="curl_slist">curl_slist</dfn> {</td></tr>
+<tr><th id="1062">1062</th><td>  <em>char</em> *<dfn class="decl" id="curl_slist::data" title='curl_slist::data' data-ref="curl_slist::data">data</dfn>;</td></tr>
+<tr><th id="1063">1063</th><td>  <b>struct</b> <a class="type" href="#curl_slist" title='curl_slist' data-ref="curl_slist">curl_slist</a> *<dfn class="decl" id="curl_slist::next" title='curl_slist::next' data-ref="curl_slist::next">next</dfn>;</td></tr>
+<tr><th id="1064">1064</th><td>};</td></tr>
+<tr><th id="1065">1065</th><td></td></tr>
+<tr><th id="1066">1066</th><td><i>/*</i></td></tr>
+<tr><th id="1067">1067</th><td><i> * NAME curl_slist_append()</i></td></tr>
+<tr><th id="1068">1068</th><td><i> *</i></td></tr>
+<tr><th id="1069">1069</th><td><i> * DESCRIPTION</i></td></tr>
+<tr><th id="1070">1070</th><td><i> *</i></td></tr>
+<tr><th id="1071">1071</th><td><i> * Appends a string to a linked list. If no list exists, it will be created</i></td></tr>
+<tr><th id="1072">1072</th><td><i> * first. Returns the new list, after appending.</i></td></tr>
+<tr><th id="1073">1073</th><td><i> */</i></td></tr>
+<tr><th id="1074">1074</th><td><b>struct</b> <a class="type" href="#curl_slist" title='curl_slist' data-ref="curl_slist">curl_slist</a> *<dfn class="decl" id="curl_slist_append" title='curl_slist_append' data-ref="curl_slist_append">curl_slist_append</dfn>(<b>struct</b> <a class="type" href="#curl_slist" title='curl_slist' data-ref="curl_slist">curl_slist</a> *, <em>const</em> <em>char</em> *);</td></tr>
+<tr><th id="1075">1075</th><td></td></tr>
+<tr><th id="1076">1076</th><td><i>/*</i></td></tr>
+<tr><th id="1077">1077</th><td><i> * NAME curl_slist_free_all()</i></td></tr>
+<tr><th id="1078">1078</th><td><i> *</i></td></tr>
+<tr><th id="1079">1079</th><td><i> * DESCRIPTION</i></td></tr>
+<tr><th id="1080">1080</th><td><i> *</i></td></tr>
+<tr><th id="1081">1081</th><td><i> * free a previously built curl_slist.</i></td></tr>
+<tr><th id="1082">1082</th><td><i> */</i></td></tr>
+<tr><th id="1083">1083</th><td><em>void</em> <dfn class="decl" id="curl_slist_free_all" title='curl_slist_free_all' data-ref="curl_slist_free_all">curl_slist_free_all</dfn>(<b>struct</b> <a class="type" href="#curl_slist" title='curl_slist' data-ref="curl_slist">curl_slist</a> *);</td></tr>
+<tr><th id="1084">1084</th><td></td></tr>
+<tr><th id="1085">1085</th><td><i>/*</i></td></tr>
+<tr><th id="1086">1086</th><td><i> * NAME curl_getdate()</i></td></tr>
+<tr><th id="1087">1087</th><td><i> *</i></td></tr>
+<tr><th id="1088">1088</th><td><i> * DESCRIPTION</i></td></tr>
+<tr><th id="1089">1089</th><td><i> *</i></td></tr>
+<tr><th id="1090">1090</th><td><i> * Returns the time, in seconds since 1 Jan 1970 of the time string given in</i></td></tr>
+<tr><th id="1091">1091</th><td><i> * the first argument. The time argument in the second parameter is for cases</i></td></tr>
+<tr><th id="1092">1092</th><td><i> * where the specified time is relative now, like 'two weeks' or 'tomorrow'</i></td></tr>
+<tr><th id="1093">1093</th><td><i> * etc.</i></td></tr>
+<tr><th id="1094">1094</th><td><i> */</i></td></tr>
+<tr><th id="1095">1095</th><td><a class="typedef" href="../../../../include/time.h.html#time_t" title='time_t' data-type='__time_t' data-ref="time_t">time_t</a> <dfn class="decl" id="curl_getdate" title='curl_getdate' data-ref="curl_getdate">curl_getdate</dfn>(<em>const</em> <em>char</em> *<dfn class="local col3 decl" id="303p" title='p' data-type='const char *' data-ref="303p">p</dfn>, <em>const</em> <a class="typedef" href="../../../../include/time.h.html#time_t" title='time_t' data-type='__time_t' data-ref="time_t">time_t</a> *<dfn class="local col4 decl" id="304now" title='now' data-type='const time_t *' data-ref="304now">now</dfn>);</td></tr>
+<tr><th id="1096">1096</th><td></td></tr>
+<tr><th id="1097">1097</th><td></td></tr>
+<tr><th id="1098">1098</th><td><u>#define <dfn class="macro" id="_M/CURLINFO_STRING" data-ref="_M/CURLINFO_STRING">CURLINFO_STRING</dfn>   0x100000</u></td></tr>
+<tr><th id="1099">1099</th><td><u>#define <dfn class="macro" id="_M/CURLINFO_LONG" data-ref="_M/CURLINFO_LONG">CURLINFO_LONG</dfn>     0x200000</u></td></tr>
+<tr><th id="1100">1100</th><td><u>#define <dfn class="macro" id="_M/CURLINFO_DOUBLE" data-ref="_M/CURLINFO_DOUBLE">CURLINFO_DOUBLE</dfn>   0x300000</u></td></tr>
+<tr><th id="1101">1101</th><td><u>#define <dfn class="macro" id="_M/CURLINFO_MASK" data-ref="_M/CURLINFO_MASK">CURLINFO_MASK</dfn>     0x0fffff</u></td></tr>
+<tr><th id="1102">1102</th><td><u>#define <dfn class="macro" id="_M/CURLINFO_TYPEMASK" data-ref="_M/CURLINFO_TYPEMASK">CURLINFO_TYPEMASK</dfn> 0xf00000</u></td></tr>
+<tr><th id="1103">1103</th><td></td></tr>
+<tr><th id="1104">1104</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="1105">1105</th><td>  <dfn class="enum" id="CURLINFO_NONE" title='CURLINFO_NONE' data-ref="CURLINFO_NONE">CURLINFO_NONE</dfn>, <i>/* first, never use this */</i></td></tr>
+<tr><th id="1106">1106</th><td>  <dfn class="enum" id="CURLINFO_EFFECTIVE_URL" title='CURLINFO_EFFECTIVE_URL' data-ref="CURLINFO_EFFECTIVE_URL">CURLINFO_EFFECTIVE_URL</dfn>    = <a class="macro" href="#1098" title="0x100000" data-ref="_M/CURLINFO_STRING">CURLINFO_STRING</a> + <var>1</var>,</td></tr>
+<tr><th id="1107">1107</th><td>  <dfn class="enum" id="CURLINFO_RESPONSE_CODE" title='CURLINFO_RESPONSE_CODE' data-ref="CURLINFO_RESPONSE_CODE">CURLINFO_RESPONSE_CODE</dfn>    = <a class="macro" href="#1099" title="0x200000" data-ref="_M/CURLINFO_LONG">CURLINFO_LONG</a>   + <var>2</var>,</td></tr>
+<tr><th id="1108">1108</th><td>  <dfn class="enum" id="CURLINFO_TOTAL_TIME" title='CURLINFO_TOTAL_TIME' data-ref="CURLINFO_TOTAL_TIME">CURLINFO_TOTAL_TIME</dfn>       = <a class="macro" href="#1100" title="0x300000" data-ref="_M/CURLINFO_DOUBLE">CURLINFO_DOUBLE</a> + <var>3</var>,</td></tr>
+<tr><th id="1109">1109</th><td>  <dfn class="enum" id="CURLINFO_NAMELOOKUP_TIME" title='CURLINFO_NAMELOOKUP_TIME' data-ref="CURLINFO_NAMELOOKUP_TIME">CURLINFO_NAMELOOKUP_TIME</dfn>  = <a class="macro" href="#1100" title="0x300000" data-ref="_M/CURLINFO_DOUBLE">CURLINFO_DOUBLE</a> + <var>4</var>,</td></tr>
+<tr><th id="1110">1110</th><td>  <dfn class="enum" id="CURLINFO_CONNECT_TIME" title='CURLINFO_CONNECT_TIME' data-ref="CURLINFO_CONNECT_TIME">CURLINFO_CONNECT_TIME</dfn>     = <a class="macro" href="#1100" title="0x300000" data-ref="_M/CURLINFO_DOUBLE">CURLINFO_DOUBLE</a> + <var>5</var>,</td></tr>
+<tr><th id="1111">1111</th><td>  <dfn class="enum" id="CURLINFO_PRETRANSFER_TIME" title='CURLINFO_PRETRANSFER_TIME' data-ref="CURLINFO_PRETRANSFER_TIME">CURLINFO_PRETRANSFER_TIME</dfn> = <a class="macro" href="#1100" title="0x300000" data-ref="_M/CURLINFO_DOUBLE">CURLINFO_DOUBLE</a> + <var>6</var>,</td></tr>
+<tr><th id="1112">1112</th><td>  <dfn class="enum" id="CURLINFO_SIZE_UPLOAD" title='CURLINFO_SIZE_UPLOAD' data-ref="CURLINFO_SIZE_UPLOAD">CURLINFO_SIZE_UPLOAD</dfn>      = <a class="macro" href="#1100" title="0x300000" data-ref="_M/CURLINFO_DOUBLE">CURLINFO_DOUBLE</a> + <var>7</var>,</td></tr>
+<tr><th id="1113">1113</th><td>  <dfn class="enum" id="CURLINFO_SIZE_DOWNLOAD" title='CURLINFO_SIZE_DOWNLOAD' data-ref="CURLINFO_SIZE_DOWNLOAD">CURLINFO_SIZE_DOWNLOAD</dfn>    = <a class="macro" href="#1100" title="0x300000" data-ref="_M/CURLINFO_DOUBLE">CURLINFO_DOUBLE</a> + <var>8</var>,</td></tr>
+<tr><th id="1114">1114</th><td>  <dfn class="enum" id="CURLINFO_SPEED_DOWNLOAD" title='CURLINFO_SPEED_DOWNLOAD' data-ref="CURLINFO_SPEED_DOWNLOAD">CURLINFO_SPEED_DOWNLOAD</dfn>   = <a class="macro" href="#1100" title="0x300000" data-ref="_M/CURLINFO_DOUBLE">CURLINFO_DOUBLE</a> + <var>9</var>,</td></tr>
+<tr><th id="1115">1115</th><td>  <dfn class="enum" id="CURLINFO_SPEED_UPLOAD" title='CURLINFO_SPEED_UPLOAD' data-ref="CURLINFO_SPEED_UPLOAD">CURLINFO_SPEED_UPLOAD</dfn>     = <a class="macro" href="#1100" title="0x300000" data-ref="_M/CURLINFO_DOUBLE">CURLINFO_DOUBLE</a> + <var>10</var>,</td></tr>
+<tr><th id="1116">1116</th><td>  <dfn class="enum" id="CURLINFO_HEADER_SIZE" title='CURLINFO_HEADER_SIZE' data-ref="CURLINFO_HEADER_SIZE">CURLINFO_HEADER_SIZE</dfn>      = <a class="macro" href="#1099" title="0x200000" data-ref="_M/CURLINFO_LONG">CURLINFO_LONG</a>   + <var>11</var>,</td></tr>
+<tr><th id="1117">1117</th><td>  <dfn class="enum" id="CURLINFO_REQUEST_SIZE" title='CURLINFO_REQUEST_SIZE' data-ref="CURLINFO_REQUEST_SIZE">CURLINFO_REQUEST_SIZE</dfn>     = <a class="macro" href="#1099" title="0x200000" data-ref="_M/CURLINFO_LONG">CURLINFO_LONG</a>   + <var>12</var>,</td></tr>
+<tr><th id="1118">1118</th><td>  <dfn class="enum" id="CURLINFO_SSL_VERIFYRESULT" title='CURLINFO_SSL_VERIFYRESULT' data-ref="CURLINFO_SSL_VERIFYRESULT">CURLINFO_SSL_VERIFYRESULT</dfn> = <a class="macro" href="#1099" title="0x200000" data-ref="_M/CURLINFO_LONG">CURLINFO_LONG</a>   + <var>13</var>,</td></tr>
+<tr><th id="1119">1119</th><td>  <dfn class="enum" id="CURLINFO_FILETIME" title='CURLINFO_FILETIME' data-ref="CURLINFO_FILETIME">CURLINFO_FILETIME</dfn>         = <a class="macro" href="#1099" title="0x200000" data-ref="_M/CURLINFO_LONG">CURLINFO_LONG</a>   + <var>14</var>,</td></tr>
+<tr><th id="1120">1120</th><td>  <dfn class="enum" id="CURLINFO_CONTENT_LENGTH_DOWNLOAD" title='CURLINFO_CONTENT_LENGTH_DOWNLOAD' data-ref="CURLINFO_CONTENT_LENGTH_DOWNLOAD">CURLINFO_CONTENT_LENGTH_DOWNLOAD</dfn>   = <a class="macro" href="#1100" title="0x300000" data-ref="_M/CURLINFO_DOUBLE">CURLINFO_DOUBLE</a> + <var>15</var>,</td></tr>
+<tr><th id="1121">1121</th><td>  <dfn class="enum" id="CURLINFO_CONTENT_LENGTH_UPLOAD" title='CURLINFO_CONTENT_LENGTH_UPLOAD' data-ref="CURLINFO_CONTENT_LENGTH_UPLOAD">CURLINFO_CONTENT_LENGTH_UPLOAD</dfn>     = <a class="macro" href="#1100" title="0x300000" data-ref="_M/CURLINFO_DOUBLE">CURLINFO_DOUBLE</a> + <var>16</var>,</td></tr>
+<tr><th id="1122">1122</th><td>  <dfn class="enum" id="CURLINFO_STARTTRANSFER_TIME" title='CURLINFO_STARTTRANSFER_TIME' data-ref="CURLINFO_STARTTRANSFER_TIME">CURLINFO_STARTTRANSFER_TIME</dfn> = <a class="macro" href="#1100" title="0x300000" data-ref="_M/CURLINFO_DOUBLE">CURLINFO_DOUBLE</a> + <var>17</var>,</td></tr>
+<tr><th id="1123">1123</th><td>  <dfn class="enum" id="CURLINFO_CONTENT_TYPE" title='CURLINFO_CONTENT_TYPE' data-ref="CURLINFO_CONTENT_TYPE">CURLINFO_CONTENT_TYPE</dfn>     = <a class="macro" href="#1098" title="0x100000" data-ref="_M/CURLINFO_STRING">CURLINFO_STRING</a> + <var>18</var>,</td></tr>
+<tr><th id="1124">1124</th><td>  <dfn class="enum" id="CURLINFO_REDIRECT_TIME" title='CURLINFO_REDIRECT_TIME' data-ref="CURLINFO_REDIRECT_TIME">CURLINFO_REDIRECT_TIME</dfn>    = <a class="macro" href="#1100" title="0x300000" data-ref="_M/CURLINFO_DOUBLE">CURLINFO_DOUBLE</a> + <var>19</var>,</td></tr>
+<tr><th id="1125">1125</th><td>  <dfn class="enum" id="CURLINFO_REDIRECT_COUNT" title='CURLINFO_REDIRECT_COUNT' data-ref="CURLINFO_REDIRECT_COUNT">CURLINFO_REDIRECT_COUNT</dfn>   = <a class="macro" href="#1099" title="0x200000" data-ref="_M/CURLINFO_LONG">CURLINFO_LONG</a>   + <var>20</var>,</td></tr>
+<tr><th id="1126">1126</th><td>  <dfn class="enum" id="CURLINFO_PRIVATE" title='CURLINFO_PRIVATE' data-ref="CURLINFO_PRIVATE">CURLINFO_PRIVATE</dfn>          = <a class="macro" href="#1098" title="0x100000" data-ref="_M/CURLINFO_STRING">CURLINFO_STRING</a> + <var>21</var>,</td></tr>
+<tr><th id="1127">1127</th><td>  <dfn class="enum" id="CURLINFO_HTTP_CONNECTCODE" title='CURLINFO_HTTP_CONNECTCODE' data-ref="CURLINFO_HTTP_CONNECTCODE">CURLINFO_HTTP_CONNECTCODE</dfn> = <a class="macro" href="#1099" title="0x200000" data-ref="_M/CURLINFO_LONG">CURLINFO_LONG</a>   + <var>22</var>,</td></tr>
+<tr><th id="1128">1128</th><td>  <dfn class="enum" id="CURLINFO_HTTPAUTH_AVAIL" title='CURLINFO_HTTPAUTH_AVAIL' data-ref="CURLINFO_HTTPAUTH_AVAIL">CURLINFO_HTTPAUTH_AVAIL</dfn>   = <a class="macro" href="#1099" title="0x200000" data-ref="_M/CURLINFO_LONG">CURLINFO_LONG</a>   + <var>23</var>,</td></tr>
+<tr><th id="1129">1129</th><td>  <dfn class="enum" id="CURLINFO_PROXYAUTH_AVAIL" title='CURLINFO_PROXYAUTH_AVAIL' data-ref="CURLINFO_PROXYAUTH_AVAIL">CURLINFO_PROXYAUTH_AVAIL</dfn>  = <a class="macro" href="#1099" title="0x200000" data-ref="_M/CURLINFO_LONG">CURLINFO_LONG</a>   + <var>24</var>,</td></tr>
+<tr><th id="1130">1130</th><td>  <i>/* Fill in new entries below here! */</i></td></tr>
+<tr><th id="1131">1131</th><td></td></tr>
+<tr><th id="1132">1132</th><td>  <dfn class="enum" id="CURLINFO_LASTONE" title='CURLINFO_LASTONE' data-ref="CURLINFO_LASTONE">CURLINFO_LASTONE</dfn>          = <var>23</var></td></tr>
+<tr><th id="1133">1133</th><td>} <dfn class="typedef" id="CURLINFO" title='CURLINFO' data-type='enum CURLINFO' data-ref="CURLINFO">CURLINFO</dfn>;</td></tr>
+<tr><th id="1134">1134</th><td></td></tr>
+<tr><th id="1135">1135</th><td><i>/* CURLINFO_RESPONSE_CODE is the new name for the option previously known as</i></td></tr>
+<tr><th id="1136">1136</th><td><i>   CURLINFO_HTTP_CODE */</i></td></tr>
+<tr><th id="1137">1137</th><td><u>#define <dfn class="macro" id="_M/CURLINFO_HTTP_CODE" data-ref="_M/CURLINFO_HTTP_CODE">CURLINFO_HTTP_CODE</dfn> CURLINFO_RESPONSE_CODE</u></td></tr>
+<tr><th id="1138">1138</th><td></td></tr>
+<tr><th id="1139">1139</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="1140">1140</th><td>  <dfn class="enum" id="CURLCLOSEPOLICY_NONE" title='CURLCLOSEPOLICY_NONE' data-ref="CURLCLOSEPOLICY_NONE">CURLCLOSEPOLICY_NONE</dfn>, <i>/* first, never use this */</i></td></tr>
+<tr><th id="1141">1141</th><td></td></tr>
+<tr><th id="1142">1142</th><td>  <dfn class="enum" id="CURLCLOSEPOLICY_OLDEST" title='CURLCLOSEPOLICY_OLDEST' data-ref="CURLCLOSEPOLICY_OLDEST">CURLCLOSEPOLICY_OLDEST</dfn>,</td></tr>
+<tr><th id="1143">1143</th><td>  <dfn class="enum" id="CURLCLOSEPOLICY_LEAST_RECENTLY_USED" title='CURLCLOSEPOLICY_LEAST_RECENTLY_USED' data-ref="CURLCLOSEPOLICY_LEAST_RECENTLY_USED">CURLCLOSEPOLICY_LEAST_RECENTLY_USED</dfn>,</td></tr>
+<tr><th id="1144">1144</th><td>  <dfn class="enum" id="CURLCLOSEPOLICY_LEAST_TRAFFIC" title='CURLCLOSEPOLICY_LEAST_TRAFFIC' data-ref="CURLCLOSEPOLICY_LEAST_TRAFFIC">CURLCLOSEPOLICY_LEAST_TRAFFIC</dfn>,</td></tr>
+<tr><th id="1145">1145</th><td>  <dfn class="enum" id="CURLCLOSEPOLICY_SLOWEST" title='CURLCLOSEPOLICY_SLOWEST' data-ref="CURLCLOSEPOLICY_SLOWEST">CURLCLOSEPOLICY_SLOWEST</dfn>,</td></tr>
+<tr><th id="1146">1146</th><td>  <dfn class="enum" id="CURLCLOSEPOLICY_CALLBACK" title='CURLCLOSEPOLICY_CALLBACK' data-ref="CURLCLOSEPOLICY_CALLBACK">CURLCLOSEPOLICY_CALLBACK</dfn>,</td></tr>
+<tr><th id="1147">1147</th><td> </td></tr>
+<tr><th id="1148">1148</th><td>  <dfn class="enum" id="CURLCLOSEPOLICY_LAST" title='CURLCLOSEPOLICY_LAST' data-ref="CURLCLOSEPOLICY_LAST">CURLCLOSEPOLICY_LAST</dfn> <i>/* last, never use this */</i></td></tr>
+<tr><th id="1149">1149</th><td>} <dfn class="typedef" id="curl_closepolicy" title='curl_closepolicy' data-type='enum curl_closepolicy' data-ref="curl_closepolicy">curl_closepolicy</dfn>;</td></tr>
+<tr><th id="1150">1150</th><td></td></tr>
+<tr><th id="1151">1151</th><td><u>#define <dfn class="macro" id="_M/CURL_GLOBAL_SSL" data-ref="_M/CURL_GLOBAL_SSL">CURL_GLOBAL_SSL</dfn> (1&lt;&lt;0)</u></td></tr>
+<tr><th id="1152">1152</th><td><u>#define <dfn class="macro" id="_M/CURL_GLOBAL_WIN32" data-ref="_M/CURL_GLOBAL_WIN32">CURL_GLOBAL_WIN32</dfn> (1&lt;&lt;1)</u></td></tr>
+<tr><th id="1153">1153</th><td><u>#define <dfn class="macro" id="_M/CURL_GLOBAL_ALL" data-ref="_M/CURL_GLOBAL_ALL">CURL_GLOBAL_ALL</dfn> (CURL_GLOBAL_SSL|CURL_GLOBAL_WIN32)</u></td></tr>
+<tr><th id="1154">1154</th><td><u>#define <dfn class="macro" id="_M/CURL_GLOBAL_NOTHING" data-ref="_M/CURL_GLOBAL_NOTHING">CURL_GLOBAL_NOTHING</dfn> 0</u></td></tr>
+<tr><th id="1155">1155</th><td><u>#define <dfn class="macro" id="_M/CURL_GLOBAL_DEFAULT" data-ref="_M/CURL_GLOBAL_DEFAULT">CURL_GLOBAL_DEFAULT</dfn> CURL_GLOBAL_ALL</u></td></tr>
+<tr><th id="1156">1156</th><td></td></tr>
+<tr><th id="1157">1157</th><td></td></tr>
+<tr><th id="1158">1158</th><td><i>/*****************************************************************************</i></td></tr>
+<tr><th id="1159">1159</th><td><i> * Setup defines, protos etc for the sharing stuff.</i></td></tr>
+<tr><th id="1160">1160</th><td><i> */</i></td></tr>
+<tr><th id="1161">1161</th><td></td></tr>
+<tr><th id="1162">1162</th><td><i>/* Different data locks for a single share */</i></td></tr>
+<tr><th id="1163">1163</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="1164">1164</th><td>  <dfn class="enum" id="CURL_LOCK_DATA_NONE" title='CURL_LOCK_DATA_NONE' data-ref="CURL_LOCK_DATA_NONE">CURL_LOCK_DATA_NONE</dfn> = <var>0</var>,</td></tr>
+<tr><th id="1165">1165</th><td>  <i>/*  CURL_LOCK_DATA_SHARE is used internaly to say that</i></td></tr>
+<tr><th id="1166">1166</th><td><i>   *  the locking is just made to change the internal state of the share</i></td></tr>
+<tr><th id="1167">1167</th><td><i>   *  itself.</i></td></tr>
+<tr><th id="1168">1168</th><td><i>   */</i></td></tr>
+<tr><th id="1169">1169</th><td>  <dfn class="enum" id="CURL_LOCK_DATA_SHARE" title='CURL_LOCK_DATA_SHARE' data-ref="CURL_LOCK_DATA_SHARE">CURL_LOCK_DATA_SHARE</dfn>, </td></tr>
+<tr><th id="1170">1170</th><td>  <dfn class="enum" id="CURL_LOCK_DATA_COOKIE" title='CURL_LOCK_DATA_COOKIE' data-ref="CURL_LOCK_DATA_COOKIE">CURL_LOCK_DATA_COOKIE</dfn>,</td></tr>
+<tr><th id="1171">1171</th><td>  <dfn class="enum" id="CURL_LOCK_DATA_DNS" title='CURL_LOCK_DATA_DNS' data-ref="CURL_LOCK_DATA_DNS">CURL_LOCK_DATA_DNS</dfn>,</td></tr>
+<tr><th id="1172">1172</th><td>  <dfn class="enum" id="CURL_LOCK_DATA_SSL_SESSION" title='CURL_LOCK_DATA_SSL_SESSION' data-ref="CURL_LOCK_DATA_SSL_SESSION">CURL_LOCK_DATA_SSL_SESSION</dfn>,</td></tr>
+<tr><th id="1173">1173</th><td>  <dfn class="enum" id="CURL_LOCK_DATA_CONNECT" title='CURL_LOCK_DATA_CONNECT' data-ref="CURL_LOCK_DATA_CONNECT">CURL_LOCK_DATA_CONNECT</dfn>,</td></tr>
+<tr><th id="1174">1174</th><td>  <dfn class="enum" id="CURL_LOCK_DATA_LAST" title='CURL_LOCK_DATA_LAST' data-ref="CURL_LOCK_DATA_LAST">CURL_LOCK_DATA_LAST</dfn></td></tr>
+<tr><th id="1175">1175</th><td>} <dfn class="typedef" id="curl_lock_data" title='curl_lock_data' data-type='enum curl_lock_data' data-ref="curl_lock_data">curl_lock_data</dfn>;</td></tr>
+<tr><th id="1176">1176</th><td></td></tr>
+<tr><th id="1177">1177</th><td><i>/* Different lock access types */</i></td></tr>
+<tr><th id="1178">1178</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="1179">1179</th><td>  <dfn class="enum" id="CURL_LOCK_ACCESS_NONE" title='CURL_LOCK_ACCESS_NONE' data-ref="CURL_LOCK_ACCESS_NONE">CURL_LOCK_ACCESS_NONE</dfn> = <var>0</var>,   <i>/* unspecified action */</i></td></tr>
+<tr><th id="1180">1180</th><td>  <dfn class="enum" id="CURL_LOCK_ACCESS_SHARED" title='CURL_LOCK_ACCESS_SHARED' data-ref="CURL_LOCK_ACCESS_SHARED">CURL_LOCK_ACCESS_SHARED</dfn> = <var>1</var>, <i>/* for read perhaps */</i></td></tr>
+<tr><th id="1181">1181</th><td>  <dfn class="enum" id="CURL_LOCK_ACCESS_SINGLE" title='CURL_LOCK_ACCESS_SINGLE' data-ref="CURL_LOCK_ACCESS_SINGLE">CURL_LOCK_ACCESS_SINGLE</dfn> = <var>2</var>, <i>/* for write perhaps */</i></td></tr>
+<tr><th id="1182">1182</th><td>  <dfn class="enum" id="CURL_LOCK_ACCESS_LAST" title='CURL_LOCK_ACCESS_LAST' data-ref="CURL_LOCK_ACCESS_LAST">CURL_LOCK_ACCESS_LAST</dfn>        <i>/* never use */</i></td></tr>
+<tr><th id="1183">1183</th><td>} <dfn class="typedef" id="curl_lock_access" title='curl_lock_access' data-type='enum curl_lock_access' data-ref="curl_lock_access">curl_lock_access</dfn>;</td></tr>
+<tr><th id="1184">1184</th><td></td></tr>
+<tr><th id="1185">1185</th><td><b>typedef</b> <em>void</em> (*<dfn class="typedef" id="curl_lock_function" title='curl_lock_function' data-type='void (*)(CURL *, curl_lock_data, curl_lock_access, void *)' data-ref="curl_lock_function">curl_lock_function</dfn>)(<a class="typedef" href="types.h.html#CURL" title='CURL' data-type='void' data-ref="CURL">CURL</a> *<dfn class="local col5 decl" id="305handle" title='handle' data-type='CURL *' data-ref="305handle">handle</dfn>,</td></tr>
+<tr><th id="1186">1186</th><td>                                   <a class="typedef" href="#curl_lock_data" title='curl_lock_data' data-type='enum curl_lock_data' data-ref="curl_lock_data">curl_lock_data</a> <dfn class="local col6 decl" id="306data" title='data' data-type='curl_lock_data' data-ref="306data">data</dfn>,</td></tr>
+<tr><th id="1187">1187</th><td>                                   <a class="typedef" href="#curl_lock_access" title='curl_lock_access' data-type='enum curl_lock_access' data-ref="curl_lock_access">curl_lock_access</a> <dfn class="local col7 decl" id="307locktype" title='locktype' data-type='curl_lock_access' data-ref="307locktype">locktype</dfn>,</td></tr>
+<tr><th id="1188">1188</th><td>                                   <em>void</em> *<dfn class="local col8 decl" id="308userptr" title='userptr' data-type='void *' data-ref="308userptr">userptr</dfn>);</td></tr>
+<tr><th id="1189">1189</th><td><b>typedef</b> <em>void</em> (*<dfn class="typedef" id="curl_unlock_function" title='curl_unlock_function' data-type='void (*)(CURL *, curl_lock_data, void *)' data-ref="curl_unlock_function">curl_unlock_function</dfn>)(<a class="typedef" href="types.h.html#CURL" title='CURL' data-type='void' data-ref="CURL">CURL</a> *<dfn class="local col9 decl" id="309handle" title='handle' data-type='CURL *' data-ref="309handle">handle</dfn>,</td></tr>
+<tr><th id="1190">1190</th><td>                                     <a class="typedef" href="#curl_lock_data" title='curl_lock_data' data-type='enum curl_lock_data' data-ref="curl_lock_data">curl_lock_data</a> <dfn class="local col0 decl" id="310data" title='data' data-type='curl_lock_data' data-ref="310data">data</dfn>,</td></tr>
+<tr><th id="1191">1191</th><td>                                     <em>void</em> *<dfn class="local col1 decl" id="311userptr" title='userptr' data-type='void *' data-ref="311userptr">userptr</dfn>);</td></tr>
+<tr><th id="1192">1192</th><td></td></tr>
+<tr><th id="1193">1193</th><td><b>typedef</b> <em>void</em> <dfn class="typedef" id="CURLSH" title='CURLSH' data-type='void' data-ref="CURLSH">CURLSH</dfn>;</td></tr>
+<tr><th id="1194">1194</th><td></td></tr>
+<tr><th id="1195">1195</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="1196">1196</th><td>  <dfn class="enum" id="CURLSHE_OK" title='CURLSHE_OK' data-ref="CURLSHE_OK">CURLSHE_OK</dfn>,  <i>/* all is fine */</i></td></tr>
+<tr><th id="1197">1197</th><td>  <dfn class="enum" id="CURLSHE_BAD_OPTION" title='CURLSHE_BAD_OPTION' data-ref="CURLSHE_BAD_OPTION">CURLSHE_BAD_OPTION</dfn>, <i>/* 1 */</i></td></tr>
+<tr><th id="1198">1198</th><td>  <dfn class="enum" id="CURLSHE_IN_USE" title='CURLSHE_IN_USE' data-ref="CURLSHE_IN_USE">CURLSHE_IN_USE</dfn>,     <i>/* 2 */</i></td></tr>
+<tr><th id="1199">1199</th><td>  <dfn class="enum" id="CURLSHE_INVALID" title='CURLSHE_INVALID' data-ref="CURLSHE_INVALID">CURLSHE_INVALID</dfn>,    <i>/* 3 */</i></td></tr>
+<tr><th id="1200">1200</th><td>  <dfn class="enum" id="CURLSHE_LAST" title='CURLSHE_LAST' data-ref="CURLSHE_LAST">CURLSHE_LAST</dfn> <i>/* never use */</i></td></tr>
+<tr><th id="1201">1201</th><td>} <dfn class="typedef" id="CURLSHcode" title='CURLSHcode' data-type='enum CURLSHcode' data-ref="CURLSHcode">CURLSHcode</dfn>;</td></tr>
+<tr><th id="1202">1202</th><td></td></tr>
+<tr><th id="1203">1203</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="1204">1204</th><td>  <dfn class="enum" id="CURLSHOPT_NONE" title='CURLSHOPT_NONE' data-ref="CURLSHOPT_NONE">CURLSHOPT_NONE</dfn>,  <i>/* don't use */</i></td></tr>
+<tr><th id="1205">1205</th><td>  <dfn class="enum" id="CURLSHOPT_SHARE" title='CURLSHOPT_SHARE' data-ref="CURLSHOPT_SHARE">CURLSHOPT_SHARE</dfn>,   <i>/* specify a data type to share */</i></td></tr>
+<tr><th id="1206">1206</th><td>  <dfn class="enum" id="CURLSHOPT_UNSHARE" title='CURLSHOPT_UNSHARE' data-ref="CURLSHOPT_UNSHARE">CURLSHOPT_UNSHARE</dfn>, <i>/* specify shich data type to stop sharing */</i></td></tr>
+<tr><th id="1207">1207</th><td>  <dfn class="enum" id="CURLSHOPT_LOCKFUNC" title='CURLSHOPT_LOCKFUNC' data-ref="CURLSHOPT_LOCKFUNC">CURLSHOPT_LOCKFUNC</dfn>,   <i>/* pass in a 'curl_lock_function' pointer */</i></td></tr>
+<tr><th id="1208">1208</th><td>  <dfn class="enum" id="CURLSHOPT_UNLOCKFUNC" title='CURLSHOPT_UNLOCKFUNC' data-ref="CURLSHOPT_UNLOCKFUNC">CURLSHOPT_UNLOCKFUNC</dfn>, <i>/* pass in a 'curl_unlock_function' pointer */</i></td></tr>
+<tr><th id="1209">1209</th><td>  <dfn class="enum" id="CURLSHOPT_USERDATA" title='CURLSHOPT_USERDATA' data-ref="CURLSHOPT_USERDATA">CURLSHOPT_USERDATA</dfn>,   <i>/* pass in a user data pointer used in the lock/unlock</i></td></tr>
+<tr><th id="1210">1210</th><td><i>                           callback functions */</i></td></tr>
+<tr><th id="1211">1211</th><td>  <dfn class="enum" id="CURLSHOPT_LAST" title='CURLSHOPT_LAST' data-ref="CURLSHOPT_LAST">CURLSHOPT_LAST</dfn>  <i>/* never use */</i></td></tr>
+<tr><th id="1212">1212</th><td>} <dfn class="typedef" id="CURLSHoption" title='CURLSHoption' data-type='enum CURLSHoption' data-ref="CURLSHoption">CURLSHoption</dfn>;</td></tr>
+<tr><th id="1213">1213</th><td></td></tr>
+<tr><th id="1214">1214</th><td><a class="typedef" href="#CURLSH" title='CURLSH' data-type='void' data-ref="CURLSH">CURLSH</a> *<dfn class="decl" id="curl_share_init" title='curl_share_init' data-ref="curl_share_init">curl_share_init</dfn>(<em>void</em>);</td></tr>
+<tr><th id="1215">1215</th><td><a class="typedef" href="#CURLSHcode" title='CURLSHcode' data-type='enum CURLSHcode' data-ref="CURLSHcode">CURLSHcode</a> <dfn class="decl" id="curl_share_setopt" title='curl_share_setopt' data-ref="curl_share_setopt">curl_share_setopt</dfn>(<a class="typedef" href="#CURLSH" title='CURLSH' data-type='void' data-ref="CURLSH">CURLSH</a> *, <a class="typedef" href="#CURLSHoption" title='CURLSHoption' data-type='enum CURLSHoption' data-ref="CURLSHoption">CURLSHoption</a> <dfn class="local col2 decl" id="312option" title='option' data-type='CURLSHoption' data-ref="312option">option</dfn>, ...);</td></tr>
+<tr><th id="1216">1216</th><td><a class="typedef" href="#CURLSHcode" title='CURLSHcode' data-type='enum CURLSHcode' data-ref="CURLSHcode">CURLSHcode</a> <dfn class="decl" id="curl_share_cleanup" title='curl_share_cleanup' data-ref="curl_share_cleanup">curl_share_cleanup</dfn>(<a class="typedef" href="#CURLSH" title='CURLSH' data-type='void' data-ref="CURLSH">CURLSH</a> *);</td></tr>
+<tr><th id="1217">1217</th><td></td></tr>
+<tr><th id="1218">1218</th><td><i>/****************************************************************************</i></td></tr>
+<tr><th id="1219">1219</th><td><i> * Structures for querying information about the curl library at runtime.</i></td></tr>
+<tr><th id="1220">1220</th><td><i> */</i></td></tr>
+<tr><th id="1221">1221</th><td></td></tr>
+<tr><th id="1222">1222</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="1223">1223</th><td>  <dfn class="enum" id="CURLVERSION_FIRST" title='CURLVERSION_FIRST' data-ref="CURLVERSION_FIRST">CURLVERSION_FIRST</dfn>,</td></tr>
+<tr><th id="1224">1224</th><td>  <dfn class="enum" id="CURLVERSION_SECOND" title='CURLVERSION_SECOND' data-ref="CURLVERSION_SECOND">CURLVERSION_SECOND</dfn>,</td></tr>
+<tr><th id="1225">1225</th><td>  <dfn class="enum" id="CURLVERSION_LAST" title='CURLVERSION_LAST' data-ref="CURLVERSION_LAST">CURLVERSION_LAST</dfn> <i>/* never actually use this */</i></td></tr>
+<tr><th id="1226">1226</th><td>} <dfn class="typedef" id="CURLversion" title='CURLversion' data-type='enum CURLversion' data-ref="CURLversion">CURLversion</dfn>;</td></tr>
+<tr><th id="1227">1227</th><td></td></tr>
+<tr><th id="1228">1228</th><td><i>/* The 'CURLVERSION_NOW' is the symbolic name meant to be used by</i></td></tr>
+<tr><th id="1229">1229</th><td><i>   basicly all programs ever, that want to get version information. It is</i></td></tr>
+<tr><th id="1230">1230</th><td><i>   meant to be a built-in version number for what kind of struct the caller</i></td></tr>
+<tr><th id="1231">1231</th><td><i>   expects. If the struct ever changes, we redfine the NOW to another enum</i></td></tr>
+<tr><th id="1232">1232</th><td><i>   from above. */</i></td></tr>
+<tr><th id="1233">1233</th><td><u>#define <dfn class="macro" id="_M/CURLVERSION_NOW" data-ref="_M/CURLVERSION_NOW">CURLVERSION_NOW</dfn> CURLVERSION_SECOND</u></td></tr>
+<tr><th id="1234">1234</th><td></td></tr>
+<tr><th id="1235">1235</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="1236">1236</th><td>  <a class="typedef" href="#CURLversion" title='CURLversion' data-type='enum CURLversion' data-ref="CURLversion">CURLversion</a> <dfn class="decl" id="(anonymous)::age" title='(anonymous struct)::age' data-ref="(anonymous)::age">age</dfn>;          <i>/* age of the returned struct */</i></td></tr>
+<tr><th id="1237">1237</th><td>  <em>const</em> <em>char</em> *<dfn class="decl" id="(anonymous)::version" title='(anonymous struct)::version' data-ref="(anonymous)::version">version</dfn>;      <i>/* LIBCURL_VERSION */</i></td></tr>
+<tr><th id="1238">1238</th><td>  <em>unsigned</em> <em>int</em> <dfn class="decl" id="(anonymous)::version_num" title='(anonymous struct)::version_num' data-ref="(anonymous)::version_num">version_num</dfn>; <i>/* LIBCURL_VERSION_NUM */</i></td></tr>
+<tr><th id="1239">1239</th><td>  <em>const</em> <em>char</em> *<dfn class="decl" id="(anonymous)::host" title='(anonymous struct)::host' data-ref="(anonymous)::host">host</dfn>;         <i>/* OS/host/cpu/machine when configured */</i></td></tr>
+<tr><th id="1240">1240</th><td>  <em>int</em> <dfn class="decl" id="(anonymous)::features" title='(anonymous struct)::features' data-ref="(anonymous)::features">features</dfn>;             <i>/* bitmask, see defines below */</i></td></tr>
+<tr><th id="1241">1241</th><td>  <em>char</em> *<dfn class="decl" id="(anonymous)::ssl_version" title='(anonymous struct)::ssl_version' data-ref="(anonymous)::ssl_version">ssl_version</dfn>;        <i>/* human readable string */</i></td></tr>
+<tr><th id="1242">1242</th><td>  <em>long</em> <dfn class="decl" id="(anonymous)::ssl_version_num" title='(anonymous struct)::ssl_version_num' data-ref="(anonymous)::ssl_version_num">ssl_version_num</dfn>;     <i>/* number */</i></td></tr>
+<tr><th id="1243">1243</th><td>  <em>const</em> <em>char</em> *<dfn class="decl" id="(anonymous)::libz_version" title='(anonymous struct)::libz_version' data-ref="(anonymous)::libz_version">libz_version</dfn>;       <i>/* human readable string */</i></td></tr>
+<tr><th id="1244">1244</th><td>  <i>/* protocols is terminated by an entry with a NULL protoname */</i></td></tr>
+<tr><th id="1245">1245</th><td>  <em>const</em> <em>char</em> **<dfn class="decl" id="(anonymous)::protocols" title='(anonymous struct)::protocols' data-ref="(anonymous)::protocols">protocols</dfn>;</td></tr>
+<tr><th id="1246">1246</th><td></td></tr>
+<tr><th id="1247">1247</th><td>  <i>/* The fields below this were added in CURLVERSION_SECOND */</i></td></tr>
+<tr><th id="1248">1248</th><td>  <em>const</em> <em>char</em> *<dfn class="decl" id="(anonymous)::ares" title='(anonymous struct)::ares' data-ref="(anonymous)::ares">ares</dfn>;</td></tr>
+<tr><th id="1249">1249</th><td>  <em>int</em> <dfn class="decl" id="(anonymous)::ares_num" title='(anonymous struct)::ares_num' data-ref="(anonymous)::ares_num">ares_num</dfn>;</td></tr>
+<tr><th id="1250">1250</th><td>} <dfn class="typedef" id="curl_version_info_data" title='curl_version_info_data' data-type='struct curl_version_info_data' data-ref="curl_version_info_data">curl_version_info_data</dfn>;</td></tr>
+<tr><th id="1251">1251</th><td></td></tr>
+<tr><th id="1252">1252</th><td><u>#define <dfn class="macro" id="_M/CURL_VERSION_IPV6" data-ref="_M/CURL_VERSION_IPV6">CURL_VERSION_IPV6</dfn>      (1&lt;&lt;0)</u></td></tr>
+<tr><th id="1253">1253</th><td><u>#define <dfn class="macro" id="_M/CURL_VERSION_KERBEROS4" data-ref="_M/CURL_VERSION_KERBEROS4">CURL_VERSION_KERBEROS4</dfn> (1&lt;&lt;1)</u></td></tr>
+<tr><th id="1254">1254</th><td><u>#define <dfn class="macro" id="_M/CURL_VERSION_SSL" data-ref="_M/CURL_VERSION_SSL">CURL_VERSION_SSL</dfn>       (1&lt;&lt;2)</u></td></tr>
+<tr><th id="1255">1255</th><td><u>#define <dfn class="macro" id="_M/CURL_VERSION_LIBZ" data-ref="_M/CURL_VERSION_LIBZ">CURL_VERSION_LIBZ</dfn>      (1&lt;&lt;3)</u></td></tr>
+<tr><th id="1256">1256</th><td><u>#define <dfn class="macro" id="_M/CURL_VERSION_NTLM" data-ref="_M/CURL_VERSION_NTLM">CURL_VERSION_NTLM</dfn>      (1&lt;&lt;4)</u></td></tr>
+<tr><th id="1257">1257</th><td><u>#define <dfn class="macro" id="_M/CURL_VERSION_GSSNEGOTIATE" data-ref="_M/CURL_VERSION_GSSNEGOTIATE">CURL_VERSION_GSSNEGOTIATE</dfn> (1&lt;&lt;5)</u></td></tr>
+<tr><th id="1258">1258</th><td><u>#define <dfn class="macro" id="_M/CURL_VERSION_DEBUG" data-ref="_M/CURL_VERSION_DEBUG">CURL_VERSION_DEBUG</dfn>     (1&lt;&lt;6) /* built with debug capabilities */</u></td></tr>
+<tr><th id="1259">1259</th><td><u>#define <dfn class="macro" id="_M/CURL_VERSION_ASYNCHDNS" data-ref="_M/CURL_VERSION_ASYNCHDNS">CURL_VERSION_ASYNCHDNS</dfn> (1&lt;&lt;7)</u></td></tr>
+<tr><th id="1260">1260</th><td><u>#define <dfn class="macro" id="_M/CURL_VERSION_SPNEGO" data-ref="_M/CURL_VERSION_SPNEGO">CURL_VERSION_SPNEGO</dfn>    (1&lt;&lt;8)</u></td></tr>
+<tr><th id="1261">1261</th><td><u>#define <dfn class="macro" id="_M/CURL_VERSION_LARGEFILE" data-ref="_M/CURL_VERSION_LARGEFILE">CURL_VERSION_LARGEFILE</dfn> (1&lt;&lt;9) /* supports files bigger than 2GB */</u></td></tr>
+<tr><th id="1262">1262</th><td></td></tr>
+<tr><th id="1263">1263</th><td><i>/*</i></td></tr>
+<tr><th id="1264">1264</th><td><i> * NAME curl_version_info()</i></td></tr>
+<tr><th id="1265">1265</th><td><i> *</i></td></tr>
+<tr><th id="1266">1266</th><td><i> * DESCRIPTION</i></td></tr>
+<tr><th id="1267">1267</th><td><i> *</i></td></tr>
+<tr><th id="1268">1268</th><td><i> * This function returns a pointer to a static copy of the version info</i></td></tr>
+<tr><th id="1269">1269</th><td><i> * struct. See above.</i></td></tr>
+<tr><th id="1270">1270</th><td><i> */</i></td></tr>
+<tr><th id="1271">1271</th><td><a class="typedef" href="#curl_version_info_data" title='curl_version_info_data' data-type='struct curl_version_info_data' data-ref="curl_version_info_data">curl_version_info_data</a> *<dfn class="decl" id="curl_version_info" title='curl_version_info' data-ref="curl_version_info">curl_version_info</dfn>(<a class="typedef" href="#CURLversion" title='CURLversion' data-type='enum CURLversion' data-ref="CURLversion">CURLversion</a>);</td></tr>
+<tr><th id="1272">1272</th><td></td></tr>
+<tr><th id="1273">1273</th><td><u>#<span data-ppcond="1273">ifdef</span>  <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="1274">1274</th><td>}</td></tr>
+<tr><th id="1275">1275</th><td><u>#<span data-ppcond="1273">endif</span></u></td></tr>
+<tr><th id="1276">1276</th><td></td></tr>
+<tr><th id="1277">1277</th><td><i>/* unfortunately, the easy.h and multi.h include files need options and info</i></td></tr>
+<tr><th id="1278">1278</th><td><i>  stuff before they can be included! */</i></td></tr>
+<tr><th id="1279">1279</th><td><u>#include <a href="easy.h.html">"easy.h"</a> /* nothing in curl is fun without the easy stuff */</u></td></tr>
+<tr><th id="1280">1280</th><td><u>#include <a href="multi.h.html">"multi.h"</a></u></td></tr>
+<tr><th id="1281">1281</th><td></td></tr>
+<tr><th id="1282">1282</th><td><u>#<span data-ppcond="1">endif</span> /* __CURL_CURL_H */</u></td></tr>
+<tr><th id="1283">1283</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../lib/connect.c.html'>codebrowser/curl/lib/connect.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

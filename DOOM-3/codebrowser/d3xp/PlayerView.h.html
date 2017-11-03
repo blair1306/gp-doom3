@@ -1,0 +1,448 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>PlayerView.h source code [codebrowser/d3xp/PlayerView.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="FullscreenFX,FullscreenFXManager,FullscreenFX_Bloom,FullscreenFX_DoubleVision,FullscreenFX_EnviroSuit,FullscreenFX_Helltime,FullscreenFX_InfluenceVision,FullscreenFX_Multiplayer,FullscreenFX_Warp,FxFader,WarpPolygon_t,Warp_t,idPlayerView "/>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/d3xp/PlayerView.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>d3xp</a>/<a href='PlayerView.h.html'>PlayerView.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__GAME_PLAYERVIEW_H__">__GAME_PLAYERVIEW_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__GAME_PLAYERVIEW_H__" data-ref="_M/__GAME_PLAYERVIEW_H__">__GAME_PLAYERVIEW_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>  Player view.</i></td></tr>
+<tr><th id="36">36</th><td><i></i></td></tr>
+<tr><th id="37">37</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="38">38</th><td><i>*/</i></td></tr>
+<tr><th id="39">39</th><td><i></i></td></tr>
+<tr><th id="40">40</th><td><i>// screenBlob_t are for the on-screen damage claw marks, etc</i></td></tr>
+<tr><th id="41">41</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="42">42</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *	<dfn class="decl" id="(anonymous)::material" title='(anonymous struct)::material' data-ref="(anonymous)::material">material</dfn>;</td></tr>
+<tr><th id="43">43</th><td>	<em>float</em>				<dfn class="decl" id="(anonymous)::x" title='(anonymous struct)::x' data-ref="(anonymous)::x">x</dfn>, <dfn class="decl" id="(anonymous)::y" title='(anonymous struct)::y' data-ref="(anonymous)::y">y</dfn>, <dfn class="decl" id="(anonymous)::w" title='(anonymous struct)::w' data-ref="(anonymous)::w">w</dfn>, <dfn class="decl" id="(anonymous)::h" title='(anonymous struct)::h' data-ref="(anonymous)::h">h</dfn>;</td></tr>
+<tr><th id="44">44</th><td>	<em>float</em>				<dfn class="decl" id="(anonymous)::s1" title='(anonymous struct)::s1' data-ref="(anonymous)::s1">s1</dfn>, <dfn class="decl" id="(anonymous)::t1" title='(anonymous struct)::t1' data-ref="(anonymous)::t1">t1</dfn>, <dfn class="decl" id="(anonymous)::s2" title='(anonymous struct)::s2' data-ref="(anonymous)::s2">s2</dfn>, <dfn class="decl" id="(anonymous)::t2" title='(anonymous struct)::t2' data-ref="(anonymous)::t2">t2</dfn>;</td></tr>
+<tr><th id="45">45</th><td>	<em>int</em>					<dfn class="decl" id="(anonymous)::finishTime" title='(anonymous struct)::finishTime' data-ref="(anonymous)::finishTime">finishTime</dfn>;</td></tr>
+<tr><th id="46">46</th><td>	<em>int</em>					<dfn class="decl" id="(anonymous)::startFadeTime" title='(anonymous struct)::startFadeTime' data-ref="(anonymous)::startFadeTime">startFadeTime</dfn>;</td></tr>
+<tr><th id="47">47</th><td>	<em>float</em>				<dfn class="decl" id="(anonymous)::driftAmount" title='(anonymous struct)::driftAmount' data-ref="(anonymous)::driftAmount">driftAmount</dfn>;</td></tr>
+<tr><th id="48">48</th><td>} <dfn class="typedef" id="screenBlob_t" title='screenBlob_t' data-type='struct screenBlob_t' data-ref="screenBlob_t">screenBlob_t</dfn>;</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td><u>#define	<dfn class="macro" id="_M/MAX_SCREEN_BLOBS" data-ref="_M/MAX_SCREEN_BLOBS">MAX_SCREEN_BLOBS</dfn>	8</u></td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td><u>#<span data-ppcond="56">ifdef</span> <span class="macro" data-ref="_M/_D3XP">_D3XP</span></u></td></tr>
+<tr><th id="57">57</th><td><b>class</b> <dfn class="type def" id="WarpPolygon_t" title='WarpPolygon_t' data-ref="WarpPolygon_t">WarpPolygon_t</dfn> {</td></tr>
+<tr><th id="58">58</th><td><b>public</b>:</td></tr>
+<tr><th id="59">59</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec4" title='idVec4' data-ref="idVec4">idVec4</a>					<dfn class="decl" id="WarpPolygon_t::outer1" title='WarpPolygon_t::outer1' data-ref="WarpPolygon_t::outer1">outer1</dfn>;</td></tr>
+<tr><th id="60">60</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec4" title='idVec4' data-ref="idVec4">idVec4</a>					<dfn class="decl" id="WarpPolygon_t::outer2" title='WarpPolygon_t::outer2' data-ref="WarpPolygon_t::outer2">outer2</dfn>;</td></tr>
+<tr><th id="61">61</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec4" title='idVec4' data-ref="idVec4">idVec4</a>					<dfn class="decl" id="WarpPolygon_t::center" title='WarpPolygon_t::center' data-ref="WarpPolygon_t::center">center</dfn>;</td></tr>
+<tr><th id="62">62</th><td>};</td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td><b>class</b> <dfn class="type def" id="Warp_t" title='Warp_t' data-ref="Warp_t">Warp_t</dfn> {</td></tr>
+<tr><th id="65">65</th><td><b>public</b>:</td></tr>
+<tr><th id="66">66</th><td>	<em>int</em>						<dfn class="decl" id="Warp_t::id" title='Warp_t::id' data-ref="Warp_t::id">id</dfn>;</td></tr>
+<tr><th id="67">67</th><td>	<em>bool</em>					<dfn class="decl" id="Warp_t::active" title='Warp_t::active' data-ref="Warp_t::active">active</dfn>;</td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td>	<em>int</em>						<dfn class="decl" id="Warp_t::startTime" title='Warp_t::startTime' data-ref="Warp_t::startTime">startTime</dfn>;</td></tr>
+<tr><th id="70">70</th><td>	<em>float</em>					<dfn class="decl" id="Warp_t::initialRadius" title='Warp_t::initialRadius' data-ref="Warp_t::initialRadius">initialRadius</dfn>;</td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a>					<dfn class="decl" id="Warp_t::worldOrigin" title='Warp_t::worldOrigin' data-ref="Warp_t::worldOrigin">worldOrigin</dfn>;</td></tr>
+<tr><th id="73">73</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec2" title='idVec2' data-ref="idVec2">idVec2</a>					<dfn class="decl" id="Warp_t::screenOrigin" title='Warp_t::screenOrigin' data-ref="Warp_t::screenOrigin">screenOrigin</dfn>;</td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td>	<em>int</em>						<dfn class="decl" id="Warp_t::durationMsec" title='Warp_t::durationMsec' data-ref="Warp_t::durationMsec">durationMsec</dfn>;</td></tr>
+<tr><th id="76">76</th><td></td></tr>
+<tr><th id="77">77</th><td>	<a class="type" href="../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<a class="type" href="#WarpPolygon_t" title='WarpPolygon_t' data-ref="WarpPolygon_t">WarpPolygon_t</a>&gt;	<dfn class="decl" id="Warp_t::polys" title='Warp_t::polys' data-ref="Warp_t::polys">polys</dfn>;</td></tr>
+<tr><th id="78">78</th><td>};</td></tr>
+<tr><th id="79">79</th><td><u>#<span data-ppcond="56">endif</span></u></td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td></td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td><u>#<span data-ppcond="87">ifdef</span> <span class="macro" data-ref="_M/_D3XP">_D3XP</span></u></td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td><b>class</b> <a class="type" href="#idPlayerView" title='idPlayerView' data-ref="idPlayerView">idPlayerView</a>;</td></tr>
+<tr><th id="90">90</th><td><b>class</b> <a class="type" href="#FullscreenFXManager" title='FullscreenFXManager' data-ref="FullscreenFXManager">FullscreenFXManager</a>;</td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td><i>/*</i></td></tr>
+<tr><th id="94">94</th><td><i>==================</i></td></tr>
+<tr><th id="95">95</th><td><i>FxFader</i></td></tr>
+<tr><th id="96">96</th><td><i>==================</i></td></tr>
+<tr><th id="97">97</th><td><i>*/</i></td></tr>
+<tr><th id="98">98</th><td><b>class</b> <dfn class="type def" id="FxFader" title='FxFader' data-ref="FxFader">FxFader</dfn> {</td></tr>
+<tr><th id="99">99</th><td>	<b>enum</b> {</td></tr>
+<tr><th id="100">100</th><td>		<dfn class="enum" id="FxFader::FX_STATE_OFF" title='FxFader::FX_STATE_OFF' data-ref="FxFader::FX_STATE_OFF">FX_STATE_OFF</dfn>,</td></tr>
+<tr><th id="101">101</th><td>		<dfn class="enum" id="FxFader::FX_STATE_RAMPUP" title='FxFader::FX_STATE_RAMPUP' data-ref="FxFader::FX_STATE_RAMPUP">FX_STATE_RAMPUP</dfn>,</td></tr>
+<tr><th id="102">102</th><td>		<dfn class="enum" id="FxFader::FX_STATE_RAMPDOWN" title='FxFader::FX_STATE_RAMPDOWN' data-ref="FxFader::FX_STATE_RAMPDOWN">FX_STATE_RAMPDOWN</dfn>,</td></tr>
+<tr><th id="103">103</th><td>		<dfn class="enum" id="FxFader::FX_STATE_ON" title='FxFader::FX_STATE_ON' data-ref="FxFader::FX_STATE_ON">FX_STATE_ON</dfn></td></tr>
+<tr><th id="104">104</th><td>	};</td></tr>
+<tr><th id="105">105</th><td></td></tr>
+<tr><th id="106">106</th><td>	<em>int</em>						<dfn class="decl" id="FxFader::time" title='FxFader::time' data-ref="FxFader::time">time</dfn>;</td></tr>
+<tr><th id="107">107</th><td>	<em>int</em>						<dfn class="decl" id="FxFader::state" title='FxFader::state' data-ref="FxFader::state">state</dfn>;</td></tr>
+<tr><th id="108">108</th><td>	<em>float</em>					<dfn class="decl" id="FxFader::alpha" title='FxFader::alpha' data-ref="FxFader::alpha">alpha</dfn>;</td></tr>
+<tr><th id="109">109</th><td>	<em>int</em>						<dfn class="decl" id="FxFader::msec" title='FxFader::msec' data-ref="FxFader::msec">msec</dfn>;</td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td><b>public</b>:</td></tr>
+<tr><th id="112">112</th><td>							<dfn class="decl" id="_ZN7FxFaderC1Ev" title='FxFader::FxFader' data-ref="_ZN7FxFaderC1Ev">FxFader</dfn>();</td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td>	<i>// primary functions</i></td></tr>
+<tr><th id="115">115</th><td>	<em>bool</em>					<dfn class="decl" id="_ZN7FxFader15SetTriggerStateEb" title='FxFader::SetTriggerState' data-ref="_ZN7FxFader15SetTriggerStateEb">SetTriggerState</dfn>( <em>bool</em> <dfn class="local col1 decl" id="3561active" title='active' data-type='bool' data-ref="3561active">active</dfn> );</td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN7FxFader4SaveEP10idSaveGame" title='FxFader::Save' data-ref="_ZN7FxFader4SaveEP10idSaveGame">Save</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idSaveGame" title='idSaveGame' data-ref="idSaveGame">idSaveGame</a> *<dfn class="local col2 decl" id="3562savefile" title='savefile' data-type='idSaveGame *' data-ref="3562savefile">savefile</dfn> );</td></tr>
+<tr><th id="118">118</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN7FxFader7RestoreEP13idRestoreGame" title='FxFader::Restore' data-ref="_ZN7FxFader7RestoreEP13idRestoreGame">Restore</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idRestoreGame" title='idRestoreGame' data-ref="idRestoreGame">idRestoreGame</a> *<dfn class="local col3 decl" id="3563savefile" title='savefile' data-type='idRestoreGame *' data-ref="3563savefile">savefile</dfn> );</td></tr>
+<tr><th id="119">119</th><td></td></tr>
+<tr><th id="120">120</th><td>	<i>// fader functions</i></td></tr>
+<tr><th id="121">121</th><td>	<em>void</em>					<dfn class="decl def" id="_ZN7FxFader11SetFadeTimeEi" title='FxFader::SetFadeTime' data-ref="_ZN7FxFader11SetFadeTimeEi">SetFadeTime</dfn>( <em>int</em> <dfn class="local col4 decl" id="3564t" title='t' data-type='int' data-ref="3564t">t</dfn> )		{ <a class="member" href="#FxFader::msec" title='FxFader::msec' data-ref="FxFader::msec">msec</a> = <a class="local col4 ref" href="#3564t" title='t' data-ref="3564t">t</a>; };</td></tr>
+<tr><th id="122">122</th><td>	<em>int</em>						<dfn class="decl def" id="_ZN7FxFader11GetFadeTimeEv" title='FxFader::GetFadeTime' data-ref="_ZN7FxFader11GetFadeTimeEv">GetFadeTime</dfn>()				{ <b>return</b> <a class="member" href="#FxFader::msec" title='FxFader::msec' data-ref="FxFader::msec">msec</a>; };</td></tr>
+<tr><th id="123">123</th><td></td></tr>
+<tr><th id="124">124</th><td>	<i>// misc functions</i></td></tr>
+<tr><th id="125">125</th><td>	<em>float</em>					<dfn class="decl def" id="_ZN7FxFader8GetAlphaEv" title='FxFader::GetAlpha' data-ref="_ZN7FxFader8GetAlphaEv">GetAlpha</dfn>()					{ <b>return</b> <a class="member" href="#FxFader::alpha" title='FxFader::alpha' data-ref="FxFader::alpha">alpha</a>; };</td></tr>
+<tr><th id="126">126</th><td>};</td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td></td></tr>
+<tr><th id="129">129</th><td><i>/*</i></td></tr>
+<tr><th id="130">130</th><td><i>==================</i></td></tr>
+<tr><th id="131">131</th><td><i>FullscreenFX</i></td></tr>
+<tr><th id="132">132</th><td><i>==================</i></td></tr>
+<tr><th id="133">133</th><td><i>*/</i></td></tr>
+<tr><th id="134">134</th><td><b>class</b> <dfn class="type def" id="FullscreenFX" title='FullscreenFX' data-ref="FullscreenFX">FullscreenFX</dfn> {</td></tr>
+<tr><th id="135">135</th><td><b>protected</b>:</td></tr>
+<tr><th id="136">136</th><td>	<a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>					<dfn class="decl" id="FullscreenFX::name" title='FullscreenFX::name' data-ref="FullscreenFX::name">name</dfn>;</td></tr>
+<tr><th id="137">137</th><td>	<a class="type" href="#FxFader" title='FxFader' data-ref="FxFader">FxFader</a>					<dfn class="decl" id="FullscreenFX::fader" title='FullscreenFX::fader' data-ref="FullscreenFX::fader">fader</dfn>;</td></tr>
+<tr><th id="138">138</th><td>	<a class="type" href="#FullscreenFXManager" title='FullscreenFXManager' data-ref="FullscreenFXManager">FullscreenFXManager</a>		*<dfn class="decl" id="FullscreenFX::fxman" title='FullscreenFX::fxman' data-ref="FullscreenFX::fxman">fxman</dfn>;</td></tr>
+<tr><th id="139">139</th><td></td></tr>
+<tr><th id="140">140</th><td><b>public</b>:</td></tr>
+<tr><th id="141">141</th><td>							<dfn class="decl def" id="_ZN12FullscreenFXC1Ev" title='FullscreenFX::FullscreenFX' data-ref="_ZN12FullscreenFXC1Ev">FullscreenFX</dfn>()							{ <a class="member" href="#FullscreenFX::fxman" title='FullscreenFX::fxman' data-ref="FullscreenFX::fxman">fxman</a> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>; };</td></tr>
+<tr><th id="142">142</th><td>	<b>virtual</b>					<dfn class="virtual decl def" id="_ZN12FullscreenFXD1Ev" title='FullscreenFX::~FullscreenFX' data-ref="_ZN12FullscreenFXD1Ev">~FullscreenFX</dfn>()							{ };</td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN12FullscreenFX10InitializeEv" title='FullscreenFX::Initialize' data-ref="_ZN12FullscreenFX10InitializeEv">Initialize</dfn>()							= <var>0</var>;</td></tr>
+<tr><th id="145">145</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN12FullscreenFX6ActiveEv" title='FullscreenFX::Active' data-ref="_ZN12FullscreenFX6ActiveEv">Active</dfn>()								= <var>0</var>;</td></tr>
+<tr><th id="146">146</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN12FullscreenFX11HighQualityEv" title='FullscreenFX::HighQuality' data-ref="_ZN12FullscreenFX11HighQualityEv">HighQuality</dfn>()							= <var>0</var>;</td></tr>
+<tr><th id="147">147</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl def" id="_ZN12FullscreenFX10LowQualityEv" title='FullscreenFX::LowQuality' data-ref="_ZN12FullscreenFX10LowQualityEv">LowQuality</dfn>()							{ };</td></tr>
+<tr><th id="148">148</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl def" id="_ZN12FullscreenFX9AccumPassEPK12renderView_s" title='FullscreenFX::AccumPass' data-ref="_ZN12FullscreenFX9AccumPassEPK12renderView_s">AccumPass</dfn>( <em>const</em> <a class="typedef" href="../framework/DeclParticle.h.html#renderView_t" title='renderView_t' data-type='struct renderView_s' data-ref="renderView_t">renderView_t</a> *<dfn class="local col5 decl" id="3565view" title='view' data-type='const renderView_t *' data-ref="3565view">view</dfn> )	{ };</td></tr>
+<tr><th id="149">149</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl def" id="_ZN12FullscreenFX8HasAccumEv" title='FullscreenFX::HasAccum' data-ref="_ZN12FullscreenFX8HasAccumEv">HasAccum</dfn>()								{ <b>return</b> <b>false</b>; };</td></tr>
+<tr><th id="150">150</th><td></td></tr>
+<tr><th id="151">151</th><td>	<em>void</em>					<dfn class="decl def" id="_ZN12FullscreenFX7SetNameE5idStr" title='FullscreenFX::SetName' data-ref="_ZN12FullscreenFX7SetNameE5idStr">SetName</dfn>( <a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a> <dfn class="local col6 decl" id="3566n" title='n' data-type='idStr' data-ref="3566n">n</dfn> )						{ <a class="member" href="#FullscreenFX::name" title='FullscreenFX::name' data-ref="FullscreenFX::name">name</a> <a class="ref" href="../idlib/Str.h.html#_ZN5idStraSERKS_" title='idStr::operator=' data-ref="_ZN5idStraSERKS_">=</a> <a class="local col6 ref" href="#3566n" title='n' data-ref="3566n">n</a>; };</td></tr>
+<tr><th id="152">152</th><td>	<a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>					<dfn class="decl def" id="_ZN12FullscreenFX7GetNameEv" title='FullscreenFX::GetName' data-ref="_ZN12FullscreenFX7GetNameEv">GetName</dfn>()								{ <b>return</b> <a class="ref fake" href="../idlib/Str.h.html#_ZN5idStrC1ERKS_" title='idStr::idStr' data-ref="_ZN5idStrC1ERKS_"></a><a class="member" href="#FullscreenFX::name" title='FullscreenFX::name' data-ref="FullscreenFX::name">name</a>; };</td></tr>
+<tr><th id="153">153</th><td></td></tr>
+<tr><th id="154">154</th><td>	<em>void</em>					<dfn class="decl def" id="_ZN12FullscreenFX12SetFXManagerEP19FullscreenFXManager" title='FullscreenFX::SetFXManager' data-ref="_ZN12FullscreenFX12SetFXManagerEP19FullscreenFXManager">SetFXManager</dfn>( <a class="type" href="#FullscreenFXManager" title='FullscreenFXManager' data-ref="FullscreenFXManager">FullscreenFXManager</a> *<dfn class="local col7 decl" id="3567fx" title='fx' data-type='FullscreenFXManager *' data-ref="3567fx">fx</dfn> )	{ <a class="member" href="#FullscreenFX::fxman" title='FullscreenFX::fxman' data-ref="FullscreenFX::fxman">fxman</a> = <a class="local col7 ref" href="#3567fx" title='fx' data-ref="3567fx">fx</a>; };</td></tr>
+<tr><th id="155">155</th><td></td></tr>
+<tr><th id="156">156</th><td>	<em>bool</em>					<dfn class="decl def" id="_ZN12FullscreenFX15SetTriggerStateEb" title='FullscreenFX::SetTriggerState' data-ref="_ZN12FullscreenFX15SetTriggerStateEb">SetTriggerState</dfn>( <em>bool</em> <dfn class="local col8 decl" id="3568state" title='state' data-type='bool' data-ref="3568state">state</dfn> )			{ <b>return</b> <a class="member" href="#FullscreenFX::fader" title='FullscreenFX::fader' data-ref="FullscreenFX::fader">fader</a>.<a class="ref" href="#_ZN7FxFader15SetTriggerStateEb" title='FxFader::SetTriggerState' data-ref="_ZN7FxFader15SetTriggerStateEb">SetTriggerState</a>( <a class="local col8 ref" href="#3568state" title='state' data-ref="3568state">state</a> ); };</td></tr>
+<tr><th id="157">157</th><td>	<em>void</em>					<dfn class="decl def" id="_ZN12FullscreenFX12SetFadeSpeedEi" title='FullscreenFX::SetFadeSpeed' data-ref="_ZN12FullscreenFX12SetFadeSpeedEi">SetFadeSpeed</dfn>( <em>int</em> <dfn class="local col9 decl" id="3569msec" title='msec' data-type='int' data-ref="3569msec">msec</dfn> )				{ <a class="member" href="#FullscreenFX::fader" title='FullscreenFX::fader' data-ref="FullscreenFX::fader">fader</a>.<a class="ref" href="#_ZN7FxFader11SetFadeTimeEi" title='FxFader::SetFadeTime' data-ref="_ZN7FxFader11SetFadeTimeEi">SetFadeTime</a>( <a class="local col9 ref" href="#3569msec" title='msec' data-ref="3569msec">msec</a> ); };</td></tr>
+<tr><th id="158">158</th><td>	<em>float</em>					<dfn class="decl def" id="_ZN12FullscreenFX12GetFadeAlphaEv" title='FullscreenFX::GetFadeAlpha' data-ref="_ZN12FullscreenFX12GetFadeAlphaEv">GetFadeAlpha</dfn>()							{ <b>return</b> <a class="member" href="#FullscreenFX::fader" title='FullscreenFX::fader' data-ref="FullscreenFX::fader">fader</a>.<a class="ref" href="#_ZN7FxFader8GetAlphaEv" title='FxFader::GetAlpha' data-ref="_ZN7FxFader8GetAlphaEv">GetAlpha</a>(); };</td></tr>
+<tr><th id="159">159</th><td></td></tr>
+<tr><th id="160">160</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN12FullscreenFX4SaveEP10idSaveGame" title='FullscreenFX::Save' data-ref="_ZN12FullscreenFX4SaveEP10idSaveGame">Save</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idSaveGame" title='idSaveGame' data-ref="idSaveGame">idSaveGame</a> *<dfn class="local col0 decl" id="3570savefile" title='savefile' data-type='idSaveGame *' data-ref="3570savefile">savefile</dfn> );</td></tr>
+<tr><th id="161">161</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN12FullscreenFX7RestoreEP13idRestoreGame" title='FullscreenFX::Restore' data-ref="_ZN12FullscreenFX7RestoreEP13idRestoreGame">Restore</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idRestoreGame" title='idRestoreGame' data-ref="idRestoreGame">idRestoreGame</a> *<dfn class="local col1 decl" id="3571savefile" title='savefile' data-type='idRestoreGame *' data-ref="3571savefile">savefile</dfn> );</td></tr>
+<tr><th id="162">162</th><td>};</td></tr>
+<tr><th id="163">163</th><td></td></tr>
+<tr><th id="164">164</th><td><i>/*</i></td></tr>
+<tr><th id="165">165</th><td><i>==================</i></td></tr>
+<tr><th id="166">166</th><td><i>FullscreenFX_Helltime</i></td></tr>
+<tr><th id="167">167</th><td><i>==================</i></td></tr>
+<tr><th id="168">168</th><td><i>*/</i></td></tr>
+<tr><th id="169">169</th><td><b>class</b> <dfn class="type def" id="FullscreenFX_Helltime" title='FullscreenFX_Helltime' data-ref="FullscreenFX_Helltime">FullscreenFX_Helltime</dfn> : <b>public</b> <a class="type" href="#FullscreenFX" title='FullscreenFX' data-ref="FullscreenFX">FullscreenFX</a> {</td></tr>
+<tr><th id="170">170</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a>*		<dfn class="decl" id="FullscreenFX_Helltime::acInitMaterials" title='FullscreenFX_Helltime::acInitMaterials' data-ref="FullscreenFX_Helltime::acInitMaterials">acInitMaterials</dfn>[<var>3</var>];</td></tr>
+<tr><th id="171">171</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a>*		<dfn class="decl" id="FullscreenFX_Helltime::acCaptureMaterials" title='FullscreenFX_Helltime::acCaptureMaterials' data-ref="FullscreenFX_Helltime::acCaptureMaterials">acCaptureMaterials</dfn>[<var>3</var>];</td></tr>
+<tr><th id="172">172</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a>*		<dfn class="decl" id="FullscreenFX_Helltime::acDrawMaterials" title='FullscreenFX_Helltime::acDrawMaterials' data-ref="FullscreenFX_Helltime::acDrawMaterials">acDrawMaterials</dfn>[<var>3</var>];</td></tr>
+<tr><th id="173">173</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a>*		<dfn class="decl" id="FullscreenFX_Helltime::crCaptureMaterials" title='FullscreenFX_Helltime::crCaptureMaterials' data-ref="FullscreenFX_Helltime::crCaptureMaterials">crCaptureMaterials</dfn>[<var>3</var>];</td></tr>
+<tr><th id="174">174</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a>*		<dfn class="decl" id="FullscreenFX_Helltime::crDrawMaterials" title='FullscreenFX_Helltime::crDrawMaterials' data-ref="FullscreenFX_Helltime::crDrawMaterials">crDrawMaterials</dfn>[<var>3</var>];</td></tr>
+<tr><th id="175">175</th><td>	<em>bool</em>					<dfn class="decl" id="FullscreenFX_Helltime::clearAccumBuffer" title='FullscreenFX_Helltime::clearAccumBuffer' data-ref="FullscreenFX_Helltime::clearAccumBuffer">clearAccumBuffer</dfn>;</td></tr>
+<tr><th id="176">176</th><td></td></tr>
+<tr><th id="177">177</th><td>	<em>int</em>						<dfn class="decl" id="_ZN21FullscreenFX_Helltime14DetermineLevelEv" title='FullscreenFX_Helltime::DetermineLevel' data-ref="_ZN21FullscreenFX_Helltime14DetermineLevelEv">DetermineLevel</dfn>();</td></tr>
+<tr><th id="178">178</th><td></td></tr>
+<tr><th id="179">179</th><td><b>public</b>:</td></tr>
+<tr><th id="180">180</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN21FullscreenFX_Helltime10InitializeEv" title='FullscreenFX_Helltime::Initialize' data-ref="_ZN21FullscreenFX_Helltime10InitializeEv">Initialize</dfn>();</td></tr>
+<tr><th id="181">181</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN21FullscreenFX_Helltime6ActiveEv" title='FullscreenFX_Helltime::Active' data-ref="_ZN21FullscreenFX_Helltime6ActiveEv">Active</dfn>();</td></tr>
+<tr><th id="182">182</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN21FullscreenFX_Helltime11HighQualityEv" title='FullscreenFX_Helltime::HighQuality' data-ref="_ZN21FullscreenFX_Helltime11HighQualityEv">HighQuality</dfn>();</td></tr>
+<tr><th id="183">183</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN21FullscreenFX_Helltime9AccumPassEPK12renderView_s" title='FullscreenFX_Helltime::AccumPass' data-ref="_ZN21FullscreenFX_Helltime9AccumPassEPK12renderView_s">AccumPass</dfn>( <em>const</em> <a class="typedef" href="../framework/DeclParticle.h.html#renderView_t" title='renderView_t' data-type='struct renderView_s' data-ref="renderView_t">renderView_t</a> *<dfn class="local col2 decl" id="3572view" title='view' data-type='const renderView_t *' data-ref="3572view">view</dfn> );</td></tr>
+<tr><th id="184">184</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl def" id="_ZN21FullscreenFX_Helltime8HasAccumEv" title='FullscreenFX_Helltime::HasAccum' data-ref="_ZN21FullscreenFX_Helltime8HasAccumEv">HasAccum</dfn>()		{ <b>return</b> <b>true</b>; };</td></tr>
+<tr><th id="185">185</th><td></td></tr>
+<tr><th id="186">186</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN21FullscreenFX_Helltime7RestoreEP13idRestoreGame" title='FullscreenFX_Helltime::Restore' data-ref="_ZN21FullscreenFX_Helltime7RestoreEP13idRestoreGame">Restore</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idRestoreGame" title='idRestoreGame' data-ref="idRestoreGame">idRestoreGame</a> *<dfn class="local col3 decl" id="3573savefile" title='savefile' data-type='idRestoreGame *' data-ref="3573savefile">savefile</dfn> );</td></tr>
+<tr><th id="187">187</th><td>};</td></tr>
+<tr><th id="188">188</th><td></td></tr>
+<tr><th id="189">189</th><td><i>/*</i></td></tr>
+<tr><th id="190">190</th><td><i>==================</i></td></tr>
+<tr><th id="191">191</th><td><i>FullscreenFX_Multiplayer</i></td></tr>
+<tr><th id="192">192</th><td><i>==================</i></td></tr>
+<tr><th id="193">193</th><td><i>*/</i></td></tr>
+<tr><th id="194">194</th><td><b>class</b> <dfn class="type def" id="FullscreenFX_Multiplayer" title='FullscreenFX_Multiplayer' data-ref="FullscreenFX_Multiplayer">FullscreenFX_Multiplayer</dfn> : <b>public</b> <a class="type" href="#FullscreenFX" title='FullscreenFX' data-ref="FullscreenFX">FullscreenFX</a> {</td></tr>
+<tr><th id="195">195</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a>*		<dfn class="decl" id="FullscreenFX_Multiplayer::acInitMaterials" title='FullscreenFX_Multiplayer::acInitMaterials' data-ref="FullscreenFX_Multiplayer::acInitMaterials">acInitMaterials</dfn>;</td></tr>
+<tr><th id="196">196</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a>*		<dfn class="decl" id="FullscreenFX_Multiplayer::acCaptureMaterials" title='FullscreenFX_Multiplayer::acCaptureMaterials' data-ref="FullscreenFX_Multiplayer::acCaptureMaterials">acCaptureMaterials</dfn>;</td></tr>
+<tr><th id="197">197</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a>*		<dfn class="decl" id="FullscreenFX_Multiplayer::acDrawMaterials" title='FullscreenFX_Multiplayer::acDrawMaterials' data-ref="FullscreenFX_Multiplayer::acDrawMaterials">acDrawMaterials</dfn>;</td></tr>
+<tr><th id="198">198</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a>*		<dfn class="decl" id="FullscreenFX_Multiplayer::crCaptureMaterials" title='FullscreenFX_Multiplayer::crCaptureMaterials' data-ref="FullscreenFX_Multiplayer::crCaptureMaterials">crCaptureMaterials</dfn>;</td></tr>
+<tr><th id="199">199</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a>*		<dfn class="decl" id="FullscreenFX_Multiplayer::crDrawMaterials" title='FullscreenFX_Multiplayer::crDrawMaterials' data-ref="FullscreenFX_Multiplayer::crDrawMaterials">crDrawMaterials</dfn>;</td></tr>
+<tr><th id="200">200</th><td>	<em>bool</em>					<dfn class="decl" id="FullscreenFX_Multiplayer::clearAccumBuffer" title='FullscreenFX_Multiplayer::clearAccumBuffer' data-ref="FullscreenFX_Multiplayer::clearAccumBuffer">clearAccumBuffer</dfn>;</td></tr>
+<tr><th id="201">201</th><td></td></tr>
+<tr><th id="202">202</th><td>	<em>int</em>						<dfn class="decl" id="_ZN24FullscreenFX_Multiplayer14DetermineLevelEv" title='FullscreenFX_Multiplayer::DetermineLevel' data-ref="_ZN24FullscreenFX_Multiplayer14DetermineLevelEv">DetermineLevel</dfn>();</td></tr>
+<tr><th id="203">203</th><td></td></tr>
+<tr><th id="204">204</th><td><b>public</b>:</td></tr>
+<tr><th id="205">205</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN24FullscreenFX_Multiplayer10InitializeEv" title='FullscreenFX_Multiplayer::Initialize' data-ref="_ZN24FullscreenFX_Multiplayer10InitializeEv">Initialize</dfn>();</td></tr>
+<tr><th id="206">206</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN24FullscreenFX_Multiplayer6ActiveEv" title='FullscreenFX_Multiplayer::Active' data-ref="_ZN24FullscreenFX_Multiplayer6ActiveEv">Active</dfn>();</td></tr>
+<tr><th id="207">207</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN24FullscreenFX_Multiplayer11HighQualityEv" title='FullscreenFX_Multiplayer::HighQuality' data-ref="_ZN24FullscreenFX_Multiplayer11HighQualityEv">HighQuality</dfn>();</td></tr>
+<tr><th id="208">208</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN24FullscreenFX_Multiplayer9AccumPassEPK12renderView_s" title='FullscreenFX_Multiplayer::AccumPass' data-ref="_ZN24FullscreenFX_Multiplayer9AccumPassEPK12renderView_s">AccumPass</dfn>( <em>const</em> <a class="typedef" href="../framework/DeclParticle.h.html#renderView_t" title='renderView_t' data-type='struct renderView_s' data-ref="renderView_t">renderView_t</a> *<dfn class="local col4 decl" id="3574view" title='view' data-type='const renderView_t *' data-ref="3574view">view</dfn> );</td></tr>
+<tr><th id="209">209</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl def" id="_ZN24FullscreenFX_Multiplayer8HasAccumEv" title='FullscreenFX_Multiplayer::HasAccum' data-ref="_ZN24FullscreenFX_Multiplayer8HasAccumEv">HasAccum</dfn>()		{ <b>return</b> <b>true</b>; };</td></tr>
+<tr><th id="210">210</th><td></td></tr>
+<tr><th id="211">211</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN24FullscreenFX_Multiplayer7RestoreEP13idRestoreGame" title='FullscreenFX_Multiplayer::Restore' data-ref="_ZN24FullscreenFX_Multiplayer7RestoreEP13idRestoreGame">Restore</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idRestoreGame" title='idRestoreGame' data-ref="idRestoreGame">idRestoreGame</a> *<dfn class="local col5 decl" id="3575savefile" title='savefile' data-type='idRestoreGame *' data-ref="3575savefile">savefile</dfn> );</td></tr>
+<tr><th id="212">212</th><td>};</td></tr>
+<tr><th id="213">213</th><td></td></tr>
+<tr><th id="214">214</th><td><i>/*</i></td></tr>
+<tr><th id="215">215</th><td><i>==================</i></td></tr>
+<tr><th id="216">216</th><td><i>FullscreenFX_Warp</i></td></tr>
+<tr><th id="217">217</th><td><i>==================</i></td></tr>
+<tr><th id="218">218</th><td><i>*/</i></td></tr>
+<tr><th id="219">219</th><td><b>class</b> <dfn class="type def" id="FullscreenFX_Warp" title='FullscreenFX_Warp' data-ref="FullscreenFX_Warp">FullscreenFX_Warp</dfn> : <b>public</b> <a class="type" href="#FullscreenFX" title='FullscreenFX' data-ref="FullscreenFX">FullscreenFX</a> {</td></tr>
+<tr><th id="220">220</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a>*		<dfn class="decl" id="FullscreenFX_Warp::material" title='FullscreenFX_Warp::material' data-ref="FullscreenFX_Warp::material">material</dfn>;</td></tr>
+<tr><th id="221">221</th><td>	<em>bool</em>					<dfn class="decl" id="FullscreenFX_Warp::grabberEnabled" title='FullscreenFX_Warp::grabberEnabled' data-ref="FullscreenFX_Warp::grabberEnabled">grabberEnabled</dfn>;</td></tr>
+<tr><th id="222">222</th><td>	<em>int</em>						<dfn class="decl" id="FullscreenFX_Warp::startWarpTime" title='FullscreenFX_Warp::startWarpTime' data-ref="FullscreenFX_Warp::startWarpTime">startWarpTime</dfn>;</td></tr>
+<tr><th id="223">223</th><td></td></tr>
+<tr><th id="224">224</th><td>	<em>void</em>					<dfn class="decl" id="_ZN17FullscreenFX_Warp8DrawWarpE13WarpPolygon_tf" title='FullscreenFX_Warp::DrawWarp' data-ref="_ZN17FullscreenFX_Warp8DrawWarpE13WarpPolygon_tf">DrawWarp</dfn>( <a class="type" href="#WarpPolygon_t" title='WarpPolygon_t' data-ref="WarpPolygon_t">WarpPolygon_t</a> <dfn class="local col6 decl" id="3576wp" title='wp' data-type='WarpPolygon_t' data-ref="3576wp">wp</dfn>, <em>float</em> <dfn class="local col7 decl" id="3577interp" title='interp' data-type='float' data-ref="3577interp">interp</dfn> );</td></tr>
+<tr><th id="225">225</th><td></td></tr>
+<tr><th id="226">226</th><td><b>public</b>:</td></tr>
+<tr><th id="227">227</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN17FullscreenFX_Warp10InitializeEv" title='FullscreenFX_Warp::Initialize' data-ref="_ZN17FullscreenFX_Warp10InitializeEv">Initialize</dfn>();</td></tr>
+<tr><th id="228">228</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN17FullscreenFX_Warp6ActiveEv" title='FullscreenFX_Warp::Active' data-ref="_ZN17FullscreenFX_Warp6ActiveEv">Active</dfn>();</td></tr>
+<tr><th id="229">229</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN17FullscreenFX_Warp11HighQualityEv" title='FullscreenFX_Warp::HighQuality' data-ref="_ZN17FullscreenFX_Warp11HighQualityEv">HighQuality</dfn>();</td></tr>
+<tr><th id="230">230</th><td></td></tr>
+<tr><th id="231">231</th><td>	<em>void</em>					<dfn class="decl def" id="_ZN17FullscreenFX_Warp13EnableGrabberEb" title='FullscreenFX_Warp::EnableGrabber' data-ref="_ZN17FullscreenFX_Warp13EnableGrabberEb">EnableGrabber</dfn>( <em>bool</em> <dfn class="local col8 decl" id="3578active" title='active' data-type='bool' data-ref="3578active">active</dfn> )			{ <a class="member" href="#FullscreenFX_Warp::grabberEnabled" title='FullscreenFX_Warp::grabberEnabled' data-ref="FullscreenFX_Warp::grabberEnabled">grabberEnabled</a> = <a class="local col8 ref" href="#3578active" title='active' data-ref="3578active">active</a>; <a class="member" href="#FullscreenFX_Warp::startWarpTime" title='FullscreenFX_Warp::startWarpTime' data-ref="FullscreenFX_Warp::startWarpTime">startWarpTime</a> = <a class="ref" href="Game_local.h.html#gameLocal" title='gameLocal' data-ref="gameLocal">gameLocal</a>.<a class="ref" href="Game_local.h.html#idGameLocal::slow" title='idGameLocal::slow' data-ref="idGameLocal::slow">slow</a>.<a class="ref" href="Game_local.h.html#timeState_t::time" title='timeState_t::time' data-ref="timeState_t::time">time</a>; };</td></tr>
+<tr><th id="232">232</th><td></td></tr>
+<tr><th id="233">233</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN17FullscreenFX_Warp4SaveEP10idSaveGame" title='FullscreenFX_Warp::Save' data-ref="_ZN17FullscreenFX_Warp4SaveEP10idSaveGame">Save</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idSaveGame" title='idSaveGame' data-ref="idSaveGame">idSaveGame</a> *<dfn class="local col9 decl" id="3579savefile" title='savefile' data-type='idSaveGame *' data-ref="3579savefile">savefile</dfn> );</td></tr>
+<tr><th id="234">234</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN17FullscreenFX_Warp7RestoreEP13idRestoreGame" title='FullscreenFX_Warp::Restore' data-ref="_ZN17FullscreenFX_Warp7RestoreEP13idRestoreGame">Restore</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idRestoreGame" title='idRestoreGame' data-ref="idRestoreGame">idRestoreGame</a> *<dfn class="local col0 decl" id="3580savefile" title='savefile' data-type='idRestoreGame *' data-ref="3580savefile">savefile</dfn> );</td></tr>
+<tr><th id="235">235</th><td>};</td></tr>
+<tr><th id="236">236</th><td></td></tr>
+<tr><th id="237">237</th><td><i>/*</i></td></tr>
+<tr><th id="238">238</th><td><i>==================</i></td></tr>
+<tr><th id="239">239</th><td><i>FullscreenFX_EnviroSuit</i></td></tr>
+<tr><th id="240">240</th><td><i>==================</i></td></tr>
+<tr><th id="241">241</th><td><i>*/</i></td></tr>
+<tr><th id="242">242</th><td><b>class</b> <dfn class="type def" id="FullscreenFX_EnviroSuit" title='FullscreenFX_EnviroSuit' data-ref="FullscreenFX_EnviroSuit">FullscreenFX_EnviroSuit</dfn> : <b>public</b> <a class="type" href="#FullscreenFX" title='FullscreenFX' data-ref="FullscreenFX">FullscreenFX</a> {</td></tr>
+<tr><th id="243">243</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a>*		<dfn class="decl" id="FullscreenFX_EnviroSuit::material" title='FullscreenFX_EnviroSuit::material' data-ref="FullscreenFX_EnviroSuit::material">material</dfn>;</td></tr>
+<tr><th id="244">244</th><td></td></tr>
+<tr><th id="245">245</th><td><b>public</b>:</td></tr>
+<tr><th id="246">246</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN23FullscreenFX_EnviroSuit10InitializeEv" title='FullscreenFX_EnviroSuit::Initialize' data-ref="_ZN23FullscreenFX_EnviroSuit10InitializeEv">Initialize</dfn>();</td></tr>
+<tr><th id="247">247</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN23FullscreenFX_EnviroSuit6ActiveEv" title='FullscreenFX_EnviroSuit::Active' data-ref="_ZN23FullscreenFX_EnviroSuit6ActiveEv">Active</dfn>();</td></tr>
+<tr><th id="248">248</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN23FullscreenFX_EnviroSuit11HighQualityEv" title='FullscreenFX_EnviroSuit::HighQuality' data-ref="_ZN23FullscreenFX_EnviroSuit11HighQualityEv">HighQuality</dfn>();</td></tr>
+<tr><th id="249">249</th><td>};</td></tr>
+<tr><th id="250">250</th><td></td></tr>
+<tr><th id="251">251</th><td><i>/*</i></td></tr>
+<tr><th id="252">252</th><td><i>==================</i></td></tr>
+<tr><th id="253">253</th><td><i>FullscreenFX_DoubleVision</i></td></tr>
+<tr><th id="254">254</th><td><i>==================</i></td></tr>
+<tr><th id="255">255</th><td><i>*/</i></td></tr>
+<tr><th id="256">256</th><td><b>class</b> <dfn class="type def" id="FullscreenFX_DoubleVision" title='FullscreenFX_DoubleVision' data-ref="FullscreenFX_DoubleVision">FullscreenFX_DoubleVision</dfn> : <b>public</b> <a class="type" href="#FullscreenFX" title='FullscreenFX' data-ref="FullscreenFX">FullscreenFX</a> {</td></tr>
+<tr><th id="257">257</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a>*		<dfn class="decl" id="FullscreenFX_DoubleVision::material" title='FullscreenFX_DoubleVision::material' data-ref="FullscreenFX_DoubleVision::material">material</dfn>;</td></tr>
+<tr><th id="258">258</th><td></td></tr>
+<tr><th id="259">259</th><td><b>public</b>:</td></tr>
+<tr><th id="260">260</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN25FullscreenFX_DoubleVision10InitializeEv" title='FullscreenFX_DoubleVision::Initialize' data-ref="_ZN25FullscreenFX_DoubleVision10InitializeEv">Initialize</dfn>();</td></tr>
+<tr><th id="261">261</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN25FullscreenFX_DoubleVision6ActiveEv" title='FullscreenFX_DoubleVision::Active' data-ref="_ZN25FullscreenFX_DoubleVision6ActiveEv">Active</dfn>();</td></tr>
+<tr><th id="262">262</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN25FullscreenFX_DoubleVision11HighQualityEv" title='FullscreenFX_DoubleVision::HighQuality' data-ref="_ZN25FullscreenFX_DoubleVision11HighQualityEv">HighQuality</dfn>();</td></tr>
+<tr><th id="263">263</th><td>};</td></tr>
+<tr><th id="264">264</th><td></td></tr>
+<tr><th id="265">265</th><td><i>/*</i></td></tr>
+<tr><th id="266">266</th><td><i>==================</i></td></tr>
+<tr><th id="267">267</th><td><i>FullscreenFX_InfluenceVision</i></td></tr>
+<tr><th id="268">268</th><td><i>==================</i></td></tr>
+<tr><th id="269">269</th><td><i>*/</i></td></tr>
+<tr><th id="270">270</th><td><b>class</b> <dfn class="type def" id="FullscreenFX_InfluenceVision" title='FullscreenFX_InfluenceVision' data-ref="FullscreenFX_InfluenceVision">FullscreenFX_InfluenceVision</dfn> : <b>public</b> <a class="type" href="#FullscreenFX" title='FullscreenFX' data-ref="FullscreenFX">FullscreenFX</a> {</td></tr>
+<tr><th id="271">271</th><td></td></tr>
+<tr><th id="272">272</th><td><b>public</b>:</td></tr>
+<tr><th id="273">273</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN28FullscreenFX_InfluenceVision10InitializeEv" title='FullscreenFX_InfluenceVision::Initialize' data-ref="_ZN28FullscreenFX_InfluenceVision10InitializeEv">Initialize</dfn>();</td></tr>
+<tr><th id="274">274</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN28FullscreenFX_InfluenceVision6ActiveEv" title='FullscreenFX_InfluenceVision::Active' data-ref="_ZN28FullscreenFX_InfluenceVision6ActiveEv">Active</dfn>();</td></tr>
+<tr><th id="275">275</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN28FullscreenFX_InfluenceVision11HighQualityEv" title='FullscreenFX_InfluenceVision::HighQuality' data-ref="_ZN28FullscreenFX_InfluenceVision11HighQualityEv">HighQuality</dfn>();</td></tr>
+<tr><th id="276">276</th><td>};</td></tr>
+<tr><th id="277">277</th><td></td></tr>
+<tr><th id="278">278</th><td><i>/*</i></td></tr>
+<tr><th id="279">279</th><td><i>==================</i></td></tr>
+<tr><th id="280">280</th><td><i>FullscreenFX_Bloom</i></td></tr>
+<tr><th id="281">281</th><td><i>==================</i></td></tr>
+<tr><th id="282">282</th><td><i>*/</i></td></tr>
+<tr><th id="283">283</th><td><b>class</b> <dfn class="type def" id="FullscreenFX_Bloom" title='FullscreenFX_Bloom' data-ref="FullscreenFX_Bloom">FullscreenFX_Bloom</dfn> : <b>public</b> <a class="type" href="#FullscreenFX" title='FullscreenFX' data-ref="FullscreenFX">FullscreenFX</a> {</td></tr>
+<tr><th id="284">284</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a>*		<dfn class="decl" id="FullscreenFX_Bloom::drawMaterial" title='FullscreenFX_Bloom::drawMaterial' data-ref="FullscreenFX_Bloom::drawMaterial">drawMaterial</dfn>;</td></tr>
+<tr><th id="285">285</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a>*		<dfn class="decl" id="FullscreenFX_Bloom::initMaterial" title='FullscreenFX_Bloom::initMaterial' data-ref="FullscreenFX_Bloom::initMaterial">initMaterial</dfn>;</td></tr>
+<tr><th id="286">286</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a>*		<dfn class="decl" id="FullscreenFX_Bloom::currentMaterial" title='FullscreenFX_Bloom::currentMaterial' data-ref="FullscreenFX_Bloom::currentMaterial">currentMaterial</dfn>;</td></tr>
+<tr><th id="287">287</th><td></td></tr>
+<tr><th id="288">288</th><td>	<em>float</em>					<dfn class="decl" id="FullscreenFX_Bloom::currentIntensity" title='FullscreenFX_Bloom::currentIntensity' data-ref="FullscreenFX_Bloom::currentIntensity">currentIntensity</dfn>;</td></tr>
+<tr><th id="289">289</th><td>	<em>float</em>					<dfn class="decl" id="FullscreenFX_Bloom::targetIntensity" title='FullscreenFX_Bloom::targetIntensity' data-ref="FullscreenFX_Bloom::targetIntensity">targetIntensity</dfn>;</td></tr>
+<tr><th id="290">290</th><td></td></tr>
+<tr><th id="291">291</th><td><b>public</b>:</td></tr>
+<tr><th id="292">292</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN18FullscreenFX_Bloom10InitializeEv" title='FullscreenFX_Bloom::Initialize' data-ref="_ZN18FullscreenFX_Bloom10InitializeEv">Initialize</dfn>();</td></tr>
+<tr><th id="293">293</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN18FullscreenFX_Bloom6ActiveEv" title='FullscreenFX_Bloom::Active' data-ref="_ZN18FullscreenFX_Bloom6ActiveEv">Active</dfn>();</td></tr>
+<tr><th id="294">294</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN18FullscreenFX_Bloom11HighQualityEv" title='FullscreenFX_Bloom::HighQuality' data-ref="_ZN18FullscreenFX_Bloom11HighQualityEv">HighQuality</dfn>();</td></tr>
+<tr><th id="295">295</th><td></td></tr>
+<tr><th id="296">296</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN18FullscreenFX_Bloom4SaveEP10idSaveGame" title='FullscreenFX_Bloom::Save' data-ref="_ZN18FullscreenFX_Bloom4SaveEP10idSaveGame">Save</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idSaveGame" title='idSaveGame' data-ref="idSaveGame">idSaveGame</a> *<dfn class="local col1 decl" id="3581savefile" title='savefile' data-type='idSaveGame *' data-ref="3581savefile">savefile</dfn> );</td></tr>
+<tr><th id="297">297</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN18FullscreenFX_Bloom7RestoreEP13idRestoreGame" title='FullscreenFX_Bloom::Restore' data-ref="_ZN18FullscreenFX_Bloom7RestoreEP13idRestoreGame">Restore</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idRestoreGame" title='idRestoreGame' data-ref="idRestoreGame">idRestoreGame</a> *<dfn class="local col2 decl" id="3582savefile" title='savefile' data-type='idRestoreGame *' data-ref="3582savefile">savefile</dfn> );</td></tr>
+<tr><th id="298">298</th><td>};</td></tr>
+<tr><th id="299">299</th><td></td></tr>
+<tr><th id="300">300</th><td></td></tr>
+<tr><th id="301">301</th><td></td></tr>
+<tr><th id="302">302</th><td><i>/*</i></td></tr>
+<tr><th id="303">303</th><td><i>==================</i></td></tr>
+<tr><th id="304">304</th><td><i>FullscreenFXManager</i></td></tr>
+<tr><th id="305">305</th><td><i>==================</i></td></tr>
+<tr><th id="306">306</th><td><i>*/</i></td></tr>
+<tr><th id="307">307</th><td><b>class</b> <dfn class="type def" id="FullscreenFXManager" title='FullscreenFXManager' data-ref="FullscreenFXManager">FullscreenFXManager</dfn> {</td></tr>
+<tr><th id="308">308</th><td>	<a class="type" href="../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<a class="type" href="#FullscreenFX" title='FullscreenFX' data-ref="FullscreenFX">FullscreenFX</a>*&gt;	<dfn class="decl" id="FullscreenFXManager::fx" title='FullscreenFXManager::fx' data-ref="FullscreenFXManager::fx">fx</dfn>;</td></tr>
+<tr><th id="309">309</th><td>	<em>bool</em>					<dfn class="decl" id="FullscreenFXManager::highQualityMode" title='FullscreenFXManager::highQualityMode' data-ref="FullscreenFXManager::highQualityMode">highQualityMode</dfn>;</td></tr>
+<tr><th id="310">310</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec2" title='idVec2' data-ref="idVec2">idVec2</a>					<dfn class="decl" id="FullscreenFXManager::shiftScale" title='FullscreenFXManager::shiftScale' data-ref="FullscreenFXManager::shiftScale">shiftScale</dfn>;</td></tr>
+<tr><th id="311">311</th><td></td></tr>
+<tr><th id="312">312</th><td>	<a class="type" href="#idPlayerView" title='idPlayerView' data-ref="idPlayerView">idPlayerView</a>			*<dfn class="decl" id="FullscreenFXManager::playerView" title='FullscreenFXManager::playerView' data-ref="FullscreenFXManager::playerView">playerView</dfn>;</td></tr>
+<tr><th id="313">313</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a>*		<dfn class="decl" id="FullscreenFXManager::blendBackMaterial" title='FullscreenFXManager::blendBackMaterial' data-ref="FullscreenFXManager::blendBackMaterial">blendBackMaterial</dfn>;</td></tr>
+<tr><th id="314">314</th><td></td></tr>
+<tr><th id="315">315</th><td>	<em>void</em>					<dfn class="decl" id="_ZN19FullscreenFXManager8CreateFXE5idStrS0_i" title='FullscreenFXManager::CreateFX' data-ref="_ZN19FullscreenFXManager8CreateFXE5idStrS0_i">CreateFX</dfn>( <a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a> <dfn class="local col3 decl" id="3583name" title='name' data-type='idStr' data-ref="3583name">name</dfn>, <a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a> <dfn class="local col4 decl" id="3584fxtype" title='fxtype' data-type='idStr' data-ref="3584fxtype">fxtype</dfn>, <em>int</em> <dfn class="local col5 decl" id="3585fade" title='fade' data-type='int' data-ref="3585fade">fade</dfn> );</td></tr>
+<tr><th id="316">316</th><td></td></tr>
+<tr><th id="317">317</th><td><b>public</b>:</td></tr>
+<tr><th id="318">318</th><td>							<dfn class="decl" id="_ZN19FullscreenFXManagerC1Ev" title='FullscreenFXManager::FullscreenFXManager' data-ref="_ZN19FullscreenFXManagerC1Ev">FullscreenFXManager</dfn>();</td></tr>
+<tr><th id="319">319</th><td>	<b>virtual</b>					<dfn class="virtual decl" id="_ZN19FullscreenFXManagerD1Ev" title='FullscreenFXManager::~FullscreenFXManager' data-ref="_ZN19FullscreenFXManagerD1Ev">~FullscreenFXManager</dfn>();</td></tr>
+<tr><th id="320">320</th><td></td></tr>
+<tr><th id="321">321</th><td>	<em>void</em>					<dfn class="decl" id="_ZN19FullscreenFXManager10InitializeEP12idPlayerView" title='FullscreenFXManager::Initialize' data-ref="_ZN19FullscreenFXManager10InitializeEP12idPlayerView">Initialize</dfn>( <a class="type" href="#idPlayerView" title='idPlayerView' data-ref="idPlayerView">idPlayerView</a> *<dfn class="local col6 decl" id="3586pv" title='pv' data-type='idPlayerView *' data-ref="3586pv">pv</dfn> );</td></tr>
+<tr><th id="322">322</th><td></td></tr>
+<tr><th id="323">323</th><td>	<em>void</em>					<dfn class="decl" id="_ZN19FullscreenFXManager7ProcessEPK12renderView_s" title='FullscreenFXManager::Process' data-ref="_ZN19FullscreenFXManager7ProcessEPK12renderView_s">Process</dfn>( <em>const</em> <a class="typedef" href="../framework/DeclParticle.h.html#renderView_t" title='renderView_t' data-type='struct renderView_s' data-ref="renderView_t">renderView_t</a> *<dfn class="local col7 decl" id="3587view" title='view' data-type='const renderView_t *' data-ref="3587view">view</dfn> );</td></tr>
+<tr><th id="324">324</th><td>	<em>void</em>					<dfn class="decl" id="_ZN19FullscreenFXManager20CaptureCurrentRenderEv" title='FullscreenFXManager::CaptureCurrentRender' data-ref="_ZN19FullscreenFXManager20CaptureCurrentRenderEv">CaptureCurrentRender</dfn>();</td></tr>
+<tr><th id="325">325</th><td>	<em>void</em>					<dfn class="decl" id="_ZN19FullscreenFXManager9BlendbackEf" title='FullscreenFXManager::Blendback' data-ref="_ZN19FullscreenFXManager9BlendbackEf">Blendback</dfn>( <em>float</em> <dfn class="local col8 decl" id="3588alpha" title='alpha' data-type='float' data-ref="3588alpha">alpha</dfn> );</td></tr>
+<tr><th id="326">326</th><td></td></tr>
+<tr><th id="327">327</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec2" title='idVec2' data-ref="idVec2">idVec2</a>					<dfn class="decl def" id="_ZN19FullscreenFXManager13GetShiftScaleEv" title='FullscreenFXManager::GetShiftScale' data-ref="_ZN19FullscreenFXManager13GetShiftScaleEv">GetShiftScale</dfn>()			{ <b>return</b> <a class="ref fake" href="../idlib/math/Vector.h.html#52" title='idVec2::idVec2' data-ref="_ZN6idVec2C1ERKS_"></a><a class="member" href="#FullscreenFXManager::shiftScale" title='FullscreenFXManager::shiftScale' data-ref="FullscreenFXManager::shiftScale">shiftScale</a>; };</td></tr>
+<tr><th id="328">328</th><td>	<a class="type" href="#idPlayerView" title='idPlayerView' data-ref="idPlayerView">idPlayerView</a>*			<dfn class="decl def" id="_ZN19FullscreenFXManager13GetPlayerViewEv" title='FullscreenFXManager::GetPlayerView' data-ref="_ZN19FullscreenFXManager13GetPlayerViewEv">GetPlayerView</dfn>()			{ <b>return</b> <a class="member" href="#FullscreenFXManager::playerView" title='FullscreenFXManager::playerView' data-ref="FullscreenFXManager::playerView">playerView</a>; };</td></tr>
+<tr><th id="329">329</th><td>	<a class="type" href="Player.h.html#idPlayer" title='idPlayer' data-ref="idPlayer">idPlayer</a>*				<dfn class="decl def" id="_ZN19FullscreenFXManager9GetPlayerEv" title='FullscreenFXManager::GetPlayer' data-ref="_ZN19FullscreenFXManager9GetPlayerEv">GetPlayer</dfn>()				{ <b>return</b> <a class="ref" href="Game_local.h.html#gameLocal" title='gameLocal' data-ref="gameLocal">gameLocal</a>.<a class="ref" href="Game_local.h.html#_ZNK11idGameLocal14GetLocalPlayerEv" title='idGameLocal::GetLocalPlayer' data-ref="_ZNK11idGameLocal14GetLocalPlayerEv">GetLocalPlayer</a>(); };</td></tr>
+<tr><th id="330">330</th><td></td></tr>
+<tr><th id="331">331</th><td>	<em>int</em>						<dfn class="decl def" id="_ZN19FullscreenFXManager6GetNumEv" title='FullscreenFXManager::GetNum' data-ref="_ZN19FullscreenFXManager6GetNumEv">GetNum</dfn>()				{ <b>return</b> <a class="member" href="#FullscreenFXManager::fx" title='FullscreenFXManager::fx' data-ref="FullscreenFXManager::fx">fx</a>.<a class="ref" href="../idlib/containers/List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>(); };</td></tr>
+<tr><th id="332">332</th><td>	<a class="type" href="#FullscreenFX" title='FullscreenFX' data-ref="FullscreenFX">FullscreenFX</a>*			<dfn class="decl def" id="_ZN19FullscreenFXManager5GetFXEi" title='FullscreenFXManager::GetFX' data-ref="_ZN19FullscreenFXManager5GetFXEi">GetFX</dfn>( <em>int</em> <dfn class="local col9 decl" id="3589index" title='index' data-type='int' data-ref="3589index">index</dfn> )		{ <b>return</b> <a class="member" href="#FullscreenFXManager::fx" title='FullscreenFXManager::fx' data-ref="FullscreenFXManager::fx">fx</a><a class="ref" href="../idlib/containers/List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[<a class="local col9 ref" href="#3589index" title='index' data-ref="3589index">index</a>]</a>; };</td></tr>
+<tr><th id="333">333</th><td>	<a class="type" href="#FullscreenFX" title='FullscreenFX' data-ref="FullscreenFX">FullscreenFX</a>*			<dfn class="decl" id="_ZN19FullscreenFXManager6FindFXE5idStr" title='FullscreenFXManager::FindFX' data-ref="_ZN19FullscreenFXManager6FindFXE5idStr">FindFX</dfn>( <a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a> <dfn class="local col0 decl" id="3590name" title='name' data-type='idStr' data-ref="3590name">name</dfn> );</td></tr>
+<tr><th id="334">334</th><td></td></tr>
+<tr><th id="335">335</th><td>	<em>void</em>					<dfn class="decl" id="_ZN19FullscreenFXManager4SaveEP10idSaveGame" title='FullscreenFXManager::Save' data-ref="_ZN19FullscreenFXManager4SaveEP10idSaveGame">Save</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idSaveGame" title='idSaveGame' data-ref="idSaveGame">idSaveGame</a> *<dfn class="local col1 decl" id="3591savefile" title='savefile' data-type='idSaveGame *' data-ref="3591savefile">savefile</dfn> );</td></tr>
+<tr><th id="336">336</th><td>	<em>void</em>					<dfn class="decl" id="_ZN19FullscreenFXManager7RestoreEP13idRestoreGame" title='FullscreenFXManager::Restore' data-ref="_ZN19FullscreenFXManager7RestoreEP13idRestoreGame">Restore</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idRestoreGame" title='idRestoreGame' data-ref="idRestoreGame">idRestoreGame</a> *<dfn class="local col2 decl" id="3592savefile" title='savefile' data-type='idRestoreGame *' data-ref="3592savefile">savefile</dfn> );</td></tr>
+<tr><th id="337">337</th><td>};</td></tr>
+<tr><th id="338">338</th><td></td></tr>
+<tr><th id="339">339</th><td><u>#<span data-ppcond="87">endif</span></u></td></tr>
+<tr><th id="340">340</th><td></td></tr>
+<tr><th id="341">341</th><td></td></tr>
+<tr><th id="342">342</th><td></td></tr>
+<tr><th id="343">343</th><td></td></tr>
+<tr><th id="344">344</th><td></td></tr>
+<tr><th id="345">345</th><td></td></tr>
+<tr><th id="346">346</th><td></td></tr>
+<tr><th id="347">347</th><td></td></tr>
+<tr><th id="348">348</th><td></td></tr>
+<tr><th id="349">349</th><td><b>class</b> <dfn class="type def" id="idPlayerView" title='idPlayerView' data-ref="idPlayerView">idPlayerView</dfn> {</td></tr>
+<tr><th id="350">350</th><td><b>public</b>:</td></tr>
+<tr><th id="351">351</th><td>						<dfn class="decl" id="_ZN12idPlayerViewC1Ev" title='idPlayerView::idPlayerView' data-ref="_ZN12idPlayerViewC1Ev">idPlayerView</dfn>();</td></tr>
+<tr><th id="352">352</th><td></td></tr>
+<tr><th id="353">353</th><td>	<em>void</em>				<dfn class="decl" id="_ZNK12idPlayerView4SaveEP10idSaveGame" title='idPlayerView::Save' data-ref="_ZNK12idPlayerView4SaveEP10idSaveGame">Save</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idSaveGame" title='idSaveGame' data-ref="idSaveGame">idSaveGame</a> *<dfn class="local col3 decl" id="3593savefile" title='savefile' data-type='idSaveGame *' data-ref="3593savefile">savefile</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="354">354</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idPlayerView7RestoreEP13idRestoreGame" title='idPlayerView::Restore' data-ref="_ZN12idPlayerView7RestoreEP13idRestoreGame">Restore</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idRestoreGame" title='idRestoreGame' data-ref="idRestoreGame">idRestoreGame</a> *<dfn class="local col4 decl" id="3594savefile" title='savefile' data-type='idRestoreGame *' data-ref="3594savefile">savefile</dfn> );</td></tr>
+<tr><th id="355">355</th><td></td></tr>
+<tr><th id="356">356</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idPlayerView15SetPlayerEntityEP8idPlayer" title='idPlayerView::SetPlayerEntity' data-ref="_ZN12idPlayerView15SetPlayerEntityEP8idPlayer">SetPlayerEntity</dfn>( <b>class</b> <a class="type" href="Player.h.html#idPlayer" title='idPlayer' data-ref="idPlayer">idPlayer</a> *<dfn class="local col5 decl" id="3595playerEnt" title='playerEnt' data-type='class idPlayer *' data-ref="3595playerEnt">playerEnt</dfn> );</td></tr>
+<tr><th id="357">357</th><td></td></tr>
+<tr><th id="358">358</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idPlayerView12ClearEffectsEv" title='idPlayerView::ClearEffects' data-ref="_ZN12idPlayerView12ClearEffectsEv">ClearEffects</dfn>( <em>void</em> );</td></tr>
+<tr><th id="359">359</th><td></td></tr>
+<tr><th id="360">360</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idPlayerView13DamageImpulseE6idVec3PK6idDict" title='idPlayerView::DamageImpulse' data-ref="_ZN12idPlayerView13DamageImpulseE6idVec3PK6idDict">DamageImpulse</dfn>( <a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> <dfn class="local col6 decl" id="3596localKickDir" title='localKickDir' data-type='idVec3' data-ref="3596localKickDir">localKickDir</dfn>, <em>const</em> <a class="type" href="../idlib/Dict.h.html#idDict" title='idDict' data-ref="idDict">idDict</a> *<dfn class="local col7 decl" id="3597damageDef" title='damageDef' data-type='const idDict *' data-ref="3597damageDef">damageDef</dfn> );</td></tr>
+<tr><th id="361">361</th><td></td></tr>
+<tr><th id="362">362</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idPlayerView18WeaponFireFeedbackEPK6idDict" title='idPlayerView::WeaponFireFeedback' data-ref="_ZN12idPlayerView18WeaponFireFeedbackEPK6idDict">WeaponFireFeedback</dfn>( <em>const</em> <a class="type" href="../idlib/Dict.h.html#idDict" title='idDict' data-ref="idDict">idDict</a> *<dfn class="local col8 decl" id="3598weaponDef" title='weaponDef' data-type='const idDict *' data-ref="3598weaponDef">weaponDef</dfn> );</td></tr>
+<tr><th id="363">363</th><td></td></tr>
+<tr><th id="364">364</th><td>	<a class="type" href="../idlib/math/Angles.h.html#idAngles" title='idAngles' data-ref="idAngles">idAngles</a>			<dfn class="decl" id="_ZNK12idPlayerView11AngleOffsetEv" title='idPlayerView::AngleOffset' data-ref="_ZNK12idPlayerView11AngleOffsetEv">AngleOffset</dfn>( <em>void</em> ) <em>const</em>;			<i>// returns the current kick angle</i></td></tr>
+<tr><th id="365">365</th><td></td></tr>
+<tr><th id="366">366</th><td>	<a class="type" href="../idlib/math/Matrix.h.html#idMat3" title='idMat3' data-ref="idMat3">idMat3</a>				<dfn class="decl" id="_ZNK12idPlayerView9ShakeAxisEv" title='idPlayerView::ShakeAxis' data-ref="_ZNK12idPlayerView9ShakeAxisEv">ShakeAxis</dfn>( <em>void</em> ) <em>const</em>;			<i>// returns the current shake angle</i></td></tr>
+<tr><th id="367">367</th><td></td></tr>
+<tr><th id="368">368</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idPlayerView14CalculateShakeEv" title='idPlayerView::CalculateShake' data-ref="_ZN12idPlayerView14CalculateShakeEv">CalculateShake</dfn>( <em>void</em> );</td></tr>
+<tr><th id="369">369</th><td></td></tr>
+<tr><th id="370">370</th><td>	<i>// this may involve rendering to a texture and displaying</i></td></tr>
+<tr><th id="371">371</th><td><i>	// that with a warp model or in double vision mode</i></td></tr>
+<tr><th id="372">372</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idPlayerView16RenderPlayerViewEP15idUserInterface" title='idPlayerView::RenderPlayerView' data-ref="_ZN12idPlayerView16RenderPlayerViewEP15idUserInterface">RenderPlayerView</dfn>( <a class="type" href="../ui/UserInterface.h.html#idUserInterface" title='idUserInterface' data-ref="idUserInterface">idUserInterface</a> *<dfn class="local col9 decl" id="3599hud" title='hud' data-type='idUserInterface *' data-ref="3599hud">hud</dfn> );</td></tr>
+<tr><th id="373">373</th><td></td></tr>
+<tr><th id="374">374</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idPlayerView4FadeE6idVec4i" title='idPlayerView::Fade' data-ref="_ZN12idPlayerView4FadeE6idVec4i">Fade</dfn>( <a class="type" href="../idlib/math/Vector.h.html#idVec4" title='idVec4' data-ref="idVec4">idVec4</a> <dfn class="local col0 decl" id="3600color" title='color' data-type='idVec4' data-ref="3600color">color</dfn>, <em>int</em> <dfn class="local col1 decl" id="3601time" title='time' data-type='int' data-ref="3601time">time</dfn> );</td></tr>
+<tr><th id="375">375</th><td></td></tr>
+<tr><th id="376">376</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idPlayerView5FlashE6idVec4i" title='idPlayerView::Flash' data-ref="_ZN12idPlayerView5FlashE6idVec4i">Flash</dfn>( <a class="type" href="../idlib/math/Vector.h.html#idVec4" title='idVec4' data-ref="idVec4">idVec4</a> <dfn class="local col2 decl" id="3602color" title='color' data-type='idVec4' data-ref="3602color">color</dfn>, <em>int</em> <dfn class="local col3 decl" id="3603time" title='time' data-type='int' data-ref="3603time">time</dfn> );</td></tr>
+<tr><th id="377">377</th><td></td></tr>
+<tr><th id="378">378</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idPlayerView13AddBloodSprayEf" title='idPlayerView::AddBloodSpray' data-ref="_ZN12idPlayerView13AddBloodSprayEf">AddBloodSpray</dfn>( <em>float</em> <dfn class="local col4 decl" id="3604duration" title='duration' data-type='float' data-ref="3604duration">duration</dfn> );</td></tr>
+<tr><th id="379">379</th><td></td></tr>
+<tr><th id="380">380</th><td>	<i>// temp for view testing</i></td></tr>
+<tr><th id="381">381</th><td>	<em>void</em>				<dfn class="decl def" id="_ZN12idPlayerView15EnableBFGVisionEb" title='idPlayerView::EnableBFGVision' data-ref="_ZN12idPlayerView15EnableBFGVisionEb">EnableBFGVision</dfn>( <em>bool</em> <dfn class="local col5 decl" id="3605b" title='b' data-type='bool' data-ref="3605b">b</dfn> ) { <a class="member" href="#idPlayerView::bfgVision" title='idPlayerView::bfgVision' data-ref="idPlayerView::bfgVision">bfgVision</a> = <a class="local col5 ref" href="#3605b" title='b' data-ref="3605b">b</a>; };</td></tr>
+<tr><th id="382">382</th><td></td></tr>
+<tr><th id="383">383</th><td><b>private</b>:</td></tr>
+<tr><th id="384">384</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idPlayerView10SingleViewEP15idUserInterfacePK12renderView_s" title='idPlayerView::SingleView' data-ref="_ZN12idPlayerView10SingleViewEP15idUserInterfacePK12renderView_s">SingleView</dfn>( <a class="type" href="../ui/UserInterface.h.html#idUserInterface" title='idUserInterface' data-ref="idUserInterface">idUserInterface</a> *<dfn class="local col6 decl" id="3606hud" title='hud' data-type='idUserInterface *' data-ref="3606hud">hud</dfn>, <em>const</em> <a class="typedef" href="../framework/DeclParticle.h.html#renderView_t" title='renderView_t' data-type='struct renderView_s' data-ref="renderView_t">renderView_t</a> *<dfn class="local col7 decl" id="3607view" title='view' data-type='const renderView_t *' data-ref="3607view">view</dfn> );</td></tr>
+<tr><th id="385">385</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idPlayerView10ScreenFadeEv" title='idPlayerView::ScreenFade' data-ref="_ZN12idPlayerView10ScreenFadeEv">ScreenFade</dfn>();</td></tr>
+<tr><th id="386">386</th><td></td></tr>
+<tr><th id="387">387</th><td>	<a class="typedef" href="#screenBlob_t" title='screenBlob_t' data-type='struct screenBlob_t' data-ref="screenBlob_t">screenBlob_t</a> *		<dfn class="decl" id="_ZN12idPlayerView13GetScreenBlobEv" title='idPlayerView::GetScreenBlob' data-ref="_ZN12idPlayerView13GetScreenBlobEv">GetScreenBlob</dfn>();</td></tr>
+<tr><th id="388">388</th><td></td></tr>
+<tr><th id="389">389</th><td>	<a class="typedef" href="#screenBlob_t" title='screenBlob_t' data-type='struct screenBlob_t' data-ref="screenBlob_t">screenBlob_t</a>		<dfn class="decl" id="idPlayerView::screenBlobs" title='idPlayerView::screenBlobs' data-ref="idPlayerView::screenBlobs">screenBlobs</dfn>[<a class="macro" href="#50" title="8" data-ref="_M/MAX_SCREEN_BLOBS">MAX_SCREEN_BLOBS</a>];</td></tr>
+<tr><th id="390">390</th><td></td></tr>
+<tr><th id="391">391</th><td><b>public</b>:</td></tr>
+<tr><th id="392">392</th><td>	<em>int</em>					<dfn class="decl" id="idPlayerView::dvFinishTime" title='idPlayerView::dvFinishTime' data-ref="idPlayerView::dvFinishTime">dvFinishTime</dfn>;		<i>// double vision will be stopped at this time</i></td></tr>
+<tr><th id="393">393</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *	<dfn class="decl" id="idPlayerView::dvMaterial" title='idPlayerView::dvMaterial' data-ref="idPlayerView::dvMaterial">dvMaterial</dfn>;			<i>// material to take the double vision screen shot</i></td></tr>
+<tr><th id="394">394</th><td></td></tr>
+<tr><th id="395">395</th><td>	<em>int</em>					<dfn class="decl" id="idPlayerView::kickFinishTime" title='idPlayerView::kickFinishTime' data-ref="idPlayerView::kickFinishTime">kickFinishTime</dfn>;		<i>// view kick will be stopped at this time</i></td></tr>
+<tr><th id="396">396</th><td>	<a class="type" href="../idlib/math/Angles.h.html#idAngles" title='idAngles' data-ref="idAngles">idAngles</a>			<dfn class="decl" id="idPlayerView::kickAngles" title='idPlayerView::kickAngles' data-ref="idPlayerView::kickAngles">kickAngles</dfn>;			</td></tr>
+<tr><th id="397">397</th><td></td></tr>
+<tr><th id="398">398</th><td>	<em>bool</em>				<dfn class="decl" id="idPlayerView::bfgVision" title='idPlayerView::bfgVision' data-ref="idPlayerView::bfgVision">bfgVision</dfn>;			<i>// </i></td></tr>
+<tr><th id="399">399</th><td></td></tr>
+<tr><th id="400">400</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *	<dfn class="decl" id="idPlayerView::tunnelMaterial" title='idPlayerView::tunnelMaterial' data-ref="idPlayerView::tunnelMaterial">tunnelMaterial</dfn>;		<i>// health tunnel vision</i></td></tr>
+<tr><th id="401">401</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *	<dfn class="decl" id="idPlayerView::armorMaterial" title='idPlayerView::armorMaterial' data-ref="idPlayerView::armorMaterial">armorMaterial</dfn>;		<i>// armor damage view effect</i></td></tr>
+<tr><th id="402">402</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *	<dfn class="decl" id="idPlayerView::berserkMaterial" title='idPlayerView::berserkMaterial' data-ref="idPlayerView::berserkMaterial">berserkMaterial</dfn>;	<i>// berserk effect</i></td></tr>
+<tr><th id="403">403</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *	<dfn class="decl" id="idPlayerView::irGogglesMaterial" title='idPlayerView::irGogglesMaterial' data-ref="idPlayerView::irGogglesMaterial">irGogglesMaterial</dfn>;	<i>// ir effect</i></td></tr>
+<tr><th id="404">404</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *	<dfn class="decl" id="idPlayerView::bloodSprayMaterial" title='idPlayerView::bloodSprayMaterial' data-ref="idPlayerView::bloodSprayMaterial">bloodSprayMaterial</dfn>; <i>// blood spray</i></td></tr>
+<tr><th id="405">405</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *	<dfn class="decl" id="idPlayerView::bfgMaterial" title='idPlayerView::bfgMaterial' data-ref="idPlayerView::bfgMaterial">bfgMaterial</dfn>;		<i>// when targeted with BFG</i></td></tr>
+<tr><th id="406">406</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *	<dfn class="decl" id="idPlayerView::lagoMaterial" title='idPlayerView::lagoMaterial' data-ref="idPlayerView::lagoMaterial">lagoMaterial</dfn>;		<i>// lagometer drawing</i></td></tr>
+<tr><th id="407">407</th><td>	<em>float</em>				<dfn class="decl" id="idPlayerView::lastDamageTime" title='idPlayerView::lastDamageTime' data-ref="idPlayerView::lastDamageTime">lastDamageTime</dfn>;		<i>// accentuate the tunnel effect for a while</i></td></tr>
+<tr><th id="408">408</th><td></td></tr>
+<tr><th id="409">409</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec4" title='idVec4' data-ref="idVec4">idVec4</a>				<dfn class="decl" id="idPlayerView::fadeColor" title='idPlayerView::fadeColor' data-ref="idPlayerView::fadeColor">fadeColor</dfn>;			<i>// fade color</i></td></tr>
+<tr><th id="410">410</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec4" title='idVec4' data-ref="idVec4">idVec4</a>				<dfn class="decl" id="idPlayerView::fadeToColor" title='idPlayerView::fadeToColor' data-ref="idPlayerView::fadeToColor">fadeToColor</dfn>;		<i>// color to fade to</i></td></tr>
+<tr><th id="411">411</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec4" title='idVec4' data-ref="idVec4">idVec4</a>				<dfn class="decl" id="idPlayerView::fadeFromColor" title='idPlayerView::fadeFromColor' data-ref="idPlayerView::fadeFromColor">fadeFromColor</dfn>;		<i>// color to fade from</i></td></tr>
+<tr><th id="412">412</th><td>	<em>float</em>				<dfn class="decl" id="idPlayerView::fadeRate" title='idPlayerView::fadeRate' data-ref="idPlayerView::fadeRate">fadeRate</dfn>;			<i>// fade rate</i></td></tr>
+<tr><th id="413">413</th><td>	<em>int</em>					<dfn class="decl" id="idPlayerView::fadeTime" title='idPlayerView::fadeTime' data-ref="idPlayerView::fadeTime">fadeTime</dfn>;			<i>// fade time</i></td></tr>
+<tr><th id="414">414</th><td></td></tr>
+<tr><th id="415">415</th><td>	<a class="type" href="../idlib/math/Angles.h.html#idAngles" title='idAngles' data-ref="idAngles">idAngles</a>			<dfn class="decl" id="idPlayerView::shakeAng" title='idPlayerView::shakeAng' data-ref="idPlayerView::shakeAng">shakeAng</dfn>;			<i>// from the sound sources</i></td></tr>
+<tr><th id="416">416</th><td></td></tr>
+<tr><th id="417">417</th><td>	<a class="type" href="Player.h.html#idPlayer" title='idPlayer' data-ref="idPlayer">idPlayer</a> *			<dfn class="decl" id="idPlayerView::player" title='idPlayerView::player' data-ref="idPlayerView::player">player</dfn>;</td></tr>
+<tr><th id="418">418</th><td>	<a class="typedef" href="../framework/DeclParticle.h.html#renderView_t" title='renderView_t' data-type='struct renderView_s' data-ref="renderView_t">renderView_t</a>		<dfn class="decl" id="idPlayerView::view" title='idPlayerView::view' data-ref="idPlayerView::view">view</dfn>;</td></tr>
+<tr><th id="419">419</th><td></td></tr>
+<tr><th id="420">420</th><td><u>#<span data-ppcond="420">ifdef</span> <span class="macro" data-ref="_M/_D3XP">_D3XP</span></u></td></tr>
+<tr><th id="421">421</th><td>	<a class="type" href="#FullscreenFXManager" title='FullscreenFXManager' data-ref="FullscreenFXManager">FullscreenFXManager</a>	*<dfn class="decl" id="idPlayerView::fxManager" title='idPlayerView::fxManager' data-ref="idPlayerView::fxManager">fxManager</dfn>;</td></tr>
+<tr><th id="422">422</th><td></td></tr>
+<tr><th id="423">423</th><td><b>public</b>:</td></tr>
+<tr><th id="424">424</th><td>	<em>int</em>					<dfn class="decl" id="_ZN12idPlayerView7AddWarpE6idVec3ffff" title='idPlayerView::AddWarp' data-ref="_ZN12idPlayerView7AddWarpE6idVec3ffff">AddWarp</dfn>( <a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> <dfn class="local col8 decl" id="3608worldOrigin" title='worldOrigin' data-type='idVec3' data-ref="3608worldOrigin">worldOrigin</dfn>, <em>float</em> <dfn class="local col9 decl" id="3609centerx" title='centerx' data-type='float' data-ref="3609centerx">centerx</dfn>, <em>float</em> <dfn class="local col0 decl" id="3610centery" title='centery' data-type='float' data-ref="3610centery">centery</dfn>, <em>float</em> <dfn class="local col1 decl" id="3611initialRadius" title='initialRadius' data-type='float' data-ref="3611initialRadius">initialRadius</dfn>, <em>float</em> <dfn class="local col2 decl" id="3612durationMsec" title='durationMsec' data-type='float' data-ref="3612durationMsec">durationMsec</dfn> );</td></tr>
+<tr><th id="425">425</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idPlayerView8FreeWarpEi" title='idPlayerView::FreeWarp' data-ref="_ZN12idPlayerView8FreeWarpEi">FreeWarp</dfn>( <em>int</em> <dfn class="local col3 decl" id="3613id" title='id' data-type='int' data-ref="3613id">id</dfn> );</td></tr>
+<tr><th id="426">426</th><td><u>#<span data-ppcond="420">endif</span></u></td></tr>
+<tr><th id="427">427</th><td>};</td></tr>
+<tr><th id="428">428</th><td></td></tr>
+<tr><th id="429">429</th><td><u>#<span data-ppcond="29">endif</span> /* !__GAME_PLAYERVIEW_H__ */</u></td></tr>
+<tr><th id="430">430</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='AF.cpp.html'>codebrowser/d3xp/AF.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

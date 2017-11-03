@@ -1,0 +1,381 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Hierarchy.h source code [codebrowser/idlib/containers/Hierarchy.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idHierarchy "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/idlib/containers/Hierarchy.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>idlib</a>/<a href='./'>containers</a>/<a href='Hierarchy.h.html'>Hierarchy.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__HIERARCHY_H__">__HIERARCHY_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__HIERARCHY_H__" data-ref="_M/__HIERARCHY_H__">__HIERARCHY_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>==============================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>	idHierarchy</i></td></tr>
+<tr><th id="36">36</th><td><i></i></td></tr>
+<tr><th id="37">37</th><td><i>==============================================================================</i></td></tr>
+<tr><th id="38">38</th><td><i>*/</i></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><b>template</b>&lt; <b>class</b> type &gt;</td></tr>
+<tr><th id="41">41</th><td><b>class</b> <dfn class="type def" id="idHierarchy" title='idHierarchy' data-ref="idHierarchy">idHierarchy</dfn> {</td></tr>
+<tr><th id="42">42</th><td><b>public</b>:</td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td>						<a class="decl" href="#_ZN11idHierarchyC1Ev" title='idHierarchy::idHierarchy&lt;type&gt;' data-ref="_ZN11idHierarchyC1Ev">idHierarchy</a>();</td></tr>
+<tr><th id="45">45</th><td>						<a class="decl" href="#_ZN11idHierarchyD1Ev" title='idHierarchy::~idHierarchy&lt;type&gt;' data-ref="_ZN11idHierarchyD1Ev">~idHierarchy</a>();</td></tr>
+<tr><th id="46">46</th><td>	</td></tr>
+<tr><th id="47">47</th><td>	<em>void</em>				<a class="decl" href="#_ZN11idHierarchy8SetOwnerEPT_" title='idHierarchy::SetOwner' data-ref="_ZN11idHierarchy8SetOwnerEPT_">SetOwner</a>( type *<dfn class="local col0 decl" id="6720object" title='object' data-type='type *' data-ref="6720object">object</dfn> );</td></tr>
+<tr><th id="48">48</th><td>	type *				<a class="decl" href="#_ZNK11idHierarchy5OwnerEv" title='idHierarchy::Owner' data-ref="_ZNK11idHierarchy5OwnerEv">Owner</a>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="49">49</th><td>	<em>void</em>				<a class="decl" href="#_ZN11idHierarchy8ParentToER11idHierarchyIT_E" title='idHierarchy::ParentTo' data-ref="_ZN11idHierarchy8ParentToER11idHierarchyIT_E">ParentTo</a>( idHierarchy &amp;<dfn class="local col1 decl" id="6721node" title='node' data-type='idHierarchy&lt;type&gt; &amp;' data-ref="6721node">node</dfn> );</td></tr>
+<tr><th id="50">50</th><td>	<em>void</em>				<a class="decl" href="#_ZN11idHierarchy16MakeSiblingAfterER11idHierarchyIT_E" title='idHierarchy::MakeSiblingAfter' data-ref="_ZN11idHierarchy16MakeSiblingAfterER11idHierarchyIT_E">MakeSiblingAfter</a>( idHierarchy &amp;<dfn class="local col2 decl" id="6722node" title='node' data-type='idHierarchy&lt;type&gt; &amp;' data-ref="6722node">node</dfn> );</td></tr>
+<tr><th id="51">51</th><td>	<em>bool</em>				<a class="decl" href="#_ZNK11idHierarchy10ParentedByERK11idHierarchyIT_E" title='idHierarchy::ParentedBy' data-ref="_ZNK11idHierarchy10ParentedByERK11idHierarchyIT_E">ParentedBy</a>( <em>const</em> idHierarchy &amp;<dfn class="local col3 decl" id="6723node" title='node' data-type='const idHierarchy&lt;type&gt; &amp;' data-ref="6723node">node</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="52">52</th><td>	<em>void</em>				<a class="decl" href="#_ZN11idHierarchy16RemoveFromParentEv" title='idHierarchy::RemoveFromParent' data-ref="_ZN11idHierarchy16RemoveFromParentEv">RemoveFromParent</a>( <em>void</em> );</td></tr>
+<tr><th id="53">53</th><td>	<em>void</em>				<a class="decl" href="#_ZN11idHierarchy19RemoveFromHierarchyEv" title='idHierarchy::RemoveFromHierarchy' data-ref="_ZN11idHierarchy19RemoveFromHierarchyEv">RemoveFromHierarchy</a>( <em>void</em> );</td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td>	type *				<a class="decl" href="#_ZNK11idHierarchy9GetParentEv" title='idHierarchy::GetParent' data-ref="_ZNK11idHierarchy9GetParentEv">GetParent</a>( <em>void</em> ) <em>const</em>;		<i>// parent of this node</i></td></tr>
+<tr><th id="56">56</th><td>	type *				<a class="decl" href="#_ZNK11idHierarchy8GetChildEv" title='idHierarchy::GetChild' data-ref="_ZNK11idHierarchy8GetChildEv">GetChild</a>( <em>void</em> ) <em>const</em>;			<i>// first child of this node</i></td></tr>
+<tr><th id="57">57</th><td>	type *				<a class="decl" href="#_ZNK11idHierarchy10GetSiblingEv" title='idHierarchy::GetSibling' data-ref="_ZNK11idHierarchy10GetSiblingEv">GetSibling</a>( <em>void</em> ) <em>const</em>;		<i>// next node with the same parent</i></td></tr>
+<tr><th id="58">58</th><td>	type *				<a class="decl" href="#_ZNK11idHierarchy15GetPriorSiblingEv" title='idHierarchy::GetPriorSibling' data-ref="_ZNK11idHierarchy15GetPriorSiblingEv">GetPriorSibling</a>( <em>void</em> ) <em>const</em>;	<i>// previous node with the same parent</i></td></tr>
+<tr><th id="59">59</th><td>	type *				<a class="decl" href="#_ZNK11idHierarchy7GetNextEv" title='idHierarchy::GetNext' data-ref="_ZNK11idHierarchy7GetNextEv">GetNext</a>( <em>void</em> ) <em>const</em>;			<i>// goes through all nodes of the hierarchy</i></td></tr>
+<tr><th id="60">60</th><td>	type *				<a class="decl" href="#_ZNK11idHierarchy11GetNextLeafEv" title='idHierarchy::GetNextLeaf' data-ref="_ZNK11idHierarchy11GetNextLeafEv">GetNextLeaf</a>( <em>void</em> ) <em>const</em>;		<i>// goes through all leaf nodes of the hierarchy</i></td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td><b>private</b>:</td></tr>
+<tr><th id="63">63</th><td>	idHierarchy *		<dfn class="decl" id="idHierarchy::parent" title='idHierarchy::parent' data-ref="idHierarchy::parent">parent</dfn>;</td></tr>
+<tr><th id="64">64</th><td>	idHierarchy *		<dfn class="decl" id="idHierarchy::sibling" title='idHierarchy::sibling' data-ref="idHierarchy::sibling">sibling</dfn>;</td></tr>
+<tr><th id="65">65</th><td>	idHierarchy *		<dfn class="decl" id="idHierarchy::child" title='idHierarchy::child' data-ref="idHierarchy::child">child</dfn>;</td></tr>
+<tr><th id="66">66</th><td>	type *				<dfn class="decl" id="idHierarchy::owner" title='idHierarchy::owner' data-ref="idHierarchy::owner">owner</dfn>;</td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td>	<a class="type" href="#idHierarchy" title='idHierarchy' data-ref="idHierarchy">idHierarchy</a>&lt;type&gt;	*<a class="decl" href="#_ZNK11idHierarchy19GetPriorSiblingNodeEv" title='idHierarchy::GetPriorSiblingNode' data-ref="_ZNK11idHierarchy19GetPriorSiblingNodeEv">GetPriorSiblingNode</a>( <em>void</em> ) <em>const</em>;	<i>// previous node with the same parent</i></td></tr>
+<tr><th id="69">69</th><td>};</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td><i>/*</i></td></tr>
+<tr><th id="72">72</th><td><i>================</i></td></tr>
+<tr><th id="73">73</th><td><i>idHierarchy&lt;type&gt;::idHierarchy</i></td></tr>
+<tr><th id="74">74</th><td><i>================</i></td></tr>
+<tr><th id="75">75</th><td><i>*/</i></td></tr>
+<tr><th id="76">76</th><td><b>template</b>&lt; <b>class</b> type &gt;</td></tr>
+<tr><th id="77">77</th><td><a class="type" href="#idHierarchy" title='idHierarchy' data-ref="idHierarchy">idHierarchy</a>&lt;type&gt;::<dfn class="decl def" id="_ZN11idHierarchyC1Ev" title='idHierarchy::idHierarchy&lt;type&gt;' data-ref="_ZN11idHierarchyC1Ev">idHierarchy</dfn>() {</td></tr>
+<tr><th id="78">78</th><td>	<a class="member" href="#idHierarchy::owner" title='idHierarchy::owner' data-ref="idHierarchy::owner">owner</a>	= <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="79">79</th><td>	<a class="member" href="#idHierarchy::parent" title='idHierarchy::parent' data-ref="idHierarchy::parent">parent</a>	= <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;	</td></tr>
+<tr><th id="80">80</th><td>	<a class="member" href="#idHierarchy::sibling" title='idHierarchy::sibling' data-ref="idHierarchy::sibling">sibling</a>	= <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="81">81</th><td>	<a class="member" href="#idHierarchy::child" title='idHierarchy::child' data-ref="idHierarchy::child">child</a>	= <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="82">82</th><td>}</td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td><i>/*</i></td></tr>
+<tr><th id="85">85</th><td><i>================</i></td></tr>
+<tr><th id="86">86</th><td><i>idHierarchy&lt;type&gt;::~idHierarchy</i></td></tr>
+<tr><th id="87">87</th><td><i>================</i></td></tr>
+<tr><th id="88">88</th><td><i>*/</i></td></tr>
+<tr><th id="89">89</th><td><b>template</b>&lt; <b>class</b> type &gt;</td></tr>
+<tr><th id="90">90</th><td><a class="type" href="#idHierarchy" title='idHierarchy' data-ref="idHierarchy">idHierarchy</a>&lt;type&gt;::<dfn class="decl def" id="_ZN11idHierarchyD1Ev" title='idHierarchy::~idHierarchy&lt;type&gt;' data-ref="_ZN11idHierarchyD1Ev">~idHierarchy</dfn>() {</td></tr>
+<tr><th id="91">91</th><td>	<a class="member" href="#_ZN11idHierarchy19RemoveFromHierarchyEv" title='idHierarchy::RemoveFromHierarchy' data-ref="_ZN11idHierarchy19RemoveFromHierarchyEv">RemoveFromHierarchy</a>();</td></tr>
+<tr><th id="92">92</th><td>}</td></tr>
+<tr><th id="93">93</th><td></td></tr>
+<tr><th id="94">94</th><td><i>/*</i></td></tr>
+<tr><th id="95">95</th><td><i>================</i></td></tr>
+<tr><th id="96">96</th><td><i>idHierarchy&lt;type&gt;::Owner</i></td></tr>
+<tr><th id="97">97</th><td><i></i></td></tr>
+<tr><th id="98">98</th><td><i>Gets the object that is associated with this node.</i></td></tr>
+<tr><th id="99">99</th><td><i>================</i></td></tr>
+<tr><th id="100">100</th><td><i>*/</i></td></tr>
+<tr><th id="101">101</th><td><b>template</b>&lt; <b>class</b> type &gt;</td></tr>
+<tr><th id="102">102</th><td>type *<a class="type" href="#idHierarchy" title='idHierarchy' data-ref="idHierarchy">idHierarchy</a>&lt;type&gt;::<dfn class="decl def" id="_ZNK11idHierarchy5OwnerEv" title='idHierarchy::Owner' data-ref="_ZNK11idHierarchy5OwnerEv">Owner</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="103">103</th><td>	<b>return</b> <a class="member" href="#idHierarchy::owner" title='idHierarchy::owner' data-ref="idHierarchy::owner">owner</a>;</td></tr>
+<tr><th id="104">104</th><td>}</td></tr>
+<tr><th id="105">105</th><td></td></tr>
+<tr><th id="106">106</th><td><i>/*</i></td></tr>
+<tr><th id="107">107</th><td><i>================</i></td></tr>
+<tr><th id="108">108</th><td><i>idHierarchy&lt;type&gt;::SetOwner</i></td></tr>
+<tr><th id="109">109</th><td><i></i></td></tr>
+<tr><th id="110">110</th><td><i>Sets the object that this node is associated with.</i></td></tr>
+<tr><th id="111">111</th><td><i>================</i></td></tr>
+<tr><th id="112">112</th><td><i>*/</i></td></tr>
+<tr><th id="113">113</th><td><b>template</b>&lt; <b>class</b> type &gt;</td></tr>
+<tr><th id="114">114</th><td><em>void</em> <a class="type" href="#idHierarchy" title='idHierarchy' data-ref="idHierarchy">idHierarchy</a>&lt;type&gt;::<dfn class="decl def" id="_ZN11idHierarchy8SetOwnerEPT_" title='idHierarchy::SetOwner' data-ref="_ZN11idHierarchy8SetOwnerEPT_">SetOwner</dfn>( type *<dfn class="local col4 decl" id="6724object" title='object' data-type='type *' data-ref="6724object">object</dfn> ) {</td></tr>
+<tr><th id="115">115</th><td>	<a class="member" href="#idHierarchy::owner" title='idHierarchy::owner' data-ref="idHierarchy::owner">owner</a> = <a class="local col4 ref" href="#6724object" title='object' data-ref="6724object">object</a>;</td></tr>
+<tr><th id="116">116</th><td>}</td></tr>
+<tr><th id="117">117</th><td></td></tr>
+<tr><th id="118">118</th><td><i>/*</i></td></tr>
+<tr><th id="119">119</th><td><i>================</i></td></tr>
+<tr><th id="120">120</th><td><i>idHierarchy&lt;type&gt;::ParentedBy</i></td></tr>
+<tr><th id="121">121</th><td><i>================</i></td></tr>
+<tr><th id="122">122</th><td><i>*/</i></td></tr>
+<tr><th id="123">123</th><td><b>template</b>&lt; <b>class</b> type &gt;</td></tr>
+<tr><th id="124">124</th><td><em>bool</em> <a class="type" href="#idHierarchy" title='idHierarchy' data-ref="idHierarchy">idHierarchy</a>&lt;type&gt;::<dfn class="decl def" id="_ZNK11idHierarchy10ParentedByERK11idHierarchyIT_E" title='idHierarchy::ParentedBy' data-ref="_ZNK11idHierarchy10ParentedByERK11idHierarchyIT_E">ParentedBy</dfn>( <em>const</em> idHierarchy &amp;<dfn class="local col5 decl" id="6725node" title='node' data-type='const idHierarchy&lt;type&gt; &amp;' data-ref="6725node">node</dfn> ) <em>const</em> {</td></tr>
+<tr><th id="125">125</th><td>	<b>if</b> ( <a class="member" href="#idHierarchy::parent" title='idHierarchy::parent' data-ref="idHierarchy::parent">parent</a> == &amp;<a class="local col5 ref" href="#6725node" title='node' data-ref="6725node">node</a> ) {</td></tr>
+<tr><th id="126">126</th><td>		<b>return</b> <b>true</b>;</td></tr>
+<tr><th id="127">127</th><td>	} <b>else</b> <b>if</b> ( <a class="member" href="#idHierarchy::parent" title='idHierarchy::parent' data-ref="idHierarchy::parent">parent</a> ) {</td></tr>
+<tr><th id="128">128</th><td>		<b>return</b> <a class="member" href="#idHierarchy::parent" title='idHierarchy::parent' data-ref="idHierarchy::parent">parent</a>-&gt;ParentedBy( <a class="local col5 ref" href="#6725node" title='node' data-ref="6725node">node</a> );</td></tr>
+<tr><th id="129">129</th><td>	}</td></tr>
+<tr><th id="130">130</th><td>	<b>return</b> <b>false</b>;</td></tr>
+<tr><th id="131">131</th><td>}</td></tr>
+<tr><th id="132">132</th><td></td></tr>
+<tr><th id="133">133</th><td><i>/*</i></td></tr>
+<tr><th id="134">134</th><td><i>================</i></td></tr>
+<tr><th id="135">135</th><td><i>idHierarchy&lt;type&gt;::ParentTo</i></td></tr>
+<tr><th id="136">136</th><td><i></i></td></tr>
+<tr><th id="137">137</th><td><i>Makes the given node the parent.</i></td></tr>
+<tr><th id="138">138</th><td><i>================</i></td></tr>
+<tr><th id="139">139</th><td><i>*/</i></td></tr>
+<tr><th id="140">140</th><td><b>template</b>&lt; <b>class</b> type &gt;</td></tr>
+<tr><th id="141">141</th><td><em>void</em> <a class="type" href="#idHierarchy" title='idHierarchy' data-ref="idHierarchy">idHierarchy</a>&lt;type&gt;::<dfn class="decl def" id="_ZN11idHierarchy8ParentToER11idHierarchyIT_E" title='idHierarchy::ParentTo' data-ref="_ZN11idHierarchy8ParentToER11idHierarchyIT_E">ParentTo</dfn>( idHierarchy &amp;<dfn class="local col6 decl" id="6726node" title='node' data-type='idHierarchy&lt;type&gt; &amp;' data-ref="6726node">node</dfn> ) {</td></tr>
+<tr><th id="142">142</th><td>	<a class="member" href="#_ZN11idHierarchy16RemoveFromParentEv" title='idHierarchy::RemoveFromParent' data-ref="_ZN11idHierarchy16RemoveFromParentEv">RemoveFromParent</a>();</td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td>	<a class="member" href="#idHierarchy::parent" title='idHierarchy::parent' data-ref="idHierarchy::parent">parent</a>		= &amp;<a class="local col6 ref" href="#6726node" title='node' data-ref="6726node">node</a>;</td></tr>
+<tr><th id="145">145</th><td>	<a class="member" href="#idHierarchy::sibling" title='idHierarchy::sibling' data-ref="idHierarchy::sibling">sibling</a>		= <a class="local col6 ref" href="#6726node" title='node' data-ref="6726node">node</a>.child;</td></tr>
+<tr><th id="146">146</th><td>	<a class="local col6 ref" href="#6726node" title='node' data-ref="6726node">node</a>.child	= <b>this</b>;</td></tr>
+<tr><th id="147">147</th><td>}</td></tr>
+<tr><th id="148">148</th><td></td></tr>
+<tr><th id="149">149</th><td><i>/*</i></td></tr>
+<tr><th id="150">150</th><td><i>================</i></td></tr>
+<tr><th id="151">151</th><td><i>idHierarchy&lt;type&gt;::MakeSiblingAfter</i></td></tr>
+<tr><th id="152">152</th><td><i></i></td></tr>
+<tr><th id="153">153</th><td><i>Makes the given node a sibling after the passed in node.</i></td></tr>
+<tr><th id="154">154</th><td><i>================</i></td></tr>
+<tr><th id="155">155</th><td><i>*/</i></td></tr>
+<tr><th id="156">156</th><td><b>template</b>&lt; <b>class</b> type &gt;</td></tr>
+<tr><th id="157">157</th><td><em>void</em> <a class="type" href="#idHierarchy" title='idHierarchy' data-ref="idHierarchy">idHierarchy</a>&lt;type&gt;::<dfn class="decl def" id="_ZN11idHierarchy16MakeSiblingAfterER11idHierarchyIT_E" title='idHierarchy::MakeSiblingAfter' data-ref="_ZN11idHierarchy16MakeSiblingAfterER11idHierarchyIT_E">MakeSiblingAfter</dfn>( idHierarchy &amp;<dfn class="local col7 decl" id="6727node" title='node' data-type='idHierarchy&lt;type&gt; &amp;' data-ref="6727node">node</dfn> ) {</td></tr>
+<tr><th id="158">158</th><td>	<a class="member" href="#_ZN11idHierarchy16RemoveFromParentEv" title='idHierarchy::RemoveFromParent' data-ref="_ZN11idHierarchy16RemoveFromParentEv">RemoveFromParent</a>();</td></tr>
+<tr><th id="159">159</th><td>	<a class="member" href="#idHierarchy::parent" title='idHierarchy::parent' data-ref="idHierarchy::parent">parent</a>	= <a class="local col7 ref" href="#6727node" title='node' data-ref="6727node">node</a>.parent;</td></tr>
+<tr><th id="160">160</th><td>	<a class="member" href="#idHierarchy::sibling" title='idHierarchy::sibling' data-ref="idHierarchy::sibling">sibling</a> = <a class="local col7 ref" href="#6727node" title='node' data-ref="6727node">node</a>.sibling;</td></tr>
+<tr><th id="161">161</th><td>	<a class="local col7 ref" href="#6727node" title='node' data-ref="6727node">node</a>.sibling = <b>this</b>;</td></tr>
+<tr><th id="162">162</th><td>}</td></tr>
+<tr><th id="163">163</th><td></td></tr>
+<tr><th id="164">164</th><td><i>/*</i></td></tr>
+<tr><th id="165">165</th><td><i>================</i></td></tr>
+<tr><th id="166">166</th><td><i>idHierarchy&lt;type&gt;::RemoveFromParent</i></td></tr>
+<tr><th id="167">167</th><td><i>================</i></td></tr>
+<tr><th id="168">168</th><td><i>*/</i></td></tr>
+<tr><th id="169">169</th><td><b>template</b>&lt; <b>class</b> type &gt;</td></tr>
+<tr><th id="170">170</th><td><em>void</em> <a class="type" href="#idHierarchy" title='idHierarchy' data-ref="idHierarchy">idHierarchy</a>&lt;type&gt;::<dfn class="decl def" id="_ZN11idHierarchy16RemoveFromParentEv" title='idHierarchy::RemoveFromParent' data-ref="_ZN11idHierarchy16RemoveFromParentEv">RemoveFromParent</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="171">171</th><td>	<a class="type" href="#idHierarchy" title='idHierarchy' data-ref="idHierarchy">idHierarchy</a>&lt;type&gt; *<dfn class="local col8 decl" id="6728prev" title='prev' data-type='idHierarchy&lt;type&gt; *' data-ref="6728prev">prev</dfn>;</td></tr>
+<tr><th id="172">172</th><td></td></tr>
+<tr><th id="173">173</th><td>	<b>if</b> ( <a class="member" href="#idHierarchy::parent" title='idHierarchy::parent' data-ref="idHierarchy::parent">parent</a> ) {</td></tr>
+<tr><th id="174">174</th><td>		<a class="local col8 ref" href="#6728prev" title='prev' data-ref="6728prev">prev</a> = <a class="member" href="#_ZNK11idHierarchy19GetPriorSiblingNodeEv" title='idHierarchy::GetPriorSiblingNode' data-ref="_ZNK11idHierarchy19GetPriorSiblingNodeEv">GetPriorSiblingNode</a>();</td></tr>
+<tr><th id="175">175</th><td>		<b>if</b> ( <a class="local col8 ref" href="#6728prev" title='prev' data-ref="6728prev">prev</a> ) {</td></tr>
+<tr><th id="176">176</th><td>			<a class="local col8 ref" href="#6728prev" title='prev' data-ref="6728prev">prev</a>-&gt;sibling = <a class="member" href="#idHierarchy::sibling" title='idHierarchy::sibling' data-ref="idHierarchy::sibling">sibling</a>;</td></tr>
+<tr><th id="177">177</th><td>		} <b>else</b> {</td></tr>
+<tr><th id="178">178</th><td>			<a class="member" href="#idHierarchy::parent" title='idHierarchy::parent' data-ref="idHierarchy::parent">parent</a>-&gt;child = <a class="member" href="#idHierarchy::sibling" title='idHierarchy::sibling' data-ref="idHierarchy::sibling">sibling</a>;</td></tr>
+<tr><th id="179">179</th><td>		}</td></tr>
+<tr><th id="180">180</th><td>	}</td></tr>
+<tr><th id="181">181</th><td></td></tr>
+<tr><th id="182">182</th><td>	<a class="member" href="#idHierarchy::parent" title='idHierarchy::parent' data-ref="idHierarchy::parent">parent</a> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="183">183</th><td>	<a class="member" href="#idHierarchy::sibling" title='idHierarchy::sibling' data-ref="idHierarchy::sibling">sibling</a> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="184">184</th><td>}</td></tr>
+<tr><th id="185">185</th><td></td></tr>
+<tr><th id="186">186</th><td><i>/*</i></td></tr>
+<tr><th id="187">187</th><td><i>================</i></td></tr>
+<tr><th id="188">188</th><td><i>idHierarchy&lt;type&gt;::RemoveFromHierarchy</i></td></tr>
+<tr><th id="189">189</th><td><i></i></td></tr>
+<tr><th id="190">190</th><td><i>Removes the node from the hierarchy and adds it's children to the parent.</i></td></tr>
+<tr><th id="191">191</th><td><i>================</i></td></tr>
+<tr><th id="192">192</th><td><i>*/</i></td></tr>
+<tr><th id="193">193</th><td><b>template</b>&lt; <b>class</b> type &gt;</td></tr>
+<tr><th id="194">194</th><td><em>void</em> <a class="type" href="#idHierarchy" title='idHierarchy' data-ref="idHierarchy">idHierarchy</a>&lt;type&gt;::<dfn class="decl def" id="_ZN11idHierarchy19RemoveFromHierarchyEv" title='idHierarchy::RemoveFromHierarchy' data-ref="_ZN11idHierarchy19RemoveFromHierarchyEv">RemoveFromHierarchy</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="195">195</th><td>	<a class="type" href="#idHierarchy" title='idHierarchy' data-ref="idHierarchy">idHierarchy</a>&lt;type&gt; *<dfn class="local col9 decl" id="6729parentNode" title='parentNode' data-type='idHierarchy&lt;type&gt; *' data-ref="6729parentNode">parentNode</dfn>;</td></tr>
+<tr><th id="196">196</th><td>	<a class="type" href="#idHierarchy" title='idHierarchy' data-ref="idHierarchy">idHierarchy</a>&lt;type&gt; *<dfn class="local col0 decl" id="6730node" title='node' data-type='idHierarchy&lt;type&gt; *' data-ref="6730node">node</dfn>;</td></tr>
+<tr><th id="197">197</th><td></td></tr>
+<tr><th id="198">198</th><td>	<a class="local col9 ref" href="#6729parentNode" title='parentNode' data-ref="6729parentNode">parentNode</a> = <a class="member" href="#idHierarchy::parent" title='idHierarchy::parent' data-ref="idHierarchy::parent">parent</a>;</td></tr>
+<tr><th id="199">199</th><td>	<a class="member" href="#_ZN11idHierarchy16RemoveFromParentEv" title='idHierarchy::RemoveFromParent' data-ref="_ZN11idHierarchy16RemoveFromParentEv">RemoveFromParent</a>();</td></tr>
+<tr><th id="200">200</th><td></td></tr>
+<tr><th id="201">201</th><td>	<b>if</b> ( <a class="local col9 ref" href="#6729parentNode" title='parentNode' data-ref="6729parentNode">parentNode</a> ) {</td></tr>
+<tr><th id="202">202</th><td>		<b>while</b>( <a class="member" href="#idHierarchy::child" title='idHierarchy::child' data-ref="idHierarchy::child">child</a> ) {</td></tr>
+<tr><th id="203">203</th><td>			<a class="local col0 ref" href="#6730node" title='node' data-ref="6730node">node</a> = <a class="member" href="#idHierarchy::child" title='idHierarchy::child' data-ref="idHierarchy::child">child</a>;</td></tr>
+<tr><th id="204">204</th><td>			<a class="local col0 ref" href="#6730node" title='node' data-ref="6730node">node</a>-&gt;RemoveFromParent();</td></tr>
+<tr><th id="205">205</th><td>			<a class="local col0 ref" href="#6730node" title='node' data-ref="6730node">node</a>-&gt;ParentTo( *<a class="local col9 ref" href="#6729parentNode" title='parentNode' data-ref="6729parentNode">parentNode</a> );</td></tr>
+<tr><th id="206">206</th><td>		}</td></tr>
+<tr><th id="207">207</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="208">208</th><td>		<b>while</b>( <a class="member" href="#idHierarchy::child" title='idHierarchy::child' data-ref="idHierarchy::child">child</a> ) {</td></tr>
+<tr><th id="209">209</th><td>			<a class="member" href="#idHierarchy::child" title='idHierarchy::child' data-ref="idHierarchy::child">child</a>-&gt;RemoveFromParent();</td></tr>
+<tr><th id="210">210</th><td>		}</td></tr>
+<tr><th id="211">211</th><td>	}</td></tr>
+<tr><th id="212">212</th><td>}</td></tr>
+<tr><th id="213">213</th><td></td></tr>
+<tr><th id="214">214</th><td><i>/*</i></td></tr>
+<tr><th id="215">215</th><td><i>================</i></td></tr>
+<tr><th id="216">216</th><td><i>idHierarchy&lt;type&gt;::GetParent</i></td></tr>
+<tr><th id="217">217</th><td><i>================</i></td></tr>
+<tr><th id="218">218</th><td><i>*/</i></td></tr>
+<tr><th id="219">219</th><td><b>template</b>&lt; <b>class</b> type &gt;</td></tr>
+<tr><th id="220">220</th><td>type *<a class="type" href="#idHierarchy" title='idHierarchy' data-ref="idHierarchy">idHierarchy</a>&lt;type&gt;::<dfn class="decl def" id="_ZNK11idHierarchy9GetParentEv" title='idHierarchy::GetParent' data-ref="_ZNK11idHierarchy9GetParentEv">GetParent</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="221">221</th><td>	<b>if</b> ( <a class="member" href="#idHierarchy::parent" title='idHierarchy::parent' data-ref="idHierarchy::parent">parent</a> ) {</td></tr>
+<tr><th id="222">222</th><td>		<b>return</b> <a class="member" href="#idHierarchy::parent" title='idHierarchy::parent' data-ref="idHierarchy::parent">parent</a>-&gt;owner;</td></tr>
+<tr><th id="223">223</th><td>	}</td></tr>
+<tr><th id="224">224</th><td>	<b>return</b> <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="225">225</th><td>}</td></tr>
+<tr><th id="226">226</th><td></td></tr>
+<tr><th id="227">227</th><td><i>/*</i></td></tr>
+<tr><th id="228">228</th><td><i>================</i></td></tr>
+<tr><th id="229">229</th><td><i>idHierarchy&lt;type&gt;::GetChild</i></td></tr>
+<tr><th id="230">230</th><td><i>================</i></td></tr>
+<tr><th id="231">231</th><td><i>*/</i></td></tr>
+<tr><th id="232">232</th><td><b>template</b>&lt; <b>class</b> type &gt;</td></tr>
+<tr><th id="233">233</th><td>type *<a class="type" href="#idHierarchy" title='idHierarchy' data-ref="idHierarchy">idHierarchy</a>&lt;type&gt;::<dfn class="decl def" id="_ZNK11idHierarchy8GetChildEv" title='idHierarchy::GetChild' data-ref="_ZNK11idHierarchy8GetChildEv">GetChild</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="234">234</th><td>	<b>if</b> ( <a class="member" href="#idHierarchy::child" title='idHierarchy::child' data-ref="idHierarchy::child">child</a> ) {</td></tr>
+<tr><th id="235">235</th><td>		<b>return</b> <a class="member" href="#idHierarchy::child" title='idHierarchy::child' data-ref="idHierarchy::child">child</a>-&gt;owner;</td></tr>
+<tr><th id="236">236</th><td>	}</td></tr>
+<tr><th id="237">237</th><td>	<b>return</b> <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="238">238</th><td>}</td></tr>
+<tr><th id="239">239</th><td></td></tr>
+<tr><th id="240">240</th><td><i>/*</i></td></tr>
+<tr><th id="241">241</th><td><i>================</i></td></tr>
+<tr><th id="242">242</th><td><i>idHierarchy&lt;type&gt;::GetSibling</i></td></tr>
+<tr><th id="243">243</th><td><i>================</i></td></tr>
+<tr><th id="244">244</th><td><i>*/</i></td></tr>
+<tr><th id="245">245</th><td><b>template</b>&lt; <b>class</b> type &gt;</td></tr>
+<tr><th id="246">246</th><td>type *<a class="type" href="#idHierarchy" title='idHierarchy' data-ref="idHierarchy">idHierarchy</a>&lt;type&gt;::<dfn class="decl def" id="_ZNK11idHierarchy10GetSiblingEv" title='idHierarchy::GetSibling' data-ref="_ZNK11idHierarchy10GetSiblingEv">GetSibling</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="247">247</th><td>	<b>if</b> ( <a class="member" href="#idHierarchy::sibling" title='idHierarchy::sibling' data-ref="idHierarchy::sibling">sibling</a> ) {</td></tr>
+<tr><th id="248">248</th><td>		<b>return</b> <a class="member" href="#idHierarchy::sibling" title='idHierarchy::sibling' data-ref="idHierarchy::sibling">sibling</a>-&gt;owner;</td></tr>
+<tr><th id="249">249</th><td>	}</td></tr>
+<tr><th id="250">250</th><td>	<b>return</b> <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="251">251</th><td>}</td></tr>
+<tr><th id="252">252</th><td></td></tr>
+<tr><th id="253">253</th><td><i>/*</i></td></tr>
+<tr><th id="254">254</th><td><i>================</i></td></tr>
+<tr><th id="255">255</th><td><i>idHierarchy&lt;type&gt;::GetPriorSiblingNode</i></td></tr>
+<tr><th id="256">256</th><td><i></i></td></tr>
+<tr><th id="257">257</th><td><i>Returns NULL if no parent, or if it is the first child.</i></td></tr>
+<tr><th id="258">258</th><td><i>================</i></td></tr>
+<tr><th id="259">259</th><td><i>*/</i></td></tr>
+<tr><th id="260">260</th><td><b>template</b>&lt; <b>class</b> type &gt;</td></tr>
+<tr><th id="261">261</th><td><a class="type" href="#idHierarchy" title='idHierarchy' data-ref="idHierarchy">idHierarchy</a>&lt;type&gt; *<a class="type" href="#idHierarchy" title='idHierarchy' data-ref="idHierarchy">idHierarchy</a>&lt;type&gt;::<dfn class="decl def" id="_ZNK11idHierarchy19GetPriorSiblingNodeEv" title='idHierarchy::GetPriorSiblingNode' data-ref="_ZNK11idHierarchy19GetPriorSiblingNodeEv">GetPriorSiblingNode</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="262">262</th><td>	<b>if</b> ( !<a class="member" href="#idHierarchy::parent" title='idHierarchy::parent' data-ref="idHierarchy::parent">parent</a> || ( <a class="member" href="#idHierarchy::parent" title='idHierarchy::parent' data-ref="idHierarchy::parent">parent</a>-&gt;child == <b>this</b> ) ) {</td></tr>
+<tr><th id="263">263</th><td>		<b>return</b> <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="264">264</th><td>	}</td></tr>
+<tr><th id="265">265</th><td></td></tr>
+<tr><th id="266">266</th><td>	<a class="type" href="#idHierarchy" title='idHierarchy' data-ref="idHierarchy">idHierarchy</a>&lt;type&gt; *<dfn class="local col1 decl" id="6731prev" title='prev' data-type='idHierarchy&lt;type&gt; *' data-ref="6731prev">prev</dfn>;</td></tr>
+<tr><th id="267">267</th><td>	<a class="type" href="#idHierarchy" title='idHierarchy' data-ref="idHierarchy">idHierarchy</a>&lt;type&gt; *<dfn class="local col2 decl" id="6732node" title='node' data-type='idHierarchy&lt;type&gt; *' data-ref="6732node">node</dfn>;</td></tr>
+<tr><th id="268">268</th><td></td></tr>
+<tr><th id="269">269</th><td>	<a class="local col2 ref" href="#6732node" title='node' data-ref="6732node">node</a> = <a class="member" href="#idHierarchy::parent" title='idHierarchy::parent' data-ref="idHierarchy::parent">parent</a>-&gt;child;</td></tr>
+<tr><th id="270">270</th><td>	<a class="local col1 ref" href="#6731prev" title='prev' data-ref="6731prev">prev</a> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="271">271</th><td>	<b>while</b>( ( <a class="local col2 ref" href="#6732node" title='node' data-ref="6732node">node</a> != <b>this</b> ) &amp;&amp; ( <a class="local col2 ref" href="#6732node" title='node' data-ref="6732node">node</a> != <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> ) ) {</td></tr>
+<tr><th id="272">272</th><td>		<a class="local col1 ref" href="#6731prev" title='prev' data-ref="6731prev">prev</a> = <a class="local col2 ref" href="#6732node" title='node' data-ref="6732node">node</a>;</td></tr>
+<tr><th id="273">273</th><td>		<a class="local col2 ref" href="#6732node" title='node' data-ref="6732node">node</a> = <a class="local col2 ref" href="#6732node" title='node' data-ref="6732node">node</a>-&gt;sibling;</td></tr>
+<tr><th id="274">274</th><td>	}</td></tr>
+<tr><th id="275">275</th><td></td></tr>
+<tr><th id="276">276</th><td>	<b>if</b> ( <a class="local col2 ref" href="#6732node" title='node' data-ref="6732node">node</a> != <b>this</b> ) {</td></tr>
+<tr><th id="277">277</th><td>		<a class="type" href="../Lib.h.html#idLib" title='idLib' data-ref="idLib">idLib</a>::<a class="ref" href="../Lib.h.html#_ZN5idLib5ErrorEPKcz" title='idLib::Error' data-ref="_ZN5idLib5ErrorEPKcz">Error</a>( <q>"idHierarchy::GetPriorSibling: could not find node in parent's list of children"</q> );</td></tr>
+<tr><th id="278">278</th><td>	}</td></tr>
+<tr><th id="279">279</th><td></td></tr>
+<tr><th id="280">280</th><td>	<b>return</b> <a class="local col1 ref" href="#6731prev" title='prev' data-ref="6731prev">prev</a>;</td></tr>
+<tr><th id="281">281</th><td>}</td></tr>
+<tr><th id="282">282</th><td></td></tr>
+<tr><th id="283">283</th><td><i>/*</i></td></tr>
+<tr><th id="284">284</th><td><i>================</i></td></tr>
+<tr><th id="285">285</th><td><i>idHierarchy&lt;type&gt;::GetPriorSibling</i></td></tr>
+<tr><th id="286">286</th><td><i></i></td></tr>
+<tr><th id="287">287</th><td><i>Returns NULL if no parent, or if it is the first child.</i></td></tr>
+<tr><th id="288">288</th><td><i>================</i></td></tr>
+<tr><th id="289">289</th><td><i>*/</i></td></tr>
+<tr><th id="290">290</th><td><b>template</b>&lt; <b>class</b> type &gt;</td></tr>
+<tr><th id="291">291</th><td>type *<a class="type" href="#idHierarchy" title='idHierarchy' data-ref="idHierarchy">idHierarchy</a>&lt;type&gt;::<dfn class="decl def" id="_ZNK11idHierarchy15GetPriorSiblingEv" title='idHierarchy::GetPriorSibling' data-ref="_ZNK11idHierarchy15GetPriorSiblingEv">GetPriorSibling</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="292">292</th><td>	<a class="type" href="#idHierarchy" title='idHierarchy' data-ref="idHierarchy">idHierarchy</a>&lt;type&gt; *<dfn class="local col3 decl" id="6733prior" title='prior' data-type='idHierarchy&lt;type&gt; *' data-ref="6733prior">prior</dfn>;</td></tr>
+<tr><th id="293">293</th><td></td></tr>
+<tr><th id="294">294</th><td>	<a class="local col3 ref" href="#6733prior" title='prior' data-ref="6733prior">prior</a> = <a class="member" href="#_ZNK11idHierarchy19GetPriorSiblingNodeEv" title='idHierarchy::GetPriorSiblingNode' data-ref="_ZNK11idHierarchy19GetPriorSiblingNodeEv">GetPriorSiblingNode</a>();</td></tr>
+<tr><th id="295">295</th><td>	<b>if</b> ( <a class="local col3 ref" href="#6733prior" title='prior' data-ref="6733prior">prior</a> ) {</td></tr>
+<tr><th id="296">296</th><td>		<b>return</b> <a class="local col3 ref" href="#6733prior" title='prior' data-ref="6733prior">prior</a>-&gt;owner;</td></tr>
+<tr><th id="297">297</th><td>	}</td></tr>
+<tr><th id="298">298</th><td></td></tr>
+<tr><th id="299">299</th><td>	<b>return</b> <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="300">300</th><td>}</td></tr>
+<tr><th id="301">301</th><td></td></tr>
+<tr><th id="302">302</th><td><i>/*</i></td></tr>
+<tr><th id="303">303</th><td><i>================</i></td></tr>
+<tr><th id="304">304</th><td><i>idHierarchy&lt;type&gt;::GetNext</i></td></tr>
+<tr><th id="305">305</th><td><i></i></td></tr>
+<tr><th id="306">306</th><td><i>Goes through all nodes of the hierarchy.</i></td></tr>
+<tr><th id="307">307</th><td><i>================</i></td></tr>
+<tr><th id="308">308</th><td><i>*/</i></td></tr>
+<tr><th id="309">309</th><td><b>template</b>&lt; <b>class</b> type &gt;</td></tr>
+<tr><th id="310">310</th><td>type *<a class="type" href="#idHierarchy" title='idHierarchy' data-ref="idHierarchy">idHierarchy</a>&lt;type&gt;::<dfn class="decl def" id="_ZNK11idHierarchy7GetNextEv" title='idHierarchy::GetNext' data-ref="_ZNK11idHierarchy7GetNextEv">GetNext</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="311">311</th><td>	<em>const</em> <a class="type" href="#idHierarchy" title='idHierarchy' data-ref="idHierarchy">idHierarchy</a>&lt;type&gt; *<dfn class="local col4 decl" id="6734node" title='node' data-type='const idHierarchy&lt;type&gt; *' data-ref="6734node">node</dfn>;</td></tr>
+<tr><th id="312">312</th><td></td></tr>
+<tr><th id="313">313</th><td>	<b>if</b> ( <a class="member" href="#idHierarchy::child" title='idHierarchy::child' data-ref="idHierarchy::child">child</a> ) {</td></tr>
+<tr><th id="314">314</th><td>		<b>return</b> <a class="member" href="#idHierarchy::child" title='idHierarchy::child' data-ref="idHierarchy::child">child</a>-&gt;owner;</td></tr>
+<tr><th id="315">315</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="316">316</th><td>		<a class="local col4 ref" href="#6734node" title='node' data-ref="6734node">node</a> = <b>this</b>;</td></tr>
+<tr><th id="317">317</th><td>		<b>while</b>( <a class="local col4 ref" href="#6734node" title='node' data-ref="6734node">node</a> &amp;&amp; <a class="local col4 ref" href="#6734node" title='node' data-ref="6734node">node</a>-&gt;sibling == <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> ) {</td></tr>
+<tr><th id="318">318</th><td>			<a class="local col4 ref" href="#6734node" title='node' data-ref="6734node">node</a> = <a class="local col4 ref" href="#6734node" title='node' data-ref="6734node">node</a>-&gt;parent;</td></tr>
+<tr><th id="319">319</th><td>		}</td></tr>
+<tr><th id="320">320</th><td>		<b>if</b> ( <a class="local col4 ref" href="#6734node" title='node' data-ref="6734node">node</a> ) {</td></tr>
+<tr><th id="321">321</th><td>			<b>return</b> <a class="local col4 ref" href="#6734node" title='node' data-ref="6734node">node</a>-&gt;sibling-&gt;owner;</td></tr>
+<tr><th id="322">322</th><td>		} <b>else</b> {</td></tr>
+<tr><th id="323">323</th><td>			<b>return</b> <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="324">324</th><td>		}</td></tr>
+<tr><th id="325">325</th><td>	}</td></tr>
+<tr><th id="326">326</th><td>}</td></tr>
+<tr><th id="327">327</th><td></td></tr>
+<tr><th id="328">328</th><td><i>/*</i></td></tr>
+<tr><th id="329">329</th><td><i>================</i></td></tr>
+<tr><th id="330">330</th><td><i>idHierarchy&lt;type&gt;::GetNextLeaf</i></td></tr>
+<tr><th id="331">331</th><td><i></i></td></tr>
+<tr><th id="332">332</th><td><i>Goes through all leaf nodes of the hierarchy.</i></td></tr>
+<tr><th id="333">333</th><td><i>================</i></td></tr>
+<tr><th id="334">334</th><td><i>*/</i></td></tr>
+<tr><th id="335">335</th><td><b>template</b>&lt; <b>class</b> type &gt;</td></tr>
+<tr><th id="336">336</th><td>type *<a class="type" href="#idHierarchy" title='idHierarchy' data-ref="idHierarchy">idHierarchy</a>&lt;type&gt;::<dfn class="decl def" id="_ZNK11idHierarchy11GetNextLeafEv" title='idHierarchy::GetNextLeaf' data-ref="_ZNK11idHierarchy11GetNextLeafEv">GetNextLeaf</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="337">337</th><td>	<em>const</em> <a class="type" href="#idHierarchy" title='idHierarchy' data-ref="idHierarchy">idHierarchy</a>&lt;type&gt; *<dfn class="local col5 decl" id="6735node" title='node' data-type='const idHierarchy&lt;type&gt; *' data-ref="6735node">node</dfn>;</td></tr>
+<tr><th id="338">338</th><td></td></tr>
+<tr><th id="339">339</th><td>	<b>if</b> ( <a class="member" href="#idHierarchy::child" title='idHierarchy::child' data-ref="idHierarchy::child">child</a> ) {</td></tr>
+<tr><th id="340">340</th><td>		<a class="local col5 ref" href="#6735node" title='node' data-ref="6735node">node</a> = <a class="member" href="#idHierarchy::child" title='idHierarchy::child' data-ref="idHierarchy::child">child</a>;</td></tr>
+<tr><th id="341">341</th><td>		<b>while</b> ( <a class="local col5 ref" href="#6735node" title='node' data-ref="6735node">node</a>-&gt;child ) {</td></tr>
+<tr><th id="342">342</th><td>			<a class="local col5 ref" href="#6735node" title='node' data-ref="6735node">node</a> = <a class="local col5 ref" href="#6735node" title='node' data-ref="6735node">node</a>-&gt;child;</td></tr>
+<tr><th id="343">343</th><td>		}</td></tr>
+<tr><th id="344">344</th><td>		<b>return</b> <a class="local col5 ref" href="#6735node" title='node' data-ref="6735node">node</a>-&gt;owner;</td></tr>
+<tr><th id="345">345</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="346">346</th><td>		<a class="local col5 ref" href="#6735node" title='node' data-ref="6735node">node</a> = <b>this</b>;</td></tr>
+<tr><th id="347">347</th><td>		<b>while</b>( <a class="local col5 ref" href="#6735node" title='node' data-ref="6735node">node</a> &amp;&amp; <a class="local col5 ref" href="#6735node" title='node' data-ref="6735node">node</a>-&gt;sibling == <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> ) {</td></tr>
+<tr><th id="348">348</th><td>			<a class="local col5 ref" href="#6735node" title='node' data-ref="6735node">node</a> = <a class="local col5 ref" href="#6735node" title='node' data-ref="6735node">node</a>-&gt;parent;</td></tr>
+<tr><th id="349">349</th><td>		}</td></tr>
+<tr><th id="350">350</th><td>		<b>if</b> ( <a class="local col5 ref" href="#6735node" title='node' data-ref="6735node">node</a> ) {</td></tr>
+<tr><th id="351">351</th><td>			<a class="local col5 ref" href="#6735node" title='node' data-ref="6735node">node</a> = <a class="local col5 ref" href="#6735node" title='node' data-ref="6735node">node</a>-&gt;sibling;</td></tr>
+<tr><th id="352">352</th><td>			<b>while</b> ( <a class="local col5 ref" href="#6735node" title='node' data-ref="6735node">node</a>-&gt;child ) {</td></tr>
+<tr><th id="353">353</th><td>				<a class="local col5 ref" href="#6735node" title='node' data-ref="6735node">node</a> = <a class="local col5 ref" href="#6735node" title='node' data-ref="6735node">node</a>-&gt;child;</td></tr>
+<tr><th id="354">354</th><td>			}</td></tr>
+<tr><th id="355">355</th><td>			<b>return</b> <a class="local col5 ref" href="#6735node" title='node' data-ref="6735node">node</a>-&gt;owner;</td></tr>
+<tr><th id="356">356</th><td>		} <b>else</b> {</td></tr>
+<tr><th id="357">357</th><td>			<b>return</b> <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="358">358</th><td>		}</td></tr>
+<tr><th id="359">359</th><td>	}</td></tr>
+<tr><th id="360">360</th><td>}</td></tr>
+<tr><th id="361">361</th><td></td></tr>
+<tr><th id="362">362</th><td><u>#<span data-ppcond="29">endif</span> /* !__HIERARCHY_H__ */</u></td></tr>
+<tr><th id="363">363</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../TypeInfo/TypeInfoGen.cpp.html'>codebrowser/TypeInfo/TypeInfoGen.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,8 @@
+<dec f='codebrowser/sound/OggVorbis/vorbis/codec.h' l='201' type='int vorbis_synthesis_headerin(vorbis_info * vi, vorbis_comment * vc, ogg_packet * op)'/>
+<doc f='codebrowser/sound/OggVorbis/vorbis/codec.h' l='200'>/* Vorbis PRIMITIVES: synthesis layer *******************************/</doc>
+<def f='codebrowser/sound/OggVorbis/vorbissrc/info.c' l='336' ll='390' type='int vorbis_synthesis_headerin(vorbis_info * vi, vorbis_comment * vc, ogg_packet * op)'/>
+<doc f='codebrowser/sound/OggVorbis/vorbissrc/info.c' l='331'>/* The Vorbis header is in three packets; the initial small packet in
+   the first page that identifies basic parameters, a second packet
+   with bitstream comments and a third packet that holds the
+   codebook. */</doc>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='262' u='c' c='_fetch_headers'/>

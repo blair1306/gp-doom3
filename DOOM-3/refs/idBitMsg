@@ -1,0 +1,168 @@
+<def f='codebrowser/idlib/BitMsg.h' l='44' ll='152'/>
+<size>32</size>
+<doc f='codebrowser/idlib/BitMsg.h' l='32'>/*
+===============================================================================
+
+  idBitMsg
+
+  Handles byte ordering and avoids alignment errors.
+  Allows concurrent writing and reading.
+  The data set with Init is never freed.
+
+===============================================================================
+*/</doc>
+<fun r='_ZN8idBitMsgC1Ev'/>
+<fun r='_ZN8idBitMsgD1Ev'/>
+<fun r='_ZN8idBitMsg4InitEPhi'/>
+<fun r='_ZN8idBitMsg4InitEPKhi'/>
+<fun r='_ZN8idBitMsg7GetDataEv'/>
+<fun r='_ZNK8idBitMsg7GetDataEv'/>
+<fun r='_ZNK8idBitMsg10GetMaxSizeEv'/>
+<fun r='_ZN8idBitMsg16SetAllowOverflowEb'/>
+<fun r='_ZNK8idBitMsg12IsOverflowedEv'/>
+<fun r='_ZNK8idBitMsg7GetSizeEv'/>
+<fun r='_ZN8idBitMsg7SetSizeEi'/>
+<fun r='_ZNK8idBitMsg11GetWriteBitEv'/>
+<fun r='_ZN8idBitMsg11SetWriteBitEi'/>
+<fun r='_ZNK8idBitMsg17GetNumBitsWrittenEv'/>
+<fun r='_ZNK8idBitMsg21GetRemainingWriteBitsEv'/>
+<fun r='_ZNK8idBitMsg14SaveWriteStateERiS0_'/>
+<fun r='_ZN8idBitMsg17RestoreWriteStateEii'/>
+<fun r='_ZNK8idBitMsg12GetReadCountEv'/>
+<fun r='_ZN8idBitMsg12SetReadCountEi'/>
+<fun r='_ZNK8idBitMsg10GetReadBitEv'/>
+<fun r='_ZN8idBitMsg10SetReadBitEi'/>
+<fun r='_ZNK8idBitMsg14GetNumBitsReadEv'/>
+<fun r='_ZNK8idBitMsg20GetRemainingReadBitsEv'/>
+<fun r='_ZNK8idBitMsg13SaveReadStateERiS0_'/>
+<fun r='_ZN8idBitMsg16RestoreReadStateEii'/>
+<fun r='_ZN8idBitMsg12BeginWritingEv'/>
+<fun r='_ZNK8idBitMsg17GetRemainingSpaceEv'/>
+<fun r='_ZN8idBitMsg14WriteByteAlignEv'/>
+<fun r='_ZN8idBitMsg9WriteBitsEii'/>
+<fun r='_ZN8idBitMsg9WriteCharEi'/>
+<fun r='_ZN8idBitMsg9WriteByteEi'/>
+<fun r='_ZN8idBitMsg10WriteShortEi'/>
+<fun r='_ZN8idBitMsg11WriteUShortEi'/>
+<fun r='_ZN8idBitMsg9WriteLongEi'/>
+<fun r='_ZN8idBitMsg10WriteFloatEf'/>
+<fun r='_ZN8idBitMsg10WriteFloatEfii'/>
+<fun r='_ZN8idBitMsg11WriteAngle8Ef'/>
+<fun r='_ZN8idBitMsg12WriteAngle16Ef'/>
+<fun r='_ZN8idBitMsg8WriteDirERK6idVec3i'/>
+<fun r='_ZN8idBitMsg11WriteStringEPKcib'/>
+<fun r='_ZN8idBitMsg9WriteDataEPKvi'/>
+<fun r='_ZN8idBitMsg11WriteNetadrE8netadr_t'/>
+<fun r='_ZN8idBitMsg14WriteDeltaCharEii'/>
+<fun r='_ZN8idBitMsg14WriteDeltaByteEii'/>
+<fun r='_ZN8idBitMsg15WriteDeltaShortEii'/>
+<fun r='_ZN8idBitMsg14WriteDeltaLongEii'/>
+<fun r='_ZN8idBitMsg15WriteDeltaFloatEff'/>
+<fun r='_ZN8idBitMsg15WriteDeltaFloatEffii'/>
+<fun r='_ZN8idBitMsg21WriteDeltaByteCounterEii'/>
+<fun r='_ZN8idBitMsg22WriteDeltaShortCounterEii'/>
+<fun r='_ZN8idBitMsg21WriteDeltaLongCounterEii'/>
+<fun r='_ZN8idBitMsg14WriteDeltaDictERK6idDictPS1_'/>
+<fun r='_ZNK8idBitMsg12BeginReadingEv'/>
+<fun r='_ZNK8idBitMsg14GetRemaingDataEv'/>
+<fun r='_ZNK8idBitMsg13ReadByteAlignEv'/>
+<fun r='_ZNK8idBitMsg8ReadBitsEi'/>
+<fun r='_ZNK8idBitMsg8ReadCharEv'/>
+<fun r='_ZNK8idBitMsg8ReadByteEv'/>
+<fun r='_ZNK8idBitMsg9ReadShortEv'/>
+<fun r='_ZNK8idBitMsg10ReadUShortEv'/>
+<fun r='_ZNK8idBitMsg8ReadLongEv'/>
+<fun r='_ZNK8idBitMsg9ReadFloatEv'/>
+<fun r='_ZNK8idBitMsg9ReadFloatEii'/>
+<fun r='_ZNK8idBitMsg10ReadAngle8Ev'/>
+<fun r='_ZNK8idBitMsg11ReadAngle16Ev'/>
+<fun r='_ZNK8idBitMsg7ReadDirEi'/>
+<fun r='_ZNK8idBitMsg10ReadStringEPci'/>
+<fun r='_ZNK8idBitMsg8ReadDataEPvi'/>
+<fun r='_ZNK8idBitMsg10ReadNetadrEP8netadr_t'/>
+<fun r='_ZNK8idBitMsg13ReadDeltaCharEi'/>
+<fun r='_ZNK8idBitMsg13ReadDeltaByteEi'/>
+<fun r='_ZNK8idBitMsg14ReadDeltaShortEi'/>
+<fun r='_ZNK8idBitMsg13ReadDeltaLongEi'/>
+<fun r='_ZNK8idBitMsg14ReadDeltaFloatEf'/>
+<fun r='_ZNK8idBitMsg14ReadDeltaFloatEfii'/>
+<fun r='_ZNK8idBitMsg20ReadDeltaByteCounterEi'/>
+<fun r='_ZNK8idBitMsg21ReadDeltaShortCounterEi'/>
+<fun r='_ZNK8idBitMsg20ReadDeltaLongCounterEi'/>
+<fun r='_ZNK8idBitMsg13ReadDeltaDictER6idDictPKS0_'/>
+<fun r='_ZN8idBitMsg9DirToBitsERK6idVec3i'/>
+<fun r='_ZN8idBitMsg9BitsToDirEii'/>
+<mbr r='idBitMsg::writeData' o='0' t='byte *'/>
+<mbr r='idBitMsg::readData' o='32' t='const byte *'/>
+<mbr r='idBitMsg::maxSize' o='64' t='int'/>
+<mbr r='idBitMsg::curSize' o='96' t='int'/>
+<mbr r='idBitMsg::writeBit' o='128' t='int'/>
+<mbr r='idBitMsg::readCount' o='160' t='int'/>
+<mbr r='idBitMsg::readBit' o='192' t='int'/>
+<mbr r='idBitMsg::allowOverflow' o='224' t='bool'/>
+<mbr r='idBitMsg::overflowed' o='232' t='bool'/>
+<fun r='_ZN8idBitMsg13CheckOverflowEi'/>
+<fun r='_ZN8idBitMsg12GetByteSpaceEi'/>
+<fun r='_ZN8idBitMsg10WriteDeltaEiii'/>
+<fun r='_ZNK8idBitMsg9ReadDeltaEii'/>
+<fun r='_ZN8idBitMsg4InitEPhi'/>
+<fun r='_ZN8idBitMsg4InitEPKhi'/>
+<fun r='_ZN8idBitMsg7GetDataEv'/>
+<fun r='_ZNK8idBitMsg7GetDataEv'/>
+<fun r='_ZNK8idBitMsg10GetMaxSizeEv'/>
+<fun r='_ZN8idBitMsg16SetAllowOverflowEb'/>
+<fun r='_ZNK8idBitMsg12IsOverflowedEv'/>
+<fun r='_ZNK8idBitMsg7GetSizeEv'/>
+<fun r='_ZN8idBitMsg7SetSizeEi'/>
+<fun r='_ZNK8idBitMsg11GetWriteBitEv'/>
+<fun r='_ZN8idBitMsg11SetWriteBitEi'/>
+<fun r='_ZNK8idBitMsg17GetNumBitsWrittenEv'/>
+<fun r='_ZNK8idBitMsg21GetRemainingWriteBitsEv'/>
+<fun r='_ZNK8idBitMsg14SaveWriteStateERiS0_'/>
+<fun r='_ZN8idBitMsg17RestoreWriteStateEii'/>
+<fun r='_ZNK8idBitMsg12GetReadCountEv'/>
+<fun r='_ZN8idBitMsg12SetReadCountEi'/>
+<fun r='_ZNK8idBitMsg10GetReadBitEv'/>
+<fun r='_ZN8idBitMsg10SetReadBitEi'/>
+<fun r='_ZNK8idBitMsg14GetNumBitsReadEv'/>
+<fun r='_ZNK8idBitMsg20GetRemainingReadBitsEv'/>
+<fun r='_ZNK8idBitMsg13SaveReadStateERiS0_'/>
+<fun r='_ZN8idBitMsg16RestoreReadStateEii'/>
+<fun r='_ZN8idBitMsg12BeginWritingEv'/>
+<fun r='_ZNK8idBitMsg17GetRemainingSpaceEv'/>
+<fun r='_ZN8idBitMsg14WriteByteAlignEv'/>
+<fun r='_ZN8idBitMsg9WriteCharEi'/>
+<fun r='_ZN8idBitMsg9WriteByteEi'/>
+<fun r='_ZN8idBitMsg10WriteShortEi'/>
+<fun r='_ZN8idBitMsg11WriteUShortEi'/>
+<fun r='_ZN8idBitMsg9WriteLongEi'/>
+<fun r='_ZN8idBitMsg10WriteFloatEf'/>
+<fun r='_ZN8idBitMsg10WriteFloatEfii'/>
+<fun r='_ZN8idBitMsg11WriteAngle8Ef'/>
+<fun r='_ZN8idBitMsg12WriteAngle16Ef'/>
+<fun r='_ZN8idBitMsg8WriteDirERK6idVec3i'/>
+<fun r='_ZN8idBitMsg14WriteDeltaCharEii'/>
+<fun r='_ZN8idBitMsg14WriteDeltaByteEii'/>
+<fun r='_ZN8idBitMsg15WriteDeltaShortEii'/>
+<fun r='_ZN8idBitMsg14WriteDeltaLongEii'/>
+<fun r='_ZN8idBitMsg15WriteDeltaFloatEff'/>
+<fun r='_ZN8idBitMsg15WriteDeltaFloatEffii'/>
+<fun r='_ZNK8idBitMsg12BeginReadingEv'/>
+<fun r='_ZNK8idBitMsg14GetRemaingDataEv'/>
+<fun r='_ZNK8idBitMsg13ReadByteAlignEv'/>
+<fun r='_ZNK8idBitMsg8ReadCharEv'/>
+<fun r='_ZNK8idBitMsg8ReadByteEv'/>
+<fun r='_ZNK8idBitMsg9ReadShortEv'/>
+<fun r='_ZNK8idBitMsg10ReadUShortEv'/>
+<fun r='_ZNK8idBitMsg8ReadLongEv'/>
+<fun r='_ZNK8idBitMsg9ReadFloatEv'/>
+<fun r='_ZNK8idBitMsg9ReadFloatEii'/>
+<fun r='_ZNK8idBitMsg10ReadAngle8Ev'/>
+<fun r='_ZNK8idBitMsg11ReadAngle16Ev'/>
+<fun r='_ZNK8idBitMsg7ReadDirEi'/>
+<fun r='_ZNK8idBitMsg13ReadDeltaCharEi'/>
+<fun r='_ZNK8idBitMsg13ReadDeltaByteEi'/>
+<fun r='_ZNK8idBitMsg14ReadDeltaShortEi'/>
+<fun r='_ZNK8idBitMsg13ReadDeltaLongEi'/>
+<fun r='_ZNK8idBitMsg14ReadDeltaFloatEf'/>
+<fun r='_ZNK8idBitMsg14ReadDeltaFloatEfii'/>

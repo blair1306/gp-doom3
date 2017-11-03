@@ -1,0 +1,16 @@
+<def f='codebrowser/renderer/Material.h' l='441' ll='442' type='bool idMaterial::IsDiscrete() const'/>
+<doc f='codebrowser/renderer/Material.h' l='437'>// a discrete surface will never be merged with other surfaces by dmap, which is
+						// necessary to prevent mutliple gui surfaces, mirrors, autosprites, and some other
+						// special effects from being combined into a single surface
+						// guis, merging sprites or other effects, mirrors and remote views are always discrete</doc>
+<use f='codebrowser/renderer/Model.cpp' l='783' u='c' c='_ZN19idRenderModelStatic25ConvertASEToModelSurfacesEPK10aseModel_s'/>
+<use f='codebrowser/renderer/Model.cpp' l='1084' u='c' c='_ZN19idRenderModelStatic25ConvertLWOToModelSurfacesEPK11st_lwObject'/>
+<use f='codebrowser/renderer/Model.cpp' l='1624' u='c' c='_ZN19idRenderModelStatic24ConvertMAToModelSurfacesEPK9maModel_s'/>
+<use f='codebrowser/tools/compilers/dmap/map.cpp' l='365' u='c' c='_ZL12ParseSurfacePK10idMapPatchPK9idSurfacePK10idMaterial'/>
+<use f='codebrowser/tools/compilers/dmap/tritjunction.cpp' l='254' u='c' c='_Z13HashTrianglesP15optimizeGroup_s'/>
+<use f='codebrowser/tools/compilers/dmap/tritjunction.cpp' l='492' u='c' c='_Z23FixAreaGroupsTjunctionsP15optimizeGroup_s'/>
+<use f='codebrowser/tools/compilers/dmap/tritjunction.cpp' l='575' u='c' c='_Z19FixGlobalTjunctionsP9uEntity_t'/>
+<use f='codebrowser/tools/compilers/dmap/tritjunction.cpp' l='629' u='c' c='_Z19FixGlobalTjunctionsP9uEntity_t'/>
+<use f='codebrowser/tools/compilers/dmap/tritjunction.cpp' l='646' u='c' c='_Z19FixGlobalTjunctionsP9uEntity_t'/>
+<use f='codebrowser/tools/compilers/dmap/usurface.cpp' l='254' u='c' c='_Z14TriListForSidePK6side_sPK9idWinding'/>
+<use f='codebrowser/tools/compilers/dmap/usurface.cpp' l='668' u='c' c='_Z20PutPrimitivesInAreasP9uEntity_t'/>

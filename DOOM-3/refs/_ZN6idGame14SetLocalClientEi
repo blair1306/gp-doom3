@@ -1,0 +1,8 @@
+<dec f='codebrowser/game/Game.h' l='83' type='void idGame::SetLocalClient(int clientNum)'/>
+<doc f='codebrowser/game/Game.h' l='82'>// Set the local client number. Distinguishes listen ( == 0 ) / dedicated ( == -1 )</doc>
+<dec f='codebrowser/d3xp/Game.h' l='85' type='void idGame::SetLocalClient(int clientNum)'/>
+<doc f='codebrowser/d3xp/Game.h' l='84'>// Set the local client number. Distinguishes listen ( == 0 ) / dedicated ( == -1 )</doc>
+<ovr f='codebrowser/d3xp/Game_local.cpp' l='821' c='_ZN11idGameLocal14SetLocalClientEi'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='356' u='c' c='_ZN13idAsyncServer16ExecuteMapChangeEv'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='724' u='c' c='_ZN13idAsyncServer16BeginLocalClientEv'/>
+<ovr f='codebrowser/game/Game_local.cpp' l='731' c='_ZN11idGameLocal14SetLocalClientEi'/>

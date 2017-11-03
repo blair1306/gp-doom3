@@ -1,0 +1,41 @@
+<def f='codebrowser/openal/include/eax4.h' l='709' ll='735'/>
+<size>112</size>
+<doc f='codebrowser/openal/include/eax4.h' l='694'>// Use this structure for EAXREVERB_ALLPARAMETERS
+// - all levels are hundredths of decibels
+// - all times and delays are in seconds
+//
+// NOTE: This structure may change in future EAX versions.
+//       It is recommended to initialize fields by name:
+//              myReverb.lRoom = -1000;
+//              myReverb.lRoomHF = -100;
+//              ...
+//              myReverb.dwFlags = myFlags /* see EAXREVERBFLAGS below */ ;
+//       instead of:
+//              myReverb = { -1000, -100, ... , 0x00000009 };
+//       If you want to save and load presets in binary form, you 
+//       should define your own structure to insure future compatibility.
+//</doc>
+<mbr r='_EAXREVERBPROPERTIES::ulEnvironment' o='0' t='unsigned long'/>
+<mbr r='_EAXREVERBPROPERTIES::flEnvironmentSize' o='32' t='float'/>
+<mbr r='_EAXREVERBPROPERTIES::flEnvironmentDiffusion' o='64' t='float'/>
+<mbr r='_EAXREVERBPROPERTIES::lRoom' o='96' t='long'/>
+<mbr r='_EAXREVERBPROPERTIES::lRoomHF' o='128' t='long'/>
+<mbr r='_EAXREVERBPROPERTIES::lRoomLF' o='160' t='long'/>
+<mbr r='_EAXREVERBPROPERTIES::flDecayTime' o='192' t='float'/>
+<mbr r='_EAXREVERBPROPERTIES::flDecayHFRatio' o='224' t='float'/>
+<mbr r='_EAXREVERBPROPERTIES::flDecayLFRatio' o='256' t='float'/>
+<mbr r='_EAXREVERBPROPERTIES::lReflections' o='288' t='long'/>
+<mbr r='_EAXREVERBPROPERTIES::flReflectionsDelay' o='320' t='float'/>
+<mbr r='_EAXREVERBPROPERTIES::vReflectionsPan' o='352' t='EAXVECTOR'/>
+<mbr r='_EAXREVERBPROPERTIES::lReverb' o='448' t='long'/>
+<mbr r='_EAXREVERBPROPERTIES::flReverbDelay' o='480' t='float'/>
+<mbr r='_EAXREVERBPROPERTIES::vReverbPan' o='512' t='EAXVECTOR'/>
+<mbr r='_EAXREVERBPROPERTIES::flEchoTime' o='608' t='float'/>
+<mbr r='_EAXREVERBPROPERTIES::flEchoDepth' o='640' t='float'/>
+<mbr r='_EAXREVERBPROPERTIES::flModulationTime' o='672' t='float'/>
+<mbr r='_EAXREVERBPROPERTIES::flModulationDepth' o='704' t='float'/>
+<mbr r='_EAXREVERBPROPERTIES::flAirAbsorptionHF' o='736' t='float'/>
+<mbr r='_EAXREVERBPROPERTIES::flHFReference' o='768' t='float'/>
+<mbr r='_EAXREVERBPROPERTIES::flLFReference' o='800' t='float'/>
+<mbr r='_EAXREVERBPROPERTIES::flRoomRolloffFactor' o='832' t='float'/>
+<mbr r='_EAXREVERBPROPERTIES::ulFlags' o='864' t='unsigned long'/>

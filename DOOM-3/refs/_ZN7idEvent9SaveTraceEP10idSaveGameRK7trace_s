@@ -1,0 +1,22 @@
+<dec f='codebrowser/d3xp/gamesys/Event.h' l='125' type='static void idEvent::SaveTrace(idSaveGame * savefile, const trace_t &amp; trace)'/>
+<use f='codebrowser/d3xp/gamesys/Event.cpp' l='790' u='c' c='_ZN7idEvent4SaveEP10idSaveGame'/>
+<def f='codebrowser/d3xp/gamesys/Event.cpp' l='994' ll='1008' type='static void idEvent::SaveTrace(idSaveGame * savefile, const trace_t &amp; trace)'/>
+<doc f='codebrowser/d3xp/gamesys/Event.cpp' l='986'>/*
+ ================
+ idEvent::WriteTrace
+
+ idSaveGame has a WriteTrace procedure, but unfortunately idEvent wants the material
+ string name at the of the data structure rather than in the middle
+================
+ */</doc>
+<dec f='codebrowser/game/gamesys/Event.h' l='122' type='static void idEvent::SaveTrace(idSaveGame * savefile, const trace_t &amp; trace)'/>
+<use f='codebrowser/game/gamesys/Event.cpp' l='656' u='c' c='_ZN7idEvent4SaveEP10idSaveGame'/>
+<def f='codebrowser/game/gamesys/Event.cpp' l='798' ll='812' type='static void idEvent::SaveTrace(idSaveGame * savefile, const trace_t &amp; trace)'/>
+<doc f='codebrowser/game/gamesys/Event.cpp' l='790'>/*
+ ================
+ idEvent::WriteTrace
+
+ idSaveGame has a WriteTrace procedure, but unfortunately idEvent wants the material
+ string name at the of the data structure rather than in the middle
+================
+ */</doc>

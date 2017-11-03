@@ -1,0 +1,42 @@
+<def f='codebrowser/tools/compilers/aas/Brush.h' l='98' ll='152'/>
+<size>72</size>
+<fun r='_ZN7idBrushC1Ev'/>
+<fun r='_ZN7idBrushD1Ev'/>
+<fun r='_ZNK7idBrush8GetFlagsEv'/>
+<fun r='_ZN7idBrush7SetFlagEi'/>
+<fun r='_ZN7idBrush10RemoveFlagEi'/>
+<fun r='_ZN7idBrush12SetEntityNumEi'/>
+<fun r='_ZN7idBrush15SetPrimitiveNumEi'/>
+<fun r='_ZN7idBrush11SetContentsEi'/>
+<fun r='_ZNK7idBrush11GetContentsEv'/>
+<fun r='_ZNK7idBrush9GetBoundsEv'/>
+<fun r='_ZNK7idBrush9GetVolumeEv'/>
+<fun r='_ZNK7idBrush11GetNumSidesEv'/>
+<fun r='_ZNK7idBrush7GetSideEi'/>
+<fun r='_ZN7idBrush12SetPlaneSideEi'/>
+<fun r='_ZN7idBrush13SavePlaneSideEv'/>
+<fun r='_ZNK7idBrush17GetSavedPlaneSideEv'/>
+<fun r='_ZN7idBrush9FromSidesER6idListIP11idBrushSideE'/>
+<fun r='_ZN7idBrush11FromWindingERK9idWindingRK7idPlane'/>
+<fun r='_ZN7idBrush10FromBoundsERK8idBounds'/>
+<fun r='_ZN7idBrush9TransformERK6idVec3RK6idMat3'/>
+<fun r='_ZNK7idBrush4CopyEv'/>
+<fun r='_ZN7idBrush8TryMergeEPKS_RK10idPlaneSet'/>
+<fun r='_ZNK7idBrush8SubtractEPKS_R11idBrushList'/>
+<fun r='_ZNK7idBrush5SplitERK7idPlaneiPPS_S4_'/>
+<fun r='_ZN7idBrush17ExpandForAxialBoxERK8idBounds'/>
+<fun r='_ZNK7idBrush4NextEv'/>
+<mbr r='idBrush::next' o='0' t='idBrush *'/>
+<mbr r='idBrush::entityNum' o='32' t='int'/>
+<mbr r='idBrush::primitiveNum' o='64' t='int'/>
+<mbr r='idBrush::flags' o='96' t='int'/>
+<mbr r='idBrush::windingsValid' o='128' t='bool'/>
+<mbr r='idBrush::contents' o='160' t='int'/>
+<mbr r='idBrush::planeSide' o='192' t='int'/>
+<mbr r='idBrush::savedPlaneSide' o='224' t='int'/>
+<mbr r='idBrush::bounds' o='256' t='idBounds'/>
+<mbr r='idBrush::sides' o='448' t='idList&lt;idBrushSide *&gt;'/>
+<fun r='_ZN7idBrush14CreateWindingsEv'/>
+<fun r='_ZN7idBrush10BoundBrushEPKS_'/>
+<fun r='_ZN7idBrush20AddBevelsForAxialBoxEv'/>
+<fun r='_ZN7idBrush25RemoveSidesWithoutWindingEv'/>

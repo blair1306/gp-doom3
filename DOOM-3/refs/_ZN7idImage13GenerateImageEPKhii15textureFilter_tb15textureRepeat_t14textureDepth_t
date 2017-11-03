@@ -1,0 +1,53 @@
+<dec f='codebrowser/renderer/Image.h' l='166' type='void idImage::GenerateImage(const byte * pic, int width, int height, textureFilter_t filter, bool allowDownSize, textureRepeat_t repeat, textureDepth_t depth)'/>
+<doc f='codebrowser/renderer/Image.h' l='162'>// used by callback functions to specify the actual data
+	// data goes from the bottom to the top line of the image, as OpenGL expects it
+	// These perform an implicit Bind() on the current texture unit
+	// FIXME: should we implement cinematics this way, instead of with explicit calls?</doc>
+<use f='codebrowser/renderer/Image_init.cpp' l='143' u='c' c='_ZL11R_RampImageP7idImage'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='179' u='c' c='_ZL20R_SpecularTableImageP7idImage'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='214' u='c' c='_ZL22R_Specular2DTableImageP7idImage'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='237' u='c' c='_ZL16R_AlphaRampImageP7idImage'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='300' u='c' c='_ZN7idImage11MakeDefaultEv'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='316' u='c' c='_ZL12R_WhiteImageP7idImage'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='325' u='c' c='_ZL12R_BlackImageP7idImage'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='359' u='c' c='_ZL18R_BorderClampImageP7idImage'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='381' u='c' c='_ZL12R_RGBA8ImageP7idImage'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='394' u='c' c='_ZL11R_RGB8ImageP7idImage'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='408' u='c' c='_ZL17R_AlphaNotchImageP7idImage'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='425' u='c' c='_ZL17R_FlatNormalImageP7idImage'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='700' u='c' c='_ZL22R_CreateNoFalloffImageP7idImage'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='753' u='c' c='_Z10R_FogImageP7idImage'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='861' u='c' c='_Z15R_FogEnterImageP7idImage'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='906' u='c' c='_Z16R_QuadraticImageP7idImage'/>
+<def f='codebrowser/renderer/Image_load.cpp' l='509' ll='722' type='void idImage::GenerateImage(const byte * pic, int width, int height, textureFilter_t filterParm, bool allowDownSizeParm, textureRepeat_t repeatParm, textureDepth_t depthParm)'/>
+<use f='codebrowser/renderer/Image_load.cpp' l='1655' u='c' c='_ZN7idImage17ActuallyLoadImageEbb'/>
+<doc f='codebrowser/renderer/Image_load.cpp' l='480'>/*
+================
+GenerateImage
+
+The alpha channel bytes should be 255 if you don&apos;t
+want the channel.
+
+We need a material characteristic to ask for specific texture modes.
+
+Designed limitations of flexibility:
+
+No support for texture borders.
+
+No support for texture border color.
+
+No support for texture environment colors or GL_BLEND or GL_DECAL
+texture environments, because the automatic optimization to single
+or dual component textures makes those modes potentially undefined.
+
+No non-power-of-two images.
+
+No palettized textures.
+
+There is no way to specify separate wrap/clamp values for S and T
+
+There is no way to specify explicit mip map levels
+
+================
+*/</doc>
+<use f='codebrowser/renderer/MegaTexture.cpp' l='77' u='c' c='_ZL17R_EmptyLevelImageP7idImage'/>

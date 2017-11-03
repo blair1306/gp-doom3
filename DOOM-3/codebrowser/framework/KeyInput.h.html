@@ -1,0 +1,240 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>KeyInput.h source code [codebrowser/framework/KeyInput.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idKeyInput "/>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/framework/KeyInput.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>framework</a>/<a href='KeyInput.h.html'>KeyInput.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__KEYINPUT_H__">__KEYINPUT_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__KEYINPUT_H__" data-ref="_M/__KEYINPUT_H__">__KEYINPUT_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>	Key Input</i></td></tr>
+<tr><th id="36">36</th><td><i></i></td></tr>
+<tr><th id="37">37</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="38">38</th><td><i>*/</i></td></tr>
+<tr><th id="39">39</th><td><i></i></td></tr>
+<tr><th id="40">40</th><td><i>// these are the key numbers that are used by the key system</i></td></tr>
+<tr><th id="41">41</th><td><i>// normal keys should be passed as lowercased ascii</i></td></tr>
+<tr><th id="42">42</th><td><i>// Some high ascii (&gt; 127) characters that are mapped directly to keys on</i></td></tr>
+<tr><th id="43">43</th><td><i>// western european keyboards are inserted in this table so that those keys</i></td></tr>
+<tr><th id="44">44</th><td><i>// are bindable (otherwise they get bound as one of the special keys in this</i></td></tr>
+<tr><th id="45">45</th><td><i>// table)</i></td></tr>
+<tr><th id="46">46</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="47">47</th><td>	<dfn class="enum" id="K_TAB" title='K_TAB' data-ref="K_TAB">K_TAB</dfn> = <var>9</var>,</td></tr>
+<tr><th id="48">48</th><td>	<dfn class="enum" id="K_ENTER" title='K_ENTER' data-ref="K_ENTER">K_ENTER</dfn> = <var>13</var>,</td></tr>
+<tr><th id="49">49</th><td>	<dfn class="enum" id="K_ESCAPE" title='K_ESCAPE' data-ref="K_ESCAPE">K_ESCAPE</dfn> = <var>27</var>,</td></tr>
+<tr><th id="50">50</th><td>	<dfn class="enum" id="K_SPACE" title='K_SPACE' data-ref="K_SPACE">K_SPACE</dfn> = <var>32</var>,</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td>	<dfn class="enum" id="K_BACKSPACE" title='K_BACKSPACE' data-ref="K_BACKSPACE">K_BACKSPACE</dfn> = <var>127</var>,</td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td>	<dfn class="enum" id="K_COMMAND" title='K_COMMAND' data-ref="K_COMMAND">K_COMMAND</dfn> = <var>128</var>,</td></tr>
+<tr><th id="55">55</th><td>	<dfn class="enum" id="K_CAPSLOCK" title='K_CAPSLOCK' data-ref="K_CAPSLOCK">K_CAPSLOCK</dfn>,</td></tr>
+<tr><th id="56">56</th><td>	<dfn class="enum" id="K_SCROLL" title='K_SCROLL' data-ref="K_SCROLL">K_SCROLL</dfn>,</td></tr>
+<tr><th id="57">57</th><td>	<dfn class="enum" id="K_POWER" title='K_POWER' data-ref="K_POWER">K_POWER</dfn>,</td></tr>
+<tr><th id="58">58</th><td>	<dfn class="enum" id="K_PAUSE" title='K_PAUSE' data-ref="K_PAUSE">K_PAUSE</dfn>,</td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td>	<dfn class="enum" id="K_UPARROW" title='K_UPARROW' data-ref="K_UPARROW">K_UPARROW</dfn> = <var>133</var>,</td></tr>
+<tr><th id="61">61</th><td>	<dfn class="enum" id="K_DOWNARROW" title='K_DOWNARROW' data-ref="K_DOWNARROW">K_DOWNARROW</dfn>,</td></tr>
+<tr><th id="62">62</th><td>	<dfn class="enum" id="K_LEFTARROW" title='K_LEFTARROW' data-ref="K_LEFTARROW">K_LEFTARROW</dfn>,</td></tr>
+<tr><th id="63">63</th><td>	<dfn class="enum" id="K_RIGHTARROW" title='K_RIGHTARROW' data-ref="K_RIGHTARROW">K_RIGHTARROW</dfn>,</td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td>	<i>// The 3 windows keys</i></td></tr>
+<tr><th id="66">66</th><td>	<dfn class="enum" id="K_LWIN" title='K_LWIN' data-ref="K_LWIN">K_LWIN</dfn> = <var>137</var>,</td></tr>
+<tr><th id="67">67</th><td>	<dfn class="enum" id="K_RWIN" title='K_RWIN' data-ref="K_RWIN">K_RWIN</dfn>,</td></tr>
+<tr><th id="68">68</th><td>	<dfn class="enum" id="K_MENU" title='K_MENU' data-ref="K_MENU">K_MENU</dfn>,</td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td>	<dfn class="enum" id="K_ALT" title='K_ALT' data-ref="K_ALT">K_ALT</dfn> = <var>140</var>,</td></tr>
+<tr><th id="71">71</th><td>	<dfn class="enum" id="K_CTRL" title='K_CTRL' data-ref="K_CTRL">K_CTRL</dfn>,</td></tr>
+<tr><th id="72">72</th><td>	<dfn class="enum" id="K_SHIFT" title='K_SHIFT' data-ref="K_SHIFT">K_SHIFT</dfn>,</td></tr>
+<tr><th id="73">73</th><td>	<dfn class="enum" id="K_INS" title='K_INS' data-ref="K_INS">K_INS</dfn>,</td></tr>
+<tr><th id="74">74</th><td>	<dfn class="enum" id="K_DEL" title='K_DEL' data-ref="K_DEL">K_DEL</dfn>,</td></tr>
+<tr><th id="75">75</th><td>	<dfn class="enum" id="K_PGDN" title='K_PGDN' data-ref="K_PGDN">K_PGDN</dfn>,</td></tr>
+<tr><th id="76">76</th><td>	<dfn class="enum" id="K_PGUP" title='K_PGUP' data-ref="K_PGUP">K_PGUP</dfn>,</td></tr>
+<tr><th id="77">77</th><td>	<dfn class="enum" id="K_HOME" title='K_HOME' data-ref="K_HOME">K_HOME</dfn>,</td></tr>
+<tr><th id="78">78</th><td>	<dfn class="enum" id="K_END" title='K_END' data-ref="K_END">K_END</dfn>,</td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td>	<dfn class="enum" id="K_F1" title='K_F1' data-ref="K_F1">K_F1</dfn> = <var>149</var>,</td></tr>
+<tr><th id="81">81</th><td>	<dfn class="enum" id="K_F2" title='K_F2' data-ref="K_F2">K_F2</dfn>,</td></tr>
+<tr><th id="82">82</th><td>	<dfn class="enum" id="K_F3" title='K_F3' data-ref="K_F3">K_F3</dfn>,</td></tr>
+<tr><th id="83">83</th><td>	<dfn class="enum" id="K_F4" title='K_F4' data-ref="K_F4">K_F4</dfn>,</td></tr>
+<tr><th id="84">84</th><td>	<dfn class="enum" id="K_F5" title='K_F5' data-ref="K_F5">K_F5</dfn>,</td></tr>
+<tr><th id="85">85</th><td>	<dfn class="enum" id="K_F6" title='K_F6' data-ref="K_F6">K_F6</dfn>,</td></tr>
+<tr><th id="86">86</th><td>	<dfn class="enum" id="K_F7" title='K_F7' data-ref="K_F7">K_F7</dfn>,</td></tr>
+<tr><th id="87">87</th><td>	<dfn class="enum" id="K_F8" title='K_F8' data-ref="K_F8">K_F8</dfn>,</td></tr>
+<tr><th id="88">88</th><td>	<dfn class="enum" id="K_F9" title='K_F9' data-ref="K_F9">K_F9</dfn>,</td></tr>
+<tr><th id="89">89</th><td>	<dfn class="enum" id="K_F10" title='K_F10' data-ref="K_F10">K_F10</dfn>,</td></tr>
+<tr><th id="90">90</th><td>	<dfn class="enum" id="K_F11" title='K_F11' data-ref="K_F11">K_F11</dfn>,</td></tr>
+<tr><th id="91">91</th><td>	<dfn class="enum" id="K_F12" title='K_F12' data-ref="K_F12">K_F12</dfn>,</td></tr>
+<tr><th id="92">92</th><td>	<dfn class="enum" id="K_INVERTED_EXCLAMATION" title='K_INVERTED_EXCLAMATION' data-ref="K_INVERTED_EXCLAMATION">K_INVERTED_EXCLAMATION</dfn> = <var>161</var>,	<i>// upside down !</i></td></tr>
+<tr><th id="93">93</th><td>	<dfn class="enum" id="K_F13" title='K_F13' data-ref="K_F13">K_F13</dfn>,</td></tr>
+<tr><th id="94">94</th><td>	<dfn class="enum" id="K_F14" title='K_F14' data-ref="K_F14">K_F14</dfn>,</td></tr>
+<tr><th id="95">95</th><td>	<dfn class="enum" id="K_F15" title='K_F15' data-ref="K_F15">K_F15</dfn>,</td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td>	<dfn class="enum" id="K_KP_HOME" title='K_KP_HOME' data-ref="K_KP_HOME">K_KP_HOME</dfn> = <var>165</var>,</td></tr>
+<tr><th id="98">98</th><td>	<dfn class="enum" id="K_KP_UPARROW" title='K_KP_UPARROW' data-ref="K_KP_UPARROW">K_KP_UPARROW</dfn>,</td></tr>
+<tr><th id="99">99</th><td>	<dfn class="enum" id="K_KP_PGUP" title='K_KP_PGUP' data-ref="K_KP_PGUP">K_KP_PGUP</dfn>,</td></tr>
+<tr><th id="100">100</th><td>	<dfn class="enum" id="K_KP_LEFTARROW" title='K_KP_LEFTARROW' data-ref="K_KP_LEFTARROW">K_KP_LEFTARROW</dfn>,</td></tr>
+<tr><th id="101">101</th><td>	<dfn class="enum" id="K_KP_5" title='K_KP_5' data-ref="K_KP_5">K_KP_5</dfn>,</td></tr>
+<tr><th id="102">102</th><td>	<dfn class="enum" id="K_KP_RIGHTARROW" title='K_KP_RIGHTARROW' data-ref="K_KP_RIGHTARROW">K_KP_RIGHTARROW</dfn>,</td></tr>
+<tr><th id="103">103</th><td>	<dfn class="enum" id="K_KP_END" title='K_KP_END' data-ref="K_KP_END">K_KP_END</dfn>,</td></tr>
+<tr><th id="104">104</th><td>	<dfn class="enum" id="K_KP_DOWNARROW" title='K_KP_DOWNARROW' data-ref="K_KP_DOWNARROW">K_KP_DOWNARROW</dfn>,</td></tr>
+<tr><th id="105">105</th><td>	<dfn class="enum" id="K_KP_PGDN" title='K_KP_PGDN' data-ref="K_KP_PGDN">K_KP_PGDN</dfn>,</td></tr>
+<tr><th id="106">106</th><td>	<dfn class="enum" id="K_KP_ENTER" title='K_KP_ENTER' data-ref="K_KP_ENTER">K_KP_ENTER</dfn>,</td></tr>
+<tr><th id="107">107</th><td>	<dfn class="enum" id="K_KP_INS" title='K_KP_INS' data-ref="K_KP_INS">K_KP_INS</dfn>,</td></tr>
+<tr><th id="108">108</th><td>	<dfn class="enum" id="K_KP_DEL" title='K_KP_DEL' data-ref="K_KP_DEL">K_KP_DEL</dfn>,</td></tr>
+<tr><th id="109">109</th><td>	<dfn class="enum" id="K_KP_SLASH" title='K_KP_SLASH' data-ref="K_KP_SLASH">K_KP_SLASH</dfn>,</td></tr>
+<tr><th id="110">110</th><td>	<dfn class="enum" id="K_SUPERSCRIPT_TWO" title='K_SUPERSCRIPT_TWO' data-ref="K_SUPERSCRIPT_TWO">K_SUPERSCRIPT_TWO</dfn> = <var>178</var>,		<i>// superscript 2</i></td></tr>
+<tr><th id="111">111</th><td>	<dfn class="enum" id="K_KP_MINUS" title='K_KP_MINUS' data-ref="K_KP_MINUS">K_KP_MINUS</dfn>,</td></tr>
+<tr><th id="112">112</th><td>	<dfn class="enum" id="K_ACUTE_ACCENT" title='K_ACUTE_ACCENT' data-ref="K_ACUTE_ACCENT">K_ACUTE_ACCENT</dfn> = <var>180</var>,			<i>// accute accent</i></td></tr>
+<tr><th id="113">113</th><td>	<dfn class="enum" id="K_KP_PLUS" title='K_KP_PLUS' data-ref="K_KP_PLUS">K_KP_PLUS</dfn>,</td></tr>
+<tr><th id="114">114</th><td>	<dfn class="enum" id="K_KP_NUMLOCK" title='K_KP_NUMLOCK' data-ref="K_KP_NUMLOCK">K_KP_NUMLOCK</dfn>,</td></tr>
+<tr><th id="115">115</th><td>	<dfn class="enum" id="K_KP_STAR" title='K_KP_STAR' data-ref="K_KP_STAR">K_KP_STAR</dfn>,</td></tr>
+<tr><th id="116">116</th><td>	<dfn class="enum" id="K_KP_EQUALS" title='K_KP_EQUALS' data-ref="K_KP_EQUALS">K_KP_EQUALS</dfn>,</td></tr>
+<tr><th id="117">117</th><td></td></tr>
+<tr><th id="118">118</th><td>	<dfn class="enum" id="K_MASCULINE_ORDINATOR" title='K_MASCULINE_ORDINATOR' data-ref="K_MASCULINE_ORDINATOR">K_MASCULINE_ORDINATOR</dfn> = <var>186</var>,	</td></tr>
+<tr><th id="119">119</th><td>	<i>// K_MOUSE enums must be contiguous (no char codes in the middle)</i></td></tr>
+<tr><th id="120">120</th><td>	<dfn class="enum" id="K_MOUSE1" title='K_MOUSE1' data-ref="K_MOUSE1">K_MOUSE1</dfn> = <var>187</var>,</td></tr>
+<tr><th id="121">121</th><td>	<dfn class="enum" id="K_MOUSE2" title='K_MOUSE2' data-ref="K_MOUSE2">K_MOUSE2</dfn>,</td></tr>
+<tr><th id="122">122</th><td>	<dfn class="enum" id="K_MOUSE3" title='K_MOUSE3' data-ref="K_MOUSE3">K_MOUSE3</dfn>,</td></tr>
+<tr><th id="123">123</th><td>	<dfn class="enum" id="K_MOUSE4" title='K_MOUSE4' data-ref="K_MOUSE4">K_MOUSE4</dfn>,</td></tr>
+<tr><th id="124">124</th><td>	<dfn class="enum" id="K_MOUSE5" title='K_MOUSE5' data-ref="K_MOUSE5">K_MOUSE5</dfn>,</td></tr>
+<tr><th id="125">125</th><td>	<dfn class="enum" id="K_MOUSE6" title='K_MOUSE6' data-ref="K_MOUSE6">K_MOUSE6</dfn>,</td></tr>
+<tr><th id="126">126</th><td>	<dfn class="enum" id="K_MOUSE7" title='K_MOUSE7' data-ref="K_MOUSE7">K_MOUSE7</dfn>,</td></tr>
+<tr><th id="127">127</th><td>	<dfn class="enum" id="K_MOUSE8" title='K_MOUSE8' data-ref="K_MOUSE8">K_MOUSE8</dfn>,</td></tr>
+<tr><th id="128">128</th><td></td></tr>
+<tr><th id="129">129</th><td>	<dfn class="enum" id="K_MWHEELDOWN" title='K_MWHEELDOWN' data-ref="K_MWHEELDOWN">K_MWHEELDOWN</dfn> = <var>195</var>,</td></tr>
+<tr><th id="130">130</th><td>	<dfn class="enum" id="K_MWHEELUP" title='K_MWHEELUP' data-ref="K_MWHEELUP">K_MWHEELUP</dfn>,</td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td>	<dfn class="enum" id="K_JOY1" title='K_JOY1' data-ref="K_JOY1">K_JOY1</dfn> = <var>197</var>,</td></tr>
+<tr><th id="133">133</th><td>	<dfn class="enum" id="K_JOY2" title='K_JOY2' data-ref="K_JOY2">K_JOY2</dfn>,</td></tr>
+<tr><th id="134">134</th><td>	<dfn class="enum" id="K_JOY3" title='K_JOY3' data-ref="K_JOY3">K_JOY3</dfn>,</td></tr>
+<tr><th id="135">135</th><td>	<dfn class="enum" id="K_JOY4" title='K_JOY4' data-ref="K_JOY4">K_JOY4</dfn>,</td></tr>
+<tr><th id="136">136</th><td>	<dfn class="enum" id="K_JOY5" title='K_JOY5' data-ref="K_JOY5">K_JOY5</dfn>,</td></tr>
+<tr><th id="137">137</th><td>	<dfn class="enum" id="K_JOY6" title='K_JOY6' data-ref="K_JOY6">K_JOY6</dfn>,</td></tr>
+<tr><th id="138">138</th><td>	<dfn class="enum" id="K_JOY7" title='K_JOY7' data-ref="K_JOY7">K_JOY7</dfn>,</td></tr>
+<tr><th id="139">139</th><td>	<dfn class="enum" id="K_JOY8" title='K_JOY8' data-ref="K_JOY8">K_JOY8</dfn>,</td></tr>
+<tr><th id="140">140</th><td>	<dfn class="enum" id="K_JOY9" title='K_JOY9' data-ref="K_JOY9">K_JOY9</dfn>,</td></tr>
+<tr><th id="141">141</th><td>	<dfn class="enum" id="K_JOY10" title='K_JOY10' data-ref="K_JOY10">K_JOY10</dfn>,</td></tr>
+<tr><th id="142">142</th><td>	<dfn class="enum" id="K_JOY11" title='K_JOY11' data-ref="K_JOY11">K_JOY11</dfn>,</td></tr>
+<tr><th id="143">143</th><td>	<dfn class="enum" id="K_JOY12" title='K_JOY12' data-ref="K_JOY12">K_JOY12</dfn>,</td></tr>
+<tr><th id="144">144</th><td>	<dfn class="enum" id="K_JOY13" title='K_JOY13' data-ref="K_JOY13">K_JOY13</dfn>,</td></tr>
+<tr><th id="145">145</th><td>	<dfn class="enum" id="K_JOY14" title='K_JOY14' data-ref="K_JOY14">K_JOY14</dfn>,</td></tr>
+<tr><th id="146">146</th><td>	<dfn class="enum" id="K_JOY15" title='K_JOY15' data-ref="K_JOY15">K_JOY15</dfn>,</td></tr>
+<tr><th id="147">147</th><td>	<dfn class="enum" id="K_JOY16" title='K_JOY16' data-ref="K_JOY16">K_JOY16</dfn>,</td></tr>
+<tr><th id="148">148</th><td>	<dfn class="enum" id="K_JOY17" title='K_JOY17' data-ref="K_JOY17">K_JOY17</dfn>,</td></tr>
+<tr><th id="149">149</th><td>	<dfn class="enum" id="K_JOY18" title='K_JOY18' data-ref="K_JOY18">K_JOY18</dfn>,</td></tr>
+<tr><th id="150">150</th><td>	<dfn class="enum" id="K_JOY19" title='K_JOY19' data-ref="K_JOY19">K_JOY19</dfn>,</td></tr>
+<tr><th id="151">151</th><td>	<dfn class="enum" id="K_JOY20" title='K_JOY20' data-ref="K_JOY20">K_JOY20</dfn>,</td></tr>
+<tr><th id="152">152</th><td>	<dfn class="enum" id="K_JOY21" title='K_JOY21' data-ref="K_JOY21">K_JOY21</dfn>,</td></tr>
+<tr><th id="153">153</th><td>	<dfn class="enum" id="K_JOY22" title='K_JOY22' data-ref="K_JOY22">K_JOY22</dfn>,</td></tr>
+<tr><th id="154">154</th><td>	<dfn class="enum" id="K_JOY23" title='K_JOY23' data-ref="K_JOY23">K_JOY23</dfn>,</td></tr>
+<tr><th id="155">155</th><td>	<dfn class="enum" id="K_JOY24" title='K_JOY24' data-ref="K_JOY24">K_JOY24</dfn>,</td></tr>
+<tr><th id="156">156</th><td>	<dfn class="enum" id="K_JOY25" title='K_JOY25' data-ref="K_JOY25">K_JOY25</dfn>,</td></tr>
+<tr><th id="157">157</th><td>	<dfn class="enum" id="K_JOY26" title='K_JOY26' data-ref="K_JOY26">K_JOY26</dfn>,</td></tr>
+<tr><th id="158">158</th><td>	<dfn class="enum" id="K_JOY27" title='K_JOY27' data-ref="K_JOY27">K_JOY27</dfn>,</td></tr>
+<tr><th id="159">159</th><td>	<dfn class="enum" id="K_GRAVE_A" title='K_GRAVE_A' data-ref="K_GRAVE_A">K_GRAVE_A</dfn> = <var>224</var>,	<i>// lowercase a with grave accent</i></td></tr>
+<tr><th id="160">160</th><td>	<dfn class="enum" id="K_JOY28" title='K_JOY28' data-ref="K_JOY28">K_JOY28</dfn>,</td></tr>
+<tr><th id="161">161</th><td>	<dfn class="enum" id="K_JOY29" title='K_JOY29' data-ref="K_JOY29">K_JOY29</dfn>,</td></tr>
+<tr><th id="162">162</th><td>	<dfn class="enum" id="K_JOY30" title='K_JOY30' data-ref="K_JOY30">K_JOY30</dfn>,</td></tr>
+<tr><th id="163">163</th><td>	<dfn class="enum" id="K_JOY31" title='K_JOY31' data-ref="K_JOY31">K_JOY31</dfn>,</td></tr>
+<tr><th id="164">164</th><td>	<dfn class="enum" id="K_JOY32" title='K_JOY32' data-ref="K_JOY32">K_JOY32</dfn>,</td></tr>
+<tr><th id="165">165</th><td></td></tr>
+<tr><th id="166">166</th><td>	<dfn class="enum" id="K_AUX1" title='K_AUX1' data-ref="K_AUX1">K_AUX1</dfn> = <var>230</var>,</td></tr>
+<tr><th id="167">167</th><td>	<dfn class="enum" id="K_CEDILLA_C" title='K_CEDILLA_C' data-ref="K_CEDILLA_C">K_CEDILLA_C</dfn> = <var>231</var>,	<i>// lowercase c with Cedilla</i></td></tr>
+<tr><th id="168">168</th><td>	<dfn class="enum" id="K_GRAVE_E" title='K_GRAVE_E' data-ref="K_GRAVE_E">K_GRAVE_E</dfn> = <var>232</var>,	<i>// lowercase e with grave accent</i></td></tr>
+<tr><th id="169">169</th><td>	<dfn class="enum" id="K_AUX2" title='K_AUX2' data-ref="K_AUX2">K_AUX2</dfn>,</td></tr>
+<tr><th id="170">170</th><td>	<dfn class="enum" id="K_AUX3" title='K_AUX3' data-ref="K_AUX3">K_AUX3</dfn>,</td></tr>
+<tr><th id="171">171</th><td>	<dfn class="enum" id="K_AUX4" title='K_AUX4' data-ref="K_AUX4">K_AUX4</dfn>,</td></tr>
+<tr><th id="172">172</th><td>	<dfn class="enum" id="K_GRAVE_I" title='K_GRAVE_I' data-ref="K_GRAVE_I">K_GRAVE_I</dfn> = <var>236</var>,	<i>// lowercase i with grave accent</i></td></tr>
+<tr><th id="173">173</th><td>	<dfn class="enum" id="K_AUX5" title='K_AUX5' data-ref="K_AUX5">K_AUX5</dfn>,</td></tr>
+<tr><th id="174">174</th><td>	<dfn class="enum" id="K_AUX6" title='K_AUX6' data-ref="K_AUX6">K_AUX6</dfn>,</td></tr>
+<tr><th id="175">175</th><td>	<dfn class="enum" id="K_AUX7" title='K_AUX7' data-ref="K_AUX7">K_AUX7</dfn>,</td></tr>
+<tr><th id="176">176</th><td>	<dfn class="enum" id="K_AUX8" title='K_AUX8' data-ref="K_AUX8">K_AUX8</dfn>,</td></tr>
+<tr><th id="177">177</th><td>	<dfn class="enum" id="K_TILDE_N" title='K_TILDE_N' data-ref="K_TILDE_N">K_TILDE_N</dfn> = <var>241</var>,	<i>// lowercase n with tilde</i></td></tr>
+<tr><th id="178">178</th><td>	<dfn class="enum" id="K_GRAVE_O" title='K_GRAVE_O' data-ref="K_GRAVE_O">K_GRAVE_O</dfn> = <var>242</var>,	<i>// lowercase o with grave accent</i></td></tr>
+<tr><th id="179">179</th><td>	<dfn class="enum" id="K_AUX9" title='K_AUX9' data-ref="K_AUX9">K_AUX9</dfn>,</td></tr>
+<tr><th id="180">180</th><td>	<dfn class="enum" id="K_AUX10" title='K_AUX10' data-ref="K_AUX10">K_AUX10</dfn>,</td></tr>
+<tr><th id="181">181</th><td>	<dfn class="enum" id="K_AUX11" title='K_AUX11' data-ref="K_AUX11">K_AUX11</dfn>,</td></tr>
+<tr><th id="182">182</th><td>	<dfn class="enum" id="K_AUX12" title='K_AUX12' data-ref="K_AUX12">K_AUX12</dfn>,</td></tr>
+<tr><th id="183">183</th><td>	<dfn class="enum" id="K_AUX13" title='K_AUX13' data-ref="K_AUX13">K_AUX13</dfn>,</td></tr>
+<tr><th id="184">184</th><td>	<dfn class="enum" id="K_AUX14" title='K_AUX14' data-ref="K_AUX14">K_AUX14</dfn>,</td></tr>
+<tr><th id="185">185</th><td>	<dfn class="enum" id="K_GRAVE_U" title='K_GRAVE_U' data-ref="K_GRAVE_U">K_GRAVE_U</dfn> = <var>249</var>,	<i>// lowercase u with grave accent</i></td></tr>
+<tr><th id="186">186</th><td>	<dfn class="enum" id="K_AUX15" title='K_AUX15' data-ref="K_AUX15">K_AUX15</dfn>,</td></tr>
+<tr><th id="187">187</th><td>	<dfn class="enum" id="K_AUX16" title='K_AUX16' data-ref="K_AUX16">K_AUX16</dfn>,</td></tr>
+<tr><th id="188">188</th><td></td></tr>
+<tr><th id="189">189</th><td>	<dfn class="enum" id="K_PRINT_SCR" title='K_PRINT_SCR' data-ref="K_PRINT_SCR">K_PRINT_SCR</dfn>	= <var>252</var>,	<i>// SysRq / PrintScr</i></td></tr>
+<tr><th id="190">190</th><td>	<dfn class="enum" id="K_RIGHT_ALT" title='K_RIGHT_ALT' data-ref="K_RIGHT_ALT">K_RIGHT_ALT</dfn> = <var>253</var>,	<i>// used by some languages as "Alt-Gr"</i></td></tr>
+<tr><th id="191">191</th><td>	<dfn class="enum" id="K_LAST_KEY" title='K_LAST_KEY' data-ref="K_LAST_KEY">K_LAST_KEY</dfn>  = <var>254</var>	<i>// this better be &lt; 256!</i></td></tr>
+<tr><th id="192">192</th><td>} <dfn class="typedef" id="keyNum_t" title='keyNum_t' data-type='enum keyNum_t' data-ref="keyNum_t">keyNum_t</dfn>;</td></tr>
+<tr><th id="193">193</th><td></td></tr>
+<tr><th id="194">194</th><td></td></tr>
+<tr><th id="195">195</th><td><b>class</b> <dfn class="type def" id="idKeyInput" title='idKeyInput' data-ref="idKeyInput">idKeyInput</dfn> {</td></tr>
+<tr><th id="196">196</th><td><b>public</b>:</td></tr>
+<tr><th id="197">197</th><td>	<em>static</em> <em>void</em>			<dfn class="decl" id="_ZN10idKeyInput4InitEv" title='idKeyInput::Init' data-ref="_ZN10idKeyInput4InitEv">Init</dfn>( <em>void</em> );</td></tr>
+<tr><th id="198">198</th><td>	<em>static</em> <em>void</em>			<dfn class="decl" id="_ZN10idKeyInput8ShutdownEv" title='idKeyInput::Shutdown' data-ref="_ZN10idKeyInput8ShutdownEv">Shutdown</dfn>( <em>void</em> );</td></tr>
+<tr><th id="199">199</th><td></td></tr>
+<tr><th id="200">200</th><td>	<em>static</em> <em>void</em>			<dfn class="decl" id="_ZN10idKeyInput21ArgCompletion_KeyNameERK9idCmdArgsPFvPKcE" title='idKeyInput::ArgCompletion_KeyName' data-ref="_ZN10idKeyInput21ArgCompletion_KeyNameERK9idCmdArgsPFvPKcE">ArgCompletion_KeyName</dfn>( <em>const</em> <a class="type" href="../idlib/CmdArgs.h.html#idCmdArgs" title='idCmdArgs' data-ref="idCmdArgs">idCmdArgs</a> &amp;<dfn class="local col3 decl" id="13643args" title='args' data-type='const idCmdArgs &amp;' data-ref="13643args">args</dfn>, <em>void</em>(*<dfn class="local col4 decl" id="13644callback" title='callback' data-type='void (*)(const char *)' data-ref="13644callback">callback</dfn>)( <em>const</em> <em>char</em> *<dfn class="local col5 decl" id="13645s" title='s' data-type='const char *' data-ref="13645s">s</dfn> ) );</td></tr>
+<tr><th id="201">201</th><td>	<em>static</em> <em>void</em>			<dfn class="decl" id="_ZN10idKeyInput19PreliminaryKeyEventEib" title='idKeyInput::PreliminaryKeyEvent' data-ref="_ZN10idKeyInput19PreliminaryKeyEventEib">PreliminaryKeyEvent</dfn>( <em>int</em> <dfn class="local col6 decl" id="13646keyNum" title='keyNum' data-type='int' data-ref="13646keyNum">keyNum</dfn>, <em>bool</em> <dfn class="local col7 decl" id="13647down" title='down' data-type='bool' data-ref="13647down">down</dfn> );</td></tr>
+<tr><th id="202">202</th><td>	<em>static</em> <em>bool</em>			<dfn class="decl" id="_ZN10idKeyInput6IsDownEi" title='idKeyInput::IsDown' data-ref="_ZN10idKeyInput6IsDownEi">IsDown</dfn>( <em>int</em> <dfn class="local col8 decl" id="13648keyNum" title='keyNum' data-type='int' data-ref="13648keyNum">keyNum</dfn> );</td></tr>
+<tr><th id="203">203</th><td>	<em>static</em> <em>int</em>			<dfn class="decl" id="_ZN10idKeyInput16GetUsercmdActionEi" title='idKeyInput::GetUsercmdAction' data-ref="_ZN10idKeyInput16GetUsercmdActionEi">GetUsercmdAction</dfn>( <em>int</em> <dfn class="local col9 decl" id="13649keyNum" title='keyNum' data-type='int' data-ref="13649keyNum">keyNum</dfn> );</td></tr>
+<tr><th id="204">204</th><td>	<em>static</em> <em>bool</em>			<dfn class="decl" id="_ZN10idKeyInput17GetOverstrikeModeEv" title='idKeyInput::GetOverstrikeMode' data-ref="_ZN10idKeyInput17GetOverstrikeModeEv">GetOverstrikeMode</dfn>( <em>void</em> );</td></tr>
+<tr><th id="205">205</th><td>	<em>static</em> <em>void</em>			<dfn class="decl" id="_ZN10idKeyInput17SetOverstrikeModeEb" title='idKeyInput::SetOverstrikeMode' data-ref="_ZN10idKeyInput17SetOverstrikeModeEb">SetOverstrikeMode</dfn>( <em>bool</em> <dfn class="local col0 decl" id="13650state" title='state' data-type='bool' data-ref="13650state">state</dfn> );</td></tr>
+<tr><th id="206">206</th><td>	<em>static</em> <em>void</em>			<dfn class="decl" id="_ZN10idKeyInput11ClearStatesEv" title='idKeyInput::ClearStates' data-ref="_ZN10idKeyInput11ClearStatesEv">ClearStates</dfn>( <em>void</em> );</td></tr>
+<tr><th id="207">207</th><td>	<em>static</em> <em>int</em>			<dfn class="decl" id="_ZN10idKeyInput14StringToKeyNumEPKc" title='idKeyInput::StringToKeyNum' data-ref="_ZN10idKeyInput14StringToKeyNumEPKc">StringToKeyNum</dfn>( <em>const</em> <em>char</em> *<dfn class="local col1 decl" id="13651str" title='str' data-type='const char *' data-ref="13651str">str</dfn> );</td></tr>
+<tr><th id="208">208</th><td>	<em>static</em> <em>const</em> <em>char</em> *	<dfn class="decl" id="_ZN10idKeyInput14KeyNumToStringEib" title='idKeyInput::KeyNumToString' data-ref="_ZN10idKeyInput14KeyNumToStringEib">KeyNumToString</dfn>( <em>int</em> <dfn class="local col2 decl" id="13652keyNum" title='keyNum' data-type='int' data-ref="13652keyNum">keyNum</dfn>, <em>bool</em> <dfn class="local col3 decl" id="13653localized" title='localized' data-type='bool' data-ref="13653localized">localized</dfn> );</td></tr>
+<tr><th id="209">209</th><td></td></tr>
+<tr><th id="210">210</th><td>	<em>static</em> <em>void</em>			<dfn class="decl" id="_ZN10idKeyInput10SetBindingEiPKc" title='idKeyInput::SetBinding' data-ref="_ZN10idKeyInput10SetBindingEiPKc">SetBinding</dfn>( <em>int</em> <dfn class="local col4 decl" id="13654keyNum" title='keyNum' data-type='int' data-ref="13654keyNum">keyNum</dfn>, <em>const</em> <em>char</em> *<dfn class="local col5 decl" id="13655binding" title='binding' data-type='const char *' data-ref="13655binding">binding</dfn> );</td></tr>
+<tr><th id="211">211</th><td>	<em>static</em> <em>const</em> <em>char</em> *	<dfn class="decl" id="_ZN10idKeyInput10GetBindingEi" title='idKeyInput::GetBinding' data-ref="_ZN10idKeyInput10GetBindingEi">GetBinding</dfn>( <em>int</em> <dfn class="local col6 decl" id="13656keyNum" title='keyNum' data-type='int' data-ref="13656keyNum">keyNum</dfn> );</td></tr>
+<tr><th id="212">212</th><td>	<em>static</em> <em>bool</em>			<dfn class="decl" id="_ZN10idKeyInput13UnbindBindingEPKc" title='idKeyInput::UnbindBinding' data-ref="_ZN10idKeyInput13UnbindBindingEPKc">UnbindBinding</dfn>( <em>const</em> <em>char</em> *<dfn class="local col7 decl" id="13657bind" title='bind' data-type='const char *' data-ref="13657bind">bind</dfn> );</td></tr>
+<tr><th id="213">213</th><td>	<em>static</em> <em>int</em>			<dfn class="decl" id="_ZN10idKeyInput8NumBindsEPKc" title='idKeyInput::NumBinds' data-ref="_ZN10idKeyInput8NumBindsEPKc">NumBinds</dfn>( <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="13658binding" title='binding' data-type='const char *' data-ref="13658binding">binding</dfn> );</td></tr>
+<tr><th id="214">214</th><td>	<em>static</em> <em>bool</em>			<dfn class="decl" id="_ZN10idKeyInput14ExecKeyBindingEi" title='idKeyInput::ExecKeyBinding' data-ref="_ZN10idKeyInput14ExecKeyBindingEi">ExecKeyBinding</dfn>( <em>int</em> <dfn class="local col9 decl" id="13659keyNum" title='keyNum' data-type='int' data-ref="13659keyNum">keyNum</dfn> );</td></tr>
+<tr><th id="215">215</th><td>	<em>static</em> <em>const</em> <em>char</em> *	<dfn class="decl" id="_ZN10idKeyInput15KeysFromBindingEPKc" title='idKeyInput::KeysFromBinding' data-ref="_ZN10idKeyInput15KeysFromBindingEPKc">KeysFromBinding</dfn>( <em>const</em> <em>char</em> *<dfn class="local col0 decl" id="13660bind" title='bind' data-type='const char *' data-ref="13660bind">bind</dfn> );</td></tr>
+<tr><th id="216">216</th><td>	<em>static</em> <em>const</em> <em>char</em> *	<dfn class="decl" id="_ZN10idKeyInput14BindingFromKeyEPKc" title='idKeyInput::BindingFromKey' data-ref="_ZN10idKeyInput14BindingFromKeyEPKc">BindingFromKey</dfn>( <em>const</em> <em>char</em> *<dfn class="local col1 decl" id="13661key" title='key' data-type='const char *' data-ref="13661key">key</dfn> );</td></tr>
+<tr><th id="217">217</th><td>	<em>static</em> <em>bool</em>			<dfn class="decl" id="_ZN10idKeyInput12KeyIsBoundToEiPKc" title='idKeyInput::KeyIsBoundTo' data-ref="_ZN10idKeyInput12KeyIsBoundToEiPKc">KeyIsBoundTo</dfn>( <em>int</em> <dfn class="local col2 decl" id="13662keyNum" title='keyNum' data-type='int' data-ref="13662keyNum">keyNum</dfn>, <em>const</em> <em>char</em> *<dfn class="local col3 decl" id="13663binding" title='binding' data-type='const char *' data-ref="13663binding">binding</dfn> );</td></tr>
+<tr><th id="218">218</th><td>	<em>static</em> <em>void</em>			<dfn class="decl" id="_ZN10idKeyInput13WriteBindingsEP6idFile" title='idKeyInput::WriteBindings' data-ref="_ZN10idKeyInput13WriteBindingsEP6idFile">WriteBindings</dfn>( <a class="type" href="File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col4 decl" id="13664f" title='f' data-type='idFile *' data-ref="13664f">f</dfn> );</td></tr>
+<tr><th id="219">219</th><td>};</td></tr>
+<tr><th id="220">220</th><td></td></tr>
+<tr><th id="221">221</th><td><u>#<span data-ppcond="29">endif</span> /* !__KEYINPUT_H__ */</u></td></tr>
+<tr><th id="222">222</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../TypeInfo/TypeInfoGen.cpp.html'>codebrowser/TypeInfo/TypeInfoGen.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

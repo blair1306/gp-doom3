@@ -1,0 +1,297 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Script_Compiler.h source code [codebrowser/d3xp/script/Script_Compiler.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idCompiler,opcode_s "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/d3xp/script/Script_Compiler.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>d3xp</a>/<a href='./'>script</a>/<a href='Script_Compiler.h.html'>Script_Compiler.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td><u>#<span data-ppcond="28">ifndef</span> <span class="macro" data-ref="_M/__SCRIPT_COMPILER_H__">__SCRIPT_COMPILER_H__</span></u></td></tr>
+<tr><th id="29">29</th><td><u>#define <dfn class="macro" id="_M/__SCRIPT_COMPILER_H__" data-ref="_M/__SCRIPT_COMPILER_H__">__SCRIPT_COMPILER_H__</dfn></u></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><em>const</em> <em>char</em> * <em>const</em> <dfn class="decl def" id="RESULT_STRING" title='RESULT_STRING' data-ref="RESULT_STRING">RESULT_STRING</dfn> = <q>"&lt;RESULT&gt;"</q>;</td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="opcode_s" title='opcode_s' data-ref="opcode_s"><a class="type" href="#opcode_s" title='opcode_s' data-ref="opcode_s">opcode_s</a></dfn> {</td></tr>
+<tr><th id="34">34</th><td>	<em>char</em>		*<dfn class="decl" id="opcode_s::name" title='opcode_s::name' data-ref="opcode_s::name">name</dfn>;</td></tr>
+<tr><th id="35">35</th><td>	<em>char</em>		*<dfn class="decl" id="opcode_s::opname" title='opcode_s::opname' data-ref="opcode_s::opname">opname</dfn>;</td></tr>
+<tr><th id="36">36</th><td>	<em>int</em>			<dfn class="decl" id="opcode_s::priority" title='opcode_s::priority' data-ref="opcode_s::priority">priority</dfn>;</td></tr>
+<tr><th id="37">37</th><td>	<em>bool</em>		<dfn class="decl" id="opcode_s::rightAssociative" title='opcode_s::rightAssociative' data-ref="opcode_s::rightAssociative">rightAssociative</dfn>;</td></tr>
+<tr><th id="38">38</th><td>	<a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a>	*<dfn class="decl" id="opcode_s::type_a" title='opcode_s::type_a' data-ref="opcode_s::type_a">type_a</dfn>;</td></tr>
+<tr><th id="39">39</th><td>	<a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a>	*<dfn class="decl" id="opcode_s::type_b" title='opcode_s::type_b' data-ref="opcode_s::type_b">type_b</dfn>;</td></tr>
+<tr><th id="40">40</th><td>	<a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a>	*<dfn class="decl" id="opcode_s::type_c" title='opcode_s::type_c' data-ref="opcode_s::type_c">type_c</dfn>;</td></tr>
+<tr><th id="41">41</th><td>} <dfn class="typedef" id="opcode_t" title='opcode_t' data-type='struct opcode_s' data-ref="opcode_t">opcode_t</dfn>;</td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td><i>// These opcodes are no longer necessary:</i></td></tr>
+<tr><th id="44">44</th><td><i>// OP_PUSH_OBJ:</i></td></tr>
+<tr><th id="45">45</th><td><i>// OP_PUSH_OBJENT:</i></td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td><b>enum</b> {</td></tr>
+<tr><th id="48">48</th><td>	<dfn class="enum" id="OP_RETURN" title='OP_RETURN' data-ref="OP_RETURN">OP_RETURN</dfn>,</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td>	<dfn class="enum" id="OP_UINC_F" title='OP_UINC_F' data-ref="OP_UINC_F">OP_UINC_F</dfn>,</td></tr>
+<tr><th id="51">51</th><td>	<dfn class="enum" id="OP_UINCP_F" title='OP_UINCP_F' data-ref="OP_UINCP_F">OP_UINCP_F</dfn>,</td></tr>
+<tr><th id="52">52</th><td>	<dfn class="enum" id="OP_UDEC_F" title='OP_UDEC_F' data-ref="OP_UDEC_F">OP_UDEC_F</dfn>,</td></tr>
+<tr><th id="53">53</th><td>	<dfn class="enum" id="OP_UDECP_F" title='OP_UDECP_F' data-ref="OP_UDECP_F">OP_UDECP_F</dfn>,</td></tr>
+<tr><th id="54">54</th><td>	<dfn class="enum" id="OP_COMP_F" title='OP_COMP_F' data-ref="OP_COMP_F">OP_COMP_F</dfn>,</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td>	<dfn class="enum" id="OP_MUL_F" title='OP_MUL_F' data-ref="OP_MUL_F">OP_MUL_F</dfn>,</td></tr>
+<tr><th id="57">57</th><td>	<dfn class="enum" id="OP_MUL_V" title='OP_MUL_V' data-ref="OP_MUL_V">OP_MUL_V</dfn>,</td></tr>
+<tr><th id="58">58</th><td>	<dfn class="enum" id="OP_MUL_FV" title='OP_MUL_FV' data-ref="OP_MUL_FV">OP_MUL_FV</dfn>,</td></tr>
+<tr><th id="59">59</th><td>	<dfn class="enum" id="OP_MUL_VF" title='OP_MUL_VF' data-ref="OP_MUL_VF">OP_MUL_VF</dfn>,</td></tr>
+<tr><th id="60">60</th><td>	<dfn class="enum" id="OP_DIV_F" title='OP_DIV_F' data-ref="OP_DIV_F">OP_DIV_F</dfn>,</td></tr>
+<tr><th id="61">61</th><td>	<dfn class="enum" id="OP_MOD_F" title='OP_MOD_F' data-ref="OP_MOD_F">OP_MOD_F</dfn>,</td></tr>
+<tr><th id="62">62</th><td>	<dfn class="enum" id="OP_ADD_F" title='OP_ADD_F' data-ref="OP_ADD_F">OP_ADD_F</dfn>,</td></tr>
+<tr><th id="63">63</th><td>	<dfn class="enum" id="OP_ADD_V" title='OP_ADD_V' data-ref="OP_ADD_V">OP_ADD_V</dfn>,</td></tr>
+<tr><th id="64">64</th><td>	<dfn class="enum" id="OP_ADD_S" title='OP_ADD_S' data-ref="OP_ADD_S">OP_ADD_S</dfn>,</td></tr>
+<tr><th id="65">65</th><td>	<dfn class="enum" id="OP_ADD_FS" title='OP_ADD_FS' data-ref="OP_ADD_FS">OP_ADD_FS</dfn>,</td></tr>
+<tr><th id="66">66</th><td>	<dfn class="enum" id="OP_ADD_SF" title='OP_ADD_SF' data-ref="OP_ADD_SF">OP_ADD_SF</dfn>,</td></tr>
+<tr><th id="67">67</th><td>	<dfn class="enum" id="OP_ADD_VS" title='OP_ADD_VS' data-ref="OP_ADD_VS">OP_ADD_VS</dfn>,</td></tr>
+<tr><th id="68">68</th><td>	<dfn class="enum" id="OP_ADD_SV" title='OP_ADD_SV' data-ref="OP_ADD_SV">OP_ADD_SV</dfn>,</td></tr>
+<tr><th id="69">69</th><td>	<dfn class="enum" id="OP_SUB_F" title='OP_SUB_F' data-ref="OP_SUB_F">OP_SUB_F</dfn>,</td></tr>
+<tr><th id="70">70</th><td>	<dfn class="enum" id="OP_SUB_V" title='OP_SUB_V' data-ref="OP_SUB_V">OP_SUB_V</dfn>,</td></tr>
+<tr><th id="71">71</th><td>	</td></tr>
+<tr><th id="72">72</th><td>	<dfn class="enum" id="OP_EQ_F" title='OP_EQ_F' data-ref="OP_EQ_F">OP_EQ_F</dfn>,</td></tr>
+<tr><th id="73">73</th><td>	<dfn class="enum" id="OP_EQ_V" title='OP_EQ_V' data-ref="OP_EQ_V">OP_EQ_V</dfn>,</td></tr>
+<tr><th id="74">74</th><td>	<dfn class="enum" id="OP_EQ_S" title='OP_EQ_S' data-ref="OP_EQ_S">OP_EQ_S</dfn>,</td></tr>
+<tr><th id="75">75</th><td>	<dfn class="enum" id="OP_EQ_E" title='OP_EQ_E' data-ref="OP_EQ_E">OP_EQ_E</dfn>,</td></tr>
+<tr><th id="76">76</th><td>	<dfn class="enum" id="OP_EQ_EO" title='OP_EQ_EO' data-ref="OP_EQ_EO">OP_EQ_EO</dfn>,</td></tr>
+<tr><th id="77">77</th><td>	<dfn class="enum" id="OP_EQ_OE" title='OP_EQ_OE' data-ref="OP_EQ_OE">OP_EQ_OE</dfn>,</td></tr>
+<tr><th id="78">78</th><td>	<dfn class="enum" id="OP_EQ_OO" title='OP_EQ_OO' data-ref="OP_EQ_OO">OP_EQ_OO</dfn>,</td></tr>
+<tr><th id="79">79</th><td>	</td></tr>
+<tr><th id="80">80</th><td>	<dfn class="enum" id="OP_NE_F" title='OP_NE_F' data-ref="OP_NE_F">OP_NE_F</dfn>,</td></tr>
+<tr><th id="81">81</th><td>	<dfn class="enum" id="OP_NE_V" title='OP_NE_V' data-ref="OP_NE_V">OP_NE_V</dfn>,</td></tr>
+<tr><th id="82">82</th><td>	<dfn class="enum" id="OP_NE_S" title='OP_NE_S' data-ref="OP_NE_S">OP_NE_S</dfn>,</td></tr>
+<tr><th id="83">83</th><td>	<dfn class="enum" id="OP_NE_E" title='OP_NE_E' data-ref="OP_NE_E">OP_NE_E</dfn>,</td></tr>
+<tr><th id="84">84</th><td>	<dfn class="enum" id="OP_NE_EO" title='OP_NE_EO' data-ref="OP_NE_EO">OP_NE_EO</dfn>,</td></tr>
+<tr><th id="85">85</th><td>	<dfn class="enum" id="OP_NE_OE" title='OP_NE_OE' data-ref="OP_NE_OE">OP_NE_OE</dfn>,</td></tr>
+<tr><th id="86">86</th><td>	<dfn class="enum" id="OP_NE_OO" title='OP_NE_OO' data-ref="OP_NE_OO">OP_NE_OO</dfn>,</td></tr>
+<tr><th id="87">87</th><td>	</td></tr>
+<tr><th id="88">88</th><td>	<dfn class="enum" id="OP_LE" title='OP_LE' data-ref="OP_LE">OP_LE</dfn>,</td></tr>
+<tr><th id="89">89</th><td>	<dfn class="enum" id="OP_GE" title='OP_GE' data-ref="OP_GE">OP_GE</dfn>,</td></tr>
+<tr><th id="90">90</th><td>	<dfn class="enum" id="OP_LT" title='OP_LT' data-ref="OP_LT">OP_LT</dfn>,</td></tr>
+<tr><th id="91">91</th><td>	<dfn class="enum" id="OP_GT" title='OP_GT' data-ref="OP_GT">OP_GT</dfn>,</td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td>	<dfn class="enum" id="OP_INDIRECT_F" title='OP_INDIRECT_F' data-ref="OP_INDIRECT_F">OP_INDIRECT_F</dfn>,</td></tr>
+<tr><th id="94">94</th><td>	<dfn class="enum" id="OP_INDIRECT_V" title='OP_INDIRECT_V' data-ref="OP_INDIRECT_V">OP_INDIRECT_V</dfn>,</td></tr>
+<tr><th id="95">95</th><td>	<dfn class="enum" id="OP_INDIRECT_S" title='OP_INDIRECT_S' data-ref="OP_INDIRECT_S">OP_INDIRECT_S</dfn>,</td></tr>
+<tr><th id="96">96</th><td>	<dfn class="enum" id="OP_INDIRECT_ENT" title='OP_INDIRECT_ENT' data-ref="OP_INDIRECT_ENT">OP_INDIRECT_ENT</dfn>,</td></tr>
+<tr><th id="97">97</th><td>	<dfn class="enum" id="OP_INDIRECT_BOOL" title='OP_INDIRECT_BOOL' data-ref="OP_INDIRECT_BOOL">OP_INDIRECT_BOOL</dfn>,</td></tr>
+<tr><th id="98">98</th><td>	<dfn class="enum" id="OP_INDIRECT_OBJ" title='OP_INDIRECT_OBJ' data-ref="OP_INDIRECT_OBJ">OP_INDIRECT_OBJ</dfn>,</td></tr>
+<tr><th id="99">99</th><td>	</td></tr>
+<tr><th id="100">100</th><td>	<dfn class="enum" id="OP_ADDRESS" title='OP_ADDRESS' data-ref="OP_ADDRESS">OP_ADDRESS</dfn>,</td></tr>
+<tr><th id="101">101</th><td></td></tr>
+<tr><th id="102">102</th><td>	<dfn class="enum" id="OP_EVENTCALL" title='OP_EVENTCALL' data-ref="OP_EVENTCALL">OP_EVENTCALL</dfn>,</td></tr>
+<tr><th id="103">103</th><td>	<dfn class="enum" id="OP_OBJECTCALL" title='OP_OBJECTCALL' data-ref="OP_OBJECTCALL">OP_OBJECTCALL</dfn>,</td></tr>
+<tr><th id="104">104</th><td>	<dfn class="enum" id="OP_SYSCALL" title='OP_SYSCALL' data-ref="OP_SYSCALL">OP_SYSCALL</dfn>,</td></tr>
+<tr><th id="105">105</th><td></td></tr>
+<tr><th id="106">106</th><td>	<dfn class="enum" id="OP_STORE_F" title='OP_STORE_F' data-ref="OP_STORE_F">OP_STORE_F</dfn>,</td></tr>
+<tr><th id="107">107</th><td>	<dfn class="enum" id="OP_STORE_V" title='OP_STORE_V' data-ref="OP_STORE_V">OP_STORE_V</dfn>,</td></tr>
+<tr><th id="108">108</th><td>	<dfn class="enum" id="OP_STORE_S" title='OP_STORE_S' data-ref="OP_STORE_S">OP_STORE_S</dfn>,</td></tr>
+<tr><th id="109">109</th><td>	<dfn class="enum" id="OP_STORE_ENT" title='OP_STORE_ENT' data-ref="OP_STORE_ENT">OP_STORE_ENT</dfn>,</td></tr>
+<tr><th id="110">110</th><td>	<dfn class="enum" id="OP_STORE_BOOL" title='OP_STORE_BOOL' data-ref="OP_STORE_BOOL">OP_STORE_BOOL</dfn>,</td></tr>
+<tr><th id="111">111</th><td>	<dfn class="enum" id="OP_STORE_OBJENT" title='OP_STORE_OBJENT' data-ref="OP_STORE_OBJENT">OP_STORE_OBJENT</dfn>,</td></tr>
+<tr><th id="112">112</th><td>	<dfn class="enum" id="OP_STORE_OBJ" title='OP_STORE_OBJ' data-ref="OP_STORE_OBJ">OP_STORE_OBJ</dfn>,</td></tr>
+<tr><th id="113">113</th><td>	<dfn class="enum" id="OP_STORE_ENTOBJ" title='OP_STORE_ENTOBJ' data-ref="OP_STORE_ENTOBJ">OP_STORE_ENTOBJ</dfn>,</td></tr>
+<tr><th id="114">114</th><td></td></tr>
+<tr><th id="115">115</th><td>	<dfn class="enum" id="OP_STORE_FTOS" title='OP_STORE_FTOS' data-ref="OP_STORE_FTOS">OP_STORE_FTOS</dfn>,</td></tr>
+<tr><th id="116">116</th><td>	<dfn class="enum" id="OP_STORE_BTOS" title='OP_STORE_BTOS' data-ref="OP_STORE_BTOS">OP_STORE_BTOS</dfn>,</td></tr>
+<tr><th id="117">117</th><td>	<dfn class="enum" id="OP_STORE_VTOS" title='OP_STORE_VTOS' data-ref="OP_STORE_VTOS">OP_STORE_VTOS</dfn>,</td></tr>
+<tr><th id="118">118</th><td>	<dfn class="enum" id="OP_STORE_FTOBOOL" title='OP_STORE_FTOBOOL' data-ref="OP_STORE_FTOBOOL">OP_STORE_FTOBOOL</dfn>,</td></tr>
+<tr><th id="119">119</th><td>	<dfn class="enum" id="OP_STORE_BOOLTOF" title='OP_STORE_BOOLTOF' data-ref="OP_STORE_BOOLTOF">OP_STORE_BOOLTOF</dfn>,</td></tr>
+<tr><th id="120">120</th><td></td></tr>
+<tr><th id="121">121</th><td>	<dfn class="enum" id="OP_STOREP_F" title='OP_STOREP_F' data-ref="OP_STOREP_F">OP_STOREP_F</dfn>,</td></tr>
+<tr><th id="122">122</th><td>	<dfn class="enum" id="OP_STOREP_V" title='OP_STOREP_V' data-ref="OP_STOREP_V">OP_STOREP_V</dfn>,</td></tr>
+<tr><th id="123">123</th><td>	<dfn class="enum" id="OP_STOREP_S" title='OP_STOREP_S' data-ref="OP_STOREP_S">OP_STOREP_S</dfn>,</td></tr>
+<tr><th id="124">124</th><td>	<dfn class="enum" id="OP_STOREP_ENT" title='OP_STOREP_ENT' data-ref="OP_STOREP_ENT">OP_STOREP_ENT</dfn>,</td></tr>
+<tr><th id="125">125</th><td>	<dfn class="enum" id="OP_STOREP_FLD" title='OP_STOREP_FLD' data-ref="OP_STOREP_FLD">OP_STOREP_FLD</dfn>,</td></tr>
+<tr><th id="126">126</th><td>	<dfn class="enum" id="OP_STOREP_BOOL" title='OP_STOREP_BOOL' data-ref="OP_STOREP_BOOL">OP_STOREP_BOOL</dfn>,</td></tr>
+<tr><th id="127">127</th><td>	<dfn class="enum" id="OP_STOREP_OBJ" title='OP_STOREP_OBJ' data-ref="OP_STOREP_OBJ">OP_STOREP_OBJ</dfn>,</td></tr>
+<tr><th id="128">128</th><td>	<dfn class="enum" id="OP_STOREP_OBJENT" title='OP_STOREP_OBJENT' data-ref="OP_STOREP_OBJENT">OP_STOREP_OBJENT</dfn>,</td></tr>
+<tr><th id="129">129</th><td></td></tr>
+<tr><th id="130">130</th><td>	<dfn class="enum" id="OP_STOREP_FTOS" title='OP_STOREP_FTOS' data-ref="OP_STOREP_FTOS">OP_STOREP_FTOS</dfn>,</td></tr>
+<tr><th id="131">131</th><td>	<dfn class="enum" id="OP_STOREP_BTOS" title='OP_STOREP_BTOS' data-ref="OP_STOREP_BTOS">OP_STOREP_BTOS</dfn>,</td></tr>
+<tr><th id="132">132</th><td>	<dfn class="enum" id="OP_STOREP_VTOS" title='OP_STOREP_VTOS' data-ref="OP_STOREP_VTOS">OP_STOREP_VTOS</dfn>,</td></tr>
+<tr><th id="133">133</th><td>	<dfn class="enum" id="OP_STOREP_FTOBOOL" title='OP_STOREP_FTOBOOL' data-ref="OP_STOREP_FTOBOOL">OP_STOREP_FTOBOOL</dfn>,</td></tr>
+<tr><th id="134">134</th><td>	<dfn class="enum" id="OP_STOREP_BOOLTOF" title='OP_STOREP_BOOLTOF' data-ref="OP_STOREP_BOOLTOF">OP_STOREP_BOOLTOF</dfn>,</td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td>	<dfn class="enum" id="OP_UMUL_F" title='OP_UMUL_F' data-ref="OP_UMUL_F">OP_UMUL_F</dfn>,</td></tr>
+<tr><th id="137">137</th><td>	<dfn class="enum" id="OP_UMUL_V" title='OP_UMUL_V' data-ref="OP_UMUL_V">OP_UMUL_V</dfn>,</td></tr>
+<tr><th id="138">138</th><td>	<dfn class="enum" id="OP_UDIV_F" title='OP_UDIV_F' data-ref="OP_UDIV_F">OP_UDIV_F</dfn>,</td></tr>
+<tr><th id="139">139</th><td>	<dfn class="enum" id="OP_UDIV_V" title='OP_UDIV_V' data-ref="OP_UDIV_V">OP_UDIV_V</dfn>,</td></tr>
+<tr><th id="140">140</th><td>	<dfn class="enum" id="OP_UMOD_F" title='OP_UMOD_F' data-ref="OP_UMOD_F">OP_UMOD_F</dfn>,</td></tr>
+<tr><th id="141">141</th><td>	<dfn class="enum" id="OP_UADD_F" title='OP_UADD_F' data-ref="OP_UADD_F">OP_UADD_F</dfn>,</td></tr>
+<tr><th id="142">142</th><td>	<dfn class="enum" id="OP_UADD_V" title='OP_UADD_V' data-ref="OP_UADD_V">OP_UADD_V</dfn>,</td></tr>
+<tr><th id="143">143</th><td>	<dfn class="enum" id="OP_USUB_F" title='OP_USUB_F' data-ref="OP_USUB_F">OP_USUB_F</dfn>,</td></tr>
+<tr><th id="144">144</th><td>	<dfn class="enum" id="OP_USUB_V" title='OP_USUB_V' data-ref="OP_USUB_V">OP_USUB_V</dfn>,</td></tr>
+<tr><th id="145">145</th><td>	<dfn class="enum" id="OP_UAND_F" title='OP_UAND_F' data-ref="OP_UAND_F">OP_UAND_F</dfn>,</td></tr>
+<tr><th id="146">146</th><td>	<dfn class="enum" id="OP_UOR_F" title='OP_UOR_F' data-ref="OP_UOR_F">OP_UOR_F</dfn>,</td></tr>
+<tr><th id="147">147</th><td></td></tr>
+<tr><th id="148">148</th><td>	<dfn class="enum" id="OP_NOT_BOOL" title='OP_NOT_BOOL' data-ref="OP_NOT_BOOL">OP_NOT_BOOL</dfn>,</td></tr>
+<tr><th id="149">149</th><td>	<dfn class="enum" id="OP_NOT_F" title='OP_NOT_F' data-ref="OP_NOT_F">OP_NOT_F</dfn>,</td></tr>
+<tr><th id="150">150</th><td>	<dfn class="enum" id="OP_NOT_V" title='OP_NOT_V' data-ref="OP_NOT_V">OP_NOT_V</dfn>,</td></tr>
+<tr><th id="151">151</th><td>	<dfn class="enum" id="OP_NOT_S" title='OP_NOT_S' data-ref="OP_NOT_S">OP_NOT_S</dfn>,</td></tr>
+<tr><th id="152">152</th><td>	<dfn class="enum" id="OP_NOT_ENT" title='OP_NOT_ENT' data-ref="OP_NOT_ENT">OP_NOT_ENT</dfn>,</td></tr>
+<tr><th id="153">153</th><td></td></tr>
+<tr><th id="154">154</th><td>	<dfn class="enum" id="OP_NEG_F" title='OP_NEG_F' data-ref="OP_NEG_F">OP_NEG_F</dfn>,</td></tr>
+<tr><th id="155">155</th><td>	<dfn class="enum" id="OP_NEG_V" title='OP_NEG_V' data-ref="OP_NEG_V">OP_NEG_V</dfn>,</td></tr>
+<tr><th id="156">156</th><td></td></tr>
+<tr><th id="157">157</th><td>	<dfn class="enum" id="OP_INT_F" title='OP_INT_F' data-ref="OP_INT_F">OP_INT_F</dfn>,</td></tr>
+<tr><th id="158">158</th><td>	<dfn class="enum" id="OP_IF" title='OP_IF' data-ref="OP_IF">OP_IF</dfn>,</td></tr>
+<tr><th id="159">159</th><td>	<dfn class="enum" id="OP_IFNOT" title='OP_IFNOT' data-ref="OP_IFNOT">OP_IFNOT</dfn>,</td></tr>
+<tr><th id="160">160</th><td></td></tr>
+<tr><th id="161">161</th><td>	<dfn class="enum" id="OP_CALL" title='OP_CALL' data-ref="OP_CALL">OP_CALL</dfn>,</td></tr>
+<tr><th id="162">162</th><td>	<dfn class="enum" id="OP_THREAD" title='OP_THREAD' data-ref="OP_THREAD">OP_THREAD</dfn>,</td></tr>
+<tr><th id="163">163</th><td>	<dfn class="enum" id="OP_OBJTHREAD" title='OP_OBJTHREAD' data-ref="OP_OBJTHREAD">OP_OBJTHREAD</dfn>,</td></tr>
+<tr><th id="164">164</th><td></td></tr>
+<tr><th id="165">165</th><td>	<dfn class="enum" id="OP_PUSH_F" title='OP_PUSH_F' data-ref="OP_PUSH_F">OP_PUSH_F</dfn>,</td></tr>
+<tr><th id="166">166</th><td>	<dfn class="enum" id="OP_PUSH_V" title='OP_PUSH_V' data-ref="OP_PUSH_V">OP_PUSH_V</dfn>,</td></tr>
+<tr><th id="167">167</th><td>	<dfn class="enum" id="OP_PUSH_S" title='OP_PUSH_S' data-ref="OP_PUSH_S">OP_PUSH_S</dfn>,</td></tr>
+<tr><th id="168">168</th><td>	<dfn class="enum" id="OP_PUSH_ENT" title='OP_PUSH_ENT' data-ref="OP_PUSH_ENT">OP_PUSH_ENT</dfn>,</td></tr>
+<tr><th id="169">169</th><td>	<dfn class="enum" id="OP_PUSH_OBJ" title='OP_PUSH_OBJ' data-ref="OP_PUSH_OBJ">OP_PUSH_OBJ</dfn>,</td></tr>
+<tr><th id="170">170</th><td>	<dfn class="enum" id="OP_PUSH_OBJENT" title='OP_PUSH_OBJENT' data-ref="OP_PUSH_OBJENT">OP_PUSH_OBJENT</dfn>,</td></tr>
+<tr><th id="171">171</th><td>	<dfn class="enum" id="OP_PUSH_FTOS" title='OP_PUSH_FTOS' data-ref="OP_PUSH_FTOS">OP_PUSH_FTOS</dfn>,</td></tr>
+<tr><th id="172">172</th><td>	<dfn class="enum" id="OP_PUSH_BTOF" title='OP_PUSH_BTOF' data-ref="OP_PUSH_BTOF">OP_PUSH_BTOF</dfn>,</td></tr>
+<tr><th id="173">173</th><td>	<dfn class="enum" id="OP_PUSH_FTOB" title='OP_PUSH_FTOB' data-ref="OP_PUSH_FTOB">OP_PUSH_FTOB</dfn>,</td></tr>
+<tr><th id="174">174</th><td>	<dfn class="enum" id="OP_PUSH_VTOS" title='OP_PUSH_VTOS' data-ref="OP_PUSH_VTOS">OP_PUSH_VTOS</dfn>,</td></tr>
+<tr><th id="175">175</th><td>	<dfn class="enum" id="OP_PUSH_BTOS" title='OP_PUSH_BTOS' data-ref="OP_PUSH_BTOS">OP_PUSH_BTOS</dfn>,</td></tr>
+<tr><th id="176">176</th><td></td></tr>
+<tr><th id="177">177</th><td>	<dfn class="enum" id="OP_GOTO" title='OP_GOTO' data-ref="OP_GOTO">OP_GOTO</dfn>,</td></tr>
+<tr><th id="178">178</th><td></td></tr>
+<tr><th id="179">179</th><td>	<dfn class="enum" id="OP_AND" title='OP_AND' data-ref="OP_AND">OP_AND</dfn>,</td></tr>
+<tr><th id="180">180</th><td>	<dfn class="enum" id="OP_AND_BOOLF" title='OP_AND_BOOLF' data-ref="OP_AND_BOOLF">OP_AND_BOOLF</dfn>,</td></tr>
+<tr><th id="181">181</th><td>	<dfn class="enum" id="OP_AND_FBOOL" title='OP_AND_FBOOL' data-ref="OP_AND_FBOOL">OP_AND_FBOOL</dfn>,</td></tr>
+<tr><th id="182">182</th><td>	<dfn class="enum" id="OP_AND_BOOLBOOL" title='OP_AND_BOOLBOOL' data-ref="OP_AND_BOOLBOOL">OP_AND_BOOLBOOL</dfn>,</td></tr>
+<tr><th id="183">183</th><td>	<dfn class="enum" id="OP_OR" title='OP_OR' data-ref="OP_OR">OP_OR</dfn>,</td></tr>
+<tr><th id="184">184</th><td>	<dfn class="enum" id="OP_OR_BOOLF" title='OP_OR_BOOLF' data-ref="OP_OR_BOOLF">OP_OR_BOOLF</dfn>,</td></tr>
+<tr><th id="185">185</th><td>	<dfn class="enum" id="OP_OR_FBOOL" title='OP_OR_FBOOL' data-ref="OP_OR_FBOOL">OP_OR_FBOOL</dfn>,</td></tr>
+<tr><th id="186">186</th><td>	<dfn class="enum" id="OP_OR_BOOLBOOL" title='OP_OR_BOOLBOOL' data-ref="OP_OR_BOOLBOOL">OP_OR_BOOLBOOL</dfn>,</td></tr>
+<tr><th id="187">187</th><td>	</td></tr>
+<tr><th id="188">188</th><td>	<dfn class="enum" id="OP_BITAND" title='OP_BITAND' data-ref="OP_BITAND">OP_BITAND</dfn>,</td></tr>
+<tr><th id="189">189</th><td>	<dfn class="enum" id="OP_BITOR" title='OP_BITOR' data-ref="OP_BITOR">OP_BITOR</dfn>,</td></tr>
+<tr><th id="190">190</th><td></td></tr>
+<tr><th id="191">191</th><td>	<dfn class="enum" id="OP_BREAK" title='OP_BREAK' data-ref="OP_BREAK">OP_BREAK</dfn>,			<i>// placeholder op.  not used in final code</i></td></tr>
+<tr><th id="192">192</th><td>	<dfn class="enum" id="OP_CONTINUE" title='OP_CONTINUE' data-ref="OP_CONTINUE">OP_CONTINUE</dfn>,		<i>// placeholder op.  not used in final code</i></td></tr>
+<tr><th id="193">193</th><td></td></tr>
+<tr><th id="194">194</th><td>	<dfn class="enum" id="NUM_OPCODES" title='NUM_OPCODES' data-ref="NUM_OPCODES">NUM_OPCODES</dfn></td></tr>
+<tr><th id="195">195</th><td>};</td></tr>
+<tr><th id="196">196</th><td></td></tr>
+<tr><th id="197">197</th><td><b>class</b> <dfn class="type def" id="idCompiler" title='idCompiler' data-ref="idCompiler">idCompiler</dfn> {</td></tr>
+<tr><th id="198">198</th><td><b>private</b>:</td></tr>
+<tr><th id="199">199</th><td>	<em>static</em> <em>bool</em>		<dfn class="decl" id="idCompiler::punctuationValid" title='idCompiler::punctuationValid' data-ref="idCompiler::punctuationValid">punctuationValid</dfn>[ <var>256</var> ];</td></tr>
+<tr><th id="200">200</th><td>	<em>static</em> <em>char</em>		*<dfn class="decl" id="idCompiler::punctuation" title='idCompiler::punctuation' data-ref="idCompiler::punctuation">punctuation</dfn>[];</td></tr>
+<tr><th id="201">201</th><td></td></tr>
+<tr><th id="202">202</th><td>	<a class="type" href="../../idlib/Parser.h.html#idParser" title='idParser' data-ref="idParser">idParser</a>		<dfn class="decl" id="idCompiler::parser" title='idCompiler::parser' data-ref="idCompiler::parser">parser</dfn>;</td></tr>
+<tr><th id="203">203</th><td>	<a class="type" href="../../idlib/Parser.h.html#idParser" title='idParser' data-ref="idParser">idParser</a>		*<dfn class="decl" id="idCompiler::parserPtr" title='idCompiler::parserPtr' data-ref="idCompiler::parserPtr">parserPtr</dfn>;</td></tr>
+<tr><th id="204">204</th><td>	<a class="type" href="../../idlib/Token.h.html#idToken" title='idToken' data-ref="idToken">idToken</a>			<dfn class="decl" id="idCompiler::token" title='idCompiler::token' data-ref="idCompiler::token">token</dfn>;</td></tr>
+<tr><th id="205">205</th><td>					</td></tr>
+<tr><th id="206">206</th><td>	<a class="type" href="Script_Program.h.html#idTypeDef" title='idTypeDef' data-ref="idTypeDef">idTypeDef</a>		*<dfn class="decl" id="idCompiler::immediateType" title='idCompiler::immediateType' data-ref="idCompiler::immediateType">immediateType</dfn>;</td></tr>
+<tr><th id="207">207</th><td>	<a class="typedef" href="Script_Program.h.html#eval_t" title='eval_t' data-type='union eval_s' data-ref="eval_t">eval_t</a>			<dfn class="decl" id="idCompiler::immediate" title='idCompiler::immediate' data-ref="idCompiler::immediate">immediate</dfn>;</td></tr>
+<tr><th id="208">208</th><td>					</td></tr>
+<tr><th id="209">209</th><td>	<em>bool</em>			<dfn class="decl" id="idCompiler::eof" title='idCompiler::eof' data-ref="idCompiler::eof">eof</dfn>;</td></tr>
+<tr><th id="210">210</th><td>	<em>bool</em>			<dfn class="decl" id="idCompiler::console" title='idCompiler::console' data-ref="idCompiler::console">console</dfn>;</td></tr>
+<tr><th id="211">211</th><td>	<em>bool</em>			<dfn class="decl" id="idCompiler::callthread" title='idCompiler::callthread' data-ref="idCompiler::callthread">callthread</dfn>;</td></tr>
+<tr><th id="212">212</th><td>	<em>int</em>				<dfn class="decl" id="idCompiler::braceDepth" title='idCompiler::braceDepth' data-ref="idCompiler::braceDepth">braceDepth</dfn>;</td></tr>
+<tr><th id="213">213</th><td>	<em>int</em>				<dfn class="decl" id="idCompiler::loopDepth" title='idCompiler::loopDepth' data-ref="idCompiler::loopDepth">loopDepth</dfn>;</td></tr>
+<tr><th id="214">214</th><td>	<em>int</em>				<dfn class="decl" id="idCompiler::currentLineNumber" title='idCompiler::currentLineNumber' data-ref="idCompiler::currentLineNumber">currentLineNumber</dfn>;</td></tr>
+<tr><th id="215">215</th><td>	<em>int</em>				<dfn class="decl" id="idCompiler::currentFileNumber" title='idCompiler::currentFileNumber' data-ref="idCompiler::currentFileNumber">currentFileNumber</dfn>;</td></tr>
+<tr><th id="216">216</th><td>	<em>int</em>				<dfn class="decl" id="idCompiler::errorCount" title='idCompiler::errorCount' data-ref="idCompiler::errorCount">errorCount</dfn>;</td></tr>
+<tr><th id="217">217</th><td>					</td></tr>
+<tr><th id="218">218</th><td>	<a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a>		*<dfn class="decl" id="idCompiler::scope" title='idCompiler::scope' data-ref="idCompiler::scope">scope</dfn>;				<i>// the function being parsed, or NULL</i></td></tr>
+<tr><th id="219">219</th><td>	<em>const</em> <a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a>	*<dfn class="decl" id="idCompiler::basetype" title='idCompiler::basetype' data-ref="idCompiler::basetype">basetype</dfn>;			<i>// for accessing fields</i></td></tr>
+<tr><th id="220">220</th><td></td></tr>
+<tr><th id="221">221</th><td>	<em>float</em>			<dfn class="decl" id="_ZN10idCompiler6DivideEff" title='idCompiler::Divide' data-ref="_ZN10idCompiler6DivideEff">Divide</dfn>( <em>float</em> <dfn class="local col9 decl" id="4499numerator" title='numerator' data-type='float' data-ref="4499numerator">numerator</dfn>, <em>float</em> <dfn class="local col0 decl" id="4500denominator" title='denominator' data-type='float' data-ref="4500denominator">denominator</dfn> );</td></tr>
+<tr><th id="222">222</th><td>	<em>void</em>			<dfn class="decl" id="_ZNK10idCompiler5ErrorEPKcz" title='idCompiler::Error' data-ref="_ZNK10idCompiler5ErrorEPKcz">Error</dfn>( <em>const</em> <em>char</em> *<dfn class="local col1 decl" id="4501error" title='error' data-type='const char *' data-ref="4501error">error</dfn>, ... ) <em>const</em> <a class="macro" href="../../sys/sys_public.h.html#137" title="__attribute__((format(printf,2,3)))" data-ref="_M/id_attribute">id_attribute</a>((format(printf,<var>2</var>,<var>3</var>)));</td></tr>
+<tr><th id="223">223</th><td>	<em>void</em>			<dfn class="decl" id="_ZNK10idCompiler7WarningEPKcz" title='idCompiler::Warning' data-ref="_ZNK10idCompiler7WarningEPKcz">Warning</dfn>( <em>const</em> <em>char</em> *<dfn class="local col2 decl" id="4502message" title='message' data-type='const char *' data-ref="4502message">message</dfn>, ... ) <em>const</em> <a class="macro" href="../../sys/sys_public.h.html#137" title="__attribute__((format(printf,2,3)))" data-ref="_M/id_attribute">id_attribute</a>((format(printf,<var>2</var>,<var>3</var>)));</td></tr>
+<tr><th id="224">224</th><td>	<a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a>		*<dfn class="decl" id="_ZN10idCompiler14OptimizeOpcodeEPK8opcode_sP8idVarDefS4_" title='idCompiler::OptimizeOpcode' data-ref="_ZN10idCompiler14OptimizeOpcodeEPK8opcode_sP8idVarDefS4_">OptimizeOpcode</dfn>( <em>const</em> <a class="typedef" href="#opcode_t" title='opcode_t' data-type='struct opcode_s' data-ref="opcode_t">opcode_t</a> *<dfn class="local col3 decl" id="4503op" title='op' data-type='const opcode_t *' data-ref="4503op">op</dfn>, <a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a> *<dfn class="local col4 decl" id="4504var_a" title='var_a' data-type='idVarDef *' data-ref="4504var_a">var_a</dfn>, <a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a> *<dfn class="local col5 decl" id="4505var_b" title='var_b' data-type='idVarDef *' data-ref="4505var_b">var_b</dfn> );</td></tr>
+<tr><th id="225">225</th><td>	<a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a>		*<dfn class="decl" id="_ZN10idCompiler10EmitOpcodeEPK8opcode_sP8idVarDefS4_" title='idCompiler::EmitOpcode' data-ref="_ZN10idCompiler10EmitOpcodeEPK8opcode_sP8idVarDefS4_">EmitOpcode</dfn>( <em>const</em> <a class="typedef" href="#opcode_t" title='opcode_t' data-type='struct opcode_s' data-ref="opcode_t">opcode_t</a> *<dfn class="local col6 decl" id="4506op" title='op' data-type='const opcode_t *' data-ref="4506op">op</dfn>, <a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a> *<dfn class="local col7 decl" id="4507var_a" title='var_a' data-type='idVarDef *' data-ref="4507var_a">var_a</dfn>, <a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a> *<dfn class="local col8 decl" id="4508var_b" title='var_b' data-type='idVarDef *' data-ref="4508var_b">var_b</dfn> );</td></tr>
+<tr><th id="226">226</th><td>	<a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a>		*<dfn class="decl" id="_ZN10idCompiler10EmitOpcodeEiP8idVarDefS1_" title='idCompiler::EmitOpcode' data-ref="_ZN10idCompiler10EmitOpcodeEiP8idVarDefS1_">EmitOpcode</dfn>( <em>int</em> <dfn class="local col9 decl" id="4509op" title='op' data-type='int' data-ref="4509op">op</dfn>, <a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a> *<dfn class="local col0 decl" id="4510var_a" title='var_a' data-type='idVarDef *' data-ref="4510var_a">var_a</dfn>, <a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a> *<dfn class="local col1 decl" id="4511var_b" title='var_b' data-type='idVarDef *' data-ref="4511var_b">var_b</dfn> );</td></tr>
+<tr><th id="227">227</th><td>	<em>bool</em>			<dfn class="decl" id="_ZN10idCompiler8EmitPushEP8idVarDefPK9idTypeDef" title='idCompiler::EmitPush' data-ref="_ZN10idCompiler8EmitPushEP8idVarDefPK9idTypeDef">EmitPush</dfn>( <a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a> *<dfn class="local col2 decl" id="4512expression" title='expression' data-type='idVarDef *' data-ref="4512expression">expression</dfn>, <em>const</em> <a class="type" href="Script_Program.h.html#idTypeDef" title='idTypeDef' data-ref="idTypeDef">idTypeDef</a> *<dfn class="local col3 decl" id="4513funcArg" title='funcArg' data-type='const idTypeDef *' data-ref="4513funcArg">funcArg</dfn> );</td></tr>
+<tr><th id="228">228</th><td>	<em>void</em>			<dfn class="decl" id="_ZN10idCompiler9NextTokenEv" title='idCompiler::NextToken' data-ref="_ZN10idCompiler9NextTokenEv">NextToken</dfn>( <em>void</em> );</td></tr>
+<tr><th id="229">229</th><td>	<em>void</em>			<dfn class="decl" id="_ZN10idCompiler11ExpectTokenEPKc" title='idCompiler::ExpectToken' data-ref="_ZN10idCompiler11ExpectTokenEPKc">ExpectToken</dfn>( <em>const</em> <em>char</em> *<dfn class="local col4 decl" id="4514string" title='string' data-type='const char *' data-ref="4514string">string</dfn> );</td></tr>
+<tr><th id="230">230</th><td>	<em>bool</em>			<dfn class="decl" id="_ZN10idCompiler10CheckTokenEPKc" title='idCompiler::CheckToken' data-ref="_ZN10idCompiler10CheckTokenEPKc">CheckToken</dfn>( <em>const</em> <em>char</em> *<dfn class="local col5 decl" id="4515string" title='string' data-type='const char *' data-ref="4515string">string</dfn> );</td></tr>
+<tr><th id="231">231</th><td>	<em>void</em>			<dfn class="decl" id="_ZN10idCompiler9ParseNameER5idStr" title='idCompiler::ParseName' data-ref="_ZN10idCompiler9ParseNameER5idStr">ParseName</dfn>( <a class="type" href="../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a> &amp;<dfn class="local col6 decl" id="4516name" title='name' data-type='idStr &amp;' data-ref="4516name">name</dfn> );</td></tr>
+<tr><th id="232">232</th><td>	<em>void</em>			<dfn class="decl" id="_ZN10idCompiler17SkipOutOfFunctionEv" title='idCompiler::SkipOutOfFunction' data-ref="_ZN10idCompiler17SkipOutOfFunctionEv">SkipOutOfFunction</dfn>( <em>void</em> );</td></tr>
+<tr><th id="233">233</th><td>	<em>void</em>			<dfn class="decl" id="_ZN10idCompiler15SkipToSemicolonEv" title='idCompiler::SkipToSemicolon' data-ref="_ZN10idCompiler15SkipToSemicolonEv">SkipToSemicolon</dfn>( <em>void</em> );</td></tr>
+<tr><th id="234">234</th><td>	<a class="type" href="Script_Program.h.html#idTypeDef" title='idTypeDef' data-ref="idTypeDef">idTypeDef</a>		*<dfn class="decl" id="_ZN10idCompiler9CheckTypeEv" title='idCompiler::CheckType' data-ref="_ZN10idCompiler9CheckTypeEv">CheckType</dfn>( <em>void</em> );</td></tr>
+<tr><th id="235">235</th><td>	<a class="type" href="Script_Program.h.html#idTypeDef" title='idTypeDef' data-ref="idTypeDef">idTypeDef</a>		*<dfn class="decl" id="_ZN10idCompiler9ParseTypeEv" title='idCompiler::ParseType' data-ref="_ZN10idCompiler9ParseTypeEv">ParseType</dfn>( <em>void</em> );</td></tr>
+<tr><th id="236">236</th><td>	<a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a>		*<dfn class="decl" id="_ZNK10idCompiler13FindImmediateEPK9idTypeDefPK6eval_sPKc" title='idCompiler::FindImmediate' data-ref="_ZNK10idCompiler13FindImmediateEPK9idTypeDefPK6eval_sPKc">FindImmediate</dfn>( <em>const</em> <a class="type" href="Script_Program.h.html#idTypeDef" title='idTypeDef' data-ref="idTypeDef">idTypeDef</a> *<dfn class="local col7 decl" id="4517type" title='type' data-type='const idTypeDef *' data-ref="4517type">type</dfn>, <em>const</em> <a class="typedef" href="Script_Program.h.html#eval_t" title='eval_t' data-type='union eval_s' data-ref="eval_t">eval_t</a> *<dfn class="local col8 decl" id="4518eval" title='eval' data-type='const eval_t *' data-ref="4518eval">eval</dfn>, <em>const</em> <em>char</em> *<dfn class="local col9 decl" id="4519string" title='string' data-type='const char *' data-ref="4519string">string</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="237">237</th><td>	<a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a>		*<dfn class="decl" id="_ZN10idCompiler12GetImmediateEP9idTypeDefPK6eval_sPKc" title='idCompiler::GetImmediate' data-ref="_ZN10idCompiler12GetImmediateEP9idTypeDefPK6eval_sPKc">GetImmediate</dfn>( <a class="type" href="Script_Program.h.html#idTypeDef" title='idTypeDef' data-ref="idTypeDef">idTypeDef</a> *<dfn class="local col0 decl" id="4520type" title='type' data-type='idTypeDef *' data-ref="4520type">type</dfn>, <em>const</em> <a class="typedef" href="Script_Program.h.html#eval_t" title='eval_t' data-type='union eval_s' data-ref="eval_t">eval_t</a> *<dfn class="local col1 decl" id="4521eval" title='eval' data-type='const eval_t *' data-ref="4521eval">eval</dfn>, <em>const</em> <em>char</em> *<dfn class="local col2 decl" id="4522string" title='string' data-type='const char *' data-ref="4522string">string</dfn> );</td></tr>
+<tr><th id="238">238</th><td>	<a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a>		*<dfn class="decl" id="_ZN10idCompiler23VirtualFunctionConstantEP8idVarDef" title='idCompiler::VirtualFunctionConstant' data-ref="_ZN10idCompiler23VirtualFunctionConstantEP8idVarDef">VirtualFunctionConstant</dfn>( <a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a> *<dfn class="local col3 decl" id="4523func" title='func' data-type='idVarDef *' data-ref="4523func">func</dfn> );</td></tr>
+<tr><th id="239">239</th><td>	<a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a>		*<dfn class="decl" id="_ZN10idCompiler12SizeConstantEi" title='idCompiler::SizeConstant' data-ref="_ZN10idCompiler12SizeConstantEi">SizeConstant</dfn>( <em>int</em> <dfn class="local col4 decl" id="4524size" title='size' data-type='int' data-ref="4524size">size</dfn> );</td></tr>
+<tr><th id="240">240</th><td>	<a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a>		*<dfn class="decl" id="_ZN10idCompiler12JumpConstantEi" title='idCompiler::JumpConstant' data-ref="_ZN10idCompiler12JumpConstantEi">JumpConstant</dfn>( <em>int</em> <dfn class="local col5 decl" id="4525value" title='value' data-type='int' data-ref="4525value">value</dfn> );</td></tr>
+<tr><th id="241">241</th><td>	<a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a>		*<dfn class="decl" id="_ZN10idCompiler7JumpDefEii" title='idCompiler::JumpDef' data-ref="_ZN10idCompiler7JumpDefEii">JumpDef</dfn>( <em>int</em> <dfn class="local col6 decl" id="4526jumpfrom" title='jumpfrom' data-type='int' data-ref="4526jumpfrom">jumpfrom</dfn>, <em>int</em> <dfn class="local col7 decl" id="4527jumpto" title='jumpto' data-type='int' data-ref="4527jumpto">jumpto</dfn> );</td></tr>
+<tr><th id="242">242</th><td>	<a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a>		*<dfn class="decl" id="_ZN10idCompiler6JumpToEi" title='idCompiler::JumpTo' data-ref="_ZN10idCompiler6JumpToEi">JumpTo</dfn>( <em>int</em> <dfn class="local col8 decl" id="4528jumpto" title='jumpto' data-type='int' data-ref="4528jumpto">jumpto</dfn> );</td></tr>
+<tr><th id="243">243</th><td>	<a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a>		*<dfn class="decl" id="_ZN10idCompiler8JumpFromEi" title='idCompiler::JumpFrom' data-ref="_ZN10idCompiler8JumpFromEi">JumpFrom</dfn>( <em>int</em> <dfn class="local col9 decl" id="4529jumpfrom" title='jumpfrom' data-type='int' data-ref="4529jumpfrom">jumpfrom</dfn> );</td></tr>
+<tr><th id="244">244</th><td>	<a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a>		*<dfn class="decl" id="_ZN10idCompiler14ParseImmediateEv" title='idCompiler::ParseImmediate' data-ref="_ZN10idCompiler14ParseImmediateEv">ParseImmediate</dfn>( <em>void</em> );</td></tr>
+<tr><th id="245">245</th><td>	<a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a>		*<dfn class="decl" id="_ZN10idCompiler17EmitFunctionParmsEiP8idVarDefiiS1_" title='idCompiler::EmitFunctionParms' data-ref="_ZN10idCompiler17EmitFunctionParmsEiP8idVarDefiiS1_">EmitFunctionParms</dfn>( <em>int</em> <dfn class="local col0 decl" id="4530op" title='op' data-type='int' data-ref="4530op">op</dfn>, <a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a> *<dfn class="local col1 decl" id="4531func" title='func' data-type='idVarDef *' data-ref="4531func">func</dfn>, <em>int</em> <dfn class="local col2 decl" id="4532startarg" title='startarg' data-type='int' data-ref="4532startarg">startarg</dfn>, <em>int</em> <dfn class="local col3 decl" id="4533startsize" title='startsize' data-type='int' data-ref="4533startsize">startsize</dfn>, <a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a> *<dfn class="local col4 decl" id="4534object" title='object' data-type='idVarDef *' data-ref="4534object">object</dfn> );</td></tr>
+<tr><th id="246">246</th><td>	<a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a>		*<dfn class="decl" id="_ZN10idCompiler17ParseFunctionCallEP8idVarDef" title='idCompiler::ParseFunctionCall' data-ref="_ZN10idCompiler17ParseFunctionCallEP8idVarDef">ParseFunctionCall</dfn>( <a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a> *<dfn class="local col5 decl" id="4535func" title='func' data-type='idVarDef *' data-ref="4535func">func</dfn> );</td></tr>
+<tr><th id="247">247</th><td>	<a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a>		*<dfn class="decl" id="_ZN10idCompiler15ParseObjectCallEP8idVarDefS1_" title='idCompiler::ParseObjectCall' data-ref="_ZN10idCompiler15ParseObjectCallEP8idVarDefS1_">ParseObjectCall</dfn>( <a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a> *<dfn class="local col6 decl" id="4536object" title='object' data-type='idVarDef *' data-ref="4536object">object</dfn>, <a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a> *<dfn class="local col7 decl" id="4537func" title='func' data-type='idVarDef *' data-ref="4537func">func</dfn> );</td></tr>
+<tr><th id="248">248</th><td>	<a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a>		*<dfn class="decl" id="_ZN10idCompiler14ParseEventCallEP8idVarDefS1_" title='idCompiler::ParseEventCall' data-ref="_ZN10idCompiler14ParseEventCallEP8idVarDefS1_">ParseEventCall</dfn>( <a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a> *<dfn class="local col8 decl" id="4538object" title='object' data-type='idVarDef *' data-ref="4538object">object</dfn>, <a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a> *<dfn class="local col9 decl" id="4539func" title='func' data-type='idVarDef *' data-ref="4539func">func</dfn> );</td></tr>
+<tr><th id="249">249</th><td>	<a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a>		*<dfn class="decl" id="_ZN10idCompiler18ParseSysObjectCallEP8idVarDef" title='idCompiler::ParseSysObjectCall' data-ref="_ZN10idCompiler18ParseSysObjectCallEP8idVarDef">ParseSysObjectCall</dfn>( <a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a> *<dfn class="local col0 decl" id="4540func" title='func' data-type='idVarDef *' data-ref="4540func">func</dfn> );</td></tr>
+<tr><th id="250">250</th><td>	<a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a>		*<dfn class="decl" id="_ZN10idCompiler9LookupDefEPKcPK8idVarDef" title='idCompiler::LookupDef' data-ref="_ZN10idCompiler9LookupDefEPKcPK8idVarDef">LookupDef</dfn>( <em>const</em> <em>char</em> *<dfn class="local col1 decl" id="4541name" title='name' data-type='const char *' data-ref="4541name">name</dfn>, <em>const</em> <a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a> *<dfn class="local col2 decl" id="4542baseobj" title='baseobj' data-type='const idVarDef *' data-ref="4542baseobj">baseobj</dfn> );</td></tr>
+<tr><th id="251">251</th><td>	<a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a>		*<dfn class="decl" id="_ZN10idCompiler10ParseValueEv" title='idCompiler::ParseValue' data-ref="_ZN10idCompiler10ParseValueEv">ParseValue</dfn>( <em>void</em> );</td></tr>
+<tr><th id="252">252</th><td>	<a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a>		*<dfn class="decl" id="_ZN10idCompiler7GetTermEv" title='idCompiler::GetTerm' data-ref="_ZN10idCompiler7GetTermEv">GetTerm</dfn>( <em>void</em> );</td></tr>
+<tr><th id="253">253</th><td>	<em>bool</em>			<dfn class="decl" id="_ZNK10idCompiler11TypeMatchesE7etype_tS0_" title='idCompiler::TypeMatches' data-ref="_ZNK10idCompiler11TypeMatchesE7etype_tS0_">TypeMatches</dfn>( <a class="typedef" href="Script_Program.h.html#etype_t" title='etype_t' data-type='enum etype_t' data-ref="etype_t">etype_t</a> <dfn class="local col3 decl" id="4543type1" title='type1' data-type='etype_t' data-ref="4543type1">type1</dfn>, <a class="typedef" href="Script_Program.h.html#etype_t" title='etype_t' data-type='enum etype_t' data-ref="etype_t">etype_t</a> <dfn class="local col4 decl" id="4544type2" title='type2' data-type='etype_t' data-ref="4544type2">type2</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="254">254</th><td>	<a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a>		*<dfn class="decl" id="_ZN10idCompiler13GetExpressionEi" title='idCompiler::GetExpression' data-ref="_ZN10idCompiler13GetExpressionEi">GetExpression</dfn>( <em>int</em> <dfn class="local col5 decl" id="4545priority" title='priority' data-type='int' data-ref="4545priority">priority</dfn> );</td></tr>
+<tr><th id="255">255</th><td>	<a class="type" href="Script_Program.h.html#idTypeDef" title='idTypeDef' data-ref="idTypeDef">idTypeDef</a>		*<dfn class="decl" id="_ZN10idCompiler18GetTypeForEventArgEc" title='idCompiler::GetTypeForEventArg' data-ref="_ZN10idCompiler18GetTypeForEventArgEc">GetTypeForEventArg</dfn>( <em>char</em> <dfn class="local col6 decl" id="4546argType" title='argType' data-type='char' data-ref="4546argType">argType</dfn> );</td></tr>
+<tr><th id="256">256</th><td>	<em>void</em>			<dfn class="decl" id="_ZN10idCompiler9PatchLoopEii" title='idCompiler::PatchLoop' data-ref="_ZN10idCompiler9PatchLoopEii">PatchLoop</dfn>( <em>int</em> <dfn class="local col7 decl" id="4547start" title='start' data-type='int' data-ref="4547start">start</dfn>, <em>int</em> <dfn class="local col8 decl" id="4548continuePos" title='continuePos' data-type='int' data-ref="4548continuePos">continuePos</dfn> );</td></tr>
+<tr><th id="257">257</th><td>	<em>void</em>			<dfn class="decl" id="_ZN10idCompiler20ParseReturnStatementEv" title='idCompiler::ParseReturnStatement' data-ref="_ZN10idCompiler20ParseReturnStatementEv">ParseReturnStatement</dfn>( <em>void</em> );</td></tr>
+<tr><th id="258">258</th><td>	<em>void</em>			<dfn class="decl" id="_ZN10idCompiler19ParseWhileStatementEv" title='idCompiler::ParseWhileStatement' data-ref="_ZN10idCompiler19ParseWhileStatementEv">ParseWhileStatement</dfn>( <em>void</em> );</td></tr>
+<tr><th id="259">259</th><td>	<em>void</em>			<dfn class="decl" id="_ZN10idCompiler17ParseForStatementEv" title='idCompiler::ParseForStatement' data-ref="_ZN10idCompiler17ParseForStatementEv">ParseForStatement</dfn>( <em>void</em> );</td></tr>
+<tr><th id="260">260</th><td>	<em>void</em>			<dfn class="decl" id="_ZN10idCompiler21ParseDoWhileStatementEv" title='idCompiler::ParseDoWhileStatement' data-ref="_ZN10idCompiler21ParseDoWhileStatementEv">ParseDoWhileStatement</dfn>( <em>void</em> );</td></tr>
+<tr><th id="261">261</th><td>	<em>void</em>			<dfn class="decl" id="_ZN10idCompiler16ParseIfStatementEv" title='idCompiler::ParseIfStatement' data-ref="_ZN10idCompiler16ParseIfStatementEv">ParseIfStatement</dfn>( <em>void</em> );</td></tr>
+<tr><th id="262">262</th><td>	<em>void</em>			<dfn class="decl" id="_ZN10idCompiler14ParseStatementEv" title='idCompiler::ParseStatement' data-ref="_ZN10idCompiler14ParseStatementEv">ParseStatement</dfn>( <em>void</em> );</td></tr>
+<tr><th id="263">263</th><td>	<em>void</em>			<dfn class="decl" id="_ZN10idCompiler14ParseObjectDefEPKc" title='idCompiler::ParseObjectDef' data-ref="_ZN10idCompiler14ParseObjectDefEPKc">ParseObjectDef</dfn>( <em>const</em> <em>char</em> *<dfn class="local col9 decl" id="4549objname" title='objname' data-type='const char *' data-ref="4549objname">objname</dfn> );</td></tr>
+<tr><th id="264">264</th><td>	<a class="type" href="Script_Program.h.html#idTypeDef" title='idTypeDef' data-ref="idTypeDef">idTypeDef</a>		*<dfn class="decl" id="_ZN10idCompiler13ParseFunctionEP9idTypeDefPKc" title='idCompiler::ParseFunction' data-ref="_ZN10idCompiler13ParseFunctionEP9idTypeDefPKc">ParseFunction</dfn>( <a class="type" href="Script_Program.h.html#idTypeDef" title='idTypeDef' data-ref="idTypeDef">idTypeDef</a> *<dfn class="local col0 decl" id="4550returnType" title='returnType' data-type='idTypeDef *' data-ref="4550returnType">returnType</dfn>, <em>const</em> <em>char</em> *<dfn class="local col1 decl" id="4551name" title='name' data-type='const char *' data-ref="4551name">name</dfn> );</td></tr>
+<tr><th id="265">265</th><td>	<em>void</em>			<dfn class="decl" id="_ZN10idCompiler16ParseFunctionDefEP9idTypeDefPKc" title='idCompiler::ParseFunctionDef' data-ref="_ZN10idCompiler16ParseFunctionDefEP9idTypeDefPKc">ParseFunctionDef</dfn>( <a class="type" href="Script_Program.h.html#idTypeDef" title='idTypeDef' data-ref="idTypeDef">idTypeDef</a> *<dfn class="local col2 decl" id="4552returnType" title='returnType' data-type='idTypeDef *' data-ref="4552returnType">returnType</dfn>, <em>const</em> <em>char</em> *<dfn class="local col3 decl" id="4553name" title='name' data-type='const char *' data-ref="4553name">name</dfn> );</td></tr>
+<tr><th id="266">266</th><td>	<em>void</em>			<dfn class="decl" id="_ZN10idCompiler16ParseVariableDefEP9idTypeDefPKc" title='idCompiler::ParseVariableDef' data-ref="_ZN10idCompiler16ParseVariableDefEP9idTypeDefPKc">ParseVariableDef</dfn>( <a class="type" href="Script_Program.h.html#idTypeDef" title='idTypeDef' data-ref="idTypeDef">idTypeDef</a> *<dfn class="local col4 decl" id="4554type" title='type' data-type='idTypeDef *' data-ref="4554type">type</dfn>, <em>const</em> <em>char</em> *<dfn class="local col5 decl" id="4555name" title='name' data-type='const char *' data-ref="4555name">name</dfn> );</td></tr>
+<tr><th id="267">267</th><td>	<em>void</em>			<dfn class="decl" id="_ZN10idCompiler13ParseEventDefEP9idTypeDefPKc" title='idCompiler::ParseEventDef' data-ref="_ZN10idCompiler13ParseEventDefEP9idTypeDefPKc">ParseEventDef</dfn>( <a class="type" href="Script_Program.h.html#idTypeDef" title='idTypeDef' data-ref="idTypeDef">idTypeDef</a> *<dfn class="local col6 decl" id="4556type" title='type' data-type='idTypeDef *' data-ref="4556type">type</dfn>, <em>const</em> <em>char</em> *<dfn class="local col7 decl" id="4557name" title='name' data-type='const char *' data-ref="4557name">name</dfn> );</td></tr>
+<tr><th id="268">268</th><td>	<em>void</em>			<dfn class="decl" id="_ZN10idCompiler9ParseDefsEv" title='idCompiler::ParseDefs' data-ref="_ZN10idCompiler9ParseDefsEv">ParseDefs</dfn>( <em>void</em> );</td></tr>
+<tr><th id="269">269</th><td>	<em>void</em>			<dfn class="decl" id="_ZN10idCompiler14ParseNamespaceEP8idVarDef" title='idCompiler::ParseNamespace' data-ref="_ZN10idCompiler14ParseNamespaceEP8idVarDef">ParseNamespace</dfn>( <a class="type" href="Script_Program.h.html#idVarDef" title='idVarDef' data-ref="idVarDef">idVarDef</a> *<dfn class="local col8 decl" id="4558newScope" title='newScope' data-type='idVarDef *' data-ref="4558newScope">newScope</dfn> );</td></tr>
+<tr><th id="270">270</th><td></td></tr>
+<tr><th id="271">271</th><td><b>public</b> :</td></tr>
+<tr><th id="272">272</th><td>	<em>static</em> <a class="typedef" href="#opcode_t" title='opcode_t' data-type='struct opcode_s' data-ref="opcode_t">opcode_t</a>	<dfn class="decl" id="idCompiler::opcodes" title='idCompiler::opcodes' data-ref="idCompiler::opcodes">opcodes</dfn>[];</td></tr>
+<tr><th id="273">273</th><td></td></tr>
+<tr><th id="274">274</th><td>					<dfn class="decl" id="_ZN10idCompilerC1Ev" title='idCompiler::idCompiler' data-ref="_ZN10idCompilerC1Ev">idCompiler</dfn>();</td></tr>
+<tr><th id="275">275</th><td>	<em>void</em>			<dfn class="decl" id="_ZN10idCompiler11CompileFileEPKcS1_b" title='idCompiler::CompileFile' data-ref="_ZN10idCompiler11CompileFileEPKcS1_b">CompileFile</dfn>( <em>const</em> <em>char</em> *<dfn class="local col9 decl" id="4559text" title='text' data-type='const char *' data-ref="4559text">text</dfn>, <em>const</em> <em>char</em> *<dfn class="local col0 decl" id="4560filename" title='filename' data-type='const char *' data-ref="4560filename">filename</dfn>, <em>bool</em> <dfn class="local col1 decl" id="4561console" title='console' data-type='bool' data-ref="4561console">console</dfn> );</td></tr>
+<tr><th id="276">276</th><td>};</td></tr>
+<tr><th id="277">277</th><td></td></tr>
+<tr><th id="278">278</th><td><u>#<span data-ppcond="28">endif</span> /* !__SCRIPT_COMPILER_H__ */</u></td></tr>
+<tr><th id="279">279</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../AF.cpp.html'>codebrowser/d3xp/AF.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

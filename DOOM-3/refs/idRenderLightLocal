@@ -1,0 +1,32 @@
+<inh f='codebrowser/renderer/tr_local.h' l='152' c='idRenderLight'/>
+<def f='codebrowser/renderer/tr_local.h' l='181' ll='234'/>
+<size>1160</size>
+<fun r='_ZN18idRenderLightLocalC1Ev'/>
+<fun r='_ZN18idRenderLightLocal15FreeRenderLightEv'/>
+<fun r='_ZN18idRenderLightLocal17UpdateRenderLightEPK13renderLight_sb'/>
+<fun r='_ZN18idRenderLightLocal14GetRenderLightEP13renderLight_s'/>
+<fun r='_ZN18idRenderLightLocal11ForceUpdateEv'/>
+<fun r='_ZN18idRenderLightLocal8GetIndexEv'/>
+<mbr r='idRenderLightLocal::parms' o='32' t='renderLight_t'/>
+<mbr r='idRenderLightLocal::lightHasMoved' o='1696' t='bool'/>
+<mbr r='idRenderLightLocal::modelMatrix' o='1728' t='float [16]'/>
+<mbr r='idRenderLightLocal::world' o='2240' t='idRenderWorldLocal *'/>
+<mbr r='idRenderLightLocal::index' o='2272' t='int'/>
+<mbr r='idRenderLightLocal::areaNum' o='2304' t='int'/>
+<mbr r='idRenderLightLocal::lastModifiedFrameNum' o='2336' t='int'/>
+<mbr r='idRenderLightLocal::archived' o='2368' t='bool'/>
+<mbr r='idRenderLightLocal::lightProject' o='2400' t='idPlane [4]'/>
+<mbr r='idRenderLightLocal::lightShader' o='2912' t='const idMaterial *'/>
+<mbr r='idRenderLightLocal::falloffImage' o='2944' t='idImage *'/>
+<mbr r='idRenderLightLocal::globalLightOrigin' o='2976' t='idVec3'/>
+<mbr r='idRenderLightLocal::frustum' o='3072' t='idPlane [6]'/>
+<mbr r='idRenderLightLocal::frustumWindings' o='3840' t='idWinding *[6]'/>
+<mbr r='idRenderLightLocal::frustumTris' o='4032' t='srfTriangles_t *'/>
+<mbr r='idRenderLightLocal::numShadowFrustums' o='4064' t='int'/>
+<mbr r='idRenderLightLocal::shadowFrustums' o='4096' t='shadowFrustum_t [6]'/>
+<mbr r='idRenderLightLocal::viewCount' o='9088' t='int'/>
+<mbr r='idRenderLightLocal::viewLight' o='9120' t='struct viewLight_s *'/>
+<mbr r='idRenderLightLocal::references' o='9152' t='areaReference_t *'/>
+<mbr r='idRenderLightLocal::firstInteraction' o='9184' t='idInteraction *'/>
+<mbr r='idRenderLightLocal::lastInteraction' o='9216' t='idInteraction *'/>
+<mbr r='idRenderLightLocal::foggedPortals' o='9248' t='struct doublePortal_s *'/>

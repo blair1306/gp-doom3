@@ -1,0 +1,11 @@
+<dec f='codebrowser/framework/Unzip.h' l='218' type='int unzGetGlobalComment(unzFile file, char * szComment, unsigned long uSizeBuf)'/>
+<doc f='codebrowser/framework/Unzip.h' l='212'>/*
+  Write info about the ZipFile in the *pglobal_info structure.
+  No preparation of the structure is needed
+  return UNZ_OK if there is no problem. */</doc>
+<def f='codebrowser/framework/Unzip.cpp' l='2213' ll='2238' type='int unzGetGlobalComment(unzFile file, char * szComment, uLong uSizeBuf)'/>
+<doc f='codebrowser/framework/Unzip.cpp' l='2208'>/*
+  Get the global comment string of the ZipFile, in the szComment buffer.
+  uSizeBuf is the size of the szComment buffer.
+  return the number of byte copied or an error code &lt;0
+*/</doc>

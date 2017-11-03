@@ -1,0 +1,38 @@
+<dec f='codebrowser/d3xp/PlayerView.h' l='374' type='void idPlayerView::Fade(idVec4 color, int time)'/>
+<use f='codebrowser/d3xp/Player.cpp' l='7793' u='c' c='_ZN8idPlayer6KilledEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/d3xp/Player.cpp' l='9627' u='c' c='_ZN8idPlayer16ReadFromSnapshotERK13idBitMsgDelta'/>
+<use f='codebrowser/d3xp/PlayerView.cpp' l='605' u='c' c='_ZN12idPlayerView5FlashE6idVec4i'/>
+<def f='codebrowser/d3xp/PlayerView.cpp' l='617' ll='642' type='void idPlayerView::Fade(idVec4 color, int time)'/>
+<doc f='codebrowser/d3xp/PlayerView.cpp' l='609'>/*
+=================
+idPlayerView::Fade
+
+used for level transition fades
+assumes: color.w is 0 or 1
+=================
+*/</doc>
+<use f='codebrowser/d3xp/Target.cpp' l='896' u='c' c='_ZN21idTarget_SetInfluence11Event_FlashEfi'/>
+<use f='codebrowser/d3xp/Target.cpp' l='916' u='c' c='_ZN21idTarget_SetInfluence16Event_ClearFlashEf'/>
+<use f='codebrowser/d3xp/Trigger.cpp' l='1070' u='c' c='_ZN14idTrigger_Fade13Event_TriggerEP8idEntity'/>
+<use f='codebrowser/d3xp/script/Script_Thread.cpp' l='1614' u='c' c='_ZN8idThread12Event_FadeInER6idVec3f'/>
+<use f='codebrowser/d3xp/script/Script_Thread.cpp' l='1630' u='c' c='_ZN8idThread13Event_FadeOutER6idVec3f'/>
+<use f='codebrowser/d3xp/script/Script_Thread.cpp' l='1646' u='c' c='_ZN8idThread12Event_FadeToER6idVec3ff'/>
+<dec f='codebrowser/game/PlayerView.h' l='77' type='void idPlayerView::Fade(idVec4 color, int time)'/>
+<use f='codebrowser/game/Player.cpp' l='6483' u='c' c='_ZN8idPlayer6KilledEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/game/Player.cpp' l='8091' u='c' c='_ZN8idPlayer16ReadFromSnapshotERK13idBitMsgDelta'/>
+<use f='codebrowser/game/PlayerView.cpp' l='597' u='c' c='_ZN12idPlayerView5FlashE6idVec4i'/>
+<def f='codebrowser/game/PlayerView.cpp' l='609' ll='631' type='void idPlayerView::Fade(idVec4 color, int time)'/>
+<doc f='codebrowser/game/PlayerView.cpp' l='601'>/*
+=================
+idPlayerView::Fade
+
+used for level transition fades
+assumes: color.w is 0 or 1
+=================
+*/</doc>
+<use f='codebrowser/game/Target.cpp' l='876' u='c' c='_ZN21idTarget_SetInfluence11Event_FlashEfi'/>
+<use f='codebrowser/game/Target.cpp' l='896' u='c' c='_ZN21idTarget_SetInfluence16Event_ClearFlashEf'/>
+<use f='codebrowser/game/Trigger.cpp' l='1046' u='c' c='_ZN14idTrigger_Fade13Event_TriggerEP8idEntity'/>
+<use f='codebrowser/game/script/Script_Thread.cpp' l='1534' u='c' c='_ZN8idThread12Event_FadeInER6idVec3f'/>
+<use f='codebrowser/game/script/Script_Thread.cpp' l='1550' u='c' c='_ZN8idThread13Event_FadeOutER6idVec3f'/>
+<use f='codebrowser/game/script/Script_Thread.cpp' l='1566' u='c' c='_ZN8idThread12Event_FadeToER6idVec3ff'/>

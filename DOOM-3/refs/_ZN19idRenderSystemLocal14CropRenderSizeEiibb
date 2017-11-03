@@ -1,0 +1,16 @@
+<dec f='codebrowser/renderer/tr_local.h' l='728' type='void idRenderSystemLocal::CropRenderSize(int width, int height, bool makePowerOfTwo = false, bool forceDimensions = false)'/>
+<use f='codebrowser/renderer/RenderSystem.cpp' l='658' u='c' c='_ZN19idRenderSystemLocal10BeginFrameEii'/>
+<inh f='codebrowser/renderer/RenderSystem.h' l='247' c='_ZN14idRenderSystem14CropRenderSizeEiibb'/>
+<def f='codebrowser/renderer/RenderSystem.cpp' l='802' ll='875' type='void idRenderSystemLocal::CropRenderSize(int width, int height, bool makePowerOfTwo = false, bool forceDimensions = false)'/>
+<doc f='codebrowser/renderer/RenderSystem.cpp' l='793'>/*
+================
+CropRenderSize
+
+This automatically halves sizes until it fits in the current window size,
+so if you specify a power of two size for a texture copy, it may be shrunk
+down, but still valid.
+================
+*/</doc>
+<use f='codebrowser/renderer/tr_subview.cpp' l='316' u='c' c='_ZL14R_RemoteRenderP10drawSurf_sP14textureStage_t'/>
+<use f='codebrowser/renderer/tr_subview.cpp' l='365' u='c' c='_Z14R_MirrorRenderP10drawSurf_sP14textureStage_t12idScreenRect'/>
+<use f='codebrowser/renderer/tr_subview.cpp' l='415' u='c' c='_Z12R_XrayRenderP10drawSurf_sP14textureStage_t12idScreenRect'/>

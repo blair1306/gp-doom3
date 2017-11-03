@@ -1,0 +1,31 @@
+<dec f='codebrowser/d3xp/Trigger.h' l='84' type='void idTrigger_Multi::Spawn()'/>
+<use f='codebrowser/d3xp/Trigger.cpp' l='248' macro='1' u='a'/>
+<def f='codebrowser/d3xp/Trigger.cpp' l='323' ll='365' type='void idTrigger_Multi::Spawn()'/>
+<use f='codebrowser/d3xp/Trigger.cpp' l='1251' u='c' c='_ZN14idTrigger_Flag5SpawnEv'/>
+<doc f='codebrowser/d3xp/Trigger.cpp' l='311'>/*
+================
+idTrigger_Multi::Spawn
+
+&quot;wait&quot; : Seconds between triggerings, 0.5 default, -1 = one time only.
+&quot;call&quot; : Script function to call when triggered
+&quot;random&quot;	wait variance, default is 0
+Variable sized repeatable trigger.  Must be targeted at one or more entities.
+so, the basic time between firing is a random time between
+(wait - random) and (wait + random)
+================
+*/</doc>
+<dec f='codebrowser/game/Trigger.h' l='84' type='void idTrigger_Multi::Spawn()'/>
+<use f='codebrowser/game/Trigger.cpp' l='248' macro='1' u='a'/>
+<def f='codebrowser/game/Trigger.cpp' l='323' ll='365' type='void idTrigger_Multi::Spawn()'/>
+<doc f='codebrowser/game/Trigger.cpp' l='311'>/*
+================
+idTrigger_Multi::Spawn
+
+&quot;wait&quot; : Seconds between triggerings, 0.5 default, -1 = one time only.
+&quot;call&quot; : Script function to call when triggered
+&quot;random&quot;	wait variance, default is 0
+Variable sized repeatable trigger.  Must be targeted at one or more entities.
+so, the basic time between firing is a random time between
+(wait - random) and (wait + random)
+================
+*/</doc>

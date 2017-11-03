@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Camera.h source code [codebrowser/game/Camera.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idCamera,idCameraAnim,idCameraView "/>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/game/Camera.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>game</a>/<a href='Camera.h.html'>Camera.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__GAME_CAMERA_H__">__GAME_CAMERA_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__GAME_CAMERA_H__" data-ref="_M/__GAME_CAMERA_H__">__GAME_CAMERA_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><i>/*</i></td></tr>
+<tr><th id="34">34</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="35">35</th><td><i></i></td></tr>
+<tr><th id="36">36</th><td><i>Camera providing an alternative view of the level.</i></td></tr>
+<tr><th id="37">37</th><td><i></i></td></tr>
+<tr><th id="38">38</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="39">39</th><td><i>*/</i></td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><b>class</b> <dfn class="type def" id="idCamera" title='idCamera' data-ref="idCamera">idCamera</dfn> : <b>public</b> <a class="type" href="Entity.h.html#idEntity" title='idEntity' data-ref="idEntity">idEntity</a> {</td></tr>
+<tr><th id="42">42</th><td><b>public</b>:</td></tr>
+<tr><th id="43">43</th><td>	<a class="macro" href="gamesys/Class.h.html#138" title="public: static idTypeInfo Type; static idClass *CreateInstance( void ); virtual idTypeInfo *GetType( void ) const; static idEventFunc&lt;idCamera&gt; eventCallbacks[]" data-ref="_M/ABSTRACT_PROTOTYPE">ABSTRACT_PROTOTYPE</a>( <a class="type" href="#idCamera" title='idCamera' data-ref="idCamera">idCamera</a> );</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td>	<em>void</em>					<dfn class="decl" id="_ZN8idCamera5SpawnEv" title='idCamera::Spawn' data-ref="_ZN8idCamera5SpawnEv">Spawn</dfn>( <em>void</em> );</td></tr>
+<tr><th id="46">46</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN8idCamera12GetViewParmsEP12renderView_s" title='idCamera::GetViewParms' data-ref="_ZN8idCamera12GetViewParmsEP12renderView_s">GetViewParms</dfn>( <a class="typedef" href="../framework/DeclParticle.h.html#renderView_t" title='renderView_t' data-type='struct renderView_s' data-ref="renderView_t">renderView_t</a> *<dfn class="local col4 decl" id="3624view" title='view' data-type='renderView_t *' data-ref="3624view">view</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="47">47</th><td>	<b>virtual</b> <a class="typedef" href="../framework/DeclParticle.h.html#renderView_t" title='renderView_t' data-type='struct renderView_s' data-ref="renderView_t">renderView_t</a> *	<dfn class="virtual decl" id="_ZN8idCamera13GetRenderViewEv" title='idCamera::GetRenderView' data-ref="_ZN8idCamera13GetRenderViewEv">GetRenderView</dfn>();</td></tr>
+<tr><th id="48">48</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl def" id="_ZN8idCamera4StopEv" title='idCamera::Stop' data-ref="_ZN8idCamera4StopEv">Stop</dfn>( <em>void</em> ){} ;</td></tr>
+<tr><th id="49">49</th><td>};</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td><i>/*</i></td></tr>
+<tr><th id="52">52</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="53">53</th><td><i></i></td></tr>
+<tr><th id="54">54</th><td><i>idCameraView</i></td></tr>
+<tr><th id="55">55</th><td><i></i></td></tr>
+<tr><th id="56">56</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="57">57</th><td><i>*/</i></td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td><b>class</b> <dfn class="type def" id="idCameraView" title='idCameraView' data-ref="idCameraView">idCameraView</dfn> : <b>public</b> <a class="type" href="#idCamera" title='idCamera' data-ref="idCamera">idCamera</a> {</td></tr>
+<tr><th id="60">60</th><td><b>public</b>:</td></tr>
+<tr><th id="61">61</th><td>	<a class="macro" href="gamesys/Class.h.html#92" title="public: static idTypeInfo Type; static idClass *CreateInstance( void ); virtual idTypeInfo *GetType( void ) const; static idEventFunc&lt;idCameraView&gt; eventCallbacks[]" data-ref="_M/CLASS_PROTOTYPE">CLASS_PROTOTYPE</a>( <a class="type" href="#idCameraView" title='idCameraView' data-ref="idCameraView">idCameraView</a> );</td></tr>
+<tr><th id="62">62</th><td>							<dfn class="decl" id="_ZN12idCameraViewC1Ev" title='idCameraView::idCameraView' data-ref="_ZN12idCameraViewC1Ev">idCameraView</dfn>();</td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td>	<i>// save games</i></td></tr>
+<tr><th id="65">65</th><td>	<em>void</em>					<dfn class="decl" id="_ZNK12idCameraView4SaveEP10idSaveGame" title='idCameraView::Save' data-ref="_ZNK12idCameraView4SaveEP10idSaveGame">Save</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idSaveGame" title='idSaveGame' data-ref="idSaveGame">idSaveGame</a> *<dfn class="local col5 decl" id="3625savefile" title='savefile' data-type='idSaveGame *' data-ref="3625savefile">savefile</dfn> ) <em>const</em>;				<i>// archives object for save game file</i></td></tr>
+<tr><th id="66">66</th><td>	<em>void</em>					<dfn class="decl" id="_ZN12idCameraView7RestoreEP13idRestoreGame" title='idCameraView::Restore' data-ref="_ZN12idCameraView7RestoreEP13idRestoreGame">Restore</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idRestoreGame" title='idRestoreGame' data-ref="idRestoreGame">idRestoreGame</a> *<dfn class="local col6 decl" id="3626savefile" title='savefile' data-type='idRestoreGame *' data-ref="3626savefile">savefile</dfn> );				<i>// unarchives object from save game file</i></td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td>	<em>void</em>					<dfn class="decl" id="_ZN12idCameraView5SpawnEv" title='idCameraView::Spawn' data-ref="_ZN12idCameraView5SpawnEv">Spawn</dfn>( );</td></tr>
+<tr><th id="69">69</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN12idCameraView12GetViewParmsEP12renderView_s" title='idCameraView::GetViewParms' data-ref="_ZN12idCameraView12GetViewParmsEP12renderView_s">GetViewParms</dfn>( <a class="typedef" href="../framework/DeclParticle.h.html#renderView_t" title='renderView_t' data-type='struct renderView_s' data-ref="renderView_t">renderView_t</a> *<dfn class="local col7 decl" id="3627view" title='view' data-type='renderView_t *' data-ref="3627view">view</dfn> );</td></tr>
+<tr><th id="70">70</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN12idCameraView4StopEv" title='idCameraView::Stop' data-ref="_ZN12idCameraView4StopEv">Stop</dfn>( <em>void</em> );</td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td><b>protected</b>:</td></tr>
+<tr><th id="73">73</th><td>	<em>void</em>					<dfn class="decl" id="_ZN12idCameraView14Event_ActivateEP8idEntity" title='idCameraView::Event_Activate' data-ref="_ZN12idCameraView14Event_ActivateEP8idEntity">Event_Activate</dfn>( <a class="type" href="Entity.h.html#idEntity" title='idEntity' data-ref="idEntity">idEntity</a> *<dfn class="local col8 decl" id="3628activator" title='activator' data-type='idEntity *' data-ref="3628activator">activator</dfn> );</td></tr>
+<tr><th id="74">74</th><td>	<em>void</em>					<dfn class="decl" id="_ZN12idCameraView20Event_SetAttachmentsEv" title='idCameraView::Event_SetAttachments' data-ref="_ZN12idCameraView20Event_SetAttachmentsEv">Event_SetAttachments</dfn>();</td></tr>
+<tr><th id="75">75</th><td>	<em>void</em>					<dfn class="decl" id="_ZN12idCameraView13SetAttachmentEPP8idEntityPKc" title='idCameraView::SetAttachment' data-ref="_ZN12idCameraView13SetAttachmentEPP8idEntityPKc">SetAttachment</dfn>( <a class="type" href="Entity.h.html#idEntity" title='idEntity' data-ref="idEntity">idEntity</a> **<dfn class="local col9 decl" id="3629e" title='e' data-type='idEntity **' data-ref="3629e">e</dfn>, <em>const</em> <em>char</em> *<dfn class="local col0 decl" id="3630p" title='p' data-type='const char *' data-ref="3630p">p</dfn> );</td></tr>
+<tr><th id="76">76</th><td>	<em>float</em>					<dfn class="decl" id="idCameraView::fov" title='idCameraView::fov' data-ref="idCameraView::fov">fov</dfn>;</td></tr>
+<tr><th id="77">77</th><td>	<a class="type" href="Entity.h.html#idEntity" title='idEntity' data-ref="idEntity">idEntity</a>				*<dfn class="decl" id="idCameraView::attachedTo" title='idCameraView::attachedTo' data-ref="idCameraView::attachedTo">attachedTo</dfn>;</td></tr>
+<tr><th id="78">78</th><td>	<a class="type" href="Entity.h.html#idEntity" title='idEntity' data-ref="idEntity">idEntity</a>				*<dfn class="decl" id="idCameraView::attachedView" title='idCameraView::attachedView' data-ref="idCameraView::attachedView">attachedView</dfn>;</td></tr>
+<tr><th id="79">79</th><td>};</td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td><i>/*</i></td></tr>
+<tr><th id="84">84</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="85">85</th><td><i></i></td></tr>
+<tr><th id="86">86</th><td><i>A camera which follows a path defined by an animation.</i></td></tr>
+<tr><th id="87">87</th><td><i></i></td></tr>
+<tr><th id="88">88</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="89">89</th><td><i>*/</i></td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="92">92</th><td>	<a class="type" href="../idlib/math/Quat.h.html#idCQuat" title='idCQuat' data-ref="idCQuat">idCQuat</a>				<dfn class="decl" id="(anonymous)::q" title='(anonymous struct)::q' data-ref="(anonymous)::q">q</dfn>;</td></tr>
+<tr><th id="93">93</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a>				<dfn class="decl" id="(anonymous)::t" title='(anonymous struct)::t' data-ref="(anonymous)::t">t</dfn>;</td></tr>
+<tr><th id="94">94</th><td>	<em>float</em>				<dfn class="decl" id="(anonymous)::fov" title='(anonymous struct)::fov' data-ref="(anonymous)::fov">fov</dfn>;</td></tr>
+<tr><th id="95">95</th><td>} <dfn class="typedef" id="cameraFrame_t" title='cameraFrame_t' data-type='struct cameraFrame_t' data-ref="cameraFrame_t">cameraFrame_t</dfn>;</td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td><b>class</b> <dfn class="type def" id="idCameraAnim" title='idCameraAnim' data-ref="idCameraAnim">idCameraAnim</dfn> : <b>public</b> <a class="type" href="#idCamera" title='idCamera' data-ref="idCamera">idCamera</a> {</td></tr>
+<tr><th id="98">98</th><td><b>public</b>:</td></tr>
+<tr><th id="99">99</th><td>	<a class="macro" href="gamesys/Class.h.html#92" title="public: static idTypeInfo Type; static idClass *CreateInstance( void ); virtual idTypeInfo *GetType( void ) const; static idEventFunc&lt;idCameraAnim&gt; eventCallbacks[]" data-ref="_M/CLASS_PROTOTYPE">CLASS_PROTOTYPE</a>( <a class="type" href="#idCameraAnim" title='idCameraAnim' data-ref="idCameraAnim">idCameraAnim</a> );</td></tr>
+<tr><th id="100">100</th><td></td></tr>
+<tr><th id="101">101</th><td>							<dfn class="decl" id="_ZN12idCameraAnimC1Ev" title='idCameraAnim::idCameraAnim' data-ref="_ZN12idCameraAnimC1Ev">idCameraAnim</dfn>();</td></tr>
+<tr><th id="102">102</th><td>							<dfn class="virtual decl" id="_ZN12idCameraAnimD1Ev" title='idCameraAnim::~idCameraAnim' data-ref="_ZN12idCameraAnimD1Ev">~idCameraAnim</dfn>();</td></tr>
+<tr><th id="103">103</th><td></td></tr>
+<tr><th id="104">104</th><td>	<i>// save games</i></td></tr>
+<tr><th id="105">105</th><td>	<em>void</em>					<dfn class="decl" id="_ZNK12idCameraAnim4SaveEP10idSaveGame" title='idCameraAnim::Save' data-ref="_ZNK12idCameraAnim4SaveEP10idSaveGame">Save</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idSaveGame" title='idSaveGame' data-ref="idSaveGame">idSaveGame</a> *<dfn class="local col1 decl" id="3631savefile" title='savefile' data-type='idSaveGame *' data-ref="3631savefile">savefile</dfn> ) <em>const</em>;				<i>// archives object for save game file</i></td></tr>
+<tr><th id="106">106</th><td>	<em>void</em>					<dfn class="decl" id="_ZN12idCameraAnim7RestoreEP13idRestoreGame" title='idCameraAnim::Restore' data-ref="_ZN12idCameraAnim7RestoreEP13idRestoreGame">Restore</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idRestoreGame" title='idRestoreGame' data-ref="idRestoreGame">idRestoreGame</a> *<dfn class="local col2 decl" id="3632savefile" title='savefile' data-type='idRestoreGame *' data-ref="3632savefile">savefile</dfn> );				<i>// unarchives object from save game file</i></td></tr>
+<tr><th id="107">107</th><td></td></tr>
+<tr><th id="108">108</th><td>	<em>void</em>					<dfn class="decl" id="_ZN12idCameraAnim5SpawnEv" title='idCameraAnim::Spawn' data-ref="_ZN12idCameraAnim5SpawnEv">Spawn</dfn>( <em>void</em> );</td></tr>
+<tr><th id="109">109</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN12idCameraAnim12GetViewParmsEP12renderView_s" title='idCameraAnim::GetViewParms' data-ref="_ZN12idCameraAnim12GetViewParmsEP12renderView_s">GetViewParms</dfn>( <a class="typedef" href="../framework/DeclParticle.h.html#renderView_t" title='renderView_t' data-type='struct renderView_s' data-ref="renderView_t">renderView_t</a> *<dfn class="local col3 decl" id="3633view" title='view' data-type='renderView_t *' data-ref="3633view">view</dfn> );</td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td><b>private</b>:</td></tr>
+<tr><th id="112">112</th><td>	<em>int</em>						<dfn class="decl" id="idCameraAnim::threadNum" title='idCameraAnim::threadNum' data-ref="idCameraAnim::threadNum">threadNum</dfn>;</td></tr>
+<tr><th id="113">113</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a>					<dfn class="decl" id="idCameraAnim::offset" title='idCameraAnim::offset' data-ref="idCameraAnim::offset">offset</dfn>;</td></tr>
+<tr><th id="114">114</th><td>	<em>int</em>						<dfn class="decl" id="idCameraAnim::frameRate" title='idCameraAnim::frameRate' data-ref="idCameraAnim::frameRate">frameRate</dfn>;</td></tr>
+<tr><th id="115">115</th><td>	<em>int</em>						<dfn class="decl" id="idCameraAnim::starttime" title='idCameraAnim::starttime' data-ref="idCameraAnim::starttime">starttime</dfn>;</td></tr>
+<tr><th id="116">116</th><td>	<em>int</em>						<dfn class="decl" id="idCameraAnim::cycle" title='idCameraAnim::cycle' data-ref="idCameraAnim::cycle">cycle</dfn>;</td></tr>
+<tr><th id="117">117</th><td>	<a class="type" href="../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<em>int</em>&gt;				<dfn class="decl" id="idCameraAnim::cameraCuts" title='idCameraAnim::cameraCuts' data-ref="idCameraAnim::cameraCuts">cameraCuts</dfn>;</td></tr>
+<tr><th id="118">118</th><td>	<a class="type" href="../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<a class="typedef" href="#cameraFrame_t" title='cameraFrame_t' data-type='struct cameraFrame_t' data-ref="cameraFrame_t">cameraFrame_t</a>&gt;	<dfn class="decl" id="idCameraAnim::camera" title='idCameraAnim::camera' data-ref="idCameraAnim::camera">camera</dfn>;</td></tr>
+<tr><th id="119">119</th><td>	<a class="type" href="Game_local.h.html#idEntityPtr" title='idEntityPtr' data-ref="idEntityPtr">idEntityPtr</a>&lt;<a class="type" href="Entity.h.html#idEntity" title='idEntity' data-ref="idEntity">idEntity</a>&gt;	<dfn class="decl" id="idCameraAnim::activator" title='idCameraAnim::activator' data-ref="idCameraAnim::activator">activator</dfn>;</td></tr>
+<tr><th id="120">120</th><td></td></tr>
+<tr><th id="121">121</th><td>	<em>void</em>					<dfn class="decl" id="_ZN12idCameraAnim5StartEv" title='idCameraAnim::Start' data-ref="_ZN12idCameraAnim5StartEv">Start</dfn>( <em>void</em> );</td></tr>
+<tr><th id="122">122</th><td>	<em>void</em>					<dfn class="virtual decl" id="_ZN12idCameraAnim4StopEv" title='idCameraAnim::Stop' data-ref="_ZN12idCameraAnim4StopEv">Stop</dfn>( <em>void</em> );</td></tr>
+<tr><th id="123">123</th><td>	<em>void</em>					<dfn class="virtual decl" id="_ZN12idCameraAnim5ThinkEv" title='idCameraAnim::Think' data-ref="_ZN12idCameraAnim5ThinkEv">Think</dfn>( <em>void</em> );</td></tr>
+<tr><th id="124">124</th><td></td></tr>
+<tr><th id="125">125</th><td>	<em>void</em>					<dfn class="decl" id="_ZN12idCameraAnim8LoadAnimEv" title='idCameraAnim::LoadAnim' data-ref="_ZN12idCameraAnim8LoadAnimEv">LoadAnim</dfn>( <em>void</em> );</td></tr>
+<tr><th id="126">126</th><td>	<em>void</em>					<dfn class="decl" id="_ZN12idCameraAnim11Event_StartEv" title='idCameraAnim::Event_Start' data-ref="_ZN12idCameraAnim11Event_StartEv">Event_Start</dfn>( <em>void</em> );</td></tr>
+<tr><th id="127">127</th><td>	<em>void</em>					<dfn class="decl" id="_ZN12idCameraAnim10Event_StopEv" title='idCameraAnim::Event_Stop' data-ref="_ZN12idCameraAnim10Event_StopEv">Event_Stop</dfn>( <em>void</em> );</td></tr>
+<tr><th id="128">128</th><td>	<em>void</em>					<dfn class="decl" id="_ZN12idCameraAnim17Event_SetCallbackEv" title='idCameraAnim::Event_SetCallback' data-ref="_ZN12idCameraAnim17Event_SetCallbackEv">Event_SetCallback</dfn>( <em>void</em> );</td></tr>
+<tr><th id="129">129</th><td>	<em>void</em>					<dfn class="decl" id="_ZN12idCameraAnim14Event_ActivateEP8idEntity" title='idCameraAnim::Event_Activate' data-ref="_ZN12idCameraAnim14Event_ActivateEP8idEntity">Event_Activate</dfn>( <a class="type" href="Entity.h.html#idEntity" title='idEntity' data-ref="idEntity">idEntity</a> *<dfn class="local col4 decl" id="3634activator" title='activator' data-type='idEntity *' data-ref="3634activator">activator</dfn> );</td></tr>
+<tr><th id="130">130</th><td>};</td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td><u>#<span data-ppcond="29">endif</span> /* !__GAME_CAMERA_H__ */</u></td></tr>
+<tr><th id="133">133</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='AF.cpp.html'>codebrowser/game/AF.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

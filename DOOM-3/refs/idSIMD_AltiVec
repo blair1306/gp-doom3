@@ -1,0 +1,12 @@
+<inh f='codebrowser/idlib/math/Simd_Generic.h' l='40' c='idSIMD_Generic'/>
+<def f='codebrowser/idlib/math/Simd_AltiVec.h' l='108' ll='248'/>
+<size>8</size>
+<doc f='codebrowser/idlib/math/Simd_AltiVec.h' l='98'>// This assumes that the idDrawVert array that is used in DeriveUnsmoothedTangents is aligned. If its not aligned,
+// then we don&apos;t get any speedup
+//#define DERIVE_UNSMOOTH_DRAWVERT_ALIGNED
+
+// Disable DRAWVERT_PADDED since we disabled the ENABLE_CULL optimizations and the default
+// implementation does not allow for the extra padding.
+// This assumes that idDrawVert has been padded by 4 bytes so that xyz always starts at an aligned
+// address
+//#define DRAWVERT_PADDED</doc>

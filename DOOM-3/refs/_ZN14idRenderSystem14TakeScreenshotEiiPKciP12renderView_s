@@ -1,0 +1,12 @@
+<dec f='codebrowser/renderer/RenderSystem.h' l='236' type='void idRenderSystem::TakeScreenshot(int width, int height, const char * fileName, int samples, struct renderView_s * ref)'/>
+<doc f='codebrowser/renderer/RenderSystem.h' l='229'>// aviDemo uses this.
+	// Will automatically tile render large screen shots if necessary
+	// Samples is the number of jittered frames for anti-aliasing
+	// If ref == NULL, session-&gt;updateScreen will be used
+	// This will perform swapbuffers, so it is NOT an approppriate way to
+	// generate image files that happen during gameplay, as for savegame
+	// markers.  Use WriteRender() instead.</doc>
+<use f='codebrowser/framework/Session.cpp' l='2545' u='c' c='_ZN14idSessionLocal5FrameEv'/>
+<use f='codebrowser/framework/Session.cpp' l='2555' u='c' c='_ZN14idSessionLocal5FrameEv'/>
+<use f='codebrowser/framework/Session_menu.cpp' l='1622' u='c' c='_ZN14idSessionLocal18HandleNoteCommandsEPKc'/>
+<ovr f='codebrowser/renderer/RenderSystem_init.cpp' l='1226' c='_ZN19idRenderSystemLocal14TakeScreenshotEiiPKciP12renderView_s'/>

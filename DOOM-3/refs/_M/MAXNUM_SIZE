@@ -1,0 +1,8 @@
+<dec f='codebrowser/curl/lib/http_chunks.h' l='30'/>
+<use f='codebrowser/curl/lib/http_chunks.h' l='81' u='c'/>
+<doc f='codebrowser/curl/lib/http_chunks.h' l='25'>/*
+ * The longest possible hexadecimal number we support in a chunked transfer.
+ * Weird enough, RFC2616 doesn&apos;t set a maximum size! Since we use strtoul()
+ * to convert it, we &quot;only&quot; support 2^32 bytes chunk data.
+ */</doc>
+<use f='codebrowser/curl/lib/http_chunks.c' l='119' u='c'/>

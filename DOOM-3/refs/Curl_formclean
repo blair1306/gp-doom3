@@ -1,0 +1,6 @@
+<dec f='codebrowser/curl/lib/formdata.h' l='76' type='void Curl_formclean(struct FormData * )'/>
+<def f='codebrowser/curl/lib/formdata.c' l='1060' ll='1070' type='void Curl_formclean(struct FormData * form)'/>
+<use f='codebrowser/curl/lib/formdata.c' l='1238' u='c' c='Curl_getFormData'/>
+<doc f='codebrowser/curl/lib/formdata.c' l='1059'>/* Used from http.c, this cleans a built FormData linked list */</doc>
+<use f='codebrowser/curl/lib/http.c' l='1026' u='c' c='Curl_http_done'/>
+<use f='codebrowser/curl/lib/http.c' l='1541' u='c' c='Curl_http'/>

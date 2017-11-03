@@ -1,0 +1,18 @@
+<dec f='codebrowser/framework/async/MsgChannel.h' l='136' type='bool idMsgChannel::Process(const netadr_t from, int time, idBitMsg &amp; msg, int &amp; sequence)'/>
+<doc f='codebrowser/framework/async/MsgChannel.h' l='132'>// Processes the incoming message. Returns true when a complete message
+					// is ready for further processing. In that case the read pointer of msg
+					// points to the first byte ready for reading, and sequence is set to
+					// the sequence number of the message.</doc>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1638' u='c' c='_ZN13idAsyncClient14ProcessMessageE8netadr_tR8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='2230' u='c' c='_ZN13idAsyncServer14ProcessMessageE8netadr_tR8idBitMsg'/>
+<def f='codebrowser/framework/async/MsgChannel.cpp' l='539' ll='663' type='bool idMsgChannel::Process(const netadr_t from, int time, idBitMsg &amp; msg, int &amp; sequence)'/>
+<doc f='codebrowser/framework/async/MsgChannel.cpp' l='529'>/*
+=================
+idMsgChannel::Process
+
+  Returns false if the message should not be processed due to being out of order or a fragment.
+
+  msg must be large enough to hold MAX_MESSAGE_SIZE, because if this is the final
+  fragment of a multi-part message, the entire thing will be copied out.
+=================
+*/</doc>

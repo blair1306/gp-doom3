@@ -1,0 +1,114 @@
+<inh f='codebrowser/d3xp/Entity.h' l='107' c='idEntity'/>
+<def f='codebrowser/d3xp/Projectile.h' l='42' ll='141'/>
+<ovr f='codebrowser/d3xp/Projectile.h' l='143' c='idGuidedProjectile'/>
+<ovr f='codebrowser/d3xp/Projectile.h' l='215' c='idBFGProjectile'/>
+<size>1732</size>
+<smbr r='idProjectile::Type' t='idTypeInfo'/>
+<fun r='_ZN12idProjectile14CreateInstanceEv'/>
+<fun r='_ZNK12idProjectile7GetTypeEv'/>
+<smbr r='idProjectile::eventCallbacks' t='idEventFunc&lt;idProjectile&gt; []'/>
+<fun r='_ZN12idProjectileC1Ev'/>
+<fun r='_ZN12idProjectileD1Ev'/>
+<fun r='_ZN12idProjectile5SpawnEv'/>
+<fun r='_ZNK12idProjectile4SaveEP10idSaveGame'/>
+<fun r='_ZN12idProjectile7RestoreEP13idRestoreGame'/>
+<fun r='_ZN12idProjectile6CreateEP8idEntityRK6idVec3S4_'/>
+<fun r='_ZN12idProjectile6LaunchERK6idVec3S2_S2_fff'/>
+<fun r='_ZN12idProjectile12FreeLightDefEv'/>
+<fun r='_ZNK12idProjectile8GetOwnerEv'/>
+<fun r='_ZN12idProjectile15CatchProjectileEP8idEntityPKc'/>
+<fun r='_ZN12idProjectile18GetProjectileStateEv'/>
+<fun r='_ZN12idProjectile22Event_CreateProjectileEP8idEntityRK6idVec3S4_'/>
+<fun r='_ZN12idProjectile22Event_LaunchProjectileERK6idVec3S2_S2_'/>
+<fun r='_ZN12idProjectile16Event_SetGravityEf'/>
+<fun r='_ZN12idProjectile5ThinkEv'/>
+<fun r='_ZN12idProjectile6KilledEP8idEntityS1_iRK6idVec3i'/>
+<fun r='_ZN12idProjectile7CollideERK7trace_sRK6idVec3'/>
+<fun r='_ZN12idProjectile7ExplodeERK7trace_sP8idEntity'/>
+<fun r='_ZN12idProjectile6FizzleEv'/>
+<fun r='_ZN12idProjectile11GetVelocityEPK6idDict'/>
+<fun r='_ZN12idProjectile10GetGravityEPK6idDict'/>
+<fun r='_ZN12idProjectile19DefaultDamageEffectEP8idEntityRK6idDictRK7trace_sRK6idVec3'/>
+<fun r='_ZN12idProjectile23ClientPredictionCollideEP8idEntityRK6idDictRK7trace_sRK6idVec3b'/>
+<fun r='_ZN12idProjectile21ClientPredictionThinkEv'/>
+<fun r='_ZNK12idProjectile15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN12idProjectile16ReadFromSnapshotERK13idBitMsgDelta'/>
+<fun r='_ZN12idProjectile18ClientReceiveEventEiiRK8idBitMsg'/>
+<mbr r='idProjectile::owner' o='6944' t='idEntityPtr&lt;idEntity&gt;'/>
+<mbr r='idProjectile::projectileFlags' o='6976' t='struct projectileFlags_s'/>
+<mbr r='idProjectile::thrust' o='7008' t='float'/>
+<mbr r='idProjectile::thrust_end' o='7040' t='int'/>
+<mbr r='idProjectile::damagePower' o='7072' t='float'/>
+<mbr r='idProjectile::renderLight' o='7104' t='renderLight_t'/>
+<mbr r='idProjectile::lightDefHandle' o='8768' t='qhandle_t'/>
+<mbr r='idProjectile::lightOffset' o='8800' t='idVec3'/>
+<mbr r='idProjectile::lightStartTime' o='8896' t='int'/>
+<mbr r='idProjectile::lightEndTime' o='8928' t='int'/>
+<mbr r='idProjectile::lightColor' o='8960' t='idVec3'/>
+<mbr r='idProjectile::thruster' o='9056' t='idForce_Constant'/>
+<mbr r='idProjectile::physicsObj' o='9344' t='idPhysics_RigidBody'/>
+<mbr r='idProjectile::smokeFly' o='13696' t='const idDeclParticle *'/>
+<mbr r='idProjectile::smokeFlyTime' o='13728' t='int'/>
+<mbr r='idProjectile::originalTimeGroup' o='13760' t='int'/>
+<mbr r='idProjectile::state' o='13792' t='projectileState_t'/>
+<mbr r='idProjectile::netSyncPhysics' o='13824' t='bool'/>
+<fun r='_ZN12idProjectile22AddDefaultDamageEffectERK7trace_sRK6idVec3'/>
+<fun r='_ZN12idProjectile13Event_ExplodeEv'/>
+<fun r='_ZN12idProjectile12Event_FizzleEv'/>
+<fun r='_ZN12idProjectile18Event_RadiusDamageEP8idEntity'/>
+<fun r='_ZN12idProjectile11Event_TouchEP8idEntityP7trace_s'/>
+<fun r='_ZN12idProjectile24Event_GetProjectileStateEv'/>
+<inh f='codebrowser/game/Entity.h' l='107' c='idEntity'/>
+<def f='codebrowser/game/Projectile.h' l='42' ll='130'/>
+<ovr f='codebrowser/game/Projectile.h' l='132' c='idGuidedProjectile'/>
+<ovr f='codebrowser/game/Projectile.h' l='200' c='idBFGProjectile'/>
+<size>1496</size>
+<smbr r='idProjectile::Type' t='idTypeInfo'/>
+<fun r='_ZN12idProjectile14CreateInstanceEv'/>
+<fun r='_ZNK12idProjectile7GetTypeEv'/>
+<smbr r='idProjectile::eventCallbacks' t='idEventFunc&lt;idProjectile&gt; []'/>
+<fun r='_ZN12idProjectileC1Ev'/>
+<fun r='_ZN12idProjectileD1Ev'/>
+<fun r='_ZN12idProjectile5SpawnEv'/>
+<fun r='_ZNK12idProjectile4SaveEP10idSaveGame'/>
+<fun r='_ZN12idProjectile7RestoreEP13idRestoreGame'/>
+<fun r='_ZN12idProjectile6CreateEP8idEntityRK6idVec3S4_'/>
+<fun r='_ZN12idProjectile6LaunchERK6idVec3S2_S2_fff'/>
+<fun r='_ZN12idProjectile12FreeLightDefEv'/>
+<fun r='_ZNK12idProjectile8GetOwnerEv'/>
+<fun r='_ZN12idProjectile5ThinkEv'/>
+<fun r='_ZN12idProjectile6KilledEP8idEntityS1_iRK6idVec3i'/>
+<fun r='_ZN12idProjectile7CollideERK7trace_sRK6idVec3'/>
+<fun r='_ZN12idProjectile7ExplodeERK7trace_sP8idEntity'/>
+<fun r='_ZN12idProjectile6FizzleEv'/>
+<fun r='_ZN12idProjectile11GetVelocityEPK6idDict'/>
+<fun r='_ZN12idProjectile10GetGravityEPK6idDict'/>
+<fun r='_ZN12idProjectile19DefaultDamageEffectEP8idEntityRK6idDictRK7trace_sRK6idVec3'/>
+<fun r='_ZN12idProjectile23ClientPredictionCollideEP8idEntityRK6idDictRK7trace_sRK6idVec3b'/>
+<fun r='_ZN12idProjectile21ClientPredictionThinkEv'/>
+<fun r='_ZNK12idProjectile15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN12idProjectile16ReadFromSnapshotERK13idBitMsgDelta'/>
+<fun r='_ZN12idProjectile18ClientReceiveEventEiiRK8idBitMsg'/>
+<mbr r='idProjectile::owner' o='5088' t='idEntityPtr&lt;idEntity&gt;'/>
+<mbr r='idProjectile::projectileFlags' o='5120' t='struct projectileFlags_s'/>
+<mbr r='idProjectile::thrust' o='5152' t='float'/>
+<mbr r='idProjectile::thrust_end' o='5184' t='int'/>
+<mbr r='idProjectile::damagePower' o='5216' t='float'/>
+<mbr r='idProjectile::renderLight' o='5248' t='renderLight_t'/>
+<mbr r='idProjectile::lightDefHandle' o='6912' t='qhandle_t'/>
+<mbr r='idProjectile::lightOffset' o='6944' t='idVec3'/>
+<mbr r='idProjectile::lightStartTime' o='7040' t='int'/>
+<mbr r='idProjectile::lightEndTime' o='7072' t='int'/>
+<mbr r='idProjectile::lightColor' o='7104' t='idVec3'/>
+<mbr r='idProjectile::thruster' o='7200' t='idForce_Constant'/>
+<mbr r='idProjectile::physicsObj' o='7488' t='idPhysics_RigidBody'/>
+<mbr r='idProjectile::smokeFly' o='11840' t='const idDeclParticle *'/>
+<mbr r='idProjectile::smokeFlyTime' o='11872' t='int'/>
+<mbr r='idProjectile::state' o='11904' t='projectileState_t'/>
+<mbr r='idProjectile::netSyncPhysics' o='11936' t='bool'/>
+<fun r='_ZN12idProjectile22AddDefaultDamageEffectERK7trace_sRK6idVec3'/>
+<fun r='_ZN12idProjectile13Event_ExplodeEv'/>
+<fun r='_ZN12idProjectile12Event_FizzleEv'/>
+<fun r='_ZN12idProjectile18Event_RadiusDamageEP8idEntity'/>
+<fun r='_ZN12idProjectile11Event_TouchEP8idEntityP7trace_s'/>
+<fun r='_ZN12idProjectile24Event_GetProjectileStateEv'/>

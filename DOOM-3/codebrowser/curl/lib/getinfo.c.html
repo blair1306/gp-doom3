@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>getinfo.c source code [codebrowser/curl/lib/getinfo.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/curl/lib/getinfo.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>curl</a>/<a href='./'>lib</a>/<a href='getinfo.c.html'>getinfo.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/***************************************************************************</i></td></tr>
+<tr><th id="2">2</th><td><i> *                                  _   _ ____  _     </i></td></tr>
+<tr><th id="3">3</th><td><i> *  Project                     ___| | | |  _ \| |    </i></td></tr>
+<tr><th id="4">4</th><td><i> *                             / __| | | | |_) | |    </i></td></tr>
+<tr><th id="5">5</th><td><i> *                            | (__| |_| |  _ &lt;| |___ </i></td></tr>
+<tr><th id="6">6</th><td><i> *                             \___|\___/|_| \_\_____|</i></td></tr>
+<tr><th id="7">7</th><td><i> *</i></td></tr>
+<tr><th id="8">8</th><td><i> * Copyright (C) 1998 - 2004, Daniel Stenberg, &lt;daniel@haxx.se&gt;, et al.</i></td></tr>
+<tr><th id="9">9</th><td><i> *</i></td></tr>
+<tr><th id="10">10</th><td><i> * This software is licensed as described in the file COPYING, which</i></td></tr>
+<tr><th id="11">11</th><td><i> * you should have received as part of this distribution. The terms</i></td></tr>
+<tr><th id="12">12</th><td><i> * are also available at <a href="http://curl.haxx.se/docs/copyright.html">http://curl.haxx.se/docs/copyright.html</a>.</i></td></tr>
+<tr><th id="13">13</th><td><i> * </i></td></tr>
+<tr><th id="14">14</th><td><i> * You may opt to use, copy, modify, merge, publish, distribute and/or sell</i></td></tr>
+<tr><th id="15">15</th><td><i> * copies of the Software, and permit persons to whom the Software is</i></td></tr>
+<tr><th id="16">16</th><td><i> * furnished to do so, under the terms of the COPYING file.</i></td></tr>
+<tr><th id="17">17</th><td><i> *</i></td></tr>
+<tr><th id="18">18</th><td><i> * This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY</i></td></tr>
+<tr><th id="19">19</th><td><i> * KIND, either express or implied.</i></td></tr>
+<tr><th id="20">20</th><td><i> *</i></td></tr>
+<tr><th id="21">21</th><td><i> * $Id: getinfo.c,v 1.36 2004/03/11 21:51:55 bagder Exp $</i></td></tr>
+<tr><th id="22">22</th><td><i> ***************************************************************************/</i></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="setup.h.html">"setup.h"</a></u></td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="../include/curl/curl.h.html">&lt;curl/curl.h&gt;</a></u></td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><u>#include <a href="urldata.h.html">"urldata.h"</a></u></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="getinfo.h.html">"getinfo.h"</a></u></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><u>#include <a href="../../../include/stdio.h.html">&lt;stdio.h&gt;</a></u></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="../../../include/string.h.html">&lt;string.h&gt;</a></u></td></tr>
+<tr><th id="33">33</th><td><u>#include &lt;stdarg.h&gt;</u></td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><u>#<span data-ppcond="35">ifdef</span>	<span class="macro" data-ref="_M/VMS">VMS</span></u></td></tr>
+<tr><th id="36">36</th><td><u>#include	&lt;stdlib.h&gt;</u></td></tr>
+<tr><th id="37">37</th><td><u>#<span data-ppcond="35">endif</span></u></td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td><i>/* Make this the last #include */</i></td></tr>
+<tr><th id="40">40</th><td><u>#<span data-ppcond="40">ifdef</span> <span class="macro" data-ref="_M/CURLDEBUG">CURLDEBUG</span></u></td></tr>
+<tr><th id="41">41</th><td><u>#include <a href="memdebug.h.html">"memdebug.h"</a></u></td></tr>
+<tr><th id="42">42</th><td><u>#<span data-ppcond="40">else</span></u></td></tr>
+<tr><th id="43">43</th><td><u>#include &lt;stdlib.h&gt;</u></td></tr>
+<tr><th id="44">44</th><td><u>#<span data-ppcond="40">endif</span></u></td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td><i>/*</i></td></tr>
+<tr><th id="47">47</th><td><i> * This is supposed to be called in the beginning of a permform() session</i></td></tr>
+<tr><th id="48">48</th><td><i> * and should reset all session-info variables</i></td></tr>
+<tr><th id="49">49</th><td><i> */</i></td></tr>
+<tr><th id="50">50</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="decl def" id="Curl_initinfo" title='Curl_initinfo' data-ref="Curl_initinfo">Curl_initinfo</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *<dfn class="local col1 decl" id="1data" title='data' data-type='struct SessionHandle *' data-ref="1data">data</dfn>)</td></tr>
+<tr><th id="51">51</th><td>{</td></tr>
+<tr><th id="52">52</th><td>  <b>struct</b> <a class="type" href="urldata.h.html#Progress" title='Progress' data-ref="Progress">Progress</a> *<dfn class="local col2 decl" id="2pro" title='pro' data-type='struct Progress *' data-ref="2pro">pro</dfn> = &amp;<a class="local col1 ref" href="#1data" title='data' data-ref="1data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::progress" title='SessionHandle::progress' data-ref="SessionHandle::progress">progress</a>;</td></tr>
+<tr><th id="53">53</th><td>  <b>struct</b> <a class="type" href="urldata.h.html#PureInfo" title='PureInfo' data-ref="PureInfo">PureInfo</a> *<dfn class="local col3 decl" id="3info" title='info' data-type='struct PureInfo *' data-ref="3info">info</dfn> =&amp;<a class="local col1 ref" href="#1data" title='data' data-ref="1data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::info" title='SessionHandle::info' data-ref="SessionHandle::info">info</a>;</td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td>  <a class="local col2 ref" href="#2pro" title='pro' data-ref="2pro">pro</a>-&gt;<a class="ref" href="urldata.h.html#Progress::t_nslookup" title='Progress::t_nslookup' data-ref="Progress::t_nslookup">t_nslookup</a> = <var>0</var>;</td></tr>
+<tr><th id="56">56</th><td>  <a class="local col2 ref" href="#2pro" title='pro' data-ref="2pro">pro</a>-&gt;<a class="ref" href="urldata.h.html#Progress::t_connect" title='Progress::t_connect' data-ref="Progress::t_connect">t_connect</a> = <var>0</var>;</td></tr>
+<tr><th id="57">57</th><td>  <a class="local col2 ref" href="#2pro" title='pro' data-ref="2pro">pro</a>-&gt;<a class="ref" href="urldata.h.html#Progress::t_pretransfer" title='Progress::t_pretransfer' data-ref="Progress::t_pretransfer">t_pretransfer</a> = <var>0</var>;</td></tr>
+<tr><th id="58">58</th><td>  <a class="local col2 ref" href="#2pro" title='pro' data-ref="2pro">pro</a>-&gt;<a class="ref" href="urldata.h.html#Progress::t_starttransfer" title='Progress::t_starttransfer' data-ref="Progress::t_starttransfer">t_starttransfer</a> = <var>0</var>;</td></tr>
+<tr><th id="59">59</th><td>  <a class="local col2 ref" href="#2pro" title='pro' data-ref="2pro">pro</a>-&gt;<a class="ref" href="urldata.h.html#Progress::timespent" title='Progress::timespent' data-ref="Progress::timespent">timespent</a> = <var>0</var>;</td></tr>
+<tr><th id="60">60</th><td>  <a class="local col2 ref" href="#2pro" title='pro' data-ref="2pro">pro</a>-&gt;<a class="ref" href="urldata.h.html#Progress::t_redirect" title='Progress::t_redirect' data-ref="Progress::t_redirect">t_redirect</a> = <var>0</var>;</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td>  <a class="local col3 ref" href="#3info" title='info' data-ref="3info">info</a>-&gt;<a class="ref" href="urldata.h.html#PureInfo::httpcode" title='PureInfo::httpcode' data-ref="PureInfo::httpcode">httpcode</a> = <var>0</var>;</td></tr>
+<tr><th id="63">63</th><td>  <a class="local col3 ref" href="#3info" title='info' data-ref="3info">info</a>-&gt;<a class="ref" href="urldata.h.html#PureInfo::httpversion" title='PureInfo::httpversion' data-ref="PureInfo::httpversion">httpversion</a>=<var>0</var>;</td></tr>
+<tr><th id="64">64</th><td>  <a class="local col3 ref" href="#3info" title='info' data-ref="3info">info</a>-&gt;<a class="ref" href="urldata.h.html#PureInfo::filetime" title='PureInfo::filetime' data-ref="PureInfo::filetime">filetime</a>=-<var>1</var>; <i>/* -1 is an illegal time and thus means unknown */</i></td></tr>
+<tr><th id="65">65</th><td>  </td></tr>
+<tr><th id="66">66</th><td>  <b>if</b> (<a class="local col3 ref" href="#3info" title='info' data-ref="3info">info</a>-&gt;<a class="ref" href="urldata.h.html#PureInfo::contenttype" title='PureInfo::contenttype' data-ref="PureInfo::contenttype">contenttype</a>)</td></tr>
+<tr><th id="67">67</th><td>    <a class="macro" href="memdebug.h.html#78" title="curl_dofree(info-&gt;contenttype, 67, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/getinfo.c&quot;)" data-ref="_M/free">free</a>(<a class="local col3 ref" href="#3info" title='info' data-ref="3info">info</a>-&gt;<a class="ref" href="urldata.h.html#PureInfo::contenttype" title='PureInfo::contenttype' data-ref="PureInfo::contenttype">contenttype</a>);</td></tr>
+<tr><th id="68">68</th><td>  <a class="local col3 ref" href="#3info" title='info' data-ref="3info">info</a>-&gt;<a class="ref" href="urldata.h.html#PureInfo::contenttype" title='PureInfo::contenttype' data-ref="PureInfo::contenttype">contenttype</a> = <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td>  <a class="local col3 ref" href="#3info" title='info' data-ref="3info">info</a>-&gt;<a class="ref" href="urldata.h.html#PureInfo::header_size" title='PureInfo::header_size' data-ref="PureInfo::header_size">header_size</a> = <var>0</var>;</td></tr>
+<tr><th id="71">71</th><td>  <a class="local col3 ref" href="#3info" title='info' data-ref="3info">info</a>-&gt;<a class="ref" href="urldata.h.html#PureInfo::request_size" title='PureInfo::request_size' data-ref="PureInfo::request_size">request_size</a> = <var>0</var>;</td></tr>
+<tr><th id="72">72</th><td>  <b>return</b> <a class="enum" href="../include/curl/curl.h.html#CURLE_OK" title='CURLE_OK' data-ref="CURLE_OK">CURLE_OK</a>;</td></tr>
+<tr><th id="73">73</th><td>}</td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="decl def" id="Curl_getinfo" title='Curl_getinfo' data-ref="Curl_getinfo">Curl_getinfo</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *<dfn class="local col4 decl" id="4data" title='data' data-type='struct SessionHandle *' data-ref="4data">data</dfn>, <a class="typedef" href="../include/curl/curl.h.html#CURLINFO" title='CURLINFO' data-type='enum CURLINFO' data-ref="CURLINFO">CURLINFO</a> <dfn class="local col5 decl" id="5info" title='info' data-type='CURLINFO' data-ref="5info">info</dfn>, ...)</td></tr>
+<tr><th id="76">76</th><td>{</td></tr>
+<tr><th id="77">77</th><td>  <span class='typedef' title='va_list' data-type='__gnuc_va_list' data-ref="va_list">va_list</span> <dfn class="local col6 decl" id="6arg" title='arg' data-type='va_list' data-ref="6arg">arg</dfn>;</td></tr>
+<tr><th id="78">78</th><td>  <em>long</em> *<dfn class="local col7 decl" id="7param_longp" title='param_longp' data-type='long *' data-ref="7param_longp">param_longp</dfn>=<span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="79">79</th><td>  <em>double</em> *<dfn class="local col8 decl" id="8param_doublep" title='param_doublep' data-type='double *' data-ref="8param_doublep">param_doublep</dfn>=<span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="80">80</th><td>  <em>char</em> **<dfn class="local col9 decl" id="9param_charp" title='param_charp' data-type='char **' data-ref="9param_charp">param_charp</dfn>=<span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="81">81</th><td>  <span class="macro" title="__builtin_va_start(arg, info)" data-ref="_M/va_start">va_start</span>(<a class="local col6 ref" href="#6arg" title='arg' data-ref="6arg">arg</a>, <a class="local col5 ref" href="#5info" title='info' data-ref="5info">info</a>);</td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td>  <b>switch</b>(<a class="local col5 ref" href="#5info" title='info' data-ref="5info">info</a>&amp;<a class="macro" href="../include/curl/curl.h.html#1102" title="0xf00000" data-ref="_M/CURLINFO_TYPEMASK">CURLINFO_TYPEMASK</a>) {</td></tr>
+<tr><th id="84">84</th><td>  <b>default</b>:</td></tr>
+<tr><th id="85">85</th><td>    <b>return</b> <a class="enum" href="../include/curl/curl.h.html#CURLE_BAD_FUNCTION_ARGUMENT" title='CURLE_BAD_FUNCTION_ARGUMENT' data-ref="CURLE_BAD_FUNCTION_ARGUMENT">CURLE_BAD_FUNCTION_ARGUMENT</a>;</td></tr>
+<tr><th id="86">86</th><td>  <b>case</b> <a class="macro" href="../include/curl/curl.h.html#1098" title="0x100000" data-ref="_M/CURLINFO_STRING">CURLINFO_STRING</a>:</td></tr>
+<tr><th id="87">87</th><td>    <a class="local col9 ref" href="#9param_charp" title='param_charp' data-ref="9param_charp">param_charp</a> = <span class="macro" title="__builtin_va_arg(arg, char **)" data-ref="_M/va_arg">va_arg</span>(<a class="local col6 ref" href="#6arg" title='arg' data-ref="6arg">arg</a>, <em>char</em> **);  </td></tr>
+<tr><th id="88">88</th><td>    <b>if</b>(<span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span> == <a class="local col9 ref" href="#9param_charp" title='param_charp' data-ref="9param_charp">param_charp</a>)</td></tr>
+<tr><th id="89">89</th><td>      <b>return</b> <a class="enum" href="../include/curl/curl.h.html#CURLE_BAD_FUNCTION_ARGUMENT" title='CURLE_BAD_FUNCTION_ARGUMENT' data-ref="CURLE_BAD_FUNCTION_ARGUMENT">CURLE_BAD_FUNCTION_ARGUMENT</a>;</td></tr>
+<tr><th id="90">90</th><td>    <b>break</b>;</td></tr>
+<tr><th id="91">91</th><td>  <b>case</b> <a class="macro" href="../include/curl/curl.h.html#1099" title="0x200000" data-ref="_M/CURLINFO_LONG">CURLINFO_LONG</a>:</td></tr>
+<tr><th id="92">92</th><td>    <a class="local col7 ref" href="#7param_longp" title='param_longp' data-ref="7param_longp">param_longp</a> = <span class="macro" title="__builtin_va_arg(arg, long *)" data-ref="_M/va_arg">va_arg</span>(<a class="local col6 ref" href="#6arg" title='arg' data-ref="6arg">arg</a>, <em>long</em> *);</td></tr>
+<tr><th id="93">93</th><td>    <b>if</b>(<span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span> == <a class="local col7 ref" href="#7param_longp" title='param_longp' data-ref="7param_longp">param_longp</a>)</td></tr>
+<tr><th id="94">94</th><td>      <b>return</b> <a class="enum" href="../include/curl/curl.h.html#CURLE_BAD_FUNCTION_ARGUMENT" title='CURLE_BAD_FUNCTION_ARGUMENT' data-ref="CURLE_BAD_FUNCTION_ARGUMENT">CURLE_BAD_FUNCTION_ARGUMENT</a>;</td></tr>
+<tr><th id="95">95</th><td>    <b>break</b>;</td></tr>
+<tr><th id="96">96</th><td>  <b>case</b> <a class="macro" href="../include/curl/curl.h.html#1100" title="0x300000" data-ref="_M/CURLINFO_DOUBLE">CURLINFO_DOUBLE</a>:</td></tr>
+<tr><th id="97">97</th><td>    <a class="local col8 ref" href="#8param_doublep" title='param_doublep' data-ref="8param_doublep">param_doublep</a> = <span class="macro" title="__builtin_va_arg(arg, double *)" data-ref="_M/va_arg">va_arg</span>(<a class="local col6 ref" href="#6arg" title='arg' data-ref="6arg">arg</a>, <em>double</em> *);</td></tr>
+<tr><th id="98">98</th><td>    <b>if</b>(<span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span> == <a class="local col8 ref" href="#8param_doublep" title='param_doublep' data-ref="8param_doublep">param_doublep</a>)</td></tr>
+<tr><th id="99">99</th><td>      <b>return</b> <a class="enum" href="../include/curl/curl.h.html#CURLE_BAD_FUNCTION_ARGUMENT" title='CURLE_BAD_FUNCTION_ARGUMENT' data-ref="CURLE_BAD_FUNCTION_ARGUMENT">CURLE_BAD_FUNCTION_ARGUMENT</a>;</td></tr>
+<tr><th id="100">100</th><td>    <b>break</b>;</td></tr>
+<tr><th id="101">101</th><td>  }</td></tr>
+<tr><th id="102">102</th><td>  </td></tr>
+<tr><th id="103">103</th><td>  <b>switch</b>(<a class="local col5 ref" href="#5info" title='info' data-ref="5info">info</a>) {</td></tr>
+<tr><th id="104">104</th><td>  <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURLINFO_EFFECTIVE_URL" title='CURLINFO_EFFECTIVE_URL' data-ref="CURLINFO_EFFECTIVE_URL">CURLINFO_EFFECTIVE_URL</a>:</td></tr>
+<tr><th id="105">105</th><td>    *<a class="local col9 ref" href="#9param_charp" title='param_charp' data-ref="9param_charp">param_charp</a> = <a class="local col4 ref" href="#4data" title='data' data-ref="4data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::change" title='SessionHandle::change' data-ref="SessionHandle::change">change</a>.<a class="ref" href="urldata.h.html#DynamicStatic::url" title='DynamicStatic::url' data-ref="DynamicStatic::url">url</a>?<a class="local col4 ref" href="#4data" title='data' data-ref="4data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::change" title='SessionHandle::change' data-ref="SessionHandle::change">change</a>.<a class="ref" href="urldata.h.html#DynamicStatic::url" title='DynamicStatic::url' data-ref="DynamicStatic::url">url</a>:(<em>char</em> *)<q>""</q>;</td></tr>
+<tr><th id="106">106</th><td>    <b>break</b>;</td></tr>
+<tr><th id="107">107</th><td>  <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURLINFO_RESPONSE_CODE" title='CURLINFO_RESPONSE_CODE' data-ref="CURLINFO_RESPONSE_CODE">CURLINFO_RESPONSE_CODE</a>:</td></tr>
+<tr><th id="108">108</th><td>    *<a class="local col7 ref" href="#7param_longp" title='param_longp' data-ref="7param_longp">param_longp</a> = <a class="local col4 ref" href="#4data" title='data' data-ref="4data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::info" title='SessionHandle::info' data-ref="SessionHandle::info">info</a>.<a class="ref" href="urldata.h.html#PureInfo::httpcode" title='PureInfo::httpcode' data-ref="PureInfo::httpcode">httpcode</a>;</td></tr>
+<tr><th id="109">109</th><td>    <b>break</b>;</td></tr>
+<tr><th id="110">110</th><td>  <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURLINFO_HTTP_CONNECTCODE" title='CURLINFO_HTTP_CONNECTCODE' data-ref="CURLINFO_HTTP_CONNECTCODE">CURLINFO_HTTP_CONNECTCODE</a>:</td></tr>
+<tr><th id="111">111</th><td>    *<a class="local col7 ref" href="#7param_longp" title='param_longp' data-ref="7param_longp">param_longp</a> = <a class="local col4 ref" href="#4data" title='data' data-ref="4data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::info" title='SessionHandle::info' data-ref="SessionHandle::info">info</a>.<a class="ref" href="urldata.h.html#PureInfo::httpproxycode" title='PureInfo::httpproxycode' data-ref="PureInfo::httpproxycode">httpproxycode</a>;</td></tr>
+<tr><th id="112">112</th><td>    <b>break</b>;</td></tr>
+<tr><th id="113">113</th><td>  <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURLINFO_FILETIME" title='CURLINFO_FILETIME' data-ref="CURLINFO_FILETIME">CURLINFO_FILETIME</a>:</td></tr>
+<tr><th id="114">114</th><td>    *<a class="local col7 ref" href="#7param_longp" title='param_longp' data-ref="7param_longp">param_longp</a> = <a class="local col4 ref" href="#4data" title='data' data-ref="4data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::info" title='SessionHandle::info' data-ref="SessionHandle::info">info</a>.<a class="ref" href="urldata.h.html#PureInfo::filetime" title='PureInfo::filetime' data-ref="PureInfo::filetime">filetime</a>;</td></tr>
+<tr><th id="115">115</th><td>    <b>break</b>;</td></tr>
+<tr><th id="116">116</th><td>  <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURLINFO_HEADER_SIZE" title='CURLINFO_HEADER_SIZE' data-ref="CURLINFO_HEADER_SIZE">CURLINFO_HEADER_SIZE</a>:</td></tr>
+<tr><th id="117">117</th><td>    *<a class="local col7 ref" href="#7param_longp" title='param_longp' data-ref="7param_longp">param_longp</a> = <a class="local col4 ref" href="#4data" title='data' data-ref="4data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::info" title='SessionHandle::info' data-ref="SessionHandle::info">info</a>.<a class="ref" href="urldata.h.html#PureInfo::header_size" title='PureInfo::header_size' data-ref="PureInfo::header_size">header_size</a>;</td></tr>
+<tr><th id="118">118</th><td>    <b>break</b>;</td></tr>
+<tr><th id="119">119</th><td>  <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURLINFO_REQUEST_SIZE" title='CURLINFO_REQUEST_SIZE' data-ref="CURLINFO_REQUEST_SIZE">CURLINFO_REQUEST_SIZE</a>:</td></tr>
+<tr><th id="120">120</th><td>    *<a class="local col7 ref" href="#7param_longp" title='param_longp' data-ref="7param_longp">param_longp</a> = <a class="local col4 ref" href="#4data" title='data' data-ref="4data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::info" title='SessionHandle::info' data-ref="SessionHandle::info">info</a>.<a class="ref" href="urldata.h.html#PureInfo::request_size" title='PureInfo::request_size' data-ref="PureInfo::request_size">request_size</a>;</td></tr>
+<tr><th id="121">121</th><td>    <b>break</b>;</td></tr>
+<tr><th id="122">122</th><td>  <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURLINFO_TOTAL_TIME" title='CURLINFO_TOTAL_TIME' data-ref="CURLINFO_TOTAL_TIME">CURLINFO_TOTAL_TIME</a>:</td></tr>
+<tr><th id="123">123</th><td>    *<a class="local col8 ref" href="#8param_doublep" title='param_doublep' data-ref="8param_doublep">param_doublep</a> = <a class="local col4 ref" href="#4data" title='data' data-ref="4data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::progress" title='SessionHandle::progress' data-ref="SessionHandle::progress">progress</a>.<a class="ref" href="urldata.h.html#Progress::timespent" title='Progress::timespent' data-ref="Progress::timespent">timespent</a>;</td></tr>
+<tr><th id="124">124</th><td>    <b>break</b>;</td></tr>
+<tr><th id="125">125</th><td>  <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURLINFO_NAMELOOKUP_TIME" title='CURLINFO_NAMELOOKUP_TIME' data-ref="CURLINFO_NAMELOOKUP_TIME">CURLINFO_NAMELOOKUP_TIME</a>:</td></tr>
+<tr><th id="126">126</th><td>    *<a class="local col8 ref" href="#8param_doublep" title='param_doublep' data-ref="8param_doublep">param_doublep</a> = <a class="local col4 ref" href="#4data" title='data' data-ref="4data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::progress" title='SessionHandle::progress' data-ref="SessionHandle::progress">progress</a>.<a class="ref" href="urldata.h.html#Progress::t_nslookup" title='Progress::t_nslookup' data-ref="Progress::t_nslookup">t_nslookup</a>;</td></tr>
+<tr><th id="127">127</th><td>    <b>break</b>;</td></tr>
+<tr><th id="128">128</th><td>  <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURLINFO_CONNECT_TIME" title='CURLINFO_CONNECT_TIME' data-ref="CURLINFO_CONNECT_TIME">CURLINFO_CONNECT_TIME</a>:</td></tr>
+<tr><th id="129">129</th><td>    *<a class="local col8 ref" href="#8param_doublep" title='param_doublep' data-ref="8param_doublep">param_doublep</a> = <a class="local col4 ref" href="#4data" title='data' data-ref="4data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::progress" title='SessionHandle::progress' data-ref="SessionHandle::progress">progress</a>.<a class="ref" href="urldata.h.html#Progress::t_connect" title='Progress::t_connect' data-ref="Progress::t_connect">t_connect</a>;</td></tr>
+<tr><th id="130">130</th><td>    <b>break</b>;</td></tr>
+<tr><th id="131">131</th><td>  <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURLINFO_PRETRANSFER_TIME" title='CURLINFO_PRETRANSFER_TIME' data-ref="CURLINFO_PRETRANSFER_TIME">CURLINFO_PRETRANSFER_TIME</a>:</td></tr>
+<tr><th id="132">132</th><td>    *<a class="local col8 ref" href="#8param_doublep" title='param_doublep' data-ref="8param_doublep">param_doublep</a> =  <a class="local col4 ref" href="#4data" title='data' data-ref="4data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::progress" title='SessionHandle::progress' data-ref="SessionHandle::progress">progress</a>.<a class="ref" href="urldata.h.html#Progress::t_pretransfer" title='Progress::t_pretransfer' data-ref="Progress::t_pretransfer">t_pretransfer</a>;</td></tr>
+<tr><th id="133">133</th><td>    <b>break</b>;</td></tr>
+<tr><th id="134">134</th><td>  <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURLINFO_STARTTRANSFER_TIME" title='CURLINFO_STARTTRANSFER_TIME' data-ref="CURLINFO_STARTTRANSFER_TIME">CURLINFO_STARTTRANSFER_TIME</a>:</td></tr>
+<tr><th id="135">135</th><td>    *<a class="local col8 ref" href="#8param_doublep" title='param_doublep' data-ref="8param_doublep">param_doublep</a> = <a class="local col4 ref" href="#4data" title='data' data-ref="4data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::progress" title='SessionHandle::progress' data-ref="SessionHandle::progress">progress</a>.<a class="ref" href="urldata.h.html#Progress::t_starttransfer" title='Progress::t_starttransfer' data-ref="Progress::t_starttransfer">t_starttransfer</a>;</td></tr>
+<tr><th id="136">136</th><td>    <b>break</b>;</td></tr>
+<tr><th id="137">137</th><td>  <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURLINFO_SIZE_UPLOAD" title='CURLINFO_SIZE_UPLOAD' data-ref="CURLINFO_SIZE_UPLOAD">CURLINFO_SIZE_UPLOAD</a>:</td></tr>
+<tr><th id="138">138</th><td>    *<a class="local col8 ref" href="#8param_doublep" title='param_doublep' data-ref="8param_doublep">param_doublep</a> =  (<em>double</em>)<a class="local col4 ref" href="#4data" title='data' data-ref="4data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::progress" title='SessionHandle::progress' data-ref="SessionHandle::progress">progress</a>.<a class="ref" href="urldata.h.html#Progress::uploaded" title='Progress::uploaded' data-ref="Progress::uploaded">uploaded</a>;</td></tr>
+<tr><th id="139">139</th><td>    <b>break</b>;</td></tr>
+<tr><th id="140">140</th><td>  <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURLINFO_SIZE_DOWNLOAD" title='CURLINFO_SIZE_DOWNLOAD' data-ref="CURLINFO_SIZE_DOWNLOAD">CURLINFO_SIZE_DOWNLOAD</a>:</td></tr>
+<tr><th id="141">141</th><td>    *<a class="local col8 ref" href="#8param_doublep" title='param_doublep' data-ref="8param_doublep">param_doublep</a> = (<em>double</em>)<a class="local col4 ref" href="#4data" title='data' data-ref="4data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::progress" title='SessionHandle::progress' data-ref="SessionHandle::progress">progress</a>.<a class="ref" href="urldata.h.html#Progress::downloaded" title='Progress::downloaded' data-ref="Progress::downloaded">downloaded</a>;</td></tr>
+<tr><th id="142">142</th><td>    <b>break</b>;</td></tr>
+<tr><th id="143">143</th><td>  <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURLINFO_SPEED_DOWNLOAD" title='CURLINFO_SPEED_DOWNLOAD' data-ref="CURLINFO_SPEED_DOWNLOAD">CURLINFO_SPEED_DOWNLOAD</a>:</td></tr>
+<tr><th id="144">144</th><td>    *<a class="local col8 ref" href="#8param_doublep" title='param_doublep' data-ref="8param_doublep">param_doublep</a> =  (<em>double</em>)<a class="local col4 ref" href="#4data" title='data' data-ref="4data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::progress" title='SessionHandle::progress' data-ref="SessionHandle::progress">progress</a>.<a class="ref" href="urldata.h.html#Progress::dlspeed" title='Progress::dlspeed' data-ref="Progress::dlspeed">dlspeed</a>;</td></tr>
+<tr><th id="145">145</th><td>    <b>break</b>;</td></tr>
+<tr><th id="146">146</th><td>  <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURLINFO_SPEED_UPLOAD" title='CURLINFO_SPEED_UPLOAD' data-ref="CURLINFO_SPEED_UPLOAD">CURLINFO_SPEED_UPLOAD</a>:</td></tr>
+<tr><th id="147">147</th><td>    *<a class="local col8 ref" href="#8param_doublep" title='param_doublep' data-ref="8param_doublep">param_doublep</a> = (<em>double</em>)<a class="local col4 ref" href="#4data" title='data' data-ref="4data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::progress" title='SessionHandle::progress' data-ref="SessionHandle::progress">progress</a>.<a class="ref" href="urldata.h.html#Progress::ulspeed" title='Progress::ulspeed' data-ref="Progress::ulspeed">ulspeed</a>;</td></tr>
+<tr><th id="148">148</th><td>    <b>break</b>;</td></tr>
+<tr><th id="149">149</th><td>  <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURLINFO_SSL_VERIFYRESULT" title='CURLINFO_SSL_VERIFYRESULT' data-ref="CURLINFO_SSL_VERIFYRESULT">CURLINFO_SSL_VERIFYRESULT</a>:</td></tr>
+<tr><th id="150">150</th><td>    *<a class="local col7 ref" href="#7param_longp" title='param_longp' data-ref="7param_longp">param_longp</a> = <a class="local col4 ref" href="#4data" title='data' data-ref="4data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::set" title='SessionHandle::set' data-ref="SessionHandle::set">set</a>.<a class="ref" href="urldata.h.html#UserDefined::ssl" title='UserDefined::ssl' data-ref="UserDefined::ssl">ssl</a>.<a class="ref" href="urldata.h.html#ssl_config_data::certverifyresult" title='ssl_config_data::certverifyresult' data-ref="ssl_config_data::certverifyresult">certverifyresult</a>;</td></tr>
+<tr><th id="151">151</th><td>    <b>break</b>;</td></tr>
+<tr><th id="152">152</th><td>  <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURLINFO_CONTENT_LENGTH_DOWNLOAD" title='CURLINFO_CONTENT_LENGTH_DOWNLOAD' data-ref="CURLINFO_CONTENT_LENGTH_DOWNLOAD">CURLINFO_CONTENT_LENGTH_DOWNLOAD</a>:</td></tr>
+<tr><th id="153">153</th><td>    *<a class="local col8 ref" href="#8param_doublep" title='param_doublep' data-ref="8param_doublep">param_doublep</a> = (<em>double</em>)<a class="local col4 ref" href="#4data" title='data' data-ref="4data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::progress" title='SessionHandle::progress' data-ref="SessionHandle::progress">progress</a>.<a class="ref" href="urldata.h.html#Progress::size_dl" title='Progress::size_dl' data-ref="Progress::size_dl">size_dl</a>;</td></tr>
+<tr><th id="154">154</th><td>    <b>break</b>;</td></tr>
+<tr><th id="155">155</th><td>  <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURLINFO_CONTENT_LENGTH_UPLOAD" title='CURLINFO_CONTENT_LENGTH_UPLOAD' data-ref="CURLINFO_CONTENT_LENGTH_UPLOAD">CURLINFO_CONTENT_LENGTH_UPLOAD</a>:</td></tr>
+<tr><th id="156">156</th><td>    *<a class="local col8 ref" href="#8param_doublep" title='param_doublep' data-ref="8param_doublep">param_doublep</a> = (<em>double</em>)<a class="local col4 ref" href="#4data" title='data' data-ref="4data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::progress" title='SessionHandle::progress' data-ref="SessionHandle::progress">progress</a>.<a class="ref" href="urldata.h.html#Progress::size_ul" title='Progress::size_ul' data-ref="Progress::size_ul">size_ul</a>;</td></tr>
+<tr><th id="157">157</th><td>    <b>break</b>;</td></tr>
+<tr><th id="158">158</th><td>  <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURLINFO_REDIRECT_TIME" title='CURLINFO_REDIRECT_TIME' data-ref="CURLINFO_REDIRECT_TIME">CURLINFO_REDIRECT_TIME</a>:</td></tr>
+<tr><th id="159">159</th><td>    *<a class="local col8 ref" href="#8param_doublep" title='param_doublep' data-ref="8param_doublep">param_doublep</a> =  <a class="local col4 ref" href="#4data" title='data' data-ref="4data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::progress" title='SessionHandle::progress' data-ref="SessionHandle::progress">progress</a>.<a class="ref" href="urldata.h.html#Progress::t_redirect" title='Progress::t_redirect' data-ref="Progress::t_redirect">t_redirect</a>;</td></tr>
+<tr><th id="160">160</th><td>    <b>break</b>;</td></tr>
+<tr><th id="161">161</th><td>  <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURLINFO_REDIRECT_COUNT" title='CURLINFO_REDIRECT_COUNT' data-ref="CURLINFO_REDIRECT_COUNT">CURLINFO_REDIRECT_COUNT</a>:</td></tr>
+<tr><th id="162">162</th><td>    *<a class="local col7 ref" href="#7param_longp" title='param_longp' data-ref="7param_longp">param_longp</a> = <a class="local col4 ref" href="#4data" title='data' data-ref="4data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::set" title='SessionHandle::set' data-ref="SessionHandle::set">set</a>.<a class="ref" href="urldata.h.html#UserDefined::followlocation" title='UserDefined::followlocation' data-ref="UserDefined::followlocation">followlocation</a>;</td></tr>
+<tr><th id="163">163</th><td>    <b>break</b>;</td></tr>
+<tr><th id="164">164</th><td>  <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURLINFO_CONTENT_TYPE" title='CURLINFO_CONTENT_TYPE' data-ref="CURLINFO_CONTENT_TYPE">CURLINFO_CONTENT_TYPE</a>:</td></tr>
+<tr><th id="165">165</th><td>    *<a class="local col9 ref" href="#9param_charp" title='param_charp' data-ref="9param_charp">param_charp</a> = <a class="local col4 ref" href="#4data" title='data' data-ref="4data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::info" title='SessionHandle::info' data-ref="SessionHandle::info">info</a>.<a class="ref" href="urldata.h.html#PureInfo::contenttype" title='PureInfo::contenttype' data-ref="PureInfo::contenttype">contenttype</a>;</td></tr>
+<tr><th id="166">166</th><td>    <b>break</b>;</td></tr>
+<tr><th id="167">167</th><td>  <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURLINFO_PRIVATE" title='CURLINFO_PRIVATE' data-ref="CURLINFO_PRIVATE">CURLINFO_PRIVATE</a>:</td></tr>
+<tr><th id="168">168</th><td>    *<a class="local col9 ref" href="#9param_charp" title='param_charp' data-ref="9param_charp">param_charp</a> = <a class="local col4 ref" href="#4data" title='data' data-ref="4data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::set" title='SessionHandle::set' data-ref="SessionHandle::set">set</a>.<a class="ref" href="urldata.h.html#UserDefined::private" title='UserDefined::private' data-ref="UserDefined::private">private</a>;</td></tr>
+<tr><th id="169">169</th><td>    <b>break</b>;</td></tr>
+<tr><th id="170">170</th><td>  <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURLINFO_HTTPAUTH_AVAIL" title='CURLINFO_HTTPAUTH_AVAIL' data-ref="CURLINFO_HTTPAUTH_AVAIL">CURLINFO_HTTPAUTH_AVAIL</a>:</td></tr>
+<tr><th id="171">171</th><td>    *<a class="local col7 ref" href="#7param_longp" title='param_longp' data-ref="7param_longp">param_longp</a> = <a class="local col4 ref" href="#4data" title='data' data-ref="4data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::info" title='SessionHandle::info' data-ref="SessionHandle::info">info</a>.<a class="ref" href="urldata.h.html#PureInfo::httpauthavail" title='PureInfo::httpauthavail' data-ref="PureInfo::httpauthavail">httpauthavail</a>;</td></tr>
+<tr><th id="172">172</th><td>    <b>break</b>;</td></tr>
+<tr><th id="173">173</th><td>  <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURLINFO_PROXYAUTH_AVAIL" title='CURLINFO_PROXYAUTH_AVAIL' data-ref="CURLINFO_PROXYAUTH_AVAIL">CURLINFO_PROXYAUTH_AVAIL</a>:</td></tr>
+<tr><th id="174">174</th><td>    *<a class="local col7 ref" href="#7param_longp" title='param_longp' data-ref="7param_longp">param_longp</a> = <a class="local col4 ref" href="#4data" title='data' data-ref="4data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::info" title='SessionHandle::info' data-ref="SessionHandle::info">info</a>.<a class="ref" href="urldata.h.html#PureInfo::proxyauthavail" title='PureInfo::proxyauthavail' data-ref="PureInfo::proxyauthavail">proxyauthavail</a>;</td></tr>
+<tr><th id="175">175</th><td>    <b>break</b>;</td></tr>
+<tr><th id="176">176</th><td>  <b>default</b>:</td></tr>
+<tr><th id="177">177</th><td>    <b>return</b> <a class="enum" href="../include/curl/curl.h.html#CURLE_BAD_FUNCTION_ARGUMENT" title='CURLE_BAD_FUNCTION_ARGUMENT' data-ref="CURLE_BAD_FUNCTION_ARGUMENT">CURLE_BAD_FUNCTION_ARGUMENT</a>;</td></tr>
+<tr><th id="178">178</th><td>  }</td></tr>
+<tr><th id="179">179</th><td>  <b>return</b> <a class="enum" href="../include/curl/curl.h.html#CURLE_OK" title='CURLE_OK' data-ref="CURLE_OK">CURLE_OK</a>;</td></tr>
+<tr><th id="180">180</th><td>}</td></tr>
+<tr><th id="181">181</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

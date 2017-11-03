@@ -1,0 +1,237 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>DeclParticle.h source code [codebrowser/framework/DeclParticle.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idDeclParticle,idParticleParm,idParticleStage "/>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/framework/DeclParticle.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>framework</a>/<a href='DeclParticle.h.html'>DeclParticle.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__DECLPARTICLE_H__">__DECLPARTICLE_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__DECLPARTICLE_H__" data-ref="_M/__DECLPARTICLE_H__">__DECLPARTICLE_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>	idDeclParticle</i></td></tr>
+<tr><th id="36">36</th><td><i></i></td></tr>
+<tr><th id="37">37</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="38">38</th><td><i>*/</i></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><b>class</b> <dfn class="type def" id="idParticleParm" title='idParticleParm' data-ref="idParticleParm">idParticleParm</dfn> {</td></tr>
+<tr><th id="41">41</th><td><b>public</b>:</td></tr>
+<tr><th id="42">42</th><td>							<dfn class="decl def" id="_ZN14idParticleParmC1Ev" title='idParticleParm::idParticleParm' data-ref="_ZN14idParticleParmC1Ev">idParticleParm</dfn>( <em>void</em> ) { <a class="member" href="#idParticleParm::table" title='idParticleParm::table' data-ref="idParticleParm::table">table</a> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>; <a class="member" href="#idParticleParm::from" title='idParticleParm::from' data-ref="idParticleParm::from">from</a> = <a class="member" href="#idParticleParm::to" title='idParticleParm::to' data-ref="idParticleParm::to">to</a> = <var>0.0f</var>; }</td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td>	<em>const</em> <a class="type" href="DeclTable.h.html#idDeclTable" title='idDeclTable' data-ref="idDeclTable">idDeclTable</a> *		<dfn class="decl" id="idParticleParm::table" title='idParticleParm::table' data-ref="idParticleParm::table">table</dfn>;</td></tr>
+<tr><th id="45">45</th><td>	<em>float</em>					<dfn class="decl" id="idParticleParm::from" title='idParticleParm::from' data-ref="idParticleParm::from">from</dfn>;</td></tr>
+<tr><th id="46">46</th><td>	<em>float</em>					<dfn class="decl" id="idParticleParm::to" title='idParticleParm::to' data-ref="idParticleParm::to">to</dfn>;</td></tr>
+<tr><th id="47">47</th><td>	</td></tr>
+<tr><th id="48">48</th><td>	<em>float</em>					<dfn class="decl" id="_ZNK14idParticleParm4EvalEfR8idRandom" title='idParticleParm::Eval' data-ref="_ZNK14idParticleParm4EvalEfR8idRandom">Eval</dfn>( <em>float</em> <dfn class="local col1 decl" id="7821frac" title='frac' data-type='float' data-ref="7821frac">frac</dfn>, <a class="type" href="../idlib/math/Random.h.html#idRandom" title='idRandom' data-ref="idRandom">idRandom</a> &amp;<dfn class="local col2 decl" id="7822rand" title='rand' data-type='idRandom &amp;' data-ref="7822rand">rand</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="49">49</th><td>	<em>float</em>					<dfn class="decl" id="_ZNK14idParticleParm9IntegrateEfR8idRandom" title='idParticleParm::Integrate' data-ref="_ZNK14idParticleParm9IntegrateEfR8idRandom">Integrate</dfn>( <em>float</em> <dfn class="local col3 decl" id="7823frac" title='frac' data-type='float' data-ref="7823frac">frac</dfn>, <a class="type" href="../idlib/math/Random.h.html#idRandom" title='idRandom' data-ref="idRandom">idRandom</a> &amp;<dfn class="local col4 decl" id="7824rand" title='rand' data-type='idRandom &amp;' data-ref="7824rand">rand</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="50">50</th><td>};</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="54">54</th><td>	<dfn class="enum" id="PDIST_RECT" title='PDIST_RECT' data-ref="PDIST_RECT">PDIST_RECT</dfn>,				<i>// ( sizeX sizeY sizeZ )</i></td></tr>
+<tr><th id="55">55</th><td>	<dfn class="enum" id="PDIST_CYLINDER" title='PDIST_CYLINDER' data-ref="PDIST_CYLINDER">PDIST_CYLINDER</dfn>,			<i>// ( sizeX sizeY sizeZ )</i></td></tr>
+<tr><th id="56">56</th><td>	<dfn class="enum" id="PDIST_SPHERE" title='PDIST_SPHERE' data-ref="PDIST_SPHERE">PDIST_SPHERE</dfn>			<i>// ( sizeX sizeY sizeZ ringFraction )</i></td></tr>
+<tr><th id="57">57</th><td>							<i>// a ringFraction of zero allows the entire sphere, 0.9 would only</i></td></tr>
+<tr><th id="58">58</th><td><i>							// allow the outer 10% of the sphere</i></td></tr>
+<tr><th id="59">59</th><td>} <dfn class="typedef" id="prtDistribution_t" title='prtDistribution_t' data-type='enum prtDistribution_t' data-ref="prtDistribution_t">prtDistribution_t</dfn>;</td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="62">62</th><td>	<dfn class="enum" id="PDIR_CONE" title='PDIR_CONE' data-ref="PDIR_CONE">PDIR_CONE</dfn>,				<i>// parm0 is the solid cone angle</i></td></tr>
+<tr><th id="63">63</th><td>	<dfn class="enum" id="PDIR_OUTWARD" title='PDIR_OUTWARD' data-ref="PDIR_OUTWARD">PDIR_OUTWARD</dfn>			<i>// direction is relative to offset from origin, parm0 is an upward bias</i></td></tr>
+<tr><th id="64">64</th><td>} <dfn class="typedef" id="prtDirection_t" title='prtDirection_t' data-type='enum prtDirection_t' data-ref="prtDirection_t">prtDirection_t</dfn>;</td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="67">67</th><td>	<dfn class="enum" id="PPATH_STANDARD" title='PPATH_STANDARD' data-ref="PPATH_STANDARD">PPATH_STANDARD</dfn>,</td></tr>
+<tr><th id="68">68</th><td>	<dfn class="enum" id="PPATH_HELIX" title='PPATH_HELIX' data-ref="PPATH_HELIX">PPATH_HELIX</dfn>,			<i>// ( sizeX sizeY sizeZ radialSpeed climbSpeed )</i></td></tr>
+<tr><th id="69">69</th><td>	<dfn class="enum" id="PPATH_FLIES" title='PPATH_FLIES' data-ref="PPATH_FLIES">PPATH_FLIES</dfn>,</td></tr>
+<tr><th id="70">70</th><td>	<dfn class="enum" id="PPATH_ORBIT" title='PPATH_ORBIT' data-ref="PPATH_ORBIT">PPATH_ORBIT</dfn>,</td></tr>
+<tr><th id="71">71</th><td>	<dfn class="enum" id="PPATH_DRIP" title='PPATH_DRIP' data-ref="PPATH_DRIP">PPATH_DRIP</dfn></td></tr>
+<tr><th id="72">72</th><td>} <dfn class="typedef" id="prtCustomPth_t" title='prtCustomPth_t' data-type='enum prtCustomPth_t' data-ref="prtCustomPth_t">prtCustomPth_t</dfn>;</td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="75">75</th><td>	<dfn class="enum" id="POR_VIEW" title='POR_VIEW' data-ref="POR_VIEW">POR_VIEW</dfn>,</td></tr>
+<tr><th id="76">76</th><td>	<dfn class="enum" id="POR_AIMED" title='POR_AIMED' data-ref="POR_AIMED">POR_AIMED</dfn>,				<i>// angle and aspect are disregarded</i></td></tr>
+<tr><th id="77">77</th><td>	<dfn class="enum" id="POR_X" title='POR_X' data-ref="POR_X">POR_X</dfn>,</td></tr>
+<tr><th id="78">78</th><td>	<dfn class="enum" id="POR_Y" title='POR_Y' data-ref="POR_Y">POR_Y</dfn>,</td></tr>
+<tr><th id="79">79</th><td>	<dfn class="enum" id="POR_Z" title='POR_Z' data-ref="POR_Z">POR_Z</dfn></td></tr>
+<tr><th id="80">80</th><td>} <dfn class="typedef" id="prtOrientation_t" title='prtOrientation_t' data-type='enum prtOrientation_t' data-ref="prtOrientation_t">prtOrientation_t</dfn>;</td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td><b>typedef</b> <b>struct</b> <a class="type" href="../renderer/RenderWorld.h.html#renderEntity_s" title='renderEntity_s' data-ref="renderEntity_s" id="renderEntity_s"><a class="type" href="../renderer/RenderWorld.h.html#renderEntity_s" title='renderEntity_s' data-ref="renderEntity_s">renderEntity_s</a></a> <dfn class="typedef" id="renderEntity_t" title='renderEntity_t' data-type='struct renderEntity_s' data-ref="renderEntity_t">renderEntity_t</dfn>;</td></tr>
+<tr><th id="83">83</th><td><b>typedef</b> <b>struct</b> <a class="type" href="../renderer/RenderWorld.h.html#renderView_s" title='renderView_s' data-ref="renderView_s" id="renderView_s"><a class="type" href="../renderer/RenderWorld.h.html#renderView_s" title='renderView_s' data-ref="renderView_s">renderView_s</a></a> <dfn class="typedef" id="renderView_t" title='renderView_t' data-type='struct renderView_s' data-ref="renderView_t">renderView_t</dfn>;</td></tr>
+<tr><th id="84">84</th><td></td></tr>
+<tr><th id="85">85</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="86">86</th><td>	<em>const</em> <a class="typedef" href="#renderEntity_t" title='renderEntity_t' data-type='struct renderEntity_s' data-ref="renderEntity_t">renderEntity_t</a> *	<dfn class="decl" id="(anonymous)::renderEnt" title='(anonymous struct)::renderEnt' data-ref="(anonymous)::renderEnt">renderEnt</dfn>;			<i>// for shaderParms, etc</i></td></tr>
+<tr><th id="87">87</th><td>	<em>const</em> <a class="typedef" href="#renderView_t" title='renderView_t' data-type='struct renderView_s' data-ref="renderView_t">renderView_t</a> *	<dfn class="decl" id="(anonymous)::renderView" title='(anonymous struct)::renderView' data-ref="(anonymous)::renderView">renderView</dfn>;</td></tr>
+<tr><th id="88">88</th><td>	<em>int</em>						<dfn class="decl" id="(anonymous)::index" title='(anonymous struct)::index' data-ref="(anonymous)::index">index</dfn>;				<i>// particle number in the system</i></td></tr>
+<tr><th id="89">89</th><td>	<em>float</em>					<dfn class="decl" id="(anonymous)::frac" title='(anonymous struct)::frac' data-ref="(anonymous)::frac">frac</dfn>;				<i>// 0.0 to 1.0</i></td></tr>
+<tr><th id="90">90</th><td>	<a class="type" href="../idlib/math/Random.h.html#idRandom" title='idRandom' data-ref="idRandom">idRandom</a>				<dfn class="decl" id="(anonymous)::random" title='(anonymous struct)::random' data-ref="(anonymous)::random">random</dfn>;</td></tr>
+<tr><th id="91">91</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a>					<dfn class="decl" id="(anonymous)::origin" title='(anonymous struct)::origin' data-ref="(anonymous)::origin">origin</dfn>;				<i>// dynamic smoke particles can have individual origins and axis</i></td></tr>
+<tr><th id="92">92</th><td>	<a class="type" href="../idlib/math/Matrix.h.html#idMat3" title='idMat3' data-ref="idMat3">idMat3</a>					<dfn class="decl" id="(anonymous)::axis" title='(anonymous struct)::axis' data-ref="(anonymous)::axis">axis</dfn>;</td></tr>
+<tr><th id="93">93</th><td></td></tr>
+<tr><th id="94">94</th><td></td></tr>
+<tr><th id="95">95</th><td>	<em>float</em>					<dfn class="decl" id="(anonymous)::age" title='(anonymous struct)::age' data-ref="(anonymous)::age">age</dfn>;				<i>// in seconds, calculated as fraction * stage-&gt;particleLife</i></td></tr>
+<tr><th id="96">96</th><td>	<a class="type" href="../idlib/math/Random.h.html#idRandom" title='idRandom' data-ref="idRandom">idRandom</a>				<dfn class="decl" id="(anonymous)::originalRandom" title='(anonymous struct)::originalRandom' data-ref="(anonymous)::originalRandom">originalRandom</dfn>;		<i>// needed so aimed particles can reset the random for another origin calculation</i></td></tr>
+<tr><th id="97">97</th><td>	<em>float</em>					<dfn class="decl" id="(anonymous)::animationFrameFrac" title='(anonymous struct)::animationFrameFrac' data-ref="(anonymous)::animationFrameFrac">animationFrameFrac</dfn>;	<i>// set by ParticleTexCoords, used to make the cross faded version</i></td></tr>
+<tr><th id="98">98</th><td>} <dfn class="typedef" id="particleGen_t" title='particleGen_t' data-type='struct particleGen_t' data-ref="particleGen_t">particleGen_t</dfn>;</td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td></td></tr>
+<tr><th id="101">101</th><td><i>//</i></td></tr>
+<tr><th id="102">102</th><td><i>// single particle stage</i></td></tr>
+<tr><th id="103">103</th><td><i>//</i></td></tr>
+<tr><th id="104">104</th><td><b>class</b> <dfn class="type def" id="idParticleStage" title='idParticleStage' data-ref="idParticleStage">idParticleStage</dfn> {</td></tr>
+<tr><th id="105">105</th><td><b>public</b>:</td></tr>
+<tr><th id="106">106</th><td>							<dfn class="decl" id="_ZN15idParticleStageC1Ev" title='idParticleStage::idParticleStage' data-ref="_ZN15idParticleStageC1Ev">idParticleStage</dfn>( <em>void</em> );</td></tr>
+<tr><th id="107">107</th><td>	<b>virtual</b>					<dfn class="virtual decl def" id="_ZN15idParticleStageD1Ev" title='idParticleStage::~idParticleStage' data-ref="_ZN15idParticleStageD1Ev">~idParticleStage</dfn>( <em>void</em> ) {}</td></tr>
+<tr><th id="108">108</th><td></td></tr>
+<tr><th id="109">109</th><td>	<em>void</em>					<dfn class="decl" id="_ZN15idParticleStage7DefaultEv" title='idParticleStage::Default' data-ref="_ZN15idParticleStage7DefaultEv">Default</dfn>();</td></tr>
+<tr><th id="110">110</th><td>	<b>virtual</b> <em>int</em>				<dfn class="virtual decl" id="_ZNK15idParticleStage19NumQuadsPerParticleEv" title='idParticleStage::NumQuadsPerParticle' data-ref="_ZNK15idParticleStage19NumQuadsPerParticleEv">NumQuadsPerParticle</dfn>() <em>const</em>;	<i>// includes trails and cross faded animations</i></td></tr>
+<tr><th id="111">111</th><td>	<i>// returns the number of verts created, which will range from 0 to 4*NumQuadsPerParticle()</i></td></tr>
+<tr><th id="112">112</th><td>	<b>virtual</b> <em>int</em>				<dfn class="virtual decl" id="_ZNK15idParticleStage14CreateParticleEP13particleGen_tP10idDrawVert" title='idParticleStage::CreateParticle' data-ref="_ZNK15idParticleStage14CreateParticleEP13particleGen_tP10idDrawVert">CreateParticle</dfn>( <a class="typedef" href="#particleGen_t" title='particleGen_t' data-type='struct particleGen_t' data-ref="particleGen_t">particleGen_t</a> *<dfn class="local col5 decl" id="7825g" title='g' data-type='particleGen_t *' data-ref="7825g">g</dfn>, <a class="type" href="../idlib/geometry/DrawVert.h.html#idDrawVert" title='idDrawVert' data-ref="idDrawVert">idDrawVert</a> *<dfn class="local col6 decl" id="7826verts" title='verts' data-type='idDrawVert *' data-ref="7826verts">verts</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td>	<em>void</em>					<dfn class="decl" id="_ZNK15idParticleStage14ParticleOriginEP13particleGen_tR6idVec3" title='idParticleStage::ParticleOrigin' data-ref="_ZNK15idParticleStage14ParticleOriginEP13particleGen_tR6idVec3">ParticleOrigin</dfn>( <a class="typedef" href="#particleGen_t" title='particleGen_t' data-type='struct particleGen_t' data-ref="particleGen_t">particleGen_t</a> *<dfn class="local col7 decl" id="7827g" title='g' data-type='particleGen_t *' data-ref="7827g">g</dfn>, <a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col8 decl" id="7828origin" title='origin' data-type='idVec3 &amp;' data-ref="7828origin">origin</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="115">115</th><td>	<em>int</em>						<dfn class="decl" id="_ZNK15idParticleStage13ParticleVertsEP13particleGen_t6idVec3P10idDrawVert" title='idParticleStage::ParticleVerts' data-ref="_ZNK15idParticleStage13ParticleVertsEP13particleGen_t6idVec3P10idDrawVert">ParticleVerts</dfn>( <a class="typedef" href="#particleGen_t" title='particleGen_t' data-type='struct particleGen_t' data-ref="particleGen_t">particleGen_t</a> *<dfn class="local col9 decl" id="7829g" title='g' data-type='particleGen_t *' data-ref="7829g">g</dfn>, <em>const</em> <a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> <dfn class="local col0 decl" id="7830origin" title='origin' data-type='const idVec3' data-ref="7830origin">origin</dfn>, <a class="type" href="../idlib/geometry/DrawVert.h.html#idDrawVert" title='idDrawVert' data-ref="idDrawVert">idDrawVert</a> *<dfn class="local col1 decl" id="7831verts" title='verts' data-type='idDrawVert *' data-ref="7831verts">verts</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="116">116</th><td>	<em>void</em>					<dfn class="decl" id="_ZNK15idParticleStage17ParticleTexCoordsEP13particleGen_tP10idDrawVert" title='idParticleStage::ParticleTexCoords' data-ref="_ZNK15idParticleStage17ParticleTexCoordsEP13particleGen_tP10idDrawVert">ParticleTexCoords</dfn>( <a class="typedef" href="#particleGen_t" title='particleGen_t' data-type='struct particleGen_t' data-ref="particleGen_t">particleGen_t</a> *<dfn class="local col2 decl" id="7832g" title='g' data-type='particleGen_t *' data-ref="7832g">g</dfn>, <a class="type" href="../idlib/geometry/DrawVert.h.html#idDrawVert" title='idDrawVert' data-ref="idDrawVert">idDrawVert</a> *<dfn class="local col3 decl" id="7833verts" title='verts' data-type='idDrawVert *' data-ref="7833verts">verts</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="117">117</th><td>	<em>void</em>					<dfn class="decl" id="_ZNK15idParticleStage14ParticleColorsEP13particleGen_tP10idDrawVert" title='idParticleStage::ParticleColors' data-ref="_ZNK15idParticleStage14ParticleColorsEP13particleGen_tP10idDrawVert">ParticleColors</dfn>( <a class="typedef" href="#particleGen_t" title='particleGen_t' data-type='struct particleGen_t' data-ref="particleGen_t">particleGen_t</a> *<dfn class="local col4 decl" id="7834g" title='g' data-type='particleGen_t *' data-ref="7834g">g</dfn>, <a class="type" href="../idlib/geometry/DrawVert.h.html#idDrawVert" title='idDrawVert' data-ref="idDrawVert">idDrawVert</a> *<dfn class="local col5 decl" id="7835verts" title='verts' data-type='idDrawVert *' data-ref="7835verts">verts</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="118">118</th><td></td></tr>
+<tr><th id="119">119</th><td>	<em>const</em> <em>char</em> *			<dfn class="decl" id="_ZN15idParticleStage17GetCustomPathNameEv" title='idParticleStage::GetCustomPathName' data-ref="_ZN15idParticleStage17GetCustomPathNameEv">GetCustomPathName</dfn>();</td></tr>
+<tr><th id="120">120</th><td>	<em>const</em> <em>char</em> *			<dfn class="decl" id="_ZN15idParticleStage17GetCustomPathDescEv" title='idParticleStage::GetCustomPathDesc' data-ref="_ZN15idParticleStage17GetCustomPathDescEv">GetCustomPathDesc</dfn>();</td></tr>
+<tr><th id="121">121</th><td>	<em>int</em>						<dfn class="decl" id="_ZN15idParticleStage18NumCustomPathParmsEv" title='idParticleStage::NumCustomPathParms' data-ref="_ZN15idParticleStage18NumCustomPathParmsEv">NumCustomPathParms</dfn>();</td></tr>
+<tr><th id="122">122</th><td>	<em>void</em>					<dfn class="decl" id="_ZN15idParticleStage17SetCustomPathTypeEPKc" title='idParticleStage::SetCustomPathType' data-ref="_ZN15idParticleStage17SetCustomPathTypeEPKc">SetCustomPathType</dfn>( <em>const</em> <em>char</em> *<dfn class="local col6 decl" id="7836p" title='p' data-type='const char *' data-ref="7836p">p</dfn> );</td></tr>
+<tr><th id="123">123</th><td>	<em>void</em>					<dfn class="decl" id="_ZN15idParticleStageaSERKS_" title='idParticleStage::operator=' data-ref="_ZN15idParticleStageaSERKS_"><b>operator</b>=</dfn>( <em>const</em> <a class="type" href="#idParticleStage" title='idParticleStage' data-ref="idParticleStage">idParticleStage</a> &amp;<dfn class="local col7 decl" id="7837src" title='src' data-type='const idParticleStage &amp;' data-ref="7837src">src</dfn> );</td></tr>
+<tr><th id="124">124</th><td></td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td>	<i>//------------------------------</i></td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *		<dfn class="decl" id="idParticleStage::material" title='idParticleStage::material' data-ref="idParticleStage::material">material</dfn>;</td></tr>
+<tr><th id="129">129</th><td></td></tr>
+<tr><th id="130">130</th><td>	<em>int</em>						<dfn class="decl" id="idParticleStage::totalParticles" title='idParticleStage::totalParticles' data-ref="idParticleStage::totalParticles">totalParticles</dfn>;		<i>// total number of particles, although some may be invisible at a given time</i></td></tr>
+<tr><th id="131">131</th><td>	<em>float</em>					<dfn class="decl" id="idParticleStage::cycles" title='idParticleStage::cycles' data-ref="idParticleStage::cycles">cycles</dfn>;				<i>// allows things to oneShot ( 1 cycle ) or run for a set number of cycles</i></td></tr>
+<tr><th id="132">132</th><td>												<i>// on a per stage basis</i></td></tr>
+<tr><th id="133">133</th><td></td></tr>
+<tr><th id="134">134</th><td>	<em>int</em>						<dfn class="decl" id="idParticleStage::cycleMsec" title='idParticleStage::cycleMsec' data-ref="idParticleStage::cycleMsec">cycleMsec</dfn>;			<i>// ( particleLife + deadTime ) in msec</i></td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td>	<em>float</em>					<dfn class="decl" id="idParticleStage::spawnBunching" title='idParticleStage::spawnBunching' data-ref="idParticleStage::spawnBunching">spawnBunching</dfn>;		<i>// 0.0 = all come out at first instant, 1.0 = evenly spaced over cycle time</i></td></tr>
+<tr><th id="137">137</th><td>	<em>float</em>					<dfn class="decl" id="idParticleStage::particleLife" title='idParticleStage::particleLife' data-ref="idParticleStage::particleLife">particleLife</dfn>;		<i>// total seconds of life for each particle</i></td></tr>
+<tr><th id="138">138</th><td>	<em>float</em>					<dfn class="decl" id="idParticleStage::timeOffset" title='idParticleStage::timeOffset' data-ref="idParticleStage::timeOffset">timeOffset</dfn>;			<i>// time offset from system start for the first particle to spawn</i></td></tr>
+<tr><th id="139">139</th><td>	<em>float</em>					<dfn class="decl" id="idParticleStage::deadTime" title='idParticleStage::deadTime' data-ref="idParticleStage::deadTime">deadTime</dfn>;			<i>// time after particleLife before respawning</i></td></tr>
+<tr><th id="140">140</th><td>	</td></tr>
+<tr><th id="141">141</th><td>	<i>//-------------------------------	// standard path parms</i></td></tr>
+<tr><th id="142">142</th><td>		</td></tr>
+<tr><th id="143">143</th><td>	<a class="typedef" href="#prtDistribution_t" title='prtDistribution_t' data-type='enum prtDistribution_t' data-ref="prtDistribution_t">prtDistribution_t</a>		<dfn class="decl" id="idParticleStage::distributionType" title='idParticleStage::distributionType' data-ref="idParticleStage::distributionType">distributionType</dfn>;</td></tr>
+<tr><th id="144">144</th><td>	<em>float</em>					<dfn class="decl" id="idParticleStage::distributionParms" title='idParticleStage::distributionParms' data-ref="idParticleStage::distributionParms">distributionParms</dfn>[<var>4</var>];</td></tr>
+<tr><th id="145">145</th><td>	</td></tr>
+<tr><th id="146">146</th><td>	<a class="typedef" href="#prtDirection_t" title='prtDirection_t' data-type='enum prtDirection_t' data-ref="prtDirection_t">prtDirection_t</a>			<dfn class="decl" id="idParticleStage::directionType" title='idParticleStage::directionType' data-ref="idParticleStage::directionType">directionType</dfn>;</td></tr>
+<tr><th id="147">147</th><td>	<em>float</em>					<dfn class="decl" id="idParticleStage::directionParms" title='idParticleStage::directionParms' data-ref="idParticleStage::directionParms">directionParms</dfn>[<var>4</var>];</td></tr>
+<tr><th id="148">148</th><td>	</td></tr>
+<tr><th id="149">149</th><td>	<a class="type" href="#idParticleParm" title='idParticleParm' data-ref="idParticleParm">idParticleParm</a>			<dfn class="decl" id="idParticleStage::speed" title='idParticleStage::speed' data-ref="idParticleStage::speed">speed</dfn>;</td></tr>
+<tr><th id="150">150</th><td>	<em>float</em>					<dfn class="decl" id="idParticleStage::gravity" title='idParticleStage::gravity' data-ref="idParticleStage::gravity">gravity</dfn>;				<i>// can be negative to float up</i></td></tr>
+<tr><th id="151">151</th><td>	<em>bool</em>					<dfn class="decl" id="idParticleStage::worldGravity" title='idParticleStage::worldGravity' data-ref="idParticleStage::worldGravity">worldGravity</dfn>;			<i>// apply gravity in world space</i></td></tr>
+<tr><th id="152">152</th><td>	<em>bool</em>					<dfn class="decl" id="idParticleStage::randomDistribution" title='idParticleStage::randomDistribution' data-ref="idParticleStage::randomDistribution">randomDistribution</dfn>;		<i>// randomly orient the quad on emission ( defaults to true ) </i></td></tr>
+<tr><th id="153">153</th><td>	<em>bool</em>					<dfn class="decl" id="idParticleStage::entityColor" title='idParticleStage::entityColor' data-ref="idParticleStage::entityColor">entityColor</dfn>;			<i>// force color from render entity ( fadeColor is still valid )</i></td></tr>
+<tr><th id="154">154</th><td>	</td></tr>
+<tr><th id="155">155</th><td>	<i>//------------------------------	// custom path will completely replace the standard path calculations</i></td></tr>
+<tr><th id="156">156</th><td>	</td></tr>
+<tr><th id="157">157</th><td>	<a class="typedef" href="#prtCustomPth_t" title='prtCustomPth_t' data-type='enum prtCustomPth_t' data-ref="prtCustomPth_t">prtCustomPth_t</a>			<dfn class="decl" id="idParticleStage::customPathType" title='idParticleStage::customPathType' data-ref="idParticleStage::customPathType">customPathType</dfn>;		<i>// use custom C code routines for determining the origin</i></td></tr>
+<tr><th id="158">158</th><td>	<em>float</em>					<dfn class="decl" id="idParticleStage::customPathParms" title='idParticleStage::customPathParms' data-ref="idParticleStage::customPathParms">customPathParms</dfn>[<var>8</var>];</td></tr>
+<tr><th id="159">159</th><td>	</td></tr>
+<tr><th id="160">160</th><td>	<i>//--------------------------------</i></td></tr>
+<tr><th id="161">161</th><td>	</td></tr>
+<tr><th id="162">162</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a>					<dfn class="decl" id="idParticleStage::offset" title='idParticleStage::offset' data-ref="idParticleStage::offset">offset</dfn>;				<i>// offset from origin to spawn all particles, also applies to customPath</i></td></tr>
+<tr><th id="163">163</th><td>	</td></tr>
+<tr><th id="164">164</th><td>	<em>int</em>						<dfn class="decl" id="idParticleStage::animationFrames" title='idParticleStage::animationFrames' data-ref="idParticleStage::animationFrames">animationFrames</dfn>;	<i>// if &gt; 1, subdivide the texture S axis into frames and crossfade</i></td></tr>
+<tr><th id="165">165</th><td>	<em>float</em>					<dfn class="decl" id="idParticleStage::animationRate" title='idParticleStage::animationRate' data-ref="idParticleStage::animationRate">animationRate</dfn>;		<i>// frames per second</i></td></tr>
+<tr><th id="166">166</th><td></td></tr>
+<tr><th id="167">167</th><td>	<em>float</em>					<dfn class="decl" id="idParticleStage::initialAngle" title='idParticleStage::initialAngle' data-ref="idParticleStage::initialAngle">initialAngle</dfn>;		<i>// in degrees, random angle is used if zero ( default ) </i></td></tr>
+<tr><th id="168">168</th><td>	<a class="type" href="#idParticleParm" title='idParticleParm' data-ref="idParticleParm">idParticleParm</a>			<dfn class="decl" id="idParticleStage::rotationSpeed" title='idParticleStage::rotationSpeed' data-ref="idParticleStage::rotationSpeed">rotationSpeed</dfn>;		<i>// half the particles will have negative rotation speeds</i></td></tr>
+<tr><th id="169">169</th><td>	</td></tr>
+<tr><th id="170">170</th><td>	<a class="typedef" href="#prtOrientation_t" title='prtOrientation_t' data-type='enum prtOrientation_t' data-ref="prtOrientation_t">prtOrientation_t</a>		<dfn class="decl" id="idParticleStage::orientation" title='idParticleStage::orientation' data-ref="idParticleStage::orientation">orientation</dfn>;	<i>// view, aimed, or axis fixed</i></td></tr>
+<tr><th id="171">171</th><td>	<em>float</em>					<dfn class="decl" id="idParticleStage::orientationParms" title='idParticleStage::orientationParms' data-ref="idParticleStage::orientationParms">orientationParms</dfn>[<var>4</var>];</td></tr>
+<tr><th id="172">172</th><td></td></tr>
+<tr><th id="173">173</th><td>	<a class="type" href="#idParticleParm" title='idParticleParm' data-ref="idParticleParm">idParticleParm</a>			<dfn class="decl" id="idParticleStage::size" title='idParticleStage::size' data-ref="idParticleStage::size">size</dfn>;</td></tr>
+<tr><th id="174">174</th><td>	<a class="type" href="#idParticleParm" title='idParticleParm' data-ref="idParticleParm">idParticleParm</a>			<dfn class="decl" id="idParticleStage::aspect" title='idParticleStage::aspect' data-ref="idParticleStage::aspect">aspect</dfn>;				<i>// greater than 1 makes the T axis longer</i></td></tr>
+<tr><th id="175">175</th><td></td></tr>
+<tr><th id="176">176</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec4" title='idVec4' data-ref="idVec4">idVec4</a>					<dfn class="decl" id="idParticleStage::color" title='idParticleStage::color' data-ref="idParticleStage::color">color</dfn>;</td></tr>
+<tr><th id="177">177</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec4" title='idVec4' data-ref="idVec4">idVec4</a>					<dfn class="decl" id="idParticleStage::fadeColor" title='idParticleStage::fadeColor' data-ref="idParticleStage::fadeColor">fadeColor</dfn>;			<i>// either 0 0 0 0 for additive, or 1 1 1 0 for blended materials</i></td></tr>
+<tr><th id="178">178</th><td>	<em>float</em>					<dfn class="decl" id="idParticleStage::fadeInFraction" title='idParticleStage::fadeInFraction' data-ref="idParticleStage::fadeInFraction">fadeInFraction</dfn>;		<i>// in 0.0 to 1.0 range</i></td></tr>
+<tr><th id="179">179</th><td>	<em>float</em>					<dfn class="decl" id="idParticleStage::fadeOutFraction" title='idParticleStage::fadeOutFraction' data-ref="idParticleStage::fadeOutFraction">fadeOutFraction</dfn>;	<i>// in 0.0 to 1.0 range</i></td></tr>
+<tr><th id="180">180</th><td>	<em>float</em>					<dfn class="decl" id="idParticleStage::fadeIndexFraction" title='idParticleStage::fadeIndexFraction' data-ref="idParticleStage::fadeIndexFraction">fadeIndexFraction</dfn>;	<i>// in 0.0 to 1.0 range, causes later index smokes to be more faded </i></td></tr>
+<tr><th id="181">181</th><td></td></tr>
+<tr><th id="182">182</th><td>	<em>bool</em>					<dfn class="decl" id="idParticleStage::hidden" title='idParticleStage::hidden' data-ref="idParticleStage::hidden">hidden</dfn>;				<i>// for editor use</i></td></tr>
+<tr><th id="183">183</th><td>	<i>//-----------------------------------</i></td></tr>
+<tr><th id="184">184</th><td></td></tr>
+<tr><th id="185">185</th><td>	<em>float</em>					<dfn class="decl" id="idParticleStage::boundsExpansion" title='idParticleStage::boundsExpansion' data-ref="idParticleStage::boundsExpansion">boundsExpansion</dfn>;	<i>// user tweak to fix poorly calculated bounds</i></td></tr>
+<tr><th id="186">186</th><td></td></tr>
+<tr><th id="187">187</th><td>	<a class="type" href="../idlib/bv/Bounds.h.html#idBounds" title='idBounds' data-ref="idBounds">idBounds</a>				<dfn class="decl" id="idParticleStage::bounds" title='idParticleStage::bounds' data-ref="idParticleStage::bounds">bounds</dfn>;				<i>// derived</i></td></tr>
+<tr><th id="188">188</th><td>};</td></tr>
+<tr><th id="189">189</th><td></td></tr>
+<tr><th id="190">190</th><td></td></tr>
+<tr><th id="191">191</th><td><i>//</i></td></tr>
+<tr><th id="192">192</th><td><i>// group of particle stages</i></td></tr>
+<tr><th id="193">193</th><td><i>//</i></td></tr>
+<tr><th id="194">194</th><td><b>class</b> <dfn class="type def" id="idDeclParticle" title='idDeclParticle' data-ref="idDeclParticle">idDeclParticle</dfn> : <b>public</b> <a class="type" href="DeclManager.h.html#idDecl" title='idDecl' data-ref="idDecl">idDecl</a> {</td></tr>
+<tr><th id="195">195</th><td><b>public</b>:</td></tr>
+<tr><th id="196">196</th><td></td></tr>
+<tr><th id="197">197</th><td>	<b>virtual</b> <span class='typedef' title='size_t' data-type='unsigned int' data-ref="size_t">size_t</span>			<dfn class="virtual decl" id="_ZNK14idDeclParticle4SizeEv" title='idDeclParticle::Size' data-ref="_ZNK14idDeclParticle4SizeEv">Size</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="198">198</th><td>	<b>virtual</b> <em>const</em> <em>char</em> *	<dfn class="virtual decl" id="_ZNK14idDeclParticle17DefaultDefinitionEv" title='idDeclParticle::DefaultDefinition' data-ref="_ZNK14idDeclParticle17DefaultDefinitionEv">DefaultDefinition</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="199">199</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN14idDeclParticle5ParseEPKci" title='idDeclParticle::Parse' data-ref="_ZN14idDeclParticle5ParseEPKci">Parse</dfn>( <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="7838text" title='text' data-type='const char *' data-ref="7838text">text</dfn>, <em>const</em> <em>int</em> <dfn class="local col9 decl" id="7839textLength" title='textLength' data-type='const int' data-ref="7839textLength">textLength</dfn> );</td></tr>
+<tr><th id="200">200</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN14idDeclParticle8FreeDataEv" title='idDeclParticle::FreeData' data-ref="_ZN14idDeclParticle8FreeDataEv">FreeData</dfn>( <em>void</em> );</td></tr>
+<tr><th id="201">201</th><td></td></tr>
+<tr><th id="202">202</th><td>	<em>bool</em>					<dfn class="decl" id="_ZN14idDeclParticle4SaveEPKc" title='idDeclParticle::Save' data-ref="_ZN14idDeclParticle4SaveEPKc">Save</dfn>( <em>const</em> <em>char</em> *<dfn class="local col0 decl" id="7840fileName" title='fileName' data-type='const char *' data-ref="7840fileName">fileName</dfn> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> );</td></tr>
+<tr><th id="203">203</th><td></td></tr>
+<tr><th id="204">204</th><td>	<a class="type" href="../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<a class="type" href="#idParticleStage" title='idParticleStage' data-ref="idParticleStage">idParticleStage</a> *&gt;<dfn class="decl" id="idDeclParticle::stages" title='idDeclParticle::stages' data-ref="idDeclParticle::stages">stages</dfn>;</td></tr>
+<tr><th id="205">205</th><td>	<a class="type" href="../idlib/bv/Bounds.h.html#idBounds" title='idBounds' data-ref="idBounds">idBounds</a>				<dfn class="decl" id="idDeclParticle::bounds" title='idDeclParticle::bounds' data-ref="idDeclParticle::bounds">bounds</dfn>;</td></tr>
+<tr><th id="206">206</th><td>	<em>float</em>					<dfn class="decl" id="idDeclParticle::depthHack" title='idDeclParticle::depthHack' data-ref="idDeclParticle::depthHack">depthHack</dfn>;</td></tr>
+<tr><th id="207">207</th><td></td></tr>
+<tr><th id="208">208</th><td><b>private</b>:</td></tr>
+<tr><th id="209">209</th><td>	<em>bool</em>					<dfn class="decl" id="_ZN14idDeclParticle17RebuildTextSourceEv" title='idDeclParticle::RebuildTextSource' data-ref="_ZN14idDeclParticle17RebuildTextSourceEv">RebuildTextSource</dfn>( <em>void</em> );</td></tr>
+<tr><th id="210">210</th><td>	<em>void</em>					<dfn class="decl" id="_ZN14idDeclParticle14GetStageBoundsEP15idParticleStage" title='idDeclParticle::GetStageBounds' data-ref="_ZN14idDeclParticle14GetStageBoundsEP15idParticleStage">GetStageBounds</dfn>( <a class="type" href="#idParticleStage" title='idParticleStage' data-ref="idParticleStage">idParticleStage</a> *<dfn class="local col1 decl" id="7841stage" title='stage' data-type='idParticleStage *' data-ref="7841stage">stage</dfn> );</td></tr>
+<tr><th id="211">211</th><td>	<a class="type" href="#idParticleStage" title='idParticleStage' data-ref="idParticleStage">idParticleStage</a> *		<dfn class="decl" id="_ZN14idDeclParticle18ParseParticleStageER7idLexer" title='idDeclParticle::ParseParticleStage' data-ref="_ZN14idDeclParticle18ParseParticleStageER7idLexer">ParseParticleStage</dfn>( <a class="type" href="../idlib/Lexer.h.html#idLexer" title='idLexer' data-ref="idLexer">idLexer</a> &amp;<dfn class="local col2 decl" id="7842src" title='src' data-type='idLexer &amp;' data-ref="7842src">src</dfn> );</td></tr>
+<tr><th id="212">212</th><td>	<em>void</em>					<dfn class="decl" id="_ZN14idDeclParticle10ParseParmsER7idLexerPfi" title='idDeclParticle::ParseParms' data-ref="_ZN14idDeclParticle10ParseParmsER7idLexerPfi">ParseParms</dfn>( <a class="type" href="../idlib/Lexer.h.html#idLexer" title='idLexer' data-ref="idLexer">idLexer</a> &amp;<dfn class="local col3 decl" id="7843src" title='src' data-type='idLexer &amp;' data-ref="7843src">src</dfn>, <em>float</em> *<dfn class="local col4 decl" id="7844parms" title='parms' data-type='float *' data-ref="7844parms">parms</dfn>, <em>int</em> <dfn class="local col5 decl" id="7845maxParms" title='maxParms' data-type='int' data-ref="7845maxParms">maxParms</dfn> );</td></tr>
+<tr><th id="213">213</th><td>	<em>void</em>					<dfn class="decl" id="_ZN14idDeclParticle15ParseParametricER7idLexerP14idParticleParm" title='idDeclParticle::ParseParametric' data-ref="_ZN14idDeclParticle15ParseParametricER7idLexerP14idParticleParm">ParseParametric</dfn>( <a class="type" href="../idlib/Lexer.h.html#idLexer" title='idLexer' data-ref="idLexer">idLexer</a> &amp;<dfn class="local col6 decl" id="7846src" title='src' data-type='idLexer &amp;' data-ref="7846src">src</dfn>, <a class="type" href="#idParticleParm" title='idParticleParm' data-ref="idParticleParm">idParticleParm</a> *<dfn class="local col7 decl" id="7847parm" title='parm' data-type='idParticleParm *' data-ref="7847parm">parm</dfn> );</td></tr>
+<tr><th id="214">214</th><td>	<em>void</em>					<dfn class="decl" id="_ZN14idDeclParticle10WriteStageEP6idFileP15idParticleStage" title='idDeclParticle::WriteStage' data-ref="_ZN14idDeclParticle10WriteStageEP6idFileP15idParticleStage">WriteStage</dfn>( <a class="type" href="File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col8 decl" id="7848f" title='f' data-type='idFile *' data-ref="7848f">f</dfn>, <a class="type" href="#idParticleStage" title='idParticleStage' data-ref="idParticleStage">idParticleStage</a> *<dfn class="local col9 decl" id="7849stage" title='stage' data-type='idParticleStage *' data-ref="7849stage">stage</dfn> );</td></tr>
+<tr><th id="215">215</th><td>	<em>void</em>					<dfn class="decl" id="_ZN14idDeclParticle17WriteParticleParmEP6idFileP14idParticleParmPKc" title='idDeclParticle::WriteParticleParm' data-ref="_ZN14idDeclParticle17WriteParticleParmEP6idFileP14idParticleParmPKc">WriteParticleParm</dfn>( <a class="type" href="File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col0 decl" id="7850f" title='f' data-type='idFile *' data-ref="7850f">f</dfn>, <a class="type" href="#idParticleParm" title='idParticleParm' data-ref="idParticleParm">idParticleParm</a> *<dfn class="local col1 decl" id="7851parm" title='parm' data-type='idParticleParm *' data-ref="7851parm">parm</dfn>, <em>const</em> <em>char</em> *<dfn class="local col2 decl" id="7852name" title='name' data-type='const char *' data-ref="7852name">name</dfn> );</td></tr>
+<tr><th id="216">216</th><td>};</td></tr>
+<tr><th id="217">217</th><td></td></tr>
+<tr><th id="218">218</th><td><u>#<span data-ppcond="29">endif</span> /* !__DECLPARTICLE_H__ */</u></td></tr>
+<tr><th id="219">219</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../TypeInfo/TypeInfoGen.cpp.html'>codebrowser/TypeInfo/TypeInfoGen.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

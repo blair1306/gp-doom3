@@ -1,0 +1,15 @@
+<dec f='codebrowser/renderer/tr_local.h' l='742' type='void idRenderSystemLocal::RenderViewToViewport(const renderView_t * renderView, idScreenRect * viewport)'/>
+<use f='codebrowser/renderer/GuiModel.cpp' l='242' u='c' c='_ZN10idGuiModel14EmitFullScreenEv'/>
+<def f='codebrowser/renderer/RenderSystem.cpp' l='767' ll='777' type='void idRenderSystemLocal::RenderViewToViewport(const renderView_t * renderView, idScreenRect * viewport)'/>
+<use f='codebrowser/renderer/RenderSystem.cpp' l='835' u='c' c='_ZN19idRenderSystemLocal14CropRenderSizeEiibb'/>
+<doc f='codebrowser/renderer/RenderSystem.cpp' l='760'>/*
+=====================
+RenderViewToViewport
+
+Converts from SCREEN_WIDTH / SCREEN_HEIGHT coordinates to current cropped pixel coordinates
+=====================
+*/</doc>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='711' u='c' c='_ZN18idRenderWorldLocal11RenderSceneEPK12renderView_s'/>
+<use f='codebrowser/renderer/tr_subview.cpp' l='323' u='c' c='_ZL14R_RemoteRenderP10drawSurf_sP14textureStage_t'/>
+<use f='codebrowser/renderer/tr_subview.cpp' l='372' u='c' c='_Z14R_MirrorRenderP10drawSurf_sP14textureStage_t12idScreenRect'/>
+<use f='codebrowser/renderer/tr_subview.cpp' l='422' u='c' c='_Z12R_XrayRenderP10drawSurf_sP14textureStage_t12idScreenRect'/>

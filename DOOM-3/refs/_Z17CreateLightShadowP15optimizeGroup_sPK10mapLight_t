@@ -1,0 +1,16 @@
+<dec f='codebrowser/tools/compilers/dmap/dmap.h' l='482' type='srfTriangles_t * CreateLightShadow(optimizeGroup_t * shadowerGroups, const mapLight_t * light)'/>
+<doc f='codebrowser/tools/compilers/dmap/dmap.h' l='478'>//=============================================================================
+
+// shadowopt.cpp</doc>
+<def f='codebrowser/tools/compilers/dmap/shadowopt3.cpp' l='1220' ll='1276' type='srfTriangles_t * CreateLightShadow(optimizeGroup_t * shadowerGroups, const mapLight_t * light)'/>
+<doc f='codebrowser/tools/compilers/dmap/shadowopt3.cpp' l='1210'>/*
+========================
+CreateLightShadow
+
+This is called from dmap in util/surface.cpp
+shadowerGroups should be exactly clipped to the light frustum before calling.
+shadowerGroups is optimized by this function, but the contents can be freed, because the returned
+lightShadow_t list is a further culling and optimization of the data.
+========================
+*/</doc>
+<use f='codebrowser/tools/compilers/dmap/usurface.cpp' l='888' u='c' c='_ZL17BuildLightShadowsP9uEntity_tP10mapLight_t'/>

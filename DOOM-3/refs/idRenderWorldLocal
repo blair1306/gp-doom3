@@ -1,0 +1,125 @@
+<inh f='codebrowser/renderer/RenderWorld.h' l='268' c='idRenderWorld'/>
+<def f='codebrowser/renderer/RenderWorld_local.h' l='78' ll='260'/>
+<size>184</size>
+<fun r='_ZN18idRenderWorldLocalC1Ev'/>
+<fun r='_ZN18idRenderWorldLocalD1Ev'/>
+<fun r='_ZN18idRenderWorldLocal12AddEntityDefEPK14renderEntity_s'/>
+<fun r='_ZN18idRenderWorldLocal15UpdateEntityDefEiPK14renderEntity_s'/>
+<fun r='_ZN18idRenderWorldLocal13FreeEntityDefEi'/>
+<fun r='_ZNK18idRenderWorldLocal15GetRenderEntityEi'/>
+<fun r='_ZN18idRenderWorldLocal11AddLightDefEPK13renderLight_s'/>
+<fun r='_ZN18idRenderWorldLocal14UpdateLightDefEiPK13renderLight_s'/>
+<fun r='_ZN18idRenderWorldLocal12FreeLightDefEi'/>
+<fun r='_ZNK18idRenderWorldLocal14GetRenderLightEi'/>
+<fun r='_ZN18idRenderWorldLocal21CheckAreaForPortalSkyEi'/>
+<fun r='_ZN18idRenderWorldLocal23GenerateAllInteractionsEv'/>
+<fun r='_ZN18idRenderWorldLocal15RegenerateWorldEv'/>
+<fun r='_ZN18idRenderWorldLocal21ProjectDecalOntoWorldERK14idFixedWindingRK6idVec3bfPK10idMateriali'/>
+<fun r='_ZN18idRenderWorldLocal12ProjectDecalEiRK14idFixedWindingRK6idVec3bfPK10idMateriali'/>
+<fun r='_ZN18idRenderWorldLocal14ProjectOverlayEiPK7idPlanePK10idMaterial'/>
+<fun r='_ZN18idRenderWorldLocal12RemoveDecalsEi'/>
+<fun r='_ZN18idRenderWorldLocal13SetRenderViewEPK12renderView_s'/>
+<fun r='_ZN18idRenderWorldLocal11RenderSceneEPK12renderView_s'/>
+<fun r='_ZNK18idRenderWorldLocal8NumAreasEv'/>
+<fun r='_ZNK18idRenderWorldLocal11PointInAreaERK6idVec3'/>
+<fun r='_ZNK18idRenderWorldLocal13BoundsInAreasERK8idBoundsPii'/>
+<fun r='_ZN18idRenderWorldLocal16NumPortalsInAreaEi'/>
+<fun r='_ZN18idRenderWorldLocal9GetPortalEii'/>
+<fun r='_ZNK18idRenderWorldLocal8GuiTraceEi6idVec3S0_'/>
+<fun r='_ZNK18idRenderWorldLocal10ModelTraceER12modelTrace_siRK6idVec3S4_f'/>
+<fun r='_ZNK18idRenderWorldLocal5TraceER12modelTrace_sRK6idVec3S4_fbb'/>
+<fun r='_ZNK18idRenderWorldLocal14FastWorldTraceER12modelTrace_sRK6idVec3S4_'/>
+<fun r='_ZN18idRenderWorldLocal15DebugClearLinesEi'/>
+<fun r='_ZN18idRenderWorldLocal9DebugLineERK6idVec4RK6idVec3S5_ib'/>
+<fun r='_ZN18idRenderWorldLocal10DebugArrowERK6idVec4RK6idVec3S5_ii'/>
+<fun r='_ZN18idRenderWorldLocal12DebugWindingERK6idVec4RK9idWindingRK6idVec3RK6idMat3ib'/>
+<fun r='_ZN18idRenderWorldLocal11DebugCircleERK6idVec4RK6idVec3S5_fiib'/>
+<fun r='_ZN18idRenderWorldLocal11DebugSphereERK6idVec4RK8idSphereib'/>
+<fun r='_ZN18idRenderWorldLocal11DebugBoundsERK6idVec4RK8idBoundsRK6idVec3i'/>
+<fun r='_ZN18idRenderWorldLocal8DebugBoxERK6idVec4RK5idBoxi'/>
+<fun r='_ZN18idRenderWorldLocal12DebugFrustumERK6idVec4RK9idFrustumbi'/>
+<fun r='_ZN18idRenderWorldLocal9DebugConeERK6idVec4RK6idVec3S5_ffi'/>
+<fun r='_ZN18idRenderWorldLocal15DebugScreenRectERK6idVec4RK12idScreenRectPK9viewDef_si'/>
+<fun r='_ZN18idRenderWorldLocal9DebugAxisERK6idVec3RK6idMat3'/>
+<fun r='_ZN18idRenderWorldLocal18DebugClearPolygonsEi'/>
+<fun r='_ZN18idRenderWorldLocal12DebugPolygonERK6idVec4RK9idWindingib'/>
+<fun r='_ZN18idRenderWorldLocal8DrawTextEPKcRK6idVec3fRK6idVec4RK6idMat3iib'/>
+<mbr r='idRenderWorldLocal::mapName' o='32' t='idStr'/>
+<mbr r='idRenderWorldLocal::mapTimeStamp' o='288' t='time_t'/>
+<mbr r='idRenderWorldLocal::areaNodes' o='320' t='areaNode_t *'/>
+<mbr r='idRenderWorldLocal::numAreaNodes' o='352' t='int'/>
+<mbr r='idRenderWorldLocal::portalAreas' o='384' t='portalArea_t *'/>
+<mbr r='idRenderWorldLocal::numPortalAreas' o='416' t='int'/>
+<mbr r='idRenderWorldLocal::connectedAreaNum' o='448' t='int'/>
+<mbr r='idRenderWorldLocal::areaScreenRect' o='480' t='idScreenRect *'/>
+<mbr r='idRenderWorldLocal::doublePortals' o='512' t='doublePortal_t *'/>
+<mbr r='idRenderWorldLocal::numInterAreaPortals' o='544' t='int'/>
+<mbr r='idRenderWorldLocal::localModels' o='576' t='idList&lt;idRenderModel *&gt;'/>
+<mbr r='idRenderWorldLocal::entityDefs' o='704' t='idList&lt;idRenderEntityLocal *&gt;'/>
+<mbr r='idRenderWorldLocal::lightDefs' o='832' t='idList&lt;idRenderLightLocal *&gt;'/>
+<mbr r='idRenderWorldLocal::areaReferenceAllocator' o='960' t='idBlockAlloc&lt;areaReference_t, 1024&gt;'/>
+<mbr r='idRenderWorldLocal::interactionAllocator' o='1088' t='idBlockAlloc&lt;idInteraction, 256&gt;'/>
+<mbr r='idRenderWorldLocal::areaNumRefAllocator' o='1216' t='idBlockAlloc&lt;areaNumRef_t, 1024&gt;'/>
+<mbr r='idRenderWorldLocal::interactionTable' o='1344' t='idInteraction **'/>
+<mbr r='idRenderWorldLocal::interactionTableWidth' o='1376' t='int'/>
+<mbr r='idRenderWorldLocal::interactionTableHeight' o='1408' t='int'/>
+<mbr r='idRenderWorldLocal::generateAllInteractionsCalled' o='1440' t='bool'/>
+<fun r='_ZN18idRenderWorldLocal10ParseModelEP7idLexer'/>
+<fun r='_ZN18idRenderWorldLocal16ParseShadowModelEP7idLexer'/>
+<fun r='_ZN18idRenderWorldLocal13SetupAreaRefsEv'/>
+<fun r='_ZN18idRenderWorldLocal21ParseInterAreaPortalsEP7idLexer'/>
+<fun r='_ZN18idRenderWorldLocal10ParseNodesEP7idLexer'/>
+<fun r='_ZN18idRenderWorldLocal20CommonChildrenArea_rEP10areaNode_t'/>
+<fun r='_ZN18idRenderWorldLocal9FreeWorldEv'/>
+<fun r='_ZN18idRenderWorldLocal10ClearWorldEv'/>
+<fun r='_ZN18idRenderWorldLocal8FreeDefsEv'/>
+<fun r='_ZN18idRenderWorldLocal16TouchWorldModelsEv'/>
+<fun r='_ZN18idRenderWorldLocal21AddWorldModelEntitiesEv'/>
+<fun r='_ZN18idRenderWorldLocal17ClearPortalStatesEv'/>
+<fun r='_ZN18idRenderWorldLocal11InitFromMapEPKc'/>
+<fun r='_ZN18idRenderWorldLocal21ScreenRectFromWindingEPK9idWindingP12viewEntity_s'/>
+<fun r='_ZN18idRenderWorldLocal17PortalIsFoggedOutEPK8portal_s'/>
+<fun r='_ZN18idRenderWorldLocal22FloodViewThroughArea_rE6idVec3iPK13portalStack_s'/>
+<fun r='_ZN18idRenderWorldLocal22FlowViewThroughPortalsE6idVec3iPK7idPlane'/>
+<fun r='_ZN18idRenderWorldLocal23FloodLightThroughArea_rEP18idRenderLightLocaliPK13portalStack_s'/>
+<fun r='_ZN18idRenderWorldLocal23FlowLightThroughPortalsEP18idRenderLightLocal'/>
+<fun r='_ZN18idRenderWorldLocal19FloodFrustumAreas_rERK9idFrustumiRK8idBoundsP12areaNumRef_s'/>
+<fun r='_ZN18idRenderWorldLocal17FloodFrustumAreasERK9idFrustumP12areaNumRef_s'/>
+<fun r='_ZN18idRenderWorldLocal19CullEntityByPortalsEPK19idRenderEntityLocalPK13portalStack_s'/>
+<fun r='_ZN18idRenderWorldLocal17AddAreaEntityRefsEiPK13portalStack_s'/>
+<fun r='_ZN18idRenderWorldLocal18CullLightByPortalsEPK18idRenderLightLocalPK13portalStack_s'/>
+<fun r='_ZN18idRenderWorldLocal16AddAreaLightRefsEiPK13portalStack_s'/>
+<fun r='_ZN18idRenderWorldLocal11AddAreaRefsEiPK13portalStack_s'/>
+<fun r='_ZN18idRenderWorldLocal21BuildConnectedAreas_rEi'/>
+<fun r='_ZN18idRenderWorldLocal19BuildConnectedAreasEv'/>
+<fun r='_ZN18idRenderWorldLocal25FindViewLightsAndEntitiesEv'/>
+<fun r='_ZNK18idRenderWorldLocal10NumPortalsEv'/>
+<fun r='_ZNK18idRenderWorldLocal10FindPortalERK8idBounds'/>
+<fun r='_ZN18idRenderWorldLocal14SetPortalStateEii'/>
+<fun r='_ZN18idRenderWorldLocal14GetPortalStateEi'/>
+<fun r='_ZN18idRenderWorldLocal17AreasAreConnectedEii18portalConnection_t'/>
+<fun r='_ZN18idRenderWorldLocal19FloodConnectedAreasEP12portalArea_si'/>
+<fun r='_ZNK18idRenderWorldLocal17GetAreaScreenRectEi'/>
+<fun r='_ZN18idRenderWorldLocal11ShowPortalsEv'/>
+<fun r='_ZN18idRenderWorldLocal16StartWritingDemoEP10idDemoFile'/>
+<fun r='_ZN18idRenderWorldLocal15StopWritingDemoEv'/>
+<fun r='_ZN18idRenderWorldLocal18ProcessDemoCommandEP10idDemoFileP12renderView_sPi'/>
+<fun r='_ZN18idRenderWorldLocal12WriteLoadMapEv'/>
+<fun r='_ZN18idRenderWorldLocal15WriteRenderViewEPK12renderView_s'/>
+<fun r='_ZN18idRenderWorldLocal16WriteVisibleDefsEPK9viewDef_s'/>
+<fun r='_ZN18idRenderWorldLocal14WriteFreeLightEi'/>
+<fun r='_ZN18idRenderWorldLocal15WriteFreeEntityEi'/>
+<fun r='_ZN18idRenderWorldLocal16WriteRenderLightEiPK13renderLight_s'/>
+<fun r='_ZN18idRenderWorldLocal17WriteRenderEntityEiPK14renderEntity_s'/>
+<fun r='_ZN18idRenderWorldLocal16ReadRenderEntityEv'/>
+<fun r='_ZN18idRenderWorldLocal15ReadRenderLightEv'/>
+<fun r='_ZN18idRenderWorldLocal22ResizeInteractionTableEv'/>
+<fun r='_ZN18idRenderWorldLocal18AddEntityRefToAreaEP19idRenderEntityLocalP12portalArea_s'/>
+<fun r='_ZN18idRenderWorldLocal17AddLightRefToAreaEP18idRenderLightLocalP12portalArea_s'/>
+<fun r='_ZNK18idRenderWorldLocal16RecurseProcBSP_rEP12modelTrace_siiffRK6idVec3S4_'/>
+<fun r='_ZNK18idRenderWorldLocal15BoundsInAreas_rEiRK8idBoundsPiS3_i'/>
+<fun r='_ZN18idRenderWorldLocal14DrawTextLengthEPKcfi'/>
+<fun r='_ZN18idRenderWorldLocal16FreeInteractionsEv'/>
+<fun r='_ZN18idRenderWorldLocal20PushVolumeIntoTree_rEP19idRenderEntityLocalP18idRenderLightLocalPK8idSphereiPK6idVec3i'/>
+<fun r='_ZN18idRenderWorldLocal18PushVolumeIntoTreeEP19idRenderEntityLocalP18idRenderLightLocaliPK6idVec3'/>
+<fun r='_ZN18idRenderWorldLocal26CreateLightDefInteractionsEP18idRenderLightLocal'/>

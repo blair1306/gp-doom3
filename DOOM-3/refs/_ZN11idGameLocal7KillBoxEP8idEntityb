@@ -1,0 +1,32 @@
+<dec f='codebrowser/d3xp/Game_local.h' l='489' type='void idGameLocal::KillBox(idEntity * ent, bool catch_teleport = false)'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='1803' u='c' c='_ZN7idActor8TeleportERK6idVec3RK8idAnglesP8idEntity'/>
+<def f='codebrowser/d3xp/Game_local.cpp' l='3733' ll='3776' type='void idGameLocal::KillBox(idEntity * ent, bool catch_teleport = false)'/>
+<doc f='codebrowser/d3xp/Game_local.cpp' l='3724'>/*
+=================
+idGameLocal::KillBox
+
+Kills all entities that would touch the proposed new positioning of ent. The ent itself will not being killed.
+Checks if player entities are in the teleporter, and marks them to die at teleport exit instead of immediately.
+If catch_teleport, this only marks teleport players for death on exit
+=================
+*/</doc>
+<use f='codebrowser/d3xp/Player.cpp' l='2739' u='c' c='_ZN8idPlayer12SpawnToPointERK6idVec3RK8idAngles'/>
+<use f='codebrowser/d3xp/Player.cpp' l='8263' u='c' c='_ZN8idPlayer8TeleportERK6idVec3RK8idAnglesP8idEntity'/>
+<use f='codebrowser/d3xp/Player.cpp' l='8266' u='c' c='_ZN8idPlayer8TeleportERK6idVec3RK8idAnglesP8idEntity'/>
+<use f='codebrowser/d3xp/Player.cpp' l='9259' u='c' c='_ZN8idPlayer20Event_ExitTeleporterEv'/>
+<dec f='codebrowser/game/Game_local.h' l='427' type='void idGameLocal::KillBox(idEntity * ent, bool catch_teleport = false)'/>
+<use f='codebrowser/game/Actor.cpp' l='1755' u='c' c='_ZN7idActor8TeleportERK6idVec3RK8idAnglesP8idEntity'/>
+<def f='codebrowser/game/Game_local.cpp' l='3443' ll='3486' type='void idGameLocal::KillBox(idEntity * ent, bool catch_teleport = false)'/>
+<doc f='codebrowser/game/Game_local.cpp' l='3434'>/*
+=================
+idGameLocal::KillBox
+
+Kills all entities that would touch the proposed new positioning of ent. The ent itself will not being killed.
+Checks if player entities are in the teleporter, and marks them to die at teleport exit instead of immediately.
+If catch_teleport, this only marks teleport players for death on exit
+=================
+*/</doc>
+<use f='codebrowser/game/Player.cpp' l='2247' u='c' c='_ZN8idPlayer12SpawnToPointERK6idVec3RK8idAngles'/>
+<use f='codebrowser/game/Player.cpp' l='6898' u='c' c='_ZN8idPlayer8TeleportERK6idVec3RK8idAnglesP8idEntity'/>
+<use f='codebrowser/game/Player.cpp' l='6901' u='c' c='_ZN8idPlayer8TeleportERK6idVec3RK8idAnglesP8idEntity'/>
+<use f='codebrowser/game/Player.cpp' l='7776' u='c' c='_ZN8idPlayer20Event_ExitTeleporterEv'/>

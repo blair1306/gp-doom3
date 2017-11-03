@@ -1,0 +1,303 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>file.c source code [codebrowser/curl/lib/file.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/curl/lib/file.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>curl</a>/<a href='./'>lib</a>/<a href='file.c.html'>file.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/***************************************************************************</i></td></tr>
+<tr><th id="2">2</th><td><i> *                                  _   _ ____  _     </i></td></tr>
+<tr><th id="3">3</th><td><i> *  Project                     ___| | | |  _ \| |    </i></td></tr>
+<tr><th id="4">4</th><td><i> *                             / __| | | | |_) | |    </i></td></tr>
+<tr><th id="5">5</th><td><i> *                            | (__| |_| |  _ &lt;| |___ </i></td></tr>
+<tr><th id="6">6</th><td><i> *                             \___|\___/|_| \_\_____|</i></td></tr>
+<tr><th id="7">7</th><td><i> *</i></td></tr>
+<tr><th id="8">8</th><td><i> * Copyright (C) 1998 - 2004, Daniel Stenberg, &lt;daniel@haxx.se&gt;, et al.</i></td></tr>
+<tr><th id="9">9</th><td><i> *</i></td></tr>
+<tr><th id="10">10</th><td><i> * This software is licensed as described in the file COPYING, which</i></td></tr>
+<tr><th id="11">11</th><td><i> * you should have received as part of this distribution. The terms</i></td></tr>
+<tr><th id="12">12</th><td><i> * are also available at <a href="http://curl.haxx.se/docs/copyright.html">http://curl.haxx.se/docs/copyright.html</a>.</i></td></tr>
+<tr><th id="13">13</th><td><i> * </i></td></tr>
+<tr><th id="14">14</th><td><i> * You may opt to use, copy, modify, merge, publish, distribute and/or sell</i></td></tr>
+<tr><th id="15">15</th><td><i> * copies of the Software, and permit persons to whom the Software is</i></td></tr>
+<tr><th id="16">16</th><td><i> * furnished to do so, under the terms of the COPYING file.</i></td></tr>
+<tr><th id="17">17</th><td><i> *</i></td></tr>
+<tr><th id="18">18</th><td><i> * This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY</i></td></tr>
+<tr><th id="19">19</th><td><i> * KIND, either express or implied.</i></td></tr>
+<tr><th id="20">20</th><td><i> *</i></td></tr>
+<tr><th id="21">21</th><td><i> * $Id: file.c,v 1.52 2004/03/10 16:20:33 bagder Exp $</i></td></tr>
+<tr><th id="22">22</th><td><i> ***************************************************************************/</i></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="setup.h.html">"setup.h"</a></u></td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><u>#<span data-ppcond="26">ifndef</span> <span class="macro" data-ref="_M/CURL_DISABLE_FILE">CURL_DISABLE_FILE</span></u></td></tr>
+<tr><th id="27">27</th><td><i>/* -- WIN32 approved -- */</i></td></tr>
+<tr><th id="28">28</th><td><u>#include <a href="../../../include/stdio.h.html">&lt;stdio.h&gt;</a></u></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="../../../include/string.h.html">&lt;string.h&gt;</a></u></td></tr>
+<tr><th id="30">30</th><td><u>#include &lt;stdarg.h&gt;</u></td></tr>
+<tr><th id="31">31</th><td><u>#include <a href="../../../include/stdlib.h.html">&lt;stdlib.h&gt;</a></u></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="../../../include/ctype.h.html">&lt;ctype.h&gt;</a></u></td></tr>
+<tr><th id="33">33</th><td><u>#include <a href="../../../include/x86_64-linux-gnu/sys/types.h.html">&lt;sys/types.h&gt;</a></u></td></tr>
+<tr><th id="34">34</th><td><u>#include <a href="../../../include/x86_64-linux-gnu/sys/stat.h.html">&lt;sys/stat.h&gt;</a></u></td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><u>#include <a href="../../../include/errno.h.html">&lt;errno.h&gt;</a></u></td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td><u>#<span data-ppcond="38">if</span> defined(<span class="macro" data-ref="_M/WIN32">WIN32</span>) &amp;&amp; !defined(<span class="macro" data-ref="_M/__GNUC__">__GNUC__</span>) || defined(<span class="macro" data-ref="_M/__MINGW32__">__MINGW32__</span>)</u></td></tr>
+<tr><th id="39">39</th><td><u>#include &lt;time.h&gt;</u></td></tr>
+<tr><th id="40">40</th><td><u>#include &lt;io.h&gt;</u></td></tr>
+<tr><th id="41">41</th><td><u>#include &lt;fcntl.h&gt;</u></td></tr>
+<tr><th id="42">42</th><td><u>#<span data-ppcond="38">else</span></u></td></tr>
+<tr><th id="43">43</th><td><u>#<span data-ppcond="43">ifdef</span> <a class="macro" href="config.h.html#347" data-ref="_M/HAVE_SYS_SOCKET_H">HAVE_SYS_SOCKET_H</a></u></td></tr>
+<tr><th id="44">44</th><td><u>#include <a href="../../../include/x86_64-linux-gnu/sys/socket.h.html">&lt;sys/socket.h&gt;</a></u></td></tr>
+<tr><th id="45">45</th><td><u>#<span data-ppcond="43">endif</span></u></td></tr>
+<tr><th id="46">46</th><td><u>#<span data-ppcond="46">ifdef</span> <a class="macro" href="config.h.html#206" data-ref="_M/HAVE_NETINET_IN_H">HAVE_NETINET_IN_H</a></u></td></tr>
+<tr><th id="47">47</th><td><u>#include <a href="../../../include/netinet/in.h.html">&lt;netinet/in.h&gt;</a></u></td></tr>
+<tr><th id="48">48</th><td><u>#<span data-ppcond="46">endif</span></u></td></tr>
+<tr><th id="49">49</th><td><u>#include <a href="../../../include/x86_64-linux-gnu/sys/time.h.html">&lt;sys/time.h&gt;</a></u></td></tr>
+<tr><th id="50">50</th><td><u>#<span data-ppcond="50">ifdef</span> <a class="macro" href="config.h.html#383" data-ref="_M/HAVE_UNISTD_H">HAVE_UNISTD_H</a></u></td></tr>
+<tr><th id="51">51</th><td><u>#include <a href="../../../include/unistd.h.html">&lt;unistd.h&gt;</a></u></td></tr>
+<tr><th id="52">52</th><td><u>#<span data-ppcond="50">endif</span></u></td></tr>
+<tr><th id="53">53</th><td><u>#<span data-ppcond="53">ifdef</span> <a class="macro" href="config.h.html#203" data-ref="_M/HAVE_NETDB_H">HAVE_NETDB_H</a></u></td></tr>
+<tr><th id="54">54</th><td><u>#include <a href="../../../include/netdb.h.html">&lt;netdb.h&gt;</a></u></td></tr>
+<tr><th id="55">55</th><td><u>#<span data-ppcond="53">endif</span></u></td></tr>
+<tr><th id="56">56</th><td><u>#<span data-ppcond="56">ifdef</span> <a class="macro" href="config.h.html#38" data-ref="_M/HAVE_ARPA_INET_H">HAVE_ARPA_INET_H</a></u></td></tr>
+<tr><th id="57">57</th><td><u>#include <a href="../../../include/arpa/inet.h.html">&lt;arpa/inet.h&gt;</a></u></td></tr>
+<tr><th id="58">58</th><td><u>#<span data-ppcond="56">endif</span></u></td></tr>
+<tr><th id="59">59</th><td><u>#<span data-ppcond="59">ifdef</span> <a class="macro" href="config.h.html#209" data-ref="_M/HAVE_NET_IF_H">HAVE_NET_IF_H</a></u></td></tr>
+<tr><th id="60">60</th><td><u>#include <a href="../../../include/net/if.h.html">&lt;net/if.h&gt;</a></u></td></tr>
+<tr><th id="61">61</th><td><u>#<span data-ppcond="59">endif</span></u></td></tr>
+<tr><th id="62">62</th><td><u>#include <a href="../../../include/x86_64-linux-gnu/sys/ioctl.h.html">&lt;sys/ioctl.h&gt;</a></u></td></tr>
+<tr><th id="63">63</th><td><u>#include <a href="../../../include/signal.h.html">&lt;signal.h&gt;</a></u></td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td><u>#<span data-ppcond="65">ifdef</span> <a class="macro" href="config.h.html#338" data-ref="_M/HAVE_SYS_PARAM_H">HAVE_SYS_PARAM_H</a></u></td></tr>
+<tr><th id="66">66</th><td><u>#include <a href="../../../include/x86_64-linux-gnu/sys/param.h.html">&lt;sys/param.h&gt;</a></u></td></tr>
+<tr><th id="67">67</th><td><u>#<span data-ppcond="65">endif</span></u></td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td><u>#<span data-ppcond="69">ifdef</span> <a class="macro" href="config.h.html#353" data-ref="_M/HAVE_SYS_STAT_H">HAVE_SYS_STAT_H</a></u></td></tr>
+<tr><th id="70">70</th><td><u>#include <a href="../../../include/x86_64-linux-gnu/sys/stat.h.html">&lt;sys/stat.h&gt;</a></u></td></tr>
+<tr><th id="71">71</th><td><u>#<span data-ppcond="69">endif</span></u></td></tr>
+<tr><th id="72">72</th><td><u>#<span data-ppcond="72">ifdef</span> <a class="macro" href="config.h.html#68" data-ref="_M/HAVE_FCNTL_H">HAVE_FCNTL_H</a></u></td></tr>
+<tr><th id="73">73</th><td><u>#include <a href="../../../include/fcntl.h.html">&lt;fcntl.h&gt;</a></u></td></tr>
+<tr><th id="74">74</th><td><u>#<span data-ppcond="72">endif</span></u></td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td></td></tr>
+<tr><th id="77">77</th><td><u>#<span data-ppcond="38">endif</span></u></td></tr>
+<tr><th id="78">78</th><td></td></tr>
+<tr><th id="79">79</th><td><u>#include <a href="urldata.h.html">"urldata.h"</a></u></td></tr>
+<tr><th id="80">80</th><td><u>#include <a href="../include/curl/curl.h.html">&lt;curl/curl.h&gt;</a></u></td></tr>
+<tr><th id="81">81</th><td><u>#include <a href="progress.h.html">"progress.h"</a></u></td></tr>
+<tr><th id="82">82</th><td><u>#include <a href="sendf.h.html">"sendf.h"</a></u></td></tr>
+<tr><th id="83">83</th><td><u>#include <a href="escape.h.html">"escape.h"</a></u></td></tr>
+<tr><th id="84">84</th><td><u>#include <a href="file.h.html">"file.h"</a></u></td></tr>
+<tr><th id="85">85</th><td><u>#include <a href="speedcheck.h.html">"speedcheck.h"</a></u></td></tr>
+<tr><th id="86">86</th><td><u>#include <a href="getinfo.h.html">"getinfo.h"</a></u></td></tr>
+<tr><th id="87">87</th><td><u>#include <a href="transfer.h.html">"transfer.h"</a> /* for Curl_readwrite_init() */</u></td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td><u>#define <dfn class="macro" id="_M/_MPRINTF_REPLACE" data-ref="_M/_MPRINTF_REPLACE">_MPRINTF_REPLACE</dfn> /* use our functions only */</u></td></tr>
+<tr><th id="90">90</th><td><u>#include <a href="../include/curl/mprintf.h.html">&lt;curl/mprintf.h&gt;</a></u></td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td><i>/* The last #include file should be: */</i></td></tr>
+<tr><th id="93">93</th><td><u>#<span data-ppcond="93">ifdef</span> <span class="macro" data-ref="_M/CURLDEBUG">CURLDEBUG</span></u></td></tr>
+<tr><th id="94">94</th><td><u>#include <a href="memdebug.h.html">"memdebug.h"</a></u></td></tr>
+<tr><th id="95">95</th><td><u>#<span data-ppcond="93">endif</span></u></td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td><i>/* Emulate a connect-then-transfer protocol. We connect to the file here */</i></td></tr>
+<tr><th id="98">98</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="decl def" id="Curl_file_connect" title='Curl_file_connect' data-ref="Curl_file_connect">Curl_file_connect</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#connectdata" title='connectdata' data-ref="connectdata">connectdata</a> *<dfn class="local col0 decl" id="10conn" title='conn' data-type='struct connectdata *' data-ref="10conn">conn</dfn>)</td></tr>
+<tr><th id="99">99</th><td>{</td></tr>
+<tr><th id="100">100</th><td>  <em>char</em> *<dfn class="local col1 decl" id="11real_path" title='real_path' data-type='char *' data-ref="11real_path">real_path</dfn> = <a class="ref" href="../include/curl/curl.h.html#curl_unescape" title='curl_unescape' data-ref="curl_unescape">curl_unescape</a>(<a class="local col0 ref" href="#10conn" title='conn' data-ref="10conn">conn</a>-&gt;<a class="ref" href="urldata.h.html#connectdata::path" title='connectdata::path' data-ref="connectdata::path">path</a>, <var>0</var>);</td></tr>
+<tr><th id="101">101</th><td>  <b>struct</b> <a class="type" href="urldata.h.html#FILEPROTO" title='FILEPROTO' data-ref="FILEPROTO">FILEPROTO</a> *<dfn class="local col2 decl" id="12file" title='file' data-type='struct FILEPROTO *' data-ref="12file">file</dfn>;</td></tr>
+<tr><th id="102">102</th><td>  <em>int</em> <dfn class="local col3 decl" id="13fd" title='fd' data-type='int' data-ref="13fd">fd</dfn>;</td></tr>
+<tr><th id="103">103</th><td><u>#<span data-ppcond="103">if</span> defined(<span class="macro" data-ref="_M/WIN32">WIN32</span>) || defined(<span class="macro" data-ref="_M/__EMX__">__EMX__</span>)</u></td></tr>
+<tr><th id="104">104</th><td>  <em>int</em> i;</td></tr>
+<tr><th id="105">105</th><td>  <em>char</em> *actual_path;</td></tr>
+<tr><th id="106">106</th><td><u>#<span data-ppcond="103">endif</span></u></td></tr>
+<tr><th id="107">107</th><td></td></tr>
+<tr><th id="108">108</th><td>  <a class="local col2 ref" href="#12file" title='file' data-ref="12file">file</a> = (<b>struct</b> <a class="type" href="urldata.h.html#FILEPROTO" title='FILEPROTO' data-ref="FILEPROTO">FILEPROTO</a> *)<a class="macro" href="memdebug.h.html#76" title="curl_docalloc(sizeof(struct FILEPROTO), 1, 108, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/file.c&quot;)" data-ref="_M/calloc">calloc</a>(<b>sizeof</b>(<b>struct</b> <a class="type" href="urldata.h.html#FILEPROTO" title='FILEPROTO' data-ref="FILEPROTO">FILEPROTO</a>), <var>1</var>);</td></tr>
+<tr><th id="109">109</th><td>  <b>if</b>(!<a class="local col2 ref" href="#12file" title='file' data-ref="12file">file</a>)</td></tr>
+<tr><th id="110">110</th><td>    <b>return</b> <a class="enum" href="../include/curl/curl.h.html#CURLE_OUT_OF_MEMORY" title='CURLE_OUT_OF_MEMORY' data-ref="CURLE_OUT_OF_MEMORY">CURLE_OUT_OF_MEMORY</a>;</td></tr>
+<tr><th id="111">111</th><td></td></tr>
+<tr><th id="112">112</th><td>  <a class="local col0 ref" href="#10conn" title='conn' data-ref="10conn">conn</a>-&gt;<a class="ref" href="urldata.h.html#connectdata::proto" title='connectdata::proto' data-ref="connectdata::proto">proto</a>.<a class="ref" href="urldata.h.html#connectdata::(anonymous)::file" title='connectdata::(anonymous union)::file' data-ref="connectdata::(anonymous)::file">file</a> = <a class="local col2 ref" href="#12file" title='file' data-ref="12file">file</a>;</td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td><u>#<span data-ppcond="114">if</span> defined(<span class="macro" data-ref="_M/WIN32">WIN32</span>) || defined(<span class="macro" data-ref="_M/__EMX__">__EMX__</span>)</u></td></tr>
+<tr><th id="115">115</th><td>  <i>/* If the first character is a slash, and there's</i></td></tr>
+<tr><th id="116">116</th><td><i>     something that looks like a drive at the beginning of</i></td></tr>
+<tr><th id="117">117</th><td><i>     the path, skip the slash.  If we remove the initial</i></td></tr>
+<tr><th id="118">118</th><td><i>     slash in all cases, paths without drive letters end up</i></td></tr>
+<tr><th id="119">119</th><td><i>     relative to the current directory which isn't how</i></td></tr>
+<tr><th id="120">120</th><td><i>     browsers work.</i></td></tr>
+<tr><th id="121">121</th><td><i></i></td></tr>
+<tr><th id="122">122</th><td><i>     Some browsers accept | instead of : as the drive letter</i></td></tr>
+<tr><th id="123">123</th><td><i>     separator, so we do too.</i></td></tr>
+<tr><th id="124">124</th><td><i></i></td></tr>
+<tr><th id="125">125</th><td><i>     On other platforms, we need the slash to indicate an</i></td></tr>
+<tr><th id="126">126</th><td><i>     absolute pathname.  On Windows, absolute paths start</i></td></tr>
+<tr><th id="127">127</th><td><i>     with a drive letter.</i></td></tr>
+<tr><th id="128">128</th><td><i>  */</i></td></tr>
+<tr><th id="129">129</th><td>  actual_path = real_path;</td></tr>
+<tr><th id="130">130</th><td>  <b>if</b> ((actual_path[<var>0</var>] == <kbd>'/'</kbd>) &amp;&amp;</td></tr>
+<tr><th id="131">131</th><td>      actual_path[<var>1</var>] &amp;&amp;</td></tr>
+<tr><th id="132">132</th><td>      (actual_path[<var>2</var>] == <kbd>':'</kbd> || actual_path[<var>2</var>] == <kbd>'|'</kbd>))</td></tr>
+<tr><th id="133">133</th><td>  {</td></tr>
+<tr><th id="134">134</th><td>    actual_path[<var>2</var>] = <kbd>':'</kbd>;</td></tr>
+<tr><th id="135">135</th><td>    actual_path++;</td></tr>
+<tr><th id="136">136</th><td>  }</td></tr>
+<tr><th id="137">137</th><td></td></tr>
+<tr><th id="138">138</th><td>  <i>/* change path separators from '/' to '\\' for Windows and OS/2 */</i></td></tr>
+<tr><th id="139">139</th><td>  <b>for</b> (i=<var>0</var>; actual_path[i] != <kbd>'\0'</kbd>; ++i)</td></tr>
+<tr><th id="140">140</th><td>    <b>if</b> (actual_path[i] == <kbd>'/'</kbd>)</td></tr>
+<tr><th id="141">141</th><td>      actual_path[i] = <kbd>'\\'</kbd>;</td></tr>
+<tr><th id="142">142</th><td></td></tr>
+<tr><th id="143">143</th><td>  fd = open(actual_path, O_RDONLY | O_BINARY);	<i>/* no CR/LF translation! */</i></td></tr>
+<tr><th id="144">144</th><td><u>#<span data-ppcond="114">else</span></u></td></tr>
+<tr><th id="145">145</th><td>  <a class="local col3 ref" href="#13fd" title='fd' data-ref="13fd">fd</a> = <a class="ref" href="../../../include/fcntl.h.html#open" title='open' data-ref="open">open</a>(<a class="local col1 ref" href="#11real_path" title='real_path' data-ref="11real_path">real_path</a>, <a class="macro" href="../../../include/x86_64-linux-gnu/bits/fcntl-linux.h.html#43" title="00" data-ref="_M/O_RDONLY">O_RDONLY</a>);</td></tr>
+<tr><th id="146">146</th><td><u>#<span data-ppcond="114">endif</span></u></td></tr>
+<tr><th id="147">147</th><td>  <a class="macro" href="memdebug.h.html#78" title="curl_dofree(real_path, 147, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/file.c&quot;)" data-ref="_M/free">free</a>(<a class="local col1 ref" href="#11real_path" title='real_path' data-ref="11real_path">real_path</a>);</td></tr>
+<tr><th id="148">148</th><td></td></tr>
+<tr><th id="149">149</th><td>  <b>if</b>(<a class="local col3 ref" href="#13fd" title='fd' data-ref="13fd">fd</a> == -<var>1</var>) {</td></tr>
+<tr><th id="150">150</th><td>    <a class="macro" href="sendf.h.html#32" title="Curl_failf" data-ref="_M/failf">failf</a>(<a class="local col0 ref" href="#10conn" title='conn' data-ref="10conn">conn</a>-&gt;<a class="ref" href="urldata.h.html#connectdata::data" title='connectdata::data' data-ref="connectdata::data">data</a>, <q>"Couldn't open file %s"</q>, <a class="local col0 ref" href="#10conn" title='conn' data-ref="10conn">conn</a>-&gt;<a class="ref" href="urldata.h.html#connectdata::path" title='connectdata::path' data-ref="connectdata::path">path</a>);</td></tr>
+<tr><th id="151">151</th><td>    <b>return</b> <a class="enum" href="../include/curl/curl.h.html#CURLE_FILE_COULDNT_READ_FILE" title='CURLE_FILE_COULDNT_READ_FILE' data-ref="CURLE_FILE_COULDNT_READ_FILE">CURLE_FILE_COULDNT_READ_FILE</a>;</td></tr>
+<tr><th id="152">152</th><td>  }</td></tr>
+<tr><th id="153">153</th><td>  <a class="local col2 ref" href="#12file" title='file' data-ref="12file">file</a>-&gt;<a class="ref" href="urldata.h.html#FILEPROTO::fd" title='FILEPROTO::fd' data-ref="FILEPROTO::fd">fd</a> = <a class="local col3 ref" href="#13fd" title='fd' data-ref="13fd">fd</a>;</td></tr>
+<tr><th id="154">154</th><td></td></tr>
+<tr><th id="155">155</th><td>  <b>return</b> <a class="enum" href="../include/curl/curl.h.html#CURLE_OK" title='CURLE_OK' data-ref="CURLE_OK">CURLE_OK</a>;</td></tr>
+<tr><th id="156">156</th><td>}</td></tr>
+<tr><th id="157">157</th><td></td></tr>
+<tr><th id="158">158</th><td><u>#<span data-ppcond="158">if</span> defined(<span class="macro" data-ref="_M/WIN32">WIN32</span>) &amp;&amp; (<a class="macro" href="config.h.html#443" title="8" data-ref="_M/SIZEOF_CURL_OFF_T">SIZEOF_CURL_OFF_T</a> &gt; 4)</u></td></tr>
+<tr><th id="159">159</th><td><u>#define lseek(x,y,z) _lseeki64(x, y, z)</u></td></tr>
+<tr><th id="160">160</th><td><u>#<span data-ppcond="158">endif</span></u></td></tr>
+<tr><th id="161">161</th><td></td></tr>
+<tr><th id="162">162</th><td><i>/* This is the do-phase, separated from the connect-phase above */</i></td></tr>
+<tr><th id="163">163</th><td></td></tr>
+<tr><th id="164">164</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="decl def" id="Curl_file" title='Curl_file' data-ref="Curl_file">Curl_file</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#connectdata" title='connectdata' data-ref="connectdata">connectdata</a> *<dfn class="local col4 decl" id="14conn" title='conn' data-type='struct connectdata *' data-ref="14conn">conn</dfn>)</td></tr>
+<tr><th id="165">165</th><td>{</td></tr>
+<tr><th id="166">166</th><td>  <i>/* This implementation ignores the host name in conformance with </i></td></tr>
+<tr><th id="167">167</th><td><i>     RFC 1738. Only local files (reachable via the standard file system)</i></td></tr>
+<tr><th id="168">168</th><td><i>     are supported. This means that files on remotely mounted directories</i></td></tr>
+<tr><th id="169">169</th><td><i>     (via NFS, Samba, NT sharing) can be accessed through a file:// URL</i></td></tr>
+<tr><th id="170">170</th><td><i>  */</i></td></tr>
+<tr><th id="171">171</th><td>  <a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="local col5 decl" id="15res" title='res' data-type='CURLcode' data-ref="15res">res</dfn> = <a class="enum" href="../include/curl/curl.h.html#CURLE_OK" title='CURLE_OK' data-ref="CURLE_OK">CURLE_OK</a>;</td></tr>
+<tr><th id="172">172</th><td>  <b>struct</b> <a class="type" href="../../../include/x86_64-linux-gnu/bits/stat.h.html#stat" title='stat' data-ref="stat">stat</a> <dfn class="local col6 decl" id="16statbuf" title='statbuf' data-type='struct stat' data-ref="16statbuf">statbuf</dfn>;</td></tr>
+<tr><th id="173">173</th><td>  <a class="typedef" href="../include/curl/curl.h.html#curl_off_t" title='curl_off_t' data-type='off_t' data-ref="curl_off_t">curl_off_t</a> <dfn class="local col7 decl" id="17expected_size" title='expected_size' data-type='curl_off_t' data-ref="17expected_size">expected_size</dfn>=<var>0</var>;</td></tr>
+<tr><th id="174">174</th><td>  <a class="typedef" href="setup.h.html#bool" title='bool' data-type='unsigned char' data-ref="bool">bool</a> <dfn class="local col8 decl" id="18fstated" title='fstated' data-type='bool' data-ref="18fstated">fstated</dfn>=<a class="macro" href="setup.h.html#70" title="0" data-ref="_M/FALSE">FALSE</a>;</td></tr>
+<tr><th id="175">175</th><td>  <a class="typedef" href="../../../include/stdio.h.html#ssize_t" title='ssize_t' data-type='__ssize_t' data-ref="ssize_t">ssize_t</a> <dfn class="local col9 decl" id="19nread" title='nread' data-type='ssize_t' data-ref="19nread">nread</dfn>;</td></tr>
+<tr><th id="176">176</th><td>  <b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *<dfn class="local col0 decl" id="20data" title='data' data-type='struct SessionHandle *' data-ref="20data">data</dfn> = <a class="local col4 ref" href="#14conn" title='conn' data-ref="14conn">conn</a>-&gt;<a class="ref" href="urldata.h.html#connectdata::data" title='connectdata::data' data-ref="connectdata::data">data</a>;</td></tr>
+<tr><th id="177">177</th><td>  <em>char</em> *<dfn class="local col1 decl" id="21buf" title='buf' data-type='char *' data-ref="21buf">buf</dfn> = <a class="local col0 ref" href="#20data" title='data' data-ref="20data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::state" title='SessionHandle::state' data-ref="SessionHandle::state">state</a>.<a class="ref" href="urldata.h.html#UrlState::buffer" title='UrlState::buffer' data-ref="UrlState::buffer">buffer</a>;</td></tr>
+<tr><th id="178">178</th><td>  <a class="typedef" href="../include/curl/curl.h.html#curl_off_t" title='curl_off_t' data-type='off_t' data-ref="curl_off_t">curl_off_t</a> <dfn class="local col2 decl" id="22bytecount" title='bytecount' data-type='curl_off_t' data-ref="22bytecount">bytecount</dfn> = <var>0</var>;</td></tr>
+<tr><th id="179">179</th><td>  <em>int</em> <dfn class="local col3 decl" id="23fd" title='fd' data-type='int' data-ref="23fd">fd</dfn>;</td></tr>
+<tr><th id="180">180</th><td>  <b>struct</b> <a class="type" href="../../../include/x86_64-linux-gnu/bits/time.h.html#timeval" title='timeval' data-ref="timeval">timeval</a> <dfn class="local col4 decl" id="24now" title='now' data-type='struct timeval' data-ref="24now">now</dfn> = <a class="ref" href="timeval.h.html#Curl_tvnow" title='Curl_tvnow' data-ref="Curl_tvnow">Curl_tvnow</a>();</td></tr>
+<tr><th id="181">181</th><td></td></tr>
+<tr><th id="182">182</th><td>  <a class="ref" href="transfer.h.html#Curl_readwrite_init" title='Curl_readwrite_init' data-ref="Curl_readwrite_init">Curl_readwrite_init</a>(<a class="local col4 ref" href="#14conn" title='conn' data-ref="14conn">conn</a>);</td></tr>
+<tr><th id="183">183</th><td>  <a class="ref" href="getinfo.h.html#Curl_initinfo" title='Curl_initinfo' data-ref="Curl_initinfo">Curl_initinfo</a>(<a class="local col0 ref" href="#20data" title='data' data-ref="20data">data</a>);</td></tr>
+<tr><th id="184">184</th><td>  <a class="ref" href="progress.h.html#Curl_pgrsStartNow" title='Curl_pgrsStartNow' data-ref="Curl_pgrsStartNow">Curl_pgrsStartNow</a>(<a class="local col0 ref" href="#20data" title='data' data-ref="20data">data</a>);</td></tr>
+<tr><th id="185">185</th><td></td></tr>
+<tr><th id="186">186</th><td>  <i>/* get the fd from the connection phase */</i></td></tr>
+<tr><th id="187">187</th><td>  <a class="local col3 ref" href="#23fd" title='fd' data-ref="23fd">fd</a> = <a class="local col4 ref" href="#14conn" title='conn' data-ref="14conn">conn</a>-&gt;<a class="ref" href="urldata.h.html#connectdata::proto" title='connectdata::proto' data-ref="connectdata::proto">proto</a>.<a class="ref" href="urldata.h.html#connectdata::(anonymous)::file" title='connectdata::(anonymous union)::file' data-ref="connectdata::(anonymous)::file">file</a>-&gt;<a class="ref" href="urldata.h.html#FILEPROTO::fd" title='FILEPROTO::fd' data-ref="FILEPROTO::fd">fd</a>;</td></tr>
+<tr><th id="188">188</th><td></td></tr>
+<tr><th id="189">189</th><td>  <i>/* VMS: This only works reliable for STREAMLF files */</i></td></tr>
+<tr><th id="190">190</th><td>  <b>if</b>( -<var>1</var> != <a class="ref" href="../../../include/x86_64-linux-gnu/sys/stat.h.html#fstat" title='fstat' data-ref="fstat">fstat</a>(<a class="local col3 ref" href="#23fd" title='fd' data-ref="23fd">fd</a>, &amp;<a class="local col6 ref" href="#16statbuf" title='statbuf' data-ref="16statbuf">statbuf</a>)) {</td></tr>
+<tr><th id="191">191</th><td>    <i>/* we could stat it, then read out the size */</i></td></tr>
+<tr><th id="192">192</th><td>    <a class="local col7 ref" href="#17expected_size" title='expected_size' data-ref="17expected_size">expected_size</a> = <a class="local col6 ref" href="#16statbuf" title='statbuf' data-ref="16statbuf">statbuf</a>.<a class="ref" href="../../../include/x86_64-linux-gnu/bits/stat.h.html#stat::st_size" title='stat::st_size' data-ref="stat::st_size">st_size</a>;</td></tr>
+<tr><th id="193">193</th><td>    <a class="local col8 ref" href="#18fstated" title='fstated' data-ref="18fstated">fstated</a> = <a class="macro" href="setup.h.html#67" title="1" data-ref="_M/TRUE">TRUE</a>;</td></tr>
+<tr><th id="194">194</th><td>  }</td></tr>
+<tr><th id="195">195</th><td></td></tr>
+<tr><th id="196">196</th><td>  <i>/* If we have selected NOBODY and HEADER, it means that we only want file</i></td></tr>
+<tr><th id="197">197</th><td><i>     information. Which for FILE can't be much more than the file size and</i></td></tr>
+<tr><th id="198">198</th><td><i>     date. */</i></td></tr>
+<tr><th id="199">199</th><td>  <b>if</b>(<a class="local col0 ref" href="#20data" title='data' data-ref="20data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::set" title='SessionHandle::set' data-ref="SessionHandle::set">set</a>.<a class="ref" href="urldata.h.html#UserDefined::no_body" title='UserDefined::no_body' data-ref="UserDefined::no_body">no_body</a> &amp;&amp; <a class="local col0 ref" href="#20data" title='data' data-ref="20data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::set" title='SessionHandle::set' data-ref="SessionHandle::set">set</a>.<a class="ref" href="urldata.h.html#UserDefined::include_header" title='UserDefined::include_header' data-ref="UserDefined::include_header">include_header</a> &amp;&amp; <a class="local col8 ref" href="#18fstated" title='fstated' data-ref="18fstated">fstated</a>) {</td></tr>
+<tr><th id="200">200</th><td>    <a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="local col5 decl" id="25result" title='result' data-type='CURLcode' data-ref="25result">result</dfn>;</td></tr>
+<tr><th id="201">201</th><td>    <a class="macro" href="../include/curl/mprintf.h.html#44" title="curl_msprintf" data-ref="_M/sprintf">sprintf</a>(<a class="local col1 ref" href="#21buf" title='buf' data-ref="21buf">buf</a>, <q>"Content-Length: %"</q> <a class="macro" href="setup.h.html#97" title="&quot;lld&quot;" data-ref="_M/FORMAT_OFF_T">FORMAT_OFF_T</a> <q>"\r\n"</q>, <a class="local col7 ref" href="#17expected_size" title='expected_size' data-ref="17expected_size">expected_size</a>);</td></tr>
+<tr><th id="202">202</th><td>    <a class="local col5 ref" href="#25result" title='result' data-ref="25result">result</a> = <a class="ref" href="sendf.h.html#Curl_client_write" title='Curl_client_write' data-ref="Curl_client_write">Curl_client_write</a>(<a class="local col0 ref" href="#20data" title='data' data-ref="20data">data</a>, <a class="macro" href="sendf.h.html#36" title="(1|2)" data-ref="_M/CLIENTWRITE_BOTH">CLIENTWRITE_BOTH</a>, <a class="local col1 ref" href="#21buf" title='buf' data-ref="21buf">buf</a>, <var>0</var>);</td></tr>
+<tr><th id="203">203</th><td>    <b>if</b>(<a class="local col5 ref" href="#25result" title='result' data-ref="25result">result</a>)</td></tr>
+<tr><th id="204">204</th><td>      <b>return</b> <a class="local col5 ref" href="#25result" title='result' data-ref="25result">result</a>;</td></tr>
+<tr><th id="205">205</th><td></td></tr>
+<tr><th id="206">206</th><td>    <a class="macro" href="../include/curl/mprintf.h.html#44" title="curl_msprintf" data-ref="_M/sprintf">sprintf</a>(<a class="local col1 ref" href="#21buf" title='buf' data-ref="21buf">buf</a>, <q>"Accept-ranges: bytes\r\n"</q>);</td></tr>
+<tr><th id="207">207</th><td>    <a class="local col5 ref" href="#25result" title='result' data-ref="25result">result</a> = <a class="ref" href="sendf.h.html#Curl_client_write" title='Curl_client_write' data-ref="Curl_client_write">Curl_client_write</a>(<a class="local col0 ref" href="#20data" title='data' data-ref="20data">data</a>, <a class="macro" href="sendf.h.html#36" title="(1|2)" data-ref="_M/CLIENTWRITE_BOTH">CLIENTWRITE_BOTH</a>, <a class="local col1 ref" href="#21buf" title='buf' data-ref="21buf">buf</a>, <var>0</var>);</td></tr>
+<tr><th id="208">208</th><td>    <b>if</b>(<a class="local col5 ref" href="#25result" title='result' data-ref="25result">result</a>)</td></tr>
+<tr><th id="209">209</th><td>      <b>return</b> <a class="local col5 ref" href="#25result" title='result' data-ref="25result">result</a>;</td></tr>
+<tr><th id="210">210</th><td></td></tr>
+<tr><th id="211">211</th><td><u>#<span data-ppcond="211">ifdef</span> <a class="macro" href="config.h.html#308" data-ref="_M/HAVE_STRFTIME">HAVE_STRFTIME</a></u></td></tr>
+<tr><th id="212">212</th><td>    <b>if</b>(<a class="local col8 ref" href="#18fstated" title='fstated' data-ref="18fstated">fstated</a>) {</td></tr>
+<tr><th id="213">213</th><td>      <b>struct</b> <a class="type" href="../../../include/time.h.html#tm" title='tm' data-ref="tm">tm</a> *<dfn class="local col6 decl" id="26tm" title='tm' data-type='struct tm *' data-ref="26tm">tm</dfn>;</td></tr>
+<tr><th id="214">214</th><td>      <a class="typedef" href="../../../include/time.h.html#time_t" title='time_t' data-type='__time_t' data-ref="time_t">time_t</a> <dfn class="local col7 decl" id="27clock" title='clock' data-type='time_t' data-ref="27clock">clock</dfn> = (<a class="typedef" href="../../../include/time.h.html#time_t" title='time_t' data-type='__time_t' data-ref="time_t">time_t</a>)<a class="local col6 ref" href="#16statbuf" title='statbuf' data-ref="16statbuf">statbuf</a>.<a class="macro" href="../../../include/x86_64-linux-gnu/bits/stat.h.html#95" title="st_mtim.tv_sec" data-ref="_M/st_mtime">st_mtime</a>;</td></tr>
+<tr><th id="215">215</th><td><u>#<span data-ppcond="215">ifdef</span> <a class="macro" href="config.h.html#119" data-ref="_M/HAVE_GMTIME_R">HAVE_GMTIME_R</a></u></td></tr>
+<tr><th id="216">216</th><td>      <b>struct</b> <a class="type" href="../../../include/time.h.html#tm" title='tm' data-ref="tm">tm</a> <dfn class="local col8 decl" id="28buffer" title='buffer' data-type='struct tm' data-ref="28buffer">buffer</dfn>;</td></tr>
+<tr><th id="217">217</th><td>      <a class="local col6 ref" href="#26tm" title='tm' data-ref="26tm">tm</a> = (<b>struct</b> <a class="type" href="../../../include/time.h.html#tm" title='tm' data-ref="tm">tm</a> *)<a class="ref" href="../../../include/time.h.html#gmtime_r" title='gmtime_r' data-ref="gmtime_r">gmtime_r</a>(&amp;<a class="local col7 ref" href="#27clock" title='clock' data-ref="27clock">clock</a>, &amp;<a class="local col8 ref" href="#28buffer" title='buffer' data-ref="28buffer">buffer</a>);</td></tr>
+<tr><th id="218">218</th><td><u>#<span data-ppcond="215">else</span></u></td></tr>
+<tr><th id="219">219</th><td>      tm = gmtime(&amp;clock);</td></tr>
+<tr><th id="220">220</th><td><u>#<span data-ppcond="215">endif</span></u></td></tr>
+<tr><th id="221">221</th><td>      <i>/* format: "Tue, 15 Nov 1994 12:45:26 GMT" */</i></td></tr>
+<tr><th id="222">222</th><td>      <a class="ref" href="../../../include/time.h.html#strftime" title='strftime' data-ref="strftime">strftime</a>(<a class="local col1 ref" href="#21buf" title='buf' data-ref="21buf">buf</a>, <a class="macro" href="urldata.h.html#104" title="16384" data-ref="_M/BUFSIZE">BUFSIZE</a>-<var>1</var>, <q>"Last-Modified: %a, %d %b %Y %H:%M:%S GMT\r\n"</q>,</td></tr>
+<tr><th id="223">223</th><td>               <a class="local col6 ref" href="#26tm" title='tm' data-ref="26tm">tm</a>);</td></tr>
+<tr><th id="224">224</th><td>      <a class="local col5 ref" href="#25result" title='result' data-ref="25result">result</a> = <a class="ref" href="sendf.h.html#Curl_client_write" title='Curl_client_write' data-ref="Curl_client_write">Curl_client_write</a>(<a class="local col0 ref" href="#20data" title='data' data-ref="20data">data</a>, <a class="macro" href="sendf.h.html#36" title="(1|2)" data-ref="_M/CLIENTWRITE_BOTH">CLIENTWRITE_BOTH</a>, <a class="local col1 ref" href="#21buf" title='buf' data-ref="21buf">buf</a>, <var>0</var>);</td></tr>
+<tr><th id="225">225</th><td>    }</td></tr>
+<tr><th id="226">226</th><td><u>#<span data-ppcond="211">endif</span></u></td></tr>
+<tr><th id="227">227</th><td>    <b>return</b> <a class="local col5 ref" href="#25result" title='result' data-ref="25result">result</a>;</td></tr>
+<tr><th id="228">228</th><td>  }</td></tr>
+<tr><th id="229">229</th><td></td></tr>
+<tr><th id="230">230</th><td>  <i>/* Added by Dolbneff A.V &amp; Spiridonoff A.V */</i></td></tr>
+<tr><th id="231">231</th><td>  <b>if</b> (<a class="local col4 ref" href="#14conn" title='conn' data-ref="14conn">conn</a>-&gt;<a class="ref" href="urldata.h.html#connectdata::resume_from" title='connectdata::resume_from' data-ref="connectdata::resume_from">resume_from</a> &lt;= <a class="local col7 ref" href="#17expected_size" title='expected_size' data-ref="17expected_size">expected_size</a>)</td></tr>
+<tr><th id="232">232</th><td>    <a class="local col7 ref" href="#17expected_size" title='expected_size' data-ref="17expected_size">expected_size</a> -= <a class="local col4 ref" href="#14conn" title='conn' data-ref="14conn">conn</a>-&gt;<a class="ref" href="urldata.h.html#connectdata::resume_from" title='connectdata::resume_from' data-ref="connectdata::resume_from">resume_from</a>;</td></tr>
+<tr><th id="233">233</th><td>  <b>else</b></td></tr>
+<tr><th id="234">234</th><td>    <i>/* Is this error code suitable in such situation? */</i></td></tr>
+<tr><th id="235">235</th><td>    <b>return</b> <a class="macro" href="../include/curl/curl.h.html#310" title="CURLE_BAD_DOWNLOAD_RESUME" data-ref="_M/CURLE_FTP_BAD_DOWNLOAD_RESUME">CURLE_FTP_BAD_DOWNLOAD_RESUME</a>;</td></tr>
+<tr><th id="236">236</th><td></td></tr>
+<tr><th id="237">237</th><td>  <b>if</b> (<a class="local col8 ref" href="#18fstated" title='fstated' data-ref="18fstated">fstated</a> &amp;&amp; (<a class="local col7 ref" href="#17expected_size" title='expected_size' data-ref="17expected_size">expected_size</a> == <var>0</var>))</td></tr>
+<tr><th id="238">238</th><td>    <b>return</b> <a class="enum" href="../include/curl/curl.h.html#CURLE_OK" title='CURLE_OK' data-ref="CURLE_OK">CURLE_OK</a>;</td></tr>
+<tr><th id="239">239</th><td></td></tr>
+<tr><th id="240">240</th><td>  <i>/* The following is a shortcut implementation of file reading</i></td></tr>
+<tr><th id="241">241</th><td><i>     this is both more efficient than the former call to download() and</i></td></tr>
+<tr><th id="242">242</th><td><i>     it avoids problems with select() and recv() on file descriptors</i></td></tr>
+<tr><th id="243">243</th><td><i>     in Winsock */</i></td></tr>
+<tr><th id="244">244</th><td>  <b>if</b>(<a class="local col8 ref" href="#18fstated" title='fstated' data-ref="18fstated">fstated</a>)</td></tr>
+<tr><th id="245">245</th><td>    <a class="ref" href="progress.h.html#Curl_pgrsSetDownloadSize" title='Curl_pgrsSetDownloadSize' data-ref="Curl_pgrsSetDownloadSize">Curl_pgrsSetDownloadSize</a>(<a class="local col0 ref" href="#20data" title='data' data-ref="20data">data</a>, <a class="local col7 ref" href="#17expected_size" title='expected_size' data-ref="17expected_size">expected_size</a>);</td></tr>
+<tr><th id="246">246</th><td></td></tr>
+<tr><th id="247">247</th><td>  <b>if</b>(<a class="local col4 ref" href="#14conn" title='conn' data-ref="14conn">conn</a>-&gt;<a class="ref" href="urldata.h.html#connectdata::resume_from" title='connectdata::resume_from' data-ref="connectdata::resume_from">resume_from</a>)</td></tr>
+<tr><th id="248">248</th><td>    <a class="ref" href="../../../include/unistd.h.html#lseek" title='lseek' data-ref="lseek">lseek</a>(<a class="local col3 ref" href="#23fd" title='fd' data-ref="23fd">fd</a>, <a class="local col4 ref" href="#14conn" title='conn' data-ref="14conn">conn</a>-&gt;<a class="ref" href="urldata.h.html#connectdata::resume_from" title='connectdata::resume_from' data-ref="connectdata::resume_from">resume_from</a>, <a class="macro" href="../../../include/fcntl.h.html#136" title="0" data-ref="_M/SEEK_SET">SEEK_SET</a>);</td></tr>
+<tr><th id="249">249</th><td></td></tr>
+<tr><th id="250">250</th><td>  <a class="ref" href="progress.h.html#Curl_pgrsTime" title='Curl_pgrsTime' data-ref="Curl_pgrsTime">Curl_pgrsTime</a>(<a class="local col0 ref" href="#20data" title='data' data-ref="20data">data</a>, <a class="enum" href="progress.h.html#TIMER_STARTTRANSFER" title='TIMER_STARTTRANSFER' data-ref="TIMER_STARTTRANSFER">TIMER_STARTTRANSFER</a>);</td></tr>
+<tr><th id="251">251</th><td></td></tr>
+<tr><th id="252">252</th><td>  <b>while</b> (<a class="local col5 ref" href="#15res" title='res' data-ref="15res">res</a> == <a class="enum" href="../include/curl/curl.h.html#CURLE_OK" title='CURLE_OK' data-ref="CURLE_OK">CURLE_OK</a>) {</td></tr>
+<tr><th id="253">253</th><td>    <a class="local col9 ref" href="#19nread" title='nread' data-ref="19nread">nread</a> = <a class="ref" href="../../../include/unistd.h.html#read" title='read' data-ref="read">read</a>(<a class="local col3 ref" href="#23fd" title='fd' data-ref="23fd">fd</a>, <a class="local col1 ref" href="#21buf" title='buf' data-ref="21buf">buf</a>, <a class="macro" href="urldata.h.html#104" title="16384" data-ref="_M/BUFSIZE">BUFSIZE</a>-<var>1</var>);</td></tr>
+<tr><th id="254">254</th><td></td></tr>
+<tr><th id="255">255</th><td>    <b>if</b> ( <a class="local col9 ref" href="#19nread" title='nread' data-ref="19nread">nread</a> &gt; <var>0</var>)</td></tr>
+<tr><th id="256">256</th><td>      <a class="local col1 ref" href="#21buf" title='buf' data-ref="21buf">buf</a>[<a class="local col9 ref" href="#19nread" title='nread' data-ref="19nread">nread</a>] = <var>0</var>;</td></tr>
+<tr><th id="257">257</th><td></td></tr>
+<tr><th id="258">258</th><td>    <b>if</b> (<a class="local col9 ref" href="#19nread" title='nread' data-ref="19nread">nread</a> &lt;= <var>0</var>)</td></tr>
+<tr><th id="259">259</th><td>      <b>break</b>;</td></tr>
+<tr><th id="260">260</th><td></td></tr>
+<tr><th id="261">261</th><td>    <a class="local col2 ref" href="#22bytecount" title='bytecount' data-ref="22bytecount">bytecount</a> += <a class="local col9 ref" href="#19nread" title='nread' data-ref="19nread">nread</a>;</td></tr>
+<tr><th id="262">262</th><td>    <i>/* NOTE: The following call to fwrite does CR/LF translation on</i></td></tr>
+<tr><th id="263">263</th><td><i>       Windows systems if the target is stdout. Use -O or -o parameters</i></td></tr>
+<tr><th id="264">264</th><td><i>       to prevent CR/LF translation (this then goes to a binary mode</i></td></tr>
+<tr><th id="265">265</th><td><i>       file descriptor). */</i></td></tr>
+<tr><th id="266">266</th><td></td></tr>
+<tr><th id="267">267</th><td>    <a class="local col5 ref" href="#15res" title='res' data-ref="15res">res</a> = <a class="ref" href="sendf.h.html#Curl_client_write" title='Curl_client_write' data-ref="Curl_client_write">Curl_client_write</a>(<a class="local col0 ref" href="#20data" title='data' data-ref="20data">data</a>, <a class="macro" href="sendf.h.html#34" title="1" data-ref="_M/CLIENTWRITE_BODY">CLIENTWRITE_BODY</a>, <a class="local col1 ref" href="#21buf" title='buf' data-ref="21buf">buf</a>, <a class="local col9 ref" href="#19nread" title='nread' data-ref="19nread">nread</a>);</td></tr>
+<tr><th id="268">268</th><td>    <b>if</b>(<a class="local col5 ref" href="#15res" title='res' data-ref="15res">res</a>)</td></tr>
+<tr><th id="269">269</th><td>      <b>return</b> <a class="local col5 ref" href="#15res" title='res' data-ref="15res">res</a>;</td></tr>
+<tr><th id="270">270</th><td></td></tr>
+<tr><th id="271">271</th><td>    <a class="ref" href="progress.h.html#Curl_pgrsSetDownloadCounter" title='Curl_pgrsSetDownloadCounter' data-ref="Curl_pgrsSetDownloadCounter">Curl_pgrsSetDownloadCounter</a>(<a class="local col0 ref" href="#20data" title='data' data-ref="20data">data</a>, <a class="local col2 ref" href="#22bytecount" title='bytecount' data-ref="22bytecount">bytecount</a>);</td></tr>
+<tr><th id="272">272</th><td></td></tr>
+<tr><th id="273">273</th><td>    <b>if</b>(<a class="ref" href="progress.h.html#Curl_pgrsUpdate" title='Curl_pgrsUpdate' data-ref="Curl_pgrsUpdate">Curl_pgrsUpdate</a>(<a class="local col4 ref" href="#14conn" title='conn' data-ref="14conn">conn</a>))</td></tr>
+<tr><th id="274">274</th><td>      <a class="local col5 ref" href="#15res" title='res' data-ref="15res">res</a> = <a class="enum" href="../include/curl/curl.h.html#CURLE_ABORTED_BY_CALLBACK" title='CURLE_ABORTED_BY_CALLBACK' data-ref="CURLE_ABORTED_BY_CALLBACK">CURLE_ABORTED_BY_CALLBACK</a>;</td></tr>
+<tr><th id="275">275</th><td>    <b>else</b></td></tr>
+<tr><th id="276">276</th><td>      <a class="local col5 ref" href="#15res" title='res' data-ref="15res">res</a> = <a class="ref" href="speedcheck.h.html#Curl_speedcheck" title='Curl_speedcheck' data-ref="Curl_speedcheck">Curl_speedcheck</a> (<a class="local col0 ref" href="#20data" title='data' data-ref="20data">data</a>, <a class="local col4 ref" href="#24now" title='now' data-ref="24now">now</a>);</td></tr>
+<tr><th id="277">277</th><td>  }</td></tr>
+<tr><th id="278">278</th><td>  <b>if</b>(<a class="ref" href="progress.h.html#Curl_pgrsUpdate" title='Curl_pgrsUpdate' data-ref="Curl_pgrsUpdate">Curl_pgrsUpdate</a>(<a class="local col4 ref" href="#14conn" title='conn' data-ref="14conn">conn</a>))</td></tr>
+<tr><th id="279">279</th><td>    <a class="local col5 ref" href="#15res" title='res' data-ref="15res">res</a> = <a class="enum" href="../include/curl/curl.h.html#CURLE_ABORTED_BY_CALLBACK" title='CURLE_ABORTED_BY_CALLBACK' data-ref="CURLE_ABORTED_BY_CALLBACK">CURLE_ABORTED_BY_CALLBACK</a>;</td></tr>
+<tr><th id="280">280</th><td></td></tr>
+<tr><th id="281">281</th><td>  <a class="ref" href="../../../include/unistd.h.html#close" title='close' data-ref="close">close</a>(<a class="local col3 ref" href="#23fd" title='fd' data-ref="23fd">fd</a>);</td></tr>
+<tr><th id="282">282</th><td></td></tr>
+<tr><th id="283">283</th><td>  <b>return</b> <a class="local col5 ref" href="#15res" title='res' data-ref="15res">res</a>;</td></tr>
+<tr><th id="284">284</th><td>}</td></tr>
+<tr><th id="285">285</th><td><u>#<span data-ppcond="26">endif</span></u></td></tr>
+<tr><th id="286">286</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

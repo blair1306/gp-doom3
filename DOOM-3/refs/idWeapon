@@ -1,0 +1,449 @@
+<inh f='codebrowser/d3xp/Entity.h' l='500' c='idAnimatedEntity'/>
+<def f='codebrowser/d3xp/Weapon.h' l='85' ll='413'/>
+<size>4456</size>
+<smbr r='idWeapon::Type' t='idTypeInfo'/>
+<fun r='_ZN8idWeapon14CreateInstanceEv'/>
+<fun r='_ZNK8idWeapon7GetTypeEv'/>
+<smbr r='idWeapon::eventCallbacks' t='idEventFunc&lt;idWeapon&gt; []'/>
+<fun r='_ZN8idWeaponC1Ev'/>
+<fun r='_ZN8idWeaponD1Ev'/>
+<fun r='_ZN8idWeapon5SpawnEv'/>
+<fun r='_ZN8idWeapon8SetOwnerEP8idPlayer'/>
+<fun r='_ZN8idWeapon8GetOwnerEv'/>
+<fun r='_ZNK8idWeapon34ShouldConstructScriptObjectAtSpawnEv'/>
+<fun r='_ZN8idWeapon11CacheWeaponEPKc'/>
+<fun r='_ZNK8idWeapon4SaveEP10idSaveGame'/>
+<fun r='_ZN8idWeapon7RestoreEP13idRestoreGame'/>
+<fun r='_ZN8idWeapon5ClearEv'/>
+<fun r='_ZN8idWeapon12GetWeaponDefEPKci'/>
+<fun r='_ZN8idWeapon8IsLinkedEv'/>
+<fun r='_ZN8idWeapon17IsWorldModelReadyEv'/>
+<fun r='_ZNK8idWeapon4IconEv'/>
+<fun r='_ZN8idWeapon9UpdateGUIEv'/>
+<fun r='_ZN8idWeapon8SetModelEPKc'/>
+<fun r='_ZN8idWeapon23GetGlobalJointTransformEb13jointHandle_tR6idVec3R6idMat3'/>
+<fun r='_ZN8idWeapon15SetPushVelocityERK6idVec3'/>
+<fun r='_ZN8idWeapon10UpdateSkinEv'/>
+<fun r='_ZN8idWeapon5ThinkEv'/>
+<fun r='_ZN8idWeapon5RaiseEv'/>
+<fun r='_ZN8idWeapon7PutAwayEv'/>
+<fun r='_ZN8idWeapon6ReloadEv'/>
+<fun r='_ZN8idWeapon11LowerWeaponEv'/>
+<fun r='_ZN8idWeapon11RaiseWeaponEv'/>
+<fun r='_ZN8idWeapon10HideWeaponEv'/>
+<fun r='_ZN8idWeapon10ShowWeaponEv'/>
+<fun r='_ZN8idWeapon14HideWorldModelEv'/>
+<fun r='_ZN8idWeapon14ShowWorldModelEv'/>
+<fun r='_ZN8idWeapon9OwnerDiedEv'/>
+<fun r='_ZN8idWeapon11BeginAttackEv'/>
+<fun r='_ZN8idWeapon9EndAttackEv'/>
+<fun r='_ZNK8idWeapon7IsReadyEv'/>
+<fun r='_ZNK8idWeapon11IsReloadingEv'/>
+<fun r='_ZNK8idWeapon11IsHolsteredEv'/>
+<fun r='_ZNK8idWeapon13ShowCrosshairEv'/>
+<fun r='_ZN8idWeapon8DropItemERK6idVec3iib'/>
+<fun r='_ZNK8idWeapon7CanDropEv'/>
+<fun r='_ZN8idWeapon12WeaponStolenEv'/>
+<fun r='_ZN8idWeapon9GetStatusEv'/>
+<fun r='_ZN8idWeapon21ConstructScriptObjectEv'/>
+<fun r='_ZN8idWeapon23DeconstructScriptObjectEv'/>
+<fun r='_ZN8idWeapon8SetStateEPKci'/>
+<fun r='_ZN8idWeapon12UpdateScriptEv'/>
+<fun r='_ZN8idWeapon14EnterCinematicEv'/>
+<fun r='_ZN8idWeapon13ExitCinematicEv'/>
+<fun r='_ZN8idWeapon10NetCatchupEv'/>
+<fun r='_ZN8idWeapon13PresentWeaponEb'/>
+<fun r='_ZN8idWeapon10GetZoomFovEv'/>
+<fun r='_ZN8idWeapon21GetWeaponAngleOffsetsEPiPfS1_'/>
+<fun r='_ZN8idWeapon20GetWeaponTimeOffsetsEPfS0_'/>
+<fun r='_ZN8idWeapon10BloodSplatEf'/>
+<fun r='_ZN8idWeapon17GetAmmoNumForNameEPKc'/>
+<fun r='_ZN8idWeapon17GetAmmoNameForNumEi'/>
+<fun r='_ZN8idWeapon23GetAmmoPickupNameForNumEi'/>
+<fun r='_ZNK8idWeapon11GetAmmoTypeEv'/>
+<fun r='_ZNK8idWeapon13AmmoAvailableEv'/>
+<fun r='_ZNK8idWeapon10AmmoInClipEv'/>
+<fun r='_ZN8idWeapon13ResetAmmoClipEv'/>
+<fun r='_ZNK8idWeapon8ClipSizeEv'/>
+<fun r='_ZNK8idWeapon7LowAmmoEv'/>
+<fun r='_ZNK8idWeapon12AmmoRequiredEv'/>
+<fun r='_ZNK8idWeapon9AmmoCountEv'/>
+<fun r='_ZNK8idWeapon15GetGrabberStateEv'/>
+<fun r='_ZNK8idWeapon15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN8idWeapon16ReadFromSnapshotERK13idBitMsgDelta'/>
+<fun r='_ZN8idWeapon18ClientReceiveEventEiiRK8idBitMsg'/>
+<fun r='_ZN8idWeapon21ClientPredictionThinkEv'/>
+<mbr r='idWeapon::WEAPON_ATTACK' o='14848' t='idScriptBool'/>
+<mbr r='idWeapon::WEAPON_RELOAD' o='14880' t='idScriptBool'/>
+<mbr r='idWeapon::WEAPON_NETRELOAD' o='14912' t='idScriptBool'/>
+<mbr r='idWeapon::WEAPON_NETENDRELOAD' o='14944' t='idScriptBool'/>
+<mbr r='idWeapon::WEAPON_NETFIRING' o='14976' t='idScriptBool'/>
+<mbr r='idWeapon::WEAPON_RAISEWEAPON' o='15008' t='idScriptBool'/>
+<mbr r='idWeapon::WEAPON_LOWERWEAPON' o='15040' t='idScriptBool'/>
+<mbr r='idWeapon::status' o='15072' t='weaponStatus_t'/>
+<mbr r='idWeapon::thread' o='15104' t='idThread *'/>
+<mbr r='idWeapon::state' o='15136' t='idStr'/>
+<mbr r='idWeapon::idealState' o='15392' t='idStr'/>
+<mbr r='idWeapon::animBlendFrames' o='15648' t='int'/>
+<mbr r='idWeapon::animDoneTime' o='15680' t='int'/>
+<mbr r='idWeapon::isLinked' o='15712' t='bool'/>
+<mbr r='idWeapon::projectileEnt' o='15744' t='idEntity *'/>
+<mbr r='idWeapon::owner' o='15776' t='idPlayer *'/>
+<mbr r='idWeapon::worldModel' o='15808' t='idEntityPtr&lt;idAnimatedEntity&gt;'/>
+<mbr r='idWeapon::hideTime' o='15840' t='int'/>
+<mbr r='idWeapon::hideDistance' o='15872' t='float'/>
+<mbr r='idWeapon::hideStartTime' o='15904' t='int'/>
+<mbr r='idWeapon::hideStart' o='15936' t='float'/>
+<mbr r='idWeapon::hideEnd' o='15968' t='float'/>
+<mbr r='idWeapon::hideOffset' o='16000' t='float'/>
+<mbr r='idWeapon::hide' o='16032' t='bool'/>
+<mbr r='idWeapon::disabled' o='16040' t='bool'/>
+<mbr r='idWeapon::berserk' o='16064' t='int'/>
+<mbr r='idWeapon::playerViewOrigin' o='16096' t='idVec3'/>
+<mbr r='idWeapon::playerViewAxis' o='16192' t='idMat3'/>
+<mbr r='idWeapon::viewWeaponOrigin' o='16480' t='idVec3'/>
+<mbr r='idWeapon::viewWeaponAxis' o='16576' t='idMat3'/>
+<mbr r='idWeapon::muzzleOrigin' o='16864' t='idVec3'/>
+<mbr r='idWeapon::muzzleAxis' o='16960' t='idMat3'/>
+<mbr r='idWeapon::pushVelocity' o='17248' t='idVec3'/>
+<mbr r='idWeapon::weaponDef' o='17344' t='const idDeclEntityDef *'/>
+<mbr r='idWeapon::meleeDef' o='17376' t='const idDeclEntityDef *'/>
+<mbr r='idWeapon::projectileDict' o='17408' t='idDict'/>
+<mbr r='idWeapon::meleeDistance' o='17760' t='float'/>
+<mbr r='idWeapon::meleeDefName' o='17792' t='idStr'/>
+<mbr r='idWeapon::brassDict' o='18048' t='idDict'/>
+<mbr r='idWeapon::brassDelay' o='18400' t='int'/>
+<mbr r='idWeapon::icon' o='18432' t='idStr'/>
+<mbr r='idWeapon::guiLight' o='18688' t='renderLight_t'/>
+<mbr r='idWeapon::guiLightHandle' o='20352' t='int'/>
+<mbr r='idWeapon::muzzleFlash' o='20384' t='renderLight_t'/>
+<mbr r='idWeapon::muzzleFlashHandle' o='22048' t='int'/>
+<mbr r='idWeapon::worldMuzzleFlash' o='22080' t='renderLight_t'/>
+<mbr r='idWeapon::worldMuzzleFlashHandle' o='23744' t='int'/>
+<mbr r='idWeapon::flashColor' o='23776' t='idVec3'/>
+<mbr r='idWeapon::muzzleFlashEnd' o='23872' t='int'/>
+<mbr r='idWeapon::flashTime' o='23904' t='int'/>
+<mbr r='idWeapon::lightOn' o='23936' t='bool'/>
+<mbr r='idWeapon::silent_fire' o='23944' t='bool'/>
+<mbr r='idWeapon::allowDrop' o='23952' t='bool'/>
+<mbr r='idWeapon::hasBloodSplat' o='23960' t='bool'/>
+<mbr r='idWeapon::kick_endtime' o='23968' t='int'/>
+<mbr r='idWeapon::muzzle_kick_time' o='24000' t='int'/>
+<mbr r='idWeapon::muzzle_kick_maxtime' o='24032' t='int'/>
+<mbr r='idWeapon::muzzle_kick_angles' o='24064' t='idAngles'/>
+<mbr r='idWeapon::muzzle_kick_offset' o='24160' t='idVec3'/>
+<mbr r='idWeapon::ammoType' o='24256' t='ammo_t'/>
+<mbr r='idWeapon::ammoRequired' o='24288' t='int'/>
+<mbr r='idWeapon::clipSize' o='24320' t='int'/>
+<mbr r='idWeapon::ammoClip' o='24352' t='int'/>
+<mbr r='idWeapon::lowAmmo' o='24384' t='int'/>
+<mbr r='idWeapon::powerAmmo' o='24416' t='bool'/>
+<mbr r='idWeapon::isFiring' o='24424' t='bool'/>
+<mbr r='idWeapon::zoomFov' o='24448' t='int'/>
+<mbr r='idWeapon::barrelJointView' o='24480' t='jointHandle_t'/>
+<mbr r='idWeapon::flashJointView' o='24512' t='jointHandle_t'/>
+<mbr r='idWeapon::ejectJointView' o='24544' t='jointHandle_t'/>
+<mbr r='idWeapon::guiLightJointView' o='24576' t='jointHandle_t'/>
+<mbr r='idWeapon::ventLightJointView' o='24608' t='jointHandle_t'/>
+<mbr r='idWeapon::flashJointWorld' o='24640' t='jointHandle_t'/>
+<mbr r='idWeapon::barrelJointWorld' o='24672' t='jointHandle_t'/>
+<mbr r='idWeapon::ejectJointWorld' o='24704' t='jointHandle_t'/>
+<mbr r='idWeapon::smokeJointView' o='24736' t='jointHandle_t'/>
+<mbr r='idWeapon::weaponParticles' o='24768' t='idHashTable&lt;WeaponParticle_t&gt;'/>
+<mbr r='idWeapon::weaponLights' o='24896' t='idHashTable&lt;WeaponLight_t&gt;'/>
+<mbr r='idWeapon::sndHum' o='25024' t='const idSoundShader *'/>
+<mbr r='idWeapon::weaponSmoke' o='25056' t='const idDeclParticle *'/>
+<mbr r='idWeapon::weaponSmokeStartTime' o='25088' t='int'/>
+<mbr r='idWeapon::continuousSmoke' o='25120' t='bool'/>
+<mbr r='idWeapon::strikeSmoke' o='25152' t='const idDeclParticle *'/>
+<mbr r='idWeapon::strikeSmokeStartTime' o='25184' t='int'/>
+<mbr r='idWeapon::strikePos' o='25216' t='idVec3'/>
+<mbr r='idWeapon::strikeAxis' o='25312' t='idMat3'/>
+<mbr r='idWeapon::nextStrikeFx' o='25600' t='int'/>
+<mbr r='idWeapon::nozzleFx' o='25632' t='bool'/>
+<mbr r='idWeapon::nozzleFxFade' o='25664' t='int'/>
+<mbr r='idWeapon::lastAttack' o='25696' t='int'/>
+<mbr r='idWeapon::nozzleGlow' o='25728' t='renderLight_t'/>
+<mbr r='idWeapon::nozzleGlowHandle' o='27392' t='int'/>
+<mbr r='idWeapon::nozzleGlowColor' o='27424' t='idVec3'/>
+<mbr r='idWeapon::nozzleGlowShader' o='27520' t='const idMaterial *'/>
+<mbr r='idWeapon::nozzleGlowRadius' o='27552' t='float'/>
+<mbr r='idWeapon::weaponAngleOffsetAverages' o='27584' t='int'/>
+<mbr r='idWeapon::weaponAngleOffsetScale' o='27616' t='float'/>
+<mbr r='idWeapon::weaponAngleOffsetMax' o='27648' t='float'/>
+<mbr r='idWeapon::weaponOffsetTime' o='27680' t='float'/>
+<mbr r='idWeapon::weaponOffsetScale' o='27712' t='float'/>
+<fun r='_ZN8idWeapon13AlertMonstersEv'/>
+<fun r='_ZN8idWeapon14InitWorldModelEPK15idDeclEntityDef'/>
+<fun r='_ZN8idWeapon16MuzzleFlashLightEv'/>
+<fun r='_ZN8idWeapon10MuzzleRiseER6idVec3R6idMat3'/>
+<fun r='_ZN8idWeapon14UpdateNozzleFxEv'/>
+<fun r='_ZN8idWeapon19UpdateFlashPositionEv'/>
+<fun r='_ZN8idWeapon11Event_ClearEv'/>
+<fun r='_ZN8idWeapon14Event_GetOwnerEv'/>
+<fun r='_ZN8idWeapon17Event_WeaponStateEPKci'/>
+<fun r='_ZN8idWeapon21Event_SetWeaponStatusEf'/>
+<fun r='_ZN8idWeapon17Event_WeaponReadyEv'/>
+<fun r='_ZN8idWeapon21Event_WeaponOutOfAmmoEv'/>
+<fun r='_ZN8idWeapon21Event_WeaponReloadingEv'/>
+<fun r='_ZN8idWeapon21Event_WeaponHolsteredEv'/>
+<fun r='_ZN8idWeapon18Event_WeaponRisingEv'/>
+<fun r='_ZN8idWeapon20Event_WeaponLoweringEv'/>
+<fun r='_ZN8idWeapon13Event_UseAmmoEi'/>
+<fun r='_ZN8idWeapon15Event_AddToClipEi'/>
+<fun r='_ZN8idWeapon16Event_AmmoInClipEv'/>
+<fun r='_ZN8idWeapon19Event_AmmoAvailableEv'/>
+<fun r='_ZN8idWeapon20Event_TotalAmmoCountEv'/>
+<fun r='_ZN8idWeapon14Event_ClipSizeEv'/>
+<fun r='_ZN8idWeapon14Event_PlayAnimEiPKc'/>
+<fun r='_ZN8idWeapon15Event_PlayCycleEiPKc'/>
+<fun r='_ZN8idWeapon14Event_AnimDoneEii'/>
+<fun r='_ZN8idWeapon20Event_SetBlendFramesEii'/>
+<fun r='_ZN8idWeapon20Event_GetBlendFramesEi'/>
+<fun r='_ZN8idWeapon10Event_NextEv'/>
+<fun r='_ZN8idWeapon13Event_SetSkinEPKc'/>
+<fun r='_ZN8idWeapon16Event_FlashlightEi'/>
+<fun r='_ZN8idWeapon18Event_GetLightParmEi'/>
+<fun r='_ZN8idWeapon18Event_SetLightParmEif'/>
+<fun r='_ZN8idWeapon19Event_SetLightParmsEffff'/>
+<fun r='_ZN8idWeapon23Event_LaunchProjectilesEiffff'/>
+<fun r='_ZN8idWeapon22Event_CreateProjectileEv'/>
+<fun r='_ZN8idWeapon16Event_EjectBrassEv'/>
+<fun r='_ZN8idWeapon11Event_MeleeEv'/>
+<fun r='_ZN8idWeapon19Event_GetWorldModelEv'/>
+<fun r='_ZN8idWeapon15Event_AllowDropEi'/>
+<fun r='_ZN8idWeapon16Event_AutoReloadEv'/>
+<fun r='_ZN8idWeapon15Event_NetReloadEv'/>
+<fun r='_ZN8idWeapon17Event_IsInvisibleEv'/>
+<fun r='_ZN8idWeapon18Event_NetEndReloadEv'/>
+<mbr r='idWeapon::grabber' o='27744' t='idGrabber'/>
+<mbr r='idWeapon::grabberState' o='35616' t='int'/>
+<fun r='_ZN8idWeapon13Event_GrabberEi'/>
+<fun r='_ZN8idWeapon22Event_GrabberHasTargetEv'/>
+<fun r='_ZN8idWeapon28Event_GrabberSetGrabDistanceEf'/>
+<fun r='_ZN8idWeapon30Event_LaunchProjectilesEllipseEiffff'/>
+<fun r='_ZN8idWeapon19Event_LaunchPowerupEPKcfi'/>
+<fun r='_ZN8idWeapon22Event_StartWeaponSmokeEv'/>
+<fun r='_ZN8idWeapon21Event_StopWeaponSmokeEv'/>
+<fun r='_ZN8idWeapon25Event_StartWeaponParticleEPKc'/>
+<fun r='_ZN8idWeapon24Event_StopWeaponParticleEPKc'/>
+<fun r='_ZN8idWeapon22Event_StartWeaponLightEPKc'/>
+<fun r='_ZN8idWeapon21Event_StopWeaponLightEPKc'/>
+<fun r='_ZN8idWeapon8IsLinkedEv'/>
+<fun r='_ZN8idWeapon17IsWorldModelReadyEv'/>
+<fun r='_ZN8idWeapon8GetOwnerEv'/>
+<inh f='codebrowser/game/Entity.h' l='477' c='idAnimatedEntity'/>
+<def f='codebrowser/game/Weapon.h' l='59' ll='351'/>
+<size>3200</size>
+<smbr r='idWeapon::Type' t='idTypeInfo'/>
+<fun r='_ZN8idWeapon14CreateInstanceEv'/>
+<fun r='_ZNK8idWeapon7GetTypeEv'/>
+<smbr r='idWeapon::eventCallbacks' t='idEventFunc&lt;idWeapon&gt; []'/>
+<fun r='_ZN8idWeaponC1Ev'/>
+<fun r='_ZN8idWeaponD1Ev'/>
+<fun r='_ZN8idWeapon5SpawnEv'/>
+<fun r='_ZN8idWeapon8SetOwnerEP8idPlayer'/>
+<fun r='_ZN8idWeapon8GetOwnerEv'/>
+<fun r='_ZNK8idWeapon34ShouldConstructScriptObjectAtSpawnEv'/>
+<fun r='_ZN8idWeapon11CacheWeaponEPKc'/>
+<fun r='_ZNK8idWeapon4SaveEP10idSaveGame'/>
+<fun r='_ZN8idWeapon7RestoreEP13idRestoreGame'/>
+<fun r='_ZN8idWeapon5ClearEv'/>
+<fun r='_ZN8idWeapon12GetWeaponDefEPKci'/>
+<fun r='_ZN8idWeapon8IsLinkedEv'/>
+<fun r='_ZN8idWeapon17IsWorldModelReadyEv'/>
+<fun r='_ZNK8idWeapon4IconEv'/>
+<fun r='_ZN8idWeapon9UpdateGUIEv'/>
+<fun r='_ZN8idWeapon8SetModelEPKc'/>
+<fun r='_ZN8idWeapon23GetGlobalJointTransformEb13jointHandle_tR6idVec3R6idMat3'/>
+<fun r='_ZN8idWeapon15SetPushVelocityERK6idVec3'/>
+<fun r='_ZN8idWeapon10UpdateSkinEv'/>
+<fun r='_ZN8idWeapon5ThinkEv'/>
+<fun r='_ZN8idWeapon5RaiseEv'/>
+<fun r='_ZN8idWeapon7PutAwayEv'/>
+<fun r='_ZN8idWeapon6ReloadEv'/>
+<fun r='_ZN8idWeapon11LowerWeaponEv'/>
+<fun r='_ZN8idWeapon11RaiseWeaponEv'/>
+<fun r='_ZN8idWeapon10HideWeaponEv'/>
+<fun r='_ZN8idWeapon10ShowWeaponEv'/>
+<fun r='_ZN8idWeapon14HideWorldModelEv'/>
+<fun r='_ZN8idWeapon14ShowWorldModelEv'/>
+<fun r='_ZN8idWeapon9OwnerDiedEv'/>
+<fun r='_ZN8idWeapon11BeginAttackEv'/>
+<fun r='_ZN8idWeapon9EndAttackEv'/>
+<fun r='_ZNK8idWeapon7IsReadyEv'/>
+<fun r='_ZNK8idWeapon11IsReloadingEv'/>
+<fun r='_ZNK8idWeapon11IsHolsteredEv'/>
+<fun r='_ZNK8idWeapon13ShowCrosshairEv'/>
+<fun r='_ZN8idWeapon8DropItemERK6idVec3iib'/>
+<fun r='_ZNK8idWeapon7CanDropEv'/>
+<fun r='_ZN8idWeapon12WeaponStolenEv'/>
+<fun r='_ZN8idWeapon21ConstructScriptObjectEv'/>
+<fun r='_ZN8idWeapon23DeconstructScriptObjectEv'/>
+<fun r='_ZN8idWeapon8SetStateEPKci'/>
+<fun r='_ZN8idWeapon12UpdateScriptEv'/>
+<fun r='_ZN8idWeapon14EnterCinematicEv'/>
+<fun r='_ZN8idWeapon13ExitCinematicEv'/>
+<fun r='_ZN8idWeapon10NetCatchupEv'/>
+<fun r='_ZN8idWeapon13PresentWeaponEb'/>
+<fun r='_ZN8idWeapon10GetZoomFovEv'/>
+<fun r='_ZN8idWeapon21GetWeaponAngleOffsetsEPiPfS1_'/>
+<fun r='_ZN8idWeapon20GetWeaponTimeOffsetsEPfS0_'/>
+<fun r='_ZN8idWeapon10BloodSplatEf'/>
+<fun r='_ZN8idWeapon17GetAmmoNumForNameEPKc'/>
+<fun r='_ZN8idWeapon17GetAmmoNameForNumEi'/>
+<fun r='_ZN8idWeapon23GetAmmoPickupNameForNumEi'/>
+<fun r='_ZNK8idWeapon11GetAmmoTypeEv'/>
+<fun r='_ZNK8idWeapon13AmmoAvailableEv'/>
+<fun r='_ZNK8idWeapon10AmmoInClipEv'/>
+<fun r='_ZN8idWeapon13ResetAmmoClipEv'/>
+<fun r='_ZNK8idWeapon8ClipSizeEv'/>
+<fun r='_ZNK8idWeapon7LowAmmoEv'/>
+<fun r='_ZNK8idWeapon12AmmoRequiredEv'/>
+<fun r='_ZNK8idWeapon15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN8idWeapon16ReadFromSnapshotERK13idBitMsgDelta'/>
+<fun r='_ZN8idWeapon18ClientReceiveEventEiiRK8idBitMsg'/>
+<fun r='_ZN8idWeapon21ClientPredictionThinkEv'/>
+<mbr r='idWeapon::WEAPON_ATTACK' o='12992' t='idScriptBool'/>
+<mbr r='idWeapon::WEAPON_RELOAD' o='13024' t='idScriptBool'/>
+<mbr r='idWeapon::WEAPON_NETRELOAD' o='13056' t='idScriptBool'/>
+<mbr r='idWeapon::WEAPON_NETENDRELOAD' o='13088' t='idScriptBool'/>
+<mbr r='idWeapon::WEAPON_NETFIRING' o='13120' t='idScriptBool'/>
+<mbr r='idWeapon::WEAPON_RAISEWEAPON' o='13152' t='idScriptBool'/>
+<mbr r='idWeapon::WEAPON_LOWERWEAPON' o='13184' t='idScriptBool'/>
+<mbr r='idWeapon::status' o='13216' t='weaponStatus_t'/>
+<mbr r='idWeapon::thread' o='13248' t='idThread *'/>
+<mbr r='idWeapon::state' o='13280' t='idStr'/>
+<mbr r='idWeapon::idealState' o='13536' t='idStr'/>
+<mbr r='idWeapon::animBlendFrames' o='13792' t='int'/>
+<mbr r='idWeapon::animDoneTime' o='13824' t='int'/>
+<mbr r='idWeapon::isLinked' o='13856' t='bool'/>
+<mbr r='idWeapon::projectileEnt' o='13888' t='idEntity *'/>
+<mbr r='idWeapon::owner' o='13920' t='idPlayer *'/>
+<mbr r='idWeapon::worldModel' o='13952' t='idEntityPtr&lt;idAnimatedEntity&gt;'/>
+<mbr r='idWeapon::hideTime' o='13984' t='int'/>
+<mbr r='idWeapon::hideDistance' o='14016' t='float'/>
+<mbr r='idWeapon::hideStartTime' o='14048' t='int'/>
+<mbr r='idWeapon::hideStart' o='14080' t='float'/>
+<mbr r='idWeapon::hideEnd' o='14112' t='float'/>
+<mbr r='idWeapon::hideOffset' o='14144' t='float'/>
+<mbr r='idWeapon::hide' o='14176' t='bool'/>
+<mbr r='idWeapon::disabled' o='14184' t='bool'/>
+<mbr r='idWeapon::berserk' o='14208' t='int'/>
+<mbr r='idWeapon::playerViewOrigin' o='14240' t='idVec3'/>
+<mbr r='idWeapon::playerViewAxis' o='14336' t='idMat3'/>
+<mbr r='idWeapon::viewWeaponOrigin' o='14624' t='idVec3'/>
+<mbr r='idWeapon::viewWeaponAxis' o='14720' t='idMat3'/>
+<mbr r='idWeapon::muzzleOrigin' o='15008' t='idVec3'/>
+<mbr r='idWeapon::muzzleAxis' o='15104' t='idMat3'/>
+<mbr r='idWeapon::pushVelocity' o='15392' t='idVec3'/>
+<mbr r='idWeapon::weaponDef' o='15488' t='const idDeclEntityDef *'/>
+<mbr r='idWeapon::meleeDef' o='15520' t='const idDeclEntityDef *'/>
+<mbr r='idWeapon::projectileDict' o='15552' t='idDict'/>
+<mbr r='idWeapon::meleeDistance' o='15904' t='float'/>
+<mbr r='idWeapon::meleeDefName' o='15936' t='idStr'/>
+<mbr r='idWeapon::brassDict' o='16192' t='idDict'/>
+<mbr r='idWeapon::brassDelay' o='16544' t='int'/>
+<mbr r='idWeapon::icon' o='16576' t='idStr'/>
+<mbr r='idWeapon::guiLight' o='16832' t='renderLight_t'/>
+<mbr r='idWeapon::guiLightHandle' o='18496' t='int'/>
+<mbr r='idWeapon::muzzleFlash' o='18528' t='renderLight_t'/>
+<mbr r='idWeapon::muzzleFlashHandle' o='20192' t='int'/>
+<mbr r='idWeapon::worldMuzzleFlash' o='20224' t='renderLight_t'/>
+<mbr r='idWeapon::worldMuzzleFlashHandle' o='21888' t='int'/>
+<mbr r='idWeapon::flashColor' o='21920' t='idVec3'/>
+<mbr r='idWeapon::muzzleFlashEnd' o='22016' t='int'/>
+<mbr r='idWeapon::flashTime' o='22048' t='int'/>
+<mbr r='idWeapon::lightOn' o='22080' t='bool'/>
+<mbr r='idWeapon::silent_fire' o='22088' t='bool'/>
+<mbr r='idWeapon::allowDrop' o='22096' t='bool'/>
+<mbr r='idWeapon::hasBloodSplat' o='22104' t='bool'/>
+<mbr r='idWeapon::kick_endtime' o='22112' t='int'/>
+<mbr r='idWeapon::muzzle_kick_time' o='22144' t='int'/>
+<mbr r='idWeapon::muzzle_kick_maxtime' o='22176' t='int'/>
+<mbr r='idWeapon::muzzle_kick_angles' o='22208' t='idAngles'/>
+<mbr r='idWeapon::muzzle_kick_offset' o='22304' t='idVec3'/>
+<mbr r='idWeapon::ammoType' o='22400' t='ammo_t'/>
+<mbr r='idWeapon::ammoRequired' o='22432' t='int'/>
+<mbr r='idWeapon::clipSize' o='22464' t='int'/>
+<mbr r='idWeapon::ammoClip' o='22496' t='int'/>
+<mbr r='idWeapon::lowAmmo' o='22528' t='int'/>
+<mbr r='idWeapon::powerAmmo' o='22560' t='bool'/>
+<mbr r='idWeapon::isFiring' o='22568' t='bool'/>
+<mbr r='idWeapon::zoomFov' o='22592' t='int'/>
+<mbr r='idWeapon::barrelJointView' o='22624' t='jointHandle_t'/>
+<mbr r='idWeapon::flashJointView' o='22656' t='jointHandle_t'/>
+<mbr r='idWeapon::ejectJointView' o='22688' t='jointHandle_t'/>
+<mbr r='idWeapon::guiLightJointView' o='22720' t='jointHandle_t'/>
+<mbr r='idWeapon::ventLightJointView' o='22752' t='jointHandle_t'/>
+<mbr r='idWeapon::flashJointWorld' o='22784' t='jointHandle_t'/>
+<mbr r='idWeapon::barrelJointWorld' o='22816' t='jointHandle_t'/>
+<mbr r='idWeapon::ejectJointWorld' o='22848' t='jointHandle_t'/>
+<mbr r='idWeapon::sndHum' o='22880' t='const idSoundShader *'/>
+<mbr r='idWeapon::weaponSmoke' o='22912' t='const idDeclParticle *'/>
+<mbr r='idWeapon::weaponSmokeStartTime' o='22944' t='int'/>
+<mbr r='idWeapon::continuousSmoke' o='22976' t='bool'/>
+<mbr r='idWeapon::strikeSmoke' o='23008' t='const idDeclParticle *'/>
+<mbr r='idWeapon::strikeSmokeStartTime' o='23040' t='int'/>
+<mbr r='idWeapon::strikePos' o='23072' t='idVec3'/>
+<mbr r='idWeapon::strikeAxis' o='23168' t='idMat3'/>
+<mbr r='idWeapon::nextStrikeFx' o='23456' t='int'/>
+<mbr r='idWeapon::nozzleFx' o='23488' t='bool'/>
+<mbr r='idWeapon::nozzleFxFade' o='23520' t='int'/>
+<mbr r='idWeapon::lastAttack' o='23552' t='int'/>
+<mbr r='idWeapon::nozzleGlow' o='23584' t='renderLight_t'/>
+<mbr r='idWeapon::nozzleGlowHandle' o='25248' t='int'/>
+<mbr r='idWeapon::nozzleGlowColor' o='25280' t='idVec3'/>
+<mbr r='idWeapon::nozzleGlowShader' o='25376' t='const idMaterial *'/>
+<mbr r='idWeapon::nozzleGlowRadius' o='25408' t='float'/>
+<mbr r='idWeapon::weaponAngleOffsetAverages' o='25440' t='int'/>
+<mbr r='idWeapon::weaponAngleOffsetScale' o='25472' t='float'/>
+<mbr r='idWeapon::weaponAngleOffsetMax' o='25504' t='float'/>
+<mbr r='idWeapon::weaponOffsetTime' o='25536' t='float'/>
+<mbr r='idWeapon::weaponOffsetScale' o='25568' t='float'/>
+<fun r='_ZN8idWeapon13AlertMonstersEv'/>
+<fun r='_ZN8idWeapon14InitWorldModelEPK15idDeclEntityDef'/>
+<fun r='_ZN8idWeapon16MuzzleFlashLightEv'/>
+<fun r='_ZN8idWeapon10MuzzleRiseER6idVec3R6idMat3'/>
+<fun r='_ZN8idWeapon14UpdateNozzleFxEv'/>
+<fun r='_ZN8idWeapon19UpdateFlashPositionEv'/>
+<fun r='_ZN8idWeapon11Event_ClearEv'/>
+<fun r='_ZN8idWeapon14Event_GetOwnerEv'/>
+<fun r='_ZN8idWeapon17Event_WeaponStateEPKci'/>
+<fun r='_ZN8idWeapon21Event_SetWeaponStatusEf'/>
+<fun r='_ZN8idWeapon17Event_WeaponReadyEv'/>
+<fun r='_ZN8idWeapon21Event_WeaponOutOfAmmoEv'/>
+<fun r='_ZN8idWeapon21Event_WeaponReloadingEv'/>
+<fun r='_ZN8idWeapon21Event_WeaponHolsteredEv'/>
+<fun r='_ZN8idWeapon18Event_WeaponRisingEv'/>
+<fun r='_ZN8idWeapon20Event_WeaponLoweringEv'/>
+<fun r='_ZN8idWeapon13Event_UseAmmoEi'/>
+<fun r='_ZN8idWeapon15Event_AddToClipEi'/>
+<fun r='_ZN8idWeapon16Event_AmmoInClipEv'/>
+<fun r='_ZN8idWeapon19Event_AmmoAvailableEv'/>
+<fun r='_ZN8idWeapon20Event_TotalAmmoCountEv'/>
+<fun r='_ZN8idWeapon14Event_ClipSizeEv'/>
+<fun r='_ZN8idWeapon14Event_PlayAnimEiPKc'/>
+<fun r='_ZN8idWeapon15Event_PlayCycleEiPKc'/>
+<fun r='_ZN8idWeapon14Event_AnimDoneEii'/>
+<fun r='_ZN8idWeapon20Event_SetBlendFramesEii'/>
+<fun r='_ZN8idWeapon20Event_GetBlendFramesEi'/>
+<fun r='_ZN8idWeapon10Event_NextEv'/>
+<fun r='_ZN8idWeapon13Event_SetSkinEPKc'/>
+<fun r='_ZN8idWeapon16Event_FlashlightEi'/>
+<fun r='_ZN8idWeapon18Event_GetLightParmEi'/>
+<fun r='_ZN8idWeapon18Event_SetLightParmEif'/>
+<fun r='_ZN8idWeapon19Event_SetLightParmsEffff'/>
+<fun r='_ZN8idWeapon23Event_LaunchProjectilesEiffff'/>
+<fun r='_ZN8idWeapon22Event_CreateProjectileEv'/>
+<fun r='_ZN8idWeapon16Event_EjectBrassEv'/>
+<fun r='_ZN8idWeapon11Event_MeleeEv'/>
+<fun r='_ZN8idWeapon19Event_GetWorldModelEv'/>
+<fun r='_ZN8idWeapon15Event_AllowDropEi'/>
+<fun r='_ZN8idWeapon16Event_AutoReloadEv'/>
+<fun r='_ZN8idWeapon15Event_NetReloadEv'/>
+<fun r='_ZN8idWeapon17Event_IsInvisibleEv'/>
+<fun r='_ZN8idWeapon18Event_NetEndReloadEv'/>
+<fun r='_ZN8idWeapon8IsLinkedEv'/>
+<fun r='_ZN8idWeapon17IsWorldModelReadyEv'/>
+<fun r='_ZN8idWeapon8GetOwnerEv'/>

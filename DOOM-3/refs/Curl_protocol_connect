@@ -1,0 +1,14 @@
+<dec f='codebrowser/curl/lib/url.h' l='40' type='CURLcode Curl_protocol_connect(struct connectdata * conn, struct Curl_dns_entry * dns)'/>
+<use f='codebrowser/curl/lib/multi.c' l='416' u='c' c='curl_multi_perform'/>
+<def f='codebrowser/curl/lib/url.c' l='1931' ll='1961' type='CURLcode Curl_protocol_connect(struct connectdata * conn, struct Curl_dns_entry * hostaddr)'/>
+<use f='codebrowser/curl/lib/url.c' l='3181' u='c' c='SetupConnection'/>
+<doc f='codebrowser/curl/lib/url.c' l='1921'>/*
+ * We have discovered that the TCP connection has been successful, we can now
+ * proceed with some action.
+ *
+ * If we&apos;re using the multi interface, this host address pointer is most
+ * likely NULL at this point as we can&apos;t keep the resolved info around. This
+ * may call for some reworking, like a reference counter in the struct or
+ * something. The hostaddr is not used for very much though, we have the
+ * &apos;serv_addr&apos; field in the connectdata struct for most of it.
+ */</doc>

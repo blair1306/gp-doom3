@@ -1,0 +1,66 @@
+<def f='codebrowser/ui/GameSSDWindow.h' l='66' ll='130'/>
+<ovr f='codebrowser/ui/GameSSDWindow.h' l='138' c='SSDMover'/>
+<ovr f='codebrowser/ui/GameSSDWindow.h' l='233' c='SSDExplosion'/>
+<ovr f='codebrowser/ui/GameSSDWindow.h' l='273' c='SSDPoints'/>
+<ovr f='codebrowser/ui/GameSSDWindow.h' l='308' c='SSDProjectile'/>
+<size>168</size>
+<mbr r='SSDEntity::type' o='32' t='int'/>
+<mbr r='SSDEntity::id' o='64' t='int'/>
+<mbr r='SSDEntity::materialName' o='96' t='idStr'/>
+<mbr r='SSDEntity::material' o='352' t='const idMaterial *'/>
+<mbr r='SSDEntity::position' o='384' t='idVec3'/>
+<mbr r='SSDEntity::size' o='480' t='idVec2'/>
+<mbr r='SSDEntity::radius' o='544' t='float'/>
+<mbr r='SSDEntity::hitRadius' o='576' t='float'/>
+<mbr r='SSDEntity::rotation' o='608' t='float'/>
+<mbr r='SSDEntity::matColor' o='640' t='idVec4'/>
+<mbr r='SSDEntity::text' o='768' t='idStr'/>
+<mbr r='SSDEntity::textScale' o='1024' t='float'/>
+<mbr r='SSDEntity::foreColor' o='1056' t='idVec4'/>
+<mbr r='SSDEntity::game' o='1184' t='idGameSSDWindow *'/>
+<mbr r='SSDEntity::currentTime' o='1216' t='int'/>
+<mbr r='SSDEntity::lastUpdate' o='1248' t='int'/>
+<mbr r='SSDEntity::elapsed' o='1280' t='int'/>
+<mbr r='SSDEntity::destroyed' o='1312' t='bool'/>
+<mbr r='SSDEntity::noHit' o='1320' t='bool'/>
+<mbr r='SSDEntity::noPlayerDamage' o='1328' t='bool'/>
+<mbr r='SSDEntity::inUse' o='1336' t='bool'/>
+<fun r='_ZN9SSDEntityC1Ev'/>
+<fun r='_ZN9SSDEntityD1Ev'/>
+<fun r='_ZN9SSDEntity15WriteToSaveGameEP6idFile'/>
+<fun r='_ZN9SSDEntity16ReadFromSaveGameEP6idFileP15idGameSSDWindow'/>
+<fun r='_ZN9SSDEntity10EntityInitEv'/>
+<fun r='_ZN9SSDEntity7SetGameEP15idGameSSDWindow'/>
+<fun r='_ZN9SSDEntity11SetMaterialEPKc'/>
+<fun r='_ZN9SSDEntity11SetPositionERK6idVec3'/>
+<fun r='_ZN9SSDEntity7SetSizeERK6idVec2'/>
+<fun r='_ZN9SSDEntity9SetRadiusEff'/>
+<fun r='_ZN9SSDEntity11SetRotationEf'/>
+<fun r='_ZN9SSDEntity6UpdateEv'/>
+<fun r='_ZN9SSDEntity7HitTestERK6idVec2'/>
+<fun r='_ZN9SSDEntity12EntityUpdateEv'/>
+<fun r='_ZN9SSDEntity4DrawEP15idDeviceContext'/>
+<fun r='_ZN9SSDEntity13DestroyEntityEv'/>
+<fun r='_ZN9SSDEntity5OnHitEi'/>
+<fun r='_ZN9SSDEntity14OnStrikePlayerEv'/>
+<fun r='_ZN9SSDEntity13WorldToScreenE8idBounds'/>
+<fun r='_ZN9SSDEntity13WorldToScreenERK6idVec3'/>
+<fun r='_ZN9SSDEntity13ScreenToWorldERK6idVec3'/>
+<fun r='_ZN9SSDEntityC1Ev'/>
+<fun r='_ZN9SSDEntityD1Ev'/>
+<fun r='_ZN9SSDEntity15WriteToSaveGameEP6idFile'/>
+<fun r='_ZN9SSDEntity16ReadFromSaveGameEP6idFileP15idGameSSDWindow'/>
+<fun r='_ZN9SSDEntity10EntityInitEv'/>
+<fun r='_ZN9SSDEntity7SetGameEP15idGameSSDWindow'/>
+<fun r='_ZN9SSDEntity11SetMaterialEPKc'/>
+<fun r='_ZN9SSDEntity11SetPositionERK6idVec3'/>
+<fun r='_ZN9SSDEntity7SetSizeERK6idVec2'/>
+<fun r='_ZN9SSDEntity9SetRadiusEff'/>
+<fun r='_ZN9SSDEntity11SetRotationEf'/>
+<fun r='_ZN9SSDEntity6UpdateEv'/>
+<fun r='_ZN9SSDEntity7HitTestERK6idVec2'/>
+<fun r='_ZN9SSDEntity4DrawEP15idDeviceContext'/>
+<fun r='_ZN9SSDEntity13DestroyEntityEv'/>
+<fun r='_ZN9SSDEntity13WorldToScreenE8idBounds'/>
+<fun r='_ZN9SSDEntity13WorldToScreenERK6idVec3'/>
+<fun r='_ZN9SSDEntity13ScreenToWorldERK6idVec3'/>

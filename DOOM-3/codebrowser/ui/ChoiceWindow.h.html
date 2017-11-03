@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ChoiceWindow.h source code [codebrowser/ui/ChoiceWindow.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idChoiceWindow "/>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/ui/ChoiceWindow.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>ui</a>/<a href='ChoiceWindow.h.html'>ChoiceWindow.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td><u>#<span data-ppcond="28">ifndef</span> <span class="macro" data-ref="_M/__CHOICEWINDOW_H">__CHOICEWINDOW_H</span></u></td></tr>
+<tr><th id="29">29</th><td><u>#define <dfn class="macro" id="_M/__CHOICEWINDOW_H" data-ref="_M/__CHOICEWINDOW_H">__CHOICEWINDOW_H</dfn></u></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><u>#include <a href="Window.h.html">"Window.h"</a></u></td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><b>class</b> <a class="type" href="SimpleWindow.h.html#idUserInterfaceLocal" title='idUserInterfaceLocal' data-ref="idUserInterfaceLocal" id="idUserInterfaceLocal">idUserInterfaceLocal</a>;</td></tr>
+<tr><th id="34">34</th><td><b>class</b> <dfn class="type def" id="idChoiceWindow" title='idChoiceWindow' data-ref="idChoiceWindow">idChoiceWindow</dfn> : <b>public</b> <a class="type" href="Window.h.html#idWindow" title='idWindow' data-ref="idWindow">idWindow</a> {</td></tr>
+<tr><th id="35">35</th><td><b>public</b>:</td></tr>
+<tr><th id="36">36</th><td>						<dfn class="decl" id="_ZN14idChoiceWindowC1EP20idUserInterfaceLocal" title='idChoiceWindow::idChoiceWindow' data-ref="_ZN14idChoiceWindowC1EP20idUserInterfaceLocal">idChoiceWindow</dfn>(<a class="type" href="SimpleWindow.h.html#idUserInterfaceLocal" title='idUserInterfaceLocal' data-ref="idUserInterfaceLocal">idUserInterfaceLocal</a> *<dfn class="local col1 decl" id="591gui" title='gui' data-type='idUserInterfaceLocal *' data-ref="591gui">gui</dfn>);</td></tr>
+<tr><th id="37">37</th><td>						<dfn class="decl" id="_ZN14idChoiceWindowC1EP15idDeviceContextP20idUserInterfaceLocal" title='idChoiceWindow::idChoiceWindow' data-ref="_ZN14idChoiceWindowC1EP15idDeviceContextP20idUserInterfaceLocal">idChoiceWindow</dfn>(<a class="type" href="DeviceContext.h.html#idDeviceContext" title='idDeviceContext' data-ref="idDeviceContext">idDeviceContext</a> *<dfn class="local col2 decl" id="592d" title='d' data-type='idDeviceContext *' data-ref="592d">d</dfn>, <a class="type" href="SimpleWindow.h.html#idUserInterfaceLocal" title='idUserInterfaceLocal' data-ref="idUserInterfaceLocal">idUserInterfaceLocal</a> *<dfn class="local col3 decl" id="593gui" title='gui' data-type='idUserInterfaceLocal *' data-ref="593gui">gui</dfn>);</td></tr>
+<tr><th id="38">38</th><td>	<b>virtual</b>				<dfn class="virtual decl" id="_ZN14idChoiceWindowD1Ev" title='idChoiceWindow::~idChoiceWindow' data-ref="_ZN14idChoiceWindowD1Ev">~idChoiceWindow</dfn>();</td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td>	<b>virtual</b> <em>const</em> <em>char</em>	*<dfn class="virtual decl" id="_ZN14idChoiceWindow11HandleEventEPK10sysEvent_sPb" title='idChoiceWindow::HandleEvent' data-ref="_ZN14idChoiceWindow11HandleEventEPK10sysEvent_sPb">HandleEvent</dfn>(<em>const</em> <a class="typedef" href="../sys/sys_public.h.html#sysEvent_t" title='sysEvent_t' data-type='struct sysEvent_s' data-ref="sysEvent_t">sysEvent_t</a> *<dfn class="local col4 decl" id="594event" title='event' data-type='const sysEvent_t *' data-ref="594event">event</dfn>, <em>bool</em> *<dfn class="local col5 decl" id="595updateVisuals" title='updateVisuals' data-type='bool *' data-ref="595updateVisuals">updateVisuals</dfn>);</td></tr>
+<tr><th id="41">41</th><td>	<b>virtual</b> <em>void</em> 		<dfn class="virtual decl" id="_ZN14idChoiceWindow9PostParseEv" title='idChoiceWindow::PostParse' data-ref="_ZN14idChoiceWindow9PostParseEv">PostParse</dfn>();</td></tr>
+<tr><th id="42">42</th><td>	<b>virtual</b> <em>void</em> 		<dfn class="virtual decl" id="_ZN14idChoiceWindow4DrawEiff" title='idChoiceWindow::Draw' data-ref="_ZN14idChoiceWindow4DrawEiff">Draw</dfn>(<em>int</em> <dfn class="local col6 decl" id="596time" title='time' data-type='int' data-ref="596time">time</dfn>, <em>float</em> <dfn class="local col7 decl" id="597x" title='x' data-type='float' data-ref="597x">x</dfn>, <em>float</em> <dfn class="local col8 decl" id="598y" title='y' data-type='float' data-ref="598y">y</dfn>);</td></tr>
+<tr><th id="43">43</th><td>	<b>virtual</b> <em>void</em>		<dfn class="virtual decl" id="_ZN14idChoiceWindow8ActivateEbR5idStr" title='idChoiceWindow::Activate' data-ref="_ZN14idChoiceWindow8ActivateEbR5idStr">Activate</dfn>( <em>bool</em> <dfn class="local col9 decl" id="599activate" title='activate' data-type='bool' data-ref="599activate">activate</dfn>, <a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a> &amp;<dfn class="local col0 decl" id="600act" title='act' data-type='idStr &amp;' data-ref="600act">act</dfn> );</td></tr>
+<tr><th id="44">44</th><td>	<b>virtual</b> <span class='typedef' title='size_t' data-type='unsigned int' data-ref="size_t">size_t</span>		<dfn class="virtual decl def" id="_ZN14idChoiceWindow9AllocatedEv" title='idChoiceWindow::Allocated' data-ref="_ZN14idChoiceWindow9AllocatedEv">Allocated</dfn>(){<b>return</b> <a class="type" href="Window.h.html#idWindow" title='idWindow' data-ref="idWindow">idWindow</a>::<a class="virtual member" href="Window.h.html#_ZN8idWindow9AllocatedEv" title='idWindow::Allocated' data-ref="_ZN8idWindow9AllocatedEv">Allocated</a>();}; </td></tr>
+<tr><th id="45">45</th><td>  </td></tr>
+<tr><th id="46">46</th><td>	<b>virtual</b> <a class="type" href="Winvar.h.html#idWinVar" title='idWinVar' data-ref="idWinVar">idWinVar</a>	*<dfn class="virtual decl" id="_ZN14idChoiceWindow15GetWinVarByNameEPKcbPP9drawWin_t" title='idChoiceWindow::GetWinVarByName' data-ref="_ZN14idChoiceWindow15GetWinVarByNameEPKcbPP9drawWin_t">GetWinVarByName</dfn>(<em>const</em> <em>char</em> *<dfn class="local col1 decl" id="601_name" title='_name' data-type='const char *' data-ref="601_name">_name</dfn>, <em>bool</em> <dfn class="local col2 decl" id="602winLookup" title='winLookup' data-type='bool' data-ref="602winLookup">winLookup</dfn> = <b>false</b>, <a class="typedef" href="SimpleWindow.h.html#drawWin_t" title='drawWin_t' data-type='struct drawWin_t' data-ref="drawWin_t">drawWin_t</a>** <dfn class="local col3 decl" id="603owner" title='owner' data-type='drawWin_t **' data-ref="603owner">owner</dfn> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>);</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td>	<em>void</em>				<dfn class="virtual decl" id="_ZN14idChoiceWindow13RunNamedEventEPKc" title='idChoiceWindow::RunNamedEvent' data-ref="_ZN14idChoiceWindow13RunNamedEventEPKc">RunNamedEvent</dfn>( <em>const</em> <em>char</em>* <dfn class="local col4 decl" id="604eventName" title='eventName' data-type='const char *' data-ref="604eventName">eventName</dfn> );</td></tr>
+<tr><th id="49">49</th><td>	</td></tr>
+<tr><th id="50">50</th><td><b>private</b>:</td></tr>
+<tr><th id="51">51</th><td>	<b>virtual</b> <em>bool</em>		<dfn class="virtual decl" id="_ZN14idChoiceWindow16ParseInternalVarEPKcP8idParser" title='idChoiceWindow::ParseInternalVar' data-ref="_ZN14idChoiceWindow16ParseInternalVarEPKcP8idParser">ParseInternalVar</dfn>(<em>const</em> <em>char</em> *<dfn class="local col5 decl" id="605name" title='name' data-type='const char *' data-ref="605name">name</dfn>, <a class="type" href="../idlib/Parser.h.html#idParser" title='idParser' data-ref="idParser">idParser</a> *<dfn class="local col6 decl" id="606src" title='src' data-type='idParser *' data-ref="606src">src</dfn>);</td></tr>
+<tr><th id="52">52</th><td>	<em>void</em>				<dfn class="decl" id="_ZN14idChoiceWindow10CommonInitEv" title='idChoiceWindow::CommonInit' data-ref="_ZN14idChoiceWindow10CommonInitEv">CommonInit</dfn>();</td></tr>
+<tr><th id="53">53</th><td>	<em>void</em>				<dfn class="decl" id="_ZN14idChoiceWindow12UpdateChoiceEv" title='idChoiceWindow::UpdateChoice' data-ref="_ZN14idChoiceWindow12UpdateChoiceEv">UpdateChoice</dfn>();</td></tr>
+<tr><th id="54">54</th><td>	<em>void</em>				<dfn class="decl" id="_ZN14idChoiceWindow14ValidateChoiceEv" title='idChoiceWindow::ValidateChoice' data-ref="_ZN14idChoiceWindow14ValidateChoiceEv">ValidateChoice</dfn>();</td></tr>
+<tr><th id="55">55</th><td>	</td></tr>
+<tr><th id="56">56</th><td>	<em>void</em>				<dfn class="decl" id="_ZN14idChoiceWindow8InitVarsEv" title='idChoiceWindow::InitVars' data-ref="_ZN14idChoiceWindow8InitVarsEv">InitVars</dfn>();</td></tr>
+<tr><th id="57">57</th><td>						<i>// true: read the updated cvar from cvar system, gui from dict</i></td></tr>
+<tr><th id="58">58</th><td><i>						// false: write to the cvar system, to the gui dict</i></td></tr>
+<tr><th id="59">59</th><td><i>						// force == true overrides liveUpdate 0</i></td></tr>
+<tr><th id="60">60</th><td>	<em>void</em>				<dfn class="decl" id="_ZN14idChoiceWindow10UpdateVarsEbb" title='idChoiceWindow::UpdateVars' data-ref="_ZN14idChoiceWindow10UpdateVarsEbb">UpdateVars</dfn>( <em>bool</em> <dfn class="local col7 decl" id="607read" title='read' data-type='bool' data-ref="607read">read</dfn>, <em>bool</em> <dfn class="local col8 decl" id="608force" title='force' data-type='bool' data-ref="608force">force</dfn> = <b>false</b> );</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td>	<em>void</em>				<dfn class="decl" id="_ZN14idChoiceWindow20UpdateChoicesAndValsEv" title='idChoiceWindow::UpdateChoicesAndVals' data-ref="_ZN14idChoiceWindow20UpdateChoicesAndValsEv">UpdateChoicesAndVals</dfn>( <em>void</em> );</td></tr>
+<tr><th id="63">63</th><td>	</td></tr>
+<tr><th id="64">64</th><td>	<em>int</em>					<dfn class="decl" id="idChoiceWindow::currentChoice" title='idChoiceWindow::currentChoice' data-ref="idChoiceWindow::currentChoice">currentChoice</dfn>;</td></tr>
+<tr><th id="65">65</th><td>	<em>int</em>					<dfn class="decl" id="idChoiceWindow::choiceType" title='idChoiceWindow::choiceType' data-ref="idChoiceWindow::choiceType">choiceType</dfn>;</td></tr>
+<tr><th id="66">66</th><td>	<a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>				<dfn class="decl" id="idChoiceWindow::latchedChoices" title='idChoiceWindow::latchedChoices' data-ref="idChoiceWindow::latchedChoices">latchedChoices</dfn>;</td></tr>
+<tr><th id="67">67</th><td>	<a class="type" href="Winvar.h.html#idWinStr" title='idWinStr' data-ref="idWinStr">idWinStr</a>			<dfn class="decl" id="idChoiceWindow::choicesStr" title='idChoiceWindow::choicesStr' data-ref="idChoiceWindow::choicesStr">choicesStr</dfn>;</td></tr>
+<tr><th id="68">68</th><td>	<a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>				<dfn class="decl" id="idChoiceWindow::latchedVals" title='idChoiceWindow::latchedVals' data-ref="idChoiceWindow::latchedVals">latchedVals</dfn>;</td></tr>
+<tr><th id="69">69</th><td>	<a class="type" href="Winvar.h.html#idWinStr" title='idWinStr' data-ref="idWinStr">idWinStr</a>			<dfn class="decl" id="idChoiceWindow::choiceVals" title='idChoiceWindow::choiceVals' data-ref="idChoiceWindow::choiceVals">choiceVals</dfn>;</td></tr>
+<tr><th id="70">70</th><td>	<a class="typedef" href="../idlib/containers/StrList.h.html#idStrList" title='idStrList' data-type='idList&lt;idStr&gt;' data-ref="idStrList">idStrList</a>			<dfn class="decl" id="idChoiceWindow::choices" title='idChoiceWindow::choices' data-ref="idChoiceWindow::choices">choices</dfn>;</td></tr>
+<tr><th id="71">71</th><td>	<a class="typedef" href="../idlib/containers/StrList.h.html#idStrList" title='idStrList' data-type='idList&lt;idStr&gt;' data-ref="idStrList">idStrList</a>			<dfn class="decl" id="idChoiceWindow::values" title='idChoiceWindow::values' data-ref="idChoiceWindow::values">values</dfn>;</td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td>	<a class="type" href="Winvar.h.html#idWinStr" title='idWinStr' data-ref="idWinStr">idWinStr</a>			<dfn class="decl" id="idChoiceWindow::guiStr" title='idChoiceWindow::guiStr' data-ref="idChoiceWindow::guiStr">guiStr</dfn>;</td></tr>
+<tr><th id="74">74</th><td>	<a class="type" href="Winvar.h.html#idWinStr" title='idWinStr' data-ref="idWinStr">idWinStr</a>			<dfn class="decl" id="idChoiceWindow::cvarStr" title='idChoiceWindow::cvarStr' data-ref="idChoiceWindow::cvarStr">cvarStr</dfn>;</td></tr>
+<tr><th id="75">75</th><td>	<a class="type" href="../framework/CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a> *			<dfn class="decl" id="idChoiceWindow::cvar" title='idChoiceWindow::cvar' data-ref="idChoiceWindow::cvar">cvar</dfn>;</td></tr>
+<tr><th id="76">76</th><td>	<a class="type" href="Winvar.h.html#idMultiWinVar" title='idMultiWinVar' data-ref="idMultiWinVar">idMultiWinVar</a>		<dfn class="decl" id="idChoiceWindow::updateStr" title='idChoiceWindow::updateStr' data-ref="idChoiceWindow::updateStr">updateStr</dfn>;</td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td>	<a class="type" href="Winvar.h.html#idWinBool" title='idWinBool' data-ref="idWinBool">idWinBool</a>			<dfn class="decl" id="idChoiceWindow::liveUpdate" title='idChoiceWindow::liveUpdate' data-ref="idChoiceWindow::liveUpdate">liveUpdate</dfn>;</td></tr>
+<tr><th id="79">79</th><td>	<a class="type" href="Winvar.h.html#idWinStr" title='idWinStr' data-ref="idWinStr">idWinStr</a>			<dfn class="decl" id="idChoiceWindow::updateGroup" title='idChoiceWindow::updateGroup' data-ref="idChoiceWindow::updateGroup">updateGroup</dfn>;</td></tr>
+<tr><th id="80">80</th><td>};</td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td><u>#<span data-ppcond="28">endif</span> // __CHOICEWINDOW_H</u></td></tr>
+<tr><th id="83">83</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../tools/guied/GEWindowWrapper_stub.cpp.html'>codebrowser/tools/guied/GEWindowWrapper_stub.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

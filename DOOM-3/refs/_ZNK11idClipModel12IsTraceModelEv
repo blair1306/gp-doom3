@@ -1,0 +1,38 @@
+<dec f='codebrowser/d3xp/physics/Clip.h' l='95' type='bool idClipModel::IsTraceModel() const'/>
+<def f='codebrowser/d3xp/physics/Clip.h' l='218' ll='220' macro='1' type='bool idClipModel::IsTraceModel() const'/>
+<use f='codebrowser/d3xp/physics/Clip.h' l='235' u='c' c='_ZNK11idClipModel13GetTraceModelEv'/>
+<use f='codebrowser/d3xp/AF.cpp' l='360' u='c' c='_ZNK4idAF18EntitiesTouchingAFEP9afTouch_s'/>
+<doc f='codebrowser/d3xp/physics/Clip.h' l='95'>// returns true if this is a trace model</doc>
+<use f='codebrowser/d3xp/Trigger.cpp' l='1152' u='c' c='_ZN15idTrigger_Touch13TouchEntitiesEv'/>
+<use f='codebrowser/d3xp/ai/AI.cpp' l='1325' u='c' c='_ZN4idAI13KickObstaclesERK6idVec3fP8idEntity'/>
+<use f='codebrowser/d3xp/ai/AI_pathing.cpp' l='344' u='c' c='_Z12GetObstaclesPK9idPhysicsPK5idAASPK8idEntityiRK6idVec3SA_P10obstacle_siR8idBounds'/>
+<use f='codebrowser/d3xp/physics/Clip.cpp' l='948' u='c' c='_ZNK6idClip22TraceModelForClipModelEPK11idClipModel'/>
+<use f='codebrowser/d3xp/physics/Force_Drag.cpp' l='125' u='c' c='_ZN12idForce_Drag8EvaluateEi'/>
+<use f='codebrowser/d3xp/physics/Force_Field.cpp' l='167' u='c' c='_ZN13idForce_Field8EvaluateEi'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='4149' u='c' c='_ZN8idAFBodyC1ERK5idStrP11idClipModelf'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='7683' u='c' c='_ZNK12idPhysics_AF15ClipTranslationER7trace_sRK6idVec3PK11idClipModel'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='7719' u='c' c='_ZNK12idPhysics_AF12ClipRotationER7trace_sRK10idRotationPK11idClipModel'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='7754' u='c' c='_ZNK12idPhysics_AF12ClipContentsEPK11idClipModel'/>
+<use f='codebrowser/d3xp/physics/Physics_Actor.cpp' l='161' u='c' c='_ZN15idPhysics_Actor12SetClipModelEP11idClipModelfib'/>
+<use f='codebrowser/d3xp/physics/Physics_RigidBody.cpp' l='605' u='c' c='_ZN19idPhysics_RigidBody12SetClipModelEP11idClipModelfib'/>
+<use f='codebrowser/d3xp/physics/Push.cpp' l='1091' u='c' c='_ZN6idPush21ClipTranslationalPushER7trace_sP8idEntityiRK6idVec3S6_'/>
+<use f='codebrowser/d3xp/physics/Push.cpp' l='1267' u='c' c='_ZN6idPush18ClipRotationalPushER7trace_sP8idEntityiRK6idMat3RK10idRotation'/>
+<dec f='codebrowser/game/physics/Clip.h' l='95' type='bool idClipModel::IsTraceModel() const'/>
+<def f='codebrowser/game/physics/Clip.h' l='218' ll='220' macro='1' type='bool idClipModel::IsTraceModel() const'/>
+<use f='codebrowser/game/physics/Clip.h' l='235' u='c' c='_ZNK11idClipModel13GetTraceModelEv'/>
+<use f='codebrowser/game/AF.cpp' l='360' u='c' c='_ZNK4idAF18EntitiesTouchingAFEP9afTouch_s'/>
+<doc f='codebrowser/game/physics/Clip.h' l='95'>// returns true if this is a trace model</doc>
+<use f='codebrowser/game/Trigger.cpp' l='1128' u='c' c='_ZN15idTrigger_Touch13TouchEntitiesEv'/>
+<use f='codebrowser/game/ai/AI.cpp' l='1243' u='c' c='_ZN4idAI13KickObstaclesERK6idVec3fP8idEntity'/>
+<use f='codebrowser/game/ai/AI_pathing.cpp' l='344' u='c' c='_Z12GetObstaclesPK9idPhysicsPK5idAASPK8idEntityiRK6idVec3SA_P10obstacle_siR8idBounds'/>
+<use f='codebrowser/game/physics/Clip.cpp' l='948' u='c' c='_ZNK6idClip22TraceModelForClipModelEPK11idClipModel'/>
+<use f='codebrowser/game/physics/Force_Drag.cpp' l='125' u='c' c='_ZN12idForce_Drag8EvaluateEi'/>
+<use f='codebrowser/game/physics/Force_Field.cpp' l='167' u='c' c='_ZN13idForce_Field8EvaluateEi'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='4148' u='c' c='_ZN8idAFBodyC1ERK5idStrP11idClipModelf'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='7682' u='c' c='_ZNK12idPhysics_AF15ClipTranslationER7trace_sRK6idVec3PK11idClipModel'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='7718' u='c' c='_ZNK12idPhysics_AF12ClipRotationER7trace_sRK10idRotationPK11idClipModel'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='7753' u='c' c='_ZNK12idPhysics_AF12ClipContentsEPK11idClipModel'/>
+<use f='codebrowser/game/physics/Physics_Actor.cpp' l='161' u='c' c='_ZN15idPhysics_Actor12SetClipModelEP11idClipModelfib'/>
+<use f='codebrowser/game/physics/Physics_RigidBody.cpp' l='605' u='c' c='_ZN19idPhysics_RigidBody12SetClipModelEP11idClipModelfib'/>
+<use f='codebrowser/game/physics/Push.cpp' l='1091' u='c' c='_ZN6idPush21ClipTranslationalPushER7trace_sP8idEntityiRK6idVec3S6_'/>
+<use f='codebrowser/game/physics/Push.cpp' l='1267' u='c' c='_ZN6idPush18ClipRotationalPushER7trace_sP8idEntityiRK6idMat3RK10idRotation'/>

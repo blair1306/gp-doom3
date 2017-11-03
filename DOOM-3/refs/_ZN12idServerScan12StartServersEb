@@ -1,0 +1,10 @@
+<dec f='codebrowser/framework/async/ServerScan.h' l='83' type='void idServerScan::StartServers(bool timeout)'/>
+<doc f='codebrowser/framework/async/ServerScan.h' l='81'>// we are going to feed server entries to be pinged
+	// if timeout is true, use a timeout once we start AddServer to trigger EndServers and decide the scan is done</doc>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='391' u='c' c='_ZN13idAsyncClient13GetNETServersEv'/>
+<def f='codebrowser/framework/async/ServerScan.cpp' l='225' ll='229' type='void idServerScan::StartServers(bool timeout)'/>
+<doc f='codebrowser/framework/async/ServerScan.cpp' l='220'>/*
+================
+idServerScan::StartServers
+================
+*/</doc>

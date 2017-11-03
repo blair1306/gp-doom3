@@ -1,0 +1,27 @@
+<def f='codebrowser/sound/OggVorbis/vorbissrc/codebook.h' l='36' ll='62'/>
+<size>52</size>
+<doc f='codebrowser/sound/OggVorbis/vorbissrc/codebook.h' l='23'>/* This structure encapsulates huffman and VQ style encoding books; it
+   doesn&apos;t do anything specific to either.
+
+   valuelist/quantlist are nonNULL (and q_* significant) only if
+   there&apos;s entry-&gt;value mapping to be done.
+
+   If encode-side mapping must be done (and thus the entry needs to be
+   hunted), the auxiliary encode pointer will point to a decision
+   tree.  This is true of both VQ and huffman, but is mostly useful
+   with VQ.
+
+*/</doc>
+<mbr r='static_codebook::dim' o='0' t='long'/>
+<mbr r='static_codebook::entries' o='32' t='long'/>
+<mbr r='static_codebook::lengthlist' o='64' t='long *'/>
+<mbr r='static_codebook::maptype' o='96' t='int'/>
+<mbr r='static_codebook::q_min' o='128' t='long'/>
+<mbr r='static_codebook::q_delta' o='160' t='long'/>
+<mbr r='static_codebook::q_quant' o='192' t='int'/>
+<mbr r='static_codebook::q_sequencep' o='224' t='int'/>
+<mbr r='static_codebook::quantlist' o='256' t='long *'/>
+<mbr r='static_codebook::nearest_tree' o='288' t='struct encode_aux_nearestmatch *'/>
+<mbr r='static_codebook::thresh_tree' o='320' t='struct encode_aux_threshmatch *'/>
+<mbr r='static_codebook::pigeon_tree' o='352' t='struct encode_aux_pigeonhole *'/>
+<mbr r='static_codebook::allocedp' o='384' t='int'/>

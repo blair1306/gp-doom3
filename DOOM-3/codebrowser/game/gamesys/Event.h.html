@@ -1,0 +1,228 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Event.h source code [codebrowser/game/gamesys/Event.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idEvent,idEventDef "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/game/gamesys/Event.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>game</a>/<a href='./'>gamesys</a>/<a href='Event.h.html'>Event.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td><i>/*</i></td></tr>
+<tr><th id="29">29</th><td><i>sys_event.h</i></td></tr>
+<tr><th id="30">30</th><td><i></i></td></tr>
+<tr><th id="31">31</th><td><i>Event are used for scheduling tasks and for linking script commands.</i></td></tr>
+<tr><th id="32">32</th><td><i>*/</i></td></tr>
+<tr><th id="33">33</th><td><u>#<span data-ppcond="33">ifndef</span> <span class="macro" data-ref="_M/__SYS_EVENT_H__">__SYS_EVENT_H__</span></u></td></tr>
+<tr><th id="34">34</th><td><u>#define <dfn class="macro" id="_M/__SYS_EVENT_H__" data-ref="_M/__SYS_EVENT_H__">__SYS_EVENT_H__</dfn></u></td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><u>#define <dfn class="macro" id="_M/D_EVENT_MAXARGS" data-ref="_M/D_EVENT_MAXARGS">D_EVENT_MAXARGS</dfn>				8			// if changed, enable the CREATE_EVENT_CODE define in Event.cpp to generate switch statement for idClass::ProcessEventArgPtr.</u></td></tr>
+<tr><th id="37">37</th><td>												<i>// running the game will then generate c:\doom\base\events.txt, the contents of which should be copied into the switch statement.</i></td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td><u>#define <dfn class="macro" id="_M/D_EVENT_VOID" data-ref="_M/D_EVENT_VOID">D_EVENT_VOID</dfn>				( ( char )0 )</u></td></tr>
+<tr><th id="40">40</th><td><u>#define <dfn class="macro" id="_M/D_EVENT_INTEGER" data-ref="_M/D_EVENT_INTEGER">D_EVENT_INTEGER</dfn>				'd'</u></td></tr>
+<tr><th id="41">41</th><td><u>#define <dfn class="macro" id="_M/D_EVENT_FLOAT" data-ref="_M/D_EVENT_FLOAT">D_EVENT_FLOAT</dfn>				'f'</u></td></tr>
+<tr><th id="42">42</th><td><u>#define <dfn class="macro" id="_M/D_EVENT_VECTOR" data-ref="_M/D_EVENT_VECTOR">D_EVENT_VECTOR</dfn>				'v'</u></td></tr>
+<tr><th id="43">43</th><td><u>#define <dfn class="macro" id="_M/D_EVENT_STRING" data-ref="_M/D_EVENT_STRING">D_EVENT_STRING</dfn>				's'</u></td></tr>
+<tr><th id="44">44</th><td><u>#define <dfn class="macro" id="_M/D_EVENT_ENTITY" data-ref="_M/D_EVENT_ENTITY">D_EVENT_ENTITY</dfn>				'e'</u></td></tr>
+<tr><th id="45">45</th><td><u>#define	<dfn class="macro" id="_M/D_EVENT_ENTITY_NULL" data-ref="_M/D_EVENT_ENTITY_NULL">D_EVENT_ENTITY_NULL</dfn>			'E'			// event can handle NULL entity pointers</u></td></tr>
+<tr><th id="46">46</th><td><u>#define <dfn class="macro" id="_M/D_EVENT_TRACE" data-ref="_M/D_EVENT_TRACE">D_EVENT_TRACE</dfn>				't'</u></td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td><u>#define <dfn class="macro" id="_M/MAX_EVENTS" data-ref="_M/MAX_EVENTS">MAX_EVENTS</dfn>					4096</u></td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td><b>class</b> <a class="type" href="Class.h.html#idClass" title='idClass' data-ref="idClass" id="idClass">idClass</a>;</td></tr>
+<tr><th id="51">51</th><td><b>class</b> <a class="type" href="Class.h.html#idTypeInfo" title='idTypeInfo' data-ref="idTypeInfo" id="idTypeInfo">idTypeInfo</a>;</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td><b>class</b> <dfn class="type def" id="idEventDef" title='idEventDef' data-ref="idEventDef">idEventDef</dfn> {</td></tr>
+<tr><th id="54">54</th><td><b>private</b>:</td></tr>
+<tr><th id="55">55</th><td>	<em>const</em> <em>char</em>					*<dfn class="decl" id="idEventDef::name" title='idEventDef::name' data-ref="idEventDef::name">name</dfn>;</td></tr>
+<tr><th id="56">56</th><td>	<em>const</em> <em>char</em>					*<dfn class="decl" id="idEventDef::formatspec" title='idEventDef::formatspec' data-ref="idEventDef::formatspec">formatspec</dfn>;</td></tr>
+<tr><th id="57">57</th><td>	<em>unsigned</em> <em>int</em>				<dfn class="decl" id="idEventDef::formatspecIndex" title='idEventDef::formatspecIndex' data-ref="idEventDef::formatspecIndex">formatspecIndex</dfn>;</td></tr>
+<tr><th id="58">58</th><td>	<em>int</em>							<dfn class="decl" id="idEventDef::returnType" title='idEventDef::returnType' data-ref="idEventDef::returnType">returnType</dfn>;</td></tr>
+<tr><th id="59">59</th><td>	<em>int</em>							<dfn class="decl" id="idEventDef::numargs" title='idEventDef::numargs' data-ref="idEventDef::numargs">numargs</dfn>;</td></tr>
+<tr><th id="60">60</th><td>	<span class='typedef' title='size_t' data-type='unsigned int' data-ref="size_t">size_t</span>						<dfn class="decl" id="idEventDef::argsize" title='idEventDef::argsize' data-ref="idEventDef::argsize">argsize</dfn>;</td></tr>
+<tr><th id="61">61</th><td>	<em>int</em>							<dfn class="decl" id="idEventDef::argOffset" title='idEventDef::argOffset' data-ref="idEventDef::argOffset">argOffset</dfn>[ <a class="macro" href="#36" title="8" data-ref="_M/D_EVENT_MAXARGS">D_EVENT_MAXARGS</a> ];</td></tr>
+<tr><th id="62">62</th><td>	<em>int</em>							<dfn class="decl" id="idEventDef::eventnum" title='idEventDef::eventnum' data-ref="idEventDef::eventnum">eventnum</dfn>;</td></tr>
+<tr><th id="63">63</th><td>	<em>const</em> <a class="type" href="#idEventDef" title='idEventDef' data-ref="idEventDef">idEventDef</a> *			<dfn class="decl" id="idEventDef::next" title='idEventDef::next' data-ref="idEventDef::next">next</dfn>;</td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td>	<em>static</em> <a class="type" href="#idEventDef" title='idEventDef' data-ref="idEventDef">idEventDef</a> *			<dfn class="decl" id="idEventDef::eventDefList" title='idEventDef::eventDefList' data-ref="idEventDef::eventDefList">eventDefList</dfn>[<a class="macro" href="#48" title="4096" data-ref="_M/MAX_EVENTS">MAX_EVENTS</a>];</td></tr>
+<tr><th id="66">66</th><td>	<em>static</em> <em>int</em>					<dfn class="decl" id="idEventDef::numEventDefs" title='idEventDef::numEventDefs' data-ref="idEventDef::numEventDefs">numEventDefs</dfn>;</td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td><b>public</b>:</td></tr>
+<tr><th id="69">69</th><td>								<dfn class="decl" id="_ZN10idEventDefC1EPKcS1_c" title='idEventDef::idEventDef' data-ref="_ZN10idEventDefC1EPKcS1_c">idEventDef</dfn>( <em>const</em> <em>char</em> *<dfn class="local col2 decl" id="2command" title='command' data-type='const char *' data-ref="2command">command</dfn>, <em>const</em> <em>char</em> *<dfn class="local col3 decl" id="3formatspec" title='formatspec' data-type='const char *' data-ref="3formatspec">formatspec</dfn> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>, <em>char</em> <dfn class="local col4 decl" id="4returnType" title='returnType' data-type='char' data-ref="4returnType">returnType</dfn> = <var>0</var> );</td></tr>
+<tr><th id="70">70</th><td>								</td></tr>
+<tr><th id="71">71</th><td>	<em>const</em> <em>char</em>					*<a class="decl" href="#_ZNK10idEventDef7GetNameEv" title='idEventDef::GetName' data-ref="_ZNK10idEventDef7GetNameEv">GetName</a>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="72">72</th><td>	<em>const</em> <em>char</em>					*<a class="decl" href="#_ZNK10idEventDef12GetArgFormatEv" title='idEventDef::GetArgFormat' data-ref="_ZNK10idEventDef12GetArgFormatEv">GetArgFormat</a>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="73">73</th><td>	<em>unsigned</em> <em>int</em>				<a class="decl" href="#_ZNK10idEventDef18GetFormatspecIndexEv" title='idEventDef::GetFormatspecIndex' data-ref="_ZNK10idEventDef18GetFormatspecIndexEv">GetFormatspecIndex</a>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="74">74</th><td>	<em>char</em>						<a class="decl" href="#_ZNK10idEventDef13GetReturnTypeEv" title='idEventDef::GetReturnType' data-ref="_ZNK10idEventDef13GetReturnTypeEv">GetReturnType</a>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="75">75</th><td>	<em>int</em>							<a class="decl" href="#_ZNK10idEventDef11GetEventNumEv" title='idEventDef::GetEventNum' data-ref="_ZNK10idEventDef11GetEventNumEv">GetEventNum</a>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="76">76</th><td>	<em>int</em>							<a class="decl" href="#_ZNK10idEventDef10GetNumArgsEv" title='idEventDef::GetNumArgs' data-ref="_ZNK10idEventDef10GetNumArgsEv">GetNumArgs</a>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="77">77</th><td>	<span class='typedef' title='size_t' data-type='unsigned int' data-ref="size_t">size_t</span>						<a class="decl" href="#_ZNK10idEventDef10GetArgSizeEv" title='idEventDef::GetArgSize' data-ref="_ZNK10idEventDef10GetArgSizeEv">GetArgSize</a>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="78">78</th><td>	<em>int</em>							<a class="decl" href="#_ZNK10idEventDef12GetArgOffsetEi" title='idEventDef::GetArgOffset' data-ref="_ZNK10idEventDef12GetArgOffsetEi">GetArgOffset</a>( <em>int</em> <dfn class="local col5 decl" id="5arg" title='arg' data-type='int' data-ref="5arg">arg</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td>	<em>static</em> <em>int</em>					<dfn class="decl" id="_ZN10idEventDef16NumEventCommandsEv" title='idEventDef::NumEventCommands' data-ref="_ZN10idEventDef16NumEventCommandsEv">NumEventCommands</dfn>( <em>void</em> );</td></tr>
+<tr><th id="81">81</th><td>	<em>static</em> <em>const</em> <a class="type" href="#idEventDef" title='idEventDef' data-ref="idEventDef">idEventDef</a>		*<dfn class="decl" id="_ZN10idEventDef15GetEventCommandEi" title='idEventDef::GetEventCommand' data-ref="_ZN10idEventDef15GetEventCommandEi">GetEventCommand</dfn>( <em>int</em> <dfn class="local col6 decl" id="6eventnum" title='eventnum' data-type='int' data-ref="6eventnum">eventnum</dfn> );</td></tr>
+<tr><th id="82">82</th><td>	<em>static</em> <em>const</em> <a class="type" href="#idEventDef" title='idEventDef' data-ref="idEventDef">idEventDef</a>		*<dfn class="decl" id="_ZN10idEventDef9FindEventEPKc" title='idEventDef::FindEvent' data-ref="_ZN10idEventDef9FindEventEPKc">FindEvent</dfn>( <em>const</em> <em>char</em> *<dfn class="local col7 decl" id="7name" title='name' data-type='const char *' data-ref="7name">name</dfn> );</td></tr>
+<tr><th id="83">83</th><td>};</td></tr>
+<tr><th id="84">84</th><td></td></tr>
+<tr><th id="85">85</th><td><b>class</b> <a class="type" href="SaveGame.h.html#idSaveGame" title='idSaveGame' data-ref="idSaveGame" id="idSaveGame">idSaveGame</a>;</td></tr>
+<tr><th id="86">86</th><td><b>class</b> <a class="type" href="SaveGame.h.html#idRestoreGame" title='idRestoreGame' data-ref="idRestoreGame" id="idRestoreGame">idRestoreGame</a>;</td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td><b>class</b> <dfn class="type def" id="idEvent" title='idEvent' data-ref="idEvent">idEvent</dfn> {</td></tr>
+<tr><th id="89">89</th><td><b>private</b>:</td></tr>
+<tr><th id="90">90</th><td>	<em>const</em> <a class="type" href="#idEventDef" title='idEventDef' data-ref="idEventDef">idEventDef</a>			*<dfn class="decl" id="idEvent::eventdef" title='idEvent::eventdef' data-ref="idEvent::eventdef">eventdef</dfn>;</td></tr>
+<tr><th id="91">91</th><td>	<a class="typedef" href="../../idlib/Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>						*<dfn class="decl" id="idEvent::data" title='idEvent::data' data-ref="idEvent::data">data</dfn>;</td></tr>
+<tr><th id="92">92</th><td>	<em>int</em>							<dfn class="decl" id="idEvent::time" title='idEvent::time' data-ref="idEvent::time">time</dfn>;</td></tr>
+<tr><th id="93">93</th><td>	<a class="type" href="Class.h.html#idClass" title='idClass' data-ref="idClass">idClass</a>						*<dfn class="decl" id="idEvent::object" title='idEvent::object' data-ref="idEvent::object">object</dfn>;</td></tr>
+<tr><th id="94">94</th><td>	<em>const</em> <a class="type" href="Class.h.html#idTypeInfo" title='idTypeInfo' data-ref="idTypeInfo">idTypeInfo</a>			*<dfn class="decl" id="idEvent::typeinfo" title='idEvent::typeinfo' data-ref="idEvent::typeinfo">typeinfo</dfn>;</td></tr>
+<tr><th id="95">95</th><td></td></tr>
+<tr><th id="96">96</th><td>	<a class="type" href="../../idlib/containers/LinkList.h.html#idLinkList" title='idLinkList' data-ref="idLinkList">idLinkList</a>&lt;<a class="type" href="#idEvent" title='idEvent' data-ref="idEvent">idEvent</a>&gt;			<dfn class="decl" id="idEvent::eventNode" title='idEvent::eventNode' data-ref="idEvent::eventNode">eventNode</dfn>;</td></tr>
+<tr><th id="97">97</th><td></td></tr>
+<tr><th id="98">98</th><td>	<em>static</em> <a class="type" href="../../idlib/Heap.h.html#idDynamicBlockAlloc" title='idDynamicBlockAlloc' data-ref="idDynamicBlockAlloc">idDynamicBlockAlloc</a>&lt;<a class="typedef" href="../../idlib/Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>, <var>16</var> * <var>1024</var>, <var>256</var>&gt; <dfn class="decl" id="idEvent::eventDataAllocator" title='idEvent::eventDataAllocator' data-ref="idEvent::eventDataAllocator">eventDataAllocator</dfn>;</td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td></td></tr>
+<tr><th id="101">101</th><td><b>public</b>:</td></tr>
+<tr><th id="102">102</th><td>	<em>static</em> <em>bool</em>					<dfn class="decl" id="idEvent::initialized" title='idEvent::initialized' data-ref="idEvent::initialized">initialized</dfn>;</td></tr>
+<tr><th id="103">103</th><td></td></tr>
+<tr><th id="104">104</th><td>								<dfn class="decl" id="_ZN7idEventD1Ev" title='idEvent::~idEvent' data-ref="_ZN7idEventD1Ev">~idEvent</dfn>();</td></tr>
+<tr><th id="105">105</th><td></td></tr>
+<tr><th id="106">106</th><td>	<em>static</em> <a class="type" href="#idEvent" title='idEvent' data-ref="idEvent">idEvent</a>				*<dfn class="decl" id="_ZN7idEvent5AllocEPK10idEventDefiPc" title='idEvent::Alloc' data-ref="_ZN7idEvent5AllocEPK10idEventDefiPc">Alloc</dfn>( <em>const</em> <a class="type" href="#idEventDef" title='idEventDef' data-ref="idEventDef">idEventDef</a> *<dfn class="local col8 decl" id="8evdef" title='evdef' data-type='const idEventDef *' data-ref="8evdef">evdef</dfn>, <em>int</em> <dfn class="local col9 decl" id="9numargs" title='numargs' data-type='int' data-ref="9numargs">numargs</dfn>, <span class='typedef' title='va_list' data-type='__gnuc_va_list' data-ref="va_list">va_list</span> <dfn class="local col0 decl" id="10args" title='args' data-type='va_list' data-ref="10args">args</dfn> );</td></tr>
+<tr><th id="107">107</th><td>	<em>static</em> <em>void</em>					<dfn class="decl" id="_ZN7idEvent8CopyArgsEPK10idEventDefiPcPi" title='idEvent::CopyArgs' data-ref="_ZN7idEvent8CopyArgsEPK10idEventDefiPcPi">CopyArgs</dfn>( <em>const</em> <a class="type" href="#idEventDef" title='idEventDef' data-ref="idEventDef">idEventDef</a> *<dfn class="local col1 decl" id="11evdef" title='evdef' data-type='const idEventDef *' data-ref="11evdef">evdef</dfn>, <em>int</em> <dfn class="local col2 decl" id="12numargs" title='numargs' data-type='int' data-ref="12numargs">numargs</dfn>, <span class='typedef' title='va_list' data-type='__gnuc_va_list' data-ref="va_list">va_list</span> <dfn class="local col3 decl" id="13args" title='args' data-type='va_list' data-ref="13args">args</dfn>, <em>int</em> <dfn class="local col4 decl" id="14data" title='data' data-type='int *' data-ref="14data">data</dfn>[ <a class="macro" href="#36" title="8" data-ref="_M/D_EVENT_MAXARGS">D_EVENT_MAXARGS</a> ]  );</td></tr>
+<tr><th id="108">108</th><td>	</td></tr>
+<tr><th id="109">109</th><td>	<em>void</em>						<dfn class="decl" id="_ZN7idEvent4FreeEv" title='idEvent::Free' data-ref="_ZN7idEvent4FreeEv">Free</dfn>( <em>void</em> );</td></tr>
+<tr><th id="110">110</th><td>	<em>void</em>						<dfn class="decl" id="_ZN7idEvent8ScheduleEP7idClassPK10idTypeInfoi" title='idEvent::Schedule' data-ref="_ZN7idEvent8ScheduleEP7idClassPK10idTypeInfoi">Schedule</dfn>( <a class="type" href="Class.h.html#idClass" title='idClass' data-ref="idClass">idClass</a> *<dfn class="local col5 decl" id="15object" title='object' data-type='idClass *' data-ref="15object">object</dfn>, <em>const</em> <a class="type" href="Class.h.html#idTypeInfo" title='idTypeInfo' data-ref="idTypeInfo">idTypeInfo</a> *<dfn class="local col6 decl" id="16cls" title='cls' data-type='const idTypeInfo *' data-ref="16cls">cls</dfn>, <em>int</em> <dfn class="local col7 decl" id="17time" title='time' data-type='int' data-ref="17time">time</dfn> );</td></tr>
+<tr><th id="111">111</th><td>	<a class="typedef" href="../../idlib/Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>						*<a class="decl" href="#_ZN7idEvent7GetDataEv" title='idEvent::GetData' data-ref="_ZN7idEvent7GetDataEv">GetData</a>( <em>void</em> );</td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td>	<em>static</em> <em>void</em>					<dfn class="decl" id="_ZN7idEvent12CancelEventsEPK7idClassPK10idEventDef" title='idEvent::CancelEvents' data-ref="_ZN7idEvent12CancelEventsEPK7idClassPK10idEventDef">CancelEvents</dfn>( <em>const</em> <a class="type" href="Class.h.html#idClass" title='idClass' data-ref="idClass">idClass</a> *<dfn class="local col8 decl" id="18obj" title='obj' data-type='const idClass *' data-ref="18obj">obj</dfn>, <em>const</em> <a class="type" href="#idEventDef" title='idEventDef' data-ref="idEventDef">idEventDef</a> *<dfn class="local col9 decl" id="19evdef" title='evdef' data-type='const idEventDef *' data-ref="19evdef">evdef</dfn> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> );</td></tr>
+<tr><th id="114">114</th><td>	<em>static</em> <em>void</em>					<dfn class="decl" id="_ZN7idEvent14ClearEventListEv" title='idEvent::ClearEventList' data-ref="_ZN7idEvent14ClearEventListEv">ClearEventList</dfn>( <em>void</em> );</td></tr>
+<tr><th id="115">115</th><td>	<em>static</em> <em>void</em>					<dfn class="decl" id="_ZN7idEvent13ServiceEventsEv" title='idEvent::ServiceEvents' data-ref="_ZN7idEvent13ServiceEventsEv">ServiceEvents</dfn>( <em>void</em> );</td></tr>
+<tr><th id="116">116</th><td>	<em>static</em> <em>void</em>					<dfn class="decl" id="_ZN7idEvent4InitEv" title='idEvent::Init' data-ref="_ZN7idEvent4InitEv">Init</dfn>( <em>void</em> );</td></tr>
+<tr><th id="117">117</th><td>	<em>static</em> <em>void</em>					<dfn class="decl" id="_ZN7idEvent8ShutdownEv" title='idEvent::Shutdown' data-ref="_ZN7idEvent8ShutdownEv">Shutdown</dfn>( <em>void</em> );</td></tr>
+<tr><th id="118">118</th><td></td></tr>
+<tr><th id="119">119</th><td>	<i>// save games</i></td></tr>
+<tr><th id="120">120</th><td>	<em>static</em> <em>void</em>					<dfn class="decl" id="_ZN7idEvent4SaveEP10idSaveGame" title='idEvent::Save' data-ref="_ZN7idEvent4SaveEP10idSaveGame">Save</dfn>( <a class="type" href="SaveGame.h.html#idSaveGame" title='idSaveGame' data-ref="idSaveGame">idSaveGame</a> *<dfn class="local col0 decl" id="20savefile" title='savefile' data-type='idSaveGame *' data-ref="20savefile">savefile</dfn> );					<i>// archives object for save game file</i></td></tr>
+<tr><th id="121">121</th><td>	<em>static</em> <em>void</em>					<dfn class="decl" id="_ZN7idEvent7RestoreEP13idRestoreGame" title='idEvent::Restore' data-ref="_ZN7idEvent7RestoreEP13idRestoreGame">Restore</dfn>( <a class="type" href="SaveGame.h.html#idRestoreGame" title='idRestoreGame' data-ref="idRestoreGame">idRestoreGame</a> *<dfn class="local col1 decl" id="21savefile" title='savefile' data-type='idRestoreGame *' data-ref="21savefile">savefile</dfn> );				<i>// unarchives object from save game file</i></td></tr>
+<tr><th id="122">122</th><td>	<em>static</em> <em>void</em>					<dfn class="decl" id="_ZN7idEvent9SaveTraceEP10idSaveGameRK7trace_s" title='idEvent::SaveTrace' data-ref="_ZN7idEvent9SaveTraceEP10idSaveGameRK7trace_s">SaveTrace</dfn>( <a class="type" href="SaveGame.h.html#idSaveGame" title='idSaveGame' data-ref="idSaveGame">idSaveGame</a> *<dfn class="local col2 decl" id="22savefile" title='savefile' data-type='idSaveGame *' data-ref="22savefile">savefile</dfn>, <em>const</em> <a class="typedef" href="../../cm/CollisionModel.h.html#trace_t" title='trace_t' data-type='struct trace_s' data-ref="trace_t">trace_t</a> &amp;<dfn class="local col3 decl" id="23trace" title='trace' data-type='const trace_t &amp;' data-ref="23trace">trace</dfn> );</td></tr>
+<tr><th id="123">123</th><td>	<em>static</em> <em>void</em>					<dfn class="decl" id="_ZN7idEvent12RestoreTraceEP13idRestoreGameR7trace_s" title='idEvent::RestoreTrace' data-ref="_ZN7idEvent12RestoreTraceEP13idRestoreGameR7trace_s">RestoreTrace</dfn>( <a class="type" href="SaveGame.h.html#idRestoreGame" title='idRestoreGame' data-ref="idRestoreGame">idRestoreGame</a> *<dfn class="local col4 decl" id="24savefile" title='savefile' data-type='idRestoreGame *' data-ref="24savefile">savefile</dfn>, <a class="typedef" href="../../cm/CollisionModel.h.html#trace_t" title='trace_t' data-type='struct trace_s' data-ref="trace_t">trace_t</a> &amp;<dfn class="local col5 decl" id="25trace" title='trace' data-type='trace_t &amp;' data-ref="25trace">trace</dfn> );</td></tr>
+<tr><th id="124">124</th><td>	</td></tr>
+<tr><th id="125">125</th><td>};</td></tr>
+<tr><th id="126">126</th><td></td></tr>
+<tr><th id="127">127</th><td><i>/*</i></td></tr>
+<tr><th id="128">128</th><td><i>================</i></td></tr>
+<tr><th id="129">129</th><td><i>idEvent::GetData</i></td></tr>
+<tr><th id="130">130</th><td><i>================</i></td></tr>
+<tr><th id="131">131</th><td><i>*/</i></td></tr>
+<tr><th id="132">132</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <a class="typedef" href="../../idlib/Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *<a class="type" href="#idEvent" title='idEvent' data-ref="idEvent">idEvent</a>::<dfn class="decl def" id="_ZN7idEvent7GetDataEv" title='idEvent::GetData' data-ref="_ZN7idEvent7GetDataEv">GetData</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="133">133</th><td>	<b>return</b> <a class="member" href="#idEvent::data" title='idEvent::data' data-ref="idEvent::data">data</a>;</td></tr>
+<tr><th id="134">134</th><td>}</td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td><i>/*</i></td></tr>
+<tr><th id="137">137</th><td><i>================</i></td></tr>
+<tr><th id="138">138</th><td><i>idEventDef::GetName</i></td></tr>
+<tr><th id="139">139</th><td><i>================</i></td></tr>
+<tr><th id="140">140</th><td><i>*/</i></td></tr>
+<tr><th id="141">141</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>const</em> <em>char</em> *<a class="type" href="#idEventDef" title='idEventDef' data-ref="idEventDef">idEventDef</a>::<dfn class="decl def" id="_ZNK10idEventDef7GetNameEv" title='idEventDef::GetName' data-ref="_ZNK10idEventDef7GetNameEv">GetName</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="142">142</th><td>	<b>return</b> <a class="member" href="#idEventDef::name" title='idEventDef::name' data-ref="idEventDef::name">name</a>;</td></tr>
+<tr><th id="143">143</th><td>}</td></tr>
+<tr><th id="144">144</th><td></td></tr>
+<tr><th id="145">145</th><td><i>/*</i></td></tr>
+<tr><th id="146">146</th><td><i>================</i></td></tr>
+<tr><th id="147">147</th><td><i>idEventDef::GetArgFormat</i></td></tr>
+<tr><th id="148">148</th><td><i>================</i></td></tr>
+<tr><th id="149">149</th><td><i>*/</i></td></tr>
+<tr><th id="150">150</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>const</em> <em>char</em> *<a class="type" href="#idEventDef" title='idEventDef' data-ref="idEventDef">idEventDef</a>::<dfn class="decl def" id="_ZNK10idEventDef12GetArgFormatEv" title='idEventDef::GetArgFormat' data-ref="_ZNK10idEventDef12GetArgFormatEv">GetArgFormat</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="151">151</th><td>	<b>return</b> <a class="member" href="#idEventDef::formatspec" title='idEventDef::formatspec' data-ref="idEventDef::formatspec">formatspec</a>;</td></tr>
+<tr><th id="152">152</th><td>}</td></tr>
+<tr><th id="153">153</th><td></td></tr>
+<tr><th id="154">154</th><td><i>/*</i></td></tr>
+<tr><th id="155">155</th><td><i>================</i></td></tr>
+<tr><th id="156">156</th><td><i>idEventDef::GetFormatspecIndex</i></td></tr>
+<tr><th id="157">157</th><td><i>================</i></td></tr>
+<tr><th id="158">158</th><td><i>*/</i></td></tr>
+<tr><th id="159">159</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>unsigned</em> <em>int</em> <a class="type" href="#idEventDef" title='idEventDef' data-ref="idEventDef">idEventDef</a>::<dfn class="decl def" id="_ZNK10idEventDef18GetFormatspecIndexEv" title='idEventDef::GetFormatspecIndex' data-ref="_ZNK10idEventDef18GetFormatspecIndexEv">GetFormatspecIndex</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="160">160</th><td>	<b>return</b> <a class="member" href="#idEventDef::formatspecIndex" title='idEventDef::formatspecIndex' data-ref="idEventDef::formatspecIndex">formatspecIndex</a>;</td></tr>
+<tr><th id="161">161</th><td>}</td></tr>
+<tr><th id="162">162</th><td></td></tr>
+<tr><th id="163">163</th><td><i>/*</i></td></tr>
+<tr><th id="164">164</th><td><i>================</i></td></tr>
+<tr><th id="165">165</th><td><i>idEventDef::GetReturnType</i></td></tr>
+<tr><th id="166">166</th><td><i>================</i></td></tr>
+<tr><th id="167">167</th><td><i>*/</i></td></tr>
+<tr><th id="168">168</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>char</em> <a class="type" href="#idEventDef" title='idEventDef' data-ref="idEventDef">idEventDef</a>::<dfn class="decl def" id="_ZNK10idEventDef13GetReturnTypeEv" title='idEventDef::GetReturnType' data-ref="_ZNK10idEventDef13GetReturnTypeEv">GetReturnType</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="169">169</th><td>	<b>return</b> <a class="member" href="#idEventDef::returnType" title='idEventDef::returnType' data-ref="idEventDef::returnType">returnType</a>;</td></tr>
+<tr><th id="170">170</th><td>}</td></tr>
+<tr><th id="171">171</th><td></td></tr>
+<tr><th id="172">172</th><td><i>/*</i></td></tr>
+<tr><th id="173">173</th><td><i>================</i></td></tr>
+<tr><th id="174">174</th><td><i>idEventDef::GetNumArgs</i></td></tr>
+<tr><th id="175">175</th><td><i>================</i></td></tr>
+<tr><th id="176">176</th><td><i>*/</i></td></tr>
+<tr><th id="177">177</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>int</em> <a class="type" href="#idEventDef" title='idEventDef' data-ref="idEventDef">idEventDef</a>::<dfn class="decl def" id="_ZNK10idEventDef10GetNumArgsEv" title='idEventDef::GetNumArgs' data-ref="_ZNK10idEventDef10GetNumArgsEv">GetNumArgs</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="178">178</th><td>	<b>return</b> <a class="member" href="#idEventDef::numargs" title='idEventDef::numargs' data-ref="idEventDef::numargs">numargs</a>;</td></tr>
+<tr><th id="179">179</th><td>}</td></tr>
+<tr><th id="180">180</th><td></td></tr>
+<tr><th id="181">181</th><td><i>/*</i></td></tr>
+<tr><th id="182">182</th><td><i>================</i></td></tr>
+<tr><th id="183">183</th><td><i>idEventDef::GetArgSize</i></td></tr>
+<tr><th id="184">184</th><td><i>================</i></td></tr>
+<tr><th id="185">185</th><td><i>*/</i></td></tr>
+<tr><th id="186">186</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <span class='typedef' title='size_t' data-type='unsigned int' data-ref="size_t">size_t</span> <a class="type" href="#idEventDef" title='idEventDef' data-ref="idEventDef">idEventDef</a>::<dfn class="decl def" id="_ZNK10idEventDef10GetArgSizeEv" title='idEventDef::GetArgSize' data-ref="_ZNK10idEventDef10GetArgSizeEv">GetArgSize</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="187">187</th><td>	<b>return</b> <a class="member" href="#idEventDef::argsize" title='idEventDef::argsize' data-ref="idEventDef::argsize">argsize</a>;</td></tr>
+<tr><th id="188">188</th><td>}</td></tr>
+<tr><th id="189">189</th><td></td></tr>
+<tr><th id="190">190</th><td><i>/*</i></td></tr>
+<tr><th id="191">191</th><td><i>================</i></td></tr>
+<tr><th id="192">192</th><td><i>idEventDef::GetArgOffset</i></td></tr>
+<tr><th id="193">193</th><td><i>================</i></td></tr>
+<tr><th id="194">194</th><td><i>*/</i></td></tr>
+<tr><th id="195">195</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>int</em> <a class="type" href="#idEventDef" title='idEventDef' data-ref="idEventDef">idEventDef</a>::<dfn class="decl def" id="_ZNK10idEventDef12GetArgOffsetEi" title='idEventDef::GetArgOffset' data-ref="_ZNK10idEventDef12GetArgOffsetEi">GetArgOffset</dfn>( <em>int</em> <dfn class="local col6 decl" id="26arg" title='arg' data-type='int' data-ref="26arg">arg</dfn> ) <em>const</em> {</td></tr>
+<tr><th id="196">196</th><td>	<a class="macro" href="../../idlib/Lib.h.html#147" title="if ( ( arg &gt;= 0 ) &amp;&amp; ( arg &lt; 8 ) ) { } else AssertFailed( &quot;/home/jon/workspace/id-software/DOOM-3/neo/TypeInfo/../idlib/../game/gamesys/Event.h&quot;, 196, &quot;( arg &gt;= 0 ) &amp;&amp; ( arg &lt; D_EVENT_MAXARGS )&quot; )" data-ref="_M/assert">assert</a>( ( <a class="local col6 ref" href="#26arg" title='arg' data-ref="26arg">arg</a> &gt;= <var>0</var> ) &amp;&amp; ( <a class="local col6 ref" href="#26arg" title='arg' data-ref="26arg">arg</a> &lt; <a class="macro" href="#36" title="8" data-ref="_M/D_EVENT_MAXARGS">D_EVENT_MAXARGS</a> ) );</td></tr>
+<tr><th id="197">197</th><td>	<b>return</b> <a class="member" href="#idEventDef::argOffset" title='idEventDef::argOffset' data-ref="idEventDef::argOffset">argOffset</a>[ <a class="local col6 ref" href="#26arg" title='arg' data-ref="26arg">arg</a> ];</td></tr>
+<tr><th id="198">198</th><td>}</td></tr>
+<tr><th id="199">199</th><td></td></tr>
+<tr><th id="200">200</th><td><i>/*</i></td></tr>
+<tr><th id="201">201</th><td><i>================</i></td></tr>
+<tr><th id="202">202</th><td><i>idEventDef::GetEventNum</i></td></tr>
+<tr><th id="203">203</th><td><i>================</i></td></tr>
+<tr><th id="204">204</th><td><i>*/</i></td></tr>
+<tr><th id="205">205</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>int</em> <a class="type" href="#idEventDef" title='idEventDef' data-ref="idEventDef">idEventDef</a>::<dfn class="decl def" id="_ZNK10idEventDef11GetEventNumEv" title='idEventDef::GetEventNum' data-ref="_ZNK10idEventDef11GetEventNumEv">GetEventNum</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="206">206</th><td>	<b>return</b> <a class="member" href="#idEventDef::eventnum" title='idEventDef::eventnum' data-ref="idEventDef::eventnum">eventnum</a>;</td></tr>
+<tr><th id="207">207</th><td>}</td></tr>
+<tr><th id="208">208</th><td></td></tr>
+<tr><th id="209">209</th><td><u>#<span data-ppcond="33">endif</span> /* !__SYS_EVENT_H__ */</u></td></tr>
+<tr><th id="210">210</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../AF.cpp.html'>codebrowser/game/AF.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

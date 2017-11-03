@@ -1,0 +1,64 @@
+<inh f='codebrowser/sound/sound.h' l='197' c='idSoundWorld'/>
+<def f='codebrowser/sound/snd_local.h' l='547' ll='657'/>
+<size>316</size>
+<fun r='_ZN17idSoundWorldLocalD1Ev'/>
+<fun r='_ZN17idSoundWorldLocal21ClearAllSoundEmittersEv'/>
+<fun r='_ZN17idSoundWorldLocal13StopAllSoundsEv'/>
+<fun r='_ZN17idSoundWorldLocal17AllocSoundEmitterEv'/>
+<fun r='_ZN17idSoundWorldLocal15EmitterForIndexEi'/>
+<fun r='_ZN17idSoundWorldLocal32CurrentShakeAmplitudeForPositionEiRK6idVec3'/>
+<fun r='_ZN17idSoundWorldLocal13PlaceListenerERK6idVec3RK6idMat3iiRK5idStr'/>
+<fun r='_ZN17idSoundWorldLocal16FadeSoundClassesEiff'/>
+<fun r='_ZN17idSoundWorldLocal16StartWritingDemoEP10idDemoFile'/>
+<fun r='_ZN17idSoundWorldLocal15StopWritingDemoEv'/>
+<fun r='_ZN17idSoundWorldLocal18ProcessDemoCommandEP10idDemoFile'/>
+<fun r='_ZN17idSoundWorldLocal18PlayShaderDirectlyEPKci'/>
+<fun r='_ZN17idSoundWorldLocal5PauseEv'/>
+<fun r='_ZN17idSoundWorldLocal7UnPauseEv'/>
+<fun r='_ZN17idSoundWorldLocal8IsPausedEv'/>
+<fun r='_ZN17idSoundWorldLocal7AVIOpenEPKcS1_'/>
+<fun r='_ZN17idSoundWorldLocal8AVICloseEv'/>
+<fun r='_ZN17idSoundWorldLocal15WriteToSaveGameEP6idFile'/>
+<fun r='_ZN17idSoundWorldLocal16ReadFromSaveGameEP6idFile'/>
+<fun r='_ZN17idSoundWorldLocal28ReadFromSaveGameSoundChannelEP6idFileP14idSoundChannel'/>
+<fun r='_ZN17idSoundWorldLocal33ReadFromSaveGameSoundShaderParamsEP6idFileP18soundShaderParms_t'/>
+<fun r='_ZN17idSoundWorldLocal27WriteToSaveGameSoundChannelEP6idFileP14idSoundChannel'/>
+<fun r='_ZN17idSoundWorldLocal32WriteToSaveGameSoundShaderParamsEP6idFileP18soundShaderParms_t'/>
+<fun r='_ZN17idSoundWorldLocal9SetSlowmoEb'/>
+<fun r='_ZN17idSoundWorldLocal14SetSlowmoSpeedEf'/>
+<fun r='_ZN17idSoundWorldLocal13SetEnviroSuitEb'/>
+<fun r='_ZN17idSoundWorldLocalC1Ev'/>
+<fun r='_ZN17idSoundWorldLocal8ShutdownEv'/>
+<fun r='_ZN17idSoundWorldLocal4InitEP13idRenderWorld'/>
+<fun r='_ZN17idSoundWorldLocal11ClearBufferEv'/>
+<fun r='_ZN17idSoundWorldLocal16ForegroundUpdateEi'/>
+<fun r='_ZN17idSoundWorldLocal15OffsetSoundTimeEi'/>
+<fun r='_ZN17idSoundWorldLocal22AllocLocalSoundEmitterEv'/>
+<fun r='_ZN17idSoundWorldLocal8CalcEarsEi6idVec3S0_6idMat3Pff'/>
+<fun r='_ZN17idSoundWorldLocal22AddChannelContributionEP19idSoundEmitterLocalP14idSoundChanneliiPf'/>
+<fun r='_ZN17idSoundWorldLocal7MixLoopEiiPf'/>
+<fun r='_ZN17idSoundWorldLocal9AVIUpdateEv'/>
+<fun r='_ZN17idSoundWorldLocal13ResolveOriginEiPK18soundPortalTrace_sifRK6idVec3P19idSoundEmitterLocal'/>
+<fun r='_ZN17idSoundWorldLocal13FindAmplitudeEP19idSoundEmitterLocaliPK6idVec3ib'/>
+<mbr r='idSoundWorldLocal::rw' o='32' t='idRenderWorld *'/>
+<mbr r='idSoundWorldLocal::writeDemo' o='64' t='idDemoFile *'/>
+<mbr r='idSoundWorldLocal::listenerAxis' o='96' t='idMat3'/>
+<mbr r='idSoundWorldLocal::listenerPos' o='384' t='idVec3'/>
+<mbr r='idSoundWorldLocal::listenerPrivateId' o='480' t='int'/>
+<mbr r='idSoundWorldLocal::listenerQU' o='512' t='idVec3'/>
+<mbr r='idSoundWorldLocal::listenerArea' o='608' t='int'/>
+<mbr r='idSoundWorldLocal::listenerAreaName' o='640' t='idStr'/>
+<mbr r='idSoundWorldLocal::listenerEnvironmentID' o='896' t='int'/>
+<mbr r='idSoundWorldLocal::gameMsec' o='928' t='int'/>
+<mbr r='idSoundWorldLocal::game44kHz' o='960' t='int'/>
+<mbr r='idSoundWorldLocal::pause44kHz' o='992' t='int'/>
+<mbr r='idSoundWorldLocal::lastAVI44kHz' o='1024' t='int'/>
+<mbr r='idSoundWorldLocal::emitters' o='1056' t='idList&lt;idSoundEmitterLocal *&gt;'/>
+<mbr r='idSoundWorldLocal::soundClassFade' o='1184' t='idSoundFade [4]'/>
+<mbr r='idSoundWorldLocal::fpa' o='1696' t='idFile *[6]'/>
+<mbr r='idSoundWorldLocal::aviDemoPath' o='1888' t='idStr'/>
+<mbr r='idSoundWorldLocal::aviDemoName' o='2144' t='idStr'/>
+<mbr r='idSoundWorldLocal::localSound' o='2400' t='idSoundEmitterLocal *'/>
+<mbr r='idSoundWorldLocal::slowmoActive' o='2432' t='bool'/>
+<mbr r='idSoundWorldLocal::slowmoSpeed' o='2464' t='float'/>
+<mbr r='idSoundWorldLocal::enviroSuitActive' o='2496' t='bool'/>

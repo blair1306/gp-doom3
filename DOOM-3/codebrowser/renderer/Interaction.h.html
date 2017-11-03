@@ -1,0 +1,203 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Interaction.h source code [codebrowser/renderer/Interaction.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="areaNumRef_s,idInteraction "/>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/renderer/Interaction.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>renderer</a>/<a href='Interaction.h.html'>Interaction.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__INTERACTION_H__">__INTERACTION_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__INTERACTION_H__" data-ref="_M/__INTERACTION_H__">__INTERACTION_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>	Interaction between entityDef surfaces and a lightDef.</i></td></tr>
+<tr><th id="36">36</th><td><i></i></td></tr>
+<tr><th id="37">37</th><td><i>	Interactions with no lightTris and no shadowTris are still</i></td></tr>
+<tr><th id="38">38</th><td><i>	valid, because they show that a given entityDef / lightDef</i></td></tr>
+<tr><th id="39">39</th><td><i>	do not interact, even though they share one or more areas.</i></td></tr>
+<tr><th id="40">40</th><td><i></i></td></tr>
+<tr><th id="41">41</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="42">42</th><td><i>*/</i></td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td><u>#define <dfn class="macro" id="_M/LIGHT_TRIS_DEFERRED" data-ref="_M/LIGHT_TRIS_DEFERRED">LIGHT_TRIS_DEFERRED</dfn>			((srfTriangles_t *)-1)</u></td></tr>
+<tr><th id="45">45</th><td><u>#define <dfn class="macro" id="_M/LIGHT_CULL_ALL_FRONT" data-ref="_M/LIGHT_CULL_ALL_FRONT">LIGHT_CULL_ALL_FRONT</dfn>		((byte *)-1)</u></td></tr>
+<tr><th id="46">46</th><td><u>#define	<dfn class="macro" id="_M/LIGHT_CLIP_EPSILON" data-ref="_M/LIGHT_CLIP_EPSILON">LIGHT_CLIP_EPSILON</dfn>			0.1f</u></td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="50">50</th><td>	<i>// For each triangle a byte set to 1 if facing the light origin.</i></td></tr>
+<tr><th id="51">51</th><td>	<a class="typedef" href="../idlib/Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *					<dfn class="decl" id="(anonymous)::facing" title='(anonymous struct)::facing' data-ref="(anonymous)::facing">facing</dfn>;</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td>	<i>// For each vertex a byte with the bits [0-5] set if the</i></td></tr>
+<tr><th id="54">54</th><td><i>	// vertex is at the back side of the corresponding clip plane.</i></td></tr>
+<tr><th id="55">55</th><td><i>	// If the 'cullBits' pointer equals LIGHT_CULL_ALL_FRONT all</i></td></tr>
+<tr><th id="56">56</th><td><i>	// vertices are at the front of all the clip planes.</i></td></tr>
+<tr><th id="57">57</th><td>	<a class="typedef" href="../idlib/Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *					<dfn class="decl" id="(anonymous)::cullBits" title='(anonymous struct)::cullBits' data-ref="(anonymous)::cullBits">cullBits</dfn>;</td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td>	<i>// Clip planes in surface space used to calculate the cull bits.</i></td></tr>
+<tr><th id="60">60</th><td>	<a class="type" href="../idlib/math/Plane.h.html#idPlane" title='idPlane' data-ref="idPlane">idPlane</a>					<dfn class="decl" id="(anonymous)::localClipPlanes" title='(anonymous struct)::localClipPlanes' data-ref="(anonymous)::localClipPlanes">localClipPlanes</dfn>[<var>6</var>];</td></tr>
+<tr><th id="61">61</th><td>} <dfn class="typedef" id="srfCullInfo_t" title='srfCullInfo_t' data-type='struct srfCullInfo_t' data-ref="srfCullInfo_t">srfCullInfo_t</dfn>;</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td><b>typedef</b> <b>struct</b> {		</td></tr>
+<tr><th id="65">65</th><td>	<i>// if lightTris == LIGHT_TRIS_DEFERRED, then the calculation of the</i></td></tr>
+<tr><th id="66">66</th><td><i>	// lightTris has been deferred, and must be done if ambientTris is visible</i></td></tr>
+<tr><th id="67">67</th><td>	<a class="typedef" href="Model.h.html#srfTriangles_t" title='srfTriangles_t' data-type='struct srfTriangles_s' data-ref="srfTriangles_t">srfTriangles_t</a> *		<dfn class="decl" id="(anonymous)::lightTris" title='(anonymous struct)::lightTris' data-ref="(anonymous)::lightTris">lightTris</dfn>;</td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td>	<i>// shadow volume triangle surface</i></td></tr>
+<tr><th id="70">70</th><td>	<a class="typedef" href="Model.h.html#srfTriangles_t" title='srfTriangles_t' data-type='struct srfTriangles_s' data-ref="srfTriangles_t">srfTriangles_t</a> *		<dfn class="decl" id="(anonymous)::shadowTris" title='(anonymous struct)::shadowTris' data-ref="(anonymous)::shadowTris">shadowTris</dfn>;</td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td>	<i>// so we can check ambientViewCount before adding lightTris, and get</i></td></tr>
+<tr><th id="73">73</th><td><i>	// at the shared vertex and possibly shadowVertex caches</i></td></tr>
+<tr><th id="74">74</th><td>	<a class="typedef" href="Model.h.html#srfTriangles_t" title='srfTriangles_t' data-type='struct srfTriangles_s' data-ref="srfTriangles_t">srfTriangles_t</a> *		<dfn class="decl" id="(anonymous)::ambientTris" title='(anonymous struct)::ambientTris' data-ref="(anonymous)::ambientTris">ambientTris</dfn>;</td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td>	<em>const</em> <a class="type" href="Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *		<dfn class="decl" id="(anonymous)::shader" title='(anonymous struct)::shader' data-ref="(anonymous)::shader">shader</dfn>;</td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td>	<em>int</em>						<dfn class="decl" id="(anonymous)::expCulled" title='(anonymous struct)::expCulled' data-ref="(anonymous)::expCulled">expCulled</dfn>;			<i>// only for the experimental shadow buffer renderer</i></td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td>	<a class="typedef" href="#srfCullInfo_t" title='srfCullInfo_t' data-type='struct srfCullInfo_t' data-ref="srfCullInfo_t">srfCullInfo_t</a>			<dfn class="decl" id="(anonymous)::cullInfo" title='(anonymous struct)::cullInfo' data-ref="(anonymous)::cullInfo">cullInfo</dfn>;</td></tr>
+<tr><th id="81">81</th><td>} <dfn class="typedef" id="surfaceInteraction_t" title='surfaceInteraction_t' data-type='struct surfaceInteraction_t' data-ref="surfaceInteraction_t">surfaceInteraction_t</dfn>;</td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="areaNumRef_s" title='areaNumRef_s' data-ref="areaNumRef_s"><a class="type" href="#areaNumRef_s" title='areaNumRef_s' data-ref="areaNumRef_s">areaNumRef_s</a></dfn> {</td></tr>
+<tr><th id="85">85</th><td>	<b>struct</b> <a class="type" href="#areaNumRef_s" title='areaNumRef_s' data-ref="areaNumRef_s">areaNumRef_s</a> *	<dfn class="decl" id="areaNumRef_s::next" title='areaNumRef_s::next' data-ref="areaNumRef_s::next">next</dfn>;</td></tr>
+<tr><th id="86">86</th><td>	<em>int</em>						<dfn class="decl" id="areaNumRef_s::areaNum" title='areaNumRef_s::areaNum' data-ref="areaNumRef_s::areaNum">areaNum</dfn>;</td></tr>
+<tr><th id="87">87</th><td>} <dfn class="typedef" id="areaNumRef_t" title='areaNumRef_t' data-type='struct areaNumRef_s' data-ref="areaNumRef_t">areaNumRef_t</dfn>;</td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td><b>class</b> <a class="type" href="tr_local.h.html#idRenderEntityLocal" title='idRenderEntityLocal' data-ref="idRenderEntityLocal" id="idRenderEntityLocal">idRenderEntityLocal</a>;</td></tr>
+<tr><th id="91">91</th><td><b>class</b> <a class="type" href="tr_local.h.html#idRenderLightLocal" title='idRenderLightLocal' data-ref="idRenderLightLocal" id="idRenderLightLocal">idRenderLightLocal</a>;</td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td><b>class</b> <dfn class="type def" id="idInteraction" title='idInteraction' data-ref="idInteraction">idInteraction</dfn> {</td></tr>
+<tr><th id="94">94</th><td><b>public</b>:</td></tr>
+<tr><th id="95">95</th><td>	<i>// this may be 0 if the light and entity do not actually intersect</i></td></tr>
+<tr><th id="96">96</th><td><i>	// -1 = an untested interaction</i></td></tr>
+<tr><th id="97">97</th><td>	<em>int</em>						<dfn class="decl" id="idInteraction::numSurfaces" title='idInteraction::numSurfaces' data-ref="idInteraction::numSurfaces">numSurfaces</dfn>;</td></tr>
+<tr><th id="98">98</th><td></td></tr>
+<tr><th id="99">99</th><td>	<i>// if there is a whole-entity optimized shadow hull, it will</i></td></tr>
+<tr><th id="100">100</th><td><i>	// be present as a surfaceInteraction_t with a NULL ambientTris, but</i></td></tr>
+<tr><th id="101">101</th><td><i>	// possibly having a shader to specify the shadow sorting order</i></td></tr>
+<tr><th id="102">102</th><td>	<a class="typedef" href="#surfaceInteraction_t" title='surfaceInteraction_t' data-type='struct surfaceInteraction_t' data-ref="surfaceInteraction_t">surfaceInteraction_t</a> *	<dfn class="decl" id="idInteraction::surfaces" title='idInteraction::surfaces' data-ref="idInteraction::surfaces">surfaces</dfn>;</td></tr>
+<tr><th id="103">103</th><td>	</td></tr>
+<tr><th id="104">104</th><td>	<i>// get space from here, if NULL, it is a pre-generated shadow volume from dmap</i></td></tr>
+<tr><th id="105">105</th><td>	<a class="type" href="tr_local.h.html#idRenderEntityLocal" title='idRenderEntityLocal' data-ref="idRenderEntityLocal">idRenderEntityLocal</a> *	<dfn class="decl" id="idInteraction::entityDef" title='idInteraction::entityDef' data-ref="idInteraction::entityDef">entityDef</dfn>;</td></tr>
+<tr><th id="106">106</th><td>	<a class="type" href="tr_local.h.html#idRenderLightLocal" title='idRenderLightLocal' data-ref="idRenderLightLocal">idRenderLightLocal</a> *	<dfn class="decl" id="idInteraction::lightDef" title='idInteraction::lightDef' data-ref="idInteraction::lightDef">lightDef</dfn>;</td></tr>
+<tr><th id="107">107</th><td></td></tr>
+<tr><th id="108">108</th><td>	<a class="type" href="#idInteraction" title='idInteraction' data-ref="idInteraction">idInteraction</a> *			<dfn class="decl" id="idInteraction::lightNext" title='idInteraction::lightNext' data-ref="idInteraction::lightNext">lightNext</dfn>;				<i>// for lightDef chains</i></td></tr>
+<tr><th id="109">109</th><td>	<a class="type" href="#idInteraction" title='idInteraction' data-ref="idInteraction">idInteraction</a> *			<dfn class="decl" id="idInteraction::lightPrev" title='idInteraction::lightPrev' data-ref="idInteraction::lightPrev">lightPrev</dfn>;</td></tr>
+<tr><th id="110">110</th><td>	<a class="type" href="#idInteraction" title='idInteraction' data-ref="idInteraction">idInteraction</a> *			<dfn class="decl" id="idInteraction::entityNext" title='idInteraction::entityNext' data-ref="idInteraction::entityNext">entityNext</dfn>;				<i>// for entityDef chains</i></td></tr>
+<tr><th id="111">111</th><td>	<a class="type" href="#idInteraction" title='idInteraction' data-ref="idInteraction">idInteraction</a> *			<dfn class="decl" id="idInteraction::entityPrev" title='idInteraction::entityPrev' data-ref="idInteraction::entityPrev">entityPrev</dfn>;</td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td><b>public</b>:</td></tr>
+<tr><th id="114">114</th><td>							<dfn class="decl" id="_ZN13idInteractionC1Ev" title='idInteraction::idInteraction' data-ref="_ZN13idInteractionC1Ev">idInteraction</dfn>( <em>void</em> );</td></tr>
+<tr><th id="115">115</th><td></td></tr>
+<tr><th id="116">116</th><td>	<i>// because these are generated and freed each game tic for active elements all</i></td></tr>
+<tr><th id="117">117</th><td><i>	// over the world, we use a custom pool allocater to avoid memory allocation overhead</i></td></tr>
+<tr><th id="118">118</th><td><i>	// and fragmentation</i></td></tr>
+<tr><th id="119">119</th><td>	<em>static</em> <a class="type" href="#idInteraction" title='idInteraction' data-ref="idInteraction">idInteraction</a> *	<dfn class="decl" id="_ZN13idInteraction12AllocAndLinkEP19idRenderEntityLocalP18idRenderLightLocal" title='idInteraction::AllocAndLink' data-ref="_ZN13idInteraction12AllocAndLinkEP19idRenderEntityLocalP18idRenderLightLocal">AllocAndLink</dfn>( <a class="type" href="tr_local.h.html#idRenderEntityLocal" title='idRenderEntityLocal' data-ref="idRenderEntityLocal">idRenderEntityLocal</a> *<dfn class="local col4 decl" id="204edef" title='edef' data-type='idRenderEntityLocal *' data-ref="204edef">edef</dfn>, <a class="type" href="tr_local.h.html#idRenderLightLocal" title='idRenderLightLocal' data-ref="idRenderLightLocal">idRenderLightLocal</a> *<dfn class="local col5 decl" id="205ldef" title='ldef' data-type='idRenderLightLocal *' data-ref="205ldef">ldef</dfn> );</td></tr>
+<tr><th id="120">120</th><td></td></tr>
+<tr><th id="121">121</th><td>	<i>// unlinks from the entity and light, frees all surfaceInteractions,</i></td></tr>
+<tr><th id="122">122</th><td><i>	// and puts it back on the free list</i></td></tr>
+<tr><th id="123">123</th><td>	<em>void</em>					<dfn class="decl" id="_ZN13idInteraction13UnlinkAndFreeEv" title='idInteraction::UnlinkAndFree' data-ref="_ZN13idInteraction13UnlinkAndFreeEv">UnlinkAndFree</dfn>( <em>void</em> );</td></tr>
+<tr><th id="124">124</th><td></td></tr>
+<tr><th id="125">125</th><td>	<i>// free the interaction surfaces</i></td></tr>
+<tr><th id="126">126</th><td>	<em>void</em>					<dfn class="decl" id="_ZN13idInteraction12FreeSurfacesEv" title='idInteraction::FreeSurfaces' data-ref="_ZN13idInteraction12FreeSurfacesEv">FreeSurfaces</dfn>( <em>void</em> );</td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td>	<i>// makes the interaction empty for when the light and entity do not actually intersect</i></td></tr>
+<tr><th id="129">129</th><td><i>	// all empty interactions are linked at the end of the light's and entity's interaction list</i></td></tr>
+<tr><th id="130">130</th><td>	<em>void</em>					<dfn class="decl" id="_ZN13idInteraction9MakeEmptyEv" title='idInteraction::MakeEmpty' data-ref="_ZN13idInteraction9MakeEmptyEv">MakeEmpty</dfn>( <em>void</em> );</td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td>	<i>// returns true if the interaction is empty</i></td></tr>
+<tr><th id="133">133</th><td>	<em>bool</em>					<dfn class="decl def" id="_ZNK13idInteraction7IsEmptyEv" title='idInteraction::IsEmpty' data-ref="_ZNK13idInteraction7IsEmptyEv">IsEmpty</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> ( <a class="member" href="#idInteraction::numSurfaces" title='idInteraction::numSurfaces' data-ref="idInteraction::numSurfaces">numSurfaces</a> == <var>0</var> ); }</td></tr>
+<tr><th id="134">134</th><td></td></tr>
+<tr><th id="135">135</th><td>	<i>// returns true if the interaction is not yet completely created</i></td></tr>
+<tr><th id="136">136</th><td>	<em>bool</em>					<dfn class="decl def" id="_ZNK13idInteraction10IsDeferredEv" title='idInteraction::IsDeferred' data-ref="_ZNK13idInteraction10IsDeferredEv">IsDeferred</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> ( <a class="member" href="#idInteraction::numSurfaces" title='idInteraction::numSurfaces' data-ref="idInteraction::numSurfaces">numSurfaces</a> == -<var>1</var> ); }</td></tr>
+<tr><th id="137">137</th><td></td></tr>
+<tr><th id="138">138</th><td>	<i>// returns true if the interaction has shadows</i></td></tr>
+<tr><th id="139">139</th><td>	<em>bool</em>					<dfn class="decl" id="_ZNK13idInteraction10HasShadowsEv" title='idInteraction::HasShadows' data-ref="_ZNK13idInteraction10HasShadowsEv">HasShadows</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="140">140</th><td></td></tr>
+<tr><th id="141">141</th><td>	<i>// counts up the memory used by all the surfaceInteractions, which</i></td></tr>
+<tr><th id="142">142</th><td><i>	// will be used to determine when we need to start purging old interactions</i></td></tr>
+<tr><th id="143">143</th><td>	<em>int</em>						<dfn class="decl" id="_ZN13idInteraction10MemoryUsedEv" title='idInteraction::MemoryUsed' data-ref="_ZN13idInteraction10MemoryUsedEv">MemoryUsed</dfn>( <em>void</em> );</td></tr>
+<tr><th id="144">144</th><td></td></tr>
+<tr><th id="145">145</th><td>	<i>// makes sure all necessary light surfaces and shadow surfaces are created, and</i></td></tr>
+<tr><th id="146">146</th><td><i>	// calls R_LinkLightSurf() for each one</i></td></tr>
+<tr><th id="147">147</th><td>	<em>void</em>					<dfn class="decl" id="_ZN13idInteraction20AddActiveInteractionEv" title='idInteraction::AddActiveInteraction' data-ref="_ZN13idInteraction20AddActiveInteractionEv">AddActiveInteraction</dfn>( <em>void</em> );</td></tr>
+<tr><th id="148">148</th><td></td></tr>
+<tr><th id="149">149</th><td><b>private</b>:</td></tr>
+<tr><th id="150">150</th><td>	<b>enum</b> {</td></tr>
+<tr><th id="151">151</th><td>		<dfn class="enum" id="idInteraction::FRUSTUM_UNINITIALIZED" title='idInteraction::FRUSTUM_UNINITIALIZED' data-ref="idInteraction::FRUSTUM_UNINITIALIZED">FRUSTUM_UNINITIALIZED</dfn>,</td></tr>
+<tr><th id="152">152</th><td>		<dfn class="enum" id="idInteraction::FRUSTUM_INVALID" title='idInteraction::FRUSTUM_INVALID' data-ref="idInteraction::FRUSTUM_INVALID">FRUSTUM_INVALID</dfn>,</td></tr>
+<tr><th id="153">153</th><td>		<dfn class="enum" id="idInteraction::FRUSTUM_VALID" title='idInteraction::FRUSTUM_VALID' data-ref="idInteraction::FRUSTUM_VALID">FRUSTUM_VALID</dfn>,</td></tr>
+<tr><th id="154">154</th><td>		<dfn class="enum" id="idInteraction::FRUSTUM_VALIDAREAS" title='idInteraction::FRUSTUM_VALIDAREAS' data-ref="idInteraction::FRUSTUM_VALIDAREAS">FRUSTUM_VALIDAREAS</dfn>,</td></tr>
+<tr><th id="155">155</th><td>	}						<dfn class="decl" id="idInteraction::frustumState" title='idInteraction::frustumState' data-ref="idInteraction::frustumState">frustumState</dfn>;</td></tr>
+<tr><th id="156">156</th><td>	<a class="type" href="../idlib/bv/Frustum.h.html#idFrustum" title='idFrustum' data-ref="idFrustum">idFrustum</a>				<dfn class="decl" id="idInteraction::frustum" title='idInteraction::frustum' data-ref="idInteraction::frustum">frustum</dfn>;				<i>// frustum which contains the interaction</i></td></tr>
+<tr><th id="157">157</th><td>	<a class="typedef" href="#areaNumRef_t" title='areaNumRef_t' data-type='struct areaNumRef_s' data-ref="areaNumRef_t">areaNumRef_t</a> *			<dfn class="decl" id="idInteraction::frustumAreas" title='idInteraction::frustumAreas' data-ref="idInteraction::frustumAreas">frustumAreas</dfn>;			<i>// numbers of the areas the frustum touches</i></td></tr>
+<tr><th id="158">158</th><td></td></tr>
+<tr><th id="159">159</th><td>	<em>int</em>						<dfn class="decl" id="idInteraction::dynamicModelFrameCount" title='idInteraction::dynamicModelFrameCount' data-ref="idInteraction::dynamicModelFrameCount">dynamicModelFrameCount</dfn>;	<i>// so we can tell if a callback model animated</i></td></tr>
+<tr><th id="160">160</th><td></td></tr>
+<tr><th id="161">161</th><td><b>private</b>:</td></tr>
+<tr><th id="162">162</th><td>	<i>// actually create the interaction</i></td></tr>
+<tr><th id="163">163</th><td>	<em>void</em>					<dfn class="decl" id="_ZN13idInteraction17CreateInteractionEPK13idRenderModel" title='idInteraction::CreateInteraction' data-ref="_ZN13idInteraction17CreateInteractionEPK13idRenderModel">CreateInteraction</dfn>( <em>const</em> <a class="type" href="Model.h.html#idRenderModel" title='idRenderModel' data-ref="idRenderModel">idRenderModel</a> *<dfn class="local col6 decl" id="206model" title='model' data-type='const idRenderModel *' data-ref="206model">model</dfn> );</td></tr>
+<tr><th id="164">164</th><td></td></tr>
+<tr><th id="165">165</th><td>	<i>// unlink from entity and light lists</i></td></tr>
+<tr><th id="166">166</th><td>	<em>void</em>					<dfn class="decl" id="_ZN13idInteraction6UnlinkEv" title='idInteraction::Unlink' data-ref="_ZN13idInteraction6UnlinkEv">Unlink</dfn>( <em>void</em> );</td></tr>
+<tr><th id="167">167</th><td></td></tr>
+<tr><th id="168">168</th><td>	<i>// try to determine if the entire interaction, including shadows, is guaranteed</i></td></tr>
+<tr><th id="169">169</th><td><i>	// to be outside the view frustum</i></td></tr>
+<tr><th id="170">170</th><td>	<em>bool</em>					<dfn class="decl" id="_ZN13idInteraction28CullInteractionByViewFrustumERK9idFrustum" title='idInteraction::CullInteractionByViewFrustum' data-ref="_ZN13idInteraction28CullInteractionByViewFrustumERK9idFrustum">CullInteractionByViewFrustum</dfn>( <em>const</em> <a class="type" href="../idlib/bv/Frustum.h.html#idFrustum" title='idFrustum' data-ref="idFrustum">idFrustum</a> &amp;<dfn class="local col7 decl" id="207viewFrustum" title='viewFrustum' data-type='const idFrustum &amp;' data-ref="207viewFrustum">viewFrustum</dfn> );</td></tr>
+<tr><th id="171">171</th><td></td></tr>
+<tr><th id="172">172</th><td>	<i>// determine the minimum scissor rect that will include the interaction shadows</i></td></tr>
+<tr><th id="173">173</th><td><i>	// projected to the bounds of the light</i></td></tr>
+<tr><th id="174">174</th><td>	<a class="type" href="tr_local.h.html#idScreenRect" title='idScreenRect' data-ref="idScreenRect">idScreenRect</a>			<dfn class="decl" id="_ZN13idInteraction31CalcInteractionScissorRectangleERK9idFrustum" title='idInteraction::CalcInteractionScissorRectangle' data-ref="_ZN13idInteraction31CalcInteractionScissorRectangleERK9idFrustum">CalcInteractionScissorRectangle</dfn>( <em>const</em> <a class="type" href="../idlib/bv/Frustum.h.html#idFrustum" title='idFrustum' data-ref="idFrustum">idFrustum</a> &amp;<dfn class="local col8 decl" id="208viewFrustum" title='viewFrustum' data-type='const idFrustum &amp;' data-ref="208viewFrustum">viewFrustum</dfn> );</td></tr>
+<tr><th id="175">175</th><td>};</td></tr>
+<tr><th id="176">176</th><td></td></tr>
+<tr><th id="177">177</th><td></td></tr>
+<tr><th id="178">178</th><td><em>void</em> <dfn class="decl" id="_Z23R_CalcInteractionFacingPK19idRenderEntityLocalPK14srfTriangles_sPK18idRenderLightLocalR13srfCullInfo_t" title='R_CalcInteractionFacing' data-ref="_Z23R_CalcInteractionFacingPK19idRenderEntityLocalPK14srfTriangles_sPK18idRenderLightLocalR13srfCullInfo_t">R_CalcInteractionFacing</dfn>( <em>const</em> <a class="type" href="tr_local.h.html#idRenderEntityLocal" title='idRenderEntityLocal' data-ref="idRenderEntityLocal">idRenderEntityLocal</a> *<dfn class="local col9 decl" id="209ent" title='ent' data-type='const idRenderEntityLocal *' data-ref="209ent">ent</dfn>, <em>const</em> <a class="typedef" href="Model.h.html#srfTriangles_t" title='srfTriangles_t' data-type='struct srfTriangles_s' data-ref="srfTriangles_t">srfTriangles_t</a> *<dfn class="local col0 decl" id="210tri" title='tri' data-type='const srfTriangles_t *' data-ref="210tri">tri</dfn>, <em>const</em> <a class="type" href="tr_local.h.html#idRenderLightLocal" title='idRenderLightLocal' data-ref="idRenderLightLocal">idRenderLightLocal</a> *<dfn class="local col1 decl" id="211light" title='light' data-type='const idRenderLightLocal *' data-ref="211light">light</dfn>, <a class="typedef" href="#srfCullInfo_t" title='srfCullInfo_t' data-type='struct srfCullInfo_t' data-ref="srfCullInfo_t">srfCullInfo_t</a> &amp;<dfn class="local col2 decl" id="212cullInfo" title='cullInfo' data-type='srfCullInfo_t &amp;' data-ref="212cullInfo">cullInfo</dfn> );</td></tr>
+<tr><th id="179">179</th><td><em>void</em> <dfn class="decl" id="_Z25R_CalcInteractionCullBitsPK19idRenderEntityLocalPK14srfTriangles_sPK18idRenderLightLocalR13srfCullInfo_t" title='R_CalcInteractionCullBits' data-ref="_Z25R_CalcInteractionCullBitsPK19idRenderEntityLocalPK14srfTriangles_sPK18idRenderLightLocalR13srfCullInfo_t">R_CalcInteractionCullBits</dfn>( <em>const</em> <a class="type" href="tr_local.h.html#idRenderEntityLocal" title='idRenderEntityLocal' data-ref="idRenderEntityLocal">idRenderEntityLocal</a> *<dfn class="local col3 decl" id="213ent" title='ent' data-type='const idRenderEntityLocal *' data-ref="213ent">ent</dfn>, <em>const</em> <a class="typedef" href="Model.h.html#srfTriangles_t" title='srfTriangles_t' data-type='struct srfTriangles_s' data-ref="srfTriangles_t">srfTriangles_t</a> *<dfn class="local col4 decl" id="214tri" title='tri' data-type='const srfTriangles_t *' data-ref="214tri">tri</dfn>, <em>const</em> <a class="type" href="tr_local.h.html#idRenderLightLocal" title='idRenderLightLocal' data-ref="idRenderLightLocal">idRenderLightLocal</a> *<dfn class="local col5 decl" id="215light" title='light' data-type='const idRenderLightLocal *' data-ref="215light">light</dfn>, <a class="typedef" href="#srfCullInfo_t" title='srfCullInfo_t' data-type='struct srfCullInfo_t' data-ref="srfCullInfo_t">srfCullInfo_t</a> &amp;<dfn class="local col6 decl" id="216cullInfo" title='cullInfo' data-type='srfCullInfo_t &amp;' data-ref="216cullInfo">cullInfo</dfn> );</td></tr>
+<tr><th id="180">180</th><td><em>void</em> <dfn class="decl" id="_Z25R_FreeInteractionCullInfoR13srfCullInfo_t" title='R_FreeInteractionCullInfo' data-ref="_Z25R_FreeInteractionCullInfoR13srfCullInfo_t">R_FreeInteractionCullInfo</dfn>( <a class="typedef" href="#srfCullInfo_t" title='srfCullInfo_t' data-type='struct srfCullInfo_t' data-ref="srfCullInfo_t">srfCullInfo_t</a> &amp;<dfn class="local col7 decl" id="217cullInfo" title='cullInfo' data-type='srfCullInfo_t &amp;' data-ref="217cullInfo">cullInfo</dfn> );</td></tr>
+<tr><th id="181">181</th><td></td></tr>
+<tr><th id="182">182</th><td><em>void</em> <dfn class="decl" id="_Z25R_ShowInteractionMemory_fRK9idCmdArgs" title='R_ShowInteractionMemory_f' data-ref="_Z25R_ShowInteractionMemory_fRK9idCmdArgs">R_ShowInteractionMemory_f</dfn>( <em>const</em> <a class="type" href="../idlib/CmdArgs.h.html#idCmdArgs" title='idCmdArgs' data-ref="idCmdArgs">idCmdArgs</a> &amp;<dfn class="local col8 decl" id="218args" title='args' data-type='const idCmdArgs &amp;' data-ref="218args">args</dfn> );</td></tr>
+<tr><th id="183">183</th><td></td></tr>
+<tr><th id="184">184</th><td><u>#<span data-ppcond="29">endif</span> /* !__INTERACTION_H__ */</u></td></tr>
+<tr><th id="185">185</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../build/debug/core/glimp/sys/linux/glimp_dlopen.cpp.html'>codebrowser/build/debug/core/glimp/sys/linux/glimp_dlopen.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

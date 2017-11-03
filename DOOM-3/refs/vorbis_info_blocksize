@@ -1,0 +1,11 @@
+<dec f='codebrowser/sound/OggVorbis/vorbis/codec.h' l='167' type='int vorbis_info_blocksize(vorbis_info * vi, int zo)'/>
+<def f='codebrowser/sound/OggVorbis/vorbissrc/info.c' l='144' ll='147' type='int vorbis_info_blocksize(vorbis_info * vi, int zo)'/>
+<doc f='codebrowser/sound/OggVorbis/vorbissrc/info.c' l='142'>/* blocksize 0 is guaranteed to be short, 1 is guarantted to be long.
+   They may be equal, but short will never ge greater than long */</doc>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1288' u='c' c='ov_pcm_seek'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1841' u='c' c='ov_crosslap'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1842' u='c' c='ov_crosslap'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1881' u='c' c='_ov_64_seek_lap'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1901' u='c' c='_ov_64_seek_lap'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1942' u='c' c='_ov_d_seek_lap'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1962' u='c' c='_ov_d_seek_lap'/>

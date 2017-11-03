@@ -1,0 +1,90 @@
+<def f='codebrowser/idlib/Lexer.h' l='137' ll='280'/>
+<size>184</size>
+<fun r='_ZN7idLexerC1Ev'/>
+<fun r='_ZN7idLexerC1Ei'/>
+<fun r='_ZN7idLexerC1EPKcib'/>
+<fun r='_ZN7idLexerC1EPKciS1_i'/>
+<fun r='_ZN7idLexerD1Ev'/>
+<fun r='_ZN7idLexer8LoadFileEPKcb'/>
+<fun r='_ZN7idLexer10LoadMemoryEPKciS1_i'/>
+<fun r='_ZN7idLexer10FreeSourceEv'/>
+<fun r='_ZN7idLexer8IsLoadedEv'/>
+<fun r='_ZN7idLexer9ReadTokenEP7idToken'/>
+<fun r='_ZN7idLexer17ExpectTokenStringEPKc'/>
+<fun r='_ZN7idLexer15ExpectTokenTypeEiiP7idToken'/>
+<fun r='_ZN7idLexer14ExpectAnyTokenEP7idToken'/>
+<fun r='_ZN7idLexer16CheckTokenStringEPKc'/>
+<fun r='_ZN7idLexer14CheckTokenTypeEiiP7idToken'/>
+<fun r='_ZN7idLexer15PeekTokenStringEPKc'/>
+<fun r='_ZN7idLexer13PeekTokenTypeEiiP7idToken'/>
+<fun r='_ZN7idLexer15SkipUntilStringEPKc'/>
+<fun r='_ZN7idLexer14SkipRestOfLineEv'/>
+<fun r='_ZN7idLexer17SkipBracedSectionEb'/>
+<fun r='_ZN7idLexer11UnreadTokenEPK7idToken'/>
+<fun r='_ZN7idLexer15ReadTokenOnLineEP7idToken'/>
+<fun r='_ZN7idLexer14ReadRestOfLineER5idStr'/>
+<fun r='_ZN7idLexer8ParseIntEv'/>
+<fun r='_ZN7idLexer9ParseBoolEv'/>
+<fun r='_ZN7idLexer10ParseFloatEPb'/>
+<fun r='_ZN7idLexer13Parse1DMatrixEiPf'/>
+<fun r='_ZN7idLexer13Parse2DMatrixEiiPf'/>
+<fun r='_ZN7idLexer13Parse3DMatrixEiiiPf'/>
+<fun r='_ZN7idLexer18ParseBracedSectionER5idStr'/>
+<fun r='_ZN7idLexer23ParseBracedSectionExactER5idStri'/>
+<fun r='_ZN7idLexer15ParseRestOfLineER5idStr'/>
+<fun r='_ZNK7idLexer17GetLastWhiteSpaceER5idStr'/>
+<fun r='_ZNK7idLexer22GetLastWhiteSpaceStartEv'/>
+<fun r='_ZNK7idLexer20GetLastWhiteSpaceEndEv'/>
+<fun r='_ZN7idLexer15SetPunctuationsEPK13punctuation_s'/>
+<fun r='_ZN7idLexer20GetPunctuationFromIdEi'/>
+<fun r='_ZN7idLexer16GetPunctuationIdEPKc'/>
+<fun r='_ZN7idLexer8SetFlagsEi'/>
+<fun r='_ZN7idLexer8GetFlagsEv'/>
+<fun r='_ZN7idLexer5ResetEv'/>
+<fun r='_ZN7idLexer9EndOfFileEv'/>
+<fun r='_ZN7idLexer11GetFileNameEv'/>
+<fun r='_ZN7idLexer13GetFileOffsetEv'/>
+<fun r='_ZN7idLexer11GetFileTimeEv'/>
+<fun r='_ZN7idLexer10GetLineNumEv'/>
+<fun r='_ZN7idLexer5ErrorEPKcz'/>
+<fun r='_ZN7idLexer7WarningEPKcz'/>
+<fun r='_ZNK7idLexer8HadErrorEv'/>
+<fun r='_ZN7idLexer13SetBaseFolderEPKc'/>
+<mbr r='idLexer::loaded' o='0' t='int'/>
+<mbr r='idLexer::filename' o='32' t='idStr'/>
+<mbr r='idLexer::allocated' o='288' t='int'/>
+<mbr r='idLexer::buffer' o='320' t='const char *'/>
+<mbr r='idLexer::script_p' o='352' t='const char *'/>
+<mbr r='idLexer::end_p' o='384' t='const char *'/>
+<mbr r='idLexer::lastScript_p' o='416' t='const char *'/>
+<mbr r='idLexer::whiteSpaceStart_p' o='448' t='const char *'/>
+<mbr r='idLexer::whiteSpaceEnd_p' o='480' t='const char *'/>
+<mbr r='idLexer::fileTime' o='512' t='time_t'/>
+<mbr r='idLexer::length' o='544' t='int'/>
+<mbr r='idLexer::line' o='576' t='int'/>
+<mbr r='idLexer::lastline' o='608' t='int'/>
+<mbr r='idLexer::tokenavailable' o='640' t='int'/>
+<mbr r='idLexer::flags' o='672' t='int'/>
+<mbr r='idLexer::punctuations' o='704' t='const punctuation_t *'/>
+<mbr r='idLexer::punctuationtable' o='736' t='int *'/>
+<mbr r='idLexer::nextpunctuation' o='768' t='int *'/>
+<mbr r='idLexer::token' o='800' t='idToken'/>
+<mbr r='idLexer::next' o='1408' t='idLexer *'/>
+<mbr r='idLexer::hadError' o='1440' t='bool'/>
+<smbr r='idLexer::baseFolder' t='char [256]'/>
+<fun r='_ZN7idLexer22CreatePunctuationTableEPK13punctuation_s'/>
+<fun r='_ZN7idLexer14ReadWhiteSpaceEv'/>
+<fun r='_ZN7idLexer19ReadEscapeCharacterEPc'/>
+<fun r='_ZN7idLexer10ReadStringEP7idTokeni'/>
+<fun r='_ZN7idLexer8ReadNameEP7idToken'/>
+<fun r='_ZN7idLexer10ReadNumberEP7idToken'/>
+<fun r='_ZN7idLexer15ReadPunctuationEP7idToken'/>
+<fun r='_ZN7idLexer13ReadPrimitiveEP7idToken'/>
+<fun r='_ZNK7idLexer11CheckStringEPKc'/>
+<fun r='_ZN7idLexer15NumLinesCrossedEv'/>
+<fun r='_ZN7idLexer11GetFileNameEv'/>
+<fun r='_ZN7idLexer13GetFileOffsetEv'/>
+<fun r='_ZN7idLexer11GetFileTimeEv'/>
+<fun r='_ZN7idLexer10GetLineNumEv'/>
+<fun r='_ZN7idLexer8SetFlagsEi'/>
+<fun r='_ZN7idLexer8GetFlagsEv'/>

@@ -1,0 +1,33 @@
+<dec f='codebrowser/framework/Unzip.cpp' l='548' type='int deflateCopy(z_streamp dest, z_streamp source)'/>
+<doc f='codebrowser/framework/Unzip.cpp' l='515'>/*
+     Initializes the compression dictionary from the given byte sequence
+   without producing any compressed output. This function must be called
+   immediately after deflateInit, deflateInit2 or deflateReset, before any
+   call of deflate. The compressor and decompressor must use exactly the same
+   dictionary (see inflateSetDictionary).
+
+     The dictionary should consist of strings (byte sequences) that are likely
+   to be encountered later in the data to be compressed, with the most commonly
+   used strings preferably put towards the end of the dictionary. Using a
+   dictionary is most useful when the data to be compressed is short and can be
+   predicted with good accuracy; the data can then be compressed better than
+   with the default empty dictionary.
+
+     Depending on the size of the compression data structures selected by
+   deflateInit or deflateInit2, a part of the dictionary may in effect be
+   discarded, for example if the dictionary is larger than the window size in
+   deflate or deflate2. Thus the strings most likely to be useful should be
+   put at the end of the dictionary, not at the front.
+
+     Upon return of this function, strm-&gt;adler is set to the Adler32 value
+   of the dictionary; the decompressor may later use this value to determine
+   which dictionary has been used by the compressor. (The Adler32 value
+   applies to the whole dictionary even if only a subset of the dictionary is
+   actually used by the compressor.)
+
+     deflateSetDictionary returns Z_OK if success, or Z_STREAM_ERROR if a
+   parameter is invalid (such as NULL dictionary) or the stream state is
+   inconsistent (for example if deflate has already been called for this stream
+   or if the compression method is bsort). deflateSetDictionary does not
+   perform any compression: this will be done by deflate().
+*/</doc>

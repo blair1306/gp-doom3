@@ -1,0 +1,14 @@
+<dec f='codebrowser/sys/linux/libXNVCtrl/NVCtrl.h' l='378'/>
+<doc f='codebrowser/sys/linux/libXNVCtrl/NVCtrl.h' l='364'>/*
+ * NV_CTRL_FRAMELOCK_TEST_SIGNAL - to test the connections in the sync
+ * group, tell the master to enable a test signal, then query port[01]
+ * status and sync_ready on all slaves.  When done, tell the master to
+ * disable the test signal.  Test signal should only be manipulated
+ * while NV_CTRL_FRAMELOCK_SYNC is enabled.
+ *
+ * The TEST_SIGNAL is also used to reset the Universal Frame Count (as
+ * returned by the glXQueryFrameCountNV() function in the
+ * GLX_NV_swap_group extension).  Note: for best accuracy of the
+ * Universal Frame Count, it is recommended to toggle the TEST_SIGNAL
+ * on and off after enabling FrameLock.
+ */</doc>

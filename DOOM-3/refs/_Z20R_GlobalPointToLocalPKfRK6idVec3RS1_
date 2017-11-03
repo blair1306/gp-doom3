@@ -1,0 +1,34 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1143' type='void R_GlobalPointToLocal(const float * modelMatrix, const idVec3 &amp; in, idVec3 &amp; out)'/>
+<doc f='codebrowser/renderer/tr_local.h' l='1142'>// note that many of these assume a normalized matrix, and will not work with scaled axis</doc>
+<use f='codebrowser/renderer/Interaction.cpp' l='62' u='c' c='_Z23R_CalcInteractionFacingPK19idRenderEntityLocalPK14srfTriangles_sPK18idRenderLightLocalR13srfCullInfo_t'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='1084' u='c' c='_ZN13idInteraction20AddActiveInteractionEv'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='1085' u='c' c='_ZN13idInteraction20AddActiveInteractionEv'/>
+<use f='codebrowser/renderer/ModelDecal.cpp' l='193' u='c' c='_ZN18idRenderModelDecal27GlobalProjectionInfoToLocalER21decalProjectionInfo_sRKS0_RK6idVec3RK6idMat3'/>
+<use f='codebrowser/renderer/Model_beam.cpp' l='139' u='c' c='_ZN17idRenderModelBeam23InstantiateDynamicModelEPK14renderEntity_sPK9viewDef_sP13idRenderModel'/>
+<use f='codebrowser/renderer/Model_beam.cpp' l='140' u='c' c='_ZN17idRenderModelBeam23InstantiateDynamicModelEPK14renderEntity_sPK9viewDef_sP13idRenderModel'/>
+<use f='codebrowser/renderer/Model_beam.cpp' l='205' u='c' c='_ZNK17idRenderModelBeam6BoundsEPK14renderEntity_s'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1000' u='c' c='_ZNK18idRenderWorldLocal8GuiTraceEi6idVec3S0_'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1001' u='c' c='_ZNK18idRenderWorldLocal8GuiTraceEi6idVec3S0_'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1083' u='c' c='_ZNK18idRenderWorldLocal10ModelTraceER12modelTrace_siRK6idVec3S4_f'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1084' u='c' c='_ZNK18idRenderWorldLocal10ModelTraceER12modelTrace_siRK6idVec3S4_f'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1275' u='c' c='_ZNK18idRenderWorldLocal5TraceER12modelTrace_sRK6idVec3S4_fbb'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1276' u='c' c='_ZNK18idRenderWorldLocal5TraceER12modelTrace_sRK6idVec3S4_fbb'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='662' u='c' c='_Z29RB_SetProgramEnvironmentSpacev'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='814' u='c' c='_Z27RB_STD_T_RenderShaderPassesPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='1061' u='c' c='_ZL11RB_T_ShadowPK10drawSurf_s'/>
+<use f='codebrowser/renderer/tr_deform.cpp' l='188' u='c' c='_ZL12R_TubeDeformP10drawSurf_s'/>
+<use f='codebrowser/renderer/tr_deform.cpp' l='538' u='c' c='_ZL13R_FlareDeformP10drawSurf_s'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='88' u='c' c='_Z21R_CreateLightingCachePK19idRenderEntityLocalPK18idRenderLightLocalP14srfTriangles_s'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='197' u='c' c='_Z14R_SkyboxTexGenP10drawSurf_sRK6idVec3'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='275' u='c' c='_Z17R_WobbleskyTexGenP10drawSurf_sRK6idVec3'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='307' u='c' c='_ZL16R_SpecularTexGenP10drawSurf_sRK6idVec3S3_'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='308' u='c' c='_ZL16R_SpecularTexGenP10drawSurf_sRK6idVec3S3_'/>
+<def f='codebrowser/renderer/tr_main.cpp' l='522' ll='530' type='void R_GlobalPointToLocal(const float * modelMatrix, const idVec3 &amp; in, idVec3 &amp; out)'/>
+<use f='codebrowser/renderer/tr_render.cpp' l='732' u='c' c='_Z31RB_CreateSingleDrawInteractionsPK10drawSurf_sPFvPK17drawInteraction_tE'/>
+<use f='codebrowser/renderer/tr_render.cpp' l='733' u='c' c='_Z31RB_CreateSingleDrawInteractionsPK10drawSurf_sPFvPK17drawInteraction_tE'/>
+<use f='codebrowser/renderer/tr_stencilshadow.cpp' l='307' u='c' c='_ZL25R_ProjectPointsToFarPlanePK19idRenderEntityLocalPK18idRenderLightLocalRK7idPlaneii'/>
+<use f='codebrowser/renderer/tr_stencilshadow.cpp' l='1280' u='c' c='_Z20R_CreateShadowVolumePK19idRenderEntityLocalPK14srfTriangles_sPK18idRenderLightLocal11shadowGen_tR13srfCullInfo_t'/>
+<use f='codebrowser/renderer/tr_subview.cpp' l='155' u='c' c='_Z20R_PreciseCullSurfacePK10drawSurf_sR8idBounds'/>
+<use f='codebrowser/renderer/tr_trace.cpp' l='392' u='c' c='_Z12RB_ShowTracePP10drawSurf_si'/>
+<use f='codebrowser/renderer/tr_trace.cpp' l='393' u='c' c='_Z12RB_ShowTracePP10drawSurf_si'/>
+<use f='codebrowser/renderer/tr_turboshadow.cpp' l='249' u='c' c='_Z25R_CreateTurboShadowVolumePK19idRenderEntityLocalPK14srfTriangles_sPK18idRenderLightLocalR13srfCullInfo_t'/>

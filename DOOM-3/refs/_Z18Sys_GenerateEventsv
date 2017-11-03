@@ -1,0 +1,13 @@
+<dec f='codebrowser/sys/sys_public.h' l='334' type='void Sys_GenerateEvents()'/>
+<doc f='codebrowser/sys/sys_public.h' l='333'>// event generation</doc>
+<use f='codebrowser/framework/Common.cpp' l='2443' u='c' c='_ZN13idCommonLocal5FrameEv'/>
+<use f='codebrowser/framework/Common.cpp' l='2505' u='c' c='_ZN13idCommonLocal8GUIFrameEbb'/>
+<use f='codebrowser/framework/Session.cpp' l='1688' u='c' c='_ZN14idSessionLocal16ExecuteMapChangeEb'/>
+<use f='codebrowser/framework/Session.cpp' l='2358' u='c' c='_ZN14idSessionLocal14PacifierUpdateEv'/>
+<def f='codebrowser/sys/posix/posix_main.cpp' l='980' ll='991' type='void Sys_GenerateEvents()'/>
+<doc f='codebrowser/sys/posix/posix_main.cpp' l='975'>/*
+called during frame loops, pacifier updates etc.
+this is only for console input polling and misc mouse grab tasks
+the actual mouse and keyboard input is in the Sys_Poll logic
+*/</doc>
+<use f='codebrowser/tools/compilers/renderbump/renderbump.cpp' l='974' u='c' c='_ZL19RenderBumpTrianglesP14srfTriangles_sP12renderBump_t'/>

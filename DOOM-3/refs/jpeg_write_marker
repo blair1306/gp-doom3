@@ -1,0 +1,8 @@
+<dec f='codebrowser/renderer/jpeg-6/jpeglib.h' l='915' type='void jpeg_write_marker(j_compress_ptr cinfo, int marker, const JOCTET * dataptr, unsigned int datalen)'/>
+<def f='codebrowser/renderer/jpeg-6/jcapimin.c' l='176' ll='187' type='void jpeg_write_marker(j_compress_ptr cinfo, int marker, const JOCTET * dataptr, unsigned int datalen)'/>
+<doc f='codebrowser/renderer/jpeg-6/jcapimin.c' l='169'>/*
+ * Write a special marker.
+ * This is only recommended for writing COM or APPn markers.
+ * Must be called after jpeg_start_compress() and before
+ * first call to jpeg_write_scanlines() or jpeg_write_raw_data().
+ */</doc>

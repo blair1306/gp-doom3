@@ -1,0 +1,9 @@
+<def f='codebrowser/renderer/Material.h' l='401' type='bool idMaterial::ReceivesLighting() const'/>
+<doc f='codebrowser/renderer/Material.h' l='398'>// returns true if the material will generate interactions with normal lights
+						// Many special effect surfaces don&apos;t have any bump/diffuse/specular
+						// stages, and don&apos;t interact with lights at all</doc>
+<use f='codebrowser/renderer/Interaction.cpp' l='897' u='c' c='_ZN13idInteraction17CreateInteractionEPK13idRenderModel'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='1120' u='c' c='_ZN13idInteraction20AddActiveInteractionEv'/>
+<use f='codebrowser/renderer/tr_deform.cpp' l='54' u='c' c='_ZL14R_FinishDeformP10drawSurf_sP14srfTriangles_sP10idDrawVert'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1406' u='c' c='_ZL21R_AddAmbientDrawsurfsP12viewEntity_s'/>
+<use f='codebrowser/tools/compilers/dmap/usurface.cpp' l='924' u='c' c='_ZL18CarveGroupsByLightP9uEntity_tP10mapLight_t'/>

@@ -1,0 +1,11 @@
+<def f='codebrowser/sys/linux/libXNVCtrl/extutil.h' l='46' ll='51'/>
+<size>16</size>
+<doc f='codebrowser/sys/linux/libXNVCtrl/extutil.h' l='41'>/*
+ * We need to keep a list of open displays since the Xlib display list isn&apos;t
+ * public.  We also have to per-display info in a separate block since it isn&apos;t
+ * stored directly in the Display structure.
+ */</doc>
+<mbr r='_XExtDisplayInfo::next' o='0' t='struct _XExtDisplayInfo *'/>
+<mbr r='_XExtDisplayInfo::display' o='32' t='Display *'/>
+<mbr r='_XExtDisplayInfo::codes' o='64' t='XExtCodes *'/>
+<mbr r='_XExtDisplayInfo::data' o='96' t='XPointer'/>

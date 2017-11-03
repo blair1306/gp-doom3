@@ -1,0 +1,11 @@
+<dec f='codebrowser/sound/OggVorbis/ogg/ogg.h' l='165' type='int ogg_stream_pagein(ogg_stream_state * os, ogg_page * og)'/>
+<def f='codebrowser/sound/OggVorbis/oggsrc/framing.c' l='674' ll='795' type='int ogg_stream_pagein(ogg_stream_state * os, ogg_page * og)'/>
+<doc f='codebrowser/sound/OggVorbis/oggsrc/framing.c' l='671'>/* add the incoming page to the stream state; we decompose the page
+   into packet segments here as well. */</doc>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='254' u='c' c='_fetch_headers'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='342' u='c' c='_prefetch_all_headers'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='622' u='c' c='_fetch_and_process_packet'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1069' u='c' c='ov_raw_seek'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1070' u='c' c='ov_raw_seek'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1208' u='c' c='ov_pcm_seek_page'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1334' u='c' c='ov_pcm_seek'/>

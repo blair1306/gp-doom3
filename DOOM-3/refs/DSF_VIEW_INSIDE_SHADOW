@@ -1,0 +1,11 @@
+<def f='codebrowser/renderer/tr_local.h' l='109' type='const int'/>
+<doc f='codebrowser/renderer/tr_local.h' l='101'>// drawSurf_t structures command the back end to render surfaces
+// a given srfTriangles_t may be used with multiple viewEntity_t,
+// as when viewed in a subview or multiple viewport render, or
+// with multiple shaders when skinned, or, possibly with multiple
+// lights, although currently each lighting interaction creates
+// unique srfTriangles_t
+
+// drawSurf_t are always allocated and freed every frame, they are never cached</doc>
+<use f='codebrowser/renderer/draw_common.cpp' l='1082' u='r' c='_ZL11RB_T_ShadowPK10drawSurf_s'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='674' u='r' c='_Z15R_LinkLightSurfPPK10drawSurf_sPK14srfTriangles_sPK12viewEntity_sPK18idRenderLightLocalPK10idMaterialRK12idScreenRectb'/>

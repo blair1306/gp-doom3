@@ -1,0 +1,23 @@
+<dec f='codebrowser/renderer/jpeg-6/jpeglib.h' l='701' type='JOCTET *'/>
+<offset>0</offset>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='701'>/* =&gt; next byte to write in buffer */</doc>
+<use f='codebrowser/renderer/jpeg-6/jchuff.c' l='255' u='r' c='dump_buffer'/>
+<use f='codebrowser/renderer/jpeg-6/jchuff.c' l='445' u='r' c='encode_mcu_huff'/>
+<use f='codebrowser/renderer/jpeg-6/jchuff.c' l='471' u='w' c='encode_mcu_huff'/>
+<use f='codebrowser/renderer/jpeg-6/jchuff.c' l='500' u='r' c='finish_pass_huff'/>
+<use f='codebrowser/renderer/jpeg-6/jchuff.c' l='510' u='w' c='finish_pass_huff'/>
+<use f='codebrowser/renderer/jpeg-6/jcmarker.c' l='102' u='w' c='emit_byte'/>
+<use f='codebrowser/renderer/jpeg-6/jcphuff.c' l='220' u='r' c='dump_buffer'/>
+<use f='codebrowser/renderer/jpeg-6/jcphuff.c' l='392' u='r' c='encode_mcu_DC_first'/>
+<use f='codebrowser/renderer/jpeg-6/jcphuff.c' l='440' u='w' c='encode_mcu_DC_first'/>
+<use f='codebrowser/renderer/jpeg-6/jcphuff.c' l='473' u='r' c='encode_mcu_AC_first'/>
+<use f='codebrowser/renderer/jpeg-6/jcphuff.c' l='543' u='w' c='encode_mcu_AC_first'/>
+<use f='codebrowser/renderer/jpeg-6/jcphuff.c' l='575' u='r' c='encode_mcu_DC_refine'/>
+<use f='codebrowser/renderer/jpeg-6/jcphuff.c' l='592' u='w' c='encode_mcu_DC_refine'/>
+<use f='codebrowser/renderer/jpeg-6/jcphuff.c' l='627' u='r' c='encode_mcu_AC_refine'/>
+<use f='codebrowser/renderer/jpeg-6/jcphuff.c' l='720' u='w' c='encode_mcu_AC_refine'/>
+<use f='codebrowser/renderer/jpeg-6/jcphuff.c' l='746' u='r' c='finish_pass_phuff'/>
+<use f='codebrowser/renderer/jpeg-6/jcphuff.c' l='753' u='w' c='finish_pass_phuff'/>
+<use f='codebrowser/renderer/jpeg-6/jdatadst.c' l='52' u='w' c='init_destination'/>
+<use f='codebrowser/renderer/jpeg-6/jdatadst.c' l='89' u='w' c='empty_output_buffer'/>
+<use f='codebrowser/tools/compilers/roqvq/roq.cpp' l='230' u='w' c='_ZN3roq19JPEGInitDestinationEP20jpeg_compress_struct'/>

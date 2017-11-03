@@ -1,0 +1,14 @@
+<dec f='codebrowser/sys/linux/oss/include/sys/soundcard.h' l='891'/>
+<doc f='codebrowser/sys/linux/oss/include/sys/soundcard.h' l='878'>/*
+ * &quot;cooked&quot; mode enables software based conversions for sample rate, sample
+ * format (bits) and number of channels (mono/stereo). These conversions are
+ * required with some devices that support only one sample rate or just stereo
+ * to let the applications to use other formats. The cooked mode is enabled by
+ * default. However it&apos;s necessary to disable this mode when mmap() is used or
+ * when very deterministic timing is required. SNDCTL_DSP_COOKEDMODE is an
+ * optional call introduced in OSS 3.9.6f. It&apos;s _error return must be ignored_
+ * since normally this call will return erno=EINVAL.
+ *
+ * SNDCTL_DSP_COOKEDMODE must be called immediately after open before doing
+ * anything else. Otherwise the call will not have any effect.
+ */</doc>

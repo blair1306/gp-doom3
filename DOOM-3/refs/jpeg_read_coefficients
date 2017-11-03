@@ -1,0 +1,16 @@
+<dec f='codebrowser/renderer/jpeg-6/jpeglib.h' l='970' type='jvirt_barray_ptr * jpeg_read_coefficients(j_decompress_ptr cinfo)'/>
+<def f='codebrowser/renderer/jpeg-6/jdtrans.c' l='37' ll='70' type='jvirt_barray_ptr * jpeg_read_coefficients(j_decompress_ptr cinfo)'/>
+<doc f='codebrowser/renderer/jpeg-6/jdtrans.c' l='22'>/*
+ * Read the coefficient arrays from a JPEG file.
+ * jpeg_read_header must be completed before calling this.
+ *
+ * The entire image is read into a set of virtual coefficient-block arrays,
+ * one per component.  The return value is a pointer to the array of
+ * virtual-array descriptors.  These can be manipulated directly via the
+ * JPEG memory manager, or handed off to jpeg_write_coefficients().
+ * To release the memory occupied by the virtual arrays, call
+ * jpeg_finish_decompress() when done with the data.
+ *
+ * Returns NULL if suspended.  This case need be checked only if
+ * a suspending data source is used.
+ */</doc>

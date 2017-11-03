@@ -1,0 +1,19 @@
+<dec f='codebrowser/renderer/Material.h' l='616' type='void idMaterial::AddImplicitStages(const textureRepeat_t trpDefault = TR_REPEAT)'/>
+<def f='codebrowser/renderer/Material.cpp' l='1679' ll='1727' type='void idMaterial::AddImplicitStages(const textureRepeat_t trpDefault = TR_REPEAT)'/>
+<use f='codebrowser/renderer/Material.cpp' l='2068' u='c' c='_ZN10idMaterial13ParseMaterialER7idLexer'/>
+<doc f='codebrowser/renderer/Material.cpp' l='1664'>/*
+==============
+idMaterial::AddImplicitStages
+
+If a material has diffuse or specular stages without any
+bump stage, add an implicit _flat bumpmap stage.
+
+If a material has a bump stage but no diffuse or specular
+stage, add a _white diffuse stage.
+
+It is valid to have either a diffuse or specular without the other.
+
+It is valid to have a reflection map and a bump map for bumpy reflection
+==============
+*/</doc>
+<doc f='codebrowser/renderer/Material.cpp' l='1679'>/* = TR_REPEAT  */</doc>

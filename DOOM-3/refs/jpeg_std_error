@@ -1,0 +1,14 @@
+<dec f='codebrowser/renderer/jpeg-6/jpeglib.h' l='865' type='struct jpeg_error_mgr * jpeg_std_error(struct jpeg_error_mgr * err)'/>
+<use f='codebrowser/renderer/Cinematic.cpp' l='1482' u='c' c='_Z8JPEGBlitPhS_i'/>
+<use f='codebrowser/renderer/Image_files.cpp' l='867' u='c' c='_ZL7LoadJPGPKcPPhPiS3_Pl'/>
+<def f='codebrowser/renderer/jpeg-6/jerror.c' l='212' ll='234' type='struct jpeg_error_mgr * jpeg_std_error(struct jpeg_error_mgr * err)'/>
+<doc f='codebrowser/renderer/jpeg-6/jerror.c' l='202'>/*
+ * Fill in the standard error-handling methods in a jpeg_error_mgr object.
+ * Typical call is:
+ *	struct jpeg_compress_struct cinfo;
+ *	struct jpeg_error_mgr err;
+ *
+ *	cinfo.err = jpeg_std_error(&amp;err);
+ * after which the application may override some of the methods.
+ */</doc>
+<use f='codebrowser/tools/compilers/roqvq/roq.cpp' l='436' u='c' c='_ZN3roq13WriteLosslessEv'/>

@@ -1,0 +1,28 @@
+<dec f='codebrowser/renderer/jpeg-6/jpeglib.h' l='601' type='int'/>
+<offset>2976</offset>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='597'>/* This field is shared between entropy decoder and marker parser.
+   * It is either zero or the code of a JPEG marker that has been
+   * read from the data source, but has not yet been processed.
+   */</doc>
+<use f='codebrowser/renderer/jpeg-6/jdhuff.c' l='457' macro='1' u='r'/>
+<use f='codebrowser/renderer/jpeg-6/jdhuff.c' l='543' macro='1' u='w'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='224' u='r' c='get_sof'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='630' u='r' c='skip_variable'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='688' u='w' c='next_marker'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='712' u='w' c='first_marker'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='733' u='r' c='read_markers'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='746' u='r' c='read_markers'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='783' u='r' c='read_markers'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='789' u='w' c='read_markers'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='794' u='w' c='read_markers'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='833' u='r' c='read_markers'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='851' u='r' c='read_markers'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='865' u='r' c='read_markers'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='869' u='w' c='read_markers'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='891' u='r' c='read_restart_marker'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='896' u='r' c='read_restart_marker'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='900' u='w' c='read_restart_marker'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='968' u='r' c='jpeg_resync_to_restart'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='994' u='w' c='jpeg_resync_to_restart'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='1000' u='r' c='jpeg_resync_to_restart'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='1020' u='w' c='reset_marker_reader'/>

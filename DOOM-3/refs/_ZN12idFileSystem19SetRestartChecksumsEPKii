@@ -1,0 +1,5 @@
+<dec f='codebrowser/framework/FileSystem.h' l='208' type='void idFileSystem::SetRestartChecksums(const int * pureChecksums, int gamePakChecksum)'/>
+<doc f='codebrowser/framework/FileSystem.h' l='206'>// before doing a restart, force the pure list and the search order
+							// if the given checksum list can&apos;t be completely processed and set, will error out</doc>
+<ovr f='codebrowser/framework/FileSystem.cpp' l='2810' c='_ZN17idFileSystemLocal19SetRestartChecksumsEPKii'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1412' u='c' c='_ZN13idAsyncClient27ValidatePureServerChecksumsE8netadr_tRK8idBitMsg'/>

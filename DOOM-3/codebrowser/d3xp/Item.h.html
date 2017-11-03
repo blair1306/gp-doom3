@@ -1,0 +1,333 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Item.h source code [codebrowser/d3xp/Item.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idItem,idItemPowerup,idItemRemover,idItemTeam,idMoveableItem,idMoveablePDAItem,idObjective,idObjectiveComplete,idPDAItem,idVideoCDItem "/>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/d3xp/Item.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>d3xp</a>/<a href='Item.h.html'>Item.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__GAME_ITEM_H__">__GAME_ITEM_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__GAME_ITEM_H__" data-ref="_M/__GAME_ITEM_H__">__GAME_ITEM_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><i>/*</i></td></tr>
+<tr><th id="34">34</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="35">35</th><td><i></i></td></tr>
+<tr><th id="36">36</th><td><i>  Items the player can pick up or use.</i></td></tr>
+<tr><th id="37">37</th><td><i></i></td></tr>
+<tr><th id="38">38</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="39">39</th><td><i>*/</i></td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><b>class</b> <dfn class="type def" id="idItem" title='idItem' data-ref="idItem">idItem</dfn> : <b>public</b> <a class="type" href="Entity.h.html#idEntity" title='idEntity' data-ref="idEntity">idEntity</a> {</td></tr>
+<tr><th id="42">42</th><td><b>public</b>:</td></tr>
+<tr><th id="43">43</th><td>	<a class="macro" href="gamesys/Class.h.html#92" title="public: static idTypeInfo Type; static idClass *CreateInstance( void ); virtual idTypeInfo *GetType( void ) const; static idEventFunc&lt;idItem&gt; eventCallbacks[]" data-ref="_M/CLASS_PROTOTYPE">CLASS_PROTOTYPE</a>( <a class="type" href="#idItem" title='idItem' data-ref="idItem">idItem</a> );</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td>							<dfn class="decl" id="_ZN6idItemC1Ev" title='idItem::idItem' data-ref="_ZN6idItemC1Ev">idItem</dfn>();</td></tr>
+<tr><th id="46">46</th><td>	<b>virtual</b>					<dfn class="virtual decl" id="_ZN6idItemD1Ev" title='idItem::~idItem' data-ref="_ZN6idItemD1Ev">~idItem</dfn>();</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td>	<em>void</em>					<dfn class="decl" id="_ZNK6idItem4SaveEP10idSaveGame" title='idItem::Save' data-ref="_ZNK6idItem4SaveEP10idSaveGame">Save</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idSaveGame" title='idSaveGame' data-ref="idSaveGame">idSaveGame</a> *<dfn class="local col6 decl" id="3496savefile" title='savefile' data-type='idSaveGame *' data-ref="3496savefile">savefile</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="49">49</th><td>	<em>void</em>					<dfn class="decl" id="_ZN6idItem7RestoreEP13idRestoreGame" title='idItem::Restore' data-ref="_ZN6idItem7RestoreEP13idRestoreGame">Restore</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idRestoreGame" title='idRestoreGame' data-ref="idRestoreGame">idRestoreGame</a> *<dfn class="local col7 decl" id="3497savefile" title='savefile' data-type='idRestoreGame *' data-ref="3497savefile">savefile</dfn> );</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td>	<em>void</em>					<dfn class="decl" id="_ZN6idItem5SpawnEv" title='idItem::Spawn' data-ref="_ZN6idItem5SpawnEv">Spawn</dfn>( <em>void</em> );</td></tr>
+<tr><th id="52">52</th><td>	<em>void</em>					<dfn class="decl" id="_ZN6idItem13GetAttributesER6idDict" title='idItem::GetAttributes' data-ref="_ZN6idItem13GetAttributesER6idDict">GetAttributes</dfn>( <a class="type" href="../idlib/Dict.h.html#idDict" title='idDict' data-ref="idDict">idDict</a> &amp;<dfn class="local col8 decl" id="3498attributes" title='attributes' data-type='idDict &amp;' data-ref="3498attributes">attributes</dfn> );</td></tr>
+<tr><th id="53">53</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN6idItem12GiveToPlayerEP8idPlayer" title='idItem::GiveToPlayer' data-ref="_ZN6idItem12GiveToPlayerEP8idPlayer">GiveToPlayer</dfn>( <a class="type" href="Player.h.html#idPlayer" title='idPlayer' data-ref="idPlayer">idPlayer</a> *<dfn class="local col9 decl" id="3499player" title='player' data-type='idPlayer *' data-ref="3499player">player</dfn> );</td></tr>
+<tr><th id="54">54</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN6idItem6PickupEP8idPlayer" title='idItem::Pickup' data-ref="_ZN6idItem6PickupEP8idPlayer">Pickup</dfn>( <a class="type" href="Player.h.html#idPlayer" title='idPlayer' data-ref="idPlayer">idPlayer</a> *<dfn class="local col0 decl" id="3500player" title='player' data-type='idPlayer *' data-ref="3500player">player</dfn> );</td></tr>
+<tr><th id="55">55</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN6idItem5ThinkEv" title='idItem::Think' data-ref="_ZN6idItem5ThinkEv">Think</dfn>( <em>void</em> );</td></tr>
+<tr><th id="56">56</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN6idItem7PresentEv" title='idItem::Present' data-ref="_ZN6idItem7PresentEv">Present</dfn>();</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td>	<b>enum</b> {</td></tr>
+<tr><th id="59">59</th><td>		<dfn class="enum" id="idItem::EVENT_PICKUP" title='idItem::EVENT_PICKUP' data-ref="idItem::EVENT_PICKUP">EVENT_PICKUP</dfn> = <a class="type" href="Entity.h.html#idEntity" title='idEntity' data-ref="idEntity">idEntity</a>::<a class="enum" href="Entity.h.html#idEntity::EVENT_MAXEVENTS" title='idEntity::EVENT_MAXEVENTS' data-ref="idEntity::EVENT_MAXEVENTS">EVENT_MAXEVENTS</a>,</td></tr>
+<tr><th id="60">60</th><td>		<dfn class="enum" id="idItem::EVENT_RESPAWN" title='idItem::EVENT_RESPAWN' data-ref="idItem::EVENT_RESPAWN">EVENT_RESPAWN</dfn>,</td></tr>
+<tr><th id="61">61</th><td>		<dfn class="enum" id="idItem::EVENT_RESPAWNFX" title='idItem::EVENT_RESPAWNFX' data-ref="idItem::EVENT_RESPAWNFX">EVENT_RESPAWNFX</dfn>,</td></tr>
+<tr><th id="62">62</th><td><u>#<span data-ppcond="62">ifdef</span> <span class="macro" data-ref="_M/CTF">CTF</span></u></td></tr>
+<tr><th id="63">63</th><td>        <dfn class="enum" id="idItem::EVENT_TAKEFLAG" title='idItem::EVENT_TAKEFLAG' data-ref="idItem::EVENT_TAKEFLAG">EVENT_TAKEFLAG</dfn>,</td></tr>
+<tr><th id="64">64</th><td>        <dfn class="enum" id="idItem::EVENT_DROPFLAG" title='idItem::EVENT_DROPFLAG' data-ref="idItem::EVENT_DROPFLAG">EVENT_DROPFLAG</dfn>,</td></tr>
+<tr><th id="65">65</th><td>        <dfn class="enum" id="idItem::EVENT_FLAGRETURN" title='idItem::EVENT_FLAGRETURN' data-ref="idItem::EVENT_FLAGRETURN">EVENT_FLAGRETURN</dfn>,</td></tr>
+<tr><th id="66">66</th><td>		<dfn class="enum" id="idItem::EVENT_FLAGCAPTURE" title='idItem::EVENT_FLAGCAPTURE' data-ref="idItem::EVENT_FLAGCAPTURE">EVENT_FLAGCAPTURE</dfn>,</td></tr>
+<tr><th id="67">67</th><td><u>#<span data-ppcond="62">endif</span></u></td></tr>
+<tr><th id="68">68</th><td>		<dfn class="enum" id="idItem::EVENT_MAXEVENTS" title='idItem::EVENT_MAXEVENTS' data-ref="idItem::EVENT_MAXEVENTS">EVENT_MAXEVENTS</dfn></td></tr>
+<tr><th id="69">69</th><td>	};</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN6idItem21ClientPredictionThinkEv" title='idItem::ClientPredictionThink' data-ref="_ZN6idItem21ClientPredictionThinkEv">ClientPredictionThink</dfn>( <em>void</em> );</td></tr>
+<tr><th id="72">72</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN6idItem18ClientReceiveEventEiiRK8idBitMsg" title='idItem::ClientReceiveEvent' data-ref="_ZN6idItem18ClientReceiveEventEiiRK8idBitMsg">ClientReceiveEvent</dfn>( <em>int</em> <dfn class="local col1 decl" id="3501event" title='event' data-type='int' data-ref="3501event">event</dfn>, <em>int</em> <dfn class="local col2 decl" id="3502time" title='time' data-type='int' data-ref="3502time">time</dfn>, <em>const</em> <a class="type" href="../idlib/BitMsg.h.html#idBitMsg" title='idBitMsg' data-ref="idBitMsg">idBitMsg</a> &amp;<dfn class="local col3 decl" id="3503msg" title='msg' data-type='const idBitMsg &amp;' data-ref="3503msg">msg</dfn> );</td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td>	<i>// networking</i></td></tr>
+<tr><th id="75">75</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZNK6idItem15WriteToSnapshotER13idBitMsgDelta" title='idItem::WriteToSnapshot' data-ref="_ZNK6idItem15WriteToSnapshotER13idBitMsgDelta">WriteToSnapshot</dfn>( <a class="type" href="../idlib/BitMsg.h.html#idBitMsgDelta" title='idBitMsgDelta' data-ref="idBitMsgDelta">idBitMsgDelta</a> &amp;<dfn class="local col4 decl" id="3504msg" title='msg' data-type='idBitMsgDelta &amp;' data-ref="3504msg">msg</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="76">76</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN6idItem16ReadFromSnapshotERK13idBitMsgDelta" title='idItem::ReadFromSnapshot' data-ref="_ZN6idItem16ReadFromSnapshotERK13idBitMsgDelta">ReadFromSnapshot</dfn>( <em>const</em> <a class="type" href="../idlib/BitMsg.h.html#idBitMsgDelta" title='idBitMsgDelta' data-ref="idBitMsgDelta">idBitMsgDelta</a> &amp;<dfn class="local col5 decl" id="3505msg" title='msg' data-type='const idBitMsgDelta &amp;' data-ref="3505msg">msg</dfn> );</td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td><b>private</b>:</td></tr>
+<tr><th id="79">79</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a>					<dfn class="decl" id="idItem::orgOrigin" title='idItem::orgOrigin' data-ref="idItem::orgOrigin">orgOrigin</dfn>;</td></tr>
+<tr><th id="80">80</th><td>	<em>bool</em>					<dfn class="decl" id="idItem::spin" title='idItem::spin' data-ref="idItem::spin">spin</dfn>;</td></tr>
+<tr><th id="81">81</th><td>	<em>bool</em>					<dfn class="decl" id="idItem::pulse" title='idItem::pulse' data-ref="idItem::pulse">pulse</dfn>;</td></tr>
+<tr><th id="82">82</th><td>	<em>bool</em>					<dfn class="decl" id="idItem::canPickUp" title='idItem::canPickUp' data-ref="idItem::canPickUp">canPickUp</dfn>;</td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td>	<i>// for item pulse effect</i></td></tr>
+<tr><th id="85">85</th><td>	<em>int</em>						<dfn class="decl" id="idItem::itemShellHandle" title='idItem::itemShellHandle' data-ref="idItem::itemShellHandle">itemShellHandle</dfn>;</td></tr>
+<tr><th id="86">86</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *		<dfn class="decl" id="idItem::shellMaterial" title='idItem::shellMaterial' data-ref="idItem::shellMaterial">shellMaterial</dfn>;</td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td>	<i>// used to update the item pulse effect</i></td></tr>
+<tr><th id="89">89</th><td>	<em>mutable</em> <em>bool</em>			<dfn class="decl" id="idItem::inView" title='idItem::inView' data-ref="idItem::inView">inView</dfn>;</td></tr>
+<tr><th id="90">90</th><td>	<em>mutable</em> <em>int</em>				<dfn class="decl" id="idItem::inViewTime" title='idItem::inViewTime' data-ref="idItem::inViewTime">inViewTime</dfn>;</td></tr>
+<tr><th id="91">91</th><td>	<em>mutable</em> <em>int</em>				<dfn class="decl" id="idItem::lastCycle" title='idItem::lastCycle' data-ref="idItem::lastCycle">lastCycle</dfn>;</td></tr>
+<tr><th id="92">92</th><td>	<em>mutable</em> <em>int</em>				<dfn class="decl" id="idItem::lastRenderViewTime" title='idItem::lastRenderViewTime' data-ref="idItem::lastRenderViewTime">lastRenderViewTime</dfn>;</td></tr>
+<tr><th id="93">93</th><td></td></tr>
+<tr><th id="94">94</th><td>	<em>bool</em>					<dfn class="decl" id="_ZNK6idItem18UpdateRenderEntityEP14renderEntity_sPK12renderView_s" title='idItem::UpdateRenderEntity' data-ref="_ZNK6idItem18UpdateRenderEntityEP14renderEntity_sPK12renderView_s">UpdateRenderEntity</dfn>( <a class="type" href="../renderer/RenderWorld.h.html#renderEntity_s" title='renderEntity_s' data-ref="renderEntity_s">renderEntity_s</a> *<dfn class="local col6 decl" id="3506renderEntity" title='renderEntity' data-type='renderEntity_s *' data-ref="3506renderEntity">renderEntity</dfn>, <em>const</em> <a class="typedef" href="../framework/DeclParticle.h.html#renderView_t" title='renderView_t' data-type='struct renderView_s' data-ref="renderView_t">renderView_t</a> *<dfn class="local col7 decl" id="3507renderView" title='renderView' data-type='const renderView_t *' data-ref="3507renderView">renderView</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="95">95</th><td>	<em>static</em> <em>bool</em>				<dfn class="decl" id="_ZN6idItem13ModelCallbackEP14renderEntity_sPK12renderView_s" title='idItem::ModelCallback' data-ref="_ZN6idItem13ModelCallbackEP14renderEntity_sPK12renderView_s">ModelCallback</dfn>( <a class="type" href="../renderer/RenderWorld.h.html#renderEntity_s" title='renderEntity_s' data-ref="renderEntity_s">renderEntity_s</a> *<dfn class="local col8 decl" id="3508renderEntity" title='renderEntity' data-type='renderEntity_s *' data-ref="3508renderEntity">renderEntity</dfn>, <em>const</em> <a class="typedef" href="../framework/DeclParticle.h.html#renderView_t" title='renderView_t' data-type='struct renderView_s' data-ref="renderView_t">renderView_t</a> *<dfn class="local col9 decl" id="3509renderView" title='renderView' data-type='const renderView_t *' data-ref="3509renderView">renderView</dfn> );</td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td>	<em>void</em>					<dfn class="decl" id="_ZN6idItem17Event_DropToFloorEv" title='idItem::Event_DropToFloor' data-ref="_ZN6idItem17Event_DropToFloorEv">Event_DropToFloor</dfn>( <em>void</em> );</td></tr>
+<tr><th id="98">98</th><td>	<em>void</em>					<dfn class="decl" id="_ZN6idItem11Event_TouchEP8idEntityP7trace_s" title='idItem::Event_Touch' data-ref="_ZN6idItem11Event_TouchEP8idEntityP7trace_s">Event_Touch</dfn>( <a class="type" href="Entity.h.html#idEntity" title='idEntity' data-ref="idEntity">idEntity</a> *<dfn class="local col0 decl" id="3510other" title='other' data-type='idEntity *' data-ref="3510other">other</dfn>, <a class="typedef" href="../cm/CollisionModel.h.html#trace_t" title='trace_t' data-type='struct trace_s' data-ref="trace_t">trace_t</a> *<dfn class="local col1 decl" id="3511trace" title='trace' data-type='trace_t *' data-ref="3511trace">trace</dfn> );</td></tr>
+<tr><th id="99">99</th><td>	<em>void</em>					<dfn class="decl" id="_ZN6idItem13Event_TriggerEP8idEntity" title='idItem::Event_Trigger' data-ref="_ZN6idItem13Event_TriggerEP8idEntity">Event_Trigger</dfn>( <a class="type" href="Entity.h.html#idEntity" title='idEntity' data-ref="idEntity">idEntity</a> *<dfn class="local col2 decl" id="3512activator" title='activator' data-type='idEntity *' data-ref="3512activator">activator</dfn> );</td></tr>
+<tr><th id="100">100</th><td>	<em>void</em>					<dfn class="decl" id="_ZN6idItem13Event_RespawnEv" title='idItem::Event_Respawn' data-ref="_ZN6idItem13Event_RespawnEv">Event_Respawn</dfn>( <em>void</em> );</td></tr>
+<tr><th id="101">101</th><td>	<em>void</em>					<dfn class="decl" id="_ZN6idItem15Event_RespawnFxEv" title='idItem::Event_RespawnFx' data-ref="_ZN6idItem15Event_RespawnFxEv">Event_RespawnFx</dfn>( <em>void</em> );</td></tr>
+<tr><th id="102">102</th><td>};</td></tr>
+<tr><th id="103">103</th><td></td></tr>
+<tr><th id="104">104</th><td><b>class</b> <dfn class="type def" id="idItemPowerup" title='idItemPowerup' data-ref="idItemPowerup">idItemPowerup</dfn> : <b>public</b> <a class="type" href="#idItem" title='idItem' data-ref="idItem">idItem</a> {</td></tr>
+<tr><th id="105">105</th><td><b>public</b>:</td></tr>
+<tr><th id="106">106</th><td>	<a class="macro" href="gamesys/Class.h.html#92" title="public: static idTypeInfo Type; static idClass *CreateInstance( void ); virtual idTypeInfo *GetType( void ) const; static idEventFunc&lt;idItemPowerup&gt; eventCallbacks[]" data-ref="_M/CLASS_PROTOTYPE">CLASS_PROTOTYPE</a>( <a class="type" href="#idItemPowerup" title='idItemPowerup' data-ref="idItemPowerup">idItemPowerup</a> );</td></tr>
+<tr><th id="107">107</th><td></td></tr>
+<tr><th id="108">108</th><td>							<dfn class="decl" id="_ZN13idItemPowerupC1Ev" title='idItemPowerup::idItemPowerup' data-ref="_ZN13idItemPowerupC1Ev">idItemPowerup</dfn>();</td></tr>
+<tr><th id="109">109</th><td></td></tr>
+<tr><th id="110">110</th><td>	<em>void</em>					<dfn class="decl" id="_ZNK13idItemPowerup4SaveEP10idSaveGame" title='idItemPowerup::Save' data-ref="_ZNK13idItemPowerup4SaveEP10idSaveGame">Save</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idSaveGame" title='idSaveGame' data-ref="idSaveGame">idSaveGame</a> *<dfn class="local col3 decl" id="3513savefile" title='savefile' data-type='idSaveGame *' data-ref="3513savefile">savefile</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="111">111</th><td>	<em>void</em>					<dfn class="decl" id="_ZN13idItemPowerup7RestoreEP13idRestoreGame" title='idItemPowerup::Restore' data-ref="_ZN13idItemPowerup7RestoreEP13idRestoreGame">Restore</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idRestoreGame" title='idRestoreGame' data-ref="idRestoreGame">idRestoreGame</a> *<dfn class="local col4 decl" id="3514savefile" title='savefile' data-type='idRestoreGame *' data-ref="3514savefile">savefile</dfn> );</td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td>	<em>void</em>					<dfn class="decl" id="_ZN13idItemPowerup5SpawnEv" title='idItemPowerup::Spawn' data-ref="_ZN13idItemPowerup5SpawnEv">Spawn</dfn>();</td></tr>
+<tr><th id="114">114</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN13idItemPowerup12GiveToPlayerEP8idPlayer" title='idItemPowerup::GiveToPlayer' data-ref="_ZN13idItemPowerup12GiveToPlayerEP8idPlayer">GiveToPlayer</dfn>( <a class="type" href="Player.h.html#idPlayer" title='idPlayer' data-ref="idPlayer">idPlayer</a> *<dfn class="local col5 decl" id="3515player" title='player' data-type='idPlayer *' data-ref="3515player">player</dfn> );</td></tr>
+<tr><th id="115">115</th><td></td></tr>
+<tr><th id="116">116</th><td><b>private</b>:</td></tr>
+<tr><th id="117">117</th><td>	<em>int</em>						<dfn class="decl" id="idItemPowerup::time" title='idItemPowerup::time' data-ref="idItemPowerup::time">time</dfn>;</td></tr>
+<tr><th id="118">118</th><td>	<em>int</em>						<dfn class="decl" id="idItemPowerup::type" title='idItemPowerup::type' data-ref="idItemPowerup::type">type</dfn>;</td></tr>
+<tr><th id="119">119</th><td>};</td></tr>
+<tr><th id="120">120</th><td></td></tr>
+<tr><th id="121">121</th><td><b>class</b> <dfn class="type def" id="idObjective" title='idObjective' data-ref="idObjective">idObjective</dfn> : <b>public</b> <a class="type" href="#idItem" title='idItem' data-ref="idItem">idItem</a> {</td></tr>
+<tr><th id="122">122</th><td><b>public</b>:</td></tr>
+<tr><th id="123">123</th><td>	<a class="macro" href="gamesys/Class.h.html#92" title="public: static idTypeInfo Type; static idClass *CreateInstance( void ); virtual idTypeInfo *GetType( void ) const; static idEventFunc&lt;idObjective&gt; eventCallbacks[]" data-ref="_M/CLASS_PROTOTYPE">CLASS_PROTOTYPE</a>( <a class="type" href="#idObjective" title='idObjective' data-ref="idObjective">idObjective</a> );</td></tr>
+<tr><th id="124">124</th><td></td></tr>
+<tr><th id="125">125</th><td>							<dfn class="decl" id="_ZN11idObjectiveC1Ev" title='idObjective::idObjective' data-ref="_ZN11idObjectiveC1Ev">idObjective</dfn>();</td></tr>
+<tr><th id="126">126</th><td></td></tr>
+<tr><th id="127">127</th><td>	<em>void</em>					<dfn class="decl" id="_ZNK11idObjective4SaveEP10idSaveGame" title='idObjective::Save' data-ref="_ZNK11idObjective4SaveEP10idSaveGame">Save</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idSaveGame" title='idSaveGame' data-ref="idSaveGame">idSaveGame</a> *<dfn class="local col6 decl" id="3516savefile" title='savefile' data-type='idSaveGame *' data-ref="3516savefile">savefile</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="128">128</th><td>	<em>void</em>					<dfn class="decl" id="_ZN11idObjective7RestoreEP13idRestoreGame" title='idObjective::Restore' data-ref="_ZN11idObjective7RestoreEP13idRestoreGame">Restore</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idRestoreGame" title='idRestoreGame' data-ref="idRestoreGame">idRestoreGame</a> *<dfn class="local col7 decl" id="3517savefile" title='savefile' data-type='idRestoreGame *' data-ref="3517savefile">savefile</dfn> );</td></tr>
+<tr><th id="129">129</th><td></td></tr>
+<tr><th id="130">130</th><td>	<em>void</em>					<dfn class="decl" id="_ZN11idObjective5SpawnEv" title='idObjective::Spawn' data-ref="_ZN11idObjective5SpawnEv">Spawn</dfn>();</td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td><b>private</b>:</td></tr>
+<tr><th id="133">133</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a>					<dfn class="decl" id="idObjective::playerPos" title='idObjective::playerPos' data-ref="idObjective::playerPos">playerPos</dfn>;</td></tr>
+<tr><th id="134">134</th><td></td></tr>
+<tr><th id="135">135</th><td>	<em>void</em>					<dfn class="decl" id="_ZN11idObjective13Event_TriggerEP8idEntity" title='idObjective::Event_Trigger' data-ref="_ZN11idObjective13Event_TriggerEP8idEntity">Event_Trigger</dfn>( <a class="type" href="Entity.h.html#idEntity" title='idEntity' data-ref="idEntity">idEntity</a> *<dfn class="local col8 decl" id="3518activator" title='activator' data-type='idEntity *' data-ref="3518activator">activator</dfn> );</td></tr>
+<tr><th id="136">136</th><td>	<em>void</em>					<dfn class="decl" id="_ZN11idObjective19Event_HideObjectiveEP8idEntity" title='idObjective::Event_HideObjective' data-ref="_ZN11idObjective19Event_HideObjectiveEP8idEntity">Event_HideObjective</dfn>( <a class="type" href="Entity.h.html#idEntity" title='idEntity' data-ref="idEntity">idEntity</a> *<dfn class="local col9 decl" id="3519e" title='e' data-type='idEntity *' data-ref="3519e">e</dfn> );</td></tr>
+<tr><th id="137">137</th><td>	<em>void</em>					<dfn class="decl" id="_ZN11idObjective18Event_GetPlayerPosEv" title='idObjective::Event_GetPlayerPos' data-ref="_ZN11idObjective18Event_GetPlayerPosEv">Event_GetPlayerPos</dfn>();</td></tr>
+<tr><th id="138">138</th><td>	<em>void</em>					<dfn class="decl" id="_ZN11idObjective13Event_CamShotEv" title='idObjective::Event_CamShot' data-ref="_ZN11idObjective13Event_CamShotEv">Event_CamShot</dfn>();</td></tr>
+<tr><th id="139">139</th><td>};</td></tr>
+<tr><th id="140">140</th><td></td></tr>
+<tr><th id="141">141</th><td><b>class</b> <dfn class="type def" id="idVideoCDItem" title='idVideoCDItem' data-ref="idVideoCDItem">idVideoCDItem</dfn> : <b>public</b> <a class="type" href="#idItem" title='idItem' data-ref="idItem">idItem</a> {</td></tr>
+<tr><th id="142">142</th><td><b>public</b>:</td></tr>
+<tr><th id="143">143</th><td>	<a class="macro" href="gamesys/Class.h.html#92" title="public: static idTypeInfo Type; static idClass *CreateInstance( void ); virtual idTypeInfo *GetType( void ) const; static idEventFunc&lt;idVideoCDItem&gt; eventCallbacks[]" data-ref="_M/CLASS_PROTOTYPE">CLASS_PROTOTYPE</a>( <a class="type" href="#idVideoCDItem" title='idVideoCDItem' data-ref="idVideoCDItem">idVideoCDItem</a> );</td></tr>
+<tr><th id="144">144</th><td></td></tr>
+<tr><th id="145">145</th><td>	<em>void</em>					<dfn class="decl" id="_ZN13idVideoCDItem5SpawnEv" title='idVideoCDItem::Spawn' data-ref="_ZN13idVideoCDItem5SpawnEv">Spawn</dfn>();</td></tr>
+<tr><th id="146">146</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN13idVideoCDItem12GiveToPlayerEP8idPlayer" title='idVideoCDItem::GiveToPlayer' data-ref="_ZN13idVideoCDItem12GiveToPlayerEP8idPlayer">GiveToPlayer</dfn>( <a class="type" href="Player.h.html#idPlayer" title='idPlayer' data-ref="idPlayer">idPlayer</a> *<dfn class="local col0 decl" id="3520player" title='player' data-type='idPlayer *' data-ref="3520player">player</dfn> );</td></tr>
+<tr><th id="147">147</th><td>};</td></tr>
+<tr><th id="148">148</th><td></td></tr>
+<tr><th id="149">149</th><td><b>class</b> <dfn class="type def" id="idPDAItem" title='idPDAItem' data-ref="idPDAItem">idPDAItem</dfn> : <b>public</b> <a class="type" href="#idItem" title='idItem' data-ref="idItem">idItem</a> {</td></tr>
+<tr><th id="150">150</th><td><b>public</b>:</td></tr>
+<tr><th id="151">151</th><td>	<a class="macro" href="gamesys/Class.h.html#92" title="public: static idTypeInfo Type; static idClass *CreateInstance( void ); virtual idTypeInfo *GetType( void ) const; static idEventFunc&lt;idPDAItem&gt; eventCallbacks[]" data-ref="_M/CLASS_PROTOTYPE">CLASS_PROTOTYPE</a>( <a class="type" href="#idPDAItem" title='idPDAItem' data-ref="idPDAItem">idPDAItem</a> );</td></tr>
+<tr><th id="152">152</th><td></td></tr>
+<tr><th id="153">153</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN9idPDAItem12GiveToPlayerEP8idPlayer" title='idPDAItem::GiveToPlayer' data-ref="_ZN9idPDAItem12GiveToPlayerEP8idPlayer">GiveToPlayer</dfn>( <a class="type" href="Player.h.html#idPlayer" title='idPlayer' data-ref="idPlayer">idPlayer</a> *<dfn class="local col1 decl" id="3521player" title='player' data-type='idPlayer *' data-ref="3521player">player</dfn> );</td></tr>
+<tr><th id="154">154</th><td>};</td></tr>
+<tr><th id="155">155</th><td></td></tr>
+<tr><th id="156">156</th><td><b>class</b> <dfn class="type def" id="idMoveableItem" title='idMoveableItem' data-ref="idMoveableItem">idMoveableItem</dfn> : <b>public</b> <a class="type" href="#idItem" title='idItem' data-ref="idItem">idItem</a> {</td></tr>
+<tr><th id="157">157</th><td><b>public</b>:</td></tr>
+<tr><th id="158">158</th><td>	<a class="macro" href="gamesys/Class.h.html#92" title="public: static idTypeInfo Type; static idClass *CreateInstance( void ); virtual idTypeInfo *GetType( void ) const; static idEventFunc&lt;idMoveableItem&gt; eventCallbacks[]" data-ref="_M/CLASS_PROTOTYPE">CLASS_PROTOTYPE</a>( <a class="type" href="#idMoveableItem" title='idMoveableItem' data-ref="idMoveableItem">idMoveableItem</a> );</td></tr>
+<tr><th id="159">159</th><td></td></tr>
+<tr><th id="160">160</th><td>							<dfn class="decl" id="_ZN14idMoveableItemC1Ev" title='idMoveableItem::idMoveableItem' data-ref="_ZN14idMoveableItemC1Ev">idMoveableItem</dfn>();</td></tr>
+<tr><th id="161">161</th><td>	<b>virtual</b>					<dfn class="virtual decl" id="_ZN14idMoveableItemD1Ev" title='idMoveableItem::~idMoveableItem' data-ref="_ZN14idMoveableItemD1Ev">~idMoveableItem</dfn>();</td></tr>
+<tr><th id="162">162</th><td></td></tr>
+<tr><th id="163">163</th><td>	<em>void</em>					<dfn class="decl" id="_ZNK14idMoveableItem4SaveEP10idSaveGame" title='idMoveableItem::Save' data-ref="_ZNK14idMoveableItem4SaveEP10idSaveGame">Save</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idSaveGame" title='idSaveGame' data-ref="idSaveGame">idSaveGame</a> *<dfn class="local col2 decl" id="3522savefile" title='savefile' data-type='idSaveGame *' data-ref="3522savefile">savefile</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="164">164</th><td>	<em>void</em>					<dfn class="decl" id="_ZN14idMoveableItem7RestoreEP13idRestoreGame" title='idMoveableItem::Restore' data-ref="_ZN14idMoveableItem7RestoreEP13idRestoreGame">Restore</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idRestoreGame" title='idRestoreGame' data-ref="idRestoreGame">idRestoreGame</a> *<dfn class="local col3 decl" id="3523savefile" title='savefile' data-type='idRestoreGame *' data-ref="3523savefile">savefile</dfn> );</td></tr>
+<tr><th id="165">165</th><td></td></tr>
+<tr><th id="166">166</th><td>	<em>void</em>					<dfn class="decl" id="_ZN14idMoveableItem5SpawnEv" title='idMoveableItem::Spawn' data-ref="_ZN14idMoveableItem5SpawnEv">Spawn</dfn>( <em>void</em> );</td></tr>
+<tr><th id="167">167</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN14idMoveableItem5ThinkEv" title='idMoveableItem::Think' data-ref="_ZN14idMoveableItem5ThinkEv">Think</dfn>( <em>void</em> );</td></tr>
+<tr><th id="168">168</th><td><u>#<span data-ppcond="168">ifdef</span> <span class="macro" data-ref="_M/_D3XP">_D3XP</span></u></td></tr>
+<tr><th id="169">169</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN14idMoveableItem7CollideERK7trace_sRK6idVec3" title='idMoveableItem::Collide' data-ref="_ZN14idMoveableItem7CollideERK7trace_sRK6idVec3">Collide</dfn>( <em>const</em> <a class="typedef" href="../cm/CollisionModel.h.html#trace_t" title='trace_t' data-type='struct trace_s' data-ref="trace_t">trace_t</a> &amp;<dfn class="local col4 decl" id="3524collision" title='collision' data-type='const trace_t &amp;' data-ref="3524collision">collision</dfn>, <em>const</em> <a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col5 decl" id="3525velocity" title='velocity' data-type='const idVec3 &amp;' data-ref="3525velocity">velocity</dfn> );</td></tr>
+<tr><th id="170">170</th><td><u>#<span data-ppcond="168">endif</span></u></td></tr>
+<tr><th id="171">171</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN14idMoveableItem6PickupEP8idPlayer" title='idMoveableItem::Pickup' data-ref="_ZN14idMoveableItem6PickupEP8idPlayer">Pickup</dfn>( <a class="type" href="Player.h.html#idPlayer" title='idPlayer' data-ref="idPlayer">idPlayer</a> *<dfn class="local col6 decl" id="3526player" title='player' data-type='idPlayer *' data-ref="3526player">player</dfn> );</td></tr>
+<tr><th id="172">172</th><td></td></tr>
+<tr><th id="173">173</th><td>	<em>static</em> <em>void</em>				<dfn class="decl" id="_ZN14idMoveableItem9DropItemsEP16idAnimatedEntityPKcP6idListIP8idEntityE" title='idMoveableItem::DropItems' data-ref="_ZN14idMoveableItem9DropItemsEP16idAnimatedEntityPKcP6idListIP8idEntityE">DropItems</dfn>( <a class="type" href="Entity.h.html#idAnimatedEntity" title='idAnimatedEntity' data-ref="idAnimatedEntity">idAnimatedEntity</a> *<dfn class="local col7 decl" id="3527ent" title='ent' data-type='idAnimatedEntity *' data-ref="3527ent">ent</dfn>, <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="3528type" title='type' data-type='const char *' data-ref="3528type">type</dfn>, <a class="type" href="../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<a class="type" href="Entity.h.html#idEntity" title='idEntity' data-ref="idEntity">idEntity</a> *&gt; *<dfn class="local col9 decl" id="3529list" title='list' data-type='idList&lt;idEntity *&gt; *' data-ref="3529list">list</dfn> );</td></tr>
+<tr><th id="174">174</th><td>	<em>static</em> <a class="type" href="Entity.h.html#idEntity" title='idEntity' data-ref="idEntity">idEntity</a>	*		<dfn class="decl" id="_ZN14idMoveableItem8DropItemEPKcRK6idVec3RK6idMat3S4_ii" title='idMoveableItem::DropItem' data-ref="_ZN14idMoveableItem8DropItemEPKcRK6idVec3RK6idMat3S4_ii">DropItem</dfn>( <em>const</em> <em>char</em> *<dfn class="local col0 decl" id="3530classname" title='classname' data-type='const char *' data-ref="3530classname">classname</dfn>, <em>const</em> <a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col1 decl" id="3531origin" title='origin' data-type='const idVec3 &amp;' data-ref="3531origin">origin</dfn>, <em>const</em> <a class="type" href="../idlib/math/Matrix.h.html#idMat3" title='idMat3' data-ref="idMat3">idMat3</a> &amp;<dfn class="local col2 decl" id="3532axis" title='axis' data-type='const idMat3 &amp;' data-ref="3532axis">axis</dfn>, <em>const</em> <a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col3 decl" id="3533velocity" title='velocity' data-type='const idVec3 &amp;' data-ref="3533velocity">velocity</dfn>, <em>int</em> <dfn class="local col4 decl" id="3534activateDelay" title='activateDelay' data-type='int' data-ref="3534activateDelay">activateDelay</dfn>, <em>int</em> <dfn class="local col5 decl" id="3535removeDelay" title='removeDelay' data-type='int' data-ref="3535removeDelay">removeDelay</dfn> );</td></tr>
+<tr><th id="175">175</th><td></td></tr>
+<tr><th id="176">176</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZNK14idMoveableItem15WriteToSnapshotER13idBitMsgDelta" title='idMoveableItem::WriteToSnapshot' data-ref="_ZNK14idMoveableItem15WriteToSnapshotER13idBitMsgDelta">WriteToSnapshot</dfn>( <a class="type" href="../idlib/BitMsg.h.html#idBitMsgDelta" title='idBitMsgDelta' data-ref="idBitMsgDelta">idBitMsgDelta</a> &amp;<dfn class="local col6 decl" id="3536msg" title='msg' data-type='idBitMsgDelta &amp;' data-ref="3536msg">msg</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="177">177</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN14idMoveableItem16ReadFromSnapshotERK13idBitMsgDelta" title='idMoveableItem::ReadFromSnapshot' data-ref="_ZN14idMoveableItem16ReadFromSnapshotERK13idBitMsgDelta">ReadFromSnapshot</dfn>( <em>const</em> <a class="type" href="../idlib/BitMsg.h.html#idBitMsgDelta" title='idBitMsgDelta' data-ref="idBitMsgDelta">idBitMsgDelta</a> &amp;<dfn class="local col7 decl" id="3537msg" title='msg' data-type='const idBitMsgDelta &amp;' data-ref="3537msg">msg</dfn> );</td></tr>
+<tr><th id="178">178</th><td></td></tr>
+<tr><th id="179">179</th><td><u>#<span data-ppcond="179">ifdef</span> <span class="macro" data-ref="_M/CTF">CTF</span></u>    </td></tr>
+<tr><th id="180">180</th><td><b>protected</b>:</td></tr>
+<tr><th id="181">181</th><td><u>#<span data-ppcond="179">else</span></u></td></tr>
+<tr><th id="182">182</th><td><b>private</b>:</td></tr>
+<tr><th id="183">183</th><td><u>#<span data-ppcond="179">endif</span></u></td></tr>
+<tr><th id="184">184</th><td>	<a class="type" href="physics/Physics_RigidBody.h.html#idPhysics_RigidBody" title='idPhysics_RigidBody' data-ref="idPhysics_RigidBody">idPhysics_RigidBody</a>		<dfn class="decl" id="idMoveableItem::physicsObj" title='idMoveableItem::physicsObj' data-ref="idMoveableItem::physicsObj">physicsObj</dfn>;</td></tr>
+<tr><th id="185">185</th><td>	<a class="type" href="physics/Clip.h.html#idClipModel" title='idClipModel' data-ref="idClipModel">idClipModel</a> *			<dfn class="decl" id="idMoveableItem::trigger" title='idMoveableItem::trigger' data-ref="idMoveableItem::trigger">trigger</dfn>;</td></tr>
+<tr><th id="186">186</th><td>	<em>const</em> <a class="type" href="../framework/DeclParticle.h.html#idDeclParticle" title='idDeclParticle' data-ref="idDeclParticle">idDeclParticle</a> *	<dfn class="decl" id="idMoveableItem::smoke" title='idMoveableItem::smoke' data-ref="idMoveableItem::smoke">smoke</dfn>;</td></tr>
+<tr><th id="187">187</th><td>	<em>int</em>						<dfn class="decl" id="idMoveableItem::smokeTime" title='idMoveableItem::smokeTime' data-ref="idMoveableItem::smokeTime">smokeTime</dfn>;</td></tr>
+<tr><th id="188">188</th><td></td></tr>
+<tr><th id="189">189</th><td><u>#<span data-ppcond="189">ifdef</span> <span class="macro" data-ref="_M/_D3XP">_D3XP</span></u></td></tr>
+<tr><th id="190">190</th><td>	<em>int</em>						<dfn class="decl" id="idMoveableItem::nextSoundTime" title='idMoveableItem::nextSoundTime' data-ref="idMoveableItem::nextSoundTime">nextSoundTime</dfn>;</td></tr>
+<tr><th id="191">191</th><td><u>#<span data-ppcond="189">endif</span></u></td></tr>
+<tr><th id="192">192</th><td><u>#<span data-ppcond="192">ifdef</span> <span class="macro" data-ref="_M/CTF">CTF</span></u></td></tr>
+<tr><th id="193">193</th><td>	<em>bool</em>					<dfn class="decl" id="idMoveableItem::repeatSmoke" title='idMoveableItem::repeatSmoke' data-ref="idMoveableItem::repeatSmoke">repeatSmoke</dfn>;	<i>// never stop updating the particles</i></td></tr>
+<tr><th id="194">194</th><td><u>#<span data-ppcond="192">endif</span></u></td></tr>
+<tr><th id="195">195</th><td></td></tr>
+<tr><th id="196">196</th><td>	<em>void</em>					<dfn class="decl" id="_ZN14idMoveableItem3GibERK6idVec3PKc" title='idMoveableItem::Gib' data-ref="_ZN14idMoveableItem3GibERK6idVec3PKc">Gib</dfn>( <em>const</em> <a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col8 decl" id="3538dir" title='dir' data-type='const idVec3 &amp;' data-ref="3538dir">dir</dfn>, <em>const</em> <em>char</em> *<dfn class="local col9 decl" id="3539damageDefName" title='damageDefName' data-type='const char *' data-ref="3539damageDefName">damageDefName</dfn> );</td></tr>
+<tr><th id="197">197</th><td></td></tr>
+<tr><th id="198">198</th><td>	<em>void</em>					<dfn class="decl" id="_ZN14idMoveableItem17Event_DropToFloorEv" title='idMoveableItem::Event_DropToFloor' data-ref="_ZN14idMoveableItem17Event_DropToFloorEv">Event_DropToFloor</dfn>( <em>void</em> );</td></tr>
+<tr><th id="199">199</th><td>	<em>void</em>					<dfn class="decl" id="_ZN14idMoveableItem9Event_GibEPKc" title='idMoveableItem::Event_Gib' data-ref="_ZN14idMoveableItem9Event_GibEPKc">Event_Gib</dfn>( <em>const</em> <em>char</em> *<dfn class="local col0 decl" id="3540damageDefName" title='damageDefName' data-type='const char *' data-ref="3540damageDefName">damageDefName</dfn> );</td></tr>
+<tr><th id="200">200</th><td>};</td></tr>
+<tr><th id="201">201</th><td></td></tr>
+<tr><th id="202">202</th><td><u>#<span data-ppcond="202">ifdef</span> <span class="macro" data-ref="_M/CTF">CTF</span></u></td></tr>
+<tr><th id="203">203</th><td></td></tr>
+<tr><th id="204">204</th><td><b>class</b> <dfn class="type def" id="idItemTeam" title='idItemTeam' data-ref="idItemTeam">idItemTeam</dfn> : <b>public</b> <a class="type" href="#idMoveableItem" title='idMoveableItem' data-ref="idMoveableItem">idMoveableItem</a> {</td></tr>
+<tr><th id="205">205</th><td><b>public</b>:</td></tr>
+<tr><th id="206">206</th><td>    <a class="macro" href="gamesys/Class.h.html#92" title="public: static idTypeInfo Type; static idClass *CreateInstance( void ); virtual idTypeInfo *GetType( void ) const; static idEventFunc&lt;idItemTeam&gt; eventCallbacks[]" data-ref="_M/CLASS_PROTOTYPE">CLASS_PROTOTYPE</a>( <a class="type" href="#idItemTeam" title='idItemTeam' data-ref="idItemTeam">idItemTeam</a> );</td></tr>
+<tr><th id="207">207</th><td></td></tr>
+<tr><th id="208">208</th><td>                            <dfn class="decl" id="_ZN10idItemTeamC1Ev" title='idItemTeam::idItemTeam' data-ref="_ZN10idItemTeamC1Ev">idItemTeam</dfn>();</td></tr>
+<tr><th id="209">209</th><td>	<b>virtual</b>					<dfn class="virtual decl" id="_ZN10idItemTeamD1Ev" title='idItemTeam::~idItemTeam' data-ref="_ZN10idItemTeamD1Ev">~idItemTeam</dfn>();</td></tr>
+<tr><th id="210">210</th><td></td></tr>
+<tr><th id="211">211</th><td>    <em>void</em>                    <dfn class="decl" id="_ZN10idItemTeam5SpawnEv" title='idItemTeam::Spawn' data-ref="_ZN10idItemTeam5SpawnEv">Spawn</dfn>();</td></tr>
+<tr><th id="212">212</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN10idItemTeam6PickupEP8idPlayer" title='idItemTeam::Pickup' data-ref="_ZN10idItemTeam6PickupEP8idPlayer">Pickup</dfn>( <a class="type" href="Player.h.html#idPlayer" title='idPlayer' data-ref="idPlayer">idPlayer</a> *<dfn class="local col1 decl" id="3541player" title='player' data-type='idPlayer *' data-ref="3541player">player</dfn> );</td></tr>
+<tr><th id="213">213</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN10idItemTeam18ClientReceiveEventEiiRK8idBitMsg" title='idItemTeam::ClientReceiveEvent' data-ref="_ZN10idItemTeam18ClientReceiveEventEiiRK8idBitMsg">ClientReceiveEvent</dfn>( <em>int</em> <dfn class="local col2 decl" id="3542event" title='event' data-type='int' data-ref="3542event">event</dfn>, <em>int</em> <dfn class="local col3 decl" id="3543time" title='time' data-type='int' data-ref="3543time">time</dfn>, <em>const</em> <a class="type" href="../idlib/BitMsg.h.html#idBitMsg" title='idBitMsg' data-ref="idBitMsg">idBitMsg</a> &amp;<dfn class="local col4 decl" id="3544msg" title='msg' data-type='const idBitMsg &amp;' data-ref="3544msg">msg</dfn> );    </td></tr>
+<tr><th id="214">214</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN10idItemTeam5ThinkEv" title='idItemTeam::Think' data-ref="_ZN10idItemTeam5ThinkEv">Think</dfn>(<em>void</em> );</td></tr>
+<tr><th id="215">215</th><td></td></tr>
+<tr><th id="216">216</th><td>	<em>void</em>					<dfn class="decl" id="_ZN10idItemTeam4DropEb" title='idItemTeam::Drop' data-ref="_ZN10idItemTeam4DropEb">Drop</dfn>( <em>bool</em> <dfn class="local col5 decl" id="3545death" title='death' data-type='bool' data-ref="3545death">death</dfn> = <b>false</b> );	<i>// was the drop caused by death of carrier?</i></td></tr>
+<tr><th id="217">217</th><td>	<em>void</em>					<dfn class="decl" id="_ZN10idItemTeam6ReturnEP8idPlayer" title='idItemTeam::Return' data-ref="_ZN10idItemTeam6ReturnEP8idPlayer">Return</dfn>( <a class="type" href="Player.h.html#idPlayer" title='idPlayer' data-ref="idPlayer">idPlayer</a> * <dfn class="local col6 decl" id="3546player" title='player' data-type='idPlayer *' data-ref="3546player">player</dfn> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> );</td></tr>
+<tr><th id="218">218</th><td>	<em>void</em>					<dfn class="decl" id="_ZN10idItemTeam7CaptureEv" title='idItemTeam::Capture' data-ref="_ZN10idItemTeam7CaptureEv">Capture</dfn>( <em>void</em> );</td></tr>
+<tr><th id="219">219</th><td></td></tr>
+<tr><th id="220">220</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN10idItemTeam12FreeLightDefEv" title='idItemTeam::FreeLightDef' data-ref="_ZN10idItemTeam12FreeLightDefEv">FreeLightDef</dfn>( <em>void</em> );</td></tr>
+<tr><th id="221">221</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN10idItemTeam7PresentEv" title='idItemTeam::Present' data-ref="_ZN10idItemTeam7PresentEv">Present</dfn>( <em>void</em> );</td></tr>
+<tr><th id="222">222</th><td></td></tr>
+<tr><th id="223">223</th><td>	<i>// networking</i></td></tr>
+<tr><th id="224">224</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZNK10idItemTeam15WriteToSnapshotER13idBitMsgDelta" title='idItemTeam::WriteToSnapshot' data-ref="_ZNK10idItemTeam15WriteToSnapshotER13idBitMsgDelta">WriteToSnapshot</dfn>( <a class="type" href="../idlib/BitMsg.h.html#idBitMsgDelta" title='idBitMsgDelta' data-ref="idBitMsgDelta">idBitMsgDelta</a> &amp;<dfn class="local col7 decl" id="3547msg" title='msg' data-type='idBitMsgDelta &amp;' data-ref="3547msg">msg</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="225">225</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN10idItemTeam16ReadFromSnapshotERK13idBitMsgDelta" title='idItemTeam::ReadFromSnapshot' data-ref="_ZN10idItemTeam16ReadFromSnapshotERK13idBitMsgDelta">ReadFromSnapshot</dfn>( <em>const</em> <a class="type" href="../idlib/BitMsg.h.html#idBitMsgDelta" title='idBitMsgDelta' data-ref="idBitMsgDelta">idBitMsgDelta</a> &amp;<dfn class="local col8 decl" id="3548msg" title='msg' data-type='const idBitMsgDelta &amp;' data-ref="3548msg">msg</dfn> );</td></tr>
+<tr><th id="226">226</th><td></td></tr>
+<tr><th id="227">227</th><td><b>public</b>:</td></tr>
+<tr><th id="228">228</th><td>    <em>int</em>                     <dfn class="decl" id="idItemTeam::team" title='idItemTeam::team' data-ref="idItemTeam::team">team</dfn>;</td></tr>
+<tr><th id="229">229</th><td>	<i>// TODO : turn this into a state : </i></td></tr>
+<tr><th id="230">230</th><td>	<em>bool</em>					<dfn class="decl" id="idItemTeam::carried" title='idItemTeam::carried' data-ref="idItemTeam::carried">carried</dfn>;			<i>// is it beeing carried by a player?</i></td></tr>
+<tr><th id="231">231</th><td>	<em>bool</em>					<dfn class="decl" id="idItemTeam::dropped" title='idItemTeam::dropped' data-ref="idItemTeam::dropped">dropped</dfn>;			<i>// was it dropped?</i></td></tr>
+<tr><th id="232">232</th><td></td></tr>
+<tr><th id="233">233</th><td><b>private</b>:</td></tr>
+<tr><th id="234">234</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a>					<dfn class="decl" id="idItemTeam::returnOrigin" title='idItemTeam::returnOrigin' data-ref="idItemTeam::returnOrigin">returnOrigin</dfn>;</td></tr>
+<tr><th id="235">235</th><td>	<a class="type" href="../idlib/math/Matrix.h.html#idMat3" title='idMat3' data-ref="idMat3">idMat3</a>					<dfn class="decl" id="idItemTeam::returnAxis" title='idItemTeam::returnAxis' data-ref="idItemTeam::returnAxis">returnAxis</dfn>;</td></tr>
+<tr><th id="236">236</th><td>	<em>int</em>						<dfn class="decl" id="idItemTeam::lastDrop" title='idItemTeam::lastDrop' data-ref="idItemTeam::lastDrop">lastDrop</dfn>;</td></tr>
+<tr><th id="237">237</th><td></td></tr>
+<tr><th id="238">238</th><td>	<em>const</em> <a class="type" href="../framework/DeclSkin.h.html#idDeclSkin" title='idDeclSkin' data-ref="idDeclSkin">idDeclSkin</a> *		<dfn class="decl" id="idItemTeam::skinDefault" title='idItemTeam::skinDefault' data-ref="idItemTeam::skinDefault">skinDefault</dfn>;</td></tr>
+<tr><th id="239">239</th><td>	<em>const</em> <a class="type" href="../framework/DeclSkin.h.html#idDeclSkin" title='idDeclSkin' data-ref="idDeclSkin">idDeclSkin</a> *		<dfn class="decl" id="idItemTeam::skinCarried" title='idItemTeam::skinCarried' data-ref="idItemTeam::skinCarried">skinCarried</dfn>;</td></tr>
+<tr><th id="240">240</th><td></td></tr>
+<tr><th id="241">241</th><td>	<em>const</em> <a class="type" href="script/Script_Program.h.html#function_t" title='function_t' data-ref="function_t">function_t</a> *		<dfn class="decl" id="idItemTeam::scriptTaken" title='idItemTeam::scriptTaken' data-ref="idItemTeam::scriptTaken">scriptTaken</dfn>;</td></tr>
+<tr><th id="242">242</th><td>	<em>const</em> <a class="type" href="script/Script_Program.h.html#function_t" title='function_t' data-ref="function_t">function_t</a> *		<dfn class="decl" id="idItemTeam::scriptDropped" title='idItemTeam::scriptDropped' data-ref="idItemTeam::scriptDropped">scriptDropped</dfn>;</td></tr>
+<tr><th id="243">243</th><td>	<em>const</em> <a class="type" href="script/Script_Program.h.html#function_t" title='function_t' data-ref="function_t">function_t</a> *		<dfn class="decl" id="idItemTeam::scriptReturned" title='idItemTeam::scriptReturned' data-ref="idItemTeam::scriptReturned">scriptReturned</dfn>;</td></tr>
+<tr><th id="244">244</th><td>	<em>const</em> <a class="type" href="script/Script_Program.h.html#function_t" title='function_t' data-ref="function_t">function_t</a> *		<dfn class="decl" id="idItemTeam::scriptCaptured" title='idItemTeam::scriptCaptured' data-ref="idItemTeam::scriptCaptured">scriptCaptured</dfn>;</td></tr>
+<tr><th id="245">245</th><td></td></tr>
+<tr><th id="246">246</th><td>    <a class="typedef" href="../renderer/RenderWorld.h.html#renderLight_t" title='renderLight_t' data-type='struct renderLight_s' data-ref="renderLight_t">renderLight_t</a>           <dfn class="decl" id="idItemTeam::itemGlow" title='idItemTeam::itemGlow' data-ref="idItemTeam::itemGlow">itemGlow</dfn>;           <i>// Used by flags when they are picked up</i></td></tr>
+<tr><th id="247">247</th><td>    <em>int</em>                     <dfn class="decl" id="idItemTeam::itemGlowHandle" title='idItemTeam::itemGlowHandle' data-ref="idItemTeam::itemGlowHandle">itemGlowHandle</dfn>;</td></tr>
+<tr><th id="248">248</th><td></td></tr>
+<tr><th id="249">249</th><td>	<em>int</em>						<dfn class="decl" id="idItemTeam::lastNuggetDrop" title='idItemTeam::lastNuggetDrop' data-ref="idItemTeam::lastNuggetDrop">lastNuggetDrop</dfn>;</td></tr>
+<tr><th id="250">250</th><td>	<em>const</em> <em>char</em> *			<dfn class="decl" id="idItemTeam::nuggetName" title='idItemTeam::nuggetName' data-ref="idItemTeam::nuggetName">nuggetName</dfn>;</td></tr>
+<tr><th id="251">251</th><td></td></tr>
+<tr><th id="252">252</th><td><b>private</b>:</td></tr>
+<tr><th id="253">253</th><td></td></tr>
+<tr><th id="254">254</th><td>	<em>void</em>					<dfn class="decl" id="_ZN10idItemTeam14Event_TakeFlagEP8idPlayer" title='idItemTeam::Event_TakeFlag' data-ref="_ZN10idItemTeam14Event_TakeFlagEP8idPlayer">Event_TakeFlag</dfn>( <a class="type" href="Player.h.html#idPlayer" title='idPlayer' data-ref="idPlayer">idPlayer</a> * <dfn class="local col9 decl" id="3549player" title='player' data-type='idPlayer *' data-ref="3549player">player</dfn> );</td></tr>
+<tr><th id="255">255</th><td>    <em>void</em>					<dfn class="decl" id="_ZN10idItemTeam14Event_DropFlagEb" title='idItemTeam::Event_DropFlag' data-ref="_ZN10idItemTeam14Event_DropFlagEb">Event_DropFlag</dfn>( <em>bool</em> <dfn class="local col0 decl" id="3550death" title='death' data-type='bool' data-ref="3550death">death</dfn> );</td></tr>
+<tr><th id="256">256</th><td>	<em>void</em>					<dfn class="decl" id="_ZN10idItemTeam16Event_FlagReturnEP8idPlayer" title='idItemTeam::Event_FlagReturn' data-ref="_ZN10idItemTeam16Event_FlagReturnEP8idPlayer">Event_FlagReturn</dfn>( <a class="type" href="Player.h.html#idPlayer" title='idPlayer' data-ref="idPlayer">idPlayer</a> * <dfn class="local col1 decl" id="3551player" title='player' data-type='idPlayer *' data-ref="3551player">player</dfn> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> );</td></tr>
+<tr><th id="257">257</th><td>	<em>void</em>					<dfn class="decl" id="_ZN10idItemTeam17Event_FlagCaptureEv" title='idItemTeam::Event_FlagCapture' data-ref="_ZN10idItemTeam17Event_FlagCaptureEv">Event_FlagCapture</dfn>( <em>void</em> );</td></tr>
+<tr><th id="258">258</th><td></td></tr>
+<tr><th id="259">259</th><td>	<em>void</em>					<dfn class="decl" id="_ZN10idItemTeam13PrivateReturnEv" title='idItemTeam::PrivateReturn' data-ref="_ZN10idItemTeam13PrivateReturnEv">PrivateReturn</dfn>( <em>void</em> );</td></tr>
+<tr><th id="260">260</th><td>	<a class="type" href="script/Script_Program.h.html#function_t" title='function_t' data-ref="function_t">function_t</a> *			<dfn class="decl" id="_ZN10idItemTeam10LoadScriptEPc" title='idItemTeam::LoadScript' data-ref="_ZN10idItemTeam10LoadScriptEPc">LoadScript</dfn>( <em>char</em> * <dfn class="local col2 decl" id="3552script" title='script' data-type='char *' data-ref="3552script">script</dfn> );</td></tr>
+<tr><th id="261">261</th><td></td></tr>
+<tr><th id="262">262</th><td>	<em>void</em>					<dfn class="decl" id="_ZN10idItemTeam11SpawnNuggetE6idVec3" title='idItemTeam::SpawnNugget' data-ref="_ZN10idItemTeam11SpawnNuggetE6idVec3">SpawnNugget</dfn>( <a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> <dfn class="local col3 decl" id="3553pos" title='pos' data-type='idVec3' data-ref="3553pos">pos</dfn> );</td></tr>
+<tr><th id="263">263</th><td>    <em>void</em>                    <dfn class="decl" id="_ZN10idItemTeam10UpdateGuisEv" title='idItemTeam::UpdateGuis' data-ref="_ZN10idItemTeam10UpdateGuisEv">UpdateGuis</dfn>( <em>void</em> );</td></tr>
+<tr><th id="264">264</th><td>};</td></tr>
+<tr><th id="265">265</th><td></td></tr>
+<tr><th id="266">266</th><td><u>#<span data-ppcond="202">endif</span></u></td></tr>
+<tr><th id="267">267</th><td></td></tr>
+<tr><th id="268">268</th><td></td></tr>
+<tr><th id="269">269</th><td><b>class</b> <dfn class="type def" id="idMoveablePDAItem" title='idMoveablePDAItem' data-ref="idMoveablePDAItem">idMoveablePDAItem</dfn> : <b>public</b> <a class="type" href="#idMoveableItem" title='idMoveableItem' data-ref="idMoveableItem">idMoveableItem</a> {</td></tr>
+<tr><th id="270">270</th><td><b>public</b>:</td></tr>
+<tr><th id="271">271</th><td>	<a class="macro" href="gamesys/Class.h.html#92" title="public: static idTypeInfo Type; static idClass *CreateInstance( void ); virtual idTypeInfo *GetType( void ) const; static idEventFunc&lt;idMoveablePDAItem&gt; eventCallbacks[]" data-ref="_M/CLASS_PROTOTYPE">CLASS_PROTOTYPE</a>( <a class="type" href="#idMoveablePDAItem" title='idMoveablePDAItem' data-ref="idMoveablePDAItem">idMoveablePDAItem</a> );</td></tr>
+<tr><th id="272">272</th><td></td></tr>
+<tr><th id="273">273</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN17idMoveablePDAItem12GiveToPlayerEP8idPlayer" title='idMoveablePDAItem::GiveToPlayer' data-ref="_ZN17idMoveablePDAItem12GiveToPlayerEP8idPlayer">GiveToPlayer</dfn>( <a class="type" href="Player.h.html#idPlayer" title='idPlayer' data-ref="idPlayer">idPlayer</a> *<dfn class="local col4 decl" id="3554player" title='player' data-type='idPlayer *' data-ref="3554player">player</dfn> );</td></tr>
+<tr><th id="274">274</th><td>};</td></tr>
+<tr><th id="275">275</th><td></td></tr>
+<tr><th id="276">276</th><td><i>/*</i></td></tr>
+<tr><th id="277">277</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="278">278</th><td><i></i></td></tr>
+<tr><th id="279">279</th><td><i>  Item removers.</i></td></tr>
+<tr><th id="280">280</th><td><i></i></td></tr>
+<tr><th id="281">281</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="282">282</th><td><i>*/</i></td></tr>
+<tr><th id="283">283</th><td></td></tr>
+<tr><th id="284">284</th><td><b>class</b> <dfn class="type def" id="idItemRemover" title='idItemRemover' data-ref="idItemRemover">idItemRemover</dfn> : <b>public</b> <a class="type" href="Entity.h.html#idEntity" title='idEntity' data-ref="idEntity">idEntity</a> {</td></tr>
+<tr><th id="285">285</th><td><b>public</b>:</td></tr>
+<tr><th id="286">286</th><td>	<a class="macro" href="gamesys/Class.h.html#92" title="public: static idTypeInfo Type; static idClass *CreateInstance( void ); virtual idTypeInfo *GetType( void ) const; static idEventFunc&lt;idItemRemover&gt; eventCallbacks[]" data-ref="_M/CLASS_PROTOTYPE">CLASS_PROTOTYPE</a>( <a class="type" href="#idItemRemover" title='idItemRemover' data-ref="idItemRemover">idItemRemover</a> );</td></tr>
+<tr><th id="287">287</th><td></td></tr>
+<tr><th id="288">288</th><td>	<em>void</em>					<dfn class="decl" id="_ZN13idItemRemover5SpawnEv" title='idItemRemover::Spawn' data-ref="_ZN13idItemRemover5SpawnEv">Spawn</dfn>();</td></tr>
+<tr><th id="289">289</th><td>	<em>void</em>					<dfn class="decl" id="_ZN13idItemRemover10RemoveItemEP8idPlayer" title='idItemRemover::RemoveItem' data-ref="_ZN13idItemRemover10RemoveItemEP8idPlayer">RemoveItem</dfn>( <a class="type" href="Player.h.html#idPlayer" title='idPlayer' data-ref="idPlayer">idPlayer</a> *<dfn class="local col5 decl" id="3555player" title='player' data-type='idPlayer *' data-ref="3555player">player</dfn> );</td></tr>
+<tr><th id="290">290</th><td></td></tr>
+<tr><th id="291">291</th><td><b>private</b>:</td></tr>
+<tr><th id="292">292</th><td>	<em>void</em>					<dfn class="decl" id="_ZN13idItemRemover13Event_TriggerEP8idEntity" title='idItemRemover::Event_Trigger' data-ref="_ZN13idItemRemover13Event_TriggerEP8idEntity">Event_Trigger</dfn>( <a class="type" href="Entity.h.html#idEntity" title='idEntity' data-ref="idEntity">idEntity</a> *<dfn class="local col6 decl" id="3556activator" title='activator' data-type='idEntity *' data-ref="3556activator">activator</dfn> );</td></tr>
+<tr><th id="293">293</th><td>};</td></tr>
+<tr><th id="294">294</th><td></td></tr>
+<tr><th id="295">295</th><td><b>class</b> <dfn class="type def" id="idObjectiveComplete" title='idObjectiveComplete' data-ref="idObjectiveComplete">idObjectiveComplete</dfn> : <b>public</b> <a class="type" href="#idItemRemover" title='idItemRemover' data-ref="idItemRemover">idItemRemover</a> {</td></tr>
+<tr><th id="296">296</th><td><b>public</b>:</td></tr>
+<tr><th id="297">297</th><td>	<a class="macro" href="gamesys/Class.h.html#92" title="public: static idTypeInfo Type; static idClass *CreateInstance( void ); virtual idTypeInfo *GetType( void ) const; static idEventFunc&lt;idObjectiveComplete&gt; eventCallbacks[]" data-ref="_M/CLASS_PROTOTYPE">CLASS_PROTOTYPE</a>( <a class="type" href="#idObjectiveComplete" title='idObjectiveComplete' data-ref="idObjectiveComplete">idObjectiveComplete</a> );</td></tr>
+<tr><th id="298">298</th><td></td></tr>
+<tr><th id="299">299</th><td>							<dfn class="decl" id="_ZN19idObjectiveCompleteC1Ev" title='idObjectiveComplete::idObjectiveComplete' data-ref="_ZN19idObjectiveCompleteC1Ev">idObjectiveComplete</dfn>();</td></tr>
+<tr><th id="300">300</th><td></td></tr>
+<tr><th id="301">301</th><td>	<em>void</em>					<dfn class="decl" id="_ZNK19idObjectiveComplete4SaveEP10idSaveGame" title='idObjectiveComplete::Save' data-ref="_ZNK19idObjectiveComplete4SaveEP10idSaveGame">Save</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idSaveGame" title='idSaveGame' data-ref="idSaveGame">idSaveGame</a> *<dfn class="local col7 decl" id="3557savefile" title='savefile' data-type='idSaveGame *' data-ref="3557savefile">savefile</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="302">302</th><td>	<em>void</em>					<dfn class="decl" id="_ZN19idObjectiveComplete7RestoreEP13idRestoreGame" title='idObjectiveComplete::Restore' data-ref="_ZN19idObjectiveComplete7RestoreEP13idRestoreGame">Restore</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idRestoreGame" title='idRestoreGame' data-ref="idRestoreGame">idRestoreGame</a> *<dfn class="local col8 decl" id="3558savefile" title='savefile' data-type='idRestoreGame *' data-ref="3558savefile">savefile</dfn> );</td></tr>
+<tr><th id="303">303</th><td></td></tr>
+<tr><th id="304">304</th><td>	<em>void</em>					<dfn class="decl" id="_ZN19idObjectiveComplete5SpawnEv" title='idObjectiveComplete::Spawn' data-ref="_ZN19idObjectiveComplete5SpawnEv">Spawn</dfn>();</td></tr>
+<tr><th id="305">305</th><td></td></tr>
+<tr><th id="306">306</th><td><b>private</b>:</td></tr>
+<tr><th id="307">307</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a>					<dfn class="decl" id="idObjectiveComplete::playerPos" title='idObjectiveComplete::playerPos' data-ref="idObjectiveComplete::playerPos">playerPos</dfn>;</td></tr>
+<tr><th id="308">308</th><td></td></tr>
+<tr><th id="309">309</th><td>	<em>void</em>					<dfn class="decl" id="_ZN19idObjectiveComplete13Event_TriggerEP8idEntity" title='idObjectiveComplete::Event_Trigger' data-ref="_ZN19idObjectiveComplete13Event_TriggerEP8idEntity">Event_Trigger</dfn>( <a class="type" href="Entity.h.html#idEntity" title='idEntity' data-ref="idEntity">idEntity</a> *<dfn class="local col9 decl" id="3559activator" title='activator' data-type='idEntity *' data-ref="3559activator">activator</dfn> );</td></tr>
+<tr><th id="310">310</th><td>	<em>void</em>					<dfn class="decl" id="_ZN19idObjectiveComplete19Event_HideObjectiveEP8idEntity" title='idObjectiveComplete::Event_HideObjective' data-ref="_ZN19idObjectiveComplete19Event_HideObjectiveEP8idEntity">Event_HideObjective</dfn>( <a class="type" href="Entity.h.html#idEntity" title='idEntity' data-ref="idEntity">idEntity</a> *<dfn class="local col0 decl" id="3560e" title='e' data-type='idEntity *' data-ref="3560e">e</dfn> );</td></tr>
+<tr><th id="311">311</th><td>	<em>void</em>					<dfn class="decl" id="_ZN19idObjectiveComplete18Event_GetPlayerPosEv" title='idObjectiveComplete::Event_GetPlayerPos' data-ref="_ZN19idObjectiveComplete18Event_GetPlayerPosEv">Event_GetPlayerPos</dfn>();</td></tr>
+<tr><th id="312">312</th><td>};</td></tr>
+<tr><th id="313">313</th><td></td></tr>
+<tr><th id="314">314</th><td><u>#<span data-ppcond="29">endif</span> /* !__GAME_ITEM_H__ */</u></td></tr>
+<tr><th id="315">315</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='AF.cpp.html'>codebrowser/d3xp/AF.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,26 @@
+<dec f='codebrowser/d3xp/Mover.h' l='374' type='static void idMover_Binary::GetMovedir(float dir, idVec3 &amp; movedir)'/>
+<def f='codebrowser/d3xp/Mover.cpp' l='2391' ll='2399' type='static void idMover_Binary::GetMovedir(float angle, idVec3 &amp; movedir)'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='3263' u='c' c='_ZN6idDoor5SpawnEv'/>
+<doc f='codebrowser/d3xp/Mover.cpp' l='2381'>/*
+===============
+idMover_Binary::GetMovedir
+
+The editor only specifies a single value for angles (yaw),
+but we have special constants to generate an up or down direction.
+Angles will be cleared, because it is being used to represent a direction
+instead of an orientation.
+===============
+*/</doc>
+<dec f='codebrowser/game/Mover.h' l='367' type='static void idMover_Binary::GetMovedir(float dir, idVec3 &amp; movedir)'/>
+<def f='codebrowser/game/Mover.cpp' l='2369' ll='2377' type='static void idMover_Binary::GetMovedir(float angle, idVec3 &amp; movedir)'/>
+<use f='codebrowser/game/Mover.cpp' l='3232' u='c' c='_ZN6idDoor5SpawnEv'/>
+<doc f='codebrowser/game/Mover.cpp' l='2359'>/*
+===============
+idMover_Binary::GetMovedir
+
+The editor only specifies a single value for angles (yaw),
+but we have special constants to generate an up or down direction.
+Angles will be cleared, because it is being used to represent a direction
+instead of an orientation.
+===============
+*/</doc>

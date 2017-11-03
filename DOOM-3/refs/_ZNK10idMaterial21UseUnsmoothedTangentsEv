@@ -1,0 +1,7 @@
+<def f='codebrowser/renderer/Material.h' l='417' type='bool idMaterial::UseUnsmoothedTangents() const'/>
+<doc f='codebrowser/renderer/Material.h' l='414'>// characters and models that are created by a complete renderbump can use a faster
+						// method of tangent and normal vector generation than surfaces which have a flat
+						// renderbump wrapped over them.</doc>
+<use f='codebrowser/renderer/Model.cpp' l='655' u='c' c='_ZN19idRenderModelStatic14FinishSurfacesEv'/>
+<use f='codebrowser/renderer/Model_md5.cpp' l='245' u='c' c='_ZN9idMD5Mesh9ParseMeshER7idLexeriPK10idJointMat'/>
+<use f='codebrowser/renderer/tr_rendertools.cpp' l='997' u='c' c='_ZL25RB_ShowUnsmoothedTangentsPP10drawSurf_si'/>

@@ -1,0 +1,24 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1552' type='bool R_PreciseCullSurface(const drawSurf_t * drawSurf, idBounds &amp; ndcBounds)'/>
+<doc f='codebrowser/renderer/tr_local.h' l='1544'>/*
+============================================================
+
+SUBVIEW
+
+============================================================
+*/</doc>
+<use f='codebrowser/renderer/tr_light.cpp' l='1311' u='c' c='_Z13R_AddDrawSurfPK14srfTriangles_sPK12viewEntity_sPK14renderEntity_sPK10idMaterialRK12idScreenRect'/>
+<def f='codebrowser/renderer/tr_subview.cpp' l='109' ll='210' type='bool R_PreciseCullSurface(const drawSurf_t * drawSurf, idBounds &amp; ndcBounds)'/>
+<use f='codebrowser/renderer/tr_subview.cpp' l='461' u='c' c='_Z24R_GenerateSurfaceSubviewP10drawSurf_s'/>
+<doc f='codebrowser/renderer/tr_subview.cpp' l='96'>/*
+=========================
+R_PreciseCullSurface
+
+Check the surface for visibility on a per-triangle basis
+for cases when it is going to be VERY expensive to draw (subviews)
+
+If not culled, also returns the bounding box of the surface in 
+Normalized Device Coordinates, so it can be used to crop the scissor rect.
+
+OPTIMIZE: we could also take exact portal passing into consideration
+=========================
+*/</doc>

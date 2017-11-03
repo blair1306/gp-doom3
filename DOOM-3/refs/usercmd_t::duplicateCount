@@ -1,0 +1,12 @@
+<dec f='codebrowser/framework/UsercmdGen.h' l='93' type='int'/>
+<offset>64</offset>
+<doc f='codebrowser/framework/UsercmdGen.h' l='93'>// duplication count for networking</doc>
+<use f='codebrowser/d3xp/gamesys/SaveGame.cpp' l='656' u='r' c='_ZN10idSaveGame12WriteUsercmdERK9usercmd_t'/>
+<use f='codebrowser/d3xp/gamesys/SaveGame.cpp' l='1432' u='a' c='_ZN13idRestoreGame11ReadUsercmdER9usercmd_t'/>
+<use f='codebrowser/framework/UsercmdGen.cpp' l='1109' u='w' c='_ZN17idUsercmdGenLocal16GetDirectUsercmdEv'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='819' u='w' c='_ZN13idAsyncClient30ProcessUnreliableServerMessageERK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncNetwork.cpp' l='262' u='w' c='_ZN14idAsyncNetwork16DuplicateUsercmdERK9usercmd_tRS0_ii'/>
+<use f='codebrowser/framework/async/AsyncNetwork.cpp' l='264' u='r' c='_ZN14idAsyncNetwork16DuplicateUsercmdERK9usercmd_tRS0_ii'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1322' u='w' c='_ZN13idAsyncServer30ProcessUnreliableClientMessageEiRK8idBitMsg'/>
+<use f='codebrowser/game/gamesys/SaveGame.cpp' l='651' u='r' c='_ZN10idSaveGame12WriteUsercmdERK9usercmd_t'/>
+<use f='codebrowser/game/gamesys/SaveGame.cpp' l='1422' u='a' c='_ZN13idRestoreGame11ReadUsercmdER9usercmd_t'/>

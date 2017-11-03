@@ -1,0 +1,80 @@
+<def f='codebrowser/tools/compilers/aas/AASFile.h' l='282' ll='349'/>
+<size>460</size>
+<doc f='codebrowser/tools/compilers/aas/AASFile.h' l='258'>/*
+
+-	when a node child is a solid leaf the node child number is zero
+-	two adjacent areas (sharing a plane at opposite sides) share a face
+	this face is a portal between the areas
+-	when an area uses a face from the faceindex with a positive index
+	then the face plane normal points into the area
+-	the face edges are stored counter clockwise using the edgeindex
+-	two adjacent convex areas (sharing a face) only share One face
+	this is a simple result of the areas being convex
+-	the areas can&apos;t have a mixture of ground and gap faces
+	other mixtures of faces in one area are allowed
+-	areas with the AREACONTENTS_CLUSTERPORTAL in the settings have
+	the cluster number set to the negative portal number
+-	edge zero is a dummy
+-	face zero is a dummy
+-	area zero is a dummy
+-	node zero is a dummy
+-	portal zero is a dummy
+-	cluster zero is a dummy
+
+*/</doc>
+<fun r='_ZN9idAASFileD1Ev'/>
+<fun r='_ZNK9idAASFile7GetNameEv'/>
+<fun r='_ZNK9idAASFile6GetCRCEv'/>
+<fun r='_ZNK9idAASFile12GetNumPlanesEv'/>
+<fun r='_ZNK9idAASFile8GetPlaneEi'/>
+<fun r='_ZNK9idAASFile14GetNumVerticesEv'/>
+<fun r='_ZNK9idAASFile9GetVertexEi'/>
+<fun r='_ZNK9idAASFile11GetNumEdgesEv'/>
+<fun r='_ZNK9idAASFile7GetEdgeEi'/>
+<fun r='_ZNK9idAASFile17GetNumEdgeIndexesEv'/>
+<fun r='_ZNK9idAASFile12GetEdgeIndexEi'/>
+<fun r='_ZNK9idAASFile11GetNumFacesEv'/>
+<fun r='_ZNK9idAASFile7GetFaceEi'/>
+<fun r='_ZNK9idAASFile17GetNumFaceIndexesEv'/>
+<fun r='_ZNK9idAASFile12GetFaceIndexEi'/>
+<fun r='_ZNK9idAASFile11GetNumAreasEv'/>
+<fun r='_ZN9idAASFile7GetAreaEi'/>
+<fun r='_ZNK9idAASFile11GetNumNodesEv'/>
+<fun r='_ZNK9idAASFile7GetNodeEi'/>
+<fun r='_ZNK9idAASFile13GetNumPortalsEv'/>
+<fun r='_ZN9idAASFile9GetPortalEi'/>
+<fun r='_ZNK9idAASFile19GetNumPortalIndexesEv'/>
+<fun r='_ZNK9idAASFile14GetPortalIndexEi'/>
+<fun r='_ZNK9idAASFile14GetNumClustersEv'/>
+<fun r='_ZNK9idAASFile10GetClusterEi'/>
+<fun r='_ZNK9idAASFile11GetSettingsEv'/>
+<fun r='_ZN9idAASFile22SetPortalMaxTravelTimeEii'/>
+<fun r='_ZN9idAASFile17SetAreaTravelFlagEii'/>
+<fun r='_ZN9idAASFile20RemoveAreaTravelFlagEii'/>
+<fun r='_ZNK9idAASFile10EdgeCenterEi'/>
+<fun r='_ZNK9idAASFile10FaceCenterEi'/>
+<fun r='_ZNK9idAASFile10AreaCenterEi'/>
+<fun r='_ZNK9idAASFile10EdgeBoundsEi'/>
+<fun r='_ZNK9idAASFile10FaceBoundsEi'/>
+<fun r='_ZNK9idAASFile10AreaBoundsEi'/>
+<fun r='_ZNK9idAASFile12PointAreaNumERK6idVec3'/>
+<fun r='_ZNK9idAASFile21PointReachableAreaNumERK6idVec3RK8idBoundsii'/>
+<fun r='_ZNK9idAASFile22BoundsReachableAreaNumERK8idBoundsii'/>
+<fun r='_ZNK9idAASFile20PushPointIntoAreaNumEiR6idVec3'/>
+<fun r='_ZNK9idAASFile5TraceER10aasTrace_sRK6idVec3S4_'/>
+<fun r='_ZNK9idAASFile9PrintInfoEv'/>
+<mbr r='idAASFile::name' o='32' t='idStr'/>
+<mbr r='idAASFile::crc' o='288' t='unsigned int'/>
+<mbr r='idAASFile::planeList' o='320' t='idPlaneSet'/>
+<mbr r='idAASFile::vertices' o='672' t='idList&lt;aasVertex_t&gt;'/>
+<mbr r='idAASFile::edges' o='800' t='idList&lt;aasEdge_t&gt;'/>
+<mbr r='idAASFile::edgeIndex' o='928' t='idList&lt;aasIndex_t&gt;'/>
+<mbr r='idAASFile::faces' o='1056' t='idList&lt;aasFace_t&gt;'/>
+<mbr r='idAASFile::faceIndex' o='1184' t='idList&lt;aasIndex_t&gt;'/>
+<mbr r='idAASFile::areas' o='1312' t='idList&lt;aasArea_t&gt;'/>
+<mbr r='idAASFile::nodes' o='1440' t='idList&lt;aasNode_t&gt;'/>
+<mbr r='idAASFile::portals' o='1568' t='idList&lt;aasPortal_t&gt;'/>
+<mbr r='idAASFile::portalIndex' o='1696' t='idList&lt;aasIndex_t&gt;'/>
+<mbr r='idAASFile::clusters' o='1824' t='idList&lt;aasCluster_t&gt;'/>
+<mbr r='idAASFile::settings' o='1952' t='idAASSettings'/>
+<ovr f='codebrowser/tools/compilers/aas/AASFile_local.h' l='40' c='idAASFileLocal'/>

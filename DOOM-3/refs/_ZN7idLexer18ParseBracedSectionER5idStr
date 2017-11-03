@@ -1,0 +1,12 @@
+<dec f='codebrowser/idlib/Lexer.h' l='201' type='const char * idLexer::ParseBracedSection(idStr &amp; out)'/>
+<doc f='codebrowser/idlib/Lexer.h' l='200'>// parse a braced section into a string</doc>
+<def f='codebrowser/idlib/Lexer.cpp' l='1447' ll='1487' type='const char * idLexer::ParseBracedSection(idStr &amp; out)'/>
+<doc f='codebrowser/idlib/Lexer.cpp' l='1438'>/*
+=================
+idLexer::ParseBracedSection
+
+The next token should be an open brace.
+Parses until a matching close brace is found.
+Internal brace depths are properly skipped.
+=================
+*/</doc>

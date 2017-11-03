@@ -1,0 +1,87 @@
+<dec f='codebrowser/renderer/RenderWorld.h' l='95' type='idBounds'/>
+<offset>96</offset>
+<doc f='codebrowser/renderer/RenderWorld.h' l='86'>// Entities that are expensive to generate, like skeletal models, can be
+	// deferred until their bounds are found to be in view, in the frustum
+	// of a shadowing light that is in view, or contacted by a trace / overlay test.
+	// This is also used to do visual cueing on items in the view
+	// The renderView may be NULL if the callback is being issued for a non-view related
+	// source.
+	// The callback function should clear renderEntity-&gt;callback if it doesn&apos;t
+	// want to be called again next time the entity is referenced (ie, if the
+	// callback has now made the entity valid until the next updateEntity)</doc>
+<doc f='codebrowser/renderer/RenderWorld.h' l='95'>// only needs to be set for deferred models and md5s</doc>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='2638' u='w' c='_ZN20idAFEntity_SteamPipe21InitSteamRenderEntityEv'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='2640' u='m' c='_ZN20idAFEntity_SteamPipe21InitSteamRenderEntityEv'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='3027' u='m' c='_ZN10idGameEdit13AF_CreateMeshERK6idDictR6idVec3R6idMat3Rb'/>
+<use f='codebrowser/d3xp/BrittleFracture.cpp' l='570' u='w' c='_ZN17idBrittleFracture7PresentEv'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='251' u='w' c='_ZN10idGameEdit28ParseSpawnArgsToRenderEntityEPK6idDictP14renderEntity_s'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='253' u='m' c='_ZN10idGameEdit28ParseSpawnArgsToRenderEntityEPK6idDictP14renderEntity_s'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='1165' u='w' c='_ZN8idEntity8SetModelEPKc'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='1167' u='m' c='_ZN8idEntity8SetModelEPKc'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='1325' u='r' c='_ZN8idEntity14UpdatePVSAreasEv'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='5137' u='a' c='_ZN16idAnimatedEntity7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='5196' u='a' c='_ZN16idAnimatedEntity15UpdateAnimationEv'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='5197' u='m' c='_ZN16idAnimatedEntity15UpdateAnimationEv'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='5238' u='a' c='_ZN16idAnimatedEntity8SetModelEPKc'/>
+<use f='codebrowser/d3xp/Fx.cpp' l='508' u='w' c='_ZN10idEntityFx3RunEi'/>
+<use f='codebrowser/d3xp/GameEdit.cpp' l='286' u='r' c='_ZN12idDragEntity6UpdateEP8idPlayer'/>
+<use f='codebrowser/d3xp/Game_network.cpp' l='1252' u='m' c='_ZN11idGameLocal18ClientReadSnapshotEiiiiiiRK8idBitMsg'/>
+<use f='codebrowser/d3xp/Game_network.cpp' l='1252' u='m' c='_ZN11idGameLocal18ClientReadSnapshotEiiiiiiRK8idBitMsg'/>
+<use f='codebrowser/d3xp/Game_network.cpp' l='1254' u='a' c='_ZN11idGameLocal18ClientReadSnapshotEiiiiiiRK8idBitMsg'/>
+<use f='codebrowser/d3xp/Item.cpp' l='505' u='r' c='_ZN6idItem17Event_DropToFloorEv'/>
+<use f='codebrowser/d3xp/Light.cpp' l='664' u='m' c='_ZN7idLight12BecomeBrokenEP8idEntity'/>
+<use f='codebrowser/d3xp/PlayerIcon.cpp' l='178' u='w' c='_ZN12idPlayerIcon10CreateIconEP8idPlayer16playerIconType_tPKcRK6idVec3RK6idMat3'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='1898' u='w' c='_ZN15idBFGProjectile5SpawnEv'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='2104' u='w' c='_ZN15idBFGProjectile6LaunchERK6idVec3S2_S2_fff'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='2152' u='m' c='_ZN15idBFGProjectile6LaunchERK6idVec3S2_S2_fff'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='2191' u='m' c='_ZN15idBFGProjectile6LaunchERK6idVec3S2_S2_fff'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='2462' u='r' c='_ZN8idDebris6LaunchEv'/>
+<use f='codebrowser/d3xp/SmokeParticles.cpp' l='73' u='m' c='_ZN16idSmokeParticles4InitEv'/>
+<use f='codebrowser/d3xp/SmokeParticles.cpp' l='87' u='m' c='_ZN16idSmokeParticles4InitEv'/>
+<use f='codebrowser/d3xp/SmokeParticles.cpp' l='88' u='m' c='_ZN16idSmokeParticles4InitEv'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='5061' u='m' c='_ZN10idGameEdit22ANIM_CreateMeshForAnimEP13idRenderModelPKcS3_ib'/>
+<use f='codebrowser/d3xp/gamesys/SaveGame.cpp' l='505' u='r' c='_ZN10idSaveGame17WriteRenderEntityERK14renderEntity_s'/>
+<use f='codebrowser/d3xp/gamesys/SaveGame.cpp' l='1278' u='a' c='_ZN13idRestoreGame16ReadRenderEntityER14renderEntity_s'/>
+<use f='codebrowser/d3xp/physics/Clip.cpp' l='258' u='r' c='_ZN11idClipModel9LoadModelEi'/>
+<use f='codebrowser/d3xp/physics/Clip.cpp' l='593' u='r' c='_ZN11idClipModel4LinkER6idClipP8idEntityiRK6idVec3RK6idMat3i'/>
+<use f='codebrowser/game/AFEntity.cpp' l='2360' u='w' c='_ZN20idAFEntity_SteamPipe21InitSteamRenderEntityEv'/>
+<use f='codebrowser/game/AFEntity.cpp' l='2362' u='m' c='_ZN20idAFEntity_SteamPipe21InitSteamRenderEntityEv'/>
+<use f='codebrowser/game/AFEntity.cpp' l='2749' u='m' c='_ZN10idGameEdit13AF_CreateMeshERK6idDictR6idVec3R6idMat3Rb'/>
+<use f='codebrowser/game/BrittleFracture.cpp' l='540' u='w' c='_ZN17idBrittleFracture7PresentEv'/>
+<use f='codebrowser/game/Entity.cpp' l='235' u='w' c='_ZN10idGameEdit28ParseSpawnArgsToRenderEntityEPK6idDictP14renderEntity_s'/>
+<use f='codebrowser/game/Entity.cpp' l='237' u='m' c='_ZN10idGameEdit28ParseSpawnArgsToRenderEntityEPK6idDictP14renderEntity_s'/>
+<use f='codebrowser/game/Entity.cpp' l='1096' u='w' c='_ZN8idEntity8SetModelEPKc'/>
+<use f='codebrowser/game/Entity.cpp' l='1098' u='m' c='_ZN8idEntity8SetModelEPKc'/>
+<use f='codebrowser/game/Entity.cpp' l='1237' u='r' c='_ZN8idEntity14UpdatePVSAreasEv'/>
+<use f='codebrowser/game/Entity.cpp' l='4929' u='a' c='_ZN16idAnimatedEntity7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/game/Entity.cpp' l='4988' u='a' c='_ZN16idAnimatedEntity15UpdateAnimationEv'/>
+<use f='codebrowser/game/Entity.cpp' l='4989' u='m' c='_ZN16idAnimatedEntity15UpdateAnimationEv'/>
+<use f='codebrowser/game/Entity.cpp' l='5030' u='a' c='_ZN16idAnimatedEntity8SetModelEPKc'/>
+<use f='codebrowser/game/Fx.cpp' l='508' u='w' c='_ZN10idEntityFx3RunEi'/>
+<use f='codebrowser/game/GameEdit.cpp' l='286' u='r' c='_ZN12idDragEntity6UpdateEP8idPlayer'/>
+<use f='codebrowser/game/Game_network.cpp' l='1220' u='m' c='_ZN11idGameLocal18ClientReadSnapshotEiiiiiiRK8idBitMsg'/>
+<use f='codebrowser/game/Game_network.cpp' l='1220' u='m' c='_ZN11idGameLocal18ClientReadSnapshotEiiiiiiRK8idBitMsg'/>
+<use f='codebrowser/game/Game_network.cpp' l='1222' u='a' c='_ZN11idGameLocal18ClientReadSnapshotEiiiiiiRK8idBitMsg'/>
+<use f='codebrowser/game/Item.cpp' l='497' u='r' c='_ZN6idItem17Event_DropToFloorEv'/>
+<use f='codebrowser/game/Light.cpp' l='657' u='m' c='_ZN7idLight12BecomeBrokenEP8idEntity'/>
+<use f='codebrowser/game/PlayerIcon.cpp' l='163' u='w' c='_ZN12idPlayerIcon10CreateIconEP8idPlayer16playerIconType_tPKcRK6idVec3RK6idMat3'/>
+<use f='codebrowser/game/Projectile.cpp' l='1711' u='w' c='_ZN15idBFGProjectile5SpawnEv'/>
+<use f='codebrowser/game/Projectile.cpp' l='1892' u='w' c='_ZN15idBFGProjectile6LaunchERK6idVec3S2_S2_fff'/>
+<use f='codebrowser/game/Projectile.cpp' l='1940' u='m' c='_ZN15idBFGProjectile6LaunchERK6idVec3S2_S2_fff'/>
+<use f='codebrowser/game/Projectile.cpp' l='2203' u='r' c='_ZN8idDebris6LaunchEv'/>
+<use f='codebrowser/game/SmokeParticles.cpp' l='73' u='m' c='_ZN16idSmokeParticles4InitEv'/>
+<use f='codebrowser/game/SmokeParticles.cpp' l='87' u='m' c='_ZN16idSmokeParticles4InitEv'/>
+<use f='codebrowser/game/SmokeParticles.cpp' l='88' u='m' c='_ZN16idSmokeParticles4InitEv'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='4975' u='m' c='_ZN10idGameEdit22ANIM_CreateMeshForAnimEP13idRenderModelPKcS3_ib'/>
+<use f='codebrowser/game/gamesys/SaveGame.cpp' l='505' u='r' c='_ZN10idSaveGame17WriteRenderEntityERK14renderEntity_s'/>
+<use f='codebrowser/game/gamesys/SaveGame.cpp' l='1273' u='a' c='_ZN13idRestoreGame16ReadRenderEntityER14renderEntity_s'/>
+<use f='codebrowser/game/physics/Clip.cpp' l='258' u='r' c='_ZN11idClipModel9LoadModelEi'/>
+<use f='codebrowser/game/physics/Clip.cpp' l='593' u='r' c='_ZN11idClipModel4LinkER6idClipP8idEntityiRK6idVec3RK6idMat3i'/>
+<use f='codebrowser/renderer/Model_md5.cpp' l='667' u='r' c='_ZNK16idRenderModelMD56BoundsEPK14renderEntity_s'/>
+<use f='codebrowser/renderer/Model_md5.cpp' l='700' u='r' c='_ZNK16idRenderModelMD510DrawJointsEPK14renderEntity_sPK9viewDef_s'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='243' u='m' c='_ZN18idRenderWorldLocal15UpdateEntityDefEiPK14renderEntity_s'/>
+<use f='codebrowser/renderer/RenderWorld_demo.cpp' l='538' u='m' c='_ZN18idRenderWorldLocal17WriteRenderEntityEiPK14renderEntity_s'/>
+<use f='codebrowser/renderer/RenderWorld_demo.cpp' l='539' u='m' c='_ZN18idRenderWorldLocal17WriteRenderEntityEiPK14renderEntity_s'/>
+<use f='codebrowser/renderer/RenderWorld_demo.cpp' l='637' u='m' c='_ZN18idRenderWorldLocal16ReadRenderEntityEv'/>
+<use f='codebrowser/renderer/RenderWorld_demo.cpp' l='638' u='m' c='_ZN18idRenderWorldLocal16ReadRenderEntityEv'/>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='180' u='r' c='_Z18R_CreateEntityRefsP19idRenderEntityLocal'/>

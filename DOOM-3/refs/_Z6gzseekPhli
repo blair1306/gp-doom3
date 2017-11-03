@@ -1,0 +1,9 @@
+<dec f='codebrowser/framework/Unzip.cpp' l='825' type='long gzseek(gzFile file, long offset, int whence)'/>
+<doc f='codebrowser/framework/Unzip.cpp' l='816'>/*
+     Flushes all pending output into the compressed file. The parameter
+   flush is as in the deflate() function. The return value is the zlib
+   error number (see function gzerror below). gzflush returns Z_OK if
+   the flush parameter is Z_FINISH and all output could be flushed.
+     gzflush should be called only when strictly necessary because it can
+   degrade compression.
+*/</doc>

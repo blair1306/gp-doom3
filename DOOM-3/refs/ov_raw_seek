@@ -1,0 +1,11 @@
+<dec f='codebrowser/sound/OggVorbis/vorbis/vorbisfile.h' l='110' type='int ov_raw_seek(OggVorbis_File * vf, ogg_int64_t pos)'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='439' u='c' c='_open_seekable2'/>
+<def f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='949' ll='1086' type='int ov_raw_seek(OggVorbis_File * vf, ogg_int64_t pos)'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1226' u='c' c='ov_pcm_seek_page'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1915' u='r' c='ov_raw_seek_lap'/>
+<doc f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='942'>/* seek to an offset relative to the *compressed* data. This also
+   scans packets to update the PCM cursor. It will cross a logical
+   bitstream boundary, but only if it can&apos;t get any packets out of the
+   tail of the bitstream we seek to (so no surprises).
+
+   returns zero on success, nonzero on failure */</doc>

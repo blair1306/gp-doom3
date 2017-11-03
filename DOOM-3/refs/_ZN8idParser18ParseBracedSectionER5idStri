@@ -1,0 +1,12 @@
+<dec f='codebrowser/idlib/Parser.h' l='118' type='const char * idParser::ParseBracedSection(idStr &amp; out, int tabs = -1)'/>
+<doc f='codebrowser/idlib/Parser.h' l='117'>// parse a braced section into a string</doc>
+<def f='codebrowser/idlib/Parser.cpp' l='2655' ll='2714' type='const char * idParser::ParseBracedSection(idStr &amp; out, int tabs = -1)'/>
+<doc f='codebrowser/idlib/Parser.cpp' l='2646'>/*
+=================
+idParser::ParseBracedSection
+
+The next token should be an open brace.
+Parses until a matching close brace is found.
+Internal brace depths are properly skipped.
+=================
+*/</doc>

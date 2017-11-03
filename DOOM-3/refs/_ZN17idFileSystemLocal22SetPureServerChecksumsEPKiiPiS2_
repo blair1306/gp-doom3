@@ -1,0 +1,18 @@
+<dec f='codebrowser/framework/FileSystem.cpp' l='362' type='fsPureReply_t idFileSystemLocal::SetPureServerChecksums(const int * pureChecksums, int gamePakChecksum, int * missingChecksums, int * missingGamePakChecksum)'/>
+<inh f='codebrowser/framework/FileSystem.h' l='202' c='_ZN12idFileSystem22SetPureServerChecksumsEPKiiPiS2_'/>
+<def f='codebrowser/framework/FileSystem.cpp' l='2638' ll='2782' type='fsPureReply_t idFileSystemLocal::SetPureServerChecksums(const int * pureChecksums, int _gamePakChecksum, int * missingChecksums, int * missingGamePakChecksum)'/>
+<doc f='codebrowser/framework/FileSystem.cpp' l='2623'>/*
+=====================
+idFileSystemLocal::SetPureServerChecksums
+set the pure paks according to what the server asks
+if that&apos;s not possible, identify why and build an answer
+can be:
+  loadedFileFromDir - some files were loaded from directories instead of paks (a restart in pure pak-only is required)
+  missing/wrong checksums - some pak files would need to be installed/updated (downloaded for instance)
+  some pak files currently referenced are not referenced by the server
+  wrong order - if the pak order doesn&apos;t match, means some stuff could have been loaded from somewhere else
+server referenced files are prepended to the list if possible ( that doesn&apos;t break pureness )
+DLL:
+  the checksum of the pak containing the DLL is maintained seperately, the server can send different replies by OS
+=====================
+*/</doc>

@@ -1,0 +1,7 @@
+<dec f='codebrowser/sound/OggVorbis/vorbis/vorbisfile.h' l='96' type='int ov_test_callbacks(void * datasource, OggVorbis_File * vf, char * initial, long ibytes, ov_callbacks callbacks)'/>
+<def f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='780' ll='784' type='int ov_test_callbacks(void * f, OggVorbis_File * vf, char * initial, long ibytes, ov_callbacks callbacks)'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='794' u='c' c='ov_test'/>
+<doc f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='775'>/* Only partially open the vorbis file; test for Vorbisness, and load
+   the headers for the first chain.  Do not seek (although test for
+   seekability).  Use ov_test_open to finish opening the file, else
+   ov_clear to close/free it. Same return codes as open. */</doc>

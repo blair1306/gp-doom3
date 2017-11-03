@@ -1,0 +1,15 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1261' type='void RB_CreateSingleDrawInteractions(const drawSurf_t * surf, void (*)(const drawInteraction_t *) DrawInteraction)'/>
+<use f='codebrowser/renderer/draw_arb.cpp' l='449' u='c' c='_ZL25RB_CreateDrawInteractionsPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_arb.cpp' l='454' u='c' c='_ZL25RB_CreateDrawInteractionsPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_arb2.cpp' l='202' u='c' c='_Z30RB_ARB2_CreateDrawInteractionsPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_nv20.cpp' l='711' u='c' c='_ZL30RB_NV20_CreateDrawInteractionsPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_r200.cpp' l='239' u='c' c='_ZL34RB_R200_ARB_CreateDrawInteractionsPK10drawSurf_s'/>
+<def f='codebrowser/renderer/tr_render.cpp' l='689' ll='842' type='void RB_CreateSingleDrawInteractions(const drawSurf_t * surf, void (*)(const drawInteraction_t *) DrawInteraction)'/>
+<doc f='codebrowser/renderer/tr_render.cpp' l='681'>/*
+=============
+RB_CreateSingleDrawInteractions
+
+This can be used by different draw_* backends to decompose a complex light / surface
+interaction into primitive interactions
+=============
+*/</doc>

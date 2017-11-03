@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>url.h source code [codebrowser/curl/lib/url.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/curl/lib/url.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>curl</a>/<a href='./'>lib</a>/<a href='url.h.html'>url.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><u>#<span data-ppcond="1">ifndef</span> <span class="macro" data-ref="_M/__URL_H">__URL_H</span></u></td></tr>
+<tr><th id="2">2</th><td><u>#define <dfn class="macro" id="_M/__URL_H" data-ref="_M/__URL_H">__URL_H</dfn></u></td></tr>
+<tr><th id="3">3</th><td><i>/***************************************************************************</i></td></tr>
+<tr><th id="4">4</th><td><i> *                                  _   _ ____  _     </i></td></tr>
+<tr><th id="5">5</th><td><i> *  Project                     ___| | | |  _ \| |    </i></td></tr>
+<tr><th id="6">6</th><td><i> *                             / __| | | | |_) | |    </i></td></tr>
+<tr><th id="7">7</th><td><i> *                            | (__| |_| |  _ &lt;| |___ </i></td></tr>
+<tr><th id="8">8</th><td><i> *                             \___|\___/|_| \_\_____|</i></td></tr>
+<tr><th id="9">9</th><td><i> *</i></td></tr>
+<tr><th id="10">10</th><td><i> * Copyright (C) 1998 - 2004, Daniel Stenberg, &lt;daniel@haxx.se&gt;, et al.</i></td></tr>
+<tr><th id="11">11</th><td><i> *</i></td></tr>
+<tr><th id="12">12</th><td><i> * This software is licensed as described in the file COPYING, which</i></td></tr>
+<tr><th id="13">13</th><td><i> * you should have received as part of this distribution. The terms</i></td></tr>
+<tr><th id="14">14</th><td><i> * are also available at <a href="http://curl.haxx.se/docs/copyright.html">http://curl.haxx.se/docs/copyright.html</a>.</i></td></tr>
+<tr><th id="15">15</th><td><i> * </i></td></tr>
+<tr><th id="16">16</th><td><i> * You may opt to use, copy, modify, merge, publish, distribute and/or sell</i></td></tr>
+<tr><th id="17">17</th><td><i> * copies of the Software, and permit persons to whom the Software is</i></td></tr>
+<tr><th id="18">18</th><td><i> * furnished to do so, under the terms of the COPYING file.</i></td></tr>
+<tr><th id="19">19</th><td><i> *</i></td></tr>
+<tr><th id="20">20</th><td><i> * This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY</i></td></tr>
+<tr><th id="21">21</th><td><i> * KIND, either express or implied.</i></td></tr>
+<tr><th id="22">22</th><td><i> *</i></td></tr>
+<tr><th id="23">23</th><td><i> * $Id: url.h,v 1.17 2004/01/07 09:19:35 bagder Exp $</i></td></tr>
+<tr><th id="24">24</th><td><i> ***************************************************************************/</i></td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><i>/*</i></td></tr>
+<tr><th id="27">27</th><td><i> * Prototypes for library-wide functions provided by url.c</i></td></tr>
+<tr><th id="28">28</th><td><i> */</i></td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="decl" id="Curl_open" title='Curl_open' data-ref="Curl_open">Curl_open</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> **<dfn class="local col5 decl" id="5curl" title='curl' data-type='struct SessionHandle **' data-ref="5curl">curl</dfn>);</td></tr>
+<tr><th id="31">31</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="decl" id="Curl_setopt" title='Curl_setopt' data-ref="Curl_setopt">Curl_setopt</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *<dfn class="local col6 decl" id="6data" title='data' data-type='struct SessionHandle *' data-ref="6data">data</dfn>, <a class="typedef" href="../include/curl/curl.h.html#CURLoption" title='CURLoption' data-type='enum CURLoption' data-ref="CURLoption">CURLoption</a> <dfn class="local col7 decl" id="7option" title='option' data-type='CURLoption' data-ref="7option">option</dfn>, ...);</td></tr>
+<tr><th id="32">32</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="decl" id="Curl_close" title='Curl_close' data-ref="Curl_close">Curl_close</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *<dfn class="local col8 decl" id="8data" title='data' data-type='struct SessionHandle *' data-ref="8data">data</dfn>); <i>/* opposite of curl_open() */</i></td></tr>
+<tr><th id="33">33</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="decl" id="Curl_connect" title='Curl_connect' data-ref="Curl_connect">Curl_connect</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *, <b>struct</b> <a class="type" href="urldata.h.html#connectdata" title='connectdata' data-ref="connectdata">connectdata</a> **,</td></tr>
+<tr><th id="34">34</th><td>                      <a class="typedef" href="setup.h.html#bool" title='bool' data-type='unsigned char' data-ref="bool">bool</a> *<dfn class="local col9 decl" id="9async" title='async' data-type='bool *' data-ref="9async">async</dfn>);</td></tr>
+<tr><th id="35">35</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="decl" id="Curl_async_resolved" title='Curl_async_resolved' data-ref="Curl_async_resolved">Curl_async_resolved</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#connectdata" title='connectdata' data-ref="connectdata">connectdata</a> *<dfn class="local col0 decl" id="10conn" title='conn' data-type='struct connectdata *' data-ref="10conn">conn</dfn>);</td></tr>
+<tr><th id="36">36</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="decl" id="Curl_do" title='Curl_do' data-ref="Curl_do">Curl_do</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#connectdata" title='connectdata' data-ref="connectdata">connectdata</a> **);</td></tr>
+<tr><th id="37">37</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="decl" id="Curl_do_more" title='Curl_do_more' data-ref="Curl_do_more">Curl_do_more</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#connectdata" title='connectdata' data-ref="connectdata">connectdata</a> *);</td></tr>
+<tr><th id="38">38</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="decl" id="Curl_done" title='Curl_done' data-ref="Curl_done">Curl_done</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#connectdata" title='connectdata' data-ref="connectdata">connectdata</a> *);</td></tr>
+<tr><th id="39">39</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="decl" id="Curl_disconnect" title='Curl_disconnect' data-ref="Curl_disconnect">Curl_disconnect</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#connectdata" title='connectdata' data-ref="connectdata">connectdata</a> *);</td></tr>
+<tr><th id="40">40</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="decl" id="Curl_protocol_connect" title='Curl_protocol_connect' data-ref="Curl_protocol_connect">Curl_protocol_connect</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#connectdata" title='connectdata' data-ref="connectdata">connectdata</a> *<dfn class="local col1 decl" id="11conn" title='conn' data-type='struct connectdata *' data-ref="11conn">conn</dfn>,</td></tr>
+<tr><th id="41">41</th><td>                               <b>struct</b> <a class="type" href="hostip.h.html#Curl_dns_entry" title='Curl_dns_entry' data-ref="Curl_dns_entry">Curl_dns_entry</a> *<dfn class="local col2 decl" id="12dns" title='dns' data-type='struct Curl_dns_entry *' data-ref="12dns">dns</dfn>);</td></tr>
+<tr><th id="42">42</th><td><a class="typedef" href="setup.h.html#bool" title='bool' data-type='unsigned char' data-ref="bool">bool</a> <dfn class="decl" id="Curl_ssl_config_matches" title='Curl_ssl_config_matches' data-ref="Curl_ssl_config_matches">Curl_ssl_config_matches</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#ssl_config_data" title='ssl_config_data' data-ref="ssl_config_data">ssl_config_data</a>* <dfn class="local col3 decl" id="13data" title='data' data-type='struct ssl_config_data *' data-ref="13data">data</dfn>,</td></tr>
+<tr><th id="43">43</th><td>                             <b>struct</b> <a class="type" href="urldata.h.html#ssl_config_data" title='ssl_config_data' data-ref="ssl_config_data">ssl_config_data</a>* <dfn class="local col4 decl" id="14needle" title='needle' data-type='struct ssl_config_data *' data-ref="14needle">needle</dfn>);</td></tr>
+<tr><th id="44">44</th><td><a class="typedef" href="setup.h.html#bool" title='bool' data-type='unsigned char' data-ref="bool">bool</a> <dfn class="decl" id="Curl_clone_ssl_config" title='Curl_clone_ssl_config' data-ref="Curl_clone_ssl_config">Curl_clone_ssl_config</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#ssl_config_data" title='ssl_config_data' data-ref="ssl_config_data">ssl_config_data</a>* <dfn class="local col5 decl" id="15source" title='source' data-type='struct ssl_config_data *' data-ref="15source">source</dfn>,</td></tr>
+<tr><th id="45">45</th><td>                           <b>struct</b> <a class="type" href="urldata.h.html#ssl_config_data" title='ssl_config_data' data-ref="ssl_config_data">ssl_config_data</a>* <dfn class="local col6 decl" id="16dest" title='dest' data-type='struct ssl_config_data *' data-ref="16dest">dest</dfn>);</td></tr>
+<tr><th id="46">46</th><td><em>void</em> <dfn class="decl" id="Curl_free_ssl_config" title='Curl_free_ssl_config' data-ref="Curl_free_ssl_config">Curl_free_ssl_config</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#ssl_config_data" title='ssl_config_data' data-ref="ssl_config_data">ssl_config_data</a>* <dfn class="local col7 decl" id="17sslc" title='sslc' data-type='struct ssl_config_data *' data-ref="17sslc">sslc</dfn>);</td></tr>
+<tr><th id="47">47</th><td><em>void</em> <dfn class="decl" id="Curl_safefree" title='Curl_safefree' data-ref="Curl_safefree">Curl_safefree</dfn>(<em>void</em> *<dfn class="local col8 decl" id="18ptr" title='ptr' data-type='void *' data-ref="18ptr">ptr</dfn>);</td></tr>
+<tr><th id="48">48</th><td><u>#<span data-ppcond="1">endif</span></u></td></tr>
+<tr><th id="49">49</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='easy.c.html'>codebrowser/curl/lib/easy.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

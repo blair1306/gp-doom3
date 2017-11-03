@@ -1,0 +1,8 @@
+<dec f='codebrowser/sound/OggVorbis/vorbissrc/codebook.h' l='131' type='long _book_maptype1_quantvals(const static_codebook * b)'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/codebook.c' l='123' u='c' c='vorbis_staticbook_pack'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/codebook.c' l='228' u='c' c='vorbis_staticbook_unpack'/>
+<def f='codebrowser/sound/OggVorbis/vorbissrc/sharedbook.c' l='150' ll='176' type='long _book_maptype1_quantvals(const static_codebook * b)'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/sharedbook.c' l='202' u='c' c='_book_unquantize'/>
+<doc f='codebrowser/sound/OggVorbis/vorbissrc/sharedbook.c' l='147'>/* there might be a straightforward one-line way to do the below
+   that&apos;s portable and totally safe against roundoff, but I haven&apos;t
+   thought of it.  Therefore, we opt on the side of caution */</doc>

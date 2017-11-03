@@ -1,0 +1,13 @@
+<dec f='codebrowser/curl/lib/urldata.h' l='736' type='bool'/>
+<offset>72</offset>
+<doc f='codebrowser/curl/lib/urldata.h' l='736'>/* set on CURL_OPT_URL, used to detect if the URL was
+                       changed after the connect phase, as we allow callback
+                       to change it and if so, we reconnect to use the new 
+                       URL instead */</doc>
+<use f='codebrowser/curl/lib/multi.c' l='330' u='r' c='curl_multi_perform'/>
+<use f='codebrowser/curl/lib/multi.c' l='337' u='w' c='curl_multi_perform'/>
+<use f='codebrowser/curl/lib/multi.c' l='346' u='w' c='curl_multi_perform'/>
+<use f='codebrowser/curl/lib/multi.c' l='554' u='r' c='curl_multi_perform'/>
+<use f='codebrowser/curl/lib/transfer.c' l='1885' u='w' c='Curl_perform'/>
+<use f='codebrowser/curl/lib/transfer.c' l='1902' u='r' c='Curl_perform'/>
+<use f='codebrowser/curl/lib/url.c' l='760' u='w' c='Curl_setopt'/>

@@ -1,0 +1,71 @@
+<dec f='codebrowser/framework/Unzip.cpp' l='451' type='int inflateEnd(z_streamp strm)'/>
+<use f='codebrowser/framework/Unzip.cpp' l='2197' u='c' c='_Z19unzCloseCurrentFilePv'/>
+<def f='codebrowser/framework/Unzip.cpp' l='4173' ll='4183' type='int inflateEnd(z_streamp z)'/>
+<use f='codebrowser/framework/Unzip.cpp' l='4219' u='c' c='_Z13inflateInit2_P10z_stream_siPKci'/>
+<use f='codebrowser/framework/Unzip.cpp' l='4229' u='c' c='_Z13inflateInit2_P10z_stream_siPKci'/>
+<doc f='codebrowser/framework/Unzip.cpp' l='383'>/*
+    inflate decompresses as much data as possible, and stops when the input
+  buffer becomes empty or the output buffer becomes full. It may some
+  introduce some output latency (reading input without producing any output)
+  except when forced to flush.
+
+  The detailed semantics are as follows. inflate performs one or both of the
+  following actions:
+
+  - Decompress more input starting at next_in and update next_in and avail_in
+    accordingly. If not all input can be processed (because there is not
+    enough room in the output buffer), next_in is updated and processing
+    will resume at this point for the next call of inflate().
+
+  - Provide more output starting at next_out and update next_out and avail_out
+    accordingly.  inflate() provides as much output as possible, until there
+    is no more input data or no more space in the output buffer (see below
+    about the flush parameter).
+
+  Before the call of inflate(), the application should ensure that at least
+  one of the actions is possible, by providing more input and/or consuming
+  more output, and updating the next_* and avail_* values accordingly.
+  The application can consume the uncompressed output when it wants, for
+  example when the output buffer is full (avail_out == 0), or after each
+  call of inflate(). If inflate returns Z_OK and with zero avail_out, it
+  must be called again after making room in the output buffer because there
+  might be more output pending.
+
+    If the parameter flush is set to Z_SYNC_FLUSH, inflate flushes as much
+  output as possible to the output buffer. The flushing behavior of inflate is
+  not specified for values of the flush parameter other than Z_SYNC_FLUSH
+  and Z_FINISH, but the current implementation actually flushes as much output
+  as possible anyway.
+
+    inflate() should normally be called until it returns Z_STREAM_END or an
+  error. However if all decompression is to be performed in a single step
+  (a single call of inflate), the parameter flush should be set to
+  Z_FINISH. In this case all pending input is processed and all pending
+  output is flushed; avail_out must be large enough to hold all the
+  uncompressed data. (The size of the uncompressed data may have been saved
+  by the compressor for this purpose.) The next operation on this stream must
+  be inflateEnd to deallocate the decompression state. The use of Z_FINISH
+  is never required, but can be used to inform inflate that a faster routine
+  may be used for the single inflate() call.
+
+     If a preset dictionary is needed at this point (see inflateSetDictionary
+  below), inflate sets strm-adler to the adler32 checksum of the
+  dictionary chosen by the compressor and returns Z_NEED_DICT; otherwise 
+  it sets strm-&gt;adler to the adler32 checksum of all output produced
+  so (that is, total_out bytes) and returns Z_OK, Z_STREAM_END or
+  an error code as described below. At the end of the stream, inflate()
+  checks that its computed adler32 checksum is equal to that saved by the
+  compressor and returns Z_STREAM_END only if the checksum is correct.
+
+    inflate() returns Z_OK if some progress has been made (more input processed
+  or more output produced), Z_STREAM_END if the end of the compressed data has
+  been reached and all uncompressed output has been produced, Z_NEED_DICT if a
+  preset dictionary is needed at this point, Z_DATA_ERROR if the input data was
+  corrupted (input stream not conforming to the zlib format or incorrect
+  adler32 checksum), Z_STREAM_ERROR if the stream structure was inconsistent
+  (for example if next_in or next_out was NULL), Z_MEM_ERROR if there was not
+  enough memory, Z_BUF_ERROR if no progress is possible or if there was not
+  enough room in the output buffer when Z_FINISH is used. In the Z_DATA_ERROR
+  case, the application may then call inflateSync to look for a good
+  compression block.
+*/</doc>

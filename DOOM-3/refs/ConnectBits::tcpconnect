@@ -1,0 +1,11 @@
+<dec f='codebrowser/curl/lib/urldata.h' l='299' type='bool'/>
+<use f='codebrowser/curl/lib/connect.c' l='470' u='r' c='Curl_is_connected'/>
+<offset>104</offset>
+<doc f='codebrowser/curl/lib/urldata.h' l='299'>/* the tcp stream (or simimlar) is connected, this
+                         is set the first time on the first connect function
+                         call */</doc>
+<use f='codebrowser/curl/lib/url.c' l='1937' u='r' c='Curl_protocol_connect'/>
+<use f='codebrowser/curl/lib/url.c' l='2628' u='w' c='CreateConnection'/>
+<use f='codebrowser/curl/lib/url.c' l='3183' u='w' c='SetupConnection'/>
+<use f='codebrowser/curl/lib/url.c' l='3186' u='w' c='SetupConnection'/>
+<use f='codebrowser/curl/lib/url.c' l='3194' u='w' c='SetupConnection'/>

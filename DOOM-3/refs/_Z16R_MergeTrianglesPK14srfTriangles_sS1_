@@ -1,0 +1,13 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1506' type='srfTriangles_t * R_MergeTriangles(const srfTriangles_t * tri1, const srfTriangles_t * tri2)'/>
+<use f='codebrowser/renderer/Model.cpp' l='1018' u='c' c='_ZN19idRenderModelStatic25ConvertASEToModelSurfacesEPK10aseModel_s'/>
+<use f='codebrowser/renderer/Model.cpp' l='1366' u='c' c='_ZN19idRenderModelStatic25ConvertLWOToModelSurfacesEPK11st_lwObject'/>
+<use f='codebrowser/renderer/Model.cpp' l='1866' u='c' c='_ZN19idRenderModelStatic24ConvertMAToModelSurfacesEPK9maModel_s'/>
+<def f='codebrowser/renderer/tr_trisurf.cpp' l='2049' ll='2056' type='srfTriangles_t * R_MergeTriangles(const srfTriangles_t * tri1, const srfTriangles_t * tri2)'/>
+<doc f='codebrowser/renderer/tr_trisurf.cpp' l='2041'>/*
+=================
+R_MergeTriangles
+
+Only deals with vertexes and indexes, not silhouettes, planes, etc.
+Does NOT perform a cleanup triangles, so there may be duplicated verts in the result.
+=================
+*/</doc>

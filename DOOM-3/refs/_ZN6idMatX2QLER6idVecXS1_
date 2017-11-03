@@ -1,0 +1,15 @@
+<dec f='codebrowser/idlib/math/Matrix.h' l='1988' type='bool idMatX::QL(idVecX &amp; diag, idVecX &amp; subd)'/>
+<def f='codebrowser/idlib/math/Matrix.cpp' l='6442' ll='6508' type='bool idMatX::QL(idVecX &amp; diag, idVecX &amp; subd)'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='6537' u='c' c='_ZN6idMatX31Eigen_SolveSymmetricTriDiagonalER6idVecX'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='6559' u='c' c='_ZN6idMatX20Eigen_SolveSymmetricER6idVecX'/>
+<doc f='codebrowser/idlib/math/Matrix.cpp' l='6431'>/*
+============
+idMatX::QL
+
+  QL algorithm with implicit shifts to determine the eigenvalues and eigenvectors of a symmetric tri-diagonal matrix.
+  diag contains the diagonal elements of the symmetric tri-diagonal matrix on input and is overwritten with the eigenvalues.
+  subd contains the off-diagonal elements of the symmetric tri-diagonal matrix and is destroyed.
+  This matrix has to be either the identity matrix to determine the eigenvectors for a symmetric tri-diagonal matrix,
+  or the matrix returned by the Householder reduction to determine the eigenvalues for the original symmetric matrix.
+============
+*/</doc>

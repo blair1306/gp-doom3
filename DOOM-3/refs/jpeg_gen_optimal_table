@@ -1,0 +1,9 @@
+<dec f='codebrowser/renderer/jpeg-6/jchuff.h' l='33' type='void jpeg_gen_optimal_table(j_compress_ptr cinfo, JHUFF_TBL * htbl, long * freq)'/>
+<def f='codebrowser/renderer/jpeg-6/jchuff.c' l='641' ll='775' type='void jpeg_gen_optimal_table(j_compress_ptr cinfo, JHUFF_TBL * htbl, long * freq)'/>
+<use f='codebrowser/renderer/jpeg-6/jchuff.c' l='806' u='c' c='finish_pass_gather'/>
+<use f='codebrowser/renderer/jpeg-6/jchuff.c' l='813' u='c' c='finish_pass_gather'/>
+<doc f='codebrowser/renderer/jpeg-6/jchuff.c' l='636'>/*
+ * Generate the optimal coding for the given counts, fill htbl.
+ * Note this is also used by jcphuff.c.
+ */</doc>
+<use f='codebrowser/renderer/jpeg-6/jcphuff.c' l='798' u='c' c='finish_pass_gather_phuff'/>

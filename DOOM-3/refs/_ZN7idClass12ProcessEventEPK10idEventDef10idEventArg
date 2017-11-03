@@ -1,0 +1,63 @@
+<dec f='codebrowser/d3xp/gamesys/Class.h' l='224' type='bool idClass::ProcessEvent(const idEventDef * ev, idEventArg arg1)'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='2721' u='c' c='_ZN8idEntity10RunPhysicsEv'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='3661' u='c' c='_ZNK8idEntity15ActivateTargetsEPS_'/>
+<use f='codebrowser/d3xp/GameEdit.cpp' l='700' u='c' c='_ZN10idGameEdit15TriggerSelectedEv'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='3307' u='c' c='_ZN11idShockwave5SpawnEv'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='3544' u='c' c='_ZN19idFuncMountedObject11Event_TouchEP8idEntityP7trace_s'/>
+<use f='codebrowser/d3xp/Moveable.cpp' l='593' u='c' c='_ZN10idMoveable27Event_SetOwnerFromSpawnArgsEv'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='1836' u='c' c='_ZN10idElevator22HandleSingleGuiCommandEP8idEntityP7idLexer'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='4447' u='c' c='_ZN9idRotater5SpawnEv'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='582' u='c' c='_ZN12idProjectile7CollideERK7trace_sRK6idVec3'/>
+<use f='codebrowser/d3xp/ai/AI.cpp' l='3680' u='c' c='_ZN4idAI6TalkToEP7idActor'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='883' u='c' c='_ZNK6idAnim17CallFrameCommandsEP8idEntityii'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='892' u='c' c='_ZNK6idAnim17CallFrameCommandsEP8idEntityii'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='896' u='c' c='_ZNK6idAnim17CallFrameCommandsEP8idEntityii'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='900' u='c' c='_ZNK6idAnim17CallFrameCommandsEP8idEntityii'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='904' u='c' c='_ZNK6idAnim17CallFrameCommandsEP8idEntityii'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='912' u='c' c='_ZNK6idAnim17CallFrameCommandsEP8idEntityii'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='916' u='c' c='_ZNK6idAnim17CallFrameCommandsEP8idEntityii'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='920' u='c' c='_ZNK6idAnim17CallFrameCommandsEP8idEntityii'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='929' u='c' c='_ZNK6idAnim17CallFrameCommandsEP8idEntityii'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='946' u='c' c='_ZNK6idAnim17CallFrameCommandsEP8idEntityii'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='998' u='c' c='_ZNK6idAnim17CallFrameCommandsEP8idEntityii'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='1002' u='c' c='_ZNK6idAnim17CallFrameCommandsEP8idEntityii'/>
+<def f='codebrowser/d3xp/gamesys/Class.cpp' l='867' ll='869' type='bool idClass::ProcessEvent(const idEventDef * ev, idEventArg arg1)'/>
+<doc f='codebrowser/d3xp/gamesys/Class.cpp' l='862'>/*
+================
+idClass::ProcessEvent
+================
+*/</doc>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='833' u='c' c='_Z13Cmd_Trigger_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/physics/Push.cpp' l='1184' u='c' c='_ZN6idPush21ClipTranslationalPushER7trace_sP8idEntityiRK6idVec3S6_'/>
+<use f='codebrowser/d3xp/physics/Push.cpp' l='1190' u='c' c='_ZN6idPush21ClipTranslationalPushER7trace_sP8idEntityiRK6idVec3S6_'/>
+<use f='codebrowser/d3xp/physics/Push.cpp' l='1354' u='c' c='_ZN6idPush18ClipRotationalPushER7trace_sP8idEntityiRK6idMat3RK10idRotation'/>
+<use f='codebrowser/d3xp/script/Script_Thread.cpp' l='1060' u='c' c='_ZN8idThread13Event_TriggerEP8idEntity'/>
+<dec f='codebrowser/game/gamesys/Class.h' l='224' type='bool idClass::ProcessEvent(const idEventDef * ev, idEventArg arg1)'/>
+<use f='codebrowser/game/Entity.cpp' l='2629' u='c' c='_ZN8idEntity10RunPhysicsEv'/>
+<use f='codebrowser/game/Entity.cpp' l='3556' u='c' c='_ZNK8idEntity15ActivateTargetsEPS_'/>
+<use f='codebrowser/game/GameEdit.cpp' l='700' u='c' c='_ZN10idGameEdit15TriggerSelectedEv'/>
+<use f='codebrowser/game/Moveable.cpp' l='516' u='c' c='_ZN10idMoveable27Event_SetOwnerFromSpawnArgsEv'/>
+<use f='codebrowser/game/Mover.cpp' l='1829' u='c' c='_ZN10idElevator22HandleSingleGuiCommandEP8idEntityP7idLexer'/>
+<use f='codebrowser/game/Mover.cpp' l='4386' u='c' c='_ZN9idRotater5SpawnEv'/>
+<use f='codebrowser/game/Projectile.cpp' l='537' u='c' c='_ZN12idProjectile7CollideERK7trace_sRK6idVec3'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='819' u='c' c='_ZNK6idAnim17CallFrameCommandsEP8idEntityii'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='828' u='c' c='_ZNK6idAnim17CallFrameCommandsEP8idEntityii'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='832' u='c' c='_ZNK6idAnim17CallFrameCommandsEP8idEntityii'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='836' u='c' c='_ZNK6idAnim17CallFrameCommandsEP8idEntityii'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='840' u='c' c='_ZNK6idAnim17CallFrameCommandsEP8idEntityii'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='848' u='c' c='_ZNK6idAnim17CallFrameCommandsEP8idEntityii'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='852' u='c' c='_ZNK6idAnim17CallFrameCommandsEP8idEntityii'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='856' u='c' c='_ZNK6idAnim17CallFrameCommandsEP8idEntityii'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='912' u='c' c='_ZNK6idAnim17CallFrameCommandsEP8idEntityii'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='916' u='c' c='_ZNK6idAnim17CallFrameCommandsEP8idEntityii'/>
+<def f='codebrowser/game/gamesys/Class.cpp' l='867' ll='869' type='bool idClass::ProcessEvent(const idEventDef * ev, idEventArg arg1)'/>
+<doc f='codebrowser/game/gamesys/Class.cpp' l='862'>/*
+================
+idClass::ProcessEvent
+================
+*/</doc>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='764' u='c' c='_Z13Cmd_Trigger_fRK9idCmdArgs'/>
+<use f='codebrowser/game/physics/Push.cpp' l='1184' u='c' c='_ZN6idPush21ClipTranslationalPushER7trace_sP8idEntityiRK6idVec3S6_'/>
+<use f='codebrowser/game/physics/Push.cpp' l='1190' u='c' c='_ZN6idPush21ClipTranslationalPushER7trace_sP8idEntityiRK6idVec3S6_'/>
+<use f='codebrowser/game/physics/Push.cpp' l='1354' u='c' c='_ZN6idPush18ClipRotationalPushER7trace_sP8idEntityiRK6idMat3RK10idRotation'/>
+<use f='codebrowser/game/script/Script_Thread.cpp' l='1038' u='c' c='_ZN8idThread13Event_TriggerEP8idEntity'/>

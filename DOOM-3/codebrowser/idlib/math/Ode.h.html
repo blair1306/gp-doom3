@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Ode.h source code [codebrowser/idlib/math/Ode.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idODE,idODE_Euler,idODE_Midpoint,idODE_RK4,idODE_RK4Adaptive "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/idlib/math/Ode.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>idlib</a>/<a href='./'>math</a>/<a href='Ode.h.html'>Ode.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__MATH_ODE_H__">__MATH_ODE_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__MATH_ODE_H__" data-ref="_M/__MATH_ODE_H__">__MATH_ODE_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>	Numerical solvers for ordinary differential equations.</i></td></tr>
+<tr><th id="36">36</th><td><i></i></td></tr>
+<tr><th id="37">37</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="38">38</th><td><i>*/</i></td></tr>
+<tr><th id="39">39</th><td><i></i></td></tr>
+<tr><th id="40">40</th><td><i></i></td></tr>
+<tr><th id="41">41</th><td><i>//===============================================================</i></td></tr>
+<tr><th id="42">42</th><td><i>//</i></td></tr>
+<tr><th id="43">43</th><td><i>//	idODE</i></td></tr>
+<tr><th id="44">44</th><td><i>//</i></td></tr>
+<tr><th id="45">45</th><td><i>//===============================================================</i></td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td><b>typedef</b> <em>void</em> (*<dfn class="typedef" id="deriveFunction_t" title='deriveFunction_t' data-type='void (*)(const float, const void *, const float *, float *)' data-ref="deriveFunction_t">deriveFunction_t</dfn>)( <em>const</em> <em>float</em> <dfn class="local col1 decl" id="5051t" title='t' data-type='const float' data-ref="5051t">t</dfn>, <em>const</em> <em>void</em> *<dfn class="local col2 decl" id="5052userData" title='userData' data-type='const void *' data-ref="5052userData">userData</dfn>, <em>const</em> <em>float</em> *<dfn class="local col3 decl" id="5053state" title='state' data-type='const float *' data-ref="5053state">state</dfn>, <em>float</em> *<dfn class="local col4 decl" id="5054derivatives" title='derivatives' data-type='float *' data-ref="5054derivatives">derivatives</dfn> );</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td><b>class</b> <dfn class="type def" id="idODE" title='idODE' data-ref="idODE">idODE</dfn> {</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td><b>public</b>:</td></tr>
+<tr><th id="52">52</th><td>	<b>virtual</b>				<dfn class="virtual decl def" id="_ZN5idODED1Ev" title='idODE::~idODE' data-ref="_ZN5idODED1Ev">~idODE</dfn>( <em>void</em> ) {}</td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td>	<b>virtual</b> <em>float</em>		<dfn class="virtual decl" id="_ZN5idODE8EvaluateEPKfPfff" title='idODE::Evaluate' data-ref="_ZN5idODE8EvaluateEPKfPfff">Evaluate</dfn>( <em>const</em> <em>float</em> *<dfn class="local col5 decl" id="5055state" title='state' data-type='const float *' data-ref="5055state">state</dfn>, <em>float</em> *<dfn class="local col6 decl" id="5056newState" title='newState' data-type='float *' data-ref="5056newState">newState</dfn>, <em>float</em> <dfn class="local col7 decl" id="5057t0" title='t0' data-type='float' data-ref="5057t0">t0</dfn>, <em>float</em> <dfn class="local col8 decl" id="5058t1" title='t1' data-type='float' data-ref="5058t1">t1</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td><b>protected</b>:</td></tr>
+<tr><th id="57">57</th><td>	<em>int</em>					<dfn class="decl" id="idODE::dimension" title='idODE::dimension' data-ref="idODE::dimension">dimension</dfn>;		<i>// dimension in floats allocated for</i></td></tr>
+<tr><th id="58">58</th><td>	<a class="typedef" href="#deriveFunction_t" title='deriveFunction_t' data-type='void (*)(const float, const void *, const float *, float *)' data-ref="deriveFunction_t">deriveFunction_t</a>	<dfn class="decl" id="idODE::derive" title='idODE::derive' data-ref="idODE::derive">derive</dfn>;			<i>// derive function</i></td></tr>
+<tr><th id="59">59</th><td>	<em>const</em> <em>void</em> *		<dfn class="decl" id="idODE::userData" title='idODE::userData' data-ref="idODE::userData">userData</dfn>;		<i>// client data</i></td></tr>
+<tr><th id="60">60</th><td>};</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td><i>//===============================================================</i></td></tr>
+<tr><th id="63">63</th><td><i>//</i></td></tr>
+<tr><th id="64">64</th><td><i>//	idODE_Euler</i></td></tr>
+<tr><th id="65">65</th><td><i>//</i></td></tr>
+<tr><th id="66">66</th><td><i>//===============================================================</i></td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td><b>class</b> <dfn class="type def" id="idODE_Euler" title='idODE_Euler' data-ref="idODE_Euler">idODE_Euler</dfn> : <b>public</b> <a class="type" href="#idODE" title='idODE' data-ref="idODE">idODE</a> {</td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td><b>public</b>:</td></tr>
+<tr><th id="71">71</th><td>						<dfn class="decl" id="_ZN11idODE_EulerC1EiPFvfPKvPKfPfES1_" title='idODE_Euler::idODE_Euler' data-ref="_ZN11idODE_EulerC1EiPFvfPKvPKfPfES1_">idODE_Euler</dfn>( <em>const</em> <em>int</em> <dfn class="local col9 decl" id="5059dim" title='dim' data-type='const int' data-ref="5059dim">dim</dfn>, <em>const</em> <a class="typedef" href="#deriveFunction_t" title='deriveFunction_t' data-type='void (*)(const float, const void *, const float *, float *)' data-ref="deriveFunction_t">deriveFunction_t</a> <dfn class="local col0 decl" id="5060dr" title='dr' data-type='const deriveFunction_t' data-ref="5060dr">dr</dfn>, <em>const</em> <em>void</em> *<dfn class="local col1 decl" id="5061ud" title='ud' data-type='const void *' data-ref="5061ud">ud</dfn> );</td></tr>
+<tr><th id="72">72</th><td>	<b>virtual</b>				<dfn class="virtual decl" id="_ZN11idODE_EulerD1Ev" title='idODE_Euler::~idODE_Euler' data-ref="_ZN11idODE_EulerD1Ev">~idODE_Euler</dfn>( <em>void</em> );</td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td>	<b>virtual</b> <em>float</em>		<dfn class="virtual decl" id="_ZN11idODE_Euler8EvaluateEPKfPfff" title='idODE_Euler::Evaluate' data-ref="_ZN11idODE_Euler8EvaluateEPKfPfff">Evaluate</dfn>( <em>const</em> <em>float</em> *<dfn class="local col2 decl" id="5062state" title='state' data-type='const float *' data-ref="5062state">state</dfn>, <em>float</em> *<dfn class="local col3 decl" id="5063newState" title='newState' data-type='float *' data-ref="5063newState">newState</dfn>, <em>float</em> <dfn class="local col4 decl" id="5064t0" title='t0' data-type='float' data-ref="5064t0">t0</dfn>, <em>float</em> <dfn class="local col5 decl" id="5065t1" title='t1' data-type='float' data-ref="5065t1">t1</dfn> );</td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td><b>protected</b>:</td></tr>
+<tr><th id="77">77</th><td>	<em>float</em> *				<dfn class="decl" id="idODE_Euler::derivatives" title='idODE_Euler::derivatives' data-ref="idODE_Euler::derivatives">derivatives</dfn>;	<i>// space to store derivatives</i></td></tr>
+<tr><th id="78">78</th><td>};</td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td><i>//===============================================================</i></td></tr>
+<tr><th id="81">81</th><td><i>//</i></td></tr>
+<tr><th id="82">82</th><td><i>//	idODE_Midpoint</i></td></tr>
+<tr><th id="83">83</th><td><i>//</i></td></tr>
+<tr><th id="84">84</th><td><i>//===============================================================</i></td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td><b>class</b> <dfn class="type def" id="idODE_Midpoint" title='idODE_Midpoint' data-ref="idODE_Midpoint">idODE_Midpoint</dfn> : <b>public</b> <a class="type" href="#idODE" title='idODE' data-ref="idODE">idODE</a> {</td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td><b>public</b>:</td></tr>
+<tr><th id="89">89</th><td>						<dfn class="decl" id="_ZN14idODE_MidpointC1EiPFvfPKvPKfPfES1_" title='idODE_Midpoint::idODE_Midpoint' data-ref="_ZN14idODE_MidpointC1EiPFvfPKvPKfPfES1_">idODE_Midpoint</dfn>( <em>const</em> <em>int</em> <dfn class="local col6 decl" id="5066dim" title='dim' data-type='const int' data-ref="5066dim">dim</dfn>, <em>const</em> <a class="typedef" href="#deriveFunction_t" title='deriveFunction_t' data-type='void (*)(const float, const void *, const float *, float *)' data-ref="deriveFunction_t">deriveFunction_t</a> <dfn class="local col7 decl" id="5067dr" title='dr' data-type='const deriveFunction_t' data-ref="5067dr">dr</dfn>, <em>const</em> <em>void</em> *<dfn class="local col8 decl" id="5068ud" title='ud' data-type='const void *' data-ref="5068ud">ud</dfn> );</td></tr>
+<tr><th id="90">90</th><td>	<b>virtual</b>				<dfn class="virtual decl" id="_ZN14idODE_MidpointD1Ev" title='idODE_Midpoint::~idODE_Midpoint' data-ref="_ZN14idODE_MidpointD1Ev">~idODE_Midpoint</dfn>( <em>void</em> );</td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td>	<b>virtual</b> <em>float</em>		<dfn class="virtual decl" id="_ZN14idODE_Midpoint8EvaluateEPKfPfff" title='idODE_Midpoint::Evaluate' data-ref="_ZN14idODE_Midpoint8EvaluateEPKfPfff">Evaluate</dfn>( <em>const</em> <em>float</em> *<dfn class="local col9 decl" id="5069state" title='state' data-type='const float *' data-ref="5069state">state</dfn>, <em>float</em> *<dfn class="local col0 decl" id="5070newState" title='newState' data-type='float *' data-ref="5070newState">newState</dfn>, <em>float</em> <dfn class="local col1 decl" id="5071t0" title='t0' data-type='float' data-ref="5071t0">t0</dfn>, <em>float</em> <dfn class="local col2 decl" id="5072t1" title='t1' data-type='float' data-ref="5072t1">t1</dfn> );</td></tr>
+<tr><th id="93">93</th><td></td></tr>
+<tr><th id="94">94</th><td><b>protected</b>:</td></tr>
+<tr><th id="95">95</th><td>	<em>float</em> *				<dfn class="decl" id="idODE_Midpoint::tmpState" title='idODE_Midpoint::tmpState' data-ref="idODE_Midpoint::tmpState">tmpState</dfn>;</td></tr>
+<tr><th id="96">96</th><td>	<em>float</em> *				<dfn class="decl" id="idODE_Midpoint::derivatives" title='idODE_Midpoint::derivatives' data-ref="idODE_Midpoint::derivatives">derivatives</dfn>;	<i>// space to store derivatives</i></td></tr>
+<tr><th id="97">97</th><td>};</td></tr>
+<tr><th id="98">98</th><td></td></tr>
+<tr><th id="99">99</th><td><i>//===============================================================</i></td></tr>
+<tr><th id="100">100</th><td><i>//</i></td></tr>
+<tr><th id="101">101</th><td><i>//	idODE_RK4</i></td></tr>
+<tr><th id="102">102</th><td><i>//</i></td></tr>
+<tr><th id="103">103</th><td><i>//===============================================================</i></td></tr>
+<tr><th id="104">104</th><td></td></tr>
+<tr><th id="105">105</th><td><b>class</b> <dfn class="type def" id="idODE_RK4" title='idODE_RK4' data-ref="idODE_RK4">idODE_RK4</dfn> : <b>public</b> <a class="type" href="#idODE" title='idODE' data-ref="idODE">idODE</a> {</td></tr>
+<tr><th id="106">106</th><td></td></tr>
+<tr><th id="107">107</th><td><b>public</b>:</td></tr>
+<tr><th id="108">108</th><td>						<dfn class="decl" id="_ZN9idODE_RK4C1EiPFvfPKvPKfPfES1_" title='idODE_RK4::idODE_RK4' data-ref="_ZN9idODE_RK4C1EiPFvfPKvPKfPfES1_">idODE_RK4</dfn>( <em>const</em> <em>int</em> <dfn class="local col3 decl" id="5073dim" title='dim' data-type='const int' data-ref="5073dim">dim</dfn>, <em>const</em> <a class="typedef" href="#deriveFunction_t" title='deriveFunction_t' data-type='void (*)(const float, const void *, const float *, float *)' data-ref="deriveFunction_t">deriveFunction_t</a> <dfn class="local col4 decl" id="5074dr" title='dr' data-type='const deriveFunction_t' data-ref="5074dr">dr</dfn>, <em>const</em> <em>void</em> *<dfn class="local col5 decl" id="5075ud" title='ud' data-type='const void *' data-ref="5075ud">ud</dfn> );</td></tr>
+<tr><th id="109">109</th><td>	<b>virtual</b>				<dfn class="virtual decl" id="_ZN9idODE_RK4D1Ev" title='idODE_RK4::~idODE_RK4' data-ref="_ZN9idODE_RK4D1Ev">~idODE_RK4</dfn>( <em>void</em> );</td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td>	<b>virtual</b> <em>float</em>		<dfn class="virtual decl" id="_ZN9idODE_RK48EvaluateEPKfPfff" title='idODE_RK4::Evaluate' data-ref="_ZN9idODE_RK48EvaluateEPKfPfff">Evaluate</dfn>( <em>const</em> <em>float</em> *<dfn class="local col6 decl" id="5076state" title='state' data-type='const float *' data-ref="5076state">state</dfn>, <em>float</em> *<dfn class="local col7 decl" id="5077newState" title='newState' data-type='float *' data-ref="5077newState">newState</dfn>, <em>float</em> <dfn class="local col8 decl" id="5078t0" title='t0' data-type='float' data-ref="5078t0">t0</dfn>, <em>float</em> <dfn class="local col9 decl" id="5079t1" title='t1' data-type='float' data-ref="5079t1">t1</dfn> );</td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td><b>protected</b>:</td></tr>
+<tr><th id="114">114</th><td>	<em>float</em> *				<dfn class="decl" id="idODE_RK4::tmpState" title='idODE_RK4::tmpState' data-ref="idODE_RK4::tmpState">tmpState</dfn>;</td></tr>
+<tr><th id="115">115</th><td>	<em>float</em> *				<dfn class="decl" id="idODE_RK4::d1" title='idODE_RK4::d1' data-ref="idODE_RK4::d1">d1</dfn>;				<i>// derivatives</i></td></tr>
+<tr><th id="116">116</th><td>	<em>float</em> *				<dfn class="decl" id="idODE_RK4::d2" title='idODE_RK4::d2' data-ref="idODE_RK4::d2">d2</dfn>;</td></tr>
+<tr><th id="117">117</th><td>	<em>float</em> *				<dfn class="decl" id="idODE_RK4::d3" title='idODE_RK4::d3' data-ref="idODE_RK4::d3">d3</dfn>;</td></tr>
+<tr><th id="118">118</th><td>	<em>float</em> *				<dfn class="decl" id="idODE_RK4::d4" title='idODE_RK4::d4' data-ref="idODE_RK4::d4">d4</dfn>;</td></tr>
+<tr><th id="119">119</th><td>};</td></tr>
+<tr><th id="120">120</th><td></td></tr>
+<tr><th id="121">121</th><td><i>//===============================================================</i></td></tr>
+<tr><th id="122">122</th><td><i>//</i></td></tr>
+<tr><th id="123">123</th><td><i>//	idODE_RK4Adaptive</i></td></tr>
+<tr><th id="124">124</th><td><i>//</i></td></tr>
+<tr><th id="125">125</th><td><i>//===============================================================</i></td></tr>
+<tr><th id="126">126</th><td></td></tr>
+<tr><th id="127">127</th><td><b>class</b> <dfn class="type def" id="idODE_RK4Adaptive" title='idODE_RK4Adaptive' data-ref="idODE_RK4Adaptive">idODE_RK4Adaptive</dfn> : <b>public</b> <a class="type" href="#idODE" title='idODE' data-ref="idODE">idODE</a> {</td></tr>
+<tr><th id="128">128</th><td></td></tr>
+<tr><th id="129">129</th><td><b>public</b>:</td></tr>
+<tr><th id="130">130</th><td>						<dfn class="decl" id="_ZN17idODE_RK4AdaptiveC1EiPFvfPKvPKfPfES1_" title='idODE_RK4Adaptive::idODE_RK4Adaptive' data-ref="_ZN17idODE_RK4AdaptiveC1EiPFvfPKvPKfPfES1_">idODE_RK4Adaptive</dfn>( <em>const</em> <em>int</em> <dfn class="local col0 decl" id="5080dim" title='dim' data-type='const int' data-ref="5080dim">dim</dfn>, <em>const</em> <a class="typedef" href="#deriveFunction_t" title='deriveFunction_t' data-type='void (*)(const float, const void *, const float *, float *)' data-ref="deriveFunction_t">deriveFunction_t</a> <dfn class="local col1 decl" id="5081dr" title='dr' data-type='const deriveFunction_t' data-ref="5081dr">dr</dfn>, <em>const</em> <em>void</em> *<dfn class="local col2 decl" id="5082ud" title='ud' data-type='const void *' data-ref="5082ud">ud</dfn> );</td></tr>
+<tr><th id="131">131</th><td>	<b>virtual</b>				<dfn class="virtual decl" id="_ZN17idODE_RK4AdaptiveD1Ev" title='idODE_RK4Adaptive::~idODE_RK4Adaptive' data-ref="_ZN17idODE_RK4AdaptiveD1Ev">~idODE_RK4Adaptive</dfn>( <em>void</em> );</td></tr>
+<tr><th id="132">132</th><td></td></tr>
+<tr><th id="133">133</th><td>	<b>virtual</b> <em>float</em>		<dfn class="virtual decl" id="_ZN17idODE_RK4Adaptive8EvaluateEPKfPfff" title='idODE_RK4Adaptive::Evaluate' data-ref="_ZN17idODE_RK4Adaptive8EvaluateEPKfPfff">Evaluate</dfn>( <em>const</em> <em>float</em> *<dfn class="local col3 decl" id="5083state" title='state' data-type='const float *' data-ref="5083state">state</dfn>, <em>float</em> *<dfn class="local col4 decl" id="5084newState" title='newState' data-type='float *' data-ref="5084newState">newState</dfn>, <em>float</em> <dfn class="local col5 decl" id="5085t0" title='t0' data-type='float' data-ref="5085t0">t0</dfn>, <em>float</em> <dfn class="local col6 decl" id="5086t1" title='t1' data-type='float' data-ref="5086t1">t1</dfn> );</td></tr>
+<tr><th id="134">134</th><td>	<em>void</em>				<dfn class="decl" id="_ZN17idODE_RK4Adaptive11SetMaxErrorEf" title='idODE_RK4Adaptive::SetMaxError' data-ref="_ZN17idODE_RK4Adaptive11SetMaxErrorEf">SetMaxError</dfn>( <em>const</em> <em>float</em> <dfn class="local col7 decl" id="5087err" title='err' data-type='const float' data-ref="5087err">err</dfn> );</td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td><b>protected</b>:</td></tr>
+<tr><th id="137">137</th><td>	<em>float</em>				<dfn class="decl" id="idODE_RK4Adaptive::maxError" title='idODE_RK4Adaptive::maxError' data-ref="idODE_RK4Adaptive::maxError">maxError</dfn>;		<i>// maximum allowed error</i></td></tr>
+<tr><th id="138">138</th><td>	<em>float</em> *				<dfn class="decl" id="idODE_RK4Adaptive::tmpState" title='idODE_RK4Adaptive::tmpState' data-ref="idODE_RK4Adaptive::tmpState">tmpState</dfn>;</td></tr>
+<tr><th id="139">139</th><td>	<em>float</em> *				<dfn class="decl" id="idODE_RK4Adaptive::d1" title='idODE_RK4Adaptive::d1' data-ref="idODE_RK4Adaptive::d1">d1</dfn>;				<i>// derivatives</i></td></tr>
+<tr><th id="140">140</th><td>	<em>float</em> *				<dfn class="decl" id="idODE_RK4Adaptive::d1half" title='idODE_RK4Adaptive::d1half' data-ref="idODE_RK4Adaptive::d1half">d1half</dfn>;</td></tr>
+<tr><th id="141">141</th><td>	<em>float</em> *				<dfn class="decl" id="idODE_RK4Adaptive::d2" title='idODE_RK4Adaptive::d2' data-ref="idODE_RK4Adaptive::d2">d2</dfn>;</td></tr>
+<tr><th id="142">142</th><td>	<em>float</em> *				<dfn class="decl" id="idODE_RK4Adaptive::d3" title='idODE_RK4Adaptive::d3' data-ref="idODE_RK4Adaptive::d3">d3</dfn>;</td></tr>
+<tr><th id="143">143</th><td>	<em>float</em> *				<dfn class="decl" id="idODE_RK4Adaptive::d4" title='idODE_RK4Adaptive::d4' data-ref="idODE_RK4Adaptive::d4">d4</dfn>;</td></tr>
+<tr><th id="144">144</th><td>};</td></tr>
+<tr><th id="145">145</th><td></td></tr>
+<tr><th id="146">146</th><td><u>#<span data-ppcond="29">endif</span> /* !__MATH_ODE_H__ */</u></td></tr>
+<tr><th id="147">147</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../TypeInfo/TypeInfoGen.cpp.html'>codebrowser/TypeInfo/TypeInfoGen.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

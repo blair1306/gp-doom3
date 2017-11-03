@@ -1,0 +1,37 @@
+<def f='codebrowser/renderer/VertexCache.h' l='55' ll='141'/>
+<size>268</size>
+<fun r='_ZN13idVertexCache4InitEv'/>
+<fun r='_ZN13idVertexCache8ShutdownEv'/>
+<fun r='_ZN13idVertexCache6IsFastEv'/>
+<fun r='_ZN13idVertexCache8PurgeAllEv'/>
+<fun r='_ZN13idVertexCache5AllocEPviPP11vertCache_sb'/>
+<fun r='_ZN13idVertexCache8PositionEP11vertCache_s'/>
+<fun r='_ZN13idVertexCache11UnbindIndexEv'/>
+<fun r='_ZN13idVertexCache14AllocFrameTempEPvi'/>
+<fun r='_ZN13idVertexCache5TouchEP11vertCache_s'/>
+<fun r='_ZN13idVertexCache4FreeEP11vertCache_s'/>
+<fun r='_ZN13idVertexCache8EndFrameEv'/>
+<fun r='_ZN13idVertexCache4ListEv'/>
+<fun r='_ZN13idVertexCache16InitMemoryBlocksEi'/>
+<fun r='_ZN13idVertexCache12ActuallyFreeEP11vertCache_s'/>
+<smbr r='idVertexCache::r_showVertexCache' t='idCVar'/>
+<smbr r='idVertexCache::r_vertexBufferMegs' t='idCVar'/>
+<mbr r='idVertexCache::staticCountTotal' o='0' t='int'/>
+<mbr r='idVertexCache::staticAllocTotal' o='32' t='int'/>
+<mbr r='idVertexCache::staticAllocThisFrame' o='64' t='int'/>
+<mbr r='idVertexCache::staticCountThisFrame' o='96' t='int'/>
+<mbr r='idVertexCache::dynamicAllocThisFrame' o='128' t='int'/>
+<mbr r='idVertexCache::dynamicCountThisFrame' o='160' t='int'/>
+<mbr r='idVertexCache::currentFrame' o='192' t='int'/>
+<mbr r='idVertexCache::listNum' o='224' t='int'/>
+<mbr r='idVertexCache::virtualMemory' o='256' t='bool'/>
+<mbr r='idVertexCache::allocatingTempBuffer' o='264' t='bool'/>
+<mbr r='idVertexCache::tempBuffers' o='288' t='vertCache_t *[2]'/>
+<mbr r='idVertexCache::tempOverflow' o='352' t='bool'/>
+<mbr r='idVertexCache::headerAllocator' o='384' t='idBlockAlloc&lt;vertCache_t, 1024&gt;'/>
+<mbr r='idVertexCache::freeStaticHeaders' o='512' t='vertCache_t'/>
+<mbr r='idVertexCache::freeDynamicHeaders' o='832' t='vertCache_t'/>
+<mbr r='idVertexCache::dynamicHeaders' o='1152' t='vertCache_t'/>
+<mbr r='idVertexCache::deferredFreeList' o='1472' t='vertCache_t'/>
+<mbr r='idVertexCache::staticHeaders' o='1792' t='vertCache_t'/>
+<mbr r='idVertexCache::frameBytes' o='2112' t='int'/>

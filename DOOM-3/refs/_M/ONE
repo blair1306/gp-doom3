@@ -1,0 +1,10 @@
+<dec f='codebrowser/renderer/jpeg-6/jdct.h' l='131'/>
+<doc f='codebrowser/renderer/jpeg-6/jdct.h' l='121'>/*
+ * Macros for handling fixed-point arithmetic; these are used by many
+ * but not all of the DCT/IDCT modules.
+ *
+ * All values are expected to be of type INT32.
+ * Fractional constants are scaled left by CONST_BITS bits.
+ * CONST_BITS is defined within each module using these macros,
+ * and may differ from one module to the next.
+ */</doc>

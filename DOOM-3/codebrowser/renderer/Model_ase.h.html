@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Model_ase.h source code [codebrowser/renderer/Model_ase.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="aseModel_s "/>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/renderer/Model_ase.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>renderer</a>/<a href='Model_ase.h.html'>Model_ase.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__MODEL_ASE_H__">__MODEL_ASE_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__MODEL_ASE_H__" data-ref="_M/__MODEL_ASE_H__">__MODEL_ASE_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>	ASE loader. (3D Studio Max ASCII Export)</i></td></tr>
+<tr><th id="36">36</th><td><i></i></td></tr>
+<tr><th id="37">37</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="38">38</th><td><i>*/</i></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="41">41</th><td>	<em>int</em>						<dfn class="decl" id="(anonymous)::vertexNum" title='(anonymous struct)::vertexNum' data-ref="(anonymous)::vertexNum">vertexNum</dfn>[<var>3</var>];</td></tr>
+<tr><th id="42">42</th><td>	<em>int</em>						<dfn class="decl" id="(anonymous)::tVertexNum" title='(anonymous struct)::tVertexNum' data-ref="(anonymous)::tVertexNum">tVertexNum</dfn>[<var>3</var>];</td></tr>
+<tr><th id="43">43</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a>					<dfn class="decl" id="(anonymous)::faceNormal" title='(anonymous struct)::faceNormal' data-ref="(anonymous)::faceNormal">faceNormal</dfn>;</td></tr>
+<tr><th id="44">44</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a>					<dfn class="decl" id="(anonymous)::vertexNormals" title='(anonymous struct)::vertexNormals' data-ref="(anonymous)::vertexNormals">vertexNormals</dfn>[<var>3</var>];</td></tr>
+<tr><th id="45">45</th><td>	<a class="typedef" href="../idlib/Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>					<dfn class="decl" id="(anonymous)::vertexColors" title='(anonymous struct)::vertexColors' data-ref="(anonymous)::vertexColors">vertexColors</dfn>[<var>3</var>][<var>4</var>];</td></tr>
+<tr><th id="46">46</th><td>} <dfn class="typedef" id="aseFace_t" title='aseFace_t' data-type='struct aseFace_t' data-ref="aseFace_t">aseFace_t</dfn>;</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="49">49</th><td>	<em>int</em>						<dfn class="decl" id="(anonymous)::timeValue" title='(anonymous struct)::timeValue' data-ref="(anonymous)::timeValue">timeValue</dfn>;</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td>	<em>int</em>						<dfn class="decl" id="(anonymous)::numVertexes" title='(anonymous struct)::numVertexes' data-ref="(anonymous)::numVertexes">numVertexes</dfn>;</td></tr>
+<tr><th id="52">52</th><td>	<em>int</em>						<dfn class="decl" id="(anonymous)::numTVertexes" title='(anonymous struct)::numTVertexes' data-ref="(anonymous)::numTVertexes">numTVertexes</dfn>;</td></tr>
+<tr><th id="53">53</th><td>	<em>int</em>						<dfn class="decl" id="(anonymous)::numCVertexes" title='(anonymous struct)::numCVertexes' data-ref="(anonymous)::numCVertexes">numCVertexes</dfn>;</td></tr>
+<tr><th id="54">54</th><td>	<em>int</em>						<dfn class="decl" id="(anonymous)::numFaces" title='(anonymous struct)::numFaces' data-ref="(anonymous)::numFaces">numFaces</dfn>;</td></tr>
+<tr><th id="55">55</th><td>	<em>int</em>						<dfn class="decl" id="(anonymous)::numTVFaces" title='(anonymous struct)::numTVFaces' data-ref="(anonymous)::numTVFaces">numTVFaces</dfn>;</td></tr>
+<tr><th id="56">56</th><td>	<em>int</em>						<dfn class="decl" id="(anonymous)::numCVFaces" title='(anonymous struct)::numCVFaces' data-ref="(anonymous)::numCVFaces">numCVFaces</dfn>;</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a>					<dfn class="decl" id="(anonymous)::transform" title='(anonymous struct)::transform' data-ref="(anonymous)::transform">transform</dfn>[<var>4</var>];			<i>// applied to normals</i></td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td>	<em>bool</em>					<dfn class="decl" id="(anonymous)::colorsParsed" title='(anonymous struct)::colorsParsed' data-ref="(anonymous)::colorsParsed">colorsParsed</dfn>;</td></tr>
+<tr><th id="61">61</th><td>	<em>bool</em>					<dfn class="decl" id="(anonymous)::normalsParsed" title='(anonymous struct)::normalsParsed' data-ref="(anonymous)::normalsParsed">normalsParsed</dfn>;</td></tr>
+<tr><th id="62">62</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> *				<dfn class="decl" id="(anonymous)::vertexes" title='(anonymous struct)::vertexes' data-ref="(anonymous)::vertexes">vertexes</dfn>;</td></tr>
+<tr><th id="63">63</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec2" title='idVec2' data-ref="idVec2">idVec2</a> *				<dfn class="decl" id="(anonymous)::tvertexes" title='(anonymous struct)::tvertexes' data-ref="(anonymous)::tvertexes">tvertexes</dfn>;</td></tr>
+<tr><th id="64">64</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> *				<dfn class="decl" id="(anonymous)::cvertexes" title='(anonymous struct)::cvertexes' data-ref="(anonymous)::cvertexes">cvertexes</dfn>;</td></tr>
+<tr><th id="65">65</th><td>	<a class="typedef" href="#aseFace_t" title='aseFace_t' data-type='struct aseFace_t' data-ref="aseFace_t">aseFace_t</a> *				<dfn class="decl" id="(anonymous)::faces" title='(anonymous struct)::faces' data-ref="(anonymous)::faces">faces</dfn>;</td></tr>
+<tr><th id="66">66</th><td>} <dfn class="typedef" id="aseMesh_t" title='aseMesh_t' data-type='struct aseMesh_t' data-ref="aseMesh_t">aseMesh_t</dfn>;</td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="69">69</th><td>	<em>char</em>					<dfn class="decl" id="(anonymous)::name" title='(anonymous struct)::name' data-ref="(anonymous)::name">name</dfn>[<var>128</var>];</td></tr>
+<tr><th id="70">70</th><td>	<em>float</em>					<dfn class="decl" id="(anonymous)::uOffset" title='(anonymous struct)::uOffset' data-ref="(anonymous)::uOffset">uOffset</dfn>, <dfn class="decl" id="(anonymous)::vOffset" title='(anonymous struct)::vOffset' data-ref="(anonymous)::vOffset">vOffset</dfn>;		<i>// max lets you offset by material without changing texCoords</i></td></tr>
+<tr><th id="71">71</th><td>	<em>float</em>					<dfn class="decl" id="(anonymous)::uTiling" title='(anonymous struct)::uTiling' data-ref="(anonymous)::uTiling">uTiling</dfn>, <dfn class="decl" id="(anonymous)::vTiling" title='(anonymous struct)::vTiling' data-ref="(anonymous)::vTiling">vTiling</dfn>;		<i>// multiply tex coords by this</i></td></tr>
+<tr><th id="72">72</th><td>	<em>float</em>					<dfn class="decl" id="(anonymous)::angle" title='(anonymous struct)::angle' data-ref="(anonymous)::angle">angle</dfn>;					<i>// in clockwise radians</i></td></tr>
+<tr><th id="73">73</th><td>} <dfn class="typedef" id="aseMaterial_t" title='aseMaterial_t' data-type='struct aseMaterial_t' data-ref="aseMaterial_t">aseMaterial_t</dfn>;</td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="76">76</th><td>	<em>char</em>					<dfn class="decl" id="(anonymous)::name" title='(anonymous struct)::name' data-ref="(anonymous)::name">name</dfn>[<var>128</var>];</td></tr>
+<tr><th id="77">77</th><td>	<em>int</em>						<dfn class="decl" id="(anonymous)::materialRef" title='(anonymous struct)::materialRef' data-ref="(anonymous)::materialRef">materialRef</dfn>;</td></tr>
+<tr><th id="78">78</th><td></td></tr>
+<tr><th id="79">79</th><td>	<a class="typedef" href="#aseMesh_t" title='aseMesh_t' data-type='struct aseMesh_t' data-ref="aseMesh_t">aseMesh_t</a>				<dfn class="decl" id="(anonymous)::mesh" title='(anonymous struct)::mesh' data-ref="(anonymous)::mesh">mesh</dfn>;</td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td>	<i>// frames are only present with animations</i></td></tr>
+<tr><th id="82">82</th><td>	<a class="type" href="../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<a class="typedef" href="#aseMesh_t" title='aseMesh_t' data-type='struct aseMesh_t' data-ref="aseMesh_t">aseMesh_t</a>*&gt;		<dfn class="decl" id="(anonymous)::frames" title='(anonymous struct)::frames' data-ref="(anonymous)::frames">frames</dfn>;			<i>// aseMesh_t</i></td></tr>
+<tr><th id="83">83</th><td>} <dfn class="typedef" id="aseObject_t" title='aseObject_t' data-type='struct aseObject_t' data-ref="aseObject_t">aseObject_t</dfn>;</td></tr>
+<tr><th id="84">84</th><td></td></tr>
+<tr><th id="85">85</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="aseModel_s" title='aseModel_s' data-ref="aseModel_s"><a class="type" href="#aseModel_s" title='aseModel_s' data-ref="aseModel_s">aseModel_s</a></dfn> {</td></tr>
+<tr><th id="86">86</th><td>	<a class="macro" href="../idlib/precompiled.h.html#36" title="time_t" data-ref="_M/ID_TIME_T">ID_TIME_T</a>					<dfn class="decl" id="aseModel_s::timeStamp" title='aseModel_s::timeStamp' data-ref="aseModel_s::timeStamp">timeStamp</dfn>;</td></tr>
+<tr><th id="87">87</th><td>	<a class="type" href="../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<a class="typedef" href="#aseMaterial_t" title='aseMaterial_t' data-type='struct aseMaterial_t' data-ref="aseMaterial_t">aseMaterial_t</a> *&gt;	<dfn class="decl" id="aseModel_s::materials" title='aseModel_s::materials' data-ref="aseModel_s::materials">materials</dfn>;</td></tr>
+<tr><th id="88">88</th><td>	<a class="type" href="../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<a class="typedef" href="#aseObject_t" title='aseObject_t' data-type='struct aseObject_t' data-ref="aseObject_t">aseObject_t</a> *&gt;	<dfn class="decl" id="aseModel_s::objects" title='aseModel_s::objects' data-ref="aseModel_s::objects">objects</dfn>;</td></tr>
+<tr><th id="89">89</th><td>} <dfn class="typedef" id="aseModel_t" title='aseModel_t' data-type='struct aseModel_s' data-ref="aseModel_t">aseModel_t</dfn>;</td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td><a class="typedef" href="#aseModel_t" title='aseModel_t' data-type='struct aseModel_s' data-ref="aseModel_t">aseModel_t</a> *<dfn class="decl" id="_Z8ASE_LoadPKc" title='ASE_Load' data-ref="_Z8ASE_LoadPKc">ASE_Load</dfn>( <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="118fileName" title='fileName' data-type='const char *' data-ref="118fileName">fileName</dfn> );</td></tr>
+<tr><th id="93">93</th><td><em>void</em>		<dfn class="decl" id="_Z8ASE_FreeP10aseModel_s" title='ASE_Free' data-ref="_Z8ASE_FreeP10aseModel_s">ASE_Free</dfn>( <a class="typedef" href="#aseModel_t" title='aseModel_t' data-type='struct aseModel_s' data-ref="aseModel_t">aseModel_t</a> *<dfn class="local col9 decl" id="119ase" title='ase' data-type='aseModel_t *' data-ref="119ase">ase</dfn> );</td></tr>
+<tr><th id="94">94</th><td></td></tr>
+<tr><th id="95">95</th><td><u>#<span data-ppcond="29">endif</span> /* !__MODEL_ASE_H__ */</u></td></tr>
+<tr><th id="96">96</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='Model.cpp.html'>codebrowser/renderer/Model.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

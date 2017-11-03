@@ -1,0 +1,70 @@
+<def f='codebrowser/tools/compilers/aas/BrushBSP.h' l='147' ll='231'/>
+<size>144</size>
+<doc f='codebrowser/tools/compilers/aas/BrushBSP.h' l='141'>//===============================================================
+//
+//	idBrushBSP
+//
+//===============================================================</doc>
+<fun r='_ZN10idBrushBSPC1Ev'/>
+<fun r='_ZN10idBrushBSPD1Ev'/>
+<fun r='_ZN10idBrushBSP5BuildE11idBrushListiPFbP7idBrushS2_ES4_'/>
+<fun r='_ZN10idBrushBSP9PruneTreeEi'/>
+<fun r='_ZN10idBrushBSP9PortalizeEv'/>
+<fun r='_ZN10idBrushBSP13RemoveOutsideEPK9idMapFileiRK6idListI5idStrE'/>
+<fun r='_ZN10idBrushBSP8LeakFileERK5idStr'/>
+<fun r='_ZN10idBrushBSP12MergePortalsEi'/>
+<fun r='_ZN10idBrushBSP17TryMergeLeafNodesEP16idBrushBSPPortali'/>
+<fun r='_ZN10idBrushBSP17PruneMergedTree_rEP14idBrushBSPNode'/>
+<fun r='_ZN10idBrushBSP11MeltPortalsEi'/>
+<fun r='_ZN10idBrushBSP13WriteBrushMapERK5idStrS2_i'/>
+<fun r='_ZNK10idBrushBSP13GetTreeBoundsEv'/>
+<fun r='_ZNK10idBrushBSP11GetRootNodeEv'/>
+<mbr r='idBrushBSP::root' o='0' t='idBrushBSPNode *'/>
+<mbr r='idBrushBSP::outside' o='32' t='idBrushBSPNode *'/>
+<mbr r='idBrushBSP::treeBounds' o='64' t='idBounds'/>
+<mbr r='idBrushBSP::portalPlanes' o='256' t='idPlaneSet'/>
+<mbr r='idBrushBSP::numGridCells' o='608' t='int'/>
+<mbr r='idBrushBSP::numSplits' o='640' t='int'/>
+<mbr r='idBrushBSP::numGridCellSplits' o='672' t='int'/>
+<mbr r='idBrushBSP::numPrunedSplits' o='704' t='int'/>
+<mbr r='idBrushBSP::numPortals' o='736' t='int'/>
+<mbr r='idBrushBSP::solidLeafNodes' o='768' t='int'/>
+<mbr r='idBrushBSP::outsideLeafNodes' o='800' t='int'/>
+<mbr r='idBrushBSP::insideLeafNodes' o='832' t='int'/>
+<mbr r='idBrushBSP::numMergedPortals' o='864' t='int'/>
+<mbr r='idBrushBSP::numInsertedPoints' o='896' t='int'/>
+<mbr r='idBrushBSP::leakOrigin' o='928' t='idVec3'/>
+<mbr r='idBrushBSP::brushMapContents' o='1024' t='int'/>
+<mbr r='idBrushBSP::brushMap' o='1056' t='idBrushMap *'/>
+<mbr r='idBrushBSP::BrushChopAllowed' o='1088' t='bool (*)(idBrush *, idBrush *)'/>
+<mbr r='idBrushBSP::BrushMergeAllowed' o='1120' t='bool (*)(idBrush *, idBrush *)'/>
+<fun r='_ZN10idBrushBSP34RemoveMultipleLeafNodeReferences_rEP14idBrushBSPNode'/>
+<fun r='_ZN10idBrushBSP6Free_rEP14idBrushBSPNode'/>
+<fun r='_ZN10idBrushBSP17IncreaseNumSplitsEv'/>
+<fun r='_ZN10idBrushBSP15IsValidSplitterEPK11idBrushSide'/>
+<fun r='_ZN10idBrushBSP18BrushSplitterStatsEPK7idBrushiRK10idPlaneSetPbR15splitterStats_s'/>
+<fun r='_ZN10idBrushBSP12FindSplitterEP14idBrushBSPNodeRK10idPlaneSetPbR15splitterStats_s'/>
+<fun r='_ZN10idBrushBSP15SetSplitterUsedEP14idBrushBSPNodei'/>
+<fun r='_ZN10idBrushBSP15BuildBrushBSP_rEP14idBrushBSPNodeRK10idPlaneSetPbi'/>
+<fun r='_ZN10idBrushBSP15ProcessGridCellEP14idBrushBSPNodei'/>
+<fun r='_ZN10idBrushBSP11BuildGrid_rER6idListIP14idBrushBSPNodeES2_'/>
+<fun r='_ZN10idBrushBSP11PruneTree_rEP14idBrushBSPNodei'/>
+<fun r='_ZN10idBrushBSP18MakeOutsidePortalsEv'/>
+<fun r='_ZN10idBrushBSP18BaseWindingForNodeEP14idBrushBSPNode'/>
+<fun r='_ZN10idBrushBSP14MakeNodePortalEP14idBrushBSPNode'/>
+<fun r='_ZN10idBrushBSP16SplitNodePortalsEP14idBrushBSPNode'/>
+<fun r='_ZN10idBrushBSP17MakeTreePortals_rEP14idBrushBSPNode'/>
+<fun r='_ZN10idBrushBSP21FloodThroughPortals_rEP14idBrushBSPNodeii'/>
+<fun r='_ZN10idBrushBSP15FloodFromOriginERK6idVec3i'/>
+<fun r='_ZN10idBrushBSP17FloodFromEntitiesEPK9idMapFileiRK6idListI5idStrE'/>
+<fun r='_ZN10idBrushBSP15RemoveOutside_rEP14idBrushBSPNodei'/>
+<fun r='_ZN10idBrushBSP17SetPortalPlanes_rEP14idBrushBSPNodeR10idPlaneSet'/>
+<fun r='_ZN10idBrushBSP15SetPortalPlanesEv'/>
+<fun r='_ZN10idBrushBSP14MergePortals_rEP14idBrushBSPNodei'/>
+<fun r='_ZN10idBrushBSP20MergeLeafNodePortalsEP14idBrushBSPNodei'/>
+<fun r='_ZN10idBrushBSP22UpdateTreeAfterMerge_rEP14idBrushBSPNodeRK8idBoundsS1_S1_'/>
+<fun r='_ZN10idBrushBSP28RemoveLeafNodeColinearPointsEP14idBrushBSPNode'/>
+<fun r='_ZN10idBrushBSP22RemoveColinearPoints_rEP14idBrushBSPNodei'/>
+<fun r='_ZN10idBrushBSP11MeltFlood_rEP14idBrushBSPNodeiR8idBoundsR11idVectorSetI6idVec3Li3EE'/>
+<fun r='_ZN10idBrushBSP19MeltLeafNodePortalsEP14idBrushBSPNodeiR11idVectorSetI6idVec3Li3EE'/>
+<fun r='_ZN10idBrushBSP13MeltPortals_rEP14idBrushBSPNodeiR11idVectorSetI6idVec3Li3EE'/>

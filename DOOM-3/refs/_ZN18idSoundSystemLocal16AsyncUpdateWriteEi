@@ -1,0 +1,12 @@
+<dec f='codebrowser/sound/snd_local.h' l='696' type='int idSoundSystemLocal::AsyncUpdateWrite(int time)'/>
+<doc f='codebrowser/sound/snd_local.h' l='695'>// async loop, when the sound driver uses a write strategy</doc>
+<inh f='codebrowser/sound/sound.h' l='306' c='_ZN13idSoundSystem16AsyncUpdateWriteEi'/>
+<def f='codebrowser/sound/snd_system.cpp' l='748' ll='813' type='int idSoundSystemLocal::AsyncUpdateWrite(int inTime)'/>
+<doc f='codebrowser/sound/snd_system.cpp' l='740'>/*
+===================
+idSoundSystemLocal::AsyncUpdateWrite
+sound output using a write API. all the scheduling based on time
+we mix MIXBUFFER_SAMPLES at a time, but we feed the audio device with smaller chunks (and more often)
+called by the sound thread when com_asyncSound is 3 ( Linux )
+===================
+*/</doc>

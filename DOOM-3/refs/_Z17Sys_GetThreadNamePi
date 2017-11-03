@@ -1,0 +1,10 @@
+<dec f='codebrowser/sys/sys_public.h' l='503' type='const char * Sys_GetThreadName(int * index = 0)'/>
+<doc f='codebrowser/sys/sys_public.h' l='501'>// find the name of the calling thread
+// if index != NULL, set the index in g_threads array (use -1 for &quot;main&quot; thread)</doc>
+<def f='codebrowser/sys/posix/posix_threads.cpp' l='222' ll='239' type='const char * Sys_GetThreadName(int * index = 0)'/>
+<doc f='codebrowser/sys/posix/posix_threads.cpp' l='216'>/*
+==================
+Sys_GetThreadName
+find the name of the calling thread
+==================
+*/</doc>

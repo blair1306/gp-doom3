@@ -1,0 +1,825 @@
+<inh f='codebrowser/d3xp/Actor.h' l='111' c='idActor'/>
+<def f='codebrowser/d3xp/Player.h' l='235' ll='805'/>
+<size>10292</size>
+<mbr r='idPlayer::usercmd' o='33440' t='usercmd_t'/>
+<mbr r='idPlayer::playerView' o='33696' t='class idPlayerView'/>
+<mbr r='idPlayer::noclip' o='38944' t='bool'/>
+<mbr r='idPlayer::godmode' o='38952' t='bool'/>
+<mbr r='idPlayer::spawnAnglesSet' o='38960' t='bool'/>
+<mbr r='idPlayer::spawnAngles' o='38976' t='idAngles'/>
+<mbr r='idPlayer::viewAngles' o='39072' t='idAngles'/>
+<mbr r='idPlayer::cmdAngles' o='39168' t='idAngles'/>
+<mbr r='idPlayer::buttonMask' o='39264' t='int'/>
+<mbr r='idPlayer::oldButtons' o='39296' t='int'/>
+<mbr r='idPlayer::oldFlags' o='39328' t='int'/>
+<mbr r='idPlayer::lastHitTime' o='39360' t='int'/>
+<mbr r='idPlayer::lastSndHitTime' o='39392' t='int'/>
+<mbr r='idPlayer::lastSavingThrowTime' o='39424' t='int'/>
+<mbr r='idPlayer::AI_FORWARD' o='39456' t='idScriptBool'/>
+<mbr r='idPlayer::AI_BACKWARD' o='39488' t='idScriptBool'/>
+<mbr r='idPlayer::AI_STRAFE_LEFT' o='39520' t='idScriptBool'/>
+<mbr r='idPlayer::AI_STRAFE_RIGHT' o='39552' t='idScriptBool'/>
+<mbr r='idPlayer::AI_ATTACK_HELD' o='39584' t='idScriptBool'/>
+<mbr r='idPlayer::AI_WEAPON_FIRED' o='39616' t='idScriptBool'/>
+<mbr r='idPlayer::AI_JUMP' o='39648' t='idScriptBool'/>
+<mbr r='idPlayer::AI_CROUCH' o='39680' t='idScriptBool'/>
+<mbr r='idPlayer::AI_ONGROUND' o='39712' t='idScriptBool'/>
+<mbr r='idPlayer::AI_ONLADDER' o='39744' t='idScriptBool'/>
+<mbr r='idPlayer::AI_DEAD' o='39776' t='idScriptBool'/>
+<mbr r='idPlayer::AI_RUN' o='39808' t='idScriptBool'/>
+<mbr r='idPlayer::AI_PAIN' o='39840' t='idScriptBool'/>
+<mbr r='idPlayer::AI_HARDLANDING' o='39872' t='idScriptBool'/>
+<mbr r='idPlayer::AI_SOFTLANDING' o='39904' t='idScriptBool'/>
+<mbr r='idPlayer::AI_RELOAD' o='39936' t='idScriptBool'/>
+<mbr r='idPlayer::AI_TELEPORT' o='39968' t='idScriptBool'/>
+<mbr r='idPlayer::AI_TURN_LEFT' o='40000' t='idScriptBool'/>
+<mbr r='idPlayer::AI_TURN_RIGHT' o='40032' t='idScriptBool'/>
+<mbr r='idPlayer::inventory' o='40064' t='idInventory'/>
+<mbr r='idPlayer::weapon' o='61056' t='idEntityPtr&lt;idWeapon&gt;'/>
+<mbr r='idPlayer::hud' o='61088' t='idUserInterface *'/>
+<mbr r='idPlayer::objectiveSystem' o='61120' t='idUserInterface *'/>
+<mbr r='idPlayer::objectiveSystemOpen' o='61152' t='bool'/>
+<mbr r='idPlayer::weapon_soulcube' o='61184' t='int'/>
+<mbr r='idPlayer::weapon_pda' o='61216' t='int'/>
+<mbr r='idPlayer::weapon_fists' o='61248' t='int'/>
+<mbr r='idPlayer::weapon_bloodstone' o='61280' t='int'/>
+<mbr r='idPlayer::weapon_bloodstone_active1' o='61312' t='int'/>
+<mbr r='idPlayer::weapon_bloodstone_active2' o='61344' t='int'/>
+<mbr r='idPlayer::weapon_bloodstone_active3' o='61376' t='int'/>
+<mbr r='idPlayer::harvest_lock' o='61408' t='bool'/>
+<mbr r='idPlayer::heartRate' o='61440' t='int'/>
+<mbr r='idPlayer::heartInfo' o='61472' t='idInterpolate&lt;float&gt;'/>
+<mbr r='idPlayer::lastHeartAdjust' o='61664' t='int'/>
+<mbr r='idPlayer::lastHeartBeat' o='61696' t='int'/>
+<mbr r='idPlayer::lastDmgTime' o='61728' t='int'/>
+<mbr r='idPlayer::deathClearContentsTime' o='61760' t='int'/>
+<mbr r='idPlayer::doingDeathSkin' o='61792' t='bool'/>
+<mbr r='idPlayer::lastArmorPulse' o='61824' t='int'/>
+<mbr r='idPlayer::stamina' o='61856' t='float'/>
+<mbr r='idPlayer::healthPool' o='61888' t='float'/>
+<mbr r='idPlayer::nextHealthPulse' o='61920' t='int'/>
+<mbr r='idPlayer::healthPulse' o='61952' t='bool'/>
+<mbr r='idPlayer::healthTake' o='61960' t='bool'/>
+<mbr r='idPlayer::nextHealthTake' o='61984' t='int'/>
+<mbr r='idPlayer::hiddenWeapon' o='62016' t='bool'/>
+<mbr r='idPlayer::soulCubeProjectile' o='62048' t='idEntityPtr&lt;idProjectile&gt;'/>
+<smbr r='idPlayer::colorBarTable' t='idVec3 [8]'/>
+<mbr r='idPlayer::spectator' o='62080' t='int'/>
+<mbr r='idPlayer::colorBar' o='62112' t='idVec3'/>
+<mbr r='idPlayer::colorBarIndex' o='62208' t='int'/>
+<mbr r='idPlayer::scoreBoardOpen' o='62240' t='bool'/>
+<mbr r='idPlayer::forceScoreBoard' o='62248' t='bool'/>
+<mbr r='idPlayer::forceRespawn' o='62256' t='bool'/>
+<mbr r='idPlayer::spectating' o='62264' t='bool'/>
+<mbr r='idPlayer::lastSpectateTeleport' o='62272' t='int'/>
+<mbr r='idPlayer::lastHitToggle' o='62304' t='bool'/>
+<mbr r='idPlayer::forcedReady' o='62312' t='bool'/>
+<mbr r='idPlayer::wantSpectate' o='62320' t='bool'/>
+<mbr r='idPlayer::weaponGone' o='62328' t='bool'/>
+<mbr r='idPlayer::useInitialSpawns' o='62336' t='bool'/>
+<mbr r='idPlayer::latchedTeam' o='62368' t='int'/>
+<mbr r='idPlayer::tourneyRank' o='62400' t='int'/>
+<mbr r='idPlayer::tourneyLine' o='62432' t='int'/>
+<mbr r='idPlayer::spawnedTime' o='62464' t='int'/>
+<mbr r='idPlayer::carryingFlag' o='62496' t='bool'/>
+<mbr r='idPlayer::teleportEntity' o='62528' t='idEntityPtr&lt;idEntity&gt;'/>
+<mbr r='idPlayer::teleportKiller' o='62560' t='int'/>
+<mbr r='idPlayer::lastManOver' o='62592' t='bool'/>
+<mbr r='idPlayer::lastManPlayAgain' o='62600' t='bool'/>
+<mbr r='idPlayer::lastManPresent' o='62608' t='bool'/>
+<mbr r='idPlayer::isLagged' o='62616' t='bool'/>
+<mbr r='idPlayer::isChatting' o='62624' t='bool'/>
+<mbr r='idPlayer::minRespawnTime' o='62656' t='int'/>
+<mbr r='idPlayer::maxRespawnTime' o='62688' t='int'/>
+<mbr r='idPlayer::firstPersonViewOrigin' o='62720' t='idVec3'/>
+<mbr r='idPlayer::firstPersonViewAxis' o='62816' t='idMat3'/>
+<mbr r='idPlayer::dragEntity' o='63104' t='idDragEntity'/>
+<mbr r='idPlayer::mountedObject' o='63712' t='idFuncMountedObject *'/>
+<mbr r='idPlayer::enviroSuitLight' o='63744' t='idEntityPtr&lt;idLight&gt;'/>
+<mbr r='idPlayer::healthRecharge' o='63776' t='bool'/>
+<mbr r='idPlayer::lastHealthRechargeTime' o='63808' t='int'/>
+<mbr r='idPlayer::rechargeSpeed' o='63840' t='int'/>
+<mbr r='idPlayer::new_g_damageScale' o='63872' t='float'/>
+<mbr r='idPlayer::bloomEnabled' o='63904' t='bool'/>
+<mbr r='idPlayer::bloomSpeed' o='63936' t='float'/>
+<mbr r='idPlayer::bloomIntensity' o='63968' t='float'/>
+<smbr r='idPlayer::Type' t='idTypeInfo'/>
+<fun r='_ZN8idPlayer14CreateInstanceEv'/>
+<fun r='_ZNK8idPlayer7GetTypeEv'/>
+<smbr r='idPlayer::eventCallbacks' t='idEventFunc&lt;idPlayer&gt; []'/>
+<fun r='_ZN8idPlayerC1Ev'/>
+<fun r='_ZN8idPlayerD1Ev'/>
+<fun r='_ZN8idPlayer5SpawnEv'/>
+<fun r='_ZN8idPlayer5ThinkEv'/>
+<fun r='_ZNK8idPlayer4SaveEP10idSaveGame'/>
+<fun r='_ZN8idPlayer7RestoreEP13idRestoreGame'/>
+<fun r='_ZN8idPlayer4HideEv'/>
+<fun r='_ZN8idPlayer4ShowEv'/>
+<fun r='_ZN8idPlayer4InitEv'/>
+<fun r='_ZN8idPlayer17PrepareForRestartEv'/>
+<fun r='_ZN8idPlayer7RestartEv'/>
+<fun r='_ZN8idPlayer19LinkScriptVariablesEv'/>
+<fun r='_ZN8idPlayer17SetupWeaponEntityEv'/>
+<fun r='_ZN8idPlayer23SelectInitialSpawnPointER6idVec3R8idAngles'/>
+<fun r='_ZN8idPlayer18SpawnFromSpawnSpotEv'/>
+<fun r='_ZN8idPlayer12SpawnToPointERK6idVec3RK8idAngles'/>
+<fun r='_ZN8idPlayer12SetClipModelEv'/>
+<fun r='_ZN8idPlayer18SavePersistantInfoEv'/>
+<fun r='_ZN8idPlayer21RestorePersistantInfoEv'/>
+<fun r='_ZN8idPlayer15SetLevelTriggerEPKcS1_'/>
+<fun r='_ZN8idPlayer15UserInfoChangedEb'/>
+<fun r='_ZN8idPlayer11GetUserInfoEv'/>
+<fun r='_ZN8idPlayer10BalanceTDMEv'/>
+<fun r='_ZN8idPlayer12CacheWeaponsEv'/>
+<fun r='_ZN8idPlayer14EnterCinematicEv'/>
+<fun r='_ZN8idPlayer13ExitCinematicEv'/>
+<fun r='_ZN8idPlayer9HandleESCEv'/>
+<fun r='_ZN8idPlayer13SkipCinematicEv'/>
+<fun r='_ZN8idPlayer16UpdateConditionsEv'/>
+<fun r='_ZN8idPlayer13SetViewAnglesERK8idAngles'/>
+<fun r='_ZN8idPlayer21UpdateDeltaViewAnglesERK8idAngles'/>
+<fun r='_ZN8idPlayer7CollideERK7trace_sRK6idVec3'/>
+<fun r='_ZNK8idPlayer14GetAASLocationEP5idAASR6idVec3Ri'/>
+<fun r='_ZN8idPlayer15GetAIAimTargetsERK6idVec3RS0_S3_'/>
+<fun r='_ZN8idPlayer14DamageFeedbackEP8idEntityS1_Ri'/>
+<fun r='_ZN8idPlayer16CalcDamagePointsEP8idEntityS1_PK6idDictfiPiS5_'/>
+<fun r='_ZN8idPlayer6DamageEP8idEntityS1_RK6idVec3PKcfi'/>
+<fun r='_ZN8idPlayer8TeleportERK6idVec3RK8idAnglesP8idEntity'/>
+<fun r='_ZN8idPlayer4KillEbb'/>
+<fun r='_ZN8idPlayer6KilledEP8idEntityS1_iRK6idVec3i'/>
+<fun r='_ZN8idPlayer13StartFxOnBoneEPKcS1_'/>
+<fun r='_ZN8idPlayer13GetRenderViewEv'/>
+<fun r='_ZN8idPlayer19CalculateRenderViewEv'/>
+<fun r='_ZN8idPlayer24CalculateFirstPersonViewEv'/>
+<fun r='_ZN8idPlayer7DrawHUDEP15idUserInterface'/>
+<fun r='_ZN8idPlayer18WeaponFireFeedbackEPK6idDict'/>
+<fun r='_ZNK8idPlayer10DefaultFovEv'/>
+<fun r='_ZN8idPlayer7CalcFovEb'/>
+<fun r='_ZN8idPlayer22CalculateViewWeaponPosER6idVec3R6idMat3'/>
+<fun r='_ZNK8idPlayer14GetEyePositionEv'/>
+<fun r='_ZNK8idPlayer10GetViewPosER6idVec3R6idMat3'/>
+<fun r='_ZN8idPlayer21OffsetThirdPersonViewEfffb'/>
+<fun r='_ZN8idPlayer4GiveEPKcS1_'/>
+<fun r='_ZN8idPlayer8GiveItemEP6idItem'/>
+<fun r='_ZN8idPlayer8GiveItemEPKc'/>
+<fun r='_ZN8idPlayer14GiveHealthPoolEf'/>
+<fun r='_ZN8idPlayer17GiveInventoryItemEP6idDict'/>
+<fun r='_ZN8idPlayer19RemoveInventoryItemEP6idDict'/>
+<fun r='_ZN8idPlayer17GiveInventoryItemEPKc'/>
+<fun r='_ZN8idPlayer19RemoveInventoryItemEPKc'/>
+<fun r='_ZN8idPlayer17FindInventoryItemEPKc'/>
+<fun r='_ZN8idPlayer7GivePDAEPKcP6idDict'/>
+<fun r='_ZN8idPlayer9GiveVideoEPKcP6idDict'/>
+<fun r='_ZN8idPlayer9GiveEmailEPKc'/>
+<fun r='_ZN8idPlayer12GiveSecurityEPKc'/>
+<fun r='_ZN8idPlayer13GiveObjectiveEPKcS1_S1_'/>
+<fun r='_ZN8idPlayer17CompleteObjectiveEPKc'/>
+<fun r='_ZN8idPlayer11GivePowerUpEii'/>
+<fun r='_ZN8idPlayer13ClearPowerUpsEv'/>
+<fun r='_ZNK8idPlayer13PowerUpActiveEi'/>
+<fun r='_ZN8idPlayer15PowerUpModifierEi'/>
+<fun r='_ZN8idPlayer13SlotForWeaponEPKc'/>
+<fun r='_ZN8idPlayer6ReloadEv'/>
+<fun r='_ZN8idPlayer10NextWeaponEv'/>
+<fun r='_ZN8idPlayer14NextBestWeaponEv'/>
+<fun r='_ZN8idPlayer10PrevWeaponEv'/>
+<fun r='_ZN8idPlayer12SelectWeaponEib'/>
+<fun r='_ZN8idPlayer10DropWeaponEb'/>
+<fun r='_ZN8idPlayer11StealWeaponEPS_'/>
+<fun r='_ZN8idPlayer19AddProjectilesFiredEi'/>
+<fun r='_ZN8idPlayer17AddProjectileHitsEi'/>
+<fun r='_ZN8idPlayer14SetLastHitTimeEi'/>
+<fun r='_ZN8idPlayer11LowerWeaponEv'/>
+<fun r='_ZN8idPlayer11RaiseWeaponEv'/>
+<fun r='_ZN8idPlayer22WeaponLoweringCallbackEv'/>
+<fun r='_ZN8idPlayer20WeaponRisingCallbackEv'/>
+<fun r='_ZN8idPlayer12RemoveWeaponEPKc'/>
+<fun r='_ZNK8idPlayer22CanShowWeaponViewmodelEv'/>
+<fun r='_ZN8idPlayer9AddAIKillEv'/>
+<fun r='_ZN8idPlayer21SetSoulCubeProjectileEP12idProjectile'/>
+<fun r='_ZN8idPlayer15AdjustHeartRateEiffb'/>
+<fun r='_ZN8idPlayer19SetCurrentHeartRateEv'/>
+<fun r='_ZN8idPlayer16GetBaseHeartRateEv'/>
+<fun r='_ZN8idPlayer9UpdateAirEv'/>
+<fun r='_ZN8idPlayer16UpdatePowerupHudEv'/>
+<fun r='_ZN8idPlayer22HandleSingleGuiCommandEP8idEntityP7idLexer'/>
+<fun r='_ZN8idPlayer9GuiActiveEv'/>
+<fun r='_ZN8idPlayer14PerformImpulseEi'/>
+<fun r='_ZN8idPlayer8SpectateEb'/>
+<fun r='_ZN8idPlayer9TogglePDAEv'/>
+<fun r='_ZN8idPlayer16ToggleScoreboardEv'/>
+<fun r='_ZN8idPlayer13RouteGuiMouseEP15idUserInterface'/>
+<fun r='_ZN8idPlayer9UpdateHudEv'/>
+<fun r='_ZNK8idPlayer6GetPDAEv'/>
+<fun r='_ZN8idPlayer8GetVideoEi'/>
+<fun r='_ZN8idPlayer15SetInfluenceFovEf'/>
+<fun r='_ZN8idPlayer16SetInfluenceViewEPKcS1_fP8idEntity'/>
+<fun r='_ZN8idPlayer17SetInfluenceLevelEi'/>
+<fun r='_ZN8idPlayer17GetInfluenceLevelEv'/>
+<fun r='_ZN8idPlayer20SetPrivateCameraViewEP8idCamera'/>
+<fun r='_ZNK8idPlayer20GetPrivateCameraViewEv'/>
+<fun r='_ZN8idPlayer10StartFxFovEf'/>
+<fun r='_ZN8idPlayer15UpdateHudWeaponEb'/>
+<fun r='_ZN8idPlayer14UpdateHudStatsEP15idUserInterface'/>
+<fun r='_ZN8idPlayer13UpdateHudAmmoEP15idUserInterface'/>
+<fun r='_ZN8idPlayer18Event_StopAudioLogEv'/>
+<fun r='_ZN8idPlayer13StartAudioLogEv'/>
+<fun r='_ZN8idPlayer12StopAudioLogEv'/>
+<fun r='_ZN8idPlayer7ShowTipEPKcS1_b'/>
+<fun r='_ZN8idPlayer7HideTipEv'/>
+<fun r='_ZN8idPlayer12IsTipVisibleEv'/>
+<fun r='_ZN8idPlayer13ShowObjectiveEPKc'/>
+<fun r='_ZN8idPlayer13HideObjectiveEv'/>
+<fun r='_ZN8idPlayer21ClientPredictionThinkEv'/>
+<fun r='_ZNK8idPlayer15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN8idPlayer16ReadFromSnapshotERK13idBitMsgDelta'/>
+<fun r='_ZNK8idPlayer26WritePlayerStateToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN8idPlayer27ReadPlayerStateFromSnapshotERK13idBitMsgDelta'/>
+<fun r='_ZN8idPlayer18ServerReceiveEventEiiRK8idBitMsg'/>
+<fun r='_ZN8idPlayer27GetPhysicsToVisualTransformER6idVec3R6idMat3'/>
+<fun r='_ZN8idPlayer26GetPhysicsToSoundTransformER6idVec3R6idMat3'/>
+<fun r='_ZN8idPlayer18ClientReceiveEventEiiRK8idBitMsg'/>
+<fun r='_ZN8idPlayer7IsReadyEv'/>
+<fun r='_ZN8idPlayer12IsRespawningEv'/>
+<fun r='_ZN8idPlayer12IsInTeleportEv'/>
+<fun r='_ZN8idPlayer18GetInfluenceEntityEv'/>
+<fun r='_ZN8idPlayer20GetInfluenceMaterialEv'/>
+<fun r='_ZN8idPlayer18GetInfluenceRadiusEv'/>
+<fun r='_ZN8idPlayer14ServerSpectateEb'/>
+<fun r='_ZN8idPlayer16GetPlayerPhysicsEv'/>
+<fun r='_ZN8idPlayer13TeleportDeathEi'/>
+<fun r='_ZN8idPlayer9SetLeaderEb'/>
+<fun r='_ZN8idPlayer8IsLeaderEv'/>
+<fun r='_ZN8idPlayer15UpdateSkinSetupEb'/>
+<fun r='_ZNK8idPlayer8OnLadderEv'/>
+<fun r='_ZN8idPlayer17UpdatePlayerIconsEv'/>
+<fun r='_ZN8idPlayer15DrawPlayerIconsEv'/>
+<fun r='_ZN8idPlayer15HidePlayerIconsEv'/>
+<fun r='_ZN8idPlayer9NeedsIconEv'/>
+<fun r='_ZN8idPlayer19StartHealthRechargeEi'/>
+<fun r='_ZN8idPlayer18StopHealthRechargeEv'/>
+<fun r='_ZN8idPlayer16GetCurrentWeaponEv'/>
+<fun r='_ZN8idPlayer7CanGiveEPKcS1_'/>
+<fun r='_ZN8idPlayer12StopHelltimeEb'/>
+<fun r='_ZN8idPlayer21PlayHelltimeStopSoundEv'/>
+<fun r='_ZN8idPlayer8DropFlagEv'/>
+<fun r='_ZN8idPlayer10ReturnFlagEv'/>
+<fun r='_ZN8idPlayer12FreeModelDefEv'/>
+<fun r='_ZN8idPlayer10SelfSmoothEv'/>
+<fun r='_ZN8idPlayer13SetSelfSmoothEb'/>
+<mbr r='idPlayer::hipJoint' o='64000' t='jointHandle_t'/>
+<mbr r='idPlayer::chestJoint' o='64032' t='jointHandle_t'/>
+<mbr r='idPlayer::headJoint' o='64064' t='jointHandle_t'/>
+<mbr r='idPlayer::physicsObj' o='64096' t='idPhysics_Player'/>
+<mbr r='idPlayer::aasLocation' o='68096' t='idList&lt;aasLocation_t&gt;'/>
+<mbr r='idPlayer::bobFoot' o='68224' t='int'/>
+<mbr r='idPlayer::bobFrac' o='68256' t='float'/>
+<mbr r='idPlayer::bobfracsin' o='68288' t='float'/>
+<mbr r='idPlayer::bobCycle' o='68320' t='int'/>
+<mbr r='idPlayer::xyspeed' o='68352' t='float'/>
+<mbr r='idPlayer::stepUpTime' o='68384' t='int'/>
+<mbr r='idPlayer::stepUpDelta' o='68416' t='float'/>
+<mbr r='idPlayer::idealLegsYaw' o='68448' t='float'/>
+<mbr r='idPlayer::legsYaw' o='68480' t='float'/>
+<mbr r='idPlayer::legsForward' o='68512' t='bool'/>
+<mbr r='idPlayer::oldViewYaw' o='68544' t='float'/>
+<mbr r='idPlayer::viewBobAngles' o='68576' t='idAngles'/>
+<mbr r='idPlayer::viewBob' o='68672' t='idVec3'/>
+<mbr r='idPlayer::landChange' o='68768' t='int'/>
+<mbr r='idPlayer::landTime' o='68800' t='int'/>
+<mbr r='idPlayer::currentWeapon' o='68832' t='int'/>
+<mbr r='idPlayer::idealWeapon' o='68864' t='int'/>
+<mbr r='idPlayer::previousWeapon' o='68896' t='int'/>
+<mbr r='idPlayer::weaponSwitchTime' o='68928' t='int'/>
+<mbr r='idPlayer::weaponEnabled' o='68960' t='bool'/>
+<mbr r='idPlayer::showWeaponViewModel' o='68968' t='bool'/>
+<mbr r='idPlayer::skin' o='68992' t='const idDeclSkin *'/>
+<mbr r='idPlayer::powerUpSkin' o='69024' t='const idDeclSkin *'/>
+<mbr r='idPlayer::baseSkinName' o='69056' t='idStr'/>
+<mbr r='idPlayer::numProjectilesFired' o='69312' t='int'/>
+<mbr r='idPlayer::numProjectileHits' o='69344' t='int'/>
+<mbr r='idPlayer::airless' o='69376' t='bool'/>
+<mbr r='idPlayer::airTics' o='69408' t='int'/>
+<mbr r='idPlayer::lastAirDamage' o='69440' t='int'/>
+<mbr r='idPlayer::gibDeath' o='69472' t='bool'/>
+<mbr r='idPlayer::gibsLaunched' o='69480' t='bool'/>
+<mbr r='idPlayer::gibsDir' o='69504' t='idVec3'/>
+<mbr r='idPlayer::zoomFov' o='69600' t='idInterpolate&lt;float&gt;'/>
+<mbr r='idPlayer::centerView' o='69792' t='idInterpolate&lt;float&gt;'/>
+<mbr r='idPlayer::fxFov' o='69984' t='bool'/>
+<mbr r='idPlayer::influenceFov' o='70016' t='float'/>
+<mbr r='idPlayer::influenceActive' o='70048' t='int'/>
+<mbr r='idPlayer::influenceEntity' o='70080' t='idEntity *'/>
+<mbr r='idPlayer::influenceMaterial' o='70112' t='const idMaterial *'/>
+<mbr r='idPlayer::influenceRadius' o='70144' t='float'/>
+<mbr r='idPlayer::influenceSkin' o='70176' t='const idDeclSkin *'/>
+<mbr r='idPlayer::privateCameraView' o='70208' t='idCamera *'/>
+<smbr r='idPlayer::NUM_LOGGED_VIEW_ANGLES' t='const int'/>
+<mbr r='idPlayer::loggedViewAngles' o='70240' t='idAngles [64]'/>
+<smbr r='idPlayer::NUM_LOGGED_ACCELS' t='const int'/>
+<mbr r='idPlayer::loggedAccel' o='76384' t='loggedAccel_t [16]'/>
+<mbr r='idPlayer::currentLoggedAccel' o='78432' t='int'/>
+<mbr r='idPlayer::focusGUIent' o='78464' t='idEntity *'/>
+<mbr r='idPlayer::focusUI' o='78496' t='idUserInterface *'/>
+<mbr r='idPlayer::focusCharacter' o='78528' t='idAI *'/>
+<mbr r='idPlayer::talkCursor' o='78560' t='int'/>
+<mbr r='idPlayer::focusTime' o='78592' t='int'/>
+<mbr r='idPlayer::focusVehicle' o='78624' t='idAFEntity_Vehicle *'/>
+<mbr r='idPlayer::cursor' o='78656' t='idUserInterface *'/>
+<mbr r='idPlayer::oldMouseX' o='78688' t='int'/>
+<mbr r='idPlayer::oldMouseY' o='78720' t='int'/>
+<mbr r='idPlayer::pdaAudio' o='78752' t='idStr'/>
+<mbr r='idPlayer::pdaVideo' o='79008' t='idStr'/>
+<mbr r='idPlayer::pdaVideoWave' o='79264' t='idStr'/>
+<mbr r='idPlayer::tipUp' o='79520' t='bool'/>
+<mbr r='idPlayer::objectiveUp' o='79528' t='bool'/>
+<mbr r='idPlayer::lastDamageDef' o='79552' t='int'/>
+<mbr r='idPlayer::lastDamageDir' o='79584' t='idVec3'/>
+<mbr r='idPlayer::lastDamageLocation' o='79680' t='int'/>
+<mbr r='idPlayer::smoothedFrame' o='79712' t='int'/>
+<mbr r='idPlayer::smoothedOriginUpdated' o='79744' t='bool'/>
+<mbr r='idPlayer::smoothedOrigin' o='79776' t='idVec3'/>
+<mbr r='idPlayer::smoothedAngles' o='79872' t='idAngles'/>
+<mbr r='idPlayer::weaponToggles' o='79968' t='idHashTable&lt;WeaponToggle_t&gt;'/>
+<mbr r='idPlayer::hudPowerup' o='80096' t='int'/>
+<mbr r='idPlayer::lastHudPowerup' o='80128' t='int'/>
+<mbr r='idPlayer::hudPowerupDuration' o='80160' t='int'/>
+<mbr r='idPlayer::ready' o='80192' t='bool'/>
+<mbr r='idPlayer::respawning' o='80200' t='bool'/>
+<mbr r='idPlayer::leader' o='80208' t='bool'/>
+<mbr r='idPlayer::lastSpectateChange' o='80224' t='int'/>
+<mbr r='idPlayer::lastTeleFX' o='80256' t='int'/>
+<mbr r='idPlayer::lastSnapshotSequence' o='80288' t='unsigned int'/>
+<mbr r='idPlayer::weaponCatchup' o='80320' t='bool'/>
+<mbr r='idPlayer::MPAim' o='80352' t='int'/>
+<mbr r='idPlayer::lastMPAim' o='80384' t='int'/>
+<mbr r='idPlayer::lastMPAimTime' o='80416' t='int'/>
+<mbr r='idPlayer::MPAimFadeTime' o='80448' t='int'/>
+<mbr r='idPlayer::MPAimHighlight' o='80480' t='bool'/>
+<mbr r='idPlayer::isTelefragged' o='80488' t='bool'/>
+<mbr r='idPlayer::playerIcon' o='80512' t='idPlayerIcon'/>
+<mbr r='idPlayer::selfSmooth' o='82304' t='bool'/>
+<fun r='_ZN8idPlayer12LookAtKillerEP8idEntityS1_'/>
+<fun r='_ZN8idPlayer10StopFiringEv'/>
+<fun r='_ZN8idPlayer10FireWeaponEv'/>
+<fun r='_ZN8idPlayer13Weapon_CombatEv'/>
+<fun r='_ZN8idPlayer10Weapon_NPCEv'/>
+<fun r='_ZN8idPlayer10Weapon_GUIEv'/>
+<fun r='_ZN8idPlayer12UpdateWeaponEv'/>
+<fun r='_ZN8idPlayer16UpdateSpectatingEv'/>
+<fun r='_ZN8idPlayer15SpectateFreeFlyEb'/>
+<fun r='_ZN8idPlayer13SpectateCycleEv'/>
+<fun r='_ZN8idPlayer16GunTurningOffsetEv'/>
+<fun r='_ZN8idPlayer21GunAcceleratingOffsetEv'/>
+<fun r='_ZN8idPlayer10UseObjectsEv'/>
+<fun r='_ZN8idPlayer9CrashLandERK6idVec3S2_'/>
+<fun r='_ZN8idPlayer8BobCycleERK6idVec3'/>
+<fun r='_ZN8idPlayer16UpdateViewAnglesEv'/>
+<fun r='_ZN8idPlayer16EvaluateControlsEv'/>
+<fun r='_ZN8idPlayer11AdjustSpeedEv'/>
+<fun r='_ZN8idPlayer16AdjustBodyAnglesEv'/>
+<fun r='_ZN8idPlayer15InitAASLocationEv'/>
+<fun r='_ZN8idPlayer14SetAASLocationEv'/>
+<fun r='_ZN8idPlayer4MoveEv'/>
+<fun r='_ZN8idPlayer14UpdatePowerUpsEv'/>
+<fun r='_ZN8idPlayer15UpdateDeathSkinEb'/>
+<fun r='_ZN8idPlayer12ClearPowerupEi'/>
+<fun r='_ZN8idPlayer17SetSpectateOriginEv'/>
+<fun r='_ZN8idPlayer10ClearFocusEv'/>
+<fun r='_ZN8idPlayer11UpdateFocusEv'/>
+<fun r='_ZN8idPlayer14UpdateLocationEv'/>
+<fun r='_ZN8idPlayer9ActiveGuiEv'/>
+<fun r='_ZN8idPlayer13UpdatePDAInfoEb'/>
+<fun r='_ZN8idPlayer13AddGuiPDADataE10declType_tPKcPK9idDeclPDAP15idUserInterface'/>
+<fun r='_ZN8idPlayer16ExtractEmailInfoERK5idStrPKcRS0_'/>
+<fun r='_ZN8idPlayer19UpdateObjectiveInfoEv'/>
+<fun r='_ZN8idPlayer15WeaponAvailableEPKc'/>
+<fun r='_ZN8idPlayer10UseVehicleEv'/>
+<fun r='_ZN8idPlayer16Event_GetButtonsEv'/>
+<fun r='_ZN8idPlayer13Event_GetMoveEv'/>
+<fun r='_ZN8idPlayer19Event_GetViewAnglesEv'/>
+<fun r='_ZN8idPlayer15Event_StopFxFovEv'/>
+<fun r='_ZN8idPlayer18Event_EnableWeaponEv'/>
+<fun r='_ZN8idPlayer19Event_DisableWeaponEv'/>
+<fun r='_ZN8idPlayer22Event_GetCurrentWeaponEv'/>
+<fun r='_ZN8idPlayer23Event_GetPreviousWeaponEv'/>
+<fun r='_ZN8idPlayer18Event_SelectWeaponEPKc'/>
+<fun r='_ZN8idPlayer21Event_GetWeaponEntityEv'/>
+<fun r='_ZN8idPlayer13Event_OpenPDAEv'/>
+<fun r='_ZN8idPlayer18Event_PDAAvailableEv'/>
+<fun r='_ZN8idPlayer11Event_InPDAEv'/>
+<fun r='_ZN8idPlayer20Event_ExitTeleporterEv'/>
+<fun r='_ZN8idPlayer13Event_HideTipEv'/>
+<fun r='_ZN8idPlayer18Event_LevelTriggerEv'/>
+<fun r='_ZN8idPlayer12Event_GibbedEv'/>
+<fun r='_ZN8idPlayer23Event_GiveInventoryItemEPKc'/>
+<fun r='_ZN8idPlayer25Event_RemoveInventoryItemEPKc'/>
+<fun r='_ZN8idPlayer20Event_GetIdealWeaponEv'/>
+<fun r='_ZN8idPlayer21Event_WeaponAvailableEPKc'/>
+<fun r='_ZN8idPlayer20Event_SetPowerupTimeEii'/>
+<fun r='_ZN8idPlayer21Event_IsPowerupActiveEi'/>
+<fun r='_ZN8idPlayer15Event_StartWarpEv'/>
+<fun r='_ZN8idPlayer18Event_StopHelltimeEi'/>
+<fun r='_ZN8idPlayer17Event_ToggleBloomEi'/>
+<fun r='_ZN8idPlayer19Event_SetBloomParmsEff'/>
+<fun r='_ZN8idPlayer7IsReadyEv'/>
+<fun r='_ZN8idPlayer12IsRespawningEv'/>
+<fun r='_ZN8idPlayer16GetPlayerPhysicsEv'/>
+<fun r='_ZN8idPlayer12IsInTeleportEv'/>
+<fun r='_ZN8idPlayer9SetLeaderEb'/>
+<fun r='_ZN8idPlayer8IsLeaderEv'/>
+<fun r='_ZN8idPlayer10SelfSmoothEv'/>
+<fun r='_ZN8idPlayer13SetSelfSmoothEb'/>
+<inh f='codebrowser/game/Actor.h' l='107' c='idActor'/>
+<def f='codebrowser/game/Player.h' l='197' ll='686'/>
+<size>7708</size>
+<mbr r='idPlayer::usercmd' o='31552' t='usercmd_t'/>
+<mbr r='idPlayer::playerView' o='31808' t='class idPlayerView'/>
+<mbr r='idPlayer::noclip' o='37024' t='bool'/>
+<mbr r='idPlayer::godmode' o='37032' t='bool'/>
+<mbr r='idPlayer::spawnAnglesSet' o='37040' t='bool'/>
+<mbr r='idPlayer::spawnAngles' o='37056' t='idAngles'/>
+<mbr r='idPlayer::viewAngles' o='37152' t='idAngles'/>
+<mbr r='idPlayer::cmdAngles' o='37248' t='idAngles'/>
+<mbr r='idPlayer::buttonMask' o='37344' t='int'/>
+<mbr r='idPlayer::oldButtons' o='37376' t='int'/>
+<mbr r='idPlayer::oldFlags' o='37408' t='int'/>
+<mbr r='idPlayer::lastHitTime' o='37440' t='int'/>
+<mbr r='idPlayer::lastSndHitTime' o='37472' t='int'/>
+<mbr r='idPlayer::lastSavingThrowTime' o='37504' t='int'/>
+<mbr r='idPlayer::AI_FORWARD' o='37536' t='idScriptBool'/>
+<mbr r='idPlayer::AI_BACKWARD' o='37568' t='idScriptBool'/>
+<mbr r='idPlayer::AI_STRAFE_LEFT' o='37600' t='idScriptBool'/>
+<mbr r='idPlayer::AI_STRAFE_RIGHT' o='37632' t='idScriptBool'/>
+<mbr r='idPlayer::AI_ATTACK_HELD' o='37664' t='idScriptBool'/>
+<mbr r='idPlayer::AI_WEAPON_FIRED' o='37696' t='idScriptBool'/>
+<mbr r='idPlayer::AI_JUMP' o='37728' t='idScriptBool'/>
+<mbr r='idPlayer::AI_CROUCH' o='37760' t='idScriptBool'/>
+<mbr r='idPlayer::AI_ONGROUND' o='37792' t='idScriptBool'/>
+<mbr r='idPlayer::AI_ONLADDER' o='37824' t='idScriptBool'/>
+<mbr r='idPlayer::AI_DEAD' o='37856' t='idScriptBool'/>
+<mbr r='idPlayer::AI_RUN' o='37888' t='idScriptBool'/>
+<mbr r='idPlayer::AI_PAIN' o='37920' t='idScriptBool'/>
+<mbr r='idPlayer::AI_HARDLANDING' o='37952' t='idScriptBool'/>
+<mbr r='idPlayer::AI_SOFTLANDING' o='37984' t='idScriptBool'/>
+<mbr r='idPlayer::AI_RELOAD' o='38016' t='idScriptBool'/>
+<mbr r='idPlayer::AI_TELEPORT' o='38048' t='idScriptBool'/>
+<mbr r='idPlayer::AI_TURN_LEFT' o='38080' t='idScriptBool'/>
+<mbr r='idPlayer::AI_TURN_RIGHT' o='38112' t='idScriptBool'/>
+<mbr r='idPlayer::inventory' o='38144' t='idInventory'/>
+<mbr r='idPlayer::weapon' o='41088' t='idEntityPtr&lt;idWeapon&gt;'/>
+<mbr r='idPlayer::hud' o='41120' t='idUserInterface *'/>
+<mbr r='idPlayer::objectiveSystem' o='41152' t='idUserInterface *'/>
+<mbr r='idPlayer::objectiveSystemOpen' o='41184' t='bool'/>
+<mbr r='idPlayer::weapon_soulcube' o='41216' t='int'/>
+<mbr r='idPlayer::weapon_pda' o='41248' t='int'/>
+<mbr r='idPlayer::weapon_fists' o='41280' t='int'/>
+<mbr r='idPlayer::heartRate' o='41312' t='int'/>
+<mbr r='idPlayer::heartInfo' o='41344' t='idInterpolate&lt;float&gt;'/>
+<mbr r='idPlayer::lastHeartAdjust' o='41536' t='int'/>
+<mbr r='idPlayer::lastHeartBeat' o='41568' t='int'/>
+<mbr r='idPlayer::lastDmgTime' o='41600' t='int'/>
+<mbr r='idPlayer::deathClearContentsTime' o='41632' t='int'/>
+<mbr r='idPlayer::doingDeathSkin' o='41664' t='bool'/>
+<mbr r='idPlayer::lastArmorPulse' o='41696' t='int'/>
+<mbr r='idPlayer::stamina' o='41728' t='float'/>
+<mbr r='idPlayer::healthPool' o='41760' t='float'/>
+<mbr r='idPlayer::nextHealthPulse' o='41792' t='int'/>
+<mbr r='idPlayer::healthPulse' o='41824' t='bool'/>
+<mbr r='idPlayer::healthTake' o='41832' t='bool'/>
+<mbr r='idPlayer::nextHealthTake' o='41856' t='int'/>
+<mbr r='idPlayer::hiddenWeapon' o='41888' t='bool'/>
+<mbr r='idPlayer::soulCubeProjectile' o='41920' t='idEntityPtr&lt;idProjectile&gt;'/>
+<smbr r='idPlayer::colorBarTable' t='idVec3 [5]'/>
+<mbr r='idPlayer::spectator' o='41952' t='int'/>
+<mbr r='idPlayer::colorBar' o='41984' t='idVec3'/>
+<mbr r='idPlayer::colorBarIndex' o='42080' t='int'/>
+<mbr r='idPlayer::scoreBoardOpen' o='42112' t='bool'/>
+<mbr r='idPlayer::forceScoreBoard' o='42120' t='bool'/>
+<mbr r='idPlayer::forceRespawn' o='42128' t='bool'/>
+<mbr r='idPlayer::spectating' o='42136' t='bool'/>
+<mbr r='idPlayer::lastSpectateTeleport' o='42144' t='int'/>
+<mbr r='idPlayer::lastHitToggle' o='42176' t='bool'/>
+<mbr r='idPlayer::forcedReady' o='42184' t='bool'/>
+<mbr r='idPlayer::wantSpectate' o='42192' t='bool'/>
+<mbr r='idPlayer::weaponGone' o='42200' t='bool'/>
+<mbr r='idPlayer::useInitialSpawns' o='42208' t='bool'/>
+<mbr r='idPlayer::latchedTeam' o='42240' t='int'/>
+<mbr r='idPlayer::tourneyRank' o='42272' t='int'/>
+<mbr r='idPlayer::tourneyLine' o='42304' t='int'/>
+<mbr r='idPlayer::spawnedTime' o='42336' t='int'/>
+<mbr r='idPlayer::teleportEntity' o='42368' t='idEntityPtr&lt;idEntity&gt;'/>
+<mbr r='idPlayer::teleportKiller' o='42400' t='int'/>
+<mbr r='idPlayer::lastManOver' o='42432' t='bool'/>
+<mbr r='idPlayer::lastManPlayAgain' o='42440' t='bool'/>
+<mbr r='idPlayer::lastManPresent' o='42448' t='bool'/>
+<mbr r='idPlayer::isLagged' o='42456' t='bool'/>
+<mbr r='idPlayer::isChatting' o='42464' t='bool'/>
+<mbr r='idPlayer::minRespawnTime' o='42496' t='int'/>
+<mbr r='idPlayer::maxRespawnTime' o='42528' t='int'/>
+<mbr r='idPlayer::firstPersonViewOrigin' o='42560' t='idVec3'/>
+<mbr r='idPlayer::firstPersonViewAxis' o='42656' t='idMat3'/>
+<mbr r='idPlayer::dragEntity' o='42944' t='idDragEntity'/>
+<smbr r='idPlayer::Type' t='idTypeInfo'/>
+<fun r='_ZN8idPlayer14CreateInstanceEv'/>
+<fun r='_ZNK8idPlayer7GetTypeEv'/>
+<smbr r='idPlayer::eventCallbacks' t='idEventFunc&lt;idPlayer&gt; []'/>
+<fun r='_ZN8idPlayerC1Ev'/>
+<fun r='_ZN8idPlayerD1Ev'/>
+<fun r='_ZN8idPlayer5SpawnEv'/>
+<fun r='_ZN8idPlayer5ThinkEv'/>
+<fun r='_ZNK8idPlayer4SaveEP10idSaveGame'/>
+<fun r='_ZN8idPlayer7RestoreEP13idRestoreGame'/>
+<fun r='_ZN8idPlayer4HideEv'/>
+<fun r='_ZN8idPlayer4ShowEv'/>
+<fun r='_ZN8idPlayer4InitEv'/>
+<fun r='_ZN8idPlayer17PrepareForRestartEv'/>
+<fun r='_ZN8idPlayer7RestartEv'/>
+<fun r='_ZN8idPlayer19LinkScriptVariablesEv'/>
+<fun r='_ZN8idPlayer17SetupWeaponEntityEv'/>
+<fun r='_ZN8idPlayer23SelectInitialSpawnPointER6idVec3R8idAngles'/>
+<fun r='_ZN8idPlayer18SpawnFromSpawnSpotEv'/>
+<fun r='_ZN8idPlayer12SpawnToPointERK6idVec3RK8idAngles'/>
+<fun r='_ZN8idPlayer12SetClipModelEv'/>
+<fun r='_ZN8idPlayer18SavePersistantInfoEv'/>
+<fun r='_ZN8idPlayer21RestorePersistantInfoEv'/>
+<fun r='_ZN8idPlayer15SetLevelTriggerEPKcS1_'/>
+<fun r='_ZN8idPlayer15UserInfoChangedEb'/>
+<fun r='_ZN8idPlayer11GetUserInfoEv'/>
+<fun r='_ZN8idPlayer10BalanceTDMEv'/>
+<fun r='_ZN8idPlayer12CacheWeaponsEv'/>
+<fun r='_ZN8idPlayer14EnterCinematicEv'/>
+<fun r='_ZN8idPlayer13ExitCinematicEv'/>
+<fun r='_ZN8idPlayer9HandleESCEv'/>
+<fun r='_ZN8idPlayer13SkipCinematicEv'/>
+<fun r='_ZN8idPlayer16UpdateConditionsEv'/>
+<fun r='_ZN8idPlayer13SetViewAnglesERK8idAngles'/>
+<fun r='_ZN8idPlayer21UpdateDeltaViewAnglesERK8idAngles'/>
+<fun r='_ZN8idPlayer7CollideERK7trace_sRK6idVec3'/>
+<fun r='_ZNK8idPlayer14GetAASLocationEP5idAASR6idVec3Ri'/>
+<fun r='_ZN8idPlayer15GetAIAimTargetsERK6idVec3RS0_S3_'/>
+<fun r='_ZN8idPlayer14DamageFeedbackEP8idEntityS1_Ri'/>
+<fun r='_ZN8idPlayer16CalcDamagePointsEP8idEntityS1_PK6idDictfiPiS5_'/>
+<fun r='_ZN8idPlayer6DamageEP8idEntityS1_RK6idVec3PKcfi'/>
+<fun r='_ZN8idPlayer8TeleportERK6idVec3RK8idAnglesP8idEntity'/>
+<fun r='_ZN8idPlayer4KillEbb'/>
+<fun r='_ZN8idPlayer6KilledEP8idEntityS1_iRK6idVec3i'/>
+<fun r='_ZN8idPlayer13StartFxOnBoneEPKcS1_'/>
+<fun r='_ZN8idPlayer13GetRenderViewEv'/>
+<fun r='_ZN8idPlayer19CalculateRenderViewEv'/>
+<fun r='_ZN8idPlayer24CalculateFirstPersonViewEv'/>
+<fun r='_ZN8idPlayer7DrawHUDEP15idUserInterface'/>
+<fun r='_ZN8idPlayer18WeaponFireFeedbackEPK6idDict'/>
+<fun r='_ZNK8idPlayer10DefaultFovEv'/>
+<fun r='_ZN8idPlayer7CalcFovEb'/>
+<fun r='_ZN8idPlayer22CalculateViewWeaponPosER6idVec3R6idMat3'/>
+<fun r='_ZNK8idPlayer14GetEyePositionEv'/>
+<fun r='_ZNK8idPlayer10GetViewPosER6idVec3R6idMat3'/>
+<fun r='_ZN8idPlayer21OffsetThirdPersonViewEfffb'/>
+<fun r='_ZN8idPlayer4GiveEPKcS1_'/>
+<fun r='_ZN8idPlayer8GiveItemEP6idItem'/>
+<fun r='_ZN8idPlayer8GiveItemEPKc'/>
+<fun r='_ZN8idPlayer14GiveHealthPoolEf'/>
+<fun r='_ZN8idPlayer17GiveInventoryItemEP6idDict'/>
+<fun r='_ZN8idPlayer19RemoveInventoryItemEP6idDict'/>
+<fun r='_ZN8idPlayer17GiveInventoryItemEPKc'/>
+<fun r='_ZN8idPlayer19RemoveInventoryItemEPKc'/>
+<fun r='_ZN8idPlayer17FindInventoryItemEPKc'/>
+<fun r='_ZN8idPlayer7GivePDAEPKcP6idDict'/>
+<fun r='_ZN8idPlayer9GiveVideoEPKcP6idDict'/>
+<fun r='_ZN8idPlayer9GiveEmailEPKc'/>
+<fun r='_ZN8idPlayer12GiveSecurityEPKc'/>
+<fun r='_ZN8idPlayer13GiveObjectiveEPKcS1_S1_'/>
+<fun r='_ZN8idPlayer17CompleteObjectiveEPKc'/>
+<fun r='_ZN8idPlayer11GivePowerUpEii'/>
+<fun r='_ZN8idPlayer13ClearPowerUpsEv'/>
+<fun r='_ZNK8idPlayer13PowerUpActiveEi'/>
+<fun r='_ZN8idPlayer15PowerUpModifierEi'/>
+<fun r='_ZN8idPlayer13SlotForWeaponEPKc'/>
+<fun r='_ZN8idPlayer6ReloadEv'/>
+<fun r='_ZN8idPlayer10NextWeaponEv'/>
+<fun r='_ZN8idPlayer14NextBestWeaponEv'/>
+<fun r='_ZN8idPlayer10PrevWeaponEv'/>
+<fun r='_ZN8idPlayer12SelectWeaponEib'/>
+<fun r='_ZN8idPlayer10DropWeaponEb'/>
+<fun r='_ZN8idPlayer11StealWeaponEPS_'/>
+<fun r='_ZN8idPlayer19AddProjectilesFiredEi'/>
+<fun r='_ZN8idPlayer17AddProjectileHitsEi'/>
+<fun r='_ZN8idPlayer14SetLastHitTimeEi'/>
+<fun r='_ZN8idPlayer11LowerWeaponEv'/>
+<fun r='_ZN8idPlayer11RaiseWeaponEv'/>
+<fun r='_ZN8idPlayer22WeaponLoweringCallbackEv'/>
+<fun r='_ZN8idPlayer20WeaponRisingCallbackEv'/>
+<fun r='_ZN8idPlayer12RemoveWeaponEPKc'/>
+<fun r='_ZNK8idPlayer22CanShowWeaponViewmodelEv'/>
+<fun r='_ZN8idPlayer9AddAIKillEv'/>
+<fun r='_ZN8idPlayer21SetSoulCubeProjectileEP12idProjectile'/>
+<fun r='_ZN8idPlayer15AdjustHeartRateEiffb'/>
+<fun r='_ZN8idPlayer19SetCurrentHeartRateEv'/>
+<fun r='_ZN8idPlayer16GetBaseHeartRateEv'/>
+<fun r='_ZN8idPlayer9UpdateAirEv'/>
+<fun r='_ZN8idPlayer22HandleSingleGuiCommandEP8idEntityP7idLexer'/>
+<fun r='_ZN8idPlayer9GuiActiveEv'/>
+<fun r='_ZN8idPlayer14PerformImpulseEi'/>
+<fun r='_ZN8idPlayer8SpectateEb'/>
+<fun r='_ZN8idPlayer9TogglePDAEv'/>
+<fun r='_ZN8idPlayer16ToggleScoreboardEv'/>
+<fun r='_ZN8idPlayer13RouteGuiMouseEP15idUserInterface'/>
+<fun r='_ZN8idPlayer9UpdateHudEv'/>
+<fun r='_ZNK8idPlayer6GetPDAEv'/>
+<fun r='_ZN8idPlayer8GetVideoEi'/>
+<fun r='_ZN8idPlayer15SetInfluenceFovEf'/>
+<fun r='_ZN8idPlayer16SetInfluenceViewEPKcS1_fP8idEntity'/>
+<fun r='_ZN8idPlayer17SetInfluenceLevelEi'/>
+<fun r='_ZN8idPlayer17GetInfluenceLevelEv'/>
+<fun r='_ZN8idPlayer20SetPrivateCameraViewEP8idCamera'/>
+<fun r='_ZNK8idPlayer20GetPrivateCameraViewEv'/>
+<fun r='_ZN8idPlayer10StartFxFovEf'/>
+<fun r='_ZN8idPlayer15UpdateHudWeaponEb'/>
+<fun r='_ZN8idPlayer14UpdateHudStatsEP15idUserInterface'/>
+<fun r='_ZN8idPlayer13UpdateHudAmmoEP15idUserInterface'/>
+<fun r='_ZN8idPlayer18Event_StopAudioLogEv'/>
+<fun r='_ZN8idPlayer13StartAudioLogEv'/>
+<fun r='_ZN8idPlayer12StopAudioLogEv'/>
+<fun r='_ZN8idPlayer7ShowTipEPKcS1_b'/>
+<fun r='_ZN8idPlayer7HideTipEv'/>
+<fun r='_ZN8idPlayer12IsTipVisibleEv'/>
+<fun r='_ZN8idPlayer13ShowObjectiveEPKc'/>
+<fun r='_ZN8idPlayer13HideObjectiveEv'/>
+<fun r='_ZN8idPlayer21ClientPredictionThinkEv'/>
+<fun r='_ZNK8idPlayer15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN8idPlayer16ReadFromSnapshotERK13idBitMsgDelta'/>
+<fun r='_ZNK8idPlayer26WritePlayerStateToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN8idPlayer27ReadPlayerStateFromSnapshotERK13idBitMsgDelta'/>
+<fun r='_ZN8idPlayer18ServerReceiveEventEiiRK8idBitMsg'/>
+<fun r='_ZN8idPlayer27GetPhysicsToVisualTransformER6idVec3R6idMat3'/>
+<fun r='_ZN8idPlayer26GetPhysicsToSoundTransformER6idVec3R6idMat3'/>
+<fun r='_ZN8idPlayer18ClientReceiveEventEiiRK8idBitMsg'/>
+<fun r='_ZN8idPlayer7IsReadyEv'/>
+<fun r='_ZN8idPlayer12IsRespawningEv'/>
+<fun r='_ZN8idPlayer12IsInTeleportEv'/>
+<fun r='_ZN8idPlayer18GetInfluenceEntityEv'/>
+<fun r='_ZN8idPlayer20GetInfluenceMaterialEv'/>
+<fun r='_ZN8idPlayer18GetInfluenceRadiusEv'/>
+<fun r='_ZN8idPlayer14ServerSpectateEb'/>
+<fun r='_ZN8idPlayer16GetPlayerPhysicsEv'/>
+<fun r='_ZN8idPlayer13TeleportDeathEi'/>
+<fun r='_ZN8idPlayer9SetLeaderEb'/>
+<fun r='_ZN8idPlayer8IsLeaderEv'/>
+<fun r='_ZN8idPlayer15UpdateSkinSetupEb'/>
+<fun r='_ZNK8idPlayer8OnLadderEv'/>
+<fun r='_ZN8idPlayer17UpdatePlayerIconsEv'/>
+<fun r='_ZN8idPlayer15DrawPlayerIconsEv'/>
+<fun r='_ZN8idPlayer15HidePlayerIconsEv'/>
+<fun r='_ZN8idPlayer9NeedsIconEv'/>
+<fun r='_ZN8idPlayer10SelfSmoothEv'/>
+<fun r='_ZN8idPlayer13SetSelfSmoothEb'/>
+<mbr r='idPlayer::hipJoint' o='43552' t='jointHandle_t'/>
+<mbr r='idPlayer::chestJoint' o='43584' t='jointHandle_t'/>
+<mbr r='idPlayer::headJoint' o='43616' t='jointHandle_t'/>
+<mbr r='idPlayer::physicsObj' o='43648' t='idPhysics_Player'/>
+<mbr r='idPlayer::aasLocation' o='47648' t='idList&lt;aasLocation_t&gt;'/>
+<mbr r='idPlayer::bobFoot' o='47776' t='int'/>
+<mbr r='idPlayer::bobFrac' o='47808' t='float'/>
+<mbr r='idPlayer::bobfracsin' o='47840' t='float'/>
+<mbr r='idPlayer::bobCycle' o='47872' t='int'/>
+<mbr r='idPlayer::xyspeed' o='47904' t='float'/>
+<mbr r='idPlayer::stepUpTime' o='47936' t='int'/>
+<mbr r='idPlayer::stepUpDelta' o='47968' t='float'/>
+<mbr r='idPlayer::idealLegsYaw' o='48000' t='float'/>
+<mbr r='idPlayer::legsYaw' o='48032' t='float'/>
+<mbr r='idPlayer::legsForward' o='48064' t='bool'/>
+<mbr r='idPlayer::oldViewYaw' o='48096' t='float'/>
+<mbr r='idPlayer::viewBobAngles' o='48128' t='idAngles'/>
+<mbr r='idPlayer::viewBob' o='48224' t='idVec3'/>
+<mbr r='idPlayer::landChange' o='48320' t='int'/>
+<mbr r='idPlayer::landTime' o='48352' t='int'/>
+<mbr r='idPlayer::currentWeapon' o='48384' t='int'/>
+<mbr r='idPlayer::idealWeapon' o='48416' t='int'/>
+<mbr r='idPlayer::previousWeapon' o='48448' t='int'/>
+<mbr r='idPlayer::weaponSwitchTime' o='48480' t='int'/>
+<mbr r='idPlayer::weaponEnabled' o='48512' t='bool'/>
+<mbr r='idPlayer::showWeaponViewModel' o='48520' t='bool'/>
+<mbr r='idPlayer::skin' o='48544' t='const idDeclSkin *'/>
+<mbr r='idPlayer::powerUpSkin' o='48576' t='const idDeclSkin *'/>
+<mbr r='idPlayer::baseSkinName' o='48608' t='idStr'/>
+<mbr r='idPlayer::numProjectilesFired' o='48864' t='int'/>
+<mbr r='idPlayer::numProjectileHits' o='48896' t='int'/>
+<mbr r='idPlayer::airless' o='48928' t='bool'/>
+<mbr r='idPlayer::airTics' o='48960' t='int'/>
+<mbr r='idPlayer::lastAirDamage' o='48992' t='int'/>
+<mbr r='idPlayer::gibDeath' o='49024' t='bool'/>
+<mbr r='idPlayer::gibsLaunched' o='49032' t='bool'/>
+<mbr r='idPlayer::gibsDir' o='49056' t='idVec3'/>
+<mbr r='idPlayer::zoomFov' o='49152' t='idInterpolate&lt;float&gt;'/>
+<mbr r='idPlayer::centerView' o='49344' t='idInterpolate&lt;float&gt;'/>
+<mbr r='idPlayer::fxFov' o='49536' t='bool'/>
+<mbr r='idPlayer::influenceFov' o='49568' t='float'/>
+<mbr r='idPlayer::influenceActive' o='49600' t='int'/>
+<mbr r='idPlayer::influenceEntity' o='49632' t='idEntity *'/>
+<mbr r='idPlayer::influenceMaterial' o='49664' t='const idMaterial *'/>
+<mbr r='idPlayer::influenceRadius' o='49696' t='float'/>
+<mbr r='idPlayer::influenceSkin' o='49728' t='const idDeclSkin *'/>
+<mbr r='idPlayer::privateCameraView' o='49760' t='idCamera *'/>
+<smbr r='idPlayer::NUM_LOGGED_VIEW_ANGLES' t='const int'/>
+<mbr r='idPlayer::loggedViewAngles' o='49792' t='idAngles [64]'/>
+<smbr r='idPlayer::NUM_LOGGED_ACCELS' t='const int'/>
+<mbr r='idPlayer::loggedAccel' o='55936' t='loggedAccel_t [16]'/>
+<mbr r='idPlayer::currentLoggedAccel' o='57984' t='int'/>
+<mbr r='idPlayer::focusGUIent' o='58016' t='idEntity *'/>
+<mbr r='idPlayer::focusUI' o='58048' t='idUserInterface *'/>
+<mbr r='idPlayer::focusCharacter' o='58080' t='idAI *'/>
+<mbr r='idPlayer::talkCursor' o='58112' t='int'/>
+<mbr r='idPlayer::focusTime' o='58144' t='int'/>
+<mbr r='idPlayer::focusVehicle' o='58176' t='idAFEntity_Vehicle *'/>
+<mbr r='idPlayer::cursor' o='58208' t='idUserInterface *'/>
+<mbr r='idPlayer::oldMouseX' o='58240' t='int'/>
+<mbr r='idPlayer::oldMouseY' o='58272' t='int'/>
+<mbr r='idPlayer::pdaAudio' o='58304' t='idStr'/>
+<mbr r='idPlayer::pdaVideo' o='58560' t='idStr'/>
+<mbr r='idPlayer::pdaVideoWave' o='58816' t='idStr'/>
+<mbr r='idPlayer::tipUp' o='59072' t='bool'/>
+<mbr r='idPlayer::objectiveUp' o='59080' t='bool'/>
+<mbr r='idPlayer::lastDamageDef' o='59104' t='int'/>
+<mbr r='idPlayer::lastDamageDir' o='59136' t='idVec3'/>
+<mbr r='idPlayer::lastDamageLocation' o='59232' t='int'/>
+<mbr r='idPlayer::smoothedFrame' o='59264' t='int'/>
+<mbr r='idPlayer::smoothedOriginUpdated' o='59296' t='bool'/>
+<mbr r='idPlayer::smoothedOrigin' o='59328' t='idVec3'/>
+<mbr r='idPlayer::smoothedAngles' o='59424' t='idAngles'/>
+<mbr r='idPlayer::ready' o='59520' t='bool'/>
+<mbr r='idPlayer::respawning' o='59528' t='bool'/>
+<mbr r='idPlayer::leader' o='59536' t='bool'/>
+<mbr r='idPlayer::lastSpectateChange' o='59552' t='int'/>
+<mbr r='idPlayer::lastTeleFX' o='59584' t='int'/>
+<mbr r='idPlayer::lastSnapshotSequence' o='59616' t='unsigned int'/>
+<mbr r='idPlayer::weaponCatchup' o='59648' t='bool'/>
+<mbr r='idPlayer::MPAim' o='59680' t='int'/>
+<mbr r='idPlayer::lastMPAim' o='59712' t='int'/>
+<mbr r='idPlayer::lastMPAimTime' o='59744' t='int'/>
+<mbr r='idPlayer::MPAimFadeTime' o='59776' t='int'/>
+<mbr r='idPlayer::MPAimHighlight' o='59808' t='bool'/>
+<mbr r='idPlayer::isTelefragged' o='59816' t='bool'/>
+<mbr r='idPlayer::playerIcon' o='59840' t='idPlayerIcon'/>
+<mbr r='idPlayer::selfSmooth' o='61632' t='bool'/>
+<fun r='_ZN8idPlayer12LookAtKillerEP8idEntityS1_'/>
+<fun r='_ZN8idPlayer10StopFiringEv'/>
+<fun r='_ZN8idPlayer10FireWeaponEv'/>
+<fun r='_ZN8idPlayer13Weapon_CombatEv'/>
+<fun r='_ZN8idPlayer10Weapon_NPCEv'/>
+<fun r='_ZN8idPlayer10Weapon_GUIEv'/>
+<fun r='_ZN8idPlayer12UpdateWeaponEv'/>
+<fun r='_ZN8idPlayer16UpdateSpectatingEv'/>
+<fun r='_ZN8idPlayer15SpectateFreeFlyEb'/>
+<fun r='_ZN8idPlayer13SpectateCycleEv'/>
+<fun r='_ZN8idPlayer16GunTurningOffsetEv'/>
+<fun r='_ZN8idPlayer21GunAcceleratingOffsetEv'/>
+<fun r='_ZN8idPlayer10UseObjectsEv'/>
+<fun r='_ZN8idPlayer9CrashLandERK6idVec3S2_'/>
+<fun r='_ZN8idPlayer8BobCycleERK6idVec3'/>
+<fun r='_ZN8idPlayer16UpdateViewAnglesEv'/>
+<fun r='_ZN8idPlayer16EvaluateControlsEv'/>
+<fun r='_ZN8idPlayer11AdjustSpeedEv'/>
+<fun r='_ZN8idPlayer16AdjustBodyAnglesEv'/>
+<fun r='_ZN8idPlayer15InitAASLocationEv'/>
+<fun r='_ZN8idPlayer14SetAASLocationEv'/>
+<fun r='_ZN8idPlayer4MoveEv'/>
+<fun r='_ZN8idPlayer14UpdatePowerUpsEv'/>
+<fun r='_ZN8idPlayer15UpdateDeathSkinEb'/>
+<fun r='_ZN8idPlayer12ClearPowerupEi'/>
+<fun r='_ZN8idPlayer17SetSpectateOriginEv'/>
+<fun r='_ZN8idPlayer10ClearFocusEv'/>
+<fun r='_ZN8idPlayer11UpdateFocusEv'/>
+<fun r='_ZN8idPlayer14UpdateLocationEv'/>
+<fun r='_ZN8idPlayer9ActiveGuiEv'/>
+<fun r='_ZN8idPlayer13UpdatePDAInfoEb'/>
+<fun r='_ZN8idPlayer13AddGuiPDADataE10declType_tPKcPK9idDeclPDAP15idUserInterface'/>
+<fun r='_ZN8idPlayer16ExtractEmailInfoERK5idStrPKcRS0_'/>
+<fun r='_ZN8idPlayer19UpdateObjectiveInfoEv'/>
+<fun r='_ZN8idPlayer10UseVehicleEv'/>
+<fun r='_ZN8idPlayer16Event_GetButtonsEv'/>
+<fun r='_ZN8idPlayer13Event_GetMoveEv'/>
+<fun r='_ZN8idPlayer19Event_GetViewAnglesEv'/>
+<fun r='_ZN8idPlayer15Event_StopFxFovEv'/>
+<fun r='_ZN8idPlayer18Event_EnableWeaponEv'/>
+<fun r='_ZN8idPlayer19Event_DisableWeaponEv'/>
+<fun r='_ZN8idPlayer22Event_GetCurrentWeaponEv'/>
+<fun r='_ZN8idPlayer23Event_GetPreviousWeaponEv'/>
+<fun r='_ZN8idPlayer18Event_SelectWeaponEPKc'/>
+<fun r='_ZN8idPlayer21Event_GetWeaponEntityEv'/>
+<fun r='_ZN8idPlayer13Event_OpenPDAEv'/>
+<fun r='_ZN8idPlayer18Event_PDAAvailableEv'/>
+<fun r='_ZN8idPlayer11Event_InPDAEv'/>
+<fun r='_ZN8idPlayer20Event_ExitTeleporterEv'/>
+<fun r='_ZN8idPlayer13Event_HideTipEv'/>
+<fun r='_ZN8idPlayer18Event_LevelTriggerEv'/>
+<fun r='_ZN8idPlayer12Event_GibbedEv'/>
+<fun r='_ZN8idPlayer20Event_GetIdealWeaponEv'/>
+<fun r='_ZN8idPlayer7IsReadyEv'/>
+<fun r='_ZN8idPlayer12IsRespawningEv'/>
+<fun r='_ZN8idPlayer16GetPlayerPhysicsEv'/>
+<fun r='_ZN8idPlayer12IsInTeleportEv'/>
+<fun r='_ZN8idPlayer9SetLeaderEb'/>
+<fun r='_ZN8idPlayer8IsLeaderEv'/>
+<fun r='_ZN8idPlayer10SelfSmoothEv'/>
+<fun r='_ZN8idPlayer13SetSelfSmoothEb'/>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>highlevel.h source code [codebrowser/sound/OggVorbis/vorbissrc/highlevel.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="highlevel_byblocktype,highlevel_encode_setup "/>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/sound/OggVorbis/vorbissrc/highlevel.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>sound</a>/<a href='..'>OggVorbis</a>/<a href='./'>vorbissrc</a>/<a href='highlevel.h.html'>highlevel.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/********************************************************************</i></td></tr>
+<tr><th id="2">2</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="3">3</th><td><i> * THIS FILE IS PART OF THE OggVorbis SOFTWARE CODEC SOURCE CODE.   *</i></td></tr>
+<tr><th id="4">4</th><td><i> * USE, DISTRIBUTION AND REPRODUCTION OF THIS LIBRARY SOURCE IS     *</i></td></tr>
+<tr><th id="5">5</th><td><i> * GOVERNED BY A BSD-STYLE SOURCE LICENSE INCLUDED WITH THIS SOURCE *</i></td></tr>
+<tr><th id="6">6</th><td><i> * IN 'COPYING'. PLEASE READ THESE TERMS BEFORE DISTRIBUTING.       *</i></td></tr>
+<tr><th id="7">7</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="8">8</th><td><i> * THE OggVorbis SOURCE CODE IS (C) COPYRIGHT 1994-2002             *</i></td></tr>
+<tr><th id="9">9</th><td><i> * by the XIPHOPHORUS Company <a href="http://www.xiph.org/">http://www.xiph.org/</a>                  *</i></td></tr>
+<tr><th id="10">10</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="11">11</th><td><i> ********************************************************************</i></td></tr>
+<tr><th id="12">12</th><td><i></i></td></tr>
+<tr><th id="13">13</th><td><i> function: highlevel encoder setup struct seperated out for vorbisenc clarity</i></td></tr>
+<tr><th id="14">14</th><td><i> last mod: $Id: highlevel.h,v 1.4 2002/07/01 11:20:11 xiphmont Exp $</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i> ********************************************************************/</i></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="highlevel_byblocktype" title='highlevel_byblocktype' data-ref="highlevel_byblocktype"><a class="type" href="#highlevel_byblocktype" title='highlevel_byblocktype' data-ref="highlevel_byblocktype">highlevel_byblocktype</a></dfn> {</td></tr>
+<tr><th id="19">19</th><td>  <em>double</em> <dfn class="decl" id="highlevel_byblocktype::tone_mask_setting" title='highlevel_byblocktype::tone_mask_setting' data-ref="highlevel_byblocktype::tone_mask_setting">tone_mask_setting</dfn>;</td></tr>
+<tr><th id="20">20</th><td>  <em>double</em> <dfn class="decl" id="highlevel_byblocktype::tone_peaklimit_setting" title='highlevel_byblocktype::tone_peaklimit_setting' data-ref="highlevel_byblocktype::tone_peaklimit_setting">tone_peaklimit_setting</dfn>;</td></tr>
+<tr><th id="21">21</th><td>  <em>double</em> <dfn class="decl" id="highlevel_byblocktype::noise_bias_setting" title='highlevel_byblocktype::noise_bias_setting' data-ref="highlevel_byblocktype::noise_bias_setting">noise_bias_setting</dfn>;</td></tr>
+<tr><th id="22">22</th><td>  <em>double</em> <dfn class="decl" id="highlevel_byblocktype::noise_compand_setting" title='highlevel_byblocktype::noise_compand_setting' data-ref="highlevel_byblocktype::noise_compand_setting">noise_compand_setting</dfn>;</td></tr>
+<tr><th id="23">23</th><td>} <dfn class="typedef" id="highlevel_byblocktype" title='highlevel_byblocktype' data-type='struct highlevel_byblocktype' data-ref="highlevel_byblocktype">highlevel_byblocktype</dfn>;</td></tr>
+<tr><th id="24">24</th><td>  </td></tr>
+<tr><th id="25">25</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="highlevel_encode_setup" title='highlevel_encode_setup' data-ref="highlevel_encode_setup"><a class="type" href="#highlevel_encode_setup" title='highlevel_encode_setup' data-ref="highlevel_encode_setup">highlevel_encode_setup</a></dfn> {</td></tr>
+<tr><th id="26">26</th><td>  <em>void</em> *<dfn class="decl" id="highlevel_encode_setup::setup" title='highlevel_encode_setup::setup' data-ref="highlevel_encode_setup::setup">setup</dfn>;</td></tr>
+<tr><th id="27">27</th><td>  <em>int</em>   <dfn class="decl" id="highlevel_encode_setup::set_in_stone" title='highlevel_encode_setup::set_in_stone' data-ref="highlevel_encode_setup::set_in_stone">set_in_stone</dfn>;</td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td>  <em>double</em> <dfn class="decl" id="highlevel_encode_setup::base_setting" title='highlevel_encode_setup::base_setting' data-ref="highlevel_encode_setup::base_setting">base_setting</dfn>;</td></tr>
+<tr><th id="30">30</th><td>  <em>double</em> <dfn class="decl" id="highlevel_encode_setup::long_setting" title='highlevel_encode_setup::long_setting' data-ref="highlevel_encode_setup::long_setting">long_setting</dfn>;</td></tr>
+<tr><th id="31">31</th><td>  <em>double</em> <dfn class="decl" id="highlevel_encode_setup::short_setting" title='highlevel_encode_setup::short_setting' data-ref="highlevel_encode_setup::short_setting">short_setting</dfn>;</td></tr>
+<tr><th id="32">32</th><td>  <em>double</em> <dfn class="decl" id="highlevel_encode_setup::impulse_noisetune" title='highlevel_encode_setup::impulse_noisetune' data-ref="highlevel_encode_setup::impulse_noisetune">impulse_noisetune</dfn>;</td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td>  <em>int</em>    <dfn class="decl" id="highlevel_encode_setup::managed" title='highlevel_encode_setup::managed' data-ref="highlevel_encode_setup::managed">managed</dfn>;</td></tr>
+<tr><th id="35">35</th><td>  <em>long</em>   <dfn class="decl" id="highlevel_encode_setup::bitrate_min" title='highlevel_encode_setup::bitrate_min' data-ref="highlevel_encode_setup::bitrate_min">bitrate_min</dfn>;</td></tr>
+<tr><th id="36">36</th><td>  <em>long</em>   <dfn class="decl" id="highlevel_encode_setup::bitrate_av_lo" title='highlevel_encode_setup::bitrate_av_lo' data-ref="highlevel_encode_setup::bitrate_av_lo">bitrate_av_lo</dfn>;</td></tr>
+<tr><th id="37">37</th><td>  <em>long</em>   <dfn class="decl" id="highlevel_encode_setup::bitrate_av_hi" title='highlevel_encode_setup::bitrate_av_hi' data-ref="highlevel_encode_setup::bitrate_av_hi">bitrate_av_hi</dfn>;</td></tr>
+<tr><th id="38">38</th><td>  <em>long</em>   <dfn class="decl" id="highlevel_encode_setup::bitrate_max" title='highlevel_encode_setup::bitrate_max' data-ref="highlevel_encode_setup::bitrate_max">bitrate_max</dfn>;</td></tr>
+<tr><th id="39">39</th><td>  <em>double</em> <dfn class="decl" id="highlevel_encode_setup::bitrate_limit_window" title='highlevel_encode_setup::bitrate_limit_window' data-ref="highlevel_encode_setup::bitrate_limit_window">bitrate_limit_window</dfn>;</td></tr>
+<tr><th id="40">40</th><td>  <em>double</em> <dfn class="decl" id="highlevel_encode_setup::bitrate_av_window" title='highlevel_encode_setup::bitrate_av_window' data-ref="highlevel_encode_setup::bitrate_av_window">bitrate_av_window</dfn>;</td></tr>
+<tr><th id="41">41</th><td>  <em>double</em> <dfn class="decl" id="highlevel_encode_setup::bitrate_av_window_center" title='highlevel_encode_setup::bitrate_av_window_center' data-ref="highlevel_encode_setup::bitrate_av_window_center">bitrate_av_window_center</dfn>;</td></tr>
+<tr><th id="42">42</th><td>  </td></tr>
+<tr><th id="43">43</th><td>  <em>int</em> <dfn class="decl" id="highlevel_encode_setup::impulse_block_p" title='highlevel_encode_setup::impulse_block_p' data-ref="highlevel_encode_setup::impulse_block_p">impulse_block_p</dfn>;</td></tr>
+<tr><th id="44">44</th><td>  <em>int</em> <dfn class="decl" id="highlevel_encode_setup::noise_normalize_p" title='highlevel_encode_setup::noise_normalize_p' data-ref="highlevel_encode_setup::noise_normalize_p">noise_normalize_p</dfn>;</td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td>  <em>double</em> <dfn class="decl" id="highlevel_encode_setup::stereo_point_setting" title='highlevel_encode_setup::stereo_point_setting' data-ref="highlevel_encode_setup::stereo_point_setting">stereo_point_setting</dfn>;</td></tr>
+<tr><th id="47">47</th><td>  <em>double</em> <dfn class="decl" id="highlevel_encode_setup::lowpass_kHz" title='highlevel_encode_setup::lowpass_kHz' data-ref="highlevel_encode_setup::lowpass_kHz">lowpass_kHz</dfn>;</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td>  <em>double</em> <dfn class="decl" id="highlevel_encode_setup::ath_floating_dB" title='highlevel_encode_setup::ath_floating_dB' data-ref="highlevel_encode_setup::ath_floating_dB">ath_floating_dB</dfn>;</td></tr>
+<tr><th id="50">50</th><td>  <em>double</em> <dfn class="decl" id="highlevel_encode_setup::ath_absolute_dB" title='highlevel_encode_setup::ath_absolute_dB' data-ref="highlevel_encode_setup::ath_absolute_dB">ath_absolute_dB</dfn>;</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td>  <em>double</em> <dfn class="decl" id="highlevel_encode_setup::amplitude_track_dBpersec" title='highlevel_encode_setup::amplitude_track_dBpersec' data-ref="highlevel_encode_setup::amplitude_track_dBpersec">amplitude_track_dBpersec</dfn>;</td></tr>
+<tr><th id="53">53</th><td>  <em>double</em> <dfn class="decl" id="highlevel_encode_setup::trigger_setting" title='highlevel_encode_setup::trigger_setting' data-ref="highlevel_encode_setup::trigger_setting">trigger_setting</dfn>;</td></tr>
+<tr><th id="54">54</th><td>  </td></tr>
+<tr><th id="55">55</th><td>  <a class="typedef" href="#highlevel_byblocktype" title='highlevel_byblocktype' data-type='struct highlevel_byblocktype' data-ref="highlevel_byblocktype">highlevel_byblocktype</a> <dfn class="decl" id="highlevel_encode_setup::block" title='highlevel_encode_setup::block' data-ref="highlevel_encode_setup::block">block</dfn>[<var>4</var>]; <i>/* padding, impulse, transition, long */</i></td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td>} <dfn class="typedef" id="highlevel_encode_setup" title='highlevel_encode_setup' data-type='struct highlevel_encode_setup' data-ref="highlevel_encode_setup">highlevel_encode_setup</dfn>;</td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='analysis.c.html'>codebrowser/sound/OggVorbis/vorbissrc/analysis.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

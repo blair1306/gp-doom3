@@ -1,0 +1,11 @@
+<dec f='codebrowser/sound/OggVorbis/vorbis/vorbisfile.h' l='92' type='int ov_open_callbacks(void * datasource, OggVorbis_File * vf, char * initial, long ibytes, ov_callbacks callbacks)'/>
+<def f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='729' ll='734' type='int ov_open_callbacks(void * f, OggVorbis_File * vf, char * initial, long ibytes, ov_callbacks callbacks)'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='744' u='c' c='ov_open'/>
+<doc f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='721'>/* inspects the OggVorbis file and finds/documents all the logical
+   bitstreams contained in it.  Tries to be tolerant of logical
+   bitstream sections that are truncated/woogie. 
+
+   return: -1) error
+            0) OK
+*/</doc>
+<use f='codebrowser/sound/snd_decoder.cpp' l='154' u='c' c='_Z11ov_openFileP6idFileP14OggVorbis_File'/>

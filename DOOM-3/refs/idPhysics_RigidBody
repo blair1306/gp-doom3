@@ -1,0 +1,180 @@
+<inh f='codebrowser/d3xp/physics/Physics_Base.h' l='42' c='idPhysics_Base'/>
+<def f='codebrowser/d3xp/physics/Physics_RigidBody.h' l='66' ll='194'/>
+<size>544</size>
+<smbr r='idPhysics_RigidBody::Type' t='idTypeInfo'/>
+<fun r='_ZN19idPhysics_RigidBody14CreateInstanceEv'/>
+<fun r='_ZNK19idPhysics_RigidBody7GetTypeEv'/>
+<smbr r='idPhysics_RigidBody::eventCallbacks' t='idEventFunc&lt;idPhysics_RigidBody&gt; []'/>
+<fun r='_ZN19idPhysics_RigidBodyC1Ev'/>
+<fun r='_ZN19idPhysics_RigidBodyD1Ev'/>
+<fun r='_ZNK19idPhysics_RigidBody4SaveEP10idSaveGame'/>
+<fun r='_ZN19idPhysics_RigidBody7RestoreEP13idRestoreGame'/>
+<fun r='_ZN19idPhysics_RigidBody11SetFrictionEfff'/>
+<fun r='_ZN19idPhysics_RigidBody13SetBouncynessEf'/>
+<fun r='_ZN19idPhysics_RigidBody11DropToFloorEv'/>
+<fun r='_ZN19idPhysics_RigidBody9NoContactEv'/>
+<fun r='_ZN19idPhysics_RigidBody12EnableImpactEv'/>
+<fun r='_ZN19idPhysics_RigidBody13DisableImpactEv'/>
+<fun r='_ZN19idPhysics_RigidBody12SetClipModelEP11idClipModelfib'/>
+<fun r='_ZNK19idPhysics_RigidBody12GetClipModelEi'/>
+<fun r='_ZNK19idPhysics_RigidBody16GetNumClipModelsEv'/>
+<fun r='_ZN19idPhysics_RigidBody7SetMassEfi'/>
+<fun r='_ZNK19idPhysics_RigidBody7GetMassEi'/>
+<fun r='_ZN19idPhysics_RigidBody11SetContentsEii'/>
+<fun r='_ZNK19idPhysics_RigidBody11GetContentsEi'/>
+<fun r='_ZNK19idPhysics_RigidBody9GetBoundsEi'/>
+<fun r='_ZNK19idPhysics_RigidBody12GetAbsBoundsEi'/>
+<fun r='_ZN19idPhysics_RigidBody8EvaluateEii'/>
+<fun r='_ZN19idPhysics_RigidBody10UpdateTimeEi'/>
+<fun r='_ZNK19idPhysics_RigidBody7GetTimeEv'/>
+<fun r='_ZNK19idPhysics_RigidBody13GetImpactInfoEiRK6idVec3P12impactInfo_s'/>
+<fun r='_ZN19idPhysics_RigidBody12ApplyImpulseEiRK6idVec3S2_'/>
+<fun r='_ZN19idPhysics_RigidBody8AddForceEiRK6idVec3S2_'/>
+<fun r='_ZN19idPhysics_RigidBody8ActivateEv'/>
+<fun r='_ZN19idPhysics_RigidBody9PutToRestEv'/>
+<fun r='_ZNK19idPhysics_RigidBody8IsAtRestEv'/>
+<fun r='_ZNK19idPhysics_RigidBody16GetRestStartTimeEv'/>
+<fun r='_ZNK19idPhysics_RigidBody10IsPushableEv'/>
+<fun r='_ZN19idPhysics_RigidBody9SaveStateEv'/>
+<fun r='_ZN19idPhysics_RigidBody12RestoreStateEv'/>
+<fun r='_ZN19idPhysics_RigidBody9SetOriginERK6idVec3i'/>
+<fun r='_ZN19idPhysics_RigidBody7SetAxisERK6idMat3i'/>
+<fun r='_ZN19idPhysics_RigidBody9TranslateERK6idVec3i'/>
+<fun r='_ZN19idPhysics_RigidBody6RotateERK10idRotationi'/>
+<fun r='_ZNK19idPhysics_RigidBody9GetOriginEi'/>
+<fun r='_ZNK19idPhysics_RigidBody7GetAxisEi'/>
+<fun r='_ZN19idPhysics_RigidBody17SetLinearVelocityERK6idVec3i'/>
+<fun r='_ZN19idPhysics_RigidBody18SetAngularVelocityERK6idVec3i'/>
+<fun r='_ZNK19idPhysics_RigidBody17GetLinearVelocityEi'/>
+<fun r='_ZNK19idPhysics_RigidBody18GetAngularVelocityEi'/>
+<fun r='_ZNK19idPhysics_RigidBody15ClipTranslationER7trace_sRK6idVec3PK11idClipModel'/>
+<fun r='_ZNK19idPhysics_RigidBody12ClipRotationER7trace_sRK10idRotationPK11idClipModel'/>
+<fun r='_ZNK19idPhysics_RigidBody12ClipContentsEPK11idClipModel'/>
+<fun r='_ZN19idPhysics_RigidBody11DisableClipEv'/>
+<fun r='_ZN19idPhysics_RigidBody10EnableClipEv'/>
+<fun r='_ZN19idPhysics_RigidBody10UnlinkClipEv'/>
+<fun r='_ZN19idPhysics_RigidBody8LinkClipEv'/>
+<fun r='_ZN19idPhysics_RigidBody16EvaluateContactsEv'/>
+<fun r='_ZN19idPhysics_RigidBody9SetPushedEi'/>
+<fun r='_ZNK19idPhysics_RigidBody23GetPushedLinearVelocityEi'/>
+<fun r='_ZNK19idPhysics_RigidBody24GetPushedAngularVelocityEi'/>
+<fun r='_ZN19idPhysics_RigidBody9SetMasterEP8idEntityb'/>
+<fun r='_ZNK19idPhysics_RigidBody15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN19idPhysics_RigidBody16ReadFromSnapshotERK13idBitMsgDelta'/>
+<mbr r='idPhysics_RigidBody::current' o='544' t='rigidBodyPState_t'/>
+<mbr r='idPhysics_RigidBody::saved' o='1952' t='rigidBodyPState_t'/>
+<mbr r='idPhysics_RigidBody::linearFriction' o='3360' t='float'/>
+<mbr r='idPhysics_RigidBody::angularFriction' o='3392' t='float'/>
+<mbr r='idPhysics_RigidBody::contactFriction' o='3424' t='float'/>
+<mbr r='idPhysics_RigidBody::bouncyness' o='3456' t='float'/>
+<mbr r='idPhysics_RigidBody::clipModel' o='3488' t='idClipModel *'/>
+<mbr r='idPhysics_RigidBody::mass' o='3520' t='float'/>
+<mbr r='idPhysics_RigidBody::inverseMass' o='3552' t='float'/>
+<mbr r='idPhysics_RigidBody::centerOfMass' o='3584' t='idVec3'/>
+<mbr r='idPhysics_RigidBody::inertiaTensor' o='3680' t='idMat3'/>
+<mbr r='idPhysics_RigidBody::inverseInertiaTensor' o='3968' t='idMat3'/>
+<mbr r='idPhysics_RigidBody::integrator' o='4256' t='idODE *'/>
+<mbr r='idPhysics_RigidBody::dropToFloor' o='4288' t='bool'/>
+<mbr r='idPhysics_RigidBody::testSolid' o='4296' t='bool'/>
+<mbr r='idPhysics_RigidBody::noImpact' o='4304' t='bool'/>
+<mbr r='idPhysics_RigidBody::noContact' o='4312' t='bool'/>
+<mbr r='idPhysics_RigidBody::hasMaster' o='4320' t='bool'/>
+<mbr r='idPhysics_RigidBody::isOrientated' o='4328' t='bool'/>
+<fun r='_ZN19idPhysics_RigidBody9IntegrateEfR17rigidBodyPState_s'/>
+<fun r='_ZN19idPhysics_RigidBody18CheckForCollisionsEfR17rigidBodyPState_sR7trace_s'/>
+<fun r='_ZN19idPhysics_RigidBody16CollisionImpulseERK7trace_sR6idVec3'/>
+<fun r='_ZN19idPhysics_RigidBody15ContactFrictionEf'/>
+<fun r='_ZN19idPhysics_RigidBody18DropToFloorAndRestEv'/>
+<fun r='_ZNK19idPhysics_RigidBody12TestIfAtRestEv'/>
+<fun r='_ZN19idPhysics_RigidBody4RestEv'/>
+<fun r='_ZN19idPhysics_RigidBody9DebugDrawEv'/>
+<inh f='codebrowser/game/physics/Physics_Base.h' l='42' c='idPhysics_Base'/>
+<def f='codebrowser/game/physics/Physics_RigidBody.h' l='66' ll='194'/>
+<size>544</size>
+<smbr r='idPhysics_RigidBody::Type' t='idTypeInfo'/>
+<fun r='_ZN19idPhysics_RigidBody14CreateInstanceEv'/>
+<fun r='_ZNK19idPhysics_RigidBody7GetTypeEv'/>
+<smbr r='idPhysics_RigidBody::eventCallbacks' t='idEventFunc&lt;idPhysics_RigidBody&gt; []'/>
+<fun r='_ZN19idPhysics_RigidBodyC1Ev'/>
+<fun r='_ZN19idPhysics_RigidBodyD1Ev'/>
+<fun r='_ZNK19idPhysics_RigidBody4SaveEP10idSaveGame'/>
+<fun r='_ZN19idPhysics_RigidBody7RestoreEP13idRestoreGame'/>
+<fun r='_ZN19idPhysics_RigidBody11SetFrictionEfff'/>
+<fun r='_ZN19idPhysics_RigidBody13SetBouncynessEf'/>
+<fun r='_ZN19idPhysics_RigidBody11DropToFloorEv'/>
+<fun r='_ZN19idPhysics_RigidBody9NoContactEv'/>
+<fun r='_ZN19idPhysics_RigidBody12EnableImpactEv'/>
+<fun r='_ZN19idPhysics_RigidBody13DisableImpactEv'/>
+<fun r='_ZN19idPhysics_RigidBody12SetClipModelEP11idClipModelfib'/>
+<fun r='_ZNK19idPhysics_RigidBody12GetClipModelEi'/>
+<fun r='_ZNK19idPhysics_RigidBody16GetNumClipModelsEv'/>
+<fun r='_ZN19idPhysics_RigidBody7SetMassEfi'/>
+<fun r='_ZNK19idPhysics_RigidBody7GetMassEi'/>
+<fun r='_ZN19idPhysics_RigidBody11SetContentsEii'/>
+<fun r='_ZNK19idPhysics_RigidBody11GetContentsEi'/>
+<fun r='_ZNK19idPhysics_RigidBody9GetBoundsEi'/>
+<fun r='_ZNK19idPhysics_RigidBody12GetAbsBoundsEi'/>
+<fun r='_ZN19idPhysics_RigidBody8EvaluateEii'/>
+<fun r='_ZN19idPhysics_RigidBody10UpdateTimeEi'/>
+<fun r='_ZNK19idPhysics_RigidBody7GetTimeEv'/>
+<fun r='_ZNK19idPhysics_RigidBody13GetImpactInfoEiRK6idVec3P12impactInfo_s'/>
+<fun r='_ZN19idPhysics_RigidBody12ApplyImpulseEiRK6idVec3S2_'/>
+<fun r='_ZN19idPhysics_RigidBody8AddForceEiRK6idVec3S2_'/>
+<fun r='_ZN19idPhysics_RigidBody8ActivateEv'/>
+<fun r='_ZN19idPhysics_RigidBody9PutToRestEv'/>
+<fun r='_ZNK19idPhysics_RigidBody8IsAtRestEv'/>
+<fun r='_ZNK19idPhysics_RigidBody16GetRestStartTimeEv'/>
+<fun r='_ZNK19idPhysics_RigidBody10IsPushableEv'/>
+<fun r='_ZN19idPhysics_RigidBody9SaveStateEv'/>
+<fun r='_ZN19idPhysics_RigidBody12RestoreStateEv'/>
+<fun r='_ZN19idPhysics_RigidBody9SetOriginERK6idVec3i'/>
+<fun r='_ZN19idPhysics_RigidBody7SetAxisERK6idMat3i'/>
+<fun r='_ZN19idPhysics_RigidBody9TranslateERK6idVec3i'/>
+<fun r='_ZN19idPhysics_RigidBody6RotateERK10idRotationi'/>
+<fun r='_ZNK19idPhysics_RigidBody9GetOriginEi'/>
+<fun r='_ZNK19idPhysics_RigidBody7GetAxisEi'/>
+<fun r='_ZN19idPhysics_RigidBody17SetLinearVelocityERK6idVec3i'/>
+<fun r='_ZN19idPhysics_RigidBody18SetAngularVelocityERK6idVec3i'/>
+<fun r='_ZNK19idPhysics_RigidBody17GetLinearVelocityEi'/>
+<fun r='_ZNK19idPhysics_RigidBody18GetAngularVelocityEi'/>
+<fun r='_ZNK19idPhysics_RigidBody15ClipTranslationER7trace_sRK6idVec3PK11idClipModel'/>
+<fun r='_ZNK19idPhysics_RigidBody12ClipRotationER7trace_sRK10idRotationPK11idClipModel'/>
+<fun r='_ZNK19idPhysics_RigidBody12ClipContentsEPK11idClipModel'/>
+<fun r='_ZN19idPhysics_RigidBody11DisableClipEv'/>
+<fun r='_ZN19idPhysics_RigidBody10EnableClipEv'/>
+<fun r='_ZN19idPhysics_RigidBody10UnlinkClipEv'/>
+<fun r='_ZN19idPhysics_RigidBody8LinkClipEv'/>
+<fun r='_ZN19idPhysics_RigidBody16EvaluateContactsEv'/>
+<fun r='_ZN19idPhysics_RigidBody9SetPushedEi'/>
+<fun r='_ZNK19idPhysics_RigidBody23GetPushedLinearVelocityEi'/>
+<fun r='_ZNK19idPhysics_RigidBody24GetPushedAngularVelocityEi'/>
+<fun r='_ZN19idPhysics_RigidBody9SetMasterEP8idEntityb'/>
+<fun r='_ZNK19idPhysics_RigidBody15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN19idPhysics_RigidBody16ReadFromSnapshotERK13idBitMsgDelta'/>
+<mbr r='idPhysics_RigidBody::current' o='544' t='rigidBodyPState_t'/>
+<mbr r='idPhysics_RigidBody::saved' o='1952' t='rigidBodyPState_t'/>
+<mbr r='idPhysics_RigidBody::linearFriction' o='3360' t='float'/>
+<mbr r='idPhysics_RigidBody::angularFriction' o='3392' t='float'/>
+<mbr r='idPhysics_RigidBody::contactFriction' o='3424' t='float'/>
+<mbr r='idPhysics_RigidBody::bouncyness' o='3456' t='float'/>
+<mbr r='idPhysics_RigidBody::clipModel' o='3488' t='idClipModel *'/>
+<mbr r='idPhysics_RigidBody::mass' o='3520' t='float'/>
+<mbr r='idPhysics_RigidBody::inverseMass' o='3552' t='float'/>
+<mbr r='idPhysics_RigidBody::centerOfMass' o='3584' t='idVec3'/>
+<mbr r='idPhysics_RigidBody::inertiaTensor' o='3680' t='idMat3'/>
+<mbr r='idPhysics_RigidBody::inverseInertiaTensor' o='3968' t='idMat3'/>
+<mbr r='idPhysics_RigidBody::integrator' o='4256' t='idODE *'/>
+<mbr r='idPhysics_RigidBody::dropToFloor' o='4288' t='bool'/>
+<mbr r='idPhysics_RigidBody::testSolid' o='4296' t='bool'/>
+<mbr r='idPhysics_RigidBody::noImpact' o='4304' t='bool'/>
+<mbr r='idPhysics_RigidBody::noContact' o='4312' t='bool'/>
+<mbr r='idPhysics_RigidBody::hasMaster' o='4320' t='bool'/>
+<mbr r='idPhysics_RigidBody::isOrientated' o='4328' t='bool'/>
+<fun r='_ZN19idPhysics_RigidBody9IntegrateEfR17rigidBodyPState_s'/>
+<fun r='_ZN19idPhysics_RigidBody18CheckForCollisionsEfR17rigidBodyPState_sR7trace_s'/>
+<fun r='_ZN19idPhysics_RigidBody16CollisionImpulseERK7trace_sR6idVec3'/>
+<fun r='_ZN19idPhysics_RigidBody15ContactFrictionEf'/>
+<fun r='_ZN19idPhysics_RigidBody18DropToFloorAndRestEv'/>
+<fun r='_ZNK19idPhysics_RigidBody12TestIfAtRestEv'/>
+<fun r='_ZN19idPhysics_RigidBody4RestEv'/>
+<fun r='_ZN19idPhysics_RigidBody9DebugDrawEv'/>

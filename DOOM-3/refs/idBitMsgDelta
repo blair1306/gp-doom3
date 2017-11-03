@@ -1,0 +1,103 @@
+<def f='codebrowser/idlib/BitMsg.h' l='439' ll='508'/>
+<size>20</size>
+<doc f='codebrowser/idlib/BitMsg.h' l='431'>/*
+===============================================================================
+
+  idBitMsgDelta
+
+===============================================================================
+*/</doc>
+<fun r='_ZN13idBitMsgDeltaC1Ev'/>
+<fun r='_ZN13idBitMsgDeltaD1Ev'/>
+<fun r='_ZN13idBitMsgDelta4InitEPK8idBitMsgPS0_S3_'/>
+<fun r='_ZN13idBitMsgDelta4InitEPK8idBitMsgPS0_S2_'/>
+<fun r='_ZNK13idBitMsgDelta10HasChangedEv'/>
+<fun r='_ZN13idBitMsgDelta9WriteBitsEii'/>
+<fun r='_ZN13idBitMsgDelta9WriteCharEi'/>
+<fun r='_ZN13idBitMsgDelta9WriteByteEi'/>
+<fun r='_ZN13idBitMsgDelta10WriteShortEi'/>
+<fun r='_ZN13idBitMsgDelta11WriteUShortEi'/>
+<fun r='_ZN13idBitMsgDelta9WriteLongEi'/>
+<fun r='_ZN13idBitMsgDelta10WriteFloatEf'/>
+<fun r='_ZN13idBitMsgDelta10WriteFloatEfii'/>
+<fun r='_ZN13idBitMsgDelta11WriteAngle8Ef'/>
+<fun r='_ZN13idBitMsgDelta12WriteAngle16Ef'/>
+<fun r='_ZN13idBitMsgDelta8WriteDirERK6idVec3i'/>
+<fun r='_ZN13idBitMsgDelta11WriteStringEPKci'/>
+<fun r='_ZN13idBitMsgDelta9WriteDataEPKvi'/>
+<fun r='_ZN13idBitMsgDelta9WriteDictERK6idDict'/>
+<fun r='_ZN13idBitMsgDelta14WriteDeltaCharEii'/>
+<fun r='_ZN13idBitMsgDelta14WriteDeltaByteEii'/>
+<fun r='_ZN13idBitMsgDelta15WriteDeltaShortEii'/>
+<fun r='_ZN13idBitMsgDelta14WriteDeltaLongEii'/>
+<fun r='_ZN13idBitMsgDelta15WriteDeltaFloatEff'/>
+<fun r='_ZN13idBitMsgDelta15WriteDeltaFloatEffii'/>
+<fun r='_ZN13idBitMsgDelta21WriteDeltaByteCounterEii'/>
+<fun r='_ZN13idBitMsgDelta22WriteDeltaShortCounterEii'/>
+<fun r='_ZN13idBitMsgDelta21WriteDeltaLongCounterEii'/>
+<fun r='_ZNK13idBitMsgDelta8ReadBitsEi'/>
+<fun r='_ZNK13idBitMsgDelta8ReadCharEv'/>
+<fun r='_ZNK13idBitMsgDelta8ReadByteEv'/>
+<fun r='_ZNK13idBitMsgDelta9ReadShortEv'/>
+<fun r='_ZNK13idBitMsgDelta10ReadUShortEv'/>
+<fun r='_ZNK13idBitMsgDelta8ReadLongEv'/>
+<fun r='_ZNK13idBitMsgDelta9ReadFloatEv'/>
+<fun r='_ZNK13idBitMsgDelta9ReadFloatEii'/>
+<fun r='_ZNK13idBitMsgDelta10ReadAngle8Ev'/>
+<fun r='_ZNK13idBitMsgDelta11ReadAngle16Ev'/>
+<fun r='_ZNK13idBitMsgDelta7ReadDirEi'/>
+<fun r='_ZNK13idBitMsgDelta10ReadStringEPci'/>
+<fun r='_ZNK13idBitMsgDelta8ReadDataEPvi'/>
+<fun r='_ZN13idBitMsgDelta8ReadDictER6idDict'/>
+<fun r='_ZNK13idBitMsgDelta13ReadDeltaCharEi'/>
+<fun r='_ZNK13idBitMsgDelta13ReadDeltaByteEi'/>
+<fun r='_ZNK13idBitMsgDelta14ReadDeltaShortEi'/>
+<fun r='_ZNK13idBitMsgDelta13ReadDeltaLongEi'/>
+<fun r='_ZNK13idBitMsgDelta14ReadDeltaFloatEf'/>
+<fun r='_ZNK13idBitMsgDelta14ReadDeltaFloatEfii'/>
+<fun r='_ZNK13idBitMsgDelta20ReadDeltaByteCounterEi'/>
+<fun r='_ZNK13idBitMsgDelta21ReadDeltaShortCounterEi'/>
+<fun r='_ZNK13idBitMsgDelta20ReadDeltaLongCounterEi'/>
+<mbr r='idBitMsgDelta::base' o='0' t='const idBitMsg *'/>
+<mbr r='idBitMsgDelta::newBase' o='32' t='idBitMsg *'/>
+<mbr r='idBitMsgDelta::writeDelta' o='64' t='idBitMsg *'/>
+<mbr r='idBitMsgDelta::readDelta' o='96' t='const idBitMsg *'/>
+<mbr r='idBitMsgDelta::changed' o='128' t='bool'/>
+<fun r='_ZN13idBitMsgDelta10WriteDeltaEiii'/>
+<fun r='_ZNK13idBitMsgDelta9ReadDeltaEii'/>
+<fun r='_ZN13idBitMsgDeltaC1Ev'/>
+<fun r='_ZN13idBitMsgDelta4InitEPK8idBitMsgPS0_S3_'/>
+<fun r='_ZN13idBitMsgDelta4InitEPK8idBitMsgPS0_S2_'/>
+<fun r='_ZNK13idBitMsgDelta10HasChangedEv'/>
+<fun r='_ZN13idBitMsgDelta9WriteCharEi'/>
+<fun r='_ZN13idBitMsgDelta9WriteByteEi'/>
+<fun r='_ZN13idBitMsgDelta10WriteShortEi'/>
+<fun r='_ZN13idBitMsgDelta11WriteUShortEi'/>
+<fun r='_ZN13idBitMsgDelta9WriteLongEi'/>
+<fun r='_ZN13idBitMsgDelta10WriteFloatEf'/>
+<fun r='_ZN13idBitMsgDelta10WriteFloatEfii'/>
+<fun r='_ZN13idBitMsgDelta11WriteAngle8Ef'/>
+<fun r='_ZN13idBitMsgDelta12WriteAngle16Ef'/>
+<fun r='_ZN13idBitMsgDelta8WriteDirERK6idVec3i'/>
+<fun r='_ZN13idBitMsgDelta14WriteDeltaCharEii'/>
+<fun r='_ZN13idBitMsgDelta14WriteDeltaByteEii'/>
+<fun r='_ZN13idBitMsgDelta15WriteDeltaShortEii'/>
+<fun r='_ZN13idBitMsgDelta14WriteDeltaLongEii'/>
+<fun r='_ZN13idBitMsgDelta15WriteDeltaFloatEff'/>
+<fun r='_ZN13idBitMsgDelta15WriteDeltaFloatEffii'/>
+<fun r='_ZNK13idBitMsgDelta8ReadCharEv'/>
+<fun r='_ZNK13idBitMsgDelta8ReadByteEv'/>
+<fun r='_ZNK13idBitMsgDelta9ReadShortEv'/>
+<fun r='_ZNK13idBitMsgDelta10ReadUShortEv'/>
+<fun r='_ZNK13idBitMsgDelta8ReadLongEv'/>
+<fun r='_ZNK13idBitMsgDelta9ReadFloatEv'/>
+<fun r='_ZNK13idBitMsgDelta9ReadFloatEii'/>
+<fun r='_ZNK13idBitMsgDelta10ReadAngle8Ev'/>
+<fun r='_ZNK13idBitMsgDelta11ReadAngle16Ev'/>
+<fun r='_ZNK13idBitMsgDelta7ReadDirEi'/>
+<fun r='_ZNK13idBitMsgDelta13ReadDeltaCharEi'/>
+<fun r='_ZNK13idBitMsgDelta13ReadDeltaByteEi'/>
+<fun r='_ZNK13idBitMsgDelta14ReadDeltaShortEi'/>
+<fun r='_ZNK13idBitMsgDelta13ReadDeltaLongEi'/>
+<fun r='_ZNK13idBitMsgDelta14ReadDeltaFloatEf'/>
+<fun r='_ZNK13idBitMsgDelta14ReadDeltaFloatEfii'/>

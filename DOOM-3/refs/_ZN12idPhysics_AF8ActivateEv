@@ -1,0 +1,49 @@
+<dec f='codebrowser/d3xp/physics/Physics_AF.h' l='915' type='void idPhysics_AF::Activate()'/>
+<use f='codebrowser/d3xp/AF.cpp' l='952' u='c' c='_ZN4idAF5StartEv'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='1347' u='c' c='_ZN18idAFEntity_Generic5SpawnEv'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='1365' u='c' c='_ZN18idAFEntity_Generic14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='1436' u='c' c='_ZN27idAFEntity_WithAttachedHead5SpawnEv'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='1634' u='c' c='_ZN27idAFEntity_WithAttachedHead14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='1744' u='c' c='_ZN18idAFEntity_Vehicle3UseEP8idPlayer'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='2775' u='c' c='_ZN26idAFEntity_ClawFourFingers20Event_SetFingerAngleEf'/>
+<use f='codebrowser/d3xp/Grabber.cpp' l='349' u='c' c='_ZN9idGrabber8StopDragEb'/>
+<inh f='codebrowser/d3xp/physics/Physics_Base.h' l='80' c='_ZN14idPhysics_Base8ActivateEv'/>
+<def f='codebrowser/d3xp/physics/Physics_AF.cpp' l='6007' ll='6019' type='void idPhysics_AF::Activate()'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='6243' u='c' c='_ZN12idPhysics_AF8EvaluateEii'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='7417' u='c' c='_ZN12idPhysics_AF12ApplyImpulseEiRK6idVec3S2_'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='7434' u='c' c='_ZN12idPhysics_AF8AddForceEiRK6idVec3S2_'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='7552' u='c' c='_ZN12idPhysics_AF9TranslateERK6idVec3i'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='7581' u='c' c='_ZN12idPhysics_AF6RotateERK10idRotationi'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='7624' u='c' c='_ZN12idPhysics_AF17SetLinearVelocityERK6idVec3i'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='7637' u='c' c='_ZN12idPhysics_AF18SetAngularVelocityERK6idVec3i'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='7880' u='c' c='_ZN12idPhysics_AF9SetMasterEP8idEntityb'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='7897' u='c' c='_ZN12idPhysics_AF9SetMasterEP8idEntityb'/>
+<doc f='codebrowser/d3xp/physics/Physics_AF.cpp' l='6002'>/*
+================
+idPhysics_AF::Activate
+================
+*/</doc>
+<dec f='codebrowser/game/physics/Physics_AF.h' l='915' type='void idPhysics_AF::Activate()'/>
+<use f='codebrowser/game/AF.cpp' l='952' u='c' c='_ZN4idAF5StartEv'/>
+<use f='codebrowser/game/AFEntity.cpp' l='1272' u='c' c='_ZN18idAFEntity_Generic5SpawnEv'/>
+<use f='codebrowser/game/AFEntity.cpp' l='1290' u='c' c='_ZN18idAFEntity_Generic14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/game/AFEntity.cpp' l='1361' u='c' c='_ZN27idAFEntity_WithAttachedHead5SpawnEv'/>
+<use f='codebrowser/game/AFEntity.cpp' l='1552' u='c' c='_ZN27idAFEntity_WithAttachedHead14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/game/AFEntity.cpp' l='1662' u='c' c='_ZN18idAFEntity_Vehicle3UseEP8idPlayer'/>
+<use f='codebrowser/game/AFEntity.cpp' l='2497' u='c' c='_ZN26idAFEntity_ClawFourFingers20Event_SetFingerAngleEf'/>
+<inh f='codebrowser/game/physics/Physics_Base.h' l='80' c='_ZN14idPhysics_Base8ActivateEv'/>
+<def f='codebrowser/game/physics/Physics_AF.cpp' l='6006' ll='6018' type='void idPhysics_AF::Activate()'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='6242' u='c' c='_ZN12idPhysics_AF8EvaluateEii'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='7416' u='c' c='_ZN12idPhysics_AF12ApplyImpulseEiRK6idVec3S2_'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='7433' u='c' c='_ZN12idPhysics_AF8AddForceEiRK6idVec3S2_'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='7551' u='c' c='_ZN12idPhysics_AF9TranslateERK6idVec3i'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='7580' u='c' c='_ZN12idPhysics_AF6RotateERK10idRotationi'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='7623' u='c' c='_ZN12idPhysics_AF17SetLinearVelocityERK6idVec3i'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='7636' u='c' c='_ZN12idPhysics_AF18SetAngularVelocityERK6idVec3i'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='7879' u='c' c='_ZN12idPhysics_AF9SetMasterEP8idEntityb'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='7896' u='c' c='_ZN12idPhysics_AF9SetMasterEP8idEntityb'/>
+<doc f='codebrowser/game/physics/Physics_AF.cpp' l='6001'>/*
+================
+idPhysics_AF::Activate
+================
+*/</doc>

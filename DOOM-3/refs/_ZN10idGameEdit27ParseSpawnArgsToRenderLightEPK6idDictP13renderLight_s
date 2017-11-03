@@ -1,0 +1,30 @@
+<dec f='codebrowser/game/Game.h' l='236' type='void idGameEdit::ParseSpawnArgsToRenderLight(const idDict * args, renderLight_t * renderLight)'/>
+<doc f='codebrowser/game/Game.h' l='235'>// These are the canonical idDict to parameter parsing routines used by both the game and tools.</doc>
+<dec f='codebrowser/d3xp/Game.h' l='238' type='void idGameEdit::ParseSpawnArgsToRenderLight(const idDict * args, renderLight_t * renderLight)'/>
+<doc f='codebrowser/d3xp/Game.h' l='237'>// These are the canonical idDict to parameter parsing routines used by both the game and tools.</doc>
+<def f='codebrowser/d3xp/Light.cpp' l='80' ll='162' type='void idGameEdit::ParseSpawnArgsToRenderLight(const idDict * args, renderLight_t * renderLight)'/>
+<use f='codebrowser/d3xp/Light.cpp' l='182' u='c' c='_ZN7idLight25UpdateChangeableSpawnArgsEPK6idDict'/>
+<use f='codebrowser/d3xp/Light.cpp' l='314' u='c' c='_ZN7idLight5SpawnEv'/>
+<doc f='codebrowser/d3xp/Light.cpp' l='71'>/*
+================
+idGameEdit::ParseSpawnArgsToRenderLight
+
+parse the light parameters
+this is the canonical renderLight parm parsing,
+which should be used by dmap and the editor
+================
+*/</doc>
+<def f='codebrowser/game/Light.cpp' l='80' ll='162' type='void idGameEdit::ParseSpawnArgsToRenderLight(const idDict * args, renderLight_t * renderLight)'/>
+<use f='codebrowser/game/Light.cpp' l='182' u='c' c='_ZN7idLight25UpdateChangeableSpawnArgsEPK6idDict'/>
+<use f='codebrowser/game/Light.cpp' l='314' u='c' c='_ZN7idLight5SpawnEv'/>
+<doc f='codebrowser/game/Light.cpp' l='71'>/*
+================
+idGameEdit::ParseSpawnArgsToRenderLight
+
+parse the light parameters
+this is the canonical renderLight parm parsing,
+which should be used by dmap and the editor
+================
+*/</doc>
+<use f='codebrowser/tools/compilers/dmap/map.cpp' l='461' u='c' c='_ZL14CreateMapLightPK11idMapEntity'/>
+<use f='codebrowser/ui/RenderWindow.cpp' l='94' u='c' c='_ZN14idRenderWindow9PreRenderEv'/>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Force_Field.h source code [codebrowser/d3xp/physics/Force_Field.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="forceFieldApplyType,forceFieldType,idForce_Field "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/d3xp/physics/Force_Field.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>d3xp</a>/<a href='./'>physics</a>/<a href='Force_Field.h.html'>Force_Field.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__FORCE_FIELD_H__">__FORCE_FIELD_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__FORCE_FIELD_H__" data-ref="_M/__FORCE_FIELD_H__">__FORCE_FIELD_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>	Force field</i></td></tr>
+<tr><th id="36">36</th><td><i></i></td></tr>
+<tr><th id="37">37</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="38">38</th><td><i>*/</i></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><b>enum</b> <dfn class="type def" id="forceFieldType" title='forceFieldType' data-ref="forceFieldType">forceFieldType</dfn> {</td></tr>
+<tr><th id="41">41</th><td>	<dfn class="enum" id="forceFieldType::FORCEFIELD_UNIFORM" title='forceFieldType::FORCEFIELD_UNIFORM' data-ref="forceFieldType::FORCEFIELD_UNIFORM">FORCEFIELD_UNIFORM</dfn>,</td></tr>
+<tr><th id="42">42</th><td>	<dfn class="enum" id="forceFieldType::FORCEFIELD_EXPLOSION" title='forceFieldType::FORCEFIELD_EXPLOSION' data-ref="forceFieldType::FORCEFIELD_EXPLOSION">FORCEFIELD_EXPLOSION</dfn>,</td></tr>
+<tr><th id="43">43</th><td>	<dfn class="enum" id="forceFieldType::FORCEFIELD_IMPLOSION" title='forceFieldType::FORCEFIELD_IMPLOSION' data-ref="forceFieldType::FORCEFIELD_IMPLOSION">FORCEFIELD_IMPLOSION</dfn></td></tr>
+<tr><th id="44">44</th><td>};</td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td><b>enum</b> <dfn class="type def" id="forceFieldApplyType" title='forceFieldApplyType' data-ref="forceFieldApplyType">forceFieldApplyType</dfn> {</td></tr>
+<tr><th id="47">47</th><td>	<dfn class="enum" id="forceFieldApplyType::FORCEFIELD_APPLY_FORCE" title='forceFieldApplyType::FORCEFIELD_APPLY_FORCE' data-ref="forceFieldApplyType::FORCEFIELD_APPLY_FORCE">FORCEFIELD_APPLY_FORCE</dfn>,</td></tr>
+<tr><th id="48">48</th><td>	<dfn class="enum" id="forceFieldApplyType::FORCEFIELD_APPLY_VELOCITY" title='forceFieldApplyType::FORCEFIELD_APPLY_VELOCITY' data-ref="forceFieldApplyType::FORCEFIELD_APPLY_VELOCITY">FORCEFIELD_APPLY_VELOCITY</dfn>,</td></tr>
+<tr><th id="49">49</th><td>	<dfn class="enum" id="forceFieldApplyType::FORCEFIELD_APPLY_IMPULSE" title='forceFieldApplyType::FORCEFIELD_APPLY_IMPULSE' data-ref="forceFieldApplyType::FORCEFIELD_APPLY_IMPULSE">FORCEFIELD_APPLY_IMPULSE</dfn></td></tr>
+<tr><th id="50">50</th><td>};</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td><b>class</b> <dfn class="type def" id="idForce_Field" title='idForce_Field' data-ref="idForce_Field">idForce_Field</dfn> : <b>public</b> <a class="type" href="Force.h.html#idForce" title='idForce' data-ref="idForce">idForce</a> {</td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td><b>public</b>:</td></tr>
+<tr><th id="55">55</th><td>	<a class="macro" href="../gamesys/Class.h.html#92" title="public: static idTypeInfo Type; static idClass *CreateInstance( void ); virtual idTypeInfo *GetType( void ) const; static idEventFunc&lt;idForce_Field&gt; eventCallbacks[]" data-ref="_M/CLASS_PROTOTYPE">CLASS_PROTOTYPE</a>( <a class="type" href="#idForce_Field" title='idForce_Field' data-ref="idForce_Field">idForce_Field</a> );</td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td>	<em>void</em>				<dfn class="decl" id="_ZNK13idForce_Field4SaveEP10idSaveGame" title='idForce_Field::Save' data-ref="_ZNK13idForce_Field4SaveEP10idSaveGame">Save</dfn>( <a class="type" href="../gamesys/SaveGame.h.html#idSaveGame" title='idSaveGame' data-ref="idSaveGame">idSaveGame</a> *<dfn class="local col5 decl" id="1575savefile" title='savefile' data-type='idSaveGame *' data-ref="1575savefile">savefile</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="58">58</th><td>	<em>void</em>				<dfn class="decl" id="_ZN13idForce_Field7RestoreEP13idRestoreGame" title='idForce_Field::Restore' data-ref="_ZN13idForce_Field7RestoreEP13idRestoreGame">Restore</dfn>( <a class="type" href="../gamesys/SaveGame.h.html#idRestoreGame" title='idRestoreGame' data-ref="idRestoreGame">idRestoreGame</a> *<dfn class="local col6 decl" id="1576savefile" title='savefile' data-type='idRestoreGame *' data-ref="1576savefile">savefile</dfn> );</td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td>						<dfn class="decl" id="_ZN13idForce_FieldC1Ev" title='idForce_Field::idForce_Field' data-ref="_ZN13idForce_FieldC1Ev">idForce_Field</dfn>( <em>void</em> );</td></tr>
+<tr><th id="61">61</th><td>	<b>virtual</b>				<dfn class="virtual decl" id="_ZN13idForce_FieldD1Ev" title='idForce_Field::~idForce_Field' data-ref="_ZN13idForce_FieldD1Ev">~idForce_Field</dfn>( <em>void</em> );</td></tr>
+<tr><th id="62">62</th><td>						<i>// uniform constant force</i></td></tr>
+<tr><th id="63">63</th><td>	<em>void</em>				<dfn class="decl" id="_ZN13idForce_Field7UniformERK6idVec3" title='idForce_Field::Uniform' data-ref="_ZN13idForce_Field7UniformERK6idVec3">Uniform</dfn>( <em>const</em> <a class="type" href="../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col7 decl" id="1577force" title='force' data-type='const idVec3 &amp;' data-ref="1577force">force</dfn> );</td></tr>
+<tr><th id="64">64</th><td>						<i>// explosion from clip model origin</i></td></tr>
+<tr><th id="65">65</th><td>	<em>void</em>				<dfn class="decl" id="_ZN13idForce_Field9ExplosionEf" title='idForce_Field::Explosion' data-ref="_ZN13idForce_Field9ExplosionEf">Explosion</dfn>( <em>float</em> <dfn class="local col8 decl" id="1578force" title='force' data-type='float' data-ref="1578force">force</dfn> );</td></tr>
+<tr><th id="66">66</th><td>						<i>// implosion towards clip model origin</i></td></tr>
+<tr><th id="67">67</th><td>	<em>void</em>				<dfn class="decl" id="_ZN13idForce_Field9ImplosionEf" title='idForce_Field::Implosion' data-ref="_ZN13idForce_Field9ImplosionEf">Implosion</dfn>( <em>float</em> <dfn class="local col9 decl" id="1579force" title='force' data-type='float' data-ref="1579force">force</dfn> );</td></tr>
+<tr><th id="68">68</th><td>						<i>// add random torque</i></td></tr>
+<tr><th id="69">69</th><td>	<em>void</em>				<dfn class="decl" id="_ZN13idForce_Field12RandomTorqueEf" title='idForce_Field::RandomTorque' data-ref="_ZN13idForce_Field12RandomTorqueEf">RandomTorque</dfn>( <em>float</em> <dfn class="local col0 decl" id="1580force" title='force' data-type='float' data-ref="1580force">force</dfn> );</td></tr>
+<tr><th id="70">70</th><td>						<i>// should the force field apply a force, velocity or impulse</i></td></tr>
+<tr><th id="71">71</th><td>	<em>void</em>				<dfn class="decl def" id="_ZN13idForce_Field12SetApplyTypeE19forceFieldApplyType" title='idForce_Field::SetApplyType' data-ref="_ZN13idForce_Field12SetApplyTypeE19forceFieldApplyType">SetApplyType</dfn>( <em>const</em> <a class="type" href="#forceFieldApplyType" title='forceFieldApplyType' data-ref="forceFieldApplyType">forceFieldApplyType</a> <dfn class="local col1 decl" id="1581type" title='type' data-type='const forceFieldApplyType' data-ref="1581type">type</dfn> ) { <a class="member" href="#idForce_Field::applyType" title='idForce_Field::applyType' data-ref="idForce_Field::applyType">applyType</a> = <a class="local col1 ref" href="#1581type" title='type' data-ref="1581type">type</a>; }</td></tr>
+<tr><th id="72">72</th><td>						<i>// make the force field only push players</i></td></tr>
+<tr><th id="73">73</th><td>	<em>void</em>				<dfn class="decl def" id="_ZN13idForce_Field13SetPlayerOnlyEb" title='idForce_Field::SetPlayerOnly' data-ref="_ZN13idForce_Field13SetPlayerOnlyEb">SetPlayerOnly</dfn>( <em>bool</em> <dfn class="local col2 decl" id="1582set" title='set' data-type='bool' data-ref="1582set">set</dfn> ) { <a class="member" href="#idForce_Field::playerOnly" title='idForce_Field::playerOnly' data-ref="idForce_Field::playerOnly">playerOnly</a> = <a class="local col2 ref" href="#1582set" title='set' data-ref="1582set">set</a>; }</td></tr>
+<tr><th id="74">74</th><td>						<i>// make the force field only push monsters</i></td></tr>
+<tr><th id="75">75</th><td>	<em>void</em>				<dfn class="decl def" id="_ZN13idForce_Field14SetMonsterOnlyEb" title='idForce_Field::SetMonsterOnly' data-ref="_ZN13idForce_Field14SetMonsterOnlyEb">SetMonsterOnly</dfn>( <em>bool</em> <dfn class="local col3 decl" id="1583set" title='set' data-type='bool' data-ref="1583set">set</dfn> ) { <a class="member" href="#idForce_Field::monsterOnly" title='idForce_Field::monsterOnly' data-ref="idForce_Field::monsterOnly">monsterOnly</a> = <a class="local col3 ref" href="#1583set" title='set' data-ref="1583set">set</a>; }</td></tr>
+<tr><th id="76">76</th><td>						<i>// clip model describing the extents of the force field</i></td></tr>
+<tr><th id="77">77</th><td>	<em>void</em>				<dfn class="decl" id="_ZN13idForce_Field12SetClipModelEP11idClipModel" title='idForce_Field::SetClipModel' data-ref="_ZN13idForce_Field12SetClipModelEP11idClipModel">SetClipModel</dfn>( <a class="type" href="Clip.h.html#idClipModel" title='idClipModel' data-ref="idClipModel">idClipModel</a> *<dfn class="local col4 decl" id="1584clipModel" title='clipModel' data-type='idClipModel *' data-ref="1584clipModel">clipModel</dfn> );</td></tr>
+<tr><th id="78">78</th><td></td></tr>
+<tr><th id="79">79</th><td><b>public</b>: <i>// common force interface</i></td></tr>
+<tr><th id="80">80</th><td>	<b>virtual</b> <em>void</em>		<dfn class="virtual decl" id="_ZN13idForce_Field8EvaluateEi" title='idForce_Field::Evaluate' data-ref="_ZN13idForce_Field8EvaluateEi">Evaluate</dfn>( <em>int</em> <dfn class="local col5 decl" id="1585time" title='time' data-type='int' data-ref="1585time">time</dfn> );</td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td><b>private</b>:</td></tr>
+<tr><th id="83">83</th><td>	<i>// force properties</i></td></tr>
+<tr><th id="84">84</th><td>	<a class="type" href="#forceFieldType" title='forceFieldType' data-ref="forceFieldType">forceFieldType</a>		<dfn class="decl" id="idForce_Field::type" title='idForce_Field::type' data-ref="idForce_Field::type">type</dfn>;</td></tr>
+<tr><th id="85">85</th><td>	<a class="type" href="#forceFieldApplyType" title='forceFieldApplyType' data-ref="forceFieldApplyType">forceFieldApplyType</a>	<dfn class="decl" id="idForce_Field::applyType" title='idForce_Field::applyType' data-ref="idForce_Field::applyType">applyType</dfn>;</td></tr>
+<tr><th id="86">86</th><td>	<em>float</em>				<dfn class="decl" id="idForce_Field::magnitude" title='idForce_Field::magnitude' data-ref="idForce_Field::magnitude">magnitude</dfn>;</td></tr>
+<tr><th id="87">87</th><td>	<a class="type" href="../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a>				<dfn class="decl" id="idForce_Field::dir" title='idForce_Field::dir' data-ref="idForce_Field::dir">dir</dfn>;</td></tr>
+<tr><th id="88">88</th><td>	<em>float</em>				<dfn class="decl" id="idForce_Field::randomTorque" title='idForce_Field::randomTorque' data-ref="idForce_Field::randomTorque">randomTorque</dfn>;</td></tr>
+<tr><th id="89">89</th><td>	<em>bool</em>				<dfn class="decl" id="idForce_Field::playerOnly" title='idForce_Field::playerOnly' data-ref="idForce_Field::playerOnly">playerOnly</dfn>;</td></tr>
+<tr><th id="90">90</th><td>	<em>bool</em>				<dfn class="decl" id="idForce_Field::monsterOnly" title='idForce_Field::monsterOnly' data-ref="idForce_Field::monsterOnly">monsterOnly</dfn>;</td></tr>
+<tr><th id="91">91</th><td>	<a class="type" href="Clip.h.html#idClipModel" title='idClipModel' data-ref="idClipModel">idClipModel</a> *		<dfn class="decl" id="idForce_Field::clipModel" title='idForce_Field::clipModel' data-ref="idForce_Field::clipModel">clipModel</dfn>;</td></tr>
+<tr><th id="92">92</th><td>};</td></tr>
+<tr><th id="93">93</th><td></td></tr>
+<tr><th id="94">94</th><td><u>#<span data-ppcond="29">endif</span> /* !__FORCE_FIELD_H__ */</u></td></tr>
+<tr><th id="95">95</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../AF.cpp.html'>codebrowser/d3xp/AF.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,10 @@
+<dec f='codebrowser/renderer/jpeg-6/jpeglib.h' l='496' type='int'/>
+<offset>1024</offset>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='492'>/* The &quot;output scan number&quot; is the notional scan being displayed by the
+   * output side.  The decompressor will not allow output scan/row number
+   * to get ahead of input scan/row, but it can fall arbitrarily far behind.
+   */</doc>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='496'>/* Nominal scan number being displayed */</doc>
+<use f='codebrowser/renderer/jpeg-6/jdapistd.c' l='78' u='w' c='jpeg_start_decompress'/>
+<use f='codebrowser/renderer/jpeg-6/jdinput.c' l='322' u='r' c='consume_markers'/>
+<use f='codebrowser/renderer/jpeg-6/jdinput.c' l='323' u='w' c='consume_markers'/>

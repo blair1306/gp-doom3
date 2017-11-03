@@ -1,0 +1,24 @@
+<dec f='codebrowser/d3xp/Game_local.h' l='516' type='idEntity * idGameLocal::SelectInitialSpawnPoint(idPlayer * player)'/>
+<def f='codebrowser/d3xp/Game_local.cpp' l='4532' ll='4668' type='idEntity * idGameLocal::SelectInitialSpawnPoint(idPlayer * player)'/>
+<doc f='codebrowser/d3xp/Game_local.cpp' l='4523'>/*
+===========
+idGameLocal::SelectInitialSpawnPoint
+spectators are spawned randomly anywhere
+in-game clients are spawned based on distance to active players (randomized on the first half)
+upon map restart, initial spawns are used (randomized ordered list of spawns flagged &quot;initial&quot;)
+  if there are more players than initial spots, overflow to regular spawning
+============
+*/</doc>
+<use f='codebrowser/d3xp/Player.cpp' l='2627' u='c' c='_ZN8idPlayer23SelectInitialSpawnPointER6idVec3R8idAngles'/>
+<dec f='codebrowser/game/Game_local.h' l='454' type='idEntity * idGameLocal::SelectInitialSpawnPoint(idPlayer * player)'/>
+<def f='codebrowser/game/Game_local.cpp' l='4149' ll='4208' type='idEntity * idGameLocal::SelectInitialSpawnPoint(idPlayer * player)'/>
+<doc f='codebrowser/game/Game_local.cpp' l='4140'>/*
+===========
+idGameLocal::SelectInitialSpawnPoint
+spectators are spawned randomly anywhere
+in-game clients are spawned based on distance to active players (randomized on the first half)
+upon map restart, initial spawns are used (randomized ordered list of spawns flagged &quot;initial&quot;)
+  if there are more players than initial spots, overflow to regular spawning
+============
+*/</doc>
+<use f='codebrowser/game/Player.cpp' l='2135' u='c' c='_ZN8idPlayer23SelectInitialSpawnPointER6idVec3R8idAngles'/>

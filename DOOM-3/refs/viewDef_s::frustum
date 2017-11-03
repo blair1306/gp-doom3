@@ -1,0 +1,24 @@
+<dec f='codebrowser/renderer/tr_local.h' l='421' type='idPlane [5]'/>
+<offset>3712</offset>
+<doc f='codebrowser/renderer/tr_local.h' l='417'>// we use viewEntities as a check to see if a given view consists solely
+	// of 2D rendering, which we can optimize in certain ways.  A 2D view will
+	// not have any viewEntities</doc>
+<doc f='codebrowser/renderer/tr_local.h' l='421'>// positive sides face outward, [4] is the front clip plane</doc>
+<use f='codebrowser/renderer/Interaction.cpp' l='1115' u='r' c='_ZN13idInteraction20AddActiveInteractionEv'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='1195' u='r' c='_ZN13idInteraction20AddActiveInteractionEv'/>
+<use f='codebrowser/renderer/RenderWorld_portals.cpp' l='876' u='r' c='_ZN18idRenderWorldLocal25FindViewLightsAndEntitiesEv'/>
+<use f='codebrowser/renderer/RenderWorld_portals.cpp' l='887' u='r' c='_ZN18idRenderWorldLocal25FindViewLightsAndEntitiesEv'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='489' u='r' c='_Z22R_SetLightDefViewLightP18idRenderLightLocal'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='741' u='m' c='_Z30R_ClippedLightScissorRectangleP11viewLight_s'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1025' u='r' c='_Z18R_AddLightSurfacesv'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1401' u='r' c='_ZL21R_AddAmbientDrawsurfsP12viewEntity_s'/>
+<use f='codebrowser/renderer/tr_main.cpp' l='976' u='w' c='_ZL18R_SetupViewFrustumv'/>
+<use f='codebrowser/renderer/tr_main.cpp' l='977' u='w' c='_ZL18R_SetupViewFrustumv'/>
+<use f='codebrowser/renderer/tr_main.cpp' l='982' u='w' c='_ZL18R_SetupViewFrustumv'/>
+<use f='codebrowser/renderer/tr_main.cpp' l='983' u='w' c='_ZL18R_SetupViewFrustumv'/>
+<use f='codebrowser/renderer/tr_main.cpp' l='986' u='w' c='_ZL18R_SetupViewFrustumv'/>
+<use f='codebrowser/renderer/tr_main.cpp' l='990' u='w' c='_ZL18R_SetupViewFrustumv'/>
+<use f='codebrowser/renderer/tr_main.cpp' l='990' u='m' c='_ZL18R_SetupViewFrustumv'/>
+<use f='codebrowser/renderer/tr_main.cpp' l='991' u='m' c='_ZL18R_SetupViewFrustumv'/>
+<use f='codebrowser/renderer/tr_main.cpp' l='991' u='m' c='_ZL18R_SetupViewFrustumv'/>
+<use f='codebrowser/renderer/tr_subview.cpp' l='192' u='m' c='_Z20R_PreciseCullSurfacePK10drawSurf_sR8idBounds'/>

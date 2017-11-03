@@ -1,0 +1,17 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1497' type='void R_RangeCheckIndexes(const srfTriangles_t * tri)'/>
+<def f='codebrowser/renderer/tr_trisurf.cpp' l='671' ll='697' type='void R_RangeCheckIndexes(const srfTriangles_t * tri)'/>
+<use f='codebrowser/renderer/tr_trisurf.cpp' l='2097' u='c' c='_Z18R_CleanupTrianglesP14srfTriangles_sbbb'/>
+<use f='codebrowser/renderer/tr_trisurf.cpp' l='2166' u='c' c='_Z17R_BuildDeformInfoiPK10idDrawVertiPKib'/>
+<doc f='codebrowser/renderer/tr_trisurf.cpp' l='659'>/*
+===============
+R_RangeCheckIndexes
+
+Check for syntactically incorrect indexes, like out of range values.
+Does not check for semantics, like degenerate triangles.
+
+No vertexes is acceptable if no indexes.
+No indexes is acceptable.
+More vertexes than are referenced by indexes are acceptable.
+===============
+*/</doc>
+<use f='codebrowser/tools/compilers/dmap/output.cpp' l='247' u='c' c='_ZL17CleanupUTrianglesP14srfTriangles_s'/>

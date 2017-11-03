@@ -1,0 +1,59 @@
+<dec f='codebrowser/framework/async/NetworkSystem.h' l='45' type='void idNetworkSystem::ServerSendReliableMessage(int clientNum, const idBitMsg &amp; msg)'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='617' u='c' c='_ZN8idEntityD1Ev'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='4926' u='c' c='_ZNK8idEntity15ServerSendEventEiPK8idBitMsgbi'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='911' u='c' c='_ZN11idGameLocal13SetServerInfoERK6idDict'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='1160' u='c' c='_ZN11idGameLocal10MapRestartEv'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4365' u='c' c='_ZN11idGameLocal14SetPortalStateEii'/>
+<use f='codebrowser/d3xp/Game_network.cpp' l='182' u='c' c='_ZN11idGameLocal27ServerSendDeclRemapToClientEi10declType_ti'/>
+<use f='codebrowser/d3xp/Game_network.cpp' l='317' u='c' c='_ZN11idGameLocal17ServerClientBeginEi'/>
+<use f='codebrowser/d3xp/Game_network.cpp' l='331' u='c' c='_ZN11idGameLocal17ServerClientBeginEi'/>
+<use f='codebrowser/d3xp/Game_network.cpp' l='348' u='c' c='_ZN11idGameLocal22ServerClientDisconnectEi'/>
+<use f='codebrowser/d3xp/Game_network.cpp' l='394' u='c' c='_ZN11idGameLocal34ServerWriteInitialReliableMessagesEi'/>
+<use f='codebrowser/d3xp/Game_network.cpp' l='410' u='c' c='_ZN11idGameLocal34ServerWriteInitialReliableMessagesEi'/>
+<use f='codebrowser/d3xp/Game_network.cpp' l='422' u='c' c='_ZN11idGameLocal34ServerWriteInitialReliableMessagesEi'/>
+<use f='codebrowser/d3xp/Game_network.cpp' l='787' u='c' c='_ZN11idGameLocal21ServerSendChatMessageEiPKcS1_'/>
+<use f='codebrowser/d3xp/MultiplayerGame.cpp' l='1415' u='c' c='_ZN17idMultiplayerGame8NewStateENS_11gameState_tEP8idPlayer'/>
+<use f='codebrowser/d3xp/MultiplayerGame.cpp' l='1494' u='c' c='_ZN17idMultiplayerGame8NewStateENS_11gameState_tEP8idPlayer'/>
+<use f='codebrowser/d3xp/MultiplayerGame.cpp' l='1609' u='c' c='_ZN17idMultiplayerGame17UpdateTourneyLineEv'/>
+<use f='codebrowser/d3xp/MultiplayerGame.cpp' l='2793' u='c' c='_ZN17idMultiplayerGame15PlayGlobalSoundEi9snd_evt_tPKc'/>
+<use f='codebrowser/d3xp/MultiplayerGame.cpp' l='2954' u='c' c='_ZN17idMultiplayerGame17PrintMessageEventEiNS_9msg_evt_tEii'/>
+<use f='codebrowser/d3xp/MultiplayerGame.cpp' l='3256' u='c' c='_ZN17idMultiplayerGame15ClientStartVoteEiPKc'/>
+<use f='codebrowser/d3xp/MultiplayerGame.cpp' l='3290' u='c' c='_ZN17idMultiplayerGame16ClientUpdateVoteENS_13vote_result_tEii'/>
+<use f='codebrowser/d3xp/MultiplayerGame.cpp' l='3758' u='c' c='_ZN17idMultiplayerGame18ProcessChatMessageEibPKcS1_S1_'/>
+<use f='codebrowser/d3xp/MultiplayerGame.cpp' l='3775' u='c' c='_ZN17idMultiplayerGame18ProcessChatMessageEibPKcS1_S1_'/>
+<use f='codebrowser/d3xp/MultiplayerGame.cpp' l='3784' u='c' c='_ZN17idMultiplayerGame18ProcessChatMessageEibPKcS1_S1_'/>
+<use f='codebrowser/d3xp/MultiplayerGame.cpp' l='4093' u='c' c='_ZN17idMultiplayerGame34ServerWriteInitialReliableMessagesEi'/>
+<use f='codebrowser/d3xp/MultiplayerGame.cpp' l='4099' u='c' c='_ZN17idMultiplayerGame34ServerWriteInitialReliableMessagesEi'/>
+<use f='codebrowser/d3xp/MultiplayerGame.cpp' l='4106' u='c' c='_ZN17idMultiplayerGame34ServerWriteInitialReliableMessagesEi'/>
+<def f='codebrowser/framework/async/NetworkSystem.cpp' l='43' ll='47' type='void idNetworkSystem::ServerSendReliableMessage(int clientNum, const idBitMsg &amp; msg)'/>
+<doc f='codebrowser/framework/async/NetworkSystem.cpp' l='38'>/*
+==================
+idNetworkSystem::ServerSendReliableMessage
+==================
+*/</doc>
+<use f='codebrowser/game/Entity.cpp' l='574' u='c' c='_ZN8idEntityD1Ev'/>
+<use f='codebrowser/game/Entity.cpp' l='4752' u='c' c='_ZNK8idEntity15ServerSendEventEiPK8idBitMsgbi'/>
+<use f='codebrowser/game/Game_local.cpp' l='821' u='c' c='_ZN11idGameLocal13SetServerInfoERK6idDict'/>
+<use f='codebrowser/game/Game_local.cpp' l='1035' u='c' c='_ZN11idGameLocal10MapRestartEv'/>
+<use f='codebrowser/game/Game_local.cpp' l='4067' u='c' c='_ZN11idGameLocal14SetPortalStateEii'/>
+<use f='codebrowser/game/Game_network.cpp' l='182' u='c' c='_ZN11idGameLocal27ServerSendDeclRemapToClientEi10declType_ti'/>
+<use f='codebrowser/game/Game_network.cpp' l='317' u='c' c='_ZN11idGameLocal17ServerClientBeginEi'/>
+<use f='codebrowser/game/Game_network.cpp' l='331' u='c' c='_ZN11idGameLocal17ServerClientBeginEi'/>
+<use f='codebrowser/game/Game_network.cpp' l='348' u='c' c='_ZN11idGameLocal22ServerClientDisconnectEi'/>
+<use f='codebrowser/game/Game_network.cpp' l='394' u='c' c='_ZN11idGameLocal34ServerWriteInitialReliableMessagesEi'/>
+<use f='codebrowser/game/Game_network.cpp' l='410' u='c' c='_ZN11idGameLocal34ServerWriteInitialReliableMessagesEi'/>
+<use f='codebrowser/game/Game_network.cpp' l='422' u='c' c='_ZN11idGameLocal34ServerWriteInitialReliableMessagesEi'/>
+<use f='codebrowser/game/Game_network.cpp' l='773' u='c' c='_ZN11idGameLocal21ServerSendChatMessageEiPKcS1_'/>
+<use f='codebrowser/game/MultiplayerGame.cpp' l='986' u='c' c='_ZN17idMultiplayerGame8NewStateENS_11gameState_tEP8idPlayer'/>
+<use f='codebrowser/game/MultiplayerGame.cpp' l='1052' u='c' c='_ZN17idMultiplayerGame8NewStateENS_11gameState_tEP8idPlayer'/>
+<use f='codebrowser/game/MultiplayerGame.cpp' l='1150' u='c' c='_ZN17idMultiplayerGame17UpdateTourneyLineEv'/>
+<use f='codebrowser/game/MultiplayerGame.cpp' l='2188' u='c' c='_ZN17idMultiplayerGame15PlayGlobalSoundEi9snd_evt_tPKc'/>
+<use f='codebrowser/game/MultiplayerGame.cpp' l='2264' u='c' c='_ZN17idMultiplayerGame17PrintMessageEventEiNS_9msg_evt_tEii'/>
+<use f='codebrowser/game/MultiplayerGame.cpp' l='2565' u='c' c='_ZN17idMultiplayerGame15ClientStartVoteEiPKc'/>
+<use f='codebrowser/game/MultiplayerGame.cpp' l='2599' u='c' c='_ZN17idMultiplayerGame16ClientUpdateVoteENS_13vote_result_tEii'/>
+<use f='codebrowser/game/MultiplayerGame.cpp' l='3025' u='c' c='_ZN17idMultiplayerGame18ProcessChatMessageEibPKcS1_S1_'/>
+<use f='codebrowser/game/MultiplayerGame.cpp' l='3042' u='c' c='_ZN17idMultiplayerGame18ProcessChatMessageEibPKcS1_S1_'/>
+<use f='codebrowser/game/MultiplayerGame.cpp' l='3051' u='c' c='_ZN17idMultiplayerGame18ProcessChatMessageEibPKcS1_S1_'/>
+<use f='codebrowser/game/MultiplayerGame.cpp' l='3360' u='c' c='_ZN17idMultiplayerGame34ServerWriteInitialReliableMessagesEi'/>
+<use f='codebrowser/game/MultiplayerGame.cpp' l='3366' u='c' c='_ZN17idMultiplayerGame34ServerWriteInitialReliableMessagesEi'/>
+<use f='codebrowser/game/MultiplayerGame.cpp' l='3373' u='c' c='_ZN17idMultiplayerGame34ServerWriteInitialReliableMessagesEi'/>

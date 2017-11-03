@@ -1,0 +1,76 @@
+<dec f='codebrowser/framework/FileSystem.h' l='220' type='int idFileSystem::ReadFile(const char * relativePath, void ** buffer, time_t * timestamp = __null)'/>
+<doc f='codebrowser/framework/FileSystem.h' l='213'>// Reads a complete file.
+							// Returns the length of the file, or -1 on failure.
+							// A null buffer will just return the file length without loading.
+							// A null timestamp will be ignored.
+							// As a quick check for existance. -1 length == not present.
+							// A 0 byte will always be appended at the end, so string ops are safe.
+							// The buffer should be considered read-only, because it may be cached for other uses.</doc>
+<use f='codebrowser/build/debug/core/glimp/sys/linux/glimp_logging.cpp' l='1585' u='c' c='_Z19GLimp_EnableLoggingb'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='368' u='c' c='_ZN11idGameLocal4InitEv'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='1210' u='c' c='_ZN11idGameLocal7NextMapEv'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='1211' u='c' c='_ZN11idGameLocal7NextMapEv'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='1758' u='c' c='_ZN11idGameLocal13DumpOggSoundsEv'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='1768' u='c' c='_ZN11idGameLocal13DumpOggSoundsEv'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='1778' u='c' c='_ZN11idGameLocal13DumpOggSoundsEv'/>
+<use f='codebrowser/d3xp/WorldSpawn.cpp' l='76' u='c' c='_ZN12idWorldspawn5SpawnEv'/>
+<use f='codebrowser/d3xp/anim/Anim_Import.cpp' l='194' u='c' c='_ZN13idModelExport16ConvertMayaToMD5Ev'/>
+<use f='codebrowser/d3xp/anim/Anim_Import.cpp' l='200' u='c' c='_ZN13idModelExport16ConvertMayaToMD5Ev'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='160' u='c' c='_Z18Cmd_ReloadScript_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/script/Script_Program.cpp' l='1842' u='c' c='_ZN9idProgram11CompileFileEPKc'/>
+<use f='codebrowser/framework/CmdSystem.cpp' l='236' u='c' c='_ZN16idCmdSystemLocal6Exec_fERK9idCmdArgs'/>
+<use f='codebrowser/framework/Common.cpp' l='1696' u='c' c='_ZN13idCommonLocal15LocalizeMapDataEPKcR10idLangDict'/>
+<use f='codebrowser/framework/Common.cpp' l='1743' u='c' c='_ZN13idCommonLocal11LocalizeGuiEPKcR10idLangDict'/>
+<use f='codebrowser/framework/Common.cpp' l='1832' u='c' c='_Z19LoadMapLocalizeDataR11idHashTableI6idListI5idStrEE'/>
+<use f='codebrowser/framework/Common.cpp' l='1866' u='c' c='_Z22LoadGuiParmExcludeListR6idListI5idStrE'/>
+<use f='codebrowser/framework/DeclManager.cpp' l='582' u='c' c='_ZN10idDeclFile6ReloadEb'/>
+<use f='codebrowser/framework/DeclManager.cpp' l='616' u='c' c='_ZN10idDeclFile12LoadAndParseEv'/>
+<use f='codebrowser/framework/DeclManager.cpp' l='2004' u='c' c='_ZN11idDeclLocal21ReplaceSourceFileTextEv'/>
+<use f='codebrowser/framework/DeclManager.cpp' l='2035' u='c' c='_ZNK11idDeclLocal17SourceFileChangedEv'/>
+<ovr f='codebrowser/framework/FileSystem.cpp' l='1041' c='_ZN17idFileSystemLocal8ReadFileEPKcPPvPl'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='2082' u='c' c='_ZN17idFileSystemLocal15TouchFileList_fERK9idCmdArgs'/>
+<use f='codebrowser/framework/Session.cpp' l='578' u='c' c='_ZL18FindUnusedFileNamePKc'/>
+<use f='codebrowser/framework/Session_menu.cpp' l='166' u='c' c='_ZN14idSessionLocal15GetSaveGameListER6idListI5idStrERS0_I10fileTIME_TE'/>
+<use f='codebrowser/framework/Session_menu.cpp' l='450' u='c' c='_ZN14idSessionLocal25HandleSaveGameMenuCommandER9idCmdArgsRi'/>
+<use f='codebrowser/game/Game_local.cpp' l='1074' u='c' c='_ZN11idGameLocal7NextMapEv'/>
+<use f='codebrowser/game/Game_local.cpp' l='1075' u='c' c='_ZN11idGameLocal7NextMapEv'/>
+<use f='codebrowser/game/Game_local.cpp' l='1575' u='c' c='_ZN11idGameLocal13DumpOggSoundsEv'/>
+<use f='codebrowser/game/Game_local.cpp' l='1585' u='c' c='_ZN11idGameLocal13DumpOggSoundsEv'/>
+<use f='codebrowser/game/Game_local.cpp' l='1595' u='c' c='_ZN11idGameLocal13DumpOggSoundsEv'/>
+<use f='codebrowser/game/WorldSpawn.cpp' l='76' u='c' c='_ZN12idWorldspawn5SpawnEv'/>
+<use f='codebrowser/game/anim/Anim_Import.cpp' l='195' u='c' c='_ZN13idModelExport16ConvertMayaToMD5Ev'/>
+<use f='codebrowser/game/anim/Anim_Import.cpp' l='201' u='c' c='_ZN13idModelExport16ConvertMayaToMD5Ev'/>
+<use f='codebrowser/game/script/Script_Program.cpp' l='1842' u='c' c='_ZN9idProgram11CompileFileEPKc'/>
+<use f='codebrowser/idlib/LangDict.cpp' l='78' u='c' c='_ZN10idLangDict4LoadEPKcb'/>
+<use f='codebrowser/idlib/MapFile.cpp' l='962' u='c' c='_ZN9idMapFile11NeedsReloadEv'/>
+<use f='codebrowser/renderer/Image_files.cpp' l='255' u='c' c='_ZL7LoadBMPPKcPPhPiS3_Pl'/>
+<use f='codebrowser/renderer/Image_files.cpp' l='264' u='c' c='_ZL7LoadBMPPKcPPhPiS3_Pl'/>
+<use f='codebrowser/renderer/Image_files.cpp' l='423' u='c' c='_ZL7LoadPCXPKcPPhS2_PiS3_Pl'/>
+<use f='codebrowser/renderer/Image_files.cpp' l='433' u='c' c='_ZL7LoadPCXPKcPPhS2_PiS3_Pl'/>
+<use f='codebrowser/renderer/Image_files.cpp' l='519' u='c' c='_ZL9LoadPCX32PKcPPhPiS3_Pl'/>
+<use f='codebrowser/renderer/Image_files.cpp' l='566' u='c' c='_ZL7LoadTGAPKcPPhPiS3_Pl'/>
+<use f='codebrowser/renderer/Image_files.cpp' l='575' u='c' c='_ZL7LoadTGAPKcPPhPiS3_Pl'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='2115' u='c' c='_ZN14idImageManager11FinishBuildEb'/>
+<use f='codebrowser/renderer/Image_load.cpp' l='1304' u='c' c='_ZN7idImage26ShouldImageBePartialCachedEv'/>
+<use f='codebrowser/renderer/Image_load.cpp' l='1362' u='c' c='_ZN7idImage23CheckPrecompressedImageEb'/>
+<use f='codebrowser/renderer/MegaTexture.cpp' l='675' u='c' c='_ZN13idMegaTexture17MakeMegaTexture_fERK9idCmdArgs'/>
+<use f='codebrowser/renderer/Model.cpp' l='1948' u='c' c='_ZN19idRenderModelStatic7LoadFLTEPKc'/>
+<use f='codebrowser/renderer/ModelManager.cpp' l='455' u='c' c='_ZN25idRenderModelManagerLocal12ReloadModelsEb'/>
+<use f='codebrowser/renderer/Model_ase.cpp' l='839' u='c' c='_Z8ASE_LoadPKc'/>
+<use f='codebrowser/renderer/Model_liquid.cpp' l='459' u='c' c='_ZN19idRenderModelLiquid12InitFromFileEPKc'/>
+<use f='codebrowser/renderer/Model_ma.cpp' l='1013' u='c' c='_Z7MA_LoadPKc'/>
+<use f='codebrowser/renderer/Model_md3.cpp' l='65' u='c' c='_ZN16idRenderModelMD312InitFromFileEPKc'/>
+<use f='codebrowser/renderer/Model_md5.cpp' l='573' u='c' c='_ZN16idRenderModelMD59LoadModelEv'/>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='1330' u='c' c='_Z20R_ScreenshotFilenameRiPKcR5idStr'/>
+<use f='codebrowser/renderer/RenderWorld_load.cpp' l='501' u='c' c='_ZN18idRenderWorldLocal11InitFromMapEPKc'/>
+<use f='codebrowser/renderer/draw_arb2.cpp' l='378' u='c' c='_Z16R_LoadARBProgrami'/>
+<use f='codebrowser/renderer/tr_font.cpp' l='346' u='c' c='_ZN19idRenderSystemLocal12RegisterFontEPKcR12fontInfoEx_t'/>
+<use f='codebrowser/renderer/tr_font.cpp' l='352' u='c' c='_ZN19idRenderSystemLocal12RegisterFontEPKcR12fontInfoEx_t'/>
+<use f='codebrowser/sound/snd_cache.cpp' l='418' u='c' c='_ZNK13idSoundSample15GetNewTimeStampEv'/>
+<use f='codebrowser/sound/snd_cache.cpp' l='422' u='c' c='_ZNK13idSoundSample15GetNewTimeStampEv'/>
+<use f='codebrowser/sound/snd_shader.cpp' l='346' u='c' c='_ZN13idSoundShader11ParseShaderER7idLexer'/>
+<use f='codebrowser/sound/snd_shader.cpp' l='351' u='c' c='_ZN13idSoundShader11ParseShaderER7idLexer'/>
+<use f='codebrowser/sound/snd_wavefile.cpp' l='84' u='c' c='_ZN10idWaveFile4OpenEPKcP14waveformatex_s'/>
+<use f='codebrowser/ui/EditWindow.cpp' l='439' u='c' c='_ZN12idEditWindow9PostParseEv'/>
+<use f='codebrowser/ui/UserInterface.cpp' l='126' u='c' c='_ZN27idUserInterfaceManagerLocal6ReloadEb'/>
+<use f='codebrowser/ui/UserInterface.cpp' l='293' u='c' c='_ZN20idUserInterfaceLocal12InitFromFileEPKcbb'/>

@@ -1,0 +1,14 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1569' type='void R_FrameFree(void * data)'/>
+<def f='codebrowser/renderer/tr_main.cpp' l='438' ll='439' type='void R_FrameFree(void * data)'/>
+<doc f='codebrowser/renderer/tr_main.cpp' l='426'>/*
+==================
+R_FrameFree
+
+This does nothing at all, as the frame data is reused every frame
+and can only be stack allocated.
+
+The only reason for it&apos;s existance is so functions that can
+use either static or frame memory can set function pointers
+to both alloc and free.
+==================
+*/</doc>

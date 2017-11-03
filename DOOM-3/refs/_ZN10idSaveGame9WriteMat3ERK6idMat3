@@ -1,0 +1,104 @@
+<dec f='codebrowser/d3xp/gamesys/SaveGame.h' l='65' type='void idSaveGame::WriteMat3(const idMat3 &amp; mat)'/>
+<use f='codebrowser/d3xp/AF.cpp' l='81' u='c' c='_ZNK4idAF4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='557' u='c' c='_ZNK15idAFEntity_Base4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='802' u='c' c='_ZNK7idActor4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/IK.cpp' l='329' u='c' c='_ZNK9idIK_Walk4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/IK.cpp' l='331' u='c' c='_ZNK9idIK_Walk4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/IK.cpp' l='908' u='c' c='_ZNK10idIK_Reach4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/IK.cpp' l='910' u='c' c='_ZNK10idIK_Reach4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/Light.cpp' l='235' u='c' c='_ZNK7idLight4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/Moveable.cpp' l='656' u='c' c='_ZNK8idBarrel4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/Moveable.cpp' l='658' u='c' c='_ZNK8idBarrel4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/Moveable.cpp' l='867' u='c' c='_ZNK17idExplodingBarrel4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='3198' u='c' c='_ZNK6idDoor4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='4097' u='c' c='_ZNK6idPlat4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/Player.cpp' l='2094' u='c' c='_ZNK8idPlayer4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='312' u='c' c='_ZNK8idWeapon4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='315' u='c' c='_ZNK8idWeapon4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='318' u='c' c='_ZNK8idWeapon4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='382' u='c' c='_ZNK8idWeapon4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='3153' u='c' c='_ZNK10idAnimator4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='3182' u='c' c='_ZNK10idAnimator4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/gamesys/Event.cpp' l='997' u='c' c='_ZN7idEvent9SaveTraceEP10idSaveGameRK7trace_s'/>
+<def f='codebrowser/d3xp/gamesys/SaveGame.cpp' l='309' ll='311' type='void idSaveGame::WriteMat3(const idMat3 &amp; mat)'/>
+<use f='codebrowser/d3xp/gamesys/SaveGame.cpp' l='515' u='c' c='_ZN10idSaveGame17WriteRenderEntityERK14renderEntity_s'/>
+<use f='codebrowser/d3xp/gamesys/SaveGame.cpp' l='558' u='c' c='_ZN10idSaveGame16WriteRenderLightERK13renderLight_s'/>
+<use f='codebrowser/d3xp/gamesys/SaveGame.cpp' l='637' u='c' c='_ZN10idSaveGame15WriteRenderViewERK12renderView_s'/>
+<use f='codebrowser/d3xp/gamesys/SaveGame.cpp' l='697' u='c' c='_ZN10idSaveGame10WriteTraceERK7trace_s'/>
+<doc f='codebrowser/d3xp/gamesys/SaveGame.cpp' l='304'>/*
+================
+idSaveGame::WriteMat3
+================
+*/</doc>
+<use f='codebrowser/d3xp/physics/Clip.cpp' l='169' u='c' c='_ZN11idClipModel15SaveTraceModelsEP10idSaveGame'/>
+<use f='codebrowser/d3xp/physics/Clip.cpp' l='380' u='c' c='_ZNK11idClipModel4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='436' u='c' c='_ZNK20idAFConstraint_Fixed4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='1957' u='c' c='_ZNK20idAFConstraint_Hinge4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='2433' u='c' c='_ZNK21idAFConstraint_Slider4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='3845' u='c' c='_ZNK27idAFConstraint_PyramidLimit4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='4425' u='c' c='_ZN8idAFBody4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='4426' u='c' c='_ZN8idAFBody4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='4429' u='c' c='_ZN8idAFBody4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='4433' u='c' c='_ZN8idAFBody4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/physics/Physics_Actor.cpp' l='73' u='c' c='_ZNK15idPhysics_Actor4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/physics/Physics_Parametric.cpp' l='157' u='c' c='_Z31idPhysics_Parametric_SavePStateP10idSaveGameRK18parametricPState_s'/>
+<use f='codebrowser/d3xp/physics/Physics_RigidBody.cpp' l='499' u='c' c='_Z30idPhysics_RigidBody_SavePStateP10idSaveGameRK17rigidBodyPState_s'/>
+<use f='codebrowser/d3xp/physics/Physics_RigidBody.cpp' l='505' u='c' c='_Z30idPhysics_RigidBody_SavePStateP10idSaveGameRK17rigidBodyPState_s'/>
+<use f='codebrowser/d3xp/physics/Physics_RigidBody.cpp' l='549' u='c' c='_ZNK19idPhysics_RigidBody4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/physics/Physics_RigidBody.cpp' l='550' u='c' c='_ZNK19idPhysics_RigidBody4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/physics/Physics_Static.cpp' l='77' u='c' c='_ZNK16idPhysics_Static4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/physics/Physics_Static.cpp' l='79' u='c' c='_ZNK16idPhysics_Static4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/physics/Physics_StaticMulti.cpp' l='89' u='c' c='_ZNK21idPhysics_StaticMulti4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/physics/Physics_StaticMulti.cpp' l='91' u='c' c='_ZNK21idPhysics_StaticMulti4SaveEP10idSaveGame'/>
+<dec f='codebrowser/game/gamesys/SaveGame.h' l='65' type='void idSaveGame::WriteMat3(const idMat3 &amp; mat)'/>
+<use f='codebrowser/game/AF.cpp' l='81' u='c' c='_ZNK4idAF4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/AFEntity.cpp' l='557' u='c' c='_ZNK15idAFEntity_Base4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/Actor.cpp' l='768' u='c' c='_ZNK7idActor4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/IK.cpp' l='329' u='c' c='_ZNK9idIK_Walk4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/IK.cpp' l='331' u='c' c='_ZNK9idIK_Walk4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/IK.cpp' l='908' u='c' c='_ZNK10idIK_Reach4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/IK.cpp' l='910' u='c' c='_ZNK10idIK_Reach4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/Light.cpp' l='235' u='c' c='_ZNK7idLight4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/Moveable.cpp' l='574' u='c' c='_ZNK8idBarrel4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/Moveable.cpp' l='576' u='c' c='_ZNK8idBarrel4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/Moveable.cpp' l='778' u='c' c='_ZNK17idExplodingBarrel4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/Mover.cpp' l='3167' u='c' c='_ZNK6idDoor4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/Mover.cpp' l='4036' u='c' c='_ZNK6idPlat4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/Player.cpp' l='1688' u='c' c='_ZNK8idPlayer4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/Weapon.cpp' l='277' u='c' c='_ZNK8idWeapon4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/Weapon.cpp' l='280' u='c' c='_ZNK8idWeapon4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/Weapon.cpp' l='283' u='c' c='_ZNK8idWeapon4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/Weapon.cpp' l='347' u='c' c='_ZNK8idWeapon4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='3067' u='c' c='_ZNK10idAnimator4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='3096' u='c' c='_ZNK10idAnimator4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/gamesys/Event.cpp' l='801' u='c' c='_ZN7idEvent9SaveTraceEP10idSaveGameRK7trace_s'/>
+<def f='codebrowser/game/gamesys/SaveGame.cpp' l='309' ll='311' type='void idSaveGame::WriteMat3(const idMat3 &amp; mat)'/>
+<use f='codebrowser/game/gamesys/SaveGame.cpp' l='515' u='c' c='_ZN10idSaveGame17WriteRenderEntityERK14renderEntity_s'/>
+<use f='codebrowser/game/gamesys/SaveGame.cpp' l='553' u='c' c='_ZN10idSaveGame16WriteRenderLightERK13renderLight_s'/>
+<use f='codebrowser/game/gamesys/SaveGame.cpp' l='632' u='c' c='_ZN10idSaveGame15WriteRenderViewERK12renderView_s'/>
+<use f='codebrowser/game/gamesys/SaveGame.cpp' l='692' u='c' c='_ZN10idSaveGame10WriteTraceERK7trace_s'/>
+<doc f='codebrowser/game/gamesys/SaveGame.cpp' l='304'>/*
+================
+idSaveGame::WriteMat3
+================
+*/</doc>
+<use f='codebrowser/game/physics/Clip.cpp' l='169' u='c' c='_ZN11idClipModel15SaveTraceModelsEP10idSaveGame'/>
+<use f='codebrowser/game/physics/Clip.cpp' l='380' u='c' c='_ZNK11idClipModel4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='436' u='c' c='_ZNK20idAFConstraint_Fixed4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='1957' u='c' c='_ZNK20idAFConstraint_Hinge4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='2433' u='c' c='_ZNK21idAFConstraint_Slider4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='3844' u='c' c='_ZNK27idAFConstraint_PyramidLimit4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='4424' u='c' c='_ZN8idAFBody4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='4425' u='c' c='_ZN8idAFBody4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='4428' u='c' c='_ZN8idAFBody4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='4432' u='c' c='_ZN8idAFBody4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/physics/Physics_Actor.cpp' l='73' u='c' c='_ZNK15idPhysics_Actor4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/physics/Physics_Parametric.cpp' l='157' u='c' c='_Z31idPhysics_Parametric_SavePStateP10idSaveGameRK18parametricPState_s'/>
+<use f='codebrowser/game/physics/Physics_RigidBody.cpp' l='499' u='c' c='_Z30idPhysics_RigidBody_SavePStateP10idSaveGameRK17rigidBodyPState_s'/>
+<use f='codebrowser/game/physics/Physics_RigidBody.cpp' l='505' u='c' c='_Z30idPhysics_RigidBody_SavePStateP10idSaveGameRK17rigidBodyPState_s'/>
+<use f='codebrowser/game/physics/Physics_RigidBody.cpp' l='549' u='c' c='_ZNK19idPhysics_RigidBody4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/physics/Physics_RigidBody.cpp' l='550' u='c' c='_ZNK19idPhysics_RigidBody4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/physics/Physics_Static.cpp' l='77' u='c' c='_ZNK16idPhysics_Static4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/physics/Physics_Static.cpp' l='79' u='c' c='_ZNK16idPhysics_Static4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/physics/Physics_StaticMulti.cpp' l='89' u='c' c='_ZNK21idPhysics_StaticMulti4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/physics/Physics_StaticMulti.cpp' l='91' u='c' c='_ZNK21idPhysics_StaticMulti4SaveEP10idSaveGame'/>

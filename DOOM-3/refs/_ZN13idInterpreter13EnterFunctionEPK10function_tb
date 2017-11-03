@@ -1,0 +1,34 @@
+<dec f='codebrowser/d3xp/script/Script_Interpreter.h' l='105' type='void idInterpreter::EnterFunction(const function_t * func, bool clearStack)'/>
+<use f='codebrowser/d3xp/script/Script_Interpreter.cpp' l='519' u='c' c='_ZN13idInterpreter10ThreadCallEPS_PK10function_ti'/>
+<use f='codebrowser/d3xp/script/Script_Interpreter.cpp' l='542' u='c' c='_ZN13idInterpreter19EnterObjectFunctionEP8idEntityPK10function_tb'/>
+<def f='codebrowser/d3xp/script/Script_Interpreter.cpp' l='554' ll='616' type='void idInterpreter::EnterFunction(const function_t * func, bool clearStack)'/>
+<use f='codebrowser/d3xp/script/Script_Interpreter.cpp' l='1003' u='c' c='_ZN13idInterpreter7ExecuteEv'/>
+<use f='codebrowser/d3xp/script/Script_Interpreter.cpp' l='1015' u='c' c='_ZN13idInterpreter7ExecuteEv'/>
+<doc f='codebrowser/d3xp/script/Script_Interpreter.cpp' l='545'>/*
+====================
+idInterpreter::EnterFunction
+
+Returns the new program statement counter
+
+NOTE: If this is called from within a event called by this interpreter, the function arguments will be invalid after calling this function.
+====================
+*/</doc>
+<use f='codebrowser/d3xp/script/Script_Thread.cpp' l='307' u='c' c='_ZN8idThreadC1EPK10function_t'/>
+<use f='codebrowser/d3xp/script/Script_Thread.cpp' l='728' u='c' c='_ZN8idThread12CallFunctionEPK10function_tb'/>
+<dec f='codebrowser/game/script/Script_Interpreter.h' l='105' type='void idInterpreter::EnterFunction(const function_t * func, bool clearStack)'/>
+<use f='codebrowser/game/script/Script_Interpreter.cpp' l='519' u='c' c='_ZN13idInterpreter10ThreadCallEPS_PK10function_ti'/>
+<use f='codebrowser/game/script/Script_Interpreter.cpp' l='542' u='c' c='_ZN13idInterpreter19EnterObjectFunctionEP8idEntityPK10function_tb'/>
+<def f='codebrowser/game/script/Script_Interpreter.cpp' l='554' ll='616' type='void idInterpreter::EnterFunction(const function_t * func, bool clearStack)'/>
+<use f='codebrowser/game/script/Script_Interpreter.cpp' l='1003' u='c' c='_ZN13idInterpreter7ExecuteEv'/>
+<use f='codebrowser/game/script/Script_Interpreter.cpp' l='1015' u='c' c='_ZN13idInterpreter7ExecuteEv'/>
+<doc f='codebrowser/game/script/Script_Interpreter.cpp' l='545'>/*
+====================
+idInterpreter::EnterFunction
+
+Returns the new program statement counter
+
+NOTE: If this is called from within a event called by this interpreter, the function arguments will be invalid after calling this function.
+====================
+*/</doc>
+<use f='codebrowser/game/script/Script_Thread.cpp' l='285' u='c' c='_ZN8idThreadC1EPK10function_t'/>
+<use f='codebrowser/game/script/Script_Thread.cpp' l='706' u='c' c='_ZN8idThread12CallFunctionEPK10function_tb'/>

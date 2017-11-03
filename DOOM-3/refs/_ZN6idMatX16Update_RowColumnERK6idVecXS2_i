@@ -1,0 +1,18 @@
+<dec f='codebrowser/idlib/math/Matrix.h' l='1899' type='void idMatX::Update_RowColumn(const idVecX &amp; v, const idVecX &amp; w, int r)'/>
+<def f='codebrowser/idlib/math/Matrix.cpp' l='3500' ll='3513' type='void idMatX::Update_RowColumn(const idVecX &amp; v, const idVecX &amp; w, int r)'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7290' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7422' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7595' u='c' c='_ZN6idMatX4TestEv'/>
+<doc f='codebrowser/idlib/math/Matrix.cpp' l='3487'>/*
+============
+idMatX::Update_RowColumn
+
+  Updates the matrix to obtain the matrix:
+
+      [ 0  a  0 ]
+  A + [ d  b  e ]
+      [ 0  c  0 ]
+
+  where: a = v[0,r-1], b = v[r], c = v[r+1,numRows-1], d = w[0,r-1], w[r] = 0.0f, e = w[r+1,numColumns-1]
+============
+*/</doc>

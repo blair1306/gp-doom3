@@ -1,0 +1,12 @@
+<dec f='codebrowser/sound/sound.h' l='248' type='void idSoundWorld::AVIOpen(const char * path, const char * name)'/>
+<doc f='codebrowser/sound/sound.h' l='239'>// Write the sound output to multiple wav files.  Note that this does not use the
+	// work done by AsyncUpdate, it mixes explicitly in the foreground every PlaceOrigin(),
+	// under the assumption that we are rendering out screenshots and the gameTime is going
+	// much slower than real time.
+	// path should not include an extension, and the generated filenames will be:
+	// &lt;path&gt;_left.raw, &lt;path&gt;_right.raw, or &lt;path&gt;_51left.raw, &lt;path&gt;_51right.raw, 
+	// &lt;path&gt;_51center.raw, &lt;path&gt;_51lfe.raw, &lt;path&gt;_51backleft.raw, &lt;path&gt;_51backright.raw, 
+	// If only two channel mixing is enabled, the left and right .raw files will also be
+	// combined into a stereo .wav file.</doc>
+<use f='codebrowser/framework/Session.cpp' l='1002' u='c' c='_ZN14idSessionLocal15BeginAVICaptureEPKc'/>
+<ovr f='codebrowser/sound/snd_world.cpp' l='547' c='_ZN17idSoundWorldLocal7AVIOpenEPKcS1_'/>

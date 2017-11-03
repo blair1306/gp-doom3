@@ -1,0 +1,10 @@
+<def f='codebrowser/curl/lib/share.h' l='32' ll='42'/>
+<size>48</size>
+<doc f='codebrowser/curl/lib/share.h' l='31'>/* this struct is libcurl-private, don&apos;t export details */</doc>
+<mbr r='Curl_share::specifier' o='0' t='unsigned int'/>
+<mbr r='Curl_share::dirty' o='32' t='volatile unsigned int'/>
+<mbr r='Curl_share::lockfunc' o='64' t='curl_lock_function'/>
+<mbr r='Curl_share::unlockfunc' o='128' t='curl_unlock_function'/>
+<mbr r='Curl_share::clientdata' o='192' t='void *'/>
+<mbr r='Curl_share::hostcache' o='256' t='curl_hash *'/>
+<mbr r='Curl_share::cookies' o='320' t='struct CookieInfo *'/>

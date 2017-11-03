@@ -1,0 +1,57 @@
+<def f='codebrowser/curl/lib/urldata.h' l='401' ll='579'/>
+<size>2016</size>
+<doc f='codebrowser/curl/lib/urldata.h' l='397'>/*
+ * The connectdata struct contains all fields and variables that should be
+ * unique for an entire connection.
+ */</doc>
+<mbr r='connectdata::data' o='0' t='struct SessionHandle *'/>
+<mbr r='connectdata::connectindex' o='64' t='int'/>
+<mbr r='connectdata::protocol' o='128' t='long'/>
+<mbr r='connectdata::connect_addr' o='192' t='struct Curl_dns_entry *'/>
+<mbr r='connectdata::serv_addr' o='256' t='struct sockaddr_in'/>
+<mbr r='connectdata::protostr' o='384' t='char [64]'/>
+<mbr r='connectdata::gname' o='896' t='char [513]'/>
+<mbr r='connectdata::name' o='5056' t='char *'/>
+<mbr r='connectdata::path' o='5120' t='char *'/>
+<mbr r='connectdata::hostname' o='5184' t='char *'/>
+<mbr r='connectdata::port' o='5248' t='long'/>
+<mbr r='connectdata::remote_port' o='5312' t='unsigned short'/>
+<mbr r='connectdata::ppath' o='5376' t='char *'/>
+<mbr r='connectdata::bytecount' o='5440' t='curl_off_t'/>
+<mbr r='connectdata::headerbytecount' o='5504' t='long'/>
+<mbr r='connectdata::range' o='5568' t='char *'/>
+<mbr r='connectdata::resume_from' o='5632' t='curl_off_t'/>
+<mbr r='connectdata::proxyhost' o='5696' t='char *'/>
+<mbr r='connectdata::user' o='5760' t='char *'/>
+<mbr r='connectdata::passwd' o='5824' t='char *'/>
+<mbr r='connectdata::proxyuser' o='5888' t='char *'/>
+<mbr r='connectdata::proxypasswd' o='5952' t='char *'/>
+<mbr r='connectdata::now' o='6016' t='struct timeval'/>
+<mbr r='connectdata::created' o='6144' t='struct timeval'/>
+<mbr r='connectdata::sock' o='6272' t='curl_socket_t [2]'/>
+<mbr r='connectdata::maxdownload' o='6336' t='curl_off_t'/>
+<mbr r='connectdata::ssl' o='6400' t='struct ssl_connect_data [2]'/>
+<mbr r='connectdata::ssl_config' o='6464' t='struct ssl_config_data'/>
+<mbr r='connectdata::bits' o='7232' t='struct ConnectBits'/>
+<mbr r='connectdata::curl_do' o='7360' t='CURLcode (*)(struct connectdata *)'/>
+<mbr r='connectdata::curl_done' o='7424' t='CURLcode (*)(struct connectdata *)'/>
+<mbr r='connectdata::curl_do_more' o='7488' t='CURLcode (*)(struct connectdata *)'/>
+<mbr r='connectdata::curl_connect' o='7552' t='CURLcode (*)(struct connectdata *)'/>
+<mbr r='connectdata::curl_disconnect' o='7616' t='CURLcode (*)(struct connectdata *)'/>
+<mbr r='connectdata::curl_close' o='7680' t='CURLcode (*)(struct connectdata *)'/>
+<mbr r='connectdata::sockfd' o='7744' t='curl_socket_t'/>
+<mbr r='connectdata::size' o='7808' t='curl_off_t'/>
+<mbr r='connectdata::bytecountp' o='7872' t='curl_off_t *'/>
+<mbr r='connectdata::writesockfd' o='7936' t='curl_socket_t'/>
+<mbr r='connectdata::writebytecountp' o='8000' t='curl_off_t *'/>
+<mbr r='connectdata::allocptr' o='8064' t='struct dynamically_allocated_data'/>
+<mbr r='connectdata::newurl' o='8640' t='char *'/>
+<mbr r='connectdata::proto' o='8704' t='union (anonymous union at /home/jon/workspace/id-software/DOOM-3/neo/curl/lib/urldata.h:538:3)'/>
+<mbr r='connectdata::keep' o='8768' t='struct Curl_transfer_keeper'/>
+<mbr r='connectdata::upload_present' o='15616' t='int'/>
+<mbr r='connectdata::upload_fromhere' o='15680' t='char *'/>
+<mbr r='connectdata::fread' o='15744' t='curl_read_callback'/>
+<mbr r='connectdata::fread_in' o='15808' t='void *'/>
+<mbr r='connectdata::ntlm' o='15872' t='struct ntlmdata'/>
+<mbr r='connectdata::proxyntlm' o='15968' t='struct ntlmdata'/>
+<mbr r='connectdata::sockerror' o='16064' t='int'/>

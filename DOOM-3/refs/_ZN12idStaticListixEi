@@ -1,0 +1,71 @@
+<dec f='codebrowser/idlib/containers/StaticList.h' l='59' type='type &amp; idStaticList::operator[](int index)'/>
+<def f='codebrowser/idlib/containers/StaticList.h' l='243' ll='249' type='type &amp; idStaticList::operator[](int index)'/>
+<doc f='codebrowser/idlib/containers/StaticList.h' l='235'>/*
+================
+idStaticList&lt;type,size&gt;::operator[]
+
+Access operator.  Index must be within range or an assert will be issued in debug builds.
+Release builds do no range checking.
+================
+*/</doc>
+<use f='codebrowser/d3xp/script/Script_Program.h' l='544' u='c' c='_ZN9idProgram12GetStatementEi'/>
+<use f='codebrowser/d3xp/script/Script_Program.h' l='553' u='c' c='_ZN9idProgram11GetFunctionEi'/>
+<use f='codebrowser/d3xp/script/Script_Program.h' l='562' u='c' c='_ZN9idProgram16GetFunctionIndexEPK10function_t'/>
+<use f='codebrowser/d3xp/script/Script_Program.h' l='625' u='c' c='_ZN9idProgram25GetLineNumberForStatementEi'/>
+<use f='codebrowser/d3xp/script/Script_Program.h' l='634' u='c' c='_ZN9idProgram23GetFilenameForStatementEi'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4473' u='c' c='_ZN11idGameLocal22RandomizeInitialSpawnsEv'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4482' u='c' c='_ZN11idGameLocal22RandomizeInitialSpawnsEv'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4494' u='c' c='_ZN11idGameLocal22RandomizeInitialSpawnsEv'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4502' u='c' c='_ZN11idGameLocal22RandomizeInitialSpawnsEv'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4503' u='c' c='_ZN11idGameLocal22RandomizeInitialSpawnsEv'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4503' u='c' c='_ZN11idGameLocal22RandomizeInitialSpawnsEv'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4504' u='c' c='_ZN11idGameLocal22RandomizeInitialSpawnsEv'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4510' u='c' c='_ZN11idGameLocal22RandomizeInitialSpawnsEv'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4511' u='c' c='_ZN11idGameLocal22RandomizeInitialSpawnsEv'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4511' u='c' c='_ZN11idGameLocal22RandomizeInitialSpawnsEv'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4512' u='c' c='_ZN11idGameLocal22RandomizeInitialSpawnsEv'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4563' u='c' c='_ZN11idGameLocal23SelectInitialSpawnPointEP8idPlayer'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4569' u='c' c='_ZN11idGameLocal23SelectInitialSpawnPointEP8idPlayer'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4571' u='c' c='_ZN11idGameLocal23SelectInitialSpawnPointEP8idPlayer'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4590' u='c' c='_ZN11idGameLocal23SelectInitialSpawnPointEP8idPlayer'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4594' u='c' c='_ZN11idGameLocal23SelectInitialSpawnPointEP8idPlayer'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4606' u='c' c='_ZN11idGameLocal23SelectInitialSpawnPointEP8idPlayer'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4609' u='c' c='_ZN11idGameLocal23SelectInitialSpawnPointEP8idPlayer'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4610' u='c' c='_ZN11idGameLocal23SelectInitialSpawnPointEP8idPlayer'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4614' u='c' c='_ZN11idGameLocal23SelectInitialSpawnPointEP8idPlayer'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4624' u='c' c='_ZN11idGameLocal23SelectInitialSpawnPointEP8idPlayer'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4625' u='c' c='_ZN11idGameLocal23SelectInitialSpawnPointEP8idPlayer'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4635' u='c' c='_ZN11idGameLocal23SelectInitialSpawnPointEP8idPlayer'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4644' u='c' c='_ZN11idGameLocal23SelectInitialSpawnPointEP8idPlayer'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4645' u='c' c='_ZN11idGameLocal23SelectInitialSpawnPointEP8idPlayer'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4654' u='c' c='_ZN11idGameLocal23SelectInitialSpawnPointEP8idPlayer'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4655' u='c' c='_ZN11idGameLocal23SelectInitialSpawnPointEP8idPlayer'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4665' u='c' c='_ZN11idGameLocal23SelectInitialSpawnPointEP8idPlayer'/>
+<use f='codebrowser/d3xp/script/Script_Program.cpp' l='1707' u='c' c='_ZN9idProgram17FinishCompilationEv'/>
+<use f='codebrowser/d3xp/script/Script_Program.cpp' l='1747' u='c' c='_ZN9idProgram12CompileStatsEv'/>
+<use f='codebrowser/d3xp/script/Script_Program.cpp' l='1886' u='c' c='_ZN9idProgram8FreeDataEv'/>
+<use f='codebrowser/d3xp/script/Script_Program.cpp' l='2077' u='c' c='_ZN9idProgram7RestartEv'/>
+<use f='codebrowser/d3xp/script/Script_Program.cpp' l='2088' u='c' c='_ZN9idProgram7RestartEv'/>
+<use f='codebrowser/game/script/Script_Program.h' l='530' u='c' c='_ZN9idProgram12GetStatementEi'/>
+<use f='codebrowser/game/script/Script_Program.h' l='539' u='c' c='_ZN9idProgram11GetFunctionEi'/>
+<use f='codebrowser/game/script/Script_Program.h' l='548' u='c' c='_ZN9idProgram16GetFunctionIndexEPK10function_t'/>
+<use f='codebrowser/game/script/Script_Program.h' l='611' u='c' c='_ZN9idProgram25GetLineNumberForStatementEi'/>
+<use f='codebrowser/game/script/Script_Program.h' l='620' u='c' c='_ZN9idProgram23GetFilenameForStatementEi'/>
+<use f='codebrowser/game/Game_local.cpp' l='4127' u='c' c='_ZN11idGameLocal22RandomizeInitialSpawnsEv'/>
+<use f='codebrowser/game/Game_local.cpp' l='4132' u='c' c='_ZN11idGameLocal22RandomizeInitialSpawnsEv'/>
+<use f='codebrowser/game/Game_local.cpp' l='4133' u='c' c='_ZN11idGameLocal22RandomizeInitialSpawnsEv'/>
+<use f='codebrowser/game/Game_local.cpp' l='4133' u='c' c='_ZN11idGameLocal22RandomizeInitialSpawnsEv'/>
+<use f='codebrowser/game/Game_local.cpp' l='4134' u='c' c='_ZN11idGameLocal22RandomizeInitialSpawnsEv'/>
+<use f='codebrowser/game/Game_local.cpp' l='4165' u='c' c='_ZN11idGameLocal23SelectInitialSpawnPointEP8idPlayer'/>
+<use f='codebrowser/game/Game_local.cpp' l='4167' u='c' c='_ZN11idGameLocal23SelectInitialSpawnPointEP8idPlayer'/>
+<use f='codebrowser/game/Game_local.cpp' l='4179' u='c' c='_ZN11idGameLocal23SelectInitialSpawnPointEP8idPlayer'/>
+<use f='codebrowser/game/Game_local.cpp' l='4184' u='c' c='_ZN11idGameLocal23SelectInitialSpawnPointEP8idPlayer'/>
+<use f='codebrowser/game/Game_local.cpp' l='4185' u='c' c='_ZN11idGameLocal23SelectInitialSpawnPointEP8idPlayer'/>
+<use f='codebrowser/game/Game_local.cpp' l='4194' u='c' c='_ZN11idGameLocal23SelectInitialSpawnPointEP8idPlayer'/>
+<use f='codebrowser/game/Game_local.cpp' l='4195' u='c' c='_ZN11idGameLocal23SelectInitialSpawnPointEP8idPlayer'/>
+<use f='codebrowser/game/Game_local.cpp' l='4205' u='c' c='_ZN11idGameLocal23SelectInitialSpawnPointEP8idPlayer'/>
+<use f='codebrowser/game/script/Script_Program.cpp' l='1707' u='c' c='_ZN9idProgram17FinishCompilationEv'/>
+<use f='codebrowser/game/script/Script_Program.cpp' l='1747' u='c' c='_ZN9idProgram12CompileStatsEv'/>
+<use f='codebrowser/game/script/Script_Program.cpp' l='1886' u='c' c='_ZN9idProgram8FreeDataEv'/>
+<use f='codebrowser/game/script/Script_Program.cpp' l='2077' u='c' c='_ZN9idProgram7RestartEv'/>
+<use f='codebrowser/game/script/Script_Program.cpp' l='2088' u='c' c='_ZN9idProgram7RestartEv'/>

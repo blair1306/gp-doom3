@@ -1,0 +1,15 @@
+<dec f='codebrowser/curl/include/curl/curl.h' l='1017' type='char * curl_escape(const char * string, int length)'/>
+<doc f='codebrowser/curl/include/curl/curl.h' l='1008'>/*
+ * NAME curl_escape()
+ *
+ * DESCRIPTION
+ *
+ * Escapes URL strings (converts all letters consider illegal in URLs to their
+ * %XX versions). This function returns a new allocated string or NULL if an
+ * error occurred.
+ */</doc>
+<def f='codebrowser/curl/lib/escape.c' l='40' ll='80' type='char * curl_escape(const char * string, int length)'/>
+<dec f='codebrowser/curl/lib/escape.h' l='29' type='char * curl_escape(const char * string, int length)'/>
+<doc f='codebrowser/curl/lib/escape.h' l='26'>/* Escape and unescape URL encoding in strings. The functions return a new
+ * allocated string or NULL if an error occurred.  */</doc>
+<use f='codebrowser/curl/src/main.c' l='3006' u='c' c='operate'/>

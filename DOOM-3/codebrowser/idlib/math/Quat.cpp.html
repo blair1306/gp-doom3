@@ -1,0 +1,270 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Quat.cpp source code [codebrowser/idlib/math/Quat.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/idlib/math/Quat.cpp'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>idlib</a>/<a href='./'>math</a>/<a href='Quat.cpp.html'>Quat.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="../precompiled.h.html">"../precompiled.h"</a></u></td></tr>
+<tr><th id="30">30</th><td><u>#pragma hdrstop</u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>=====================</i></td></tr>
+<tr><th id="34">34</th><td><i>idQuat::ToAngles</i></td></tr>
+<tr><th id="35">35</th><td><i>=====================</i></td></tr>
+<tr><th id="36">36</th><td><i>*/</i></td></tr>
+<tr><th id="37">37</th><td><a class="type" href="Angles.h.html#idAngles" title='idAngles' data-ref="idAngles">idAngles</a> <a class="type" href="Quat.h.html#idQuat" title='idQuat' data-ref="idQuat">idQuat</a>::<dfn class="decl def" id="_ZNK6idQuat8ToAnglesEv" title='idQuat::ToAngles' data-ref="_ZNK6idQuat8ToAnglesEv">ToAngles</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="38">38</th><td>	<b>return</b> <a class="member" href="#_ZNK6idQuat6ToMat3Ev" title='idQuat::ToMat3' data-ref="_ZNK6idQuat6ToMat3Ev">ToMat3</a>().<a class="ref" href="Matrix.h.html#_ZNK6idMat38ToAnglesEv" title='idMat3::ToAngles' data-ref="_ZNK6idMat38ToAnglesEv">ToAngles</a>();</td></tr>
+<tr><th id="39">39</th><td>}</td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><i>/*</i></td></tr>
+<tr><th id="42">42</th><td><i>=====================</i></td></tr>
+<tr><th id="43">43</th><td><i>idQuat::ToRotation</i></td></tr>
+<tr><th id="44">44</th><td><i>=====================</i></td></tr>
+<tr><th id="45">45</th><td><i>*/</i></td></tr>
+<tr><th id="46">46</th><td><a class="type" href="Rotation.h.html#idRotation" title='idRotation' data-ref="idRotation">idRotation</a> <a class="type" href="Quat.h.html#idQuat" title='idQuat' data-ref="idQuat">idQuat</a>::<dfn class="decl def" id="_ZNK6idQuat10ToRotationEv" title='idQuat::ToRotation' data-ref="_ZNK6idQuat10ToRotationEv">ToRotation</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="47">47</th><td>	<a class="type" href="Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> <a class="ref fake" href="Vector.h.html#_ZN6idVec3C1Ev" title='idVec3::idVec3' data-ref="_ZN6idVec3C1Ev"></a><dfn class="local col1 decl" id="1vec" title='vec' data-type='idVec3' data-ref="1vec">vec</dfn>;</td></tr>
+<tr><th id="48">48</th><td>	<em>float</em> <dfn class="local col2 decl" id="2angle" title='angle' data-type='float' data-ref="2angle">angle</dfn>;</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td>	<a class="local col1 ref" href="#1vec" title='vec' data-ref="1vec">vec</a>.<a class="ref" href="Vector.h.html#idVec3::x" title='idVec3::x' data-ref="idVec3::x">x</a> = <a class="member" href="Quat.h.html#idQuat::x" title='idQuat::x' data-ref="idQuat::x">x</a>;</td></tr>
+<tr><th id="51">51</th><td>	<a class="local col1 ref" href="#1vec" title='vec' data-ref="1vec">vec</a>.<a class="ref" href="Vector.h.html#idVec3::y" title='idVec3::y' data-ref="idVec3::y">y</a> = <a class="member" href="Quat.h.html#idQuat::y" title='idQuat::y' data-ref="idQuat::y">y</a>;</td></tr>
+<tr><th id="52">52</th><td>	<a class="local col1 ref" href="#1vec" title='vec' data-ref="1vec">vec</a>.<a class="ref" href="Vector.h.html#idVec3::z" title='idVec3::z' data-ref="idVec3::z">z</a> = <a class="member" href="Quat.h.html#idQuat::z" title='idQuat::z' data-ref="idQuat::z">z</a>;</td></tr>
+<tr><th id="53">53</th><td>	<a class="local col2 ref" href="#2angle" title='angle' data-ref="2angle">angle</a> = <a class="type" href="Math.h.html#idMath" title='idMath' data-ref="idMath">idMath</a>::<a class="ref" href="Math.h.html#_ZN6idMath4ACosEf" title='idMath::ACos' data-ref="_ZN6idMath4ACosEf">ACos</a>( <a class="member" href="Quat.h.html#idQuat::w" title='idQuat::w' data-ref="idQuat::w">w</a> );</td></tr>
+<tr><th id="54">54</th><td>	<b>if</b> ( <a class="local col2 ref" href="#2angle" title='angle' data-ref="2angle">angle</a> == <var>0.0f</var> ) {</td></tr>
+<tr><th id="55">55</th><td>		<a class="local col1 ref" href="#1vec" title='vec' data-ref="1vec">vec</a>.<a class="ref" href="Vector.h.html#_ZN6idVec33SetEfff" title='idVec3::Set' data-ref="_ZN6idVec33SetEfff">Set</a>( <var>0.0f</var>, <var>0.0f</var>, <var>1.0f</var> );</td></tr>
+<tr><th id="56">56</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="57">57</th><td>		<i>//vec *= (1.0f / sin( angle ));</i></td></tr>
+<tr><th id="58">58</th><td>		<a class="local col1 ref" href="#1vec" title='vec' data-ref="1vec">vec</a>.<a class="ref" href="Vector.h.html#_ZN6idVec39NormalizeEv" title='idVec3::Normalize' data-ref="_ZN6idVec39NormalizeEv">Normalize</a>();</td></tr>
+<tr><th id="59">59</th><td>		<a class="local col1 ref" href="#1vec" title='vec' data-ref="1vec">vec</a>.<a class="ref" href="Vector.h.html#_ZN6idVec319FixDegenerateNormalEv" title='idVec3::FixDegenerateNormal' data-ref="_ZN6idVec319FixDegenerateNormalEv">FixDegenerateNormal</a>();</td></tr>
+<tr><th id="60">60</th><td>		<a class="local col2 ref" href="#2angle" title='angle' data-ref="2angle">angle</a> *= <var>2.0f</var> * <a class="type" href="Math.h.html#idMath" title='idMath' data-ref="idMath">idMath</a>::<a class="ref" href="Math.h.html#idMath::M_RAD2DEG" title='idMath::M_RAD2DEG' data-ref="idMath::M_RAD2DEG">M_RAD2DEG</a>;</td></tr>
+<tr><th id="61">61</th><td>	}</td></tr>
+<tr><th id="62">62</th><td>	<b>return</b> <a class="type" href="Rotation.h.html#idRotation" title='idRotation' data-ref="idRotation">idRotation</a><a class="ref" href="Rotation.h.html#_ZN10idRotationC1ERK6idVec3S2_f" title='idRotation::idRotation' data-ref="_ZN10idRotationC1ERK6idVec3S2_f">(</a> <a class="ref" href="Vector.h.html#vec3_origin" title='vec3_origin' data-ref="vec3_origin">vec3_origin</a>, <a class="local col1 ref" href="#1vec" title='vec' data-ref="1vec">vec</a>, <a class="local col2 ref" href="#2angle" title='angle' data-ref="2angle">angle</a> );</td></tr>
+<tr><th id="63">63</th><td>}</td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td><i>/*</i></td></tr>
+<tr><th id="66">66</th><td><i>=====================</i></td></tr>
+<tr><th id="67">67</th><td><i>idQuat::ToMat3</i></td></tr>
+<tr><th id="68">68</th><td><i>=====================</i></td></tr>
+<tr><th id="69">69</th><td><i>*/</i></td></tr>
+<tr><th id="70">70</th><td><a class="type" href="Matrix.h.html#idMat3" title='idMat3' data-ref="idMat3">idMat3</a> <a class="type" href="Quat.h.html#idQuat" title='idQuat' data-ref="idQuat">idQuat</a>::<dfn class="decl def" id="_ZNK6idQuat6ToMat3Ev" title='idQuat::ToMat3' data-ref="_ZNK6idQuat6ToMat3Ev">ToMat3</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="71">71</th><td>	<a class="type" href="Matrix.h.html#idMat3" title='idMat3' data-ref="idMat3">idMat3</a>	<a class="ref fake" href="Matrix.h.html#_ZN6idMat3C1Ev" title='idMat3::idMat3' data-ref="_ZN6idMat3C1Ev"></a><dfn class="local col3 decl" id="3mat" title='mat' data-type='idMat3' data-ref="3mat">mat</dfn>;</td></tr>
+<tr><th id="72">72</th><td>	<em>float</em>	<dfn class="local col4 decl" id="4wx" title='wx' data-type='float' data-ref="4wx">wx</dfn>, <dfn class="local col5 decl" id="5wy" title='wy' data-type='float' data-ref="5wy">wy</dfn>, <dfn class="local col6 decl" id="6wz" title='wz' data-type='float' data-ref="6wz">wz</dfn>;</td></tr>
+<tr><th id="73">73</th><td>	<em>float</em>	<dfn class="local col7 decl" id="7xx" title='xx' data-type='float' data-ref="7xx">xx</dfn>, <dfn class="local col8 decl" id="8yy" title='yy' data-type='float' data-ref="8yy">yy</dfn>, <dfn class="local col9 decl" id="9yz" title='yz' data-type='float' data-ref="9yz">yz</dfn>;</td></tr>
+<tr><th id="74">74</th><td>	<em>float</em>	<dfn class="local col0 decl" id="10xy" title='xy' data-type='float' data-ref="10xy">xy</dfn>, <dfn class="local col1 decl" id="11xz" title='xz' data-type='float' data-ref="11xz">xz</dfn>, <dfn class="local col2 decl" id="12zz" title='zz' data-type='float' data-ref="12zz">zz</dfn>;</td></tr>
+<tr><th id="75">75</th><td>	<em>float</em>	<dfn class="local col3 decl" id="13x2" title='x2' data-type='float' data-ref="13x2">x2</dfn>, <dfn class="local col4 decl" id="14y2" title='y2' data-type='float' data-ref="14y2">y2</dfn>, <dfn class="local col5 decl" id="15z2" title='z2' data-type='float' data-ref="15z2">z2</dfn>;</td></tr>
+<tr><th id="76">76</th><td></td></tr>
+<tr><th id="77">77</th><td>	<a class="local col3 ref" href="#13x2" title='x2' data-ref="13x2">x2</a> = <a class="member" href="Quat.h.html#idQuat::x" title='idQuat::x' data-ref="idQuat::x">x</a> + <a class="member" href="Quat.h.html#idQuat::x" title='idQuat::x' data-ref="idQuat::x">x</a>;</td></tr>
+<tr><th id="78">78</th><td>	<a class="local col4 ref" href="#14y2" title='y2' data-ref="14y2">y2</a> = <a class="member" href="Quat.h.html#idQuat::y" title='idQuat::y' data-ref="idQuat::y">y</a> + <a class="member" href="Quat.h.html#idQuat::y" title='idQuat::y' data-ref="idQuat::y">y</a>;</td></tr>
+<tr><th id="79">79</th><td>	<a class="local col5 ref" href="#15z2" title='z2' data-ref="15z2">z2</a> = <a class="member" href="Quat.h.html#idQuat::z" title='idQuat::z' data-ref="idQuat::z">z</a> + <a class="member" href="Quat.h.html#idQuat::z" title='idQuat::z' data-ref="idQuat::z">z</a>;</td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td>	<a class="local col7 ref" href="#7xx" title='xx' data-ref="7xx">xx</a> = <a class="member" href="Quat.h.html#idQuat::x" title='idQuat::x' data-ref="idQuat::x">x</a> * <a class="local col3 ref" href="#13x2" title='x2' data-ref="13x2">x2</a>;</td></tr>
+<tr><th id="82">82</th><td>	<a class="local col0 ref" href="#10xy" title='xy' data-ref="10xy">xy</a> = <a class="member" href="Quat.h.html#idQuat::x" title='idQuat::x' data-ref="idQuat::x">x</a> * <a class="local col4 ref" href="#14y2" title='y2' data-ref="14y2">y2</a>;</td></tr>
+<tr><th id="83">83</th><td>	<a class="local col1 ref" href="#11xz" title='xz' data-ref="11xz">xz</a> = <a class="member" href="Quat.h.html#idQuat::x" title='idQuat::x' data-ref="idQuat::x">x</a> * <a class="local col5 ref" href="#15z2" title='z2' data-ref="15z2">z2</a>;</td></tr>
+<tr><th id="84">84</th><td></td></tr>
+<tr><th id="85">85</th><td>	<a class="local col8 ref" href="#8yy" title='yy' data-ref="8yy">yy</a> = <a class="member" href="Quat.h.html#idQuat::y" title='idQuat::y' data-ref="idQuat::y">y</a> * <a class="local col4 ref" href="#14y2" title='y2' data-ref="14y2">y2</a>;</td></tr>
+<tr><th id="86">86</th><td>	<a class="local col9 ref" href="#9yz" title='yz' data-ref="9yz">yz</a> = <a class="member" href="Quat.h.html#idQuat::y" title='idQuat::y' data-ref="idQuat::y">y</a> * <a class="local col5 ref" href="#15z2" title='z2' data-ref="15z2">z2</a>;</td></tr>
+<tr><th id="87">87</th><td>	<a class="local col2 ref" href="#12zz" title='zz' data-ref="12zz">zz</a> = <a class="member" href="Quat.h.html#idQuat::z" title='idQuat::z' data-ref="idQuat::z">z</a> * <a class="local col5 ref" href="#15z2" title='z2' data-ref="15z2">z2</a>;</td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td>	<a class="local col4 ref" href="#4wx" title='wx' data-ref="4wx">wx</a> = <a class="member" href="Quat.h.html#idQuat::w" title='idQuat::w' data-ref="idQuat::w">w</a> * <a class="local col3 ref" href="#13x2" title='x2' data-ref="13x2">x2</a>;</td></tr>
+<tr><th id="90">90</th><td>	<a class="local col5 ref" href="#5wy" title='wy' data-ref="5wy">wy</a> = <a class="member" href="Quat.h.html#idQuat::w" title='idQuat::w' data-ref="idQuat::w">w</a> * <a class="local col4 ref" href="#14y2" title='y2' data-ref="14y2">y2</a>;</td></tr>
+<tr><th id="91">91</th><td>	<a class="local col6 ref" href="#6wz" title='wz' data-ref="6wz">wz</a> = <a class="member" href="Quat.h.html#idQuat::w" title='idQuat::w' data-ref="idQuat::w">w</a> * <a class="local col5 ref" href="#15z2" title='z2' data-ref="15z2">z2</a>;</td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td>	<a class="local col3 ref" href="#3mat" title='mat' data-ref="3mat">mat</a><a class="ref" href="Matrix.h.html#_ZN6idMat3ixEi" title='idMat3::operator[]' data-ref="_ZN6idMat3ixEi">[ <var>0</var> ]</a><a class="ref" href="Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[ <var>0</var> ]</a> = <var>1.0f</var> - ( <a class="local col8 ref" href="#8yy" title='yy' data-ref="8yy">yy</a> + <a class="local col2 ref" href="#12zz" title='zz' data-ref="12zz">zz</a> );</td></tr>
+<tr><th id="94">94</th><td>	<a class="local col3 ref" href="#3mat" title='mat' data-ref="3mat">mat</a><a class="ref" href="Matrix.h.html#_ZN6idMat3ixEi" title='idMat3::operator[]' data-ref="_ZN6idMat3ixEi">[ <var>0</var> ]</a><a class="ref" href="Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[ <var>1</var> ]</a> = <a class="local col0 ref" href="#10xy" title='xy' data-ref="10xy">xy</a> - <a class="local col6 ref" href="#6wz" title='wz' data-ref="6wz">wz</a>;</td></tr>
+<tr><th id="95">95</th><td>	<a class="local col3 ref" href="#3mat" title='mat' data-ref="3mat">mat</a><a class="ref" href="Matrix.h.html#_ZN6idMat3ixEi" title='idMat3::operator[]' data-ref="_ZN6idMat3ixEi">[ <var>0</var> ]</a><a class="ref" href="Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[ <var>2</var> ]</a> = <a class="local col1 ref" href="#11xz" title='xz' data-ref="11xz">xz</a> + <a class="local col5 ref" href="#5wy" title='wy' data-ref="5wy">wy</a>;</td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td>	<a class="local col3 ref" href="#3mat" title='mat' data-ref="3mat">mat</a><a class="ref" href="Matrix.h.html#_ZN6idMat3ixEi" title='idMat3::operator[]' data-ref="_ZN6idMat3ixEi">[ <var>1</var> ]</a><a class="ref" href="Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[ <var>0</var> ]</a> = <a class="local col0 ref" href="#10xy" title='xy' data-ref="10xy">xy</a> + <a class="local col6 ref" href="#6wz" title='wz' data-ref="6wz">wz</a>;</td></tr>
+<tr><th id="98">98</th><td>	<a class="local col3 ref" href="#3mat" title='mat' data-ref="3mat">mat</a><a class="ref" href="Matrix.h.html#_ZN6idMat3ixEi" title='idMat3::operator[]' data-ref="_ZN6idMat3ixEi">[ <var>1</var> ]</a><a class="ref" href="Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[ <var>1</var> ]</a> = <var>1.0f</var> - ( <a class="local col7 ref" href="#7xx" title='xx' data-ref="7xx">xx</a> + <a class="local col2 ref" href="#12zz" title='zz' data-ref="12zz">zz</a> );</td></tr>
+<tr><th id="99">99</th><td>	<a class="local col3 ref" href="#3mat" title='mat' data-ref="3mat">mat</a><a class="ref" href="Matrix.h.html#_ZN6idMat3ixEi" title='idMat3::operator[]' data-ref="_ZN6idMat3ixEi">[ <var>1</var> ]</a><a class="ref" href="Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[ <var>2</var> ]</a> = <a class="local col9 ref" href="#9yz" title='yz' data-ref="9yz">yz</a> - <a class="local col4 ref" href="#4wx" title='wx' data-ref="4wx">wx</a>;</td></tr>
+<tr><th id="100">100</th><td></td></tr>
+<tr><th id="101">101</th><td>	<a class="local col3 ref" href="#3mat" title='mat' data-ref="3mat">mat</a><a class="ref" href="Matrix.h.html#_ZN6idMat3ixEi" title='idMat3::operator[]' data-ref="_ZN6idMat3ixEi">[ <var>2</var> ]</a><a class="ref" href="Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[ <var>0</var> ]</a> = <a class="local col1 ref" href="#11xz" title='xz' data-ref="11xz">xz</a> - <a class="local col5 ref" href="#5wy" title='wy' data-ref="5wy">wy</a>;</td></tr>
+<tr><th id="102">102</th><td>	<a class="local col3 ref" href="#3mat" title='mat' data-ref="3mat">mat</a><a class="ref" href="Matrix.h.html#_ZN6idMat3ixEi" title='idMat3::operator[]' data-ref="_ZN6idMat3ixEi">[ <var>2</var> ]</a><a class="ref" href="Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[ <var>1</var> ]</a> = <a class="local col9 ref" href="#9yz" title='yz' data-ref="9yz">yz</a> + <a class="local col4 ref" href="#4wx" title='wx' data-ref="4wx">wx</a>;</td></tr>
+<tr><th id="103">103</th><td>	<a class="local col3 ref" href="#3mat" title='mat' data-ref="3mat">mat</a><a class="ref" href="Matrix.h.html#_ZN6idMat3ixEi" title='idMat3::operator[]' data-ref="_ZN6idMat3ixEi">[ <var>2</var> ]</a><a class="ref" href="Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[ <var>2</var> ]</a> = <var>1.0f</var> - ( <a class="local col7 ref" href="#7xx" title='xx' data-ref="7xx">xx</a> + <a class="local col8 ref" href="#8yy" title='yy' data-ref="8yy">yy</a> );</td></tr>
+<tr><th id="104">104</th><td></td></tr>
+<tr><th id="105">105</th><td>	<b>return</b> <a class="local col3 ref" href="#3mat" title='mat' data-ref="3mat">mat</a>;</td></tr>
+<tr><th id="106">106</th><td>}</td></tr>
+<tr><th id="107">107</th><td></td></tr>
+<tr><th id="108">108</th><td><i>/*</i></td></tr>
+<tr><th id="109">109</th><td><i>=====================</i></td></tr>
+<tr><th id="110">110</th><td><i>idQuat::ToMat4</i></td></tr>
+<tr><th id="111">111</th><td><i>=====================</i></td></tr>
+<tr><th id="112">112</th><td><i>*/</i></td></tr>
+<tr><th id="113">113</th><td><a class="type" href="Matrix.h.html#idMat4" title='idMat4' data-ref="idMat4">idMat4</a> <a class="type" href="Quat.h.html#idQuat" title='idQuat' data-ref="idQuat">idQuat</a>::<dfn class="decl def" id="_ZNK6idQuat6ToMat4Ev" title='idQuat::ToMat4' data-ref="_ZNK6idQuat6ToMat4Ev">ToMat4</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="114">114</th><td>	<b>return</b> <a class="member" href="#_ZNK6idQuat6ToMat3Ev" title='idQuat::ToMat3' data-ref="_ZNK6idQuat6ToMat3Ev">ToMat3</a>().<a class="ref" href="Matrix.h.html#_ZNK6idMat36ToMat4Ev" title='idMat3::ToMat4' data-ref="_ZNK6idMat36ToMat4Ev">ToMat4</a>();</td></tr>
+<tr><th id="115">115</th><td>}</td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td><i>/*</i></td></tr>
+<tr><th id="118">118</th><td><i>=====================</i></td></tr>
+<tr><th id="119">119</th><td><i>idQuat::ToCQuat</i></td></tr>
+<tr><th id="120">120</th><td><i>=====================</i></td></tr>
+<tr><th id="121">121</th><td><i>*/</i></td></tr>
+<tr><th id="122">122</th><td><a class="type" href="Quat.h.html#idCQuat" title='idCQuat' data-ref="idCQuat">idCQuat</a> <a class="type" href="Quat.h.html#idQuat" title='idQuat' data-ref="idQuat">idQuat</a>::<dfn class="decl def" id="_ZNK6idQuat7ToCQuatEv" title='idQuat::ToCQuat' data-ref="_ZNK6idQuat7ToCQuatEv">ToCQuat</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="123">123</th><td>	<b>if</b> ( <a class="member" href="Quat.h.html#idQuat::w" title='idQuat::w' data-ref="idQuat::w">w</a> &lt; <var>0.0f</var> ) {</td></tr>
+<tr><th id="124">124</th><td>		<b>return</b> <a class="type" href="Quat.h.html#idCQuat" title='idCQuat' data-ref="idCQuat">idCQuat</a><a class="ref" href="Quat.h.html#_ZN7idCQuatC1Efff" title='idCQuat::idCQuat' data-ref="_ZN7idCQuatC1Efff">(</a> -<a class="member" href="Quat.h.html#idQuat::x" title='idQuat::x' data-ref="idQuat::x">x</a>, -<a class="member" href="Quat.h.html#idQuat::y" title='idQuat::y' data-ref="idQuat::y">y</a>, -<a class="member" href="Quat.h.html#idQuat::z" title='idQuat::z' data-ref="idQuat::z">z</a> );</td></tr>
+<tr><th id="125">125</th><td>	}</td></tr>
+<tr><th id="126">126</th><td>	<b>return</b> <a class="type" href="Quat.h.html#idCQuat" title='idCQuat' data-ref="idCQuat">idCQuat</a><a class="ref" href="Quat.h.html#_ZN7idCQuatC1Efff" title='idCQuat::idCQuat' data-ref="_ZN7idCQuatC1Efff">(</a> <a class="member" href="Quat.h.html#idQuat::x" title='idQuat::x' data-ref="idQuat::x">x</a>, <a class="member" href="Quat.h.html#idQuat::y" title='idQuat::y' data-ref="idQuat::y">y</a>, <a class="member" href="Quat.h.html#idQuat::z" title='idQuat::z' data-ref="idQuat::z">z</a> );</td></tr>
+<tr><th id="127">127</th><td>}</td></tr>
+<tr><th id="128">128</th><td></td></tr>
+<tr><th id="129">129</th><td><i>/*</i></td></tr>
+<tr><th id="130">130</th><td><i>============</i></td></tr>
+<tr><th id="131">131</th><td><i>idQuat::ToAngularVelocity</i></td></tr>
+<tr><th id="132">132</th><td><i>============</i></td></tr>
+<tr><th id="133">133</th><td><i>*/</i></td></tr>
+<tr><th id="134">134</th><td><a class="type" href="Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> <a class="type" href="Quat.h.html#idQuat" title='idQuat' data-ref="idQuat">idQuat</a>::<dfn class="decl def" id="_ZNK6idQuat17ToAngularVelocityEv" title='idQuat::ToAngularVelocity' data-ref="_ZNK6idQuat17ToAngularVelocityEv">ToAngularVelocity</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="135">135</th><td>	<a class="type" href="Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> <a class="ref fake" href="Vector.h.html#_ZN6idVec3C1Ev" title='idVec3::idVec3' data-ref="_ZN6idVec3C1Ev"></a><dfn class="local col6 decl" id="16vec" title='vec' data-type='idVec3' data-ref="16vec">vec</dfn>;</td></tr>
+<tr><th id="136">136</th><td></td></tr>
+<tr><th id="137">137</th><td>	<a class="local col6 ref" href="#16vec" title='vec' data-ref="16vec">vec</a>.<a class="ref" href="Vector.h.html#idVec3::x" title='idVec3::x' data-ref="idVec3::x">x</a> = <a class="member" href="Quat.h.html#idQuat::x" title='idQuat::x' data-ref="idQuat::x">x</a>;</td></tr>
+<tr><th id="138">138</th><td>	<a class="local col6 ref" href="#16vec" title='vec' data-ref="16vec">vec</a>.<a class="ref" href="Vector.h.html#idVec3::y" title='idVec3::y' data-ref="idVec3::y">y</a> = <a class="member" href="Quat.h.html#idQuat::y" title='idQuat::y' data-ref="idQuat::y">y</a>;</td></tr>
+<tr><th id="139">139</th><td>	<a class="local col6 ref" href="#16vec" title='vec' data-ref="16vec">vec</a>.<a class="ref" href="Vector.h.html#idVec3::z" title='idVec3::z' data-ref="idVec3::z">z</a> = <a class="member" href="Quat.h.html#idQuat::z" title='idQuat::z' data-ref="idQuat::z">z</a>;</td></tr>
+<tr><th id="140">140</th><td>	<a class="local col6 ref" href="#16vec" title='vec' data-ref="16vec">vec</a>.<a class="ref" href="Vector.h.html#_ZN6idVec39NormalizeEv" title='idVec3::Normalize' data-ref="_ZN6idVec39NormalizeEv">Normalize</a>();</td></tr>
+<tr><th id="141">141</th><td>	<b>return</b> <a class="local col6 ref" href="#16vec" title='vec' data-ref="16vec">vec</a> <a class="ref" href="Vector.h.html#_ZNK6idVec3mlEf" title='idVec3::operator*' data-ref="_ZNK6idVec3mlEf">*</a> <a class="type" href="Math.h.html#idMath" title='idMath' data-ref="idMath">idMath</a>::<a class="ref" href="Math.h.html#_ZN6idMath4ACosEf" title='idMath::ACos' data-ref="_ZN6idMath4ACosEf">ACos</a>( <a class="member" href="Quat.h.html#idQuat::w" title='idQuat::w' data-ref="idQuat::w">w</a> );</td></tr>
+<tr><th id="142">142</th><td>}</td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td><i>/*</i></td></tr>
+<tr><th id="145">145</th><td><i>=============</i></td></tr>
+<tr><th id="146">146</th><td><i>idQuat::ToString</i></td></tr>
+<tr><th id="147">147</th><td><i>=============</i></td></tr>
+<tr><th id="148">148</th><td><i>*/</i></td></tr>
+<tr><th id="149">149</th><td><em>const</em> <em>char</em> *<a class="type" href="Quat.h.html#idQuat" title='idQuat' data-ref="idQuat">idQuat</a>::<dfn class="decl def" id="_ZNK6idQuat8ToStringEi" title='idQuat::ToString' data-ref="_ZNK6idQuat8ToStringEi">ToString</dfn>( <em>int</em> <dfn class="local col7 decl" id="17precision" title='precision' data-type='int' data-ref="17precision">precision</dfn> ) <em>const</em> {</td></tr>
+<tr><th id="150">150</th><td>	<b>return</b> <a class="type" href="../Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>::<a class="ref" href="../Str.h.html#_ZN5idStr18FloatArrayToStringEPKfii" title='idStr::FloatArrayToString' data-ref="_ZN5idStr18FloatArrayToStringEPKfii">FloatArrayToString</a>( <a class="member" href="Quat.h.html#_ZNK6idQuat10ToFloatPtrEv" title='idQuat::ToFloatPtr' data-ref="_ZNK6idQuat10ToFloatPtrEv">ToFloatPtr</a>(), <a class="member" href="Quat.h.html#_ZNK6idQuat12GetDimensionEv" title='idQuat::GetDimension' data-ref="_ZNK6idQuat12GetDimensionEv">GetDimension</a>(), <a class="local col7 ref" href="#17precision" title='precision' data-ref="17precision">precision</a> );</td></tr>
+<tr><th id="151">151</th><td>}</td></tr>
+<tr><th id="152">152</th><td></td></tr>
+<tr><th id="153">153</th><td><i>/*</i></td></tr>
+<tr><th id="154">154</th><td><i>=====================</i></td></tr>
+<tr><th id="155">155</th><td><i>idQuat::Slerp</i></td></tr>
+<tr><th id="156">156</th><td><i></i></td></tr>
+<tr><th id="157">157</th><td><i>Spherical linear interpolation between two quaternions.</i></td></tr>
+<tr><th id="158">158</th><td><i>=====================</i></td></tr>
+<tr><th id="159">159</th><td><i>*/</i></td></tr>
+<tr><th id="160">160</th><td><a class="type" href="Quat.h.html#idQuat" title='idQuat' data-ref="idQuat">idQuat</a> &amp;<a class="type" href="Quat.h.html#idQuat" title='idQuat' data-ref="idQuat">idQuat</a>::<dfn class="decl def" id="_ZN6idQuat5SlerpERKS_S1_f" title='idQuat::Slerp' data-ref="_ZN6idQuat5SlerpERKS_S1_f">Slerp</dfn>( <em>const</em> <a class="type" href="Quat.h.html#idQuat" title='idQuat' data-ref="idQuat">idQuat</a> &amp;<dfn class="local col8 decl" id="18from" title='from' data-type='const idQuat &amp;' data-ref="18from">from</dfn>, <em>const</em> <a class="type" href="Quat.h.html#idQuat" title='idQuat' data-ref="idQuat">idQuat</a> &amp;<dfn class="local col9 decl" id="19to" title='to' data-type='const idQuat &amp;' data-ref="19to">to</dfn>, <em>float</em> <dfn class="local col0 decl" id="20t" title='t' data-type='float' data-ref="20t">t</dfn> ) {</td></tr>
+<tr><th id="161">161</th><td>	<a class="type" href="Quat.h.html#idQuat" title='idQuat' data-ref="idQuat">idQuat</a>	<a class="ref fake" href="Quat.h.html#_ZN6idQuatC1Ev" title='idQuat::idQuat' data-ref="_ZN6idQuatC1Ev"></a><dfn class="local col1 decl" id="21temp" title='temp' data-type='idQuat' data-ref="21temp">temp</dfn>;</td></tr>
+<tr><th id="162">162</th><td>	<em>float</em>	<dfn class="local col2 decl" id="22omega" title='omega' data-type='float' data-ref="22omega">omega</dfn>, <dfn class="local col3 decl" id="23cosom" title='cosom' data-type='float' data-ref="23cosom">cosom</dfn>, <dfn class="local col4 decl" id="24sinom" title='sinom' data-type='float' data-ref="24sinom">sinom</dfn>, <dfn class="local col5 decl" id="25scale0" title='scale0' data-type='float' data-ref="25scale0">scale0</dfn>, <dfn class="local col6 decl" id="26scale1" title='scale1' data-type='float' data-ref="26scale1">scale1</dfn>;</td></tr>
+<tr><th id="163">163</th><td></td></tr>
+<tr><th id="164">164</th><td>	<b>if</b> ( <a class="local col0 ref" href="#20t" title='t' data-ref="20t">t</a> &lt;= <var>0.0f</var> ) {</td></tr>
+<tr><th id="165">165</th><td>		*<b>this</b> <a class="member" href="Quat.h.html#_ZN6idQuataSERKS_" title='idQuat::operator=' data-ref="_ZN6idQuataSERKS_">=</a> <a class="local col8 ref" href="#18from" title='from' data-ref="18from">from</a>;</td></tr>
+<tr><th id="166">166</th><td>		<b>return</b> *<b>this</b>;</td></tr>
+<tr><th id="167">167</th><td>	}</td></tr>
+<tr><th id="168">168</th><td></td></tr>
+<tr><th id="169">169</th><td>	<b>if</b> ( <a class="local col0 ref" href="#20t" title='t' data-ref="20t">t</a> &gt;= <var>1.0f</var> ) {</td></tr>
+<tr><th id="170">170</th><td>		*<b>this</b> <a class="member" href="Quat.h.html#_ZN6idQuataSERKS_" title='idQuat::operator=' data-ref="_ZN6idQuataSERKS_">=</a> <a class="local col9 ref" href="#19to" title='to' data-ref="19to">to</a>;</td></tr>
+<tr><th id="171">171</th><td>		<b>return</b> *<b>this</b>;</td></tr>
+<tr><th id="172">172</th><td>	}</td></tr>
+<tr><th id="173">173</th><td></td></tr>
+<tr><th id="174">174</th><td>	<b>if</b> ( <a class="local col8 ref" href="#18from" title='from' data-ref="18from">from</a> <a class="member" href="Quat.h.html#_ZNK6idQuateqERKS_" title='idQuat::operator==' data-ref="_ZNK6idQuateqERKS_">==</a> <a class="local col9 ref" href="#19to" title='to' data-ref="19to">to</a> ) {</td></tr>
+<tr><th id="175">175</th><td>		*<b>this</b> <a class="member" href="Quat.h.html#_ZN6idQuataSERKS_" title='idQuat::operator=' data-ref="_ZN6idQuataSERKS_">=</a> <a class="local col9 ref" href="#19to" title='to' data-ref="19to">to</a>;</td></tr>
+<tr><th id="176">176</th><td>		<b>return</b> *<b>this</b>;</td></tr>
+<tr><th id="177">177</th><td>	}</td></tr>
+<tr><th id="178">178</th><td></td></tr>
+<tr><th id="179">179</th><td>	<a class="local col3 ref" href="#23cosom" title='cosom' data-ref="23cosom">cosom</a> = <a class="local col8 ref" href="#18from" title='from' data-ref="18from">from</a>.<a class="member" href="Quat.h.html#idQuat::x" title='idQuat::x' data-ref="idQuat::x">x</a> * <a class="local col9 ref" href="#19to" title='to' data-ref="19to">to</a>.<a class="member" href="Quat.h.html#idQuat::x" title='idQuat::x' data-ref="idQuat::x">x</a> + <a class="local col8 ref" href="#18from" title='from' data-ref="18from">from</a>.<a class="member" href="Quat.h.html#idQuat::y" title='idQuat::y' data-ref="idQuat::y">y</a> * <a class="local col9 ref" href="#19to" title='to' data-ref="19to">to</a>.<a class="member" href="Quat.h.html#idQuat::y" title='idQuat::y' data-ref="idQuat::y">y</a> + <a class="local col8 ref" href="#18from" title='from' data-ref="18from">from</a>.<a class="member" href="Quat.h.html#idQuat::z" title='idQuat::z' data-ref="idQuat::z">z</a> * <a class="local col9 ref" href="#19to" title='to' data-ref="19to">to</a>.<a class="member" href="Quat.h.html#idQuat::z" title='idQuat::z' data-ref="idQuat::z">z</a> + <a class="local col8 ref" href="#18from" title='from' data-ref="18from">from</a>.<a class="member" href="Quat.h.html#idQuat::w" title='idQuat::w' data-ref="idQuat::w">w</a> * <a class="local col9 ref" href="#19to" title='to' data-ref="19to">to</a>.<a class="member" href="Quat.h.html#idQuat::w" title='idQuat::w' data-ref="idQuat::w">w</a>;</td></tr>
+<tr><th id="180">180</th><td>	<b>if</b> ( <a class="local col3 ref" href="#23cosom" title='cosom' data-ref="23cosom">cosom</a> &lt; <var>0.0f</var> ) {</td></tr>
+<tr><th id="181">181</th><td>		<a class="local col1 ref" href="#21temp" title='temp' data-ref="21temp">temp</a> <a class="member" href="Quat.h.html#_ZN6idQuataSERKS_" title='idQuat::operator=' data-ref="_ZN6idQuataSERKS_">=</a> <a class="member" href="Quat.h.html#_ZNK6idQuatngEv" title='idQuat::operator-' data-ref="_ZNK6idQuatngEv">-</a><a class="local col9 ref" href="#19to" title='to' data-ref="19to">to</a>;</td></tr>
+<tr><th id="182">182</th><td>		<a class="local col3 ref" href="#23cosom" title='cosom' data-ref="23cosom">cosom</a> = -<a class="local col3 ref" href="#23cosom" title='cosom' data-ref="23cosom">cosom</a>;</td></tr>
+<tr><th id="183">183</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="184">184</th><td>		<a class="local col1 ref" href="#21temp" title='temp' data-ref="21temp">temp</a> <a class="member" href="Quat.h.html#_ZN6idQuataSERKS_" title='idQuat::operator=' data-ref="_ZN6idQuataSERKS_">=</a> <a class="local col9 ref" href="#19to" title='to' data-ref="19to">to</a>;</td></tr>
+<tr><th id="185">185</th><td>	}</td></tr>
+<tr><th id="186">186</th><td></td></tr>
+<tr><th id="187">187</th><td>	<b>if</b> ( ( <var>1.0f</var> - <a class="local col3 ref" href="#23cosom" title='cosom' data-ref="23cosom">cosom</a> ) &gt; <var>1e-6f</var> ) {</td></tr>
+<tr><th id="188">188</th><td><u>#<span data-ppcond="188">if</span> 0</u></td></tr>
+<tr><th id="189">189</th><td>		omega = acos( cosom );</td></tr>
+<tr><th id="190">190</th><td>		sinom = <var>1.0f</var> / sin( omega );</td></tr>
+<tr><th id="191">191</th><td>		scale0 = sin( ( <var>1.0f</var> - t ) * omega ) * sinom;</td></tr>
+<tr><th id="192">192</th><td>		scale1 = sin( t * omega ) * sinom;</td></tr>
+<tr><th id="193">193</th><td><u>#<span data-ppcond="188">else</span></u></td></tr>
+<tr><th id="194">194</th><td>		<a class="local col5 ref" href="#25scale0" title='scale0' data-ref="25scale0">scale0</a> = <var>1.0f</var> - <a class="local col3 ref" href="#23cosom" title='cosom' data-ref="23cosom">cosom</a> * <a class="local col3 ref" href="#23cosom" title='cosom' data-ref="23cosom">cosom</a>;</td></tr>
+<tr><th id="195">195</th><td>		<a class="local col4 ref" href="#24sinom" title='sinom' data-ref="24sinom">sinom</a> = <a class="type" href="Math.h.html#idMath" title='idMath' data-ref="idMath">idMath</a>::<a class="ref" href="Math.h.html#_ZN6idMath7InvSqrtEf" title='idMath::InvSqrt' data-ref="_ZN6idMath7InvSqrtEf">InvSqrt</a>( <a class="local col5 ref" href="#25scale0" title='scale0' data-ref="25scale0">scale0</a> );</td></tr>
+<tr><th id="196">196</th><td>		<a class="local col2 ref" href="#22omega" title='omega' data-ref="22omega">omega</a> = <a class="type" href="Math.h.html#idMath" title='idMath' data-ref="idMath">idMath</a>::<a class="ref" href="Math.h.html#_ZN6idMath6ATan16Eff" title='idMath::ATan16' data-ref="_ZN6idMath6ATan16Eff">ATan16</a>( <a class="local col5 ref" href="#25scale0" title='scale0' data-ref="25scale0">scale0</a> * <a class="local col4 ref" href="#24sinom" title='sinom' data-ref="24sinom">sinom</a>, <a class="local col3 ref" href="#23cosom" title='cosom' data-ref="23cosom">cosom</a> );</td></tr>
+<tr><th id="197">197</th><td>		<a class="local col5 ref" href="#25scale0" title='scale0' data-ref="25scale0">scale0</a> = <a class="type" href="Math.h.html#idMath" title='idMath' data-ref="idMath">idMath</a>::<a class="ref" href="Math.h.html#_ZN6idMath5Sin16Ef" title='idMath::Sin16' data-ref="_ZN6idMath5Sin16Ef">Sin16</a>( ( <var>1.0f</var> - <a class="local col0 ref" href="#20t" title='t' data-ref="20t">t</a> ) * <a class="local col2 ref" href="#22omega" title='omega' data-ref="22omega">omega</a> ) * <a class="local col4 ref" href="#24sinom" title='sinom' data-ref="24sinom">sinom</a>;</td></tr>
+<tr><th id="198">198</th><td>		<a class="local col6 ref" href="#26scale1" title='scale1' data-ref="26scale1">scale1</a> = <a class="type" href="Math.h.html#idMath" title='idMath' data-ref="idMath">idMath</a>::<a class="ref" href="Math.h.html#_ZN6idMath5Sin16Ef" title='idMath::Sin16' data-ref="_ZN6idMath5Sin16Ef">Sin16</a>( <a class="local col0 ref" href="#20t" title='t' data-ref="20t">t</a> * <a class="local col2 ref" href="#22omega" title='omega' data-ref="22omega">omega</a> ) * <a class="local col4 ref" href="#24sinom" title='sinom' data-ref="24sinom">sinom</a>;</td></tr>
+<tr><th id="199">199</th><td><u>#<span data-ppcond="188">endif</span></u></td></tr>
+<tr><th id="200">200</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="201">201</th><td>		<a class="local col5 ref" href="#25scale0" title='scale0' data-ref="25scale0">scale0</a> = <var>1.0f</var> - <a class="local col0 ref" href="#20t" title='t' data-ref="20t">t</a>;</td></tr>
+<tr><th id="202">202</th><td>		<a class="local col6 ref" href="#26scale1" title='scale1' data-ref="26scale1">scale1</a> = <a class="local col0 ref" href="#20t" title='t' data-ref="20t">t</a>;</td></tr>
+<tr><th id="203">203</th><td>	}</td></tr>
+<tr><th id="204">204</th><td></td></tr>
+<tr><th id="205">205</th><td>	*<b>this</b> <a class="member" href="Quat.h.html#_ZN6idQuataSERKS_" title='idQuat::operator=' data-ref="_ZN6idQuataSERKS_">=</a> ( <a class="local col5 ref" href="#25scale0" title='scale0' data-ref="25scale0">scale0</a> <a class="ref" href="Quat.h.html#_ZmlfRK6idQuat" title='operator*' data-ref="_ZmlfRK6idQuat">*</a> <a class="local col8 ref" href="#18from" title='from' data-ref="18from">from</a> ) <a class="member" href="Quat.h.html#_ZNK6idQuatplERKS_" title='idQuat::operator+' data-ref="_ZNK6idQuatplERKS_">+</a> ( <a class="local col6 ref" href="#26scale1" title='scale1' data-ref="26scale1">scale1</a> <a class="ref" href="Quat.h.html#_ZmlfRK6idQuat" title='operator*' data-ref="_ZmlfRK6idQuat">*</a> <a class="local col1 ref" href="#21temp" title='temp' data-ref="21temp">temp</a> );</td></tr>
+<tr><th id="206">206</th><td>	<b>return</b> *<b>this</b>;</td></tr>
+<tr><th id="207">207</th><td>}</td></tr>
+<tr><th id="208">208</th><td></td></tr>
+<tr><th id="209">209</th><td><i>/*</i></td></tr>
+<tr><th id="210">210</th><td><i>=============</i></td></tr>
+<tr><th id="211">211</th><td><i>idCQuat::ToAngles</i></td></tr>
+<tr><th id="212">212</th><td><i>=============</i></td></tr>
+<tr><th id="213">213</th><td><i>*/</i></td></tr>
+<tr><th id="214">214</th><td><a class="type" href="Angles.h.html#idAngles" title='idAngles' data-ref="idAngles">idAngles</a> <a class="type" href="Quat.h.html#idCQuat" title='idCQuat' data-ref="idCQuat">idCQuat</a>::<dfn class="decl def" id="_ZNK7idCQuat8ToAnglesEv" title='idCQuat::ToAngles' data-ref="_ZNK7idCQuat8ToAnglesEv">ToAngles</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="215">215</th><td>	<b>return</b> <a class="member" href="Quat.h.html#_ZNK7idCQuat6ToQuatEv" title='idCQuat::ToQuat' data-ref="_ZNK7idCQuat6ToQuatEv">ToQuat</a>().<a class="ref" href="#_ZNK6idQuat8ToAnglesEv" title='idQuat::ToAngles' data-ref="_ZNK6idQuat8ToAnglesEv">ToAngles</a>();</td></tr>
+<tr><th id="216">216</th><td>}</td></tr>
+<tr><th id="217">217</th><td></td></tr>
+<tr><th id="218">218</th><td><i>/*</i></td></tr>
+<tr><th id="219">219</th><td><i>=============</i></td></tr>
+<tr><th id="220">220</th><td><i>idCQuat::ToRotation</i></td></tr>
+<tr><th id="221">221</th><td><i>=============</i></td></tr>
+<tr><th id="222">222</th><td><i>*/</i></td></tr>
+<tr><th id="223">223</th><td><a class="type" href="Rotation.h.html#idRotation" title='idRotation' data-ref="idRotation">idRotation</a> <a class="type" href="Quat.h.html#idCQuat" title='idCQuat' data-ref="idCQuat">idCQuat</a>::<dfn class="decl def" id="_ZNK7idCQuat10ToRotationEv" title='idCQuat::ToRotation' data-ref="_ZNK7idCQuat10ToRotationEv">ToRotation</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="224">224</th><td>	<b>return</b> <a class="member" href="Quat.h.html#_ZNK7idCQuat6ToQuatEv" title='idCQuat::ToQuat' data-ref="_ZNK7idCQuat6ToQuatEv">ToQuat</a>().<a class="ref" href="#_ZNK6idQuat10ToRotationEv" title='idQuat::ToRotation' data-ref="_ZNK6idQuat10ToRotationEv">ToRotation</a>();</td></tr>
+<tr><th id="225">225</th><td>}</td></tr>
+<tr><th id="226">226</th><td></td></tr>
+<tr><th id="227">227</th><td><i>/*</i></td></tr>
+<tr><th id="228">228</th><td><i>=============</i></td></tr>
+<tr><th id="229">229</th><td><i>idCQuat::ToMat3</i></td></tr>
+<tr><th id="230">230</th><td><i>=============</i></td></tr>
+<tr><th id="231">231</th><td><i>*/</i></td></tr>
+<tr><th id="232">232</th><td><a class="type" href="Matrix.h.html#idMat3" title='idMat3' data-ref="idMat3">idMat3</a> <a class="type" href="Quat.h.html#idCQuat" title='idCQuat' data-ref="idCQuat">idCQuat</a>::<dfn class="decl def" id="_ZNK7idCQuat6ToMat3Ev" title='idCQuat::ToMat3' data-ref="_ZNK7idCQuat6ToMat3Ev">ToMat3</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="233">233</th><td>	<b>return</b> <a class="member" href="Quat.h.html#_ZNK7idCQuat6ToQuatEv" title='idCQuat::ToQuat' data-ref="_ZNK7idCQuat6ToQuatEv">ToQuat</a>().<a class="ref" href="#_ZNK6idQuat6ToMat3Ev" title='idQuat::ToMat3' data-ref="_ZNK6idQuat6ToMat3Ev">ToMat3</a>();</td></tr>
+<tr><th id="234">234</th><td>}</td></tr>
+<tr><th id="235">235</th><td></td></tr>
+<tr><th id="236">236</th><td><i>/*</i></td></tr>
+<tr><th id="237">237</th><td><i>=============</i></td></tr>
+<tr><th id="238">238</th><td><i>idCQuat::ToMat4</i></td></tr>
+<tr><th id="239">239</th><td><i>=============</i></td></tr>
+<tr><th id="240">240</th><td><i>*/</i></td></tr>
+<tr><th id="241">241</th><td><a class="type" href="Matrix.h.html#idMat4" title='idMat4' data-ref="idMat4">idMat4</a> <a class="type" href="Quat.h.html#idCQuat" title='idCQuat' data-ref="idCQuat">idCQuat</a>::<dfn class="decl def" id="_ZNK7idCQuat6ToMat4Ev" title='idCQuat::ToMat4' data-ref="_ZNK7idCQuat6ToMat4Ev">ToMat4</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="242">242</th><td>	<b>return</b> <a class="member" href="Quat.h.html#_ZNK7idCQuat6ToQuatEv" title='idCQuat::ToQuat' data-ref="_ZNK7idCQuat6ToQuatEv">ToQuat</a>().<a class="ref" href="#_ZNK6idQuat6ToMat4Ev" title='idQuat::ToMat4' data-ref="_ZNK6idQuat6ToMat4Ev">ToMat4</a>();</td></tr>
+<tr><th id="243">243</th><td>}</td></tr>
+<tr><th id="244">244</th><td></td></tr>
+<tr><th id="245">245</th><td><i>/*</i></td></tr>
+<tr><th id="246">246</th><td><i>=============</i></td></tr>
+<tr><th id="247">247</th><td><i>idCQuat::ToString</i></td></tr>
+<tr><th id="248">248</th><td><i>=============</i></td></tr>
+<tr><th id="249">249</th><td><i>*/</i></td></tr>
+<tr><th id="250">250</th><td><em>const</em> <em>char</em> *<a class="type" href="Quat.h.html#idCQuat" title='idCQuat' data-ref="idCQuat">idCQuat</a>::<dfn class="decl def" id="_ZNK7idCQuat8ToStringEi" title='idCQuat::ToString' data-ref="_ZNK7idCQuat8ToStringEi">ToString</dfn>( <em>int</em> <dfn class="local col7 decl" id="27precision" title='precision' data-type='int' data-ref="27precision">precision</dfn> ) <em>const</em> {</td></tr>
+<tr><th id="251">251</th><td>	<b>return</b> <a class="type" href="../Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>::<a class="ref" href="../Str.h.html#_ZN5idStr18FloatArrayToStringEPKfii" title='idStr::FloatArrayToString' data-ref="_ZN5idStr18FloatArrayToStringEPKfii">FloatArrayToString</a>( <a class="member" href="Quat.h.html#_ZNK7idCQuat10ToFloatPtrEv" title='idCQuat::ToFloatPtr' data-ref="_ZNK7idCQuat10ToFloatPtrEv">ToFloatPtr</a>(), <a class="member" href="Quat.h.html#_ZNK7idCQuat12GetDimensionEv" title='idCQuat::GetDimension' data-ref="_ZNK7idCQuat12GetDimensionEv">GetDimension</a>(), <a class="local col7 ref" href="#27precision" title='precision' data-ref="27precision">precision</a> );</td></tr>
+<tr><th id="252">252</th><td>}</td></tr>
+<tr><th id="253">253</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

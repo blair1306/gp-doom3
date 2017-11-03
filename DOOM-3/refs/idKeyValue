@@ -1,0 +1,24 @@
+<def f='codebrowser/idlib/Dict.h' l='48' ll='63'/>
+<size>8</size>
+<doc f='codebrowser/idlib/Dict.h' l='32'>/*
+===============================================================================
+
+Key/value dictionary
+
+This is a dictionary class that tracks an arbitrary number of key / value
+pair combinations. It is used for map entity spawning, GUI state management,
+and other things.
+
+Keys are compared case-insensitive.
+
+Does not allocate memory until the first key/value pair is added.
+
+===============================================================================
+*/</doc>
+<fun r='_ZNK10idKeyValue6GetKeyEv'/>
+<fun r='_ZNK10idKeyValue8GetValueEv'/>
+<fun r='_ZNK10idKeyValue9AllocatedEv'/>
+<fun r='_ZNK10idKeyValue4SizeEv'/>
+<fun r='_ZNK10idKeyValueeqERKS_'/>
+<mbr r='idKeyValue::key' o='0' t='const idPoolStr *'/>
+<mbr r='idKeyValue::value' o='32' t='const idPoolStr *'/>

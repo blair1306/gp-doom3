@@ -1,0 +1,16 @@
+<def f='codebrowser/renderer/tr_local.h' l='1514' ll='1537'/>
+<size>48</size>
+<doc f='codebrowser/renderer/tr_local.h' l='1512'>// deformable meshes precalculate as much as possible from a base frame, then generate
+// complete srfTriangles_t from just a new set of vertexes</doc>
+<mbr r='deformInfo_s::numSourceVerts' o='0' t='int'/>
+<mbr r='deformInfo_s::numOutputVerts' o='32' t='int'/>
+<mbr r='deformInfo_s::numMirroredVerts' o='64' t='int'/>
+<mbr r='deformInfo_s::mirroredVerts' o='96' t='int *'/>
+<mbr r='deformInfo_s::numIndexes' o='128' t='int'/>
+<mbr r='deformInfo_s::indexes' o='160' t='glIndex_t *'/>
+<mbr r='deformInfo_s::silIndexes' o='192' t='glIndex_t *'/>
+<mbr r='deformInfo_s::numDupVerts' o='224' t='int'/>
+<mbr r='deformInfo_s::dupVerts' o='256' t='int *'/>
+<mbr r='deformInfo_s::numSilEdges' o='288' t='int'/>
+<mbr r='deformInfo_s::silEdges' o='320' t='silEdge_t *'/>
+<mbr r='deformInfo_s::dominantTris' o='352' t='dominantTri_t *'/>

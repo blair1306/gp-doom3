@@ -1,0 +1,58 @@
+<inh f='codebrowser/framework/Compressor.cpp' l='233' c='idCompressor_BitStream'/>
+<def f='codebrowser/framework/Compressor.cpp' l='2224' ll='2269'/>
+<size>131180</size>
+<doc f='codebrowser/framework/Compressor.cpp' l='2176'>/*
+=================================================================================
+
+	idCompressor_LZW
+
+	http://www.unisys.com/about__unisys/lzw
+	http://www.dogma.net/markn/articles/lzw/lzw.htm
+	http://www.cs.cf.ac.uk/Dave/Multimedia/node214.html
+	http://www.cs.duke.edu/csed/curious/compression/lzw.html
+	http://oldwww.rasip.fer.hr/research/compress/algorithms/fund/lz/lzw.html
+
+	This is the same compression scheme used by GIF with the exception that
+	the EOI and clear codes are not explicitly stored.  Instead EOI happens
+	when the input stream runs dry and CC happens when the table gets to big.
+
+	This is a derivation of LZ78, but the dictionary starts with all single
+	character values so only code words are output.  It is similar in theory
+	to LZ77, but instead of using the previous X bytes as a lookup table, a table
+	is built as the stream is read.  The	compressor and decompressor use the
+	same formula, so the tables should be exactly alike.  The only catch is the
+	decompressor is always one step behind the compressor and may get a code not
+	yet in the table.  In this case, it is easy to determine what the next code
+	is going to be (it will be the previous string plus the first byte of the
+	previous string).
+
+	The dictionary can be any size, but 12 bits seems to produce best results for
+	most sample data.  The code size is variable.  It starts with the minimum
+	number of bits required to store the dictionary and automatically increases
+	as the dictionary gets bigger (it starts at 9 bits and grows to 10 bits when
+	item 512 is added, 11 bits when 1024 is added, etc...) once the the dictionary
+	is filled (4096 items for a 12 bit dictionary), the whole thing is cleared and
+	the process starts over again.
+
+	The compressor increases the bit size after it adds the item, while the
+	decompressor does before it adds the item.  The difference is subtle, but
+	it&apos;s because decompressor being one step behind.  Otherwise, the decompressor
+	would read 512 with only 9 bits.
+
+	If &quot;Hello&quot; is in the dictionary, then &quot;Hell&quot;, &quot;Hel&quot;, &quot;He&quot; and &quot;H&quot; will be too.
+	We use this to our advantage by storing the index of the previous code, and
+	the value of the last character.  This means when we traverse through the
+	dictionary, we get the characters in reverse.
+
+	Dictionary entries 0-255 are always going to have the values 0-255
+
+=================================================================================
+*/</doc>
+<fun r='_ZN16idCompressor_LZW4InitEP6idFilebi'/>
+<fun r='_ZN16idCompressor_LZW14FinishCompressEv'/>
+<fun r='_ZN16idCompressor_LZW5WriteEPKvi'/>
+<fun r='_ZN16idCompressor_LZW4ReadEPvi'/>
+<fun r='_ZN16idCompressor_LZW4InitEP6idFilebi'/>
+<fun r='_ZN16idCompressor_LZW4ReadEPvi'/>
+<fun r='_ZN16idCompressor_LZW14FinishCompressEv'/>
+<fun r='_ZN16idCompressor_LZW5WriteEPKvi'/>

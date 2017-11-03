@@ -1,0 +1,11 @@
+<dec f='codebrowser/sound/snd_local.h' l='190' type='int idWaveFile::Read(byte * pBuffer, int dwSizeToRead, int * pdwSizeRead)'/>
+<use f='codebrowser/sound/snd_cache.cpp' l='483' u='c' c='_ZN13idSoundSample4LoadEv'/>
+<def f='codebrowser/sound/snd_wavefile.cpp' l='268' ll='312' type='int idWaveFile::Read(byte * pBuffer, int dwSizeToRead, int * pdwSizeRead)'/>
+<doc f='codebrowser/sound/snd_wavefile.cpp' l='260'>//-----------------------------------------------------------------------------
+// Name: idWaveFile::Read()
+// Desc: Reads section of data from a wave file into pBuffer and returns 
+//       how much read in pdwSizeRead, reading not more than dwSizeToRead.
+//       This uses mck to determine where to start reading from.  So 
+//       subsequent calls will be continue where the last left off unless 
+//       Reset() is called.
+//-----------------------------------------------------------------------------</doc>

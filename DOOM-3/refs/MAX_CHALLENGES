@@ -1,0 +1,19 @@
+<def f='codebrowser/framework/async/AsyncServer.h' l='42' type='const int'/>
+<use f='codebrowser/framework/async/AsyncServer.h' l='190'/>
+<doc f='codebrowser/framework/async/AsyncServer.h' l='32'>/*
+===============================================================================
+
+  Network Server for asynchronous networking.
+
+===============================================================================
+*/
+
+// MAX_CHALLENGES is made large to prevent a denial of service attack that could cycle
+// all of them out before legitimate users connected</doc>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='141' u='r' c='_ZN13idAsyncServer9ClosePortEv'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1430' u='r' c='_ZN13idAsyncServer18ProcessAuthMessageERK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1449' u='r' c='_ZN13idAsyncServer18ProcessAuthMessageERK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1495' u='r' c='_ZN13idAsyncServer23ProcessChallengeMessageE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1505' u='r' c='_ZN13idAsyncServer23ProcessChallengeMessageE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1654' u='r' c='_ZN13idAsyncServer17ValidateChallengeE8netadr_tii'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1661' u='r' c='_ZN13idAsyncServer17ValidateChallengeE8netadr_tii'/>

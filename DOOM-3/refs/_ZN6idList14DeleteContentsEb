@@ -1,0 +1,102 @@
+<dec f='codebrowser/idlib/containers/List.h' l='132' type='void idList::DeleteContents(bool clear)'/>
+<def f='codebrowser/idlib/containers/List.h' l='206' ll='220' type='void idList::DeleteContents(bool clear)'/>
+<use f='codebrowser/idlib/containers/StrPool.h' l='192' u='c' c='_ZN9idStrPool5ClearEv'/>
+<use f='codebrowser/idlib/MapFile.h' l='102' u='c' c='_ZN10idMapBrushD1Ev'/>
+<use f='codebrowser/idlib/MapFile.h' l='170' u='c' c='_ZN11idMapEntityD1Ev'/>
+<use f='codebrowser/idlib/MapFile.h' l='187' u='c' c='_ZN9idMapFileD1Ev'/>
+<use f='codebrowser/TypeInfo/TypeInfoGen.cpp' l='49' u='c' c='_ZN13idTypeInfoGenD1Ev'/>
+<use f='codebrowser/TypeInfo/TypeInfoGen.cpp' l='50' u='c' c='_ZN13idTypeInfoGenD1Ev'/>
+<use f='codebrowser/TypeInfo/TypeInfoGen.cpp' l='51' u='c' c='_ZN13idTypeInfoGenD1Ev'/>
+<doc f='codebrowser/idlib/containers/List.h' l='132'>// delete the contents of the list</doc>
+<doc f='codebrowser/idlib/containers/List.h' l='194'>/*
+================
+idList&lt;type&gt;::DeleteContents
+
+Calls the destructor of all elements in the list.  Conditionally frees up memory used by the list.
+Note that this only works on lists containing pointers to objects and will cause a compiler error
+if called with non-pointers.  Since the list was not responsible for allocating the object, it has
+no information on whether the object still exists or not, so care must be taken to ensure that
+the pointers are still valid when this function is called.  Function will set all pointers in the
+list to NULL.
+================
+*/</doc>
+<use f='codebrowser/d3xp/BrittleFracture.cpp' l='87' u='c' c='_ZN17idBrittleFractureD1Ev'/>
+<use f='codebrowser/d3xp/BrittleFracture.cpp' l='811' u='c' c='_ZN17idBrittleFracture9DropShardEP7shard_sRK6idVec3S4_fi'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='419' u='c' c='_ZN11idGameLocal8ShutdownEv'/>
+<use f='codebrowser/d3xp/Player.cpp' l='173' u='c' c='_ZN11idInventory5ClearEv'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='2232' u='c' c='_ZN14idDeclModelDef8FreeDataEv'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='3306' u='c' c='_ZN10idAnimator8FreeDataEv'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='3760' u='c' c='_ZN10idAnimator14ClearAllJointsEv'/>
+<use f='codebrowser/d3xp/gamesys/SaveGame.cpp' l='870' u='c' c='_ZN13idRestoreGame13DeleteObjectsEv'/>
+<use f='codebrowser/d3xp/gamesys/SaveGame.cpp' l='886' u='c' c='_ZN13idRestoreGame5ErrorEPKcz'/>
+<use f='codebrowser/d3xp/physics/Clip.cpp' l='82' u='c' c='_ZN11idClipModel20ClearTraceModelCacheEv'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='6660' u='c' c='_ZN12idPhysics_AFD1Ev'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='6887' u='c' c='_ZN12idPhysics_AF10BuildTreesEv'/>
+<use f='codebrowser/d3xp/script/Script_Program.cpp' l='1868' u='c' c='_ZN9idProgram8FreeDataEv'/>
+<use f='codebrowser/d3xp/script/Script_Program.cpp' l='1869' u='c' c='_ZN9idProgram8FreeDataEv'/>
+<use f='codebrowser/d3xp/script/Script_Program.cpp' l='1877' u='c' c='_ZN9idProgram8FreeDataEv'/>
+<use f='codebrowser/framework/CVarSystem.cpp' l='593' u='c' c='_ZN17idCVarSystemLocal8ShutdownEv'/>
+<use f='codebrowser/framework/DeclAF.cpp' l='1581' u='c' c='_ZN8idDeclAF8FreeDataEv'/>
+<use f='codebrowser/framework/DeclAF.cpp' l='1582' u='c' c='_ZN8idDeclAF8FreeDataEv'/>
+<use f='codebrowser/framework/DeclAF.cpp' l='1743' u='c' c='_ZN8idDeclAFD1Ev'/>
+<use f='codebrowser/framework/DeclAF.cpp' l='1744' u='c' c='_ZN8idDeclAFD1Ev'/>
+<use f='codebrowser/framework/DeclManager.cpp' l='894' u='c' c='_ZN18idDeclManagerLocal8ShutdownEv'/>
+<use f='codebrowser/framework/DeclManager.cpp' l='897' u='c' c='_ZN18idDeclManagerLocal8ShutdownEv'/>
+<use f='codebrowser/framework/DeclManager.cpp' l='898' u='c' c='_ZN18idDeclManagerLocal8ShutdownEv'/>
+<use f='codebrowser/framework/DeclParticle.cpp' l='485' u='c' c='_ZN14idDeclParticle8FreeDataEv'/>
+<use f='codebrowser/framework/DemoFile.cpp' l='204' u='c' c='_ZN10idDemoFile5CloseEv'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='1238' u='c' c='_ZN17idFileSystemLocal13ParseAddonDefEPKci'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='1246' u='c' c='_ZN17idFileSystemLocal13ParseAddonDefEPKci'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='1260' u='c' c='_ZN17idFileSystemLocal13ParseAddonDefEPKci'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='1268' u='c' c='_ZN17idFileSystemLocal13ParseAddonDefEPKci'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='2953' u='c' c='_ZN17idFileSystemLocal8ShutdownEb'/>
+<use f='codebrowser/game/BrittleFracture.cpp' l='83' u='c' c='_ZN17idBrittleFractureD1Ev'/>
+<use f='codebrowser/game/BrittleFracture.cpp' l='781' u='c' c='_ZN17idBrittleFracture9DropShardEP7shard_sRK6idVec3S4_fi'/>
+<use f='codebrowser/game/Game_local.cpp' l='345' u='c' c='_ZN11idGameLocal8ShutdownEv'/>
+<use f='codebrowser/game/Player.cpp' l='141' u='c' c='_ZN11idInventory5ClearEv'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='2146' u='c' c='_ZN14idDeclModelDef8FreeDataEv'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='3220' u='c' c='_ZN10idAnimator8FreeDataEv'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='3674' u='c' c='_ZN10idAnimator14ClearAllJointsEv'/>
+<use f='codebrowser/game/gamesys/SaveGame.cpp' l='865' u='c' c='_ZN13idRestoreGame13DeleteObjectsEv'/>
+<use f='codebrowser/game/gamesys/SaveGame.cpp' l='881' u='c' c='_ZN13idRestoreGame5ErrorEPKcz'/>
+<use f='codebrowser/game/physics/Clip.cpp' l='82' u='c' c='_ZN11idClipModel20ClearTraceModelCacheEv'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='6659' u='c' c='_ZN12idPhysics_AFD1Ev'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='6886' u='c' c='_ZN12idPhysics_AF10BuildTreesEv'/>
+<use f='codebrowser/game/script/Script_Program.cpp' l='1868' u='c' c='_ZN9idProgram8FreeDataEv'/>
+<use f='codebrowser/game/script/Script_Program.cpp' l='1869' u='c' c='_ZN9idProgram8FreeDataEv'/>
+<use f='codebrowser/game/script/Script_Program.cpp' l='1877' u='c' c='_ZN9idProgram8FreeDataEv'/>
+<use f='codebrowser/idlib/MapFile.cpp' l='291' u='c' c='_ZN10idMapBrush5ParseER7idLexerRK6idVec3bf'/>
+<use f='codebrowser/idlib/MapFile.cpp' l='307' u='c' c='_ZN10idMapBrush5ParseER7idLexerRK6idVec3bf'/>
+<use f='codebrowser/idlib/MapFile.cpp' l='315' u='c' c='_ZN10idMapBrush5ParseER7idLexerRK6idVec3bf'/>
+<use f='codebrowser/idlib/MapFile.cpp' l='324' u='c' c='_ZN10idMapBrush5ParseER7idLexerRK6idVec3bf'/>
+<use f='codebrowser/idlib/MapFile.cpp' l='337' u='c' c='_ZN10idMapBrush5ParseER7idLexerRK6idVec3bf'/>
+<use f='codebrowser/idlib/MapFile.cpp' l='346' u='c' c='_ZN10idMapBrush5ParseER7idLexerRK6idVec3bf'/>
+<use f='codebrowser/idlib/MapFile.cpp' l='361' u='c' c='_ZN10idMapBrush5ParseER7idLexerRK6idVec3bf'/>
+<use f='codebrowser/idlib/MapFile.cpp' l='369' u='c' c='_ZN10idMapBrush5ParseER7idLexerRK6idVec3bf'/>
+<use f='codebrowser/idlib/MapFile.cpp' l='390' u='c' c='_ZN10idMapBrush5ParseER7idLexerRK6idVec3bf'/>
+<use f='codebrowser/idlib/MapFile.cpp' l='431' u='c' c='_ZN10idMapBrush7ParseQ3ER7idLexerRK6idVec3'/>
+<use f='codebrowser/idlib/MapFile.cpp' l='444' u='c' c='_ZN10idMapBrush7ParseQ3ER7idLexerRK6idVec3'/>
+<use f='codebrowser/idlib/MapFile.cpp' l='685' u='c' c='_ZN11idMapEntity19RemovePrimitiveDataEv'/>
+<use f='codebrowser/idlib/MapFile.cpp' l='751' u='c' c='_ZN9idMapFile5ParseEPKcbb'/>
+<use f='codebrowser/idlib/MapFile.cpp' l='937' u='c' c='_ZN9idMapFile17RemoveAllEntitiesEv'/>
+<use f='codebrowser/idlib/Timer.cpp' l='105' u='c' c='_ZN13idTimerReport5ClearEv'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='1992' u='c' c='_ZN14idImageManager8ShutdownEv'/>
+<use f='codebrowser/renderer/ModelManager.cpp' l='244' u='c' c='_ZN25idRenderModelManagerLocal8ShutdownEv'/>
+<use f='codebrowser/sound/snd_cache.cpp' l='61' u='c' c='_ZN12idSoundCacheD1Ev'/>
+<use f='codebrowser/sound/snd_efxfile.cpp' l='46' u='c' c='_ZN9idEFXFile5ClearEv'/>
+<use f='codebrowser/tools/compilers/dmap/map.cpp' l='647' u='c' c='_Z12FreeDMapFilev'/>
+<use f='codebrowser/ui/GuiScript.h' l='85' u='c' c='_ZN15idGuiScriptListD1Ev'/>
+<use f='codebrowser/ui/GameBearShootWindow.cpp' l='213' u='c' c='_ZN21idGameBearShootWindowD1Ev'/>
+<use f='codebrowser/ui/GameBearShootWindow.cpp' l='279' u='c' c='_ZN21idGameBearShootWindow16ReadFromSaveGameEP6idFile'/>
+<use f='codebrowser/ui/GameBustOutWindow.cpp' l='422' u='c' c='_ZN19idGameBustOutWindowD1Ev'/>
+<use f='codebrowser/ui/GameBustOutWindow.cpp' l='510' u='c' c='_ZN19idGameBustOutWindow16ReadFromSaveGameEP6idFile'/>
+<use f='codebrowser/ui/GameBustOutWindow.cpp' l='839' u='c' c='_ZN19idGameBustOutWindow10ClearBoardEv'/>
+<use f='codebrowser/ui/RegExp.cpp' l='339' u='c' c='_ZN14idRegisterList5ResetEv'/>
+<use f='codebrowser/ui/RegExp.cpp' l='352' u='c' c='_ZN14idRegisterList16ReadFromDemoFileEP10idDemoFile'/>
+<use f='codebrowser/ui/UserInterface.cpp' l='56' u='c' c='_ZN27idUserInterfaceManagerLocal8ShutdownEv'/>
+<use f='codebrowser/ui/UserInterface.cpp' l='57' u='c' c='_ZN27idUserInterfaceManagerLocal8ShutdownEv'/>
+<use f='codebrowser/ui/Window.cpp' l='252' u='c' c='_ZN8idWindow7CleanUpEv'/>
+<use f='codebrowser/ui/Window.cpp' l='255' u='c' c='_ZN8idWindow7CleanUpEv'/>
+<use f='codebrowser/ui/Window.cpp' l='256' u='c' c='_ZN8idWindow7CleanUpEv'/>
+<use f='codebrowser/ui/Window.cpp' l='257' u='c' c='_ZN8idWindow7CleanUpEv'/>
+<use f='codebrowser/ui/Window.cpp' l='2143' u='c' c='_ZN8idWindow5ParseEP8idParserb'/>

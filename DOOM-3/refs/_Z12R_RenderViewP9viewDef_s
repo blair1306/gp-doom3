@@ -1,0 +1,24 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1133' type='void R_RenderView(viewDef_t * parms)'/>
+<doc f='codebrowser/renderer/tr_local.h' l='1125'>/*
+====================================================================
+
+MAIN
+
+====================================================================
+*/</doc>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='755' u='c' c='_ZN18idRenderWorldLocal11RenderSceneEPK12renderView_s'/>
+<def f='codebrowser/renderer/tr_main.cpp' l='1095' ll='1163' type='void R_RenderView(viewDef_t * parms)'/>
+<doc f='codebrowser/renderer/tr_main.cpp' l='1085'>/*
+================
+R_RenderView
+
+A view may be either the actual camera view,
+a mirror / remote location, or a 3D view on a gui surface.
+
+Parms will typically be allocated with R_FrameAlloc
+================
+*/</doc>
+<use f='codebrowser/renderer/tr_subview.cpp' l='334' u='c' c='_ZL14R_RemoteRenderP10drawSurf_sP14textureStage_t'/>
+<use f='codebrowser/renderer/tr_subview.cpp' l='386' u='c' c='_Z14R_MirrorRenderP10drawSurf_sP14textureStage_t12idScreenRect'/>
+<use f='codebrowser/renderer/tr_subview.cpp' l='436' u='c' c='_Z12R_XrayRenderP10drawSurf_sP14textureStage_t12idScreenRect'/>
+<use f='codebrowser/renderer/tr_subview.cpp' l='532' u='c' c='_Z24R_GenerateSurfaceSubviewP10drawSurf_s'/>

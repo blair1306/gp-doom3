@@ -1,0 +1,6 @@
+<dec f='codebrowser/sound/sound.h' l='296' type='void idSoundSystem::ClearBuffer()'/>
+<doc f='codebrowser/sound/sound.h' l='293'>// call ClearBuffer if there is a chance that the AsyncUpdate won&apos;t get called
+	// for 20+ msec, which would cause a stuttering repeat of the current
+	// buffer contents</doc>
+<use f='codebrowser/framework/Common.cpp' l='3058' u='c' c='_ZN13idCommonLocal12ShutdownGameEb'/>
+<ovr f='codebrowser/sound/snd_system.cpp' l='574' c='_ZN18idSoundSystemLocal11ClearBufferEv'/>

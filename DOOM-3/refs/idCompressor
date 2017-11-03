@@ -1,0 +1,44 @@
+<inh f='codebrowser/framework/File.h' l='50' c='idFile'/>
+<def f='codebrowser/framework/Compressor.h' l='42' ll='71'/>
+<size>4</size>
+<doc f='codebrowser/framework/Compressor.h' l='32'>/*
+===============================================================================
+
+	idCompressor is a layer ontop of idFile which provides lossless data
+	compression. The compressor can be used as a regular file and multiple
+	compressors can be stacked ontop of each other.
+
+===============================================================================
+*/</doc>
+<fun r='_ZN12idCompressor18AllocNoCompressionEv'/>
+<fun r='_ZN12idCompressor14AllocBitStreamEv'/>
+<fun r='_ZN12idCompressor14AllocRunLengthEv'/>
+<fun r='_ZN12idCompressor24AllocRunLength_ZeroBasedEv'/>
+<fun r='_ZN12idCompressor12AllocHuffmanEv'/>
+<fun r='_ZN12idCompressor15AllocArithmeticEv'/>
+<fun r='_ZN12idCompressor9AllocLZSSEv'/>
+<fun r='_ZN12idCompressor21AllocLZSS_WordAlignedEv'/>
+<fun r='_ZN12idCompressor8AllocLZWEv'/>
+<fun r='_ZN12idCompressor4InitEP6idFilebi'/>
+<fun r='_ZN12idCompressor14FinishCompressEv'/>
+<fun r='_ZNK12idCompressor19GetCompressionRatioEv'/>
+<fun r='_ZN12idCompressor7GetNameEv'/>
+<fun r='_ZN12idCompressor11GetFullPathEv'/>
+<fun r='_ZN12idCompressor4ReadEPvi'/>
+<fun r='_ZN12idCompressor5WriteEPKvi'/>
+<fun r='_ZN12idCompressor6LengthEv'/>
+<fun r='_ZN12idCompressor9TimestampEv'/>
+<fun r='_ZN12idCompressor4TellEv'/>
+<fun r='_ZN12idCompressor10ForceFlushEv'/>
+<fun r='_ZN12idCompressor5FlushEv'/>
+<fun r='_ZN12idCompressor4SeekEl10fsOrigin_t'/>
+<ovr f='codebrowser/framework/Compressor.cpp' l='40' c='idCompressor_None'/>
+<fun r='_ZN12idCompressor18AllocNoCompressionEv'/>
+<fun r='_ZN12idCompressor14AllocBitStreamEv'/>
+<fun r='_ZN12idCompressor14AllocRunLengthEv'/>
+<fun r='_ZN12idCompressor24AllocRunLength_ZeroBasedEv'/>
+<fun r='_ZN12idCompressor12AllocHuffmanEv'/>
+<fun r='_ZN12idCompressor15AllocArithmeticEv'/>
+<fun r='_ZN12idCompressor9AllocLZSSEv'/>
+<fun r='_ZN12idCompressor21AllocLZSS_WordAlignedEv'/>
+<fun r='_ZN12idCompressor8AllocLZWEv'/>

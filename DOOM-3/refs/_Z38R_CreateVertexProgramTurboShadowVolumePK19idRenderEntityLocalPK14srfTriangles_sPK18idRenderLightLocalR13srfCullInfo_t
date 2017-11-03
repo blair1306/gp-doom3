@@ -1,0 +1,22 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1422' type='srfTriangles_t * R_CreateVertexProgramTurboShadowVolume(const idRenderEntityLocal * ent, const srfTriangles_t * tri, const idRenderLightLocal * light, srfCullInfo_t &amp; cullInfo)'/>
+<doc f='codebrowser/renderer/tr_local.h' l='1409'>/*
+============================================================
+
+TR_TURBOSHADOW
+
+Fast, non-clipped overshoot shadow volumes
+
+&quot;facing&quot; should have one more element than tri-&gt;numIndexes / 3, which should be set to 1
+calling this function may modify &quot;facing&quot; based on culling
+
+============================================================
+*/</doc>
+<use f='codebrowser/renderer/tr_stencilshadow.cpp' l='1248' u='c' c='_Z20R_CreateShadowVolumePK19idRenderEntityLocalPK14srfTriangles_sPK18idRenderLightLocal11shadowGen_tR13srfCullInfo_t'/>
+<def f='codebrowser/renderer/tr_turboshadow.cpp' l='45' ll='180' type='srfTriangles_t * R_CreateVertexProgramTurboShadowVolume(const idRenderEntityLocal * ent, const srfTriangles_t * tri, const idRenderLightLocal * light, srfCullInfo_t &amp; cullInfo)'/>
+<doc f='codebrowser/renderer/tr_turboshadow.cpp' l='38'>/*
+=====================
+R_CreateVertexProgramTurboShadowVolume
+
+are dangling edges that are outside the light frustum still making planes?
+=====================
+*/</doc>

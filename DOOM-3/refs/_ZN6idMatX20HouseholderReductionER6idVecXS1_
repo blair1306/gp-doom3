@@ -1,0 +1,14 @@
+<dec f='codebrowser/idlib/math/Matrix.h' l='1987' type='void idMatX::HouseholderReduction(idVecX &amp; diag, idVecX &amp; subd)'/>
+<def f='codebrowser/idlib/math/Matrix.cpp' l='6337' ll='6429' type='void idMatX::HouseholderReduction(idVecX &amp; diag, idVecX &amp; subd)'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='6558' u='c' c='_ZN6idMatX20Eigen_SolveSymmetricER6idVecX'/>
+<doc f='codebrowser/idlib/math/Matrix.cpp' l='6326'>/*
+============
+idMatX::HouseholderReduction
+
+  Householder reduction to symmetric tri-diagonal form.
+  The original matrix is replaced by an orthogonal matrix effecting the accumulated householder transformations.
+  The diagonal elements of the diagonal matrix are stored in diag.
+  The off-diagonal elements of the diagonal matrix are stored in subd.
+  The initial matrix has to be symmetric.
+============
+*/</doc>

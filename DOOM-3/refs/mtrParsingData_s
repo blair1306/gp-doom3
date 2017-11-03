@@ -1,0 +1,35 @@
+<def f='codebrowser/renderer/Material.cpp' l='61' ll='69'/>
+<size>113668</size>
+<doc f='codebrowser/renderer/Material.cpp' l='34'>/*
+
+Any errors during parsing just set MF_DEFAULTED and return, rather than throwing
+a hard error. This will cause the material to fall back to default material,
+but otherwise let things continue.
+
+Each material may have a set of calculations that must be evaluated before
+drawing with it.
+
+Every expression that a material uses can be evaluated at one time, which
+will allow for perfect common subexpression removal when I get around to
+writing it.
+
+Without this, scrolling an entire surface could result in evaluating the
+same texture matrix calculations a half dozen times.
+
+  Open question: should I allow arbitrary per-vertex color, texCoord, and vertex
+  calculations to be specified in the material code?
+
+  Every stage will definately have a valid image pointer.
+
+  We might want the ability to change the sort value based on conditionals,
+  but it could be a hassle to implement,
+
+*/
+
+// keep all of these on the stack, when they are static it makes material parsing non-reentrant</doc>
+<mbr r='mtrParsingData_s::registerIsTemporary' o='0' t='bool [4096]'/>
+<mbr r='mtrParsingData_s::shaderRegisters' o='32768' t='float [4096]'/>
+<mbr r='mtrParsingData_s::shaderOps' o='163840' t='expOp_t [4096]'/>
+<mbr r='mtrParsingData_s::parseStages' o='688128' t='shaderStage_t [256]'/>
+<mbr r='mtrParsingData_s::registersAreConstant' o='909312' t='bool'/>
+<mbr r='mtrParsingData_s::forceOverlays' o='909320' t='bool'/>

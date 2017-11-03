@@ -1,0 +1,60 @@
+<inh f='codebrowser/d3xp/physics/Physics_AF.h' l='93' c='idAFConstraint'/>
+<def f='codebrowser/d3xp/physics/Physics_AF.h' l='181' ll='214'/>
+<size>276</size>
+<doc f='codebrowser/d3xp/physics/Physics_AF.h' l='179'>// ball and socket or spherical joint which allows 3 degrees of freedom
+// constrains body1 relative to body2 with a ball and socket joint</doc>
+<fun r='_ZN33idAFConstraint_BallAndSocketJointC1ERK5idStrP8idAFBodyS4_'/>
+<fun r='_ZN33idAFConstraint_BallAndSocketJointD1Ev'/>
+<fun r='_ZN33idAFConstraint_BallAndSocketJoint9SetAnchorERK6idVec3'/>
+<fun r='_ZNK33idAFConstraint_BallAndSocketJoint9GetAnchorEv'/>
+<fun r='_ZN33idAFConstraint_BallAndSocketJoint10SetNoLimitEv'/>
+<fun r='_ZN33idAFConstraint_BallAndSocketJoint12SetConeLimitERK6idVec3fS2_'/>
+<fun r='_ZN33idAFConstraint_BallAndSocketJoint15SetPyramidLimitERK6idVec3S2_ffS2_'/>
+<fun r='_ZN33idAFConstraint_BallAndSocketJoint15SetLimitEpsilonEf'/>
+<fun r='_ZN33idAFConstraint_BallAndSocketJoint11SetFrictionEf'/>
+<fun r='_ZNK33idAFConstraint_BallAndSocketJoint11GetFrictionEv'/>
+<fun r='_ZN33idAFConstraint_BallAndSocketJoint9DebugDrawEv'/>
+<fun r='_ZN33idAFConstraint_BallAndSocketJoint8GetForceEP8idAFBodyR6idVec6'/>
+<fun r='_ZN33idAFConstraint_BallAndSocketJoint9TranslateERK6idVec3'/>
+<fun r='_ZN33idAFConstraint_BallAndSocketJoint6RotateERK10idRotation'/>
+<fun r='_ZN33idAFConstraint_BallAndSocketJoint9GetCenterER6idVec3'/>
+<fun r='_ZNK33idAFConstraint_BallAndSocketJoint4SaveEP10idSaveGame'/>
+<fun r='_ZN33idAFConstraint_BallAndSocketJoint7RestoreEP13idRestoreGame'/>
+<mbr r='idAFConstraint_BallAndSocketJoint::anchor1' o='1888' t='idVec3'/>
+<mbr r='idAFConstraint_BallAndSocketJoint::anchor2' o='1984' t='idVec3'/>
+<mbr r='idAFConstraint_BallAndSocketJoint::friction' o='2080' t='float'/>
+<mbr r='idAFConstraint_BallAndSocketJoint::coneLimit' o='2112' t='idAFConstraint_ConeLimit *'/>
+<mbr r='idAFConstraint_BallAndSocketJoint::pyramidLimit' o='2144' t='idAFConstraint_PyramidLimit *'/>
+<mbr r='idAFConstraint_BallAndSocketJoint::fc' o='2176' t='idAFConstraint_BallAndSocketJointFriction *'/>
+<fun r='_ZN33idAFConstraint_BallAndSocketJoint8EvaluateEf'/>
+<fun r='_ZN33idAFConstraint_BallAndSocketJoint13ApplyFrictionEf'/>
+<inh f='codebrowser/game/physics/Physics_AF.h' l='93' c='idAFConstraint'/>
+<def f='codebrowser/game/physics/Physics_AF.h' l='181' ll='214'/>
+<size>276</size>
+<doc f='codebrowser/game/physics/Physics_AF.h' l='179'>// ball and socket or spherical joint which allows 3 degrees of freedom
+// constrains body1 relative to body2 with a ball and socket joint</doc>
+<fun r='_ZN33idAFConstraint_BallAndSocketJointC1ERK5idStrP8idAFBodyS4_'/>
+<fun r='_ZN33idAFConstraint_BallAndSocketJointD1Ev'/>
+<fun r='_ZN33idAFConstraint_BallAndSocketJoint9SetAnchorERK6idVec3'/>
+<fun r='_ZNK33idAFConstraint_BallAndSocketJoint9GetAnchorEv'/>
+<fun r='_ZN33idAFConstraint_BallAndSocketJoint10SetNoLimitEv'/>
+<fun r='_ZN33idAFConstraint_BallAndSocketJoint12SetConeLimitERK6idVec3fS2_'/>
+<fun r='_ZN33idAFConstraint_BallAndSocketJoint15SetPyramidLimitERK6idVec3S2_ffS2_'/>
+<fun r='_ZN33idAFConstraint_BallAndSocketJoint15SetLimitEpsilonEf'/>
+<fun r='_ZN33idAFConstraint_BallAndSocketJoint11SetFrictionEf'/>
+<fun r='_ZNK33idAFConstraint_BallAndSocketJoint11GetFrictionEv'/>
+<fun r='_ZN33idAFConstraint_BallAndSocketJoint9DebugDrawEv'/>
+<fun r='_ZN33idAFConstraint_BallAndSocketJoint8GetForceEP8idAFBodyR6idVec6'/>
+<fun r='_ZN33idAFConstraint_BallAndSocketJoint9TranslateERK6idVec3'/>
+<fun r='_ZN33idAFConstraint_BallAndSocketJoint6RotateERK10idRotation'/>
+<fun r='_ZN33idAFConstraint_BallAndSocketJoint9GetCenterER6idVec3'/>
+<fun r='_ZNK33idAFConstraint_BallAndSocketJoint4SaveEP10idSaveGame'/>
+<fun r='_ZN33idAFConstraint_BallAndSocketJoint7RestoreEP13idRestoreGame'/>
+<mbr r='idAFConstraint_BallAndSocketJoint::anchor1' o='1888' t='idVec3'/>
+<mbr r='idAFConstraint_BallAndSocketJoint::anchor2' o='1984' t='idVec3'/>
+<mbr r='idAFConstraint_BallAndSocketJoint::friction' o='2080' t='float'/>
+<mbr r='idAFConstraint_BallAndSocketJoint::coneLimit' o='2112' t='idAFConstraint_ConeLimit *'/>
+<mbr r='idAFConstraint_BallAndSocketJoint::pyramidLimit' o='2144' t='idAFConstraint_PyramidLimit *'/>
+<mbr r='idAFConstraint_BallAndSocketJoint::fc' o='2176' t='idAFConstraint_BallAndSocketJointFriction *'/>
+<fun r='_ZN33idAFConstraint_BallAndSocketJoint8EvaluateEf'/>
+<fun r='_ZN33idAFConstraint_BallAndSocketJoint13ApplyFrictionEf'/>

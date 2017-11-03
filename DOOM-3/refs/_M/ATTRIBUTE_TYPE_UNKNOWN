@@ -1,0 +1,39 @@
+<dec f='codebrowser/sys/linux/libXNVCtrl/NVCtrl.h' l='756'/>
+<doc f='codebrowser/sys/linux/libXNVCtrl/NVCtrl.h' l='717'>/*
+ * CTRLAttributeValidValuesRec -
+ *
+ * structure and related defines used by
+ * XNVCTRLQueryValidAttributeValues() to describe the valid values of
+ * a particular attribute.  The type field will be one of:
+ *
+ * ATTRIBUTE_TYPE_INTEGER : the attribute is an integer value; there
+ * is no fixed range of valid values.
+ *
+ * ATTRIBUTE_TYPE_BITMASK : the attribute is an integer value,
+ * interpretted as a bitmask.
+ *
+ * ATTRIBUTE_TYPE_BOOL : the attribute is a boolean, valid values are
+ * either 1 (on/true) or 0 (off/false).
+ *
+ * ATTRIBUTE_TYPE_RANGE : the attribute can have any integer value
+ * between NVCTRLAttributeValidValues.u.range.min and
+ * NVCTRLAttributeValidValues.u.range.max (inclusive).
+ *
+ * ATTRIBUTE_TYPE_INT_BITS : the attribute can only have certain
+ * integer values, indicated by which bits in
+ * NVCTRLAttributeValidValues.u.bits.ints are on (for example: if bit
+ * 0 is on, then 0 is a valid value; if bit 5 is on, then 5 is a valid
+ * value, etc).  This is useful for attributes like NV_CTRL_FSAA_MODE,
+ * which can only have certain values, depending on GPU.
+ *
+ *
+ * The permissions field of NVCTRLAttributeValidValuesRec is a bitmask
+ * that may contain:
+ *
+ * ATTRIBUTE_TYPE_READ
+ * ATTRIBUTE_TYPE_WRITE
+ * ATTRIBUTE_TYPE_DISPLAY
+ *
+ * See &apos;Key to Integer Attribute &quot;Permissions&quot;&apos; at the top of this
+ * file for a description of what these three permission bits mean.
+ */</doc>

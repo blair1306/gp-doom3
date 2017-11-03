@@ -1,0 +1,17 @@
+<dec f='codebrowser/curl/include/curl/curl.h' l='1028' type='char * curl_unescape(const char * string, int length)'/>
+<doc f='codebrowser/curl/include/curl/curl.h' l='1019'>/*
+ * NAME curl_unescape()
+ *
+ * DESCRIPTION
+ *
+ * Unescapes URL encoding in strings (converts all %XX codes to their 8bit
+ * versions). This function returns a new allocated string or NULL if an error
+ * occurred.
+ */</doc>
+<def f='codebrowser/curl/lib/escape.c' l='86' ll='120' type='char * curl_unescape(const char * string, int length)'/>
+<dec f='codebrowser/curl/lib/escape.h' l='30' type='char * curl_unescape(const char * string, int length)'/>
+<use f='codebrowser/curl/lib/file.c' l='100' u='c' c='Curl_file_connect'/>
+<use f='codebrowser/curl/lib/ftp.c' l='2341' u='c' c='Curl_ftp'/>
+<use f='codebrowser/curl/lib/ftp.c' l='2370' u='c' c='Curl_ftp'/>
+<use f='codebrowser/curl/lib/url.c' l='2807' u='c' c='CreateConnection'/>
+<use f='codebrowser/curl/lib/url.c' l='2817' u='c' c='CreateConnection'/>

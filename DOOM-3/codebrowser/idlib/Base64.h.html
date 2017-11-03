@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Base64.h source code [codebrowser/idlib/Base64.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idBase64 "/>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/idlib/Base64.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>idlib</a>/<a href='Base64.h.html'>Base64.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__BASE64_H__">__BASE64_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__BASE64_H__" data-ref="_M/__BASE64_H__">__BASE64_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>	base64</i></td></tr>
+<tr><th id="36">36</th><td><i></i></td></tr>
+<tr><th id="37">37</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="38">38</th><td><i>*/</i></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><b>class</b> <dfn class="type def" id="idBase64" title='idBase64' data-ref="idBase64">idBase64</dfn> {</td></tr>
+<tr><th id="41">41</th><td><b>public</b>:</td></tr>
+<tr><th id="42">42</th><td>				<a class="decl" href="#_ZN8idBase64C1Ev" title='idBase64::idBase64' data-ref="_ZN8idBase64C1Ev">idBase64</a>( <em>void</em> );</td></tr>
+<tr><th id="43">43</th><td>				<a class="decl" href="#_ZN8idBase64C1ERK5idStr" title='idBase64::idBase64' data-ref="_ZN8idBase64C1ERK5idStr">idBase64</a>( <em>const</em> <a class="type" href="Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a> &amp;<dfn class="local col4 decl" id="6514s" title='s' data-type='const idStr &amp;' data-ref="6514s">s</dfn> );</td></tr>
+<tr><th id="44">44</th><td>				<a class="decl" href="#_ZN8idBase64D1Ev" title='idBase64::~idBase64' data-ref="_ZN8idBase64D1Ev">~idBase64</a>( <em>void</em> );</td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td>	<em>void</em>		<dfn class="decl" id="_ZN8idBase646EncodeEPKhi" title='idBase64::Encode' data-ref="_ZN8idBase646EncodeEPKhi">Encode</dfn>( <em>const</em> <a class="typedef" href="Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *<dfn class="local col5 decl" id="6515from" title='from' data-type='const byte *' data-ref="6515from">from</dfn>, <em>int</em> <dfn class="local col6 decl" id="6516size" title='size' data-type='int' data-ref="6516size">size</dfn> );</td></tr>
+<tr><th id="47">47</th><td>	<em>void</em>		<dfn class="decl" id="_ZN8idBase646EncodeERK5idStr" title='idBase64::Encode' data-ref="_ZN8idBase646EncodeERK5idStr">Encode</dfn>( <em>const</em> <a class="type" href="Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a> &amp;<dfn class="local col7 decl" id="6517src" title='src' data-type='const idStr &amp;' data-ref="6517src">src</dfn> );</td></tr>
+<tr><th id="48">48</th><td>	<em>int</em>			<dfn class="decl" id="_ZNK8idBase6412DecodeLengthEv" title='idBase64::DecodeLength' data-ref="_ZNK8idBase6412DecodeLengthEv">DecodeLength</dfn>( <em>void</em> ) <em>const</em>; <i>// minimum size in bytes of destination buffer for decoding</i></td></tr>
+<tr><th id="49">49</th><td>	<em>int</em>			<dfn class="decl" id="_ZNK8idBase646DecodeEPh" title='idBase64::Decode' data-ref="_ZNK8idBase646DecodeEPh">Decode</dfn>( <a class="typedef" href="Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *<dfn class="local col8 decl" id="6518to" title='to' data-type='byte *' data-ref="6518to">to</dfn> ) <em>const</em>; <i>// does not append a \0 - needs a DecodeLength() bytes buffer</i></td></tr>
+<tr><th id="50">50</th><td>	<em>void</em>		<dfn class="decl" id="_ZNK8idBase646DecodeER5idStr" title='idBase64::Decode' data-ref="_ZNK8idBase646DecodeER5idStr">Decode</dfn>( <a class="type" href="Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a> &amp;<dfn class="local col9 decl" id="6519dest" title='dest' data-type='idStr &amp;' data-ref="6519dest">dest</dfn> ) <em>const</em>; <i>// decodes the binary content to an idStr (a bit dodgy, \0 and other non-ascii are possible in the decoded content)</i></td></tr>
+<tr><th id="51">51</th><td>	<em>void</em>		<dfn class="decl" id="_ZNK8idBase646DecodeEP6idFile" title='idBase64::Decode' data-ref="_ZNK8idBase646DecodeEP6idFile">Decode</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col0 decl" id="6520dest" title='dest' data-type='idFile *' data-ref="6520dest">dest</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td>	<em>const</em> <em>char</em>	*<a class="decl" href="#_ZNK8idBase645c_strEv" title='idBase64::c_str' data-ref="_ZNK8idBase645c_strEv">c_str</a>() <em>const</em>;</td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td>	<em>void</em> 		<a class="decl" href="#_ZN8idBase64aSERK5idStr" title='idBase64::operator=' data-ref="_ZN8idBase64aSERK5idStr"><b>operator</b>=</a>( <em>const</em> <a class="type" href="Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a> &amp;<dfn class="local col1 decl" id="6521s" title='s' data-type='const idStr &amp;' data-ref="6521s">s</dfn> );</td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td><b>private</b>:</td></tr>
+<tr><th id="58">58</th><td>	<a class="typedef" href="Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *		<dfn class="decl" id="idBase64::data" title='idBase64::data' data-ref="idBase64::data">data</dfn>;</td></tr>
+<tr><th id="59">59</th><td>	<em>int</em>			<dfn class="decl" id="idBase64::len" title='idBase64::len' data-ref="idBase64::len">len</dfn>;</td></tr>
+<tr><th id="60">60</th><td>	<em>int</em>			<dfn class="decl" id="idBase64::alloced" title='idBase64::alloced' data-ref="idBase64::alloced">alloced</dfn>;</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td>	<em>void</em>		<a class="decl" href="#_ZN8idBase644InitEv" title='idBase64::Init' data-ref="_ZN8idBase644InitEv">Init</a>( <em>void</em> );</td></tr>
+<tr><th id="63">63</th><td>	<em>void</em>		<a class="decl" href="#_ZN8idBase647ReleaseEv" title='idBase64::Release' data-ref="_ZN8idBase647ReleaseEv">Release</a>( <em>void</em> );</td></tr>
+<tr><th id="64">64</th><td>	<em>void</em>		<a class="decl" href="#_ZN8idBase6413EnsureAllocedEi" title='idBase64::EnsureAlloced' data-ref="_ZN8idBase6413EnsureAllocedEi">EnsureAlloced</a>( <em>int</em> <dfn class="local col2 decl" id="6522size" title='size' data-type='int' data-ref="6522size">size</dfn> );</td></tr>
+<tr><th id="65">65</th><td>};</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td><a class="macro" href="../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <a class="type" href="#idBase64" title='idBase64' data-ref="idBase64">idBase64</a>::<dfn class="decl def" id="_ZN8idBase64C1Ev" title='idBase64::idBase64' data-ref="_ZN8idBase64C1Ev">idBase64</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="68">68</th><td>	<a class="member" href="#_ZN8idBase644InitEv" title='idBase64::Init' data-ref="_ZN8idBase644InitEv">Init</a>();</td></tr>
+<tr><th id="69">69</th><td>}</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td><a class="macro" href="../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <a class="type" href="#idBase64" title='idBase64' data-ref="idBase64">idBase64</a>::<dfn class="decl def" id="_ZN8idBase64C1ERK5idStr" title='idBase64::idBase64' data-ref="_ZN8idBase64C1ERK5idStr">idBase64</dfn>( <em>const</em> <a class="type" href="Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a> &amp;<dfn class="local col3 decl" id="6523s" title='s' data-type='const idStr &amp;' data-ref="6523s">s</dfn> ) {</td></tr>
+<tr><th id="72">72</th><td>	<a class="member" href="#_ZN8idBase644InitEv" title='idBase64::Init' data-ref="_ZN8idBase644InitEv">Init</a>();</td></tr>
+<tr><th id="73">73</th><td>	*<b>this</b> <a class="member" href="#_ZN8idBase64aSERK5idStr" title='idBase64::operator=' data-ref="_ZN8idBase64aSERK5idStr">=</a> <a class="local col3 ref" href="#6523s" title='s' data-ref="6523s">s</a>;</td></tr>
+<tr><th id="74">74</th><td>}</td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td><a class="macro" href="../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <a class="type" href="#idBase64" title='idBase64' data-ref="idBase64">idBase64</a>::<dfn class="decl def" id="_ZN8idBase64D1Ev" title='idBase64::~idBase64' data-ref="_ZN8idBase64D1Ev">~idBase64</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="77">77</th><td>	<a class="member" href="#_ZN8idBase647ReleaseEv" title='idBase64::Release' data-ref="_ZN8idBase647ReleaseEv">Release</a>();</td></tr>
+<tr><th id="78">78</th><td>}</td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td><a class="macro" href="../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>const</em> <em>char</em> *<a class="type" href="#idBase64" title='idBase64' data-ref="idBase64">idBase64</a>::<dfn class="decl def" id="_ZNK8idBase645c_strEv" title='idBase64::c_str' data-ref="_ZNK8idBase645c_strEv">c_str</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="81">81</th><td>	<b>return</b> (<em>const</em> <em>char</em> *)<a class="member" href="#idBase64::data" title='idBase64::data' data-ref="idBase64::data">data</a>;</td></tr>
+<tr><th id="82">82</th><td>}</td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td><a class="macro" href="../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>void</em> <a class="type" href="#idBase64" title='idBase64' data-ref="idBase64">idBase64</a>::<dfn class="decl def" id="_ZN8idBase644InitEv" title='idBase64::Init' data-ref="_ZN8idBase644InitEv">Init</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="85">85</th><td>	<a class="member" href="#idBase64::len" title='idBase64::len' data-ref="idBase64::len">len</a> = <var>0</var>;</td></tr>
+<tr><th id="86">86</th><td>	<a class="member" href="#idBase64::alloced" title='idBase64::alloced' data-ref="idBase64::alloced">alloced</a> = <var>0</var>;</td></tr>
+<tr><th id="87">87</th><td>	<a class="member" href="#idBase64::data" title='idBase64::data' data-ref="idBase64::data">data</a> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="88">88</th><td>}</td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td><a class="macro" href="../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>void</em> <a class="type" href="#idBase64" title='idBase64' data-ref="idBase64">idBase64</a>::<dfn class="decl def" id="_ZN8idBase647ReleaseEv" title='idBase64::Release' data-ref="_ZN8idBase647ReleaseEv">Release</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="91">91</th><td>	<b>if</b> ( <a class="member" href="#idBase64::data" title='idBase64::data' data-ref="idBase64::data">data</a> ) {</td></tr>
+<tr><th id="92">92</th><td>		<b>delete</b>[] <a class="member" href="#idBase64::data" title='idBase64::data' data-ref="idBase64::data">data</a>;</td></tr>
+<tr><th id="93">93</th><td>	}</td></tr>
+<tr><th id="94">94</th><td>	<a class="member" href="#_ZN8idBase644InitEv" title='idBase64::Init' data-ref="_ZN8idBase644InitEv">Init</a>();</td></tr>
+<tr><th id="95">95</th><td>}</td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td><a class="macro" href="../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>void</em> <a class="type" href="#idBase64" title='idBase64' data-ref="idBase64">idBase64</a>::<dfn class="decl def" id="_ZN8idBase6413EnsureAllocedEi" title='idBase64::EnsureAlloced' data-ref="_ZN8idBase6413EnsureAllocedEi">EnsureAlloced</dfn>( <em>int</em> <dfn class="local col4 decl" id="6524size" title='size' data-type='int' data-ref="6524size">size</dfn> ) {</td></tr>
+<tr><th id="98">98</th><td>	<b>if</b> ( <a class="local col4 ref" href="#6524size" title='size' data-ref="6524size">size</a> &gt; <a class="member" href="#idBase64::alloced" title='idBase64::alloced' data-ref="idBase64::alloced">alloced</a> ) {</td></tr>
+<tr><th id="99">99</th><td>		<a class="member" href="#_ZN8idBase647ReleaseEv" title='idBase64::Release' data-ref="_ZN8idBase647ReleaseEv">Release</a>();</td></tr>
+<tr><th id="100">100</th><td>	}</td></tr>
+<tr><th id="101">101</th><td>	<a class="member" href="#idBase64::data" title='idBase64::data' data-ref="idBase64::data">data</a> = <b>new</b> <a class="typedef" href="Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>[<a class="local col4 ref" href="#6524size" title='size' data-ref="6524size">size</a>];</td></tr>
+<tr><th id="102">102</th><td>	<a class="member" href="#idBase64::alloced" title='idBase64::alloced' data-ref="idBase64::alloced">alloced</a> = <a class="local col4 ref" href="#6524size" title='size' data-ref="6524size">size</a>;</td></tr>
+<tr><th id="103">103</th><td>}</td></tr>
+<tr><th id="104">104</th><td></td></tr>
+<tr><th id="105">105</th><td><a class="macro" href="../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>void</em> <a class="type" href="#idBase64" title='idBase64' data-ref="idBase64">idBase64</a>::<dfn class="decl def" id="_ZN8idBase64aSERK5idStr" title='idBase64::operator=' data-ref="_ZN8idBase64aSERK5idStr"><b>operator</b>=</dfn>( <em>const</em> <a class="type" href="Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a> &amp;<dfn class="local col5 decl" id="6525s" title='s' data-type='const idStr &amp;' data-ref="6525s">s</dfn> ) {</td></tr>
+<tr><th id="106">106</th><td>	<a class="member" href="#_ZN8idBase6413EnsureAllocedEi" title='idBase64::EnsureAlloced' data-ref="_ZN8idBase6413EnsureAllocedEi">EnsureAlloced</a>( <a class="local col5 ref" href="#6525s" title='s' data-ref="6525s">s</a>.<a class="ref" href="Str.h.html#_ZNK5idStr6LengthEv" title='idStr::Length' data-ref="_ZNK5idStr6LengthEv">Length</a>()+<var>1</var> ); <i>// trailing \0 - beware, this does a Release</i></td></tr>
+<tr><th id="107">107</th><td>	<a class="ref" href="../../include/string.h.html#strcpy" title='strcpy' data-ref="strcpy">strcpy</a>( (<em>char</em> *)<a class="member" href="#idBase64::data" title='idBase64::data' data-ref="idBase64::data">data</a>, <a class="local col5 ref" href="#6525s" title='s' data-ref="6525s">s</a>.<a class="ref" href="Str.h.html#_ZNK5idStr5c_strEv" title='idStr::c_str' data-ref="_ZNK5idStr5c_strEv">c_str</a>() );</td></tr>
+<tr><th id="108">108</th><td>	<a class="member" href="#idBase64::len" title='idBase64::len' data-ref="idBase64::len">len</a> = <a class="local col5 ref" href="#6525s" title='s' data-ref="6525s">s</a>.<a class="ref" href="Str.h.html#_ZNK5idStr6LengthEv" title='idStr::Length' data-ref="_ZNK5idStr6LengthEv">Length</a>();</td></tr>
+<tr><th id="109">109</th><td>}</td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td><u>#<span data-ppcond="29">endif</span> /* !__BASE64_H__ */</u></td></tr>
+<tr><th id="112">112</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../TypeInfo/TypeInfoGen.cpp.html'>codebrowser/TypeInfo/TypeInfoGen.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

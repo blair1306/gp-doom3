@@ -1,0 +1,7 @@
+<dec f='codebrowser/framework/FileSystem.h' l='275' type='findFile_t idFileSystem::FindFile(const char * path, bool scheduleAddons = false)'/>
+<doc f='codebrowser/framework/FileSystem.h' l='273'>// look for a file in the loaded paks or the addon paks
+							// if the file is found in addons, FS&apos;s internal structures are ready for a reloadEngine</doc>
+<ovr f='codebrowser/framework/FileSystem.cpp' l='4091' c='_ZN17idFileSystemLocal8FindFileEPKcb'/>
+<use f='codebrowser/framework/Session.cpp' l='101' u='c' c='_ZL13Session_Map_fRK9idCmdArgs'/>
+<use f='codebrowser/framework/Session.cpp' l='142' u='c' c='_ZL16Session_DevMap_fRK9idCmdArgs'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='266' u='c' c='_ZN13idAsyncServer16ExecuteMapChangeEv'/>

@@ -1,0 +1,17 @@
+<dec f='codebrowser/renderer/jpeg-6/jpeglib.h' l='360' type='boolean'/>
+<offset>1600</offset>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='357'>/*
+   * These fields are computed during compression startup
+   */</doc>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='360'>/* TRUE if scan script uses progressive mode */</doc>
+<use f='codebrowser/renderer/jpeg-6/jcinit.c' l='47' u='r' c='jinit_compress_master'/>
+<use f='codebrowser/renderer/jpeg-6/jcmarker.c' l='312' u='r' c='emit_sos'/>
+<use f='codebrowser/renderer/jpeg-6/jcmarker.c' l='496' u='r' c='write_frame_header'/>
+<use f='codebrowser/renderer/jpeg-6/jcmarker.c' l='517' u='r' c='write_frame_header'/>
+<use f='codebrowser/renderer/jpeg-6/jcmarker.c' l='551' u='r' c='write_scan_header'/>
+<use f='codebrowser/renderer/jpeg-6/jcmaster.c' l='154' u='w' c='validate_script'/>
+<use f='codebrowser/renderer/jpeg-6/jcmaster.c' l='163' u='w' c='validate_script'/>
+<use f='codebrowser/renderer/jpeg-6/jcmaster.c' l='186' u='r' c='validate_script'/>
+<use f='codebrowser/renderer/jpeg-6/jcmaster.c' l='231' u='r' c='validate_script'/>
+<use f='codebrowser/renderer/jpeg-6/jcmaster.c' l='554' u='w' c='jinit_c_master_control'/>
+<use f='codebrowser/renderer/jpeg-6/jcmaster.c' l='558' u='r' c='jinit_c_master_control'/>

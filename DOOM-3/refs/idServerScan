@@ -1,0 +1,46 @@
+<inh f='codebrowser/idlib/containers/List.h' l='84' c='idList'/>
+<def f='codebrowser/framework/async/ServerScan.h' l='72' ll='168'/>
+<size>168</size>
+<fun r='_ZN12idServerScanC1Ev'/>
+<fun r='_ZN12idServerScan12InfoResponseER15networkServer_t'/>
+<fun r='_ZN12idServerScan9AddServerEiPKc'/>
+<fun r='_ZN12idServerScan12StartServersEb'/>
+<fun r='_ZN12idServerScan10EndServersEv'/>
+<fun r='_ZN12idServerScan7NetScanEv'/>
+<fun r='_ZN12idServerScan5ClearEv'/>
+<fun r='_ZN12idServerScan8RunFrameEv'/>
+<fun r='_ZN12idServerScan8GetStateEv'/>
+<fun r='_ZN12idServerScan8SetStateENS_12scan_state_tE'/>
+<fun r='_ZN12idServerScan11GetBestPingER15networkServer_t'/>
+<fun r='_ZN12idServerScan12SetupLANScanEv'/>
+<fun r='_ZN12idServerScan9GUIConfigEP15idUserInterfacePKc'/>
+<fun r='_ZN12idServerScan17GUIUpdateSelectedEv'/>
+<fun r='_ZN12idServerScan8ShutdownEv'/>
+<fun r='_ZN12idServerScan11ApplyFilterEv'/>
+<fun r='_ZN12idServerScan10SetSortingE12serverSort_t'/>
+<fun r='_ZN12idServerScan12GetChallengeEv'/>
+<smbr r='idServerScan::MAX_PINGREQUESTS' t='const int'/>
+<smbr r='idServerScan::REPLY_TIMEOUT' t='const int'/>
+<smbr r='idServerScan::INCOMING_TIMEOUT' t='const int'/>
+<smbr r='idServerScan::REFRESH_START' t='const int'/>
+<mbr r='idServerScan::scan_state' o='128' t='scan_state_t'/>
+<mbr r='idServerScan::incoming_net' o='160' t='bool'/>
+<mbr r='idServerScan::incoming_useTimeout' o='168' t='bool'/>
+<mbr r='idServerScan::incoming_lastTime' o='192' t='int'/>
+<mbr r='idServerScan::lan_pingtime' o='224' t='int'/>
+<mbr r='idServerScan::net_info' o='256' t='idDict'/>
+<mbr r='idServerScan::net_servers' o='608' t='idList&lt;inServer_t&gt;'/>
+<mbr r='idServerScan::cur_info' o='736' t='int'/>
+<mbr r='idServerScan::m_pGUI' o='768' t='idUserInterface *'/>
+<mbr r='idServerScan::listGUI' o='800' t='idListGUI *'/>
+<mbr r='idServerScan::m_sort' o='832' t='serverSort_t'/>
+<mbr r='idServerScan::m_sortAscending' o='864' t='bool'/>
+<mbr r='idServerScan::m_sortedServers' o='896' t='idList&lt;int&gt;'/>
+<mbr r='idServerScan::screenshot' o='1024' t='idStr'/>
+<mbr r='idServerScan::challenge' o='1280' t='int'/>
+<mbr r='idServerScan::endWaitTime' o='1312' t='int'/>
+<fun r='_ZN12idServerScan10LocalClearEv'/>
+<fun r='_ZN12idServerScan11EmitGetInfoER8netadr_t'/>
+<fun r='_ZN12idServerScan6GUIAddEi15networkServer_t'/>
+<fun r='_ZN12idServerScan10IsFilteredE15networkServer_t'/>
+<fun r='_ZN12idServerScan3CmpEPKiS1_'/>

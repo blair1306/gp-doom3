@@ -1,0 +1,20 @@
+<def f='codebrowser/sound/snd_emitter.cpp' l='87' ll='99' type='void PermuteList_r(int * list, int listLength, int permute, int maxPermute)'/>
+<use f='codebrowser/sound/snd_emitter.cpp' l='98' u='c' c='_Z13PermuteList_rPiiii'/>
+<use f='codebrowser/sound/snd_emitter.cpp' l='124' u='c' c='_Z20GeneratePermutedListPiii'/>
+<doc f='codebrowser/sound/snd_emitter.cpp' l='70'>/*
+=======================
+GeneratePermutedList
+
+Fills in elements[0] .. elements[numElements-1] with a permutation of
+0 .. numElements-1 based on the permute parameter
+
+numElements == 3
+maxPermute = 6
+permute 0 = 012
+permute 1 = 021
+permute 2 = 102
+permute 3 = 120
+permute 4 = 201
+permute 5 = 210
+=======================
+*/</doc>

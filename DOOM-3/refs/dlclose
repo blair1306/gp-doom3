@@ -1,0 +1,6 @@
+<dec f='include/dlfcn.h' l='60' type='int dlclose(void * __handle)'/>
+<use f='codebrowser/build/debug/core/glimp/sys/linux/glimp_dlopen.cpp' l='2899' u='c' c='_Z13GLimp_dlclosev'/>
+<doc f='include/dlfcn.h' l='58'>/* Unmap and close a shared object opened by `dlopen&apos;.
+   The handle cannot be used again after calling `dlclose&apos;.  */</doc>
+<use f='codebrowser/sys/linux/sound_alsa.cpp' l='100' u='c' c='_ZN19idAudioHardwareALSA7ReleaseEv'/>
+<use f='codebrowser/sys/posix/posix_main.cpp' l='416' u='c' c='_Z14Sys_DLL_Unloadi'/>

@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Physics_Actor.h source code [codebrowser/d3xp/physics/Physics_Actor.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idPhysics_Actor "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/d3xp/physics/Physics_Actor.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>d3xp</a>/<a href='./'>physics</a>/<a href='Physics_Actor.h.html'>Physics_Actor.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__PHYSICS_ACTOR_H__">__PHYSICS_ACTOR_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__PHYSICS_ACTOR_H__" data-ref="_M/__PHYSICS_ACTOR_H__">__PHYSICS_ACTOR_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>===================================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>	Actor physics base class</i></td></tr>
+<tr><th id="36">36</th><td><i></i></td></tr>
+<tr><th id="37">37</th><td><i>	An actor typically uses one collision model which is aligned with the gravity</i></td></tr>
+<tr><th id="38">38</th><td><i>	direction. The collision model is usually a simple box with the origin at the</i></td></tr>
+<tr><th id="39">39</th><td><i>	bottom center.</i></td></tr>
+<tr><th id="40">40</th><td><i></i></td></tr>
+<tr><th id="41">41</th><td><i>===================================================================================</i></td></tr>
+<tr><th id="42">42</th><td><i>*/</i></td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td><b>class</b> <dfn class="type def" id="idPhysics_Actor" title='idPhysics_Actor' data-ref="idPhysics_Actor">idPhysics_Actor</dfn> : <b>public</b> <a class="type" href="Physics_Base.h.html#idPhysics_Base" title='idPhysics_Base' data-ref="idPhysics_Base">idPhysics_Base</a> {</td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td><b>public</b>:</td></tr>
+<tr><th id="47">47</th><td>	<a class="macro" href="../gamesys/Class.h.html#92" title="public: static idTypeInfo Type; static idClass *CreateInstance( void ); virtual idTypeInfo *GetType( void ) const; static idEventFunc&lt;idPhysics_Actor&gt; eventCallbacks[]" data-ref="_M/CLASS_PROTOTYPE">CLASS_PROTOTYPE</a>( <a class="type" href="#idPhysics_Actor" title='idPhysics_Actor' data-ref="idPhysics_Actor">idPhysics_Actor</a> );</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td>							<dfn class="decl" id="_ZN15idPhysics_ActorC1Ev" title='idPhysics_Actor::idPhysics_Actor' data-ref="_ZN15idPhysics_ActorC1Ev">idPhysics_Actor</dfn>( <em>void</em> );</td></tr>
+<tr><th id="50">50</th><td>							<dfn class="virtual decl" id="_ZN15idPhysics_ActorD1Ev" title='idPhysics_Actor::~idPhysics_Actor' data-ref="_ZN15idPhysics_ActorD1Ev">~idPhysics_Actor</dfn>( <em>void</em> );</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td>	<em>void</em>					<dfn class="decl" id="_ZNK15idPhysics_Actor4SaveEP10idSaveGame" title='idPhysics_Actor::Save' data-ref="_ZNK15idPhysics_Actor4SaveEP10idSaveGame">Save</dfn>( <a class="type" href="../gamesys/SaveGame.h.html#idSaveGame" title='idSaveGame' data-ref="idSaveGame">idSaveGame</a> *<dfn class="local col9 decl" id="1879savefile" title='savefile' data-type='idSaveGame *' data-ref="1879savefile">savefile</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="53">53</th><td>	<em>void</em>					<dfn class="decl" id="_ZN15idPhysics_Actor7RestoreEP13idRestoreGame" title='idPhysics_Actor::Restore' data-ref="_ZN15idPhysics_Actor7RestoreEP13idRestoreGame">Restore</dfn>( <a class="type" href="../gamesys/SaveGame.h.html#idRestoreGame" title='idRestoreGame' data-ref="idRestoreGame">idRestoreGame</a> *<dfn class="local col0 decl" id="1880savefile" title='savefile' data-type='idRestoreGame *' data-ref="1880savefile">savefile</dfn> );</td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td>							<i>// get delta yaw of master</i></td></tr>
+<tr><th id="56">56</th><td>	<em>float</em>					<dfn class="decl" id="_ZNK15idPhysics_Actor17GetMasterDeltaYawEv" title='idPhysics_Actor::GetMasterDeltaYaw' data-ref="_ZNK15idPhysics_Actor17GetMasterDeltaYawEv">GetMasterDeltaYaw</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="57">57</th><td>							<i>// returns the ground entity</i></td></tr>
+<tr><th id="58">58</th><td>	<a class="type" href="../Entity.h.html#idEntity" title='idEntity' data-ref="idEntity">idEntity</a> *				<dfn class="decl" id="_ZNK15idPhysics_Actor15GetGroundEntityEv" title='idPhysics_Actor::GetGroundEntity' data-ref="_ZNK15idPhysics_Actor15GetGroundEntityEv">GetGroundEntity</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="59">59</th><td>							<i>// align the clip model with the gravity direction</i></td></tr>
+<tr><th id="60">60</th><td>	<em>void</em>					<dfn class="decl" id="_ZN15idPhysics_Actor16SetClipModelAxisEv" title='idPhysics_Actor::SetClipModelAxis' data-ref="_ZN15idPhysics_Actor16SetClipModelAxisEv">SetClipModelAxis</dfn>( <em>void</em> );</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td><b>public</b>:	<i>// common physics interface</i></td></tr>
+<tr><th id="63">63</th><td>	<em>void</em>					<dfn class="virtual decl" id="_ZN15idPhysics_Actor12SetClipModelEP11idClipModelfib" title='idPhysics_Actor::SetClipModel' data-ref="_ZN15idPhysics_Actor12SetClipModelEP11idClipModelfib">SetClipModel</dfn>( <a class="type" href="Clip.h.html#idClipModel" title='idClipModel' data-ref="idClipModel">idClipModel</a> *<dfn class="local col1 decl" id="1881model" title='model' data-type='idClipModel *' data-ref="1881model">model</dfn>, <em>float</em> <dfn class="local col2 decl" id="1882density" title='density' data-type='float' data-ref="1882density">density</dfn>, <em>int</em> <dfn class="local col3 decl" id="1883id" title='id' data-type='int' data-ref="1883id">id</dfn> = <var>0</var>, <em>bool</em> <dfn class="local col4 decl" id="1884freeOld" title='freeOld' data-type='bool' data-ref="1884freeOld">freeOld</dfn> = <b>true</b> );</td></tr>
+<tr><th id="64">64</th><td>	<a class="type" href="Clip.h.html#idClipModel" title='idClipModel' data-ref="idClipModel">idClipModel</a> *			<dfn class="virtual decl" id="_ZNK15idPhysics_Actor12GetClipModelEi" title='idPhysics_Actor::GetClipModel' data-ref="_ZNK15idPhysics_Actor12GetClipModelEi">GetClipModel</dfn>( <em>int</em> <dfn class="local col5 decl" id="1885id" title='id' data-type='int' data-ref="1885id">id</dfn> = <var>0</var> ) <em>const</em>;</td></tr>
+<tr><th id="65">65</th><td>	<em>int</em>						<dfn class="virtual decl" id="_ZNK15idPhysics_Actor16GetNumClipModelsEv" title='idPhysics_Actor::GetNumClipModels' data-ref="_ZNK15idPhysics_Actor16GetNumClipModelsEv">GetNumClipModels</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td>	<em>void</em>					<dfn class="virtual decl" id="_ZN15idPhysics_Actor7SetMassEfi" title='idPhysics_Actor::SetMass' data-ref="_ZN15idPhysics_Actor7SetMassEfi">SetMass</dfn>( <em>float</em> <dfn class="local col6 decl" id="1886mass" title='mass' data-type='float' data-ref="1886mass">mass</dfn>, <em>int</em> <dfn class="local col7 decl" id="1887id" title='id' data-type='int' data-ref="1887id">id</dfn> = -<var>1</var> );</td></tr>
+<tr><th id="68">68</th><td>	<em>float</em>					<dfn class="virtual decl" id="_ZNK15idPhysics_Actor7GetMassEi" title='idPhysics_Actor::GetMass' data-ref="_ZNK15idPhysics_Actor7GetMassEi">GetMass</dfn>( <em>int</em> <dfn class="local col8 decl" id="1888id" title='id' data-type='int' data-ref="1888id">id</dfn> = -<var>1</var> ) <em>const</em>;</td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td>	<em>void</em>					<dfn class="virtual decl" id="_ZN15idPhysics_Actor11SetContentsEii" title='idPhysics_Actor::SetContents' data-ref="_ZN15idPhysics_Actor11SetContentsEii">SetContents</dfn>( <em>int</em> <dfn class="local col9 decl" id="1889contents" title='contents' data-type='int' data-ref="1889contents">contents</dfn>, <em>int</em> <dfn class="local col0 decl" id="1890id" title='id' data-type='int' data-ref="1890id">id</dfn> = -<var>1</var> );</td></tr>
+<tr><th id="71">71</th><td>	<em>int</em>						<dfn class="virtual decl" id="_ZNK15idPhysics_Actor11GetContentsEi" title='idPhysics_Actor::GetContents' data-ref="_ZNK15idPhysics_Actor11GetContentsEi">GetContents</dfn>( <em>int</em> <dfn class="local col1 decl" id="1891id" title='id' data-type='int' data-ref="1891id">id</dfn> = -<var>1</var> ) <em>const</em>;</td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td>	<em>const</em> <a class="type" href="../../idlib/bv/Bounds.h.html#idBounds" title='idBounds' data-ref="idBounds">idBounds</a> &amp;		<dfn class="virtual decl" id="_ZNK15idPhysics_Actor9GetBoundsEi" title='idPhysics_Actor::GetBounds' data-ref="_ZNK15idPhysics_Actor9GetBoundsEi">GetBounds</dfn>( <em>int</em> <dfn class="local col2 decl" id="1892id" title='id' data-type='int' data-ref="1892id">id</dfn> = -<var>1</var> ) <em>const</em>;</td></tr>
+<tr><th id="74">74</th><td>	<em>const</em> <a class="type" href="../../idlib/bv/Bounds.h.html#idBounds" title='idBounds' data-ref="idBounds">idBounds</a> &amp;		<dfn class="virtual decl" id="_ZNK15idPhysics_Actor12GetAbsBoundsEi" title='idPhysics_Actor::GetAbsBounds' data-ref="_ZNK15idPhysics_Actor12GetAbsBoundsEi">GetAbsBounds</dfn>( <em>int</em> <dfn class="local col3 decl" id="1893id" title='id' data-type='int' data-ref="1893id">id</dfn> = -<var>1</var> ) <em>const</em>;</td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td>	<em>bool</em>					<dfn class="virtual decl" id="_ZNK15idPhysics_Actor10IsPushableEv" title='idPhysics_Actor::IsPushable' data-ref="_ZNK15idPhysics_Actor10IsPushableEv">IsPushable</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td>	<em>const</em> <a class="type" href="../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;			<dfn class="virtual decl" id="_ZNK15idPhysics_Actor9GetOriginEi" title='idPhysics_Actor::GetOrigin' data-ref="_ZNK15idPhysics_Actor9GetOriginEi">GetOrigin</dfn>( <em>int</em> <dfn class="local col4 decl" id="1894id" title='id' data-type='int' data-ref="1894id">id</dfn> = <var>0</var> ) <em>const</em>;</td></tr>
+<tr><th id="79">79</th><td>	<em>const</em> <a class="type" href="../../idlib/math/Matrix.h.html#idMat3" title='idMat3' data-ref="idMat3">idMat3</a> &amp;			<dfn class="virtual decl" id="_ZNK15idPhysics_Actor7GetAxisEi" title='idPhysics_Actor::GetAxis' data-ref="_ZNK15idPhysics_Actor7GetAxisEi">GetAxis</dfn>( <em>int</em> <dfn class="local col5 decl" id="1895id" title='id' data-type='int' data-ref="1895id">id</dfn> = <var>0</var> ) <em>const</em>;</td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td>	<em>void</em>					<dfn class="virtual decl" id="_ZN15idPhysics_Actor10SetGravityERK6idVec3" title='idPhysics_Actor::SetGravity' data-ref="_ZN15idPhysics_Actor10SetGravityERK6idVec3">SetGravity</dfn>( <em>const</em> <a class="type" href="../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col6 decl" id="1896newGravity" title='newGravity' data-type='const idVec3 &amp;' data-ref="1896newGravity">newGravity</dfn> );</td></tr>
+<tr><th id="82">82</th><td>	<em>const</em> <a class="type" href="../../idlib/math/Matrix.h.html#idMat3" title='idMat3' data-ref="idMat3">idMat3</a> &amp;			<dfn class="decl" id="_ZNK15idPhysics_Actor14GetGravityAxisEv" title='idPhysics_Actor::GetGravityAxis' data-ref="_ZNK15idPhysics_Actor14GetGravityAxisEv">GetGravityAxis</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td>	<em>void</em>					<dfn class="virtual decl" id="_ZNK15idPhysics_Actor15ClipTranslationER7trace_sRK6idVec3PK11idClipModel" title='idPhysics_Actor::ClipTranslation' data-ref="_ZNK15idPhysics_Actor15ClipTranslationER7trace_sRK6idVec3PK11idClipModel">ClipTranslation</dfn>( <a class="typedef" href="../../cm/CollisionModel.h.html#trace_t" title='trace_t' data-type='struct trace_s' data-ref="trace_t">trace_t</a> &amp;<dfn class="local col7 decl" id="1897results" title='results' data-type='trace_t &amp;' data-ref="1897results">results</dfn>, <em>const</em> <a class="type" href="../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col8 decl" id="1898translation" title='translation' data-type='const idVec3 &amp;' data-ref="1898translation">translation</dfn>, <em>const</em> <a class="type" href="Clip.h.html#idClipModel" title='idClipModel' data-ref="idClipModel">idClipModel</a> *<dfn class="local col9 decl" id="1899model" title='model' data-type='const idClipModel *' data-ref="1899model">model</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="85">85</th><td>	<em>void</em>					<dfn class="virtual decl" id="_ZNK15idPhysics_Actor12ClipRotationER7trace_sRK10idRotationPK11idClipModel" title='idPhysics_Actor::ClipRotation' data-ref="_ZNK15idPhysics_Actor12ClipRotationER7trace_sRK10idRotationPK11idClipModel">ClipRotation</dfn>( <a class="typedef" href="../../cm/CollisionModel.h.html#trace_t" title='trace_t' data-type='struct trace_s' data-ref="trace_t">trace_t</a> &amp;<dfn class="local col0 decl" id="1900results" title='results' data-type='trace_t &amp;' data-ref="1900results">results</dfn>, <em>const</em> <a class="type" href="../../idlib/math/Rotation.h.html#idRotation" title='idRotation' data-ref="idRotation">idRotation</a> &amp;<dfn class="local col1 decl" id="1901rotation" title='rotation' data-type='const idRotation &amp;' data-ref="1901rotation">rotation</dfn>, <em>const</em> <a class="type" href="Clip.h.html#idClipModel" title='idClipModel' data-ref="idClipModel">idClipModel</a> *<dfn class="local col2 decl" id="1902model" title='model' data-type='const idClipModel *' data-ref="1902model">model</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="86">86</th><td>	<em>int</em>						<dfn class="virtual decl" id="_ZNK15idPhysics_Actor12ClipContentsEPK11idClipModel" title='idPhysics_Actor::ClipContents' data-ref="_ZNK15idPhysics_Actor12ClipContentsEPK11idClipModel">ClipContents</dfn>( <em>const</em> <a class="type" href="Clip.h.html#idClipModel" title='idClipModel' data-ref="idClipModel">idClipModel</a> *<dfn class="local col3 decl" id="1903model" title='model' data-type='const idClipModel *' data-ref="1903model">model</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td>	<em>void</em>					<dfn class="virtual decl" id="_ZN15idPhysics_Actor11DisableClipEv" title='idPhysics_Actor::DisableClip' data-ref="_ZN15idPhysics_Actor11DisableClipEv">DisableClip</dfn>( <em>void</em> );</td></tr>
+<tr><th id="89">89</th><td>	<em>void</em>					<dfn class="virtual decl" id="_ZN15idPhysics_Actor10EnableClipEv" title='idPhysics_Actor::EnableClip' data-ref="_ZN15idPhysics_Actor10EnableClipEv">EnableClip</dfn>( <em>void</em> );</td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td>	<em>void</em>					<dfn class="virtual decl" id="_ZN15idPhysics_Actor10UnlinkClipEv" title='idPhysics_Actor::UnlinkClip' data-ref="_ZN15idPhysics_Actor10UnlinkClipEv">UnlinkClip</dfn>( <em>void</em> );</td></tr>
+<tr><th id="92">92</th><td>	<em>void</em>					<dfn class="virtual decl" id="_ZN15idPhysics_Actor8LinkClipEv" title='idPhysics_Actor::LinkClip' data-ref="_ZN15idPhysics_Actor8LinkClipEv">LinkClip</dfn>( <em>void</em> );</td></tr>
+<tr><th id="93">93</th><td></td></tr>
+<tr><th id="94">94</th><td>	<em>bool</em>					<dfn class="virtual decl" id="_ZN15idPhysics_Actor16EvaluateContactsEv" title='idPhysics_Actor::EvaluateContacts' data-ref="_ZN15idPhysics_Actor16EvaluateContactsEv">EvaluateContacts</dfn>( <em>void</em> );</td></tr>
+<tr><th id="95">95</th><td></td></tr>
+<tr><th id="96">96</th><td><b>protected</b>:</td></tr>
+<tr><th id="97">97</th><td>	<a class="type" href="Clip.h.html#idClipModel" title='idClipModel' data-ref="idClipModel">idClipModel</a> *			<dfn class="decl" id="idPhysics_Actor::clipModel" title='idPhysics_Actor::clipModel' data-ref="idPhysics_Actor::clipModel">clipModel</dfn>;			<i>// clip model used for collision detection</i></td></tr>
+<tr><th id="98">98</th><td>	<a class="type" href="../../idlib/math/Matrix.h.html#idMat3" title='idMat3' data-ref="idMat3">idMat3</a>					<dfn class="decl" id="idPhysics_Actor::clipModelAxis" title='idPhysics_Actor::clipModelAxis' data-ref="idPhysics_Actor::clipModelAxis">clipModelAxis</dfn>;		<i>// axis of clip model aligned with gravity direction</i></td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td>	<i>// derived properties</i></td></tr>
+<tr><th id="101">101</th><td>	<em>float</em>					<dfn class="decl" id="idPhysics_Actor::mass" title='idPhysics_Actor::mass' data-ref="idPhysics_Actor::mass">mass</dfn>;</td></tr>
+<tr><th id="102">102</th><td>	<em>float</em>					<dfn class="decl" id="idPhysics_Actor::invMass" title='idPhysics_Actor::invMass' data-ref="idPhysics_Actor::invMass">invMass</dfn>;</td></tr>
+<tr><th id="103">103</th><td></td></tr>
+<tr><th id="104">104</th><td>	<i>// master</i></td></tr>
+<tr><th id="105">105</th><td>	<a class="type" href="../Entity.h.html#idEntity" title='idEntity' data-ref="idEntity">idEntity</a> *				<dfn class="decl" id="idPhysics_Actor::masterEntity" title='idPhysics_Actor::masterEntity' data-ref="idPhysics_Actor::masterEntity">masterEntity</dfn>;</td></tr>
+<tr><th id="106">106</th><td>	<em>float</em>					<dfn class="decl" id="idPhysics_Actor::masterYaw" title='idPhysics_Actor::masterYaw' data-ref="idPhysics_Actor::masterYaw">masterYaw</dfn>;</td></tr>
+<tr><th id="107">107</th><td>	<em>float</em>					<dfn class="decl" id="idPhysics_Actor::masterDeltaYaw" title='idPhysics_Actor::masterDeltaYaw' data-ref="idPhysics_Actor::masterDeltaYaw">masterDeltaYaw</dfn>;</td></tr>
+<tr><th id="108">108</th><td></td></tr>
+<tr><th id="109">109</th><td>	<i>// results of last evaluate</i></td></tr>
+<tr><th id="110">110</th><td>	<a class="type" href="../Game_local.h.html#idEntityPtr" title='idEntityPtr' data-ref="idEntityPtr">idEntityPtr</a>&lt;<a class="type" href="../Entity.h.html#idEntity" title='idEntity' data-ref="idEntity">idEntity</a>&gt;	<dfn class="decl" id="idPhysics_Actor::groundEntityPtr" title='idPhysics_Actor::groundEntityPtr' data-ref="idPhysics_Actor::groundEntityPtr">groundEntityPtr</dfn>;</td></tr>
+<tr><th id="111">111</th><td>};</td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td><u>#<span data-ppcond="29">endif</span> /* !__PHYSICS_ACTOR_H__ */</u></td></tr>
+<tr><th id="114">114</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../AF.cpp.html'>codebrowser/d3xp/AF.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

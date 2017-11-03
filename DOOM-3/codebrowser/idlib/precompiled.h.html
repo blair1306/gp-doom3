@@ -1,0 +1,235 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>precompiled.h source code [codebrowser/idlib/precompiled.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/idlib/precompiled.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>idlib</a>/<a href='precompiled.h.html'>precompiled.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__PRECOMPILED_H__">__PRECOMPILED_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__PRECOMPILED_H__" data-ref="_M/__PRECOMPILED_H__">__PRECOMPILED_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#<span data-ppcond="32">ifdef</span> <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><i>//-----------------------------------------------------</i></td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><u>#define <dfn class="macro" id="_M/ID_TIME_T" data-ref="_M/ID_TIME_T">ID_TIME_T</dfn> time_t</u></td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td><u>#<span data-ppcond="38">ifdef</span> <span class="macro" data-ref="_M/_WIN32">_WIN32</span></u></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><u>#define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS	// prevent auto literal to string conversion</u></td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><u>#ifndef _D3SDK</u></td></tr>
+<tr><th id="43">43</th><td><u>#ifndef GAME_DLL</u></td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td><u>#define WINVER				0x501</u></td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td><u>#if 0</u></td></tr>
+<tr><th id="48">48</th><td><i>// Dedicated server hits unresolved when trying to link this way now. Likely because of the 2010/Win7 transition? - TTimo</i></td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td><u>#ifdef	ID_DEDICATED</u></td></tr>
+<tr><th id="51">51</th><td><i>// dedicated sets windows version here</i></td></tr>
+<tr><th id="52">52</th><td><u>#define	_WIN32_WINNT WINVER</u></td></tr>
+<tr><th id="53">53</th><td><u>#define	WIN32_LEAN_AND_MEAN</u></td></tr>
+<tr><th id="54">54</th><td><u>#else</u></td></tr>
+<tr><th id="55">55</th><td><i>// non-dedicated includes MFC and sets windows version here</i></td></tr>
+<tr><th id="56">56</th><td><u>#include "../tools/comafx/StdAfx.h"			// this will go away when MFC goes away</u></td></tr>
+<tr><th id="57">57</th><td><u>#endif</u></td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td><u>#else</u></td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td><u>#include "../tools/comafx/StdAfx.h"</u></td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td><u>#endif</u></td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td><u>#include &lt;winsock2.h&gt;</u></td></tr>
+<tr><th id="66">66</th><td><u>#include &lt;mmsystem.h&gt;</u></td></tr>
+<tr><th id="67">67</th><td><u>#include &lt;mmreg.h&gt;</u></td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td><u>#define DIRECTINPUT_VERSION  0x0800			// was 0x0700 with the old mssdk</u></td></tr>
+<tr><th id="70">70</th><td><u>#define DIRECTSOUND_VERSION  0x0800</u></td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td><u>#include &lt;dsound.h&gt;</u></td></tr>
+<tr><th id="73">73</th><td><u>#include &lt;dinput.h&gt;</u></td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td><u>#endif /* !GAME_DLL */</u></td></tr>
+<tr><th id="76">76</th><td><u>#endif /* !_D3SDK */</u></td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td><u>#pragma warning(disable : 4100)				// unreferenced formal parameter</u></td></tr>
+<tr><th id="79">79</th><td><u>#pragma warning(disable : 4244)				// conversion to smaller type, possible loss of data</u></td></tr>
+<tr><th id="80">80</th><td><u>#pragma warning(disable : 4714)				// function marked as __forceinline not inlined</u></td></tr>
+<tr><th id="81">81</th><td><u>#pragma warning(disable : 4996)				// unsafe string operations</u></td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td><u>#include &lt;malloc.h&gt;							// no malloc.h on mac or unix</u></td></tr>
+<tr><th id="84">84</th><td><u>#include &lt;windows.h&gt;						// for qgl.h</u></td></tr>
+<tr><th id="85">85</th><td><u>#undef FindText								// stupid namespace poluting Microsoft monkeys</u></td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td><u>#<span data-ppcond="38">endif</span> /* _WIN32 */</u></td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td><i>//-----------------------------------------------------</i></td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td><u>#<span data-ppcond="91">if</span> !defined( <span class="macro" data-ref="_M/_DEBUG">_DEBUG</span> ) &amp;&amp; !defined( <span class="macro" data-ref="_M/NDEBUG">NDEBUG</span> )</u></td></tr>
+<tr><th id="92">92</th><td>	<i>// don't generate asserts</i></td></tr>
+<tr><th id="93">93</th><td>	<u>#define NDEBUG</u></td></tr>
+<tr><th id="94">94</th><td><u>#<span data-ppcond="91">endif</span></u></td></tr>
+<tr><th id="95">95</th><td></td></tr>
+<tr><th id="96">96</th><td><u>#include <a href="../../include/stdio.h.html">&lt;stdio.h&gt;</a></u></td></tr>
+<tr><th id="97">97</th><td><u>#include <a href="../../include/stdlib.h.html">&lt;stdlib.h&gt;</a></u></td></tr>
+<tr><th id="98">98</th><td><u>#include &lt;stdarg.h&gt;</u></td></tr>
+<tr><th id="99">99</th><td><u>#include <a href="../../include/string.h.html">&lt;string.h&gt;</a></u></td></tr>
+<tr><th id="100">100</th><td><u>#include <a href="../../include/assert.h.html">&lt;assert.h&gt;</a></u></td></tr>
+<tr><th id="101">101</th><td><u>#include <a href="../../include/time.h.html">&lt;time.h&gt;</a></u></td></tr>
+<tr><th id="102">102</th><td><u>#include <a href="../../include/ctype.h.html">&lt;ctype.h&gt;</a></u></td></tr>
+<tr><th id="103">103</th><td><u>#include <a href="../../include/c++/5/typeinfo.html">&lt;typeinfo&gt;</a></u></td></tr>
+<tr><th id="104">104</th><td><u>#include <a href="../../include/errno.h.html">&lt;errno.h&gt;</a></u></td></tr>
+<tr><th id="105">105</th><td><u>#include <a href="../../include/math.h.html">&lt;math.h&gt;</a></u></td></tr>
+<tr><th id="106">106</th><td></td></tr>
+<tr><th id="107">107</th><td><i>//-----------------------------------------------------</i></td></tr>
+<tr><th id="108">108</th><td><i></i></td></tr>
+<tr><th id="109">109</th><td><i>// non-portable system services</i></td></tr>
+<tr><th id="110">110</th><td><u>#include <a href="../sys/sys_public.h.html">"../sys/sys_public.h"</a></u></td></tr>
+<tr><th id="111">111</th><td></td></tr>
+<tr><th id="112">112</th><td><i>// id lib</i></td></tr>
+<tr><th id="113">113</th><td><u>#include <a href="Lib.h.html">"../idlib/Lib.h"</a></u></td></tr>
+<tr><th id="114">114</th><td></td></tr>
+<tr><th id="115">115</th><td><i>// framework</i></td></tr>
+<tr><th id="116">116</th><td><u>#include <a href="../framework/BuildVersion.h.html">"../framework/BuildVersion.h"</a></u></td></tr>
+<tr><th id="117">117</th><td><u>#include <a href="../framework/BuildDefines.h.html">"../framework/BuildDefines.h"</a></u></td></tr>
+<tr><th id="118">118</th><td><u>#include <a href="../framework/Licensee.h.html">"../framework/Licensee.h"</a></u></td></tr>
+<tr><th id="119">119</th><td><u>#include <a href="../framework/CmdSystem.h.html">"../framework/CmdSystem.h"</a></u></td></tr>
+<tr><th id="120">120</th><td><u>#include <a href="../framework/CVarSystem.h.html">"../framework/CVarSystem.h"</a></u></td></tr>
+<tr><th id="121">121</th><td><u>#include <a href="../framework/Common.h.html">"../framework/Common.h"</a></u></td></tr>
+<tr><th id="122">122</th><td><u>#include <a href="../framework/File.h.html">"../framework/File.h"</a></u></td></tr>
+<tr><th id="123">123</th><td><u>#include <a href="../framework/FileSystem.h.html">"../framework/FileSystem.h"</a></u></td></tr>
+<tr><th id="124">124</th><td><u>#include <a href="../framework/UsercmdGen.h.html">"../framework/UsercmdGen.h"</a></u></td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td><i>// decls</i></td></tr>
+<tr><th id="127">127</th><td><u>#include <a href="../framework/DeclManager.h.html">"../framework/DeclManager.h"</a></u></td></tr>
+<tr><th id="128">128</th><td><u>#include <a href="../framework/DeclTable.h.html">"../framework/DeclTable.h"</a></u></td></tr>
+<tr><th id="129">129</th><td><u>#include <a href="../framework/DeclSkin.h.html">"../framework/DeclSkin.h"</a></u></td></tr>
+<tr><th id="130">130</th><td><u>#include <a href="../framework/DeclEntityDef.h.html">"../framework/DeclEntityDef.h"</a></u></td></tr>
+<tr><th id="131">131</th><td><u>#include <a href="../framework/DeclFX.h.html">"../framework/DeclFX.h"</a></u></td></tr>
+<tr><th id="132">132</th><td><u>#include <a href="../framework/DeclParticle.h.html">"../framework/DeclParticle.h"</a></u></td></tr>
+<tr><th id="133">133</th><td><u>#include <a href="../framework/DeclAF.h.html">"../framework/DeclAF.h"</a></u></td></tr>
+<tr><th id="134">134</th><td><u>#include <a href="../framework/DeclPDA.h.html">"../framework/DeclPDA.h"</a></u></td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td><i>// We have expression parsing and evaluation code in multiple places:</i></td></tr>
+<tr><th id="137">137</th><td><i>// materials, sound shaders, and guis. We should unify them.</i></td></tr>
+<tr><th id="138">138</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="MAX_EXPRESSION_OPS" title='MAX_EXPRESSION_OPS' data-ref="MAX_EXPRESSION_OPS">MAX_EXPRESSION_OPS</dfn> = <var>4096</var>;</td></tr>
+<tr><th id="139">139</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="MAX_EXPRESSION_REGISTERS" title='MAX_EXPRESSION_REGISTERS' data-ref="MAX_EXPRESSION_REGISTERS">MAX_EXPRESSION_REGISTERS</dfn> = <var>4096</var>;</td></tr>
+<tr><th id="140">140</th><td></td></tr>
+<tr><th id="141">141</th><td><i>// renderer</i></td></tr>
+<tr><th id="142">142</th><td><u>#include <a href="../renderer/qgl.h.html">"../renderer/qgl.h"</a></u></td></tr>
+<tr><th id="143">143</th><td><u>#include <a href="../renderer/Cinematic.h.html">"../renderer/Cinematic.h"</a></u></td></tr>
+<tr><th id="144">144</th><td><u>#include <a href="../renderer/Material.h.html">"../renderer/Material.h"</a></u></td></tr>
+<tr><th id="145">145</th><td><u>#include <a href="../renderer/Model.h.html">"../renderer/Model.h"</a></u></td></tr>
+<tr><th id="146">146</th><td><u>#include <a href="../renderer/ModelManager.h.html">"../renderer/ModelManager.h"</a></u></td></tr>
+<tr><th id="147">147</th><td><u>#include <a href="../renderer/RenderSystem.h.html">"../renderer/RenderSystem.h"</a></u></td></tr>
+<tr><th id="148">148</th><td><u>#include <a href="../renderer/RenderWorld.h.html">"../renderer/RenderWorld.h"</a></u></td></tr>
+<tr><th id="149">149</th><td></td></tr>
+<tr><th id="150">150</th><td><i>// sound engine</i></td></tr>
+<tr><th id="151">151</th><td><u>#include <a href="../sound/sound.h.html">"../sound/sound.h"</a></u></td></tr>
+<tr><th id="152">152</th><td></td></tr>
+<tr><th id="153">153</th><td><i>// asynchronous networking</i></td></tr>
+<tr><th id="154">154</th><td><u>#include <a href="../framework/async/NetworkSystem.h.html">"../framework/async/NetworkSystem.h"</a></u></td></tr>
+<tr><th id="155">155</th><td></td></tr>
+<tr><th id="156">156</th><td><i>// user interfaces</i></td></tr>
+<tr><th id="157">157</th><td><u>#include <a href="../ui/ListGUI.h.html">"../ui/ListGUI.h"</a></u></td></tr>
+<tr><th id="158">158</th><td><u>#include <a href="../ui/UserInterface.h.html">"../ui/UserInterface.h"</a></u></td></tr>
+<tr><th id="159">159</th><td></td></tr>
+<tr><th id="160">160</th><td><i>// collision detection system</i></td></tr>
+<tr><th id="161">161</th><td><u>#include <a href="../cm/CollisionModel.h.html">"../cm/CollisionModel.h"</a></u></td></tr>
+<tr><th id="162">162</th><td></td></tr>
+<tr><th id="163">163</th><td><i>// AAS files and manager</i></td></tr>
+<tr><th id="164">164</th><td><u>#include <a href="../tools/compilers/aas/AASFile.h.html">"../tools/compilers/aas/AASFile.h"</a></u></td></tr>
+<tr><th id="165">165</th><td><u>#include <a href="../tools/compilers/aas/AASFileManager.h.html">"../tools/compilers/aas/AASFileManager.h"</a></u></td></tr>
+<tr><th id="166">166</th><td></td></tr>
+<tr><th id="167">167</th><td><i>// game</i></td></tr>
+<tr><th id="168">168</th><td><u>#<span data-ppcond="168">if</span> defined(<span class="macro" data-ref="_M/_D3XP">_D3XP</span>)</u></td></tr>
+<tr><th id="169">169</th><td><u>#include "../d3xp/Game.h"</u></td></tr>
+<tr><th id="170">170</th><td><u>#<span data-ppcond="168">else</span></u></td></tr>
+<tr><th id="171">171</th><td><u>#include <a href="../game/Game.h.html">"../game/Game.h"</a></u></td></tr>
+<tr><th id="172">172</th><td><u>#<span data-ppcond="168">endif</span></u></td></tr>
+<tr><th id="173">173</th><td></td></tr>
+<tr><th id="174">174</th><td><i>//-----------------------------------------------------</i></td></tr>
+<tr><th id="175">175</th><td></td></tr>
+<tr><th id="176">176</th><td><u>#<span data-ppcond="176">ifndef</span> <span class="macro" data-ref="_M/_D3SDK">_D3SDK</span></u></td></tr>
+<tr><th id="177">177</th><td></td></tr>
+<tr><th id="178">178</th><td><u>#<span data-ppcond="178">ifdef</span> <span class="macro" data-ref="_M/GAME_DLL">GAME_DLL</span></u></td></tr>
+<tr><th id="179">179</th><td></td></tr>
+<tr><th id="180">180</th><td><u>#if defined(_D3XP)</u></td></tr>
+<tr><th id="181">181</th><td><u>#include "../d3xp/Game_local.h"</u></td></tr>
+<tr><th id="182">182</th><td><u>#else</u></td></tr>
+<tr><th id="183">183</th><td><u>#include "../game/Game_local.h"</u></td></tr>
+<tr><th id="184">184</th><td><u>#endif</u></td></tr>
+<tr><th id="185">185</th><td></td></tr>
+<tr><th id="186">186</th><td><u>#<span data-ppcond="178">else</span></u></td></tr>
+<tr><th id="187">187</th><td></td></tr>
+<tr><th id="188">188</th><td><u>#include <a href="../framework/DemoChecksum.h.html">"../framework/DemoChecksum.h"</a></u></td></tr>
+<tr><th id="189">189</th><td></td></tr>
+<tr><th id="190">190</th><td><i>// framework</i></td></tr>
+<tr><th id="191">191</th><td><u>#include <a href="../framework/Compressor.h.html">"../framework/Compressor.h"</a></u></td></tr>
+<tr><th id="192">192</th><td><u>#include <a href="../framework/EventLoop.h.html">"../framework/EventLoop.h"</a></u></td></tr>
+<tr><th id="193">193</th><td><u>#include <a href="../framework/KeyInput.h.html">"../framework/KeyInput.h"</a></u></td></tr>
+<tr><th id="194">194</th><td><u>#include <a href="../framework/EditField.h.html">"../framework/EditField.h"</a></u></td></tr>
+<tr><th id="195">195</th><td><u>#include <a href="../framework/Console.h.html">"../framework/Console.h"</a></u></td></tr>
+<tr><th id="196">196</th><td><u>#include <a href="../framework/DemoFile.h.html">"../framework/DemoFile.h"</a></u></td></tr>
+<tr><th id="197">197</th><td><u>#include <a href="../framework/Session.h.html">"../framework/Session.h"</a></u></td></tr>
+<tr><th id="198">198</th><td></td></tr>
+<tr><th id="199">199</th><td><i>// asynchronous networking</i></td></tr>
+<tr><th id="200">200</th><td><u>#include <a href="../framework/async/AsyncNetwork.h.html">"../framework/async/AsyncNetwork.h"</a></u></td></tr>
+<tr><th id="201">201</th><td></td></tr>
+<tr><th id="202">202</th><td><i>// The editor entry points are always declared, but may just be</i></td></tr>
+<tr><th id="203">203</th><td><i>// stubbed out on non-windows platforms.</i></td></tr>
+<tr><th id="204">204</th><td><u>#include <a href="../tools/edit_public.h.html">"../tools/edit_public.h"</a></u></td></tr>
+<tr><th id="205">205</th><td></td></tr>
+<tr><th id="206">206</th><td><i>// Compilers for map, model, video etc. processing.</i></td></tr>
+<tr><th id="207">207</th><td><u>#include <a href="../tools/compilers/compiler_public.h.html">"../tools/compilers/compiler_public.h"</a></u></td></tr>
+<tr><th id="208">208</th><td></td></tr>
+<tr><th id="209">209</th><td><u>#<span data-ppcond="178">endif</span> /* !GAME_DLL */</u></td></tr>
+<tr><th id="210">210</th><td></td></tr>
+<tr><th id="211">211</th><td><u>#<span data-ppcond="176">endif</span> /* !_D3SDK */</u></td></tr>
+<tr><th id="212">212</th><td></td></tr>
+<tr><th id="213">213</th><td><i>//-----------------------------------------------------</i></td></tr>
+<tr><th id="214">214</th><td></td></tr>
+<tr><th id="215">215</th><td><u>#<span data-ppcond="32">endif</span>	/* __cplusplus */</u></td></tr>
+<tr><th id="216">216</th><td></td></tr>
+<tr><th id="217">217</th><td><u>#<span data-ppcond="29">endif</span> /* !__PRECOMPILED_H__ */</u></td></tr>
+<tr><th id="218">218</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../TypeInfo/TypeInfoGen.cpp.html'>codebrowser/TypeInfo/TypeInfoGen.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,13 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1505' type='srfTriangles_t * R_MergeSurfaceList(const srfTriangles_t ** surfaces, int numSurfaces)'/>
+<doc f='codebrowser/renderer/tr_local.h' l='1503'>// Only deals with vertexes and indexes, not silhouettes, planes, etc.
+// Does NOT perform a cleanup triangles, so there may be duplicated verts in the result.</doc>
+<def f='codebrowser/renderer/tr_trisurf.cpp' l='2006' ll='2039' type='srfTriangles_t * R_MergeSurfaceList(const srfTriangles_t ** surfaces, int numSurfaces)'/>
+<use f='codebrowser/renderer/tr_trisurf.cpp' l='2055' u='c' c='_Z16R_MergeTrianglesPK14srfTriangles_sS1_'/>
+<doc f='codebrowser/renderer/tr_trisurf.cpp' l='1998'>/*
+=================
+R_MergeSurfaceList
+
+Only deals with vertexes and indexes, not silhouettes, planes, etc.
+Does NOT perform a cleanup triangles, so there may be duplicated verts in the result.
+=================
+*/</doc>

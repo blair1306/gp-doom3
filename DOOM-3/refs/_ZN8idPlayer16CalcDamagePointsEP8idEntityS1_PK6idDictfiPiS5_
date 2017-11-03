@@ -1,0 +1,26 @@
+<dec f='codebrowser/d3xp/Player.h' l='442' type='void idPlayer::CalcDamagePoints(idEntity * inflictor, idEntity * attacker, const idDict * damageDef, const float damageScale, const int location, int * health, int * armor)'/>
+<def f='codebrowser/d3xp/Player.cpp' l='7921' ll='8015' type='void idPlayer::CalcDamagePoints(idEntity * inflictor, idEntity * attacker, const idDict * damageDef, const float damageScale, const int location, int * health, int * armor)'/>
+<use f='codebrowser/d3xp/Player.cpp' l='8084' u='c' c='_ZN8idPlayer6DamageEP8idEntityS1_RK6idVec3PKcfi'/>
+<doc f='codebrowser/d3xp/Player.cpp' l='7912'>/*
+=================
+idPlayer::CalcDamagePoints
+
+Calculates how many health and armor points will be inflicted, but
+doesn&apos;t actually do anything with them.  This is used to tell when an attack
+would have killed the player, possibly allowing a &quot;saving throw&quot;
+=================
+*/</doc>
+<use f='codebrowser/d3xp/ai/AI.cpp' l='4496' u='c' c='_ZN4idAI11AttackMeleeEPKc'/>
+<dec f='codebrowser/game/Player.h' l='370' type='void idPlayer::CalcDamagePoints(idEntity * inflictor, idEntity * attacker, const idDict * damageDef, const float damageScale, const int location, int * health, int * armor)'/>
+<def f='codebrowser/game/Player.cpp' l='6589' ll='6677' type='void idPlayer::CalcDamagePoints(idEntity * inflictor, idEntity * attacker, const idDict * damageDef, const float damageScale, const int location, int * health, int * armor)'/>
+<use f='codebrowser/game/Player.cpp' l='6741' u='c' c='_ZN8idPlayer6DamageEP8idEntityS1_RK6idVec3PKcfi'/>
+<doc f='codebrowser/game/Player.cpp' l='6580'>/*
+=================
+idPlayer::CalcDamagePoints
+
+Calculates how many health and armor points will be inflicted, but
+doesn&apos;t actually do anything with them.  This is used to tell when an attack
+would have killed the player, possibly allowing a &quot;saving throw&quot;
+=================
+*/</doc>
+<use f='codebrowser/game/ai/AI.cpp' l='4360' u='c' c='_ZN4idAI11AttackMeleeEPKc'/>

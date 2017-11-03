@@ -1,0 +1,238 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AsyncNetwork.h source code [codebrowser/framework/async/AsyncNetwork.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idAsyncNetwork,master_s "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/framework/async/AsyncNetwork.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>framework</a>/<a href='./'>async</a>/<a href='AsyncNetwork.h.html'>AsyncNetwork.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__ASYNCNETWORK_H__">__ASYNCNETWORK_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__ASYNCNETWORK_H__" data-ref="_M/__ASYNCNETWORK_H__">__ASYNCNETWORK_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>DOOM III gold:	33</i></td></tr>
+<tr><th id="34">34</th><td><i>1.1 beta patch:	34</i></td></tr>
+<tr><th id="35">35</th><td><i>1.1 patch:		35</i></td></tr>
+<tr><th id="36">36</th><td><i>1.2 XP:			36-39</i></td></tr>
+<tr><th id="37">37</th><td><i>1.3 patch:		40</i></td></tr>
+<tr><th id="38">38</th><td><i>1.3.1:			41</i></td></tr>
+<tr><th id="39">39</th><td><i>*/</i></td></tr>
+<tr><th id="40">40</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="ASYNC_PROTOCOL_MINOR" title='ASYNC_PROTOCOL_MINOR' data-ref="ASYNC_PROTOCOL_MINOR">ASYNC_PROTOCOL_MINOR</dfn>		= <var>41</var>;</td></tr>
+<tr><th id="41">41</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="ASYNC_PROTOCOL_VERSION" title='ASYNC_PROTOCOL_VERSION' data-ref="ASYNC_PROTOCOL_VERSION">ASYNC_PROTOCOL_VERSION</dfn>	= ( <a class="macro" href="../Licensee.h.html#77" title="1" data-ref="_M/ASYNC_PROTOCOL_MAJOR">ASYNC_PROTOCOL_MAJOR</a> &lt;&lt; <var>16</var> ) + <a class="ref" href="#ASYNC_PROTOCOL_MINOR" title='ASYNC_PROTOCOL_MINOR' data-ref="ASYNC_PROTOCOL_MINOR">ASYNC_PROTOCOL_MINOR</a>;</td></tr>
+<tr><th id="42">42</th><td><u>#define <dfn class="macro" id="_M/MAJOR_VERSION" data-ref="_M/MAJOR_VERSION">MAJOR_VERSION</dfn>(v) ( v &gt;&gt; 16 )</u></td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="MAX_ASYNC_CLIENTS" title='MAX_ASYNC_CLIENTS' data-ref="MAX_ASYNC_CLIENTS">MAX_ASYNC_CLIENTS</dfn>			= <var>32</var>;</td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="MAX_USERCMD_BACKUP" title='MAX_USERCMD_BACKUP' data-ref="MAX_USERCMD_BACKUP">MAX_USERCMD_BACKUP</dfn>		= <var>256</var>;</td></tr>
+<tr><th id="47">47</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="MAX_USERCMD_DUPLICATION" title='MAX_USERCMD_DUPLICATION' data-ref="MAX_USERCMD_DUPLICATION">MAX_USERCMD_DUPLICATION</dfn>	= <var>25</var>;</td></tr>
+<tr><th id="48">48</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="MAX_USERCMD_RELAY" title='MAX_USERCMD_RELAY' data-ref="MAX_USERCMD_RELAY">MAX_USERCMD_RELAY</dfn>			= <var>10</var>;</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td><i>// index 0 is hardcoded to be the idnet master</i></td></tr>
+<tr><th id="51">51</th><td><i>// which leaves 4 to user customization</i></td></tr>
+<tr><th id="52">52</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="MAX_MASTER_SERVERS" title='MAX_MASTER_SERVERS' data-ref="MAX_MASTER_SERVERS">MAX_MASTER_SERVERS</dfn>		= <var>5</var>;</td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="MAX_NICKLEN" title='MAX_NICKLEN' data-ref="MAX_NICKLEN">MAX_NICKLEN</dfn>				= <var>32</var>;</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td><i>// max number of servers that will be scanned for at a single IP address</i></td></tr>
+<tr><th id="57">57</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="MAX_SERVER_PORTS" title='MAX_SERVER_PORTS' data-ref="MAX_SERVER_PORTS">MAX_SERVER_PORTS</dfn>			= <var>8</var>;</td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td><i>// special game init ids</i></td></tr>
+<tr><th id="60">60</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="GAME_INIT_ID_INVALID" title='GAME_INIT_ID_INVALID' data-ref="GAME_INIT_ID_INVALID">GAME_INIT_ID_INVALID</dfn>		= -<var>1</var>;</td></tr>
+<tr><th id="61">61</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="GAME_INIT_ID_MAP_LOAD" title='GAME_INIT_ID_MAP_LOAD' data-ref="GAME_INIT_ID_MAP_LOAD">GAME_INIT_ID_MAP_LOAD</dfn>		= -<var>2</var>;</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td><u>#include <a href="MsgChannel.h.html">"MsgChannel.h"</a></u></td></tr>
+<tr><th id="65">65</th><td><u>#include <a href="AsyncServer.h.html">"AsyncServer.h"</a></u></td></tr>
+<tr><th id="66">66</th><td><u>#include <a href="ServerScan.h.html">"ServerScan.h"</a></u></td></tr>
+<tr><th id="67">67</th><td><u>#include <a href="AsyncClient.h.html">"AsyncClient.h"</a></u></td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td><i>/*</i></td></tr>
+<tr><th id="70">70</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="71">71</th><td><i></i></td></tr>
+<tr><th id="72">72</th><td><i>  Asynchronous Networking.</i></td></tr>
+<tr><th id="73">73</th><td><i></i></td></tr>
+<tr><th id="74">74</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="75">75</th><td><i>*/</i></td></tr>
+<tr><th id="76">76</th><td><i></i></td></tr>
+<tr><th id="77">77</th><td><i></i></td></tr>
+<tr><th id="78">78</th><td><i>// unreliable server -&gt; client messages</i></td></tr>
+<tr><th id="79">79</th><td><b>enum</b> {</td></tr>
+<tr><th id="80">80</th><td>	<dfn class="enum" id="SERVER_UNRELIABLE_MESSAGE_EMPTY" title='SERVER_UNRELIABLE_MESSAGE_EMPTY' data-ref="SERVER_UNRELIABLE_MESSAGE_EMPTY">SERVER_UNRELIABLE_MESSAGE_EMPTY</dfn> = <var>0</var>,</td></tr>
+<tr><th id="81">81</th><td>	<dfn class="enum" id="SERVER_UNRELIABLE_MESSAGE_PING" title='SERVER_UNRELIABLE_MESSAGE_PING' data-ref="SERVER_UNRELIABLE_MESSAGE_PING">SERVER_UNRELIABLE_MESSAGE_PING</dfn>,</td></tr>
+<tr><th id="82">82</th><td>	<dfn class="enum" id="SERVER_UNRELIABLE_MESSAGE_GAMEINIT" title='SERVER_UNRELIABLE_MESSAGE_GAMEINIT' data-ref="SERVER_UNRELIABLE_MESSAGE_GAMEINIT">SERVER_UNRELIABLE_MESSAGE_GAMEINIT</dfn>,</td></tr>
+<tr><th id="83">83</th><td>	<dfn class="enum" id="SERVER_UNRELIABLE_MESSAGE_SNAPSHOT" title='SERVER_UNRELIABLE_MESSAGE_SNAPSHOT' data-ref="SERVER_UNRELIABLE_MESSAGE_SNAPSHOT">SERVER_UNRELIABLE_MESSAGE_SNAPSHOT</dfn></td></tr>
+<tr><th id="84">84</th><td>};</td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td><i>// reliable server -&gt; client messages</i></td></tr>
+<tr><th id="87">87</th><td><b>enum</b> {</td></tr>
+<tr><th id="88">88</th><td>	<dfn class="enum" id="SERVER_RELIABLE_MESSAGE_PURE" title='SERVER_RELIABLE_MESSAGE_PURE' data-ref="SERVER_RELIABLE_MESSAGE_PURE">SERVER_RELIABLE_MESSAGE_PURE</dfn> = <var>0</var>,</td></tr>
+<tr><th id="89">89</th><td>	<dfn class="enum" id="SERVER_RELIABLE_MESSAGE_RELOAD" title='SERVER_RELIABLE_MESSAGE_RELOAD' data-ref="SERVER_RELIABLE_MESSAGE_RELOAD">SERVER_RELIABLE_MESSAGE_RELOAD</dfn>,</td></tr>
+<tr><th id="90">90</th><td>	<dfn class="enum" id="SERVER_RELIABLE_MESSAGE_CLIENTINFO" title='SERVER_RELIABLE_MESSAGE_CLIENTINFO' data-ref="SERVER_RELIABLE_MESSAGE_CLIENTINFO">SERVER_RELIABLE_MESSAGE_CLIENTINFO</dfn>,</td></tr>
+<tr><th id="91">91</th><td>	<dfn class="enum" id="SERVER_RELIABLE_MESSAGE_SYNCEDCVARS" title='SERVER_RELIABLE_MESSAGE_SYNCEDCVARS' data-ref="SERVER_RELIABLE_MESSAGE_SYNCEDCVARS">SERVER_RELIABLE_MESSAGE_SYNCEDCVARS</dfn>,</td></tr>
+<tr><th id="92">92</th><td>	<dfn class="enum" id="SERVER_RELIABLE_MESSAGE_PRINT" title='SERVER_RELIABLE_MESSAGE_PRINT' data-ref="SERVER_RELIABLE_MESSAGE_PRINT">SERVER_RELIABLE_MESSAGE_PRINT</dfn>,</td></tr>
+<tr><th id="93">93</th><td>	<dfn class="enum" id="SERVER_RELIABLE_MESSAGE_DISCONNECT" title='SERVER_RELIABLE_MESSAGE_DISCONNECT' data-ref="SERVER_RELIABLE_MESSAGE_DISCONNECT">SERVER_RELIABLE_MESSAGE_DISCONNECT</dfn>,</td></tr>
+<tr><th id="94">94</th><td>	<dfn class="enum" id="SERVER_RELIABLE_MESSAGE_APPLYSNAPSHOT" title='SERVER_RELIABLE_MESSAGE_APPLYSNAPSHOT' data-ref="SERVER_RELIABLE_MESSAGE_APPLYSNAPSHOT">SERVER_RELIABLE_MESSAGE_APPLYSNAPSHOT</dfn>,</td></tr>
+<tr><th id="95">95</th><td>	<dfn class="enum" id="SERVER_RELIABLE_MESSAGE_GAME" title='SERVER_RELIABLE_MESSAGE_GAME' data-ref="SERVER_RELIABLE_MESSAGE_GAME">SERVER_RELIABLE_MESSAGE_GAME</dfn>,</td></tr>
+<tr><th id="96">96</th><td>	<dfn class="enum" id="SERVER_RELIABLE_MESSAGE_ENTERGAME" title='SERVER_RELIABLE_MESSAGE_ENTERGAME' data-ref="SERVER_RELIABLE_MESSAGE_ENTERGAME">SERVER_RELIABLE_MESSAGE_ENTERGAME</dfn></td></tr>
+<tr><th id="97">97</th><td>};</td></tr>
+<tr><th id="98">98</th><td></td></tr>
+<tr><th id="99">99</th><td><i>// unreliable client -&gt; server messages</i></td></tr>
+<tr><th id="100">100</th><td><b>enum</b> {</td></tr>
+<tr><th id="101">101</th><td>	<dfn class="enum" id="CLIENT_UNRELIABLE_MESSAGE_EMPTY" title='CLIENT_UNRELIABLE_MESSAGE_EMPTY' data-ref="CLIENT_UNRELIABLE_MESSAGE_EMPTY">CLIENT_UNRELIABLE_MESSAGE_EMPTY</dfn> = <var>0</var>,</td></tr>
+<tr><th id="102">102</th><td>	<dfn class="enum" id="CLIENT_UNRELIABLE_MESSAGE_PINGRESPONSE" title='CLIENT_UNRELIABLE_MESSAGE_PINGRESPONSE' data-ref="CLIENT_UNRELIABLE_MESSAGE_PINGRESPONSE">CLIENT_UNRELIABLE_MESSAGE_PINGRESPONSE</dfn>,</td></tr>
+<tr><th id="103">103</th><td>	<dfn class="enum" id="CLIENT_UNRELIABLE_MESSAGE_USERCMD" title='CLIENT_UNRELIABLE_MESSAGE_USERCMD' data-ref="CLIENT_UNRELIABLE_MESSAGE_USERCMD">CLIENT_UNRELIABLE_MESSAGE_USERCMD</dfn></td></tr>
+<tr><th id="104">104</th><td>};</td></tr>
+<tr><th id="105">105</th><td></td></tr>
+<tr><th id="106">106</th><td><i>// reliable client -&gt; server messages</i></td></tr>
+<tr><th id="107">107</th><td><b>enum</b> {</td></tr>
+<tr><th id="108">108</th><td>	<dfn class="enum" id="CLIENT_RELIABLE_MESSAGE_PURE" title='CLIENT_RELIABLE_MESSAGE_PURE' data-ref="CLIENT_RELIABLE_MESSAGE_PURE">CLIENT_RELIABLE_MESSAGE_PURE</dfn> = <var>0</var>,</td></tr>
+<tr><th id="109">109</th><td>	<dfn class="enum" id="CLIENT_RELIABLE_MESSAGE_CLIENTINFO" title='CLIENT_RELIABLE_MESSAGE_CLIENTINFO' data-ref="CLIENT_RELIABLE_MESSAGE_CLIENTINFO">CLIENT_RELIABLE_MESSAGE_CLIENTINFO</dfn>,</td></tr>
+<tr><th id="110">110</th><td>	<dfn class="enum" id="CLIENT_RELIABLE_MESSAGE_PRINT" title='CLIENT_RELIABLE_MESSAGE_PRINT' data-ref="CLIENT_RELIABLE_MESSAGE_PRINT">CLIENT_RELIABLE_MESSAGE_PRINT</dfn>,</td></tr>
+<tr><th id="111">111</th><td>	<dfn class="enum" id="CLIENT_RELIABLE_MESSAGE_DISCONNECT" title='CLIENT_RELIABLE_MESSAGE_DISCONNECT' data-ref="CLIENT_RELIABLE_MESSAGE_DISCONNECT">CLIENT_RELIABLE_MESSAGE_DISCONNECT</dfn>,</td></tr>
+<tr><th id="112">112</th><td>	<dfn class="enum" id="CLIENT_RELIABLE_MESSAGE_GAME" title='CLIENT_RELIABLE_MESSAGE_GAME' data-ref="CLIENT_RELIABLE_MESSAGE_GAME">CLIENT_RELIABLE_MESSAGE_GAME</dfn></td></tr>
+<tr><th id="113">113</th><td>};</td></tr>
+<tr><th id="114">114</th><td></td></tr>
+<tr><th id="115">115</th><td><i>// server print messages</i></td></tr>
+<tr><th id="116">116</th><td><b>enum</b> {</td></tr>
+<tr><th id="117">117</th><td>	<dfn class="enum" id="SERVER_PRINT_MISC" title='SERVER_PRINT_MISC' data-ref="SERVER_PRINT_MISC">SERVER_PRINT_MISC</dfn> = <var>0</var>,</td></tr>
+<tr><th id="118">118</th><td>	<dfn class="enum" id="SERVER_PRINT_BADPROTOCOL" title='SERVER_PRINT_BADPROTOCOL' data-ref="SERVER_PRINT_BADPROTOCOL">SERVER_PRINT_BADPROTOCOL</dfn>,</td></tr>
+<tr><th id="119">119</th><td>	<dfn class="enum" id="SERVER_PRINT_RCON" title='SERVER_PRINT_RCON' data-ref="SERVER_PRINT_RCON">SERVER_PRINT_RCON</dfn>,</td></tr>
+<tr><th id="120">120</th><td>	<dfn class="enum" id="SERVER_PRINT_GAMEDENY" title='SERVER_PRINT_GAMEDENY' data-ref="SERVER_PRINT_GAMEDENY">SERVER_PRINT_GAMEDENY</dfn>,</td></tr>
+<tr><th id="121">121</th><td>	<dfn class="enum" id="SERVER_PRINT_BADCHALLENGE" title='SERVER_PRINT_BADCHALLENGE' data-ref="SERVER_PRINT_BADCHALLENGE">SERVER_PRINT_BADCHALLENGE</dfn></td></tr>
+<tr><th id="122">122</th><td>};</td></tr>
+<tr><th id="123">123</th><td></td></tr>
+<tr><th id="124">124</th><td><b>enum</b> {</td></tr>
+<tr><th id="125">125</th><td>	<dfn class="enum" id="SERVER_DL_REDIRECT" title='SERVER_DL_REDIRECT' data-ref="SERVER_DL_REDIRECT">SERVER_DL_REDIRECT</dfn> = <var>1</var>,</td></tr>
+<tr><th id="126">126</th><td>	<dfn class="enum" id="SERVER_DL_LIST" title='SERVER_DL_LIST' data-ref="SERVER_DL_LIST">SERVER_DL_LIST</dfn>,</td></tr>
+<tr><th id="127">127</th><td>	<dfn class="enum" id="SERVER_DL_NONE" title='SERVER_DL_NONE' data-ref="SERVER_DL_NONE">SERVER_DL_NONE</dfn></td></tr>
+<tr><th id="128">128</th><td>};</td></tr>
+<tr><th id="129">129</th><td></td></tr>
+<tr><th id="130">130</th><td><b>enum</b> {</td></tr>
+<tr><th id="131">131</th><td>	<dfn class="enum" id="SERVER_PAK_NO" title='SERVER_PAK_NO' data-ref="SERVER_PAK_NO">SERVER_PAK_NO</dfn> = <var>0</var>,</td></tr>
+<tr><th id="132">132</th><td>	<dfn class="enum" id="SERVER_PAK_YES" title='SERVER_PAK_YES' data-ref="SERVER_PAK_YES">SERVER_PAK_YES</dfn>,</td></tr>
+<tr><th id="133">133</th><td>	<dfn class="enum" id="SERVER_PAK_END" title='SERVER_PAK_END' data-ref="SERVER_PAK_END">SERVER_PAK_END</dfn></td></tr>
+<tr><th id="134">134</th><td>};</td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="master_s" title='master_s' data-ref="master_s"><a class="type" href="#master_s" title='master_s' data-ref="master_s">master_s</a></dfn> {</td></tr>
+<tr><th id="137">137</th><td>	<a class="type" href="../CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a> *		<dfn class="decl" id="master_s::var" title='master_s::var' data-ref="master_s::var">var</dfn>;</td></tr>
+<tr><th id="138">138</th><td>	<a class="typedef" href="../../sys/sys_public.h.html#netadr_t" title='netadr_t' data-type='struct netadr_t' data-ref="netadr_t">netadr_t</a>		<dfn class="decl" id="master_s::address" title='master_s::address' data-ref="master_s::address">address</dfn>;</td></tr>
+<tr><th id="139">139</th><td>	<em>bool</em>			<dfn class="decl" id="master_s::resolved" title='master_s::resolved' data-ref="master_s::resolved">resolved</dfn>;</td></tr>
+<tr><th id="140">140</th><td>} <dfn class="typedef" id="master_t" title='master_t' data-type='struct master_s' data-ref="master_t">master_t</dfn>;</td></tr>
+<tr><th id="141">141</th><td></td></tr>
+<tr><th id="142">142</th><td></td></tr>
+<tr><th id="143">143</th><td><b>class</b> <dfn class="type def" id="idAsyncNetwork" title='idAsyncNetwork' data-ref="idAsyncNetwork">idAsyncNetwork</dfn> {</td></tr>
+<tr><th id="144">144</th><td><b>public</b>:</td></tr>
+<tr><th id="145">145</th><td>							<dfn class="decl" id="_ZN14idAsyncNetworkC1Ev" title='idAsyncNetwork::idAsyncNetwork' data-ref="_ZN14idAsyncNetworkC1Ev">idAsyncNetwork</dfn>();</td></tr>
+<tr><th id="146">146</th><td></td></tr>
+<tr><th id="147">147</th><td>	<em>static</em> <em>void</em>				<dfn class="decl" id="_ZN14idAsyncNetwork4InitEv" title='idAsyncNetwork::Init' data-ref="_ZN14idAsyncNetwork4InitEv">Init</dfn>( <em>void</em> );</td></tr>
+<tr><th id="148">148</th><td>	<em>static</em> <em>void</em>				<dfn class="decl" id="_ZN14idAsyncNetwork8ShutdownEv" title='idAsyncNetwork::Shutdown' data-ref="_ZN14idAsyncNetwork8ShutdownEv">Shutdown</dfn>( <em>void</em> );</td></tr>
+<tr><th id="149">149</th><td>	<em>static</em> <em>bool</em>				<dfn class="decl def" id="_ZN14idAsyncNetwork8IsActiveEv" title='idAsyncNetwork::IsActive' data-ref="_ZN14idAsyncNetwork8IsActiveEv">IsActive</dfn>( <em>void</em> ) { <b>return</b> ( <a class="member" href="#idAsyncNetwork::server" title='idAsyncNetwork::server' data-ref="idAsyncNetwork::server">server</a>.<a class="ref" href="AsyncServer.h.html#_ZNK13idAsyncServer8IsActiveEv" title='idAsyncServer::IsActive' data-ref="_ZNK13idAsyncServer8IsActiveEv">IsActive</a>() || <a class="member" href="#idAsyncNetwork::client" title='idAsyncNetwork::client' data-ref="idAsyncNetwork::client">client</a>.<a class="ref" href="AsyncClient.h.html#_ZNK13idAsyncClient8IsActiveEv" title='idAsyncClient::IsActive' data-ref="_ZNK13idAsyncClient8IsActiveEv">IsActive</a>() ); }</td></tr>
+<tr><th id="150">150</th><td>	<em>static</em> <em>void</em>				<dfn class="decl" id="_ZN14idAsyncNetwork8RunFrameEv" title='idAsyncNetwork::RunFrame' data-ref="_ZN14idAsyncNetwork8RunFrameEv">RunFrame</dfn>( <em>void</em> );</td></tr>
+<tr><th id="151">151</th><td></td></tr>
+<tr><th id="152">152</th><td>	<em>static</em> <em>void</em>				<dfn class="decl" id="_ZN14idAsyncNetwork17WriteUserCmdDeltaER8idBitMsgRK9usercmd_tPS3_" title='idAsyncNetwork::WriteUserCmdDelta' data-ref="_ZN14idAsyncNetwork17WriteUserCmdDeltaER8idBitMsgRK9usercmd_tPS3_">WriteUserCmdDelta</dfn>( <a class="type" href="../../idlib/BitMsg.h.html#idBitMsg" title='idBitMsg' data-ref="idBitMsg">idBitMsg</a> &amp;<dfn class="local col3 decl" id="13913msg" title='msg' data-type='idBitMsg &amp;' data-ref="13913msg">msg</dfn>, <em>const</em> <a class="type" href="../UsercmdGen.h.html#usercmd_t" title='usercmd_t' data-ref="usercmd_t">usercmd_t</a> &amp;<dfn class="local col4 decl" id="13914cmd" title='cmd' data-type='const usercmd_t &amp;' data-ref="13914cmd">cmd</dfn>, <em>const</em> <a class="type" href="../UsercmdGen.h.html#usercmd_t" title='usercmd_t' data-ref="usercmd_t">usercmd_t</a> *<dfn class="local col5 decl" id="13915base" title='base' data-type='const usercmd_t *' data-ref="13915base">base</dfn> );</td></tr>
+<tr><th id="153">153</th><td>	<em>static</em> <em>void</em>				<dfn class="decl" id="_ZN14idAsyncNetwork16ReadUserCmdDeltaERK8idBitMsgR9usercmd_tPKS3_" title='idAsyncNetwork::ReadUserCmdDelta' data-ref="_ZN14idAsyncNetwork16ReadUserCmdDeltaERK8idBitMsgR9usercmd_tPKS3_">ReadUserCmdDelta</dfn>( <em>const</em> <a class="type" href="../../idlib/BitMsg.h.html#idBitMsg" title='idBitMsg' data-ref="idBitMsg">idBitMsg</a> &amp;<dfn class="local col6 decl" id="13916msg" title='msg' data-type='const idBitMsg &amp;' data-ref="13916msg">msg</dfn>, <a class="type" href="../UsercmdGen.h.html#usercmd_t" title='usercmd_t' data-ref="usercmd_t">usercmd_t</a> &amp;<dfn class="local col7 decl" id="13917cmd" title='cmd' data-type='usercmd_t &amp;' data-ref="13917cmd">cmd</dfn>, <em>const</em> <a class="type" href="../UsercmdGen.h.html#usercmd_t" title='usercmd_t' data-ref="usercmd_t">usercmd_t</a> *<dfn class="local col8 decl" id="13918base" title='base' data-type='const usercmd_t *' data-ref="13918base">base</dfn> );</td></tr>
+<tr><th id="154">154</th><td></td></tr>
+<tr><th id="155">155</th><td>	<em>static</em> <em>bool</em>				<dfn class="decl" id="_ZN14idAsyncNetwork16DuplicateUsercmdERK9usercmd_tRS0_ii" title='idAsyncNetwork::DuplicateUsercmd' data-ref="_ZN14idAsyncNetwork16DuplicateUsercmdERK9usercmd_tRS0_ii">DuplicateUsercmd</dfn>( <em>const</em> <a class="type" href="../UsercmdGen.h.html#usercmd_t" title='usercmd_t' data-ref="usercmd_t">usercmd_t</a> &amp;<dfn class="local col9 decl" id="13919previousUserCmd" title='previousUserCmd' data-type='const usercmd_t &amp;' data-ref="13919previousUserCmd">previousUserCmd</dfn>, <a class="type" href="../UsercmdGen.h.html#usercmd_t" title='usercmd_t' data-ref="usercmd_t">usercmd_t</a> &amp;<dfn class="local col0 decl" id="13920currentUserCmd" title='currentUserCmd' data-type='usercmd_t &amp;' data-ref="13920currentUserCmd">currentUserCmd</dfn>, <em>int</em> <dfn class="local col1 decl" id="13921frame" title='frame' data-type='int' data-ref="13921frame">frame</dfn>, <em>int</em> <dfn class="local col2 decl" id="13922time" title='time' data-type='int' data-ref="13922time">time</dfn> );</td></tr>
+<tr><th id="156">156</th><td>	<em>static</em> <em>bool</em>				<dfn class="decl" id="_ZN14idAsyncNetwork19UsercmdInputChangedERK9usercmd_tS2_" title='idAsyncNetwork::UsercmdInputChanged' data-ref="_ZN14idAsyncNetwork19UsercmdInputChangedERK9usercmd_tS2_">UsercmdInputChanged</dfn>( <em>const</em> <a class="type" href="../UsercmdGen.h.html#usercmd_t" title='usercmd_t' data-ref="usercmd_t">usercmd_t</a> &amp;<dfn class="local col3 decl" id="13923previousUserCmd" title='previousUserCmd' data-type='const usercmd_t &amp;' data-ref="13923previousUserCmd">previousUserCmd</dfn>, <em>const</em> <a class="type" href="../UsercmdGen.h.html#usercmd_t" title='usercmd_t' data-ref="usercmd_t">usercmd_t</a> &amp;<dfn class="local col4 decl" id="13924currentUserCmd" title='currentUserCmd' data-type='const usercmd_t &amp;' data-ref="13924currentUserCmd">currentUserCmd</dfn> );</td></tr>
+<tr><th id="157">157</th><td></td></tr>
+<tr><th id="158">158</th><td>							<i>// returns true if the corresponding master is set to something (and could be resolved)</i></td></tr>
+<tr><th id="159">159</th><td>	<em>static</em> <em>bool</em>				<dfn class="decl" id="_ZN14idAsyncNetwork16GetMasterAddressEiR8netadr_t" title='idAsyncNetwork::GetMasterAddress' data-ref="_ZN14idAsyncNetwork16GetMasterAddressEiR8netadr_t">GetMasterAddress</dfn>( <em>int</em> <dfn class="local col5 decl" id="13925index" title='index' data-type='int' data-ref="13925index">index</dfn>, <a class="typedef" href="../../sys/sys_public.h.html#netadr_t" title='netadr_t' data-type='struct netadr_t' data-ref="netadr_t">netadr_t</a> &amp;<dfn class="local col6 decl" id="13926adr" title='adr' data-type='netadr_t &amp;' data-ref="13926adr">adr</dfn> );</td></tr>
+<tr><th id="160">160</th><td>							<i>// get the hardcoded idnet master, equivalent to GetMasterAddress( 0, .. )</i></td></tr>
+<tr><th id="161">161</th><td>	<em>static</em> <a class="typedef" href="../../sys/sys_public.h.html#netadr_t" title='netadr_t' data-type='struct netadr_t' data-ref="netadr_t">netadr_t</a>			<dfn class="decl" id="_ZN14idAsyncNetwork16GetMasterAddressEv" title='idAsyncNetwork::GetMasterAddress' data-ref="_ZN14idAsyncNetwork16GetMasterAddressEv">GetMasterAddress</dfn>( <em>void</em> );</td></tr>
+<tr><th id="162">162</th><td>	</td></tr>
+<tr><th id="163">163</th><td>	<em>static</em> <em>void</em>				<dfn class="decl" id="_ZN14idAsyncNetwork13GetNETServersEv" title='idAsyncNetwork::GetNETServers' data-ref="_ZN14idAsyncNetwork13GetNETServersEv">GetNETServers</dfn>( );</td></tr>
+<tr><th id="164">164</th><td>	</td></tr>
+<tr><th id="165">165</th><td>	<em>static</em> <em>void</em>				<dfn class="decl" id="_ZN14idAsyncNetwork21ExecuteSessionCommandEPKc" title='idAsyncNetwork::ExecuteSessionCommand' data-ref="_ZN14idAsyncNetwork21ExecuteSessionCommandEPKc">ExecuteSessionCommand</dfn>( <em>const</em> <em>char</em> *<dfn class="local col7 decl" id="13927sessCmd" title='sessCmd' data-type='const char *' data-ref="13927sessCmd">sessCmd</dfn> );</td></tr>
+<tr><th id="166">166</th><td></td></tr>
+<tr><th id="167">167</th><td>	<em>static</em> <a class="type" href="AsyncServer.h.html#idAsyncServer" title='idAsyncServer' data-ref="idAsyncServer">idAsyncServer</a>	<dfn class="decl" id="idAsyncNetwork::server" title='idAsyncNetwork::server' data-ref="idAsyncNetwork::server">server</dfn>;</td></tr>
+<tr><th id="168">168</th><td>	<em>static</em> <a class="type" href="AsyncClient.h.html#idAsyncClient" title='idAsyncClient' data-ref="idAsyncClient">idAsyncClient</a>	<dfn class="decl" id="idAsyncNetwork::client" title='idAsyncNetwork::client' data-ref="idAsyncNetwork::client">client</dfn>;</td></tr>
+<tr><th id="169">169</th><td>	</td></tr>
+<tr><th id="170">170</th><td>	<em>static</em> <a class="type" href="../CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a>			<dfn class="decl" id="idAsyncNetwork::verbose" title='idAsyncNetwork::verbose' data-ref="idAsyncNetwork::verbose">verbose</dfn>;						<i>// verbose output</i></td></tr>
+<tr><th id="171">171</th><td>	<em>static</em> <a class="type" href="../CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a>			<dfn class="decl" id="idAsyncNetwork::allowCheats" title='idAsyncNetwork::allowCheats' data-ref="idAsyncNetwork::allowCheats">allowCheats</dfn>;					<i>// allow cheats</i></td></tr>
+<tr><th id="172">172</th><td>	<em>static</em> <a class="type" href="../CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a>			<dfn class="decl" id="idAsyncNetwork::serverDedicated" title='idAsyncNetwork::serverDedicated' data-ref="idAsyncNetwork::serverDedicated">serverDedicated</dfn>;				<i>// if set run a dedicated server</i></td></tr>
+<tr><th id="173">173</th><td>	<em>static</em> <a class="type" href="../CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a>			<dfn class="decl" id="idAsyncNetwork::serverSnapshotDelay" title='idAsyncNetwork::serverSnapshotDelay' data-ref="idAsyncNetwork::serverSnapshotDelay">serverSnapshotDelay</dfn>;			<i>// number of milliseconds between snapshots</i></td></tr>
+<tr><th id="174">174</th><td>	<em>static</em> <a class="type" href="../CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a>			<dfn class="decl" id="idAsyncNetwork::serverMaxClientRate" title='idAsyncNetwork::serverMaxClientRate' data-ref="idAsyncNetwork::serverMaxClientRate">serverMaxClientRate</dfn>;			<i>// maximum outgoing rate to clients</i></td></tr>
+<tr><th id="175">175</th><td>	<em>static</em> <a class="type" href="../CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a>			<dfn class="decl" id="idAsyncNetwork::clientMaxRate" title='idAsyncNetwork::clientMaxRate' data-ref="idAsyncNetwork::clientMaxRate">clientMaxRate</dfn>;					<i>// maximum rate from server requested by client</i></td></tr>
+<tr><th id="176">176</th><td>	<em>static</em> <a class="type" href="../CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a>			<dfn class="decl" id="idAsyncNetwork::serverMaxUsercmdRelay" title='idAsyncNetwork::serverMaxUsercmdRelay' data-ref="idAsyncNetwork::serverMaxUsercmdRelay">serverMaxUsercmdRelay</dfn>;			<i>// maximum number of usercmds relayed to other clients</i></td></tr>
+<tr><th id="177">177</th><td>	<em>static</em> <a class="type" href="../CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a>			<dfn class="decl" id="idAsyncNetwork::serverZombieTimeout" title='idAsyncNetwork::serverZombieTimeout' data-ref="idAsyncNetwork::serverZombieTimeout">serverZombieTimeout</dfn>;			<i>// time out in seconds for zombie clients</i></td></tr>
+<tr><th id="178">178</th><td>	<em>static</em> <a class="type" href="../CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a>			<dfn class="decl" id="idAsyncNetwork::serverClientTimeout" title='idAsyncNetwork::serverClientTimeout' data-ref="idAsyncNetwork::serverClientTimeout">serverClientTimeout</dfn>;			<i>// time out in seconds for connected clients</i></td></tr>
+<tr><th id="179">179</th><td>	<em>static</em> <a class="type" href="../CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a>			<dfn class="decl" id="idAsyncNetwork::clientServerTimeout" title='idAsyncNetwork::clientServerTimeout' data-ref="idAsyncNetwork::clientServerTimeout">clientServerTimeout</dfn>;			<i>// time out in seconds for server</i></td></tr>
+<tr><th id="180">180</th><td>	<em>static</em> <a class="type" href="../CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a>			<dfn class="decl" id="idAsyncNetwork::serverDrawClient" title='idAsyncNetwork::serverDrawClient' data-ref="idAsyncNetwork::serverDrawClient">serverDrawClient</dfn>;				<i>// the server draws the view of this client</i></td></tr>
+<tr><th id="181">181</th><td>	<em>static</em> <a class="type" href="../CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a>			<dfn class="decl" id="idAsyncNetwork::serverRemoteConsolePassword" title='idAsyncNetwork::serverRemoteConsolePassword' data-ref="idAsyncNetwork::serverRemoteConsolePassword">serverRemoteConsolePassword</dfn>;	<i>// remote console password</i></td></tr>
+<tr><th id="182">182</th><td>	<em>static</em> <a class="type" href="../CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a>			<dfn class="decl" id="idAsyncNetwork::clientPrediction" title='idAsyncNetwork::clientPrediction' data-ref="idAsyncNetwork::clientPrediction">clientPrediction</dfn>;				<i>// how many additional milliseconds the clients runs ahead</i></td></tr>
+<tr><th id="183">183</th><td>	<em>static</em> <a class="type" href="../CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a>			<dfn class="decl" id="idAsyncNetwork::clientMaxPrediction" title='idAsyncNetwork::clientMaxPrediction' data-ref="idAsyncNetwork::clientMaxPrediction">clientMaxPrediction</dfn>;			<i>// max milliseconds into the future a client can run prediction</i></td></tr>
+<tr><th id="184">184</th><td>	<em>static</em> <a class="type" href="../CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a>			<dfn class="decl" id="idAsyncNetwork::clientUsercmdBackup" title='idAsyncNetwork::clientUsercmdBackup' data-ref="idAsyncNetwork::clientUsercmdBackup">clientUsercmdBackup</dfn>;			<i>// how many usercmds the client sends from previous frames</i></td></tr>
+<tr><th id="185">185</th><td>	<em>static</em> <a class="type" href="../CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a>			<dfn class="decl" id="idAsyncNetwork::clientRemoteConsoleAddress" title='idAsyncNetwork::clientRemoteConsoleAddress' data-ref="idAsyncNetwork::clientRemoteConsoleAddress">clientRemoteConsoleAddress</dfn>;		<i>// remote console address</i></td></tr>
+<tr><th id="186">186</th><td>	<em>static</em> <a class="type" href="../CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a>			<dfn class="decl" id="idAsyncNetwork::clientRemoteConsolePassword" title='idAsyncNetwork::clientRemoteConsolePassword' data-ref="idAsyncNetwork::clientRemoteConsolePassword">clientRemoteConsolePassword</dfn>;	<i>// remote console password</i></td></tr>
+<tr><th id="187">187</th><td>	<em>static</em> <a class="type" href="../CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a>			<dfn class="decl" id="idAsyncNetwork::master0" title='idAsyncNetwork::master0' data-ref="idAsyncNetwork::master0">master0</dfn>;						<i>// idnet master server</i></td></tr>
+<tr><th id="188">188</th><td>	<em>static</em> <a class="type" href="../CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a>			<dfn class="decl" id="idAsyncNetwork::master1" title='idAsyncNetwork::master1' data-ref="idAsyncNetwork::master1">master1</dfn>;						<i>// 1st master server</i></td></tr>
+<tr><th id="189">189</th><td>	<em>static</em> <a class="type" href="../CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a>			<dfn class="decl" id="idAsyncNetwork::master2" title='idAsyncNetwork::master2' data-ref="idAsyncNetwork::master2">master2</dfn>;						<i>// 2nd master server</i></td></tr>
+<tr><th id="190">190</th><td>	<em>static</em> <a class="type" href="../CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a>			<dfn class="decl" id="idAsyncNetwork::master3" title='idAsyncNetwork::master3' data-ref="idAsyncNetwork::master3">master3</dfn>;						<i>// 3rd master server</i></td></tr>
+<tr><th id="191">191</th><td>	<em>static</em> <a class="type" href="../CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a>			<dfn class="decl" id="idAsyncNetwork::master4" title='idAsyncNetwork::master4' data-ref="idAsyncNetwork::master4">master4</dfn>;						<i>// 4th master server</i></td></tr>
+<tr><th id="192">192</th><td>	<em>static</em> <a class="type" href="../CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a>			<dfn class="decl" id="idAsyncNetwork::LANServer" title='idAsyncNetwork::LANServer' data-ref="idAsyncNetwork::LANServer">LANServer</dfn>;						<i>// LAN mode</i></td></tr>
+<tr><th id="193">193</th><td>	<em>static</em> <a class="type" href="../CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a>			<dfn class="decl" id="idAsyncNetwork::serverReloadEngine" title='idAsyncNetwork::serverReloadEngine' data-ref="idAsyncNetwork::serverReloadEngine">serverReloadEngine</dfn>;				<i>// reload engine on map change instead of growing the referenced paks</i></td></tr>
+<tr><th id="194">194</th><td>	<em>static</em> <a class="type" href="../CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a>			<dfn class="decl" id="idAsyncNetwork::serverAllowServerMod" title='idAsyncNetwork::serverAllowServerMod' data-ref="idAsyncNetwork::serverAllowServerMod">serverAllowServerMod</dfn>;			<i>// let a pure server start with a different game code than what is referenced in game code</i></td></tr>
+<tr><th id="195">195</th><td>	<em>static</em> <a class="type" href="../CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a>			<dfn class="decl" id="idAsyncNetwork::idleServer" title='idAsyncNetwork::idleServer' data-ref="idAsyncNetwork::idleServer">idleServer</dfn>;						<i>// serverinfo reply, indicates all clients are idle</i></td></tr>
+<tr><th id="196">196</th><td>	<em>static</em> <a class="type" href="../CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a>			<dfn class="decl" id="idAsyncNetwork::clientDownload" title='idAsyncNetwork::clientDownload' data-ref="idAsyncNetwork::clientDownload">clientDownload</dfn>;					<i>// preferred download policy</i></td></tr>
+<tr><th id="197">197</th><td></td></tr>
+<tr><th id="198">198</th><td>	<i>// same message used for offline check and network reply</i></td></tr>
+<tr><th id="199">199</th><td>	<em>static</em> <em>void</em>				<dfn class="decl" id="_ZN14idAsyncNetwork18BuildInvalidKeyMsgER5idStrPb" title='idAsyncNetwork::BuildInvalidKeyMsg' data-ref="_ZN14idAsyncNetwork18BuildInvalidKeyMsgER5idStrPb">BuildInvalidKeyMsg</dfn>( <a class="type" href="../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a> &amp;<dfn class="local col8 decl" id="13928msg" title='msg' data-type='idStr &amp;' data-ref="13928msg">msg</dfn>, <em>bool</em> <dfn class="local col9 decl" id="13929valid" title='valid' data-type='bool *' data-ref="13929valid">valid</dfn>[ <var>2</var> ] );</td></tr>
+<tr><th id="200">200</th><td></td></tr>
+<tr><th id="201">201</th><td><b>private</b>:</td></tr>
+<tr><th id="202">202</th><td>	<em>static</em> <em>int</em>				<dfn class="decl" id="idAsyncNetwork::realTime" title='idAsyncNetwork::realTime' data-ref="idAsyncNetwork::realTime">realTime</dfn>;</td></tr>
+<tr><th id="203">203</th><td>	<em>static</em> <a class="typedef" href="#master_t" title='master_t' data-type='struct master_s' data-ref="master_t">master_t</a>			<dfn class="decl" id="idAsyncNetwork::masters" title='idAsyncNetwork::masters' data-ref="idAsyncNetwork::masters">masters</dfn>[ <a class="ref" href="#MAX_MASTER_SERVERS" title='MAX_MASTER_SERVERS' data-ref="MAX_MASTER_SERVERS">MAX_MASTER_SERVERS</a>];	<i>// master1 etc.</i></td></tr>
+<tr><th id="204">204</th><td></td></tr>
+<tr><th id="205">205</th><td>	<em>static</em> <em>void</em>				<dfn class="decl" id="_ZN14idAsyncNetwork13SpawnServer_fERK9idCmdArgs" title='idAsyncNetwork::SpawnServer_f' data-ref="_ZN14idAsyncNetwork13SpawnServer_fERK9idCmdArgs">SpawnServer_f</dfn>( <em>const</em> <a class="type" href="../../idlib/CmdArgs.h.html#idCmdArgs" title='idCmdArgs' data-ref="idCmdArgs">idCmdArgs</a> &amp;<dfn class="local col0 decl" id="13930args" title='args' data-type='const idCmdArgs &amp;' data-ref="13930args">args</dfn> );</td></tr>
+<tr><th id="206">206</th><td>	<em>static</em> <em>void</em>				<dfn class="decl" id="_ZN14idAsyncNetwork9NextMap_fERK9idCmdArgs" title='idAsyncNetwork::NextMap_f' data-ref="_ZN14idAsyncNetwork9NextMap_fERK9idCmdArgs">NextMap_f</dfn>( <em>const</em> <a class="type" href="../../idlib/CmdArgs.h.html#idCmdArgs" title='idCmdArgs' data-ref="idCmdArgs">idCmdArgs</a> &amp;<dfn class="local col1 decl" id="13931args" title='args' data-type='const idCmdArgs &amp;' data-ref="13931args">args</dfn> );</td></tr>
+<tr><th id="207">207</th><td>	<em>static</em> <em>void</em>				<dfn class="decl" id="_ZN14idAsyncNetwork9Connect_fERK9idCmdArgs" title='idAsyncNetwork::Connect_f' data-ref="_ZN14idAsyncNetwork9Connect_fERK9idCmdArgs">Connect_f</dfn>( <em>const</em> <a class="type" href="../../idlib/CmdArgs.h.html#idCmdArgs" title='idCmdArgs' data-ref="idCmdArgs">idCmdArgs</a> &amp;<dfn class="local col2 decl" id="13932args" title='args' data-type='const idCmdArgs &amp;' data-ref="13932args">args</dfn> );</td></tr>
+<tr><th id="208">208</th><td>	<em>static</em> <em>void</em>				<dfn class="decl" id="_ZN14idAsyncNetwork11Reconnect_fERK9idCmdArgs" title='idAsyncNetwork::Reconnect_f' data-ref="_ZN14idAsyncNetwork11Reconnect_fERK9idCmdArgs">Reconnect_f</dfn>( <em>const</em> <a class="type" href="../../idlib/CmdArgs.h.html#idCmdArgs" title='idCmdArgs' data-ref="idCmdArgs">idCmdArgs</a> &amp;<dfn class="local col3 decl" id="13933args" title='args' data-type='const idCmdArgs &amp;' data-ref="13933args">args</dfn> );</td></tr>
+<tr><th id="209">209</th><td>	<em>static</em> <em>void</em>				<dfn class="decl" id="_ZN14idAsyncNetwork15GetServerInfo_fERK9idCmdArgs" title='idAsyncNetwork::GetServerInfo_f' data-ref="_ZN14idAsyncNetwork15GetServerInfo_fERK9idCmdArgs">GetServerInfo_f</dfn>( <em>const</em> <a class="type" href="../../idlib/CmdArgs.h.html#idCmdArgs" title='idCmdArgs' data-ref="idCmdArgs">idCmdArgs</a> &amp;<dfn class="local col4 decl" id="13934args" title='args' data-type='const idCmdArgs &amp;' data-ref="13934args">args</dfn> );</td></tr>
+<tr><th id="210">210</th><td>	<em>static</em> <em>void</em>				<dfn class="decl" id="_ZN14idAsyncNetwork15GetLANServers_fERK9idCmdArgs" title='idAsyncNetwork::GetLANServers_f' data-ref="_ZN14idAsyncNetwork15GetLANServers_fERK9idCmdArgs">GetLANServers_f</dfn>( <em>const</em> <a class="type" href="../../idlib/CmdArgs.h.html#idCmdArgs" title='idCmdArgs' data-ref="idCmdArgs">idCmdArgs</a> &amp;<dfn class="local col5 decl" id="13935args" title='args' data-type='const idCmdArgs &amp;' data-ref="13935args">args</dfn> );</td></tr>
+<tr><th id="211">211</th><td>	<em>static</em> <em>void</em>				<dfn class="decl" id="_ZN14idAsyncNetwork13ListServers_fERK9idCmdArgs" title='idAsyncNetwork::ListServers_f' data-ref="_ZN14idAsyncNetwork13ListServers_fERK9idCmdArgs">ListServers_f</dfn>( <em>const</em> <a class="type" href="../../idlib/CmdArgs.h.html#idCmdArgs" title='idCmdArgs' data-ref="idCmdArgs">idCmdArgs</a> &amp;<dfn class="local col6 decl" id="13936args" title='args' data-type='const idCmdArgs &amp;' data-ref="13936args">args</dfn> );</td></tr>
+<tr><th id="212">212</th><td>	<em>static</em> <em>void</em>				<dfn class="decl" id="_ZN14idAsyncNetwork15RemoteConsole_fERK9idCmdArgs" title='idAsyncNetwork::RemoteConsole_f' data-ref="_ZN14idAsyncNetwork15RemoteConsole_fERK9idCmdArgs">RemoteConsole_f</dfn>( <em>const</em> <a class="type" href="../../idlib/CmdArgs.h.html#idCmdArgs" title='idCmdArgs' data-ref="idCmdArgs">idCmdArgs</a> &amp;<dfn class="local col7 decl" id="13937args" title='args' data-type='const idCmdArgs &amp;' data-ref="13937args">args</dfn> );</td></tr>
+<tr><th id="213">213</th><td>	<em>static</em> <em>void</em>				<dfn class="decl" id="_ZN14idAsyncNetwork11Heartbeat_fERK9idCmdArgs" title='idAsyncNetwork::Heartbeat_f' data-ref="_ZN14idAsyncNetwork11Heartbeat_fERK9idCmdArgs">Heartbeat_f</dfn>( <em>const</em> <a class="type" href="../../idlib/CmdArgs.h.html#idCmdArgs" title='idCmdArgs' data-ref="idCmdArgs">idCmdArgs</a> &amp;<dfn class="local col8 decl" id="13938args" title='args' data-type='const idCmdArgs &amp;' data-ref="13938args">args</dfn> );</td></tr>
+<tr><th id="214">214</th><td>	<em>static</em> <em>void</em>				<dfn class="decl" id="_ZN14idAsyncNetwork6Kick_fERK9idCmdArgs" title='idAsyncNetwork::Kick_f' data-ref="_ZN14idAsyncNetwork6Kick_fERK9idCmdArgs">Kick_f</dfn>( <em>const</em> <a class="type" href="../../idlib/CmdArgs.h.html#idCmdArgs" title='idCmdArgs' data-ref="idCmdArgs">idCmdArgs</a> &amp;<dfn class="local col9 decl" id="13939args" title='args' data-type='const idCmdArgs &amp;' data-ref="13939args">args</dfn> );</td></tr>
+<tr><th id="215">215</th><td>	<em>static</em> <em>void</em>				<dfn class="decl" id="_ZN14idAsyncNetwork17CheckNewVersion_fERK9idCmdArgs" title='idAsyncNetwork::CheckNewVersion_f' data-ref="_ZN14idAsyncNetwork17CheckNewVersion_fERK9idCmdArgs">CheckNewVersion_f</dfn>( <em>const</em> <a class="type" href="../../idlib/CmdArgs.h.html#idCmdArgs" title='idCmdArgs' data-ref="idCmdArgs">idCmdArgs</a> &amp;<dfn class="local col0 decl" id="13940args" title='args' data-type='const idCmdArgs &amp;' data-ref="13940args">args</dfn> );</td></tr>
+<tr><th id="216">216</th><td>	<em>static</em> <em>void</em>				<dfn class="decl" id="_ZN14idAsyncNetwork10UpdateUI_fERK9idCmdArgs" title='idAsyncNetwork::UpdateUI_f' data-ref="_ZN14idAsyncNetwork10UpdateUI_fERK9idCmdArgs">UpdateUI_f</dfn>( <em>const</em> <a class="type" href="../../idlib/CmdArgs.h.html#idCmdArgs" title='idCmdArgs' data-ref="idCmdArgs">idCmdArgs</a> &amp;<dfn class="local col1 decl" id="13941args" title='args' data-type='const idCmdArgs &amp;' data-ref="13941args">args</dfn> );</td></tr>
+<tr><th id="217">217</th><td>};</td></tr>
+<tr><th id="218">218</th><td></td></tr>
+<tr><th id="219">219</th><td><u>#<span data-ppcond="29">endif</span> /* !__ASYNCNETWORK_H__ */</u></td></tr>
+<tr><th id="220">220</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../TypeInfo/TypeInfoGen.cpp.html'>codebrowser/TypeInfo/TypeInfoGen.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

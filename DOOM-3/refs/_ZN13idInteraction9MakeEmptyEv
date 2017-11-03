@@ -1,0 +1,14 @@
+<dec f='codebrowser/renderer/Interaction.h' l='130' type='void idInteraction::MakeEmpty()'/>
+<doc f='codebrowser/renderer/Interaction.h' l='128'>// makes the interaction empty for when the light and entity do not actually intersect
+	// all empty interactions are linked at the end of the light&apos;s and entity&apos;s interaction list</doc>
+<def f='codebrowser/renderer/Interaction.cpp' l='623' ll='649' type='void idInteraction::MakeEmpty()'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='835' u='c' c='_ZN13idInteraction17CreateInteractionEPK13idRenderModel'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='936' u='c' c='_ZN13idInteraction17CreateInteractionEPK13idRenderModel'/>
+<doc f='codebrowser/renderer/Interaction.cpp' l='616'>/*
+===============
+idInteraction::MakeEmpty
+
+Makes the interaction empty and links it at the end of the entity&apos;s and light&apos;s interaction lists.
+===============
+*/</doc>
+<use f='codebrowser/renderer/tr_light.cpp' l='638' u='c' c='_ZN18idRenderWorldLocal26CreateLightDefInteractionsEP18idRenderLightLocal'/>

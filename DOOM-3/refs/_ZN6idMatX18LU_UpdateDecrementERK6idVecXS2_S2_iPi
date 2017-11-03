@@ -1,0 +1,12 @@
+<dec f='codebrowser/idlib/math/Matrix.h' l='1916' type='bool idMatX::LU_UpdateDecrement(const idVecX &amp; v, const idVecX &amp; w, const idVecX &amp; u, int r, int * index)'/>
+<def f='codebrowser/idlib/math/Matrix.cpp' l='4219' ll='4299' type='bool idMatX::LU_UpdateDecrement(const idVecX &amp; v, const idVecX &amp; w, const idVecX &amp; u, int r, int * index)'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7502' u='c' c='_ZN6idMatX4TestEv'/>
+<doc f='codebrowser/idlib/math/Matrix.cpp' l='4210'>/*
+============
+idMatX::LU_UpdateDecrement
+
+  Updates the in-place LU factorization to obtain the factors for the matrix with row r and column r removed.
+  v and w should store the column and row of the original matrix respectively.
+  If index != NULL then u should store row index[r] of the original matrix. If index == NULL then u = w.
+============
+*/</doc>

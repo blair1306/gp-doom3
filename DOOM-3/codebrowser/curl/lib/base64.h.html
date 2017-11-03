@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>base64.h source code [codebrowser/curl/lib/base64.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/curl/lib/base64.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>curl</a>/<a href='./'>lib</a>/<a href='base64.h.html'>base64.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><u>#<span data-ppcond="1">ifndef</span> <span class="macro" data-ref="_M/__BASE64_H">__BASE64_H</span></u></td></tr>
+<tr><th id="2">2</th><td><u>#define <dfn class="macro" id="_M/__BASE64_H" data-ref="_M/__BASE64_H">__BASE64_H</dfn></u></td></tr>
+<tr><th id="3">3</th><td><i>/***************************************************************************</i></td></tr>
+<tr><th id="4">4</th><td><i> *                                  _   _ ____  _     </i></td></tr>
+<tr><th id="5">5</th><td><i> *  Project                     ___| | | |  _ \| |    </i></td></tr>
+<tr><th id="6">6</th><td><i> *                             / __| | | | |_) | |    </i></td></tr>
+<tr><th id="7">7</th><td><i> *                            | (__| |_| |  _ &lt;| |___ </i></td></tr>
+<tr><th id="8">8</th><td><i> *                             \___|\___/|_| \_\_____|</i></td></tr>
+<tr><th id="9">9</th><td><i> *</i></td></tr>
+<tr><th id="10">10</th><td><i> * Copyright (C) 1998 - 2004, Daniel Stenberg, &lt;daniel@haxx.se&gt;, et al.</i></td></tr>
+<tr><th id="11">11</th><td><i> *</i></td></tr>
+<tr><th id="12">12</th><td><i> * This software is licensed as described in the file COPYING, which</i></td></tr>
+<tr><th id="13">13</th><td><i> * you should have received as part of this distribution. The terms</i></td></tr>
+<tr><th id="14">14</th><td><i> * are also available at <a href="http://curl.haxx.se/docs/copyright.html">http://curl.haxx.se/docs/copyright.html</a>.</i></td></tr>
+<tr><th id="15">15</th><td><i> * </i></td></tr>
+<tr><th id="16">16</th><td><i> * You may opt to use, copy, modify, merge, publish, distribute and/or sell</i></td></tr>
+<tr><th id="17">17</th><td><i> * copies of the Software, and permit persons to whom the Software is</i></td></tr>
+<tr><th id="18">18</th><td><i> * furnished to do so, under the terms of the COPYING file.</i></td></tr>
+<tr><th id="19">19</th><td><i> *</i></td></tr>
+<tr><th id="20">20</th><td><i> * This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY</i></td></tr>
+<tr><th id="21">21</th><td><i> * KIND, either express or implied.</i></td></tr>
+<tr><th id="22">22</th><td><i> *</i></td></tr>
+<tr><th id="23">23</th><td><i> * $Id: base64.h,v 1.14 2004/02/23 11:44:03 bagder Exp $</i></td></tr>
+<tr><th id="24">24</th><td><i> ***************************************************************************/</i></td></tr>
+<tr><th id="25">25</th><td><span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <a class="decl" href="base64.c.html#Curl_base64_encode" title='Curl_base64_encode' data-ref="Curl_base64_encode" id="Curl_base64_encode">Curl_base64_encode</a>(<em>const</em> <em>char</em> *<dfn class="local col5 decl" id="25input" title='input' data-type='const char *' data-ref="25input">input</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col6 decl" id="26size" title='size' data-type='size_t' data-ref="26size">size</dfn>, <em>char</em> **<dfn class="local col7 decl" id="27str" title='str' data-type='char **' data-ref="27str">str</dfn>);</td></tr>
+<tr><th id="26">26</th><td><span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <a class="decl" href="base64.c.html#Curl_base64_decode" title='Curl_base64_decode' data-ref="Curl_base64_decode" id="Curl_base64_decode">Curl_base64_decode</a>(<em>const</em> <em>char</em> *<dfn class="local col8 decl" id="28source" title='source' data-type='const char *' data-ref="28source">source</dfn>, <em>char</em> *<dfn class="local col9 decl" id="29dest" title='dest' data-type='char *' data-ref="29dest">dest</dfn>);</td></tr>
+<tr><th id="27">27</th><td><u>#<span data-ppcond="1">endif</span></u></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='base64.c.html'>codebrowser/curl/lib/base64.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

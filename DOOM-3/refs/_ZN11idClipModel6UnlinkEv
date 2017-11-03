@@ -1,0 +1,69 @@
+<dec f='codebrowser/d3xp/physics/Clip.h' l='75' type='void idClipModel::Unlink()'/>
+<use f='codebrowser/d3xp/physics/Clip.h' l='140' u='c' c='_ZN11idClipModel9TranslateERK6idVec3'/>
+<use f='codebrowser/d3xp/physics/Clip.h' l='145' u='c' c='_ZN11idClipModel6RotateERK10idRotation'/>
+<doc f='codebrowser/d3xp/physics/Clip.h' l='75'>// unlink from sectors</doc>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='464' u='c' c='_ZN14idAFAttachment14SetCombatModelEv'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='503' u='c' c='_ZN14idAFAttachment12UnlinkCombatEv'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='802' u='c' c='_ZN15idAFEntity_Base14SetCombatModelEv'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='857' u='c' c='_ZN15idAFEntity_Base12UnlinkCombatEv'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='1549' u='c' c='_ZN27idAFEntity_WithAttachedHead12UnlinkCombatEv'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='3577' u='c' c='_ZN13idHarvestable11Event_TouchEP8idEntityP7trace_s'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='1586' u='c' c='_ZN7idActor14SetCombatModelEv'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='1638' u='c' c='_ZN7idActor12UnlinkCombatEv'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='775' u='c' c='_ZN12idProjectile6FizzleEv'/>
+<use f='codebrowser/d3xp/ai/AI.cpp' l='966' u='c' c='_ZN4idAI5SpawnEv'/>
+<use f='codebrowser/d3xp/ai/AI.cpp' l='3455' u='c' c='_ZN4idAI6KilledEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/d3xp/ai/AI.cpp' l='4677' u='c' c='_ZN4idAI4HideEv'/>
+<use f='codebrowser/d3xp/ai/AI_events.cpp' l='936' u='c' c='_ZN4idAI20Event_BecomeNonSolidEv'/>
+<use f='codebrowser/d3xp/physics/Clip.cpp' l='363' u='c' c='_ZN11idClipModelD1Ev'/>
+<use f='codebrowser/d3xp/physics/Clip.cpp' l='446' u='c' c='_ZN11idClipModel11SetPositionERK6idVec3RK6idMat3'/>
+<def f='codebrowser/d3xp/physics/Clip.cpp' l='491' ll='506' type='void idClipModel::Unlink()'/>
+<use f='codebrowser/d3xp/physics/Clip.cpp' l='553' u='c' c='_ZN11idClipModel4LinkER6idClip'/>
+<doc f='codebrowser/d3xp/physics/Clip.cpp' l='486'>/*
+===============
+idClipModel::Unlink
+===============
+*/</doc>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='7805' u='c' c='_ZN12idPhysics_AF10UnlinkClipEv'/>
+<use f='codebrowser/d3xp/physics/Physics_Actor.cpp' l='357' u='c' c='_ZN15idPhysics_Actor10UnlinkClipEv'/>
+<use f='codebrowser/d3xp/physics/Physics_Monster.cpp' l='481' u='c' c='_ZN17idPhysics_Monster8EvaluateEii'/>
+<use f='codebrowser/d3xp/physics/Physics_Parametric.cpp' l='920' u='c' c='_ZN20idPhysics_Parametric10UnlinkClipEv'/>
+<use f='codebrowser/d3xp/physics/Physics_Player.cpp' l='1722' u='c' c='_ZN16idPhysics_Player8EvaluateEii'/>
+<use f='codebrowser/d3xp/physics/Physics_RigidBody.cpp' l='888' u='c' c='_ZN19idPhysics_RigidBody8EvaluateEii'/>
+<use f='codebrowser/d3xp/physics/Physics_RigidBody.cpp' l='1337' u='c' c='_ZN19idPhysics_RigidBody10UnlinkClipEv'/>
+<use f='codebrowser/d3xp/physics/Physics_Static.cpp' l='608' u='c' c='_ZN16idPhysics_Static10UnlinkClipEv'/>
+<use f='codebrowser/d3xp/physics/Physics_StaticMulti.cpp' l='796' u='c' c='_ZN21idPhysics_StaticMulti10UnlinkClipEv'/>
+<dec f='codebrowser/game/physics/Clip.h' l='75' type='void idClipModel::Unlink()'/>
+<use f='codebrowser/game/physics/Clip.h' l='140' u='c' c='_ZN11idClipModel9TranslateERK6idVec3'/>
+<use f='codebrowser/game/physics/Clip.h' l='145' u='c' c='_ZN11idClipModel6RotateERK10idRotation'/>
+<doc f='codebrowser/game/physics/Clip.h' l='75'>// unlink from sectors</doc>
+<use f='codebrowser/game/AFEntity.cpp' l='464' u='c' c='_ZN14idAFAttachment14SetCombatModelEv'/>
+<use f='codebrowser/game/AFEntity.cpp' l='503' u='c' c='_ZN14idAFAttachment12UnlinkCombatEv'/>
+<use f='codebrowser/game/AFEntity.cpp' l='802' u='c' c='_ZN15idAFEntity_Base14SetCombatModelEv'/>
+<use f='codebrowser/game/AFEntity.cpp' l='857' u='c' c='_ZN15idAFEntity_Base12UnlinkCombatEv'/>
+<use f='codebrowser/game/AFEntity.cpp' l='1467' u='c' c='_ZN27idAFEntity_WithAttachedHead12UnlinkCombatEv'/>
+<use f='codebrowser/game/Actor.cpp' l='1538' u='c' c='_ZN7idActor14SetCombatModelEv'/>
+<use f='codebrowser/game/Actor.cpp' l='1590' u='c' c='_ZN7idActor12UnlinkCombatEv'/>
+<use f='codebrowser/game/Projectile.cpp' l='730' u='c' c='_ZN12idProjectile6FizzleEv'/>
+<use f='codebrowser/game/ai/AI.cpp' l='907' u='c' c='_ZN4idAI5SpawnEv'/>
+<use f='codebrowser/game/ai/AI.cpp' l='3370' u='c' c='_ZN4idAI6KilledEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/game/ai/AI.cpp' l='4541' u='c' c='_ZN4idAI4HideEv'/>
+<use f='codebrowser/game/ai/AI_events.cpp' l='828' u='c' c='_ZN4idAI20Event_BecomeNonSolidEv'/>
+<use f='codebrowser/game/physics/Clip.cpp' l='363' u='c' c='_ZN11idClipModelD1Ev'/>
+<use f='codebrowser/game/physics/Clip.cpp' l='446' u='c' c='_ZN11idClipModel11SetPositionERK6idVec3RK6idMat3'/>
+<def f='codebrowser/game/physics/Clip.cpp' l='491' ll='506' type='void idClipModel::Unlink()'/>
+<use f='codebrowser/game/physics/Clip.cpp' l='553' u='c' c='_ZN11idClipModel4LinkER6idClip'/>
+<doc f='codebrowser/game/physics/Clip.cpp' l='486'>/*
+===============
+idClipModel::Unlink
+===============
+*/</doc>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='7804' u='c' c='_ZN12idPhysics_AF10UnlinkClipEv'/>
+<use f='codebrowser/game/physics/Physics_Actor.cpp' l='357' u='c' c='_ZN15idPhysics_Actor10UnlinkClipEv'/>
+<use f='codebrowser/game/physics/Physics_Monster.cpp' l='481' u='c' c='_ZN17idPhysics_Monster8EvaluateEii'/>
+<use f='codebrowser/game/physics/Physics_Parametric.cpp' l='920' u='c' c='_ZN20idPhysics_Parametric10UnlinkClipEv'/>
+<use f='codebrowser/game/physics/Physics_Player.cpp' l='1722' u='c' c='_ZN16idPhysics_Player8EvaluateEii'/>
+<use f='codebrowser/game/physics/Physics_RigidBody.cpp' l='888' u='c' c='_ZN19idPhysics_RigidBody8EvaluateEii'/>
+<use f='codebrowser/game/physics/Physics_RigidBody.cpp' l='1337' u='c' c='_ZN19idPhysics_RigidBody10UnlinkClipEv'/>
+<use f='codebrowser/game/physics/Physics_Static.cpp' l='608' u='c' c='_ZN16idPhysics_Static10UnlinkClipEv'/>
+<use f='codebrowser/game/physics/Physics_StaticMulti.cpp' l='796' u='c' c='_ZN21idPhysics_StaticMulti10UnlinkClipEv'/>

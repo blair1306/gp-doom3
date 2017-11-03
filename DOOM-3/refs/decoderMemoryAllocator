@@ -1,0 +1,21 @@
+<def f='codebrowser/sound/snd_decoder.cpp' l='47' type='idDynamicBlockAlloc&lt;byte, 1 &lt;&lt; 20, 128&gt;'/>
+<use f='codebrowser/sound/snd_decoder.cpp' l='59' u='m' c='_decoder_malloc'/>
+<use f='codebrowser/sound/snd_decoder.cpp' l='65' u='m' c='_decoder_calloc'/>
+<use f='codebrowser/sound/snd_decoder.cpp' l='72' u='m' c='_decoder_realloc'/>
+<use f='codebrowser/sound/snd_decoder.cpp' l='78' u='m' c='_decoder_free'/>
+<use f='codebrowser/sound/snd_decoder.cpp' l='312' u='m' c='_ZN15idSampleDecoder4InitEv'/>
+<use f='codebrowser/sound/snd_decoder.cpp' l='313' u='m' c='_ZN15idSampleDecoder4InitEv'/>
+<use f='codebrowser/sound/snd_decoder.cpp' l='314' u='m' c='_ZN15idSampleDecoder4InitEv'/>
+<use f='codebrowser/sound/snd_decoder.cpp' l='323' u='m' c='_ZN15idSampleDecoder8ShutdownEv'/>
+<use f='codebrowser/sound/snd_decoder.cpp' l='355' u='m' c='_ZN15idSampleDecoder16GetNumUsedBlocksEv'/>
+<use f='codebrowser/sound/snd_decoder.cpp' l='364' u='m' c='_ZN15idSampleDecoder18GetUsedBlockMemoryEv'/>
+<use f='codebrowser/sound/snd_decoder.cpp' l='520' u='m' c='_ZN20idSampleDecoderLocal9DecodeOGGEP13idSoundSampleiiPf'/>
+<doc f='codebrowser/sound/snd_decoder.cpp' l='37'>/*
+===================================================================================
+
+  Thread safe decoder memory allocator.
+
+  Each OggVorbis decoder consumes about 150kB of memory.
+
+===================================================================================
+*/</doc>

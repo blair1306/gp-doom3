@@ -1,0 +1,76 @@
+<dec f='codebrowser/d3xp/Entity.h' l='277' type='void idEntity::SetOrigin(const idVec3 &amp; org)'/>
+<doc f='codebrowser/d3xp/Entity.h' l='276'>// set the origin of the physics object (relative to bindMaster if not NULL)</doc>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='1504' u='c' c='_ZN27idAFEntity_WithAttachedHead9SetupHeadEv'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='737' u='c' c='_ZN7idActor9SetupHeadEv'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='1780' u='c' c='_ZN7idActor6AttachEP8idEntity'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='571' u='c' c='_ZN8idEntity5SpawnEv'/>
+<def f='codebrowser/d3xp/Entity.cpp' l='2784' ll='2789' type='void idEntity::SetOrigin(const idVec3 &amp; org)'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='4215' u='c' c='_ZN8idEntity20Event_SetWorldOriginERK6idVec3'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='4224' u='c' c='_ZN8idEntity15Event_SetOriginERK6idVec3'/>
+<doc f='codebrowser/d3xp/Entity.cpp' l='2779'>/*
+================
+idEntity::SetOrigin
+================
+*/</doc>
+<use f='codebrowser/d3xp/Fx.cpp' l='565' u='c' c='_ZN10idEntityFx3RunEi'/>
+<use f='codebrowser/d3xp/Fx.cpp' l='728' u='c' c='_ZN10idEntityFx7StartFxEPKcPK6idVec3PK6idMat3P8idEntityb'/>
+<use f='codebrowser/d3xp/Fx.cpp' l='730' u='c' c='_ZN10idEntityFx7StartFxEPKcPK6idVec3PK6idMat3P8idEntityb'/>
+<use f='codebrowser/d3xp/GameEdit.cpp' l='263' u='c' c='_ZN12idDragEntity6UpdateEP8idPlayer'/>
+<use f='codebrowser/d3xp/GameEdit.cpp' l='810' u='c' c='_ZN10idGameEdit15EntitySetOriginEP8idEntityRK6idVec3'/>
+<use f='codebrowser/d3xp/Grabber.cpp' l='659' u='c' c='_ZN9idGrabber11UpdateBeamsEv'/>
+<use f='codebrowser/d3xp/Grabber.cpp' l='669' u='c' c='_ZN9idGrabber11UpdateBeamsEv'/>
+<use f='codebrowser/d3xp/Item.cpp' l='230' u='c' c='_ZN6idItem5ThinkEv'/>
+<use f='codebrowser/d3xp/Item.cpp' l='506' u='c' c='_ZN6idItem17Event_DropToFloorEv'/>
+<use f='codebrowser/d3xp/Item.cpp' l='557' u='c' c='_ZN6idItem13Event_RespawnEv'/>
+<use f='codebrowser/d3xp/Item.cpp' l='972' u='c' c='_ZN10idItemTeam13PrivateReturnEv'/>
+<use f='codebrowser/d3xp/Item.cpp' l='1023' u='c' c='_ZN10idItemTeam14Event_TakeFlagEP8idPlayer'/>
+<use f='codebrowser/d3xp/Item.cpp' l='1102' u='c' c='_ZN10idItemTeam14Event_DropFlagEb'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='2993' u='c' c='_ZN14idMover_Binary9InitSpeedER6idVec3S1_fff'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='3022' u='c' c='_ZN14idMover_Binary8InitTimeER6idVec3S1_fff'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='3909' u='c' c='_ZN6idDoor20Event_SpectatorTouchEP8idEntityP7trace_s'/>
+<use f='codebrowser/d3xp/Player.cpp' l='2696' u='c' c='_ZN8idPlayer12SpawnToPointERK6idVec3RK8idAngles'/>
+<use f='codebrowser/d3xp/Player.cpp' l='2701' u='c' c='_ZN8idPlayer12SpawnToPointERK6idVec3RK8idAngles'/>
+<use f='codebrowser/d3xp/Player.cpp' l='5062' u='c' c='_ZN8idPlayer15SpectateFreeFlyEb'/>
+<use f='codebrowser/d3xp/Player.cpp' l='5070' u='c' c='_ZN8idPlayer15SpectateFreeFlyEb'/>
+<use f='codebrowser/d3xp/Player.cpp' l='8236' u='c' c='_ZN8idPlayer8TeleportERK6idVec3RK8idAnglesP8idEntity'/>
+<use f='codebrowser/d3xp/Player.cpp' l='8238' u='c' c='_ZN8idPlayer8TeleportERK6idVec3RK8idAnglesP8idEntity'/>
+<use f='codebrowser/d3xp/Player.cpp' l='9239' u='c' c='_ZN8idPlayer20Event_ExitTeleporterEv'/>
+<use f='codebrowser/d3xp/Player.cpp' l='9951' u='c' c='_ZN8idPlayer17SetSpectateOriginEv'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='602' u='c' c='_ZN12idProjectile7CollideERK7trace_sRK6idVec3'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='3259' u='c' c='_ZN8idWeapon22Event_CreateProjectileEv'/>
+<use f='codebrowser/d3xp/anim/Anim_Testmodel.cpp' l='157' u='c' c='_ZN11idTestModel5SpawnEv'/>
+<dec f='codebrowser/game/Entity.h' l='261' type='void idEntity::SetOrigin(const idVec3 &amp; org)'/>
+<doc f='codebrowser/game/Entity.h' l='260'>// set the origin of the physics object (relative to bindMaster if not NULL)</doc>
+<use f='codebrowser/game/AFEntity.cpp' l='1422' u='c' c='_ZN27idAFEntity_WithAttachedHead9SetupHeadEv'/>
+<use f='codebrowser/game/Actor.cpp' l='703' u='c' c='_ZN7idActor9SetupHeadEv'/>
+<use f='codebrowser/game/Actor.cpp' l='1732' u='c' c='_ZN7idActor6AttachEP8idEntity'/>
+<use f='codebrowser/game/Entity.cpp' l='533' u='c' c='_ZN8idEntity5SpawnEv'/>
+<def f='codebrowser/game/Entity.cpp' l='2692' ll='2697' type='void idEntity::SetOrigin(const idVec3 &amp; org)'/>
+<use f='codebrowser/game/Entity.cpp' l='4106' u='c' c='_ZN8idEntity20Event_SetWorldOriginERK6idVec3'/>
+<use f='codebrowser/game/Entity.cpp' l='4115' u='c' c='_ZN8idEntity15Event_SetOriginERK6idVec3'/>
+<doc f='codebrowser/game/Entity.cpp' l='2687'>/*
+================
+idEntity::SetOrigin
+================
+*/</doc>
+<use f='codebrowser/game/Fx.cpp' l='698' u='c' c='_ZN10idEntityFx7StartFxEPKcPK6idVec3PK6idMat3P8idEntityb'/>
+<use f='codebrowser/game/Fx.cpp' l='700' u='c' c='_ZN10idEntityFx7StartFxEPKcPK6idVec3PK6idMat3P8idEntityb'/>
+<use f='codebrowser/game/GameEdit.cpp' l='263' u='c' c='_ZN12idDragEntity6UpdateEP8idPlayer'/>
+<use f='codebrowser/game/GameEdit.cpp' l='810' u='c' c='_ZN10idGameEdit15EntitySetOriginEP8idEntityRK6idVec3'/>
+<use f='codebrowser/game/Item.cpp' l='230' u='c' c='_ZN6idItem5ThinkEv'/>
+<use f='codebrowser/game/Item.cpp' l='498' u='c' c='_ZN6idItem17Event_DropToFloorEv'/>
+<use f='codebrowser/game/Item.cpp' l='549' u='c' c='_ZN6idItem13Event_RespawnEv'/>
+<use f='codebrowser/game/Mover.cpp' l='2962' u='c' c='_ZN14idMover_Binary9InitSpeedER6idVec3S1_fff'/>
+<use f='codebrowser/game/Mover.cpp' l='2991' u='c' c='_ZN14idMover_Binary8InitTimeER6idVec3S1_fff'/>
+<use f='codebrowser/game/Mover.cpp' l='3848' u='c' c='_ZN6idDoor20Event_SpectatorTouchEP8idEntityP7trace_s'/>
+<use f='codebrowser/game/Player.cpp' l='2204' u='c' c='_ZN8idPlayer12SpawnToPointERK6idVec3RK8idAngles'/>
+<use f='codebrowser/game/Player.cpp' l='2209' u='c' c='_ZN8idPlayer12SpawnToPointERK6idVec3RK8idAngles'/>
+<use f='codebrowser/game/Player.cpp' l='4091' u='c' c='_ZN8idPlayer15SpectateFreeFlyEb'/>
+<use f='codebrowser/game/Player.cpp' l='4099' u='c' c='_ZN8idPlayer15SpectateFreeFlyEb'/>
+<use f='codebrowser/game/Player.cpp' l='6871' u='c' c='_ZN8idPlayer8TeleportERK6idVec3RK8idAnglesP8idEntity'/>
+<use f='codebrowser/game/Player.cpp' l='6873' u='c' c='_ZN8idPlayer8TeleportERK6idVec3RK8idAnglesP8idEntity'/>
+<use f='codebrowser/game/Player.cpp' l='7756' u='c' c='_ZN8idPlayer20Event_ExitTeleporterEv'/>
+<use f='codebrowser/game/Player.cpp' l='8397' u='c' c='_ZN8idPlayer17SetSpectateOriginEv'/>
+<use f='codebrowser/game/Projectile.cpp' l='557' u='c' c='_ZN12idProjectile7CollideERK7trace_sRK6idVec3'/>
+<use f='codebrowser/game/Weapon.cpp' l='2777' u='c' c='_ZN8idWeapon22Event_CreateProjectileEv'/>
+<use f='codebrowser/game/anim/Anim_Testmodel.cpp' l='157' u='c' c='_ZN11idTestModel5SpawnEv'/>

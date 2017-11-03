@@ -1,0 +1,38 @@
+<inh f='codebrowser/sound/sound.h' l='150' c='idSoundEmitter'/>
+<def f='codebrowser/sound/snd_local.h' l='434' ll='513'/>
+<size>2080</size>
+<fun r='_ZN19idSoundEmitterLocalC1Ev'/>
+<fun r='_ZN19idSoundEmitterLocalD1Ev'/>
+<fun r='_ZN19idSoundEmitterLocal4FreeEb'/>
+<fun r='_ZN19idSoundEmitterLocal13UpdateEmitterERK6idVec3iPK18soundShaderParms_t'/>
+<fun r='_ZN19idSoundEmitterLocal10StartSoundEPK13idSoundShaderifib'/>
+<fun r='_ZN19idSoundEmitterLocal11ModifySoundEiPK18soundShaderParms_t'/>
+<fun r='_ZN19idSoundEmitterLocal9StopSoundEi'/>
+<fun r='_ZN19idSoundEmitterLocal9FadeSoundEiff'/>
+<fun r='_ZNK19idSoundEmitterLocal16CurrentlyPlayingEv'/>
+<fun r='_ZN19idSoundEmitterLocal16CurrentAmplitudeEv'/>
+<fun r='_ZNK19idSoundEmitterLocal5IndexEv'/>
+<fun r='_ZN19idSoundEmitterLocal5ClearEv'/>
+<fun r='_ZN19idSoundEmitterLocal13OverrideParmsEPK18soundShaderParms_tS2_PS0_'/>
+<fun r='_ZN19idSoundEmitterLocal18CheckForCompletionEi'/>
+<fun r='_ZN19idSoundEmitterLocal10SpatializeE6idVec3iP13idRenderWorld'/>
+<mbr r='idSoundEmitterLocal::soundWorld' o='32' t='idSoundWorldLocal *'/>
+<mbr r='idSoundEmitterLocal::index' o='64' t='int'/>
+<mbr r='idSoundEmitterLocal::removeStatus' o='96' t='removeStatus_t'/>
+<mbr r='idSoundEmitterLocal::origin' o='128' t='idVec3'/>
+<mbr r='idSoundEmitterLocal::listenerId' o='224' t='int'/>
+<mbr r='idSoundEmitterLocal::parms' o='256' t='soundShaderParms_t'/>
+<mbr r='idSoundEmitterLocal::maxDistance' o='448' t='float'/>
+<mbr r='idSoundEmitterLocal::lastValidPortalArea' o='480' t='int'/>
+<mbr r='idSoundEmitterLocal::playing' o='512' t='bool'/>
+<mbr r='idSoundEmitterLocal::hasShakes' o='520' t='bool'/>
+<mbr r='idSoundEmitterLocal::spatializedOrigin' o='544' t='idVec3'/>
+<mbr r='idSoundEmitterLocal::realDistance' o='640' t='float'/>
+<mbr r='idSoundEmitterLocal::distance' o='672' t='float'/>
+<mbr r='idSoundEmitterLocal::channels' o='704' t='idSoundChannel [8]'/>
+<mbr r='idSoundEmitterLocal::slowChannels' o='9664' t='idSlowChannel [8]'/>
+<fun r='_ZN19idSoundEmitterLocal14GetSlowChannelEPK14idSoundChannel'/>
+<fun r='_ZN19idSoundEmitterLocal14SetSlowChannelEPK14idSoundChannel13idSlowChannel'/>
+<fun r='_ZN19idSoundEmitterLocal16ResetSlowChannelEPK14idSoundChannel'/>
+<mbr r='idSoundEmitterLocal::ampTime' o='16576' t='int'/>
+<mbr r='idSoundEmitterLocal::amplitude' o='16608' t='float'/>

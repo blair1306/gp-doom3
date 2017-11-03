@@ -1,0 +1,23 @@
+<def f='codebrowser/renderer/Image_process.cpp' l='255' ll='295' type='void R_SetAlphaNormalDivergence(byte * in, int width, int height)'/>
+<doc f='codebrowser/renderer/Image_process.cpp' l='233'>/*
+================
+R_SetAlphaNormalDivergence
+
+If any of the angles inside the cone would directly reflect to the light, there will be
+a specular highlight.  The intensity of the highlight is inversely proportional to the
+area of the spread.
+
+Light source area is important for the base size.
+
+area subtended in light is the divergence times the distance
+
+Shininess value is subtracted from the divergence
+
+Sets the alpha channel to the greatest divergence dot product of the surrounding texels.
+1.0 = flat, 0.0 = turns a 90 degree angle
+Lower values give less shiny specular
+With mip maps, the lowest samnpled value will be retained
+
+Should we rewrite the normal as the centered average?
+================
+*/</doc>

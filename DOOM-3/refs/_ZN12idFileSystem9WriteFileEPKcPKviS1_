@@ -1,0 +1,10 @@
+<dec f='codebrowser/framework/FileSystem.h' l='225' type='int idFileSystem::WriteFile(const char * relativePath, const void * buffer, int size, const char * basePath = &quot;fs_savepath&quot;)'/>
+<doc f='codebrowser/framework/FileSystem.h' l='223'>// Writes a complete file, will create any needed subdirectories.
+							// Returns the length of the file, or -1 on failure.</doc>
+<ovr f='codebrowser/framework/FileSystem.cpp' l='1164' c='_ZN17idFileSystemLocal9WriteFileEPKcPKviS1_'/>
+<use f='codebrowser/framework/Session.cpp' l='1086' u='c' c='_ZN14idSessionLocal7AVIGameEPKc'/>
+<use f='codebrowser/renderer/Image_files.cpp' l='111' u='c' c='_Z10R_WriteTGAPKcPKhiib'/>
+<use f='codebrowser/renderer/Image_files.cpp' l='157' u='c' c='_Z13R_WritePalTGAPKcPKhS2_iib'/>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='1281' u='c' c='_ZN19idRenderSystemLocal14TakeScreenshotEiiPKciP12renderView_s'/>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='1283' u='c' c='_ZN19idRenderSystemLocal14TakeScreenshotEiiPKciP12renderView_s'/>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='1442' u='c' c='_Z13R_StencilShotv'/>

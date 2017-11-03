@@ -1,0 +1,28 @@
+<dec f='codebrowser/d3xp/Game_local.h' l='465' type='bool idGameLocal::InPlayerPVS(idEntity * ent) const'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='924' u='c' c='_ZN8idEntity14DoDormantTestsEv'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='1484' u='c' c='_ZN8idEntity7PresentEv'/>
+<def f='codebrowser/d3xp/Game_local.cpp' l='2239' ll='2244' type='bool idGameLocal::InPlayerPVS(idEntity * ent) const'/>
+<doc f='codebrowser/d3xp/Game_local.cpp' l='2232'>/*
+================
+idGameLocal::InPlayerPVS
+
+  should only be called during entity thinking and event handling
+================
+*/</doc>
+<use f='codebrowser/d3xp/ai/AI_events.cpp' l='350' u='c' c='_ZN4idAI15Event_FindEnemyEi'/>
+<use f='codebrowser/d3xp/ai/AI_events.cpp' l='429' u='c' c='_ZN4idAI28Event_FindEnemyInCombatNodesEv'/>
+<use f='codebrowser/d3xp/ai/AI_events.cpp' l='518' u='c' c='_ZN4idAI16Event_HeardSoundEi'/>
+<dec f='codebrowser/game/Game_local.h' l='406' type='bool idGameLocal::InPlayerPVS(idEntity * ent) const'/>
+<use f='codebrowser/game/Entity.cpp' l='855' u='c' c='_ZN8idEntity14DoDormantTestsEv'/>
+<use f='codebrowser/game/Entity.cpp' l='1396' u='c' c='_ZN8idEntity7PresentEv'/>
+<def f='codebrowser/game/Game_local.cpp' l='2028' ll='2033' type='bool idGameLocal::InPlayerPVS(idEntity * ent) const'/>
+<doc f='codebrowser/game/Game_local.cpp' l='2021'>/*
+================
+idGameLocal::InPlayerPVS
+
+  should only be called during entity thinking and event handling
+================
+*/</doc>
+<use f='codebrowser/game/ai/AI_events.cpp' l='326' u='c' c='_ZN4idAI15Event_FindEnemyEi'/>
+<use f='codebrowser/game/ai/AI_events.cpp' l='405' u='c' c='_ZN4idAI28Event_FindEnemyInCombatNodesEv'/>
+<use f='codebrowser/game/ai/AI_events.cpp' l='494' u='c' c='_ZN4idAI16Event_HeardSoundEi'/>

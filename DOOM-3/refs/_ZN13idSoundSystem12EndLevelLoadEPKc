@@ -1,0 +1,6 @@
+<dec f='codebrowser/sound/sound.h' l='336' type='void idSoundSystem::EndLevelLoad(const char * mapString)'/>
+<doc f='codebrowser/sound/sound.h' l='333'>// Free all soundSamples marked as unused
+	// We might want to defer the loading of new sounds to this point,
+	// as we do with images, to avoid having a union in memory at one time.</doc>
+<use f='codebrowser/framework/Session.cpp' l='1657' u='c' c='_ZN14idSessionLocal16ExecuteMapChangeEb'/>
+<ovr f='codebrowser/sound/snd_system.cpp' l='1130' c='_ZN18idSoundSystemLocal12EndLevelLoadEPKc'/>

@@ -1,0 +1,178 @@
+<def f='codebrowser/d3xp/script/Script_Program.h' l='448' ll='536'/>
+<size>3501552</size>
+<doc f='codebrowser/d3xp/script/Script_Program.h' l='437'>/***********************************************************************
+
+idProgram
+
+Handles compiling and storage of script data.  Multiple idProgram objects
+would represent seperate programs with no knowledge of each other.  Scripts
+meant to access shared data and functions should all be compiled by a
+single idProgram.
+
+***********************************************************************/</doc>
+<mbr r='idProgram::fileList' o='0' t='idStrList'/>
+<mbr r='idProgram::filename' o='128' t='idStr'/>
+<mbr r='idProgram::filenum' o='384' t='int'/>
+<mbr r='idProgram::numVariables' o='416' t='int'/>
+<mbr r='idProgram::variables' o='448' t='byte [296608]'/>
+<mbr r='idProgram::variableDefaults' o='2373312' t='idStaticList&lt;byte, 296608&gt;'/>
+<mbr r='idProgram::functions' o='4746208' t='idStaticList&lt;function_t, 3584&gt;'/>
+<mbr r='idProgram::statements' o='7040000' t='idStaticList&lt;statement_t, 131072&gt;'/>
+<mbr r='idProgram::types' o='28011552' t='idList&lt;idTypeDef *&gt;'/>
+<mbr r='idProgram::varDefNames' o='28011680' t='idList&lt;idVarDefName *&gt;'/>
+<mbr r='idProgram::varDefNameHash' o='28011808' t='idHashIndex'/>
+<mbr r='idProgram::varDefs' o='28012032' t='idList&lt;idVarDef *&gt;'/>
+<mbr r='idProgram::sysDef' o='28012160' t='idVarDef *'/>
+<mbr r='idProgram::top_functions' o='28012192' t='int'/>
+<mbr r='idProgram::top_statements' o='28012224' t='int'/>
+<mbr r='idProgram::top_types' o='28012256' t='int'/>
+<mbr r='idProgram::top_defs' o='28012288' t='int'/>
+<mbr r='idProgram::top_files' o='28012320' t='int'/>
+<fun r='_ZN9idProgram12CompileStatsEv'/>
+<mbr r='idProgram::returnDef' o='28012352' t='idVarDef *'/>
+<mbr r='idProgram::returnStringDef' o='28012384' t='idVarDef *'/>
+<fun r='_ZN9idProgramC1Ev'/>
+<fun r='_ZN9idProgramD1Ev'/>
+<fun r='_ZNK9idProgram4SaveEP10idSaveGame'/>
+<fun r='_ZN9idProgram7RestoreEP13idRestoreGame'/>
+<fun r='_ZNK9idProgram17CalculateChecksumEv'/>
+<fun r='_ZN9idProgram7StartupEPKc'/>
+<fun r='_ZN9idProgram7RestartEv'/>
+<fun r='_ZN9idProgram11CompileTextEPKcS1_b'/>
+<fun r='_ZN9idProgram15CompileFunctionEPKcS1_'/>
+<fun r='_ZN9idProgram11CompileFileEPKc'/>
+<fun r='_ZN9idProgram16BeginCompilationEv'/>
+<fun r='_ZN9idProgram17FinishCompilationEv'/>
+<fun r='_ZNK9idProgram20DisassembleStatementEP6idFilei'/>
+<fun r='_ZNK9idProgram11DisassembleEv'/>
+<fun r='_ZN9idProgram8FreeDataEv'/>
+<fun r='_ZN9idProgram11GetFilenameEi'/>
+<fun r='_ZN9idProgram10GetFilenumEPKc'/>
+<fun r='_ZN9idProgram25GetLineNumberForStatementEi'/>
+<fun r='_ZN9idProgram23GetFilenameForStatementEi'/>
+<fun r='_ZN9idProgram9AllocTypeER9idTypeDef'/>
+<fun r='_ZN9idProgram9AllocTypeE7etype_tP8idVarDefPKciP9idTypeDef'/>
+<fun r='_ZN9idProgram7GetTypeER9idTypeDefb'/>
+<fun r='_ZN9idProgram8FindTypeEPKc'/>
+<fun r='_ZN9idProgram8AllocDefEP9idTypeDefPKcP8idVarDefb'/>
+<fun r='_ZNK9idProgram6GetDefEPK9idTypeDefPKcPK8idVarDef'/>
+<fun r='_ZN9idProgram7FreeDefEP8idVarDefPKS0_'/>
+<fun r='_ZN9idProgram17FindFreeResultDefEP9idTypeDefPKcP8idVarDefPKS4_S7_'/>
+<fun r='_ZNK9idProgram10GetDefListEPKc'/>
+<fun r='_ZN9idProgram16AddDefToNameListEP8idVarDefPKc'/>
+<fun r='_ZNK9idProgram12FindFunctionEPKc'/>
+<fun r='_ZNK9idProgram12FindFunctionEPKcPK9idTypeDef'/>
+<fun r='_ZN9idProgram13AllocFunctionEP8idVarDef'/>
+<fun r='_ZN9idProgram11GetFunctionEi'/>
+<fun r='_ZN9idProgram16GetFunctionIndexEPK10function_t'/>
+<fun r='_ZN9idProgram9SetEntityEPKcP8idEntity'/>
+<fun r='_ZN9idProgram14AllocStatementEv'/>
+<fun r='_ZN9idProgram12GetStatementEi'/>
+<fun r='_ZN9idProgram13NumStatementsEv'/>
+<fun r='_ZN9idProgram18GetReturnedIntegerEv'/>
+<fun r='_ZN9idProgram11ReturnFloatEf'/>
+<fun r='_ZN9idProgram13ReturnIntegerEi'/>
+<fun r='_ZN9idProgram12ReturnVectorERK6idVec3'/>
+<fun r='_ZN9idProgram12ReturnStringEPKc'/>
+<fun r='_ZN9idProgram12ReturnEntityEP8idEntity'/>
+<fun r='_ZN9idProgram12NumFilenamesEv'/>
+<fun r='_ZN9idProgram12GetStatementEi'/>
+<fun r='_ZN9idProgram11GetFunctionEi'/>
+<fun r='_ZN9idProgram16GetFunctionIndexEPK10function_t'/>
+<fun r='_ZN9idProgram18GetReturnedIntegerEv'/>
+<fun r='_ZN9idProgram11ReturnFloatEf'/>
+<fun r='_ZN9idProgram13ReturnIntegerEi'/>
+<fun r='_ZN9idProgram12ReturnVectorERK6idVec3'/>
+<fun r='_ZN9idProgram12ReturnStringEPKc'/>
+<fun r='_ZN9idProgram11GetFilenameEi'/>
+<fun r='_ZN9idProgram25GetLineNumberForStatementEi'/>
+<fun r='_ZN9idProgram23GetFilenameForStatementEi'/>
+<def f='codebrowser/game/script/Script_Program.h' l='434' ll='522'/>
+<size>2277552</size>
+<doc f='codebrowser/game/script/Script_Program.h' l='423'>/***********************************************************************
+
+idProgram
+
+Handles compiling and storage of script data.  Multiple idProgram objects
+would represent seperate programs with no knowledge of each other.  Scripts
+meant to access shared data and functions should all be compiled by a
+single idProgram.
+
+***********************************************************************/</doc>
+<mbr r='idProgram::fileList' o='0' t='idStrList'/>
+<mbr r='idProgram::filename' o='128' t='idStr'/>
+<mbr r='idProgram::filenum' o='384' t='int'/>
+<mbr r='idProgram::numVariables' o='416' t='int'/>
+<mbr r='idProgram::variables' o='448' t='byte [196608]'/>
+<mbr r='idProgram::variableDefaults' o='1573312' t='idStaticList&lt;byte, 196608&gt;'/>
+<mbr r='idProgram::functions' o='3146208' t='idStaticList&lt;function_t, 3072&gt;'/>
+<mbr r='idProgram::statements' o='5112320' t='idStaticList&lt;statement_t, 81920&gt;'/>
+<mbr r='idProgram::types' o='18219552' t='idList&lt;idTypeDef *&gt;'/>
+<mbr r='idProgram::varDefNames' o='18219680' t='idList&lt;idVarDefName *&gt;'/>
+<mbr r='idProgram::varDefNameHash' o='18219808' t='idHashIndex'/>
+<mbr r='idProgram::varDefs' o='18220032' t='idList&lt;idVarDef *&gt;'/>
+<mbr r='idProgram::sysDef' o='18220160' t='idVarDef *'/>
+<mbr r='idProgram::top_functions' o='18220192' t='int'/>
+<mbr r='idProgram::top_statements' o='18220224' t='int'/>
+<mbr r='idProgram::top_types' o='18220256' t='int'/>
+<mbr r='idProgram::top_defs' o='18220288' t='int'/>
+<mbr r='idProgram::top_files' o='18220320' t='int'/>
+<fun r='_ZN9idProgram12CompileStatsEv'/>
+<mbr r='idProgram::returnDef' o='18220352' t='idVarDef *'/>
+<mbr r='idProgram::returnStringDef' o='18220384' t='idVarDef *'/>
+<fun r='_ZN9idProgramC1Ev'/>
+<fun r='_ZN9idProgramD1Ev'/>
+<fun r='_ZNK9idProgram4SaveEP10idSaveGame'/>
+<fun r='_ZN9idProgram7RestoreEP13idRestoreGame'/>
+<fun r='_ZNK9idProgram17CalculateChecksumEv'/>
+<fun r='_ZN9idProgram7StartupEPKc'/>
+<fun r='_ZN9idProgram7RestartEv'/>
+<fun r='_ZN9idProgram11CompileTextEPKcS1_b'/>
+<fun r='_ZN9idProgram15CompileFunctionEPKcS1_'/>
+<fun r='_ZN9idProgram11CompileFileEPKc'/>
+<fun r='_ZN9idProgram16BeginCompilationEv'/>
+<fun r='_ZN9idProgram17FinishCompilationEv'/>
+<fun r='_ZNK9idProgram20DisassembleStatementEP6idFilei'/>
+<fun r='_ZNK9idProgram11DisassembleEv'/>
+<fun r='_ZN9idProgram8FreeDataEv'/>
+<fun r='_ZN9idProgram11GetFilenameEi'/>
+<fun r='_ZN9idProgram10GetFilenumEPKc'/>
+<fun r='_ZN9idProgram25GetLineNumberForStatementEi'/>
+<fun r='_ZN9idProgram23GetFilenameForStatementEi'/>
+<fun r='_ZN9idProgram9AllocTypeER9idTypeDef'/>
+<fun r='_ZN9idProgram9AllocTypeE7etype_tP8idVarDefPKciP9idTypeDef'/>
+<fun r='_ZN9idProgram7GetTypeER9idTypeDefb'/>
+<fun r='_ZN9idProgram8FindTypeEPKc'/>
+<fun r='_ZN9idProgram8AllocDefEP9idTypeDefPKcP8idVarDefb'/>
+<fun r='_ZNK9idProgram6GetDefEPK9idTypeDefPKcPK8idVarDef'/>
+<fun r='_ZN9idProgram7FreeDefEP8idVarDefPKS0_'/>
+<fun r='_ZN9idProgram17FindFreeResultDefEP9idTypeDefPKcP8idVarDefPKS4_S7_'/>
+<fun r='_ZNK9idProgram10GetDefListEPKc'/>
+<fun r='_ZN9idProgram16AddDefToNameListEP8idVarDefPKc'/>
+<fun r='_ZNK9idProgram12FindFunctionEPKc'/>
+<fun r='_ZNK9idProgram12FindFunctionEPKcPK9idTypeDef'/>
+<fun r='_ZN9idProgram13AllocFunctionEP8idVarDef'/>
+<fun r='_ZN9idProgram11GetFunctionEi'/>
+<fun r='_ZN9idProgram16GetFunctionIndexEPK10function_t'/>
+<fun r='_ZN9idProgram9SetEntityEPKcP8idEntity'/>
+<fun r='_ZN9idProgram14AllocStatementEv'/>
+<fun r='_ZN9idProgram12GetStatementEi'/>
+<fun r='_ZN9idProgram13NumStatementsEv'/>
+<fun r='_ZN9idProgram18GetReturnedIntegerEv'/>
+<fun r='_ZN9idProgram11ReturnFloatEf'/>
+<fun r='_ZN9idProgram13ReturnIntegerEi'/>
+<fun r='_ZN9idProgram12ReturnVectorERK6idVec3'/>
+<fun r='_ZN9idProgram12ReturnStringEPKc'/>
+<fun r='_ZN9idProgram12ReturnEntityEP8idEntity'/>
+<fun r='_ZN9idProgram12NumFilenamesEv'/>
+<fun r='_ZN9idProgram12GetStatementEi'/>
+<fun r='_ZN9idProgram11GetFunctionEi'/>
+<fun r='_ZN9idProgram16GetFunctionIndexEPK10function_t'/>
+<fun r='_ZN9idProgram18GetReturnedIntegerEv'/>
+<fun r='_ZN9idProgram11ReturnFloatEf'/>
+<fun r='_ZN9idProgram13ReturnIntegerEi'/>
+<fun r='_ZN9idProgram12ReturnVectorERK6idVec3'/>
+<fun r='_ZN9idProgram12ReturnStringEPKc'/>
+<fun r='_ZN9idProgram11GetFilenameEi'/>
+<fun r='_ZN9idProgram25GetLineNumberForStatementEi'/>
+<fun r='_ZN9idProgram23GetFilenameForStatementEi'/>

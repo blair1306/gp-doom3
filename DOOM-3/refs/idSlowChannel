@@ -1,0 +1,18 @@
+<def f='codebrowser/sound/snd_local.h' l='370' ll='399'/>
+<size>108</size>
+<mbr r='idSlowChannel::active' o='0' t='bool'/>
+<mbr r='idSlowChannel::chan' o='32' t='const idSoundChannel *'/>
+<mbr r='idSlowChannel::playbackState' o='64' t='int'/>
+<mbr r='idSlowChannel::triggerOffset' o='96' t='int'/>
+<mbr r='idSlowChannel::newPosition' o='128' t='FracTime'/>
+<mbr r='idSlowChannel::newSampleOffset' o='192' t='int'/>
+<mbr r='idSlowChannel::curPosition' o='224' t='FracTime'/>
+<mbr r='idSlowChannel::curSampleOffset' o='288' t='int'/>
+<mbr r='idSlowChannel::lowpass' o='320' t='SoundFX_LowpassFast'/>
+<fun r='_ZN13idSlowChannel19GenerateSlowChannelER8FracTimeiPf'/>
+<fun r='_ZN13idSlowChannel14GetSlowmoSpeedEv'/>
+<fun r='_ZN13idSlowChannel18AttachSoundChannelEPK14idSoundChannel'/>
+<fun r='_ZN13idSlowChannel5ResetEv'/>
+<fun r='_ZN13idSlowChannel20GatherChannelSamplesEiiPf'/>
+<fun r='_ZN13idSlowChannel8IsActiveEv'/>
+<fun r='_ZN13idSlowChannel18GetCurrentPositionEv'/>

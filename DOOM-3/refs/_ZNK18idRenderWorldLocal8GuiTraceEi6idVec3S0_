@@ -1,0 +1,13 @@
+<dec f='codebrowser/renderer/RenderWorld_local.h' l='112' type='guiPoint_t idRenderWorldLocal::GuiTrace(qhandle_t entityHandle, const idVec3 start, const idVec3 end) const'/>
+<inh f='codebrowser/renderer/RenderWorld.h' l='371' c='_ZNK13idRenderWorld8GuiTraceEi6idVec3S0_'/>
+<def f='codebrowser/renderer/RenderWorld.cpp' l='971' ll='1045' type='guiPoint_t idRenderWorldLocal::GuiTrace(qhandle_t entityHandle, const idVec3 start, const idVec3 end) const'/>
+<doc f='codebrowser/renderer/RenderWorld.cpp' l='961'>/*
+================
+GuiTrace
+
+checks a ray trace against any gui surfaces in an entity, returning the
+fraction location of the trace on the gui surface, or -1,-1 if no hit.
+this doesn&apos;t do any occlusion testing, simply ignoring non-gui surfaces.
+start / end are in global world coordinates.
+================
+*/</doc>

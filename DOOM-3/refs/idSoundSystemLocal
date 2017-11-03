@@ -1,0 +1,99 @@
+<inh f='codebrowser/sound/sound.h' l='283' c='idSoundSystem'/>
+<def f='codebrowser/sound/snd_local.h' l='676' ll='823'/>
+<size>109444</size>
+<fun r='_ZN18idSoundSystemLocalC1Ev'/>
+<fun r='_ZN18idSoundSystemLocal4InitEv'/>
+<fun r='_ZN18idSoundSystemLocal8ShutdownEv'/>
+<fun r='_ZN18idSoundSystemLocal11ClearBufferEv'/>
+<fun r='_ZN18idSoundSystemLocal10ShutdownHWEv'/>
+<fun r='_ZN18idSoundSystemLocal6InitHWEv'/>
+<fun r='_ZN18idSoundSystemLocal11AsyncUpdateEi'/>
+<fun r='_ZN18idSoundSystemLocal16AsyncUpdateWriteEi'/>
+<fun r='_ZN18idSoundSystemLocal8AsyncMixEiPf'/>
+<fun r='_ZN18idSoundSystemLocal7SetMuteEb'/>
+<fun r='_ZN18idSoundSystemLocal12ImageForTimeEib'/>
+<fun r='_ZN18idSoundSystemLocal19GetSoundDecoderInfoEiR18soundDecoderInfo_t'/>
+<fun r='_ZN18idSoundSystemLocal15AllocSoundWorldEP13idRenderWorld'/>
+<fun r='_ZN18idSoundSystemLocal20SetPlayingSoundWorldEP12idSoundWorld'/>
+<fun r='_ZN18idSoundSystemLocal20GetPlayingSoundWorldEv'/>
+<fun r='_ZN18idSoundSystemLocal14BeginLevelLoadEv'/>
+<fun r='_ZN18idSoundSystemLocal12EndLevelLoadEPKc'/>
+<fun r='_ZN18idSoundSystemLocal12PrintMemInfoEP9MemInfo_t'/>
+<fun r='_ZN18idSoundSystemLocal14IsEAXAvailableEv'/>
+<fun r='_ZNK18idSoundSystemLocal19GetCurrent44kHzTimeEv'/>
+<fun r='_ZNK18idSoundSystemLocal8dB2ScaleEf'/>
+<fun r='_ZNK18idSoundSystemLocal21SamplesToMillisecondsEi'/>
+<fun r='_ZNK18idSoundSystemLocal21MillisecondsToSamplesEi'/>
+<fun r='_ZN18idSoundSystemLocal12DoEnviroSuitEPfii'/>
+<fun r='_ZN18idSoundSystemLocal17AllocOpenALSourceEP14idSoundChannelbb'/>
+<fun r='_ZN18idSoundSystemLocal16FreeOpenALSourceEj'/>
+<mbr r='idSoundSystemLocal::snd_audio_hw' o='32' t='idAudioHardware *'/>
+<mbr r='idSoundSystemLocal::soundCache' o='64' t='idSoundCache *'/>
+<mbr r='idSoundSystemLocal::currentSoundWorld' o='96' t='idSoundWorldLocal *'/>
+<mbr r='idSoundSystemLocal::olddwCurrentWritePos' o='128' t='int'/>
+<mbr r='idSoundSystemLocal::buffers' o='160' t='int'/>
+<mbr r='idSoundSystemLocal::CurrentSoundTime' o='192' t='int'/>
+<mbr r='idSoundSystemLocal::nextWriteBlock' o='224' t='unsigned int'/>
+<mbr r='idSoundSystemLocal::realAccum' o='256' t='float [24592]'/>
+<mbr r='idSoundSystemLocal::finalMixBuffer' o='787200' t='float *'/>
+<mbr r='idSoundSystemLocal::isInitialized' o='787232' t='bool'/>
+<mbr r='idSoundSystemLocal::muted' o='787240' t='bool'/>
+<mbr r='idSoundSystemLocal::shutdown' o='787248' t='bool'/>
+<mbr r='idSoundSystemLocal::soundStats' o='787264' t='s_stats'/>
+<mbr r='idSoundSystemLocal::meterTops' o='787456' t='int [256]'/>
+<mbr r='idSoundSystemLocal::meterTopsTime' o='795648' t='int [256]'/>
+<mbr r='idSoundSystemLocal::graph' o='803840' t='dword *'/>
+<mbr r='idSoundSystemLocal::volumesDB' o='803872' t='float [1200]'/>
+<mbr r='idSoundSystemLocal::fxList' o='842272' t='idList&lt;SoundFX *&gt;'/>
+<mbr r='idSoundSystemLocal::openalDevice' o='842400' t='ALCdevice *'/>
+<mbr r='idSoundSystemLocal::openalContext' o='842432' t='ALCcontext *'/>
+<mbr r='idSoundSystemLocal::openalSourceCount' o='842464' t='ALsizei'/>
+<mbr r='idSoundSystemLocal::openalSources' o='842496' t='openalSource_t [256]'/>
+<mbr r='idSoundSystemLocal::alEAXSet' o='875264' t='EAXSet'/>
+<mbr r='idSoundSystemLocal::alEAXGet' o='875296' t='EAXGet'/>
+<mbr r='idSoundSystemLocal::alEAXSetBufferMode' o='875328' t='EAXSetBufferMode'/>
+<mbr r='idSoundSystemLocal::alEAXGetBufferMode' o='875360' t='EAXGetBufferMode'/>
+<mbr r='idSoundSystemLocal::EFXDatabase' o='875392' t='idEFXFile'/>
+<mbr r='idSoundSystemLocal::efxloaded' o='875520' t='bool'/>
+<smbr r='idSoundSystemLocal::useOpenAL' t='bool'/>
+<smbr r='idSoundSystemLocal::useEAXReverb' t='bool'/>
+<smbr r='idSoundSystemLocal::EAXAvailable' t='int'/>
+<smbr r='idSoundSystemLocal::s_noSound' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_quadraticFalloff' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_drawSounds' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_minVolume6' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_dotbias6' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_minVolume2' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_dotbias2' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_spatializationDecay' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_showStartSound' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_maxSoundsPerShader' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_reverse' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_showLevelMeter' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_meterTopTime' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_volume' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_constantAmplitude' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_playDefaultSound' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_useOcclusion' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_subFraction' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_globalFraction' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_doorDistanceAdd' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_singleEmitter' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_numberOfSpeakers' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_force22kHz' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_clipVolumes' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_realTimeDecoding' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_libOpenAL' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_useOpenAL' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_useEAXReverb' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_muteEAXReverb' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_decompressionLimit' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_slowAttenuate' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_enviroSuitCutoffFreq' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_enviroSuitCutoffQ' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_enviroSuitSkipLowpass' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_enviroSuitSkipReverb' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_reverbTime' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_reverbFeedback' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_enviroSuitVolumeScale' t='idCVar'/>
+<smbr r='idSoundSystemLocal::s_skipHelltimeFX' t='idCVar'/>

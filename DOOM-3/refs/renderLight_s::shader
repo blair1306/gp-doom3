@@ -1,0 +1,39 @@
+<dec f='codebrowser/renderer/RenderWorld.h' l='200' type='const idMaterial *'/>
+<offset>1216</offset>
+<doc f='codebrowser/renderer/RenderWorld.h' l='200'>// NULL = either lights/defaultPointLight or lights/defaultProjectedLight</doc>
+<use f='codebrowser/d3xp/Fx.cpp' l='417' u='w' c='_ZN10idEntityFx3RunEi'/>
+<use f='codebrowser/d3xp/Light.cpp' l='161' u='w' c='_ZN10idGameEdit27ParseSpawnArgsToRenderLightEPK6idDictP13renderLight_s'/>
+<use f='codebrowser/d3xp/Light.cpp' l='340' u='r' c='_ZN7idLight5SpawnEv'/>
+<use f='codebrowser/d3xp/Light.cpp' l='500' u='w' c='_ZN7idLight9SetShaderEPKc'/>
+<use f='codebrowser/d3xp/Moveable.cpp' l='1089' u='w' c='_ZN17idExplodingBarrel8AddLightEPKcb'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='244' u='w' c='_ZN12idProjectile6CreateEP8idEntityRK6idVec3S4_'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='921' u='w' c='_ZN12idProjectile7ExplodeERK7trace_sP8idEntity'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='987' u='w' c='_ZN8idWeapon12GetWeaponDefEPKci'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='1068' u='w' c='_ZN8idWeapon12GetWeaponDefEPKci'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='1257' u='w' c='_ZN8idWeapon12GetWeaponDefEPKci'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='1890' u='w' c='_ZN8idWeapon14UpdateNozzleFxEv'/>
+<use f='codebrowser/d3xp/ai/AI.cpp' l='1025' u='w' c='_ZN4idAI15InitMuzzleFlashEv'/>
+<use f='codebrowser/d3xp/gamesys/SaveGame.cpp' l='582' u='r' c='_ZN10idSaveGame16WriteRenderLightERK13renderLight_s'/>
+<use f='codebrowser/d3xp/gamesys/SaveGame.cpp' l='1362' u='a' c='_ZN13idRestoreGame15ReadRenderLightER13renderLight_s'/>
+<use f='codebrowser/game/Fx.cpp' l='417' u='w' c='_ZN10idEntityFx3RunEi'/>
+<use f='codebrowser/game/Light.cpp' l='161' u='w' c='_ZN10idGameEdit27ParseSpawnArgsToRenderLightEPK6idDictP13renderLight_s'/>
+<use f='codebrowser/game/Light.cpp' l='340' u='r' c='_ZN7idLight5SpawnEv'/>
+<use f='codebrowser/game/Light.cpp' l='493' u='w' c='_ZN7idLight9SetShaderEPKc'/>
+<use f='codebrowser/game/Moveable.cpp' l='927' u='w' c='_ZN17idExplodingBarrel8AddLightEPKcb'/>
+<use f='codebrowser/game/Projectile.cpp' l='219' u='w' c='_ZN12idProjectile6CreateEP8idEntityRK6idVec3S4_'/>
+<use f='codebrowser/game/Projectile.cpp' l='845' u='w' c='_ZN12idProjectile7ExplodeERK7trace_sP8idEntity'/>
+<use f='codebrowser/game/Weapon.cpp' l='819' u='w' c='_ZN8idWeapon12GetWeaponDefEPKci'/>
+<use f='codebrowser/game/Weapon.cpp' l='891' u='w' c='_ZN8idWeapon12GetWeaponDefEPKci'/>
+<use f='codebrowser/game/Weapon.cpp' l='1603' u='w' c='_ZN8idWeapon14UpdateNozzleFxEv'/>
+<use f='codebrowser/game/ai/AI.cpp' l='950' u='w' c='_ZN4idAI15InitMuzzleFlashEv'/>
+<use f='codebrowser/game/gamesys/SaveGame.cpp' l='577' u='r' c='_ZN10idSaveGame16WriteRenderLightERK13renderLight_s'/>
+<use f='codebrowser/game/gamesys/SaveGame.cpp' l='1352' u='a' c='_ZN13idRestoreGame15ReadRenderLightER13renderLight_s'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='409' u='r' c='_ZN18idRenderWorldLocal14UpdateLightDefEiPK13renderLight_s'/>
+<use f='codebrowser/renderer/RenderWorld_demo.cpp' l='443' u='r' c='_ZN18idRenderWorldLocal16WriteRenderLightEiPK13renderLight_s'/>
+<use f='codebrowser/renderer/RenderWorld_demo.cpp' l='451' u='r' c='_ZN18idRenderWorldLocal16WriteRenderLightEiPK13renderLight_s'/>
+<use f='codebrowser/renderer/RenderWorld_demo.cpp' l='452' u='r' c='_ZN18idRenderWorldLocal16WriteRenderLightEiPK13renderLight_s'/>
+<use f='codebrowser/renderer/RenderWorld_demo.cpp' l='495' u='a' c='_ZN18idRenderWorldLocal15ReadRenderLightEv'/>
+<use f='codebrowser/renderer/RenderWorld_demo.cpp' l='502' u='r' c='_ZN18idRenderWorldLocal15ReadRenderLightEv'/>
+<use f='codebrowser/renderer/RenderWorld_demo.cpp' l='503' u='w' c='_ZN18idRenderWorldLocal15ReadRenderLightEv'/>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='355' u='r' c='_Z17R_DeriveLightDataP18idRenderLightLocal'/>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='356' u='r' c='_Z17R_DeriveLightDataP18idRenderLightLocal'/>

@@ -1,0 +1,16 @@
+<dec f='codebrowser/renderer/tr_local.h' l='727' type='void idRenderSystemLocal::TakeScreenshot(int width, int height, const char * fileName, int downSample, renderView_t * ref)'/>
+<inh f='codebrowser/renderer/RenderSystem.h' l='236' c='_ZN14idRenderSystem14TakeScreenshotEiiPKciP12renderView_s'/>
+<def f='codebrowser/renderer/RenderSystem_init.cpp' l='1226' ll='1290' type='void idRenderSystemLocal::TakeScreenshot(int width, int height, const char * fileName, int blends, renderView_t * ref)'/>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='1399' u='c' c='_Z14R_ScreenShot_fRK9idCmdArgs'/>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='1527' u='c' c='_Z11R_EnvShot_fRK9idCmdArgs'/>
+<doc f='codebrowser/renderer/RenderSystem_init.cpp' l='1215'>/*
+================== 
+TakeScreenshot
+
+Move to tr_imagefiles.c...
+
+Will automatically tile render large screen shots if necessary
+Downsample is the number of steps to mipmap the image before saving it
+If ref == NULL, session-&gt;updateScreen will be used
+================== 
+*/</doc>

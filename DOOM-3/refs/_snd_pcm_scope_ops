@@ -1,0 +1,10 @@
+<def f='include/alsa/pcm.h' l='1172' ll='1201'/>
+<size>28</size>
+<doc f='include/alsa/pcm.h' l='1171'>/** #SND_PCM_TYPE_METER scope functions */</doc>
+<mbr r='_snd_pcm_scope_ops::enable' o='0' t='int (*)(snd_pcm_scope_t *)'/>
+<mbr r='_snd_pcm_scope_ops::disable' o='32' t='void (*)(snd_pcm_scope_t *)'/>
+<mbr r='_snd_pcm_scope_ops::start' o='64' t='void (*)(snd_pcm_scope_t *)'/>
+<mbr r='_snd_pcm_scope_ops::stop' o='96' t='void (*)(snd_pcm_scope_t *)'/>
+<mbr r='_snd_pcm_scope_ops::update' o='128' t='void (*)(snd_pcm_scope_t *)'/>
+<mbr r='_snd_pcm_scope_ops::reset' o='160' t='void (*)(snd_pcm_scope_t *)'/>
+<mbr r='_snd_pcm_scope_ops::close' o='192' t='void (*)(snd_pcm_scope_t *)'/>

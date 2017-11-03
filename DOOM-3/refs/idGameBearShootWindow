@@ -1,0 +1,66 @@
+<inh f='codebrowser/ui/Window.h' l='166' c='idWindow'/>
+<def f='codebrowser/ui/GameBearShootWindow.h' l='69' ll='131'/>
+<size>1088</size>
+<fun r='_ZN21idGameBearShootWindowC1EP20idUserInterfaceLocal'/>
+<fun r='_ZN21idGameBearShootWindowC1EP15idDeviceContextP20idUserInterfaceLocal'/>
+<fun r='_ZN21idGameBearShootWindowD1Ev'/>
+<fun r='_ZN21idGameBearShootWindow15WriteToSaveGameEP6idFile'/>
+<fun r='_ZN21idGameBearShootWindow16ReadFromSaveGameEP6idFile'/>
+<fun r='_ZN21idGameBearShootWindow11HandleEventEPK10sysEvent_sPb'/>
+<fun r='_ZN21idGameBearShootWindow9PostParseEv'/>
+<fun r='_ZN21idGameBearShootWindow4DrawEiff'/>
+<fun r='_ZN21idGameBearShootWindow8ActivateEb'/>
+<fun r='_ZN21idGameBearShootWindow15GetWinVarByNameEPKcbPP9drawWin_t'/>
+<fun r='_ZN21idGameBearShootWindow10CommonInitEv'/>
+<fun r='_ZN21idGameBearShootWindow14ResetGameStateEv'/>
+<fun r='_ZN21idGameBearShootWindow10UpdateBearEv'/>
+<fun r='_ZN21idGameBearShootWindow16UpdateHelicopterEv'/>
+<fun r='_ZN21idGameBearShootWindow12UpdateTurretEv'/>
+<fun r='_ZN21idGameBearShootWindow13UpdateButtonsEv'/>
+<fun r='_ZN21idGameBearShootWindow10UpdateGameEv'/>
+<fun r='_ZN21idGameBearShootWindow11UpdateScoreEv'/>
+<fun r='_ZN21idGameBearShootWindow16ParseInternalVarEPKcP8idParser'/>
+<mbr r='idGameBearShootWindow::gamerunning' o='7456' t='idWinBool'/>
+<mbr r='idGameBearShootWindow::onFire' o='7584' t='idWinBool'/>
+<mbr r='idGameBearShootWindow::onContinue' o='7712' t='idWinBool'/>
+<mbr r='idGameBearShootWindow::onNewGame' o='7840' t='idWinBool'/>
+<mbr r='idGameBearShootWindow::timeSlice' o='7968' t='float'/>
+<mbr r='idGameBearShootWindow::timeRemaining' o='8000' t='float'/>
+<mbr r='idGameBearShootWindow::gameOver' o='8032' t='bool'/>
+<mbr r='idGameBearShootWindow::currentLevel' o='8064' t='int'/>
+<mbr r='idGameBearShootWindow::goalsHit' o='8096' t='int'/>
+<mbr r='idGameBearShootWindow::updateScore' o='8128' t='bool'/>
+<mbr r='idGameBearShootWindow::bearHitTarget' o='8136' t='bool'/>
+<mbr r='idGameBearShootWindow::bearScale' o='8160' t='float'/>
+<mbr r='idGameBearShootWindow::bearIsShrinking' o='8192' t='bool'/>
+<mbr r='idGameBearShootWindow::bearShrinkStartTime' o='8224' t='int'/>
+<mbr r='idGameBearShootWindow::turretAngle' o='8256' t='float'/>
+<mbr r='idGameBearShootWindow::turretForce' o='8288' t='float'/>
+<mbr r='idGameBearShootWindow::windForce' o='8320' t='float'/>
+<mbr r='idGameBearShootWindow::windUpdateTime' o='8352' t='int'/>
+<mbr r='idGameBearShootWindow::entities' o='8384' t='idList&lt;BSEntity *&gt;'/>
+<mbr r='idGameBearShootWindow::turret' o='8512' t='BSEntity *'/>
+<mbr r='idGameBearShootWindow::bear' o='8544' t='BSEntity *'/>
+<mbr r='idGameBearShootWindow::helicopter' o='8576' t='BSEntity *'/>
+<mbr r='idGameBearShootWindow::goal' o='8608' t='BSEntity *'/>
+<mbr r='idGameBearShootWindow::wind' o='8640' t='BSEntity *'/>
+<mbr r='idGameBearShootWindow::gunblast' o='8672' t='BSEntity *'/>
+<fun r='_ZN21idGameBearShootWindowC1EP15idDeviceContextP20idUserInterfaceLocal'/>
+<fun r='_ZN21idGameBearShootWindowC1EP20idUserInterfaceLocal'/>
+<fun r='_ZN21idGameBearShootWindowD1Ev'/>
+<fun r='_ZN21idGameBearShootWindow15WriteToSaveGameEP6idFile'/>
+<fun r='_ZN21idGameBearShootWindow16ReadFromSaveGameEP6idFile'/>
+<fun r='_ZN21idGameBearShootWindow14ResetGameStateEv'/>
+<fun r='_ZN21idGameBearShootWindow10CommonInitEv'/>
+<fun r='_ZN21idGameBearShootWindow11HandleEventEPK10sysEvent_sPb'/>
+<fun r='_ZN21idGameBearShootWindow16ParseInternalVarEPKcP8idParser'/>
+<fun r='_ZN21idGameBearShootWindow15GetWinVarByNameEPKcbPP9drawWin_t'/>
+<fun r='_ZN21idGameBearShootWindow9PostParseEv'/>
+<fun r='_ZN21idGameBearShootWindow4DrawEiff'/>
+<fun r='_ZN21idGameBearShootWindow8ActivateEb'/>
+<fun r='_ZN21idGameBearShootWindow12UpdateTurretEv'/>
+<fun r='_ZN21idGameBearShootWindow10UpdateBearEv'/>
+<fun r='_ZN21idGameBearShootWindow16UpdateHelicopterEv'/>
+<fun r='_ZN21idGameBearShootWindow13UpdateButtonsEv'/>
+<fun r='_ZN21idGameBearShootWindow11UpdateScoreEv'/>
+<fun r='_ZN21idGameBearShootWindow10UpdateGameEv'/>

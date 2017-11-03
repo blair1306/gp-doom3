@@ -1,0 +1,18 @@
+<dec f='codebrowser/framework/Unzip.h' l='202' type='int unzClose(unzFile file)'/>
+<use f='codebrowser/framework/File.cpp' l='1252' u='c' c='_ZN12idFile_InZipD1Ev'/>
+<doc f='codebrowser/framework/Unzip.h' l='192'>/*
+  Open a Zip file. path contain the full pathname (by example,
+     on a Windows NT computer &quot;c:\\zlib\\zlib111.zip&quot; or on an Unix computer
+	 &quot;zlib/zlib111.zip&quot;.
+	 If the zipfile cannot be opened (file don&apos;t exist or in not valid), the
+	   return value is NULL.
+     Else, the return value is a unzFile Handle, usable with other function
+	   of this unzip package.
+*/</doc>
+<use f='codebrowser/framework/FileSystem.cpp' l='2950' u='c' c='_ZN17idFileSystemLocal8ShutdownEb'/>
+<def f='codebrowser/framework/Unzip.cpp' l='1404' ll='1417' type='int unzClose(unzFile file)'/>
+<doc f='codebrowser/framework/Unzip.cpp' l='1399'>/*
+  Close a ZipFile opened with unzipOpen.
+  If there is files inside the .Zip opened with unzipOpenCurrentFile (see later),
+    these files MUST be closed with unzipCloseCurrentFile before call unzipClose.
+  return UNZ_OK if there is no problem. */</doc>

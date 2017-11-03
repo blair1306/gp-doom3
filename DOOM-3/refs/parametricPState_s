@@ -1,0 +1,56 @@
+<def f='codebrowser/d3xp/physics/Physics_Parametric.h' l='45' ll='60'/>
+<size>492</size>
+<doc f='codebrowser/d3xp/physics/Physics_Parametric.h' l='32'>/*
+===================================================================================
+
+	Parametric physics
+
+	Used for predefined or scripted motion. The motion of an object is completely
+	parametrized. By adjusting the parameters an object is forced to follow a
+	predefined path. The parametric physics is typically used for doors, bridges,
+	rotating fans etc.
+
+===================================================================================
+*/</doc>
+<mbr r='parametricPState_s::time' o='0' t='int'/>
+<mbr r='parametricPState_s::atRest' o='32' t='int'/>
+<mbr r='parametricPState_s::origin' o='64' t='idVec3'/>
+<mbr r='parametricPState_s::angles' o='160' t='idAngles'/>
+<mbr r='parametricPState_s::axis' o='256' t='idMat3'/>
+<mbr r='parametricPState_s::localOrigin' o='544' t='idVec3'/>
+<mbr r='parametricPState_s::localAngles' o='640' t='idAngles'/>
+<mbr r='parametricPState_s::linearExtrapolation' o='736' t='idExtrapolate&lt;idVec3&gt;'/>
+<mbr r='parametricPState_s::angularExtrapolation' o='1248' t='idExtrapolate&lt;idAngles&gt;'/>
+<mbr r='parametricPState_s::linearInterpolation' o='1760' t='idInterpolateAccelDecelLinear&lt;idVec3&gt;'/>
+<mbr r='parametricPState_s::angularInterpolation' o='2592' t='idInterpolateAccelDecelLinear&lt;idAngles&gt;'/>
+<mbr r='parametricPState_s::spline' o='3424' t='idCurve_Spline&lt;idVec3&gt; *'/>
+<mbr r='parametricPState_s::splineInterpolate' o='3456' t='idInterpolateAccelDecelLinear&lt;float&gt;'/>
+<mbr r='parametricPState_s::useSplineAngles' o='3904' t='bool'/>
+<def f='codebrowser/game/physics/Physics_Parametric.h' l='45' ll='60'/>
+<size>492</size>
+<doc f='codebrowser/game/physics/Physics_Parametric.h' l='32'>/*
+===================================================================================
+
+	Parametric physics
+
+	Used for predefined or scripted motion. The motion of an object is completely
+	parametrized. By adjusting the parameters an object is forced to follow a
+	predefined path. The parametric physics is typically used for doors, bridges,
+	rotating fans etc.
+
+===================================================================================
+*/</doc>
+<mbr r='parametricPState_s::time' o='0' t='int'/>
+<mbr r='parametricPState_s::atRest' o='32' t='int'/>
+<mbr r='parametricPState_s::origin' o='64' t='idVec3'/>
+<mbr r='parametricPState_s::angles' o='160' t='idAngles'/>
+<mbr r='parametricPState_s::axis' o='256' t='idMat3'/>
+<mbr r='parametricPState_s::localOrigin' o='544' t='idVec3'/>
+<mbr r='parametricPState_s::localAngles' o='640' t='idAngles'/>
+<mbr r='parametricPState_s::linearExtrapolation' o='736' t='idExtrapolate&lt;idVec3&gt;'/>
+<mbr r='parametricPState_s::angularExtrapolation' o='1248' t='idExtrapolate&lt;idAngles&gt;'/>
+<mbr r='parametricPState_s::linearInterpolation' o='1760' t='idInterpolateAccelDecelLinear&lt;idVec3&gt;'/>
+<mbr r='parametricPState_s::angularInterpolation' o='2592' t='idInterpolateAccelDecelLinear&lt;idAngles&gt;'/>
+<mbr r='parametricPState_s::spline' o='3424' t='idCurve_Spline&lt;idVec3&gt; *'/>
+<mbr r='parametricPState_s::splineInterpolate' o='3456' t='idInterpolateAccelDecelLinear&lt;float&gt;'/>
+<mbr r='parametricPState_s::useSplineAngles' o='3904' t='bool'/>

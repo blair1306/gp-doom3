@@ -1,0 +1,6 @@
+<dec f='codebrowser/renderer/ModelManager.h' l='80' type='void idRenderModelManager::RemoveModel(idRenderModel * model)'/>
+<doc f='codebrowser/renderer/ModelManager.h' l='77'>// when a world map unloads, it removes its internal models from the list
+	// before freeing them.
+	// There may be an issue with multiple renderWorlds that share data...</doc>
+<ovr f='codebrowser/renderer/ModelManager.cpp' l='422' c='_ZN25idRenderModelManagerLocal11RemoveModelEP13idRenderModel'/>
+<use f='codebrowser/renderer/RenderWorld_load.cpp' l='88' u='c' c='_ZN18idRenderWorldLocal9FreeWorldEv'/>

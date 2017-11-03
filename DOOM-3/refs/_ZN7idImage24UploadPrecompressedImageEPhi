@@ -1,0 +1,13 @@
+<dec f='codebrowser/renderer/Image.h' l='204' type='void idImage::UploadPrecompressedImage(byte * data, int len)'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='1856' u='c' c='_ZN14idImageManager28CompleteBackgroundImageLoadsEv'/>
+<use f='codebrowser/renderer/Image_load.cpp' l='1420' u='c' c='_ZN7idImage23CheckPrecompressedImageEb'/>
+<def f='codebrowser/renderer/Image_load.cpp' l='1436' ll='1566' type='void idImage::UploadPrecompressedImage(byte * data, int len)'/>
+<doc f='codebrowser/renderer/Image_load.cpp' l='1427'>/*
+===================
+UploadPrecompressedImage
+
+This can be called by the front end during nromal loading,
+or by the backend after a background read of the file
+has completed
+===================
+*/</doc>

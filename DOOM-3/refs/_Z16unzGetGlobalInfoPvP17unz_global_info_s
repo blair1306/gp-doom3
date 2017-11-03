@@ -1,0 +1,12 @@
+<dec f='codebrowser/framework/Unzip.h' l='210' type='int unzGetGlobalInfo(unzFile file, unz_global_info * pglobal_info)'/>
+<doc f='codebrowser/framework/Unzip.h' l='204'>/*
+  Close a ZipFile opened with unzipOpen.
+  If there is files inside the .Zip opened with unzOpenCurrentFile (see later),
+    these files MUST be closed with unzipCloseCurrentFile before call unzipClose.
+  return UNZ_OK if there is no problem. */</doc>
+<use f='codebrowser/framework/FileSystem.cpp' l='1318' u='c' c='_ZN17idFileSystemLocal11LoadZipFileEPKc'/>
+<def f='codebrowser/framework/Unzip.cpp' l='1424' ll='1432' type='int unzGetGlobalInfo(unzFile file, unz_global_info * pglobal_info)'/>
+<doc f='codebrowser/framework/Unzip.cpp' l='1420'>/*
+  Write info about the ZipFile in the *pglobal_info structure.
+  No preparation of the structure is needed
+  return UNZ_OK if there is no problem. */</doc>

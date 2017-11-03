@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>WorldSpawn.cpp source code [codebrowser/d3xp/WorldSpawn.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/d3xp/WorldSpawn.cpp'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>d3xp</a>/<a href='WorldSpawn.cpp.html'>WorldSpawn.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td><i>/*</i></td></tr>
+<tr><th id="29">29</th><td><i>game_worldspawn.cpp</i></td></tr>
+<tr><th id="30">30</th><td><i></i></td></tr>
+<tr><th id="31">31</th><td><i>Worldspawn class.  Each map has one worldspawn which handles global spawnargs.</i></td></tr>
+<tr><th id="32">32</th><td><i></i></td></tr>
+<tr><th id="33">33</th><td><i>*/</i></td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><u>#include <a href="../idlib/precompiled.h.html">"../idlib/precompiled.h"</a></u></td></tr>
+<tr><th id="36">36</th><td><u>#pragma hdrstop</u></td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td><u>#include <a href="Game_local.h.html">"Game_local.h"</a></u></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><i>/*</i></td></tr>
+<tr><th id="41">41</th><td><i>================</i></td></tr>
+<tr><th id="42">42</th><td><i>idWorldspawn</i></td></tr>
+<tr><th id="43">43</th><td><i></i></td></tr>
+<tr><th id="44">44</th><td><i>Every map should have exactly one worldspawn.</i></td></tr>
+<tr><th id="45">45</th><td><i>================</i></td></tr>
+<tr><th id="46">46</th><td><i>*/</i></td></tr>
+<tr><th id="47">47</th><td><a class="macro" href="gamesys/Class.h.html#110" title="idTypeInfo idWorldspawn::Type( &quot;idWorldspawn&quot;, &quot;idEntity&quot;, ( idEventFunc&lt;idClass&gt; * )idWorldspawn::eventCallbacks, idWorldspawn::CreateInstance, ( void ( idClass::* )( void ) )&amp;idWorldspawn::Spawn, ( void ( idClass::* )( idSaveGame * ) const )&amp;idWorldspawn::Save, ( void ( idClass::* )( idRestoreGame * ) )&amp;idWorldspawn::Restore ); idClass *idWorldspawn::CreateInstance( void ) { try { idWorldspawn *ptr = new idWorldspawn; ptr-&gt;FindUninitializedMemory(); return ptr; } catch( idAllocError &amp; ) { return __null; } } idTypeInfo *idWorldspawn::GetType( void ) const { return &amp;( idWorldspawn::Type ); } idEventFunc&lt;idWorldspawn&gt; idWorldspawn::eventCallbacks[] = {" data-ref="_M/CLASS_DECLARATION">CLASS_DECLARATION</a>( idEntity, <a class="ref fake" href="WorldSpawn.h.html#40" title='idWorldspawn::idWorldspawn' data-ref="_ZN12idWorldspawnC1Ev"></a><a class="type" href="WorldSpawn.h.html#idWorldspawn" title='idWorldspawn' data-ref="idWorldspawn">idWorldspawn</a> )</td></tr>
+<tr><th id="48">48</th><td>	<a class="macro" href="gamesys/Class.h.html#53" title="{ &amp;( EV_Remove ), ( void ( idClass::* )( void ) )( &amp;idWorldspawn::Event_Remove ) }," data-ref="_M/EVENT">EVENT</a>( <a class="ref" href="gamesys/Class.h.html#EV_Remove" title='EV_Remove' data-ref="EV_Remove">EV_Remove</a>,				<a class="type" href="WorldSpawn.h.html#idWorldspawn" title='idWorldspawn' data-ref="idWorldspawn">idWorldspawn</a>::<a class="ref" href="#_ZN12idWorldspawn12Event_RemoveEv" title='idWorldspawn::Event_Remove' data-ref="_ZN12idWorldspawn12Event_RemoveEv">Event_Remove</a> )</td></tr>
+<tr><th id="49">49</th><td>	<a class="macro" href="gamesys/Class.h.html#53" title="{ &amp;( EV_SafeRemove ), ( void ( idClass::* )( void ) )( &amp;idWorldspawn::Event_Remove ) }," data-ref="_M/EVENT">EVENT</a>( <a class="ref" href="gamesys/Class.h.html#EV_SafeRemove" title='EV_SafeRemove' data-ref="EV_SafeRemove">EV_SafeRemove</a>,			<a class="type" href="WorldSpawn.h.html#idWorldspawn" title='idWorldspawn' data-ref="idWorldspawn">idWorldspawn</a>::<a class="ref" href="#_ZN12idWorldspawn12Event_RemoveEv" title='idWorldspawn::Event_Remove' data-ref="_ZN12idWorldspawn12Event_RemoveEv">Event_Remove</a> )</td></tr>
+<tr><th id="50">50</th><td><a class="macro" href="gamesys/Class.h.html#54" title="{ __null, __null } };" data-ref="_M/END_CLASS">END_CLASS</a></td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td><i>/*</i></td></tr>
+<tr><th id="53">53</th><td><i>================</i></td></tr>
+<tr><th id="54">54</th><td><i>idWorldspawn::Spawn</i></td></tr>
+<tr><th id="55">55</th><td><i>================</i></td></tr>
+<tr><th id="56">56</th><td><i>*/</i></td></tr>
+<tr><th id="57">57</th><td><em>void</em> <a class="type" href="WorldSpawn.h.html#idWorldspawn" title='idWorldspawn' data-ref="idWorldspawn">idWorldspawn</a>::<dfn class="decl def" id="_ZN12idWorldspawn5SpawnEv" title='idWorldspawn::Spawn' data-ref="_ZN12idWorldspawn5SpawnEv">Spawn</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="58">58</th><td>	<a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>				<a class="ref fake" href="../idlib/Str.h.html#_ZN5idStrC1Ev" title='idStr::idStr' data-ref="_ZN5idStrC1Ev"></a><dfn class="local col1 decl" id="1scriptname" title='scriptname' data-type='idStr' data-ref="1scriptname">scriptname</dfn>;</td></tr>
+<tr><th id="59">59</th><td>	<a class="type" href="script/Script_Thread.h.html#idThread" title='idThread' data-ref="idThread">idThread</a>			*<dfn class="local col2 decl" id="2thread" title='thread' data-type='idThread *' data-ref="2thread">thread</dfn>;</td></tr>
+<tr><th id="60">60</th><td>	<em>const</em> <a class="type" href="script/Script_Program.h.html#function_t" title='function_t' data-ref="function_t">function_t</a>	*<dfn class="local col3 decl" id="3func" title='func' data-type='const function_t *' data-ref="3func">func</dfn>;</td></tr>
+<tr><th id="61">61</th><td>	<em>const</em> <a class="type" href="../idlib/Dict.h.html#idKeyValue" title='idKeyValue' data-ref="idKeyValue">idKeyValue</a>	*<dfn class="local col4 decl" id="4kv" title='kv' data-type='const idKeyValue *' data-ref="4kv">kv</dfn>;</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td>	<a class="macro" href="../idlib/Lib.h.html#147" title="if ( gameLocal.world == __null ) { } else AssertFailed( &quot;/home/jon/workspace/id-software/DOOM-3/neo/d3xp/WorldSpawn.cpp&quot;, 63, &quot;gameLocal.world == NULL&quot; )" data-ref="_M/assert">assert</a>( <a class="ref" href="Game_local.h.html#gameLocal" title='gameLocal' data-ref="gameLocal">gameLocal</a>.<a class="ref" href="Game_local.h.html#idGameLocal::world" title='idGameLocal::world' data-ref="idGameLocal::world">world</a> == <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> );</td></tr>
+<tr><th id="64">64</th><td>	<a class="ref" href="Game_local.h.html#gameLocal" title='gameLocal' data-ref="gameLocal">gameLocal</a>.<a class="ref" href="Game_local.h.html#idGameLocal::world" title='idGameLocal::world' data-ref="idGameLocal::world">world</a> = <b>this</b>;</td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td>	<a class="ref" href="gamesys/SysCvar.h.html#g_gravity" title='g_gravity' data-ref="g_gravity">g_gravity</a>.<a class="ref" href="../framework/CVarSystem.h.html#_ZN6idCVar8SetFloatEf" title='idCVar::SetFloat' data-ref="_ZN6idCVar8SetFloatEf">SetFloat</a>( <a class="member" href="Entity.h.html#idEntity::spawnArgs" title='idEntity::spawnArgs' data-ref="idEntity::spawnArgs">spawnArgs</a>.<a class="ref" href="../idlib/Dict.h.html#_ZNK6idDict8GetFloatEPKcS1_" title='idDict::GetFloat' data-ref="_ZNK6idDict8GetFloatEPKcS1_">GetFloat</a>( <q>"gravity"</q>, <a class="ref" href="../idlib/Str.h.html#_Z2vaPKcz" title='va' data-ref="_Z2vaPKcz">va</a>( <q>"%f"</q>, <a class="ref" href="Game_local.h.html#DEFAULT_GRAVITY" title='DEFAULT_GRAVITY' data-ref="DEFAULT_GRAVITY">DEFAULT_GRAVITY</a> ) ) );</td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td>	<i>// disable stamina on hell levels</i></td></tr>
+<tr><th id="69">69</th><td>	<b>if</b> ( <a class="member" href="Entity.h.html#idEntity::spawnArgs" title='idEntity::spawnArgs' data-ref="idEntity::spawnArgs">spawnArgs</a>.<a class="ref" href="../idlib/Dict.h.html#_ZNK6idDict7GetBoolEPKcS1_" title='idDict::GetBool' data-ref="_ZNK6idDict7GetBoolEPKcS1_">GetBool</a>( <q>"no_stamina"</q> ) ) {</td></tr>
+<tr><th id="70">70</th><td>		<a class="ref" href="gamesys/SysCvar.h.html#pm_stamina" title='pm_stamina' data-ref="pm_stamina">pm_stamina</a>.<a class="ref" href="../framework/CVarSystem.h.html#_ZN6idCVar8SetFloatEf" title='idCVar::SetFloat' data-ref="_ZN6idCVar8SetFloatEf">SetFloat</a>( <var>0.0f</var> );</td></tr>
+<tr><th id="71">71</th><td>	}</td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td>	<i>// load script</i></td></tr>
+<tr><th id="74">74</th><td>	<a class="local col1 ref" href="#1scriptname" title='scriptname' data-ref="1scriptname">scriptname</a> <a class="ref" href="../idlib/Str.h.html#_ZN5idStraSEPKc" title='idStr::operator=' data-ref="_ZN5idStraSEPKc">=</a> <a class="ref" href="Game_local.h.html#gameLocal" title='gameLocal' data-ref="gameLocal">gameLocal</a>.<a class="ref" href="Game_local.h.html#_ZNK11idGameLocal10GetMapNameEv" title='idGameLocal::GetMapName' data-ref="_ZNK11idGameLocal10GetMapNameEv">GetMapName</a>();</td></tr>
+<tr><th id="75">75</th><td>	<a class="local col1 ref" href="#1scriptname" title='scriptname' data-ref="1scriptname">scriptname</a>.<a class="ref" href="../idlib/Str.h.html#_ZN5idStr16SetFileExtensionEPKc" title='idStr::SetFileExtension' data-ref="_ZN5idStr16SetFileExtensionEPKc">SetFileExtension</a>( <q>".script"</q> );</td></tr>
+<tr><th id="76">76</th><td>	<b>if</b> ( <a class="ref" href="../framework/FileSystem.h.html#fileSystem" title='fileSystem' data-ref="fileSystem">fileSystem</a>-&gt;<a class="virtual ref" href="../framework/FileSystem.h.html#_ZN12idFileSystem8ReadFileEPKcPPvPl" title='idFileSystem::ReadFile' data-ref="_ZN12idFileSystem8ReadFileEPKcPPvPl">ReadFile</a>( <a class="ref fake" href="../idlib/Str.h.html#_ZN5idStrcvPKcEv" title='idStr::operator const char *' data-ref="_ZN5idStrcvPKcEv"></a><a class="local col1 ref" href="#1scriptname" title='scriptname' data-ref="1scriptname">scriptname</a>, <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>, <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> ) &gt; <var>0</var> ) {</td></tr>
+<tr><th id="77">77</th><td>		<a class="ref" href="Game_local.h.html#gameLocal" title='gameLocal' data-ref="gameLocal">gameLocal</a>.<a class="ref" href="Game_local.h.html#idGameLocal::program" title='idGameLocal::program' data-ref="idGameLocal::program">program</a>.<a class="ref" href="script/Script_Program.h.html#_ZN9idProgram11CompileFileEPKc" title='idProgram::CompileFile' data-ref="_ZN9idProgram11CompileFileEPKc">CompileFile</a>( <a class="ref fake" href="../idlib/Str.h.html#_ZN5idStrcvPKcEv" title='idStr::operator const char *' data-ref="_ZN5idStrcvPKcEv"></a><a class="local col1 ref" href="#1scriptname" title='scriptname' data-ref="1scriptname">scriptname</a> );</td></tr>
+<tr><th id="78">78</th><td></td></tr>
+<tr><th id="79">79</th><td>		<i>// call the main function by default</i></td></tr>
+<tr><th id="80">80</th><td>		<a class="local col3 ref" href="#3func" title='func' data-ref="3func">func</a> = <a class="ref" href="Game_local.h.html#gameLocal" title='gameLocal' data-ref="gameLocal">gameLocal</a>.<a class="ref" href="Game_local.h.html#idGameLocal::program" title='idGameLocal::program' data-ref="idGameLocal::program">program</a>.<a class="ref" href="script/Script_Program.h.html#_ZNK9idProgram12FindFunctionEPKc" title='idProgram::FindFunction' data-ref="_ZNK9idProgram12FindFunctionEPKc">FindFunction</a>( <q>"main"</q> );</td></tr>
+<tr><th id="81">81</th><td>		<b>if</b> ( <a class="local col3 ref" href="#3func" title='func' data-ref="3func">func</a> != <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> ) {</td></tr>
+<tr><th id="82">82</th><td>			<a class="local col2 ref" href="#2thread" title='thread' data-ref="2thread">thread</a> = <b>new</b> <a class="type" href="script/Script_Thread.h.html#idThread" title='idThread' data-ref="idThread">idThread</a><a class="ref" href="script/Script_Thread.h.html#_ZN8idThreadC1EPK10function_t" title='idThread::idThread' data-ref="_ZN8idThreadC1EPK10function_t">(</a> <a class="local col3 ref" href="#3func" title='func' data-ref="3func">func</a> );</td></tr>
+<tr><th id="83">83</th><td>			<a class="local col2 ref" href="#2thread" title='thread' data-ref="2thread">thread</a>-&gt;<a class="ref" href="script/Script_Thread.h.html#_ZN8idThread12DelayedStartEi" title='idThread::DelayedStart' data-ref="_ZN8idThread12DelayedStartEi">DelayedStart</a>( <var>0</var> );</td></tr>
+<tr><th id="84">84</th><td>		}</td></tr>
+<tr><th id="85">85</th><td>	}</td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td>	<i>// call any functions specified in worldspawn</i></td></tr>
+<tr><th id="88">88</th><td>	<a class="local col4 ref" href="#4kv" title='kv' data-ref="4kv">kv</a> = <a class="member" href="Entity.h.html#idEntity::spawnArgs" title='idEntity::spawnArgs' data-ref="idEntity::spawnArgs">spawnArgs</a>.<a class="ref" href="../idlib/Dict.h.html#_ZNK6idDict11MatchPrefixEPKcPK10idKeyValue" title='idDict::MatchPrefix' data-ref="_ZNK6idDict11MatchPrefixEPKcPK10idKeyValue">MatchPrefix</a>( <q>"call"</q> );</td></tr>
+<tr><th id="89">89</th><td>	<b>while</b>( <a class="local col4 ref" href="#4kv" title='kv' data-ref="4kv">kv</a> != <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> ) {</td></tr>
+<tr><th id="90">90</th><td>		<a class="local col3 ref" href="#3func" title='func' data-ref="3func">func</a> = <a class="ref" href="Game_local.h.html#gameLocal" title='gameLocal' data-ref="gameLocal">gameLocal</a>.<a class="ref" href="Game_local.h.html#idGameLocal::program" title='idGameLocal::program' data-ref="idGameLocal::program">program</a>.<a class="ref" href="script/Script_Program.h.html#_ZNK9idProgram12FindFunctionEPKc" title='idProgram::FindFunction' data-ref="_ZNK9idProgram12FindFunctionEPKc">FindFunction</a>( <a class="ref fake" href="../idlib/Str.h.html#_ZNK5idStrcvPKcEv" title='idStr::operator const char *' data-ref="_ZNK5idStrcvPKcEv"></a><a class="local col4 ref" href="#4kv" title='kv' data-ref="4kv">kv</a>-&gt;<a class="ref" href="../idlib/Dict.h.html#_ZNK10idKeyValue8GetValueEv" title='idKeyValue::GetValue' data-ref="_ZNK10idKeyValue8GetValueEv">GetValue</a>() );</td></tr>
+<tr><th id="91">91</th><td>		<b>if</b> ( <a class="local col3 ref" href="#3func" title='func' data-ref="3func">func</a> == <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> ) {</td></tr>
+<tr><th id="92">92</th><td>			<a class="ref" href="Game_local.h.html#gameLocal" title='gameLocal' data-ref="gameLocal">gameLocal</a>.<a class="ref" href="Game_local.h.html#_ZNK11idGameLocal5ErrorEPKcz" title='idGameLocal::Error' data-ref="_ZNK11idGameLocal5ErrorEPKcz">Error</a>( <q>"Function '%s' not found in script for '%s' key on worldspawn"</q>, <a class="local col4 ref" href="#4kv" title='kv' data-ref="4kv">kv</a>-&gt;<a class="ref" href="../idlib/Dict.h.html#_ZNK10idKeyValue8GetValueEv" title='idKeyValue::GetValue' data-ref="_ZNK10idKeyValue8GetValueEv">GetValue</a>().<a class="ref" href="../idlib/Str.h.html#_ZNK5idStr5c_strEv" title='idStr::c_str' data-ref="_ZNK5idStr5c_strEv">c_str</a>(), <a class="local col4 ref" href="#4kv" title='kv' data-ref="4kv">kv</a>-&gt;<a class="ref" href="../idlib/Dict.h.html#_ZNK10idKeyValue6GetKeyEv" title='idKeyValue::GetKey' data-ref="_ZNK10idKeyValue6GetKeyEv">GetKey</a>().<a class="ref" href="../idlib/Str.h.html#_ZNK5idStr5c_strEv" title='idStr::c_str' data-ref="_ZNK5idStr5c_strEv">c_str</a>() );</td></tr>
+<tr><th id="93">93</th><td>		}</td></tr>
+<tr><th id="94">94</th><td></td></tr>
+<tr><th id="95">95</th><td>		<a class="local col2 ref" href="#2thread" title='thread' data-ref="2thread">thread</a> = <b>new</b> <a class="type" href="script/Script_Thread.h.html#idThread" title='idThread' data-ref="idThread">idThread</a><a class="ref" href="script/Script_Thread.h.html#_ZN8idThreadC1EPK10function_t" title='idThread::idThread' data-ref="_ZN8idThreadC1EPK10function_t">(</a> <a class="local col3 ref" href="#3func" title='func' data-ref="3func">func</a> );</td></tr>
+<tr><th id="96">96</th><td>		<a class="local col2 ref" href="#2thread" title='thread' data-ref="2thread">thread</a>-&gt;<a class="ref" href="script/Script_Thread.h.html#_ZN8idThread12DelayedStartEi" title='idThread::DelayedStart' data-ref="_ZN8idThread12DelayedStartEi">DelayedStart</a>( <var>0</var> );</td></tr>
+<tr><th id="97">97</th><td>		<a class="local col4 ref" href="#4kv" title='kv' data-ref="4kv">kv</a> = <a class="member" href="Entity.h.html#idEntity::spawnArgs" title='idEntity::spawnArgs' data-ref="idEntity::spawnArgs">spawnArgs</a>.<a class="ref" href="../idlib/Dict.h.html#_ZNK6idDict11MatchPrefixEPKcPK10idKeyValue" title='idDict::MatchPrefix' data-ref="_ZNK6idDict11MatchPrefixEPKcPK10idKeyValue">MatchPrefix</a>( <q>"call"</q>, <a class="local col4 ref" href="#4kv" title='kv' data-ref="4kv">kv</a> );</td></tr>
+<tr><th id="98">98</th><td>	}</td></tr>
+<tr><th id="99">99</th><td>}</td></tr>
+<tr><th id="100">100</th><td></td></tr>
+<tr><th id="101">101</th><td><i>/*</i></td></tr>
+<tr><th id="102">102</th><td><i>=================</i></td></tr>
+<tr><th id="103">103</th><td><i>idWorldspawn::Save</i></td></tr>
+<tr><th id="104">104</th><td><i>=================</i></td></tr>
+<tr><th id="105">105</th><td><i>*/</i></td></tr>
+<tr><th id="106">106</th><td><em>void</em> <a class="type" href="WorldSpawn.h.html#idWorldspawn" title='idWorldspawn' data-ref="idWorldspawn">idWorldspawn</a>::<dfn class="decl def" id="_ZN12idWorldspawn4SaveEP13idRestoreGame" title='idWorldspawn::Save' data-ref="_ZN12idWorldspawn4SaveEP13idRestoreGame">Save</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idRestoreGame" title='idRestoreGame' data-ref="idRestoreGame">idRestoreGame</a> *<dfn class="local col5 decl" id="5savefile" title='savefile' data-type='idRestoreGame *' data-ref="5savefile">savefile</dfn> ) {</td></tr>
+<tr><th id="107">107</th><td>}</td></tr>
+<tr><th id="108">108</th><td></td></tr>
+<tr><th id="109">109</th><td><i>/*</i></td></tr>
+<tr><th id="110">110</th><td><i>=================</i></td></tr>
+<tr><th id="111">111</th><td><i>idWorldspawn::Restore</i></td></tr>
+<tr><th id="112">112</th><td><i>=================</i></td></tr>
+<tr><th id="113">113</th><td><i>*/</i></td></tr>
+<tr><th id="114">114</th><td><em>void</em> <a class="type" href="WorldSpawn.h.html#idWorldspawn" title='idWorldspawn' data-ref="idWorldspawn">idWorldspawn</a>::<dfn class="decl def" id="_ZN12idWorldspawn7RestoreEP13idRestoreGame" title='idWorldspawn::Restore' data-ref="_ZN12idWorldspawn7RestoreEP13idRestoreGame">Restore</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idRestoreGame" title='idRestoreGame' data-ref="idRestoreGame">idRestoreGame</a> *<dfn class="local col6 decl" id="6savefile" title='savefile' data-type='idRestoreGame *' data-ref="6savefile">savefile</dfn> ) {</td></tr>
+<tr><th id="115">115</th><td>	<a class="macro" href="../idlib/Lib.h.html#147" title="if ( gameLocal.world == this ) { } else AssertFailed( &quot;/home/jon/workspace/id-software/DOOM-3/neo/d3xp/WorldSpawn.cpp&quot;, 115, &quot;gameLocal.world == this&quot; )" data-ref="_M/assert">assert</a>( <a class="ref" href="Game_local.h.html#gameLocal" title='gameLocal' data-ref="gameLocal">gameLocal</a>.<a class="ref" href="Game_local.h.html#idGameLocal::world" title='idGameLocal::world' data-ref="idGameLocal::world">world</a> == <b>this</b> );</td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td>	<a class="ref" href="gamesys/SysCvar.h.html#g_gravity" title='g_gravity' data-ref="g_gravity">g_gravity</a>.<a class="ref" href="../framework/CVarSystem.h.html#_ZN6idCVar8SetFloatEf" title='idCVar::SetFloat' data-ref="_ZN6idCVar8SetFloatEf">SetFloat</a>( <a class="member" href="Entity.h.html#idEntity::spawnArgs" title='idEntity::spawnArgs' data-ref="idEntity::spawnArgs">spawnArgs</a>.<a class="ref" href="../idlib/Dict.h.html#_ZNK6idDict8GetFloatEPKcS1_" title='idDict::GetFloat' data-ref="_ZNK6idDict8GetFloatEPKcS1_">GetFloat</a>( <q>"gravity"</q>, <a class="ref" href="../idlib/Str.h.html#_Z2vaPKcz" title='va' data-ref="_Z2vaPKcz">va</a>( <q>"%f"</q>, <a class="ref" href="Game_local.h.html#DEFAULT_GRAVITY" title='DEFAULT_GRAVITY' data-ref="DEFAULT_GRAVITY">DEFAULT_GRAVITY</a> ) ) );</td></tr>
+<tr><th id="118">118</th><td></td></tr>
+<tr><th id="119">119</th><td>	<i>// disable stamina on hell levels</i></td></tr>
+<tr><th id="120">120</th><td>	<b>if</b> ( <a class="member" href="Entity.h.html#idEntity::spawnArgs" title='idEntity::spawnArgs' data-ref="idEntity::spawnArgs">spawnArgs</a>.<a class="ref" href="../idlib/Dict.h.html#_ZNK6idDict7GetBoolEPKcS1_" title='idDict::GetBool' data-ref="_ZNK6idDict7GetBoolEPKcS1_">GetBool</a>( <q>"no_stamina"</q> ) ) {</td></tr>
+<tr><th id="121">121</th><td>		<a class="ref" href="gamesys/SysCvar.h.html#pm_stamina" title='pm_stamina' data-ref="pm_stamina">pm_stamina</a>.<a class="ref" href="../framework/CVarSystem.h.html#_ZN6idCVar8SetFloatEf" title='idCVar::SetFloat' data-ref="_ZN6idCVar8SetFloatEf">SetFloat</a>( <var>0.0f</var> );</td></tr>
+<tr><th id="122">122</th><td>	}</td></tr>
+<tr><th id="123">123</th><td>}</td></tr>
+<tr><th id="124">124</th><td></td></tr>
+<tr><th id="125">125</th><td><i>/*</i></td></tr>
+<tr><th id="126">126</th><td><i>================</i></td></tr>
+<tr><th id="127">127</th><td><i>idWorldspawn::~idWorldspawn</i></td></tr>
+<tr><th id="128">128</th><td><i>================</i></td></tr>
+<tr><th id="129">129</th><td><i>*/</i></td></tr>
+<tr><th id="130">130</th><td><a class="type" href="WorldSpawn.h.html#idWorldspawn" title='idWorldspawn' data-ref="idWorldspawn">idWorldspawn</a>::<dfn class="virtual decl def" id="_ZN12idWorldspawnD1Ev" title='idWorldspawn::~idWorldspawn' data-ref="_ZN12idWorldspawnD1Ev">~idWorldspawn</dfn>() {</td></tr>
+<tr><th id="131">131</th><td>	<b>if</b> ( <a class="ref" href="Game_local.h.html#gameLocal" title='gameLocal' data-ref="gameLocal">gameLocal</a>.<a class="ref" href="Game_local.h.html#idGameLocal::world" title='idGameLocal::world' data-ref="idGameLocal::world">world</a> == <b>this</b> ) {</td></tr>
+<tr><th id="132">132</th><td>		<a class="ref" href="Game_local.h.html#gameLocal" title='gameLocal' data-ref="gameLocal">gameLocal</a>.<a class="ref" href="Game_local.h.html#idGameLocal::world" title='idGameLocal::world' data-ref="idGameLocal::world">world</a> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="133">133</th><td>	}</td></tr>
+<tr><th id="134">134</th><td>}</td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td><i>/*</i></td></tr>
+<tr><th id="137">137</th><td><i>================</i></td></tr>
+<tr><th id="138">138</th><td><i>idWorldspawn::Event_Remove</i></td></tr>
+<tr><th id="139">139</th><td><i>================</i></td></tr>
+<tr><th id="140">140</th><td><i>*/</i></td></tr>
+<tr><th id="141">141</th><td><em>void</em> <a class="type" href="WorldSpawn.h.html#idWorldspawn" title='idWorldspawn' data-ref="idWorldspawn">idWorldspawn</a>::<dfn class="decl def" id="_ZN12idWorldspawn12Event_RemoveEv" title='idWorldspawn::Event_Remove' data-ref="_ZN12idWorldspawn12Event_RemoveEv">Event_Remove</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="142">142</th><td>	<a class="ref" href="Game_local.h.html#gameLocal" title='gameLocal' data-ref="gameLocal">gameLocal</a>.<a class="ref" href="Game_local.h.html#_ZNK11idGameLocal5ErrorEPKcz" title='idGameLocal::Error' data-ref="_ZNK11idGameLocal5ErrorEPKcz">Error</a>( <q>"Tried to remove world"</q> );</td></tr>
+<tr><th id="143">143</th><td>}</td></tr>
+<tr><th id="144">144</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,157 @@
+<inh f='codebrowser/d3xp/Entity.h' l='107' c='idEntity'/>
+<def f='codebrowser/d3xp/Mover.h' l='287' ll='375'/>
+<ovr f='codebrowser/d3xp/Mover.h' l='377' c='idDoor'/>
+<ovr f='codebrowser/d3xp/Mover.h' l='447' c='idPlat'/>
+<size>2212</size>
+<smbr r='idMover_Binary::Type' t='idTypeInfo'/>
+<fun r='_ZN14idMover_Binary14CreateInstanceEv'/>
+<fun r='_ZNK14idMover_Binary7GetTypeEv'/>
+<smbr r='idMover_Binary::eventCallbacks' t='idEventFunc&lt;idMover_Binary&gt; []'/>
+<fun r='_ZN14idMover_BinaryC1Ev'/>
+<fun r='_ZN14idMover_BinaryD1Ev'/>
+<fun r='_ZN14idMover_Binary5SpawnEv'/>
+<fun r='_ZNK14idMover_Binary4SaveEP10idSaveGame'/>
+<fun r='_ZN14idMover_Binary7RestoreEP13idRestoreGame'/>
+<fun r='_ZN14idMover_Binary7PreBindEv'/>
+<fun r='_ZN14idMover_Binary8PostBindEv'/>
+<fun r='_ZN14idMover_Binary6EnableEb'/>
+<fun r='_ZN14idMover_Binary9InitSpeedER6idVec3S1_fff'/>
+<fun r='_ZN14idMover_Binary8InitTimeER6idVec3S1_fff'/>
+<fun r='_ZN14idMover_Binary13GotoPosition1Ev'/>
+<fun r='_ZN14idMover_Binary13GotoPosition2Ev'/>
+<fun r='_ZN14idMover_Binary15Use_BinaryMoverEP8idEntity'/>
+<fun r='_ZN14idMover_Binary12SetGuiStatesEPKc'/>
+<fun r='_ZN14idMover_Binary13UpdateBuddiesEi'/>
+<fun r='_ZNK14idMover_Binary16GetActivateChainEv'/>
+<fun r='_ZNK14idMover_Binary13GetMoveMasterEv'/>
+<fun r='_ZN14idMover_Binary8BindTeamEP8idEntity'/>
+<fun r='_ZN14idMover_Binary10SetBlockedEb'/>
+<fun r='_ZN14idMover_Binary9IsBlockedEv'/>
+<fun r='_ZNK14idMover_Binary12GetActivatorEv'/>
+<fun r='_ZNK14idMover_Binary15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN14idMover_Binary16ReadFromSnapshotERK13idBitMsgDelta'/>
+<fun r='_ZN14idMover_Binary14SetPortalStateEb'/>
+<mbr r='idMover_Binary::pos1' o='6944' t='idVec3'/>
+<mbr r='idMover_Binary::pos2' o='7040' t='idVec3'/>
+<mbr r='idMover_Binary::moverState' o='7136' t='moverState_t'/>
+<mbr r='idMover_Binary::moveMaster' o='7168' t='idMover_Binary *'/>
+<mbr r='idMover_Binary::activateChain' o='7200' t='idMover_Binary *'/>
+<mbr r='idMover_Binary::soundPos1' o='7232' t='int'/>
+<mbr r='idMover_Binary::sound1to2' o='7264' t='int'/>
+<mbr r='idMover_Binary::sound2to1' o='7296' t='int'/>
+<mbr r='idMover_Binary::soundPos2' o='7328' t='int'/>
+<mbr r='idMover_Binary::soundLoop' o='7360' t='int'/>
+<mbr r='idMover_Binary::wait' o='7392' t='float'/>
+<mbr r='idMover_Binary::damage' o='7424' t='float'/>
+<mbr r='idMover_Binary::duration' o='7456' t='int'/>
+<mbr r='idMover_Binary::accelTime' o='7488' t='int'/>
+<mbr r='idMover_Binary::decelTime' o='7520' t='int'/>
+<mbr r='idMover_Binary::activatedBy' o='7552' t='idEntityPtr&lt;idEntity&gt;'/>
+<mbr r='idMover_Binary::stateStartTime' o='7584' t='int'/>
+<mbr r='idMover_Binary::team' o='7616' t='idStr'/>
+<mbr r='idMover_Binary::enabled' o='7872' t='bool'/>
+<mbr r='idMover_Binary::move_thread' o='7904' t='int'/>
+<mbr r='idMover_Binary::updateStatus' o='7936' t='int'/>
+<mbr r='idMover_Binary::buddies' o='7968' t='idStrList'/>
+<mbr r='idMover_Binary::physicsObj' o='8096' t='idPhysics_Parametric'/>
+<mbr r='idMover_Binary::areaPortal' o='17504' t='qhandle_t'/>
+<mbr r='idMover_Binary::blocked' o='17536' t='bool'/>
+<mbr r='idMover_Binary::playerOnly' o='17544' t='bool'/>
+<mbr r='idMover_Binary::guiTargets' o='17568' t='idList&lt;idEntityPtr&lt;idEntity&gt; &gt;'/>
+<fun r='_ZN14idMover_Binary17MatchActivateTeamE12moverState_ti'/>
+<fun r='_ZN14idMover_Binary16JoinActivateTeamEPS_'/>
+<fun r='_ZN14idMover_Binary16UpdateMoverSoundE12moverState_t'/>
+<fun r='_ZN14idMover_Binary13SetMoverStateE12moverState_ti'/>
+<fun r='_ZNK14idMover_Binary13GetMoverStateEv'/>
+<fun r='_ZN14idMover_Binary14FindGuiTargetsEv'/>
+<fun r='_ZNK14idMover_Binary11SetGuiStateEPKcS1_'/>
+<fun r='_ZN14idMover_Binary17Event_SetCallbackEv'/>
+<fun r='_ZN14idMover_Binary18Event_ReturnToPos1Ev'/>
+<fun r='_ZN14idMover_Binary21Event_Use_BinaryMoverEP8idEntity'/>
+<fun r='_ZN14idMover_Binary25Event_Reached_BinaryMoverEv'/>
+<fun r='_ZN14idMover_Binary23Event_MatchActivateTeamE12moverState_ti'/>
+<fun r='_ZN14idMover_Binary12Event_EnableEv'/>
+<fun r='_ZN14idMover_Binary13Event_DisableEv'/>
+<fun r='_ZN14idMover_Binary16Event_OpenPortalEv'/>
+<fun r='_ZN14idMover_Binary17Event_ClosePortalEv'/>
+<fun r='_ZN14idMover_Binary20Event_FindGuiTargetsEv'/>
+<fun r='_ZN14idMover_Binary20Event_InitGuiTargetsEv'/>
+<fun r='_ZN14idMover_Binary10GetMovedirEfR6idVec3'/>
+<inh f='codebrowser/game/Entity.h' l='107' c='idEntity'/>
+<def f='codebrowser/game/Mover.h' l='283' ll='368'/>
+<ovr f='codebrowser/game/Mover.h' l='370' c='idDoor'/>
+<ovr f='codebrowser/game/Mover.h' l='437' c='idPlat'/>
+<size>1980</size>
+<smbr r='idMover_Binary::Type' t='idTypeInfo'/>
+<fun r='_ZN14idMover_Binary14CreateInstanceEv'/>
+<fun r='_ZNK14idMover_Binary7GetTypeEv'/>
+<smbr r='idMover_Binary::eventCallbacks' t='idEventFunc&lt;idMover_Binary&gt; []'/>
+<fun r='_ZN14idMover_BinaryC1Ev'/>
+<fun r='_ZN14idMover_BinaryD1Ev'/>
+<fun r='_ZN14idMover_Binary5SpawnEv'/>
+<fun r='_ZNK14idMover_Binary4SaveEP10idSaveGame'/>
+<fun r='_ZN14idMover_Binary7RestoreEP13idRestoreGame'/>
+<fun r='_ZN14idMover_Binary7PreBindEv'/>
+<fun r='_ZN14idMover_Binary8PostBindEv'/>
+<fun r='_ZN14idMover_Binary6EnableEb'/>
+<fun r='_ZN14idMover_Binary9InitSpeedER6idVec3S1_fff'/>
+<fun r='_ZN14idMover_Binary8InitTimeER6idVec3S1_fff'/>
+<fun r='_ZN14idMover_Binary13GotoPosition1Ev'/>
+<fun r='_ZN14idMover_Binary13GotoPosition2Ev'/>
+<fun r='_ZN14idMover_Binary15Use_BinaryMoverEP8idEntity'/>
+<fun r='_ZN14idMover_Binary12SetGuiStatesEPKc'/>
+<fun r='_ZN14idMover_Binary13UpdateBuddiesEi'/>
+<fun r='_ZNK14idMover_Binary16GetActivateChainEv'/>
+<fun r='_ZNK14idMover_Binary13GetMoveMasterEv'/>
+<fun r='_ZN14idMover_Binary8BindTeamEP8idEntity'/>
+<fun r='_ZN14idMover_Binary10SetBlockedEb'/>
+<fun r='_ZN14idMover_Binary9IsBlockedEv'/>
+<fun r='_ZNK14idMover_Binary12GetActivatorEv'/>
+<fun r='_ZNK14idMover_Binary15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN14idMover_Binary16ReadFromSnapshotERK13idBitMsgDelta'/>
+<fun r='_ZN14idMover_Binary14SetPortalStateEb'/>
+<mbr r='idMover_Binary::pos1' o='5088' t='idVec3'/>
+<mbr r='idMover_Binary::pos2' o='5184' t='idVec3'/>
+<mbr r='idMover_Binary::moverState' o='5280' t='moverState_t'/>
+<mbr r='idMover_Binary::moveMaster' o='5312' t='idMover_Binary *'/>
+<mbr r='idMover_Binary::activateChain' o='5344' t='idMover_Binary *'/>
+<mbr r='idMover_Binary::soundPos1' o='5376' t='int'/>
+<mbr r='idMover_Binary::sound1to2' o='5408' t='int'/>
+<mbr r='idMover_Binary::sound2to1' o='5440' t='int'/>
+<mbr r='idMover_Binary::soundPos2' o='5472' t='int'/>
+<mbr r='idMover_Binary::soundLoop' o='5504' t='int'/>
+<mbr r='idMover_Binary::wait' o='5536' t='float'/>
+<mbr r='idMover_Binary::damage' o='5568' t='float'/>
+<mbr r='idMover_Binary::duration' o='5600' t='int'/>
+<mbr r='idMover_Binary::accelTime' o='5632' t='int'/>
+<mbr r='idMover_Binary::decelTime' o='5664' t='int'/>
+<mbr r='idMover_Binary::activatedBy' o='5696' t='idEntityPtr&lt;idEntity&gt;'/>
+<mbr r='idMover_Binary::stateStartTime' o='5728' t='int'/>
+<mbr r='idMover_Binary::team' o='5760' t='idStr'/>
+<mbr r='idMover_Binary::enabled' o='6016' t='bool'/>
+<mbr r='idMover_Binary::move_thread' o='6048' t='int'/>
+<mbr r='idMover_Binary::updateStatus' o='6080' t='int'/>
+<mbr r='idMover_Binary::buddies' o='6112' t='idStrList'/>
+<mbr r='idMover_Binary::physicsObj' o='6240' t='idPhysics_Parametric'/>
+<mbr r='idMover_Binary::areaPortal' o='15648' t='qhandle_t'/>
+<mbr r='idMover_Binary::blocked' o='15680' t='bool'/>
+<mbr r='idMover_Binary::guiTargets' o='15712' t='idList&lt;idEntityPtr&lt;idEntity&gt; &gt;'/>
+<fun r='_ZN14idMover_Binary17MatchActivateTeamE12moverState_ti'/>
+<fun r='_ZN14idMover_Binary16JoinActivateTeamEPS_'/>
+<fun r='_ZN14idMover_Binary16UpdateMoverSoundE12moverState_t'/>
+<fun r='_ZN14idMover_Binary13SetMoverStateE12moverState_ti'/>
+<fun r='_ZNK14idMover_Binary13GetMoverStateEv'/>
+<fun r='_ZN14idMover_Binary14FindGuiTargetsEv'/>
+<fun r='_ZNK14idMover_Binary11SetGuiStateEPKcS1_'/>
+<fun r='_ZN14idMover_Binary17Event_SetCallbackEv'/>
+<fun r='_ZN14idMover_Binary18Event_ReturnToPos1Ev'/>
+<fun r='_ZN14idMover_Binary21Event_Use_BinaryMoverEP8idEntity'/>
+<fun r='_ZN14idMover_Binary25Event_Reached_BinaryMoverEv'/>
+<fun r='_ZN14idMover_Binary23Event_MatchActivateTeamE12moverState_ti'/>
+<fun r='_ZN14idMover_Binary12Event_EnableEv'/>
+<fun r='_ZN14idMover_Binary13Event_DisableEv'/>
+<fun r='_ZN14idMover_Binary16Event_OpenPortalEv'/>
+<fun r='_ZN14idMover_Binary17Event_ClosePortalEv'/>
+<fun r='_ZN14idMover_Binary20Event_FindGuiTargetsEv'/>
+<fun r='_ZN14idMover_Binary20Event_InitGuiTargetsEv'/>
+<fun r='_ZN14idMover_Binary10GetMovedirEfR6idVec3'/>

@@ -1,0 +1,108 @@
+<def f='codebrowser/curl/lib/urldata.h' l='756' ll='882'/>
+<size>672</size>
+<doc f='codebrowser/curl/lib/urldata.h' l='748'>/*
+ * This &apos;UserDefined&apos; struct must only contain data that is set once to go
+ * for many (perhaps) independent connections. Values that are generated or
+ * calculated internally for the &quot;session handle&quot; MUST be defined within the
+ * &apos;struct urlstate&apos; instead. The only exceptions MUST note the changes in
+ * the &apos;DynamicStatic&apos; struct.
+ */</doc>
+<mbr r='UserDefined::err' o='0' t='FILE *'/>
+<mbr r='UserDefined::debugdata' o='64' t='void *'/>
+<mbr r='UserDefined::errorbuffer' o='128' t='char *'/>
+<mbr r='UserDefined::proxyuserpwd' o='192' t='char *'/>
+<mbr r='UserDefined::proxyport' o='256' t='long'/>
+<mbr r='UserDefined::out' o='320' t='void *'/>
+<mbr r='UserDefined::in' o='384' t='void *'/>
+<mbr r='UserDefined::writeheader' o='448' t='void *'/>
+<mbr r='UserDefined::set_url' o='512' t='char *'/>
+<mbr r='UserDefined::set_proxy' o='576' t='char *'/>
+<mbr r='UserDefined::use_port' o='640' t='long'/>
+<mbr r='UserDefined::userpwd' o='704' t='char *'/>
+<mbr r='UserDefined::httpauth' o='768' t='long'/>
+<mbr r='UserDefined::proxyauth' o='832' t='long'/>
+<mbr r='UserDefined::set_range' o='896' t='char *'/>
+<mbr r='UserDefined::followlocation' o='960' t='long'/>
+<mbr r='UserDefined::maxredirs' o='1024' t='long'/>
+<mbr r='UserDefined::set_referer' o='1088' t='char *'/>
+<mbr r='UserDefined::free_referer' o='1152' t='bool'/>
+<mbr r='UserDefined::useragent' o='1216' t='char *'/>
+<mbr r='UserDefined::encoding' o='1280' t='char *'/>
+<mbr r='UserDefined::postfields' o='1344' t='char *'/>
+<mbr r='UserDefined::postfieldsize' o='1408' t='curl_off_t'/>
+<mbr r='UserDefined::ftpport' o='1472' t='char *'/>
+<mbr r='UserDefined::device' o='1536' t='char *'/>
+<mbr r='UserDefined::fwrite' o='1600' t='curl_write_callback'/>
+<mbr r='UserDefined::fwrite_header' o='1664' t='curl_write_callback'/>
+<mbr r='UserDefined::fread' o='1728' t='curl_read_callback'/>
+<mbr r='UserDefined::fprogress' o='1792' t='curl_progress_callback'/>
+<mbr r='UserDefined::fdebug' o='1856' t='curl_debug_callback'/>
+<mbr r='UserDefined::progress_client' o='1920' t='void *'/>
+<mbr r='UserDefined::timeout' o='1984' t='long'/>
+<mbr r='UserDefined::connecttimeout' o='2048' t='long'/>
+<mbr r='UserDefined::ftp_response_timeout' o='2112' t='long'/>
+<mbr r='UserDefined::infilesize' o='2176' t='curl_off_t'/>
+<mbr r='UserDefined::low_speed_limit' o='2240' t='long'/>
+<mbr r='UserDefined::low_speed_time' o='2304' t='long'/>
+<mbr r='UserDefined::set_resume_from' o='2368' t='curl_off_t'/>
+<mbr r='UserDefined::cookie' o='2432' t='char *'/>
+<mbr r='UserDefined::headers' o='2496' t='struct curl_slist *'/>
+<mbr r='UserDefined::httppost' o='2560' t='struct curl_httppost *'/>
+<mbr r='UserDefined::cert' o='2624' t='char *'/>
+<mbr r='UserDefined::cert_type' o='2688' t='char *'/>
+<mbr r='UserDefined::key' o='2752' t='char *'/>
+<mbr r='UserDefined::key_type' o='2816' t='char *'/>
+<mbr r='UserDefined::key_passwd' o='2880' t='char *'/>
+<mbr r='UserDefined::crypto_engine' o='2944' t='char *'/>
+<mbr r='UserDefined::cookiejar' o='3008' t='char *'/>
+<mbr r='UserDefined::cookiesession' o='3072' t='bool'/>
+<mbr r='UserDefined::crlf' o='3080' t='bool'/>
+<mbr r='UserDefined::quote' o='3136' t='struct curl_slist *'/>
+<mbr r='UserDefined::postquote' o='3200' t='struct curl_slist *'/>
+<mbr r='UserDefined::prequote' o='3264' t='struct curl_slist *'/>
+<mbr r='UserDefined::telnet_options' o='3328' t='struct curl_slist *'/>
+<mbr r='UserDefined::timecondition' o='3392' t='curl_TimeCond'/>
+<mbr r='UserDefined::timevalue' o='3456' t='time_t'/>
+<mbr r='UserDefined::closepolicy' o='3520' t='curl_closepolicy'/>
+<mbr r='UserDefined::httpreq' o='3552' t='Curl_HttpReq'/>
+<mbr r='UserDefined::customrequest' o='3584' t='char *'/>
+<mbr r='UserDefined::httpversion' o='3648' t='long'/>
+<mbr r='UserDefined::auth_host' o='3712' t='char *'/>
+<mbr r='UserDefined::krb4_level' o='3776' t='char *'/>
+<mbr r='UserDefined::ssl' o='3840' t='struct ssl_config_data'/>
+<mbr r='UserDefined::proxytype' o='4608' t='curl_proxytype'/>
+<mbr r='UserDefined::dns_cache_timeout' o='4640' t='int'/>
+<mbr r='UserDefined::buffer_size' o='4672' t='long'/>
+<mbr r='UserDefined::private' o='4736' t='char *'/>
+<mbr r='UserDefined::http200aliases' o='4800' t='struct curl_slist *'/>
+<mbr r='UserDefined::ip_version' o='4864' t='int'/>
+<mbr r='UserDefined::max_filesize' o='4928' t='curl_off_t'/>
+<mbr r='UserDefined::get_filetime' o='4992' t='bool'/>
+<mbr r='UserDefined::tunnel_thru_httpproxy' o='5000' t='bool'/>
+<mbr r='UserDefined::ftp_append' o='5008' t='bool'/>
+<mbr r='UserDefined::ftp_ascii' o='5016' t='bool'/>
+<mbr r='UserDefined::ftp_list_only' o='5024' t='bool'/>
+<mbr r='UserDefined::ftp_create_missing_dirs' o='5032' t='bool'/>
+<mbr r='UserDefined::ftp_use_port' o='5040' t='bool'/>
+<mbr r='UserDefined::hide_progress' o='5048' t='bool'/>
+<mbr r='UserDefined::http_fail_on_error' o='5056' t='bool'/>
+<mbr r='UserDefined::http_follow_location' o='5064' t='bool'/>
+<mbr r='UserDefined::http_disable_hostname_check_before_authentication' o='5072' t='bool'/>
+<mbr r='UserDefined::include_header' o='5080' t='bool'/>
+<mbr r='UserDefined::http_set_referer' o='5088' t='bool'/>
+<mbr r='UserDefined::http_auto_referer' o='5096' t='bool'/>
+<mbr r='UserDefined::no_body' o='5104' t='bool'/>
+<mbr r='UserDefined::set_port' o='5112' t='bool'/>
+<mbr r='UserDefined::upload' o='5120' t='bool'/>
+<mbr r='UserDefined::use_netrc' o='5152' t='enum CURL_NETRC_OPTION'/>
+<mbr r='UserDefined::netrc_file' o='5184' t='char *'/>
+<mbr r='UserDefined::verbose' o='5248' t='bool'/>
+<mbr r='UserDefined::krb4' o='5256' t='bool'/>
+<mbr r='UserDefined::reuse_forbid' o='5264' t='bool'/>
+<mbr r='UserDefined::reuse_fresh' o='5272' t='bool'/>
+<mbr r='UserDefined::expect100header' o='5280' t='bool'/>
+<mbr r='UserDefined::ftp_use_epsv' o='5288' t='bool'/>
+<mbr r='UserDefined::ftp_use_eprt' o='5296' t='bool'/>
+<mbr r='UserDefined::ftp_ssl' o='5312' t='curl_ftpssl'/>
+<mbr r='UserDefined::no_signal' o='5344' t='bool'/>
+<mbr r='UserDefined::global_dns_cache' o='5352' t='bool'/>

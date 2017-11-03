@@ -1,0 +1,36 @@
+<dec f='codebrowser/d3xp/ai/AI.h' l='535' type='void idAI::DirectDamage(const char * meleeDefName, idEntity * ent)'/>
+<use f='codebrowser/d3xp/ai/AI.cpp' l='2803' u='c' c='_ZN4idAI8AnimMoveEv'/>
+<use f='codebrowser/d3xp/ai/AI.cpp' l='2932' u='c' c='_ZN4idAI9SlideMoveEv'/>
+<use f='codebrowser/d3xp/ai/AI.cpp' l='3180' u='c' c='_ZN4idAI7FlyMoveEv'/>
+<use f='codebrowser/d3xp/ai/AI.cpp' l='3234' u='c' c='_ZN4idAI10StaticMoveEv'/>
+<def f='codebrowser/d3xp/ai/AI.cpp' l='4371' ll='4406' type='void idAI::DirectDamage(const char * meleeDefName, idEntity * ent)'/>
+<doc f='codebrowser/d3xp/ai/AI.cpp' l='4361'>/*
+=====================
+idAI::DirectDamage
+
+Causes direct damage to an entity
+
+kickDir is specified in the monster&apos;s coordinate system, and gives the direction
+that the view kick and knockback should go
+=====================
+*/</doc>
+<use f='codebrowser/d3xp/ai/AI_events.cpp' l='755' u='c' c='_ZN4idAI18Event_DirectDamageEP8idEntityPKc'/>
+<use f='codebrowser/d3xp/ai/AI_events.cpp' l='840' u='c' c='_ZN4idAI24Event_MeleeAttackToJointEPKcS1_'/>
+<dec f='codebrowser/game/ai/AI.h' l='509' type='void idAI::DirectDamage(const char * meleeDefName, idEntity * ent)'/>
+<use f='codebrowser/game/ai/AI.cpp' l='2718' u='c' c='_ZN4idAI8AnimMoveEv'/>
+<use f='codebrowser/game/ai/AI.cpp' l='2847' u='c' c='_ZN4idAI9SlideMoveEv'/>
+<use f='codebrowser/game/ai/AI.cpp' l='3095' u='c' c='_ZN4idAI7FlyMoveEv'/>
+<use f='codebrowser/game/ai/AI.cpp' l='3149' u='c' c='_ZN4idAI10StaticMoveEv'/>
+<def f='codebrowser/game/ai/AI.cpp' l='4235' ll='4270' type='void idAI::DirectDamage(const char * meleeDefName, idEntity * ent)'/>
+<doc f='codebrowser/game/ai/AI.cpp' l='4225'>/*
+=====================
+idAI::DirectDamage
+
+Causes direct damage to an entity
+
+kickDir is specified in the monster&apos;s coordinate system, and gives the direction
+that the view kick and knockback should go
+=====================
+*/</doc>
+<use f='codebrowser/game/ai/AI_events.cpp' l='673' u='c' c='_ZN4idAI18Event_DirectDamageEP8idEntityPKc'/>
+<use f='codebrowser/game/ai/AI_events.cpp' l='758' u='c' c='_ZN4idAI24Event_MeleeAttackToJointEPKcS1_'/>

@@ -1,0 +1,17 @@
+<def f='codebrowser/renderer/jpeg-6/jchuff.c' l='269' ll='305' macro='1' type='boolean emit_bits(working_state * state, unsigned int code, int size)'/>
+<use f='codebrowser/renderer/jpeg-6/jchuff.c' l='311' u='c' c='flush_bits'/>
+<use f='codebrowser/renderer/jpeg-6/jchuff.c' l='348' u='c' c='encode_one_block'/>
+<use f='codebrowser/renderer/jpeg-6/jchuff.c' l='354' u='c' c='encode_one_block'/>
+<use f='codebrowser/renderer/jpeg-6/jchuff.c' l='367' u='c' c='encode_one_block'/>
+<use f='codebrowser/renderer/jpeg-6/jchuff.c' l='386' u='c' c='encode_one_block'/>
+<use f='codebrowser/renderer/jpeg-6/jchuff.c' l='391' u='c' c='encode_one_block'/>
+<use f='codebrowser/renderer/jpeg-6/jchuff.c' l='400' u='c' c='encode_one_block'/>
+<def f='codebrowser/renderer/jpeg-6/jcphuff.c' l='233' ll='270' macro='1' type='void emit_bits(phuff_entropy_ptr entropy, unsigned int code, int size)'/>
+<use f='codebrowser/renderer/jpeg-6/jcphuff.c' l='276' u='c' c='flush_bits'/>
+<use f='codebrowser/renderer/jpeg-6/jcphuff.c' l='294' u='c' c='emit_symbol'/>
+<use f='codebrowser/renderer/jpeg-6/jcphuff.c' l='311' u='c' c='emit_buffered_bits'/>
+<use f='codebrowser/renderer/jpeg-6/jcphuff.c' l='335' u='c' c='emit_eobrun'/>
+<use f='codebrowser/renderer/jpeg-6/jcphuff.c' l='437' u='c' c='encode_mcu_DC_first'/>
+<use f='codebrowser/renderer/jpeg-6/jcphuff.c' l='532' u='c' c='encode_mcu_AC_first'/>
+<use f='codebrowser/renderer/jpeg-6/jcphuff.c' l='589' u='c' c='encode_mcu_DC_refine'/>
+<use f='codebrowser/renderer/jpeg-6/jcphuff.c' l='700' u='c' c='encode_mcu_AC_refine'/>

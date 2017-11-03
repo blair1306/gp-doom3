@@ -1,0 +1,18 @@
+<dec f='codebrowser/renderer/Material.h' l='578' type='void idMaterial::EvaluateRegisters(float * regs, const float * entityParms, const struct viewDef_s * view, idSoundEmitter * soundEmitter = __null) const'/>
+<doc f='codebrowser/renderer/Material.h' l='577'>// regs should point to a float array large enough to hold GetNumRegisters() floats</doc>
+<def f='codebrowser/renderer/Material.cpp' l='2397' ll='2492' type='void idMaterial::EvaluateRegisters(float * registers, const float * shaderParms, const viewDef_t * view, idSoundEmitter * soundEmitter = __null) const'/>
+<use f='codebrowser/renderer/Material.cpp' l='2618' u='c' c='_ZN10idMaterial25CheckForConstantRegistersEv'/>
+<doc f='codebrowser/renderer/Material.cpp' l='2388'>/*
+===============
+idMaterial::EvaluateRegisters
+
+Parameters are taken from the localSpace and the renderView,
+then all expressions are evaluated, leaving the material registers
+set to their apropriate values.
+===============
+*/</doc>
+<use f='codebrowser/renderer/RenderWorld_portals.cpp' l='112' u='c' c='_ZN18idRenderWorldLocal17PortalIsFoggedOutEPK8portal_s'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='690' u='c' c='_Z15R_LinkLightSurfPPK10drawSurf_sPK14srfTriangles_sPK12viewEntity_sPK18idRenderLightLocalPK10idMaterialRK12idScreenRectb'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='910' u='c' c='_Z18R_AddLightSurfacesv'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1237' u='c' c='_Z13R_AddDrawSurfPK14srfTriangles_sPK12viewEntity_sPK14renderEntity_sPK10idMaterialRK12idScreenRect'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1262' u='c' c='_Z13R_AddDrawSurfPK14srfTriangles_sPK12viewEntity_sPK14renderEntity_sPK10idMaterialRK12idScreenRect'/>

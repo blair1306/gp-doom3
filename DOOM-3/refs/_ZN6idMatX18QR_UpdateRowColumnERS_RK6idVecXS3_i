@@ -1,0 +1,18 @@
+<dec f='codebrowser/idlib/math/Matrix.h' l='1924' type='bool idMatX::QR_UpdateRowColumn(idMatX &amp; R, const idVecX &amp; v, const idVecX &amp; w, int r)'/>
+<def f='codebrowser/idlib/math/Matrix.cpp' l='4598' ll='4617' type='bool idMatX::QR_UpdateRowColumn(idMatX &amp; R, const idVecX &amp; v, const idVecX &amp; w, int r)'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='4648' u='c' c='_ZN6idMatX18QR_UpdateIncrementERS_RK6idVecXS3_'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='4676' u='c' c='_ZN6idMatX18QR_UpdateDecrementERS_RK6idVecXS3_i'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7603' u='c' c='_ZN6idMatX4TestEv'/>
+<doc f='codebrowser/idlib/math/Matrix.cpp' l='4585'>/*
+============
+idMatX::QR_UpdateRowColumn
+
+  Updates the unpacked QR factorization to obtain the factors for the matrix:
+
+       [ 0  a  0 ]
+  QR + [ d  b  e ]
+       [ 0  c  0 ]
+
+  where: a = v[0,r-1], b = v[r], c = v[r+1,numRows-1], d = w[0,r-1], w[r] = 0.0f, e = w[r+1,numColumns-1]
+============
+*/</doc>

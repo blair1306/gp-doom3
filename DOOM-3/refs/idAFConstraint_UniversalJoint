@@ -1,0 +1,72 @@
+<inh f='codebrowser/d3xp/physics/Physics_AF.h' l='93' c='idAFConstraint'/>
+<def f='codebrowser/d3xp/physics/Physics_AF.h' l='236' ll='275'/>
+<size>324</size>
+<doc f='codebrowser/d3xp/physics/Physics_AF.h' l='234'>// universal, Cardan or Hooke joint which allows 2 degrees of freedom
+// like a ball and socket joint but also constrains the rotation about the cardan shafts</doc>
+<fun r='_ZN29idAFConstraint_UniversalJointC1ERK5idStrP8idAFBodyS4_'/>
+<fun r='_ZN29idAFConstraint_UniversalJointD1Ev'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint9SetAnchorERK6idVec3'/>
+<fun r='_ZNK29idAFConstraint_UniversalJoint9GetAnchorEv'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint9SetShaftsERK6idVec3S2_'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint9GetShaftsER6idVec3S1_'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint10SetNoLimitEv'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint12SetConeLimitERK6idVec3f'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint15SetPyramidLimitERK6idVec3S2_ff'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint15SetLimitEpsilonEf'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint11SetFrictionEf'/>
+<fun r='_ZNK29idAFConstraint_UniversalJoint11GetFrictionEv'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint9DebugDrawEv'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint8GetForceEP8idAFBodyR6idVec6'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint9TranslateERK6idVec3'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint6RotateERK10idRotation'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint9GetCenterER6idVec3'/>
+<fun r='_ZNK29idAFConstraint_UniversalJoint4SaveEP10idSaveGame'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint7RestoreEP13idRestoreGame'/>
+<mbr r='idAFConstraint_UniversalJoint::anchor1' o='1888' t='idVec3'/>
+<mbr r='idAFConstraint_UniversalJoint::anchor2' o='1984' t='idVec3'/>
+<mbr r='idAFConstraint_UniversalJoint::shaft1' o='2080' t='idVec3'/>
+<mbr r='idAFConstraint_UniversalJoint::shaft2' o='2176' t='idVec3'/>
+<mbr r='idAFConstraint_UniversalJoint::axis1' o='2272' t='idVec3'/>
+<mbr r='idAFConstraint_UniversalJoint::axis2' o='2368' t='idVec3'/>
+<mbr r='idAFConstraint_UniversalJoint::friction' o='2464' t='float'/>
+<mbr r='idAFConstraint_UniversalJoint::coneLimit' o='2496' t='idAFConstraint_ConeLimit *'/>
+<mbr r='idAFConstraint_UniversalJoint::pyramidLimit' o='2528' t='idAFConstraint_PyramidLimit *'/>
+<mbr r='idAFConstraint_UniversalJoint::fc' o='2560' t='idAFConstraint_UniversalJointFriction *'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint8EvaluateEf'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint13ApplyFrictionEf'/>
+<inh f='codebrowser/game/physics/Physics_AF.h' l='93' c='idAFConstraint'/>
+<def f='codebrowser/game/physics/Physics_AF.h' l='236' ll='275'/>
+<size>324</size>
+<doc f='codebrowser/game/physics/Physics_AF.h' l='234'>// universal, Cardan or Hooke joint which allows 2 degrees of freedom
+// like a ball and socket joint but also constrains the rotation about the cardan shafts</doc>
+<fun r='_ZN29idAFConstraint_UniversalJointC1ERK5idStrP8idAFBodyS4_'/>
+<fun r='_ZN29idAFConstraint_UniversalJointD1Ev'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint9SetAnchorERK6idVec3'/>
+<fun r='_ZNK29idAFConstraint_UniversalJoint9GetAnchorEv'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint9SetShaftsERK6idVec3S2_'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint9GetShaftsER6idVec3S1_'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint10SetNoLimitEv'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint12SetConeLimitERK6idVec3f'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint15SetPyramidLimitERK6idVec3S2_ff'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint15SetLimitEpsilonEf'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint11SetFrictionEf'/>
+<fun r='_ZNK29idAFConstraint_UniversalJoint11GetFrictionEv'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint9DebugDrawEv'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint8GetForceEP8idAFBodyR6idVec6'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint9TranslateERK6idVec3'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint6RotateERK10idRotation'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint9GetCenterER6idVec3'/>
+<fun r='_ZNK29idAFConstraint_UniversalJoint4SaveEP10idSaveGame'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint7RestoreEP13idRestoreGame'/>
+<mbr r='idAFConstraint_UniversalJoint::anchor1' o='1888' t='idVec3'/>
+<mbr r='idAFConstraint_UniversalJoint::anchor2' o='1984' t='idVec3'/>
+<mbr r='idAFConstraint_UniversalJoint::shaft1' o='2080' t='idVec3'/>
+<mbr r='idAFConstraint_UniversalJoint::shaft2' o='2176' t='idVec3'/>
+<mbr r='idAFConstraint_UniversalJoint::axis1' o='2272' t='idVec3'/>
+<mbr r='idAFConstraint_UniversalJoint::axis2' o='2368' t='idVec3'/>
+<mbr r='idAFConstraint_UniversalJoint::friction' o='2464' t='float'/>
+<mbr r='idAFConstraint_UniversalJoint::coneLimit' o='2496' t='idAFConstraint_ConeLimit *'/>
+<mbr r='idAFConstraint_UniversalJoint::pyramidLimit' o='2528' t='idAFConstraint_PyramidLimit *'/>
+<mbr r='idAFConstraint_UniversalJoint::fc' o='2560' t='idAFConstraint_UniversalJointFriction *'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint8EvaluateEf'/>
+<fun r='_ZN29idAFConstraint_UniversalJoint13ApplyFrictionEf'/>

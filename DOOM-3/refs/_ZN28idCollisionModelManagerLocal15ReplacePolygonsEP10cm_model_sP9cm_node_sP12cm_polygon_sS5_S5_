@@ -1,0 +1,12 @@
+<dec f='codebrowser/cm/CollisionModel_local.h' l='416' type='void idCollisionModelManagerLocal::ReplacePolygons(cm_model_t * model, cm_node_t * node, cm_polygon_t * p1, cm_polygon_t * p2, cm_polygon_t * newp)'/>
+<doc f='codebrowser/cm/CollisionModel_local.h' l='415'>// merging polygons</doc>
+<def f='codebrowser/cm/CollisionModel_load.cpp' l='1238' ll='1288' type='void idCollisionModelManagerLocal::ReplacePolygons(cm_model_t * model, cm_node_t * node, cm_polygon_t * p1, cm_polygon_t * p2, cm_polygon_t * newp)'/>
+<use f='codebrowser/cm/CollisionModel_load.cpp' l='1284' u='c' c='_ZN28idCollisionModelManagerLocal15ReplacePolygonsEP10cm_model_sP9cm_node_sP12cm_polygon_sS5_S5_'/>
+<use f='codebrowser/cm/CollisionModel_load.cpp' l='1496' u='c' c='_ZN28idCollisionModelManagerLocal28MergePolygonWithTreePolygonsEP10cm_model_sP9cm_node_sP12cm_polygon_s'/>
+<doc f='codebrowser/cm/CollisionModel_load.cpp' l='1231'>/*
+=============
+idCollisionModelManagerLocal::ReplacePolygons
+
+  does not allow for a node to have multiple references to the same polygon
+=============
+*/</doc>

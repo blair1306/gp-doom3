@@ -1,0 +1,17 @@
+<def f='codebrowser/renderer/Material.h' l='412' type='bool idMaterial::ShouldCreateBackSides() const'/>
+<doc f='codebrowser/renderer/Material.h' l='407'>// Standard two-sided triangle rendering won&apos;t work with bump map lighting, because
+						// the normal and tangent vectors won&apos;t be correct for the back sides.  When two
+						// sided lighting is desired. typically for alpha tested surfaces, this is
+						// addressed by having CleanupModelSurfaces() create duplicates of all the triangles
+						// with apropriate order reversal.</doc>
+<use f='codebrowser/cm/CollisionModel_load.cpp' l='1728' u='c' c='_ZN28idCollisionModelManagerLocal24FindInternalPolygonEdgesEP10cm_model_sP9cm_node_sP12cm_polygon_s'/>
+<use f='codebrowser/cm/CollisionModel_load.cpp' l='2508' u='c' c='_ZN28idCollisionModelManagerLocal18PolygonFromWindingEP10cm_model_sP14idFixedWindingRK7idPlanePK10idMateriali'/>
+<use f='codebrowser/d3xp/BrittleFracture.cpp' l='403' u='c' c='_ZNK17idBrittleFracture18UpdateRenderEntityEP14renderEntity_sPK12renderView_s'/>
+<use f='codebrowser/d3xp/BrittleFracture.cpp' l='404' u='c' c='_ZNK17idBrittleFracture18UpdateRenderEntityEP14renderEntity_sPK12renderView_s'/>
+<use f='codebrowser/d3xp/BrittleFracture.cpp' l='463' u='c' c='_ZNK17idBrittleFracture18UpdateRenderEntityEP14renderEntity_sPK12renderView_s'/>
+<use f='codebrowser/d3xp/BrittleFracture.cpp' l='510' u='c' c='_ZNK17idBrittleFracture18UpdateRenderEntityEP14renderEntity_sPK12renderView_s'/>
+<use f='codebrowser/game/BrittleFracture.cpp' l='373' u='c' c='_ZNK17idBrittleFracture18UpdateRenderEntityEP14renderEntity_sPK12renderView_s'/>
+<use f='codebrowser/game/BrittleFracture.cpp' l='374' u='c' c='_ZNK17idBrittleFracture18UpdateRenderEntityEP14renderEntity_sPK12renderView_s'/>
+<use f='codebrowser/game/BrittleFracture.cpp' l='433' u='c' c='_ZNK17idBrittleFracture18UpdateRenderEntityEP14renderEntity_sPK12renderView_s'/>
+<use f='codebrowser/game/BrittleFracture.cpp' l='480' u='c' c='_ZNK17idBrittleFracture18UpdateRenderEntityEP14renderEntity_sPK12renderView_s'/>
+<use f='codebrowser/renderer/Model.cpp' l='636' u='c' c='_ZN19idRenderModelStatic14FinishSurfacesEv'/>

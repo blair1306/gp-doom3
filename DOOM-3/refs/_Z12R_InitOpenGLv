@@ -1,0 +1,20 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1050' type='void R_InitOpenGL()'/>
+<def f='codebrowser/renderer/RenderSystem_init.cpp' l='618' ll='732' type='void R_InitOpenGL()'/>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='1928' u='c' c='_Z14R_VidRestart_fRK9idCmdArgs'/>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='2253' u='c' c='_ZN19idRenderSystemLocal10InitOpenGLEv'/>
+<doc f='codebrowser/renderer/RenderSystem_init.cpp' l='602'>/*
+==================
+R_InitOpenGL
+
+This function is responsible for initializing a valid OpenGL subsystem
+for rendering.  This is done by calling the system specific GLimp_Init,
+which gives us a working OGL subsystem, then setting all necessary openGL
+state, including images, vertex programs, and display lists.
+
+Changes to the vertex cache size or smp state require a vid_restart.
+
+If glConfig.isInitialized is false, no rendering can take place, but
+all renderSystem functions will still operate properly, notably the material
+and model information functions.
+==================
+*/</doc>

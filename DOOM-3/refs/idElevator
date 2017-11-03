@@ -1,0 +1,77 @@
+<inh f='codebrowser/d3xp/Mover.h' l='45' c='idMover'/>
+<def f='codebrowser/d3xp/Mover.h' l='214' ll='269'/>
+<size>2256</size>
+<smbr r='idElevator::Type' t='idTypeInfo'/>
+<fun r='_ZN10idElevator14CreateInstanceEv'/>
+<fun r='_ZNK10idElevator7GetTypeEv'/>
+<smbr r='idElevator::eventCallbacks' t='idEventFunc&lt;idElevator&gt; []'/>
+<fun r='_ZN10idElevatorC1Ev'/>
+<fun r='_ZN10idElevator5SpawnEv'/>
+<fun r='_ZNK10idElevator4SaveEP10idSaveGame'/>
+<fun r='_ZN10idElevator7RestoreEP13idRestoreGame'/>
+<fun r='_ZN10idElevator22HandleSingleGuiCommandEP8idEntityP7idLexer'/>
+<fun r='_ZN10idElevator15Event_GotoFloorEi'/>
+<fun r='_ZN10idElevator12GetFloorInfoEi'/>
+<fun r='_ZN10idElevator10DoneMovingEv'/>
+<fun r='_ZN10idElevator9BeginMoveEP8idThread'/>
+<fun r='_ZN10idElevator12SpawnTriggerERK6idVec3'/>
+<fun r='_ZN10idElevator23GetLocalTriggerPositionEv'/>
+<fun r='_ZN10idElevator11Event_TouchEP8idEntityP7trace_s'/>
+<mbr r='idElevator::state' o='17664' t='elevatorState_t'/>
+<mbr r='idElevator::floorInfo' o='17696' t='idList&lt;floorInfo_s&gt;'/>
+<mbr r='idElevator::currentFloor' o='17824' t='int'/>
+<mbr r='idElevator::pendingFloor' o='17856' t='int'/>
+<mbr r='idElevator::lastFloor' o='17888' t='int'/>
+<mbr r='idElevator::controlsDisabled' o='17920' t='bool'/>
+<mbr r='idElevator::returnTime' o='17952' t='float'/>
+<mbr r='idElevator::returnFloor' o='17984' t='int'/>
+<mbr r='idElevator::lastTouchTime' o='18016' t='int'/>
+<fun r='_ZN10idElevator7GetDoorEPKc'/>
+<fun r='_ZN10idElevator5ThinkEv'/>
+<fun r='_ZN10idElevator13OpenInnerDoorEv'/>
+<fun r='_ZN10idElevator13OpenFloorDoorEi'/>
+<fun r='_ZN10idElevator13CloseAllDoorsEv'/>
+<fun r='_ZN10idElevator15DisableAllDoorsEv'/>
+<fun r='_ZN10idElevator17EnableProperDoorsEv'/>
+<fun r='_ZN10idElevator17Event_TeamBlockedEP8idEntityS1_'/>
+<fun r='_ZN10idElevator14Event_ActivateEP8idEntity'/>
+<fun r='_ZN10idElevator22Event_PostFloorArrivalEv'/>
+<fun r='_ZN10idElevator18Event_SetGuiStatesEv'/>
+<inh f='codebrowser/game/Mover.h' l='45' c='idMover'/>
+<def f='codebrowser/game/Mover.h' l='214' ll='265'/>
+<size>2024</size>
+<smbr r='idElevator::Type' t='idTypeInfo'/>
+<fun r='_ZN10idElevator14CreateInstanceEv'/>
+<fun r='_ZNK10idElevator7GetTypeEv'/>
+<smbr r='idElevator::eventCallbacks' t='idEventFunc&lt;idElevator&gt; []'/>
+<fun r='_ZN10idElevatorC1Ev'/>
+<fun r='_ZN10idElevator5SpawnEv'/>
+<fun r='_ZNK10idElevator4SaveEP10idSaveGame'/>
+<fun r='_ZN10idElevator7RestoreEP13idRestoreGame'/>
+<fun r='_ZN10idElevator22HandleSingleGuiCommandEP8idEntityP7idLexer'/>
+<fun r='_ZN10idElevator15Event_GotoFloorEi'/>
+<fun r='_ZN10idElevator12GetFloorInfoEi'/>
+<fun r='_ZN10idElevator10DoneMovingEv'/>
+<fun r='_ZN10idElevator9BeginMoveEP8idThread'/>
+<fun r='_ZN10idElevator12SpawnTriggerERK6idVec3'/>
+<fun r='_ZN10idElevator23GetLocalTriggerPositionEv'/>
+<fun r='_ZN10idElevator11Event_TouchEP8idEntityP7trace_s'/>
+<mbr r='idElevator::state' o='15808' t='elevatorState_t'/>
+<mbr r='idElevator::floorInfo' o='15840' t='idList&lt;floorInfo_s&gt;'/>
+<mbr r='idElevator::currentFloor' o='15968' t='int'/>
+<mbr r='idElevator::pendingFloor' o='16000' t='int'/>
+<mbr r='idElevator::lastFloor' o='16032' t='int'/>
+<mbr r='idElevator::controlsDisabled' o='16064' t='bool'/>
+<mbr r='idElevator::returnTime' o='16096' t='float'/>
+<mbr r='idElevator::returnFloor' o='16128' t='int'/>
+<mbr r='idElevator::lastTouchTime' o='16160' t='int'/>
+<fun r='_ZN10idElevator7GetDoorEPKc'/>
+<fun r='_ZN10idElevator5ThinkEv'/>
+<fun r='_ZN10idElevator13OpenInnerDoorEv'/>
+<fun r='_ZN10idElevator13OpenFloorDoorEi'/>
+<fun r='_ZN10idElevator13CloseAllDoorsEv'/>
+<fun r='_ZN10idElevator15DisableAllDoorsEv'/>
+<fun r='_ZN10idElevator17EnableProperDoorsEv'/>
+<fun r='_ZN10idElevator17Event_TeamBlockedEP8idEntityS1_'/>
+<fun r='_ZN10idElevator14Event_ActivateEP8idEntity'/>
+<fun r='_ZN10idElevator22Event_PostFloorArrivalEv'/>

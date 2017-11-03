@@ -1,0 +1,13 @@
+<dec f='codebrowser/renderer/RenderWorld_local.h' l='85' type='void idRenderWorldLocal::FreeEntityDef(qhandle_t entityHandle)'/>
+<inh f='codebrowser/renderer/RenderWorld.h' l='283' c='_ZN13idRenderWorld13FreeEntityDefEi'/>
+<def f='codebrowser/renderer/RenderWorld.cpp' l='299' ll='329' type='void idRenderWorldLocal::FreeEntityDef(qhandle_t entityHandle)'/>
+<doc f='codebrowser/renderer/RenderWorld.cpp' l='291'>/*
+===================
+FreeEntityDef
+
+Frees all references and lit surfaces from the model, and
+NULL&apos;s out it&apos;s entry in the world list
+===================
+*/</doc>
+<use f='codebrowser/renderer/RenderWorld_demo.cpp' l='167' u='c' c='_ZN18idRenderWorldLocal18ProcessDemoCommandEP10idDemoFileP12renderView_sPi'/>
+<use f='codebrowser/renderer/RenderWorld_load.cpp' l='465' u='c' c='_ZN18idRenderWorldLocal8FreeDefsEv'/>

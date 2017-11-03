@@ -1,0 +1,12 @@
+<dec f='codebrowser/idlib/bv/Sphere.h' l='81' type='bool idSphere::RayIntersection(const idVec3 &amp; start, const idVec3 &amp; dir, float &amp; scale1, float &amp; scale2) const'/>
+<doc f='codebrowser/idlib/bv/Sphere.h' l='80'>// intersection points are (start + dir * scale1) and (start + dir * scale2)</doc>
+<def f='codebrowser/idlib/bv/Sphere.cpp' l='108' ll='129' type='bool idSphere::RayIntersection(const idVec3 &amp; start, const idVec3 &amp; dir, float &amp; scale1, float &amp; scale2) const'/>
+<doc f='codebrowser/idlib/bv/Sphere.cpp' l='99'>/*
+============
+idSphere::RayIntersection
+
+  Returns true if the ray intersects the sphere.
+  The ray can intersect the sphere in both directions from the start point.
+  If start is inside the sphere then scale1 &lt; 0 and scale2 &gt; 0.
+============
+*/</doc>

@@ -1,0 +1,18 @@
+<dec f='codebrowser/idlib/math/Matrix.h' l='1914' type='bool idMatX::LU_UpdateRowColumn(const idVecX &amp; v, const idVecX &amp; w, int r, int * index)'/>
+<def f='codebrowser/idlib/math/Matrix.cpp' l='4022' ll='4156' type='bool idMatX::LU_UpdateRowColumn(const idVecX &amp; v, const idVecX &amp; w, int r, int * index)'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='4253' u='c' c='_ZN6idMatX18LU_UpdateDecrementERK6idVecXS2_S2_iPi'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='4290' u='c' c='_ZN6idMatX18LU_UpdateDecrementERK6idVecXS2_S2_iPi'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7430' u='c' c='_ZN6idMatX4TestEv'/>
+<doc f='codebrowser/idlib/math/Matrix.cpp' l='4009'>/*
+============
+idMatX::LU_UpdateRowColumn
+
+  Updates the in-place LU factorization to obtain the factors for the matrix:
+
+       [ 0  a  0 ]
+  LU + [ d  b  e ]
+       [ 0  c  0 ]
+
+  where: a = v[0,r-1], b = v[r], c = v[r+1,numRows-1], d = w[0,r-1], w[r] = 0.0f, e = w[r+1,numColumns-1]
+============
+*/</doc>

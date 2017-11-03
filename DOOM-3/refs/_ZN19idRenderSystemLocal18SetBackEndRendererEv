@@ -1,0 +1,13 @@
+<dec f='codebrowser/renderer/tr_local.h' l='741' type='void idRenderSystemLocal::SetBackEndRenderer()'/>
+<doc f='codebrowser/renderer/tr_local.h' l='741'>// sets tr.backEndRenderer based on cvars</doc>
+<def f='codebrowser/renderer/RenderSystem.cpp' l='536' ll='620' type='void idRenderSystemLocal::SetBackEndRenderer()'/>
+<use f='codebrowser/renderer/RenderSystem.cpp' l='635' u='c' c='_ZN19idRenderSystemLocal10BeginFrameEii'/>
+<doc f='codebrowser/renderer/RenderSystem.cpp' l='529'>/*
+==================
+SetBackEndRenderer
+
+Check for changes in the back end renderSystem, possibly invalidating cached data
+==================
+*/</doc>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='703' u='c' c='_Z12R_InitOpenGLv'/>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='2169' u='c' c='_ZN19idRenderSystemLocal4InitEv'/>

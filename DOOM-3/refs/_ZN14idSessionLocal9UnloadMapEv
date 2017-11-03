@@ -1,0 +1,15 @@
+<dec f='codebrowser/framework/Session_local.h' l='303' type='void idSessionLocal::UnloadMap()'/>
+<use f='codebrowser/framework/Session.cpp' l='383' u='c' c='_ZN14idSessionLocal4StopEv'/>
+<def f='codebrowser/framework/Session.cpp' l='1413' ll='1431' type='void idSessionLocal::UnloadMap()'/>
+<use f='codebrowser/framework/Session.cpp' l='1557' u='c' c='_ZN14idSessionLocal16ExecuteMapChangeEb'/>
+<use f='codebrowser/framework/Session.cpp' l='2829' u='c' c='_ZN14idSessionLocal10RunGameTicEv'/>
+<doc f='codebrowser/framework/Session.cpp' l='1404'>/*
+===============
+idSessionLocal::UnloadMap
+
+Performs cleanup that needs to happen between maps, or when a
+game is exited.
+Exits with mapSpawned = false
+===============
+*/</doc>
+<use f='codebrowser/framework/Session_menu.cpp' l='59' u='c' c='_ZN14idSessionLocal9StartMenuEb'/>

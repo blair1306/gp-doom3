@@ -1,0 +1,30 @@
+<dec f='codebrowser/d3xp/Entity.h' l='315' type='void idEntity::DamageFeedback(idEntity * victim, idEntity * inflictor, int &amp; damage)'/>
+<doc f='codebrowser/d3xp/Entity.h' l='314'>// callback function for when another entity received damage from this entity.  damage can be adjusted and returned to the caller.</doc>
+<use f='codebrowser/d3xp/Actor.cpp' l='2244' u='c' c='_ZN7idActor6DamageEP8idEntityS1_RK6idVec3PKcfi'/>
+<def f='codebrowser/d3xp/Entity.cpp' l='3040' ll='3042' type='void idEntity::DamageFeedback(idEntity * victim, idEntity * inflictor, int &amp; damage)'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='3087' u='c' c='_ZN8idEntity6DamageEPS_S0_RK6idVec3PKcfi'/>
+<doc f='codebrowser/d3xp/Entity.cpp' l='3033'>/*
+================
+idEntity::DamageFeedback
+
+callback function for when another entity received damage from this entity.  damage can be adjusted and returned to the caller.
+================
+*/</doc>
+<ovr f='codebrowser/d3xp/Player.cpp' l='7891' c='_ZN8idPlayer14DamageFeedbackEP8idEntityS1_Ri'/>
+<use f='codebrowser/d3xp/Player.cpp' l='7978' u='c' c='_ZN8idPlayer16CalcDamagePointsEP8idEntityS1_PK6idDictfiPiS5_'/>
+<ovr f='codebrowser/d3xp/ai/AI.cpp' l='4351' c='_ZN4idAI14DamageFeedbackEP8idEntityS1_Ri'/>
+<dec f='codebrowser/game/Entity.h' l='299' type='void idEntity::DamageFeedback(idEntity * victim, idEntity * inflictor, int &amp; damage)'/>
+<doc f='codebrowser/game/Entity.h' l='298'>// callback function for when another entity received damage from this entity.  damage can be adjusted and returned to the caller.</doc>
+<use f='codebrowser/game/Actor.cpp' l='2181' u='c' c='_ZN7idActor6DamageEP8idEntityS1_RK6idVec3PKcfi'/>
+<def f='codebrowser/game/Entity.cpp' l='2948' ll='2950' type='void idEntity::DamageFeedback(idEntity * victim, idEntity * inflictor, int &amp; damage)'/>
+<use f='codebrowser/game/Entity.cpp' l='2991' u='c' c='_ZN8idEntity6DamageEPS_S0_RK6idVec3PKcfi'/>
+<doc f='codebrowser/game/Entity.cpp' l='2941'>/*
+================
+idEntity::DamageFeedback
+
+callback function for when another entity received damage from this entity.  damage can be adjusted and returned to the caller.
+================
+*/</doc>
+<ovr f='codebrowser/game/Player.cpp' l='6572' c='_ZN8idPlayer14DamageFeedbackEP8idEntityS1_Ri'/>
+<use f='codebrowser/game/Player.cpp' l='6640' u='c' c='_ZN8idPlayer16CalcDamagePointsEP8idEntityS1_PK6idDictfiPiS5_'/>
+<ovr f='codebrowser/game/ai/AI.cpp' l='4215' c='_ZN4idAI14DamageFeedbackEP8idEntityS1_Ri'/>

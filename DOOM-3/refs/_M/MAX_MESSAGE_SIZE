@@ -1,0 +1,72 @@
+<dec f='codebrowser/framework/async/MsgChannel.h' l='48'/>
+<use f='codebrowser/framework/async/MsgChannel.h' l='179' u='c'/>
+<use f='codebrowser/framework/async/MsgChannel.h' l='185' u='c'/>
+<doc f='codebrowser/framework/async/MsgChannel.h' l='33'>/*
+===============================================================================
+
+  Network channel.
+
+  Handles message fragmentation and out of order / duplicate suppression.
+  Unreliable messages are not garrenteed to arrive but when they do, they
+  arrive in order and without duplicates. Reliable messages always arrive,
+  and they also arrive in order without duplicates. Reliable messages piggy
+  back on unreliable messages. As such an unreliable message stream is
+  required for the reliable messages to be delivered.
+
+===============================================================================
+*/</doc>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='144' u='c'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='265' u='c'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='300' u='c'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='354' u='c'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='384' u='c'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='438' u='c'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='581' u='c'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='609' u='c'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='645' u='c'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='672' u='c'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='879' u='c'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='943' u='c'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1388' u='c'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1491' u='c'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1654' u='c'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1724' u='c'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1774' u='c'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1913' u='c'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1948' u='c'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='2158' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='153' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='246' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='761' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='851' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='871' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='893' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='967' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='995' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1018' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1038' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1054' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1088' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1123' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1153' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1353' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1487' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1562' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1600' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1676' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1736' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1971' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='2065' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='2201' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='2266' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='2295' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='2335' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='2377' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='2576' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='2611' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='2627' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='2683' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='2684' u='c'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='2792' u='c'/>
+<use f='codebrowser/framework/async/MsgChannel.cpp' l='335' u='c'/>
+<use f='codebrowser/framework/async/MsgChannel.cpp' l='485' u='c'/>

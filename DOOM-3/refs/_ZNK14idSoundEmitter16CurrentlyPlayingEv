@@ -1,0 +1,13 @@
+<dec f='codebrowser/sound/sound.h' l='175' type='bool idSoundEmitter::CurrentlyPlaying() const'/>
+<doc f='codebrowser/sound/sound.h' l='172'>// returns true if there are any sounds playing from this emitter.  There is some conservative
+	// slop at the end to remove inconsistent race conditions with the sound thread updates.
+	// FIXME: network game: on a dedicated server, this will always be false</doc>
+<use f='codebrowser/d3xp/Light.cpp' l='583' u='c' c='_ZN7idLight3OffEv'/>
+<use f='codebrowser/d3xp/Sound.cpp' l='158' u='c' c='_ZN7idSound13Event_TriggerEP8idEntity'/>
+<use f='codebrowser/d3xp/Sound.cpp' l='230' u='c' c='_ZN7idSound25UpdateChangeableSpawnArgsEPK6idDict'/>
+<use f='codebrowser/d3xp/Sound.cpp' l='251' u='c' c='_ZN7idSound8SetSoundEPKci'/>
+<use f='codebrowser/game/Light.cpp' l='576' u='c' c='_ZN7idLight3OffEv'/>
+<use f='codebrowser/game/Sound.cpp' l='158' u='c' c='_ZN7idSound13Event_TriggerEP8idEntity'/>
+<use f='codebrowser/game/Sound.cpp' l='230' u='c' c='_ZN7idSound25UpdateChangeableSpawnArgsEPK6idDict'/>
+<use f='codebrowser/game/Sound.cpp' l='251' u='c' c='_ZN7idSound8SetSoundEPKci'/>
+<ovr f='codebrowser/sound/snd_emitter.cpp' l='1028' c='_ZNK19idSoundEmitterLocal16CurrentlyPlayingEv'/>

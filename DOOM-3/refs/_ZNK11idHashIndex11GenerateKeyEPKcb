@@ -1,0 +1,41 @@
+<dec f='codebrowser/idlib/containers/HashIndex.h' l='85' type='int idHashIndex::GenerateKey(const char * string, bool caseSensitive = true) const'/>
+<def f='codebrowser/idlib/containers/HashIndex.h' l='379' ll='385' macro='1' type='int idHashIndex::GenerateKey(const char * string, bool caseSensitive = true) const'/>
+<use f='codebrowser/idlib/containers/StrPool.h' l='102' u='c' c='_ZN9idStrPool11AllocStringEPKc'/>
+<use f='codebrowser/idlib/containers/StrPool.h' l='140' u='c' c='_ZN9idStrPool10FreeStringEPK9idPoolStr'/>
+<doc f='codebrowser/idlib/containers/HashIndex.h' l='84'>// returns a key for a string</doc>
+<use f='codebrowser/d3xp/Game_local.cpp' l='1608' u='c' c='_ZN11idGameLocal8MapClearEb'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='3535' u='c' c='_ZN11idGameLocal15AddEntityToHashEPKcP8idEntity'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='3546' u='c' c='_ZN11idGameLocal20RemoveEntityFromHashEPKcP8idEntity'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='3633' u='c' c='_ZNK11idGameLocal10FindEntityEPKc'/>
+<use f='codebrowser/d3xp/anim/Anim.cpp' l='1007' u='c' c='_ZN13idAnimManager10JointIndexEPKc'/>
+<use f='codebrowser/d3xp/script/Script_Program.cpp' l='1199' u='c' c='_ZNK9idProgram10GetDefListEPKc'/>
+<use f='codebrowser/d3xp/script/Script_Program.cpp' l='1216' u='c' c='_ZN9idProgram16AddDefToNameListEP8idVarDefPKc'/>
+<use f='codebrowser/framework/CVarSystem.cpp' l='524' u='c' c='_ZNK17idCVarSystemLocal12FindInternalEPKc'/>
+<use f='codebrowser/framework/CVarSystem.cpp' l='550' u='c' c='_ZN17idCVarSystemLocal11SetInternalEPKcS1_i'/>
+<use f='codebrowser/framework/CVarSystem.cpp' l='625' u='c' c='_ZN17idCVarSystemLocal8RegisterEP6idCVar'/>
+<use f='codebrowser/framework/CVarSystem.cpp' l='1247' u='c' c='_ZN17idCVarSystemLocal9Restart_fERK9idCmdArgs'/>
+<use f='codebrowser/framework/DeclManager.cpp' l='1360' u='c' c='_ZN18idDeclManagerLocal13CreateNewDeclE10declType_tPKcS2_'/>
+<use f='codebrowser/framework/DeclManager.cpp' l='1438' u='c' c='_ZN18idDeclManagerLocal10RenameDeclE10declType_tPKcS2_'/>
+<use f='codebrowser/framework/DeclManager.cpp' l='1459' u='c' c='_ZN18idDeclManagerLocal10RenameDeclE10declType_tPKcS2_'/>
+<use f='codebrowser/framework/DeclManager.cpp' l='1705' u='c' c='_ZN18idDeclManagerLocal22FindTypeWithoutParsingE10declType_tPKcb'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='1439' u='c' c='_ZNK17idFileSystemLocal9AddUniqueEPKcR6idListI5idStrER11idHashIndex'/>
+<use f='codebrowser/game/Game_local.cpp' l='1439' u='c' c='_ZN11idGameLocal8MapClearEb'/>
+<use f='codebrowser/game/Game_local.cpp' l='3245' u='c' c='_ZN11idGameLocal15AddEntityToHashEPKcP8idEntity'/>
+<use f='codebrowser/game/Game_local.cpp' l='3256' u='c' c='_ZN11idGameLocal20RemoveEntityFromHashEPKcP8idEntity'/>
+<use f='codebrowser/game/Game_local.cpp' l='3343' u='c' c='_ZNK11idGameLocal10FindEntityEPKc'/>
+<use f='codebrowser/game/anim/Anim.cpp' l='1007' u='c' c='_ZN13idAnimManager10JointIndexEPKc'/>
+<use f='codebrowser/game/script/Script_Program.cpp' l='1199' u='c' c='_ZNK9idProgram10GetDefListEPKc'/>
+<use f='codebrowser/game/script/Script_Program.cpp' l='1216' u='c' c='_ZN9idProgram16AddDefToNameListEP8idVarDefPKc'/>
+<use f='codebrowser/idlib/Dict.cpp' l='99' u='c' c='_ZN6idDict4CopyERKS_'/>
+<use f='codebrowser/idlib/Dict.cpp' l='191' u='c' c='_ZN6idDict11SetDefaultsEPKS_'/>
+<use f='codebrowser/idlib/Dict.cpp' l='292' u='c' c='_ZN6idDict3SetEPKcS1_'/>
+<use f='codebrowser/idlib/Dict.cpp' l='459' u='c' c='_ZNK6idDict7FindKeyEPKc'/>
+<use f='codebrowser/idlib/Dict.cpp' l='481' u='c' c='_ZNK6idDict12FindKeyIndexEPKc'/>
+<use f='codebrowser/idlib/Dict.cpp' l='499' u='c' c='_ZN6idDict6DeleteEPKc'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='2159' u='c' c='_ZN14idImageManager13AddDDSCommandEPKc'/>
+<use f='codebrowser/renderer/ModelManager.cpp' l='265' u='c' c='_ZN25idRenderModelManagerLocal8GetModelEPKcb'/>
+<use f='codebrowser/renderer/ModelManager.cpp' l='414' u='c' c='_ZN25idRenderModelManagerLocal8AddModelEP13idRenderModel'/>
+<use f='codebrowser/renderer/ModelManager.cpp' l='424' u='c' c='_ZN25idRenderModelManagerLocal11RemoveModelEP13idRenderModel'/>
+<use f='codebrowser/ui/RegExp.cpp' l='239' u='c' c='_ZN14idRegisterList6AddRegEPKci6idVec4P8idWindowP8idWinVar'/>
+<use f='codebrowser/ui/RegExp.cpp' l='273' u='c' c='_ZN14idRegisterList6AddRegEPKciP8idParserP8idWindowP8idWinVar'/>
+<use f='codebrowser/ui/RegExp.cpp' l='324' u='c' c='_ZN14idRegisterList7FindRegEPKc'/>

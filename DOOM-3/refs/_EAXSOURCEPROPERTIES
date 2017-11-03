@@ -1,0 +1,33 @@
+<def f='codebrowser/openal/include/eax4.h' l='144' ll='164'/>
+<size>72</size>
+<doc f='codebrowser/openal/include/eax4.h' l='131'>// Use this structure for EAXSOURCE_ALLPARAMETERS
+// - all levels are hundredths of decibels
+// - all delays are in seconds
+//
+// NOTE: This structure may change in future EAX versions.
+//       It is recommended to initialize fields by name:
+//              myBuffer.lDirect = 0;
+//              myBuffer.lDirectHF = -200;
+//              ...
+//              myBuffer.dwFlags = myFlags /* see EAXSOURCEFLAGS below */ ;
+//       instead of:
+//              myBuffer = { 0, -200, ... , 0x00000003 };
+//</doc>
+<mbr r='_EAXSOURCEPROPERTIES::lDirect' o='0' t='long'/>
+<mbr r='_EAXSOURCEPROPERTIES::lDirectHF' o='32' t='long'/>
+<mbr r='_EAXSOURCEPROPERTIES::lRoom' o='64' t='long'/>
+<mbr r='_EAXSOURCEPROPERTIES::lRoomHF' o='96' t='long'/>
+<mbr r='_EAXSOURCEPROPERTIES::lObstruction' o='128' t='long'/>
+<mbr r='_EAXSOURCEPROPERTIES::flObstructionLFRatio' o='160' t='float'/>
+<mbr r='_EAXSOURCEPROPERTIES::lOcclusion' o='192' t='long'/>
+<mbr r='_EAXSOURCEPROPERTIES::flOcclusionLFRatio' o='224' t='float'/>
+<mbr r='_EAXSOURCEPROPERTIES::flOcclusionRoomRatio' o='256' t='float'/>
+<mbr r='_EAXSOURCEPROPERTIES::flOcclusionDirectRatio' o='288' t='float'/>
+<mbr r='_EAXSOURCEPROPERTIES::lExclusion' o='320' t='long'/>
+<mbr r='_EAXSOURCEPROPERTIES::flExclusionLFRatio' o='352' t='float'/>
+<mbr r='_EAXSOURCEPROPERTIES::lOutsideVolumeHF' o='384' t='long'/>
+<mbr r='_EAXSOURCEPROPERTIES::flDopplerFactor' o='416' t='float'/>
+<mbr r='_EAXSOURCEPROPERTIES::flRolloffFactor' o='448' t='float'/>
+<mbr r='_EAXSOURCEPROPERTIES::flRoomRolloffFactor' o='480' t='float'/>
+<mbr r='_EAXSOURCEPROPERTIES::flAirAbsorptionFactor' o='512' t='float'/>
+<mbr r='_EAXSOURCEPROPERTIES::ulFlags' o='544' t='unsigned long'/>

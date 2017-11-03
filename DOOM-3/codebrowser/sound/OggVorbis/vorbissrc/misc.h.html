@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>misc.h source code [codebrowser/sound/OggVorbis/vorbissrc/misc.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/sound/OggVorbis/vorbissrc/misc.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>sound</a>/<a href='..'>OggVorbis</a>/<a href='./'>vorbissrc</a>/<a href='misc.h.html'>misc.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/********************************************************************</i></td></tr>
+<tr><th id="2">2</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="3">3</th><td><i> * THIS FILE IS PART OF THE OggVorbis SOFTWARE CODEC SOURCE CODE.   *</i></td></tr>
+<tr><th id="4">4</th><td><i> * USE, DISTRIBUTION AND REPRODUCTION OF THIS LIBRARY SOURCE IS     *</i></td></tr>
+<tr><th id="5">5</th><td><i> * GOVERNED BY A BSD-STYLE SOURCE LICENSE INCLUDED WITH THIS SOURCE *</i></td></tr>
+<tr><th id="6">6</th><td><i> * IN 'COPYING'. PLEASE READ THESE TERMS BEFORE DISTRIBUTING.       *</i></td></tr>
+<tr><th id="7">7</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="8">8</th><td><i> * THE OggVorbis SOURCE CODE IS (C) COPYRIGHT 1994-2002             *</i></td></tr>
+<tr><th id="9">9</th><td><i> * by the XIPHOPHORUS Company <a href="http://www.xiph.org/">http://www.xiph.org/</a>                  *</i></td></tr>
+<tr><th id="10">10</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="11">11</th><td><i> ********************************************************************</i></td></tr>
+<tr><th id="12">12</th><td><i></i></td></tr>
+<tr><th id="13">13</th><td><i> function: miscellaneous prototypes</i></td></tr>
+<tr><th id="14">14</th><td><i> last mod: $Id: misc.h,v 1.12 2002/06/28 22:19:37 xiphmont Exp $</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i> ********************************************************************/</i></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><u>#<span data-ppcond="18">ifndef</span> <span class="macro" data-ref="_M/_V_RANDOM_H_">_V_RANDOM_H_</span></u></td></tr>
+<tr><th id="19">19</th><td><u>#define <dfn class="macro" id="_M/_V_RANDOM_H_" data-ref="_M/_V_RANDOM_H_">_V_RANDOM_H_</dfn></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../vorbis/codec.h.html">"../vorbis/codec.h"</a></u></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><b>extern</b> <em>int</em> <dfn class="decl" id="analysis_noisy" title='analysis_noisy' data-ref="analysis_noisy">analysis_noisy</dfn>;</td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><b>extern</b> <em>void</em> *<dfn class="decl" id="_vorbis_block_alloc" title='_vorbis_block_alloc' data-ref="_vorbis_block_alloc">_vorbis_block_alloc</dfn>(<a class="typedef" href="../vorbis/codec.h.html#vorbis_block" title='vorbis_block' data-type='struct vorbis_block' data-ref="vorbis_block">vorbis_block</a> *<dfn class="local col7 decl" id="207vb" title='vb' data-type='vorbis_block *' data-ref="207vb">vb</dfn>,<em>long</em> <dfn class="local col8 decl" id="208bytes" title='bytes' data-type='long' data-ref="208bytes">bytes</dfn>);</td></tr>
+<tr><th id="25">25</th><td><b>extern</b> <em>void</em> <dfn class="decl" id="_vorbis_block_ripcord" title='_vorbis_block_ripcord' data-ref="_vorbis_block_ripcord">_vorbis_block_ripcord</dfn>(<a class="typedef" href="../vorbis/codec.h.html#vorbis_block" title='vorbis_block' data-type='struct vorbis_block' data-ref="vorbis_block">vorbis_block</a> *<dfn class="local col9 decl" id="209vb" title='vb' data-type='vorbis_block *' data-ref="209vb">vb</dfn>);</td></tr>
+<tr><th id="26">26</th><td><b>extern</b> <em>void</em> <a class="decl" href="analysis.c.html#_analysis_output" title='_analysis_output' data-ref="_analysis_output" id="_analysis_output">_analysis_output</a>(<em>char</em> *<dfn class="local col0 decl" id="210base" title='base' data-type='char *' data-ref="210base">base</dfn>,<em>int</em> <dfn class="local col1 decl" id="211i" title='i' data-type='int' data-ref="211i">i</dfn>,<em>float</em> *<dfn class="local col2 decl" id="212v" title='v' data-type='float *' data-ref="212v">v</dfn>,<em>int</em> <dfn class="local col3 decl" id="213n" title='n' data-type='int' data-ref="213n">n</dfn>,<em>int</em> <dfn class="local col4 decl" id="214bark" title='bark' data-type='int' data-ref="214bark">bark</dfn>,<em>int</em> <dfn class="local col5 decl" id="215dB" title='dB' data-type='int' data-ref="215dB">dB</dfn>,</td></tr>
+<tr><th id="27">27</th><td>			     <a class="typedef" href="../ogg/os_types.h.html#ogg_int64_t" title='ogg_int64_t' data-type='int64_t' data-ref="ogg_int64_t">ogg_int64_t</a> <dfn class="local col6 decl" id="216off" title='off' data-type='ogg_int64_t' data-ref="216off">off</dfn>);</td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifdef</span> <span class="macro" data-ref="_M/DEBUG_MALLOC">DEBUG_MALLOC</span></u></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><u>#define _VDBG_GRAPHFILE "malloc.m"</u></td></tr>
+<tr><th id="32">32</th><td><b>extern</b> <em>void</em> *_VDBG_malloc(<em>void</em> *ptr,<em>long</em> bytes,<em>char</em> *file,<em>long</em> line); </td></tr>
+<tr><th id="33">33</th><td><b>extern</b> <em>void</em> _VDBG_free(<em>void</em> *ptr,<em>char</em> *file,<em>long</em> line); </td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><u>#ifndef MISC_C</u> </td></tr>
+<tr><th id="36">36</th><td><u>#undef _ogg_malloc</u></td></tr>
+<tr><th id="37">37</th><td><u>#undef _ogg_calloc</u></td></tr>
+<tr><th id="38">38</th><td><u>#undef _ogg_realloc</u></td></tr>
+<tr><th id="39">39</th><td><u>#undef _ogg_free</u></td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><u>#define _ogg_malloc(x) _VDBG_malloc(NULL,(x),__FILE__,__LINE__)</u></td></tr>
+<tr><th id="42">42</th><td><u>#define _ogg_calloc(x,y) _VDBG_malloc(NULL,(x)*(y),__FILE__,__LINE__)</u></td></tr>
+<tr><th id="43">43</th><td><u>#define _ogg_realloc(x,y) _VDBG_malloc((x),(y),__FILE__,__LINE__)</u></td></tr>
+<tr><th id="44">44</th><td><u>#define _ogg_free(x) _VDBG_free((x),__FILE__,__LINE__)</u></td></tr>
+<tr><th id="45">45</th><td><u>#endif</u></td></tr>
+<tr><th id="46">46</th><td><u>#<span data-ppcond="29">endif</span></u></td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td><u>#<span data-ppcond="18">endif</span></u></td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='analysis.c.html'>codebrowser/sound/OggVorbis/vorbissrc/analysis.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

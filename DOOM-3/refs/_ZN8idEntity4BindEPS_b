@@ -1,0 +1,42 @@
+<dec f='codebrowser/d3xp/Entity.h' l='247' type='void idEntity::Bind(idEntity * master, bool orientated)'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='3210' u='c' c='_ZN13idHarvestable4InitEP8idEntity'/>
+<def f='codebrowser/d3xp/Entity.cpp' l='1896' ll='1912' type='void idEntity::Bind(idEntity * master, bool orientated)'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='3938' u='c' c='_ZN8idEntity10Event_BindEPS_'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='3947' u='c' c='_ZN8idEntity18Event_BindPositionEPS_'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='4024' u='c' c='_ZN8idEntity15Event_SpawnBindEv'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='4803' u='c' c='_ZN8idEntity20ReadBindFromSnapshotERK13idBitMsgDelta'/>
+<doc f='codebrowser/d3xp/Entity.cpp' l='1889'>/*
+================
+idEntity::Bind
+
+  bind relative to the visual position of the master
+================
+*/</doc>
+<use f='codebrowser/d3xp/Fx.cpp' l='737' u='c' c='_ZN10idEntityFx7StartFxEPKcPK6idVec3PK6idMat3P8idEntityb'/>
+<use f='codebrowser/d3xp/GameEdit.cpp' l='365' u='c' c='_ZN12idDragEntity12BindSelectedEv'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='3574' u='c' c='_ZN19idFuncMountedObject14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='2530' u='c' c='_ZN14idMover_Binary8BindTeamEP8idEntity'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='974' u='c' c='_ZN12idProjectile7ExplodeERK7trace_sP8idEntity'/>
+<use f='codebrowser/d3xp/SecurityCamera.cpp' l='218' u='c' c='_ZN16idSecurityCamera14Event_AddLightEv'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='3260' u='c' c='_ZN8idWeapon22Event_CreateProjectileEv'/>
+<use f='codebrowser/d3xp/ai/AI_events.cpp' l='586' u='c' c='_ZN4idAI19Event_CreateMissileEPKc'/>
+<dec f='codebrowser/game/Entity.h' l='231' type='void idEntity::Bind(idEntity * master, bool orientated)'/>
+<def f='codebrowser/game/Entity.cpp' l='1804' ll='1820' type='void idEntity::Bind(idEntity * master, bool orientated)'/>
+<use f='codebrowser/game/Entity.cpp' l='3829' u='c' c='_ZN8idEntity10Event_BindEPS_'/>
+<use f='codebrowser/game/Entity.cpp' l='3838' u='c' c='_ZN8idEntity18Event_BindPositionEPS_'/>
+<use f='codebrowser/game/Entity.cpp' l='3915' u='c' c='_ZN8idEntity15Event_SpawnBindEv'/>
+<use f='codebrowser/game/Entity.cpp' l='4629' u='c' c='_ZN8idEntity20ReadBindFromSnapshotERK13idBitMsgDelta'/>
+<doc f='codebrowser/game/Entity.cpp' l='1797'>/*
+================
+idEntity::Bind
+
+  bind relative to the visual position of the master
+================
+*/</doc>
+<use f='codebrowser/game/Fx.cpp' l='707' u='c' c='_ZN10idEntityFx7StartFxEPKcPK6idVec3PK6idMat3P8idEntityb'/>
+<use f='codebrowser/game/GameEdit.cpp' l='365' u='c' c='_ZN12idDragEntity12BindSelectedEv'/>
+<use f='codebrowser/game/Mover.cpp' l='2508' u='c' c='_ZN14idMover_Binary8BindTeamEP8idEntity'/>
+<use f='codebrowser/game/Projectile.cpp' l='877' u='c' c='_ZN12idProjectile7ExplodeERK7trace_sP8idEntity'/>
+<use f='codebrowser/game/SecurityCamera.cpp' l='218' u='c' c='_ZN16idSecurityCamera14Event_AddLightEv'/>
+<use f='codebrowser/game/Weapon.cpp' l='2778' u='c' c='_ZN8idWeapon22Event_CreateProjectileEv'/>
+<use f='codebrowser/game/ai/AI_events.cpp' l='562' u='c' c='_ZN4idAI19Event_CreateMissileEPKc'/>

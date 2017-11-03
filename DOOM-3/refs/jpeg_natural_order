@@ -1,0 +1,22 @@
+<dec f='codebrowser/renderer/jpeg-6/jpegint.h' l='379' type='const int []'/>
+<doc f='codebrowser/renderer/jpeg-6/jpegint.h' l='379'>/* zigzag coef order to natural order */</doc>
+<use f='codebrowser/renderer/jpeg-6/jchuff.c' l='362' u='r' c='encode_one_block'/>
+<use f='codebrowser/renderer/jpeg-6/jchuff.c' l='568' u='r' c='htest_one_block'/>
+<use f='codebrowser/renderer/jpeg-6/jcphuff.c' l='489' u='r' c='encode_mcu_AC_first'/>
+<use f='codebrowser/renderer/jpeg-6/jcphuff.c' l='643' u='r' c='encode_mcu_AC_refine'/>
+<use f='codebrowser/renderer/jpeg-6/jcphuff.c' l='699' u='r' c='encode_mcu_AC_refine'/>
+<use f='codebrowser/renderer/jpeg-6/jdhuff.c' l='509' u='r' c='decode_mcu'/>
+<def f='codebrowser/renderer/jpeg-6/jutils.c' l='49' ll='60' type='const int [80]'/>
+<doc f='codebrowser/renderer/jpeg-6/jutils.c' l='35'>/*
+ * jpeg_natural_order[i] is the natural-order position of the i&apos;th element
+ * of zigzag order.
+ *
+ * When reading corrupted data, the Huffman decoders could attempt
+ * to reference an entry beyond the end of this array (if the decoded
+ * zero run length reaches past the end of the block).  To prevent
+ * wild stores without adding an inner-loop test, we put some extra
+ * &quot;63&quot;s after the real entries.  This will cause the extra coefficient
+ * to be stored in location 63 of the block, not somewhere random.
+ * The worst case would be a run-length of 15, which means we need 16
+ * fake entries.
+ */</doc>

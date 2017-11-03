@@ -1,0 +1,18 @@
+<dec f='codebrowser/sound/snd_local.h' l='620' type='void idSoundWorldLocal::MixLoop(int current44kHz, int numSpeakers, float * finalMixBuffer)'/>
+<use f='codebrowser/sound/snd_system.cpp' l='612' u='c' c='_ZN18idSoundSystemLocal8AsyncMixEiPf'/>
+<use f='codebrowser/sound/snd_system.cpp' l='711' u='c' c='_ZN18idSoundSystemLocal11AsyncUpdateEi'/>
+<use f='codebrowser/sound/snd_system.cpp' l='785' u='c' c='_ZN18idSoundSystemLocal16AsyncUpdateWriteEi'/>
+<def f='codebrowser/sound/snd_world.cpp' l='420' ll='536' type='void idSoundWorldLocal::MixLoop(int current44kHz, int numSpeakers, float * finalMixBuffer)'/>
+<use f='codebrowser/sound/snd_world.cpp' l='595' u='c' c='_ZN17idSoundWorldLocal9AVIUpdateEv'/>
+<doc f='codebrowser/sound/snd_world.cpp' l='408'>/*
+===================
+idSoundWorldLocal::MixLoop
+
+Sum all sound contributions into finalMixBuffer, an unclamped float buffer holding
+all output channels.  MIXBUFFER_SAMPLES samples will be created, with each sample consisting
+of 2 or 6 floats depending on numSpeakers.
+
+this is normally called from the sound thread, but also from the main thread
+for AVIdemo writing
+===================
+*/</doc>

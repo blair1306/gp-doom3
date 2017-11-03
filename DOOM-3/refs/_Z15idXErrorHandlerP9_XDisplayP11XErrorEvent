@@ -1,0 +1,9 @@
+<def f='codebrowser/sys/linux/glimp.cpp' l='249' ll='258' type='int idXErrorHandler(Display * l_dpy, XErrorEvent * ev)'/>
+<use f='codebrowser/sys/linux/glimp.cpp' l='279' u='a' c='_Z17GLimp_OpenDisplayv'/>
+<doc f='codebrowser/sys/linux/glimp.cpp' l='242'>/*
+** XErrorHandler
+**   the default X error handler exits the application
+**   I found out that on some hosts some operations would raise X errors (GLXUnsupportedPrivateRequest)
+**   but those don&apos;t seem to be fatal .. so the default would be to just ignore them
+**   our implementation mimics the default handler behaviour (not completely cause I&apos;m lazy)
+*/</doc>

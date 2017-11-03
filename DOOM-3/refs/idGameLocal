@@ -1,0 +1,507 @@
+<inh f='codebrowser/d3xp/Game.h' l='74' c='idGame'/>
+<def f='codebrowser/d3xp/Game_local.h' l='268' ll='634'/>
+<size>4425804</size>
+<doc f='codebrowser/d3xp/Game_local.h' l='266'>//============================================================================</doc>
+<mbr r='idGameLocal::serverInfo' o='32' t='idDict'/>
+<mbr r='idGameLocal::numClients' o='384' t='int'/>
+<mbr r='idGameLocal::userInfo' o='416' t='idDict [32]'/>
+<mbr r='idGameLocal::usercmds' o='11680' t='usercmd_t [32]'/>
+<mbr r='idGameLocal::persistentPlayerInfo' o='19872' t='idDict [32]'/>
+<mbr r='idGameLocal::entities' o='31136' t='idEntity *[4096]'/>
+<mbr r='idGameLocal::spawnIds' o='162208' t='int [4096]'/>
+<mbr r='idGameLocal::firstFreeIndex' o='293280' t='int'/>
+<mbr r='idGameLocal::num_entities' o='293312' t='int'/>
+<mbr r='idGameLocal::entityHash' o='293344' t='idHashIndex'/>
+<mbr r='idGameLocal::world' o='293568' t='idWorldspawn *'/>
+<mbr r='idGameLocal::spawnedEntities' o='293600' t='idLinkList&lt;idEntity&gt;'/>
+<mbr r='idGameLocal::activeEntities' o='293728' t='idLinkList&lt;idEntity&gt;'/>
+<mbr r='idGameLocal::numEntitiesToDeactivate' o='293856' t='int'/>
+<mbr r='idGameLocal::sortPushers' o='293888' t='bool'/>
+<mbr r='idGameLocal::sortTeamMasters' o='293896' t='bool'/>
+<mbr r='idGameLocal::persistentLevelInfo' o='293920' t='idDict'/>
+<mbr r='idGameLocal::globalShaderParms' o='294272' t='float [12]'/>
+<mbr r='idGameLocal::random' o='294656' t='idRandom'/>
+<mbr r='idGameLocal::program' o='294688' t='idProgram'/>
+<mbr r='idGameLocal::frameCommandThread' o='28307104' t='idThread *'/>
+<mbr r='idGameLocal::clip' o='28307136' t='idClip'/>
+<mbr r='idGameLocal::push' o='28309856' t='idPush'/>
+<mbr r='idGameLocal::pvs' o='29227424' t='idPVS'/>
+<mbr r='idGameLocal::testmodel' o='29228544' t='idTestModel *'/>
+<mbr r='idGameLocal::testFx' o='29228576' t='idEntityFx *'/>
+<mbr r='idGameLocal::sessionCommand' o='29228608' t='idStr'/>
+<mbr r='idGameLocal::mpGame' o='29228864' t='idMultiplayerGame'/>
+<mbr r='idGameLocal::smokeParticles' o='29240896' t='idSmokeParticles *'/>
+<mbr r='idGameLocal::editEntities' o='29240928' t='idEditEntities *'/>
+<mbr r='idGameLocal::cinematicSkipTime' o='29240960' t='int'/>
+<mbr r='idGameLocal::cinematicStopTime' o='29240992' t='int'/>
+<mbr r='idGameLocal::cinematicMaxSkipTime' o='29241024' t='int'/>
+<mbr r='idGameLocal::inCinematic' o='29241056' t='bool'/>
+<mbr r='idGameLocal::skipCinematic' o='29241064' t='bool'/>
+<mbr r='idGameLocal::framenum' o='29241088' t='int'/>
+<mbr r='idGameLocal::previousTime' o='29241120' t='int'/>
+<mbr r='idGameLocal::time' o='29241152' t='int'/>
+<mbr r='idGameLocal::msec' o='29241184' t='int'/>
+<mbr r='idGameLocal::vacuumAreaNum' o='29241216' t='int'/>
+<mbr r='idGameLocal::gameType' o='29241248' t='gameType_t'/>
+<mbr r='idGameLocal::isMultiplayer' o='29241280' t='bool'/>
+<mbr r='idGameLocal::isServer' o='29241288' t='bool'/>
+<mbr r='idGameLocal::isClient' o='29241296' t='bool'/>
+<mbr r='idGameLocal::localClientNum' o='29241312' t='int'/>
+<mbr r='idGameLocal::snapshotEntities' o='29241344' t='idLinkList&lt;idEntity&gt;'/>
+<mbr r='idGameLocal::realClientTime' o='29241472' t='int'/>
+<mbr r='idGameLocal::isNewFrame' o='29241504' t='bool'/>
+<mbr r='idGameLocal::clientSmoothing' o='29241536' t='float'/>
+<mbr r='idGameLocal::entityDefBits' o='29241568' t='int'/>
+<smbr r='idGameLocal::sufaceTypeNames' t='const char *[16]'/>
+<mbr r='idGameLocal::lastGUIEnt' o='29241600' t='idEntityPtr&lt;idEntity&gt;'/>
+<mbr r='idGameLocal::lastGUI' o='29241632' t='int'/>
+<mbr r='idGameLocal::portalSkyEnt' o='29241664' t='idEntityPtr&lt;idEntity&gt;'/>
+<mbr r='idGameLocal::portalSkyActive' o='29241696' t='bool'/>
+<fun r='_ZN11idGameLocal15SetPortalSkyEntEP8idEntity'/>
+<fun r='_ZN11idGameLocal16IsPortalSkyAciveEv'/>
+<mbr r='idGameLocal::fast' o='29241728' t='timeState_t'/>
+<mbr r='idGameLocal::slow' o='29241888' t='timeState_t'/>
+<mbr r='idGameLocal::slowmoState' o='29242048' t='slowmoState_t'/>
+<mbr r='idGameLocal::slowmoMsec' o='29242080' t='float'/>
+<mbr r='idGameLocal::quickSlowmoReset' o='29242112' t='bool'/>
+<fun r='_ZN11idGameLocal15SelectTimeGroupEi'/>
+<fun r='_ZN11idGameLocal16GetTimeGroupTimeEi'/>
+<fun r='_ZN11idGameLocal15GetBestGameTypeEPKcS1_Pc'/>
+<fun r='_ZN11idGameLocal15ComputeSlowMsecEv'/>
+<fun r='_ZN11idGameLocal13RunTimeGroup2Ev'/>
+<fun r='_ZN11idGameLocal17ResetSlowTimeVarsEv'/>
+<fun r='_ZN11idGameLocal16QuickSlowmoResetEv'/>
+<fun r='_ZN11idGameLocal11NeedRestartEv'/>
+<fun r='_ZN11idGameLocal8TokenizeER6idListI5idStrEPKc'/>
+<fun r='_ZN11idGameLocalC1Ev'/>
+<fun r='_ZN11idGameLocal4InitEv'/>
+<fun r='_ZN11idGameLocal8ShutdownEv'/>
+<fun r='_ZN11idGameLocal14SetLocalClientEi'/>
+<fun r='_ZN11idGameLocal16ThrottleUserInfoEv'/>
+<fun r='_ZN11idGameLocal11SetUserInfoEiRK6idDictbb'/>
+<fun r='_ZN11idGameLocal11GetUserInfoEi'/>
+<fun r='_ZN11idGameLocal13SetServerInfoERK6idDict'/>
+<fun r='_ZN11idGameLocal23GetPersistentPlayerInfoEi'/>
+<fun r='_ZN11idGameLocal23SetPersistentPlayerInfoEiRK6idDict'/>
+<fun r='_ZN11idGameLocal14InitFromNewMapEPKcP13idRenderWorldP12idSoundWorldbbi'/>
+<fun r='_ZN11idGameLocal16InitFromSaveGameEPKcP13idRenderWorldP12idSoundWorldP6idFile'/>
+<fun r='_ZN11idGameLocal8SaveGameEP6idFile'/>
+<fun r='_ZN11idGameLocal11MapShutdownEv'/>
+<fun r='_ZN11idGameLocal20CacheDictionaryMediaEPK6idDict'/>
+<fun r='_ZN11idGameLocal11SpawnPlayerEi'/>
+<fun r='_ZN11idGameLocal8RunFrameEPK9usercmd_t'/>
+<fun r='_ZN11idGameLocal4DrawEi'/>
+<fun r='_ZN11idGameLocal9HandleESCEPP15idUserInterface'/>
+<fun r='_ZN11idGameLocal9StartMenuEv'/>
+<fun r='_ZN11idGameLocal17HandleGuiCommandsEPKc'/>
+<fun r='_ZN11idGameLocal22HandleMainMenuCommandsEPKcP15idUserInterface'/>
+<fun r='_ZN11idGameLocal17ServerAllowClientEiPKcS1_S1_Pc'/>
+<fun r='_ZN11idGameLocal19ServerClientConnectEiPKc'/>
+<fun r='_ZN11idGameLocal17ServerClientBeginEi'/>
+<fun r='_ZN11idGameLocal22ServerClientDisconnectEi'/>
+<fun r='_ZN11idGameLocal34ServerWriteInitialReliableMessagesEi'/>
+<fun r='_ZN11idGameLocal19ServerWriteSnapshotEiiR8idBitMsgPhi'/>
+<fun r='_ZN11idGameLocal19ServerApplySnapshotEii'/>
+<fun r='_ZN11idGameLocal28ServerProcessReliableMessageEiRK8idBitMsg'/>
+<fun r='_ZN11idGameLocal18ClientReadSnapshotEiiiiiiRK8idBitMsg'/>
+<fun r='_ZN11idGameLocal19ClientApplySnapshotEii'/>
+<fun r='_ZN11idGameLocal28ClientProcessReliableMessageEiRK8idBitMsg'/>
+<fun r='_ZN11idGameLocal16ClientPredictionEiPK9usercmd_tb'/>
+<fun r='_ZN11idGameLocal14GetClientStatsEiPci'/>
+<fun r='_ZN11idGameLocal10SwitchTeamEii'/>
+<fun r='_ZN11idGameLocal15DownloadRequestEPKcS1_S1_Pc'/>
+<fun r='_ZN11idGameLocal16GetMapLoadingGUIEPc'/>
+<fun r='_ZNK11idGameLocal6PrintfEPKcz'/>
+<fun r='_ZNK11idGameLocal7DPrintfEPKcz'/>
+<fun r='_ZNK11idGameLocal7WarningEPKcz'/>
+<fun r='_ZNK11idGameLocal8DWarningEPKcz'/>
+<fun r='_ZNK11idGameLocal5ErrorEPKcz'/>
+<fun r='_ZN11idGameLocal7LoadMapEPKci'/>
+<fun r='_ZN11idGameLocal15LocalMapRestartEv'/>
+<fun r='_ZN11idGameLocal10MapRestartEv'/>
+<fun r='_ZN11idGameLocal12MapRestart_fERK9idCmdArgs'/>
+<fun r='_ZN11idGameLocal7NextMapEv'/>
+<fun r='_ZN11idGameLocal9NextMap_fERK9idCmdArgs'/>
+<fun r='_ZN11idGameLocal11GetLevelMapEv'/>
+<fun r='_ZNK11idGameLocal10GetMapNameEv'/>
+<fun r='_ZNK11idGameLocal6NumAASEv'/>
+<fun r='_ZNK11idGameLocal6GetAASEi'/>
+<fun r='_ZNK11idGameLocal6GetAASEPKc'/>
+<fun r='_ZN11idGameLocal15SetAASAreaStateERK8idBoundsib'/>
+<fun r='_ZN11idGameLocal14AddAASObstacleERK8idBounds'/>
+<fun r='_ZN11idGameLocal17RemoveAASObstacleEi'/>
+<fun r='_ZN11idGameLocal21RemoveAllAASObstaclesEv'/>
+<fun r='_ZN11idGameLocal8CheatsOkEb'/>
+<fun r='_ZN11idGameLocal8SetSkillEi'/>
+<fun r='_ZNK11idGameLocal9GameStateEv'/>
+<fun r='_ZN11idGameLocal15SpawnEntityTypeERK10idTypeInfoPK6idDictb'/>
+<fun r='_ZN11idGameLocal14SpawnEntityDefERK6idDictPP8idEntityb'/>
+<fun r='_ZNK11idGameLocal10GetSpawnIdEPK8idEntity'/>
+<fun r='_ZNK11idGameLocal13FindEntityDefEPKcb'/>
+<fun r='_ZNK11idGameLocal17FindEntityDefDictEPKcb'/>
+<fun r='_ZN11idGameLocal14RegisterEntityEP8idEntity'/>
+<fun r='_ZN11idGameLocal16UnregisterEntityEP8idEntity'/>
+<fun r='_ZN11idGameLocal14RequirementMetEP8idEntityRK5idStri'/>
+<fun r='_ZN11idGameLocal7AlertAIEP8idEntity'/>
+<fun r='_ZN11idGameLocal14GetAlertEntityEv'/>
+<fun r='_ZNK11idGameLocal11InPlayerPVSEP8idEntity'/>
+<fun r='_ZNK11idGameLocal21InPlayerConnectedAreaEP8idEntity'/>
+<fun r='_ZN11idGameLocal12GetPlayerPVSEv'/>
+<fun r='_ZN11idGameLocal9SetCameraEP8idCamera'/>
+<fun r='_ZNK11idGameLocal9GetCameraEv'/>
+<fun r='_ZN11idGameLocal13SkipCinematicEv'/>
+<fun r='_ZNK11idGameLocal7CalcFovEfRfS0_'/>
+<fun r='_ZN11idGameLocal15AddEntityToHashEPKcP8idEntity'/>
+<fun r='_ZN11idGameLocal20RemoveEntityFromHashEPKcP8idEntity'/>
+<fun r='_ZNK11idGameLocal10GetTargetsERK6idDictR6idListI11idEntityPtrI8idEntityEEPKc'/>
+<fun r='_ZNK11idGameLocal14GetTraceEntityERK7trace_s'/>
+<fun r='_ZN11idGameLocal24ArgCompletion_EntityNameERK9idCmdArgsPFvPKcE'/>
+<fun r='_ZNK11idGameLocal15FindTraceEntityE6idVec3S0_RK10idTypeInfoPK8idEntity'/>
+<fun r='_ZNK11idGameLocal10FindEntityEPKc'/>
+<fun r='_ZNK11idGameLocal18FindEntityUsingDefEP8idEntityPKc'/>
+<fun r='_ZNK11idGameLocal20EntitiesWithinRadiusE6idVec3fPP8idEntityi'/>
+<fun r='_ZN11idGameLocal7KillBoxEP8idEntityb'/>
+<fun r='_ZN11idGameLocal12RadiusDamageERK6idVec3P8idEntityS4_S4_S4_PKcf'/>
+<fun r='_ZN11idGameLocal10RadiusPushERK6idVec3ffPK8idEntityS5_fb'/>
+<fun r='_ZN11idGameLocal19RadiusPushClipModelERK6idVec3fPK11idClipModel'/>
+<fun r='_ZN11idGameLocal12ProjectDecalERK6idVec3S2_fbfPKcf'/>
+<fun r='_ZN11idGameLocal10BloodSplatERK6idVec3S2_fPKc'/>
+<fun r='_ZN11idGameLocal16CallFrameCommandEP8idEntityPK10function_t'/>
+<fun r='_ZN11idGameLocal22CallObjectFrameCommandEP8idEntityPKc'/>
+<fun r='_ZNK11idGameLocal10GetGravityEv'/>
+<fun r='_ZNK11idGameLocal11GetFrameNumEv'/>
+<fun r='_ZNK11idGameLocal7GetTimeEv'/>
+<fun r='_ZNK11idGameLocal7GetMSecEv'/>
+<fun r='_ZNK11idGameLocal16GetNextClientNumEi'/>
+<fun r='_ZNK11idGameLocal14GetClientByNumEi'/>
+<fun r='_ZNK11idGameLocal15GetClientByNameEPKc'/>
+<fun r='_ZNK11idGameLocal18GetClientByCmdArgsERK9idCmdArgs'/>
+<fun r='_ZNK11idGameLocal14GetLocalPlayerEv'/>
+<fun r='_ZN11idGameLocal15SpreadLocationsEv'/>
+<fun r='_ZN11idGameLocal16LocationForPointERK6idVec3'/>
+<fun r='_ZN11idGameLocal23SelectInitialSpawnPointEP8idPlayer'/>
+<fun r='_ZN11idGameLocal14SetPortalStateEii'/>
+<fun r='_ZN11idGameLocal22SaveEntityNetworkEventEPK8idEntityiPK8idBitMsg'/>
+<fun r='_ZN11idGameLocal21ServerSendChatMessageEiPKcS1_'/>
+<fun r='_ZN11idGameLocal15ServerRemapDeclEi10declType_ti'/>
+<fun r='_ZN11idGameLocal15ClientRemapDeclE10declType_ti'/>
+<fun r='_ZN11idGameLocal17SetGlobalMaterialEPK10idMaterial'/>
+<fun r='_ZN11idGameLocal17GetGlobalMaterialEv'/>
+<fun r='_ZN11idGameLocal10SetGibTimeEi'/>
+<fun r='_ZN11idGameLocal10GetGibTimeEv'/>
+<smbr r='idGameLocal::INITIAL_SPAWN_COUNT' t='const int'/>
+<mbr r='idGameLocal::mapFileName' o='29242144' t='idStr'/>
+<mbr r='idGameLocal::mapFile' o='29242400' t='idMapFile *'/>
+<mbr r='idGameLocal::mapCycleLoaded' o='29242432' t='bool'/>
+<mbr r='idGameLocal::spawnCount' o='29242464' t='int'/>
+<mbr r='idGameLocal::mapSpawnCount' o='29242496' t='int'/>
+<mbr r='idGameLocal::locationEntities' o='29242528' t='idLocationEntity **'/>
+<mbr r='idGameLocal::camera' o='29242560' t='idCamera *'/>
+<mbr r='idGameLocal::globalMaterial' o='29242592' t='const idMaterial *'/>
+<mbr r='idGameLocal::aasList' o='29242624' t='idList&lt;idAAS *&gt;'/>
+<mbr r='idGameLocal::aasNames' o='29242752' t='idStrList'/>
+<mbr r='idGameLocal::lastAIAlertEntity' o='29242880' t='idEntityPtr&lt;idActor&gt;'/>
+<mbr r='idGameLocal::lastAIAlertTime' o='29242912' t='int'/>
+<mbr r='idGameLocal::spawnArgs' o='29242944' t='idDict'/>
+<mbr r='idGameLocal::playerPVS' o='29243296' t='pvsHandle_t'/>
+<mbr r='idGameLocal::playerConnectedAreas' o='29243360' t='pvsHandle_t'/>
+<mbr r='idGameLocal::gravity' o='29243424' t='idVec3'/>
+<mbr r='idGameLocal::gamestate' o='29243520' t='gameState_t'/>
+<mbr r='idGameLocal::influenceActive' o='29243552' t='bool'/>
+<mbr r='idGameLocal::nextGibTime' o='29243584' t='int'/>
+<mbr r='idGameLocal::clientDeclRemap' o='29243616' t='idList&lt;int&gt; [32][32]'/>
+<mbr r='idGameLocal::clientEntityStates' o='29374688' t='entityState_t *[32][4096]'/>
+<mbr r='idGameLocal::clientPVS' o='33568992' t='int [32][128]'/>
+<mbr r='idGameLocal::clientSnapshots' o='33700064' t='snapshot_t *[32]'/>
+<mbr r='idGameLocal::entityStateAllocator' o='33701088' t='idBlockAlloc&lt;entityState_t, 256&gt;'/>
+<mbr r='idGameLocal::snapshotAllocator' o='33701216' t='idBlockAlloc&lt;snapshot_t, 64&gt;'/>
+<mbr r='idGameLocal::eventQueue' o='33701344' t='idEventQueue'/>
+<mbr r='idGameLocal::savedEventQueue' o='33701536' t='idEventQueue'/>
+<mbr r='idGameLocal::spawnSpots' o='33701728' t='idStaticList&lt;spawnSpot_t, (1 &lt;&lt; 12)&gt;'/>
+<mbr r='idGameLocal::initialSpots' o='34094976' t='idStaticList&lt;idEntity *, (1 &lt;&lt; 12)&gt;'/>
+<mbr r='idGameLocal::currentInitialSpot' o='34226080' t='int'/>
+<mbr r='idGameLocal::teamSpawnSpots' o='34226112' t='idStaticList&lt;spawnSpot_t, (1 &lt;&lt; 12)&gt; [2]'/>
+<mbr r='idGameLocal::teamInitialSpots' o='35012608' t='idStaticList&lt;idEntity *, (1 &lt;&lt; 12)&gt; [2]'/>
+<mbr r='idGameLocal::teamCurrentInitialSpot' o='35274816' t='int [2]'/>
+<mbr r='idGameLocal::newInfo' o='35274880' t='idDict'/>
+<mbr r='idGameLocal::shakeSounds' o='35275232' t='idStrList'/>
+<mbr r='idGameLocal::lagometer' o='35275360' t='byte [64][64][4]'/>
+<fun r='_ZN11idGameLocal5ClearEv'/>
+<fun r='_ZN11idGameLocal18InhibitEntitySpawnER6idDict'/>
+<fun r='_ZN11idGameLocal16SpawnMapEntitiesEv'/>
+<fun r='_ZN11idGameLocal11MapPopulateEv'/>
+<fun r='_ZN11idGameLocal8MapClearEb'/>
+<fun r='_ZN11idGameLocal12GetClientPVSEP8idPlayer9pvsType_t'/>
+<fun r='_ZN11idGameLocal14SetupPlayerPVSEv'/>
+<fun r='_ZN11idGameLocal13FreePlayerPVSEv'/>
+<fun r='_ZN11idGameLocal13UpdateGravityEv'/>
+<fun r='_ZN11idGameLocal20SortActiveEntityListEv'/>
+<fun r='_ZN11idGameLocal11ShowTargetsEv'/>
+<fun r='_ZN11idGameLocal12RunDebugInfoEv'/>
+<fun r='_ZN11idGameLocal16InitScriptForMapEv'/>
+<fun r='_ZN11idGameLocal19InitConsoleCommandsEv'/>
+<fun r='_ZN11idGameLocal23ShutdownConsoleCommandsEv'/>
+<fun r='_ZN11idGameLocal16InitAsyncNetworkEv'/>
+<fun r='_ZN11idGameLocal20ShutdownAsyncNetworkEv'/>
+<fun r='_ZN11idGameLocal15InitLocalClientEi'/>
+<fun r='_ZN11idGameLocal19InitClientDeclRemapEi'/>
+<fun r='_ZN11idGameLocal27ServerSendDeclRemapToClientEi10declType_ti'/>
+<fun r='_ZN11idGameLocal30FreeSnapshotsOlderThanSequenceEii'/>
+<fun r='_ZN11idGameLocal13ApplySnapshotEii'/>
+<fun r='_ZNK11idGameLocal24WriteGameStateToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN11idGameLocal25ReadGameStateFromSnapshotERK13idBitMsgDelta'/>
+<fun r='_ZN11idGameLocal19NetworkEventWarningEPK16entityNetEvent_sPKcz'/>
+<fun r='_ZN11idGameLocal36ServerProcessEntityNetworkEventQueueEv'/>
+<fun r='_ZN11idGameLocal36ClientProcessEntityNetworkEventQueueEv'/>
+<fun r='_ZNK11idGameLocal18ClientShowSnapshotEi'/>
+<fun r='_ZN11idGameLocal21UpdateServerInfoFlagsEv'/>
+<fun r='_ZN11idGameLocal22RandomizeInitialSpawnsEv'/>
+<fun r='_ZN11idGameLocal15sortSpawnPointsEPKvS1_'/>
+<fun r='_ZN11idGameLocal13DumpOggSoundsEv'/>
+<fun r='_ZN11idGameLocal14GetShakeSoundsEPK6idDict'/>
+<fun r='_ZN11idGameLocal15UpdateLagometerEii'/>
+<inh f='codebrowser/game/Game.h' l='72' c='idGame'/>
+<def f='codebrowser/game/Game_local.h' l='242' ll='574'/>
+<size>3054208</size>
+<doc f='codebrowser/game/Game_local.h' l='240'>//============================================================================</doc>
+<mbr r='idGameLocal::serverInfo' o='32' t='idDict'/>
+<mbr r='idGameLocal::numClients' o='384' t='int'/>
+<mbr r='idGameLocal::userInfo' o='416' t='idDict [32]'/>
+<mbr r='idGameLocal::usercmds' o='11680' t='usercmd_t [32]'/>
+<mbr r='idGameLocal::persistentPlayerInfo' o='19872' t='idDict [32]'/>
+<mbr r='idGameLocal::entities' o='31136' t='idEntity *[4096]'/>
+<mbr r='idGameLocal::spawnIds' o='162208' t='int [4096]'/>
+<mbr r='idGameLocal::firstFreeIndex' o='293280' t='int'/>
+<mbr r='idGameLocal::num_entities' o='293312' t='int'/>
+<mbr r='idGameLocal::entityHash' o='293344' t='idHashIndex'/>
+<mbr r='idGameLocal::world' o='293568' t='idWorldspawn *'/>
+<mbr r='idGameLocal::spawnedEntities' o='293600' t='idLinkList&lt;idEntity&gt;'/>
+<mbr r='idGameLocal::activeEntities' o='293728' t='idLinkList&lt;idEntity&gt;'/>
+<mbr r='idGameLocal::numEntitiesToDeactivate' o='293856' t='int'/>
+<mbr r='idGameLocal::sortPushers' o='293888' t='bool'/>
+<mbr r='idGameLocal::sortTeamMasters' o='293896' t='bool'/>
+<mbr r='idGameLocal::persistentLevelInfo' o='293920' t='idDict'/>
+<mbr r='idGameLocal::globalShaderParms' o='294272' t='float [12]'/>
+<mbr r='idGameLocal::random' o='294656' t='idRandom'/>
+<mbr r='idGameLocal::program' o='294688' t='idProgram'/>
+<mbr r='idGameLocal::frameCommandThread' o='18515104' t='idThread *'/>
+<mbr r='idGameLocal::clip' o='18515136' t='idClip'/>
+<mbr r='idGameLocal::push' o='18517856' t='idPush'/>
+<mbr r='idGameLocal::pvs' o='19435424' t='idPVS'/>
+<mbr r='idGameLocal::testmodel' o='19436544' t='idTestModel *'/>
+<mbr r='idGameLocal::testFx' o='19436576' t='idEntityFx *'/>
+<mbr r='idGameLocal::sessionCommand' o='19436608' t='idStr'/>
+<mbr r='idGameLocal::mpGame' o='19436864' t='idMultiplayerGame'/>
+<mbr r='idGameLocal::smokeParticles' o='19448480' t='idSmokeParticles *'/>
+<mbr r='idGameLocal::editEntities' o='19448512' t='idEditEntities *'/>
+<mbr r='idGameLocal::cinematicSkipTime' o='19448544' t='int'/>
+<mbr r='idGameLocal::cinematicStopTime' o='19448576' t='int'/>
+<mbr r='idGameLocal::cinematicMaxSkipTime' o='19448608' t='int'/>
+<mbr r='idGameLocal::inCinematic' o='19448640' t='bool'/>
+<mbr r='idGameLocal::skipCinematic' o='19448648' t='bool'/>
+<mbr r='idGameLocal::framenum' o='19448672' t='int'/>
+<mbr r='idGameLocal::previousTime' o='19448704' t='int'/>
+<mbr r='idGameLocal::time' o='19448736' t='int'/>
+<smbr r='idGameLocal::msec' t='const int'/>
+<mbr r='idGameLocal::vacuumAreaNum' o='19448768' t='int'/>
+<mbr r='idGameLocal::gameType' o='19448800' t='gameType_t'/>
+<mbr r='idGameLocal::isMultiplayer' o='19448832' t='bool'/>
+<mbr r='idGameLocal::isServer' o='19448840' t='bool'/>
+<mbr r='idGameLocal::isClient' o='19448848' t='bool'/>
+<mbr r='idGameLocal::localClientNum' o='19448864' t='int'/>
+<mbr r='idGameLocal::snapshotEntities' o='19448896' t='idLinkList&lt;idEntity&gt;'/>
+<mbr r='idGameLocal::realClientTime' o='19449024' t='int'/>
+<mbr r='idGameLocal::isNewFrame' o='19449056' t='bool'/>
+<mbr r='idGameLocal::clientSmoothing' o='19449088' t='float'/>
+<mbr r='idGameLocal::entityDefBits' o='19449120' t='int'/>
+<smbr r='idGameLocal::sufaceTypeNames' t='const char *[16]'/>
+<mbr r='idGameLocal::lastGUIEnt' o='19449152' t='idEntityPtr&lt;idEntity&gt;'/>
+<mbr r='idGameLocal::lastGUI' o='19449184' t='int'/>
+<fun r='_ZN11idGameLocalC1Ev'/>
+<fun r='_ZN11idGameLocal4InitEv'/>
+<fun r='_ZN11idGameLocal8ShutdownEv'/>
+<fun r='_ZN11idGameLocal14SetLocalClientEi'/>
+<fun r='_ZN11idGameLocal16ThrottleUserInfoEv'/>
+<fun r='_ZN11idGameLocal11SetUserInfoEiRK6idDictbb'/>
+<fun r='_ZN11idGameLocal11GetUserInfoEi'/>
+<fun r='_ZN11idGameLocal13SetServerInfoERK6idDict'/>
+<fun r='_ZN11idGameLocal23GetPersistentPlayerInfoEi'/>
+<fun r='_ZN11idGameLocal23SetPersistentPlayerInfoEiRK6idDict'/>
+<fun r='_ZN11idGameLocal14InitFromNewMapEPKcP13idRenderWorldP12idSoundWorldbbi'/>
+<fun r='_ZN11idGameLocal16InitFromSaveGameEPKcP13idRenderWorldP12idSoundWorldP6idFile'/>
+<fun r='_ZN11idGameLocal8SaveGameEP6idFile'/>
+<fun r='_ZN11idGameLocal11MapShutdownEv'/>
+<fun r='_ZN11idGameLocal20CacheDictionaryMediaEPK6idDict'/>
+<fun r='_ZN11idGameLocal11SpawnPlayerEi'/>
+<fun r='_ZN11idGameLocal8RunFrameEPK9usercmd_t'/>
+<fun r='_ZN11idGameLocal4DrawEi'/>
+<fun r='_ZN11idGameLocal9HandleESCEPP15idUserInterface'/>
+<fun r='_ZN11idGameLocal9StartMenuEv'/>
+<fun r='_ZN11idGameLocal17HandleGuiCommandsEPKc'/>
+<fun r='_ZN11idGameLocal22HandleMainMenuCommandsEPKcP15idUserInterface'/>
+<fun r='_ZN11idGameLocal17ServerAllowClientEiPKcS1_S1_Pc'/>
+<fun r='_ZN11idGameLocal19ServerClientConnectEiPKc'/>
+<fun r='_ZN11idGameLocal17ServerClientBeginEi'/>
+<fun r='_ZN11idGameLocal22ServerClientDisconnectEi'/>
+<fun r='_ZN11idGameLocal34ServerWriteInitialReliableMessagesEi'/>
+<fun r='_ZN11idGameLocal19ServerWriteSnapshotEiiR8idBitMsgPhi'/>
+<fun r='_ZN11idGameLocal19ServerApplySnapshotEii'/>
+<fun r='_ZN11idGameLocal28ServerProcessReliableMessageEiRK8idBitMsg'/>
+<fun r='_ZN11idGameLocal18ClientReadSnapshotEiiiiiiRK8idBitMsg'/>
+<fun r='_ZN11idGameLocal19ClientApplySnapshotEii'/>
+<fun r='_ZN11idGameLocal28ClientProcessReliableMessageEiRK8idBitMsg'/>
+<fun r='_ZN11idGameLocal16ClientPredictionEiPK9usercmd_tb'/>
+<fun r='_ZN11idGameLocal14GetClientStatsEiPci'/>
+<fun r='_ZN11idGameLocal10SwitchTeamEii'/>
+<fun r='_ZN11idGameLocal15DownloadRequestEPKcS1_S1_Pc'/>
+<fun r='_ZNK11idGameLocal6PrintfEPKcz'/>
+<fun r='_ZNK11idGameLocal7DPrintfEPKcz'/>
+<fun r='_ZNK11idGameLocal7WarningEPKcz'/>
+<fun r='_ZNK11idGameLocal8DWarningEPKcz'/>
+<fun r='_ZNK11idGameLocal5ErrorEPKcz'/>
+<fun r='_ZN11idGameLocal7LoadMapEPKci'/>
+<fun r='_ZN11idGameLocal15LocalMapRestartEv'/>
+<fun r='_ZN11idGameLocal10MapRestartEv'/>
+<fun r='_ZN11idGameLocal12MapRestart_fERK9idCmdArgs'/>
+<fun r='_ZN11idGameLocal7NextMapEv'/>
+<fun r='_ZN11idGameLocal9NextMap_fERK9idCmdArgs'/>
+<fun r='_ZN11idGameLocal11GetLevelMapEv'/>
+<fun r='_ZNK11idGameLocal10GetMapNameEv'/>
+<fun r='_ZNK11idGameLocal6NumAASEv'/>
+<fun r='_ZNK11idGameLocal6GetAASEi'/>
+<fun r='_ZNK11idGameLocal6GetAASEPKc'/>
+<fun r='_ZN11idGameLocal15SetAASAreaStateERK8idBoundsib'/>
+<fun r='_ZN11idGameLocal14AddAASObstacleERK8idBounds'/>
+<fun r='_ZN11idGameLocal17RemoveAASObstacleEi'/>
+<fun r='_ZN11idGameLocal21RemoveAllAASObstaclesEv'/>
+<fun r='_ZN11idGameLocal8CheatsOkEb'/>
+<fun r='_ZN11idGameLocal8SetSkillEi'/>
+<fun r='_ZNK11idGameLocal9GameStateEv'/>
+<fun r='_ZN11idGameLocal15SpawnEntityTypeERK10idTypeInfoPK6idDictb'/>
+<fun r='_ZN11idGameLocal14SpawnEntityDefERK6idDictPP8idEntityb'/>
+<fun r='_ZNK11idGameLocal10GetSpawnIdEPK8idEntity'/>
+<fun r='_ZNK11idGameLocal13FindEntityDefEPKcb'/>
+<fun r='_ZNK11idGameLocal17FindEntityDefDictEPKcb'/>
+<fun r='_ZN11idGameLocal14RegisterEntityEP8idEntity'/>
+<fun r='_ZN11idGameLocal16UnregisterEntityEP8idEntity'/>
+<fun r='_ZN11idGameLocal14RequirementMetEP8idEntityRK5idStri'/>
+<fun r='_ZN11idGameLocal7AlertAIEP8idEntity'/>
+<fun r='_ZN11idGameLocal14GetAlertEntityEv'/>
+<fun r='_ZNK11idGameLocal11InPlayerPVSEP8idEntity'/>
+<fun r='_ZNK11idGameLocal21InPlayerConnectedAreaEP8idEntity'/>
+<fun r='_ZN11idGameLocal9SetCameraEP8idCamera'/>
+<fun r='_ZNK11idGameLocal9GetCameraEv'/>
+<fun r='_ZN11idGameLocal13SkipCinematicEv'/>
+<fun r='_ZNK11idGameLocal7CalcFovEfRfS0_'/>
+<fun r='_ZN11idGameLocal15AddEntityToHashEPKcP8idEntity'/>
+<fun r='_ZN11idGameLocal20RemoveEntityFromHashEPKcP8idEntity'/>
+<fun r='_ZNK11idGameLocal10GetTargetsERK6idDictR6idListI11idEntityPtrI8idEntityEEPKc'/>
+<fun r='_ZNK11idGameLocal14GetTraceEntityERK7trace_s'/>
+<fun r='_ZN11idGameLocal24ArgCompletion_EntityNameERK9idCmdArgsPFvPKcE'/>
+<fun r='_ZNK11idGameLocal15FindTraceEntityE6idVec3S0_RK10idTypeInfoPK8idEntity'/>
+<fun r='_ZNK11idGameLocal10FindEntityEPKc'/>
+<fun r='_ZNK11idGameLocal18FindEntityUsingDefEP8idEntityPKc'/>
+<fun r='_ZNK11idGameLocal20EntitiesWithinRadiusE6idVec3fPP8idEntityi'/>
+<fun r='_ZN11idGameLocal7KillBoxEP8idEntityb'/>
+<fun r='_ZN11idGameLocal12RadiusDamageERK6idVec3P8idEntityS4_S4_S4_PKcf'/>
+<fun r='_ZN11idGameLocal10RadiusPushERK6idVec3ffPK8idEntityS5_fb'/>
+<fun r='_ZN11idGameLocal19RadiusPushClipModelERK6idVec3fPK11idClipModel'/>
+<fun r='_ZN11idGameLocal12ProjectDecalERK6idVec3S2_fbfPKcf'/>
+<fun r='_ZN11idGameLocal10BloodSplatERK6idVec3S2_fPKc'/>
+<fun r='_ZN11idGameLocal16CallFrameCommandEP8idEntityPK10function_t'/>
+<fun r='_ZN11idGameLocal22CallObjectFrameCommandEP8idEntityPKc'/>
+<fun r='_ZNK11idGameLocal10GetGravityEv'/>
+<fun r='_ZNK11idGameLocal11GetFrameNumEv'/>
+<fun r='_ZNK11idGameLocal7GetTimeEv'/>
+<fun r='_ZNK11idGameLocal7GetMSecEv'/>
+<fun r='_ZNK11idGameLocal16GetNextClientNumEi'/>
+<fun r='_ZNK11idGameLocal14GetClientByNumEi'/>
+<fun r='_ZNK11idGameLocal15GetClientByNameEPKc'/>
+<fun r='_ZNK11idGameLocal18GetClientByCmdArgsERK9idCmdArgs'/>
+<fun r='_ZNK11idGameLocal14GetLocalPlayerEv'/>
+<fun r='_ZN11idGameLocal15SpreadLocationsEv'/>
+<fun r='_ZN11idGameLocal16LocationForPointERK6idVec3'/>
+<fun r='_ZN11idGameLocal23SelectInitialSpawnPointEP8idPlayer'/>
+<fun r='_ZN11idGameLocal14SetPortalStateEii'/>
+<fun r='_ZN11idGameLocal22SaveEntityNetworkEventEPK8idEntityiPK8idBitMsg'/>
+<fun r='_ZN11idGameLocal21ServerSendChatMessageEiPKcS1_'/>
+<fun r='_ZN11idGameLocal15ServerRemapDeclEi10declType_ti'/>
+<fun r='_ZN11idGameLocal15ClientRemapDeclE10declType_ti'/>
+<fun r='_ZN11idGameLocal17SetGlobalMaterialEPK10idMaterial'/>
+<fun r='_ZN11idGameLocal17GetGlobalMaterialEv'/>
+<fun r='_ZN11idGameLocal10SetGibTimeEi'/>
+<fun r='_ZN11idGameLocal10GetGibTimeEv'/>
+<fun r='_ZN11idGameLocal11NeedRestartEv'/>
+<smbr r='idGameLocal::INITIAL_SPAWN_COUNT' t='const int'/>
+<mbr r='idGameLocal::mapFileName' o='19449216' t='idStr'/>
+<mbr r='idGameLocal::mapFile' o='19449472' t='idMapFile *'/>
+<mbr r='idGameLocal::mapCycleLoaded' o='19449504' t='bool'/>
+<mbr r='idGameLocal::spawnCount' o='19449536' t='int'/>
+<mbr r='idGameLocal::mapSpawnCount' o='19449568' t='int'/>
+<mbr r='idGameLocal::locationEntities' o='19449600' t='idLocationEntity **'/>
+<mbr r='idGameLocal::camera' o='19449632' t='idCamera *'/>
+<mbr r='idGameLocal::globalMaterial' o='19449664' t='const idMaterial *'/>
+<mbr r='idGameLocal::aasList' o='19449696' t='idList&lt;idAAS *&gt;'/>
+<mbr r='idGameLocal::aasNames' o='19449824' t='idStrList'/>
+<mbr r='idGameLocal::lastAIAlertEntity' o='19449952' t='idEntityPtr&lt;idActor&gt;'/>
+<mbr r='idGameLocal::lastAIAlertTime' o='19449984' t='int'/>
+<mbr r='idGameLocal::spawnArgs' o='19450016' t='idDict'/>
+<mbr r='idGameLocal::playerPVS' o='19450368' t='pvsHandle_t'/>
+<mbr r='idGameLocal::playerConnectedAreas' o='19450432' t='pvsHandle_t'/>
+<mbr r='idGameLocal::gravity' o='19450496' t='idVec3'/>
+<mbr r='idGameLocal::gamestate' o='19450592' t='gameState_t'/>
+<mbr r='idGameLocal::influenceActive' o='19450624' t='bool'/>
+<mbr r='idGameLocal::nextGibTime' o='19450656' t='int'/>
+<mbr r='idGameLocal::clientDeclRemap' o='19450688' t='idList&lt;int&gt; [32][32]'/>
+<mbr r='idGameLocal::clientEntityStates' o='19581760' t='entityState_t *[32][4096]'/>
+<mbr r='idGameLocal::clientPVS' o='23776064' t='int [32][128]'/>
+<mbr r='idGameLocal::clientSnapshots' o='23907136' t='snapshot_t *[32]'/>
+<mbr r='idGameLocal::entityStateAllocator' o='23908160' t='idBlockAlloc&lt;entityState_t, 256&gt;'/>
+<mbr r='idGameLocal::snapshotAllocator' o='23908288' t='idBlockAlloc&lt;snapshot_t, 64&gt;'/>
+<mbr r='idGameLocal::eventQueue' o='23908416' t='idEventQueue'/>
+<mbr r='idGameLocal::savedEventQueue' o='23908608' t='idEventQueue'/>
+<mbr r='idGameLocal::spawnSpots' o='23908800' t='idStaticList&lt;spawnSpot_t, (1 &lt;&lt; 12)&gt;'/>
+<mbr r='idGameLocal::initialSpots' o='24170976' t='idStaticList&lt;idEntity *, (1 &lt;&lt; 12)&gt;'/>
+<mbr r='idGameLocal::currentInitialSpot' o='24302080' t='int'/>
+<mbr r='idGameLocal::newInfo' o='24302112' t='idDict'/>
+<mbr r='idGameLocal::shakeSounds' o='24302464' t='idStrList'/>
+<mbr r='idGameLocal::lagometer' o='24302592' t='byte [64][64][4]'/>
+<fun r='_ZN11idGameLocal5ClearEv'/>
+<fun r='_ZN11idGameLocal18InhibitEntitySpawnER6idDict'/>
+<fun r='_ZN11idGameLocal16SpawnMapEntitiesEv'/>
+<fun r='_ZN11idGameLocal11MapPopulateEv'/>
+<fun r='_ZN11idGameLocal8MapClearEb'/>
+<fun r='_ZN11idGameLocal12GetClientPVSEP8idPlayer9pvsType_t'/>
+<fun r='_ZN11idGameLocal14SetupPlayerPVSEv'/>
+<fun r='_ZN11idGameLocal13FreePlayerPVSEv'/>
+<fun r='_ZN11idGameLocal13UpdateGravityEv'/>
+<fun r='_ZN11idGameLocal20SortActiveEntityListEv'/>
+<fun r='_ZN11idGameLocal11ShowTargetsEv'/>
+<fun r='_ZN11idGameLocal12RunDebugInfoEv'/>
+<fun r='_ZN11idGameLocal16InitScriptForMapEv'/>
+<fun r='_ZN11idGameLocal19InitConsoleCommandsEv'/>
+<fun r='_ZN11idGameLocal23ShutdownConsoleCommandsEv'/>
+<fun r='_ZN11idGameLocal16InitAsyncNetworkEv'/>
+<fun r='_ZN11idGameLocal20ShutdownAsyncNetworkEv'/>
+<fun r='_ZN11idGameLocal15InitLocalClientEi'/>
+<fun r='_ZN11idGameLocal19InitClientDeclRemapEi'/>
+<fun r='_ZN11idGameLocal27ServerSendDeclRemapToClientEi10declType_ti'/>
+<fun r='_ZN11idGameLocal30FreeSnapshotsOlderThanSequenceEii'/>
+<fun r='_ZN11idGameLocal13ApplySnapshotEii'/>
+<fun r='_ZNK11idGameLocal24WriteGameStateToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN11idGameLocal25ReadGameStateFromSnapshotERK13idBitMsgDelta'/>
+<fun r='_ZN11idGameLocal19NetworkEventWarningEPK16entityNetEvent_sPKcz'/>
+<fun r='_ZN11idGameLocal36ServerProcessEntityNetworkEventQueueEv'/>
+<fun r='_ZN11idGameLocal36ClientProcessEntityNetworkEventQueueEv'/>
+<fun r='_ZNK11idGameLocal18ClientShowSnapshotEi'/>
+<fun r='_ZN11idGameLocal21UpdateServerInfoFlagsEv'/>
+<fun r='_ZN11idGameLocal22RandomizeInitialSpawnsEv'/>
+<fun r='_ZN11idGameLocal15sortSpawnPointsEPKvS1_'/>
+<fun r='_ZN11idGameLocal13DumpOggSoundsEv'/>
+<fun r='_ZN11idGameLocal14GetShakeSoundsEPK6idDict'/>
+<fun r='_ZN11idGameLocal15SelectTimeGroupEi'/>
+<fun r='_ZN11idGameLocal16GetTimeGroupTimeEi'/>
+<fun r='_ZN11idGameLocal15GetBestGameTypeEPKcS1_Pc'/>
+<fun r='_ZN11idGameLocal8TokenizeER6idListI5idStrEPKc'/>
+<fun r='_ZN11idGameLocal15UpdateLagometerEii'/>
+<fun r='_ZN11idGameLocal16GetMapLoadingGUIEPc'/>

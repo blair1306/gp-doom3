@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>PlayerView.h source code [codebrowser/game/PlayerView.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idPlayerView "/>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/game/PlayerView.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>game</a>/<a href='PlayerView.h.html'>PlayerView.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__GAME_PLAYERVIEW_H__">__GAME_PLAYERVIEW_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__GAME_PLAYERVIEW_H__" data-ref="_M/__GAME_PLAYERVIEW_H__">__GAME_PLAYERVIEW_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>  Player view.</i></td></tr>
+<tr><th id="36">36</th><td><i></i></td></tr>
+<tr><th id="37">37</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="38">38</th><td><i>*/</i></td></tr>
+<tr><th id="39">39</th><td><i></i></td></tr>
+<tr><th id="40">40</th><td><i>// screenBlob_t are for the on-screen damage claw marks, etc</i></td></tr>
+<tr><th id="41">41</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="42">42</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *	<dfn class="decl" id="(anonymous)::material" title='(anonymous struct)::material' data-ref="(anonymous)::material">material</dfn>;</td></tr>
+<tr><th id="43">43</th><td>	<em>float</em>				<dfn class="decl" id="(anonymous)::x" title='(anonymous struct)::x' data-ref="(anonymous)::x">x</dfn>, <dfn class="decl" id="(anonymous)::y" title='(anonymous struct)::y' data-ref="(anonymous)::y">y</dfn>, <dfn class="decl" id="(anonymous)::w" title='(anonymous struct)::w' data-ref="(anonymous)::w">w</dfn>, <dfn class="decl" id="(anonymous)::h" title='(anonymous struct)::h' data-ref="(anonymous)::h">h</dfn>;</td></tr>
+<tr><th id="44">44</th><td>	<em>float</em>				<dfn class="decl" id="(anonymous)::s1" title='(anonymous struct)::s1' data-ref="(anonymous)::s1">s1</dfn>, <dfn class="decl" id="(anonymous)::t1" title='(anonymous struct)::t1' data-ref="(anonymous)::t1">t1</dfn>, <dfn class="decl" id="(anonymous)::s2" title='(anonymous struct)::s2' data-ref="(anonymous)::s2">s2</dfn>, <dfn class="decl" id="(anonymous)::t2" title='(anonymous struct)::t2' data-ref="(anonymous)::t2">t2</dfn>;</td></tr>
+<tr><th id="45">45</th><td>	<em>int</em>					<dfn class="decl" id="(anonymous)::finishTime" title='(anonymous struct)::finishTime' data-ref="(anonymous)::finishTime">finishTime</dfn>;</td></tr>
+<tr><th id="46">46</th><td>	<em>int</em>					<dfn class="decl" id="(anonymous)::startFadeTime" title='(anonymous struct)::startFadeTime' data-ref="(anonymous)::startFadeTime">startFadeTime</dfn>;</td></tr>
+<tr><th id="47">47</th><td>	<em>float</em>				<dfn class="decl" id="(anonymous)::driftAmount" title='(anonymous struct)::driftAmount' data-ref="(anonymous)::driftAmount">driftAmount</dfn>;</td></tr>
+<tr><th id="48">48</th><td>} <dfn class="typedef" id="screenBlob_t" title='screenBlob_t' data-type='struct screenBlob_t' data-ref="screenBlob_t">screenBlob_t</dfn>;</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td><u>#define	<dfn class="macro" id="_M/MAX_SCREEN_BLOBS" data-ref="_M/MAX_SCREEN_BLOBS">MAX_SCREEN_BLOBS</dfn>	8</u></td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td><b>class</b> <dfn class="type def" id="idPlayerView" title='idPlayerView' data-ref="idPlayerView">idPlayerView</dfn> {</td></tr>
+<tr><th id="53">53</th><td><b>public</b>:</td></tr>
+<tr><th id="54">54</th><td>						<dfn class="decl" id="_ZN12idPlayerViewC1Ev" title='idPlayerView::idPlayerView' data-ref="_ZN12idPlayerViewC1Ev">idPlayerView</dfn>();</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td>	<em>void</em>				<dfn class="decl" id="_ZNK12idPlayerView4SaveEP10idSaveGame" title='idPlayerView::Save' data-ref="_ZNK12idPlayerView4SaveEP10idSaveGame">Save</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idSaveGame" title='idSaveGame' data-ref="idSaveGame">idSaveGame</a> *<dfn class="local col1 decl" id="3251savefile" title='savefile' data-type='idSaveGame *' data-ref="3251savefile">savefile</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="57">57</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idPlayerView7RestoreEP13idRestoreGame" title='idPlayerView::Restore' data-ref="_ZN12idPlayerView7RestoreEP13idRestoreGame">Restore</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idRestoreGame" title='idRestoreGame' data-ref="idRestoreGame">idRestoreGame</a> *<dfn class="local col2 decl" id="3252savefile" title='savefile' data-type='idRestoreGame *' data-ref="3252savefile">savefile</dfn> );</td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idPlayerView15SetPlayerEntityEP8idPlayer" title='idPlayerView::SetPlayerEntity' data-ref="_ZN12idPlayerView15SetPlayerEntityEP8idPlayer">SetPlayerEntity</dfn>( <b>class</b> <a class="type" href="Player.h.html#idPlayer" title='idPlayer' data-ref="idPlayer">idPlayer</a> *<dfn class="local col3 decl" id="3253playerEnt" title='playerEnt' data-type='class idPlayer *' data-ref="3253playerEnt">playerEnt</dfn> );</td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idPlayerView12ClearEffectsEv" title='idPlayerView::ClearEffects' data-ref="_ZN12idPlayerView12ClearEffectsEv">ClearEffects</dfn>( <em>void</em> );</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idPlayerView13DamageImpulseE6idVec3PK6idDict" title='idPlayerView::DamageImpulse' data-ref="_ZN12idPlayerView13DamageImpulseE6idVec3PK6idDict">DamageImpulse</dfn>( <a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> <dfn class="local col4 decl" id="3254localKickDir" title='localKickDir' data-type='idVec3' data-ref="3254localKickDir">localKickDir</dfn>, <em>const</em> <a class="type" href="../idlib/Dict.h.html#idDict" title='idDict' data-ref="idDict">idDict</a> *<dfn class="local col5 decl" id="3255damageDef" title='damageDef' data-type='const idDict *' data-ref="3255damageDef">damageDef</dfn> );</td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idPlayerView18WeaponFireFeedbackEPK6idDict" title='idPlayerView::WeaponFireFeedback' data-ref="_ZN12idPlayerView18WeaponFireFeedbackEPK6idDict">WeaponFireFeedback</dfn>( <em>const</em> <a class="type" href="../idlib/Dict.h.html#idDict" title='idDict' data-ref="idDict">idDict</a> *<dfn class="local col6 decl" id="3256weaponDef" title='weaponDef' data-type='const idDict *' data-ref="3256weaponDef">weaponDef</dfn> );</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td>	<a class="type" href="../idlib/math/Angles.h.html#idAngles" title='idAngles' data-ref="idAngles">idAngles</a>			<dfn class="decl" id="_ZNK12idPlayerView11AngleOffsetEv" title='idPlayerView::AngleOffset' data-ref="_ZNK12idPlayerView11AngleOffsetEv">AngleOffset</dfn>( <em>void</em> ) <em>const</em>;			<i>// returns the current kick angle</i></td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td>	<a class="type" href="../idlib/math/Matrix.h.html#idMat3" title='idMat3' data-ref="idMat3">idMat3</a>				<dfn class="decl" id="_ZNK12idPlayerView9ShakeAxisEv" title='idPlayerView::ShakeAxis' data-ref="_ZNK12idPlayerView9ShakeAxisEv">ShakeAxis</dfn>( <em>void</em> ) <em>const</em>;			<i>// returns the current shake angle</i></td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idPlayerView14CalculateShakeEv" title='idPlayerView::CalculateShake' data-ref="_ZN12idPlayerView14CalculateShakeEv">CalculateShake</dfn>( <em>void</em> );</td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td>	<i>// this may involve rendering to a texture and displaying</i></td></tr>
+<tr><th id="74">74</th><td><i>	// that with a warp model or in double vision mode</i></td></tr>
+<tr><th id="75">75</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idPlayerView16RenderPlayerViewEP15idUserInterface" title='idPlayerView::RenderPlayerView' data-ref="_ZN12idPlayerView16RenderPlayerViewEP15idUserInterface">RenderPlayerView</dfn>( <a class="type" href="../ui/UserInterface.h.html#idUserInterface" title='idUserInterface' data-ref="idUserInterface">idUserInterface</a> *<dfn class="local col7 decl" id="3257hud" title='hud' data-type='idUserInterface *' data-ref="3257hud">hud</dfn> );</td></tr>
+<tr><th id="76">76</th><td></td></tr>
+<tr><th id="77">77</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idPlayerView4FadeE6idVec4i" title='idPlayerView::Fade' data-ref="_ZN12idPlayerView4FadeE6idVec4i">Fade</dfn>( <a class="type" href="../idlib/math/Vector.h.html#idVec4" title='idVec4' data-ref="idVec4">idVec4</a> <dfn class="local col8 decl" id="3258color" title='color' data-type='idVec4' data-ref="3258color">color</dfn>, <em>int</em> <dfn class="local col9 decl" id="3259time" title='time' data-type='int' data-ref="3259time">time</dfn> );</td></tr>
+<tr><th id="78">78</th><td></td></tr>
+<tr><th id="79">79</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idPlayerView5FlashE6idVec4i" title='idPlayerView::Flash' data-ref="_ZN12idPlayerView5FlashE6idVec4i">Flash</dfn>( <a class="type" href="../idlib/math/Vector.h.html#idVec4" title='idVec4' data-ref="idVec4">idVec4</a> <dfn class="local col0 decl" id="3260color" title='color' data-type='idVec4' data-ref="3260color">color</dfn>, <em>int</em> <dfn class="local col1 decl" id="3261time" title='time' data-type='int' data-ref="3261time">time</dfn> );</td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idPlayerView13AddBloodSprayEf" title='idPlayerView::AddBloodSpray' data-ref="_ZN12idPlayerView13AddBloodSprayEf">AddBloodSpray</dfn>( <em>float</em> <dfn class="local col2 decl" id="3262duration" title='duration' data-type='float' data-ref="3262duration">duration</dfn> );</td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td>	<i>// temp for view testing</i></td></tr>
+<tr><th id="84">84</th><td>	<em>void</em>				<dfn class="decl def" id="_ZN12idPlayerView15EnableBFGVisionEb" title='idPlayerView::EnableBFGVision' data-ref="_ZN12idPlayerView15EnableBFGVisionEb">EnableBFGVision</dfn>( <em>bool</em> <dfn class="local col3 decl" id="3263b" title='b' data-type='bool' data-ref="3263b">b</dfn> ) { <a class="member" href="#idPlayerView::bfgVision" title='idPlayerView::bfgVision' data-ref="idPlayerView::bfgVision">bfgVision</a> = <a class="local col3 ref" href="#3263b" title='b' data-ref="3263b">b</a>; };</td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td><b>private</b>:</td></tr>
+<tr><th id="87">87</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idPlayerView10SingleViewEP15idUserInterfacePK12renderView_s" title='idPlayerView::SingleView' data-ref="_ZN12idPlayerView10SingleViewEP15idUserInterfacePK12renderView_s">SingleView</dfn>( <a class="type" href="../ui/UserInterface.h.html#idUserInterface" title='idUserInterface' data-ref="idUserInterface">idUserInterface</a> *<dfn class="local col4 decl" id="3264hud" title='hud' data-type='idUserInterface *' data-ref="3264hud">hud</dfn>, <em>const</em> <a class="typedef" href="../framework/DeclParticle.h.html#renderView_t" title='renderView_t' data-type='struct renderView_s' data-ref="renderView_t">renderView_t</a> *<dfn class="local col5 decl" id="3265view" title='view' data-type='const renderView_t *' data-ref="3265view">view</dfn> );</td></tr>
+<tr><th id="88">88</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idPlayerView12DoubleVisionEP15idUserInterfacePK12renderView_si" title='idPlayerView::DoubleVision' data-ref="_ZN12idPlayerView12DoubleVisionEP15idUserInterfacePK12renderView_si">DoubleVision</dfn>( <a class="type" href="../ui/UserInterface.h.html#idUserInterface" title='idUserInterface' data-ref="idUserInterface">idUserInterface</a> *<dfn class="local col6 decl" id="3266hud" title='hud' data-type='idUserInterface *' data-ref="3266hud">hud</dfn>, <em>const</em> <a class="typedef" href="../framework/DeclParticle.h.html#renderView_t" title='renderView_t' data-type='struct renderView_s' data-ref="renderView_t">renderView_t</a> *<dfn class="local col7 decl" id="3267view" title='view' data-type='const renderView_t *' data-ref="3267view">view</dfn>, <em>int</em> <dfn class="local col8 decl" id="3268offset" title='offset' data-type='int' data-ref="3268offset">offset</dfn> );</td></tr>
+<tr><th id="89">89</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idPlayerView13BerserkVisionEP15idUserInterfacePK12renderView_s" title='idPlayerView::BerserkVision' data-ref="_ZN12idPlayerView13BerserkVisionEP15idUserInterfacePK12renderView_s">BerserkVision</dfn>( <a class="type" href="../ui/UserInterface.h.html#idUserInterface" title='idUserInterface' data-ref="idUserInterface">idUserInterface</a> *<dfn class="local col9 decl" id="3269hud" title='hud' data-type='idUserInterface *' data-ref="3269hud">hud</dfn>, <em>const</em> <a class="typedef" href="../framework/DeclParticle.h.html#renderView_t" title='renderView_t' data-type='struct renderView_s' data-ref="renderView_t">renderView_t</a> *<dfn class="local col0 decl" id="3270view" title='view' data-type='const renderView_t *' data-ref="3270view">view</dfn> );</td></tr>
+<tr><th id="90">90</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idPlayerView15InfluenceVisionEP15idUserInterfacePK12renderView_s" title='idPlayerView::InfluenceVision' data-ref="_ZN12idPlayerView15InfluenceVisionEP15idUserInterfacePK12renderView_s">InfluenceVision</dfn>( <a class="type" href="../ui/UserInterface.h.html#idUserInterface" title='idUserInterface' data-ref="idUserInterface">idUserInterface</a> *<dfn class="local col1 decl" id="3271hud" title='hud' data-type='idUserInterface *' data-ref="3271hud">hud</dfn>, <em>const</em> <a class="typedef" href="../framework/DeclParticle.h.html#renderView_t" title='renderView_t' data-type='struct renderView_s' data-ref="renderView_t">renderView_t</a> *<dfn class="local col2 decl" id="3272view" title='view' data-type='const renderView_t *' data-ref="3272view">view</dfn> );</td></tr>
+<tr><th id="91">91</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idPlayerView10ScreenFadeEv" title='idPlayerView::ScreenFade' data-ref="_ZN12idPlayerView10ScreenFadeEv">ScreenFade</dfn>();</td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td>	<a class="typedef" href="#screenBlob_t" title='screenBlob_t' data-type='struct screenBlob_t' data-ref="screenBlob_t">screenBlob_t</a> *		<dfn class="decl" id="_ZN12idPlayerView13GetScreenBlobEv" title='idPlayerView::GetScreenBlob' data-ref="_ZN12idPlayerView13GetScreenBlobEv">GetScreenBlob</dfn>();</td></tr>
+<tr><th id="94">94</th><td></td></tr>
+<tr><th id="95">95</th><td>	<a class="typedef" href="#screenBlob_t" title='screenBlob_t' data-type='struct screenBlob_t' data-ref="screenBlob_t">screenBlob_t</a>		<dfn class="decl" id="idPlayerView::screenBlobs" title='idPlayerView::screenBlobs' data-ref="idPlayerView::screenBlobs">screenBlobs</dfn>[<a class="macro" href="#50" title="8" data-ref="_M/MAX_SCREEN_BLOBS">MAX_SCREEN_BLOBS</a>];</td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td>	<em>int</em>					<dfn class="decl" id="idPlayerView::dvFinishTime" title='idPlayerView::dvFinishTime' data-ref="idPlayerView::dvFinishTime">dvFinishTime</dfn>;		<i>// double vision will be stopped at this time</i></td></tr>
+<tr><th id="98">98</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *	<dfn class="decl" id="idPlayerView::dvMaterial" title='idPlayerView::dvMaterial' data-ref="idPlayerView::dvMaterial">dvMaterial</dfn>;			<i>// material to take the double vision screen shot</i></td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td>	<em>int</em>					<dfn class="decl" id="idPlayerView::kickFinishTime" title='idPlayerView::kickFinishTime' data-ref="idPlayerView::kickFinishTime">kickFinishTime</dfn>;		<i>// view kick will be stopped at this time</i></td></tr>
+<tr><th id="101">101</th><td>	<a class="type" href="../idlib/math/Angles.h.html#idAngles" title='idAngles' data-ref="idAngles">idAngles</a>			<dfn class="decl" id="idPlayerView::kickAngles" title='idPlayerView::kickAngles' data-ref="idPlayerView::kickAngles">kickAngles</dfn>;			</td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td>	<em>bool</em>				<dfn class="decl" id="idPlayerView::bfgVision" title='idPlayerView::bfgVision' data-ref="idPlayerView::bfgVision">bfgVision</dfn>;			<i>// </i></td></tr>
+<tr><th id="104">104</th><td></td></tr>
+<tr><th id="105">105</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *	<dfn class="decl" id="idPlayerView::tunnelMaterial" title='idPlayerView::tunnelMaterial' data-ref="idPlayerView::tunnelMaterial">tunnelMaterial</dfn>;		<i>// health tunnel vision</i></td></tr>
+<tr><th id="106">106</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *	<dfn class="decl" id="idPlayerView::armorMaterial" title='idPlayerView::armorMaterial' data-ref="idPlayerView::armorMaterial">armorMaterial</dfn>;		<i>// armor damage view effect</i></td></tr>
+<tr><th id="107">107</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *	<dfn class="decl" id="idPlayerView::berserkMaterial" title='idPlayerView::berserkMaterial' data-ref="idPlayerView::berserkMaterial">berserkMaterial</dfn>;	<i>// berserk effect</i></td></tr>
+<tr><th id="108">108</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *	<dfn class="decl" id="idPlayerView::irGogglesMaterial" title='idPlayerView::irGogglesMaterial' data-ref="idPlayerView::irGogglesMaterial">irGogglesMaterial</dfn>;	<i>// ir effect</i></td></tr>
+<tr><th id="109">109</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *	<dfn class="decl" id="idPlayerView::bloodSprayMaterial" title='idPlayerView::bloodSprayMaterial' data-ref="idPlayerView::bloodSprayMaterial">bloodSprayMaterial</dfn>; <i>// blood spray</i></td></tr>
+<tr><th id="110">110</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *	<dfn class="decl" id="idPlayerView::bfgMaterial" title='idPlayerView::bfgMaterial' data-ref="idPlayerView::bfgMaterial">bfgMaterial</dfn>;		<i>// when targeted with BFG</i></td></tr>
+<tr><th id="111">111</th><td>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *	<dfn class="decl" id="idPlayerView::lagoMaterial" title='idPlayerView::lagoMaterial' data-ref="idPlayerView::lagoMaterial">lagoMaterial</dfn>;		<i>// lagometer drawing</i></td></tr>
+<tr><th id="112">112</th><td>	<em>float</em>				<dfn class="decl" id="idPlayerView::lastDamageTime" title='idPlayerView::lastDamageTime' data-ref="idPlayerView::lastDamageTime">lastDamageTime</dfn>;		<i>// accentuate the tunnel effect for a while</i></td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec4" title='idVec4' data-ref="idVec4">idVec4</a>				<dfn class="decl" id="idPlayerView::fadeColor" title='idPlayerView::fadeColor' data-ref="idPlayerView::fadeColor">fadeColor</dfn>;			<i>// fade color</i></td></tr>
+<tr><th id="115">115</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec4" title='idVec4' data-ref="idVec4">idVec4</a>				<dfn class="decl" id="idPlayerView::fadeToColor" title='idPlayerView::fadeToColor' data-ref="idPlayerView::fadeToColor">fadeToColor</dfn>;		<i>// color to fade to</i></td></tr>
+<tr><th id="116">116</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec4" title='idVec4' data-ref="idVec4">idVec4</a>				<dfn class="decl" id="idPlayerView::fadeFromColor" title='idPlayerView::fadeFromColor' data-ref="idPlayerView::fadeFromColor">fadeFromColor</dfn>;		<i>// color to fade from</i></td></tr>
+<tr><th id="117">117</th><td>	<em>float</em>				<dfn class="decl" id="idPlayerView::fadeRate" title='idPlayerView::fadeRate' data-ref="idPlayerView::fadeRate">fadeRate</dfn>;			<i>// fade rate</i></td></tr>
+<tr><th id="118">118</th><td>	<em>int</em>					<dfn class="decl" id="idPlayerView::fadeTime" title='idPlayerView::fadeTime' data-ref="idPlayerView::fadeTime">fadeTime</dfn>;			<i>// fade time</i></td></tr>
+<tr><th id="119">119</th><td></td></tr>
+<tr><th id="120">120</th><td>	<a class="type" href="../idlib/math/Angles.h.html#idAngles" title='idAngles' data-ref="idAngles">idAngles</a>			<dfn class="decl" id="idPlayerView::shakeAng" title='idPlayerView::shakeAng' data-ref="idPlayerView::shakeAng">shakeAng</dfn>;			<i>// from the sound sources</i></td></tr>
+<tr><th id="121">121</th><td></td></tr>
+<tr><th id="122">122</th><td>	<a class="type" href="Player.h.html#idPlayer" title='idPlayer' data-ref="idPlayer">idPlayer</a> *			<dfn class="decl" id="idPlayerView::player" title='idPlayerView::player' data-ref="idPlayerView::player">player</dfn>;</td></tr>
+<tr><th id="123">123</th><td>	<a class="typedef" href="../framework/DeclParticle.h.html#renderView_t" title='renderView_t' data-type='struct renderView_s' data-ref="renderView_t">renderView_t</a>		<dfn class="decl" id="idPlayerView::view" title='idPlayerView::view' data-ref="idPlayerView::view">view</dfn>;</td></tr>
+<tr><th id="124">124</th><td>};</td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td><u>#<span data-ppcond="29">endif</span> /* !__GAME_PLAYERVIEW_H__ */</u></td></tr>
+<tr><th id="127">127</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='AF.cpp.html'>codebrowser/game/AF.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

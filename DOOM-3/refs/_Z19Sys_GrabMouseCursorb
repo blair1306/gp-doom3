@@ -1,0 +1,15 @@
+<dec f='codebrowser/sys/sys_public.h' l='363' type='void Sys_GrabMouseCursor(bool grabIt)'/>
+<doc f='codebrowser/sys/sys_public.h' l='360'>// when the console is down, or the game is about to perform a lengthy
+// operation like map loading, the system can release the mouse cursor
+// when in windowed mode</doc>
+<use f='codebrowser/framework/Common.cpp' l='1009' u='c' c='_ZN13idCommonLocal12ActivateToolEb'/>
+<use f='codebrowser/framework/Console.cpp' l='766' u='c' c='_ZN14idConsoleLocal12ProcessEventEPK10sysEvent_sb'/>
+<use f='codebrowser/framework/Session.cpp' l='1603' u='c' c='_ZN14idSessionLocal16ExecuteMapChangeEb'/>
+<use f='codebrowser/framework/Session.cpp' l='2492' u='c' c='_ZN14idSessionLocal12UpdateScreenEb'/>
+<use f='codebrowser/framework/Session.cpp' l='2528' u='c' c='_ZN14idSessionLocal5FrameEv'/>
+<use f='codebrowser/framework/Session.cpp' l='2530' u='c' c='_ZN14idSessionLocal5FrameEv'/>
+<use f='codebrowser/framework/async/AsyncNetwork.cpp' l='174' u='c' c='_ZN14idAsyncNetwork8RunFrameEv'/>
+<use f='codebrowser/framework/async/AsyncNetwork.cpp' l='177' u='c' c='_ZN14idAsyncNetwork8RunFrameEv'/>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='1897' u='c' c='_Z14R_VidRestart_fRK9idCmdArgs'/>
+<use f='codebrowser/sys/linux/glimp.cpp' l='540' u='c' c='_Z8GLX_Init12glimpParms_t'/>
+<def f='codebrowser/sys/linux/input.cpp' l='219' ll='260' type='void Sys_GrabMouseCursor(bool grabIt)'/>

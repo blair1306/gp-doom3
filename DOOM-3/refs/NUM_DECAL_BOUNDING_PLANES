@@ -1,0 +1,24 @@
+<def f='codebrowser/renderer/ModelDecal.h' l='47' type='const int'/>
+<doc f='codebrowser/renderer/ModelDecal.h' l='32'>/*
+===============================================================================
+
+	Decals are lightweight primitives for bullet / blood marks.
+	Decals with common materials will be merged together, but additional
+	decals will be allocated as needed. The material should not be
+	one that receives lighting, because no interactions are generated
+	for these lightweight surfaces.
+
+	FIXME:	Decals on models in portalled off areas do not get freed
+			until the area becomes visible again.
+
+===============================================================================
+*/</doc>
+<use f='codebrowser/renderer/ModelDecal.cpp' l='90' u='r' c='_ZN18idRenderModelDecal20CreateProjectionInfoER21decalProjectionInfo_sRK14idFixedWindingRK6idVec3bfPK10idMateriali'/>
+<use f='codebrowser/renderer/ModelDecal.cpp' l='91' u='r' c='_ZN18idRenderModelDecal20CreateProjectionInfoER21decalProjectionInfo_sRK14idFixedWindingRK6idVec3bfPK10idMateriali'/>
+<use f='codebrowser/renderer/ModelDecal.cpp' l='130' u='r' c='_ZN18idRenderModelDecal20CreateProjectionInfoER21decalProjectionInfo_sRK14idFixedWindingRK6idVec3bfPK10idMateriali'/>
+<use f='codebrowser/renderer/ModelDecal.cpp' l='131' u='r' c='_ZN18idRenderModelDecal20CreateProjectionInfoER21decalProjectionInfo_sRK14idFixedWindingRK6idVec3bfPK10idMateriali'/>
+<use f='codebrowser/renderer/ModelDecal.cpp' l='132' u='r' c='_ZN18idRenderModelDecal20CreateProjectionInfoER21decalProjectionInfo_sRK14idFixedWindingRK6idVec3bfPK10idMateriali'/>
+<use f='codebrowser/renderer/ModelDecal.cpp' l='186' u='r' c='_ZN18idRenderModelDecal27GlobalProjectionInfoToLocalER21decalProjectionInfo_sRKS0_RK6idVec3RK6idMat3'/>
+<use f='codebrowser/renderer/ModelDecal.cpp' l='337' u='r' c='_ZN18idRenderModelDecal11CreateDecalEPK13idRenderModelRK21decalProjectionInfo_s'/>
+<use f='codebrowser/renderer/ModelDecal.cpp' l='357' u='r' c='_ZN18idRenderModelDecal11CreateDecalEPK13idRenderModelRK21decalProjectionInfo_s'/>
+<use f='codebrowser/renderer/ModelDecal.cpp' l='367' u='r' c='_ZN18idRenderModelDecal11CreateDecalEPK13idRenderModelRK21decalProjectionInfo_s'/>

@@ -1,0 +1,57 @@
+<def f='codebrowser/renderer/RenderSystem.h' l='44' ll='99'/>
+<size>96</size>
+<doc f='codebrowser/renderer/RenderSystem.h' l='32'>/*
+===============================================================================
+
+	idRenderSystem is responsible for managing the screen, which can have
+	multiple idRenderWorld and 2D drawing done on it.
+
+===============================================================================
+*/
+
+
+// Contains variables specific to the OpenGL configuration being run right now.
+// These are constant once the OpenGL subsystem is initialized.</doc>
+<mbr r='glconfig_s::renderer_string' o='0' t='const char *'/>
+<mbr r='glconfig_s::vendor_string' o='32' t='const char *'/>
+<mbr r='glconfig_s::version_string' o='64' t='const char *'/>
+<mbr r='glconfig_s::extensions_string' o='96' t='const char *'/>
+<mbr r='glconfig_s::wgl_extensions_string' o='128' t='const char *'/>
+<mbr r='glconfig_s::glVersion' o='160' t='float'/>
+<mbr r='glconfig_s::maxTextureSize' o='192' t='int'/>
+<mbr r='glconfig_s::maxTextureUnits' o='224' t='int'/>
+<mbr r='glconfig_s::maxTextureCoords' o='256' t='int'/>
+<mbr r='glconfig_s::maxTextureImageUnits' o='288' t='int'/>
+<mbr r='glconfig_s::maxTextureAnisotropy' o='320' t='float'/>
+<mbr r='glconfig_s::colorBits' o='352' t='int'/>
+<mbr r='glconfig_s::depthBits' o='384' t='int'/>
+<mbr r='glconfig_s::stencilBits' o='416' t='int'/>
+<mbr r='glconfig_s::multitextureAvailable' o='448' t='bool'/>
+<mbr r='glconfig_s::textureCompressionAvailable' o='456' t='bool'/>
+<mbr r='glconfig_s::anisotropicAvailable' o='464' t='bool'/>
+<mbr r='glconfig_s::textureLODBiasAvailable' o='472' t='bool'/>
+<mbr r='glconfig_s::textureEnvAddAvailable' o='480' t='bool'/>
+<mbr r='glconfig_s::textureEnvCombineAvailable' o='488' t='bool'/>
+<mbr r='glconfig_s::registerCombinersAvailable' o='496' t='bool'/>
+<mbr r='glconfig_s::cubeMapAvailable' o='504' t='bool'/>
+<mbr r='glconfig_s::envDot3Available' o='512' t='bool'/>
+<mbr r='glconfig_s::texture3DAvailable' o='520' t='bool'/>
+<mbr r='glconfig_s::sharedTexturePaletteAvailable' o='528' t='bool'/>
+<mbr r='glconfig_s::ARBVertexBufferObjectAvailable' o='536' t='bool'/>
+<mbr r='glconfig_s::ARBVertexProgramAvailable' o='544' t='bool'/>
+<mbr r='glconfig_s::ARBFragmentProgramAvailable' o='552' t='bool'/>
+<mbr r='glconfig_s::twoSidedStencilAvailable' o='560' t='bool'/>
+<mbr r='glconfig_s::textureNonPowerOfTwoAvailable' o='568' t='bool'/>
+<mbr r='glconfig_s::depthBoundsTestAvailable' o='576' t='bool'/>
+<mbr r='glconfig_s::atiFragmentShaderAvailable' o='584' t='bool'/>
+<mbr r='glconfig_s::atiTwoSidedStencilAvailable' o='592' t='bool'/>
+<mbr r='glconfig_s::vidWidth' o='608' t='int'/>
+<mbr r='glconfig_s::vidHeight' o='640' t='int'/>
+<mbr r='glconfig_s::displayFrequency' o='672' t='int'/>
+<mbr r='glconfig_s::isFullscreen' o='704' t='bool'/>
+<mbr r='glconfig_s::allowNV30Path' o='712' t='bool'/>
+<mbr r='glconfig_s::allowNV20Path' o='720' t='bool'/>
+<mbr r='glconfig_s::allowNV10Path' o='728' t='bool'/>
+<mbr r='glconfig_s::allowR200Path' o='736' t='bool'/>
+<mbr r='glconfig_s::allowARB2Path' o='744' t='bool'/>
+<mbr r='glconfig_s::isInitialized' o='752' t='bool'/>

@@ -1,0 +1,12 @@
+<dec f='codebrowser/renderer/ModelDecal.h' l='113' type='void idRenderModelDecal::AddDepthFadedWinding(const idWinding &amp; w, const idMaterial * decalMaterial, const idPlane * fadePlanes, float fadeDepth, int startTime)'/>
+<doc f='codebrowser/renderer/ModelDecal.h' l='109'>// Adds depth faded triangles for the winding to the appropriate
+								// decal in the chain, creating a new one if necessary.
+								// The part of the winding at the front side of both fade planes is not faded.
+								// The parts at the back sides of the fade planes are faded with the given depth.</doc>
+<def f='codebrowser/renderer/ModelDecal.cpp' l='275' ll='288' type='void idRenderModelDecal::AddDepthFadedWinding(const idWinding &amp; w, const idMaterial * decalMaterial, const idPlane * fadePlanes, float fadeDepth, int startTime)'/>
+<use f='codebrowser/renderer/ModelDecal.cpp' l='379' u='c' c='_ZN18idRenderModelDecal11CreateDecalEPK13idRenderModelRK21decalProjectionInfo_s'/>
+<doc f='codebrowser/renderer/ModelDecal.cpp' l='270'>/*
+=================
+idRenderModelDecal::AddDepthFadedWinding
+=================
+*/</doc>

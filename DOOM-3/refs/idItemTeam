@@ -1,0 +1,44 @@
+<inh f='codebrowser/d3xp/Item.h' l='156' c='idMoveableItem'/>
+<def f='codebrowser/d3xp/Item.h' l='204' ll='264'/>
+<size>1776</size>
+<smbr r='idItemTeam::Type' t='idTypeInfo'/>
+<fun r='_ZN10idItemTeam14CreateInstanceEv'/>
+<fun r='_ZNK10idItemTeam7GetTypeEv'/>
+<smbr r='idItemTeam::eventCallbacks' t='idEventFunc&lt;idItemTeam&gt; []'/>
+<fun r='_ZN10idItemTeamC1Ev'/>
+<fun r='_ZN10idItemTeamD1Ev'/>
+<fun r='_ZN10idItemTeam5SpawnEv'/>
+<fun r='_ZN10idItemTeam6PickupEP8idPlayer'/>
+<fun r='_ZN10idItemTeam18ClientReceiveEventEiiRK8idBitMsg'/>
+<fun r='_ZN10idItemTeam5ThinkEv'/>
+<fun r='_ZN10idItemTeam4DropEb'/>
+<fun r='_ZN10idItemTeam6ReturnEP8idPlayer'/>
+<fun r='_ZN10idItemTeam7CaptureEv'/>
+<fun r='_ZN10idItemTeam12FreeLightDefEv'/>
+<fun r='_ZN10idItemTeam7PresentEv'/>
+<fun r='_ZNK10idItemTeam15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN10idItemTeam16ReadFromSnapshotERK13idBitMsgDelta'/>
+<mbr r='idItemTeam::team' o='11776' t='int'/>
+<mbr r='idItemTeam::carried' o='11808' t='bool'/>
+<mbr r='idItemTeam::dropped' o='11816' t='bool'/>
+<mbr r='idItemTeam::returnOrigin' o='11840' t='idVec3'/>
+<mbr r='idItemTeam::returnAxis' o='11936' t='idMat3'/>
+<mbr r='idItemTeam::lastDrop' o='12224' t='int'/>
+<mbr r='idItemTeam::skinDefault' o='12256' t='const idDeclSkin *'/>
+<mbr r='idItemTeam::skinCarried' o='12288' t='const idDeclSkin *'/>
+<mbr r='idItemTeam::scriptTaken' o='12320' t='const function_t *'/>
+<mbr r='idItemTeam::scriptDropped' o='12352' t='const function_t *'/>
+<mbr r='idItemTeam::scriptReturned' o='12384' t='const function_t *'/>
+<mbr r='idItemTeam::scriptCaptured' o='12416' t='const function_t *'/>
+<mbr r='idItemTeam::itemGlow' o='12448' t='renderLight_t'/>
+<mbr r='idItemTeam::itemGlowHandle' o='14112' t='int'/>
+<mbr r='idItemTeam::lastNuggetDrop' o='14144' t='int'/>
+<mbr r='idItemTeam::nuggetName' o='14176' t='const char *'/>
+<fun r='_ZN10idItemTeam14Event_TakeFlagEP8idPlayer'/>
+<fun r='_ZN10idItemTeam14Event_DropFlagEb'/>
+<fun r='_ZN10idItemTeam16Event_FlagReturnEP8idPlayer'/>
+<fun r='_ZN10idItemTeam17Event_FlagCaptureEv'/>
+<fun r='_ZN10idItemTeam13PrivateReturnEv'/>
+<fun r='_ZN10idItemTeam10LoadScriptEPc'/>
+<fun r='_ZN10idItemTeam11SpawnNuggetE6idVec3'/>
+<fun r='_ZN10idItemTeam10UpdateGuisEv'/>

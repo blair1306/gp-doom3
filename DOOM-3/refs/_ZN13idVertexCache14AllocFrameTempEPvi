@@ -1,0 +1,23 @@
+<dec f='codebrowser/renderer/VertexCache.h' l='87' type='vertCache_t * idVertexCache::AllocFrameTemp(void * data, int bytes)'/>
+<doc f='codebrowser/renderer/VertexCache.h' l='82'>// automatically freed at the end of the next frame
+	// used for specular texture coordinates and gui drawing, which
+	// will change every frame.
+	// will return NULL if the vertex cache is completely full
+	// As with Position(), this may not actually be a pointer you can access.</doc>
+<use f='codebrowser/renderer/GuiModel.cpp' l='183' u='c' c='_ZN10idGuiModel11EmitSurfaceEP17guiModelSurface_tPfS2_b'/>
+<use f='codebrowser/renderer/ModelDecal.cpp' l='515' u='c' c='_ZN18idRenderModelDecal16AddDecalDrawSurfEP12viewEntity_s'/>
+<def f='codebrowser/renderer/VertexCache.cpp' l='370' ll='430' type='vertCache_t * idVertexCache::AllocFrameTemp(void * data, int size)'/>
+<doc f='codebrowser/renderer/VertexCache.cpp' l='361'>/*
+===========
+idVertexCache::AllocFrameTemp
+
+A frame temp allocation must never be allowed to fail due to overflow.
+We can&apos;t simply sync with the GPU and overwrite what we have, because
+there may still be future references to dynamically created surfaces.
+===========
+*/</doc>
+<use f='codebrowser/renderer/tr_deform.cpp' l='60' u='c' c='_ZL14R_FinishDeformP10drawSurf_sP14srfTriangles_sP10idDrawVert'/>
+<use f='codebrowser/renderer/tr_deform.cpp' l='1211' u='c' c='_ZL16R_ParticleDeformP10drawSurf_sb'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='210' u='c' c='_Z14R_SkyboxTexGenP10drawSurf_sRK6idVec3'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='292' u='c' c='_Z17R_WobbleskyTexGenP10drawSurf_sRK6idVec3'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='362' u='c' c='_ZL16R_SpecularTexGenP10drawSurf_sRK6idVec3S3_'/>

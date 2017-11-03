@@ -1,0 +1,14 @@
+<dec f='codebrowser/idlib/containers/StaticList.h' l='62' type='const type * idStaticList::Ptr() const'/>
+<def f='codebrowser/idlib/containers/StaticList.h' l='278' ll='281' type='const type * idStaticList::Ptr() const'/>
+<doc f='codebrowser/idlib/containers/StaticList.h' l='62'>// returns a pointer to the list</doc>
+<doc f='codebrowser/idlib/containers/StaticList.h' l='267'>/*
+================
+idStaticList&lt;type,size&gt;::Ptr
+
+Returns a pointer to the begining of the array.  Useful for iterating through the list in loops.
+
+Note: may return NULL if the list is empty.
+
+FIXME: Create an iterator template for this kind of thing.
+================
+*/</doc>

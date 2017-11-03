@@ -1,0 +1,123 @@
+<dec f='codebrowser/d3xp/Entity.h' l='234' type='void idEntity::StopSound(const s_channelType channel, bool broadcast)'/>
+<doc f='codebrowser/d3xp/Entity.h' l='234'>// pass SND_CHANNEL_ANY to stop all sounds</doc>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='266' u='c' c='_ZN14idAFAttachmentD1Ev'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='3331' u='c' c='_ZN13idHarvestable3GibEv'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='3572' u='c' c='_ZN13idHarvestable11Event_TouchEP8idEntityP7trace_s'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='490' u='c' c='_ZN7idActorD1Ev'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='2180' u='c' c='_ZN7idActor3GibERK6idVec3PKc'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='3293' u='c' c='_ZN7idActor15Event_StopSoundEii'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='3296' u='c' c='_ZN7idActor15Event_StopSoundEii'/>
+<def f='codebrowser/d3xp/Entity.cpp' l='1713' ll='1731' type='void idEntity::StopSound(const s_channelType channel, bool broadcast)'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='4173' u='c' c='_ZN8idEntity15Event_StopSoundEii'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='5014' u='c' c='_ZN8idEntity18ClientReceiveEventEiiRK8idBitMsg'/>
+<doc f='codebrowser/d3xp/Entity.cpp' l='1708'>/*
+================
+idEntity::StopSound
+================
+*/</doc>
+<use f='codebrowser/d3xp/GameEdit.cpp' l='919' u='c' c='_ZN10idGameEdit15EntityStopSoundEP8idEntity'/>
+<use f='codebrowser/d3xp/Light.cpp' l='584' u='c' c='_ZN7idLight3OffEv'/>
+<use f='codebrowser/d3xp/Light.cpp' l='683' u='c' c='_ZN7idLight12BecomeBrokenEP8idEntity'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='171' u='c' c='_ZN13idPlayerStart19Event_TeleportStageEP8idEntity'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='621' u='c' c='_ZN7idMover10DoneMovingEv'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='641' u='c' c='_ZN7idMover15UpdateMoveSoundENS_11moveStage_tE'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='646' u='c' c='_ZN7idMover15UpdateMoveSoundENS_11moveStage_tE'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='809' u='c' c='_ZN7idMover12DoneRotatingEv'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='829' u='c' c='_ZN7idMover19UpdateRotationSoundENS_11moveStage_tE'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='834' u='c' c='_ZN7idMover19UpdateRotationSoundENS_11moveStage_tE'/>
+<use f='codebrowser/d3xp/Player.cpp' l='3232' u='c' c='_ZN8idPlayer14EnterCinematicEv'/>
+<use f='codebrowser/d3xp/Player.cpp' l='3859' u='c' c='_ZN8idPlayer12ClearPowerupEi'/>
+<use f='codebrowser/d3xp/Player.cpp' l='3876' u='c' c='_ZN8idPlayer12ClearPowerupEi'/>
+<use f='codebrowser/d3xp/Player.cpp' l='3897' u='c' c='_ZN8idPlayer12ClearPowerupEi'/>
+<use f='codebrowser/d3xp/Player.cpp' l='5172' u='c' c='_ZN8idPlayer22HandleSingleGuiCommandEP8idEntityP7idLexer'/>
+<use f='codebrowser/d3xp/Player.cpp' l='5218' u='c' c='_ZN8idPlayer22HandleSingleGuiCommandEP8idEntityP7idLexer'/>
+<use f='codebrowser/d3xp/Player.cpp' l='6096' u='c' c='_ZN8idPlayer9UpdateAirEv'/>
+<use f='codebrowser/d3xp/Player.cpp' l='7660' u='c' c='_ZN8idPlayer12StopHelltimeEb'/>
+<use f='codebrowser/d3xp/Player.cpp' l='7817' u='c' c='_ZN8idPlayer6KilledEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='285' u='c' c='_ZN12idProjectileD1Ev'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='758' u='c' c='_ZN12idProjectile6FizzleEv'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='828' u='c' c='_ZN12idProjectile7ExplodeERK7trace_sP8idEntity'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='1317' u='c' c='_ZN12idProjectile16ReadFromSnapshotERK13idBitMsgDelta'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='1760' u='c' c='_ZN17idSoulCubeMissile5ThinkEv'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='2577' u='c' c='_ZN8idDebris6FizzleEv'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='2613' u='c' c='_ZN8idDebris7ExplodeEv'/>
+<use f='codebrowser/d3xp/SecurityCamera.cpp' l='384' u='c' c='_ZN16idSecurityCamera5ThinkEv'/>
+<use f='codebrowser/d3xp/SecurityCamera.cpp' l='481' u='c' c='_ZN16idSecurityCamera11Event_AlertEv'/>
+<use f='codebrowser/d3xp/SecurityCamera.cpp' l='511' u='c' c='_ZN16idSecurityCamera11Event_PauseEv'/>
+<use f='codebrowser/d3xp/SecurityCamera.cpp' l='523' u='c' c='_ZN16idSecurityCamera6KilledEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/d3xp/Sound.cpp' l='266' u='c' c='_ZN7idSound7DoSoundEb'/>
+<use f='codebrowser/d3xp/Target.cpp' l='1094' u='c' c='_ZN21idTarget_SetInfluence14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/d3xp/Target.cpp' l='1224' u='c' c='_ZN21idTarget_SetInfluence22Event_RestoreInfluenceEv'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='1690' u='c' c='_ZN8idWeapon11BeginAttackEv'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='1802' u='c' c='_ZN8idWeapon8DropItemERK6idVec3iib'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='1803' u='c' c='_ZN8idWeapon8DropItemERK6idVec3iib'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='2339' u='c' c='_ZN8idWeapon13PresentWeaponEb'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='2351' u='c' c='_ZN8idWeapon14EnterCinematicEv'/>
+<use f='codebrowser/d3xp/ai/AI.cpp' l='3423' u='c' c='_ZN4idAI6KilledEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/d3xp/ai/AI.cpp' l='3425' u='c' c='_ZN4idAI6KilledEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/d3xp/ai/AI.cpp' l='3437' u='c' c='_ZN4idAI6KilledEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/d3xp/ai/AI.cpp' l='4678' u='c' c='_ZN4idAI4HideEv'/>
+<use f='codebrowser/d3xp/anim/Anim_Testmodel.cpp' l='206' u='c' c='_ZN11idTestModelD1Ev'/>
+<use f='codebrowser/d3xp/anim/Anim_Testmodel.cpp' l='216' u='c' c='_ZN11idTestModelD1Ev'/>
+<use f='codebrowser/d3xp/anim/Anim_Testmodel.cpp' l='255' u='c' c='_ZN11idTestModel5ThinkEv'/>
+<use f='codebrowser/d3xp/anim/Anim_Testmodel.cpp' l='257' u='c' c='_ZN11idTestModel5ThinkEv'/>
+<use f='codebrowser/d3xp/anim/Anim_Testmodel.cpp' l='333' u='c' c='_ZN11idTestModel5ThinkEv'/>
+<dec f='codebrowser/game/Entity.h' l='218' type='void idEntity::StopSound(const s_channelType channel, bool broadcast)'/>
+<doc f='codebrowser/game/Entity.h' l='218'>// pass SND_CHANNEL_ANY to stop all sounds</doc>
+<use f='codebrowser/game/AFEntity.cpp' l='266' u='c' c='_ZN14idAFAttachmentD1Ev'/>
+<use f='codebrowser/game/Actor.cpp' l='470' u='c' c='_ZN7idActorD1Ev'/>
+<use f='codebrowser/game/Actor.cpp' l='2132' u='c' c='_ZN7idActor3GibERK6idVec3PKc'/>
+<use f='codebrowser/game/Actor.cpp' l='3222' u='c' c='_ZN7idActor15Event_StopSoundEii'/>
+<use f='codebrowser/game/Actor.cpp' l='3225' u='c' c='_ZN7idActor15Event_StopSoundEii'/>
+<def f='codebrowser/game/Entity.cpp' l='1621' ll='1639' type='void idEntity::StopSound(const s_channelType channel, bool broadcast)'/>
+<use f='codebrowser/game/Entity.cpp' l='4064' u='c' c='_ZN8idEntity15Event_StopSoundEii'/>
+<use f='codebrowser/game/Entity.cpp' l='4840' u='c' c='_ZN8idEntity18ClientReceiveEventEiiRK8idBitMsg'/>
+<doc f='codebrowser/game/Entity.cpp' l='1616'>/*
+================
+idEntity::StopSound
+================
+*/</doc>
+<use f='codebrowser/game/GameEdit.cpp' l='919' u='c' c='_ZN10idGameEdit15EntityStopSoundEP8idEntity'/>
+<use f='codebrowser/game/Light.cpp' l='577' u='c' c='_ZN7idLight3OffEv'/>
+<use f='codebrowser/game/Light.cpp' l='676' u='c' c='_ZN7idLight12BecomeBrokenEP8idEntity'/>
+<use f='codebrowser/game/Misc.cpp' l='171' u='c' c='_ZN13idPlayerStart19Event_TeleportStageEP8idEntity'/>
+<use f='codebrowser/game/Mover.cpp' l='619' u='c' c='_ZN7idMover10DoneMovingEv'/>
+<use f='codebrowser/game/Mover.cpp' l='639' u='c' c='_ZN7idMover15UpdateMoveSoundENS_11moveStage_tE'/>
+<use f='codebrowser/game/Mover.cpp' l='644' u='c' c='_ZN7idMover15UpdateMoveSoundENS_11moveStage_tE'/>
+<use f='codebrowser/game/Mover.cpp' l='807' u='c' c='_ZN7idMover12DoneRotatingEv'/>
+<use f='codebrowser/game/Mover.cpp' l='827' u='c' c='_ZN7idMover19UpdateRotationSoundENS_11moveStage_tE'/>
+<use f='codebrowser/game/Mover.cpp' l='832' u='c' c='_ZN7idMover19UpdateRotationSoundENS_11moveStage_tE'/>
+<use f='codebrowser/game/Player.cpp' l='2636' u='c' c='_ZN8idPlayer14EnterCinematicEv'/>
+<use f='codebrowser/game/Player.cpp' l='3116' u='c' c='_ZN8idPlayer12ClearPowerupEi'/>
+<use f='codebrowser/game/Player.cpp' l='4201' u='c' c='_ZN8idPlayer22HandleSingleGuiCommandEP8idEntityP7idLexer'/>
+<use f='codebrowser/game/Player.cpp' l='4247' u='c' c='_ZN8idPlayer22HandleSingleGuiCommandEP8idEntityP7idLexer'/>
+<use f='codebrowser/game/Player.cpp' l='5084' u='c' c='_ZN8idPlayer9UpdateAirEv'/>
+<use f='codebrowser/game/Player.cpp' l='6507' u='c' c='_ZN8idPlayer6KilledEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/game/Projectile.cpp' l='254' u='c' c='_ZN12idProjectileD1Ev'/>
+<use f='codebrowser/game/Projectile.cpp' l='713' u='c' c='_ZN12idProjectile6FizzleEv'/>
+<use f='codebrowser/game/Projectile.cpp' l='783' u='c' c='_ZN12idProjectile7ExplodeERK7trace_sP8idEntity'/>
+<use f='codebrowser/game/Projectile.cpp' l='1145' u='c' c='_ZN12idProjectile16ReadFromSnapshotERK13idBitMsgDelta'/>
+<use f='codebrowser/game/Projectile.cpp' l='1573' u='c' c='_ZN17idSoulCubeMissile5ThinkEv'/>
+<use f='codebrowser/game/Projectile.cpp' l='2318' u='c' c='_ZN8idDebris6FizzleEv'/>
+<use f='codebrowser/game/Projectile.cpp' l='2354' u='c' c='_ZN8idDebris7ExplodeEv'/>
+<use f='codebrowser/game/SecurityCamera.cpp' l='384' u='c' c='_ZN16idSecurityCamera5ThinkEv'/>
+<use f='codebrowser/game/SecurityCamera.cpp' l='481' u='c' c='_ZN16idSecurityCamera11Event_AlertEv'/>
+<use f='codebrowser/game/SecurityCamera.cpp' l='511' u='c' c='_ZN16idSecurityCamera11Event_PauseEv'/>
+<use f='codebrowser/game/SecurityCamera.cpp' l='523' u='c' c='_ZN16idSecurityCamera6KilledEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/game/Sound.cpp' l='266' u='c' c='_ZN7idSound7DoSoundEb'/>
+<use f='codebrowser/game/Target.cpp' l='1067' u='c' c='_ZN21idTarget_SetInfluence14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/game/Target.cpp' l='1192' u='c' c='_ZN21idTarget_SetInfluence22Event_RestoreInfluenceEv'/>
+<use f='codebrowser/game/Weapon.cpp' l='1403' u='c' c='_ZN8idWeapon11BeginAttackEv'/>
+<use f='codebrowser/game/Weapon.cpp' l='1515' u='c' c='_ZN8idWeapon8DropItemERK6idVec3iib'/>
+<use f='codebrowser/game/Weapon.cpp' l='1516' u='c' c='_ZN8idWeapon8DropItemERK6idVec3iib'/>
+<use f='codebrowser/game/Weapon.cpp' l='1992' u='c' c='_ZN8idWeapon13PresentWeaponEb'/>
+<use f='codebrowser/game/Weapon.cpp' l='2004' u='c' c='_ZN8idWeapon14EnterCinematicEv'/>
+<use f='codebrowser/game/ai/AI.cpp' l='3338' u='c' c='_ZN4idAI6KilledEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/game/ai/AI.cpp' l='3340' u='c' c='_ZN4idAI6KilledEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/game/ai/AI.cpp' l='3352' u='c' c='_ZN4idAI6KilledEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/game/ai/AI.cpp' l='4542' u='c' c='_ZN4idAI4HideEv'/>
+<use f='codebrowser/game/anim/Anim_Testmodel.cpp' l='206' u='c' c='_ZN11idTestModelD1Ev'/>
+<use f='codebrowser/game/anim/Anim_Testmodel.cpp' l='216' u='c' c='_ZN11idTestModelD1Ev'/>
+<use f='codebrowser/game/anim/Anim_Testmodel.cpp' l='255' u='c' c='_ZN11idTestModel5ThinkEv'/>
+<use f='codebrowser/game/anim/Anim_Testmodel.cpp' l='257' u='c' c='_ZN11idTestModel5ThinkEv'/>
+<use f='codebrowser/game/anim/Anim_Testmodel.cpp' l='333' u='c' c='_ZN11idTestModel5ThinkEv'/>

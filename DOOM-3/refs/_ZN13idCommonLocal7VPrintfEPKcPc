@@ -1,0 +1,11 @@
+<dec f='codebrowser/framework/Common.cpp' l='134' type='void idCommonLocal::VPrintf(const char * fmt, va_list arg)'/>
+<inh f='codebrowser/framework/Common.h' l='171' c='_ZN8idCommon7VPrintfEPKcPc'/>
+<def f='codebrowser/framework/Common.cpp' l='326' ll='449' type='void idCommonLocal::VPrintf(const char * fmt, va_list args)'/>
+<use f='codebrowser/framework/Common.cpp' l='463' u='c' c='_ZN13idCommonLocal6PrintfEPKcz'/>
+<doc f='codebrowser/framework/Common.cpp' l='319'>/*
+==================
+idCommonLocal::VPrintf
+
+A raw string should NEVER be passed as fmt, because of &quot;%f&quot; type crashes.
+==================
+*/</doc>

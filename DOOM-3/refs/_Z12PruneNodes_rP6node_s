@@ -1,0 +1,15 @@
+<def f='codebrowser/tools/compilers/dmap/output.cpp' l='64' ll='89' type='int PruneNodes_r(node_t * node)'/>
+<use f='codebrowser/tools/compilers/dmap/output.cpp' l='71' u='c' c='_Z12PruneNodes_rP6node_s'/>
+<use f='codebrowser/tools/compilers/dmap/output.cpp' l='72' u='c' c='_Z12PruneNodes_rP6node_s'/>
+<use f='codebrowser/tools/compilers/dmap/output.cpp' l='557' u='c' c='_ZL16WriteOutputNodesP6node_s'/>
+<doc f='codebrowser/tools/compilers/dmap/output.cpp' l='53'>/*
+=============
+PruneNodes_r
+
+Any nodes that have all children with the same
+area can be combined into a single leaf node
+
+Returns the area number of all children, or
+AREANUM_DIFFERENT if not the same.
+=============
+*/</doc>

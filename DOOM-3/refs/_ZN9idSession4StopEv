@@ -1,0 +1,10 @@
+<dec f='codebrowser/framework/Session.h' l='75' type='void idSession::Stop()'/>
+<doc f='codebrowser/framework/Session.h' l='74'>// Called on errors and game exits.</doc>
+<use f='codebrowser/framework/Common.cpp' l='695' u='c' c='_ZN13idCommonLocal5ErrorEPKcz'/>
+<ovr f='codebrowser/framework/Session.cpp' l='379' c='_ZN14idSessionLocal4StopEv'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='183' u='c' c='_ZN13idAsyncClient15ConnectToServerE8netadr_t'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1005' u='c' c='_ZN13idAsyncClient29ProcessReliableServerMessagesEv'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1019' u='c' c='_ZN13idAsyncClient29ProcessReliableServerMessagesEv'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1158' u='c' c='_ZN13idAsyncClient24ProcessDisconnectMessageE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='157' u='c' c='_ZN13idAsyncServer5SpawnEv'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='235' u='c' c='_ZN13idAsyncServer4KillEv'/>

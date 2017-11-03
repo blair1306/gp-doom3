@@ -1,0 +1,95 @@
+<inh f='codebrowser/d3xp/Entity.h' l='107' c='idEntity'/>
+<def f='codebrowser/d3xp/Moveable.h' l='43' ll='102'/>
+<ovr f='codebrowser/d3xp/Moveable.h' l='114' c='idBarrel'/>
+<size>1584</size>
+<smbr r='idMoveable::Type' t='idTypeInfo'/>
+<fun r='_ZN10idMoveable14CreateInstanceEv'/>
+<fun r='_ZNK10idMoveable7GetTypeEv'/>
+<smbr r='idMoveable::eventCallbacks' t='idEventFunc&lt;idMoveable&gt; []'/>
+<fun r='_ZN10idMoveableC1Ev'/>
+<fun r='_ZN10idMoveableD1Ev'/>
+<fun r='_ZN10idMoveable5SpawnEv'/>
+<fun r='_ZNK10idMoveable4SaveEP10idSaveGame'/>
+<fun r='_ZN10idMoveable7RestoreEP13idRestoreGame'/>
+<fun r='_ZN10idMoveable5ThinkEv'/>
+<fun r='_ZN10idMoveable4HideEv'/>
+<fun r='_ZN10idMoveable4ShowEv'/>
+<fun r='_ZNK10idMoveable9AllowStepEv'/>
+<fun r='_ZN10idMoveable12EnableDamageEbf'/>
+<fun r='_ZN10idMoveable7CollideERK7trace_sRK6idVec3'/>
+<fun r='_ZN10idMoveable6KilledEP8idEntityS1_iRK6idVec3i'/>
+<fun r='_ZNK10idMoveable15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN10idMoveable16ReadFromSnapshotERK13idBitMsgDelta'/>
+<fun r='_ZN10idMoveable11SetAttackerEP8idEntity'/>
+<mbr r='idMoveable::physicsObj' o='6944' t='idPhysics_RigidBody'/>
+<mbr r='idMoveable::brokenModel' o='11296' t='idStr'/>
+<mbr r='idMoveable::damage' o='11552' t='idStr'/>
+<mbr r='idMoveable::monsterDamage' o='11808' t='idStr'/>
+<mbr r='idMoveable::attacker' o='12064' t='idEntity *'/>
+<mbr r='idMoveable::fxCollide' o='12096' t='idStr'/>
+<mbr r='idMoveable::nextCollideFxTime' o='12352' t='int'/>
+<mbr r='idMoveable::minDamageVelocity' o='12384' t='float'/>
+<mbr r='idMoveable::maxDamageVelocity' o='12416' t='float'/>
+<mbr r='idMoveable::initialSpline' o='12448' t='idCurve_Spline&lt;idVec3&gt; *'/>
+<mbr r='idMoveable::initialSplineDir' o='12480' t='idVec3'/>
+<mbr r='idMoveable::explode' o='12576' t='bool'/>
+<mbr r='idMoveable::unbindOnDeath' o='12584' t='bool'/>
+<mbr r='idMoveable::allowStep' o='12592' t='bool'/>
+<mbr r='idMoveable::canDamage' o='12600' t='bool'/>
+<mbr r='idMoveable::nextDamageTime' o='12608' t='int'/>
+<mbr r='idMoveable::nextSoundTime' o='12640' t='int'/>
+<fun r='_ZNK10idMoveable22GetRenderModelMaterialEv'/>
+<fun r='_ZN10idMoveable14BecomeNonSolidEv'/>
+<fun r='_ZN10idMoveable17InitInitialSplineEi'/>
+<fun r='_ZN10idMoveable23FollowInitialSplinePathEv'/>
+<fun r='_ZN10idMoveable14Event_ActivateEP8idEntity'/>
+<fun r='_ZN10idMoveable20Event_BecomeNonSolidEv'/>
+<fun r='_ZN10idMoveable27Event_SetOwnerFromSpawnArgsEv'/>
+<fun r='_ZN10idMoveable14Event_IsAtRestEv'/>
+<fun r='_ZN10idMoveable18Event_EnableDamageEf'/>
+<inh f='codebrowser/game/Entity.h' l='107' c='idEntity'/>
+<def f='codebrowser/game/Moveable.h' l='43' ll='94'/>
+<ovr f='codebrowser/game/Moveable.h' l='106' c='idBarrel'/>
+<size>1316</size>
+<smbr r='idMoveable::Type' t='idTypeInfo'/>
+<fun r='_ZN10idMoveable14CreateInstanceEv'/>
+<fun r='_ZNK10idMoveable7GetTypeEv'/>
+<smbr r='idMoveable::eventCallbacks' t='idEventFunc&lt;idMoveable&gt; []'/>
+<fun r='_ZN10idMoveableC1Ev'/>
+<fun r='_ZN10idMoveableD1Ev'/>
+<fun r='_ZN10idMoveable5SpawnEv'/>
+<fun r='_ZNK10idMoveable4SaveEP10idSaveGame'/>
+<fun r='_ZN10idMoveable7RestoreEP13idRestoreGame'/>
+<fun r='_ZN10idMoveable5ThinkEv'/>
+<fun r='_ZN10idMoveable4HideEv'/>
+<fun r='_ZN10idMoveable4ShowEv'/>
+<fun r='_ZNK10idMoveable9AllowStepEv'/>
+<fun r='_ZN10idMoveable12EnableDamageEbf'/>
+<fun r='_ZN10idMoveable7CollideERK7trace_sRK6idVec3'/>
+<fun r='_ZN10idMoveable6KilledEP8idEntityS1_iRK6idVec3i'/>
+<fun r='_ZNK10idMoveable15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN10idMoveable16ReadFromSnapshotERK13idBitMsgDelta'/>
+<mbr r='idMoveable::physicsObj' o='5088' t='idPhysics_RigidBody'/>
+<mbr r='idMoveable::brokenModel' o='9440' t='idStr'/>
+<mbr r='idMoveable::damage' o='9696' t='idStr'/>
+<mbr r='idMoveable::fxCollide' o='9952' t='idStr'/>
+<mbr r='idMoveable::nextCollideFxTime' o='10208' t='int'/>
+<mbr r='idMoveable::minDamageVelocity' o='10240' t='float'/>
+<mbr r='idMoveable::maxDamageVelocity' o='10272' t='float'/>
+<mbr r='idMoveable::initialSpline' o='10304' t='idCurve_Spline&lt;idVec3&gt; *'/>
+<mbr r='idMoveable::initialSplineDir' o='10336' t='idVec3'/>
+<mbr r='idMoveable::explode' o='10432' t='bool'/>
+<mbr r='idMoveable::unbindOnDeath' o='10440' t='bool'/>
+<mbr r='idMoveable::allowStep' o='10448' t='bool'/>
+<mbr r='idMoveable::canDamage' o='10456' t='bool'/>
+<mbr r='idMoveable::nextDamageTime' o='10464' t='int'/>
+<mbr r='idMoveable::nextSoundTime' o='10496' t='int'/>
+<fun r='_ZNK10idMoveable22GetRenderModelMaterialEv'/>
+<fun r='_ZN10idMoveable14BecomeNonSolidEv'/>
+<fun r='_ZN10idMoveable17InitInitialSplineEi'/>
+<fun r='_ZN10idMoveable23FollowInitialSplinePathEv'/>
+<fun r='_ZN10idMoveable14Event_ActivateEP8idEntity'/>
+<fun r='_ZN10idMoveable20Event_BecomeNonSolidEv'/>
+<fun r='_ZN10idMoveable27Event_SetOwnerFromSpawnArgsEv'/>
+<fun r='_ZN10idMoveable14Event_IsAtRestEv'/>
+<fun r='_ZN10idMoveable18Event_EnableDamageEf'/>

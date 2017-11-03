@@ -1,0 +1,13 @@
+<dec f='codebrowser/framework/async/AsyncServer.h' l='169' type='void idAsyncServer::DropClient(int clientNum, const char * reason)'/>
+<use f='codebrowser/framework/async/AsyncNetwork.cpp' l='443' u='c' c='_ZN14idAsyncNetwork6Kick_fERK9idCmdArgs'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='212' u='c' c='_ZN13idAsyncServer4KillEv'/>
+<def f='codebrowser/framework/async/AsyncServer.cpp' l='758' ll='790' type='void idAsyncServer::DropClient(int clientNum, const char * reason)'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='803' u='c' c='_ZN13idAsyncServer19SendReliableMessageEiRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='837' u='c' c='_ZN13idAsyncServer19CheckClientTimeoutsEv'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1376' u='c' c='_ZN13idAsyncServer29ProcessReliableClientMessagesEi'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1992' u='c' c='_ZN13idAsyncServer19ProcessReliablePureEiRK8idBitMsg'/>
+<doc f='codebrowser/framework/async/AsyncServer.cpp' l='753'>/*
+==================
+idAsyncServer::DropClient
+==================
+*/</doc>

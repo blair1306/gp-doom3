@@ -1,0 +1,15 @@
+<dec f='codebrowser/idlib/math/Simd_Generic.h' l='105' type='void idSIMD_Generic::MatX_TransposeMultiplyMatX(idMatX &amp; dst, const idMatX &amp; m1, const idMatX &amp; m2)'/>
+<inh f='codebrowser/idlib/math/Simd.h' l='167' c='_ZN15idSIMDProcessor26MatX_TransposeMultiplyMatXER6idMatXRKS0_S3_'/>
+<def f='codebrowser/idlib/math/Simd_Generic.cpp' l='1491' ll='1721' type='void idSIMD_Generic::MatX_TransposeMultiplyMatX(idMatX &amp; dst, const idMatX &amp; m1, const idMatX &amp; m2)'/>
+<doc f='codebrowser/idlib/math/Simd_Generic.cpp' l='1479'>/*
+============
+idSIMD_Generic::MatX_TransposeMultiplyMatX
+
+	optimizes the following tranpose matrix multiplications:
+
+	Nx6 * NxN
+	6xN * 6x6
+
+	with N in the range [1-6].
+============
+*/</doc>

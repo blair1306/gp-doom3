@@ -1,0 +1,106 @@
+<inh f='codebrowser/d3xp/Entity.h' l='500' c='idAnimatedEntity'/>
+<def f='codebrowser/d3xp/anim/Anim_Testmodel.h' l='40' ll='93'/>
+<size>3232</size>
+<doc f='codebrowser/d3xp/anim/Anim_Testmodel.h' l='32'>/*
+==============================================================================================
+
+	idTestModel
+
+==============================================================================================
+*/</doc>
+<smbr r='idTestModel::Type' t='idTypeInfo'/>
+<fun r='_ZN11idTestModel14CreateInstanceEv'/>
+<fun r='_ZNK11idTestModel7GetTypeEv'/>
+<smbr r='idTestModel::eventCallbacks' t='idEventFunc&lt;idTestModel&gt; []'/>
+<fun r='_ZN11idTestModelC1Ev'/>
+<fun r='_ZN11idTestModelD1Ev'/>
+<fun r='_ZN11idTestModel4SaveEP10idSaveGame'/>
+<fun r='_ZN11idTestModel7RestoreEP13idRestoreGame'/>
+<fun r='_ZN11idTestModel5SpawnEv'/>
+<fun r='_ZNK11idTestModel34ShouldConstructScriptObjectAtSpawnEv'/>
+<fun r='_ZN11idTestModel8NextAnimERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel8PrevAnimERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel9NextFrameERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel9PrevFrameERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel8TestAnimERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel9BlendAnimERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel15KeepTestModel_fERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel11TestModel_fERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel23ArgCompletion_TestModelERK9idCmdArgsPFvPKcE'/>
+<fun r='_ZN11idTestModel10TestSkin_fERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel16TestShaderParm_fERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel22TestParticleStopTime_fERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel10TestAnim_fERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel22ArgCompletion_TestAnimERK9idCmdArgsPFvPKcE'/>
+<fun r='_ZN11idTestModel11TestBlend_fERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel19TestModelNextAnim_fERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel19TestModelPrevAnim_fERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel20TestModelNextFrame_fERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel20TestModelPrevFrame_fERK9idCmdArgs'/>
+<mbr r='idTestModel::head' o='14848' t='idEntityPtr&lt;idEntity&gt;'/>
+<mbr r='idTestModel::headAnimator' o='14880' t='idAnimator *'/>
+<mbr r='idTestModel::customAnim' o='14912' t='idAnim'/>
+<mbr r='idTestModel::physicsObj' o='15872' t='idPhysics_Parametric'/>
+<mbr r='idTestModel::animname' o='25280' t='idStr'/>
+<mbr r='idTestModel::anim' o='25536' t='int'/>
+<mbr r='idTestModel::headAnim' o='25568' t='int'/>
+<mbr r='idTestModel::mode' o='25600' t='int'/>
+<mbr r='idTestModel::frame' o='25632' t='int'/>
+<mbr r='idTestModel::starttime' o='25664' t='int'/>
+<mbr r='idTestModel::animtime' o='25696' t='int'/>
+<mbr r='idTestModel::copyJoints' o='25728' t='idList&lt;copyJoints_t&gt;'/>
+<fun r='_ZN11idTestModel5ThinkEv'/>
+<fun r='_ZN11idTestModel14Event_FootstepEv'/>
+<inh f='codebrowser/game/Entity.h' l='477' c='idAnimatedEntity'/>
+<def f='codebrowser/game/anim/Anim_Testmodel.h' l='40' ll='93'/>
+<size>3000</size>
+<doc f='codebrowser/game/anim/Anim_Testmodel.h' l='32'>/*
+==============================================================================================
+
+	idTestModel
+
+==============================================================================================
+*/</doc>
+<smbr r='idTestModel::Type' t='idTypeInfo'/>
+<fun r='_ZN11idTestModel14CreateInstanceEv'/>
+<fun r='_ZNK11idTestModel7GetTypeEv'/>
+<smbr r='idTestModel::eventCallbacks' t='idEventFunc&lt;idTestModel&gt; []'/>
+<fun r='_ZN11idTestModelC1Ev'/>
+<fun r='_ZN11idTestModelD1Ev'/>
+<fun r='_ZN11idTestModel4SaveEP10idSaveGame'/>
+<fun r='_ZN11idTestModel7RestoreEP13idRestoreGame'/>
+<fun r='_ZN11idTestModel5SpawnEv'/>
+<fun r='_ZNK11idTestModel34ShouldConstructScriptObjectAtSpawnEv'/>
+<fun r='_ZN11idTestModel8NextAnimERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel8PrevAnimERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel9NextFrameERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel9PrevFrameERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel8TestAnimERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel9BlendAnimERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel15KeepTestModel_fERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel11TestModel_fERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel23ArgCompletion_TestModelERK9idCmdArgsPFvPKcE'/>
+<fun r='_ZN11idTestModel10TestSkin_fERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel16TestShaderParm_fERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel22TestParticleStopTime_fERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel10TestAnim_fERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel22ArgCompletion_TestAnimERK9idCmdArgsPFvPKcE'/>
+<fun r='_ZN11idTestModel11TestBlend_fERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel19TestModelNextAnim_fERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel19TestModelPrevAnim_fERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel20TestModelNextFrame_fERK9idCmdArgs'/>
+<fun r='_ZN11idTestModel20TestModelPrevFrame_fERK9idCmdArgs'/>
+<mbr r='idTestModel::head' o='12992' t='idEntityPtr&lt;idEntity&gt;'/>
+<mbr r='idTestModel::headAnimator' o='13024' t='idAnimator *'/>
+<mbr r='idTestModel::customAnim' o='13056' t='idAnim'/>
+<mbr r='idTestModel::physicsObj' o='14016' t='idPhysics_Parametric'/>
+<mbr r='idTestModel::animname' o='23424' t='idStr'/>
+<mbr r='idTestModel::anim' o='23680' t='int'/>
+<mbr r='idTestModel::headAnim' o='23712' t='int'/>
+<mbr r='idTestModel::mode' o='23744' t='int'/>
+<mbr r='idTestModel::frame' o='23776' t='int'/>
+<mbr r='idTestModel::starttime' o='23808' t='int'/>
+<mbr r='idTestModel::animtime' o='23840' t='int'/>
+<mbr r='idTestModel::copyJoints' o='23872' t='idList&lt;copyJoints_t&gt;'/>
+<fun r='_ZN11idTestModel5ThinkEv'/>
+<fun r='_ZN11idTestModel14Event_FootstepEv'/>

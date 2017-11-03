@@ -1,0 +1,13 @@
+<dec f='codebrowser/curl/include/curl/curl.h' l='1063' type='struct curl_slist *'/>
+<offset>64</offset>
+<use f='codebrowser/curl/lib/formdata.c' l='1195' u='r' c='Curl_getFormData'/>
+<use f='codebrowser/curl/lib/ftp.c' l='847' u='r' c='ftp_sendquote'/>
+<use f='codebrowser/curl/lib/http.c' l='116' u='r' c='checkheaders'/>
+<use f='codebrowser/curl/lib/http.c' l='1463' u='r' c='Curl_http'/>
+<use f='codebrowser/curl/lib/sendf.c' l='71' u='r' c='slist_get_last'/>
+<use f='codebrowser/curl/lib/sendf.c' l='72' u='r' c='slist_get_last'/>
+<use f='codebrowser/curl/lib/sendf.c' l='90' u='w' c='curl_slist_append'/>
+<use f='codebrowser/curl/lib/sendf.c' l='99' u='w' c='curl_slist_append'/>
+<use f='codebrowser/curl/lib/sendf.c' l='118' u='r' c='curl_slist_free_all'/>
+<use f='codebrowser/curl/lib/transfer.c' l='184' u='r' c='checkhttpprefix'/>
+<use f='codebrowser/curl/lib/transfer.c' l='1485' u='r' c='Curl_pretransfer'/>

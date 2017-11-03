@@ -1,0 +1,22 @@
+<dec f='codebrowser/d3xp/Entity.h' l='222' type='bool idEntity::PhysicsTeamInPVS(pvsHandle_t pvsHandle)'/>
+<def f='codebrowser/d3xp/Entity.cpp' l='1398' ll='1411' type='bool idEntity::PhysicsTeamInPVS(pvsHandle_t pvsHandle)'/>
+<doc f='codebrowser/d3xp/Entity.cpp' l='1391'>/*
+================
+idEntity::PhysicsTeamInPVS
+
+  FIXME: for networking also return true if any of the entity shadows is in the PVS
+================
+*/</doc>
+<use f='codebrowser/d3xp/Game_network.cpp' l='610' u='c' c='_ZN11idGameLocal19ServerWriteSnapshotEiiR8idBitMsgPhi'/>
+<use f='codebrowser/d3xp/Game_network.cpp' l='1182' u='c' c='_ZN11idGameLocal18ClientReadSnapshotEiiiiiiRK8idBitMsg'/>
+<dec f='codebrowser/game/Entity.h' l='206' type='bool idEntity::PhysicsTeamInPVS(pvsHandle_t pvsHandle)'/>
+<def f='codebrowser/game/Entity.cpp' l='1310' ll='1323' type='bool idEntity::PhysicsTeamInPVS(pvsHandle_t pvsHandle)'/>
+<doc f='codebrowser/game/Entity.cpp' l='1303'>/*
+================
+idEntity::PhysicsTeamInPVS
+
+  FIXME: for networking also return true if any of the entity shadows is in the PVS
+================
+*/</doc>
+<use f='codebrowser/game/Game_network.cpp' l='596' u='c' c='_ZN11idGameLocal19ServerWriteSnapshotEiiR8idBitMsgPhi'/>
+<use f='codebrowser/game/Game_network.cpp' l='1154' u='c' c='_ZN11idGameLocal18ClientReadSnapshotEiiiiiiRK8idBitMsg'/>

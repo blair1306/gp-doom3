@@ -1,0 +1,30 @@
+<dec f='codebrowser/d3xp/Entity.h' l='322' type='bool idEntity::ShouldConstructScriptObjectAtSpawn() const'/>
+<doc f='codebrowser/d3xp/Entity.h' l='321'>// scripting</doc>
+<ovr f='codebrowser/d3xp/Actor.cpp' l='1278' c='_ZNK7idActor34ShouldConstructScriptObjectAtSpawnEv'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='589' u='c' c='_ZN8idEntity5SpawnEv'/>
+<def f='codebrowser/d3xp/Entity.cpp' l='3181' ll='3183' type='bool idEntity::ShouldConstructScriptObjectAtSpawn() const'/>
+<doc f='codebrowser/d3xp/Entity.cpp' l='3173'>/*
+================
+idEntity::ShouldConstructScriptObjectAtSpawn
+
+Called during idEntity::Spawn to see if it should construct the script object or not.
+Overridden by subclasses that need to spawn the script object themselves.
+================
+*/</doc>
+<ovr f='codebrowser/d3xp/Weapon.cpp' l='241' c='_ZNK8idWeapon34ShouldConstructScriptObjectAtSpawnEv'/>
+<ovr f='codebrowser/d3xp/anim/Anim_Testmodel.cpp' l='238' c='_ZNK11idTestModel34ShouldConstructScriptObjectAtSpawnEv'/>
+<dec f='codebrowser/game/Entity.h' l='306' type='bool idEntity::ShouldConstructScriptObjectAtSpawn() const'/>
+<doc f='codebrowser/game/Entity.h' l='305'>// scripting</doc>
+<ovr f='codebrowser/game/Actor.cpp' l='1230' c='_ZNK7idActor34ShouldConstructScriptObjectAtSpawnEv'/>
+<use f='codebrowser/game/Entity.cpp' l='551' u='c' c='_ZN8idEntity5SpawnEv'/>
+<def f='codebrowser/game/Entity.cpp' l='3085' ll='3087' type='bool idEntity::ShouldConstructScriptObjectAtSpawn() const'/>
+<doc f='codebrowser/game/Entity.cpp' l='3077'>/*
+================
+idEntity::ShouldConstructScriptObjectAtSpawn
+
+Called during idEntity::Spawn to see if it should construct the script object or not.
+Overridden by subclasses that need to spawn the script object themselves.
+================
+*/</doc>
+<ovr f='codebrowser/game/Weapon.cpp' l='206' c='_ZNK8idWeapon34ShouldConstructScriptObjectAtSpawnEv'/>
+<ovr f='codebrowser/game/anim/Anim_Testmodel.cpp' l='238' c='_ZNK11idTestModel34ShouldConstructScriptObjectAtSpawnEv'/>

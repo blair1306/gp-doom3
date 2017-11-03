@@ -1,0 +1,44 @@
+<def f='codebrowser/curl/lib/urldata.h' l='312' ll='381'/>
+<size>856</size>
+<doc f='codebrowser/curl/lib/urldata.h' l='306'>/*
+ * This struct is all the previously local variables from Curl_perform() moved
+ * to struct to allow the function to return and get re-invoked better without
+ * losing state.
+ */</doc>
+<mbr r='Curl_transfer_keeper::bytecount' o='0' t='curl_off_t'/>
+<mbr r='Curl_transfer_keeper::writebytecount' o='64' t='int'/>
+<mbr r='Curl_transfer_keeper::start' o='128' t='struct timeval'/>
+<mbr r='Curl_transfer_keeper::now' o='256' t='struct timeval'/>
+<mbr r='Curl_transfer_keeper::header' o='384' t='bool'/>
+<mbr r='Curl_transfer_keeper::badheader' o='416' t='enum (anonymous enum at /home/jon/workspace/id-software/DOOM-3/neo/curl/lib/urldata.h:318:3)'/>
+<mbr r='Curl_transfer_keeper::headerline' o='448' t='int'/>
+<mbr r='Curl_transfer_keeper::hbufp' o='512' t='char *'/>
+<mbr r='Curl_transfer_keeper::hbuflen' o='576' t='int'/>
+<mbr r='Curl_transfer_keeper::str' o='640' t='char *'/>
+<mbr r='Curl_transfer_keeper::str_start' o='704' t='char *'/>
+<mbr r='Curl_transfer_keeper::end_ptr' o='768' t='char *'/>
+<mbr r='Curl_transfer_keeper::p' o='832' t='char *'/>
+<mbr r='Curl_transfer_keeper::content_range' o='896' t='bool'/>
+<mbr r='Curl_transfer_keeper::offset' o='960' t='curl_off_t'/>
+<mbr r='Curl_transfer_keeper::httpcode' o='1024' t='int'/>
+<mbr r='Curl_transfer_keeper::httpversion' o='1056' t='int'/>
+<mbr r='Curl_transfer_keeper::start100' o='1088' t='struct timeval'/>
+<mbr r='Curl_transfer_keeper::write_after_100_header' o='1216' t='bool'/>
+<mbr r='Curl_transfer_keeper::wait100_after_headers' o='1224' t='bool'/>
+<mbr r='Curl_transfer_keeper::content_encoding' o='1248' t='int'/>
+<mbr r='Curl_transfer_keeper::zlib_init' o='1280' t='bool'/>
+<mbr r='Curl_transfer_keeper::z' o='1344' t='z_stream'/>
+<mbr r='Curl_transfer_keeper::timeofdoc' o='2240' t='time_t'/>
+<mbr r='Curl_transfer_keeper::bodywrites' o='2304' t='long'/>
+<mbr r='Curl_transfer_keeper::buf' o='2368' t='char *'/>
+<mbr r='Curl_transfer_keeper::uploadbuf' o='2432' t='char *'/>
+<mbr r='Curl_transfer_keeper::maxfd' o='2496' t='curl_socket_t'/>
+<mbr r='Curl_transfer_keeper::readfdp' o='2560' t='fd_set *'/>
+<mbr r='Curl_transfer_keeper::writefdp' o='2624' t='fd_set *'/>
+<mbr r='Curl_transfer_keeper::readfd' o='2688' t='fd_set'/>
+<mbr r='Curl_transfer_keeper::writefd' o='3712' t='fd_set'/>
+<mbr r='Curl_transfer_keeper::rkeepfd' o='4736' t='fd_set'/>
+<mbr r='Curl_transfer_keeper::wkeepfd' o='5760' t='fd_set'/>
+<mbr r='Curl_transfer_keeper::keepon' o='6784' t='int'/>
+<mbr r='Curl_transfer_keeper::upload_done' o='6816' t='bool'/>
+<mbr r='Curl_transfer_keeper::ignorebody' o='6824' t='bool'/>

@@ -1,0 +1,17 @@
+<dec f='codebrowser/idlib/geometry/Winding.h' l='299' type='int idFixedWinding::Split(idFixedWinding * back, const idPlane &amp; plane, const float epsilon = 0.100000001F)'/>
+<doc f='codebrowser/idlib/geometry/Winding.h' l='297'>// splits the winding in a back and front part, &apos;this&apos; becomes the front part
+					// returns a SIDE_?</doc>
+<use f='codebrowser/cm/CollisionModel_load.cpp' l='897' u='c' c='_ZN28idCollisionModelManagerLocal22R_ChoppedAwayByProcBSPEiP14idFixedWindingRK6idVec3S4_f'/>
+<use f='codebrowser/cm/CollisionModel_load.cpp' l='1026' u='c' c='_ZN28idCollisionModelManagerLocal24ChopWindingListWithBrushEP16cm_windingList_sP10cm_brush_s'/>
+<use f='codebrowser/d3xp/BrittleFracture.cpp' l='1091' u='c' c='_ZN17idBrittleFracture10Fracture_rER14idFixedWinding'/>
+<use f='codebrowser/game/BrittleFracture.cpp' l='1052' u='c' c='_ZN17idBrittleFracture10Fracture_rER14idFixedWinding'/>
+<def f='codebrowser/idlib/geometry/Winding.cpp' l='1484' ll='1601' type='int idFixedWinding::Split(idFixedWinding * back, const idPlane &amp; plane, const float epsilon = 0.100000001F)'/>
+<doc f='codebrowser/idlib/geometry/Winding.cpp' l='1479'>/*
+=============
+idFixedWinding::Split
+=============
+*/</doc>
+<use f='codebrowser/renderer/ModelDecal.cpp' l='279' u='c' c='_ZN18idRenderModelDecal20AddDepthFadedWindingERK9idWindingPK10idMaterialPK7idPlanefi'/>
+<use f='codebrowser/renderer/ModelDecal.cpp' l='283' u='c' c='_ZN18idRenderModelDecal20AddDepthFadedWindingERK9idWindingPK10idMaterialPK7idPlanefi'/>
+<use f='codebrowser/tools/compilers/aas/AASBuild.cpp' l='217' u='c' c='_ZN10idAASBuild20ChoppedAwayByProcBSPEiP14idFixedWindingRK6idVec3S4_f'/>
+<use f='codebrowser/tools/compilers/aas/AASBuild_ledge.cpp' l='363' u='c' c='_ZN10idAASBuild13IsLedgeSide_rEP14idBrushBSPNodeP14idFixedWindingRK7idPlaneRK6idVec3S9_f'/>

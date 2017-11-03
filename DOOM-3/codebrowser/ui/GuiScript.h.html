@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GuiScript.h source code [codebrowser/ui/GuiScript.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idGSWinVar,idGuiScript,idGuiScriptList "/>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/ui/GuiScript.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>ui</a>/<a href='GuiScript.h.html'>GuiScript.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td><u>#<span data-ppcond="28">ifndef</span> <span class="macro" data-ref="_M/__GUISCRIPT_H">__GUISCRIPT_H</span></u></td></tr>
+<tr><th id="29">29</th><td><u>#define <dfn class="macro" id="_M/__GUISCRIPT_H" data-ref="_M/__GUISCRIPT_H">__GUISCRIPT_H</dfn></u></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><u>#include <a href="Window.h.html">"Window.h"</a></u></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="Winvar.h.html">"Winvar.h"</a></u></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><b>struct</b> <dfn class="type def" id="idGSWinVar" title='idGSWinVar' data-ref="idGSWinVar">idGSWinVar</dfn> {</td></tr>
+<tr><th id="35">35</th><td>	<dfn class="decl def" id="_ZN10idGSWinVarC1Ev" title='idGSWinVar::idGSWinVar' data-ref="_ZN10idGSWinVarC1Ev">idGSWinVar</dfn>() {</td></tr>
+<tr><th id="36">36</th><td>		<a class="member" href="#idGSWinVar::var" title='idGSWinVar::var' data-ref="idGSWinVar::var">var</a> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="37">37</th><td>		<a class="member" href="#idGSWinVar::own" title='idGSWinVar::own' data-ref="idGSWinVar::own">own</a> = <b>false</b>;</td></tr>
+<tr><th id="38">38</th><td>	}</td></tr>
+<tr><th id="39">39</th><td>	<a class="type" href="Winvar.h.html#idWinVar" title='idWinVar' data-ref="idWinVar">idWinVar</a>* <dfn class="decl" id="idGSWinVar::var" title='idGSWinVar::var' data-ref="idGSWinVar::var">var</dfn>;</td></tr>
+<tr><th id="40">40</th><td>	<em>bool</em> <dfn class="decl" id="idGSWinVar::own" title='idGSWinVar::own' data-ref="idGSWinVar::own">own</dfn>;</td></tr>
+<tr><th id="41">41</th><td>};</td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td><b>class</b> <a class="type" href="#idGuiScriptList" title='idGuiScriptList' data-ref="idGuiScriptList">idGuiScriptList</a>;</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td><b>class</b> <dfn class="type def" id="idGuiScript" title='idGuiScript' data-ref="idGuiScript">idGuiScript</dfn> {</td></tr>
+<tr><th id="46">46</th><td>	<b>friend</b> <b>class</b> <a class="type" href="#idGuiScriptList" title='idGuiScriptList' data-ref="idGuiScriptList">idGuiScriptList</a>;</td></tr>
+<tr><th id="47">47</th><td>	<b>friend</b> <b>class</b> <a class="type" href="Window.h.html#idWindow" title='idWindow' data-ref="idWindow">idWindow</a>;</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td><b>public</b>:</td></tr>
+<tr><th id="50">50</th><td>	<dfn class="decl" id="_ZN11idGuiScriptC1Ev" title='idGuiScript::idGuiScript' data-ref="_ZN11idGuiScriptC1Ev">idGuiScript</dfn>();</td></tr>
+<tr><th id="51">51</th><td>	<dfn class="decl" id="_ZN11idGuiScriptD1Ev" title='idGuiScript::~idGuiScript' data-ref="_ZN11idGuiScriptD1Ev">~idGuiScript</dfn>();</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td>	<em>bool</em> <dfn class="decl" id="_ZN11idGuiScript5ParseEP8idParser" title='idGuiScript::Parse' data-ref="_ZN11idGuiScript5ParseEP8idParser">Parse</dfn>(<a class="type" href="../idlib/Parser.h.html#idParser" title='idParser' data-ref="idParser">idParser</a> *<dfn class="local col7 decl" id="327src" title='src' data-type='idParser *' data-ref="327src">src</dfn>);</td></tr>
+<tr><th id="54">54</th><td>	<em>void</em> <dfn class="decl def" id="_ZN11idGuiScript7ExecuteEP8idWindow" title='idGuiScript::Execute' data-ref="_ZN11idGuiScript7ExecuteEP8idWindow">Execute</dfn>(<a class="type" href="Window.h.html#idWindow" title='idWindow' data-ref="idWindow">idWindow</a> *<dfn class="local col8 decl" id="328win" title='win' data-type='idWindow *' data-ref="328win">win</dfn>) {</td></tr>
+<tr><th id="55">55</th><td>		<b>if</b> (<a class="member" href="#idGuiScript::handler" title='idGuiScript::handler' data-ref="idGuiScript::handler">handler</a>) {</td></tr>
+<tr><th id="56">56</th><td>			<a class="member" href="#idGuiScript::handler" title='idGuiScript::handler' data-ref="idGuiScript::handler">handler</a>(<a class="local col8 ref" href="#328win" title='win' data-ref="328win">win</a>, &amp;<a class="member" href="#idGuiScript::parms" title='idGuiScript::parms' data-ref="idGuiScript::parms">parms</a>);</td></tr>
+<tr><th id="57">57</th><td>		}</td></tr>
+<tr><th id="58">58</th><td>	}</td></tr>
+<tr><th id="59">59</th><td>	<em>void</em> <dfn class="decl" id="_ZN11idGuiScript10FixupParmsEP8idWindow" title='idGuiScript::FixupParms' data-ref="_ZN11idGuiScript10FixupParmsEP8idWindow">FixupParms</dfn>(<a class="type" href="Window.h.html#idWindow" title='idWindow' data-ref="idWindow">idWindow</a> *<dfn class="local col9 decl" id="329win" title='win' data-type='idWindow *' data-ref="329win">win</dfn>);</td></tr>
+<tr><th id="60">60</th><td>	<span class='typedef' title='size_t' data-type='unsigned int' data-ref="size_t">size_t</span> <dfn class="decl def" id="_ZN11idGuiScript4SizeEv" title='idGuiScript::Size' data-ref="_ZN11idGuiScript4SizeEv">Size</dfn>() {</td></tr>
+<tr><th id="61">61</th><td>		<em>int</em> <dfn class="local col0 decl" id="330sz" title='sz' data-type='int' data-ref="330sz">sz</dfn> = <b>sizeof</b>(*<b>this</b>);</td></tr>
+<tr><th id="62">62</th><td>		<b>for</b> (<em>int</em> <dfn class="local col1 decl" id="331i" title='i' data-type='int' data-ref="331i">i</dfn> = <var>0</var>; <a class="local col1 ref" href="#331i" title='i' data-ref="331i">i</a> &lt; <a class="member" href="#idGuiScript::parms" title='idGuiScript::parms' data-ref="idGuiScript::parms">parms</a>.<a class="ref" href="../idlib/containers/List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>(); <a class="local col1 ref" href="#331i" title='i' data-ref="331i">i</a>++) {</td></tr>
+<tr><th id="63">63</th><td>			<a class="local col0 ref" href="#330sz" title='sz' data-ref="330sz">sz</a> += <a class="member" href="#idGuiScript::parms" title='idGuiScript::parms' data-ref="idGuiScript::parms">parms</a><a class="ref" href="../idlib/containers/List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[<a class="local col1 ref" href="#331i" title='i' data-ref="331i">i</a>]</a>.<a class="ref" href="#idGSWinVar::var" title='idGSWinVar::var' data-ref="idGSWinVar::var">var</a>-&gt;<a class="virtual ref" href="Winvar.h.html#_ZN8idWinVar4SizeEv" title='idWinVar::Size' data-ref="_ZN8idWinVar4SizeEv">Size</a>();</td></tr>
+<tr><th id="64">64</th><td>		}</td></tr>
+<tr><th id="65">65</th><td>		<b>return</b> <a class="local col0 ref" href="#330sz" title='sz' data-ref="330sz">sz</a>;</td></tr>
+<tr><th id="66">66</th><td>	}</td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td>	<em>void</em> <dfn class="decl" id="_ZN11idGuiScript15WriteToSaveGameEP6idFile" title='idGuiScript::WriteToSaveGame' data-ref="_ZN11idGuiScript15WriteToSaveGameEP6idFile">WriteToSaveGame</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col2 decl" id="332savefile" title='savefile' data-type='idFile *' data-ref="332savefile">savefile</dfn> );</td></tr>
+<tr><th id="69">69</th><td>	<em>void</em> <dfn class="decl" id="_ZN11idGuiScript16ReadFromSaveGameEP6idFile" title='idGuiScript::ReadFromSaveGame' data-ref="_ZN11idGuiScript16ReadFromSaveGameEP6idFile">ReadFromSaveGame</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col3 decl" id="333savefile" title='savefile' data-type='idFile *' data-ref="333savefile">savefile</dfn> );</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td><b>protected</b>:</td></tr>
+<tr><th id="72">72</th><td>	<em>int</em> <dfn class="decl" id="idGuiScript::conditionReg" title='idGuiScript::conditionReg' data-ref="idGuiScript::conditionReg">conditionReg</dfn>;</td></tr>
+<tr><th id="73">73</th><td>	<a class="type" href="#idGuiScriptList" title='idGuiScriptList' data-ref="idGuiScriptList">idGuiScriptList</a> *<dfn class="decl" id="idGuiScript::ifList" title='idGuiScript::ifList' data-ref="idGuiScript::ifList">ifList</dfn>;</td></tr>
+<tr><th id="74">74</th><td>	<a class="type" href="#idGuiScriptList" title='idGuiScriptList' data-ref="idGuiScriptList">idGuiScriptList</a> *<dfn class="decl" id="idGuiScript::elseList" title='idGuiScript::elseList' data-ref="idGuiScript::elseList">elseList</dfn>;</td></tr>
+<tr><th id="75">75</th><td>	<a class="type" href="../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<a class="type" href="#idGSWinVar" title='idGSWinVar' data-ref="idGSWinVar">idGSWinVar</a>&gt; <dfn class="decl" id="idGuiScript::parms" title='idGuiScript::parms' data-ref="idGuiScript::parms">parms</dfn>;</td></tr>
+<tr><th id="76">76</th><td>	<em>void</em> (*<dfn class="decl" id="idGuiScript::handler" title='idGuiScript::handler' data-ref="idGuiScript::handler">handler</dfn>) (<a class="type" href="Window.h.html#idWindow" title='idWindow' data-ref="idWindow">idWindow</a> *<dfn class="local col4 decl" id="334window" title='window' data-type='idWindow *' data-ref="334window">window</dfn>, <a class="type" href="../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<a class="type" href="#idGSWinVar" title='idGSWinVar' data-ref="idGSWinVar">idGSWinVar</a>&gt; *<dfn class="local col5 decl" id="335src" title='src' data-type='idList&lt;idGSWinVar&gt; *' data-ref="335src">src</dfn>);</td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td>};</td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td><b>class</b> <dfn class="type def" id="idGuiScriptList" title='idGuiScriptList' data-ref="idGuiScriptList">idGuiScriptList</dfn> {</td></tr>
+<tr><th id="82">82</th><td>	<a class="type" href="../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<a class="type" href="#idGuiScript" title='idGuiScript' data-ref="idGuiScript">idGuiScript</a>*&gt; <dfn class="decl" id="idGuiScriptList::list" title='idGuiScriptList::list' data-ref="idGuiScriptList::list">list</dfn>;</td></tr>
+<tr><th id="83">83</th><td><b>public</b>:</td></tr>
+<tr><th id="84">84</th><td>	<dfn class="decl def" id="_ZN15idGuiScriptListC1Ev" title='idGuiScriptList::idGuiScriptList' data-ref="_ZN15idGuiScriptListC1Ev">idGuiScriptList</dfn>() { <a class="member" href="#idGuiScriptList::list" title='idGuiScriptList::list' data-ref="idGuiScriptList::list">list</a>.<a class="ref" href="../idlib/containers/List.h.html#_ZN6idList14SetGranularityEi" title='idList::SetGranularity' data-ref="_ZN6idList14SetGranularityEi">SetGranularity</a>( <var>4</var> ); };</td></tr>
+<tr><th id="85">85</th><td>	<dfn class="decl def" id="_ZN15idGuiScriptListD1Ev" title='idGuiScriptList::~idGuiScriptList' data-ref="_ZN15idGuiScriptListD1Ev">~idGuiScriptList</dfn>() { <a class="member" href="#idGuiScriptList::list" title='idGuiScriptList::list' data-ref="idGuiScriptList::list">list</a>.<a class="ref" href="../idlib/containers/List.h.html#_ZN6idList14DeleteContentsEb" title='idList::DeleteContents' data-ref="_ZN6idList14DeleteContentsEb">DeleteContents</a>(<b>true</b>); };</td></tr>
+<tr><th id="86">86</th><td>	<em>void</em> <dfn class="decl" id="_ZN15idGuiScriptList7ExecuteEP8idWindow" title='idGuiScriptList::Execute' data-ref="_ZN15idGuiScriptList7ExecuteEP8idWindow">Execute</dfn>(<a class="type" href="Window.h.html#idWindow" title='idWindow' data-ref="idWindow">idWindow</a> *<dfn class="local col6 decl" id="336win" title='win' data-type='idWindow *' data-ref="336win">win</dfn>);</td></tr>
+<tr><th id="87">87</th><td>	<em>void</em> <dfn class="decl def" id="_ZN15idGuiScriptList6AppendEP11idGuiScript" title='idGuiScriptList::Append' data-ref="_ZN15idGuiScriptList6AppendEP11idGuiScript">Append</dfn>(<a class="type" href="#idGuiScript" title='idGuiScript' data-ref="idGuiScript">idGuiScript</a>* <dfn class="local col7 decl" id="337gs" title='gs' data-type='idGuiScript *' data-ref="337gs">gs</dfn>) {</td></tr>
+<tr><th id="88">88</th><td>		<a class="member" href="#idGuiScriptList::list" title='idGuiScriptList::list' data-ref="idGuiScriptList::list">list</a>.<a class="ref" href="../idlib/containers/List.h.html#_ZN6idList6AppendERKT_" title='idList::Append' data-ref="_ZN6idList6AppendERKT_">Append</a>(<a class="local col7 ref" href="#337gs" title='gs' data-ref="337gs">gs</a>);</td></tr>
+<tr><th id="89">89</th><td>	}</td></tr>
+<tr><th id="90">90</th><td>	<span class='typedef' title='size_t' data-type='unsigned int' data-ref="size_t">size_t</span> <dfn class="decl def" id="_ZN15idGuiScriptList4SizeEv" title='idGuiScriptList::Size' data-ref="_ZN15idGuiScriptList4SizeEv">Size</dfn>() {</td></tr>
+<tr><th id="91">91</th><td>		<em>int</em> <dfn class="local col8 decl" id="338sz" title='sz' data-type='int' data-ref="338sz">sz</dfn> = <b>sizeof</b>(*<b>this</b>);</td></tr>
+<tr><th id="92">92</th><td>		<b>for</b> (<em>int</em> <dfn class="local col9 decl" id="339i" title='i' data-type='int' data-ref="339i">i</dfn> = <var>0</var>; <a class="local col9 ref" href="#339i" title='i' data-ref="339i">i</a> &lt; <a class="member" href="#idGuiScriptList::list" title='idGuiScriptList::list' data-ref="idGuiScriptList::list">list</a>.<a class="ref" href="../idlib/containers/List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>(); <a class="local col9 ref" href="#339i" title='i' data-ref="339i">i</a>++) {</td></tr>
+<tr><th id="93">93</th><td>			<a class="local col8 ref" href="#338sz" title='sz' data-ref="338sz">sz</a> += <a class="member" href="#idGuiScriptList::list" title='idGuiScriptList::list' data-ref="idGuiScriptList::list">list</a><a class="ref" href="../idlib/containers/List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[<a class="local col9 ref" href="#339i" title='i' data-ref="339i">i</a>]</a>-&gt;<a class="ref" href="#_ZN11idGuiScript4SizeEv" title='idGuiScript::Size' data-ref="_ZN11idGuiScript4SizeEv">Size</a>();</td></tr>
+<tr><th id="94">94</th><td>		}</td></tr>
+<tr><th id="95">95</th><td>		<b>return</b> <a class="local col8 ref" href="#338sz" title='sz' data-ref="338sz">sz</a>;</td></tr>
+<tr><th id="96">96</th><td>	}</td></tr>
+<tr><th id="97">97</th><td>	<em>void</em> <dfn class="decl" id="_ZN15idGuiScriptList10FixupParmsEP8idWindow" title='idGuiScriptList::FixupParms' data-ref="_ZN15idGuiScriptList10FixupParmsEP8idWindow">FixupParms</dfn>(<a class="type" href="Window.h.html#idWindow" title='idWindow' data-ref="idWindow">idWindow</a> *<dfn class="local col0 decl" id="340win" title='win' data-type='idWindow *' data-ref="340win">win</dfn>);</td></tr>
+<tr><th id="98">98</th><td>	<em>void</em> <dfn class="decl def" id="_ZN15idGuiScriptList16ReadFromDemoFileEP10idDemoFile" title='idGuiScriptList::ReadFromDemoFile' data-ref="_ZN15idGuiScriptList16ReadFromDemoFileEP10idDemoFile">ReadFromDemoFile</dfn>( <b>class</b> <a class="type" href="../framework/DemoFile.h.html#idDemoFile" title='idDemoFile' data-ref="idDemoFile">idDemoFile</a> *<dfn class="local col1 decl" id="341f" title='f' data-type='class idDemoFile *' data-ref="341f">f</dfn> ) {};</td></tr>
+<tr><th id="99">99</th><td>	<em>void</em> <dfn class="decl def" id="_ZN15idGuiScriptList15WriteToDemoFileEP10idDemoFile" title='idGuiScriptList::WriteToDemoFile' data-ref="_ZN15idGuiScriptList15WriteToDemoFileEP10idDemoFile">WriteToDemoFile</dfn>( <b>class</b> <a class="type" href="../framework/DemoFile.h.html#idDemoFile" title='idDemoFile' data-ref="idDemoFile">idDemoFile</a> *<dfn class="local col2 decl" id="342f" title='f' data-type='class idDemoFile *' data-ref="342f">f</dfn> ) {};</td></tr>
+<tr><th id="100">100</th><td></td></tr>
+<tr><th id="101">101</th><td>	<em>void</em> <dfn class="decl" id="_ZN15idGuiScriptList15WriteToSaveGameEP6idFile" title='idGuiScriptList::WriteToSaveGame' data-ref="_ZN15idGuiScriptList15WriteToSaveGameEP6idFile">WriteToSaveGame</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col3 decl" id="343savefile" title='savefile' data-type='idFile *' data-ref="343savefile">savefile</dfn> );</td></tr>
+<tr><th id="102">102</th><td>	<em>void</em> <dfn class="decl" id="_ZN15idGuiScriptList16ReadFromSaveGameEP6idFile" title='idGuiScriptList::ReadFromSaveGame' data-ref="_ZN15idGuiScriptList16ReadFromSaveGameEP6idFile">ReadFromSaveGame</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col4 decl" id="344savefile" title='savefile' data-type='idFile *' data-ref="344savefile">savefile</dfn> );</td></tr>
+<tr><th id="103">103</th><td>};</td></tr>
+<tr><th id="104">104</th><td></td></tr>
+<tr><th id="105">105</th><td><u>#<span data-ppcond="28">endif</span> // __GUISCRIPT_H</u></td></tr>
+<tr><th id="106">106</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../tools/guied/GEWindowWrapper_stub.cpp.html'>codebrowser/tools/guied/GEWindowWrapper_stub.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

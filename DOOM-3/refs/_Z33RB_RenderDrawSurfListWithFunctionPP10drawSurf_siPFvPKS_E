@@ -1,0 +1,15 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1254' type='void RB_RenderDrawSurfListWithFunction(drawSurf_t ** drawSurfs, int numDrawSurfs, void (*)(const drawSurf_t *) triFunc_)'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='553' u='c' c='_Z22RB_STD_FillDepthBufferPP10drawSurf_si'/>
+<def f='codebrowser/renderer/tr_render.cpp' l='232' ll='273' type='void RB_RenderDrawSurfListWithFunction(drawSurf_t ** drawSurfs, int numDrawSurfs, void (*)(const drawSurf_t *) triFunc_)'/>
+<doc f='codebrowser/renderer/tr_render.cpp' l='222'>/*
+====================
+RB_RenderDrawSurfListWithFunction
+
+The triangle functions can check backEnd.currentSpace != surf-&gt;space
+to see if they need to perform any new matrix setup.  The modelview
+matrix will already have been loaded, and backEnd.currentSpace will
+be updated after the triangle function completes.
+====================
+*/</doc>
+<use f='codebrowser/renderer/tr_rendertools.cpp' l='569' u='c' c='_Z17RB_ShowSilhouettev'/>
+<use f='codebrowser/renderer/tr_rendertools.cpp' l='769' u='c' c='_ZL11RB_ShowTrisPP10drawSurf_si'/>

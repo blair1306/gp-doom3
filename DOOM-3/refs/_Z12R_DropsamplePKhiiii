@@ -1,0 +1,20 @@
+<dec f='codebrowser/renderer/Image.h' l='458' type='byte * R_Dropsample(const byte * in, int inwidth, int inheight, int outwidth, int outheight)'/>
+<doc f='codebrowser/renderer/Image.h' l='449'>/*
+====================================================================
+
+IMAGEPROCESS
+
+FIXME: make an &quot;imageBlock&quot; type to hold byte*,width,height?
+====================================================================
+*/</doc>
+<def f='codebrowser/renderer/Image_process.cpp' l='106' ll='129' type='byte * R_Dropsample(const byte * in, int inwidth, int inheight, int outwidth, int outheight)'/>
+<doc f='codebrowser/renderer/Image_process.cpp' l='98'>/*
+================
+R_Dropsample
+
+Used to resample images in a more general than quartering fashion.
+Normal maps and such should not be bilerped.
+================
+*/</doc>
+<use f='codebrowser/renderer/Image_program.cpp' l='207' u='c' c='_ZL15R_AddNormalMapsPhiiS_ii'/>
+<use f='codebrowser/renderer/Image_program.cpp' l='316' u='c' c='_ZL10R_ImageAddPhiiS_ii'/>

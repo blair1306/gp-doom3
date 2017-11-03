@@ -1,0 +1,12 @@
+<dec f='codebrowser/idlib/containers/StaticList.h' l='73' type='bool idStaticList::Remove(const type &amp; obj)'/>
+<def f='codebrowser/idlib/containers/StaticList.h' l='522' ll='532' type='bool idStaticList::Remove(const type &amp; obj)'/>
+<doc f='codebrowser/idlib/containers/StaticList.h' l='73'>// remove the element</doc>
+<doc f='codebrowser/idlib/containers/StaticList.h' l='513'>/*
+================
+idStaticList&lt;type,size&gt;::Remove
+
+Removes the element if it is found within the list and moves all data following the element down to fill in the gap.
+The number of elements in the list is reduced by one.  Returns false if the data is not found in the list.  Note that
+the element is not destroyed, so any memory used by it may not be freed until the destruction of the list.
+================
+*/</doc>

@@ -1,0 +1,60 @@
+<inh f='codebrowser/d3xp/Moveable.h' l='43' c='idMoveable'/>
+<def f='codebrowser/d3xp/Moveable.h' l='114' ll='137'/>
+<ovr f='codebrowser/d3xp/Moveable.h' l='150' c='idExplodingBarrel'/>
+<size>1680</size>
+<doc f='codebrowser/d3xp/Moveable.h' l='105'>/*
+===============================================================================
+
+  A barrel using rigid body physics. The barrel has special handling of
+  the view model orientation to make it look like it rolls instead of slides.
+
+===============================================================================
+*/</doc>
+<smbr r='idBarrel::Type' t='idTypeInfo'/>
+<fun r='_ZN8idBarrel14CreateInstanceEv'/>
+<fun r='_ZNK8idBarrel7GetTypeEv'/>
+<smbr r='idBarrel::eventCallbacks' t='idEventFunc&lt;idBarrel&gt; []'/>
+<fun r='_ZN8idBarrelC1Ev'/>
+<fun r='_ZN8idBarrel5SpawnEv'/>
+<fun r='_ZNK8idBarrel4SaveEP10idSaveGame'/>
+<fun r='_ZN8idBarrel7RestoreEP13idRestoreGame'/>
+<fun r='_ZN8idBarrel11BarrelThinkEv'/>
+<fun r='_ZN8idBarrel5ThinkEv'/>
+<fun r='_ZN8idBarrel27GetPhysicsToVisualTransformER6idVec3R6idMat3'/>
+<fun r='_ZN8idBarrel21ClientPredictionThinkEv'/>
+<mbr r='idBarrel::radius' o='12672' t='float'/>
+<mbr r='idBarrel::barrelAxis' o='12704' t='int'/>
+<mbr r='idBarrel::lastOrigin' o='12736' t='idVec3'/>
+<mbr r='idBarrel::lastAxis' o='12832' t='idMat3'/>
+<mbr r='idBarrel::additionalRotation' o='13120' t='float'/>
+<mbr r='idBarrel::additionalAxis' o='13152' t='idMat3'/>
+<inh f='codebrowser/game/Moveable.h' l='43' c='idMoveable'/>
+<def f='codebrowser/game/Moveable.h' l='106' ll='129'/>
+<ovr f='codebrowser/game/Moveable.h' l='142' c='idExplodingBarrel'/>
+<size>1412</size>
+<doc f='codebrowser/game/Moveable.h' l='97'>/*
+===============================================================================
+
+  A barrel using rigid body physics. The barrel has special handling of
+  the view model orientation to make it look like it rolls instead of slides.
+
+===============================================================================
+*/</doc>
+<smbr r='idBarrel::Type' t='idTypeInfo'/>
+<fun r='_ZN8idBarrel14CreateInstanceEv'/>
+<fun r='_ZNK8idBarrel7GetTypeEv'/>
+<smbr r='idBarrel::eventCallbacks' t='idEventFunc&lt;idBarrel&gt; []'/>
+<fun r='_ZN8idBarrelC1Ev'/>
+<fun r='_ZN8idBarrel5SpawnEv'/>
+<fun r='_ZNK8idBarrel4SaveEP10idSaveGame'/>
+<fun r='_ZN8idBarrel7RestoreEP13idRestoreGame'/>
+<fun r='_ZN8idBarrel11BarrelThinkEv'/>
+<fun r='_ZN8idBarrel5ThinkEv'/>
+<fun r='_ZN8idBarrel27GetPhysicsToVisualTransformER6idVec3R6idMat3'/>
+<fun r='_ZN8idBarrel21ClientPredictionThinkEv'/>
+<mbr r='idBarrel::radius' o='10528' t='float'/>
+<mbr r='idBarrel::barrelAxis' o='10560' t='int'/>
+<mbr r='idBarrel::lastOrigin' o='10592' t='idVec3'/>
+<mbr r='idBarrel::lastAxis' o='10688' t='idMat3'/>
+<mbr r='idBarrel::additionalRotation' o='10976' t='float'/>
+<mbr r='idBarrel::additionalAxis' o='11008' t='idMat3'/>

@@ -1,0 +1,20 @@
+<dec f='codebrowser/framework/Unzip.h' l='189' type='unzFile unzOpen(const char * path)'/>
+<doc f='codebrowser/framework/Unzip.h' l='180'>/*
+   Compare two filename (fileName1,fileName2).
+   If iCaseSenisivity = 1, comparision is case sensitivity (like strcmp)
+   If iCaseSenisivity = 2, comparision is not case sensitivity (like strcmpi
+								or strcasecmp)
+   If iCaseSenisivity = 0, case sensitivity is defaut of your operating system
+	(like 1 on Unix, 2 on Windows)
+*/</doc>
+<use f='codebrowser/framework/FileSystem.cpp' l='1317' u='c' c='_ZN17idFileSystemLocal11LoadZipFileEPKc'/>
+<def f='codebrowser/framework/Unzip.cpp' l='1309' ll='1396' type='unzFile unzOpen(const char * path)'/>
+<doc f='codebrowser/framework/Unzip.cpp' l='1300'>/*
+  Open a Zip file. path contain the full pathname (by example,
+     on a Windows NT computer &quot;c:\\test\\zlib109.zip&quot; or on an Unix computer
+	 &quot;zlib/zlib109.zip&quot;.
+	 If the zipfile cannot be opened (file don&apos;t exist or in not valid), the
+	   return value is NULL.
+     Else, the return value is a unzFile Handle, usable with other function
+	   of this unzip package.
+*/</doc>

@@ -1,0 +1,28 @@
+<dec f='codebrowser/sound/sound.h' l='63' type='float'/>
+<offset>64</offset>
+<doc f='codebrowser/sound/sound.h' l='63'>// in dB, unfortunately.  Negative values get quieter</doc>
+<use f='codebrowser/d3xp/Entity.cpp' l='331' u='w' c='_ZN10idGameEdit24ParseSpawnArgsToRefSoundEPK6idDictP10refSound_t'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='1741' u='w' c='_ZN8idEntity14SetSoundVolumeEf'/>
+<use f='codebrowser/d3xp/Player.cpp' l='6029' u='w' c='_ZN8idPlayer19SetCurrentHeartRateEv'/>
+<use f='codebrowser/d3xp/gamesys/SaveGame.cpp' l='614' u='r' c='_ZN10idSaveGame13WriteRefSoundERK10refSound_t'/>
+<use f='codebrowser/d3xp/gamesys/SaveGame.cpp' l='1390' u='a' c='_ZN13idRestoreGame12ReadRefSoundER10refSound_t'/>
+<use f='codebrowser/game/Entity.cpp' l='315' u='w' c='_ZN10idGameEdit24ParseSpawnArgsToRefSoundEPK6idDictP10refSound_t'/>
+<use f='codebrowser/game/Entity.cpp' l='1649' u='w' c='_ZN8idEntity14SetSoundVolumeEf'/>
+<use f='codebrowser/game/Player.cpp' l='5023' u='w' c='_ZN8idPlayer19SetCurrentHeartRateEv'/>
+<use f='codebrowser/game/gamesys/SaveGame.cpp' l='609' u='r' c='_ZN10idSaveGame13WriteRefSoundERK10refSound_t'/>
+<use f='codebrowser/game/gamesys/SaveGame.cpp' l='1380' u='a' c='_ZN13idRestoreGame12ReadRefSoundER10refSound_t'/>
+<use f='codebrowser/sound/snd_emitter.cpp' l='411' u='r' c='_ZN19idSoundEmitterLocal13OverrideParmsEPK18soundShaderParms_tS2_PS0_'/>
+<use f='codebrowser/sound/snd_emitter.cpp' l='412' u='w' c='_ZN19idSoundEmitterLocal13OverrideParmsEPK18soundShaderParms_tS2_PS0_'/>
+<use f='codebrowser/sound/snd_emitter.cpp' l='412' u='r' c='_ZN19idSoundEmitterLocal13OverrideParmsEPK18soundShaderParms_tS2_PS0_'/>
+<use f='codebrowser/sound/snd_emitter.cpp' l='414' u='w' c='_ZN19idSoundEmitterLocal13OverrideParmsEPK18soundShaderParms_tS2_PS0_'/>
+<use f='codebrowser/sound/snd_emitter.cpp' l='414' u='r' c='_ZN19idSoundEmitterLocal13OverrideParmsEPK18soundShaderParms_tS2_PS0_'/>
+<use f='codebrowser/sound/snd_emitter.cpp' l='605' u='r' c='_ZN19idSoundEmitterLocal13UpdateEmitterERK6idVec3iPK18soundShaderParms_t'/>
+<use f='codebrowser/sound/snd_emitter.cpp' l='890' u='r' c='_ZN19idSoundEmitterLocal11ModifySoundEiPK18soundShaderParms_t'/>
+<use f='codebrowser/sound/snd_shader.cpp' l='159' u='w' c='_ZN13idSoundShader11ParseShaderER7idLexer'/>
+<use f='codebrowser/sound/snd_shader.cpp' l='226' u='w' c='_ZN13idSoundShader11ParseShaderER7idLexer'/>
+<use f='codebrowser/sound/snd_world.cpp' l='319' u='a' c='_ZN17idSoundWorldLocal18ProcessDemoCommandEP10idDemoFile'/>
+<use f='codebrowser/sound/snd_world.cpp' l='350' u='a' c='_ZN17idSoundWorldLocal18ProcessDemoCommandEP10idDemoFile'/>
+<use f='codebrowser/sound/snd_world.cpp' l='1181' u='r' c='_ZN17idSoundWorldLocal32WriteToSaveGameSoundShaderParamsEP6idFileP18soundShaderParms_t'/>
+<use f='codebrowser/sound/snd_world.cpp' l='1351' u='a' c='_ZN17idSoundWorldLocal33ReadFromSaveGameSoundShaderParamsEP6idFileP18soundShaderParms_t'/>
+<use f='codebrowser/sound/snd_world.cpp' l='1639' u='r' c='_ZN17idSoundWorldLocal22AddChannelContributionEP19idSoundEmitterLocalP14idSoundChanneliiPf'/>
+<use f='codebrowser/sound/snd_world.cpp' l='1983' u='r' c='_ZN17idSoundWorldLocal13FindAmplitudeEP19idSoundEmitterLocaliPK6idVec3ib'/>

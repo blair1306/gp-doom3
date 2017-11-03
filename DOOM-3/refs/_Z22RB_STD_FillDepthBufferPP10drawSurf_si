@@ -1,0 +1,11 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1281' type='void RB_STD_FillDepthBuffer(drawSurf_t ** drawSurfs, int numDrawSurfs)'/>
+<def f='codebrowser/renderer/draw_common.cpp' l='521' ll='562' type='void RB_STD_FillDepthBuffer(drawSurf_t ** drawSurfs, int numDrawSurfs)'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='1685' u='c' c='_Z15RB_STD_DrawViewv'/>
+<doc f='codebrowser/renderer/draw_common.cpp' l='513'>/*
+=====================
+RB_STD_FillDepthBuffer
+
+If we are rendering a subview with a near clip plane, use a second texture
+to force the alpha test to fail when behind that clip plane
+=====================
+*/</doc>

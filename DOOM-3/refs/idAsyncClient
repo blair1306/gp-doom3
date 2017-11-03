@@ -1,0 +1,117 @@
+<def f='codebrowser/framework/async/AsyncClient.h' l='76' ll='216'/>
+<size>329968</size>
+<fun r='_ZN13idAsyncClientC1Ev'/>
+<fun r='_ZN13idAsyncClient8ShutdownEv'/>
+<fun r='_ZN13idAsyncClient8InitPortEv'/>
+<fun r='_ZN13idAsyncClient9ClosePortEv'/>
+<fun r='_ZN13idAsyncClient15ConnectToServerE8netadr_t'/>
+<fun r='_ZN13idAsyncClient15ConnectToServerEPKc'/>
+<fun r='_ZN13idAsyncClient9ReconnectEv'/>
+<fun r='_ZN13idAsyncClient20DisconnectFromServerEv'/>
+<fun r='_ZN13idAsyncClient13GetServerInfoE8netadr_t'/>
+<fun r='_ZN13idAsyncClient13GetServerInfoEPKc'/>
+<fun r='_ZN13idAsyncClient13GetLANServersEv'/>
+<fun r='_ZN13idAsyncClient13GetNETServersEv'/>
+<fun r='_ZN13idAsyncClient11ListServersEv'/>
+<fun r='_ZN13idAsyncClient12ClearServersEv'/>
+<fun r='_ZN13idAsyncClient13RemoteConsoleEPKc'/>
+<fun r='_ZN13idAsyncClient17IsPortInitializedEv'/>
+<fun r='_ZNK13idAsyncClient8IsActiveEv'/>
+<fun r='_ZNK13idAsyncClient17GetLocalClientNumEv'/>
+<fun r='_ZNK13idAsyncClient13GetPredictionEv'/>
+<fun r='_ZNK13idAsyncClient22GetTimeSinceLastPacketEv'/>
+<fun r='_ZNK13idAsyncClient15GetOutgoingRateEv'/>
+<fun r='_ZNK13idAsyncClient15GetIncomingRateEv'/>
+<fun r='_ZNK13idAsyncClient22GetOutgoingCompressionEv'/>
+<fun r='_ZNK13idAsyncClient22GetIncomingCompressionEv'/>
+<fun r='_ZNK13idAsyncClient21GetIncomingPacketLossEv'/>
+<fun r='_ZNK13idAsyncClient18GetPredictedFramesEv'/>
+<fun r='_ZN13idAsyncClient8RunFrameEv'/>
+<fun r='_ZN13idAsyncClient23SendReliableGameMessageERK8idBitMsg'/>
+<fun r='_ZN13idAsyncClient16SendVersionCheckEb'/>
+<fun r='_ZN13idAsyncClient13SendAuthCheckEPKcS1_'/>
+<fun r='_ZN13idAsyncClient14PacifierUpdateEv'/>
+<mbr r='idAsyncClient::serverList' o='0' t='idServerScan'/>
+<mbr r='idAsyncClient::active' o='1344' t='bool'/>
+<mbr r='idAsyncClient::realTime' o='1376' t='int'/>
+<mbr r='idAsyncClient::clientTime' o='1408' t='int'/>
+<mbr r='idAsyncClient::clientPort' o='1440' t='idPort'/>
+<mbr r='idAsyncClient::clientId' o='1728' t='int'/>
+<mbr r='idAsyncClient::clientDataChecksum' o='1760' t='int'/>
+<mbr r='idAsyncClient::clientNum' o='1792' t='int'/>
+<mbr r='idAsyncClient::clientState' o='1824' t='clientState_t'/>
+<mbr r='idAsyncClient::clientPrediction' o='1856' t='int'/>
+<mbr r='idAsyncClient::clientPredictTime' o='1888' t='int'/>
+<mbr r='idAsyncClient::serverAddress' o='1920' t='netadr_t'/>
+<mbr r='idAsyncClient::serverId' o='2016' t='int'/>
+<mbr r='idAsyncClient::serverChallenge' o='2048' t='int'/>
+<mbr r='idAsyncClient::serverMessageSequence' o='2080' t='int'/>
+<mbr r='idAsyncClient::lastRconAddress' o='2112' t='netadr_t'/>
+<mbr r='idAsyncClient::lastRconTime' o='2208' t='int'/>
+<mbr r='idAsyncClient::channel' o='2240' t='idMsgChannel'/>
+<mbr r='idAsyncClient::lastConnectTime' o='527776' t='int'/>
+<mbr r='idAsyncClient::lastEmptyTime' o='527808' t='int'/>
+<mbr r='idAsyncClient::lastPacketTime' o='527840' t='int'/>
+<mbr r='idAsyncClient::lastSnapshotTime' o='527872' t='int'/>
+<mbr r='idAsyncClient::snapshotSequence' o='527904' t='int'/>
+<mbr r='idAsyncClient::snapshotGameFrame' o='527936' t='int'/>
+<mbr r='idAsyncClient::snapshotGameTime' o='527968' t='int'/>
+<mbr r='idAsyncClient::gameInitId' o='528000' t='int'/>
+<mbr r='idAsyncClient::gameFrame' o='528032' t='int'/>
+<mbr r='idAsyncClient::gameTime' o='528064' t='int'/>
+<mbr r='idAsyncClient::gameTimeResidual' o='528096' t='int'/>
+<mbr r='idAsyncClient::userCmds' o='528128' t='usercmd_t [256][32]'/>
+<mbr r='idAsyncClient::guiNetMenu' o='2625280' t='idUserInterface *'/>
+<mbr r='idAsyncClient::updateState' o='2625312' t='clientUpdateState_t'/>
+<mbr r='idAsyncClient::updateSentTime' o='2625344' t='int'/>
+<mbr r='idAsyncClient::updateMSG' o='2625376' t='idStr'/>
+<mbr r='idAsyncClient::updateURL' o='2625632' t='idStr'/>
+<mbr r='idAsyncClient::updateDirectDownload' o='2625888' t='bool'/>
+<mbr r='idAsyncClient::updateFile' o='2625920' t='idStr'/>
+<mbr r='idAsyncClient::updateMime' o='2626176' t='dlMime_t'/>
+<mbr r='idAsyncClient::updateFallback' o='2626208' t='idStr'/>
+<mbr r='idAsyncClient::showUpdateMessage' o='2626464' t='bool'/>
+<mbr r='idAsyncClient::backgroundDownload' o='2626496' t='backgroundDownload_t'/>
+<mbr r='idAsyncClient::dltotal' o='2635296' t='int'/>
+<mbr r='idAsyncClient::dlnow' o='2635328' t='int'/>
+<mbr r='idAsyncClient::lastFrameDelta' o='2635360' t='int'/>
+<mbr r='idAsyncClient::dlRequest' o='2635392' t='int'/>
+<mbr r='idAsyncClient::dlChecksums' o='2635424' t='int [128]'/>
+<mbr r='idAsyncClient::dlCount' o='2639520' t='int'/>
+<mbr r='idAsyncClient::dlList' o='2639552' t='idList&lt;pakDlEntry_t&gt;'/>
+<mbr r='idAsyncClient::currentDlSize' o='2639680' t='int'/>
+<mbr r='idAsyncClient::totalDlSize' o='2639712' t='int'/>
+<fun r='_ZN13idAsyncClient5ClearEv'/>
+<fun r='_ZN13idAsyncClient19ClearPendingPacketsEv'/>
+<fun r='_ZN13idAsyncClient17DuplicateUsercmdsEii'/>
+<fun r='_ZN13idAsyncClient20SendUserInfoToServerEv'/>
+<fun r='_ZN13idAsyncClient17SendEmptyToServerEbb'/>
+<fun r='_ZN13idAsyncClient24SendPingResponseToServerEi'/>
+<fun r='_ZN13idAsyncClient20SendUsercmdsToServerEv'/>
+<fun r='_ZN13idAsyncClient8InitGameEiiiRK6idDict'/>
+<fun r='_ZN13idAsyncClient30ProcessUnreliableServerMessageERK8idBitMsg'/>
+<fun r='_ZN13idAsyncClient29ProcessReliableServerMessagesEv'/>
+<fun r='_ZN13idAsyncClient31ProcessChallengeResponseMessageE8netadr_tRK8idBitMsg'/>
+<fun r='_ZN13idAsyncClient29ProcessConnectResponseMessageE8netadr_tRK8idBitMsg'/>
+<fun r='_ZN13idAsyncClient24ProcessDisconnectMessageE8netadr_tRK8idBitMsg'/>
+<fun r='_ZN13idAsyncClient26ProcessInfoResponseMessageE8netadr_tRK8idBitMsg'/>
+<fun r='_ZN13idAsyncClient19ProcessPrintMessageE8netadr_tRK8idBitMsg'/>
+<fun r='_ZN13idAsyncClient25ProcessServersListMessageE8netadr_tRK8idBitMsg'/>
+<fun r='_ZN13idAsyncClient21ProcessAuthKeyMessageE8netadr_tRK8idBitMsg'/>
+<fun r='_ZN13idAsyncClient21ProcessVersionMessageE8netadr_tRK8idBitMsg'/>
+<fun r='_ZN13idAsyncClient21ConnectionlessMessageE8netadr_tRK8idBitMsg'/>
+<fun r='_ZN13idAsyncClient14ProcessMessageE8netadr_tR8idBitMsg'/>
+<fun r='_ZN13idAsyncClient15SetupConnectionEv'/>
+<fun r='_ZN13idAsyncClient18ProcessPureMessageE8netadr_tRK8idBitMsg'/>
+<fun r='_ZN13idAsyncClient27ValidatePureServerChecksumsE8netadr_tRK8idBitMsg'/>
+<fun r='_ZN13idAsyncClient26ProcessReliableMessagePureERK8idBitMsg'/>
+<fun r='_ZN13idAsyncClient16HandleGuiCommandEPKc'/>
+<fun r='_ZN13idAsyncClient24HandleGuiCommandInternalEPKc'/>
+<fun r='_ZN13idAsyncClient19SendVersionDLUpdateEi'/>
+<fun r='_ZN13idAsyncClient15HandleDownloadsEv'/>
+<fun r='_ZN13idAsyncClient4IdleEv'/>
+<fun r='_ZN13idAsyncClient10UpdateTimeEi'/>
+<fun r='_ZN13idAsyncClient25ReadLocalizedServerStringERK8idBitMsgPci'/>
+<fun r='_ZN13idAsyncClient12CheckTimeoutEv'/>
+<fun r='_ZN13idAsyncClient26ProcessDownloadInfoMessageE8netadr_tRK8idBitMsg'/>
+<fun r='_ZN13idAsyncClient18GetDownloadRequestEPKiii'/>

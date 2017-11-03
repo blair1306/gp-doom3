@@ -1,0 +1,12 @@
+<dec f='codebrowser/renderer/Model_lwo.h' l='585' type='void lwGetPolyNormals(lwPointList * point, lwPolygonList * polygon)'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='1628' u='c' c='_Z11lwGetObjectPKcPjPi'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='2323' u='c' c='_Z12lwGetObject5PKcPjPi'/>
+<def f='codebrowser/renderer/Model_lwo.cpp' l='2599' ll='2622' type='void lwGetPolyNormals(lwPointList * point, lwPolygonList * polygon)'/>
+<doc f='codebrowser/renderer/Model_lwo.cpp' l='2590'>/*
+======================================================================
+lwGetPolyNormals()
+
+Calculate the polygon normals.  By convention, LW&apos;s polygon normals
+are found as the cross product of the first and last edges.  It&apos;s
+undefined for one- and two-point polygons.
+====================================================================== */</doc>

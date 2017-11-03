@@ -1,0 +1,134 @@
+<def f='codebrowser/d3xp/physics/Physics_AF.h' l='93' ll='150'/>
+<ovr f='codebrowser/d3xp/physics/Physics_AF.h' l='154' c='idAFConstraint_Fixed'/>
+<ovr f='codebrowser/d3xp/physics/Physics_AF.h' l='181' c='idAFConstraint_BallAndSocketJoint'/>
+<ovr f='codebrowser/d3xp/physics/Physics_AF.h' l='217' c='idAFConstraint_BallAndSocketJointFriction'/>
+<ovr f='codebrowser/d3xp/physics/Physics_AF.h' l='236' c='idAFConstraint_UniversalJoint'/>
+<ovr f='codebrowser/d3xp/physics/Physics_AF.h' l='278' c='idAFConstraint_UniversalJointFriction'/>
+<ovr f='codebrowser/d3xp/physics/Physics_AF.h' l='297' c='idAFConstraint_CylindricalJoint'/>
+<ovr f='codebrowser/d3xp/physics/Physics_AF.h' l='314' c='idAFConstraint_Hinge'/>
+<ovr f='codebrowser/d3xp/physics/Physics_AF.h' l='357' c='idAFConstraint_HingeFriction'/>
+<ovr f='codebrowser/d3xp/physics/Physics_AF.h' l='375' c='idAFConstraint_HingeSteering'/>
+<ovr f='codebrowser/d3xp/physics/Physics_AF.h' l='403' c='idAFConstraint_Slider'/>
+<ovr f='codebrowser/d3xp/physics/Physics_AF.h' l='427' c='idAFConstraint_Line'/>
+<ovr f='codebrowser/d3xp/physics/Physics_AF.h' l='444' c='idAFConstraint_Plane'/>
+<ovr f='codebrowser/d3xp/physics/Physics_AF.h' l='467' c='idAFConstraint_Spring'/>
+<ovr f='codebrowser/d3xp/physics/Physics_AF.h' l='497' c='idAFConstraint_Contact'/>
+<ovr f='codebrowser/d3xp/physics/Physics_AF.h' l='519' c='idAFConstraint_ContactFriction'/>
+<ovr f='codebrowser/d3xp/physics/Physics_AF.h' l='538' c='idAFConstraint_ConeLimit'/>
+<ovr f='codebrowser/d3xp/physics/Physics_AF.h' l='569' c='idAFConstraint_PyramidLimit'/>
+<ovr f='codebrowser/d3xp/physics/Physics_AF.h' l='601' c='idAFConstraint_Suspension'/>
+<size>236</size>
+<doc f='codebrowser/d3xp/physics/Physics_AF.h' l='86'>//===============================================================
+//
+//	idAFConstraint
+//
+//===============================================================
+
+// base class for all constraints</doc>
+<fun r='_ZN14idAFConstraintC1Ev'/>
+<fun r='_ZN14idAFConstraintD1Ev'/>
+<fun r='_ZNK14idAFConstraint7GetTypeEv'/>
+<fun r='_ZNK14idAFConstraint7GetNameEv'/>
+<fun r='_ZNK14idAFConstraint8GetBody1Ev'/>
+<fun r='_ZNK14idAFConstraint8GetBody2Ev'/>
+<fun r='_ZN14idAFConstraint10SetPhysicsEP12idPhysics_AF'/>
+<fun r='_ZN14idAFConstraint13GetMultiplierEv'/>
+<fun r='_ZN14idAFConstraint8SetBody1EP8idAFBody'/>
+<fun r='_ZN14idAFConstraint8SetBody2EP8idAFBody'/>
+<fun r='_ZN14idAFConstraint9DebugDrawEv'/>
+<fun r='_ZN14idAFConstraint8GetForceEP8idAFBodyR6idVec6'/>
+<fun r='_ZN14idAFConstraint9TranslateERK6idVec3'/>
+<fun r='_ZN14idAFConstraint6RotateERK10idRotation'/>
+<fun r='_ZN14idAFConstraint9GetCenterER6idVec3'/>
+<fun r='_ZNK14idAFConstraint4SaveEP10idSaveGame'/>
+<fun r='_ZN14idAFConstraint7RestoreEP13idRestoreGame'/>
+<mbr r='idAFConstraint::type' o='32' t='constraintType_t'/>
+<mbr r='idAFConstraint::name' o='64' t='idStr'/>
+<mbr r='idAFConstraint::body1' o='320' t='idAFBody *'/>
+<mbr r='idAFConstraint::body2' o='352' t='idAFBody *'/>
+<mbr r='idAFConstraint::physics' o='384' t='idPhysics_AF *'/>
+<mbr r='idAFConstraint::J1' o='416' t='idMatX'/>
+<mbr r='idAFConstraint::J2' o='544' t='idMatX'/>
+<mbr r='idAFConstraint::c1' o='672' t='idVecX'/>
+<mbr r='idAFConstraint::c2' o='768' t='idVecX'/>
+<mbr r='idAFConstraint::lo' o='864' t='idVecX'/>
+<mbr r='idAFConstraint::hi' o='960' t='idVecX'/>
+<mbr r='idAFConstraint::e' o='1056' t='idVecX'/>
+<mbr r='idAFConstraint::boxConstraint' o='1152' t='idAFConstraint *'/>
+<mbr r='idAFConstraint::boxIndex' o='1184' t='int [6]'/>
+<mbr r='idAFConstraint::invI' o='1376' t='idMatX'/>
+<mbr r='idAFConstraint::J' o='1504' t='idMatX'/>
+<mbr r='idAFConstraint::s' o='1632' t='idVecX'/>
+<mbr r='idAFConstraint::lm' o='1728' t='idVecX'/>
+<mbr r='idAFConstraint::firstIndex' o='1824' t='int'/>
+<mbr r='idAFConstraint::fl' o='1856' t='struct constraintFlags_s'/>
+<fun r='_ZN14idAFConstraint8EvaluateEf'/>
+<fun r='_ZN14idAFConstraint13ApplyFrictionEf'/>
+<fun r='_ZN14idAFConstraint8InitSizeEi'/>
+<def f='codebrowser/game/physics/Physics_AF.h' l='93' ll='150'/>
+<ovr f='codebrowser/game/physics/Physics_AF.h' l='154' c='idAFConstraint_Fixed'/>
+<ovr f='codebrowser/game/physics/Physics_AF.h' l='181' c='idAFConstraint_BallAndSocketJoint'/>
+<ovr f='codebrowser/game/physics/Physics_AF.h' l='217' c='idAFConstraint_BallAndSocketJointFriction'/>
+<ovr f='codebrowser/game/physics/Physics_AF.h' l='236' c='idAFConstraint_UniversalJoint'/>
+<ovr f='codebrowser/game/physics/Physics_AF.h' l='278' c='idAFConstraint_UniversalJointFriction'/>
+<ovr f='codebrowser/game/physics/Physics_AF.h' l='297' c='idAFConstraint_CylindricalJoint'/>
+<ovr f='codebrowser/game/physics/Physics_AF.h' l='314' c='idAFConstraint_Hinge'/>
+<ovr f='codebrowser/game/physics/Physics_AF.h' l='357' c='idAFConstraint_HingeFriction'/>
+<ovr f='codebrowser/game/physics/Physics_AF.h' l='375' c='idAFConstraint_HingeSteering'/>
+<ovr f='codebrowser/game/physics/Physics_AF.h' l='403' c='idAFConstraint_Slider'/>
+<ovr f='codebrowser/game/physics/Physics_AF.h' l='427' c='idAFConstraint_Line'/>
+<ovr f='codebrowser/game/physics/Physics_AF.h' l='444' c='idAFConstraint_Plane'/>
+<ovr f='codebrowser/game/physics/Physics_AF.h' l='467' c='idAFConstraint_Spring'/>
+<ovr f='codebrowser/game/physics/Physics_AF.h' l='497' c='idAFConstraint_Contact'/>
+<ovr f='codebrowser/game/physics/Physics_AF.h' l='519' c='idAFConstraint_ContactFriction'/>
+<ovr f='codebrowser/game/physics/Physics_AF.h' l='538' c='idAFConstraint_ConeLimit'/>
+<ovr f='codebrowser/game/physics/Physics_AF.h' l='569' c='idAFConstraint_PyramidLimit'/>
+<ovr f='codebrowser/game/physics/Physics_AF.h' l='601' c='idAFConstraint_Suspension'/>
+<size>236</size>
+<doc f='codebrowser/game/physics/Physics_AF.h' l='86'>//===============================================================
+//
+//	idAFConstraint
+//
+//===============================================================
+
+// base class for all constraints</doc>
+<fun r='_ZN14idAFConstraintC1Ev'/>
+<fun r='_ZN14idAFConstraintD1Ev'/>
+<fun r='_ZNK14idAFConstraint7GetTypeEv'/>
+<fun r='_ZNK14idAFConstraint7GetNameEv'/>
+<fun r='_ZNK14idAFConstraint8GetBody1Ev'/>
+<fun r='_ZNK14idAFConstraint8GetBody2Ev'/>
+<fun r='_ZN14idAFConstraint10SetPhysicsEP12idPhysics_AF'/>
+<fun r='_ZN14idAFConstraint13GetMultiplierEv'/>
+<fun r='_ZN14idAFConstraint8SetBody1EP8idAFBody'/>
+<fun r='_ZN14idAFConstraint8SetBody2EP8idAFBody'/>
+<fun r='_ZN14idAFConstraint9DebugDrawEv'/>
+<fun r='_ZN14idAFConstraint8GetForceEP8idAFBodyR6idVec6'/>
+<fun r='_ZN14idAFConstraint9TranslateERK6idVec3'/>
+<fun r='_ZN14idAFConstraint6RotateERK10idRotation'/>
+<fun r='_ZN14idAFConstraint9GetCenterER6idVec3'/>
+<fun r='_ZNK14idAFConstraint4SaveEP10idSaveGame'/>
+<fun r='_ZN14idAFConstraint7RestoreEP13idRestoreGame'/>
+<mbr r='idAFConstraint::type' o='32' t='constraintType_t'/>
+<mbr r='idAFConstraint::name' o='64' t='idStr'/>
+<mbr r='idAFConstraint::body1' o='320' t='idAFBody *'/>
+<mbr r='idAFConstraint::body2' o='352' t='idAFBody *'/>
+<mbr r='idAFConstraint::physics' o='384' t='idPhysics_AF *'/>
+<mbr r='idAFConstraint::J1' o='416' t='idMatX'/>
+<mbr r='idAFConstraint::J2' o='544' t='idMatX'/>
+<mbr r='idAFConstraint::c1' o='672' t='idVecX'/>
+<mbr r='idAFConstraint::c2' o='768' t='idVecX'/>
+<mbr r='idAFConstraint::lo' o='864' t='idVecX'/>
+<mbr r='idAFConstraint::hi' o='960' t='idVecX'/>
+<mbr r='idAFConstraint::e' o='1056' t='idVecX'/>
+<mbr r='idAFConstraint::boxConstraint' o='1152' t='idAFConstraint *'/>
+<mbr r='idAFConstraint::boxIndex' o='1184' t='int [6]'/>
+<mbr r='idAFConstraint::invI' o='1376' t='idMatX'/>
+<mbr r='idAFConstraint::J' o='1504' t='idMatX'/>
+<mbr r='idAFConstraint::s' o='1632' t='idVecX'/>
+<mbr r='idAFConstraint::lm' o='1728' t='idVecX'/>
+<mbr r='idAFConstraint::firstIndex' o='1824' t='int'/>
+<mbr r='idAFConstraint::fl' o='1856' t='struct constraintFlags_s'/>
+<fun r='_ZN14idAFConstraint8EvaluateEf'/>
+<fun r='_ZN14idAFConstraint13ApplyFrictionEf'/>
+<fun r='_ZN14idAFConstraint8InitSizeEi'/>

@@ -1,0 +1,32 @@
+<dec f='codebrowser/d3xp/Entity.h' l='261' type='idVec3 idEntity::GetLocalCoordinates(const idVec3 &amp; vec) const'/>
+<def f='codebrowser/d3xp/Entity.cpp' l='2240' ll='2254' type='idVec3 idEntity::GetLocalCoordinates(const idVec3 &amp; vec) const'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='4214' u='c' c='_ZN8idEntity20Event_SetWorldOriginERK6idVec3'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='4233' u='c' c='_ZN8idEntity15Event_GetOriginEv'/>
+<doc f='codebrowser/d3xp/Entity.cpp' l='2232'>/*
+================
+idEntity::GetLocalCoordinates
+
+Takes a vector in world coordinates and transforms it into the parent
+object&apos;s local coordinates.
+================
+*/</doc>
+<use f='codebrowser/d3xp/Mover.cpp' l='1073' u='c' c='_ZN7idMover12Event_MoveToEP8idEntity'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='1083' u='c' c='_ZN7idMover9MoveToPosERK6idVec3'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='2904' u='c' c='_ZN14idMover_Binary8PostBindEv'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='2905' u='c' c='_ZN14idMover_Binary8PostBindEv'/>
+<dec f='codebrowser/game/Entity.h' l='245' type='idVec3 idEntity::GetLocalCoordinates(const idVec3 &amp; vec) const'/>
+<def f='codebrowser/game/Entity.cpp' l='2148' ll='2162' type='idVec3 idEntity::GetLocalCoordinates(const idVec3 &amp; vec) const'/>
+<use f='codebrowser/game/Entity.cpp' l='4105' u='c' c='_ZN8idEntity20Event_SetWorldOriginERK6idVec3'/>
+<use f='codebrowser/game/Entity.cpp' l='4124' u='c' c='_ZN8idEntity15Event_GetOriginEv'/>
+<doc f='codebrowser/game/Entity.cpp' l='2140'>/*
+================
+idEntity::GetLocalCoordinates
+
+Takes a vector in world coordinates and transforms it into the parent
+object&apos;s local coordinates.
+================
+*/</doc>
+<use f='codebrowser/game/Mover.cpp' l='1071' u='c' c='_ZN7idMover12Event_MoveToEP8idEntity'/>
+<use f='codebrowser/game/Mover.cpp' l='1081' u='c' c='_ZN7idMover9MoveToPosERK6idVec3'/>
+<use f='codebrowser/game/Mover.cpp' l='2873' u='c' c='_ZN14idMover_Binary8PostBindEv'/>
+<use f='codebrowser/game/Mover.cpp' l='2874' u='c' c='_ZN14idMover_Binary8PostBindEv'/>

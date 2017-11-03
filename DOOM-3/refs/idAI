@@ -1,0 +1,725 @@
+<inh f='codebrowser/d3xp/Actor.h' l='111' c='idActor'/>
+<def f='codebrowser/d3xp/ai/AI.h' l='253' ll='705'/>
+<size>5508</size>
+<smbr r='idAI::Type' t='idTypeInfo'/>
+<fun r='_ZN4idAI14CreateInstanceEv'/>
+<fun r='_ZNK4idAI7GetTypeEv'/>
+<smbr r='idAI::eventCallbacks' t='idEventFunc&lt;idAI&gt; []'/>
+<fun r='_ZN4idAIC1Ev'/>
+<fun r='_ZN4idAID1Ev'/>
+<fun r='_ZNK4idAI4SaveEP10idSaveGame'/>
+<fun r='_ZN4idAI7RestoreEP13idRestoreGame'/>
+<fun r='_ZN4idAI5SpawnEv'/>
+<fun r='_ZN4idAI10HeardSoundEP8idEntityPKc'/>
+<fun r='_ZNK4idAI8GetEnemyEv'/>
+<fun r='_ZN4idAI6TalkToEP7idActor'/>
+<fun r='_ZNK4idAI12GetTalkStateEv'/>
+<fun r='_ZNK4idAI9GetAimDirERK6idVec3P8idEntityPKS3_RS0_'/>
+<fun r='_ZN4idAI19TouchedByFlashlightEP7idActor'/>
+<fun r='_ZN4idAI6List_fERK9idCmdArgs'/>
+<fun r='_ZN4idAI23FindPathAroundObstaclesEPK9idPhysicsPK5idAASPK8idEntityRK6idVec3SB_R14obstaclePath_s'/>
+<fun r='_ZN4idAI26FreeObstacleAvoidanceNodesEv'/>
+<fun r='_ZN4idAI11PredictPathEPK8idEntityPK5idAASRK6idVec3S8_iiiR15predictedPath_s'/>
+<fun r='_ZN4idAI14TestTrajectoryERK6idVec3S2_ffffPK11idClipModeliPK8idEntityS8_i'/>
+<fun r='_ZN4idAI17PredictTrajectoryERK6idVec3S2_fS2_PK11idClipModelifPK8idEntityS8_iRS0_'/>
+<fun r='_ZN4idAI3GibERK6idVec3PKc'/>
+<mbr r='idAI::aas' o='33440' t='idAAS *'/>
+<mbr r='idAI::travelFlags' o='33472' t='int'/>
+<mbr r='idAI::move' o='33504' t='idMoveState'/>
+<mbr r='idAI::savedMove' o='34368' t='idMoveState'/>
+<mbr r='idAI::kickForce' o='35232' t='float'/>
+<mbr r='idAI::ignore_obstacles' o='35264' t='bool'/>
+<mbr r='idAI::blockedRadius' o='35296' t='float'/>
+<mbr r='idAI::blockedMoveTime' o='35328' t='int'/>
+<mbr r='idAI::blockedAttackTime' o='35360' t='int'/>
+<mbr r='idAI::ideal_yaw' o='35392' t='float'/>
+<mbr r='idAI::current_yaw' o='35424' t='float'/>
+<mbr r='idAI::turnRate' o='35456' t='float'/>
+<mbr r='idAI::turnVel' o='35488' t='float'/>
+<mbr r='idAI::anim_turn_yaw' o='35520' t='float'/>
+<mbr r='idAI::anim_turn_amount' o='35552' t='float'/>
+<mbr r='idAI::anim_turn_angles' o='35584' t='float'/>
+<mbr r='idAI::physicsObj' o='35616' t='idPhysics_Monster'/>
+<mbr r='idAI::flyTiltJoint' o='37824' t='jointHandle_t'/>
+<mbr r='idAI::fly_speed' o='37856' t='float'/>
+<mbr r='idAI::fly_bob_strength' o='37888' t='float'/>
+<mbr r='idAI::fly_bob_vert' o='37920' t='float'/>
+<mbr r='idAI::fly_bob_horz' o='37952' t='float'/>
+<mbr r='idAI::fly_offset' o='37984' t='int'/>
+<mbr r='idAI::fly_seek_scale' o='38016' t='float'/>
+<mbr r='idAI::fly_roll_scale' o='38048' t='float'/>
+<mbr r='idAI::fly_roll_max' o='38080' t='float'/>
+<mbr r='idAI::fly_roll' o='38112' t='float'/>
+<mbr r='idAI::fly_pitch_scale' o='38144' t='float'/>
+<mbr r='idAI::fly_pitch_max' o='38176' t='float'/>
+<mbr r='idAI::fly_pitch' o='38208' t='float'/>
+<mbr r='idAI::allowMove' o='38240' t='bool'/>
+<mbr r='idAI::allowHiddenMovement' o='38248' t='bool'/>
+<mbr r='idAI::disableGravity' o='38256' t='bool'/>
+<mbr r='idAI::af_push_moveables' o='38264' t='bool'/>
+<mbr r='idAI::lastHitCheckResult' o='38272' t='bool'/>
+<mbr r='idAI::lastHitCheckTime' o='38304' t='int'/>
+<mbr r='idAI::lastAttackTime' o='38336' t='int'/>
+<mbr r='idAI::melee_range' o='38368' t='float'/>
+<mbr r='idAI::projectile_height_to_distance_ratio' o='38400' t='float'/>
+<mbr r='idAI::missileLaunchOffset' o='38432' t='idList&lt;idVec3&gt;'/>
+<mbr r='idAI::projectileDef' o='38560' t='const idDict *'/>
+<mbr r='idAI::projectileClipModel' o='38592' t='idClipModel *'/>
+<mbr r='idAI::projectileRadius' o='38624' t='float'/>
+<mbr r='idAI::projectileSpeed' o='38656' t='float'/>
+<mbr r='idAI::projectileVelocity' o='38688' t='idVec3'/>
+<mbr r='idAI::projectileGravity' o='38784' t='idVec3'/>
+<mbr r='idAI::projectile' o='38880' t='idEntityPtr&lt;idProjectile&gt;'/>
+<mbr r='idAI::attack' o='38912' t='idStr'/>
+<mbr r='idAI::chat_snd' o='39168' t='const idSoundShader *'/>
+<mbr r='idAI::chat_min' o='39200' t='int'/>
+<mbr r='idAI::chat_max' o='39232' t='int'/>
+<mbr r='idAI::chat_time' o='39264' t='int'/>
+<mbr r='idAI::talk_state' o='39296' t='talkState_t'/>
+<mbr r='idAI::talkTarget' o='39328' t='idEntityPtr&lt;idActor&gt;'/>
+<mbr r='idAI::num_cinematics' o='39360' t='int'/>
+<mbr r='idAI::current_cinematic' o='39392' t='int'/>
+<mbr r='idAI::allowJointMod' o='39424' t='bool'/>
+<mbr r='idAI::focusEntity' o='39456' t='idEntityPtr&lt;idEntity&gt;'/>
+<mbr r='idAI::currentFocusPos' o='39488' t='idVec3'/>
+<mbr r='idAI::focusTime' o='39584' t='int'/>
+<mbr r='idAI::alignHeadTime' o='39616' t='int'/>
+<mbr r='idAI::forceAlignHeadTime' o='39648' t='int'/>
+<mbr r='idAI::eyeAng' o='39680' t='idAngles'/>
+<mbr r='idAI::lookAng' o='39776' t='idAngles'/>
+<mbr r='idAI::destLookAng' o='39872' t='idAngles'/>
+<mbr r='idAI::lookMin' o='39968' t='idAngles'/>
+<mbr r='idAI::lookMax' o='40064' t='idAngles'/>
+<mbr r='idAI::lookJoints' o='40160' t='idList&lt;jointHandle_t&gt;'/>
+<mbr r='idAI::lookJointAngles' o='40288' t='idList&lt;idAngles&gt;'/>
+<mbr r='idAI::eyeVerticalOffset' o='40416' t='float'/>
+<mbr r='idAI::eyeHorizontalOffset' o='40448' t='float'/>
+<mbr r='idAI::eyeFocusRate' o='40480' t='float'/>
+<mbr r='idAI::headFocusRate' o='40512' t='float'/>
+<mbr r='idAI::focusAlignTime' o='40544' t='int'/>
+<mbr r='idAI::shrivel_rate' o='40576' t='float'/>
+<mbr r='idAI::shrivel_start' o='40608' t='int'/>
+<mbr r='idAI::restartParticles' o='40640' t='bool'/>
+<mbr r='idAI::useBoneAxis' o='40648' t='bool'/>
+<mbr r='idAI::particles' o='40672' t='idList&lt;particleEmitter_t&gt;'/>
+<mbr r='idAI::worldMuzzleFlash' o='40800' t='renderLight_t'/>
+<mbr r='idAI::worldMuzzleFlashHandle' o='42464' t='int'/>
+<mbr r='idAI::flashJointWorld' o='42496' t='jointHandle_t'/>
+<mbr r='idAI::muzzleFlashEnd' o='42528' t='int'/>
+<mbr r='idAI::flashTime' o='42560' t='int'/>
+<mbr r='idAI::eyeMin' o='42592' t='idAngles'/>
+<mbr r='idAI::eyeMax' o='42688' t='idAngles'/>
+<mbr r='idAI::focusJoint' o='42784' t='jointHandle_t'/>
+<mbr r='idAI::orientationJoint' o='42816' t='jointHandle_t'/>
+<mbr r='idAI::enemy' o='42848' t='idEntityPtr&lt;idActor&gt;'/>
+<mbr r='idAI::lastVisibleEnemyPos' o='42880' t='idVec3'/>
+<mbr r='idAI::lastVisibleEnemyEyeOffset' o='42976' t='idVec3'/>
+<mbr r='idAI::lastVisibleReachableEnemyPos' o='43072' t='idVec3'/>
+<mbr r='idAI::lastReachableEnemyPos' o='43168' t='idVec3'/>
+<mbr r='idAI::wakeOnFlashlight' o='43264' t='bool'/>
+<mbr r='idAI::spawnClearMoveables' o='43272' t='bool'/>
+<mbr r='idAI::funcEmitters' o='43296' t='idHashTable&lt;funcEmitter_t&gt;'/>
+<mbr r='idAI::harvestEnt' o='43424' t='idEntityPtr&lt;idHarvestable&gt;'/>
+<mbr r='idAI::AI_TALK' o='43456' t='idScriptBool'/>
+<mbr r='idAI::AI_DAMAGE' o='43488' t='idScriptBool'/>
+<mbr r='idAI::AI_PAIN' o='43520' t='idScriptBool'/>
+<mbr r='idAI::AI_SPECIAL_DAMAGE' o='43552' t='idScriptFloat'/>
+<mbr r='idAI::AI_DEAD' o='43584' t='idScriptBool'/>
+<mbr r='idAI::AI_ENEMY_VISIBLE' o='43616' t='idScriptBool'/>
+<mbr r='idAI::AI_ENEMY_IN_FOV' o='43648' t='idScriptBool'/>
+<mbr r='idAI::AI_ENEMY_DEAD' o='43680' t='idScriptBool'/>
+<mbr r='idAI::AI_MOVE_DONE' o='43712' t='idScriptBool'/>
+<mbr r='idAI::AI_ONGROUND' o='43744' t='idScriptBool'/>
+<mbr r='idAI::AI_ACTIVATED' o='43776' t='idScriptBool'/>
+<mbr r='idAI::AI_FORWARD' o='43808' t='idScriptBool'/>
+<mbr r='idAI::AI_JUMP' o='43840' t='idScriptBool'/>
+<mbr r='idAI::AI_ENEMY_REACHABLE' o='43872' t='idScriptBool'/>
+<mbr r='idAI::AI_BLOCKED' o='43904' t='idScriptBool'/>
+<mbr r='idAI::AI_OBSTACLE_IN_PATH' o='43936' t='idScriptBool'/>
+<mbr r='idAI::AI_DEST_UNREACHABLE' o='43968' t='idScriptBool'/>
+<mbr r='idAI::AI_HIT_ENEMY' o='44000' t='idScriptBool'/>
+<mbr r='idAI::AI_PUSHED' o='44032' t='idScriptBool'/>
+<fun r='_ZN4idAI6SetAASEv'/>
+<fun r='_ZN4idAI12DormantBeginEv'/>
+<fun r='_ZN4idAI10DormantEndEv'/>
+<fun r='_ZN4idAI5ThinkEv'/>
+<fun r='_ZN4idAI8ActivateEP8idEntity'/>
+<fun r='_ZN4idAI10ReactionToEPK8idEntity'/>
+<fun r='_ZN4idAI13CheckForEnemyEv'/>
+<fun r='_ZN4idAI9EnemyDeadEv'/>
+<fun r='_ZNK4idAI20CanPlayChatterSoundsEv'/>
+<fun r='_ZN4idAI12SetChatSoundEv'/>
+<fun r='_ZN4idAI11PlayChatterEv'/>
+<fun r='_ZN4idAI4HideEv'/>
+<fun r='_ZN4idAI4ShowEv'/>
+<fun r='_ZNK4idAI23FirstVisiblePointOnPathE6idVec3RKS0_i'/>
+<fun r='_ZN4idAI22CalculateAttackOffsetsEv'/>
+<fun r='_ZN4idAI13PlayCinematicEv'/>
+<fun r='_ZN4idAI12ApplyImpulseEP8idEntityiRK6idVec3S4_'/>
+<fun r='_ZN4idAI12GetMoveDeltaERK6idMat3S2_R6idVec3'/>
+<fun r='_ZN4idAI22CheckObstacleAvoidanceERK6idVec3RS0_'/>
+<fun r='_ZN4idAI8DeadMoveEv'/>
+<fun r='_ZN4idAI8AnimMoveEv'/>
+<fun r='_ZN4idAI9SlideMoveEv'/>
+<fun r='_ZN4idAI18AdjustFlyingAnglesEv'/>
+<fun r='_ZN4idAI9AddFlyBobER6idVec3'/>
+<fun r='_ZN4idAI15AdjustFlyHeightER6idVec3RKS0_'/>
+<fun r='_ZN4idAI11FlySeekGoalER6idVec3S1_'/>
+<fun r='_ZN4idAI14AdjustFlySpeedER6idVec3'/>
+<fun r='_ZN4idAI7FlyTurnEv'/>
+<fun r='_ZN4idAI7FlyMoveEv'/>
+<fun r='_ZN4idAI10StaticMoveEv'/>
+<fun r='_ZN4idAI4PainEP8idEntityS1_iRK6idVec3i'/>
+<fun r='_ZN4idAI6KilledEP8idEntityS1_iRK6idVec3i'/>
+<fun r='_ZN4idAI13KickObstaclesERK6idVec3fP8idEntity'/>
+<fun r='_ZNK4idAI10ReachedPosERK6idVec313moveCommand_t'/>
+<fun r='_ZNK4idAI14TravelDistanceERK6idVec3S2_'/>
+<fun r='_ZNK4idAI21PointReachableAreaNumERK6idVec3f'/>
+<fun r='_ZNK4idAI10PathToGoalER9aasPath_siRK6idVec3iS4_'/>
+<fun r='_ZNK4idAI9DrawRouteEv'/>
+<fun r='_ZN4idAI10GetMovePosER6idVec3'/>
+<fun r='_ZNK4idAI8MoveDoneEv'/>
+<fun r='_ZN4idAI15EntityCanSeePosEP7idActorRK6idVec3S4_'/>
+<fun r='_ZN4idAI15BlockedFailSafeEv'/>
+<fun r='_ZN4idAI8StopMoveE12moveStatus_t'/>
+<fun r='_ZN4idAI9FaceEnemyEv'/>
+<fun r='_ZN4idAI10FaceEntityEP8idEntity'/>
+<fun r='_ZN4idAI20DirectMoveToPositionERK6idVec3'/>
+<fun r='_ZN4idAI17MoveToEnemyHeightEv'/>
+<fun r='_ZN4idAI14MoveOutOfRangeEP8idEntityf'/>
+<fun r='_ZN4idAI20MoveToAttackPositionEP8idEntityi'/>
+<fun r='_ZN4idAI11MoveToEnemyEv'/>
+<fun r='_ZN4idAI12MoveToEntityEP8idEntity'/>
+<fun r='_ZN4idAI14MoveToPositionERK6idVec3'/>
+<fun r='_ZN4idAI11MoveToCoverEP8idEntityRK6idVec3'/>
+<fun r='_ZN4idAI15SlideToPositionERK6idVec3f'/>
+<fun r='_ZN4idAI12WanderAroundEv'/>
+<fun r='_ZN4idAI13StepDirectionEf'/>
+<fun r='_ZN4idAI12NewWanderDirERK6idVec3'/>
+<fun r='_ZN4idAI21SpawnParticlesOnJointER17particleEmitter_sPKcS3_'/>
+<fun r='_ZN4idAI14SpawnParticlesEPKc'/>
+<fun r='_ZN4idAI15ParticlesActiveEv'/>
+<fun r='_ZN4idAI11FacingIdealEv'/>
+<fun r='_ZN4idAI4TurnEv'/>
+<fun r='_ZN4idAI10TurnTowardEf'/>
+<fun r='_ZN4idAI10TurnTowardERK6idVec3'/>
+<fun r='_ZN4idAI10ClearEnemyEv'/>
+<fun r='_ZNK4idAI18EnemyPositionValidEv'/>
+<fun r='_ZN4idAI16SetEnemyPositionEv'/>
+<fun r='_ZN4idAI19UpdateEnemyPositionEv'/>
+<fun r='_ZN4idAI8SetEnemyEP7idActor'/>
+<fun r='_ZNK4idAI25CreateProjectileClipModelEv'/>
+<fun r='_ZN4idAI16CreateProjectileERK6idVec3S2_'/>
+<fun r='_ZN4idAI16RemoveProjectileEv'/>
+<fun r='_ZN4idAI16LaunchProjectileEPKcP8idEntityb'/>
+<fun r='_ZN4idAI14DamageFeedbackEP8idEntityS1_Ri'/>
+<fun r='_ZN4idAI12DirectDamageEPKcP8idEntity'/>
+<fun r='_ZNK4idAI9TestMeleeEv'/>
+<fun r='_ZN4idAI11AttackMeleeEPKc'/>
+<fun r='_ZN4idAI11BeginAttackEPKc'/>
+<fun r='_ZN4idAI9EndAttackEv'/>
+<fun r='_ZN4idAI10PushWithAFEv'/>
+<fun r='_ZN4idAI9GetMuzzleEPKcR6idVec3R6idMat3'/>
+<fun r='_ZN4idAI15InitMuzzleFlashEv'/>
+<fun r='_ZN4idAI20TriggerWeaponEffectsERK6idVec3'/>
+<fun r='_ZN4idAI17UpdateMuzzleFlashEv'/>
+<fun r='_ZN4idAI26UpdateAnimationControllersEv'/>
+<fun r='_ZN4idAI15UpdateParticlesEv'/>
+<fun r='_ZN4idAI16TriggerParticlesEPKc'/>
+<fun r='_ZN4idAI9TriggerFXEPKcS1_'/>
+<fun r='_ZN4idAI12StartEmitterEPKcS1_S1_'/>
+<fun r='_ZN4idAI10GetEmitterEPKc'/>
+<fun r='_ZN4idAI11StopEmitterEPKc'/>
+<fun r='_ZN4idAI19LinkScriptVariablesEv'/>
+<fun r='_ZN4idAI14UpdateAIScriptEv'/>
+<fun r='_ZN4idAI14Event_ActivateEP8idEntity'/>
+<fun r='_ZN4idAI11Event_TouchEP8idEntityP7trace_s'/>
+<fun r='_ZN4idAI15Event_FindEnemyEi'/>
+<fun r='_ZN4idAI17Event_FindEnemyAIEi'/>
+<fun r='_ZN4idAI28Event_FindEnemyInCombatNodesEv'/>
+<fun r='_ZN4idAI35Event_ClosestReachableEnemyOfEntityEP8idEntity'/>
+<fun r='_ZN4idAI16Event_HeardSoundEi'/>
+<fun r='_ZN4idAI14Event_SetEnemyEP8idEntity'/>
+<fun r='_ZN4idAI16Event_ClearEnemyEv'/>
+<fun r='_ZN4idAI17Event_MuzzleFlashEPKc'/>
+<fun r='_ZN4idAI19Event_CreateMissileEPKc'/>
+<fun r='_ZN4idAI19Event_AttackMissileEPKc'/>
+<fun r='_ZN4idAI25Event_FireMissileAtTargetEPKcS1_'/>
+<fun r='_ZN4idAI19Event_LaunchMissileERK6idVec3RK8idAngles'/>
+<fun r='_ZN4idAI22Event_LaunchProjectileEPKc'/>
+<fun r='_ZN4idAI17Event_AttackMeleeEPKc'/>
+<fun r='_ZN4idAI18Event_DirectDamageEP8idEntityPKc'/>
+<fun r='_ZN4idAI27Event_RadiusDamageFromJointEPKcS1_'/>
+<fun r='_ZN4idAI17Event_BeginAttackEPKc'/>
+<fun r='_ZN4idAI15Event_EndAttackEv'/>
+<fun r='_ZN4idAI24Event_MeleeAttackToJointEPKcS1_'/>
+<fun r='_ZN4idAI16Event_RandomPathEv'/>
+<fun r='_ZN4idAI20Event_CanBecomeSolidEv'/>
+<fun r='_ZN4idAI17Event_BecomeSolidEv'/>
+<fun r='_ZN4idAI20Event_BecomeNonSolidEv'/>
+<fun r='_ZN4idAI19Event_BecomeRagdollEv'/>
+<fun r='_ZN4idAI17Event_StopRagdollEv'/>
+<fun r='_ZN4idAI15Event_SetHealthEf'/>
+<fun r='_ZN4idAI15Event_GetHealthEv'/>
+<fun r='_ZN4idAI17Event_AllowDamageEv'/>
+<fun r='_ZN4idAI18Event_IgnoreDamageEv'/>
+<fun r='_ZN4idAI19Event_GetCurrentYawEv'/>
+<fun r='_ZN4idAI12Event_TurnToEf'/>
+<fun r='_ZN4idAI15Event_TurnToPosERK6idVec3'/>
+<fun r='_ZN4idAI18Event_TurnToEntityEP8idEntity'/>
+<fun r='_ZN4idAI16Event_MoveStatusEv'/>
+<fun r='_ZN4idAI14Event_StopMoveEv'/>
+<fun r='_ZN4idAI17Event_MoveToCoverEv'/>
+<fun r='_ZN4idAI17Event_MoveToEnemyEv'/>
+<fun r='_ZN4idAI23Event_MoveToEnemyHeightEv'/>
+<fun r='_ZN4idAI20Event_MoveOutOfRangeEP8idEntityf'/>
+<fun r='_ZN4idAI26Event_MoveToAttackPositionEP8idEntityPKc'/>
+<fun r='_ZN4idAI18Event_MoveToEntityEP8idEntity'/>
+<fun r='_ZN4idAI20Event_MoveToPositionERK6idVec3'/>
+<fun r='_ZN4idAI13Event_SlideToERK6idVec3f'/>
+<fun r='_ZN4idAI12Event_WanderEv'/>
+<fun r='_ZN4idAI17Event_FacingIdealEv'/>
+<fun r='_ZN4idAI15Event_FaceEnemyEv'/>
+<fun r='_ZN4idAI16Event_FaceEntityEP8idEntity'/>
+<fun r='_ZN4idAI16Event_WaitActionEPKc'/>
+<fun r='_ZN4idAI19Event_GetCombatNodeEv'/>
+<fun r='_ZN4idAI23Event_EnemyInCombatConeEP8idEntityi'/>
+<fun r='_ZN4idAI14Event_WaitMoveEv'/>
+<fun r='_ZN4idAI21Event_GetJumpVelocityERK6idVec3ff'/>
+<fun r='_ZN4idAI24Event_EntityInAttackConeEP8idEntity'/>
+<fun r='_ZN4idAI18Event_CanSeeEntityEP8idEntity'/>
+<fun r='_ZN4idAI19Event_SetTalkTargetEP8idEntity'/>
+<fun r='_ZN4idAI19Event_GetTalkTargetEv'/>
+<fun r='_ZN4idAI18Event_SetTalkStateEi'/>
+<fun r='_ZN4idAI16Event_EnemyRangeEv'/>
+<fun r='_ZN4idAI18Event_EnemyRange2DEv'/>
+<fun r='_ZN4idAI14Event_GetEnemyEv'/>
+<fun r='_ZN4idAI17Event_GetEnemyPosEv'/>
+<fun r='_ZN4idAI20Event_GetEnemyEyePosEv'/>
+<fun r='_ZN4idAI21Event_PredictEnemyPosEf'/>
+<fun r='_ZN4idAI17Event_CanHitEnemyEv'/>
+<fun r='_ZN4idAI25Event_CanHitEnemyFromAnimEPKc'/>
+<fun r='_ZN4idAI26Event_CanHitEnemyFromJointEPKc'/>
+<fun r='_ZN4idAI24Event_EnemyPositionValidEv'/>
+<fun r='_ZN4idAI18Event_ChargeAttackEPKc'/>
+<fun r='_ZN4idAI22Event_TestChargeAttackEv'/>
+<fun r='_ZN4idAI29Event_TestAnimMoveTowardEnemyEPKc'/>
+<fun r='_ZN4idAI18Event_TestAnimMoveEPKc'/>
+<fun r='_ZN4idAI24Event_TestMoveToPositionERK6idVec3'/>
+<fun r='_ZN4idAI21Event_TestMeleeAttackEv'/>
+<fun r='_ZN4idAI20Event_TestAnimAttackEPKc'/>
+<fun r='_ZN4idAI13Event_ShrivelEf'/>
+<fun r='_ZN4idAI10Event_BurnEv'/>
+<fun r='_ZN4idAI13Event_PreBurnEv'/>
+<fun r='_ZN4idAI15Event_ClearBurnEv'/>
+<fun r='_ZN4idAI24Event_SetSmokeVisibilityEii'/>
+<fun r='_ZN4idAI22Event_NumSmokeEmittersEv'/>
+<fun r='_ZN4idAI18Event_StopThinkingEv'/>
+<fun r='_ZN4idAI18Event_GetTurnDeltaEv'/>
+<fun r='_ZN4idAI17Event_GetMoveTypeEv'/>
+<fun r='_ZN4idAI17Event_SetMoveTypeEi'/>
+<fun r='_ZN4idAI14Event_SaveMoveEv'/>
+<fun r='_ZN4idAI17Event_RestoreMoveEv'/>
+<fun r='_ZN4idAI19Event_AllowMovementEf'/>
+<fun r='_ZN4idAI15Event_JumpFrameEv'/>
+<fun r='_ZN4idAI16Event_EnableClipEv'/>
+<fun r='_ZN4idAI17Event_DisableClipEv'/>
+<fun r='_ZN4idAI19Event_EnableGravityEv'/>
+<fun r='_ZN4idAI20Event_DisableGravityEv'/>
+<fun r='_ZN4idAI18Event_EnableAFPushEv'/>
+<fun r='_ZN4idAI19Event_DisableAFPushEv'/>
+<fun r='_ZN4idAI17Event_SetFlySpeedEf'/>
+<fun r='_ZN4idAI18Event_SetFlyOffsetEi'/>
+<fun r='_ZN4idAI20Event_ClearFlyOffsetEv'/>
+<fun r='_ZN4idAI28Event_GetClosestHiddenTargetEPKc'/>
+<fun r='_ZN4idAI21Event_GetRandomTargetEPKc'/>
+<fun r='_ZN4idAI27Event_TravelDistanceToPointERK6idVec3'/>
+<fun r='_ZN4idAI28Event_TravelDistanceToEntityEP8idEntity'/>
+<fun r='_ZN4idAI33Event_TravelDistanceBetweenPointsERK6idVec3S2_'/>
+<fun r='_ZN4idAI35Event_TravelDistanceBetweenEntitiesEP8idEntityS1_'/>
+<fun r='_ZN4idAI18Event_LookAtEntityEP8idEntityf'/>
+<fun r='_ZN4idAI17Event_LookAtEnemyEf'/>
+<fun r='_ZN4idAI17Event_SetJointModEi'/>
+<fun r='_ZN4idAI19Event_ThrowMoveableEv'/>
+<fun r='_ZN4idAI13Event_ThrowAFEv'/>
+<fun r='_ZN4idAI15Event_SetAnglesERK8idAngles'/>
+<fun r='_ZN4idAI15Event_GetAnglesEv'/>
+<fun r='_ZN4idAI14Event_RealKillEv'/>
+<fun r='_ZN4idAI10Event_KillEv'/>
+<fun r='_ZN4idAI22Event_WakeOnFlashlightEi'/>
+<fun r='_ZN4idAI17Event_LocateEnemyEv'/>
+<fun r='_ZN4idAI19Event_KickObstaclesEP8idEntityf'/>
+<fun r='_ZN4idAI17Event_GetObstacleEv'/>
+<fun r='_ZN4idAI22Event_PushPointIntoAASERK6idVec3'/>
+<fun r='_ZN4idAI17Event_GetTurnRateEv'/>
+<fun r='_ZN4idAI17Event_SetTurnRateEf'/>
+<fun r='_ZN4idAI14Event_AnimTurnEf'/>
+<fun r='_ZN4idAI25Event_AllowHiddenMovementEi'/>
+<fun r='_ZN4idAI22Event_TriggerParticlesEPKc'/>
+<fun r='_ZN4idAI24Event_FindActorsInBoundsERK6idVec3S2_'/>
+<fun r='_ZN4idAI22Event_CanReachPositionERK6idVec3'/>
+<fun r='_ZN4idAI20Event_CanReachEntityEP8idEntity'/>
+<fun r='_ZN4idAI19Event_CanReachEnemyEv'/>
+<fun r='_ZN4idAI32Event_GetReachableEntityPositionEP8idEntity'/>
+<fun r='_ZN4idAI26Event_MoveToPositionDirectERK6idVec3'/>
+<fun r='_ZN4idAI20Event_AvoidObstaclesEi'/>
+<fun r='_ZN4idAI15Event_TriggerFXEPKcS1_'/>
+<fun r='_ZN4idAI18Event_StartEmitterEPKcS1_S1_'/>
+<fun r='_ZN4idAI16Event_GetEmitterEPKc'/>
+<fun r='_ZN4idAI17Event_StopEmitterEPKc'/>
+<ovr f='codebrowser/d3xp/ai/AI_Vagary.cpp' l='41' c='idAI_Vagary'/>
+<inh f='codebrowser/game/Actor.h' l='107' c='idActor'/>
+<def f='codebrowser/game/ai/AI.h' l='239' ll='660'/>
+<size>5252</size>
+<smbr r='idAI::Type' t='idTypeInfo'/>
+<fun r='_ZN4idAI14CreateInstanceEv'/>
+<fun r='_ZNK4idAI7GetTypeEv'/>
+<smbr r='idAI::eventCallbacks' t='idEventFunc&lt;idAI&gt; []'/>
+<fun r='_ZN4idAIC1Ev'/>
+<fun r='_ZN4idAID1Ev'/>
+<fun r='_ZNK4idAI4SaveEP10idSaveGame'/>
+<fun r='_ZN4idAI7RestoreEP13idRestoreGame'/>
+<fun r='_ZN4idAI5SpawnEv'/>
+<fun r='_ZN4idAI10HeardSoundEP8idEntityPKc'/>
+<fun r='_ZNK4idAI8GetEnemyEv'/>
+<fun r='_ZN4idAI6TalkToEP7idActor'/>
+<fun r='_ZNK4idAI12GetTalkStateEv'/>
+<fun r='_ZNK4idAI9GetAimDirERK6idVec3P8idEntityPKS3_RS0_'/>
+<fun r='_ZN4idAI19TouchedByFlashlightEP7idActor'/>
+<fun r='_ZN4idAI6List_fERK9idCmdArgs'/>
+<fun r='_ZN4idAI23FindPathAroundObstaclesEPK9idPhysicsPK5idAASPK8idEntityRK6idVec3SB_R14obstaclePath_s'/>
+<fun r='_ZN4idAI26FreeObstacleAvoidanceNodesEv'/>
+<fun r='_ZN4idAI11PredictPathEPK8idEntityPK5idAASRK6idVec3S8_iiiR15predictedPath_s'/>
+<fun r='_ZN4idAI14TestTrajectoryERK6idVec3S2_ffffPK11idClipModeliPK8idEntityS8_i'/>
+<fun r='_ZN4idAI17PredictTrajectoryERK6idVec3S2_fS2_PK11idClipModelifPK8idEntityS8_iRS0_'/>
+<mbr r='idAI::aas' o='31552' t='idAAS *'/>
+<mbr r='idAI::travelFlags' o='31584' t='int'/>
+<mbr r='idAI::move' o='31616' t='idMoveState'/>
+<mbr r='idAI::savedMove' o='32480' t='idMoveState'/>
+<mbr r='idAI::kickForce' o='33344' t='float'/>
+<mbr r='idAI::ignore_obstacles' o='33376' t='bool'/>
+<mbr r='idAI::blockedRadius' o='33408' t='float'/>
+<mbr r='idAI::blockedMoveTime' o='33440' t='int'/>
+<mbr r='idAI::blockedAttackTime' o='33472' t='int'/>
+<mbr r='idAI::ideal_yaw' o='33504' t='float'/>
+<mbr r='idAI::current_yaw' o='33536' t='float'/>
+<mbr r='idAI::turnRate' o='33568' t='float'/>
+<mbr r='idAI::turnVel' o='33600' t='float'/>
+<mbr r='idAI::anim_turn_yaw' o='33632' t='float'/>
+<mbr r='idAI::anim_turn_amount' o='33664' t='float'/>
+<mbr r='idAI::anim_turn_angles' o='33696' t='float'/>
+<mbr r='idAI::physicsObj' o='33728' t='idPhysics_Monster'/>
+<mbr r='idAI::flyTiltJoint' o='35936' t='jointHandle_t'/>
+<mbr r='idAI::fly_speed' o='35968' t='float'/>
+<mbr r='idAI::fly_bob_strength' o='36000' t='float'/>
+<mbr r='idAI::fly_bob_vert' o='36032' t='float'/>
+<mbr r='idAI::fly_bob_horz' o='36064' t='float'/>
+<mbr r='idAI::fly_offset' o='36096' t='int'/>
+<mbr r='idAI::fly_seek_scale' o='36128' t='float'/>
+<mbr r='idAI::fly_roll_scale' o='36160' t='float'/>
+<mbr r='idAI::fly_roll_max' o='36192' t='float'/>
+<mbr r='idAI::fly_roll' o='36224' t='float'/>
+<mbr r='idAI::fly_pitch_scale' o='36256' t='float'/>
+<mbr r='idAI::fly_pitch_max' o='36288' t='float'/>
+<mbr r='idAI::fly_pitch' o='36320' t='float'/>
+<mbr r='idAI::allowMove' o='36352' t='bool'/>
+<mbr r='idAI::allowHiddenMovement' o='36360' t='bool'/>
+<mbr r='idAI::disableGravity' o='36368' t='bool'/>
+<mbr r='idAI::af_push_moveables' o='36376' t='bool'/>
+<mbr r='idAI::lastHitCheckResult' o='36384' t='bool'/>
+<mbr r='idAI::lastHitCheckTime' o='36416' t='int'/>
+<mbr r='idAI::lastAttackTime' o='36448' t='int'/>
+<mbr r='idAI::melee_range' o='36480' t='float'/>
+<mbr r='idAI::projectile_height_to_distance_ratio' o='36512' t='float'/>
+<mbr r='idAI::missileLaunchOffset' o='36544' t='idList&lt;idVec3&gt;'/>
+<mbr r='idAI::projectileDef' o='36672' t='const idDict *'/>
+<mbr r='idAI::projectileClipModel' o='36704' t='idClipModel *'/>
+<mbr r='idAI::projectileRadius' o='36736' t='float'/>
+<mbr r='idAI::projectileSpeed' o='36768' t='float'/>
+<mbr r='idAI::projectileVelocity' o='36800' t='idVec3'/>
+<mbr r='idAI::projectileGravity' o='36896' t='idVec3'/>
+<mbr r='idAI::projectile' o='36992' t='idEntityPtr&lt;idProjectile&gt;'/>
+<mbr r='idAI::attack' o='37024' t='idStr'/>
+<mbr r='idAI::chat_snd' o='37280' t='const idSoundShader *'/>
+<mbr r='idAI::chat_min' o='37312' t='int'/>
+<mbr r='idAI::chat_max' o='37344' t='int'/>
+<mbr r='idAI::chat_time' o='37376' t='int'/>
+<mbr r='idAI::talk_state' o='37408' t='talkState_t'/>
+<mbr r='idAI::talkTarget' o='37440' t='idEntityPtr&lt;idActor&gt;'/>
+<mbr r='idAI::num_cinematics' o='37472' t='int'/>
+<mbr r='idAI::current_cinematic' o='37504' t='int'/>
+<mbr r='idAI::allowJointMod' o='37536' t='bool'/>
+<mbr r='idAI::focusEntity' o='37568' t='idEntityPtr&lt;idEntity&gt;'/>
+<mbr r='idAI::currentFocusPos' o='37600' t='idVec3'/>
+<mbr r='idAI::focusTime' o='37696' t='int'/>
+<mbr r='idAI::alignHeadTime' o='37728' t='int'/>
+<mbr r='idAI::forceAlignHeadTime' o='37760' t='int'/>
+<mbr r='idAI::eyeAng' o='37792' t='idAngles'/>
+<mbr r='idAI::lookAng' o='37888' t='idAngles'/>
+<mbr r='idAI::destLookAng' o='37984' t='idAngles'/>
+<mbr r='idAI::lookMin' o='38080' t='idAngles'/>
+<mbr r='idAI::lookMax' o='38176' t='idAngles'/>
+<mbr r='idAI::lookJoints' o='38272' t='idList&lt;jointHandle_t&gt;'/>
+<mbr r='idAI::lookJointAngles' o='38400' t='idList&lt;idAngles&gt;'/>
+<mbr r='idAI::eyeVerticalOffset' o='38528' t='float'/>
+<mbr r='idAI::eyeHorizontalOffset' o='38560' t='float'/>
+<mbr r='idAI::eyeFocusRate' o='38592' t='float'/>
+<mbr r='idAI::headFocusRate' o='38624' t='float'/>
+<mbr r='idAI::focusAlignTime' o='38656' t='int'/>
+<mbr r='idAI::shrivel_rate' o='38688' t='float'/>
+<mbr r='idAI::shrivel_start' o='38720' t='int'/>
+<mbr r='idAI::restartParticles' o='38752' t='bool'/>
+<mbr r='idAI::useBoneAxis' o='38760' t='bool'/>
+<mbr r='idAI::particles' o='38784' t='idList&lt;particleEmitter_t&gt;'/>
+<mbr r='idAI::worldMuzzleFlash' o='38912' t='renderLight_t'/>
+<mbr r='idAI::worldMuzzleFlashHandle' o='40576' t='int'/>
+<mbr r='idAI::flashJointWorld' o='40608' t='jointHandle_t'/>
+<mbr r='idAI::muzzleFlashEnd' o='40640' t='int'/>
+<mbr r='idAI::flashTime' o='40672' t='int'/>
+<mbr r='idAI::eyeMin' o='40704' t='idAngles'/>
+<mbr r='idAI::eyeMax' o='40800' t='idAngles'/>
+<mbr r='idAI::focusJoint' o='40896' t='jointHandle_t'/>
+<mbr r='idAI::orientationJoint' o='40928' t='jointHandle_t'/>
+<mbr r='idAI::enemy' o='40960' t='idEntityPtr&lt;idActor&gt;'/>
+<mbr r='idAI::lastVisibleEnemyPos' o='40992' t='idVec3'/>
+<mbr r='idAI::lastVisibleEnemyEyeOffset' o='41088' t='idVec3'/>
+<mbr r='idAI::lastVisibleReachableEnemyPos' o='41184' t='idVec3'/>
+<mbr r='idAI::lastReachableEnemyPos' o='41280' t='idVec3'/>
+<mbr r='idAI::wakeOnFlashlight' o='41376' t='bool'/>
+<mbr r='idAI::AI_TALK' o='41408' t='idScriptBool'/>
+<mbr r='idAI::AI_DAMAGE' o='41440' t='idScriptBool'/>
+<mbr r='idAI::AI_PAIN' o='41472' t='idScriptBool'/>
+<mbr r='idAI::AI_SPECIAL_DAMAGE' o='41504' t='idScriptFloat'/>
+<mbr r='idAI::AI_DEAD' o='41536' t='idScriptBool'/>
+<mbr r='idAI::AI_ENEMY_VISIBLE' o='41568' t='idScriptBool'/>
+<mbr r='idAI::AI_ENEMY_IN_FOV' o='41600' t='idScriptBool'/>
+<mbr r='idAI::AI_ENEMY_DEAD' o='41632' t='idScriptBool'/>
+<mbr r='idAI::AI_MOVE_DONE' o='41664' t='idScriptBool'/>
+<mbr r='idAI::AI_ONGROUND' o='41696' t='idScriptBool'/>
+<mbr r='idAI::AI_ACTIVATED' o='41728' t='idScriptBool'/>
+<mbr r='idAI::AI_FORWARD' o='41760' t='idScriptBool'/>
+<mbr r='idAI::AI_JUMP' o='41792' t='idScriptBool'/>
+<mbr r='idAI::AI_ENEMY_REACHABLE' o='41824' t='idScriptBool'/>
+<mbr r='idAI::AI_BLOCKED' o='41856' t='idScriptBool'/>
+<mbr r='idAI::AI_OBSTACLE_IN_PATH' o='41888' t='idScriptBool'/>
+<mbr r='idAI::AI_DEST_UNREACHABLE' o='41920' t='idScriptBool'/>
+<mbr r='idAI::AI_HIT_ENEMY' o='41952' t='idScriptBool'/>
+<mbr r='idAI::AI_PUSHED' o='41984' t='idScriptBool'/>
+<fun r='_ZN4idAI6SetAASEv'/>
+<fun r='_ZN4idAI12DormantBeginEv'/>
+<fun r='_ZN4idAI10DormantEndEv'/>
+<fun r='_ZN4idAI5ThinkEv'/>
+<fun r='_ZN4idAI8ActivateEP8idEntity'/>
+<fun r='_ZN4idAI10ReactionToEPK8idEntity'/>
+<fun r='_ZN4idAI13CheckForEnemyEv'/>
+<fun r='_ZN4idAI9EnemyDeadEv'/>
+<fun r='_ZNK4idAI20CanPlayChatterSoundsEv'/>
+<fun r='_ZN4idAI12SetChatSoundEv'/>
+<fun r='_ZN4idAI11PlayChatterEv'/>
+<fun r='_ZN4idAI4HideEv'/>
+<fun r='_ZN4idAI4ShowEv'/>
+<fun r='_ZNK4idAI23FirstVisiblePointOnPathE6idVec3RKS0_i'/>
+<fun r='_ZN4idAI22CalculateAttackOffsetsEv'/>
+<fun r='_ZN4idAI13PlayCinematicEv'/>
+<fun r='_ZN4idAI12ApplyImpulseEP8idEntityiRK6idVec3S4_'/>
+<fun r='_ZN4idAI12GetMoveDeltaERK6idMat3S2_R6idVec3'/>
+<fun r='_ZN4idAI22CheckObstacleAvoidanceERK6idVec3RS0_'/>
+<fun r='_ZN4idAI8DeadMoveEv'/>
+<fun r='_ZN4idAI8AnimMoveEv'/>
+<fun r='_ZN4idAI9SlideMoveEv'/>
+<fun r='_ZN4idAI18AdjustFlyingAnglesEv'/>
+<fun r='_ZN4idAI9AddFlyBobER6idVec3'/>
+<fun r='_ZN4idAI15AdjustFlyHeightER6idVec3RKS0_'/>
+<fun r='_ZN4idAI11FlySeekGoalER6idVec3S1_'/>
+<fun r='_ZN4idAI14AdjustFlySpeedER6idVec3'/>
+<fun r='_ZN4idAI7FlyTurnEv'/>
+<fun r='_ZN4idAI7FlyMoveEv'/>
+<fun r='_ZN4idAI10StaticMoveEv'/>
+<fun r='_ZN4idAI4PainEP8idEntityS1_iRK6idVec3i'/>
+<fun r='_ZN4idAI6KilledEP8idEntityS1_iRK6idVec3i'/>
+<fun r='_ZN4idAI13KickObstaclesERK6idVec3fP8idEntity'/>
+<fun r='_ZNK4idAI10ReachedPosERK6idVec313moveCommand_t'/>
+<fun r='_ZNK4idAI14TravelDistanceERK6idVec3S2_'/>
+<fun r='_ZNK4idAI21PointReachableAreaNumERK6idVec3f'/>
+<fun r='_ZNK4idAI10PathToGoalER9aasPath_siRK6idVec3iS4_'/>
+<fun r='_ZNK4idAI9DrawRouteEv'/>
+<fun r='_ZN4idAI10GetMovePosER6idVec3'/>
+<fun r='_ZNK4idAI8MoveDoneEv'/>
+<fun r='_ZN4idAI15EntityCanSeePosEP7idActorRK6idVec3S4_'/>
+<fun r='_ZN4idAI15BlockedFailSafeEv'/>
+<fun r='_ZN4idAI8StopMoveE12moveStatus_t'/>
+<fun r='_ZN4idAI9FaceEnemyEv'/>
+<fun r='_ZN4idAI10FaceEntityEP8idEntity'/>
+<fun r='_ZN4idAI20DirectMoveToPositionERK6idVec3'/>
+<fun r='_ZN4idAI17MoveToEnemyHeightEv'/>
+<fun r='_ZN4idAI14MoveOutOfRangeEP8idEntityf'/>
+<fun r='_ZN4idAI20MoveToAttackPositionEP8idEntityi'/>
+<fun r='_ZN4idAI11MoveToEnemyEv'/>
+<fun r='_ZN4idAI12MoveToEntityEP8idEntity'/>
+<fun r='_ZN4idAI14MoveToPositionERK6idVec3'/>
+<fun r='_ZN4idAI11MoveToCoverEP8idEntityRK6idVec3'/>
+<fun r='_ZN4idAI15SlideToPositionERK6idVec3f'/>
+<fun r='_ZN4idAI12WanderAroundEv'/>
+<fun r='_ZN4idAI13StepDirectionEf'/>
+<fun r='_ZN4idAI12NewWanderDirERK6idVec3'/>
+<fun r='_ZN4idAI21SpawnParticlesOnJointER17particleEmitter_sPKcS3_'/>
+<fun r='_ZN4idAI14SpawnParticlesEPKc'/>
+<fun r='_ZN4idAI15ParticlesActiveEv'/>
+<fun r='_ZN4idAI11FacingIdealEv'/>
+<fun r='_ZN4idAI4TurnEv'/>
+<fun r='_ZN4idAI10TurnTowardEf'/>
+<fun r='_ZN4idAI10TurnTowardERK6idVec3'/>
+<fun r='_ZN4idAI10ClearEnemyEv'/>
+<fun r='_ZNK4idAI18EnemyPositionValidEv'/>
+<fun r='_ZN4idAI16SetEnemyPositionEv'/>
+<fun r='_ZN4idAI19UpdateEnemyPositionEv'/>
+<fun r='_ZN4idAI8SetEnemyEP7idActor'/>
+<fun r='_ZNK4idAI25CreateProjectileClipModelEv'/>
+<fun r='_ZN4idAI16CreateProjectileERK6idVec3S2_'/>
+<fun r='_ZN4idAI16RemoveProjectileEv'/>
+<fun r='_ZN4idAI16LaunchProjectileEPKcP8idEntityb'/>
+<fun r='_ZN4idAI14DamageFeedbackEP8idEntityS1_Ri'/>
+<fun r='_ZN4idAI12DirectDamageEPKcP8idEntity'/>
+<fun r='_ZNK4idAI9TestMeleeEv'/>
+<fun r='_ZN4idAI11AttackMeleeEPKc'/>
+<fun r='_ZN4idAI11BeginAttackEPKc'/>
+<fun r='_ZN4idAI9EndAttackEv'/>
+<fun r='_ZN4idAI10PushWithAFEv'/>
+<fun r='_ZN4idAI9GetMuzzleEPKcR6idVec3R6idMat3'/>
+<fun r='_ZN4idAI15InitMuzzleFlashEv'/>
+<fun r='_ZN4idAI20TriggerWeaponEffectsERK6idVec3'/>
+<fun r='_ZN4idAI17UpdateMuzzleFlashEv'/>
+<fun r='_ZN4idAI26UpdateAnimationControllersEv'/>
+<fun r='_ZN4idAI15UpdateParticlesEv'/>
+<fun r='_ZN4idAI16TriggerParticlesEPKc'/>
+<fun r='_ZN4idAI19LinkScriptVariablesEv'/>
+<fun r='_ZN4idAI14UpdateAIScriptEv'/>
+<fun r='_ZN4idAI14Event_ActivateEP8idEntity'/>
+<fun r='_ZN4idAI11Event_TouchEP8idEntityP7trace_s'/>
+<fun r='_ZN4idAI15Event_FindEnemyEi'/>
+<fun r='_ZN4idAI17Event_FindEnemyAIEi'/>
+<fun r='_ZN4idAI28Event_FindEnemyInCombatNodesEv'/>
+<fun r='_ZN4idAI35Event_ClosestReachableEnemyOfEntityEP8idEntity'/>
+<fun r='_ZN4idAI16Event_HeardSoundEi'/>
+<fun r='_ZN4idAI14Event_SetEnemyEP8idEntity'/>
+<fun r='_ZN4idAI16Event_ClearEnemyEv'/>
+<fun r='_ZN4idAI17Event_MuzzleFlashEPKc'/>
+<fun r='_ZN4idAI19Event_CreateMissileEPKc'/>
+<fun r='_ZN4idAI19Event_AttackMissileEPKc'/>
+<fun r='_ZN4idAI25Event_FireMissileAtTargetEPKcS1_'/>
+<fun r='_ZN4idAI19Event_LaunchMissileERK6idVec3RK8idAngles'/>
+<fun r='_ZN4idAI17Event_AttackMeleeEPKc'/>
+<fun r='_ZN4idAI18Event_DirectDamageEP8idEntityPKc'/>
+<fun r='_ZN4idAI27Event_RadiusDamageFromJointEPKcS1_'/>
+<fun r='_ZN4idAI17Event_BeginAttackEPKc'/>
+<fun r='_ZN4idAI15Event_EndAttackEv'/>
+<fun r='_ZN4idAI24Event_MeleeAttackToJointEPKcS1_'/>
+<fun r='_ZN4idAI16Event_RandomPathEv'/>
+<fun r='_ZN4idAI20Event_CanBecomeSolidEv'/>
+<fun r='_ZN4idAI17Event_BecomeSolidEv'/>
+<fun r='_ZN4idAI20Event_BecomeNonSolidEv'/>
+<fun r='_ZN4idAI19Event_BecomeRagdollEv'/>
+<fun r='_ZN4idAI17Event_StopRagdollEv'/>
+<fun r='_ZN4idAI15Event_SetHealthEf'/>
+<fun r='_ZN4idAI15Event_GetHealthEv'/>
+<fun r='_ZN4idAI17Event_AllowDamageEv'/>
+<fun r='_ZN4idAI18Event_IgnoreDamageEv'/>
+<fun r='_ZN4idAI19Event_GetCurrentYawEv'/>
+<fun r='_ZN4idAI12Event_TurnToEf'/>
+<fun r='_ZN4idAI15Event_TurnToPosERK6idVec3'/>
+<fun r='_ZN4idAI18Event_TurnToEntityEP8idEntity'/>
+<fun r='_ZN4idAI16Event_MoveStatusEv'/>
+<fun r='_ZN4idAI14Event_StopMoveEv'/>
+<fun r='_ZN4idAI17Event_MoveToCoverEv'/>
+<fun r='_ZN4idAI17Event_MoveToEnemyEv'/>
+<fun r='_ZN4idAI23Event_MoveToEnemyHeightEv'/>
+<fun r='_ZN4idAI20Event_MoveOutOfRangeEP8idEntityf'/>
+<fun r='_ZN4idAI26Event_MoveToAttackPositionEP8idEntityPKc'/>
+<fun r='_ZN4idAI18Event_MoveToEntityEP8idEntity'/>
+<fun r='_ZN4idAI20Event_MoveToPositionERK6idVec3'/>
+<fun r='_ZN4idAI13Event_SlideToERK6idVec3f'/>
+<fun r='_ZN4idAI12Event_WanderEv'/>
+<fun r='_ZN4idAI17Event_FacingIdealEv'/>
+<fun r='_ZN4idAI15Event_FaceEnemyEv'/>
+<fun r='_ZN4idAI16Event_FaceEntityEP8idEntity'/>
+<fun r='_ZN4idAI16Event_WaitActionEPKc'/>
+<fun r='_ZN4idAI19Event_GetCombatNodeEv'/>
+<fun r='_ZN4idAI23Event_EnemyInCombatConeEP8idEntityi'/>
+<fun r='_ZN4idAI14Event_WaitMoveEv'/>
+<fun r='_ZN4idAI21Event_GetJumpVelocityERK6idVec3ff'/>
+<fun r='_ZN4idAI24Event_EntityInAttackConeEP8idEntity'/>
+<fun r='_ZN4idAI18Event_CanSeeEntityEP8idEntity'/>
+<fun r='_ZN4idAI19Event_SetTalkTargetEP8idEntity'/>
+<fun r='_ZN4idAI19Event_GetTalkTargetEv'/>
+<fun r='_ZN4idAI18Event_SetTalkStateEi'/>
+<fun r='_ZN4idAI16Event_EnemyRangeEv'/>
+<fun r='_ZN4idAI18Event_EnemyRange2DEv'/>
+<fun r='_ZN4idAI14Event_GetEnemyEv'/>
+<fun r='_ZN4idAI17Event_GetEnemyPosEv'/>
+<fun r='_ZN4idAI20Event_GetEnemyEyePosEv'/>
+<fun r='_ZN4idAI21Event_PredictEnemyPosEf'/>
+<fun r='_ZN4idAI17Event_CanHitEnemyEv'/>
+<fun r='_ZN4idAI25Event_CanHitEnemyFromAnimEPKc'/>
+<fun r='_ZN4idAI26Event_CanHitEnemyFromJointEPKc'/>
+<fun r='_ZN4idAI24Event_EnemyPositionValidEv'/>
+<fun r='_ZN4idAI18Event_ChargeAttackEPKc'/>
+<fun r='_ZN4idAI22Event_TestChargeAttackEv'/>
+<fun r='_ZN4idAI29Event_TestAnimMoveTowardEnemyEPKc'/>
+<fun r='_ZN4idAI18Event_TestAnimMoveEPKc'/>
+<fun r='_ZN4idAI24Event_TestMoveToPositionERK6idVec3'/>
+<fun r='_ZN4idAI21Event_TestMeleeAttackEv'/>
+<fun r='_ZN4idAI20Event_TestAnimAttackEPKc'/>
+<fun r='_ZN4idAI13Event_ShrivelEf'/>
+<fun r='_ZN4idAI10Event_BurnEv'/>
+<fun r='_ZN4idAI13Event_PreBurnEv'/>
+<fun r='_ZN4idAI15Event_ClearBurnEv'/>
+<fun r='_ZN4idAI24Event_SetSmokeVisibilityEii'/>
+<fun r='_ZN4idAI22Event_NumSmokeEmittersEv'/>
+<fun r='_ZN4idAI18Event_StopThinkingEv'/>
+<fun r='_ZN4idAI18Event_GetTurnDeltaEv'/>
+<fun r='_ZN4idAI17Event_GetMoveTypeEv'/>
+<fun r='_ZN4idAI17Event_SetMoveTypeEi'/>
+<fun r='_ZN4idAI14Event_SaveMoveEv'/>
+<fun r='_ZN4idAI17Event_RestoreMoveEv'/>
+<fun r='_ZN4idAI19Event_AllowMovementEf'/>
+<fun r='_ZN4idAI15Event_JumpFrameEv'/>
+<fun r='_ZN4idAI16Event_EnableClipEv'/>
+<fun r='_ZN4idAI17Event_DisableClipEv'/>
+<fun r='_ZN4idAI19Event_EnableGravityEv'/>
+<fun r='_ZN4idAI20Event_DisableGravityEv'/>
+<fun r='_ZN4idAI18Event_EnableAFPushEv'/>
+<fun r='_ZN4idAI19Event_DisableAFPushEv'/>
+<fun r='_ZN4idAI17Event_SetFlySpeedEf'/>
+<fun r='_ZN4idAI18Event_SetFlyOffsetEi'/>
+<fun r='_ZN4idAI20Event_ClearFlyOffsetEv'/>
+<fun r='_ZN4idAI28Event_GetClosestHiddenTargetEPKc'/>
+<fun r='_ZN4idAI21Event_GetRandomTargetEPKc'/>
+<fun r='_ZN4idAI27Event_TravelDistanceToPointERK6idVec3'/>
+<fun r='_ZN4idAI28Event_TravelDistanceToEntityEP8idEntity'/>
+<fun r='_ZN4idAI33Event_TravelDistanceBetweenPointsERK6idVec3S2_'/>
+<fun r='_ZN4idAI35Event_TravelDistanceBetweenEntitiesEP8idEntityS1_'/>
+<fun r='_ZN4idAI18Event_LookAtEntityEP8idEntityf'/>
+<fun r='_ZN4idAI17Event_LookAtEnemyEf'/>
+<fun r='_ZN4idAI17Event_SetJointModEi'/>
+<fun r='_ZN4idAI19Event_ThrowMoveableEv'/>
+<fun r='_ZN4idAI13Event_ThrowAFEv'/>
+<fun r='_ZN4idAI15Event_SetAnglesERK8idAngles'/>
+<fun r='_ZN4idAI15Event_GetAnglesEv'/>
+<fun r='_ZN4idAI14Event_RealKillEv'/>
+<fun r='_ZN4idAI10Event_KillEv'/>
+<fun r='_ZN4idAI22Event_WakeOnFlashlightEi'/>
+<fun r='_ZN4idAI17Event_LocateEnemyEv'/>
+<fun r='_ZN4idAI19Event_KickObstaclesEP8idEntityf'/>
+<fun r='_ZN4idAI17Event_GetObstacleEv'/>
+<fun r='_ZN4idAI22Event_PushPointIntoAASERK6idVec3'/>
+<fun r='_ZN4idAI17Event_GetTurnRateEv'/>
+<fun r='_ZN4idAI17Event_SetTurnRateEf'/>
+<fun r='_ZN4idAI14Event_AnimTurnEf'/>
+<fun r='_ZN4idAI25Event_AllowHiddenMovementEi'/>
+<fun r='_ZN4idAI22Event_TriggerParticlesEPKc'/>
+<fun r='_ZN4idAI24Event_FindActorsInBoundsERK6idVec3S2_'/>
+<fun r='_ZN4idAI22Event_CanReachPositionERK6idVec3'/>
+<fun r='_ZN4idAI20Event_CanReachEntityEP8idEntity'/>
+<fun r='_ZN4idAI19Event_CanReachEnemyEv'/>
+<fun r='_ZN4idAI32Event_GetReachableEntityPositionEP8idEntity'/>
+<ovr f='codebrowser/game/ai/AI_Vagary.cpp' l='41' c='idAI_Vagary'/>

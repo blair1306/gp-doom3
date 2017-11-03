@@ -1,0 +1,11 @@
+<dec f='codebrowser/idlib/bv/Frustum.h' l='87' type='bool idFrustum::RayIntersection(const idVec3 &amp; start, const idVec3 &amp; dir, float &amp; scale1, float &amp; scale2) const'/>
+<def f='codebrowser/idlib/bv/Frustum.cpp' l='1187' ll='1195' type='bool idFrustum::RayIntersection(const idVec3 &amp; start, const idVec3 &amp; dir, float &amp; scale1, float &amp; scale2) const'/>
+<doc f='codebrowser/idlib/bv/Frustum.cpp' l='1178'>/*
+============
+idFrustum::RayIntersection
+
+  Returns true if the ray intersects the bounds.
+  The ray can intersect the bounds in both directions from the start point.
+  If start is inside the frustum then scale1 &lt; 0 and scale2 &gt; 0.
+============
+*/</doc>

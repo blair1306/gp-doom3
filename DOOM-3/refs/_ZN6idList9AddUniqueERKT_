@@ -1,0 +1,46 @@
+<dec f='codebrowser/idlib/containers/List.h' l='121' type='int idList::AddUnique(const type &amp; obj)'/>
+<def f='codebrowser/idlib/containers/List.h' l='741' ll='751' type='int idList::AddUnique(const type &amp; obj)'/>
+<doc f='codebrowser/idlib/containers/List.h' l='121'>// add unique element</doc>
+<doc f='codebrowser/idlib/containers/List.h' l='734'>/*
+================
+idList&lt;type&gt;::AddUnique
+
+Adds the data to the list if it doesn&apos;t already exist.  Returns the index of the data in the list.
+================
+*/</doc>
+<use f='codebrowser/d3xp/GameEdit.cpp' l='464' u='c' c='_ZN14idEditEntities17AddSelectedEntityEP8idEntity'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='1714' u='c' c='_ZN11idGameLocal13DumpOggSoundsEv'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='1730' u='c' c='_ZN11idGameLocal13DumpOggSoundsEv'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='1744' u='c' c='_ZN11idGameLocal13DumpOggSoundsEv'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='1809' u='c' c='_ZN11idGameLocal14GetShakeSoundsEPK6idDict'/>
+<use f='codebrowser/d3xp/Player.cpp' l='4147' u='c' c='_ZN8idPlayer9GiveVideoEPKcP6idDict'/>
+<use f='codebrowser/d3xp/Player.cpp' l='4184' u='c' c='_ZN8idPlayer9GiveEmailEPKc'/>
+<use f='codebrowser/d3xp/Player.cpp' l='4204' u='c' c='_ZN8idPlayer7GivePDAEPKcP6idDict'/>
+<use f='codebrowser/d3xp/Player.cpp' l='4213' u='c' c='_ZN8idPlayer7GivePDAEPKcP6idDict'/>
+<use f='codebrowser/d3xp/Player.cpp' l='4219' u='c' c='_ZN8idPlayer7GivePDAEPKcP6idDict'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='2349' u='c' c='_ZNK14idDeclModelDef12GetJointListEPKcR6idListI13jointHandle_tE'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='2367' u='c' c='_ZNK14idDeclModelDef12GetJointListEPKcR6idListI13jointHandle_tE'/>
+<use f='codebrowser/d3xp/gamesys/SaveGame.cpp' l='151' u='c' c='_ZN10idSaveGame9AddObjectEPK7idClass'/>
+<use f='codebrowser/d3xp/script/Script_Program.cpp' l='2106' u='c' c='_ZN9idProgram10GetFilenumEPKc'/>
+<use f='codebrowser/d3xp/script/Script_Program.cpp' l='2108' u='c' c='_ZN9idProgram10GetFilenumEPKc'/>
+<use f='codebrowser/framework/Common.cpp' l='538' u='c' c='_ZN13idCommonLocal7WarningEPKcz'/>
+<use f='codebrowser/framework/Common.cpp' l='691' u='c' c='_ZN13idCommonLocal5ErrorEPKcz'/>
+<use f='codebrowser/game/GameEdit.cpp' l='464' u='c' c='_ZN14idEditEntities17AddSelectedEntityEP8idEntity'/>
+<use f='codebrowser/game/Game_local.cpp' l='1531' u='c' c='_ZN11idGameLocal13DumpOggSoundsEv'/>
+<use f='codebrowser/game/Game_local.cpp' l='1547' u='c' c='_ZN11idGameLocal13DumpOggSoundsEv'/>
+<use f='codebrowser/game/Game_local.cpp' l='1561' u='c' c='_ZN11idGameLocal13DumpOggSoundsEv'/>
+<use f='codebrowser/game/Game_local.cpp' l='1626' u='c' c='_ZN11idGameLocal14GetShakeSoundsEPK6idDict'/>
+<use f='codebrowser/game/Player.cpp' l='3288' u='c' c='_ZN8idPlayer9GiveVideoEPKcP6idDict'/>
+<use f='codebrowser/game/Player.cpp' l='3325' u='c' c='_ZN8idPlayer9GiveEmailEPKc'/>
+<use f='codebrowser/game/Player.cpp' l='3345' u='c' c='_ZN8idPlayer7GivePDAEPKcP6idDict'/>
+<use f='codebrowser/game/Player.cpp' l='3354' u='c' c='_ZN8idPlayer7GivePDAEPKcP6idDict'/>
+<use f='codebrowser/game/Player.cpp' l='3360' u='c' c='_ZN8idPlayer7GivePDAEPKcP6idDict'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='2263' u='c' c='_ZNK14idDeclModelDef12GetJointListEPKcR6idListI13jointHandle_tE'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='2281' u='c' c='_ZNK14idDeclModelDef12GetJointListEPKcR6idListI13jointHandle_tE'/>
+<use f='codebrowser/game/gamesys/SaveGame.cpp' l='151' u='c' c='_ZN10idSaveGame9AddObjectEPK7idClass'/>
+<use f='codebrowser/game/script/Script_Program.cpp' l='2106' u='c' c='_ZN9idProgram10GetFilenumEPKc'/>
+<use f='codebrowser/game/script/Script_Program.cpp' l='2108' u='c' c='_ZN9idProgram10GetFilenumEPKc'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='2125' u='c' c='_ZN14idImageManager11FinishBuildEb'/>
+<use f='codebrowser/tools/compilers/aas/AASBuild.cpp' l='583' u='c' c='_ZNK10idAASBuild16CheckForEntitiesEPK9idMapFileR6idListI5idStrE'/>
+<use f='codebrowser/ui/Window.h' l='452' u='c' c='_ZN8idWindow13AddDefinedVarEP8idWinVar'/>
+<use f='codebrowser/ui/Window.cpp' l='576' u='c' c='_ZN8idWindow12AddUpdateVarEP8idWinVar'/>

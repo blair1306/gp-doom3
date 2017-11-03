@@ -1,0 +1,154 @@
+<inh f='codebrowser/d3xp/physics/Physics_Base.h' l='42' c='idPhysics_Base'/>
+<def f='codebrowser/d3xp/physics/Physics_Parametric.h' l='62' ll='174'/>
+<size>1176</size>
+<smbr r='idPhysics_Parametric::Type' t='idTypeInfo'/>
+<fun r='_ZN20idPhysics_Parametric14CreateInstanceEv'/>
+<fun r='_ZNK20idPhysics_Parametric7GetTypeEv'/>
+<smbr r='idPhysics_Parametric::eventCallbacks' t='idEventFunc&lt;idPhysics_Parametric&gt; []'/>
+<fun r='_ZN20idPhysics_ParametricC1Ev'/>
+<fun r='_ZN20idPhysics_ParametricD1Ev'/>
+<fun r='_ZNK20idPhysics_Parametric4SaveEP10idSaveGame'/>
+<fun r='_ZN20idPhysics_Parametric7RestoreEP13idRestoreGame'/>
+<fun r='_ZN20idPhysics_Parametric9SetPusherEi'/>
+<fun r='_ZNK20idPhysics_Parametric8IsPusherEv'/>
+<fun r='_ZN20idPhysics_Parametric22SetLinearExtrapolationE15extrapolation_tiiRK6idVec3S3_S3_'/>
+<fun r='_ZN20idPhysics_Parametric23SetAngularExtrapolationE15extrapolation_tiiRK8idAnglesS3_S3_'/>
+<fun r='_ZNK20idPhysics_Parametric26GetLinearExtrapolationTypeEv'/>
+<fun r='_ZNK20idPhysics_Parametric27GetAngularExtrapolationTypeEv'/>
+<fun r='_ZN20idPhysics_Parametric22SetLinearInterpolationEiiiiRK6idVec3S2_'/>
+<fun r='_ZN20idPhysics_Parametric23SetAngularInterpolationEiiiiRK8idAnglesS2_'/>
+<fun r='_ZN20idPhysics_Parametric9SetSplineEP14idCurve_SplineI6idVec3Eiib'/>
+<fun r='_ZNK20idPhysics_Parametric9GetSplineEv'/>
+<fun r='_ZNK20idPhysics_Parametric21GetSplineAccelerationEv'/>
+<fun r='_ZNK20idPhysics_Parametric21GetSplineDecelerationEv'/>
+<fun r='_ZNK20idPhysics_Parametric17UsingSplineAnglesEv'/>
+<fun r='_ZNK20idPhysics_Parametric14GetLocalOriginER6idVec3'/>
+<fun r='_ZNK20idPhysics_Parametric14GetLocalAnglesER8idAngles'/>
+<fun r='_ZNK20idPhysics_Parametric9GetAnglesER8idAngles'/>
+<fun r='_ZN20idPhysics_Parametric12SetClipModelEP11idClipModelfib'/>
+<fun r='_ZNK20idPhysics_Parametric12GetClipModelEi'/>
+<fun r='_ZNK20idPhysics_Parametric16GetNumClipModelsEv'/>
+<fun r='_ZN20idPhysics_Parametric7SetMassEfi'/>
+<fun r='_ZNK20idPhysics_Parametric7GetMassEi'/>
+<fun r='_ZN20idPhysics_Parametric11SetContentsEii'/>
+<fun r='_ZNK20idPhysics_Parametric11GetContentsEi'/>
+<fun r='_ZNK20idPhysics_Parametric9GetBoundsEi'/>
+<fun r='_ZNK20idPhysics_Parametric12GetAbsBoundsEi'/>
+<fun r='_ZN20idPhysics_Parametric8EvaluateEii'/>
+<fun r='_ZN20idPhysics_Parametric10UpdateTimeEi'/>
+<fun r='_ZNK20idPhysics_Parametric7GetTimeEv'/>
+<fun r='_ZN20idPhysics_Parametric8ActivateEv'/>
+<fun r='_ZNK20idPhysics_Parametric8IsAtRestEv'/>
+<fun r='_ZNK20idPhysics_Parametric16GetRestStartTimeEv'/>
+<fun r='_ZNK20idPhysics_Parametric10IsPushableEv'/>
+<fun r='_ZN20idPhysics_Parametric9SaveStateEv'/>
+<fun r='_ZN20idPhysics_Parametric12RestoreStateEv'/>
+<fun r='_ZN20idPhysics_Parametric9SetOriginERK6idVec3i'/>
+<fun r='_ZN20idPhysics_Parametric7SetAxisERK6idMat3i'/>
+<fun r='_ZN20idPhysics_Parametric9TranslateERK6idVec3i'/>
+<fun r='_ZN20idPhysics_Parametric6RotateERK10idRotationi'/>
+<fun r='_ZNK20idPhysics_Parametric9GetOriginEi'/>
+<fun r='_ZNK20idPhysics_Parametric7GetAxisEi'/>
+<fun r='_ZN20idPhysics_Parametric17SetLinearVelocityERK6idVec3i'/>
+<fun r='_ZN20idPhysics_Parametric18SetAngularVelocityERK6idVec3i'/>
+<fun r='_ZNK20idPhysics_Parametric17GetLinearVelocityEi'/>
+<fun r='_ZNK20idPhysics_Parametric18GetAngularVelocityEi'/>
+<fun r='_ZN20idPhysics_Parametric11DisableClipEv'/>
+<fun r='_ZN20idPhysics_Parametric10EnableClipEv'/>
+<fun r='_ZN20idPhysics_Parametric10UnlinkClipEv'/>
+<fun r='_ZN20idPhysics_Parametric8LinkClipEv'/>
+<fun r='_ZN20idPhysics_Parametric9SetMasterEP8idEntityb'/>
+<fun r='_ZNK20idPhysics_Parametric15GetBlockingInfoEv'/>
+<fun r='_ZNK20idPhysics_Parametric17GetBlockingEntityEv'/>
+<fun r='_ZNK20idPhysics_Parametric16GetLinearEndTimeEv'/>
+<fun r='_ZNK20idPhysics_Parametric17GetAngularEndTimeEv'/>
+<fun r='_ZNK20idPhysics_Parametric15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN20idPhysics_Parametric16ReadFromSnapshotERK13idBitMsgDelta'/>
+<mbr r='idPhysics_Parametric::current' o='544' t='parametricPState_t'/>
+<mbr r='idPhysics_Parametric::saved' o='4480' t='parametricPState_t'/>
+<mbr r='idPhysics_Parametric::isPusher' o='8416' t='bool'/>
+<mbr r='idPhysics_Parametric::clipModel' o='8448' t='idClipModel *'/>
+<mbr r='idPhysics_Parametric::pushFlags' o='8480' t='int'/>
+<mbr r='idPhysics_Parametric::pushResults' o='8512' t='trace_t'/>
+<mbr r='idPhysics_Parametric::isBlocked' o='9376' t='bool'/>
+<mbr r='idPhysics_Parametric::hasMaster' o='9384' t='bool'/>
+<mbr r='idPhysics_Parametric::isOrientated' o='9392' t='bool'/>
+<fun r='_ZNK20idPhysics_Parametric12TestIfAtRestEv'/>
+<fun r='_ZN20idPhysics_Parametric4RestEv'/>
+<inh f='codebrowser/game/physics/Physics_Base.h' l='42' c='idPhysics_Base'/>
+<def f='codebrowser/game/physics/Physics_Parametric.h' l='62' ll='174'/>
+<size>1176</size>
+<smbr r='idPhysics_Parametric::Type' t='idTypeInfo'/>
+<fun r='_ZN20idPhysics_Parametric14CreateInstanceEv'/>
+<fun r='_ZNK20idPhysics_Parametric7GetTypeEv'/>
+<smbr r='idPhysics_Parametric::eventCallbacks' t='idEventFunc&lt;idPhysics_Parametric&gt; []'/>
+<fun r='_ZN20idPhysics_ParametricC1Ev'/>
+<fun r='_ZN20idPhysics_ParametricD1Ev'/>
+<fun r='_ZNK20idPhysics_Parametric4SaveEP10idSaveGame'/>
+<fun r='_ZN20idPhysics_Parametric7RestoreEP13idRestoreGame'/>
+<fun r='_ZN20idPhysics_Parametric9SetPusherEi'/>
+<fun r='_ZNK20idPhysics_Parametric8IsPusherEv'/>
+<fun r='_ZN20idPhysics_Parametric22SetLinearExtrapolationE15extrapolation_tiiRK6idVec3S3_S3_'/>
+<fun r='_ZN20idPhysics_Parametric23SetAngularExtrapolationE15extrapolation_tiiRK8idAnglesS3_S3_'/>
+<fun r='_ZNK20idPhysics_Parametric26GetLinearExtrapolationTypeEv'/>
+<fun r='_ZNK20idPhysics_Parametric27GetAngularExtrapolationTypeEv'/>
+<fun r='_ZN20idPhysics_Parametric22SetLinearInterpolationEiiiiRK6idVec3S2_'/>
+<fun r='_ZN20idPhysics_Parametric23SetAngularInterpolationEiiiiRK8idAnglesS2_'/>
+<fun r='_ZN20idPhysics_Parametric9SetSplineEP14idCurve_SplineI6idVec3Eiib'/>
+<fun r='_ZNK20idPhysics_Parametric9GetSplineEv'/>
+<fun r='_ZNK20idPhysics_Parametric21GetSplineAccelerationEv'/>
+<fun r='_ZNK20idPhysics_Parametric21GetSplineDecelerationEv'/>
+<fun r='_ZNK20idPhysics_Parametric17UsingSplineAnglesEv'/>
+<fun r='_ZNK20idPhysics_Parametric14GetLocalOriginER6idVec3'/>
+<fun r='_ZNK20idPhysics_Parametric14GetLocalAnglesER8idAngles'/>
+<fun r='_ZNK20idPhysics_Parametric9GetAnglesER8idAngles'/>
+<fun r='_ZN20idPhysics_Parametric12SetClipModelEP11idClipModelfib'/>
+<fun r='_ZNK20idPhysics_Parametric12GetClipModelEi'/>
+<fun r='_ZNK20idPhysics_Parametric16GetNumClipModelsEv'/>
+<fun r='_ZN20idPhysics_Parametric7SetMassEfi'/>
+<fun r='_ZNK20idPhysics_Parametric7GetMassEi'/>
+<fun r='_ZN20idPhysics_Parametric11SetContentsEii'/>
+<fun r='_ZNK20idPhysics_Parametric11GetContentsEi'/>
+<fun r='_ZNK20idPhysics_Parametric9GetBoundsEi'/>
+<fun r='_ZNK20idPhysics_Parametric12GetAbsBoundsEi'/>
+<fun r='_ZN20idPhysics_Parametric8EvaluateEii'/>
+<fun r='_ZN20idPhysics_Parametric10UpdateTimeEi'/>
+<fun r='_ZNK20idPhysics_Parametric7GetTimeEv'/>
+<fun r='_ZN20idPhysics_Parametric8ActivateEv'/>
+<fun r='_ZNK20idPhysics_Parametric8IsAtRestEv'/>
+<fun r='_ZNK20idPhysics_Parametric16GetRestStartTimeEv'/>
+<fun r='_ZNK20idPhysics_Parametric10IsPushableEv'/>
+<fun r='_ZN20idPhysics_Parametric9SaveStateEv'/>
+<fun r='_ZN20idPhysics_Parametric12RestoreStateEv'/>
+<fun r='_ZN20idPhysics_Parametric9SetOriginERK6idVec3i'/>
+<fun r='_ZN20idPhysics_Parametric7SetAxisERK6idMat3i'/>
+<fun r='_ZN20idPhysics_Parametric9TranslateERK6idVec3i'/>
+<fun r='_ZN20idPhysics_Parametric6RotateERK10idRotationi'/>
+<fun r='_ZNK20idPhysics_Parametric9GetOriginEi'/>
+<fun r='_ZNK20idPhysics_Parametric7GetAxisEi'/>
+<fun r='_ZN20idPhysics_Parametric17SetLinearVelocityERK6idVec3i'/>
+<fun r='_ZN20idPhysics_Parametric18SetAngularVelocityERK6idVec3i'/>
+<fun r='_ZNK20idPhysics_Parametric17GetLinearVelocityEi'/>
+<fun r='_ZNK20idPhysics_Parametric18GetAngularVelocityEi'/>
+<fun r='_ZN20idPhysics_Parametric11DisableClipEv'/>
+<fun r='_ZN20idPhysics_Parametric10EnableClipEv'/>
+<fun r='_ZN20idPhysics_Parametric10UnlinkClipEv'/>
+<fun r='_ZN20idPhysics_Parametric8LinkClipEv'/>
+<fun r='_ZN20idPhysics_Parametric9SetMasterEP8idEntityb'/>
+<fun r='_ZNK20idPhysics_Parametric15GetBlockingInfoEv'/>
+<fun r='_ZNK20idPhysics_Parametric17GetBlockingEntityEv'/>
+<fun r='_ZNK20idPhysics_Parametric16GetLinearEndTimeEv'/>
+<fun r='_ZNK20idPhysics_Parametric17GetAngularEndTimeEv'/>
+<fun r='_ZNK20idPhysics_Parametric15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN20idPhysics_Parametric16ReadFromSnapshotERK13idBitMsgDelta'/>
+<mbr r='idPhysics_Parametric::current' o='544' t='parametricPState_t'/>
+<mbr r='idPhysics_Parametric::saved' o='4480' t='parametricPState_t'/>
+<mbr r='idPhysics_Parametric::isPusher' o='8416' t='bool'/>
+<mbr r='idPhysics_Parametric::clipModel' o='8448' t='idClipModel *'/>
+<mbr r='idPhysics_Parametric::pushFlags' o='8480' t='int'/>
+<mbr r='idPhysics_Parametric::pushResults' o='8512' t='trace_t'/>
+<mbr r='idPhysics_Parametric::isBlocked' o='9376' t='bool'/>
+<mbr r='idPhysics_Parametric::hasMaster' o='9384' t='bool'/>
+<mbr r='idPhysics_Parametric::isOrientated' o='9392' t='bool'/>
+<fun r='_ZNK20idPhysics_Parametric12TestIfAtRestEv'/>
+<fun r='_ZN20idPhysics_Parametric4RestEv'/>

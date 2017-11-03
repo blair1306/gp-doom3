@@ -1,0 +1,8 @@
+<dec f='codebrowser/sound/OggVorbis/vorbissrc/codebook.h' l='125' type='float * _book_unquantize(const static_codebook * b, int n, int * map)'/>
+<def f='codebrowser/sound/OggVorbis/vorbissrc/sharedbook.c' l='183' ll='246' type='float * _book_unquantize(const static_codebook * b, int n, int * sparsemap)'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/sharedbook.c' l='299' u='c' c='vorbis_book_init_encode'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/sharedbook.c' l='369' u='c' c='vorbis_book_init_decode'/>
+<doc f='codebrowser/sound/OggVorbis/vorbissrc/sharedbook.c' l='179'>/* we need to deal with two map types: in map type 1, the values are
+   generated algorithmically (each column of the vector counts through
+   the values in the quant vector). in map type 2, all the values came
+   in in an explicit list.  Both value lists must be unpacked */</doc>

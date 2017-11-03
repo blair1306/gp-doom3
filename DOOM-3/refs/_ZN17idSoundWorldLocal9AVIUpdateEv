@@ -1,0 +1,13 @@
+<dec f='codebrowser/sound/snd_local.h' l='621' type='void idSoundWorldLocal::AVIUpdate()'/>
+<def f='codebrowser/sound/snd_world.cpp' l='577' ll='617' type='void idSoundWorldLocal::AVIUpdate()'/>
+<use f='codebrowser/sound/snd_world.cpp' l='633' u='c' c='_ZN17idSoundWorldLocal8AVICloseEv'/>
+<use f='codebrowser/sound/snd_world.cpp' l='1061' u='c' c='_ZN17idSoundWorldLocal16ForegroundUpdateEi'/>
+<doc f='codebrowser/sound/snd_world.cpp' l='568'>/*
+===================
+idSoundWorldLocal::AVIUpdate
+
+this is called by the main thread
+writes one block of sound samples if enough time has passed
+This can be used to write wave files even if no sound hardware exists
+===================
+*/</doc>

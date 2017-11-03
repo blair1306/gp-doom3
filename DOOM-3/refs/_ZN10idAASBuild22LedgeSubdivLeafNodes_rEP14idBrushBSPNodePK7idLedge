@@ -1,0 +1,14 @@
+<dec f='codebrowser/tools/compilers/aas/AASBuild_local.h' l='118' type='void idAASBuild::LedgeSubdivLeafNodes_r(idBrushBSPNode * node, const idLedge * ledge)'/>
+<use f='codebrowser/tools/compilers/aas/AASBuild_ledge.cpp' l='277' u='c' c='_ZN10idAASBuild18LedgeSubdivFlood_rEP14idBrushBSPNodePK7idLedge'/>
+<def f='codebrowser/tools/compilers/aas/AASBuild_ledge.cpp' l='289' ll='299' type='void idAASBuild::LedgeSubdivLeafNodes_r(idBrushBSPNode * node, const idLedge * ledge)'/>
+<use f='codebrowser/tools/compilers/aas/AASBuild_ledge.cpp' l='297' u='c' c='_ZN10idAASBuild22LedgeSubdivLeafNodes_rEP14idBrushBSPNodePK7idLedge'/>
+<use f='codebrowser/tools/compilers/aas/AASBuild_ledge.cpp' l='298' u='c' c='_ZN10idAASBuild22LedgeSubdivLeafNodes_rEP14idBrushBSPNodePK7idLedge'/>
+<use f='codebrowser/tools/compilers/aas/AASBuild_ledge.cpp' l='333' u='c' c='_ZN10idAASBuild11LedgeSubdivEP14idBrushBSPNode'/>
+<doc f='codebrowser/tools/compilers/aas/AASBuild_ledge.cpp' l='281'>/*
+============
+idAASBuild::LedgeSubdivLeafNodes_r
+
+  The node the ledge was originally part of might be split by other ledges.
+  Here we recurse down the tree from the original node to find all the new leaf nodes the ledge might be part of.
+============
+*/</doc>

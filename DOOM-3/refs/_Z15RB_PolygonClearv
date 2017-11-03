@@ -1,0 +1,14 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1594' type='void RB_PolygonClear()'/>
+<def f='codebrowser/renderer/tr_rendertools.cpp' l='168' ll='184' type='void RB_PolygonClear()'/>
+<use f='codebrowser/renderer/tr_rendertools.cpp' l='194' u='c' c='_Z23RB_ShowDestinationAlphav'/>
+<use f='codebrowser/renderer/tr_rendertools.cpp' l='289' u='c' c='_ZL22R_ColorByStencilBufferv'/>
+<doc f='codebrowser/renderer/tr_rendertools.cpp' l='158'>/*
+=================
+RB_PolygonClear
+
+This will cover the entire screen with normal rasterization.
+Texturing is disabled, but the existing glColor, glDepthMask,
+glColorMask, and the enabled state of depth buffering and
+stenciling will matter.
+=================
+*/</doc>

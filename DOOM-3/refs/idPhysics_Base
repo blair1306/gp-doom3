@@ -1,0 +1,180 @@
+<inh f='codebrowser/d3xp/physics/Physics.h' l='76' c='idPhysics'/>
+<def f='codebrowser/d3xp/physics/Physics_Base.h' l='42' ll='163'/>
+<ovr f='codebrowser/d3xp/physics/Physics_Actor.h' l='44' c='idPhysics_Actor'/>
+<ovr f='codebrowser/d3xp/physics/Physics_Parametric.h' l='62' c='idPhysics_Parametric'/>
+<ovr f='codebrowser/d3xp/physics/Physics_RigidBody.h' l='66' c='idPhysics_RigidBody'/>
+<ovr f='codebrowser/d3xp/physics/Physics_AF.h' l='812' c='idPhysics_AF'/>
+<size>68</size>
+<smbr r='idPhysics_Base::Type' t='idTypeInfo'/>
+<fun r='_ZN14idPhysics_Base14CreateInstanceEv'/>
+<fun r='_ZNK14idPhysics_Base7GetTypeEv'/>
+<smbr r='idPhysics_Base::eventCallbacks' t='idEventFunc&lt;idPhysics_Base&gt; []'/>
+<fun r='_ZN14idPhysics_BaseC1Ev'/>
+<fun r='_ZN14idPhysics_BaseD1Ev'/>
+<fun r='_ZNK14idPhysics_Base4SaveEP10idSaveGame'/>
+<fun r='_ZN14idPhysics_Base7RestoreEP13idRestoreGame'/>
+<fun r='_ZN14idPhysics_Base7SetSelfEP8idEntity'/>
+<fun r='_ZN14idPhysics_Base12SetClipModelEP11idClipModelfib'/>
+<fun r='_ZNK14idPhysics_Base12GetClipModelEi'/>
+<fun r='_ZNK14idPhysics_Base16GetNumClipModelsEv'/>
+<fun r='_ZN14idPhysics_Base7SetMassEfi'/>
+<fun r='_ZNK14idPhysics_Base7GetMassEi'/>
+<fun r='_ZN14idPhysics_Base11SetContentsEii'/>
+<fun r='_ZNK14idPhysics_Base11GetContentsEi'/>
+<fun r='_ZN14idPhysics_Base11SetClipMaskEii'/>
+<fun r='_ZNK14idPhysics_Base11GetClipMaskEi'/>
+<fun r='_ZNK14idPhysics_Base9GetBoundsEi'/>
+<fun r='_ZNK14idPhysics_Base12GetAbsBoundsEi'/>
+<fun r='_ZN14idPhysics_Base8EvaluateEii'/>
+<fun r='_ZN14idPhysics_Base10UpdateTimeEi'/>
+<fun r='_ZNK14idPhysics_Base7GetTimeEv'/>
+<fun r='_ZNK14idPhysics_Base13GetImpactInfoEiRK6idVec3P12impactInfo_s'/>
+<fun r='_ZN14idPhysics_Base12ApplyImpulseEiRK6idVec3S2_'/>
+<fun r='_ZN14idPhysics_Base8AddForceEiRK6idVec3S2_'/>
+<fun r='_ZN14idPhysics_Base8ActivateEv'/>
+<fun r='_ZN14idPhysics_Base9PutToRestEv'/>
+<fun r='_ZNK14idPhysics_Base8IsAtRestEv'/>
+<fun r='_ZNK14idPhysics_Base16GetRestStartTimeEv'/>
+<fun r='_ZNK14idPhysics_Base10IsPushableEv'/>
+<fun r='_ZN14idPhysics_Base9SaveStateEv'/>
+<fun r='_ZN14idPhysics_Base12RestoreStateEv'/>
+<fun r='_ZN14idPhysics_Base9SetOriginERK6idVec3i'/>
+<fun r='_ZN14idPhysics_Base7SetAxisERK6idMat3i'/>
+<fun r='_ZN14idPhysics_Base9TranslateERK6idVec3i'/>
+<fun r='_ZN14idPhysics_Base6RotateERK10idRotationi'/>
+<fun r='_ZNK14idPhysics_Base9GetOriginEi'/>
+<fun r='_ZNK14idPhysics_Base7GetAxisEi'/>
+<fun r='_ZN14idPhysics_Base17SetLinearVelocityERK6idVec3i'/>
+<fun r='_ZN14idPhysics_Base18SetAngularVelocityERK6idVec3i'/>
+<fun r='_ZNK14idPhysics_Base17GetLinearVelocityEi'/>
+<fun r='_ZNK14idPhysics_Base18GetAngularVelocityEi'/>
+<fun r='_ZN14idPhysics_Base10SetGravityERK6idVec3'/>
+<fun r='_ZNK14idPhysics_Base10GetGravityEv'/>
+<fun r='_ZNK14idPhysics_Base16GetGravityNormalEv'/>
+<fun r='_ZNK14idPhysics_Base15ClipTranslationER7trace_sRK6idVec3PK11idClipModel'/>
+<fun r='_ZNK14idPhysics_Base12ClipRotationER7trace_sRK10idRotationPK11idClipModel'/>
+<fun r='_ZNK14idPhysics_Base12ClipContentsEPK11idClipModel'/>
+<fun r='_ZN14idPhysics_Base11DisableClipEv'/>
+<fun r='_ZN14idPhysics_Base10EnableClipEv'/>
+<fun r='_ZN14idPhysics_Base10UnlinkClipEv'/>
+<fun r='_ZN14idPhysics_Base8LinkClipEv'/>
+<fun r='_ZN14idPhysics_Base16EvaluateContactsEv'/>
+<fun r='_ZNK14idPhysics_Base14GetNumContactsEv'/>
+<fun r='_ZNK14idPhysics_Base10GetContactEi'/>
+<fun r='_ZN14idPhysics_Base13ClearContactsEv'/>
+<fun r='_ZN14idPhysics_Base16AddContactEntityEP8idEntity'/>
+<fun r='_ZN14idPhysics_Base19RemoveContactEntityEP8idEntity'/>
+<fun r='_ZNK14idPhysics_Base17HasGroundContactsEv'/>
+<fun r='_ZNK14idPhysics_Base14IsGroundEntityEi'/>
+<fun r='_ZNK14idPhysics_Base17IsGroundClipModelEii'/>
+<fun r='_ZN14idPhysics_Base9SetPushedEi'/>
+<fun r='_ZNK14idPhysics_Base23GetPushedLinearVelocityEi'/>
+<fun r='_ZNK14idPhysics_Base24GetPushedAngularVelocityEi'/>
+<fun r='_ZN14idPhysics_Base9SetMasterEP8idEntityb'/>
+<fun r='_ZNK14idPhysics_Base15GetBlockingInfoEv'/>
+<fun r='_ZNK14idPhysics_Base17GetBlockingEntityEv'/>
+<fun r='_ZNK14idPhysics_Base16GetLinearEndTimeEv'/>
+<fun r='_ZNK14idPhysics_Base17GetAngularEndTimeEv'/>
+<fun r='_ZNK14idPhysics_Base15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN14idPhysics_Base16ReadFromSnapshotERK13idBitMsgDelta'/>
+<mbr r='idPhysics_Base::self' o='32' t='idEntity *'/>
+<mbr r='idPhysics_Base::clipMask' o='64' t='int'/>
+<mbr r='idPhysics_Base::gravityVector' o='96' t='idVec3'/>
+<mbr r='idPhysics_Base::gravityNormal' o='192' t='idVec3'/>
+<mbr r='idPhysics_Base::contacts' o='288' t='idList&lt;contactInfo_t&gt;'/>
+<mbr r='idPhysics_Base::contactEntities' o='416' t='idList&lt;idEntityPtr&lt;idEntity&gt; &gt;'/>
+<fun r='_ZN14idPhysics_Base17AddGroundContactsEPK11idClipModel'/>
+<fun r='_ZN14idPhysics_Base29AddContactEntitiesForContactsEv'/>
+<fun r='_ZN14idPhysics_Base23ActivateContactEntitiesEv'/>
+<fun r='_ZNK14idPhysics_Base14IsOutsideWorldEv'/>
+<fun r='_ZNK14idPhysics_Base12DrawVelocityEiff'/>
+<inh f='codebrowser/game/physics/Physics.h' l='76' c='idPhysics'/>
+<def f='codebrowser/game/physics/Physics_Base.h' l='42' ll='163'/>
+<ovr f='codebrowser/game/physics/Physics_Actor.h' l='44' c='idPhysics_Actor'/>
+<ovr f='codebrowser/game/physics/Physics_Parametric.h' l='62' c='idPhysics_Parametric'/>
+<ovr f='codebrowser/game/physics/Physics_RigidBody.h' l='66' c='idPhysics_RigidBody'/>
+<ovr f='codebrowser/game/physics/Physics_AF.h' l='812' c='idPhysics_AF'/>
+<size>68</size>
+<smbr r='idPhysics_Base::Type' t='idTypeInfo'/>
+<fun r='_ZN14idPhysics_Base14CreateInstanceEv'/>
+<fun r='_ZNK14idPhysics_Base7GetTypeEv'/>
+<smbr r='idPhysics_Base::eventCallbacks' t='idEventFunc&lt;idPhysics_Base&gt; []'/>
+<fun r='_ZN14idPhysics_BaseC1Ev'/>
+<fun r='_ZN14idPhysics_BaseD1Ev'/>
+<fun r='_ZNK14idPhysics_Base4SaveEP10idSaveGame'/>
+<fun r='_ZN14idPhysics_Base7RestoreEP13idRestoreGame'/>
+<fun r='_ZN14idPhysics_Base7SetSelfEP8idEntity'/>
+<fun r='_ZN14idPhysics_Base12SetClipModelEP11idClipModelfib'/>
+<fun r='_ZNK14idPhysics_Base12GetClipModelEi'/>
+<fun r='_ZNK14idPhysics_Base16GetNumClipModelsEv'/>
+<fun r='_ZN14idPhysics_Base7SetMassEfi'/>
+<fun r='_ZNK14idPhysics_Base7GetMassEi'/>
+<fun r='_ZN14idPhysics_Base11SetContentsEii'/>
+<fun r='_ZNK14idPhysics_Base11GetContentsEi'/>
+<fun r='_ZN14idPhysics_Base11SetClipMaskEii'/>
+<fun r='_ZNK14idPhysics_Base11GetClipMaskEi'/>
+<fun r='_ZNK14idPhysics_Base9GetBoundsEi'/>
+<fun r='_ZNK14idPhysics_Base12GetAbsBoundsEi'/>
+<fun r='_ZN14idPhysics_Base8EvaluateEii'/>
+<fun r='_ZN14idPhysics_Base10UpdateTimeEi'/>
+<fun r='_ZNK14idPhysics_Base7GetTimeEv'/>
+<fun r='_ZNK14idPhysics_Base13GetImpactInfoEiRK6idVec3P12impactInfo_s'/>
+<fun r='_ZN14idPhysics_Base12ApplyImpulseEiRK6idVec3S2_'/>
+<fun r='_ZN14idPhysics_Base8AddForceEiRK6idVec3S2_'/>
+<fun r='_ZN14idPhysics_Base8ActivateEv'/>
+<fun r='_ZN14idPhysics_Base9PutToRestEv'/>
+<fun r='_ZNK14idPhysics_Base8IsAtRestEv'/>
+<fun r='_ZNK14idPhysics_Base16GetRestStartTimeEv'/>
+<fun r='_ZNK14idPhysics_Base10IsPushableEv'/>
+<fun r='_ZN14idPhysics_Base9SaveStateEv'/>
+<fun r='_ZN14idPhysics_Base12RestoreStateEv'/>
+<fun r='_ZN14idPhysics_Base9SetOriginERK6idVec3i'/>
+<fun r='_ZN14idPhysics_Base7SetAxisERK6idMat3i'/>
+<fun r='_ZN14idPhysics_Base9TranslateERK6idVec3i'/>
+<fun r='_ZN14idPhysics_Base6RotateERK10idRotationi'/>
+<fun r='_ZNK14idPhysics_Base9GetOriginEi'/>
+<fun r='_ZNK14idPhysics_Base7GetAxisEi'/>
+<fun r='_ZN14idPhysics_Base17SetLinearVelocityERK6idVec3i'/>
+<fun r='_ZN14idPhysics_Base18SetAngularVelocityERK6idVec3i'/>
+<fun r='_ZNK14idPhysics_Base17GetLinearVelocityEi'/>
+<fun r='_ZNK14idPhysics_Base18GetAngularVelocityEi'/>
+<fun r='_ZN14idPhysics_Base10SetGravityERK6idVec3'/>
+<fun r='_ZNK14idPhysics_Base10GetGravityEv'/>
+<fun r='_ZNK14idPhysics_Base16GetGravityNormalEv'/>
+<fun r='_ZNK14idPhysics_Base15ClipTranslationER7trace_sRK6idVec3PK11idClipModel'/>
+<fun r='_ZNK14idPhysics_Base12ClipRotationER7trace_sRK10idRotationPK11idClipModel'/>
+<fun r='_ZNK14idPhysics_Base12ClipContentsEPK11idClipModel'/>
+<fun r='_ZN14idPhysics_Base11DisableClipEv'/>
+<fun r='_ZN14idPhysics_Base10EnableClipEv'/>
+<fun r='_ZN14idPhysics_Base10UnlinkClipEv'/>
+<fun r='_ZN14idPhysics_Base8LinkClipEv'/>
+<fun r='_ZN14idPhysics_Base16EvaluateContactsEv'/>
+<fun r='_ZNK14idPhysics_Base14GetNumContactsEv'/>
+<fun r='_ZNK14idPhysics_Base10GetContactEi'/>
+<fun r='_ZN14idPhysics_Base13ClearContactsEv'/>
+<fun r='_ZN14idPhysics_Base16AddContactEntityEP8idEntity'/>
+<fun r='_ZN14idPhysics_Base19RemoveContactEntityEP8idEntity'/>
+<fun r='_ZNK14idPhysics_Base17HasGroundContactsEv'/>
+<fun r='_ZNK14idPhysics_Base14IsGroundEntityEi'/>
+<fun r='_ZNK14idPhysics_Base17IsGroundClipModelEii'/>
+<fun r='_ZN14idPhysics_Base9SetPushedEi'/>
+<fun r='_ZNK14idPhysics_Base23GetPushedLinearVelocityEi'/>
+<fun r='_ZNK14idPhysics_Base24GetPushedAngularVelocityEi'/>
+<fun r='_ZN14idPhysics_Base9SetMasterEP8idEntityb'/>
+<fun r='_ZNK14idPhysics_Base15GetBlockingInfoEv'/>
+<fun r='_ZNK14idPhysics_Base17GetBlockingEntityEv'/>
+<fun r='_ZNK14idPhysics_Base16GetLinearEndTimeEv'/>
+<fun r='_ZNK14idPhysics_Base17GetAngularEndTimeEv'/>
+<fun r='_ZNK14idPhysics_Base15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN14idPhysics_Base16ReadFromSnapshotERK13idBitMsgDelta'/>
+<mbr r='idPhysics_Base::self' o='32' t='idEntity *'/>
+<mbr r='idPhysics_Base::clipMask' o='64' t='int'/>
+<mbr r='idPhysics_Base::gravityVector' o='96' t='idVec3'/>
+<mbr r='idPhysics_Base::gravityNormal' o='192' t='idVec3'/>
+<mbr r='idPhysics_Base::contacts' o='288' t='idList&lt;contactInfo_t&gt;'/>
+<mbr r='idPhysics_Base::contactEntities' o='416' t='idList&lt;idEntityPtr&lt;idEntity&gt; &gt;'/>
+<fun r='_ZN14idPhysics_Base17AddGroundContactsEPK11idClipModel'/>
+<fun r='_ZN14idPhysics_Base29AddContactEntitiesForContactsEv'/>
+<fun r='_ZN14idPhysics_Base23ActivateContactEntitiesEv'/>
+<fun r='_ZNK14idPhysics_Base14IsOutsideWorldEv'/>
+<fun r='_ZNK14idPhysics_Base12DrawVelocityEiff'/>

@@ -1,0 +1,24 @@
+<dec f='codebrowser/sound/OggVorbis/ogg/ogg.h' l='72' type='ogg_int64_t'/>
+<dec f='codebrowser/sound/OggVorbis/ogg/ogg.h' l='92' type='ogg_int64_t'/>
+<offset>192</offset>
+<doc f='codebrowser/sound/OggVorbis/ogg/ogg.h' l='72'>/* sequence number for decode; the framing
+                             knows where there&apos;s a hole in the data,
+                             but we need coupling so that the codec
+                             (which is in a seperate abstraction
+                             layer) also knows about the gap */</doc>
+<doc f='codebrowser/sound/OggVorbis/ogg/ogg.h' l='92'>/* sequence number for decode; the framing
+				knows where there&apos;s a hole in the data,
+				but we need coupling so that the codec
+				(which is in a seperate abstraction
+				layer) also knows about the gap */</doc>
+<use f='codebrowser/sound/OggVorbis/oggsrc/framing.c' l='313' u='w' c='ogg_stream_packetin'/>
+<use f='codebrowser/sound/OggVorbis/oggsrc/framing.c' l='820' u='w' c='ogg_stream_reset'/>
+<use f='codebrowser/sound/OggVorbis/oggsrc/framing.c' l='846' u='w' c='_packetout'/>
+<use f='codebrowser/sound/OggVorbis/oggsrc/framing.c' l='872' u='w' c='_packetout'/>
+<use f='codebrowser/sound/OggVorbis/oggsrc/framing.c' l='872' u='r' c='_packetout'/>
+<use f='codebrowser/sound/OggVorbis/oggsrc/framing.c' l='880' u='w' c='_packetout'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/analysis.c' l='61' u='w' c='vorbis_analysis'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/bitrate.c' l='213' u='w' c='vorbis_bitrate_addblock'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/bitrate.c' l='240' u='w' c='vorbis_bitrate_addblock'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/synthesis.c' l='64' u='r' c='vorbis_synthesis'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/synthesis.c' l='117' u='r' c='vorbis_synthesis_trackonly'/>

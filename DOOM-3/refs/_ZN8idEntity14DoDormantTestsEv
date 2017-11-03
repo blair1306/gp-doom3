@@ -1,0 +1,24 @@
+<dec f='codebrowser/d3xp/Entity.h' l='394' type='bool idEntity::DoDormantTests()'/>
+<doc f='codebrowser/d3xp/Entity.h' l='394'>// dormant == on the active list, but out of PVS</doc>
+<def f='codebrowser/d3xp/Entity.cpp' l='904' ll='936' type='bool idEntity::DoDormantTests()'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='949' u='c' c='_ZN8idEntity12CheckDormantEv'/>
+<doc f='codebrowser/d3xp/Entity.cpp' l='896'>/*
+================
+idEntity::DoDormantTests
+
+Monsters and other expensive entities that are completely closed
+off from the player can skip all of their work
+================
+*/</doc>
+<dec f='codebrowser/game/Entity.h' l='378' type='bool idEntity::DoDormantTests()'/>
+<doc f='codebrowser/game/Entity.h' l='378'>// dormant == on the active list, but out of PVS</doc>
+<def f='codebrowser/game/Entity.cpp' l='835' ll='867' type='bool idEntity::DoDormantTests()'/>
+<use f='codebrowser/game/Entity.cpp' l='880' u='c' c='_ZN8idEntity12CheckDormantEv'/>
+<doc f='codebrowser/game/Entity.cpp' l='827'>/*
+================
+idEntity::DoDormantTests
+
+Monsters and other expensive entities that are completely closed
+off from the player can skip all of their work
+================
+*/</doc>

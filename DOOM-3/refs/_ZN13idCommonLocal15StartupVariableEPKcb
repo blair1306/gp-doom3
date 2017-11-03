@@ -1,0 +1,18 @@
+<dec f='codebrowser/framework/Common.cpp' l='125' type='void idCommonLocal::StartupVariable(const char * match, bool once)'/>
+<inh f='codebrowser/framework/Common.h' l='144' c='_ZN8idCommon15StartupVariableEPKcb'/>
+<def f='codebrowser/framework/Common.cpp' l='918' ll='946' type='void idCommonLocal::StartupVariable(const char * match, bool once)'/>
+<use f='codebrowser/framework/Common.cpp' l='1630' u='c' c='_ZN13idCommonLocal16InitLanguageDictEv'/>
+<use f='codebrowser/framework/Common.cpp' l='2795' u='c' c='_ZN13idCommonLocal4InitEiPPKcS1_'/>
+<use f='codebrowser/framework/Common.cpp' l='2816' u='c' c='_ZN13idCommonLocal4InitEiPPKcS1_'/>
+<use f='codebrowser/framework/Common.cpp' l='2981' u='c' c='_ZN13idCommonLocal8InitGameEv'/>
+<doc f='codebrowser/framework/Common.cpp' l='907'>/*
+==================
+idCommonLocal::StartupVariable
+
+Searches for command line parameters that are set commands.
+If match is not NULL, only that cvar will be looked for.
+That is necessary because cddir and basedir need to be set
+before the filesystem is started, but all other sets should
+be after execing the config and default.
+==================
+*/</doc>

@@ -1,0 +1,15 @@
+<dec f='codebrowser/idlib/math/Matrix.h' l='1908' type='bool idMatX::Inverse_UpdateIncrement(const idVecX &amp; v, const idVecX &amp; w)'/>
+<def f='codebrowser/idlib/math/Matrix.cpp' l='3787' ll='3802' type='bool idMatX::Inverse_UpdateIncrement(const idVecX &amp; v, const idVecX &amp; w)'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7324' u='c' c='_ZN6idMatX4TestEv'/>
+<doc f='codebrowser/idlib/math/Matrix.cpp' l='3775'>/*
+============
+idMatX::Inverse_UpdateIncrement
+
+  Updates the in-place inverse to obtain the inverse for the matrix:
+
+  [ A  a ]
+  [ c  b ]
+
+  where: a = v[0,numRows-1], b = v[numRows], c = w[0,numColumns-1], w[numColumns] = 0
+============
+*/</doc>

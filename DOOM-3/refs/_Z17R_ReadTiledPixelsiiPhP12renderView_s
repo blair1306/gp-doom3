@@ -1,0 +1,13 @@
+<def f='codebrowser/renderer/RenderSystem_init.cpp' l='1154' ll='1212' type='void R_ReadTiledPixels(int width, int height, byte * buffer, renderView_t * ref = __null)'/>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='1238' u='c' c='_ZN19idRenderSystemLocal14TakeScreenshotEiiPKciP12renderView_s'/>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='1247' u='c' c='_ZN19idRenderSystemLocal14TakeScreenshotEiiPKciP12renderView_s'/>
+<doc f='codebrowser/renderer/RenderSystem_init.cpp' l='1144'>/*
+====================
+R_ReadTiledPixels
+
+Allows the rendering of an image larger than the actual window by
+tiling it into window-sized chunks and rendering each chunk separately
+
+If ref isn&apos;t specified, the full session UpdateScreen will be done.
+====================
+*/</doc>

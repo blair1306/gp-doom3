@@ -1,0 +1,13 @@
+<dec f='codebrowser/renderer/RenderWorld_local.h' l='133' type='void idRenderWorldLocal::DrawText(const char * text, const idVec3 &amp; origin, float scale, const idVec4 &amp; color, const idMat3 &amp; viewAxis, const int align = 1, const int lifetime = 0, bool depthTest = false)'/>
+<inh f='codebrowser/renderer/RenderWorld.h' l='421' c='_ZN13idRenderWorld8DrawTextEPKcRK6idVec3fRK6idVec4RK6idMat3iib'/>
+<def f='codebrowser/renderer/RenderWorld.cpp' l='2075' ll='2077' type='void idRenderWorldLocal::DrawText(const char * text, const idVec3 &amp; origin, float scale, const idVec4 &amp; color, const idMat3 &amp; viewAxis, const int align = 1, const int lifetime = 0, const bool depthTest = false)'/>
+<doc f='codebrowser/renderer/RenderWorld.cpp' l='2067'>/*
+================
+idRenderWorldLocal::DrawText
+
+  oriented on the viewaxis
+  align can be 0-left, 1-center (default), 2-right
+================
+*/</doc>
+<use f='codebrowser/renderer/tr_rendertools.cpp' l='820' u='c' c='_ZL18RB_ShowSurfaceInfoPP10drawSurf_si'/>
+<use f='codebrowser/renderer/tr_rendertools.cpp' l='822' u='c' c='_ZL18RB_ShowSurfaceInfoPP10drawSurf_si'/>

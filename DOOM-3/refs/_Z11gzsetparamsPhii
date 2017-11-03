@@ -1,0 +1,12 @@
+<dec f='codebrowser/framework/Unzip.cpp' l='756' type='int gzsetparams(gzFile file, int level, int strategy)'/>
+<doc f='codebrowser/framework/Unzip.cpp' l='744'>/*
+     gzdopen() associates a gzFile with the file descriptor fd.  File
+   descriptors are obtained from calls like open, dup, creat, pipe or
+   fileno (in the file has been previously opened with fopen).
+   The mode parameter is as in gzopen.
+     The next call of gzclose on the returned gzFile will also close the
+   file descriptor fd, just like fclose(fdopen(fd), mode) closes the file
+   descriptor fd. If you want to keep fd open, use gzdopen(dup(fd), mode).
+     gzdopen returns NULL if there was insufficient memory to allocate
+   the (de)compression state.
+*/</doc>

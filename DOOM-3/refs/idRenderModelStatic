@@ -1,0 +1,146 @@
+<inh f='codebrowser/renderer/Model.h' l='171' c='idRenderModel'/>
+<def f='codebrowser/renderer/Model_local.h' l='40' ll='128'/>
+<ovr f='codebrowser/renderer/Model_local.h' l='167' c='idRenderModelMD5'/>
+<ovr f='codebrowser/renderer/Model_local.h' l='208' c='idRenderModelMD3'/>
+<ovr f='codebrowser/renderer/Model_local.h' l='232' c='idRenderModelLiquid'/>
+<ovr f='codebrowser/renderer/Model_local.h' l='287' c='idRenderModelPrt'/>
+<ovr f='codebrowser/renderer/Model_local.h' l='311' c='idRenderModelBeam'/>
+<ovr f='codebrowser/renderer/Model_local.h' l='336' c='idRenderModelTrail'/>
+<ovr f='codebrowser/renderer/Model_local.h' l='362' c='idRenderModelLightning'/>
+<ovr f='codebrowser/renderer/Model_local.h' l='377' c='idRenderModelSprite'/>
+<size>104</size>
+<doc f='codebrowser/renderer/Model_local.h' l='32'>/*
+===============================================================================
+
+	Static model
+
+===============================================================================
+*/</doc>
+<fun r='_ZN19idRenderModelStatic5AllocEv'/>
+<fun r='_ZN19idRenderModelStaticC1Ev'/>
+<fun r='_ZN19idRenderModelStaticD1Ev'/>
+<fun r='_ZN19idRenderModelStatic12InitFromFileEPKc'/>
+<fun r='_ZN19idRenderModelStatic19PartialInitFromFileEPKc'/>
+<fun r='_ZN19idRenderModelStatic10PurgeModelEv'/>
+<fun r='_ZN19idRenderModelStatic5ResetEv'/>
+<fun r='_ZN19idRenderModelStatic9LoadModelEv'/>
+<fun r='_ZN19idRenderModelStatic8IsLoadedEv'/>
+<fun r='_ZN19idRenderModelStatic22SetLevelLoadReferencedEb'/>
+<fun r='_ZN19idRenderModelStatic21IsLevelLoadReferencedEv'/>
+<fun r='_ZN19idRenderModelStatic9TouchDataEv'/>
+<fun r='_ZN19idRenderModelStatic9InitEmptyEPKc'/>
+<fun r='_ZN19idRenderModelStatic10AddSurfaceE14modelSurface_s'/>
+<fun r='_ZN19idRenderModelStatic14FinishSurfacesEv'/>
+<fun r='_ZN19idRenderModelStatic15FreeVertexCacheEv'/>
+<fun r='_ZNK19idRenderModelStatic4NameEv'/>
+<fun r='_ZNK19idRenderModelStatic5PrintEv'/>
+<fun r='_ZNK19idRenderModelStatic4ListEv'/>
+<fun r='_ZNK19idRenderModelStatic6MemoryEv'/>
+<fun r='_ZNK19idRenderModelStatic9TimestampEv'/>
+<fun r='_ZNK19idRenderModelStatic11NumSurfacesEv'/>
+<fun r='_ZNK19idRenderModelStatic15NumBaseSurfacesEv'/>
+<fun r='_ZNK19idRenderModelStatic7SurfaceEi'/>
+<fun r='_ZNK19idRenderModelStatic21AllocSurfaceTrianglesEii'/>
+<fun r='_ZNK19idRenderModelStatic20FreeSurfaceTrianglesEP14srfTriangles_s'/>
+<fun r='_ZNK19idRenderModelStatic10ShadowHullEv'/>
+<fun r='_ZNK19idRenderModelStatic18IsStaticWorldModelEv'/>
+<fun r='_ZNK19idRenderModelStatic14IsDynamicModelEv'/>
+<fun r='_ZNK19idRenderModelStatic14IsDefaultModelEv'/>
+<fun r='_ZNK19idRenderModelStatic12IsReloadableEv'/>
+<fun r='_ZN19idRenderModelStatic23InstantiateDynamicModelEPK14renderEntity_sPK9viewDef_sP13idRenderModel'/>
+<fun r='_ZNK19idRenderModelStatic9NumJointsEv'/>
+<fun r='_ZNK19idRenderModelStatic9GetJointsEv'/>
+<fun r='_ZNK19idRenderModelStatic14GetJointHandleEPKc'/>
+<fun r='_ZNK19idRenderModelStatic12GetJointNameE13jointHandle_t'/>
+<fun r='_ZNK19idRenderModelStatic14GetDefaultPoseEv'/>
+<fun r='_ZNK19idRenderModelStatic12NearestJointEiiii'/>
+<fun r='_ZNK19idRenderModelStatic6BoundsEPK14renderEntity_s'/>
+<fun r='_ZN19idRenderModelStatic16ReadFromDemoFileEP10idDemoFile'/>
+<fun r='_ZN19idRenderModelStatic15WriteToDemoFileEP10idDemoFile'/>
+<fun r='_ZNK19idRenderModelStatic9DepthHackEv'/>
+<fun r='_ZN19idRenderModelStatic16MakeDefaultModelEv'/>
+<fun r='_ZN19idRenderModelStatic7LoadASEEPKc'/>
+<fun r='_ZN19idRenderModelStatic7LoadLWOEPKc'/>
+<fun r='_ZN19idRenderModelStatic7LoadFLTEPKc'/>
+<fun r='_ZN19idRenderModelStatic6LoadMAEPKc'/>
+<fun r='_ZN19idRenderModelStatic25ConvertASEToModelSurfacesEPK10aseModel_s'/>
+<fun r='_ZN19idRenderModelStatic25ConvertLWOToModelSurfacesEPK11st_lwObject'/>
+<fun r='_ZN19idRenderModelStatic24ConvertMAToModelSurfacesEPK9maModel_s'/>
+<fun r='_ZN19idRenderModelStatic15ConvertLWOToASEEPK11st_lwObjectPKc'/>
+<fun r='_ZN19idRenderModelStatic19DeleteSurfaceWithIdEi'/>
+<fun r='_ZN19idRenderModelStatic28DeleteSurfacesWithNegativeIdEv'/>
+<fun r='_ZN19idRenderModelStatic17FindSurfaceWithIdEiRi'/>
+<mbr r='idRenderModelStatic::surfaces' o='32' t='idList&lt;modelSurface_t&gt;'/>
+<mbr r='idRenderModelStatic::bounds' o='160' t='idBounds'/>
+<mbr r='idRenderModelStatic::overlaysAdded' o='352' t='int'/>
+<mbr r='idRenderModelStatic::lastModifiedFrame' o='384' t='int'/>
+<mbr r='idRenderModelStatic::lastArchivedFrame' o='416' t='int'/>
+<mbr r='idRenderModelStatic::name' o='448' t='idStr'/>
+<mbr r='idRenderModelStatic::shadowHull' o='704' t='srfTriangles_t *'/>
+<mbr r='idRenderModelStatic::isStaticWorldModel' o='736' t='bool'/>
+<mbr r='idRenderModelStatic::defaulted' o='744' t='bool'/>
+<mbr r='idRenderModelStatic::purged' o='752' t='bool'/>
+<mbr r='idRenderModelStatic::fastLoad' o='760' t='bool'/>
+<mbr r='idRenderModelStatic::reloadable' o='768' t='bool'/>
+<mbr r='idRenderModelStatic::levelLoadReferenced' o='776' t='bool'/>
+<mbr r='idRenderModelStatic::timeStamp' o='800' t='time_t'/>
+<smbr r='idRenderModelStatic::r_mergeModelSurfaces' t='idCVar'/>
+<smbr r='idRenderModelStatic::r_slopVertex' t='idCVar'/>
+<smbr r='idRenderModelStatic::r_slopTexCoord' t='idCVar'/>
+<smbr r='idRenderModelStatic::r_slopNormal' t='idCVar'/>
+<smbr r='idRenderModelStatic::r_mergeModelSurfaces' t='idCVar'/>
+<smbr r='idRenderModelStatic::r_slopVertex' t='idCVar'/>
+<smbr r='idRenderModelStatic::r_slopTexCoord' t='idCVar'/>
+<smbr r='idRenderModelStatic::r_slopNormal' t='idCVar'/>
+<fun r='_ZN19idRenderModelStaticC1Ev'/>
+<fun r='_ZN19idRenderModelStaticD1Ev'/>
+<fun r='_ZNK19idRenderModelStatic5PrintEv'/>
+<fun r='_ZNK19idRenderModelStatic6MemoryEv'/>
+<fun r='_ZNK19idRenderModelStatic4ListEv'/>
+<fun r='_ZNK19idRenderModelStatic14IsDefaultModelEv'/>
+<fun r='_ZN19idRenderModelStatic16MakeDefaultModelEv'/>
+<fun r='_ZN19idRenderModelStatic19PartialInitFromFileEPKc'/>
+<fun r='_ZN19idRenderModelStatic12InitFromFileEPKc'/>
+<fun r='_ZN19idRenderModelStatic9LoadModelEv'/>
+<fun r='_ZN19idRenderModelStatic9InitEmptyEPKc'/>
+<fun r='_ZN19idRenderModelStatic10AddSurfaceE14modelSurface_s'/>
+<fun r='_ZNK19idRenderModelStatic4NameEv'/>
+<fun r='_ZNK19idRenderModelStatic9TimestampEv'/>
+<fun r='_ZNK19idRenderModelStatic11NumSurfacesEv'/>
+<fun r='_ZNK19idRenderModelStatic15NumBaseSurfacesEv'/>
+<fun r='_ZNK19idRenderModelStatic7SurfaceEi'/>
+<fun r='_ZNK19idRenderModelStatic21AllocSurfaceTrianglesEii'/>
+<fun r='_ZNK19idRenderModelStatic20FreeSurfaceTrianglesEP14srfTriangles_s'/>
+<fun r='_ZNK19idRenderModelStatic10ShadowHullEv'/>
+<fun r='_ZNK19idRenderModelStatic18IsStaticWorldModelEv'/>
+<fun r='_ZNK19idRenderModelStatic14IsDynamicModelEv'/>
+<fun r='_ZNK19idRenderModelStatic12IsReloadableEv'/>
+<fun r='_ZNK19idRenderModelStatic6BoundsEPK14renderEntity_s'/>
+<fun r='_ZNK19idRenderModelStatic9DepthHackEv'/>
+<fun r='_ZN19idRenderModelStatic23InstantiateDynamicModelEPK14renderEntity_sPK9viewDef_sP13idRenderModel'/>
+<fun r='_ZNK19idRenderModelStatic9NumJointsEv'/>
+<fun r='_ZNK19idRenderModelStatic9GetJointsEv'/>
+<fun r='_ZNK19idRenderModelStatic14GetJointHandleEPKc'/>
+<fun r='_ZNK19idRenderModelStatic12GetJointNameE13jointHandle_t'/>
+<fun r='_ZNK19idRenderModelStatic14GetDefaultPoseEv'/>
+<fun r='_ZNK19idRenderModelStatic12NearestJointEiiii'/>
+<fun r='_ZN19idRenderModelStatic14FinishSurfacesEv'/>
+<fun r='_ZN19idRenderModelStatic25ConvertASEToModelSurfacesEPK10aseModel_s'/>
+<fun r='_ZN19idRenderModelStatic25ConvertLWOToModelSurfacesEPK11st_lwObject'/>
+<fun r='_ZN19idRenderModelStatic15ConvertLWOToASEEPK11st_lwObjectPKc'/>
+<fun r='_ZN19idRenderModelStatic24ConvertMAToModelSurfacesEPK9maModel_s'/>
+<fun r='_ZN19idRenderModelStatic7LoadASEEPKc'/>
+<fun r='_ZN19idRenderModelStatic7LoadLWOEPKc'/>
+<fun r='_ZN19idRenderModelStatic6LoadMAEPKc'/>
+<fun r='_ZN19idRenderModelStatic7LoadFLTEPKc'/>
+<fun r='_ZN19idRenderModelStatic10PurgeModelEv'/>
+<fun r='_ZN19idRenderModelStatic15FreeVertexCacheEv'/>
+<fun r='_ZN19idRenderModelStatic16ReadFromDemoFileEP10idDemoFile'/>
+<fun r='_ZN19idRenderModelStatic15WriteToDemoFileEP10idDemoFile'/>
+<fun r='_ZN19idRenderModelStatic8IsLoadedEv'/>
+<fun r='_ZN19idRenderModelStatic22SetLevelLoadReferencedEb'/>
+<fun r='_ZN19idRenderModelStatic21IsLevelLoadReferencedEv'/>
+<fun r='_ZN19idRenderModelStatic9TouchDataEv'/>
+<fun r='_ZN19idRenderModelStatic19DeleteSurfaceWithIdEi'/>
+<fun r='_ZN19idRenderModelStatic28DeleteSurfacesWithNegativeIdEv'/>
+<fun r='_ZN19idRenderModelStatic17FindSurfaceWithIdEiRi'/>

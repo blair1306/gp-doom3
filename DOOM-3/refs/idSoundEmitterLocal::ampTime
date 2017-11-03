@@ -1,0 +1,11 @@
+<dec f='codebrowser/sound/snd_local.h' l='511' type='int'/>
+<offset>16576</offset>
+<doc f='codebrowser/sound/snd_local.h' l='507'>// this is just used for feedback to the game or rendering system:
+	// flashing lights and screen shakes.  Because the material expression
+	// evaluation doesn&apos;t do common subexpression removal, we cache the
+	// last generated value</doc>
+<use f='codebrowser/sound/snd_emitter.cpp' l='377' u='w' c='_ZN19idSoundEmitterLocal5ClearEv'/>
+<use f='codebrowser/sound/snd_emitter.cpp' l='1061' u='r' c='_ZN19idSoundEmitterLocal16CurrentAmplitudeEv'/>
+<use f='codebrowser/sound/snd_emitter.cpp' l='1066' u='w' c='_ZN19idSoundEmitterLocal16CurrentAmplitudeEv'/>
+<use f='codebrowser/sound/snd_world.cpp' l='1132' u='r' c='_ZN17idSoundWorldLocal15WriteToSaveGameEP6idFile'/>
+<use f='codebrowser/sound/snd_world.cpp' l='1276' u='a' c='_ZN17idSoundWorldLocal16ReadFromSaveGameEP6idFile'/>

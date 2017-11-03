@@ -1,0 +1,15 @@
+<dec f='codebrowser/renderer/Interaction.h' l='179' type='void R_CalcInteractionCullBits(const idRenderEntityLocal * ent, const srfTriangles_t * tri, const idRenderLightLocal * light, srfCullInfo_t &amp; cullInfo)'/>
+<def f='codebrowser/renderer/Interaction.cpp' l='92' ll='131' type='void R_CalcInteractionCullBits(const idRenderEntityLocal * ent, const srfTriangles_t * tri, const idRenderLightLocal * light, srfCullInfo_t &amp; cullInfo)'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='323' u='c' c='_ZL17R_CreateLightTrisPK19idRenderEntityLocalPK14srfTriangles_sPK18idRenderLightLocalPK10idMaterialR13srfCullInfo_t'/>
+<doc f='codebrowser/renderer/Interaction.cpp' l='82'>/*
+=====================
+R_CalcInteractionCullBits
+
+We want to cull a little on the sloppy side, because the pre-clipping
+of geometry to the lights in dmap will give many cases that are right
+at the border we throw things out on the border, because if any one
+vertex is clearly inside, the entire triangle will be accepted.
+=====================
+*/</doc>
+<use f='codebrowser/renderer/tr_turboshadow.cpp' l='56' u='c' c='_Z38R_CreateVertexProgramTurboShadowVolumePK19idRenderEntityLocalPK14srfTriangles_sPK18idRenderLightLocalR13srfCullInfo_t'/>
+<use f='codebrowser/renderer/tr_turboshadow.cpp' l='199' u='c' c='_Z25R_CreateTurboShadowVolumePK19idRenderEntityLocalPK14srfTriangles_sPK18idRenderLightLocalR13srfCullInfo_t'/>

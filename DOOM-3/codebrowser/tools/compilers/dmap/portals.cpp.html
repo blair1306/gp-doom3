@@ -1,0 +1,1017 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>portals.cpp source code [codebrowser/tools/compilers/dmap/portals.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/tools/compilers/dmap/portals.cpp'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>tools</a>/<a href='..'>compilers</a>/<a href='./'>dmap</a>/<a href='portals.cpp.html'>portals.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="../../../idlib/precompiled.h.html">"../../../idlib/precompiled.h"</a></u></td></tr>
+<tr><th id="30">30</th><td><u>#pragma hdrstop</u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="dmap.h.html">"dmap.h"</a></u></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><a class="typedef" href="dmap.h.html#interAreaPortal_t" title='interAreaPortal_t' data-type='struct interAreaPortal_t' data-ref="interAreaPortal_t">interAreaPortal_t</a> <a class="ref fake" href="dmap.h.html#339" title='(anonymous struct)::' data-ref="_ZN17interAreaPortal_tC1Ev"></a><dfn class="decl def" id="interAreaPortals" title='interAreaPortals' data-ref="interAreaPortals">interAreaPortals</dfn>[<a class="macro" href="dmap.h.html#337" title="1024" data-ref="_M/MAX_INTER_AREA_PORTALS">MAX_INTER_AREA_PORTALS</a>];</td></tr>
+<tr><th id="36">36</th><td><em>int</em>					<dfn class="decl def" id="numInterAreaPortals" title='numInterAreaPortals' data-ref="numInterAreaPortals">numInterAreaPortals</dfn>;</td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td><em>int</em>		<dfn class="decl def" id="c_active_portals" title='c_active_portals' data-ref="c_active_portals">c_active_portals</dfn>;</td></tr>
+<tr><th id="40">40</th><td><em>int</em>		<dfn class="decl def" id="c_peak_portals" title='c_peak_portals' data-ref="c_peak_portals">c_peak_portals</dfn>;</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><i>/*</i></td></tr>
+<tr><th id="43">43</th><td><i>===========</i></td></tr>
+<tr><th id="44">44</th><td><i>AllocPortal</i></td></tr>
+<tr><th id="45">45</th><td><i>===========</i></td></tr>
+<tr><th id="46">46</th><td><i>*/</i></td></tr>
+<tr><th id="47">47</th><td><a class="typedef" href="dmap.h.html#uPortal_t" title='uPortal_t' data-type='struct uPortal_s' data-ref="uPortal_t">uPortal_t</a>	*<dfn class="decl def" id="_Z11AllocPortalv" title='AllocPortal' data-ref="_Z11AllocPortalv">AllocPortal</dfn> (<em>void</em>)</td></tr>
+<tr><th id="48">48</th><td>{</td></tr>
+<tr><th id="49">49</th><td>	<a class="typedef" href="dmap.h.html#uPortal_t" title='uPortal_t' data-type='struct uPortal_s' data-ref="uPortal_t">uPortal_t</a>	*<dfn class="local col1 decl" id="1p" title='p' data-type='uPortal_t *' data-ref="1p">p</dfn>;</td></tr>
+<tr><th id="50">50</th><td>	</td></tr>
+<tr><th id="51">51</th><td>	<a class="ref" href="#c_active_portals" title='c_active_portals' data-ref="c_active_portals">c_active_portals</a>++;</td></tr>
+<tr><th id="52">52</th><td>	<b>if</b> (<a class="ref" href="#c_active_portals" title='c_active_portals' data-ref="c_active_portals">c_active_portals</a> &gt; <a class="ref" href="#c_peak_portals" title='c_peak_portals' data-ref="c_peak_portals">c_peak_portals</a>)</td></tr>
+<tr><th id="53">53</th><td>		<a class="ref" href="#c_peak_portals" title='c_peak_portals' data-ref="c_peak_portals">c_peak_portals</a> = <a class="ref" href="#c_active_portals" title='c_active_portals' data-ref="c_active_portals">c_active_portals</a>;</td></tr>
+<tr><th id="54">54</th><td>	</td></tr>
+<tr><th id="55">55</th><td>	<a class="local col1 ref" href="#1p" title='p' data-ref="1p">p</a> = (<a class="typedef" href="dmap.h.html#uPortal_t" title='uPortal_t' data-type='struct uPortal_s' data-ref="uPortal_t">uPortal_t</a> *)<a class="ref" href="../../../idlib/Heap.h.html#_Z9Mem_Alloci" title='Mem_Alloc' data-ref="_Z9Mem_Alloci">Mem_Alloc</a> (<b>sizeof</b>(<a class="typedef" href="dmap.h.html#uPortal_t" title='uPortal_t' data-type='struct uPortal_s' data-ref="uPortal_t">uPortal_t</a> ));</td></tr>
+<tr><th id="56">56</th><td>	<a class="ref" href="../../../../include/string.h.html#memset" title='memset' data-ref="memset">memset</a> (<a class="local col1 ref" href="#1p" title='p' data-ref="1p">p</a>, <var>0</var>, <b>sizeof</b>(<a class="typedef" href="dmap.h.html#uPortal_t" title='uPortal_t' data-type='struct uPortal_s' data-ref="uPortal_t">uPortal_t</a> ));</td></tr>
+<tr><th id="57">57</th><td>	</td></tr>
+<tr><th id="58">58</th><td>	<b>return</b> <a class="local col1 ref" href="#1p" title='p' data-ref="1p">p</a>;</td></tr>
+<tr><th id="59">59</th><td>}</td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td><em>void</em> <dfn class="decl def" id="_Z10FreePortalP9uPortal_s" title='FreePortal' data-ref="_Z10FreePortalP9uPortal_s">FreePortal</dfn> (<a class="typedef" href="dmap.h.html#uPortal_t" title='uPortal_t' data-type='struct uPortal_s' data-ref="uPortal_t">uPortal_t</a>  *<dfn class="local col2 decl" id="2p" title='p' data-type='uPortal_t *' data-ref="2p">p</dfn>)</td></tr>
+<tr><th id="63">63</th><td>{</td></tr>
+<tr><th id="64">64</th><td>	<b>if</b> (<a class="local col2 ref" href="#2p" title='p' data-ref="2p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::winding" title='uPortal_s::winding' data-ref="uPortal_s::winding">winding</a>)</td></tr>
+<tr><th id="65">65</th><td>		<b>delete</b> <a class="local col2 ref" href="#2p" title='p' data-ref="2p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::winding" title='uPortal_s::winding' data-ref="uPortal_s::winding">winding</a>;</td></tr>
+<tr><th id="66">66</th><td>	<a class="ref" href="#c_active_portals" title='c_active_portals' data-ref="c_active_portals">c_active_portals</a>--;</td></tr>
+<tr><th id="67">67</th><td>	<a class="ref" href="../../../idlib/Heap.h.html#_Z8Mem_FreePv" title='Mem_Free' data-ref="_Z8Mem_FreePv">Mem_Free</a> (<a class="local col2 ref" href="#2p" title='p' data-ref="2p">p</a>);</td></tr>
+<tr><th id="68">68</th><td>}</td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td><i>//==============================================================</i></td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td><i  data-doc="_ZL15Portal_PassableP9uPortal_s">/*</i></td></tr>
+<tr><th id="73">73</th><td><i  data-doc="_ZL15Portal_PassableP9uPortal_s">=============</i></td></tr>
+<tr><th id="74">74</th><td><i  data-doc="_ZL15Portal_PassableP9uPortal_s">Portal_Passable</i></td></tr>
+<tr><th id="75">75</th><td><i  data-doc="_ZL15Portal_PassableP9uPortal_s"></i></td></tr>
+<tr><th id="76">76</th><td><i  data-doc="_ZL15Portal_PassableP9uPortal_s">Returns true if the portal has non-opaque leafs on both sides</i></td></tr>
+<tr><th id="77">77</th><td><i  data-doc="_ZL15Portal_PassableP9uPortal_s">=============</i></td></tr>
+<tr><th id="78">78</th><td><i  data-doc="_ZL15Portal_PassableP9uPortal_s">*/</i></td></tr>
+<tr><th id="79">79</th><td><em>static</em> <em>bool</em> <dfn class="tu decl def" id="_ZL15Portal_PassableP9uPortal_s" title='Portal_Passable' data-type='bool Portal_Passable(uPortal_t * p)' data-ref="_ZL15Portal_PassableP9uPortal_s">Portal_Passable</dfn>( <a class="typedef" href="dmap.h.html#uPortal_t" title='uPortal_t' data-type='struct uPortal_s' data-ref="uPortal_t">uPortal_t</a>  *<dfn class="local col3 decl" id="3p" title='p' data-type='uPortal_t *' data-ref="3p">p</dfn> ) {</td></tr>
+<tr><th id="80">80</th><td>	<b>if</b> (!<a class="local col3 ref" href="#3p" title='p' data-ref="3p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::onnode" title='uPortal_s::onnode' data-ref="uPortal_s::onnode">onnode</a>) {</td></tr>
+<tr><th id="81">81</th><td>		<b>return</b> <b>false</b>;	<i>// to global outsideleaf</i></td></tr>
+<tr><th id="82">82</th><td>	}</td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td>	<b>if</b> (<a class="local col3 ref" href="#3p" title='p' data-ref="3p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>0</var>]-&gt;<a class="ref" href="dmap.h.html#node_s::planenum" title='node_s::planenum' data-ref="node_s::planenum">planenum</a> != <a class="macro" href="dmap.h.html#81" title="-1" data-ref="_M/PLANENUM_LEAF">PLANENUM_LEAF</a></td></tr>
+<tr><th id="85">85</th><td>		|| <a class="local col3 ref" href="#3p" title='p' data-ref="3p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>1</var>]-&gt;<a class="ref" href="dmap.h.html#node_s::planenum" title='node_s::planenum' data-ref="node_s::planenum">planenum</a> != <a class="macro" href="dmap.h.html#81" title="-1" data-ref="_M/PLANENUM_LEAF">PLANENUM_LEAF</a>) {</td></tr>
+<tr><th id="86">86</th><td>		<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon5ErrorEPKcz" title='idCommon::Error' data-ref="_ZN8idCommon5ErrorEPKcz">Error</a>( <q>"Portal_EntityFlood: not a leaf"</q>);</td></tr>
+<tr><th id="87">87</th><td>	}</td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td>	<b>if</b> ( !<a class="local col3 ref" href="#3p" title='p' data-ref="3p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>0</var>]-&gt;<a class="ref" href="dmap.h.html#node_s::opaque" title='node_s::opaque' data-ref="node_s::opaque">opaque</a> &amp;&amp; !<a class="local col3 ref" href="#3p" title='p' data-ref="3p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>1</var>]-&gt;<a class="ref" href="dmap.h.html#node_s::opaque" title='node_s::opaque' data-ref="node_s::opaque">opaque</a> ) {</td></tr>
+<tr><th id="90">90</th><td>		<b>return</b> <b>true</b>;</td></tr>
+<tr><th id="91">91</th><td>	}</td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td>	<b>return</b> <b>false</b>;</td></tr>
+<tr><th id="94">94</th><td>}</td></tr>
+<tr><th id="95">95</th><td></td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td><i>//=============================================================================</i></td></tr>
+<tr><th id="98">98</th><td></td></tr>
+<tr><th id="99">99</th><td><em>int</em>		<dfn class="decl def" id="c_tinyportals" title='c_tinyportals' data-ref="c_tinyportals">c_tinyportals</dfn>;</td></tr>
+<tr><th id="100">100</th><td></td></tr>
+<tr><th id="101">101</th><td><i>/*</i></td></tr>
+<tr><th id="102">102</th><td><i>=============</i></td></tr>
+<tr><th id="103">103</th><td><i>AddPortalToNodes</i></td></tr>
+<tr><th id="104">104</th><td><i>=============</i></td></tr>
+<tr><th id="105">105</th><td><i>*/</i></td></tr>
+<tr><th id="106">106</th><td><em>void</em> <dfn class="decl def" id="_Z16AddPortalToNodesP9uPortal_sP6node_sS2_" title='AddPortalToNodes' data-ref="_Z16AddPortalToNodesP9uPortal_sP6node_sS2_">AddPortalToNodes</dfn> (<a class="typedef" href="dmap.h.html#uPortal_t" title='uPortal_t' data-type='struct uPortal_s' data-ref="uPortal_t">uPortal_t</a>  *<dfn class="local col4 decl" id="4p" title='p' data-type='uPortal_t *' data-ref="4p">p</dfn>, <a class="typedef" href="dmap.h.html#node_t" title='node_t' data-type='struct node_s' data-ref="node_t">node_t</a> *<dfn class="local col5 decl" id="5front" title='front' data-type='node_t *' data-ref="5front">front</dfn>, <a class="typedef" href="dmap.h.html#node_t" title='node_t' data-type='struct node_s' data-ref="node_t">node_t</a> *<dfn class="local col6 decl" id="6back" title='back' data-type='node_t *' data-ref="6back">back</dfn>) {</td></tr>
+<tr><th id="107">107</th><td>	<b>if</b> (<a class="local col4 ref" href="#4p" title='p' data-ref="4p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>0</var>] || <a class="local col4 ref" href="#4p" title='p' data-ref="4p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>1</var>]) {</td></tr>
+<tr><th id="108">108</th><td>		<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon5ErrorEPKcz" title='idCommon::Error' data-ref="_ZN8idCommon5ErrorEPKcz">Error</a>( <q>"AddPortalToNode: allready included"</q>);</td></tr>
+<tr><th id="109">109</th><td>	}</td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td>	<a class="local col4 ref" href="#4p" title='p' data-ref="4p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>0</var>] = <a class="local col5 ref" href="#5front" title='front' data-ref="5front">front</a>;</td></tr>
+<tr><th id="112">112</th><td>	<a class="local col4 ref" href="#4p" title='p' data-ref="4p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::next" title='uPortal_s::next' data-ref="uPortal_s::next">next</a>[<var>0</var>] = <a class="local col5 ref" href="#5front" title='front' data-ref="5front">front</a>-&gt;<a class="ref" href="dmap.h.html#node_s::portals" title='node_s::portals' data-ref="node_s::portals">portals</a>;</td></tr>
+<tr><th id="113">113</th><td>	<a class="local col5 ref" href="#5front" title='front' data-ref="5front">front</a>-&gt;<a class="ref" href="dmap.h.html#node_s::portals" title='node_s::portals' data-ref="node_s::portals">portals</a> = <a class="local col4 ref" href="#4p" title='p' data-ref="4p">p</a>;</td></tr>
+<tr><th id="114">114</th><td>	</td></tr>
+<tr><th id="115">115</th><td>	<a class="local col4 ref" href="#4p" title='p' data-ref="4p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>1</var>] = <a class="local col6 ref" href="#6back" title='back' data-ref="6back">back</a>;</td></tr>
+<tr><th id="116">116</th><td>	<a class="local col4 ref" href="#4p" title='p' data-ref="4p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::next" title='uPortal_s::next' data-ref="uPortal_s::next">next</a>[<var>1</var>] = <a class="local col6 ref" href="#6back" title='back' data-ref="6back">back</a>-&gt;<a class="ref" href="dmap.h.html#node_s::portals" title='node_s::portals' data-ref="node_s::portals">portals</a>;</td></tr>
+<tr><th id="117">117</th><td>	<a class="local col6 ref" href="#6back" title='back' data-ref="6back">back</a>-&gt;<a class="ref" href="dmap.h.html#node_s::portals" title='node_s::portals' data-ref="node_s::portals">portals</a> = <a class="local col4 ref" href="#4p" title='p' data-ref="4p">p</a>;</td></tr>
+<tr><th id="118">118</th><td>}</td></tr>
+<tr><th id="119">119</th><td></td></tr>
+<tr><th id="120">120</th><td></td></tr>
+<tr><th id="121">121</th><td><i>/*</i></td></tr>
+<tr><th id="122">122</th><td><i>=============</i></td></tr>
+<tr><th id="123">123</th><td><i>RemovePortalFromNode</i></td></tr>
+<tr><th id="124">124</th><td><i>=============</i></td></tr>
+<tr><th id="125">125</th><td><i>*/</i></td></tr>
+<tr><th id="126">126</th><td><em>void</em> <dfn class="decl def" id="_Z20RemovePortalFromNodeP9uPortal_sP6node_s" title='RemovePortalFromNode' data-ref="_Z20RemovePortalFromNodeP9uPortal_sP6node_s">RemovePortalFromNode</dfn> (<a class="typedef" href="dmap.h.html#uPortal_t" title='uPortal_t' data-type='struct uPortal_s' data-ref="uPortal_t">uPortal_t</a>  *<dfn class="local col7 decl" id="7portal" title='portal' data-type='uPortal_t *' data-ref="7portal">portal</dfn>, <a class="typedef" href="dmap.h.html#node_t" title='node_t' data-type='struct node_s' data-ref="node_t">node_t</a> *<dfn class="local col8 decl" id="8l" title='l' data-type='node_t *' data-ref="8l">l</dfn>)</td></tr>
+<tr><th id="127">127</th><td>{</td></tr>
+<tr><th id="128">128</th><td>	<a class="typedef" href="dmap.h.html#uPortal_t" title='uPortal_t' data-type='struct uPortal_s' data-ref="uPortal_t">uPortal_t</a>	**<dfn class="local col9 decl" id="9pp" title='pp' data-type='uPortal_t **' data-ref="9pp">pp</dfn>, *<dfn class="local col0 decl" id="10t" title='t' data-type='uPortal_t *' data-ref="10t">t</dfn>;</td></tr>
+<tr><th id="129">129</th><td>	</td></tr>
+<tr><th id="130">130</th><td><i>// remove reference to the current portal</i></td></tr>
+<tr><th id="131">131</th><td>	<a class="local col9 ref" href="#9pp" title='pp' data-ref="9pp">pp</a> = &amp;<a class="local col8 ref" href="#8l" title='l' data-ref="8l">l</a>-&gt;<a class="ref" href="dmap.h.html#node_s::portals" title='node_s::portals' data-ref="node_s::portals">portals</a>;</td></tr>
+<tr><th id="132">132</th><td>	<b>while</b> (<var>1</var>)</td></tr>
+<tr><th id="133">133</th><td>	{</td></tr>
+<tr><th id="134">134</th><td>		<a class="local col0 ref" href="#10t" title='t' data-ref="10t">t</a> = *<a class="local col9 ref" href="#9pp" title='pp' data-ref="9pp">pp</a>;</td></tr>
+<tr><th id="135">135</th><td>		<b>if</b> (!<a class="local col0 ref" href="#10t" title='t' data-ref="10t">t</a>)</td></tr>
+<tr><th id="136">136</th><td>			<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon5ErrorEPKcz" title='idCommon::Error' data-ref="_ZN8idCommon5ErrorEPKcz">Error</a>( <q>"RemovePortalFromNode: portal not in leaf"</q>);	</td></tr>
+<tr><th id="137">137</th><td></td></tr>
+<tr><th id="138">138</th><td>		<b>if</b> ( <a class="local col0 ref" href="#10t" title='t' data-ref="10t">t</a> == <a class="local col7 ref" href="#7portal" title='portal' data-ref="7portal">portal</a> )</td></tr>
+<tr><th id="139">139</th><td>			<b>break</b>;</td></tr>
+<tr><th id="140">140</th><td></td></tr>
+<tr><th id="141">141</th><td>		<b>if</b> (<a class="local col0 ref" href="#10t" title='t' data-ref="10t">t</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>0</var>] == <a class="local col8 ref" href="#8l" title='l' data-ref="8l">l</a>)</td></tr>
+<tr><th id="142">142</th><td>			<a class="local col9 ref" href="#9pp" title='pp' data-ref="9pp">pp</a> = &amp;<a class="local col0 ref" href="#10t" title='t' data-ref="10t">t</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::next" title='uPortal_s::next' data-ref="uPortal_s::next">next</a>[<var>0</var>];</td></tr>
+<tr><th id="143">143</th><td>		<b>else</b> <b>if</b> (<a class="local col0 ref" href="#10t" title='t' data-ref="10t">t</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>1</var>] == <a class="local col8 ref" href="#8l" title='l' data-ref="8l">l</a>)</td></tr>
+<tr><th id="144">144</th><td>			<a class="local col9 ref" href="#9pp" title='pp' data-ref="9pp">pp</a> = &amp;<a class="local col0 ref" href="#10t" title='t' data-ref="10t">t</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::next" title='uPortal_s::next' data-ref="uPortal_s::next">next</a>[<var>1</var>];</td></tr>
+<tr><th id="145">145</th><td>		<b>else</b></td></tr>
+<tr><th id="146">146</th><td>			<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon5ErrorEPKcz" title='idCommon::Error' data-ref="_ZN8idCommon5ErrorEPKcz">Error</a>( <q>"RemovePortalFromNode: portal not bounding leaf"</q>);</td></tr>
+<tr><th id="147">147</th><td>	}</td></tr>
+<tr><th id="148">148</th><td>	</td></tr>
+<tr><th id="149">149</th><td>	<b>if</b> ( <a class="local col7 ref" href="#7portal" title='portal' data-ref="7portal">portal</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>0</var>] == <a class="local col8 ref" href="#8l" title='l' data-ref="8l">l</a> ) {</td></tr>
+<tr><th id="150">150</th><td>		*<a class="local col9 ref" href="#9pp" title='pp' data-ref="9pp">pp</a> = <a class="local col7 ref" href="#7portal" title='portal' data-ref="7portal">portal</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::next" title='uPortal_s::next' data-ref="uPortal_s::next">next</a>[<var>0</var>];</td></tr>
+<tr><th id="151">151</th><td>		<a class="local col7 ref" href="#7portal" title='portal' data-ref="7portal">portal</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>0</var>] = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="152">152</th><td>	} <b>else</b> <b>if</b> ( <a class="local col7 ref" href="#7portal" title='portal' data-ref="7portal">portal</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>1</var>] == <a class="local col8 ref" href="#8l" title='l' data-ref="8l">l</a> ) {</td></tr>
+<tr><th id="153">153</th><td>		*<a class="local col9 ref" href="#9pp" title='pp' data-ref="9pp">pp</a> = <a class="local col7 ref" href="#7portal" title='portal' data-ref="7portal">portal</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::next" title='uPortal_s::next' data-ref="uPortal_s::next">next</a>[<var>1</var>];	</td></tr>
+<tr><th id="154">154</th><td>		<a class="local col7 ref" href="#7portal" title='portal' data-ref="7portal">portal</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>1</var>] = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="155">155</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="156">156</th><td>		<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon5ErrorEPKcz" title='idCommon::Error' data-ref="_ZN8idCommon5ErrorEPKcz">Error</a>( <q>"RemovePortalFromNode: mislinked"</q> ); </td></tr>
+<tr><th id="157">157</th><td>	}</td></tr>
+<tr><th id="158">158</th><td>}</td></tr>
+<tr><th id="159">159</th><td></td></tr>
+<tr><th id="160">160</th><td><i>//============================================================================</i></td></tr>
+<tr><th id="161">161</th><td></td></tr>
+<tr><th id="162">162</th><td><em>void</em> <dfn class="decl def" id="_Z11PrintPortalP9uPortal_s" title='PrintPortal' data-ref="_Z11PrintPortalP9uPortal_s">PrintPortal</dfn> (<a class="typedef" href="dmap.h.html#uPortal_t" title='uPortal_t' data-type='struct uPortal_s' data-ref="uPortal_t">uPortal_t</a> *<dfn class="local col1 decl" id="11p" title='p' data-type='uPortal_t *' data-ref="11p">p</dfn>)</td></tr>
+<tr><th id="163">163</th><td>{</td></tr>
+<tr><th id="164">164</th><td>	<em>int</em>			<dfn class="local col2 decl" id="12i" title='i' data-type='int' data-ref="12i">i</dfn>;</td></tr>
+<tr><th id="165">165</th><td>	<a class="type" href="../../../idlib/geometry/Winding.h.html#idWinding" title='idWinding' data-ref="idWinding">idWinding</a>	*<dfn class="local col3 decl" id="13w" title='w' data-type='idWinding *' data-ref="13w">w</dfn>;</td></tr>
+<tr><th id="166">166</th><td>	</td></tr>
+<tr><th id="167">167</th><td>	<a class="local col3 ref" href="#13w" title='w' data-ref="13w">w</a> = <a class="local col1 ref" href="#11p" title='p' data-ref="11p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::winding" title='uPortal_s::winding' data-ref="uPortal_s::winding">winding</a>;</td></tr>
+<tr><th id="168">168</th><td>	<b>for</b> ( <a class="local col2 ref" href="#12i" title='i' data-ref="12i">i</a> = <var>0</var>; <a class="local col2 ref" href="#12i" title='i' data-ref="12i">i</a> &lt; <a class="local col3 ref" href="#13w" title='w' data-ref="13w">w</a>-&gt;<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZNK9idWinding12GetNumPointsEv" title='idWinding::GetNumPoints' data-ref="_ZNK9idWinding12GetNumPointsEv">GetNumPoints</a>(); <a class="local col2 ref" href="#12i" title='i' data-ref="12i">i</a>++ )</td></tr>
+<tr><th id="169">169</th><td>		<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>(<q>"(%5.0f,%5.0f,%5.0f)\n"</q>,(*<a class="local col3 ref" href="#13w" title='w' data-ref="13w">w</a>)<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZN9idWindingixEi" title='idWinding::operator[]' data-ref="_ZN9idWindingixEi">[<a class="local col2 ref" href="#12i" title='i' data-ref="12i">i</a>]</a><a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec5ixEi" title='idVec5::operator[]' data-ref="_ZN6idVec5ixEi">[<var>0</var>]</a>, (*<a class="local col3 ref" href="#13w" title='w' data-ref="13w">w</a>)<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZN9idWindingixEi" title='idWinding::operator[]' data-ref="_ZN9idWindingixEi">[<a class="local col2 ref" href="#12i" title='i' data-ref="12i">i</a>]</a><a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec5ixEi" title='idVec5::operator[]' data-ref="_ZN6idVec5ixEi">[<var>1</var>]</a>, (*<a class="local col3 ref" href="#13w" title='w' data-ref="13w">w</a>)<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZN9idWindingixEi" title='idWinding::operator[]' data-ref="_ZN9idWindingixEi">[<a class="local col2 ref" href="#12i" title='i' data-ref="12i">i</a>]</a><a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec5ixEi" title='idVec5::operator[]' data-ref="_ZN6idVec5ixEi">[<var>2</var>]</a>);</td></tr>
+<tr><th id="170">170</th><td>}</td></tr>
+<tr><th id="171">171</th><td></td></tr>
+<tr><th id="172">172</th><td><i>/*</i></td></tr>
+<tr><th id="173">173</th><td><i>================</i></td></tr>
+<tr><th id="174">174</th><td><i>MakeHeadnodePortals</i></td></tr>
+<tr><th id="175">175</th><td><i></i></td></tr>
+<tr><th id="176">176</th><td><i>The created portals will face the global outside_node</i></td></tr>
+<tr><th id="177">177</th><td><i>================</i></td></tr>
+<tr><th id="178">178</th><td><i>*/</i></td></tr>
+<tr><th id="179">179</th><td><u>#define	<dfn class="macro" id="_M/SIDESPACE" data-ref="_M/SIDESPACE">SIDESPACE</dfn>	8</u></td></tr>
+<tr><th id="180">180</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="_ZL19MakeHeadnodePortalsP6tree_s" title='MakeHeadnodePortals' data-type='void MakeHeadnodePortals(tree_t * tree)' data-ref="_ZL19MakeHeadnodePortalsP6tree_s">MakeHeadnodePortals</dfn>( <a class="typedef" href="dmap.h.html#tree_t" title='tree_t' data-type='struct tree_s' data-ref="tree_t">tree_t</a> *<dfn class="local col4 decl" id="14tree" title='tree' data-type='tree_t *' data-ref="14tree">tree</dfn> ) {</td></tr>
+<tr><th id="181">181</th><td>	<a class="type" href="../../../idlib/bv/Bounds.h.html#idBounds" title='idBounds' data-ref="idBounds">idBounds</a>	<a class="ref fake" href="../../../idlib/bv/Bounds.h.html#_ZN8idBoundsC1Ev" title='idBounds::idBounds' data-ref="_ZN8idBoundsC1Ev"></a><dfn class="local col5 decl" id="15bounds" title='bounds' data-type='idBounds' data-ref="15bounds">bounds</dfn>;</td></tr>
+<tr><th id="182">182</th><td>	<em>int</em>			<dfn class="local col6 decl" id="16i" title='i' data-type='int' data-ref="16i">i</dfn>, <dfn class="local col7 decl" id="17j" title='j' data-type='int' data-ref="17j">j</dfn>, <dfn class="local col8 decl" id="18n" title='n' data-type='int' data-ref="18n">n</dfn>;</td></tr>
+<tr><th id="183">183</th><td>	<a class="typedef" href="dmap.h.html#uPortal_t" title='uPortal_t' data-type='struct uPortal_s' data-ref="uPortal_t">uPortal_t</a>	*<dfn class="local col9 decl" id="19p" title='p' data-type='uPortal_t *' data-ref="19p">p</dfn>, *<dfn class="local col0 decl" id="20portals" title='portals' data-type='uPortal_t *[6]' data-ref="20portals">portals</dfn>[<var>6</var>];</td></tr>
+<tr><th id="184">184</th><td>	<a class="type" href="../../../idlib/math/Plane.h.html#idPlane" title='idPlane' data-ref="idPlane">idPlane</a>		<a class="ref fake" href="../../../idlib/math/Plane.h.html#_ZN7idPlaneC1Ev" title='idPlane::idPlane' data-ref="_ZN7idPlaneC1Ev"></a><dfn class="local col1 decl" id="21bplanes" title='bplanes' data-type='idPlane [6]' data-ref="21bplanes">bplanes</dfn>[<var>6</var>], *<dfn class="local col2 decl" id="22pl" title='pl' data-type='idPlane *' data-ref="22pl">pl</dfn>;</td></tr>
+<tr><th id="185">185</th><td>	<a class="typedef" href="dmap.h.html#node_t" title='node_t' data-type='struct node_s' data-ref="node_t">node_t</a> *<dfn class="local col3 decl" id="23node" title='node' data-type='node_t *' data-ref="23node">node</dfn>;</td></tr>
+<tr><th id="186">186</th><td></td></tr>
+<tr><th id="187">187</th><td>	<a class="local col3 ref" href="#23node" title='node' data-ref="23node">node</a> = <a class="local col4 ref" href="#14tree" title='tree' data-ref="14tree">tree</a>-&gt;<a class="ref" href="dmap.h.html#tree_s::headnode" title='tree_s::headnode' data-ref="tree_s::headnode">headnode</a>;</td></tr>
+<tr><th id="188">188</th><td></td></tr>
+<tr><th id="189">189</th><td>	<a class="local col4 ref" href="#14tree" title='tree' data-ref="14tree">tree</a>-&gt;<a class="ref" href="dmap.h.html#tree_s::outside_node" title='tree_s::outside_node' data-ref="tree_s::outside_node">outside_node</a>.<a class="ref" href="dmap.h.html#node_s::planenum" title='node_s::planenum' data-ref="node_s::planenum">planenum</a> = <a class="macro" href="dmap.h.html#81" title="-1" data-ref="_M/PLANENUM_LEAF">PLANENUM_LEAF</a>;</td></tr>
+<tr><th id="190">190</th><td>	<a class="local col4 ref" href="#14tree" title='tree' data-ref="14tree">tree</a>-&gt;<a class="ref" href="dmap.h.html#tree_s::outside_node" title='tree_s::outside_node' data-ref="tree_s::outside_node">outside_node</a>.<a class="ref" href="dmap.h.html#node_s::brushlist" title='node_s::brushlist' data-ref="node_s::brushlist">brushlist</a> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="191">191</th><td>	<a class="local col4 ref" href="#14tree" title='tree' data-ref="14tree">tree</a>-&gt;<a class="ref" href="dmap.h.html#tree_s::outside_node" title='tree_s::outside_node' data-ref="tree_s::outside_node">outside_node</a>.<a class="ref" href="dmap.h.html#node_s::portals" title='node_s::portals' data-ref="node_s::portals">portals</a> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="192">192</th><td>	<a class="local col4 ref" href="#14tree" title='tree' data-ref="14tree">tree</a>-&gt;<a class="ref" href="dmap.h.html#tree_s::outside_node" title='tree_s::outside_node' data-ref="tree_s::outside_node">outside_node</a>.<a class="ref" href="dmap.h.html#node_s::opaque" title='node_s::opaque' data-ref="node_s::opaque">opaque</a> = <b>false</b>;</td></tr>
+<tr><th id="193">193</th><td></td></tr>
+<tr><th id="194">194</th><td>	<i>// if no nodes, don't go any farther</i></td></tr>
+<tr><th id="195">195</th><td>	<b>if</b> ( <a class="local col3 ref" href="#23node" title='node' data-ref="23node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::planenum" title='node_s::planenum' data-ref="node_s::planenum">planenum</a> == <a class="macro" href="dmap.h.html#81" title="-1" data-ref="_M/PLANENUM_LEAF">PLANENUM_LEAF</a> ) {</td></tr>
+<tr><th id="196">196</th><td>		<b>return</b>;</td></tr>
+<tr><th id="197">197</th><td>	}</td></tr>
+<tr><th id="198">198</th><td></td></tr>
+<tr><th id="199">199</th><td>	<i>// pad with some space so there will never be null volume leafs</i></td></tr>
+<tr><th id="200">200</th><td>	<b>for</b> (<a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a>=<var>0</var> ; <a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a>&lt;<var>3</var> ; <a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a>++) {</td></tr>
+<tr><th id="201">201</th><td>		<a class="local col5 ref" href="#15bounds" title='bounds' data-ref="15bounds">bounds</a><a class="ref" href="../../../idlib/bv/Bounds.h.html#_ZN8idBoundsixEi" title='idBounds::operator[]' data-ref="_ZN8idBoundsixEi">[<var>0</var>]</a><a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[<a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a>]</a> = <a class="local col4 ref" href="#14tree" title='tree' data-ref="14tree">tree</a>-&gt;<a class="ref" href="dmap.h.html#tree_s::bounds" title='tree_s::bounds' data-ref="tree_s::bounds">bounds</a><a class="ref" href="../../../idlib/bv/Bounds.h.html#_ZN8idBoundsixEi" title='idBounds::operator[]' data-ref="_ZN8idBoundsixEi">[<var>0</var>]</a><a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[<a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a>]</a> - <a class="macro" href="#179" title="8" data-ref="_M/SIDESPACE">SIDESPACE</a>;</td></tr>
+<tr><th id="202">202</th><td>		<a class="local col5 ref" href="#15bounds" title='bounds' data-ref="15bounds">bounds</a><a class="ref" href="../../../idlib/bv/Bounds.h.html#_ZN8idBoundsixEi" title='idBounds::operator[]' data-ref="_ZN8idBoundsixEi">[<var>1</var>]</a><a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[<a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a>]</a> = <a class="local col4 ref" href="#14tree" title='tree' data-ref="14tree">tree</a>-&gt;<a class="ref" href="dmap.h.html#tree_s::bounds" title='tree_s::bounds' data-ref="tree_s::bounds">bounds</a><a class="ref" href="../../../idlib/bv/Bounds.h.html#_ZN8idBoundsixEi" title='idBounds::operator[]' data-ref="_ZN8idBoundsixEi">[<var>1</var>]</a><a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[<a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a>]</a> + <a class="macro" href="#179" title="8" data-ref="_M/SIDESPACE">SIDESPACE</a>;</td></tr>
+<tr><th id="203">203</th><td>		<b>if</b> ( <a class="local col5 ref" href="#15bounds" title='bounds' data-ref="15bounds">bounds</a><a class="ref" href="../../../idlib/bv/Bounds.h.html#_ZN8idBoundsixEi" title='idBounds::operator[]' data-ref="_ZN8idBoundsixEi">[<var>0</var>]</a><a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[<a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a>]</a> &gt;= <a class="local col5 ref" href="#15bounds" title='bounds' data-ref="15bounds">bounds</a><a class="ref" href="../../../idlib/bv/Bounds.h.html#_ZN8idBoundsixEi" title='idBounds::operator[]' data-ref="_ZN8idBoundsixEi">[<var>1</var>]</a><a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[<a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a>]</a> ) {</td></tr>
+<tr><th id="204">204</th><td>			<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon5ErrorEPKcz" title='idCommon::Error' data-ref="_ZN8idCommon5ErrorEPKcz">Error</a>( <q>"Backwards tree volume"</q> );</td></tr>
+<tr><th id="205">205</th><td>		}</td></tr>
+<tr><th id="206">206</th><td>	}</td></tr>
+<tr><th id="207">207</th><td>	</td></tr>
+<tr><th id="208">208</th><td>	<b>for</b> (<a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a>=<var>0</var> ; <a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a>&lt;<var>3</var> ; <a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a>++) {</td></tr>
+<tr><th id="209">209</th><td>		<b>for</b> (<a class="local col7 ref" href="#17j" title='j' data-ref="17j">j</a>=<var>0</var> ; <a class="local col7 ref" href="#17j" title='j' data-ref="17j">j</a>&lt;<var>2</var> ; <a class="local col7 ref" href="#17j" title='j' data-ref="17j">j</a>++) {</td></tr>
+<tr><th id="210">210</th><td>			<a class="local col8 ref" href="#18n" title='n' data-ref="18n">n</a> = <a class="local col7 ref" href="#17j" title='j' data-ref="17j">j</a>*<var>3</var> + <a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a>;</td></tr>
+<tr><th id="211">211</th><td></td></tr>
+<tr><th id="212">212</th><td>			<a class="local col9 ref" href="#19p" title='p' data-ref="19p">p</a> = <a class="ref" href="#_Z11AllocPortalv" title='AllocPortal' data-ref="_Z11AllocPortalv">AllocPortal</a> ();</td></tr>
+<tr><th id="213">213</th><td>			<a class="local col0 ref" href="#20portals" title='portals' data-ref="20portals">portals</a>[<a class="local col8 ref" href="#18n" title='n' data-ref="18n">n</a>] = <a class="local col9 ref" href="#19p" title='p' data-ref="19p">p</a>;</td></tr>
+<tr><th id="214">214</th><td>			</td></tr>
+<tr><th id="215">215</th><td>			<a class="local col2 ref" href="#22pl" title='pl' data-ref="22pl">pl</a> = &amp;<a class="local col1 ref" href="#21bplanes" title='bplanes' data-ref="21bplanes">bplanes</a>[<a class="local col8 ref" href="#18n" title='n' data-ref="18n">n</a>];</td></tr>
+<tr><th id="216">216</th><td>			<a class="ref" href="../../../../include/string.h.html#memset" title='memset' data-ref="memset">memset</a> (<a class="local col2 ref" href="#22pl" title='pl' data-ref="22pl">pl</a>, <var>0</var>, <b>sizeof</b>(*<a class="local col2 ref" href="#22pl" title='pl' data-ref="22pl">pl</a>));</td></tr>
+<tr><th id="217">217</th><td>			<b>if</b> (<a class="local col7 ref" href="#17j" title='j' data-ref="17j">j</a>) {</td></tr>
+<tr><th id="218">218</th><td>				(*<a class="local col2 ref" href="#22pl" title='pl' data-ref="22pl">pl</a>)<a class="ref" href="../../../idlib/math/Plane.h.html#_ZN7idPlaneixEi" title='idPlane::operator[]' data-ref="_ZN7idPlaneixEi">[<a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a>]</a> = -<var>1</var>;</td></tr>
+<tr><th id="219">219</th><td>				(*<a class="local col2 ref" href="#22pl" title='pl' data-ref="22pl">pl</a>)<a class="ref" href="../../../idlib/math/Plane.h.html#_ZN7idPlaneixEi" title='idPlane::operator[]' data-ref="_ZN7idPlaneixEi">[<var>3</var>]</a> = <a class="local col5 ref" href="#15bounds" title='bounds' data-ref="15bounds">bounds</a><a class="ref" href="../../../idlib/bv/Bounds.h.html#_ZN8idBoundsixEi" title='idBounds::operator[]' data-ref="_ZN8idBoundsixEi">[<a class="local col7 ref" href="#17j" title='j' data-ref="17j">j</a>]</a><a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[<a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a>]</a>;</td></tr>
+<tr><th id="220">220</th><td>			} <b>else</b> {</td></tr>
+<tr><th id="221">221</th><td>				(*<a class="local col2 ref" href="#22pl" title='pl' data-ref="22pl">pl</a>)<a class="ref" href="../../../idlib/math/Plane.h.html#_ZN7idPlaneixEi" title='idPlane::operator[]' data-ref="_ZN7idPlaneixEi">[<a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a>]</a> = <var>1</var>;</td></tr>
+<tr><th id="222">222</th><td>				(*<a class="local col2 ref" href="#22pl" title='pl' data-ref="22pl">pl</a>)<a class="ref" href="../../../idlib/math/Plane.h.html#_ZN7idPlaneixEi" title='idPlane::operator[]' data-ref="_ZN7idPlaneixEi">[<var>3</var>]</a> = -<a class="local col5 ref" href="#15bounds" title='bounds' data-ref="15bounds">bounds</a><a class="ref" href="../../../idlib/bv/Bounds.h.html#_ZN8idBoundsixEi" title='idBounds::operator[]' data-ref="_ZN8idBoundsixEi">[<a class="local col7 ref" href="#17j" title='j' data-ref="17j">j</a>]</a><a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[<a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a>]</a>;</td></tr>
+<tr><th id="223">223</th><td>			}</td></tr>
+<tr><th id="224">224</th><td>			<a class="local col9 ref" href="#19p" title='p' data-ref="19p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::plane" title='uPortal_s::plane' data-ref="uPortal_s::plane">plane</a> <a class="ref" href="../../../idlib/math/Plane.h.html#71" title='idPlane::operator=' data-ref="_ZN7idPlaneaSERKS_">=</a> *<a class="local col2 ref" href="#22pl" title='pl' data-ref="22pl">pl</a>;</td></tr>
+<tr><th id="225">225</th><td>			<a class="local col9 ref" href="#19p" title='p' data-ref="19p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::winding" title='uPortal_s::winding' data-ref="uPortal_s::winding">winding</a> = <b>new</b> <a class="type" href="../../../idlib/geometry/Winding.h.html#idWinding" title='idWinding' data-ref="idWinding">idWinding</a><a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZN9idWindingC1ERK7idPlane" title='idWinding::idWinding' data-ref="_ZN9idWindingC1ERK7idPlane">(</a> *<a class="local col2 ref" href="#22pl" title='pl' data-ref="22pl">pl</a> );</td></tr>
+<tr><th id="226">226</th><td>			<a class="ref" href="#_Z16AddPortalToNodesP9uPortal_sP6node_sS2_" title='AddPortalToNodes' data-ref="_Z16AddPortalToNodesP9uPortal_sP6node_sS2_">AddPortalToNodes</a> (<a class="local col9 ref" href="#19p" title='p' data-ref="19p">p</a>, <a class="local col3 ref" href="#23node" title='node' data-ref="23node">node</a>, &amp;<a class="local col4 ref" href="#14tree" title='tree' data-ref="14tree">tree</a>-&gt;<a class="ref" href="dmap.h.html#tree_s::outside_node" title='tree_s::outside_node' data-ref="tree_s::outside_node">outside_node</a>);</td></tr>
+<tr><th id="227">227</th><td>		}</td></tr>
+<tr><th id="228">228</th><td>	}</td></tr>
+<tr><th id="229">229</th><td></td></tr>
+<tr><th id="230">230</th><td>	<i>// clip the basewindings by all the other planes</i></td></tr>
+<tr><th id="231">231</th><td>	<b>for</b> (<a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a>=<var>0</var> ; <a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a>&lt;<var>6</var> ; <a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a>++) {</td></tr>
+<tr><th id="232">232</th><td>		<b>for</b> (<a class="local col7 ref" href="#17j" title='j' data-ref="17j">j</a>=<var>0</var> ; <a class="local col7 ref" href="#17j" title='j' data-ref="17j">j</a>&lt;<var>6</var> ; <a class="local col7 ref" href="#17j" title='j' data-ref="17j">j</a>++) {</td></tr>
+<tr><th id="233">233</th><td>			<b>if</b> (<a class="local col7 ref" href="#17j" title='j' data-ref="17j">j</a> == <a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a>) {</td></tr>
+<tr><th id="234">234</th><td>				<b>continue</b>;</td></tr>
+<tr><th id="235">235</th><td>			}</td></tr>
+<tr><th id="236">236</th><td>			<a class="local col0 ref" href="#20portals" title='portals' data-ref="20portals">portals</a>[<a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a>]-&gt;<a class="ref" href="dmap.h.html#uPortal_s::winding" title='uPortal_s::winding' data-ref="uPortal_s::winding">winding</a> = <a class="local col0 ref" href="#20portals" title='portals' data-ref="20portals">portals</a>[<a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a>]-&gt;<a class="ref" href="dmap.h.html#uPortal_s::winding" title='uPortal_s::winding' data-ref="uPortal_s::winding">winding</a>-&gt;<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZN9idWinding4ClipERK7idPlanefb" title='idWinding::Clip' data-ref="_ZN9idWinding4ClipERK7idPlanefb">Clip</a>( <a class="local col1 ref" href="#21bplanes" title='bplanes' data-ref="21bplanes">bplanes</a>[<a class="local col7 ref" href="#17j" title='j' data-ref="17j">j</a>], <a class="macro" href="../../../idlib/math/Plane.h.html#44" title="0.1f" data-ref="_M/ON_EPSILON">ON_EPSILON</a> );</td></tr>
+<tr><th id="237">237</th><td>		}</td></tr>
+<tr><th id="238">238</th><td>	}</td></tr>
+<tr><th id="239">239</th><td>}</td></tr>
+<tr><th id="240">240</th><td></td></tr>
+<tr><th id="241">241</th><td><i>//===================================================</i></td></tr>
+<tr><th id="242">242</th><td></td></tr>
+<tr><th id="243">243</th><td></td></tr>
+<tr><th id="244">244</th><td><i>/*</i></td></tr>
+<tr><th id="245">245</th><td><i>================</i></td></tr>
+<tr><th id="246">246</th><td><i>BaseWindingForNode</i></td></tr>
+<tr><th id="247">247</th><td><i>================</i></td></tr>
+<tr><th id="248">248</th><td><i>*/</i></td></tr>
+<tr><th id="249">249</th><td><u>#define	<dfn class="macro" id="_M/BASE_WINDING_EPSILON" data-ref="_M/BASE_WINDING_EPSILON">BASE_WINDING_EPSILON</dfn>	0.001f</u></td></tr>
+<tr><th id="250">250</th><td><u>#define	<dfn class="macro" id="_M/SPLIT_WINDING_EPSILON" data-ref="_M/SPLIT_WINDING_EPSILON">SPLIT_WINDING_EPSILON</dfn>	0.001f</u></td></tr>
+<tr><th id="251">251</th><td></td></tr>
+<tr><th id="252">252</th><td><a class="type" href="../../../idlib/geometry/Winding.h.html#idWinding" title='idWinding' data-ref="idWinding">idWinding</a> *<dfn class="decl def" id="_Z18BaseWindingForNodeP6node_s" title='BaseWindingForNode' data-ref="_Z18BaseWindingForNodeP6node_s">BaseWindingForNode</dfn> (<a class="typedef" href="dmap.h.html#node_t" title='node_t' data-type='struct node_s' data-ref="node_t">node_t</a> *<dfn class="local col4 decl" id="24node" title='node' data-type='node_t *' data-ref="24node">node</dfn>) {</td></tr>
+<tr><th id="253">253</th><td>	<a class="type" href="../../../idlib/geometry/Winding.h.html#idWinding" title='idWinding' data-ref="idWinding">idWinding</a>	*<dfn class="local col5 decl" id="25w" title='w' data-type='idWinding *' data-ref="25w">w</dfn>;</td></tr>
+<tr><th id="254">254</th><td>	<a class="typedef" href="dmap.h.html#node_t" title='node_t' data-type='struct node_s' data-ref="node_t">node_t</a>		*<dfn class="local col6 decl" id="26n" title='n' data-type='node_t *' data-ref="26n">n</dfn>;</td></tr>
+<tr><th id="255">255</th><td></td></tr>
+<tr><th id="256">256</th><td>	<a class="local col5 ref" href="#25w" title='w' data-ref="25w">w</a> = <b>new</b> <a class="type" href="../../../idlib/geometry/Winding.h.html#idWinding" title='idWinding' data-ref="idWinding">idWinding</a><a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZN9idWindingC1ERK7idPlane" title='idWinding::idWinding' data-ref="_ZN9idWindingC1ERK7idPlane">(</a> <a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::mapPlanes" title='(anonymous struct)::mapPlanes' data-ref="(anonymous)::mapPlanes">mapPlanes</a><a class="ref" href="../../../idlib/containers/List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[<a class="local col4 ref" href="#24node" title='node' data-ref="24node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::planenum" title='node_s::planenum' data-ref="node_s::planenum">planenum</a>]</a> );</td></tr>
+<tr><th id="257">257</th><td></td></tr>
+<tr><th id="258">258</th><td>	<i>// clip by all the parents</i></td></tr>
+<tr><th id="259">259</th><td>	<b>for</b> ( <a class="local col6 ref" href="#26n" title='n' data-ref="26n">n</a> = <a class="local col4 ref" href="#24node" title='node' data-ref="24node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::parent" title='node_s::parent' data-ref="node_s::parent">parent</a> ; <a class="local col6 ref" href="#26n" title='n' data-ref="26n">n</a> &amp;&amp; <a class="local col5 ref" href="#25w" title='w' data-ref="25w">w</a> ; ) {</td></tr>
+<tr><th id="260">260</th><td>		<a class="type" href="../../../idlib/math/Plane.h.html#idPlane" title='idPlane' data-ref="idPlane">idPlane</a> &amp;<dfn class="local col7 decl" id="27plane" title='plane' data-type='idPlane &amp;' data-ref="27plane">plane</dfn> = <a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::mapPlanes" title='(anonymous struct)::mapPlanes' data-ref="(anonymous)::mapPlanes">mapPlanes</a><a class="ref" href="../../../idlib/containers/List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[<a class="local col6 ref" href="#26n" title='n' data-ref="26n">n</a>-&gt;<a class="ref" href="dmap.h.html#node_s::planenum" title='node_s::planenum' data-ref="node_s::planenum">planenum</a>]</a>;</td></tr>
+<tr><th id="261">261</th><td></td></tr>
+<tr><th id="262">262</th><td>		<b>if</b> ( <a class="local col6 ref" href="#26n" title='n' data-ref="26n">n</a>-&gt;<a class="ref" href="dmap.h.html#node_s::children" title='node_s::children' data-ref="node_s::children">children</a>[<var>0</var>] == <a class="local col4 ref" href="#24node" title='node' data-ref="24node">node</a> ) {</td></tr>
+<tr><th id="263">263</th><td>			<i>// take front</i></td></tr>
+<tr><th id="264">264</th><td>			<a class="local col5 ref" href="#25w" title='w' data-ref="25w">w</a> = <a class="local col5 ref" href="#25w" title='w' data-ref="25w">w</a>-&gt;<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZN9idWinding4ClipERK7idPlanefb" title='idWinding::Clip' data-ref="_ZN9idWinding4ClipERK7idPlanefb">Clip</a>( <a class="local col7 ref" href="#27plane" title='plane' data-ref="27plane">plane</a>, <a class="macro" href="#249" title="0.001f" data-ref="_M/BASE_WINDING_EPSILON">BASE_WINDING_EPSILON</a> );</td></tr>
+<tr><th id="265">265</th><td>		} <b>else</b> {</td></tr>
+<tr><th id="266">266</th><td>			<i>// take back</i></td></tr>
+<tr><th id="267">267</th><td>			<a class="type" href="../../../idlib/math/Plane.h.html#idPlane" title='idPlane' data-ref="idPlane">idPlane</a>	<dfn class="local col8 decl" id="28back" title='back' data-type='idPlane' data-ref="28back">back</dfn> = <a class="ref" href="../../../idlib/math/Plane.h.html#_ZNK7idPlanengEv" title='idPlane::operator-' data-ref="_ZNK7idPlanengEv">-</a><a class="local col7 ref" href="#27plane" title='plane' data-ref="27plane">plane</a>;</td></tr>
+<tr><th id="268">268</th><td>			<a class="local col5 ref" href="#25w" title='w' data-ref="25w">w</a> = <a class="local col5 ref" href="#25w" title='w' data-ref="25w">w</a>-&gt;<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZN9idWinding4ClipERK7idPlanefb" title='idWinding::Clip' data-ref="_ZN9idWinding4ClipERK7idPlanefb">Clip</a>( <a class="local col8 ref" href="#28back" title='back' data-ref="28back">back</a>, <a class="macro" href="#249" title="0.001f" data-ref="_M/BASE_WINDING_EPSILON">BASE_WINDING_EPSILON</a> );</td></tr>
+<tr><th id="269">269</th><td>		}</td></tr>
+<tr><th id="270">270</th><td>		<a class="local col4 ref" href="#24node" title='node' data-ref="24node">node</a> = <a class="local col6 ref" href="#26n" title='n' data-ref="26n">n</a>;</td></tr>
+<tr><th id="271">271</th><td>		<a class="local col6 ref" href="#26n" title='n' data-ref="26n">n</a> = <a class="local col6 ref" href="#26n" title='n' data-ref="26n">n</a>-&gt;<a class="ref" href="dmap.h.html#node_s::parent" title='node_s::parent' data-ref="node_s::parent">parent</a>;</td></tr>
+<tr><th id="272">272</th><td>	}</td></tr>
+<tr><th id="273">273</th><td></td></tr>
+<tr><th id="274">274</th><td>	<b>return</b> <a class="local col5 ref" href="#25w" title='w' data-ref="25w">w</a>;</td></tr>
+<tr><th id="275">275</th><td>}</td></tr>
+<tr><th id="276">276</th><td></td></tr>
+<tr><th id="277">277</th><td><i>//============================================================</i></td></tr>
+<tr><th id="278">278</th><td></td></tr>
+<tr><th id="279">279</th><td><i  data-doc="_ZL14MakeNodePortalP6node_s">/*</i></td></tr>
+<tr><th id="280">280</th><td><i  data-doc="_ZL14MakeNodePortalP6node_s">==================</i></td></tr>
+<tr><th id="281">281</th><td><i  data-doc="_ZL14MakeNodePortalP6node_s">MakeNodePortal</i></td></tr>
+<tr><th id="282">282</th><td><i  data-doc="_ZL14MakeNodePortalP6node_s"></i></td></tr>
+<tr><th id="283">283</th><td><i  data-doc="_ZL14MakeNodePortalP6node_s">create the new portal by taking the full plane winding for the cutting plane</i></td></tr>
+<tr><th id="284">284</th><td><i  data-doc="_ZL14MakeNodePortalP6node_s">and clipping it by all of parents of this node</i></td></tr>
+<tr><th id="285">285</th><td><i  data-doc="_ZL14MakeNodePortalP6node_s">==================</i></td></tr>
+<tr><th id="286">286</th><td><i  data-doc="_ZL14MakeNodePortalP6node_s">*/</i></td></tr>
+<tr><th id="287">287</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="_ZL14MakeNodePortalP6node_s" title='MakeNodePortal' data-type='void MakeNodePortal(node_t * node)' data-ref="_ZL14MakeNodePortalP6node_s">MakeNodePortal</dfn>( <a class="typedef" href="dmap.h.html#node_t" title='node_t' data-type='struct node_s' data-ref="node_t">node_t</a> *<dfn class="local col9 decl" id="29node" title='node' data-type='node_t *' data-ref="29node">node</dfn> ) {</td></tr>
+<tr><th id="288">288</th><td>	<a class="typedef" href="dmap.h.html#uPortal_t" title='uPortal_t' data-type='struct uPortal_s' data-ref="uPortal_t">uPortal_t</a>	*<dfn class="local col0 decl" id="30new_portal" title='new_portal' data-type='uPortal_t *' data-ref="30new_portal">new_portal</dfn>, *<dfn class="local col1 decl" id="31p" title='p' data-type='uPortal_t *' data-ref="31p">p</dfn>;</td></tr>
+<tr><th id="289">289</th><td>	<a class="type" href="../../../idlib/geometry/Winding.h.html#idWinding" title='idWinding' data-ref="idWinding">idWinding</a>	*<dfn class="local col2 decl" id="32w" title='w' data-type='idWinding *' data-ref="32w">w</dfn>;</td></tr>
+<tr><th id="290">290</th><td>	<a class="type" href="../../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a>		<a class="ref fake" href="../../../idlib/math/Vector.h.html#_ZN6idVec3C1Ev" title='idVec3::idVec3' data-ref="_ZN6idVec3C1Ev"></a><dfn class="local col3 decl" id="33normal" title='normal' data-type='idVec3' data-ref="33normal">normal</dfn>;</td></tr>
+<tr><th id="291">291</th><td>	<em>int</em>			<dfn class="local col4 decl" id="34side" title='side' data-type='int' data-ref="34side">side</dfn>;</td></tr>
+<tr><th id="292">292</th><td></td></tr>
+<tr><th id="293">293</th><td>	<a class="local col2 ref" href="#32w" title='w' data-ref="32w">w</a> = <a class="ref" href="#_Z18BaseWindingForNodeP6node_s" title='BaseWindingForNode' data-ref="_Z18BaseWindingForNodeP6node_s">BaseWindingForNode</a> (<a class="local col9 ref" href="#29node" title='node' data-ref="29node">node</a>);</td></tr>
+<tr><th id="294">294</th><td></td></tr>
+<tr><th id="295">295</th><td>	<i>// clip the portal by all the other portals in the node</i></td></tr>
+<tr><th id="296">296</th><td>	<b>for</b> (<a class="local col1 ref" href="#31p" title='p' data-ref="31p">p</a> = <a class="local col9 ref" href="#29node" title='node' data-ref="29node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::portals" title='node_s::portals' data-ref="node_s::portals">portals</a> ; <a class="local col1 ref" href="#31p" title='p' data-ref="31p">p</a> &amp;&amp; <a class="local col2 ref" href="#32w" title='w' data-ref="32w">w</a>; <a class="local col1 ref" href="#31p" title='p' data-ref="31p">p</a> = <a class="local col1 ref" href="#31p" title='p' data-ref="31p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::next" title='uPortal_s::next' data-ref="uPortal_s::next">next</a>[<a class="local col4 ref" href="#34side" title='side' data-ref="34side">side</a>])	</td></tr>
+<tr><th id="297">297</th><td>	{</td></tr>
+<tr><th id="298">298</th><td>		<a class="type" href="../../../idlib/math/Plane.h.html#idPlane" title='idPlane' data-ref="idPlane">idPlane</a>	<a class="ref fake" href="../../../idlib/math/Plane.h.html#_ZN7idPlaneC1Ev" title='idPlane::idPlane' data-ref="_ZN7idPlaneC1Ev"></a><dfn class="local col5 decl" id="35plane" title='plane' data-type='idPlane' data-ref="35plane">plane</dfn>;</td></tr>
+<tr><th id="299">299</th><td></td></tr>
+<tr><th id="300">300</th><td>		<b>if</b> (<a class="local col1 ref" href="#31p" title='p' data-ref="31p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>0</var>] == <a class="local col9 ref" href="#29node" title='node' data-ref="29node">node</a>)</td></tr>
+<tr><th id="301">301</th><td>		{</td></tr>
+<tr><th id="302">302</th><td>			<a class="local col4 ref" href="#34side" title='side' data-ref="34side">side</a> = <var>0</var>;</td></tr>
+<tr><th id="303">303</th><td>			<a class="local col5 ref" href="#35plane" title='plane' data-ref="35plane">plane</a> <a class="ref" href="../../../idlib/math/Plane.h.html#71" title='idPlane::operator=' data-ref="_ZN7idPlaneaSERKS_">=</a> <a class="local col1 ref" href="#31p" title='p' data-ref="31p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::plane" title='uPortal_s::plane' data-ref="uPortal_s::plane">plane</a>;</td></tr>
+<tr><th id="304">304</th><td>		}</td></tr>
+<tr><th id="305">305</th><td>		<b>else</b> <b>if</b> (<a class="local col1 ref" href="#31p" title='p' data-ref="31p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>1</var>] == <a class="local col9 ref" href="#29node" title='node' data-ref="29node">node</a>)</td></tr>
+<tr><th id="306">306</th><td>		{</td></tr>
+<tr><th id="307">307</th><td>			<a class="local col4 ref" href="#34side" title='side' data-ref="34side">side</a> = <var>1</var>;</td></tr>
+<tr><th id="308">308</th><td>			<a class="local col5 ref" href="#35plane" title='plane' data-ref="35plane">plane</a> <a class="ref" href="../../../idlib/math/Plane.h.html#71" title='idPlane::operator=' data-ref="_ZN7idPlaneaSERKS_">=</a> <a class="ref" href="../../../idlib/math/Plane.h.html#_ZNK7idPlanengEv" title='idPlane::operator-' data-ref="_ZNK7idPlanengEv">-</a><a class="local col1 ref" href="#31p" title='p' data-ref="31p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::plane" title='uPortal_s::plane' data-ref="uPortal_s::plane">plane</a>;</td></tr>
+<tr><th id="309">309</th><td>		}</td></tr>
+<tr><th id="310">310</th><td>		<b>else</b> {</td></tr>
+<tr><th id="311">311</th><td>			<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon5ErrorEPKcz" title='idCommon::Error' data-ref="_ZN8idCommon5ErrorEPKcz">Error</a>( <q>"CutNodePortals_r: mislinked portal"</q>);</td></tr>
+<tr><th id="312">312</th><td>			<a class="local col4 ref" href="#34side" title='side' data-ref="34side">side</a> = <var>0</var>;	<i>// quiet a compiler warning</i></td></tr>
+<tr><th id="313">313</th><td>		}</td></tr>
+<tr><th id="314">314</th><td></td></tr>
+<tr><th id="315">315</th><td>		<a class="local col2 ref" href="#32w" title='w' data-ref="32w">w</a> = <a class="local col2 ref" href="#32w" title='w' data-ref="32w">w</a>-&gt;<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZN9idWinding4ClipERK7idPlanefb" title='idWinding::Clip' data-ref="_ZN9idWinding4ClipERK7idPlanefb">Clip</a>( <a class="local col5 ref" href="#35plane" title='plane' data-ref="35plane">plane</a>, <a class="macro" href="dmap.h.html#281" title="0.1f" data-ref="_M/CLIP_EPSILON">CLIP_EPSILON</a> );</td></tr>
+<tr><th id="316">316</th><td>	}</td></tr>
+<tr><th id="317">317</th><td></td></tr>
+<tr><th id="318">318</th><td>	<b>if</b> (!<a class="local col2 ref" href="#32w" title='w' data-ref="32w">w</a>)</td></tr>
+<tr><th id="319">319</th><td>	{</td></tr>
+<tr><th id="320">320</th><td>		<b>return</b>;</td></tr>
+<tr><th id="321">321</th><td>	}</td></tr>
+<tr><th id="322">322</th><td></td></tr>
+<tr><th id="323">323</th><td>	<b>if</b> ( <a class="local col2 ref" href="#32w" title='w' data-ref="32w">w</a>-&gt;<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZNK9idWinding6IsTinyEv" title='idWinding::IsTiny' data-ref="_ZNK9idWinding6IsTinyEv">IsTiny</a>() )</td></tr>
+<tr><th id="324">324</th><td>	{</td></tr>
+<tr><th id="325">325</th><td>		<a class="ref" href="#c_tinyportals" title='c_tinyportals' data-ref="c_tinyportals">c_tinyportals</a>++;</td></tr>
+<tr><th id="326">326</th><td>		<b>delete</b> <a class="local col2 ref" href="#32w" title='w' data-ref="32w">w</a>;</td></tr>
+<tr><th id="327">327</th><td>		<b>return</b>;</td></tr>
+<tr><th id="328">328</th><td>	}</td></tr>
+<tr><th id="329">329</th><td></td></tr>
+<tr><th id="330">330</th><td></td></tr>
+<tr><th id="331">331</th><td>	<a class="local col0 ref" href="#30new_portal" title='new_portal' data-ref="30new_portal">new_portal</a> = <a class="ref" href="#_Z11AllocPortalv" title='AllocPortal' data-ref="_Z11AllocPortalv">AllocPortal</a> ();</td></tr>
+<tr><th id="332">332</th><td>	<a class="local col0 ref" href="#30new_portal" title='new_portal' data-ref="30new_portal">new_portal</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::plane" title='uPortal_s::plane' data-ref="uPortal_s::plane">plane</a> <a class="ref" href="../../../idlib/math/Plane.h.html#71" title='idPlane::operator=' data-ref="_ZN7idPlaneaSERKS_">=</a> <a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::mapPlanes" title='(anonymous struct)::mapPlanes' data-ref="(anonymous)::mapPlanes">mapPlanes</a><a class="ref" href="../../../idlib/containers/List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[<a class="local col9 ref" href="#29node" title='node' data-ref="29node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::planenum" title='node_s::planenum' data-ref="node_s::planenum">planenum</a>]</a>;</td></tr>
+<tr><th id="333">333</th><td>	<a class="local col0 ref" href="#30new_portal" title='new_portal' data-ref="30new_portal">new_portal</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::onnode" title='uPortal_s::onnode' data-ref="uPortal_s::onnode">onnode</a> = <a class="local col9 ref" href="#29node" title='node' data-ref="29node">node</a>;</td></tr>
+<tr><th id="334">334</th><td>	<a class="local col0 ref" href="#30new_portal" title='new_portal' data-ref="30new_portal">new_portal</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::winding" title='uPortal_s::winding' data-ref="uPortal_s::winding">winding</a> = <a class="local col2 ref" href="#32w" title='w' data-ref="32w">w</a>;	</td></tr>
+<tr><th id="335">335</th><td>	<a class="ref" href="#_Z16AddPortalToNodesP9uPortal_sP6node_sS2_" title='AddPortalToNodes' data-ref="_Z16AddPortalToNodesP9uPortal_sP6node_sS2_">AddPortalToNodes</a> (<a class="local col0 ref" href="#30new_portal" title='new_portal' data-ref="30new_portal">new_portal</a>, <a class="local col9 ref" href="#29node" title='node' data-ref="29node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::children" title='node_s::children' data-ref="node_s::children">children</a>[<var>0</var>], <a class="local col9 ref" href="#29node" title='node' data-ref="29node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::children" title='node_s::children' data-ref="node_s::children">children</a>[<var>1</var>]);</td></tr>
+<tr><th id="336">336</th><td>}</td></tr>
+<tr><th id="337">337</th><td></td></tr>
+<tr><th id="338">338</th><td></td></tr>
+<tr><th id="339">339</th><td><i  data-doc="_ZL16SplitNodePortalsP6node_s">/*</i></td></tr>
+<tr><th id="340">340</th><td><i  data-doc="_ZL16SplitNodePortalsP6node_s">==============</i></td></tr>
+<tr><th id="341">341</th><td><i  data-doc="_ZL16SplitNodePortalsP6node_s">SplitNodePortals</i></td></tr>
+<tr><th id="342">342</th><td><i  data-doc="_ZL16SplitNodePortalsP6node_s"></i></td></tr>
+<tr><th id="343">343</th><td><i  data-doc="_ZL16SplitNodePortalsP6node_s">Move or split the portals that bound node so that the node's</i></td></tr>
+<tr><th id="344">344</th><td><i  data-doc="_ZL16SplitNodePortalsP6node_s">children have portals instead of node.</i></td></tr>
+<tr><th id="345">345</th><td><i  data-doc="_ZL16SplitNodePortalsP6node_s">==============</i></td></tr>
+<tr><th id="346">346</th><td><i  data-doc="_ZL16SplitNodePortalsP6node_s">*/</i></td></tr>
+<tr><th id="347">347</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="_ZL16SplitNodePortalsP6node_s" title='SplitNodePortals' data-type='void SplitNodePortals(node_t * node)' data-ref="_ZL16SplitNodePortalsP6node_s">SplitNodePortals</dfn>( <a class="typedef" href="dmap.h.html#node_t" title='node_t' data-type='struct node_s' data-ref="node_t">node_t</a> *<dfn class="local col6 decl" id="36node" title='node' data-type='node_t *' data-ref="36node">node</dfn> ) {</td></tr>
+<tr><th id="348">348</th><td>	<a class="typedef" href="dmap.h.html#uPortal_t" title='uPortal_t' data-type='struct uPortal_s' data-ref="uPortal_t">uPortal_t</a>	*<dfn class="local col7 decl" id="37p" title='p' data-type='uPortal_t *' data-ref="37p">p</dfn>, *<dfn class="local col8 decl" id="38next_portal" title='next_portal' data-type='uPortal_t *' data-ref="38next_portal">next_portal</dfn>, *<dfn class="local col9 decl" id="39new_portal" title='new_portal' data-type='uPortal_t *' data-ref="39new_portal">new_portal</dfn>;</td></tr>
+<tr><th id="349">349</th><td>	<a class="typedef" href="dmap.h.html#node_t" title='node_t' data-type='struct node_s' data-ref="node_t">node_t</a>		*<dfn class="local col0 decl" id="40f" title='f' data-type='node_t *' data-ref="40f">f</dfn>, *<dfn class="local col1 decl" id="41b" title='b' data-type='node_t *' data-ref="41b">b</dfn>, *<dfn class="local col2 decl" id="42other_node" title='other_node' data-type='node_t *' data-ref="42other_node">other_node</dfn>;</td></tr>
+<tr><th id="350">350</th><td>	<em>int</em>			<dfn class="local col3 decl" id="43side" title='side' data-type='int' data-ref="43side">side</dfn>;</td></tr>
+<tr><th id="351">351</th><td>	<a class="type" href="../../../idlib/math/Plane.h.html#idPlane" title='idPlane' data-ref="idPlane">idPlane</a>		*<dfn class="local col4 decl" id="44plane" title='plane' data-type='idPlane *' data-ref="44plane">plane</dfn>;</td></tr>
+<tr><th id="352">352</th><td>	<a class="type" href="../../../idlib/geometry/Winding.h.html#idWinding" title='idWinding' data-ref="idWinding">idWinding</a>	*<dfn class="local col5 decl" id="45frontwinding" title='frontwinding' data-type='idWinding *' data-ref="45frontwinding">frontwinding</dfn>, *<dfn class="local col6 decl" id="46backwinding" title='backwinding' data-type='idWinding *' data-ref="46backwinding">backwinding</dfn>;</td></tr>
+<tr><th id="353">353</th><td></td></tr>
+<tr><th id="354">354</th><td>	<a class="local col4 ref" href="#44plane" title='plane' data-ref="44plane">plane</a> = &amp;<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::mapPlanes" title='(anonymous struct)::mapPlanes' data-ref="(anonymous)::mapPlanes">mapPlanes</a><a class="ref" href="../../../idlib/containers/List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[<a class="local col6 ref" href="#36node" title='node' data-ref="36node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::planenum" title='node_s::planenum' data-ref="node_s::planenum">planenum</a>]</a>;</td></tr>
+<tr><th id="355">355</th><td>	<a class="local col0 ref" href="#40f" title='f' data-ref="40f">f</a> = <a class="local col6 ref" href="#36node" title='node' data-ref="36node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::children" title='node_s::children' data-ref="node_s::children">children</a>[<var>0</var>];</td></tr>
+<tr><th id="356">356</th><td>	<a class="local col1 ref" href="#41b" title='b' data-ref="41b">b</a> = <a class="local col6 ref" href="#36node" title='node' data-ref="36node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::children" title='node_s::children' data-ref="node_s::children">children</a>[<var>1</var>];</td></tr>
+<tr><th id="357">357</th><td></td></tr>
+<tr><th id="358">358</th><td>	<b>for</b> ( <a class="local col7 ref" href="#37p" title='p' data-ref="37p">p</a> = <a class="local col6 ref" href="#36node" title='node' data-ref="36node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::portals" title='node_s::portals' data-ref="node_s::portals">portals</a> ; <a class="local col7 ref" href="#37p" title='p' data-ref="37p">p</a> ; <a class="local col7 ref" href="#37p" title='p' data-ref="37p">p</a> = <a class="local col8 ref" href="#38next_portal" title='next_portal' data-ref="38next_portal">next_portal</a> ) {</td></tr>
+<tr><th id="359">359</th><td>		<b>if</b> (<a class="local col7 ref" href="#37p" title='p' data-ref="37p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>0</var>] == <a class="local col6 ref" href="#36node" title='node' data-ref="36node">node</a> ) {</td></tr>
+<tr><th id="360">360</th><td>			<a class="local col3 ref" href="#43side" title='side' data-ref="43side">side</a> = <var>0</var>;</td></tr>
+<tr><th id="361">361</th><td>		} <b>else</b> <b>if</b> ( <a class="local col7 ref" href="#37p" title='p' data-ref="37p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>1</var>] == <a class="local col6 ref" href="#36node" title='node' data-ref="36node">node</a> ) {</td></tr>
+<tr><th id="362">362</th><td>			<a class="local col3 ref" href="#43side" title='side' data-ref="43side">side</a> = <var>1</var>;</td></tr>
+<tr><th id="363">363</th><td>		} <b>else</b> {</td></tr>
+<tr><th id="364">364</th><td>			<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon5ErrorEPKcz" title='idCommon::Error' data-ref="_ZN8idCommon5ErrorEPKcz">Error</a>( <q>"SplitNodePortals: mislinked portal"</q> );</td></tr>
+<tr><th id="365">365</th><td>			<a class="local col3 ref" href="#43side" title='side' data-ref="43side">side</a> = <var>0</var>;	<i>// quiet a compiler warning</i></td></tr>
+<tr><th id="366">366</th><td>		}</td></tr>
+<tr><th id="367">367</th><td>		<a class="local col8 ref" href="#38next_portal" title='next_portal' data-ref="38next_portal">next_portal</a> = <a class="local col7 ref" href="#37p" title='p' data-ref="37p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::next" title='uPortal_s::next' data-ref="uPortal_s::next">next</a>[<a class="local col3 ref" href="#43side" title='side' data-ref="43side">side</a>];</td></tr>
+<tr><th id="368">368</th><td></td></tr>
+<tr><th id="369">369</th><td>		<a class="local col2 ref" href="#42other_node" title='other_node' data-ref="42other_node">other_node</a> = <a class="local col7 ref" href="#37p" title='p' data-ref="37p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[!<a class="local col3 ref" href="#43side" title='side' data-ref="43side">side</a>];</td></tr>
+<tr><th id="370">370</th><td>		<a class="ref" href="#_Z20RemovePortalFromNodeP9uPortal_sP6node_s" title='RemovePortalFromNode' data-ref="_Z20RemovePortalFromNodeP9uPortal_sP6node_s">RemovePortalFromNode</a> (<a class="local col7 ref" href="#37p" title='p' data-ref="37p">p</a>, <a class="local col7 ref" href="#37p" title='p' data-ref="37p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>0</var>]);</td></tr>
+<tr><th id="371">371</th><td>		<a class="ref" href="#_Z20RemovePortalFromNodeP9uPortal_sP6node_s" title='RemovePortalFromNode' data-ref="_Z20RemovePortalFromNodeP9uPortal_sP6node_s">RemovePortalFromNode</a> (<a class="local col7 ref" href="#37p" title='p' data-ref="37p">p</a>, <a class="local col7 ref" href="#37p" title='p' data-ref="37p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>1</var>]);</td></tr>
+<tr><th id="372">372</th><td></td></tr>
+<tr><th id="373">373</th><td>	<i>//</i></td></tr>
+<tr><th id="374">374</th><td><i>	// cut the portal into two portals, one on each side of the cut plane</i></td></tr>
+<tr><th id="375">375</th><td><i>	//</i></td></tr>
+<tr><th id="376">376</th><td>		<a class="local col7 ref" href="#37p" title='p' data-ref="37p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::winding" title='uPortal_s::winding' data-ref="uPortal_s::winding">winding</a>-&gt;<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZNK9idWinding5SplitERK7idPlanefPPS_S4_" title='idWinding::Split' data-ref="_ZNK9idWinding5SplitERK7idPlanefPPS_S4_">Split</a>( *<a class="local col4 ref" href="#44plane" title='plane' data-ref="44plane">plane</a>, <a class="macro" href="#250" title="0.001f" data-ref="_M/SPLIT_WINDING_EPSILON">SPLIT_WINDING_EPSILON</a>, &amp;<a class="local col5 ref" href="#45frontwinding" title='frontwinding' data-ref="45frontwinding">frontwinding</a>, &amp;<a class="local col6 ref" href="#46backwinding" title='backwinding' data-ref="46backwinding">backwinding</a>);</td></tr>
+<tr><th id="377">377</th><td></td></tr>
+<tr><th id="378">378</th><td>		<b>if</b> ( <a class="local col5 ref" href="#45frontwinding" title='frontwinding' data-ref="45frontwinding">frontwinding</a> &amp;&amp; <a class="local col5 ref" href="#45frontwinding" title='frontwinding' data-ref="45frontwinding">frontwinding</a>-&gt;<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZNK9idWinding6IsTinyEv" title='idWinding::IsTiny' data-ref="_ZNK9idWinding6IsTinyEv">IsTiny</a>() )</td></tr>
+<tr><th id="379">379</th><td>		{</td></tr>
+<tr><th id="380">380</th><td>			<b>delete</b> <a class="local col5 ref" href="#45frontwinding" title='frontwinding' data-ref="45frontwinding">frontwinding</a>;</td></tr>
+<tr><th id="381">381</th><td>			<a class="local col5 ref" href="#45frontwinding" title='frontwinding' data-ref="45frontwinding">frontwinding</a> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="382">382</th><td>			<a class="ref" href="#c_tinyportals" title='c_tinyportals' data-ref="c_tinyportals">c_tinyportals</a>++;</td></tr>
+<tr><th id="383">383</th><td>		}</td></tr>
+<tr><th id="384">384</th><td></td></tr>
+<tr><th id="385">385</th><td>		<b>if</b> ( <a class="local col6 ref" href="#46backwinding" title='backwinding' data-ref="46backwinding">backwinding</a> &amp;&amp; <a class="local col6 ref" href="#46backwinding" title='backwinding' data-ref="46backwinding">backwinding</a>-&gt;<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZNK9idWinding6IsTinyEv" title='idWinding::IsTiny' data-ref="_ZNK9idWinding6IsTinyEv">IsTiny</a>() )</td></tr>
+<tr><th id="386">386</th><td>		{</td></tr>
+<tr><th id="387">387</th><td>			<b>delete</b> <a class="local col6 ref" href="#46backwinding" title='backwinding' data-ref="46backwinding">backwinding</a>;</td></tr>
+<tr><th id="388">388</th><td>			<a class="local col6 ref" href="#46backwinding" title='backwinding' data-ref="46backwinding">backwinding</a> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="389">389</th><td>			<a class="ref" href="#c_tinyportals" title='c_tinyportals' data-ref="c_tinyportals">c_tinyportals</a>++;</td></tr>
+<tr><th id="390">390</th><td>		}</td></tr>
+<tr><th id="391">391</th><td></td></tr>
+<tr><th id="392">392</th><td>		<b>if</b> ( !<a class="local col5 ref" href="#45frontwinding" title='frontwinding' data-ref="45frontwinding">frontwinding</a> &amp;&amp; !<a class="local col6 ref" href="#46backwinding" title='backwinding' data-ref="46backwinding">backwinding</a> )</td></tr>
+<tr><th id="393">393</th><td>		{	<i>// tiny windings on both sides</i></td></tr>
+<tr><th id="394">394</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="395">395</th><td>		}</td></tr>
+<tr><th id="396">396</th><td></td></tr>
+<tr><th id="397">397</th><td>		<b>if</b> (!<a class="local col5 ref" href="#45frontwinding" title='frontwinding' data-ref="45frontwinding">frontwinding</a>)</td></tr>
+<tr><th id="398">398</th><td>		{</td></tr>
+<tr><th id="399">399</th><td>			<b>delete</b> <a class="local col6 ref" href="#46backwinding" title='backwinding' data-ref="46backwinding">backwinding</a>;</td></tr>
+<tr><th id="400">400</th><td>			<b>if</b> (<a class="local col3 ref" href="#43side" title='side' data-ref="43side">side</a> == <var>0</var>)</td></tr>
+<tr><th id="401">401</th><td>				<a class="ref" href="#_Z16AddPortalToNodesP9uPortal_sP6node_sS2_" title='AddPortalToNodes' data-ref="_Z16AddPortalToNodesP9uPortal_sP6node_sS2_">AddPortalToNodes</a> (<a class="local col7 ref" href="#37p" title='p' data-ref="37p">p</a>, <a class="local col1 ref" href="#41b" title='b' data-ref="41b">b</a>, <a class="local col2 ref" href="#42other_node" title='other_node' data-ref="42other_node">other_node</a>);</td></tr>
+<tr><th id="402">402</th><td>			<b>else</b></td></tr>
+<tr><th id="403">403</th><td>				<a class="ref" href="#_Z16AddPortalToNodesP9uPortal_sP6node_sS2_" title='AddPortalToNodes' data-ref="_Z16AddPortalToNodesP9uPortal_sP6node_sS2_">AddPortalToNodes</a> (<a class="local col7 ref" href="#37p" title='p' data-ref="37p">p</a>, <a class="local col2 ref" href="#42other_node" title='other_node' data-ref="42other_node">other_node</a>, <a class="local col1 ref" href="#41b" title='b' data-ref="41b">b</a>);</td></tr>
+<tr><th id="404">404</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="405">405</th><td>		}</td></tr>
+<tr><th id="406">406</th><td>		<b>if</b> (!<a class="local col6 ref" href="#46backwinding" title='backwinding' data-ref="46backwinding">backwinding</a>)</td></tr>
+<tr><th id="407">407</th><td>		{</td></tr>
+<tr><th id="408">408</th><td>			<b>delete</b> <a class="local col5 ref" href="#45frontwinding" title='frontwinding' data-ref="45frontwinding">frontwinding</a>;</td></tr>
+<tr><th id="409">409</th><td>			<b>if</b> (<a class="local col3 ref" href="#43side" title='side' data-ref="43side">side</a> == <var>0</var>)</td></tr>
+<tr><th id="410">410</th><td>				<a class="ref" href="#_Z16AddPortalToNodesP9uPortal_sP6node_sS2_" title='AddPortalToNodes' data-ref="_Z16AddPortalToNodesP9uPortal_sP6node_sS2_">AddPortalToNodes</a> (<a class="local col7 ref" href="#37p" title='p' data-ref="37p">p</a>, <a class="local col0 ref" href="#40f" title='f' data-ref="40f">f</a>, <a class="local col2 ref" href="#42other_node" title='other_node' data-ref="42other_node">other_node</a>);</td></tr>
+<tr><th id="411">411</th><td>			<b>else</b></td></tr>
+<tr><th id="412">412</th><td>				<a class="ref" href="#_Z16AddPortalToNodesP9uPortal_sP6node_sS2_" title='AddPortalToNodes' data-ref="_Z16AddPortalToNodesP9uPortal_sP6node_sS2_">AddPortalToNodes</a> (<a class="local col7 ref" href="#37p" title='p' data-ref="37p">p</a>, <a class="local col2 ref" href="#42other_node" title='other_node' data-ref="42other_node">other_node</a>, <a class="local col0 ref" href="#40f" title='f' data-ref="40f">f</a>);</td></tr>
+<tr><th id="413">413</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="414">414</th><td>		}</td></tr>
+<tr><th id="415">415</th><td>		</td></tr>
+<tr><th id="416">416</th><td>	<i>// the winding is split</i></td></tr>
+<tr><th id="417">417</th><td>		<a class="local col9 ref" href="#39new_portal" title='new_portal' data-ref="39new_portal">new_portal</a> = <a class="ref" href="#_Z11AllocPortalv" title='AllocPortal' data-ref="_Z11AllocPortalv">AllocPortal</a> ();</td></tr>
+<tr><th id="418">418</th><td>		*<a class="local col9 ref" href="#39new_portal" title='new_portal' data-ref="39new_portal">new_portal</a> <a class="ref" href="dmap.h.html#163" title='uPortal_s::operator=' data-ref="_ZN9uPortal_saSERKS_">=</a> *<a class="local col7 ref" href="#37p" title='p' data-ref="37p">p</a>;</td></tr>
+<tr><th id="419">419</th><td>		<a class="local col9 ref" href="#39new_portal" title='new_portal' data-ref="39new_portal">new_portal</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::winding" title='uPortal_s::winding' data-ref="uPortal_s::winding">winding</a> = <a class="local col6 ref" href="#46backwinding" title='backwinding' data-ref="46backwinding">backwinding</a>;</td></tr>
+<tr><th id="420">420</th><td>		<b>delete</b> <a class="local col7 ref" href="#37p" title='p' data-ref="37p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::winding" title='uPortal_s::winding' data-ref="uPortal_s::winding">winding</a>;</td></tr>
+<tr><th id="421">421</th><td>		<a class="local col7 ref" href="#37p" title='p' data-ref="37p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::winding" title='uPortal_s::winding' data-ref="uPortal_s::winding">winding</a> = <a class="local col5 ref" href="#45frontwinding" title='frontwinding' data-ref="45frontwinding">frontwinding</a>;</td></tr>
+<tr><th id="422">422</th><td></td></tr>
+<tr><th id="423">423</th><td>		<b>if</b> (<a class="local col3 ref" href="#43side" title='side' data-ref="43side">side</a> == <var>0</var>)</td></tr>
+<tr><th id="424">424</th><td>		{</td></tr>
+<tr><th id="425">425</th><td>			<a class="ref" href="#_Z16AddPortalToNodesP9uPortal_sP6node_sS2_" title='AddPortalToNodes' data-ref="_Z16AddPortalToNodesP9uPortal_sP6node_sS2_">AddPortalToNodes</a> (<a class="local col7 ref" href="#37p" title='p' data-ref="37p">p</a>, <a class="local col0 ref" href="#40f" title='f' data-ref="40f">f</a>, <a class="local col2 ref" href="#42other_node" title='other_node' data-ref="42other_node">other_node</a>);</td></tr>
+<tr><th id="426">426</th><td>			<a class="ref" href="#_Z16AddPortalToNodesP9uPortal_sP6node_sS2_" title='AddPortalToNodes' data-ref="_Z16AddPortalToNodesP9uPortal_sP6node_sS2_">AddPortalToNodes</a> (<a class="local col9 ref" href="#39new_portal" title='new_portal' data-ref="39new_portal">new_portal</a>, <a class="local col1 ref" href="#41b" title='b' data-ref="41b">b</a>, <a class="local col2 ref" href="#42other_node" title='other_node' data-ref="42other_node">other_node</a>);</td></tr>
+<tr><th id="427">427</th><td>		}</td></tr>
+<tr><th id="428">428</th><td>		<b>else</b></td></tr>
+<tr><th id="429">429</th><td>		{</td></tr>
+<tr><th id="430">430</th><td>			<a class="ref" href="#_Z16AddPortalToNodesP9uPortal_sP6node_sS2_" title='AddPortalToNodes' data-ref="_Z16AddPortalToNodesP9uPortal_sP6node_sS2_">AddPortalToNodes</a> (<a class="local col7 ref" href="#37p" title='p' data-ref="37p">p</a>, <a class="local col2 ref" href="#42other_node" title='other_node' data-ref="42other_node">other_node</a>, <a class="local col0 ref" href="#40f" title='f' data-ref="40f">f</a>);</td></tr>
+<tr><th id="431">431</th><td>			<a class="ref" href="#_Z16AddPortalToNodesP9uPortal_sP6node_sS2_" title='AddPortalToNodes' data-ref="_Z16AddPortalToNodesP9uPortal_sP6node_sS2_">AddPortalToNodes</a> (<a class="local col9 ref" href="#39new_portal" title='new_portal' data-ref="39new_portal">new_portal</a>, <a class="local col2 ref" href="#42other_node" title='other_node' data-ref="42other_node">other_node</a>, <a class="local col1 ref" href="#41b" title='b' data-ref="41b">b</a>);</td></tr>
+<tr><th id="432">432</th><td>		}</td></tr>
+<tr><th id="433">433</th><td>	}</td></tr>
+<tr><th id="434">434</th><td></td></tr>
+<tr><th id="435">435</th><td>	<a class="local col6 ref" href="#36node" title='node' data-ref="36node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::portals" title='node_s::portals' data-ref="node_s::portals">portals</a> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="436">436</th><td>}</td></tr>
+<tr><th id="437">437</th><td></td></tr>
+<tr><th id="438">438</th><td></td></tr>
+<tr><th id="439">439</th><td><i>/*</i></td></tr>
+<tr><th id="440">440</th><td><i>================</i></td></tr>
+<tr><th id="441">441</th><td><i>CalcNodeBounds</i></td></tr>
+<tr><th id="442">442</th><td><i>================</i></td></tr>
+<tr><th id="443">443</th><td><i>*/</i></td></tr>
+<tr><th id="444">444</th><td><em>void</em> <dfn class="decl def" id="_Z14CalcNodeBoundsP6node_s" title='CalcNodeBounds' data-ref="_Z14CalcNodeBoundsP6node_s">CalcNodeBounds</dfn> (<a class="typedef" href="dmap.h.html#node_t" title='node_t' data-type='struct node_s' data-ref="node_t">node_t</a> *<dfn class="local col7 decl" id="47node" title='node' data-type='node_t *' data-ref="47node">node</dfn>)</td></tr>
+<tr><th id="445">445</th><td>{</td></tr>
+<tr><th id="446">446</th><td>	<a class="typedef" href="dmap.h.html#uPortal_t" title='uPortal_t' data-type='struct uPortal_s' data-ref="uPortal_t">uPortal_t</a>	*<dfn class="local col8 decl" id="48p" title='p' data-type='uPortal_t *' data-ref="48p">p</dfn>;</td></tr>
+<tr><th id="447">447</th><td>	<em>int</em>			<dfn class="local col9 decl" id="49s" title='s' data-type='int' data-ref="49s">s</dfn>;</td></tr>
+<tr><th id="448">448</th><td>	<em>int</em>			<dfn class="local col0 decl" id="50i" title='i' data-type='int' data-ref="50i">i</dfn>;</td></tr>
+<tr><th id="449">449</th><td></td></tr>
+<tr><th id="450">450</th><td>	<i>// calc mins/maxs for both leafs and nodes</i></td></tr>
+<tr><th id="451">451</th><td>	<a class="local col7 ref" href="#47node" title='node' data-ref="47node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::bounds" title='node_s::bounds' data-ref="node_s::bounds">bounds</a>.<a class="ref" href="../../../idlib/bv/Bounds.h.html#_ZN8idBounds5ClearEv" title='idBounds::Clear' data-ref="_ZN8idBounds5ClearEv">Clear</a>();</td></tr>
+<tr><th id="452">452</th><td>	<b>for</b> (<a class="local col8 ref" href="#48p" title='p' data-ref="48p">p</a> = <a class="local col7 ref" href="#47node" title='node' data-ref="47node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::portals" title='node_s::portals' data-ref="node_s::portals">portals</a> ; <a class="local col8 ref" href="#48p" title='p' data-ref="48p">p</a> ; <a class="local col8 ref" href="#48p" title='p' data-ref="48p">p</a> = <a class="local col8 ref" href="#48p" title='p' data-ref="48p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::next" title='uPortal_s::next' data-ref="uPortal_s::next">next</a>[<a class="local col9 ref" href="#49s" title='s' data-ref="49s">s</a>]) {</td></tr>
+<tr><th id="453">453</th><td>		<a class="local col9 ref" href="#49s" title='s' data-ref="49s">s</a> = (<a class="local col8 ref" href="#48p" title='p' data-ref="48p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>1</var>] == <a class="local col7 ref" href="#47node" title='node' data-ref="47node">node</a>);</td></tr>
+<tr><th id="454">454</th><td>		<b>for</b> ( <a class="local col0 ref" href="#50i" title='i' data-ref="50i">i</a> = <var>0</var>; <a class="local col0 ref" href="#50i" title='i' data-ref="50i">i</a> &lt; <a class="local col8 ref" href="#48p" title='p' data-ref="48p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::winding" title='uPortal_s::winding' data-ref="uPortal_s::winding">winding</a>-&gt;<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZNK9idWinding12GetNumPointsEv" title='idWinding::GetNumPoints' data-ref="_ZNK9idWinding12GetNumPointsEv">GetNumPoints</a>(); <a class="local col0 ref" href="#50i" title='i' data-ref="50i">i</a>++ ) {</td></tr>
+<tr><th id="455">455</th><td>			<a class="local col7 ref" href="#47node" title='node' data-ref="47node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::bounds" title='node_s::bounds' data-ref="node_s::bounds">bounds</a>.<a class="ref" href="../../../idlib/bv/Bounds.h.html#_ZN8idBounds8AddPointERK6idVec3" title='idBounds::AddPoint' data-ref="_ZN8idBounds8AddPointERK6idVec3">AddPoint</a>( (*<a class="local col8 ref" href="#48p" title='p' data-ref="48p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::winding" title='uPortal_s::winding' data-ref="uPortal_s::winding">winding</a>)<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZN9idWindingixEi" title='idWinding::operator[]' data-ref="_ZN9idWindingixEi">[<a class="local col0 ref" href="#50i" title='i' data-ref="50i">i</a>]</a>.<a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec56ToVec3Ev" title='idVec5::ToVec3' data-ref="_ZN6idVec56ToVec3Ev">ToVec3</a>() );</td></tr>
+<tr><th id="456">456</th><td>		}</td></tr>
+<tr><th id="457">457</th><td>	}</td></tr>
+<tr><th id="458">458</th><td>}</td></tr>
+<tr><th id="459">459</th><td></td></tr>
+<tr><th id="460">460</th><td></td></tr>
+<tr><th id="461">461</th><td><i>/*</i></td></tr>
+<tr><th id="462">462</th><td><i>==================</i></td></tr>
+<tr><th id="463">463</th><td><i>MakeTreePortals_r</i></td></tr>
+<tr><th id="464">464</th><td><i>==================</i></td></tr>
+<tr><th id="465">465</th><td><i>*/</i></td></tr>
+<tr><th id="466">466</th><td><em>void</em> <dfn class="decl def" id="_Z17MakeTreePortals_rP6node_s" title='MakeTreePortals_r' data-ref="_Z17MakeTreePortals_rP6node_s">MakeTreePortals_r</dfn> (<a class="typedef" href="dmap.h.html#node_t" title='node_t' data-type='struct node_s' data-ref="node_t">node_t</a> *<dfn class="local col1 decl" id="51node" title='node' data-type='node_t *' data-ref="51node">node</dfn>)</td></tr>
+<tr><th id="467">467</th><td>{</td></tr>
+<tr><th id="468">468</th><td>	<em>int</em>		<dfn class="local col2 decl" id="52i" title='i' data-type='int' data-ref="52i">i</dfn>;</td></tr>
+<tr><th id="469">469</th><td></td></tr>
+<tr><th id="470">470</th><td>	<a class="ref" href="#_Z14CalcNodeBoundsP6node_s" title='CalcNodeBounds' data-ref="_Z14CalcNodeBoundsP6node_s">CalcNodeBounds</a>( <a class="local col1 ref" href="#51node" title='node' data-ref="51node">node</a> );</td></tr>
+<tr><th id="471">471</th><td></td></tr>
+<tr><th id="472">472</th><td>	<b>if</b> ( <a class="local col1 ref" href="#51node" title='node' data-ref="51node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::bounds" title='node_s::bounds' data-ref="node_s::bounds">bounds</a><a class="ref" href="../../../idlib/bv/Bounds.h.html#_ZN8idBoundsixEi" title='idBounds::operator[]' data-ref="_ZN8idBoundsixEi">[<var>0</var>]</a><a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[<var>0</var>]</a> &gt;= <a class="local col1 ref" href="#51node" title='node' data-ref="51node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::bounds" title='node_s::bounds' data-ref="node_s::bounds">bounds</a><a class="ref" href="../../../idlib/bv/Bounds.h.html#_ZN8idBoundsixEi" title='idBounds::operator[]' data-ref="_ZN8idBoundsixEi">[<var>1</var>]</a><a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[<var>0</var>]</a>) {</td></tr>
+<tr><th id="473">473</th><td>		<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon7WarningEPKcz" title='idCommon::Warning' data-ref="_ZN8idCommon7WarningEPKcz">Warning</a>( <q>"node without a volume"</q> );</td></tr>
+<tr><th id="474">474</th><td>	}</td></tr>
+<tr><th id="475">475</th><td></td></tr>
+<tr><th id="476">476</th><td>	<b>for</b> ( <a class="local col2 ref" href="#52i" title='i' data-ref="52i">i</a> = <var>0</var>; <a class="local col2 ref" href="#52i" title='i' data-ref="52i">i</a> &lt; <var>3</var>; <a class="local col2 ref" href="#52i" title='i' data-ref="52i">i</a>++ ) {</td></tr>
+<tr><th id="477">477</th><td>		<b>if</b> ( <a class="local col1 ref" href="#51node" title='node' data-ref="51node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::bounds" title='node_s::bounds' data-ref="node_s::bounds">bounds</a><a class="ref" href="../../../idlib/bv/Bounds.h.html#_ZN8idBoundsixEi" title='idBounds::operator[]' data-ref="_ZN8idBoundsixEi">[<var>0</var>]</a><a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[<a class="local col2 ref" href="#52i" title='i' data-ref="52i">i</a>]</a> &lt; <a class="macro" href="../../../idlib/Lib.h.html#99" title="( -128 * 1024 )" data-ref="_M/MIN_WORLD_COORD">MIN_WORLD_COORD</a> || <a class="local col1 ref" href="#51node" title='node' data-ref="51node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::bounds" title='node_s::bounds' data-ref="node_s::bounds">bounds</a><a class="ref" href="../../../idlib/bv/Bounds.h.html#_ZN8idBoundsixEi" title='idBounds::operator[]' data-ref="_ZN8idBoundsixEi">[<var>1</var>]</a><a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[<a class="local col2 ref" href="#52i" title='i' data-ref="52i">i</a>]</a> &gt; <a class="macro" href="../../../idlib/Lib.h.html#98" title="( 128 * 1024 )" data-ref="_M/MAX_WORLD_COORD">MAX_WORLD_COORD</a> ) {</td></tr>
+<tr><th id="478">478</th><td>			<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon7WarningEPKcz" title='idCommon::Warning' data-ref="_ZN8idCommon7WarningEPKcz">Warning</a>( <q>"node with unbounded volume"</q>);</td></tr>
+<tr><th id="479">479</th><td>			<b>break</b>;</td></tr>
+<tr><th id="480">480</th><td>		}</td></tr>
+<tr><th id="481">481</th><td>	}</td></tr>
+<tr><th id="482">482</th><td>	<b>if</b> ( <a class="local col1 ref" href="#51node" title='node' data-ref="51node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::planenum" title='node_s::planenum' data-ref="node_s::planenum">planenum</a> == <a class="macro" href="dmap.h.html#81" title="-1" data-ref="_M/PLANENUM_LEAF">PLANENUM_LEAF</a> ) {</td></tr>
+<tr><th id="483">483</th><td>		<b>return</b>;</td></tr>
+<tr><th id="484">484</th><td>	}</td></tr>
+<tr><th id="485">485</th><td></td></tr>
+<tr><th id="486">486</th><td>	<a class="tu ref" href="#_ZL14MakeNodePortalP6node_s" title='MakeNodePortal' data-use='c' data-ref="_ZL14MakeNodePortalP6node_s">MakeNodePortal</a> (<a class="local col1 ref" href="#51node" title='node' data-ref="51node">node</a>);</td></tr>
+<tr><th id="487">487</th><td>	<a class="tu ref" href="#_ZL16SplitNodePortalsP6node_s" title='SplitNodePortals' data-use='c' data-ref="_ZL16SplitNodePortalsP6node_s">SplitNodePortals</a> (<a class="local col1 ref" href="#51node" title='node' data-ref="51node">node</a>);</td></tr>
+<tr><th id="488">488</th><td></td></tr>
+<tr><th id="489">489</th><td>	<a class="ref" href="#_Z17MakeTreePortals_rP6node_s" title='MakeTreePortals_r' data-ref="_Z17MakeTreePortals_rP6node_s">MakeTreePortals_r</a> (<a class="local col1 ref" href="#51node" title='node' data-ref="51node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::children" title='node_s::children' data-ref="node_s::children">children</a>[<var>0</var>]);</td></tr>
+<tr><th id="490">490</th><td>	<a class="ref" href="#_Z17MakeTreePortals_rP6node_s" title='MakeTreePortals_r' data-ref="_Z17MakeTreePortals_rP6node_s">MakeTreePortals_r</a> (<a class="local col1 ref" href="#51node" title='node' data-ref="51node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::children" title='node_s::children' data-ref="node_s::children">children</a>[<var>1</var>]);</td></tr>
+<tr><th id="491">491</th><td>}</td></tr>
+<tr><th id="492">492</th><td></td></tr>
+<tr><th id="493">493</th><td><i>/*</i></td></tr>
+<tr><th id="494">494</th><td><i>==================</i></td></tr>
+<tr><th id="495">495</th><td><i>MakeTreePortals</i></td></tr>
+<tr><th id="496">496</th><td><i>==================</i></td></tr>
+<tr><th id="497">497</th><td><i>*/</i></td></tr>
+<tr><th id="498">498</th><td><em>void</em> <dfn class="decl def" id="_Z15MakeTreePortalsP6tree_s" title='MakeTreePortals' data-ref="_Z15MakeTreePortalsP6tree_s">MakeTreePortals</dfn> (<a class="typedef" href="dmap.h.html#tree_t" title='tree_t' data-type='struct tree_s' data-ref="tree_t">tree_t</a> *<dfn class="local col3 decl" id="53tree" title='tree' data-type='tree_t *' data-ref="53tree">tree</dfn>)</td></tr>
+<tr><th id="499">499</th><td>{</td></tr>
+<tr><th id="500">500</th><td>	<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"----- MakeTreePortals -----\n"</q>);</td></tr>
+<tr><th id="501">501</th><td>	<a class="tu ref" href="#_ZL19MakeHeadnodePortalsP6tree_s" title='MakeHeadnodePortals' data-use='c' data-ref="_ZL19MakeHeadnodePortalsP6tree_s">MakeHeadnodePortals</a> (<a class="local col3 ref" href="#53tree" title='tree' data-ref="53tree">tree</a>);</td></tr>
+<tr><th id="502">502</th><td>	<a class="ref" href="#_Z17MakeTreePortals_rP6node_s" title='MakeTreePortals_r' data-ref="_Z17MakeTreePortals_rP6node_s">MakeTreePortals_r</a> (<a class="local col3 ref" href="#53tree" title='tree' data-ref="53tree">tree</a>-&gt;<a class="ref" href="dmap.h.html#tree_s::headnode" title='tree_s::headnode' data-ref="tree_s::headnode">headnode</a>);</td></tr>
+<tr><th id="503">503</th><td>}</td></tr>
+<tr><th id="504">504</th><td></td></tr>
+<tr><th id="505">505</th><td><i>/*</i></td></tr>
+<tr><th id="506">506</th><td><i>=========================================================</i></td></tr>
+<tr><th id="507">507</th><td><i></i></td></tr>
+<tr><th id="508">508</th><td><i>FLOOD ENTITIES</i></td></tr>
+<tr><th id="509">509</th><td><i></i></td></tr>
+<tr><th id="510">510</th><td><i>=========================================================</i></td></tr>
+<tr><th id="511">511</th><td><i>*/</i></td></tr>
+<tr><th id="512">512</th><td></td></tr>
+<tr><th id="513">513</th><td><em>int</em>		<dfn class="decl def" id="c_floodedleafs" title='c_floodedleafs' data-ref="c_floodedleafs">c_floodedleafs</dfn>;</td></tr>
+<tr><th id="514">514</th><td></td></tr>
+<tr><th id="515">515</th><td><i>/*</i></td></tr>
+<tr><th id="516">516</th><td><i>=============</i></td></tr>
+<tr><th id="517">517</th><td><i>FloodPortals_r</i></td></tr>
+<tr><th id="518">518</th><td><i>=============</i></td></tr>
+<tr><th id="519">519</th><td><i>*/</i></td></tr>
+<tr><th id="520">520</th><td><em>void</em> <dfn class="decl def" id="_Z14FloodPortals_rP6node_si" title='FloodPortals_r' data-ref="_Z14FloodPortals_rP6node_si">FloodPortals_r</dfn> (<a class="typedef" href="dmap.h.html#node_t" title='node_t' data-type='struct node_s' data-ref="node_t">node_t</a> *<dfn class="local col4 decl" id="54node" title='node' data-type='node_t *' data-ref="54node">node</dfn>, <em>int</em> <dfn class="local col5 decl" id="55dist" title='dist' data-type='int' data-ref="55dist">dist</dfn>) {</td></tr>
+<tr><th id="521">521</th><td>	<a class="typedef" href="dmap.h.html#uPortal_t" title='uPortal_t' data-type='struct uPortal_s' data-ref="uPortal_t">uPortal_t</a>	*<dfn class="local col6 decl" id="56p" title='p' data-type='uPortal_t *' data-ref="56p">p</dfn>;</td></tr>
+<tr><th id="522">522</th><td>	<em>int</em>			<dfn class="local col7 decl" id="57s" title='s' data-type='int' data-ref="57s">s</dfn>;</td></tr>
+<tr><th id="523">523</th><td></td></tr>
+<tr><th id="524">524</th><td>	<b>if</b> ( <a class="local col4 ref" href="#54node" title='node' data-ref="54node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::occupied" title='node_s::occupied' data-ref="node_s::occupied">occupied</a> ) {</td></tr>
+<tr><th id="525">525</th><td>		<b>return</b>;</td></tr>
+<tr><th id="526">526</th><td>	}</td></tr>
+<tr><th id="527">527</th><td></td></tr>
+<tr><th id="528">528</th><td>	<b>if</b> ( <a class="local col4 ref" href="#54node" title='node' data-ref="54node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::opaque" title='node_s::opaque' data-ref="node_s::opaque">opaque</a> ) {</td></tr>
+<tr><th id="529">529</th><td>		<b>return</b>;</td></tr>
+<tr><th id="530">530</th><td>	}</td></tr>
+<tr><th id="531">531</th><td></td></tr>
+<tr><th id="532">532</th><td>	<a class="ref" href="#c_floodedleafs" title='c_floodedleafs' data-ref="c_floodedleafs">c_floodedleafs</a>++;</td></tr>
+<tr><th id="533">533</th><td>	<a class="local col4 ref" href="#54node" title='node' data-ref="54node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::occupied" title='node_s::occupied' data-ref="node_s::occupied">occupied</a> = <a class="local col5 ref" href="#55dist" title='dist' data-ref="55dist">dist</a>;</td></tr>
+<tr><th id="534">534</th><td></td></tr>
+<tr><th id="535">535</th><td>	<b>for</b> (<a class="local col6 ref" href="#56p" title='p' data-ref="56p">p</a>=<a class="local col4 ref" href="#54node" title='node' data-ref="54node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::portals" title='node_s::portals' data-ref="node_s::portals">portals</a> ; <a class="local col6 ref" href="#56p" title='p' data-ref="56p">p</a> ; <a class="local col6 ref" href="#56p" title='p' data-ref="56p">p</a> = <a class="local col6 ref" href="#56p" title='p' data-ref="56p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::next" title='uPortal_s::next' data-ref="uPortal_s::next">next</a>[<a class="local col7 ref" href="#57s" title='s' data-ref="57s">s</a>]) {</td></tr>
+<tr><th id="536">536</th><td>		<a class="local col7 ref" href="#57s" title='s' data-ref="57s">s</a> = (<a class="local col6 ref" href="#56p" title='p' data-ref="56p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>1</var>] == <a class="local col4 ref" href="#54node" title='node' data-ref="54node">node</a>);</td></tr>
+<tr><th id="537">537</th><td>		<a class="ref" href="#_Z14FloodPortals_rP6node_si" title='FloodPortals_r' data-ref="_Z14FloodPortals_rP6node_si">FloodPortals_r</a> (<a class="local col6 ref" href="#56p" title='p' data-ref="56p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[!<a class="local col7 ref" href="#57s" title='s' data-ref="57s">s</a>], <a class="local col5 ref" href="#55dist" title='dist' data-ref="55dist">dist</a>+<var>1</var>);</td></tr>
+<tr><th id="538">538</th><td>	}</td></tr>
+<tr><th id="539">539</th><td>}</td></tr>
+<tr><th id="540">540</th><td></td></tr>
+<tr><th id="541">541</th><td><i>/*</i></td></tr>
+<tr><th id="542">542</th><td><i>=============</i></td></tr>
+<tr><th id="543">543</th><td><i>PlaceOccupant</i></td></tr>
+<tr><th id="544">544</th><td><i>=============</i></td></tr>
+<tr><th id="545">545</th><td><i>*/</i></td></tr>
+<tr><th id="546">546</th><td><em>bool</em> <dfn class="decl def" id="_Z13PlaceOccupantP6node_s6idVec3P9uEntity_t" title='PlaceOccupant' data-ref="_Z13PlaceOccupantP6node_s6idVec3P9uEntity_t">PlaceOccupant</dfn>( <a class="typedef" href="dmap.h.html#node_t" title='node_t' data-type='struct node_s' data-ref="node_t">node_t</a> *<dfn class="local col8 decl" id="58headnode" title='headnode' data-type='node_t *' data-ref="58headnode">headnode</dfn>, <a class="type" href="../../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> <dfn class="local col9 decl" id="59origin" title='origin' data-type='idVec3' data-ref="59origin">origin</dfn>, <a class="typedef" href="dmap.h.html#uEntity_t" title='uEntity_t' data-type='struct uEntity_t' data-ref="uEntity_t">uEntity_t</a> *<dfn class="local col0 decl" id="60occupant" title='occupant' data-type='uEntity_t *' data-ref="60occupant">occupant</dfn> ) {</td></tr>
+<tr><th id="547">547</th><td>	<a class="typedef" href="dmap.h.html#node_t" title='node_t' data-type='struct node_s' data-ref="node_t">node_t</a>	*<dfn class="local col1 decl" id="61node" title='node' data-type='node_t *' data-ref="61node">node</dfn>;</td></tr>
+<tr><th id="548">548</th><td>	<em>float</em>	<dfn class="local col2 decl" id="62d" title='d' data-type='float' data-ref="62d">d</dfn>;</td></tr>
+<tr><th id="549">549</th><td>	<a class="type" href="../../../idlib/math/Plane.h.html#idPlane" title='idPlane' data-ref="idPlane">idPlane</a>	*<dfn class="local col3 decl" id="63plane" title='plane' data-type='idPlane *' data-ref="63plane">plane</dfn>;</td></tr>
+<tr><th id="550">550</th><td></td></tr>
+<tr><th id="551">551</th><td>	<i>// find the leaf to start in</i></td></tr>
+<tr><th id="552">552</th><td>	<a class="local col1 ref" href="#61node" title='node' data-ref="61node">node</a> = <a class="local col8 ref" href="#58headnode" title='headnode' data-ref="58headnode">headnode</a>;</td></tr>
+<tr><th id="553">553</th><td>	<b>while</b> ( <a class="local col1 ref" href="#61node" title='node' data-ref="61node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::planenum" title='node_s::planenum' data-ref="node_s::planenum">planenum</a> != <a class="macro" href="dmap.h.html#81" title="-1" data-ref="_M/PLANENUM_LEAF">PLANENUM_LEAF</a> ) {</td></tr>
+<tr><th id="554">554</th><td>		<a class="local col3 ref" href="#63plane" title='plane' data-ref="63plane">plane</a> = &amp;<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::mapPlanes" title='(anonymous struct)::mapPlanes' data-ref="(anonymous)::mapPlanes">mapPlanes</a><a class="ref" href="../../../idlib/containers/List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[<a class="local col1 ref" href="#61node" title='node' data-ref="61node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::planenum" title='node_s::planenum' data-ref="node_s::planenum">planenum</a>]</a>;</td></tr>
+<tr><th id="555">555</th><td>		<a class="local col2 ref" href="#62d" title='d' data-ref="62d">d</a> = <a class="local col3 ref" href="#63plane" title='plane' data-ref="63plane">plane</a>-&gt;<a class="ref" href="../../../idlib/math/Plane.h.html#_ZNK7idPlane8DistanceERK6idVec3" title='idPlane::Distance' data-ref="_ZNK7idPlane8DistanceERK6idVec3">Distance</a>( <a class="local col9 ref" href="#59origin" title='origin' data-ref="59origin">origin</a> );</td></tr>
+<tr><th id="556">556</th><td>		<b>if</b> ( <a class="local col2 ref" href="#62d" title='d' data-ref="62d">d</a> &gt;= <var>0.0f</var> ) {</td></tr>
+<tr><th id="557">557</th><td>			<a class="local col1 ref" href="#61node" title='node' data-ref="61node">node</a> = <a class="local col1 ref" href="#61node" title='node' data-ref="61node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::children" title='node_s::children' data-ref="node_s::children">children</a>[<var>0</var>];</td></tr>
+<tr><th id="558">558</th><td>		} <b>else</b> {</td></tr>
+<tr><th id="559">559</th><td>			<a class="local col1 ref" href="#61node" title='node' data-ref="61node">node</a> = <a class="local col1 ref" href="#61node" title='node' data-ref="61node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::children" title='node_s::children' data-ref="node_s::children">children</a>[<var>1</var>];</td></tr>
+<tr><th id="560">560</th><td>		}</td></tr>
+<tr><th id="561">561</th><td>	}</td></tr>
+<tr><th id="562">562</th><td></td></tr>
+<tr><th id="563">563</th><td>	<b>if</b> ( <a class="local col1 ref" href="#61node" title='node' data-ref="61node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::opaque" title='node_s::opaque' data-ref="node_s::opaque">opaque</a> ) {</td></tr>
+<tr><th id="564">564</th><td>		<b>return</b> <b>false</b>;</td></tr>
+<tr><th id="565">565</th><td>	}</td></tr>
+<tr><th id="566">566</th><td>	<a class="local col1 ref" href="#61node" title='node' data-ref="61node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::occupant" title='node_s::occupant' data-ref="node_s::occupant">occupant</a> = <a class="local col0 ref" href="#60occupant" title='occupant' data-ref="60occupant">occupant</a>;</td></tr>
+<tr><th id="567">567</th><td></td></tr>
+<tr><th id="568">568</th><td>	<a class="ref" href="#_Z14FloodPortals_rP6node_si" title='FloodPortals_r' data-ref="_Z14FloodPortals_rP6node_si">FloodPortals_r</a> (<a class="local col1 ref" href="#61node" title='node' data-ref="61node">node</a>, <var>1</var>);</td></tr>
+<tr><th id="569">569</th><td></td></tr>
+<tr><th id="570">570</th><td>	<b>return</b> <b>true</b>;</td></tr>
+<tr><th id="571">571</th><td>}</td></tr>
+<tr><th id="572">572</th><td></td></tr>
+<tr><th id="573">573</th><td><i>/*</i></td></tr>
+<tr><th id="574">574</th><td><i>=============</i></td></tr>
+<tr><th id="575">575</th><td><i>FloodEntities</i></td></tr>
+<tr><th id="576">576</th><td><i></i></td></tr>
+<tr><th id="577">577</th><td><i>Marks all nodes that can be reached by entites</i></td></tr>
+<tr><th id="578">578</th><td><i>=============</i></td></tr>
+<tr><th id="579">579</th><td><i>*/</i></td></tr>
+<tr><th id="580">580</th><td><em>bool</em> <dfn class="decl def" id="_Z13FloodEntitiesP6tree_s" title='FloodEntities' data-ref="_Z13FloodEntitiesP6tree_s">FloodEntities</dfn>( <a class="typedef" href="dmap.h.html#tree_t" title='tree_t' data-type='struct tree_s' data-ref="tree_t">tree_t</a> *<dfn class="local col4 decl" id="64tree" title='tree' data-type='tree_t *' data-ref="64tree">tree</dfn> ) {</td></tr>
+<tr><th id="581">581</th><td>	<em>int</em>		<dfn class="local col5 decl" id="65i" title='i' data-type='int' data-ref="65i">i</dfn>;</td></tr>
+<tr><th id="582">582</th><td>	<a class="type" href="../../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a>	<a class="ref fake" href="../../../idlib/math/Vector.h.html#_ZN6idVec3C1Ev" title='idVec3::idVec3' data-ref="_ZN6idVec3C1Ev"></a><dfn class="local col6 decl" id="66origin" title='origin' data-type='idVec3' data-ref="66origin">origin</dfn>;</td></tr>
+<tr><th id="583">583</th><td>	<em>const</em> <em>char</em>	*<dfn class="local col7 decl" id="67cl" title='cl' data-type='const char *' data-ref="67cl">cl</dfn>;</td></tr>
+<tr><th id="584">584</th><td>	<em>bool</em>	<dfn class="local col8 decl" id="68inside" title='inside' data-type='bool' data-ref="68inside">inside</dfn>;</td></tr>
+<tr><th id="585">585</th><td>	<a class="typedef" href="dmap.h.html#node_t" title='node_t' data-type='struct node_s' data-ref="node_t">node_t</a> *<dfn class="local col9 decl" id="69headnode" title='headnode' data-type='node_t *' data-ref="69headnode">headnode</dfn>;</td></tr>
+<tr><th id="586">586</th><td></td></tr>
+<tr><th id="587">587</th><td>	<a class="local col9 ref" href="#69headnode" title='headnode' data-ref="69headnode">headnode</a> = <a class="local col4 ref" href="#64tree" title='tree' data-ref="64tree">tree</a>-&gt;<a class="ref" href="dmap.h.html#tree_s::headnode" title='tree_s::headnode' data-ref="tree_s::headnode">headnode</a>;</td></tr>
+<tr><th id="588">588</th><td>	<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a> (<q>"--- FloodEntities ---\n"</q>);</td></tr>
+<tr><th id="589">589</th><td>	<a class="local col8 ref" href="#68inside" title='inside' data-ref="68inside">inside</a> = <b>false</b>;</td></tr>
+<tr><th id="590">590</th><td>	<a class="local col4 ref" href="#64tree" title='tree' data-ref="64tree">tree</a>-&gt;<a class="ref" href="dmap.h.html#tree_s::outside_node" title='tree_s::outside_node' data-ref="tree_s::outside_node">outside_node</a>.<a class="ref" href="dmap.h.html#node_s::occupied" title='node_s::occupied' data-ref="node_s::occupied">occupied</a> = <var>0</var>;</td></tr>
+<tr><th id="591">591</th><td></td></tr>
+<tr><th id="592">592</th><td>	<a class="ref" href="#c_floodedleafs" title='c_floodedleafs' data-ref="c_floodedleafs">c_floodedleafs</a> = <var>0</var>;</td></tr>
+<tr><th id="593">593</th><td>	<em>bool</em> <dfn class="local col0 decl" id="70errorShown" title='errorShown' data-type='bool' data-ref="70errorShown">errorShown</dfn> = <b>false</b>;</td></tr>
+<tr><th id="594">594</th><td>	<b>for</b> (<a class="local col5 ref" href="#65i" title='i' data-ref="65i">i</a>=<var>1</var> ; <a class="local col5 ref" href="#65i" title='i' data-ref="65i">i</a>&lt;<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::num_entities" title='(anonymous struct)::num_entities' data-ref="(anonymous)::num_entities">num_entities</a> ; <a class="local col5 ref" href="#65i" title='i' data-ref="65i">i</a>++) {</td></tr>
+<tr><th id="595">595</th><td>		<a class="type" href="../../../idlib/MapFile.h.html#idMapEntity" title='idMapEntity' data-ref="idMapEntity">idMapEntity</a>	*<dfn class="local col1 decl" id="71mapEnt" title='mapEnt' data-type='idMapEntity *' data-ref="71mapEnt">mapEnt</dfn>;</td></tr>
+<tr><th id="596">596</th><td></td></tr>
+<tr><th id="597">597</th><td>		<a class="local col1 ref" href="#71mapEnt" title='mapEnt' data-ref="71mapEnt">mapEnt</a> = <a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::uEntities" title='(anonymous struct)::uEntities' data-ref="(anonymous)::uEntities">uEntities</a>[<a class="local col5 ref" href="#65i" title='i' data-ref="65i">i</a>].<a class="ref" href="dmap.h.html#(anonymous)::mapEntity" title='(anonymous struct)::mapEntity' data-ref="(anonymous)::mapEntity">mapEntity</a>;</td></tr>
+<tr><th id="598">598</th><td>		<b>if</b> ( !<a class="local col1 ref" href="#71mapEnt" title='mapEnt' data-ref="71mapEnt">mapEnt</a>-&gt;<a class="ref" href="../../../idlib/MapFile.h.html#idMapEntity::epairs" title='idMapEntity::epairs' data-ref="idMapEntity::epairs">epairs</a>.<a class="ref" href="../../../idlib/Dict.h.html#_ZNK6idDict9GetVectorEPKcS1_R6idVec3" title='idDict::GetVector' data-ref="_ZNK6idDict9GetVectorEPKcS1_R6idVec3">GetVector</a>( <q>"origin"</q>, <q>""</q>, <span class='refarg'><a class="local col6 ref" href="#66origin" title='origin' data-ref="66origin">origin</a></span>) ) {</td></tr>
+<tr><th id="599">599</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="600">600</th><td>		}</td></tr>
+<tr><th id="601">601</th><td></td></tr>
+<tr><th id="602">602</th><td>		<i>// any entity can have "noFlood" set to skip it</i></td></tr>
+<tr><th id="603">603</th><td>		<b>if</b> ( <a class="local col1 ref" href="#71mapEnt" title='mapEnt' data-ref="71mapEnt">mapEnt</a>-&gt;<a class="ref" href="../../../idlib/MapFile.h.html#idMapEntity::epairs" title='idMapEntity::epairs' data-ref="idMapEntity::epairs">epairs</a>.<a class="ref" href="../../../idlib/Dict.h.html#_ZNK6idDict9GetStringEPKcS1_PS1_" title='idDict::GetString' data-ref="_ZNK6idDict9GetStringEPKcS1_PS1_">GetString</a>( <q>"noFlood"</q>, <q>""</q>, &amp;<a class="local col7 ref" href="#67cl" title='cl' data-ref="67cl">cl</a> ) ) {</td></tr>
+<tr><th id="604">604</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="605">605</th><td>		}</td></tr>
+<tr><th id="606">606</th><td></td></tr>
+<tr><th id="607">607</th><td>		<a class="local col1 ref" href="#71mapEnt" title='mapEnt' data-ref="71mapEnt">mapEnt</a>-&gt;<a class="ref" href="../../../idlib/MapFile.h.html#idMapEntity::epairs" title='idMapEntity::epairs' data-ref="idMapEntity::epairs">epairs</a>.<a class="ref" href="../../../idlib/Dict.h.html#_ZNK6idDict9GetStringEPKcS1_PS1_" title='idDict::GetString' data-ref="_ZNK6idDict9GetStringEPKcS1_PS1_">GetString</a>( <q>"classname"</q>, <q>""</q>, &amp;<a class="local col7 ref" href="#67cl" title='cl' data-ref="67cl">cl</a> );</td></tr>
+<tr><th id="608">608</th><td></td></tr>
+<tr><th id="609">609</th><td>		<b>if</b> ( !<a class="macro" href="../../../idlib/Str.h.html#41" title="idStr::Cmp" data-ref="_M/strcmp">strcmp</a>( <a class="local col7 ref" href="#67cl" title='cl' data-ref="67cl">cl</a>, <q>"light"</q> ) ) {</td></tr>
+<tr><th id="610">610</th><td>			<em>const</em> <em>char</em>	*<dfn class="local col2 decl" id="72v" title='v' data-type='const char *' data-ref="72v">v</dfn>;</td></tr>
+<tr><th id="611">611</th><td></td></tr>
+<tr><th id="612">612</th><td>			<i>// don't place lights that have a light_start field, because they can still</i></td></tr>
+<tr><th id="613">613</th><td><i>			// be valid if their origin is outside the world</i></td></tr>
+<tr><th id="614">614</th><td>			<a class="local col1 ref" href="#71mapEnt" title='mapEnt' data-ref="71mapEnt">mapEnt</a>-&gt;<a class="ref" href="../../../idlib/MapFile.h.html#idMapEntity::epairs" title='idMapEntity::epairs' data-ref="idMapEntity::epairs">epairs</a>.<a class="ref" href="../../../idlib/Dict.h.html#_ZNK6idDict9GetStringEPKcS1_PS1_" title='idDict::GetString' data-ref="_ZNK6idDict9GetStringEPKcS1_PS1_">GetString</a>( <q>"light_start"</q>, <q>""</q>, &amp;<a class="local col2 ref" href="#72v" title='v' data-ref="72v">v</a>);</td></tr>
+<tr><th id="615">615</th><td>			<b>if</b> ( <a class="local col2 ref" href="#72v" title='v' data-ref="72v">v</a>[<var>0</var>] ) {</td></tr>
+<tr><th id="616">616</th><td>				<b>continue</b>;</td></tr>
+<tr><th id="617">617</th><td>			}</td></tr>
+<tr><th id="618">618</th><td></td></tr>
+<tr><th id="619">619</th><td>			<i>// don't place fog lights, because they often</i></td></tr>
+<tr><th id="620">620</th><td><i>			// have origins outside the light</i></td></tr>
+<tr><th id="621">621</th><td>			<a class="local col1 ref" href="#71mapEnt" title='mapEnt' data-ref="71mapEnt">mapEnt</a>-&gt;<a class="ref" href="../../../idlib/MapFile.h.html#idMapEntity::epairs" title='idMapEntity::epairs' data-ref="idMapEntity::epairs">epairs</a>.<a class="ref" href="../../../idlib/Dict.h.html#_ZNK6idDict9GetStringEPKcS1_PS1_" title='idDict::GetString' data-ref="_ZNK6idDict9GetStringEPKcS1_PS1_">GetString</a>( <q>"texture"</q>, <q>""</q>, &amp;<a class="local col2 ref" href="#72v" title='v' data-ref="72v">v</a>);</td></tr>
+<tr><th id="622">622</th><td>			<b>if</b> ( <a class="local col2 ref" href="#72v" title='v' data-ref="72v">v</a>[<var>0</var>] ) {</td></tr>
+<tr><th id="623">623</th><td>				<em>const</em> <a class="type" href="../../../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *<dfn class="local col3 decl" id="73mat" title='mat' data-type='const idMaterial *' data-ref="73mat">mat</dfn> = <a class="ref" href="../../../framework/DeclManager.h.html#declManager" title='declManager' data-ref="declManager">declManager</a>-&gt;<a class="virtual ref" href="../../../framework/DeclManager.h.html#_ZN13idDeclManager12FindMaterialEPKcb" title='idDeclManager::FindMaterial' data-ref="_ZN13idDeclManager12FindMaterialEPKcb">FindMaterial</a>( <a class="local col2 ref" href="#72v" title='v' data-ref="72v">v</a> );</td></tr>
+<tr><th id="624">624</th><td>				<b>if</b> ( <a class="local col3 ref" href="#73mat" title='mat' data-ref="73mat">mat</a>-&gt;<a class="ref" href="../../../renderer/Material.h.html#_ZNK10idMaterial10IsFogLightEv" title='idMaterial::IsFogLight' data-ref="_ZNK10idMaterial10IsFogLightEv">IsFogLight</a>() ) {</td></tr>
+<tr><th id="625">625</th><td>					<b>continue</b>;</td></tr>
+<tr><th id="626">626</th><td>				}</td></tr>
+<tr><th id="627">627</th><td>			}</td></tr>
+<tr><th id="628">628</th><td>		}</td></tr>
+<tr><th id="629">629</th><td></td></tr>
+<tr><th id="630">630</th><td>		<b>if</b> (<a class="ref" href="#_Z13PlaceOccupantP6node_s6idVec3P9uEntity_t" title='PlaceOccupant' data-ref="_Z13PlaceOccupantP6node_s6idVec3P9uEntity_t">PlaceOccupant</a> (<a class="local col9 ref" href="#69headnode" title='headnode' data-ref="69headnode">headnode</a>, <a class="ref fake" href="../../../idlib/math/Vector.h.html#316" title='idVec3::idVec3' data-ref="_ZN6idVec3C1ERKS_"></a><a class="local col6 ref" href="#66origin" title='origin' data-ref="66origin">origin</a>, &amp;<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::uEntities" title='(anonymous struct)::uEntities' data-ref="(anonymous)::uEntities">uEntities</a>[<a class="local col5 ref" href="#65i" title='i' data-ref="65i">i</a>])) {</td></tr>
+<tr><th id="631">631</th><td>			<a class="local col8 ref" href="#68inside" title='inside' data-ref="68inside">inside</a> = <b>true</b>;</td></tr>
+<tr><th id="632">632</th><td>		}</td></tr>
+<tr><th id="633">633</th><td></td></tr>
+<tr><th id="634">634</th><td>		<b>if</b> (<a class="local col4 ref" href="#64tree" title='tree' data-ref="64tree">tree</a>-&gt;<a class="ref" href="dmap.h.html#tree_s::outside_node" title='tree_s::outside_node' data-ref="tree_s::outside_node">outside_node</a>.<a class="ref" href="dmap.h.html#node_s::occupied" title='node_s::occupied' data-ref="node_s::occupied">occupied</a> &amp;&amp; !<a class="local col0 ref" href="#70errorShown" title='errorShown' data-ref="70errorShown">errorShown</a>) {</td></tr>
+<tr><th id="635">635</th><td>			<a class="local col0 ref" href="#70errorShown" title='errorShown' data-ref="70errorShown">errorShown</a> = <b>true</b>;</td></tr>
+<tr><th id="636">636</th><td>			<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>(<q>"Leak on entity # %d\n"</q>, <a class="local col5 ref" href="#65i" title='i' data-ref="65i">i</a>);</td></tr>
+<tr><th id="637">637</th><td>			<em>const</em> <em>char</em> *<dfn class="local col4 decl" id="74p" title='p' data-type='const char *' data-ref="74p">p</dfn>;</td></tr>
+<tr><th id="638">638</th><td></td></tr>
+<tr><th id="639">639</th><td>			<a class="local col1 ref" href="#71mapEnt" title='mapEnt' data-ref="71mapEnt">mapEnt</a>-&gt;<a class="ref" href="../../../idlib/MapFile.h.html#idMapEntity::epairs" title='idMapEntity::epairs' data-ref="idMapEntity::epairs">epairs</a>.<a class="ref" href="../../../idlib/Dict.h.html#_ZNK6idDict9GetStringEPKcS1_PS1_" title='idDict::GetString' data-ref="_ZNK6idDict9GetStringEPKcS1_PS1_">GetString</a>( <q>"classname"</q>, <q>""</q>, &amp;<a class="local col4 ref" href="#74p" title='p' data-ref="74p">p</a>);</td></tr>
+<tr><th id="640">640</th><td>			<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>(<q>"Entity classname was: %s\n"</q>, <a class="local col4 ref" href="#74p" title='p' data-ref="74p">p</a>);</td></tr>
+<tr><th id="641">641</th><td>			<a class="local col1 ref" href="#71mapEnt" title='mapEnt' data-ref="71mapEnt">mapEnt</a>-&gt;<a class="ref" href="../../../idlib/MapFile.h.html#idMapEntity::epairs" title='idMapEntity::epairs' data-ref="idMapEntity::epairs">epairs</a>.<a class="ref" href="../../../idlib/Dict.h.html#_ZNK6idDict9GetStringEPKcS1_PS1_" title='idDict::GetString' data-ref="_ZNK6idDict9GetStringEPKcS1_PS1_">GetString</a>( <q>"name"</q>, <q>""</q>, &amp;<a class="local col4 ref" href="#74p" title='p' data-ref="74p">p</a>);</td></tr>
+<tr><th id="642">642</th><td>			<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>(<q>"Entity name was: %s\n"</q>, <a class="local col4 ref" href="#74p" title='p' data-ref="74p">p</a>);</td></tr>
+<tr><th id="643">643</th><td>			<a class="type" href="../../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> <a class="ref fake" href="../../../idlib/math/Vector.h.html#_ZN6idVec3C1Ev" title='idVec3::idVec3' data-ref="_ZN6idVec3C1Ev"></a><dfn class="local col5 decl" id="75origin" title='origin' data-type='idVec3' data-ref="75origin">origin</dfn>;</td></tr>
+<tr><th id="644">644</th><td>			<b>if</b> ( <a class="local col1 ref" href="#71mapEnt" title='mapEnt' data-ref="71mapEnt">mapEnt</a>-&gt;<a class="ref" href="../../../idlib/MapFile.h.html#idMapEntity::epairs" title='idMapEntity::epairs' data-ref="idMapEntity::epairs">epairs</a>.<a class="ref" href="../../../idlib/Dict.h.html#_ZNK6idDict9GetVectorEPKcS1_R6idVec3" title='idDict::GetVector' data-ref="_ZNK6idDict9GetVectorEPKcS1_R6idVec3">GetVector</a>( <q>"origin"</q>, <q>""</q>, <span class='refarg'><a class="local col5 ref" href="#75origin" title='origin' data-ref="75origin">origin</a></span>)) {</td></tr>
+<tr><th id="645">645</th><td>				<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>(<q>"Entity origin is: %f %f %f\n\n\n"</q>, <a class="local col5 ref" href="#75origin" title='origin' data-ref="75origin">origin</a>.<a class="ref" href="../../../idlib/math/Vector.h.html#idVec3::x" title='idVec3::x' data-ref="idVec3::x">x</a>, <a class="local col5 ref" href="#75origin" title='origin' data-ref="75origin">origin</a>.<a class="ref" href="../../../idlib/math/Vector.h.html#idVec3::y" title='idVec3::y' data-ref="idVec3::y">y</a>, <a class="local col5 ref" href="#75origin" title='origin' data-ref="75origin">origin</a>.<a class="ref" href="../../../idlib/math/Vector.h.html#idVec3::z" title='idVec3::z' data-ref="idVec3::z">z</a>);</td></tr>
+<tr><th id="646">646</th><td>			}</td></tr>
+<tr><th id="647">647</th><td>		}</td></tr>
+<tr><th id="648">648</th><td>	}</td></tr>
+<tr><th id="649">649</th><td></td></tr>
+<tr><th id="650">650</th><td>	<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>(<q>"%5i flooded leafs\n"</q>, <a class="ref" href="#c_floodedleafs" title='c_floodedleafs' data-ref="c_floodedleafs">c_floodedleafs</a> );</td></tr>
+<tr><th id="651">651</th><td></td></tr>
+<tr><th id="652">652</th><td>	<b>if</b> (!<a class="local col8 ref" href="#68inside" title='inside' data-ref="68inside">inside</a>)</td></tr>
+<tr><th id="653">653</th><td>	{</td></tr>
+<tr><th id="654">654</th><td>		<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a> (<q>"no entities in open -- no filling\n"</q>);</td></tr>
+<tr><th id="655">655</th><td>	}</td></tr>
+<tr><th id="656">656</th><td>	<b>else</b> <b>if</b> (<a class="local col4 ref" href="#64tree" title='tree' data-ref="64tree">tree</a>-&gt;<a class="ref" href="dmap.h.html#tree_s::outside_node" title='tree_s::outside_node' data-ref="tree_s::outside_node">outside_node</a>.<a class="ref" href="dmap.h.html#node_s::occupied" title='node_s::occupied' data-ref="node_s::occupied">occupied</a>)</td></tr>
+<tr><th id="657">657</th><td>	{</td></tr>
+<tr><th id="658">658</th><td>		<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a> (<q>"entity reached from outside -- no filling\n"</q>);</td></tr>
+<tr><th id="659">659</th><td>	}</td></tr>
+<tr><th id="660">660</th><td></td></tr>
+<tr><th id="661">661</th><td>	<b>return</b> (<em>bool</em>)(<a class="local col8 ref" href="#68inside" title='inside' data-ref="68inside">inside</a> &amp;&amp; !<a class="local col4 ref" href="#64tree" title='tree' data-ref="64tree">tree</a>-&gt;<a class="ref" href="dmap.h.html#tree_s::outside_node" title='tree_s::outside_node' data-ref="tree_s::outside_node">outside_node</a>.<a class="ref" href="dmap.h.html#node_s::occupied" title='node_s::occupied' data-ref="node_s::occupied">occupied</a>);</td></tr>
+<tr><th id="662">662</th><td>}</td></tr>
+<tr><th id="663">663</th><td></td></tr>
+<tr><th id="664">664</th><td><i  data-doc="c_areas">/*</i></td></tr>
+<tr><th id="665">665</th><td><i  data-doc="c_areas">=========================================================</i></td></tr>
+<tr><th id="666">666</th><td><i  data-doc="c_areas"></i></td></tr>
+<tr><th id="667">667</th><td><i  data-doc="c_areas">FLOOD AREAS</i></td></tr>
+<tr><th id="668">668</th><td><i  data-doc="c_areas"></i></td></tr>
+<tr><th id="669">669</th><td><i  data-doc="c_areas">=========================================================</i></td></tr>
+<tr><th id="670">670</th><td><i  data-doc="c_areas">*/</i></td></tr>
+<tr><th id="671">671</th><td></td></tr>
+<tr><th id="672">672</th><td><em>static</em>	<em>int</em>		<dfn class="tu decl def" id="c_areas" title='c_areas' data-type='int' data-ref="c_areas">c_areas</dfn>;</td></tr>
+<tr><th id="673">673</th><td><em>static</em>	<em>int</em>		<dfn class="tu decl def" id="c_areaFloods" title='c_areaFloods' data-type='int' data-ref="c_areaFloods">c_areaFloods</dfn>;</td></tr>
+<tr><th id="674">674</th><td></td></tr>
+<tr><th id="675">675</th><td><i  data-doc="_ZL17FindSideForPortalP9uPortal_s">/*</i></td></tr>
+<tr><th id="676">676</th><td><i  data-doc="_ZL17FindSideForPortalP9uPortal_s">=================</i></td></tr>
+<tr><th id="677">677</th><td><i  data-doc="_ZL17FindSideForPortalP9uPortal_s">FindSideForPortal</i></td></tr>
+<tr><th id="678">678</th><td><i  data-doc="_ZL17FindSideForPortalP9uPortal_s">=================</i></td></tr>
+<tr><th id="679">679</th><td><i  data-doc="_ZL17FindSideForPortalP9uPortal_s">*/</i></td></tr>
+<tr><th id="680">680</th><td><em>static</em> <a class="typedef" href="dmap.h.html#side_t" title='side_t' data-type='struct side_s' data-ref="side_t">side_t</a>	*<dfn class="tu decl def" id="_ZL17FindSideForPortalP9uPortal_s" title='FindSideForPortal' data-type='side_t * FindSideForPortal(uPortal_t * p)' data-ref="_ZL17FindSideForPortalP9uPortal_s">FindSideForPortal</dfn>( <a class="typedef" href="dmap.h.html#uPortal_t" title='uPortal_t' data-type='struct uPortal_s' data-ref="uPortal_t">uPortal_t</a> *<dfn class="local col6 decl" id="76p" title='p' data-type='uPortal_t *' data-ref="76p">p</dfn> ) {</td></tr>
+<tr><th id="681">681</th><td>	<em>int</em>		<dfn class="local col7 decl" id="77i" title='i' data-type='int' data-ref="77i">i</dfn>, <dfn class="local col8 decl" id="78j" title='j' data-type='int' data-ref="78j">j</dfn>, <dfn class="local col9 decl" id="79k" title='k' data-type='int' data-ref="79k">k</dfn>;</td></tr>
+<tr><th id="682">682</th><td>	<a class="typedef" href="dmap.h.html#node_t" title='node_t' data-type='struct node_s' data-ref="node_t">node_t</a>	*<dfn class="local col0 decl" id="80node" title='node' data-type='node_t *' data-ref="80node">node</dfn>;</td></tr>
+<tr><th id="683">683</th><td>	<a class="typedef" href="dmap.h.html#uBrush_t" title='uBrush_t' data-type='struct bspbrush_s' data-ref="uBrush_t">uBrush_t</a>	*<dfn class="local col1 decl" id="81b" title='b' data-type='uBrush_t *' data-ref="81b">b</dfn>, *<dfn class="local col2 decl" id="82orig" title='orig' data-type='uBrush_t *' data-ref="82orig">orig</dfn>;</td></tr>
+<tr><th id="684">684</th><td>	<a class="typedef" href="dmap.h.html#side_t" title='side_t' data-type='struct side_s' data-ref="side_t">side_t</a>	*<dfn class="local col3 decl" id="83s" title='s' data-type='side_t *' data-ref="83s">s</dfn>, *<dfn class="local col4 decl" id="84s2" title='s2' data-type='side_t *' data-ref="84s2">s2</dfn>;</td></tr>
+<tr><th id="685">685</th><td></td></tr>
+<tr><th id="686">686</th><td>	<i>// scan both bordering nodes brush lists for a portal brush</i></td></tr>
+<tr><th id="687">687</th><td><i>	// that shares the plane</i></td></tr>
+<tr><th id="688">688</th><td>	<b>for</b> ( <a class="local col7 ref" href="#77i" title='i' data-ref="77i">i</a> = <var>0</var> ; <a class="local col7 ref" href="#77i" title='i' data-ref="77i">i</a> &lt; <var>2</var> ; <a class="local col7 ref" href="#77i" title='i' data-ref="77i">i</a>++ ) {</td></tr>
+<tr><th id="689">689</th><td>		<a class="local col0 ref" href="#80node" title='node' data-ref="80node">node</a> = <a class="local col6 ref" href="#76p" title='p' data-ref="76p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<a class="local col7 ref" href="#77i" title='i' data-ref="77i">i</a>];</td></tr>
+<tr><th id="690">690</th><td>		<b>for</b> ( <a class="local col1 ref" href="#81b" title='b' data-ref="81b">b</a> = <a class="local col0 ref" href="#80node" title='node' data-ref="80node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::brushlist" title='node_s::brushlist' data-ref="node_s::brushlist">brushlist</a> ; <a class="local col1 ref" href="#81b" title='b' data-ref="81b">b</a> ; <a class="local col1 ref" href="#81b" title='b' data-ref="81b">b</a> = <a class="local col1 ref" href="#81b" title='b' data-ref="81b">b</a>-&gt;<a class="ref" href="dmap.h.html#bspbrush_s::next" title='bspbrush_s::next' data-ref="bspbrush_s::next">next</a> ) {</td></tr>
+<tr><th id="691">691</th><td>			<b>if</b> ( !( <a class="local col1 ref" href="#81b" title='b' data-ref="81b">b</a>-&gt;<a class="ref" href="dmap.h.html#bspbrush_s::contents" title='bspbrush_s::contents' data-ref="bspbrush_s::contents">contents</a> &amp; <a class="enum" href="../../../renderer/Material.h.html#CONTENTS_AREAPORTAL" title='CONTENTS_AREAPORTAL' data-ref="CONTENTS_AREAPORTAL">CONTENTS_AREAPORTAL</a> ) ) {</td></tr>
+<tr><th id="692">692</th><td>				<b>continue</b>;</td></tr>
+<tr><th id="693">693</th><td>			}</td></tr>
+<tr><th id="694">694</th><td>			<a class="local col2 ref" href="#82orig" title='orig' data-ref="82orig">orig</a> = <a class="local col1 ref" href="#81b" title='b' data-ref="81b">b</a>-&gt;<a class="ref" href="dmap.h.html#bspbrush_s::original" title='bspbrush_s::original' data-ref="bspbrush_s::original">original</a>;</td></tr>
+<tr><th id="695">695</th><td>			<b>for</b> ( <a class="local col8 ref" href="#78j" title='j' data-ref="78j">j</a> = <var>0</var> ; <a class="local col8 ref" href="#78j" title='j' data-ref="78j">j</a> &lt; <a class="local col2 ref" href="#82orig" title='orig' data-ref="82orig">orig</a>-&gt;<a class="ref" href="dmap.h.html#bspbrush_s::numsides" title='bspbrush_s::numsides' data-ref="bspbrush_s::numsides">numsides</a> ; <a class="local col8 ref" href="#78j" title='j' data-ref="78j">j</a>++ ) {</td></tr>
+<tr><th id="696">696</th><td>				<a class="local col3 ref" href="#83s" title='s' data-ref="83s">s</a> = <a class="local col2 ref" href="#82orig" title='orig' data-ref="82orig">orig</a>-&gt;<a class="ref" href="dmap.h.html#bspbrush_s::sides" title='bspbrush_s::sides' data-ref="bspbrush_s::sides">sides</a> + <a class="local col8 ref" href="#78j" title='j' data-ref="78j">j</a>;</td></tr>
+<tr><th id="697">697</th><td>				<b>if</b> ( !<a class="local col3 ref" href="#83s" title='s' data-ref="83s">s</a>-&gt;<a class="ref" href="dmap.h.html#side_s::visibleHull" title='side_s::visibleHull' data-ref="side_s::visibleHull">visibleHull</a> ) {</td></tr>
+<tr><th id="698">698</th><td>					<b>continue</b>;</td></tr>
+<tr><th id="699">699</th><td>				}</td></tr>
+<tr><th id="700">700</th><td>				<b>if</b> ( !( <a class="local col3 ref" href="#83s" title='s' data-ref="83s">s</a>-&gt;<a class="ref" href="dmap.h.html#side_s::material" title='side_s::material' data-ref="side_s::material">material</a>-&gt;<a class="ref" href="../../../renderer/Material.h.html#_ZNK10idMaterial15GetContentFlagsEv" title='idMaterial::GetContentFlags' data-ref="_ZNK10idMaterial15GetContentFlagsEv">GetContentFlags</a>() &amp; <a class="enum" href="../../../renderer/Material.h.html#CONTENTS_AREAPORTAL" title='CONTENTS_AREAPORTAL' data-ref="CONTENTS_AREAPORTAL">CONTENTS_AREAPORTAL</a> ) ) {</td></tr>
+<tr><th id="701">701</th><td>					<b>continue</b>;</td></tr>
+<tr><th id="702">702</th><td>				}</td></tr>
+<tr><th id="703">703</th><td>				<b>if</b> ( ( <a class="local col3 ref" href="#83s" title='s' data-ref="83s">s</a>-&gt;<a class="ref" href="dmap.h.html#side_s::planenum" title='side_s::planenum' data-ref="side_s::planenum">planenum</a> &amp; ~<var>1</var> ) != ( <a class="local col6 ref" href="#76p" title='p' data-ref="76p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::onnode" title='uPortal_s::onnode' data-ref="uPortal_s::onnode">onnode</a>-&gt;<a class="ref" href="dmap.h.html#node_s::planenum" title='node_s::planenum' data-ref="node_s::planenum">planenum</a> &amp; ~<var>1</var> ) ) {</td></tr>
+<tr><th id="704">704</th><td>					<b>continue</b>;</td></tr>
+<tr><th id="705">705</th><td>				}</td></tr>
+<tr><th id="706">706</th><td>				<i>// remove the visible hull from any other portal sides of this portal brush</i></td></tr>
+<tr><th id="707">707</th><td>				<b>for</b> ( <a class="local col9 ref" href="#79k" title='k' data-ref="79k">k</a> = <var>0</var>; <a class="local col9 ref" href="#79k" title='k' data-ref="79k">k</a> &lt; <a class="local col2 ref" href="#82orig" title='orig' data-ref="82orig">orig</a>-&gt;<a class="ref" href="dmap.h.html#bspbrush_s::numsides" title='bspbrush_s::numsides' data-ref="bspbrush_s::numsides">numsides</a>; <a class="local col9 ref" href="#79k" title='k' data-ref="79k">k</a>++ ) {</td></tr>
+<tr><th id="708">708</th><td>					<b>if</b> ( <a class="local col9 ref" href="#79k" title='k' data-ref="79k">k</a> == <a class="local col8 ref" href="#78j" title='j' data-ref="78j">j</a> ) {</td></tr>
+<tr><th id="709">709</th><td>						<b>continue</b>;</td></tr>
+<tr><th id="710">710</th><td>					}</td></tr>
+<tr><th id="711">711</th><td>					<a class="local col4 ref" href="#84s2" title='s2' data-ref="84s2">s2</a> = <a class="local col2 ref" href="#82orig" title='orig' data-ref="82orig">orig</a>-&gt;<a class="ref" href="dmap.h.html#bspbrush_s::sides" title='bspbrush_s::sides' data-ref="bspbrush_s::sides">sides</a> + <a class="local col9 ref" href="#79k" title='k' data-ref="79k">k</a>;</td></tr>
+<tr><th id="712">712</th><td>					<b>if</b> ( <a class="local col4 ref" href="#84s2" title='s2' data-ref="84s2">s2</a>-&gt;<a class="ref" href="dmap.h.html#side_s::visibleHull" title='side_s::visibleHull' data-ref="side_s::visibleHull">visibleHull</a> == <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> ) {</td></tr>
+<tr><th id="713">713</th><td>						<b>continue</b>;</td></tr>
+<tr><th id="714">714</th><td>					}</td></tr>
+<tr><th id="715">715</th><td>					<b>if</b> ( !( <a class="local col4 ref" href="#84s2" title='s2' data-ref="84s2">s2</a>-&gt;<a class="ref" href="dmap.h.html#side_s::material" title='side_s::material' data-ref="side_s::material">material</a>-&gt;<a class="ref" href="../../../renderer/Material.h.html#_ZNK10idMaterial15GetContentFlagsEv" title='idMaterial::GetContentFlags' data-ref="_ZNK10idMaterial15GetContentFlagsEv">GetContentFlags</a>() &amp; <a class="enum" href="../../../renderer/Material.h.html#CONTENTS_AREAPORTAL" title='CONTENTS_AREAPORTAL' data-ref="CONTENTS_AREAPORTAL">CONTENTS_AREAPORTAL</a> ) ) {</td></tr>
+<tr><th id="716">716</th><td>						<b>continue</b>;</td></tr>
+<tr><th id="717">717</th><td>					}</td></tr>
+<tr><th id="718">718</th><td>					<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon7WarningEPKcz" title='idCommon::Warning' data-ref="_ZN8idCommon7WarningEPKcz">Warning</a>( <q>"brush has multiple area portal sides at %s"</q>, <a class="local col4 ref" href="#84s2" title='s2' data-ref="84s2">s2</a>-&gt;<a class="ref" href="dmap.h.html#side_s::visibleHull" title='side_s::visibleHull' data-ref="side_s::visibleHull">visibleHull</a>-&gt;<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZNK9idWinding9GetCenterEv" title='idWinding::GetCenter' data-ref="_ZNK9idWinding9GetCenterEv">GetCenter</a>().<a class="ref" href="../../../idlib/math/Vector.h.html#_ZNK6idVec38ToStringEi" title='idVec3::ToString' data-ref="_ZNK6idVec38ToStringEi">ToString</a>() );</td></tr>
+<tr><th id="719">719</th><td>					<b>delete</b> <a class="local col4 ref" href="#84s2" title='s2' data-ref="84s2">s2</a>-&gt;<a class="ref" href="dmap.h.html#side_s::visibleHull" title='side_s::visibleHull' data-ref="side_s::visibleHull">visibleHull</a>;</td></tr>
+<tr><th id="720">720</th><td>					<a class="local col4 ref" href="#84s2" title='s2' data-ref="84s2">s2</a>-&gt;<a class="ref" href="dmap.h.html#side_s::visibleHull" title='side_s::visibleHull' data-ref="side_s::visibleHull">visibleHull</a> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="721">721</th><td>				}</td></tr>
+<tr><th id="722">722</th><td>				<b>return</b> <a class="local col3 ref" href="#83s" title='s' data-ref="83s">s</a>;</td></tr>
+<tr><th id="723">723</th><td>			}</td></tr>
+<tr><th id="724">724</th><td>		}</td></tr>
+<tr><th id="725">725</th><td>	}</td></tr>
+<tr><th id="726">726</th><td>	<b>return</b> <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="727">727</th><td>}</td></tr>
+<tr><th id="728">728</th><td></td></tr>
+<tr><th id="729">729</th><td><i>/*</i></td></tr>
+<tr><th id="730">730</th><td><i>=============</i></td></tr>
+<tr><th id="731">731</th><td><i>FloodAreas_r</i></td></tr>
+<tr><th id="732">732</th><td><i>=============</i></td></tr>
+<tr><th id="733">733</th><td><i>*/</i></td></tr>
+<tr><th id="734">734</th><td><em>void</em> <dfn class="decl def" id="_Z12FloodAreas_rP6node_s" title='FloodAreas_r' data-ref="_Z12FloodAreas_rP6node_s">FloodAreas_r</dfn> (<a class="typedef" href="dmap.h.html#node_t" title='node_t' data-type='struct node_s' data-ref="node_t">node_t</a> *<dfn class="local col5 decl" id="85node" title='node' data-type='node_t *' data-ref="85node">node</dfn>)</td></tr>
+<tr><th id="735">735</th><td>{</td></tr>
+<tr><th id="736">736</th><td>	<a class="typedef" href="dmap.h.html#uPortal_t" title='uPortal_t' data-type='struct uPortal_s' data-ref="uPortal_t">uPortal_t</a>	*<dfn class="local col6 decl" id="86p" title='p' data-type='uPortal_t *' data-ref="86p">p</dfn>;</td></tr>
+<tr><th id="737">737</th><td>	<em>int</em>			<dfn class="local col7 decl" id="87s" title='s' data-type='int' data-ref="87s">s</dfn>;</td></tr>
+<tr><th id="738">738</th><td></td></tr>
+<tr><th id="739">739</th><td>	<b>if</b> ( <a class="local col5 ref" href="#85node" title='node' data-ref="85node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::area" title='node_s::area' data-ref="node_s::area">area</a> != -<var>1</var> ) {</td></tr>
+<tr><th id="740">740</th><td>		<b>return</b>;		<i>// allready got it</i></td></tr>
+<tr><th id="741">741</th><td>	}</td></tr>
+<tr><th id="742">742</th><td>	<b>if</b> ( <a class="local col5 ref" href="#85node" title='node' data-ref="85node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::opaque" title='node_s::opaque' data-ref="node_s::opaque">opaque</a> ) {</td></tr>
+<tr><th id="743">743</th><td>		<b>return</b>;</td></tr>
+<tr><th id="744">744</th><td>	}</td></tr>
+<tr><th id="745">745</th><td></td></tr>
+<tr><th id="746">746</th><td>	<a class="tu ref" href="#c_areaFloods" title='c_areaFloods' data-use='w' data-ref="c_areaFloods">c_areaFloods</a>++;</td></tr>
+<tr><th id="747">747</th><td>	<a class="local col5 ref" href="#85node" title='node' data-ref="85node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::area" title='node_s::area' data-ref="node_s::area">area</a> = <a class="tu ref" href="#c_areas" title='c_areas' data-use='r' data-ref="c_areas">c_areas</a>;</td></tr>
+<tr><th id="748">748</th><td></td></tr>
+<tr><th id="749">749</th><td>	<b>for</b> ( <a class="local col6 ref" href="#86p" title='p' data-ref="86p">p</a>=<a class="local col5 ref" href="#85node" title='node' data-ref="85node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::portals" title='node_s::portals' data-ref="node_s::portals">portals</a> ; <a class="local col6 ref" href="#86p" title='p' data-ref="86p">p</a> ; <a class="local col6 ref" href="#86p" title='p' data-ref="86p">p</a> = <a class="local col6 ref" href="#86p" title='p' data-ref="86p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::next" title='uPortal_s::next' data-ref="uPortal_s::next">next</a>[<a class="local col7 ref" href="#87s" title='s' data-ref="87s">s</a>] ) {</td></tr>
+<tr><th id="750">750</th><td>		<a class="typedef" href="dmap.h.html#node_t" title='node_t' data-type='struct node_s' data-ref="node_t">node_t</a>	*<dfn class="local col8 decl" id="88other" title='other' data-type='node_t *' data-ref="88other">other</dfn>;</td></tr>
+<tr><th id="751">751</th><td></td></tr>
+<tr><th id="752">752</th><td>		<a class="local col7 ref" href="#87s" title='s' data-ref="87s">s</a> = (<a class="local col6 ref" href="#86p" title='p' data-ref="86p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>1</var>] == <a class="local col5 ref" href="#85node" title='node' data-ref="85node">node</a>);</td></tr>
+<tr><th id="753">753</th><td>		<a class="local col8 ref" href="#88other" title='other' data-ref="88other">other</a> = <a class="local col6 ref" href="#86p" title='p' data-ref="86p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[!<a class="local col7 ref" href="#87s" title='s' data-ref="87s">s</a>];</td></tr>
+<tr><th id="754">754</th><td></td></tr>
+<tr><th id="755">755</th><td>		<b>if</b> ( !<a class="tu ref" href="#_ZL15Portal_PassableP9uPortal_s" title='Portal_Passable' data-use='c' data-ref="_ZL15Portal_PassableP9uPortal_s">Portal_Passable</a>(<a class="local col6 ref" href="#86p" title='p' data-ref="86p">p</a>) ) {</td></tr>
+<tr><th id="756">756</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="757">757</th><td>		}</td></tr>
+<tr><th id="758">758</th><td></td></tr>
+<tr><th id="759">759</th><td>		<i>// can't flood through an area portal</i></td></tr>
+<tr><th id="760">760</th><td>		<b>if</b> ( <a class="tu ref" href="#_ZL17FindSideForPortalP9uPortal_s" title='FindSideForPortal' data-use='c' data-ref="_ZL17FindSideForPortalP9uPortal_s">FindSideForPortal</a>( <a class="local col6 ref" href="#86p" title='p' data-ref="86p">p</a> ) ) {</td></tr>
+<tr><th id="761">761</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="762">762</th><td>		}</td></tr>
+<tr><th id="763">763</th><td></td></tr>
+<tr><th id="764">764</th><td>		<a class="ref" href="#_Z12FloodAreas_rP6node_s" title='FloodAreas_r' data-ref="_Z12FloodAreas_rP6node_s">FloodAreas_r</a>( <a class="local col8 ref" href="#88other" title='other' data-ref="88other">other</a> );</td></tr>
+<tr><th id="765">765</th><td>	}</td></tr>
+<tr><th id="766">766</th><td>}</td></tr>
+<tr><th id="767">767</th><td></td></tr>
+<tr><th id="768">768</th><td><i>/*</i></td></tr>
+<tr><th id="769">769</th><td><i>=============</i></td></tr>
+<tr><th id="770">770</th><td><i>FindAreas_r</i></td></tr>
+<tr><th id="771">771</th><td><i></i></td></tr>
+<tr><th id="772">772</th><td><i>Just decend the tree, and for each node that hasn't had an</i></td></tr>
+<tr><th id="773">773</th><td><i>area set, flood fill out from there</i></td></tr>
+<tr><th id="774">774</th><td><i>=============</i></td></tr>
+<tr><th id="775">775</th><td><i>*/</i></td></tr>
+<tr><th id="776">776</th><td><em>void</em> <dfn class="decl def" id="_Z11FindAreas_rP6node_s" title='FindAreas_r' data-ref="_Z11FindAreas_rP6node_s">FindAreas_r</dfn>( <a class="typedef" href="dmap.h.html#node_t" title='node_t' data-type='struct node_s' data-ref="node_t">node_t</a> *<dfn class="local col9 decl" id="89node" title='node' data-type='node_t *' data-ref="89node">node</dfn> ) {</td></tr>
+<tr><th id="777">777</th><td>	<b>if</b> ( <a class="local col9 ref" href="#89node" title='node' data-ref="89node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::planenum" title='node_s::planenum' data-ref="node_s::planenum">planenum</a> != <a class="macro" href="dmap.h.html#81" title="-1" data-ref="_M/PLANENUM_LEAF">PLANENUM_LEAF</a> ) {</td></tr>
+<tr><th id="778">778</th><td>		<a class="ref" href="#_Z11FindAreas_rP6node_s" title='FindAreas_r' data-ref="_Z11FindAreas_rP6node_s">FindAreas_r</a> (<a class="local col9 ref" href="#89node" title='node' data-ref="89node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::children" title='node_s::children' data-ref="node_s::children">children</a>[<var>0</var>]);</td></tr>
+<tr><th id="779">779</th><td>		<a class="ref" href="#_Z11FindAreas_rP6node_s" title='FindAreas_r' data-ref="_Z11FindAreas_rP6node_s">FindAreas_r</a> (<a class="local col9 ref" href="#89node" title='node' data-ref="89node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::children" title='node_s::children' data-ref="node_s::children">children</a>[<var>1</var>]);</td></tr>
+<tr><th id="780">780</th><td>		<b>return</b>;</td></tr>
+<tr><th id="781">781</th><td>	}</td></tr>
+<tr><th id="782">782</th><td></td></tr>
+<tr><th id="783">783</th><td>	<b>if</b> ( <a class="local col9 ref" href="#89node" title='node' data-ref="89node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::opaque" title='node_s::opaque' data-ref="node_s::opaque">opaque</a> ) {</td></tr>
+<tr><th id="784">784</th><td>		<b>return</b>;</td></tr>
+<tr><th id="785">785</th><td>	}</td></tr>
+<tr><th id="786">786</th><td></td></tr>
+<tr><th id="787">787</th><td>	<b>if</b> ( <a class="local col9 ref" href="#89node" title='node' data-ref="89node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::area" title='node_s::area' data-ref="node_s::area">area</a> != -<var>1</var> ) {</td></tr>
+<tr><th id="788">788</th><td>		<b>return</b>;		<i>// allready got it</i></td></tr>
+<tr><th id="789">789</th><td>	}</td></tr>
+<tr><th id="790">790</th><td></td></tr>
+<tr><th id="791">791</th><td>	<a class="tu ref" href="#c_areaFloods" title='c_areaFloods' data-use='w' data-ref="c_areaFloods">c_areaFloods</a> = <var>0</var>;</td></tr>
+<tr><th id="792">792</th><td>	<a class="ref" href="#_Z12FloodAreas_rP6node_s" title='FloodAreas_r' data-ref="_Z12FloodAreas_rP6node_s">FloodAreas_r</a> (<a class="local col9 ref" href="#89node" title='node' data-ref="89node">node</a>);</td></tr>
+<tr><th id="793">793</th><td>	<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"area %i has %i leafs\n"</q>, <a class="tu ref" href="#c_areas" title='c_areas' data-use='r' data-ref="c_areas">c_areas</a>, <a class="tu ref" href="#c_areaFloods" title='c_areaFloods' data-use='r' data-ref="c_areaFloods">c_areaFloods</a> );</td></tr>
+<tr><th id="794">794</th><td>	<a class="tu ref" href="#c_areas" title='c_areas' data-use='w' data-ref="c_areas">c_areas</a>++;</td></tr>
+<tr><th id="795">795</th><td>}</td></tr>
+<tr><th id="796">796</th><td></td></tr>
+<tr><th id="797">797</th><td><i>/*</i></td></tr>
+<tr><th id="798">798</th><td><i>============</i></td></tr>
+<tr><th id="799">799</th><td><i>CheckAreas_r</i></td></tr>
+<tr><th id="800">800</th><td><i>============</i></td></tr>
+<tr><th id="801">801</th><td><i>*/</i></td></tr>
+<tr><th id="802">802</th><td><em>void</em> <dfn class="decl def" id="_Z12CheckAreas_rP6node_s" title='CheckAreas_r' data-ref="_Z12CheckAreas_rP6node_s">CheckAreas_r</dfn>( <a class="typedef" href="dmap.h.html#node_t" title='node_t' data-type='struct node_s' data-ref="node_t">node_t</a> *<dfn class="local col0 decl" id="90node" title='node' data-type='node_t *' data-ref="90node">node</dfn> ) {</td></tr>
+<tr><th id="803">803</th><td>	<b>if</b> ( <a class="local col0 ref" href="#90node" title='node' data-ref="90node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::planenum" title='node_s::planenum' data-ref="node_s::planenum">planenum</a> != <a class="macro" href="dmap.h.html#81" title="-1" data-ref="_M/PLANENUM_LEAF">PLANENUM_LEAF</a> ) {</td></tr>
+<tr><th id="804">804</th><td>		<a class="ref" href="#_Z12CheckAreas_rP6node_s" title='CheckAreas_r' data-ref="_Z12CheckAreas_rP6node_s">CheckAreas_r</a> (<a class="local col0 ref" href="#90node" title='node' data-ref="90node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::children" title='node_s::children' data-ref="node_s::children">children</a>[<var>0</var>]);</td></tr>
+<tr><th id="805">805</th><td>		<a class="ref" href="#_Z12CheckAreas_rP6node_s" title='CheckAreas_r' data-ref="_Z12CheckAreas_rP6node_s">CheckAreas_r</a> (<a class="local col0 ref" href="#90node" title='node' data-ref="90node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::children" title='node_s::children' data-ref="node_s::children">children</a>[<var>1</var>]);</td></tr>
+<tr><th id="806">806</th><td>		<b>return</b>;</td></tr>
+<tr><th id="807">807</th><td>	}</td></tr>
+<tr><th id="808">808</th><td>	<b>if</b> ( !<a class="local col0 ref" href="#90node" title='node' data-ref="90node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::opaque" title='node_s::opaque' data-ref="node_s::opaque">opaque</a> &amp;&amp; <a class="local col0 ref" href="#90node" title='node' data-ref="90node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::area" title='node_s::area' data-ref="node_s::area">area</a> &lt; <var>0</var> ) {</td></tr>
+<tr><th id="809">809</th><td>		<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon5ErrorEPKcz" title='idCommon::Error' data-ref="_ZN8idCommon5ErrorEPKcz">Error</a>( <q>"CheckAreas_r: area = %i"</q>, <a class="local col0 ref" href="#90node" title='node' data-ref="90node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::area" title='node_s::area' data-ref="node_s::area">area</a> );</td></tr>
+<tr><th id="810">810</th><td>	}</td></tr>
+<tr><th id="811">811</th><td>}</td></tr>
+<tr><th id="812">812</th><td></td></tr>
+<tr><th id="813">813</th><td><i>/*</i></td></tr>
+<tr><th id="814">814</th><td><i>============</i></td></tr>
+<tr><th id="815">815</th><td><i>ClearAreas_r</i></td></tr>
+<tr><th id="816">816</th><td><i></i></td></tr>
+<tr><th id="817">817</th><td><i>Set all the areas to -1 before filling</i></td></tr>
+<tr><th id="818">818</th><td><i>============</i></td></tr>
+<tr><th id="819">819</th><td><i>*/</i></td></tr>
+<tr><th id="820">820</th><td><em>void</em> <dfn class="decl def" id="_Z12ClearAreas_rP6node_s" title='ClearAreas_r' data-ref="_Z12ClearAreas_rP6node_s">ClearAreas_r</dfn>( <a class="typedef" href="dmap.h.html#node_t" title='node_t' data-type='struct node_s' data-ref="node_t">node_t</a> *<dfn class="local col1 decl" id="91node" title='node' data-type='node_t *' data-ref="91node">node</dfn> ) {</td></tr>
+<tr><th id="821">821</th><td>	<b>if</b> ( <a class="local col1 ref" href="#91node" title='node' data-ref="91node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::planenum" title='node_s::planenum' data-ref="node_s::planenum">planenum</a> != <a class="macro" href="dmap.h.html#81" title="-1" data-ref="_M/PLANENUM_LEAF">PLANENUM_LEAF</a> ) {</td></tr>
+<tr><th id="822">822</th><td>		<a class="ref" href="#_Z12ClearAreas_rP6node_s" title='ClearAreas_r' data-ref="_Z12ClearAreas_rP6node_s">ClearAreas_r</a> (<a class="local col1 ref" href="#91node" title='node' data-ref="91node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::children" title='node_s::children' data-ref="node_s::children">children</a>[<var>0</var>]);</td></tr>
+<tr><th id="823">823</th><td>		<a class="ref" href="#_Z12ClearAreas_rP6node_s" title='ClearAreas_r' data-ref="_Z12ClearAreas_rP6node_s">ClearAreas_r</a> (<a class="local col1 ref" href="#91node" title='node' data-ref="91node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::children" title='node_s::children' data-ref="node_s::children">children</a>[<var>1</var>]);</td></tr>
+<tr><th id="824">824</th><td>		<b>return</b>;</td></tr>
+<tr><th id="825">825</th><td>	}</td></tr>
+<tr><th id="826">826</th><td>	<a class="local col1 ref" href="#91node" title='node' data-ref="91node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::area" title='node_s::area' data-ref="node_s::area">area</a> = -<var>1</var>;</td></tr>
+<tr><th id="827">827</th><td>}</td></tr>
+<tr><th id="828">828</th><td></td></tr>
+<tr><th id="829">829</th><td><i>//=============================================================</i></td></tr>
+<tr><th id="830">830</th><td></td></tr>
+<tr><th id="831">831</th><td></td></tr>
+<tr><th id="832">832</th><td><i  data-doc="_ZL22FindInterAreaPortals_rP6node_s">/*</i></td></tr>
+<tr><th id="833">833</th><td><i  data-doc="_ZL22FindInterAreaPortals_rP6node_s">=================</i></td></tr>
+<tr><th id="834">834</th><td><i  data-doc="_ZL22FindInterAreaPortals_rP6node_s">FindInterAreaPortals_r</i></td></tr>
+<tr><th id="835">835</th><td><i  data-doc="_ZL22FindInterAreaPortals_rP6node_s"></i></td></tr>
+<tr><th id="836">836</th><td><i  data-doc="_ZL22FindInterAreaPortals_rP6node_s">=================</i></td></tr>
+<tr><th id="837">837</th><td><i  data-doc="_ZL22FindInterAreaPortals_rP6node_s">*/</i></td></tr>
+<tr><th id="838">838</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="_ZL22FindInterAreaPortals_rP6node_s" title='FindInterAreaPortals_r' data-type='void FindInterAreaPortals_r(node_t * node)' data-ref="_ZL22FindInterAreaPortals_rP6node_s">FindInterAreaPortals_r</dfn>( <a class="typedef" href="dmap.h.html#node_t" title='node_t' data-type='struct node_s' data-ref="node_t">node_t</a> *<dfn class="local col2 decl" id="92node" title='node' data-type='node_t *' data-ref="92node">node</dfn> ) {</td></tr>
+<tr><th id="839">839</th><td>	<a class="typedef" href="dmap.h.html#uPortal_t" title='uPortal_t' data-type='struct uPortal_s' data-ref="uPortal_t">uPortal_t</a>	*<dfn class="local col3 decl" id="93p" title='p' data-type='uPortal_t *' data-ref="93p">p</dfn>;</td></tr>
+<tr><th id="840">840</th><td>	<em>int</em>			<dfn class="local col4 decl" id="94s" title='s' data-type='int' data-ref="94s">s</dfn>;</td></tr>
+<tr><th id="841">841</th><td>	<em>int</em>			<dfn class="local col5 decl" id="95i" title='i' data-type='int' data-ref="95i">i</dfn>;</td></tr>
+<tr><th id="842">842</th><td>	<a class="type" href="../../../idlib/geometry/Winding.h.html#idWinding" title='idWinding' data-ref="idWinding">idWinding</a>	*<dfn class="local col6 decl" id="96w" title='w' data-type='idWinding *' data-ref="96w">w</dfn>;</td></tr>
+<tr><th id="843">843</th><td>	<a class="typedef" href="dmap.h.html#interAreaPortal_t" title='interAreaPortal_t' data-type='struct interAreaPortal_t' data-ref="interAreaPortal_t">interAreaPortal_t</a>	*<dfn class="local col7 decl" id="97iap" title='iap' data-type='interAreaPortal_t *' data-ref="97iap">iap</dfn>;</td></tr>
+<tr><th id="844">844</th><td>	<a class="typedef" href="dmap.h.html#side_t" title='side_t' data-type='struct side_s' data-ref="side_t">side_t</a>		*<dfn class="local col8 decl" id="98side" title='side' data-type='side_t *' data-ref="98side">side</dfn>;</td></tr>
+<tr><th id="845">845</th><td></td></tr>
+<tr><th id="846">846</th><td>	<b>if</b> ( <a class="local col2 ref" href="#92node" title='node' data-ref="92node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::planenum" title='node_s::planenum' data-ref="node_s::planenum">planenum</a> != <a class="macro" href="dmap.h.html#81" title="-1" data-ref="_M/PLANENUM_LEAF">PLANENUM_LEAF</a> ) {</td></tr>
+<tr><th id="847">847</th><td>		<a class="tu ref" href="#_ZL22FindInterAreaPortals_rP6node_s" title='FindInterAreaPortals_r' data-use='c' data-ref="_ZL22FindInterAreaPortals_rP6node_s">FindInterAreaPortals_r</a>( <a class="local col2 ref" href="#92node" title='node' data-ref="92node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::children" title='node_s::children' data-ref="node_s::children">children</a>[<var>0</var>] );</td></tr>
+<tr><th id="848">848</th><td>		<a class="tu ref" href="#_ZL22FindInterAreaPortals_rP6node_s" title='FindInterAreaPortals_r' data-use='c' data-ref="_ZL22FindInterAreaPortals_rP6node_s">FindInterAreaPortals_r</a>( <a class="local col2 ref" href="#92node" title='node' data-ref="92node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::children" title='node_s::children' data-ref="node_s::children">children</a>[<var>1</var>] );</td></tr>
+<tr><th id="849">849</th><td>		<b>return</b>;</td></tr>
+<tr><th id="850">850</th><td>	}</td></tr>
+<tr><th id="851">851</th><td></td></tr>
+<tr><th id="852">852</th><td>	<b>if</b> ( <a class="local col2 ref" href="#92node" title='node' data-ref="92node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::opaque" title='node_s::opaque' data-ref="node_s::opaque">opaque</a> ) {</td></tr>
+<tr><th id="853">853</th><td>		<b>return</b>;</td></tr>
+<tr><th id="854">854</th><td>	}</td></tr>
+<tr><th id="855">855</th><td></td></tr>
+<tr><th id="856">856</th><td>	<b>for</b> ( <a class="local col3 ref" href="#93p" title='p' data-ref="93p">p</a>=<a class="local col2 ref" href="#92node" title='node' data-ref="92node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::portals" title='node_s::portals' data-ref="node_s::portals">portals</a> ; <a class="local col3 ref" href="#93p" title='p' data-ref="93p">p</a> ; <a class="local col3 ref" href="#93p" title='p' data-ref="93p">p</a> = <a class="local col3 ref" href="#93p" title='p' data-ref="93p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::next" title='uPortal_s::next' data-ref="uPortal_s::next">next</a>[<a class="local col4 ref" href="#94s" title='s' data-ref="94s">s</a>] ) {</td></tr>
+<tr><th id="857">857</th><td>		<a class="typedef" href="dmap.h.html#node_t" title='node_t' data-type='struct node_s' data-ref="node_t">node_t</a>	*<dfn class="local col9 decl" id="99other" title='other' data-type='node_t *' data-ref="99other">other</dfn>;</td></tr>
+<tr><th id="858">858</th><td></td></tr>
+<tr><th id="859">859</th><td>		<a class="local col4 ref" href="#94s" title='s' data-ref="94s">s</a> = (<a class="local col3 ref" href="#93p" title='p' data-ref="93p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>1</var>] == <a class="local col2 ref" href="#92node" title='node' data-ref="92node">node</a>);</td></tr>
+<tr><th id="860">860</th><td>		<a class="local col9 ref" href="#99other" title='other' data-ref="99other">other</a> = <a class="local col3 ref" href="#93p" title='p' data-ref="93p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[!<a class="local col4 ref" href="#94s" title='s' data-ref="94s">s</a>];</td></tr>
+<tr><th id="861">861</th><td></td></tr>
+<tr><th id="862">862</th><td>		<b>if</b> ( <a class="local col9 ref" href="#99other" title='other' data-ref="99other">other</a>-&gt;<a class="ref" href="dmap.h.html#node_s::opaque" title='node_s::opaque' data-ref="node_s::opaque">opaque</a> ) {</td></tr>
+<tr><th id="863">863</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="864">864</th><td>		}</td></tr>
+<tr><th id="865">865</th><td></td></tr>
+<tr><th id="866">866</th><td>		<i>// only report areas going from lower number to higher number</i></td></tr>
+<tr><th id="867">867</th><td><i>		// so we don't report the portal twice</i></td></tr>
+<tr><th id="868">868</th><td>		<b>if</b> ( <a class="local col9 ref" href="#99other" title='other' data-ref="99other">other</a>-&gt;<a class="ref" href="dmap.h.html#node_s::area" title='node_s::area' data-ref="node_s::area">area</a> &lt;= <a class="local col2 ref" href="#92node" title='node' data-ref="92node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::area" title='node_s::area' data-ref="node_s::area">area</a> ) {</td></tr>
+<tr><th id="869">869</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="870">870</th><td>		}</td></tr>
+<tr><th id="871">871</th><td></td></tr>
+<tr><th id="872">872</th><td>		<a class="local col8 ref" href="#98side" title='side' data-ref="98side">side</a> = <a class="tu ref" href="#_ZL17FindSideForPortalP9uPortal_s" title='FindSideForPortal' data-use='c' data-ref="_ZL17FindSideForPortalP9uPortal_s">FindSideForPortal</a>( <a class="local col3 ref" href="#93p" title='p' data-ref="93p">p</a> );</td></tr>
+<tr><th id="873">873</th><td><i>//		w = p-&gt;winding;</i></td></tr>
+<tr><th id="874">874</th><td>		<b>if</b> ( !<a class="local col8 ref" href="#98side" title='side' data-ref="98side">side</a> ) {</td></tr>
+<tr><th id="875">875</th><td>			<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon7WarningEPKcz" title='idCommon::Warning' data-ref="_ZN8idCommon7WarningEPKcz">Warning</a>( <q>"FindSideForPortal failed at %s"</q>, <a class="local col3 ref" href="#93p" title='p' data-ref="93p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::winding" title='uPortal_s::winding' data-ref="uPortal_s::winding">winding</a>-&gt;<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZNK9idWinding9GetCenterEv" title='idWinding::GetCenter' data-ref="_ZNK9idWinding9GetCenterEv">GetCenter</a>().<a class="ref" href="../../../idlib/math/Vector.h.html#_ZNK6idVec38ToStringEi" title='idVec3::ToString' data-ref="_ZNK6idVec38ToStringEi">ToString</a>() );</td></tr>
+<tr><th id="876">876</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="877">877</th><td>		}</td></tr>
+<tr><th id="878">878</th><td>		<a class="local col6 ref" href="#96w" title='w' data-ref="96w">w</a> = <a class="local col8 ref" href="#98side" title='side' data-ref="98side">side</a>-&gt;<a class="ref" href="dmap.h.html#side_s::visibleHull" title='side_s::visibleHull' data-ref="side_s::visibleHull">visibleHull</a>;</td></tr>
+<tr><th id="879">879</th><td>		<b>if</b> ( !<a class="local col6 ref" href="#96w" title='w' data-ref="96w">w</a> ) {</td></tr>
+<tr><th id="880">880</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="881">881</th><td>		}</td></tr>
+<tr><th id="882">882</th><td></td></tr>
+<tr><th id="883">883</th><td>		<i>// see if we have created this portal before</i></td></tr>
+<tr><th id="884">884</th><td>		<b>for</b> ( <a class="local col5 ref" href="#95i" title='i' data-ref="95i">i</a> = <var>0</var> ; <a class="local col5 ref" href="#95i" title='i' data-ref="95i">i</a> &lt; <a class="ref" href="dmap.h.html#numInterAreaPortals" title='numInterAreaPortals' data-ref="numInterAreaPortals">numInterAreaPortals</a> ; <a class="local col5 ref" href="#95i" title='i' data-ref="95i">i</a>++ ) {</td></tr>
+<tr><th id="885">885</th><td>			<a class="local col7 ref" href="#97iap" title='iap' data-ref="97iap">iap</a> = &amp;<a class="ref" href="dmap.h.html#interAreaPortals" title='interAreaPortals' data-ref="interAreaPortals">interAreaPortals</a>[<a class="local col5 ref" href="#95i" title='i' data-ref="95i">i</a>];</td></tr>
+<tr><th id="886">886</th><td></td></tr>
+<tr><th id="887">887</th><td>			<b>if</b> ( <a class="local col8 ref" href="#98side" title='side' data-ref="98side">side</a> == <a class="local col7 ref" href="#97iap" title='iap' data-ref="97iap">iap</a>-&gt;<a class="ref" href="dmap.h.html#(anonymous)::side" title='(anonymous struct)::side' data-ref="(anonymous)::side">side</a> &amp;&amp;</td></tr>
+<tr><th id="888">888</th><td>				( ( <a class="local col3 ref" href="#93p" title='p' data-ref="93p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>0</var>]-&gt;<a class="ref" href="dmap.h.html#node_s::area" title='node_s::area' data-ref="node_s::area">area</a> == <a class="local col7 ref" href="#97iap" title='iap' data-ref="97iap">iap</a>-&gt;<a class="ref" href="dmap.h.html#(anonymous)::area0" title='(anonymous struct)::area0' data-ref="(anonymous)::area0">area0</a> &amp;&amp; <a class="local col3 ref" href="#93p" title='p' data-ref="93p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>1</var>]-&gt;<a class="ref" href="dmap.h.html#node_s::area" title='node_s::area' data-ref="node_s::area">area</a> == <a class="local col7 ref" href="#97iap" title='iap' data-ref="97iap">iap</a>-&gt;<a class="ref" href="dmap.h.html#(anonymous)::area1" title='(anonymous struct)::area1' data-ref="(anonymous)::area1">area1</a> )</td></tr>
+<tr><th id="889">889</th><td>				|| ( <a class="local col3 ref" href="#93p" title='p' data-ref="93p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>1</var>]-&gt;<a class="ref" href="dmap.h.html#node_s::area" title='node_s::area' data-ref="node_s::area">area</a> == <a class="local col7 ref" href="#97iap" title='iap' data-ref="97iap">iap</a>-&gt;<a class="ref" href="dmap.h.html#(anonymous)::area0" title='(anonymous struct)::area0' data-ref="(anonymous)::area0">area0</a> &amp;&amp; <a class="local col3 ref" href="#93p" title='p' data-ref="93p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>0</var>]-&gt;<a class="ref" href="dmap.h.html#node_s::area" title='node_s::area' data-ref="node_s::area">area</a> == <a class="local col7 ref" href="#97iap" title='iap' data-ref="97iap">iap</a>-&gt;<a class="ref" href="dmap.h.html#(anonymous)::area1" title='(anonymous struct)::area1' data-ref="(anonymous)::area1">area1</a> ) ) ) {</td></tr>
+<tr><th id="890">890</th><td>				<b>break</b>;</td></tr>
+<tr><th id="891">891</th><td>			}</td></tr>
+<tr><th id="892">892</th><td>		}</td></tr>
+<tr><th id="893">893</th><td></td></tr>
+<tr><th id="894">894</th><td>		<b>if</b> ( <a class="local col5 ref" href="#95i" title='i' data-ref="95i">i</a> != <a class="ref" href="dmap.h.html#numInterAreaPortals" title='numInterAreaPortals' data-ref="numInterAreaPortals">numInterAreaPortals</a> ) {</td></tr>
+<tr><th id="895">895</th><td>			<b>continue</b>;	<i>// already emited</i></td></tr>
+<tr><th id="896">896</th><td>		}</td></tr>
+<tr><th id="897">897</th><td></td></tr>
+<tr><th id="898">898</th><td>		<a class="local col7 ref" href="#97iap" title='iap' data-ref="97iap">iap</a> = &amp;<a class="ref" href="dmap.h.html#interAreaPortals" title='interAreaPortals' data-ref="interAreaPortals">interAreaPortals</a>[<a class="ref" href="dmap.h.html#numInterAreaPortals" title='numInterAreaPortals' data-ref="numInterAreaPortals">numInterAreaPortals</a>];</td></tr>
+<tr><th id="899">899</th><td>		<a class="ref" href="dmap.h.html#numInterAreaPortals" title='numInterAreaPortals' data-ref="numInterAreaPortals">numInterAreaPortals</a>++;</td></tr>
+<tr><th id="900">900</th><td>		<b>if</b> ( <a class="local col8 ref" href="#98side" title='side' data-ref="98side">side</a>-&gt;<a class="ref" href="dmap.h.html#side_s::planenum" title='side_s::planenum' data-ref="side_s::planenum">planenum</a> == <a class="local col3 ref" href="#93p" title='p' data-ref="93p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::onnode" title='uPortal_s::onnode' data-ref="uPortal_s::onnode">onnode</a>-&gt;<a class="ref" href="dmap.h.html#node_s::planenum" title='node_s::planenum' data-ref="node_s::planenum">planenum</a> ) {</td></tr>
+<tr><th id="901">901</th><td>			<a class="local col7 ref" href="#97iap" title='iap' data-ref="97iap">iap</a>-&gt;<a class="ref" href="dmap.h.html#(anonymous)::area0" title='(anonymous struct)::area0' data-ref="(anonymous)::area0">area0</a> = <a class="local col3 ref" href="#93p" title='p' data-ref="93p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>0</var>]-&gt;<a class="ref" href="dmap.h.html#node_s::area" title='node_s::area' data-ref="node_s::area">area</a>;</td></tr>
+<tr><th id="902">902</th><td>			<a class="local col7 ref" href="#97iap" title='iap' data-ref="97iap">iap</a>-&gt;<a class="ref" href="dmap.h.html#(anonymous)::area1" title='(anonymous struct)::area1' data-ref="(anonymous)::area1">area1</a> = <a class="local col3 ref" href="#93p" title='p' data-ref="93p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>1</var>]-&gt;<a class="ref" href="dmap.h.html#node_s::area" title='node_s::area' data-ref="node_s::area">area</a>;</td></tr>
+<tr><th id="903">903</th><td>		} <b>else</b> {</td></tr>
+<tr><th id="904">904</th><td>			<a class="local col7 ref" href="#97iap" title='iap' data-ref="97iap">iap</a>-&gt;<a class="ref" href="dmap.h.html#(anonymous)::area0" title='(anonymous struct)::area0' data-ref="(anonymous)::area0">area0</a> = <a class="local col3 ref" href="#93p" title='p' data-ref="93p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>1</var>]-&gt;<a class="ref" href="dmap.h.html#node_s::area" title='node_s::area' data-ref="node_s::area">area</a>;</td></tr>
+<tr><th id="905">905</th><td>			<a class="local col7 ref" href="#97iap" title='iap' data-ref="97iap">iap</a>-&gt;<a class="ref" href="dmap.h.html#(anonymous)::area1" title='(anonymous struct)::area1' data-ref="(anonymous)::area1">area1</a> = <a class="local col3 ref" href="#93p" title='p' data-ref="93p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>0</var>]-&gt;<a class="ref" href="dmap.h.html#node_s::area" title='node_s::area' data-ref="node_s::area">area</a>;</td></tr>
+<tr><th id="906">906</th><td>		}</td></tr>
+<tr><th id="907">907</th><td>		<a class="local col7 ref" href="#97iap" title='iap' data-ref="97iap">iap</a>-&gt;<a class="ref" href="dmap.h.html#(anonymous)::side" title='(anonymous struct)::side' data-ref="(anonymous)::side">side</a> = <a class="local col8 ref" href="#98side" title='side' data-ref="98side">side</a>;</td></tr>
+<tr><th id="908">908</th><td></td></tr>
+<tr><th id="909">909</th><td>	}</td></tr>
+<tr><th id="910">910</th><td>}</td></tr>
+<tr><th id="911">911</th><td></td></tr>
+<tr><th id="912">912</th><td></td></tr>
+<tr><th id="913">913</th><td></td></tr>
+<tr><th id="914">914</th><td></td></tr>
+<tr><th id="915">915</th><td></td></tr>
+<tr><th id="916">916</th><td><i>/*</i></td></tr>
+<tr><th id="917">917</th><td><i>=============</i></td></tr>
+<tr><th id="918">918</th><td><i>FloodAreas</i></td></tr>
+<tr><th id="919">919</th><td><i></i></td></tr>
+<tr><th id="920">920</th><td><i>Mark each leaf with an area, bounded by CONTENTS_AREAPORTAL</i></td></tr>
+<tr><th id="921">921</th><td><i>Sets e-&gt;areas.numAreas</i></td></tr>
+<tr><th id="922">922</th><td><i>=============</i></td></tr>
+<tr><th id="923">923</th><td><i>*/</i></td></tr>
+<tr><th id="924">924</th><td><em>void</em> <dfn class="decl def" id="_Z10FloodAreasP9uEntity_t" title='FloodAreas' data-ref="_Z10FloodAreasP9uEntity_t">FloodAreas</dfn>( <a class="typedef" href="dmap.h.html#uEntity_t" title='uEntity_t' data-type='struct uEntity_t' data-ref="uEntity_t">uEntity_t</a> *<dfn class="local col0 decl" id="100e" title='e' data-type='uEntity_t *' data-ref="100e">e</dfn> ) {</td></tr>
+<tr><th id="925">925</th><td>	<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a> (<q>"--- FloodAreas ---\n"</q>);</td></tr>
+<tr><th id="926">926</th><td></td></tr>
+<tr><th id="927">927</th><td>	<i>// set all areas to -1</i></td></tr>
+<tr><th id="928">928</th><td>	<a class="ref" href="#_Z12ClearAreas_rP6node_s" title='ClearAreas_r' data-ref="_Z12ClearAreas_rP6node_s">ClearAreas_r</a>( <a class="local col0 ref" href="#100e" title='e' data-ref="100e">e</a>-&gt;<a class="ref" href="dmap.h.html#(anonymous)::tree" title='(anonymous struct)::tree' data-ref="(anonymous)::tree">tree</a>-&gt;<a class="ref" href="dmap.h.html#tree_s::headnode" title='tree_s::headnode' data-ref="tree_s::headnode">headnode</a> );</td></tr>
+<tr><th id="929">929</th><td></td></tr>
+<tr><th id="930">930</th><td>	<i>// flood fill from non-opaque areas</i></td></tr>
+<tr><th id="931">931</th><td>	<a class="tu ref" href="#c_areas" title='c_areas' data-use='w' data-ref="c_areas">c_areas</a> = <var>0</var>;</td></tr>
+<tr><th id="932">932</th><td>	<a class="ref" href="#_Z11FindAreas_rP6node_s" title='FindAreas_r' data-ref="_Z11FindAreas_rP6node_s">FindAreas_r</a>( <a class="local col0 ref" href="#100e" title='e' data-ref="100e">e</a>-&gt;<a class="ref" href="dmap.h.html#(anonymous)::tree" title='(anonymous struct)::tree' data-ref="(anonymous)::tree">tree</a>-&gt;<a class="ref" href="dmap.h.html#tree_s::headnode" title='tree_s::headnode' data-ref="tree_s::headnode">headnode</a> );</td></tr>
+<tr><th id="933">933</th><td></td></tr>
+<tr><th id="934">934</th><td>	<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a> (<q>"%5i areas\n"</q>, <a class="tu ref" href="#c_areas" title='c_areas' data-use='r' data-ref="c_areas">c_areas</a>);</td></tr>
+<tr><th id="935">935</th><td>	<a class="local col0 ref" href="#100e" title='e' data-ref="100e">e</a>-&gt;<a class="ref" href="dmap.h.html#(anonymous)::numAreas" title='(anonymous struct)::numAreas' data-ref="(anonymous)::numAreas">numAreas</a> = <a class="tu ref" href="#c_areas" title='c_areas' data-use='r' data-ref="c_areas">c_areas</a>;</td></tr>
+<tr><th id="936">936</th><td></td></tr>
+<tr><th id="937">937</th><td>	<i>// make sure we got all of them</i></td></tr>
+<tr><th id="938">938</th><td>	<a class="ref" href="#_Z12CheckAreas_rP6node_s" title='CheckAreas_r' data-ref="_Z12CheckAreas_rP6node_s">CheckAreas_r</a>( <a class="local col0 ref" href="#100e" title='e' data-ref="100e">e</a>-&gt;<a class="ref" href="dmap.h.html#(anonymous)::tree" title='(anonymous struct)::tree' data-ref="(anonymous)::tree">tree</a>-&gt;<a class="ref" href="dmap.h.html#tree_s::headnode" title='tree_s::headnode' data-ref="tree_s::headnode">headnode</a> );</td></tr>
+<tr><th id="939">939</th><td></td></tr>
+<tr><th id="940">940</th><td>	<i>// identify all portals between areas if this is the world</i></td></tr>
+<tr><th id="941">941</th><td>	<b>if</b> ( <a class="local col0 ref" href="#100e" title='e' data-ref="100e">e</a> == &amp;<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::uEntities" title='(anonymous struct)::uEntities' data-ref="(anonymous)::uEntities">uEntities</a>[<var>0</var>] ) {</td></tr>
+<tr><th id="942">942</th><td>		<a class="ref" href="dmap.h.html#numInterAreaPortals" title='numInterAreaPortals' data-ref="numInterAreaPortals">numInterAreaPortals</a> = <var>0</var>;</td></tr>
+<tr><th id="943">943</th><td>		<a class="tu ref" href="#_ZL22FindInterAreaPortals_rP6node_s" title='FindInterAreaPortals_r' data-use='c' data-ref="_ZL22FindInterAreaPortals_rP6node_s">FindInterAreaPortals_r</a>( <a class="local col0 ref" href="#100e" title='e' data-ref="100e">e</a>-&gt;<a class="ref" href="dmap.h.html#(anonymous)::tree" title='(anonymous struct)::tree' data-ref="(anonymous)::tree">tree</a>-&gt;<a class="ref" href="dmap.h.html#tree_s::headnode" title='tree_s::headnode' data-ref="tree_s::headnode">headnode</a> );</td></tr>
+<tr><th id="944">944</th><td>	}</td></tr>
+<tr><th id="945">945</th><td>}</td></tr>
+<tr><th id="946">946</th><td></td></tr>
+<tr><th id="947">947</th><td><i  data-doc="c_outside">/*</i></td></tr>
+<tr><th id="948">948</th><td><i  data-doc="c_outside">======================================================</i></td></tr>
+<tr><th id="949">949</th><td><i  data-doc="c_outside"></i></td></tr>
+<tr><th id="950">950</th><td><i  data-doc="c_outside">FILL OUTSIDE</i></td></tr>
+<tr><th id="951">951</th><td><i  data-doc="c_outside"></i></td></tr>
+<tr><th id="952">952</th><td><i  data-doc="c_outside">======================================================</i></td></tr>
+<tr><th id="953">953</th><td><i  data-doc="c_outside">*/</i></td></tr>
+<tr><th id="954">954</th><td></td></tr>
+<tr><th id="955">955</th><td><em>static</em>	<em>int</em>		<dfn class="tu decl def" id="c_outside" title='c_outside' data-type='int' data-ref="c_outside">c_outside</dfn>;</td></tr>
+<tr><th id="956">956</th><td><em>static</em>	<em>int</em>		<dfn class="tu decl def" id="c_inside" title='c_inside' data-type='int' data-ref="c_inside">c_inside</dfn>;</td></tr>
+<tr><th id="957">957</th><td><em>static</em>	<em>int</em>		<dfn class="tu decl def" id="c_solid" title='c_solid' data-type='int' data-ref="c_solid">c_solid</dfn>;</td></tr>
+<tr><th id="958">958</th><td></td></tr>
+<tr><th id="959">959</th><td><em>void</em> <dfn class="decl def" id="_Z13FillOutside_rP6node_s" title='FillOutside_r' data-ref="_Z13FillOutside_rP6node_s">FillOutside_r</dfn> (<a class="typedef" href="dmap.h.html#node_t" title='node_t' data-type='struct node_s' data-ref="node_t">node_t</a> *<dfn class="local col1 decl" id="101node" title='node' data-type='node_t *' data-ref="101node">node</dfn>)</td></tr>
+<tr><th id="960">960</th><td>{</td></tr>
+<tr><th id="961">961</th><td>	<b>if</b> (<a class="local col1 ref" href="#101node" title='node' data-ref="101node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::planenum" title='node_s::planenum' data-ref="node_s::planenum">planenum</a> != <a class="macro" href="dmap.h.html#81" title="-1" data-ref="_M/PLANENUM_LEAF">PLANENUM_LEAF</a>)</td></tr>
+<tr><th id="962">962</th><td>	{</td></tr>
+<tr><th id="963">963</th><td>		<a class="ref" href="#_Z13FillOutside_rP6node_s" title='FillOutside_r' data-ref="_Z13FillOutside_rP6node_s">FillOutside_r</a> (<a class="local col1 ref" href="#101node" title='node' data-ref="101node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::children" title='node_s::children' data-ref="node_s::children">children</a>[<var>0</var>]);</td></tr>
+<tr><th id="964">964</th><td>		<a class="ref" href="#_Z13FillOutside_rP6node_s" title='FillOutside_r' data-ref="_Z13FillOutside_rP6node_s">FillOutside_r</a> (<a class="local col1 ref" href="#101node" title='node' data-ref="101node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::children" title='node_s::children' data-ref="node_s::children">children</a>[<var>1</var>]);</td></tr>
+<tr><th id="965">965</th><td>		<b>return</b>;</td></tr>
+<tr><th id="966">966</th><td>	}</td></tr>
+<tr><th id="967">967</th><td></td></tr>
+<tr><th id="968">968</th><td>	<i>// anything not reachable by an entity</i></td></tr>
+<tr><th id="969">969</th><td><i>	// can be filled away</i></td></tr>
+<tr><th id="970">970</th><td>	<b>if</b> (!<a class="local col1 ref" href="#101node" title='node' data-ref="101node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::occupied" title='node_s::occupied' data-ref="node_s::occupied">occupied</a>) {</td></tr>
+<tr><th id="971">971</th><td>		<b>if</b> ( !<a class="local col1 ref" href="#101node" title='node' data-ref="101node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::opaque" title='node_s::opaque' data-ref="node_s::opaque">opaque</a> ) {</td></tr>
+<tr><th id="972">972</th><td>			<a class="tu ref" href="#c_outside" title='c_outside' data-use='w' data-ref="c_outside">c_outside</a>++;</td></tr>
+<tr><th id="973">973</th><td>			<a class="local col1 ref" href="#101node" title='node' data-ref="101node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::opaque" title='node_s::opaque' data-ref="node_s::opaque">opaque</a> = <b>true</b>;</td></tr>
+<tr><th id="974">974</th><td>		} <b>else</b> {</td></tr>
+<tr><th id="975">975</th><td>			<a class="tu ref" href="#c_solid" title='c_solid' data-use='w' data-ref="c_solid">c_solid</a>++;</td></tr>
+<tr><th id="976">976</th><td>		}</td></tr>
+<tr><th id="977">977</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="978">978</th><td>		<a class="tu ref" href="#c_inside" title='c_inside' data-use='w' data-ref="c_inside">c_inside</a>++;</td></tr>
+<tr><th id="979">979</th><td>	}</td></tr>
+<tr><th id="980">980</th><td></td></tr>
+<tr><th id="981">981</th><td>}</td></tr>
+<tr><th id="982">982</th><td></td></tr>
+<tr><th id="983">983</th><td><i>/*</i></td></tr>
+<tr><th id="984">984</th><td><i>=============</i></td></tr>
+<tr><th id="985">985</th><td><i>FillOutside</i></td></tr>
+<tr><th id="986">986</th><td><i></i></td></tr>
+<tr><th id="987">987</th><td><i>Fill (set node-&gt;opaque = true) all nodes that can't be reached by entities</i></td></tr>
+<tr><th id="988">988</th><td><i>=============</i></td></tr>
+<tr><th id="989">989</th><td><i>*/</i></td></tr>
+<tr><th id="990">990</th><td><em>void</em> <dfn class="decl def" id="_Z11FillOutsideP9uEntity_t" title='FillOutside' data-ref="_Z11FillOutsideP9uEntity_t">FillOutside</dfn>( <a class="typedef" href="dmap.h.html#uEntity_t" title='uEntity_t' data-type='struct uEntity_t' data-ref="uEntity_t">uEntity_t</a> *<dfn class="local col2 decl" id="102e" title='e' data-type='uEntity_t *' data-ref="102e">e</dfn> ) {</td></tr>
+<tr><th id="991">991</th><td>	<a class="tu ref" href="#c_outside" title='c_outside' data-use='w' data-ref="c_outside">c_outside</a> = <var>0</var>;</td></tr>
+<tr><th id="992">992</th><td>	<a class="tu ref" href="#c_inside" title='c_inside' data-use='w' data-ref="c_inside">c_inside</a> = <var>0</var>;</td></tr>
+<tr><th id="993">993</th><td>	<a class="tu ref" href="#c_solid" title='c_solid' data-use='w' data-ref="c_solid">c_solid</a> = <var>0</var>;</td></tr>
+<tr><th id="994">994</th><td>	<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a> (<q>"--- FillOutside ---\n"</q>);</td></tr>
+<tr><th id="995">995</th><td>	<a class="ref" href="#_Z13FillOutside_rP6node_s" title='FillOutside_r' data-ref="_Z13FillOutside_rP6node_s">FillOutside_r</a>( <a class="local col2 ref" href="#102e" title='e' data-ref="102e">e</a>-&gt;<a class="ref" href="dmap.h.html#(anonymous)::tree" title='(anonymous struct)::tree' data-ref="(anonymous)::tree">tree</a>-&gt;<a class="ref" href="dmap.h.html#tree_s::headnode" title='tree_s::headnode' data-ref="tree_s::headnode">headnode</a> );</td></tr>
+<tr><th id="996">996</th><td>	<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a> (<q>"%5i solid leafs\n"</q>, <a class="tu ref" href="#c_solid" title='c_solid' data-use='r' data-ref="c_solid">c_solid</a>);</td></tr>
+<tr><th id="997">997</th><td>	<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a> (<q>"%5i leafs filled\n"</q>, <a class="tu ref" href="#c_outside" title='c_outside' data-use='r' data-ref="c_outside">c_outside</a>);</td></tr>
+<tr><th id="998">998</th><td>	<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a> (<q>"%5i inside leafs\n"</q>, <a class="tu ref" href="#c_inside" title='c_inside' data-use='r' data-ref="c_inside">c_inside</a>);</td></tr>
+<tr><th id="999">999</th><td>}</td></tr>
+<tr><th id="1000">1000</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,14 @@
+<dec f='codebrowser/curl/lib/sendf.h' l='46' type='CURLcode Curl_write(struct connectdata * conn, curl_socket_t sockfd, void * mem, size_t len, ssize_t * written)'/>
+<doc f='codebrowser/curl/lib/sendf.h' l='45'>/* internal write-function, does plain socket, SSL and krb4 */</doc>
+<use f='codebrowser/curl/lib/ftp.c' l='2436' u='c' c='Curl_ftpsendf'/>
+<use f='codebrowser/curl/lib/http.c' l='563' u='c' c='add_buffer_send'/>
+<use f='codebrowser/curl/lib/sendf.c' l='194' u='c' c='Curl_sendf'/>
+<def f='codebrowser/curl/lib/sendf.c' l='221' ll='312' type='CURLcode Curl_write(struct connectdata * conn, curl_socket_t sockfd, void * mem, size_t len, ssize_t * written)'/>
+<doc f='codebrowser/curl/lib/sendf.c' l='217'>/*
+ * Curl_write() is an internal write function that sends plain (binary) data
+ * to the server. Works with plain sockets, SSL or kerberos.
+ */</doc>
+<use f='codebrowser/curl/lib/transfer.c' l='1148' u='c' c='Curl_readwrite'/>
+<use f='codebrowser/curl/lib/url.c' l='1636' u='c' c='handleSock5Proxy'/>
+<use f='codebrowser/curl/lib/url.c' l='1680' u='c' c='handleSock5Proxy'/>
+<use f='codebrowser/curl/lib/url.c' l='1778' u='c' c='handleSock5Proxy'/>

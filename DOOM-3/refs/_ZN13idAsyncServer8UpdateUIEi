@@ -1,0 +1,11 @@
+<dec f='codebrowser/framework/async/AsyncServer.h' l='173' type='void idAsyncServer::UpdateUI(int clientNum)'/>
+<use f='codebrowser/framework/async/AsyncNetwork.cpp' l='492' u='c' c='_ZN14idAsyncNetwork10UpdateUI_fERK9idCmdArgs'/>
+<def f='codebrowser/framework/async/AsyncServer.cpp' l='949' ll='958' type='void idAsyncServer::UpdateUI(int clientNum)'/>
+<doc f='codebrowser/framework/async/AsyncServer.cpp' l='941'>/*
+==================
+idAsyncServer::UpdateUI
+if the game modifies userInfo, it will call this through command system
+we then need to get the info from the game, and broadcast to clients
+( using DeltaDict and our current mapSpawnData as a base )
+==================
+*/</doc>

@@ -1,0 +1,142 @@
+<def f='codebrowser/d3xp/script/Script_Compiler.h' l='197' ll='276'/>
+<size>236</size>
+<smbr r='idCompiler::punctuationValid' t='bool [256]'/>
+<smbr r='idCompiler::punctuation' t='char *[]'/>
+<mbr r='idCompiler::parser' o='0' t='idParser'/>
+<mbr r='idCompiler::parserPtr' o='864' t='idParser *'/>
+<mbr r='idCompiler::token' o='896' t='idToken'/>
+<mbr r='idCompiler::immediateType' o='1504' t='idTypeDef *'/>
+<mbr r='idCompiler::immediate' o='1536' t='eval_t'/>
+<mbr r='idCompiler::eof' o='1632' t='bool'/>
+<mbr r='idCompiler::console' o='1640' t='bool'/>
+<mbr r='idCompiler::callthread' o='1648' t='bool'/>
+<mbr r='idCompiler::braceDepth' o='1664' t='int'/>
+<mbr r='idCompiler::loopDepth' o='1696' t='int'/>
+<mbr r='idCompiler::currentLineNumber' o='1728' t='int'/>
+<mbr r='idCompiler::currentFileNumber' o='1760' t='int'/>
+<mbr r='idCompiler::errorCount' o='1792' t='int'/>
+<mbr r='idCompiler::scope' o='1824' t='idVarDef *'/>
+<mbr r='idCompiler::basetype' o='1856' t='const idVarDef *'/>
+<fun r='_ZN10idCompiler6DivideEff'/>
+<fun r='_ZNK10idCompiler5ErrorEPKcz'/>
+<fun r='_ZNK10idCompiler7WarningEPKcz'/>
+<fun r='_ZN10idCompiler14OptimizeOpcodeEPK8opcode_sP8idVarDefS4_'/>
+<fun r='_ZN10idCompiler10EmitOpcodeEPK8opcode_sP8idVarDefS4_'/>
+<fun r='_ZN10idCompiler10EmitOpcodeEiP8idVarDefS1_'/>
+<fun r='_ZN10idCompiler8EmitPushEP8idVarDefPK9idTypeDef'/>
+<fun r='_ZN10idCompiler9NextTokenEv'/>
+<fun r='_ZN10idCompiler11ExpectTokenEPKc'/>
+<fun r='_ZN10idCompiler10CheckTokenEPKc'/>
+<fun r='_ZN10idCompiler9ParseNameER5idStr'/>
+<fun r='_ZN10idCompiler17SkipOutOfFunctionEv'/>
+<fun r='_ZN10idCompiler15SkipToSemicolonEv'/>
+<fun r='_ZN10idCompiler9CheckTypeEv'/>
+<fun r='_ZN10idCompiler9ParseTypeEv'/>
+<fun r='_ZNK10idCompiler13FindImmediateEPK9idTypeDefPK6eval_sPKc'/>
+<fun r='_ZN10idCompiler12GetImmediateEP9idTypeDefPK6eval_sPKc'/>
+<fun r='_ZN10idCompiler23VirtualFunctionConstantEP8idVarDef'/>
+<fun r='_ZN10idCompiler12SizeConstantEi'/>
+<fun r='_ZN10idCompiler12JumpConstantEi'/>
+<fun r='_ZN10idCompiler7JumpDefEii'/>
+<fun r='_ZN10idCompiler6JumpToEi'/>
+<fun r='_ZN10idCompiler8JumpFromEi'/>
+<fun r='_ZN10idCompiler14ParseImmediateEv'/>
+<fun r='_ZN10idCompiler17EmitFunctionParmsEiP8idVarDefiiS1_'/>
+<fun r='_ZN10idCompiler17ParseFunctionCallEP8idVarDef'/>
+<fun r='_ZN10idCompiler15ParseObjectCallEP8idVarDefS1_'/>
+<fun r='_ZN10idCompiler14ParseEventCallEP8idVarDefS1_'/>
+<fun r='_ZN10idCompiler18ParseSysObjectCallEP8idVarDef'/>
+<fun r='_ZN10idCompiler9LookupDefEPKcPK8idVarDef'/>
+<fun r='_ZN10idCompiler10ParseValueEv'/>
+<fun r='_ZN10idCompiler7GetTermEv'/>
+<fun r='_ZNK10idCompiler11TypeMatchesE7etype_tS0_'/>
+<fun r='_ZN10idCompiler13GetExpressionEi'/>
+<fun r='_ZN10idCompiler18GetTypeForEventArgEc'/>
+<fun r='_ZN10idCompiler9PatchLoopEii'/>
+<fun r='_ZN10idCompiler20ParseReturnStatementEv'/>
+<fun r='_ZN10idCompiler19ParseWhileStatementEv'/>
+<fun r='_ZN10idCompiler17ParseForStatementEv'/>
+<fun r='_ZN10idCompiler21ParseDoWhileStatementEv'/>
+<fun r='_ZN10idCompiler16ParseIfStatementEv'/>
+<fun r='_ZN10idCompiler14ParseStatementEv'/>
+<fun r='_ZN10idCompiler14ParseObjectDefEPKc'/>
+<fun r='_ZN10idCompiler13ParseFunctionEP9idTypeDefPKc'/>
+<fun r='_ZN10idCompiler16ParseFunctionDefEP9idTypeDefPKc'/>
+<fun r='_ZN10idCompiler16ParseVariableDefEP9idTypeDefPKc'/>
+<fun r='_ZN10idCompiler13ParseEventDefEP9idTypeDefPKc'/>
+<fun r='_ZN10idCompiler9ParseDefsEv'/>
+<fun r='_ZN10idCompiler14ParseNamespaceEP8idVarDef'/>
+<smbr r='idCompiler::opcodes' t='opcode_t []'/>
+<fun r='_ZN10idCompilerC1Ev'/>
+<fun r='_ZN10idCompiler11CompileFileEPKcS1_b'/>
+<def f='codebrowser/game/script/Script_Compiler.h' l='197' ll='276'/>
+<size>236</size>
+<smbr r='idCompiler::punctuationValid' t='bool [256]'/>
+<smbr r='idCompiler::punctuation' t='char *[]'/>
+<mbr r='idCompiler::parser' o='0' t='idParser'/>
+<mbr r='idCompiler::parserPtr' o='864' t='idParser *'/>
+<mbr r='idCompiler::token' o='896' t='idToken'/>
+<mbr r='idCompiler::immediateType' o='1504' t='idTypeDef *'/>
+<mbr r='idCompiler::immediate' o='1536' t='eval_t'/>
+<mbr r='idCompiler::eof' o='1632' t='bool'/>
+<mbr r='idCompiler::console' o='1640' t='bool'/>
+<mbr r='idCompiler::callthread' o='1648' t='bool'/>
+<mbr r='idCompiler::braceDepth' o='1664' t='int'/>
+<mbr r='idCompiler::loopDepth' o='1696' t='int'/>
+<mbr r='idCompiler::currentLineNumber' o='1728' t='int'/>
+<mbr r='idCompiler::currentFileNumber' o='1760' t='int'/>
+<mbr r='idCompiler::errorCount' o='1792' t='int'/>
+<mbr r='idCompiler::scope' o='1824' t='idVarDef *'/>
+<mbr r='idCompiler::basetype' o='1856' t='const idVarDef *'/>
+<fun r='_ZN10idCompiler6DivideEff'/>
+<fun r='_ZNK10idCompiler5ErrorEPKcz'/>
+<fun r='_ZNK10idCompiler7WarningEPKcz'/>
+<fun r='_ZN10idCompiler14OptimizeOpcodeEPK8opcode_sP8idVarDefS4_'/>
+<fun r='_ZN10idCompiler10EmitOpcodeEPK8opcode_sP8idVarDefS4_'/>
+<fun r='_ZN10idCompiler10EmitOpcodeEiP8idVarDefS1_'/>
+<fun r='_ZN10idCompiler8EmitPushEP8idVarDefPK9idTypeDef'/>
+<fun r='_ZN10idCompiler9NextTokenEv'/>
+<fun r='_ZN10idCompiler11ExpectTokenEPKc'/>
+<fun r='_ZN10idCompiler10CheckTokenEPKc'/>
+<fun r='_ZN10idCompiler9ParseNameER5idStr'/>
+<fun r='_ZN10idCompiler17SkipOutOfFunctionEv'/>
+<fun r='_ZN10idCompiler15SkipToSemicolonEv'/>
+<fun r='_ZN10idCompiler9CheckTypeEv'/>
+<fun r='_ZN10idCompiler9ParseTypeEv'/>
+<fun r='_ZNK10idCompiler13FindImmediateEPK9idTypeDefPK6eval_sPKc'/>
+<fun r='_ZN10idCompiler12GetImmediateEP9idTypeDefPK6eval_sPKc'/>
+<fun r='_ZN10idCompiler23VirtualFunctionConstantEP8idVarDef'/>
+<fun r='_ZN10idCompiler12SizeConstantEi'/>
+<fun r='_ZN10idCompiler12JumpConstantEi'/>
+<fun r='_ZN10idCompiler7JumpDefEii'/>
+<fun r='_ZN10idCompiler6JumpToEi'/>
+<fun r='_ZN10idCompiler8JumpFromEi'/>
+<fun r='_ZN10idCompiler14ParseImmediateEv'/>
+<fun r='_ZN10idCompiler17EmitFunctionParmsEiP8idVarDefiiS1_'/>
+<fun r='_ZN10idCompiler17ParseFunctionCallEP8idVarDef'/>
+<fun r='_ZN10idCompiler15ParseObjectCallEP8idVarDefS1_'/>
+<fun r='_ZN10idCompiler14ParseEventCallEP8idVarDefS1_'/>
+<fun r='_ZN10idCompiler18ParseSysObjectCallEP8idVarDef'/>
+<fun r='_ZN10idCompiler9LookupDefEPKcPK8idVarDef'/>
+<fun r='_ZN10idCompiler10ParseValueEv'/>
+<fun r='_ZN10idCompiler7GetTermEv'/>
+<fun r='_ZNK10idCompiler11TypeMatchesE7etype_tS0_'/>
+<fun r='_ZN10idCompiler13GetExpressionEi'/>
+<fun r='_ZN10idCompiler18GetTypeForEventArgEc'/>
+<fun r='_ZN10idCompiler9PatchLoopEii'/>
+<fun r='_ZN10idCompiler20ParseReturnStatementEv'/>
+<fun r='_ZN10idCompiler19ParseWhileStatementEv'/>
+<fun r='_ZN10idCompiler17ParseForStatementEv'/>
+<fun r='_ZN10idCompiler21ParseDoWhileStatementEv'/>
+<fun r='_ZN10idCompiler16ParseIfStatementEv'/>
+<fun r='_ZN10idCompiler14ParseStatementEv'/>
+<fun r='_ZN10idCompiler14ParseObjectDefEPKc'/>
+<fun r='_ZN10idCompiler13ParseFunctionEP9idTypeDefPKc'/>
+<fun r='_ZN10idCompiler16ParseFunctionDefEP9idTypeDefPKc'/>
+<fun r='_ZN10idCompiler16ParseVariableDefEP9idTypeDefPKc'/>
+<fun r='_ZN10idCompiler13ParseEventDefEP9idTypeDefPKc'/>
+<fun r='_ZN10idCompiler9ParseDefsEv'/>
+<fun r='_ZN10idCompiler14ParseNamespaceEP8idVarDef'/>
+<smbr r='idCompiler::opcodes' t='opcode_t []'/>
+<fun r='_ZN10idCompilerC1Ev'/>
+<fun r='_ZN10idCompiler11CompileFileEPKcS1_b'/>

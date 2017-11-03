@@ -1,0 +1,34 @@
+<dec f='codebrowser/idlib/containers/List.h' l='128' type='bool idList::Remove(const type &amp; obj)'/>
+<def f='codebrowser/idlib/containers/List.h' l='877' ll='887' type='bool idList::Remove(const type &amp; obj)'/>
+<doc f='codebrowser/idlib/containers/List.h' l='128'>// remove the element</doc>
+<doc f='codebrowser/idlib/containers/List.h' l='868'>/*
+================
+idList&lt;type&gt;::Remove
+
+Removes the element if it is found within the list and moves all data following the element down to fill in the gap.
+The number of elements in the list is reduced by one.  Returns false if the data is not found in the list.  Note that
+the element is not destroyed, so any memory used by it may not be freed until the destruction of the list.
+================
+*/</doc>
+<use f='codebrowser/d3xp/GameEdit.cpp' l='474' u='c' c='_ZN14idEditEntities20RemoveSelectedEntityEP8idEntity'/>
+<use f='codebrowser/d3xp/Player.cpp' l='4290' u='c' c='_ZN8idPlayer19RemoveInventoryItemEP6idDict'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='2351' u='c' c='_ZNK14idDeclModelDef12GetJointListEPKcR6idListI13jointHandle_tE'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='2369' u='c' c='_ZNK14idDeclModelDef12GetJointListEPKcR6idListI13jointHandle_tE'/>
+<use f='codebrowser/d3xp/physics/Force.cpp' l='54' u='c' c='_ZN7idForceD1Ev'/>
+<use f='codebrowser/d3xp/script/Script_Thread.cpp' l='355' u='c' c='_ZN8idThreadD1Ev'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='1527' u='c' c='_ZN17idFileSystemLocal11GetFileListEPKcRK6idListI5idStrERS4_R11idHashIndexbS1_'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='1528' u='c' c='_ZN17idFileSystemLocal11GetFileListEPKcRK6idListI5idStrERS4_R11idHashIndexbS1_'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='1734' u='c' c='_ZN17idFileSystemLocal8ListModsEv'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='1735' u='c' c='_ZN17idFileSystemLocal8ListModsEv'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='1736' u='c' c='_ZN17idFileSystemLocal8ListModsEv'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='1737' u='c' c='_ZN17idFileSystemLocal8ListModsEv'/>
+<use f='codebrowser/game/GameEdit.cpp' l='474' u='c' c='_ZN14idEditEntities20RemoveSelectedEntityEP8idEntity'/>
+<use f='codebrowser/game/Player.cpp' l='3427' u='c' c='_ZN8idPlayer19RemoveInventoryItemEP6idDict'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='2265' u='c' c='_ZNK14idDeclModelDef12GetJointListEPKcR6idListI13jointHandle_tE'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='2283' u='c' c='_ZNK14idDeclModelDef12GetJointListEPKcR6idListI13jointHandle_tE'/>
+<use f='codebrowser/game/physics/Force.cpp' l='54' u='c' c='_ZN7idForceD1Ev'/>
+<use f='codebrowser/game/script/Script_Thread.cpp' l='333' u='c' c='_ZN8idThreadD1Ev'/>
+<use f='codebrowser/idlib/MapFile.cpp' l='911' u='c' c='_ZN9idMapFile12RemoveEntityEP11idMapEntity'/>
+<use f='codebrowser/renderer/RenderSystem.cpp' l='1008' u='c' c='_ZN19idRenderSystemLocal15FreeRenderWorldEP13idRenderWorld'/>
+<use f='codebrowser/ui/GameBustOutWindow.cpp' l='1224' u='c' c='_ZN19idGameBustOutWindow10UpdateBallEv'/>
+<use f='codebrowser/ui/Window.cpp' l='4070' u='c' c='_ZN8idWindow11RemoveChildEPS_'/>

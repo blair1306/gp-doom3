@@ -1,0 +1,10 @@
+<dec f='codebrowser/sys/linux/sound.h' l='72' type='void idAudioHardwareOSS::Write(bool flushing)'/>
+<use f='codebrowser/sys/linux/sound.cpp' l='331' u='c' c='_ZN18idAudioHardwareOSS5FlushEv'/>
+<inh f='codebrowser/sound/snd_local.h' l='250' c='_ZN15idAudioHardware5WriteEb'/>
+<def f='codebrowser/sys/linux/sound.cpp' l='361' ll='389' type='void idAudioHardwareOSS::Write(bool flushing)'/>
+<doc f='codebrowser/sys/linux/sound.cpp' l='355'>/*
+===============
+idAudioHardwareOSS::Write
+rely on m_freeWriteChunks which has been set in Flush() before engine did the mixing for this MIXBUFFER_SAMPLE
+===============
+*/</doc>

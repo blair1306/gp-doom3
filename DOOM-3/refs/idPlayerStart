@@ -1,0 +1,54 @@
+<inh f='codebrowser/d3xp/Entity.h' l='107' c='idEntity'/>
+<def f='codebrowser/d3xp/Misc.h' l='66' ll='90'/>
+<size>872</size>
+<doc f='codebrowser/d3xp/Misc.h' l='54'>/*
+===============================================================================
+
+  Potential spawning position for players.
+  The first time a player enters the game, they will be at an &apos;initial&apos; spot.
+  Targets will be fired when someone spawns in on them.
+
+  When triggered, will cause player to be teleported to spawn spot.
+
+===============================================================================
+*/</doc>
+<smbr r='idPlayerStart::Type' t='idTypeInfo'/>
+<fun r='_ZN13idPlayerStart14CreateInstanceEv'/>
+<fun r='_ZNK13idPlayerStart7GetTypeEv'/>
+<smbr r='idPlayerStart::eventCallbacks' t='idEventFunc&lt;idPlayerStart&gt; []'/>
+<fun r='_ZN13idPlayerStartC1Ev'/>
+<fun r='_ZN13idPlayerStart5SpawnEv'/>
+<fun r='_ZNK13idPlayerStart4SaveEP10idSaveGame'/>
+<fun r='_ZN13idPlayerStart7RestoreEP13idRestoreGame'/>
+<fun r='_ZN13idPlayerStart18ClientReceiveEventEiiRK8idBitMsg'/>
+<mbr r='idPlayerStart::teleportStage' o='6944' t='int'/>
+<fun r='_ZN13idPlayerStart20Event_TeleportPlayerEP8idEntity'/>
+<fun r='_ZN13idPlayerStart19Event_TeleportStageEP8idEntity'/>
+<fun r='_ZN13idPlayerStart14TeleportPlayerEP8idPlayer'/>
+<inh f='codebrowser/game/Entity.h' l='107' c='idEntity'/>
+<def f='codebrowser/game/Misc.h' l='66' ll='90'/>
+<size>640</size>
+<doc f='codebrowser/game/Misc.h' l='54'>/*
+===============================================================================
+
+  Potential spawning position for players.
+  The first time a player enters the game, they will be at an &apos;initial&apos; spot.
+  Targets will be fired when someone spawns in on them.
+
+  When triggered, will cause player to be teleported to spawn spot.
+
+===============================================================================
+*/</doc>
+<smbr r='idPlayerStart::Type' t='idTypeInfo'/>
+<fun r='_ZN13idPlayerStart14CreateInstanceEv'/>
+<fun r='_ZNK13idPlayerStart7GetTypeEv'/>
+<smbr r='idPlayerStart::eventCallbacks' t='idEventFunc&lt;idPlayerStart&gt; []'/>
+<fun r='_ZN13idPlayerStartC1Ev'/>
+<fun r='_ZN13idPlayerStart5SpawnEv'/>
+<fun r='_ZNK13idPlayerStart4SaveEP10idSaveGame'/>
+<fun r='_ZN13idPlayerStart7RestoreEP13idRestoreGame'/>
+<fun r='_ZN13idPlayerStart18ClientReceiveEventEiiRK8idBitMsg'/>
+<mbr r='idPlayerStart::teleportStage' o='5088' t='int'/>
+<fun r='_ZN13idPlayerStart20Event_TeleportPlayerEP8idEntity'/>
+<fun r='_ZN13idPlayerStart19Event_TeleportStageEP8idEntity'/>
+<fun r='_ZN13idPlayerStart14TeleportPlayerEP8idPlayer'/>

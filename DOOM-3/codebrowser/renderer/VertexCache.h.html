@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>VertexCache.h source code [codebrowser/renderer/VertexCache.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idVertexCache,vertCache_s "/>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/renderer/VertexCache.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>renderer</a>/<a href='VertexCache.h.html'>VertexCache.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td><i></i></td></tr>
+<tr><th id="29">29</th><td><i>// vertex cache calls should only be made by the front end</i></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="NUM_VERTEX_FRAMES" title='NUM_VERTEX_FRAMES' data-ref="NUM_VERTEX_FRAMES">NUM_VERTEX_FRAMES</dfn> = <var>2</var>;</td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="34">34</th><td>	<dfn class="enum" id="TAG_FREE" title='TAG_FREE' data-ref="TAG_FREE">TAG_FREE</dfn>,</td></tr>
+<tr><th id="35">35</th><td>	<dfn class="enum" id="TAG_USED" title='TAG_USED' data-ref="TAG_USED">TAG_USED</dfn>,</td></tr>
+<tr><th id="36">36</th><td>	<dfn class="enum" id="TAG_FIXED" title='TAG_FIXED' data-ref="TAG_FIXED">TAG_FIXED</dfn>,		<i>// for the temp buffers</i></td></tr>
+<tr><th id="37">37</th><td>	<dfn class="enum" id="TAG_TEMP" title='TAG_TEMP' data-ref="TAG_TEMP">TAG_TEMP</dfn>		<i>// in frame temp area, not static area</i></td></tr>
+<tr><th id="38">38</th><td>} <dfn class="typedef" id="vertBlockTag_t" title='vertBlockTag_t' data-type='enum vertBlockTag_t' data-ref="vertBlockTag_t">vertBlockTag_t</dfn>;</td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="vertCache_s" title='vertCache_s' data-ref="vertCache_s"><a class="type" href="#vertCache_s" title='vertCache_s' data-ref="vertCache_s">vertCache_s</a></dfn> {</td></tr>
+<tr><th id="41">41</th><td>	<a class="typedef" href="../../include/GL/gl.h.html#GLuint" title='GLuint' data-type='unsigned int' data-ref="GLuint">GLuint</a>			<dfn class="decl" id="vertCache_s::vbo" title='vertCache_s::vbo' data-ref="vertCache_s::vbo">vbo</dfn>;</td></tr>
+<tr><th id="42">42</th><td>	<em>void</em>			*<dfn class="decl" id="vertCache_s::virtMem" title='vertCache_s::virtMem' data-ref="vertCache_s::virtMem">virtMem</dfn>;			<i>// only one of vbo / virtMem will be set</i></td></tr>
+<tr><th id="43">43</th><td>	<em>bool</em>			<dfn class="decl" id="vertCache_s::indexBuffer" title='vertCache_s::indexBuffer' data-ref="vertCache_s::indexBuffer">indexBuffer</dfn>;		<i>// holds indexes instead of vertexes</i></td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td>	<em>int</em>				<dfn class="decl" id="vertCache_s::offset" title='vertCache_s::offset' data-ref="vertCache_s::offset">offset</dfn>;</td></tr>
+<tr><th id="46">46</th><td>	<em>int</em>				<dfn class="decl" id="vertCache_s::size" title='vertCache_s::size' data-ref="vertCache_s::size">size</dfn>;				<i>// may be larger than the amount asked for, due</i></td></tr>
+<tr><th id="47">47</th><td>										<i>// to round up and minimum fragment sizes</i></td></tr>
+<tr><th id="48">48</th><td>	<em>int</em>				<dfn class="decl" id="vertCache_s::tag" title='vertCache_s::tag' data-ref="vertCache_s::tag">tag</dfn>;				<i>// a tag of 0 is a free block</i></td></tr>
+<tr><th id="49">49</th><td>	<b>struct</b> <a class="type" href="#vertCache_s" title='vertCache_s' data-ref="vertCache_s">vertCache_s</a>	**	<dfn class="decl" id="vertCache_s::user" title='vertCache_s::user' data-ref="vertCache_s::user">user</dfn>;				<i>// will be set to zero when purged</i></td></tr>
+<tr><th id="50">50</th><td>	<b>struct</b> <a class="type" href="#vertCache_s" title='vertCache_s' data-ref="vertCache_s">vertCache_s</a> *<dfn class="decl" id="vertCache_s::next" title='vertCache_s::next' data-ref="vertCache_s::next">next</dfn>, *<dfn class="decl" id="vertCache_s::prev" title='vertCache_s::prev' data-ref="vertCache_s::prev">prev</dfn>;	<i>// may be on the static list or one of the frame lists</i></td></tr>
+<tr><th id="51">51</th><td>	<em>int</em>				<dfn class="decl" id="vertCache_s::frameUsed" title='vertCache_s::frameUsed' data-ref="vertCache_s::frameUsed">frameUsed</dfn>;			<i>// it can't be purged if near the current frame</i></td></tr>
+<tr><th id="52">52</th><td>} <dfn class="typedef" id="vertCache_t" title='vertCache_t' data-type='struct vertCache_s' data-ref="vertCache_t">vertCache_t</dfn>;</td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td><b>class</b> <dfn class="type def" id="idVertexCache" title='idVertexCache' data-ref="idVertexCache">idVertexCache</dfn> {</td></tr>
+<tr><th id="56">56</th><td><b>public</b>:</td></tr>
+<tr><th id="57">57</th><td>	<em>void</em>			<dfn class="decl" id="_ZN13idVertexCache4InitEv" title='idVertexCache::Init' data-ref="_ZN13idVertexCache4InitEv">Init</dfn>();</td></tr>
+<tr><th id="58">58</th><td>	<em>void</em>			<dfn class="decl" id="_ZN13idVertexCache8ShutdownEv" title='idVertexCache::Shutdown' data-ref="_ZN13idVertexCache8ShutdownEv">Shutdown</dfn>();</td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td>	<i>// just for gfxinfo printing</i></td></tr>
+<tr><th id="61">61</th><td>	<em>bool</em>			<dfn class="decl" id="_ZN13idVertexCache6IsFastEv" title='idVertexCache::IsFast' data-ref="_ZN13idVertexCache6IsFastEv">IsFast</dfn>();</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td>	<i>// called when vertex programs are enabled or disabled, because</i></td></tr>
+<tr><th id="64">64</th><td><i>	// the cached data is no longer valid</i></td></tr>
+<tr><th id="65">65</th><td>	<em>void</em>			<dfn class="decl" id="_ZN13idVertexCache8PurgeAllEv" title='idVertexCache::PurgeAll' data-ref="_ZN13idVertexCache8PurgeAllEv">PurgeAll</dfn>();</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td>	<i>// Tries to allocate space for the given data in fast vertex</i></td></tr>
+<tr><th id="68">68</th><td><i>	// memory, and copies it over.</i></td></tr>
+<tr><th id="69">69</th><td><i>	// Alloc does NOT do a touch, which allows purging of things</i></td></tr>
+<tr><th id="70">70</th><td><i>	// created at level load time even if a frame hasn't passed yet.</i></td></tr>
+<tr><th id="71">71</th><td><i>	// These allocations can be purged, which will zero the pointer.</i></td></tr>
+<tr><th id="72">72</th><td>	<em>void</em>			<dfn class="decl" id="_ZN13idVertexCache5AllocEPviPP11vertCache_sb" title='idVertexCache::Alloc' data-ref="_ZN13idVertexCache5AllocEPviPP11vertCache_sb">Alloc</dfn>( <em>void</em> *<dfn class="local col1 decl" id="861data" title='data' data-type='void *' data-ref="861data">data</dfn>, <em>int</em> <dfn class="local col2 decl" id="862bytes" title='bytes' data-type='int' data-ref="862bytes">bytes</dfn>, <a class="typedef" href="#vertCache_t" title='vertCache_t' data-type='struct vertCache_s' data-ref="vertCache_t">vertCache_t</a> **<dfn class="local col3 decl" id="863buffer" title='buffer' data-type='vertCache_t **' data-ref="863buffer">buffer</dfn>, <em>bool</em> <dfn class="local col4 decl" id="864indexBuffer" title='indexBuffer' data-type='bool' data-ref="864indexBuffer">indexBuffer</dfn> = <b>false</b> );</td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td>	<i>// This will be a real pointer with virtual memory,</i></td></tr>
+<tr><th id="75">75</th><td><i>	// but it will be an int offset cast to a pointer of ARB_vertex_buffer_object</i></td></tr>
+<tr><th id="76">76</th><td>	<em>void</em> *			<dfn class="decl" id="_ZN13idVertexCache8PositionEP11vertCache_s" title='idVertexCache::Position' data-ref="_ZN13idVertexCache8PositionEP11vertCache_s">Position</dfn>( <a class="typedef" href="#vertCache_t" title='vertCache_t' data-type='struct vertCache_s' data-ref="vertCache_t">vertCache_t</a> *<dfn class="local col5 decl" id="865buffer" title='buffer' data-type='vertCache_t *' data-ref="865buffer">buffer</dfn> );</td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td>	<i>// if r_useIndexBuffers is enabled, but you need to draw something without</i></td></tr>
+<tr><th id="79">79</th><td><i>	// an indexCache, this must be called to reset GL_ELEMENT_ARRAY_BUFFER_ARB</i></td></tr>
+<tr><th id="80">80</th><td>	<em>void</em>			<dfn class="decl" id="_ZN13idVertexCache11UnbindIndexEv" title='idVertexCache::UnbindIndex' data-ref="_ZN13idVertexCache11UnbindIndexEv">UnbindIndex</dfn>();</td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td>	<i>// automatically freed at the end of the next frame</i></td></tr>
+<tr><th id="83">83</th><td><i>	// used for specular texture coordinates and gui drawing, which</i></td></tr>
+<tr><th id="84">84</th><td><i>	// will change every frame.</i></td></tr>
+<tr><th id="85">85</th><td><i>	// will return NULL if the vertex cache is completely full</i></td></tr>
+<tr><th id="86">86</th><td><i>	// As with Position(), this may not actually be a pointer you can access.</i></td></tr>
+<tr><th id="87">87</th><td>	<a class="typedef" href="#vertCache_t" title='vertCache_t' data-type='struct vertCache_s' data-ref="vertCache_t">vertCache_t</a>	*	<dfn class="decl" id="_ZN13idVertexCache14AllocFrameTempEPvi" title='idVertexCache::AllocFrameTemp' data-ref="_ZN13idVertexCache14AllocFrameTempEPvi">AllocFrameTemp</dfn>( <em>void</em> *<dfn class="local col6 decl" id="866data" title='data' data-type='void *' data-ref="866data">data</dfn>, <em>int</em> <dfn class="local col7 decl" id="867bytes" title='bytes' data-type='int' data-ref="867bytes">bytes</dfn> );</td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td>	<i>// notes that a buffer is used this frame, so it can't be purged</i></td></tr>
+<tr><th id="90">90</th><td><i>	// out from under the GPU</i></td></tr>
+<tr><th id="91">91</th><td>	<em>void</em>			<dfn class="decl" id="_ZN13idVertexCache5TouchEP11vertCache_s" title='idVertexCache::Touch' data-ref="_ZN13idVertexCache5TouchEP11vertCache_s">Touch</dfn>( <a class="typedef" href="#vertCache_t" title='vertCache_t' data-type='struct vertCache_s' data-ref="vertCache_t">vertCache_t</a> *<dfn class="local col8 decl" id="868buffer" title='buffer' data-type='vertCache_t *' data-ref="868buffer">buffer</dfn> );</td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td>	<i>// this block won't have to zero a buffer pointer when it is purged,</i></td></tr>
+<tr><th id="94">94</th><td><i>	// but it must still wait for the frames to pass, in case the GPU</i></td></tr>
+<tr><th id="95">95</th><td><i>	// is still referencing it</i></td></tr>
+<tr><th id="96">96</th><td>	<em>void</em>			<dfn class="decl" id="_ZN13idVertexCache4FreeEP11vertCache_s" title='idVertexCache::Free' data-ref="_ZN13idVertexCache4FreeEP11vertCache_s">Free</dfn>( <a class="typedef" href="#vertCache_t" title='vertCache_t' data-type='struct vertCache_s' data-ref="vertCache_t">vertCache_t</a> *<dfn class="local col9 decl" id="869buffer" title='buffer' data-type='vertCache_t *' data-ref="869buffer">buffer</dfn> );	</td></tr>
+<tr><th id="97">97</th><td></td></tr>
+<tr><th id="98">98</th><td>	<i>// updates the counter for determining which temp space to use</i></td></tr>
+<tr><th id="99">99</th><td><i>	// and which blocks can be purged</i></td></tr>
+<tr><th id="100">100</th><td><i>	// Also prints debugging info when enabled</i></td></tr>
+<tr><th id="101">101</th><td>	<em>void</em>			<dfn class="decl" id="_ZN13idVertexCache8EndFrameEv" title='idVertexCache::EndFrame' data-ref="_ZN13idVertexCache8EndFrameEv">EndFrame</dfn>();</td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td>	<i>// listVertexCache calls this</i></td></tr>
+<tr><th id="104">104</th><td>	<em>void</em>			<dfn class="decl" id="_ZN13idVertexCache4ListEv" title='idVertexCache::List' data-ref="_ZN13idVertexCache4ListEv">List</dfn>();</td></tr>
+<tr><th id="105">105</th><td></td></tr>
+<tr><th id="106">106</th><td><b>private</b>:</td></tr>
+<tr><th id="107">107</th><td>	<em>void</em>			<dfn class="decl" id="_ZN13idVertexCache16InitMemoryBlocksEi" title='idVertexCache::InitMemoryBlocks' data-ref="_ZN13idVertexCache16InitMemoryBlocksEi">InitMemoryBlocks</dfn>( <em>int</em> <dfn class="local col0 decl" id="870size" title='size' data-type='int' data-ref="870size">size</dfn> );</td></tr>
+<tr><th id="108">108</th><td>	<em>void</em>			<dfn class="decl" id="_ZN13idVertexCache12ActuallyFreeEP11vertCache_s" title='idVertexCache::ActuallyFree' data-ref="_ZN13idVertexCache12ActuallyFreeEP11vertCache_s">ActuallyFree</dfn>( <a class="typedef" href="#vertCache_t" title='vertCache_t' data-type='struct vertCache_s' data-ref="vertCache_t">vertCache_t</a> *<dfn class="local col1 decl" id="871block" title='block' data-type='vertCache_t *' data-ref="871block">block</dfn> );</td></tr>
+<tr><th id="109">109</th><td></td></tr>
+<tr><th id="110">110</th><td>	<em>static</em> <a class="type" href="../framework/CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a>	<dfn class="decl" id="idVertexCache::r_showVertexCache" title='idVertexCache::r_showVertexCache' data-ref="idVertexCache::r_showVertexCache">r_showVertexCache</dfn>;</td></tr>
+<tr><th id="111">111</th><td>	<em>static</em> <a class="type" href="../framework/CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a>	<dfn class="decl" id="idVertexCache::r_vertexBufferMegs" title='idVertexCache::r_vertexBufferMegs' data-ref="idVertexCache::r_vertexBufferMegs">r_vertexBufferMegs</dfn>;</td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td>	<em>int</em>				<dfn class="decl" id="idVertexCache::staticCountTotal" title='idVertexCache::staticCountTotal' data-ref="idVertexCache::staticCountTotal">staticCountTotal</dfn>;</td></tr>
+<tr><th id="114">114</th><td>	<em>int</em>				<dfn class="decl" id="idVertexCache::staticAllocTotal" title='idVertexCache::staticAllocTotal' data-ref="idVertexCache::staticAllocTotal">staticAllocTotal</dfn>;		<i>// for end of frame purging</i></td></tr>
+<tr><th id="115">115</th><td></td></tr>
+<tr><th id="116">116</th><td>	<em>int</em>				<dfn class="decl" id="idVertexCache::staticAllocThisFrame" title='idVertexCache::staticAllocThisFrame' data-ref="idVertexCache::staticAllocThisFrame">staticAllocThisFrame</dfn>;	<i>// debug counter</i></td></tr>
+<tr><th id="117">117</th><td>	<em>int</em>				<dfn class="decl" id="idVertexCache::staticCountThisFrame" title='idVertexCache::staticCountThisFrame' data-ref="idVertexCache::staticCountThisFrame">staticCountThisFrame</dfn>;</td></tr>
+<tr><th id="118">118</th><td>	<em>int</em>				<dfn class="decl" id="idVertexCache::dynamicAllocThisFrame" title='idVertexCache::dynamicAllocThisFrame' data-ref="idVertexCache::dynamicAllocThisFrame">dynamicAllocThisFrame</dfn>;</td></tr>
+<tr><th id="119">119</th><td>	<em>int</em>				<dfn class="decl" id="idVertexCache::dynamicCountThisFrame" title='idVertexCache::dynamicCountThisFrame' data-ref="idVertexCache::dynamicCountThisFrame">dynamicCountThisFrame</dfn>;</td></tr>
+<tr><th id="120">120</th><td></td></tr>
+<tr><th id="121">121</th><td>	<em>int</em>				<dfn class="decl" id="idVertexCache::currentFrame" title='idVertexCache::currentFrame' data-ref="idVertexCache::currentFrame">currentFrame</dfn>;			<i>// for purgable block tracking</i></td></tr>
+<tr><th id="122">122</th><td>	<em>int</em>				<dfn class="decl" id="idVertexCache::listNum" title='idVertexCache::listNum' data-ref="idVertexCache::listNum">listNum</dfn>;				<i>// currentFrame % NUM_VERTEX_FRAMES, determines which tempBuffers to use</i></td></tr>
+<tr><th id="123">123</th><td></td></tr>
+<tr><th id="124">124</th><td>	<em>bool</em>			<dfn class="decl" id="idVertexCache::virtualMemory" title='idVertexCache::virtualMemory' data-ref="idVertexCache::virtualMemory">virtualMemory</dfn>;			<i>// not fast stuff</i></td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td>	<em>bool</em>			<dfn class="decl" id="idVertexCache::allocatingTempBuffer" title='idVertexCache::allocatingTempBuffer' data-ref="idVertexCache::allocatingTempBuffer">allocatingTempBuffer</dfn>;	<i>// force GL_STREAM_DRAW_ARB</i></td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td>	<a class="typedef" href="#vertCache_t" title='vertCache_t' data-type='struct vertCache_s' data-ref="vertCache_t">vertCache_t</a>		*<dfn class="decl" id="idVertexCache::tempBuffers" title='idVertexCache::tempBuffers' data-ref="idVertexCache::tempBuffers">tempBuffers</dfn>[<a class="ref" href="#NUM_VERTEX_FRAMES" title='NUM_VERTEX_FRAMES' data-ref="NUM_VERTEX_FRAMES">NUM_VERTEX_FRAMES</a>];		<i>// allocated at startup</i></td></tr>
+<tr><th id="129">129</th><td>	<em>bool</em>			<dfn class="decl" id="idVertexCache::tempOverflow" title='idVertexCache::tempOverflow' data-ref="idVertexCache::tempOverflow">tempOverflow</dfn>;			<i>// had to alloc a temp in static memory</i></td></tr>
+<tr><th id="130">130</th><td></td></tr>
+<tr><th id="131">131</th><td>	<a class="type" href="../idlib/Heap.h.html#idBlockAlloc" title='idBlockAlloc' data-ref="idBlockAlloc">idBlockAlloc</a>&lt;<a class="typedef" href="#vertCache_t" title='vertCache_t' data-type='struct vertCache_s' data-ref="vertCache_t">vertCache_t</a>,<var>1024</var>&gt;	<dfn class="decl" id="idVertexCache::headerAllocator" title='idVertexCache::headerAllocator' data-ref="idVertexCache::headerAllocator">headerAllocator</dfn>;</td></tr>
+<tr><th id="132">132</th><td></td></tr>
+<tr><th id="133">133</th><td>	<a class="typedef" href="#vertCache_t" title='vertCache_t' data-type='struct vertCache_s' data-ref="vertCache_t">vertCache_t</a>		<dfn class="decl" id="idVertexCache::freeStaticHeaders" title='idVertexCache::freeStaticHeaders' data-ref="idVertexCache::freeStaticHeaders">freeStaticHeaders</dfn>;		<i>// head of doubly linked list</i></td></tr>
+<tr><th id="134">134</th><td>	<a class="typedef" href="#vertCache_t" title='vertCache_t' data-type='struct vertCache_s' data-ref="vertCache_t">vertCache_t</a>		<dfn class="decl" id="idVertexCache::freeDynamicHeaders" title='idVertexCache::freeDynamicHeaders' data-ref="idVertexCache::freeDynamicHeaders">freeDynamicHeaders</dfn>;		<i>// head of doubly linked list</i></td></tr>
+<tr><th id="135">135</th><td>	<a class="typedef" href="#vertCache_t" title='vertCache_t' data-type='struct vertCache_s' data-ref="vertCache_t">vertCache_t</a>		<dfn class="decl" id="idVertexCache::dynamicHeaders" title='idVertexCache::dynamicHeaders' data-ref="idVertexCache::dynamicHeaders">dynamicHeaders</dfn>;			<i>// head of doubly linked list</i></td></tr>
+<tr><th id="136">136</th><td>	<a class="typedef" href="#vertCache_t" title='vertCache_t' data-type='struct vertCache_s' data-ref="vertCache_t">vertCache_t</a>		<dfn class="decl" id="idVertexCache::deferredFreeList" title='idVertexCache::deferredFreeList' data-ref="idVertexCache::deferredFreeList">deferredFreeList</dfn>;		<i>// head of doubly linked list</i></td></tr>
+<tr><th id="137">137</th><td>	<a class="typedef" href="#vertCache_t" title='vertCache_t' data-type='struct vertCache_s' data-ref="vertCache_t">vertCache_t</a>		<dfn class="decl" id="idVertexCache::staticHeaders" title='idVertexCache::staticHeaders' data-ref="idVertexCache::staticHeaders">staticHeaders</dfn>;			<i>// head of doubly linked list in MRU order,</i></td></tr>
+<tr><th id="138">138</th><td>											<i>// staticHeaders.next is most recently used</i></td></tr>
+<tr><th id="139">139</th><td></td></tr>
+<tr><th id="140">140</th><td>	<em>int</em>				<dfn class="decl" id="idVertexCache::frameBytes" title='idVertexCache::frameBytes' data-ref="idVertexCache::frameBytes">frameBytes</dfn>;				<i>// for each of NUM_VERTEX_FRAMES frames</i></td></tr>
+<tr><th id="141">141</th><td>};</td></tr>
+<tr><th id="142">142</th><td></td></tr>
+<tr><th id="143">143</th><td><b>extern</b>	<a class="type" href="#idVertexCache" title='idVertexCache' data-ref="idVertexCache">idVertexCache</a>	<dfn class="decl" id="vertexCache" title='vertexCache' data-ref="vertexCache">vertexCache</dfn>;</td></tr>
+<tr><th id="144">144</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../build/debug/core/glimp/sys/linux/glimp_dlopen.cpp.html'>codebrowser/build/debug/core/glimp/sys/linux/glimp_dlopen.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,76 @@
+<inh f='codebrowser/d3xp/physics/Physics_AF.h' l='93' c='idAFConstraint'/>
+<def f='codebrowser/d3xp/physics/Physics_AF.h' l='314' ll='354'/>
+<size>336</size>
+<doc f='codebrowser/d3xp/physics/Physics_AF.h' l='312'>// hinge, revolute or pin joint which allows 1 degree of freedom
+// constrains all motion of body1 relative to body2 except the rotation about the hinge axis</doc>
+<fun r='_ZN20idAFConstraint_HingeC1ERK5idStrP8idAFBodyS4_'/>
+<fun r='_ZN20idAFConstraint_HingeD1Ev'/>
+<fun r='_ZN20idAFConstraint_Hinge9SetAnchorERK6idVec3'/>
+<fun r='_ZNK20idAFConstraint_Hinge9GetAnchorEv'/>
+<fun r='_ZN20idAFConstraint_Hinge7SetAxisERK6idVec3'/>
+<fun r='_ZNK20idAFConstraint_Hinge7GetAxisER6idVec3S1_'/>
+<fun r='_ZNK20idAFConstraint_Hinge7GetAxisEv'/>
+<fun r='_ZN20idAFConstraint_Hinge10SetNoLimitEv'/>
+<fun r='_ZN20idAFConstraint_Hinge8SetLimitERK6idVec3fS2_'/>
+<fun r='_ZN20idAFConstraint_Hinge15SetLimitEpsilonEf'/>
+<fun r='_ZNK20idAFConstraint_Hinge8GetAngleEv'/>
+<fun r='_ZN20idAFConstraint_Hinge13SetSteerAngleEf'/>
+<fun r='_ZN20idAFConstraint_Hinge13SetSteerSpeedEf'/>
+<fun r='_ZN20idAFConstraint_Hinge11SetFrictionEf'/>
+<fun r='_ZNK20idAFConstraint_Hinge11GetFrictionEv'/>
+<fun r='_ZN20idAFConstraint_Hinge9DebugDrawEv'/>
+<fun r='_ZN20idAFConstraint_Hinge8GetForceEP8idAFBodyR6idVec6'/>
+<fun r='_ZN20idAFConstraint_Hinge9TranslateERK6idVec3'/>
+<fun r='_ZN20idAFConstraint_Hinge6RotateERK10idRotation'/>
+<fun r='_ZN20idAFConstraint_Hinge9GetCenterER6idVec3'/>
+<fun r='_ZNK20idAFConstraint_Hinge4SaveEP10idSaveGame'/>
+<fun r='_ZN20idAFConstraint_Hinge7RestoreEP13idRestoreGame'/>
+<mbr r='idAFConstraint_Hinge::anchor1' o='1888' t='idVec3'/>
+<mbr r='idAFConstraint_Hinge::anchor2' o='1984' t='idVec3'/>
+<mbr r='idAFConstraint_Hinge::axis1' o='2080' t='idVec3'/>
+<mbr r='idAFConstraint_Hinge::axis2' o='2176' t='idVec3'/>
+<mbr r='idAFConstraint_Hinge::initialAxis' o='2272' t='idMat3'/>
+<mbr r='idAFConstraint_Hinge::friction' o='2560' t='float'/>
+<mbr r='idAFConstraint_Hinge::coneLimit' o='2592' t='idAFConstraint_ConeLimit *'/>
+<mbr r='idAFConstraint_Hinge::steering' o='2624' t='idAFConstraint_HingeSteering *'/>
+<mbr r='idAFConstraint_Hinge::fc' o='2656' t='idAFConstraint_HingeFriction *'/>
+<fun r='_ZN20idAFConstraint_Hinge8EvaluateEf'/>
+<fun r='_ZN20idAFConstraint_Hinge13ApplyFrictionEf'/>
+<inh f='codebrowser/game/physics/Physics_AF.h' l='93' c='idAFConstraint'/>
+<def f='codebrowser/game/physics/Physics_AF.h' l='314' ll='354'/>
+<size>336</size>
+<doc f='codebrowser/game/physics/Physics_AF.h' l='312'>// hinge, revolute or pin joint which allows 1 degree of freedom
+// constrains all motion of body1 relative to body2 except the rotation about the hinge axis</doc>
+<fun r='_ZN20idAFConstraint_HingeC1ERK5idStrP8idAFBodyS4_'/>
+<fun r='_ZN20idAFConstraint_HingeD1Ev'/>
+<fun r='_ZN20idAFConstraint_Hinge9SetAnchorERK6idVec3'/>
+<fun r='_ZNK20idAFConstraint_Hinge9GetAnchorEv'/>
+<fun r='_ZN20idAFConstraint_Hinge7SetAxisERK6idVec3'/>
+<fun r='_ZNK20idAFConstraint_Hinge7GetAxisER6idVec3S1_'/>
+<fun r='_ZNK20idAFConstraint_Hinge7GetAxisEv'/>
+<fun r='_ZN20idAFConstraint_Hinge10SetNoLimitEv'/>
+<fun r='_ZN20idAFConstraint_Hinge8SetLimitERK6idVec3fS2_'/>
+<fun r='_ZN20idAFConstraint_Hinge15SetLimitEpsilonEf'/>
+<fun r='_ZNK20idAFConstraint_Hinge8GetAngleEv'/>
+<fun r='_ZN20idAFConstraint_Hinge13SetSteerAngleEf'/>
+<fun r='_ZN20idAFConstraint_Hinge13SetSteerSpeedEf'/>
+<fun r='_ZN20idAFConstraint_Hinge11SetFrictionEf'/>
+<fun r='_ZNK20idAFConstraint_Hinge11GetFrictionEv'/>
+<fun r='_ZN20idAFConstraint_Hinge9DebugDrawEv'/>
+<fun r='_ZN20idAFConstraint_Hinge8GetForceEP8idAFBodyR6idVec6'/>
+<fun r='_ZN20idAFConstraint_Hinge9TranslateERK6idVec3'/>
+<fun r='_ZN20idAFConstraint_Hinge6RotateERK10idRotation'/>
+<fun r='_ZN20idAFConstraint_Hinge9GetCenterER6idVec3'/>
+<fun r='_ZNK20idAFConstraint_Hinge4SaveEP10idSaveGame'/>
+<fun r='_ZN20idAFConstraint_Hinge7RestoreEP13idRestoreGame'/>
+<mbr r='idAFConstraint_Hinge::anchor1' o='1888' t='idVec3'/>
+<mbr r='idAFConstraint_Hinge::anchor2' o='1984' t='idVec3'/>
+<mbr r='idAFConstraint_Hinge::axis1' o='2080' t='idVec3'/>
+<mbr r='idAFConstraint_Hinge::axis2' o='2176' t='idVec3'/>
+<mbr r='idAFConstraint_Hinge::initialAxis' o='2272' t='idMat3'/>
+<mbr r='idAFConstraint_Hinge::friction' o='2560' t='float'/>
+<mbr r='idAFConstraint_Hinge::coneLimit' o='2592' t='idAFConstraint_ConeLimit *'/>
+<mbr r='idAFConstraint_Hinge::steering' o='2624' t='idAFConstraint_HingeSteering *'/>
+<mbr r='idAFConstraint_Hinge::fc' o='2656' t='idAFConstraint_HingeFriction *'/>
+<fun r='_ZN20idAFConstraint_Hinge8EvaluateEf'/>
+<fun r='_ZN20idAFConstraint_Hinge13ApplyFrictionEf'/>

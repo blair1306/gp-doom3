@@ -1,0 +1,17 @@
+<dec f='codebrowser/game/Game.h' l='88' type='const idDict * idGame::SetUserInfo(int clientNum, const idDict &amp; userInfo, bool isClient, bool canModify)'/>
+<doc f='codebrowser/game/Game.h' l='85'>// Sets the user info for a client.
+	// if canModify is true, the game can modify the user info in the returned dictionary pointer, server will forward the change back
+	// canModify is never true on network client</doc>
+<dec f='codebrowser/d3xp/Game.h' l='90' type='const idDict * idGame::SetUserInfo(int clientNum, const idDict &amp; userInfo, bool isClient, bool canModify)'/>
+<doc f='codebrowser/d3xp/Game.h' l='87'>// Sets the user info for a client.
+	// if canModify is true, the game can modify the user info in the returned dictionary pointer, server will forward the change back
+	// canModify is never true on network client</doc>
+<ovr f='codebrowser/d3xp/Game_local.cpp' l='830' c='_ZN11idGameLocal11SetUserInfoEiRK6idDictbb'/>
+<use f='codebrowser/framework/Session.cpp' l='1627' u='c' c='_ZN14idSessionLocal16ExecuteMapChangeEb'/>
+<use f='codebrowser/framework/Session.cpp' l='2668' u='c' c='_ZN14idSessionLocal5FrameEv'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='981' u='c' c='_ZN13idAsyncClient29ProcessReliableServerMessagesEv'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1038' u='c' c='_ZN13idAsyncClient29ProcessReliableServerMessagesEv'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1852' u='c' c='_ZN13idAsyncClient8RunFrameEv'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='725' u='c' c='_ZN13idAsyncServer16BeginLocalClientEv'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='897' u='c' c='_ZN13idAsyncServer21SendUserInfoBroadcastEiRK6idDictb'/>
+<ovr f='codebrowser/game/Game_local.cpp' l='740' c='_ZN11idGameLocal11SetUserInfoEiRK6idDictbb'/>

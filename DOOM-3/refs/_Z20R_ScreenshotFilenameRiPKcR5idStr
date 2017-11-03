@@ -1,0 +1,17 @@
+<dec f='codebrowser/renderer/RenderSystem.h' l='274' type='void R_ScreenshotFilename(int &amp; lastNumber, const char * base, idStr &amp; fileName)'/>
+<doc f='codebrowser/renderer/RenderSystem.h' l='273'>// used by the view shot taker</doc>
+<use f='codebrowser/framework/Session_menu.cpp' l='1605' u='c' c='_ZN14idSessionLocal18HandleNoteCommandsEPKc'/>
+<def f='codebrowser/renderer/RenderSystem_init.cpp' l='1303' ll='1337' type='void R_ScreenshotFilename(int &amp; lastNumber, const char * base, idStr &amp; fileName)'/>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='1365' u='c' c='_Z14R_ScreenShot_fRK9idCmdArgs'/>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='1377' u='c' c='_Z14R_ScreenShot_fRK9idCmdArgs'/>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='1389' u='c' c='_Z14R_ScreenShot_fRK9idCmdArgs'/>
+<doc f='codebrowser/renderer/RenderSystem_init.cpp' l='1293'>/* 
+================== 
+R_ScreenshotFilename
+
+Returns a filename with digits appended
+if we have saved a previous screenshot, don&apos;t scan
+from the beginning, because recording demo avis can involve
+thousands of shots
+================== 
+*/</doc>

@@ -1,0 +1,14 @@
+<dec f='codebrowser/renderer/tr_local.h' l='302' type='idRenderLightLocal *'/>
+<offset>32</offset>
+<doc f='codebrowser/renderer/tr_local.h' l='301'>// back end should NOT reference the lightDef, because it can change when running SMP</doc>
+<use f='codebrowser/renderer/Interaction.cpp' l='1104' u='r' c='_ZN13idInteraction20AddActiveInteractionEv'/>
+<use f='codebrowser/renderer/RenderWorld_demo.cpp' l='311' u='r' c='_ZN18idRenderWorldLocal16WriteVisibleDefsEPK9viewDef_s'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='468' u='w' c='_Z22R_SetLightDefViewLightP18idRenderLightLocal'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='715' u='r' c='_Z30R_ClippedLightScissorRectangleP11viewLight_s'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='799' u='r' c='_Z27R_CalcLightScissorRectangleP11viewLight_s'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='801' u='r' c='_Z27R_CalcLightScissorRectangleP11viewLight_s'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='812' u='r' c='_Z27R_CalcLightScissorRectangleP11viewLight_s'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='884' u='r' c='_Z18R_AddLightSurfacesv'/>
+<use f='codebrowser/renderer/tr_main.cpp' l='1022' u='r' c='_ZL22R_ConstrainViewFrustumv'/>
+<use f='codebrowser/renderer/tr_rendertools.cpp' l='1588' u='r' c='_Z13RB_ShowLightsv'/>
+<use f='codebrowser/renderer/tr_rendertools.cpp' l='1611' u='r' c='_Z13RB_ShowLightsv'/>

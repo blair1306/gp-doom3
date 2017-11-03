@@ -1,0 +1,23 @@
+<dec f='codebrowser/curl/lib/sendf.h' l='38' type='CURLcode Curl_client_write(struct SessionHandle * data, int type, char * ptr, size_t len)'/>
+<use f='codebrowser/curl/lib/content_encoding.c' l='107' u='c' c='Curl_unencode_deflate_write'/>
+<use f='codebrowser/curl/lib/content_encoding.c' l='334' u='c' c='Curl_unencode_gzip_write'/>
+<use f='codebrowser/curl/lib/file.c' l='202' u='c' c='Curl_file'/>
+<use f='codebrowser/curl/lib/file.c' l='207' u='c' c='Curl_file'/>
+<use f='codebrowser/curl/lib/file.c' l='224' u='c' c='Curl_file'/>
+<use f='codebrowser/curl/lib/file.c' l='267' u='c' c='Curl_file'/>
+<use f='codebrowser/curl/lib/ftp.c' l='358' u='c' c='Curl_GetFTPResponse'/>
+<use f='codebrowser/curl/lib/ftp.c' l='2229' u='c' c='ftp_perform'/>
+<use f='codebrowser/curl/lib/ftp.c' l='2240' u='c' c='ftp_perform'/>
+<use f='codebrowser/curl/lib/ftp.c' l='2262' u='c' c='ftp_perform'/>
+<use f='codebrowser/curl/lib/http.c' l='883' u='c' c='Curl_ConnectHTTPProxyTunnel'/>
+<use f='codebrowser/curl/lib/http_chunks.c' l='189' u='c' c='Curl_httpchunk_read'/>
+<def f='codebrowser/curl/lib/sendf.c' l='319' ll='353' type='CURLcode Curl_client_write(struct SessionHandle * data, int type, char * ptr, size_t len)'/>
+<doc f='codebrowser/curl/lib/sendf.c' l='314'>/* client_write() sends data to the write callback(s)
+
+   The bit pattern defines to what &quot;streams&quot; to write to. Body and/or header.
+   The defines are in sendf.h of course.
+ */</doc>
+<use f='codebrowser/curl/lib/transfer.c' l='452' u='c' c='Curl_readwrite'/>
+<use f='codebrowser/curl/lib/transfer.c' l='849' u='c' c='Curl_readwrite'/>
+<use f='codebrowser/curl/lib/transfer.c' l='992' u='c' c='Curl_readwrite'/>
+<use f='codebrowser/curl/lib/transfer.c' l='1010' u='c' c='Curl_readwrite'/>

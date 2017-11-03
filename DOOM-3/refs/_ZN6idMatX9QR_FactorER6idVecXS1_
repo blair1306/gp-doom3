@@ -1,0 +1,23 @@
+<dec f='codebrowser/idlib/math/Matrix.h' l='1922' type='bool idMatX::QR_Factor(idVecX &amp; c, idVecX &amp; d)'/>
+<doc f='codebrowser/idlib/math/Matrix.h' l='1922'>// factor in-place: Q * R</doc>
+<def f='codebrowser/idlib/math/Matrix.cpp' l='4435' ll='4495' type='bool idMatX::QR_Factor(idVecX &amp; c, idVecX &amp; d)'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7534' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7556' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7561' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7591' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7596' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7626' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7631' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7664' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7669' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7690' u='c' c='_ZN6idMatX4TestEv'/>
+<doc f='codebrowser/idlib/math/Matrix.cpp' l='4425'>/*
+============
+idMatX::QR_Factor
+
+  in-place factorization: QR
+  Q is an orthogonal matrix represented as a product of Householder matrices stored in the lower triangle and c.
+  R is a triangular matrix stored in the upper triangle except for the diagonal elements which are stored in d.
+  The initial matrix has to be square.
+============
+*/</doc>

@@ -1,0 +1,40 @@
+<inh f='codebrowser/renderer/Model_local.h' l='40' c='idRenderModelStatic'/>
+<def f='codebrowser/renderer/Model_local.h' l='232' ll='277'/>
+<size>208</size>
+<doc f='codebrowser/renderer/Model_local.h' l='224'>/*
+===============================================================================
+
+	Liquid model
+
+===============================================================================
+*/</doc>
+<fun r='_ZN19idRenderModelLiquidC1Ev'/>
+<fun r='_ZN19idRenderModelLiquid12InitFromFileEPKc'/>
+<fun r='_ZNK19idRenderModelLiquid14IsDynamicModelEv'/>
+<fun r='_ZN19idRenderModelLiquid23InstantiateDynamicModelEPK14renderEntity_sPK9viewDef_sP13idRenderModel'/>
+<fun r='_ZNK19idRenderModelLiquid6BoundsEPK14renderEntity_s'/>
+<fun r='_ZN19idRenderModelLiquid5ResetEv'/>
+<fun r='_ZN19idRenderModelLiquid15IntersectBoundsERK8idBoundsf'/>
+<fun r='_ZN19idRenderModelLiquid15GenerateSurfaceEf'/>
+<fun r='_ZN19idRenderModelLiquid9WaterDropEiiPf'/>
+<fun r='_ZN19idRenderModelLiquid6UpdateEv'/>
+<mbr r='idRenderModelLiquid::verts_x' o='832' t='int'/>
+<mbr r='idRenderModelLiquid::verts_y' o='864' t='int'/>
+<mbr r='idRenderModelLiquid::scale_x' o='896' t='float'/>
+<mbr r='idRenderModelLiquid::scale_y' o='928' t='float'/>
+<mbr r='idRenderModelLiquid::time' o='960' t='int'/>
+<mbr r='idRenderModelLiquid::liquid_type' o='992' t='int'/>
+<mbr r='idRenderModelLiquid::update_tics' o='1024' t='int'/>
+<mbr r='idRenderModelLiquid::seed' o='1056' t='int'/>
+<mbr r='idRenderModelLiquid::random' o='1088' t='idRandom'/>
+<mbr r='idRenderModelLiquid::shader' o='1120' t='const idMaterial *'/>
+<mbr r='idRenderModelLiquid::deformInfo' o='1152' t='struct deformInfo_s *'/>
+<mbr r='idRenderModelLiquid::density' o='1184' t='float'/>
+<mbr r='idRenderModelLiquid::drop_height' o='1216' t='float'/>
+<mbr r='idRenderModelLiquid::drop_radius' o='1248' t='int'/>
+<mbr r='idRenderModelLiquid::drop_delay' o='1280' t='float'/>
+<mbr r='idRenderModelLiquid::pages' o='1312' t='idList&lt;float&gt;'/>
+<mbr r='idRenderModelLiquid::page1' o='1440' t='float *'/>
+<mbr r='idRenderModelLiquid::page2' o='1472' t='float *'/>
+<mbr r='idRenderModelLiquid::verts' o='1504' t='idList&lt;idDrawVert&gt;'/>
+<mbr r='idRenderModelLiquid::nextDropTime' o='1632' t='int'/>

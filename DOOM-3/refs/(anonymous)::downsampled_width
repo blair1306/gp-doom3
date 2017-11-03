@@ -1,0 +1,15 @@
+<dec f='codebrowser/renderer/jpeg-6/jpeglib.h' l='166' type='JDIMENSION'/>
+<offset>320</offset>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='160'>/* The downsampled dimensions are the component&apos;s actual, unpadded number
+   * of samples at the main buffer (preprocessing/compression interface), thus
+   * downsampled_width = ceil(image_width * Hi/Hmax)
+   * and similarly for height.  For decompression, IDCT scaling is included, so
+   * downsampled_width = ceil(image_width * Hi/Hmax * DCT_scaled_size/DCTSIZE)
+   */</doc>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='166'>/* actual width in samples */</doc>
+<use f='codebrowser/renderer/jpeg-6/jcmaster.c' l='108' u='w' c='initial_setup'/>
+<use f='codebrowser/renderer/jpeg-6/jdinput.c' l='95' u='w' c='initial_setup'/>
+<use f='codebrowser/renderer/jpeg-6/jdsample.c' l='321' u='r' c='h2v1_fancy_upsample'/>
+<use f='codebrowser/renderer/jpeg-6/jdsample.c' l='376' u='r' c='h2v2_fancy_upsample'/>
+<use f='codebrowser/renderer/jpeg-6/jdsample.c' l='450' u='r' c='jinit_upsampler'/>
+<use f='codebrowser/renderer/jpeg-6/jdsample.c' l='457' u='r' c='jinit_upsampler'/>

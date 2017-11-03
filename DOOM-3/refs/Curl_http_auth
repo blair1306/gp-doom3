@@ -1,0 +1,9 @@
+<dec f='codebrowser/curl/lib/http.h' l='46' type='CURLcode Curl_http_auth(struct connectdata * conn, int httpcode, char * header)'/>
+<def f='codebrowser/curl/lib/http.c' l='319' ll='439' type='CURLcode Curl_http_auth(struct connectdata * conn, int httpcode, char * header)'/>
+<use f='codebrowser/curl/lib/http.c' l='905' u='c' c='Curl_ConnectHTTPProxyTunnel'/>
+<doc f='codebrowser/curl/lib/http.c' l='313'>/*
+ * Curl_http_auth() deals with Proxy-Authenticate: and WWW-Authenticate:
+ * headers. They are dealt with both in the transfer.c main loop and in the
+ * proxy CONNECT loop.
+ */</doc>
+<use f='codebrowser/curl/lib/transfer.c' l='792' u='c' c='Curl_readwrite'/>

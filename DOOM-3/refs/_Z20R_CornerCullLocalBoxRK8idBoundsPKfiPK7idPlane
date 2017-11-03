@@ -1,0 +1,12 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1138' type='bool R_CornerCullLocalBox(const idBounds &amp; bounds, const float * modelMatrix, int numPlanes, const idPlane * planes)'/>
+<def f='codebrowser/renderer/tr_main.cpp' l='625' ll='665' type='bool R_CornerCullLocalBox(const idBounds &amp; bounds, const float * modelMatrix, int numPlanes, const idPlane * planes)'/>
+<use f='codebrowser/renderer/tr_main.cpp' l='679' u='c' c='_Z14R_CullLocalBoxRK8idBoundsPKfiPK7idPlane'/>
+<doc f='codebrowser/renderer/tr_main.cpp' l='616'>/*
+=================
+R_CornerCullLocalBox
+
+Tests all corners against the frustum.
+Can still generate a few false positives when the box is outside a corner.
+Returns true if the box is outside the given global frustum, (positive sides are out)
+=================
+*/</doc>

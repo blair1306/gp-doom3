@@ -1,0 +1,11 @@
+<dec f='codebrowser/idlib/math/Simd_AltiVec.h' l='96'/>
+<doc f='codebrowser/idlib/math/Simd_AltiVec.h' l='86'>// This assumes that the dest (and mixBuffer) array to the sound functions is aligned. If this is not true, we take a large
+// performance hit from having to do unaligned stores
+//#define SOUND_DEST_ALIGNED
+
+// This assumes that the vertexCache array to CreateShadowCache and CreateVertexProgramShadowCache is aligned. If it&apos;s not,
+// then we take a big performance hit from unaligned stores.
+//#define VERTEXCACHE_ALIGNED
+
+// This turns on support for PPC intrinsics in the SIMD_AltiVec.cpp file. Right now it&apos;s only used for frsqrte. GCC 
+// supports these intrinsics but XLC does not.</doc>

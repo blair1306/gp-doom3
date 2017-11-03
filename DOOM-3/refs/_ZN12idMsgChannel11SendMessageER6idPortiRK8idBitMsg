@@ -1,0 +1,18 @@
+<dec f='codebrowser/framework/async/MsgChannel.h' l='124' type='int idMsgChannel::SendMessage(idPort &amp; port, const int time, const idBitMsg &amp; msg)'/>
+<doc f='codebrowser/framework/async/MsgChannel.h' l='123'>// Sends an unreliable message, in order and without duplicates.</doc>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='629' u='c' c='_ZN13idAsyncClient17SendEmptyToServerEbb'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='658' u='c' c='_ZN13idAsyncClient24SendPingResponseToServerEi'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='704' u='c' c='_ZN13idAsyncClient20SendUsercmdsToServerEv'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1074' u='c' c='_ZN13idAsyncServer17SendEmptyToClientEib'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1109' u='c' c='_ZN13idAsyncServer16SendPingToClientEi'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1142' u='c' c='_ZN13idAsyncServer20SendGameInitToClientEi'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1210' u='c' c='_ZN13idAsyncServer20SendSnapshotToClientEi'/>
+<def f='codebrowser/framework/async/MsgChannel.cpp' l='471' ll='527' type='int idMsgChannel::SendMessage(idPort &amp; port, const int time, const idBitMsg &amp; msg)'/>
+<doc f='codebrowser/framework/async/MsgChannel.cpp' l='463'>/*
+===============
+idMsgChannel::SendMessage
+
+  Sends a message to a connection, fragmenting if necessary
+  A 0 length will still generate a packet.
+================
+*/</doc>

@@ -1,0 +1,26 @@
+<dec f='codebrowser/d3xp/Game_local.h' l='490' type='void idGameLocal::RadiusDamage(const idVec3 &amp; origin, idEntity * inflictor, idEntity * attacker, idEntity * ignoreDamage, idEntity * ignorePush, const char * damageDefName, float dmgPower = 1.F)'/>
+<def f='codebrowser/d3xp/Game_local.cpp' l='3841' ll='3939' type='void idGameLocal::RadiusDamage(const idVec3 &amp; origin, idEntity * inflictor, idEntity * attacker, idEntity * ignoreDamage, idEntity * ignorePush, const char * damageDefName, float dmgPower = 1.F)'/>
+<doc f='codebrowser/d3xp/Game_local.cpp' l='3836'>/*
+============
+idGameLocal::RadiusDamage
+============
+*/</doc>
+<use f='codebrowser/d3xp/Light.cpp' l='665' u='c' c='_ZN7idLight12BecomeBrokenEP8idEntity'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='634' u='c' c='_ZN12idExplodable13Event_ExplodeEP8idEntity'/>
+<use f='codebrowser/d3xp/Moveable.cpp' l='1167' u='c' c='_ZN17idExplodingBarrel6KilledEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='799' u='c' c='_ZN12idProjectile18Event_RadiusDamageEP8idEntity'/>
+<use f='codebrowser/d3xp/ai/AI_events.cpp' l='778' u='c' c='_ZN4idAI27Event_RadiusDamageFromJointEPKcS1_'/>
+<use f='codebrowser/d3xp/script/Script_Thread.cpp' l='1816' u='c' c='_ZN8idThread18Event_RadiusDamageERK6idVec3P8idEntityS4_S4_PKcf'/>
+<dec f='codebrowser/game/Game_local.h' l='428' type='void idGameLocal::RadiusDamage(const idVec3 &amp; origin, idEntity * inflictor, idEntity * attacker, idEntity * ignoreDamage, idEntity * ignorePush, const char * damageDefName, float dmgPower = 1.F)'/>
+<def f='codebrowser/game/Game_local.cpp' l='3543' ll='3641' type='void idGameLocal::RadiusDamage(const idVec3 &amp; origin, idEntity * inflictor, idEntity * attacker, idEntity * ignoreDamage, idEntity * ignorePush, const char * damageDefName, float dmgPower = 1.F)'/>
+<doc f='codebrowser/game/Game_local.cpp' l='3538'>/*
+============
+idGameLocal::RadiusDamage
+============
+*/</doc>
+<use f='codebrowser/game/Light.cpp' l='658' u='c' c='_ZN7idLight12BecomeBrokenEP8idEntity'/>
+<use f='codebrowser/game/Misc.cpp' l='608' u='c' c='_ZN12idExplodable13Event_ExplodeEP8idEntity'/>
+<use f='codebrowser/game/Moveable.cpp' l='1005' u='c' c='_ZN17idExplodingBarrel6KilledEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/game/Projectile.cpp' l='754' u='c' c='_ZN12idProjectile18Event_RadiusDamageEP8idEntity'/>
+<use f='codebrowser/game/ai/AI_events.cpp' l='696' u='c' c='_ZN4idAI27Event_RadiusDamageFromJointEPKcS1_'/>
+<use f='codebrowser/game/script/Script_Thread.cpp' l='1736' u='c' c='_ZN8idThread18Event_RadiusDamageERK6idVec3P8idEntityS4_S4_PKcf'/>

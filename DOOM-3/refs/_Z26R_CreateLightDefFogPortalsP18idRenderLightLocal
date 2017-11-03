@@ -1,0 +1,11 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1228' type='void R_CreateLightDefFogPortals(idRenderLightLocal * ldef)'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='439' u='c' c='_ZN18idRenderWorldLocal14UpdateLightDefEiPK13renderLight_s'/>
+<def f='codebrowser/renderer/tr_lightrun.cpp' l='548' ll='587' type='void R_CreateLightDefFogPortals(idRenderLightLocal * ldef)'/>
+<doc f='codebrowser/renderer/tr_lightrun.cpp' l='540'>/*
+======================
+R_CreateLightDefFogPortals
+
+When a fog light is created or moved, see if it completely
+encloses any portals, which may allow them to be fogged closed.
+======================
+*/</doc>

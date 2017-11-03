@@ -1,0 +1,9 @@
+<dec f='codebrowser/curl/lib/urldata.h' l='478' type='CURLcode (*)(struct connectdata *)'/>
+<offset>7552</offset>
+<doc f='codebrowser/curl/lib/urldata.h' l='475'>/* This function *MAY* be set to a protocol-dependent function that is run
+   * after the connect() and everything is done, as a step in the connection.
+   */</doc>
+<use f='codebrowser/curl/lib/url.c' l='1948' u='r' c='Curl_protocol_connect'/>
+<use f='codebrowser/curl/lib/url.c' l='1957' u='r' c='Curl_protocol_connect'/>
+<use f='codebrowser/curl/lib/url.c' l='2442' u='w' c='CreateConnection'/>
+<use f='codebrowser/curl/lib/url.c' l='2536' u='w' c='CreateConnection'/>

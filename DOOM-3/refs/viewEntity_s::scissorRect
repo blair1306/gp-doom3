@@ -1,0 +1,16 @@
+<dec f='codebrowser/renderer/tr_local.h' l='355' type='idScreenRect'/>
+<offset>64</offset>
+<doc f='codebrowser/renderer/tr_local.h' l='350'>// for scissor clipping, local inside renderView viewport
+	// scissorRect.Empty() is true if the viewEntity_t was never actually
+	// seen through any portals, but was created for shadow casting.
+	// a viewEntity can have a non-empty scissorRect, meaning that an area
+	// that it is in is visible, and still not be visible.</doc>
+<use f='codebrowser/renderer/Interaction.cpp' l='1039' u='r' c='_ZN13idInteraction20AddActiveInteractionEv'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='1090' u='r' c='_ZN13idInteraction20AddActiveInteractionEv'/>
+<use f='codebrowser/renderer/ModelDecal.cpp' l='518' u='r' c='_ZN18idRenderModelDecal16AddDecalDrawSurfEP12viewEntity_s'/>
+<use f='codebrowser/renderer/RenderWorld_portals.cpp' l='633' u='m' c='_ZN18idRenderWorldLocal17AddAreaEntityRefsEiPK13portalStack_s'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='391' u='m' c='_Z24R_SetEntityDefViewEntityP19idRenderEntityLocal'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1421' u='r' c='_ZL21R_AddAmbientDrawsurfsP12viewEntity_s'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1477' u='m' c='_Z18R_AddModelSurfacesv'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1480' u='r' c='_Z18R_AddModelSurfacesv'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1512' u='m' c='_Z18R_AddModelSurfacesv'/>

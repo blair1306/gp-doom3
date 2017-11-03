@@ -1,0 +1,178 @@
+<def f='codebrowser/d3xp/anim/Anim.h' l='486' ll='594'/>
+<size>984</size>
+<doc f='codebrowser/d3xp/anim/Anim.h' l='478'>/*
+==============================================================================================
+
+	idAnimator
+
+==============================================================================================
+*/</doc>
+<fun r='_ZN10idAnimatorC1Ev'/>
+<fun r='_ZN10idAnimatorD1Ev'/>
+<fun r='_ZNK10idAnimator9AllocatedEv'/>
+<fun r='_ZNK10idAnimator4SizeEv'/>
+<fun r='_ZNK10idAnimator4SaveEP10idSaveGame'/>
+<fun r='_ZN10idAnimator7RestoreEP13idRestoreGame'/>
+<fun r='_ZN10idAnimator9SetEntityEP8idEntity'/>
+<fun r='_ZNK10idAnimator9GetEntityEv'/>
+<fun r='_ZN10idAnimator18RemoveOriginOffsetEb'/>
+<fun r='_ZNK10idAnimator12RemoveOriginEv'/>
+<fun r='_ZNK10idAnimator12GetJointListEPKcR6idListI13jointHandle_tE'/>
+<fun r='_ZNK10idAnimator8NumAnimsEv'/>
+<fun r='_ZNK10idAnimator7GetAnimEi'/>
+<fun r='_ZNK10idAnimator7GetAnimEPKc'/>
+<fun r='_ZNK10idAnimator7HasAnimEPKc'/>
+<fun r='_ZN10idAnimator12ServiceAnimsEii'/>
+<fun r='_ZNK10idAnimator11IsAnimatingEi'/>
+<fun r='_ZN10idAnimator9GetJointsEPiPP10idJointMat'/>
+<fun r='_ZNK10idAnimator9NumJointsEv'/>
+<fun r='_ZNK10idAnimator13GetFirstChildE13jointHandle_t'/>
+<fun r='_ZNK10idAnimator13GetFirstChildEPKc'/>
+<fun r='_ZN10idAnimator8SetModelEPKc'/>
+<fun r='_ZNK10idAnimator11ModelHandleEv'/>
+<fun r='_ZNK10idAnimator8ModelDefEv'/>
+<fun r='_ZN10idAnimator11ForceUpdateEv'/>
+<fun r='_ZN10idAnimator16ClearForceUpdateEv'/>
+<fun r='_ZN10idAnimator11CreateFrameEib'/>
+<fun r='_ZNK10idAnimator15FrameHasChangedEi'/>
+<fun r='_ZNK10idAnimator8GetDeltaEiiR6idVec3'/>
+<fun r='_ZNK10idAnimator16GetDeltaRotationEiiR6idMat3'/>
+<fun r='_ZNK10idAnimator9GetOriginEiR6idVec3'/>
+<fun r='_ZN10idAnimator9GetBoundsEiR8idBounds'/>
+<fun r='_ZN10idAnimator11CurrentAnimEi'/>
+<fun r='_ZN10idAnimator5ClearEiii'/>
+<fun r='_ZN10idAnimator8SetFrameEiiiii'/>
+<fun r='_ZN10idAnimator9CycleAnimEiiii'/>
+<fun r='_ZN10idAnimator8PlayAnimEiiii'/>
+<fun r='_ZN10idAnimator16SyncAnimChannelsEiiii'/>
+<fun r='_ZN10idAnimator11SetJointPosE13jointHandle_t19jointModTransform_tRK6idVec3'/>
+<fun r='_ZN10idAnimator12SetJointAxisE13jointHandle_t19jointModTransform_tRK6idMat3'/>
+<fun r='_ZN10idAnimator10ClearJointE13jointHandle_t'/>
+<fun r='_ZN10idAnimator14ClearAllJointsEv'/>
+<fun r='_ZN10idAnimator10InitAFPoseEv'/>
+<fun r='_ZN10idAnimator17SetAFPoseJointModE13jointHandle_t16AFJointModType_tRK6idMat3RK6idVec3'/>
+<fun r='_ZN10idAnimator12FinishAFPoseEiRK8idBoundsi'/>
+<fun r='_ZN10idAnimator20SetAFPoseBlendWeightEf'/>
+<fun r='_ZNK10idAnimator11BlendAFPoseEP11idJointQuat'/>
+<fun r='_ZN10idAnimator11ClearAFPoseEv'/>
+<fun r='_ZN10idAnimator13ClearAllAnimsEii'/>
+<fun r='_ZNK10idAnimator14GetJointHandleEPKc'/>
+<fun r='_ZNK10idAnimator12GetJointNameE13jointHandle_t'/>
+<fun r='_ZNK10idAnimator18GetChannelForJointE13jointHandle_t'/>
+<fun r='_ZN10idAnimator17GetJointTransformE13jointHandle_tiR6idVec3R6idMat3'/>
+<fun r='_ZN10idAnimator22GetJointLocalTransformE13jointHandle_tiR6idVec3R6idMat3'/>
+<fun r='_ZNK10idAnimator12GetAnimFlagsEi'/>
+<fun r='_ZNK10idAnimator9NumFramesEi'/>
+<fun r='_ZNK10idAnimator14NumSyncedAnimsEi'/>
+<fun r='_ZNK10idAnimator8AnimNameEi'/>
+<fun r='_ZNK10idAnimator12AnimFullNameEi'/>
+<fun r='_ZNK10idAnimator10AnimLengthEi'/>
+<fun r='_ZNK10idAnimator18TotalMovementDeltaEi'/>
+<fun r='_ZN10idAnimator8FreeDataEv'/>
+<fun r='_ZN10idAnimator9PushAnimsEiii'/>
+<mbr r='idAnimator::modelDef' o='0' t='const idDeclModelDef *'/>
+<mbr r='idAnimator::entity' o='32' t='idEntity *'/>
+<mbr r='idAnimator::channels' o='64' t='idAnimBlend [5][3]'/>
+<mbr r='idAnimator::jointMods' o='6784' t='idList&lt;jointMod_t *&gt;'/>
+<mbr r='idAnimator::numJoints' o='6912' t='int'/>
+<mbr r='idAnimator::joints' o='6944' t='idJointMat *'/>
+<mbr r='idAnimator::lastTransformTime' o='6976' t='int'/>
+<mbr r='idAnimator::stoppedAnimatingUpdate' o='7008' t='bool'/>
+<mbr r='idAnimator::removeOriginOffset' o='7016' t='bool'/>
+<mbr r='idAnimator::forceUpdate' o='7024' t='bool'/>
+<mbr r='idAnimator::frameBounds' o='7040' t='idBounds'/>
+<mbr r='idAnimator::AFPoseBlendWeight' o='7232' t='float'/>
+<mbr r='idAnimator::AFPoseJoints' o='7264' t='idList&lt;int&gt;'/>
+<mbr r='idAnimator::AFPoseJointMods' o='7392' t='idList&lt;idAFPoseJointMod&gt;'/>
+<mbr r='idAnimator::AFPoseJointFrame' o='7520' t='idList&lt;idJointQuat&gt;'/>
+<mbr r='idAnimator::AFPoseBounds' o='7648' t='idBounds'/>
+<mbr r='idAnimator::AFPoseTime' o='7840' t='int'/>
+<def f='codebrowser/game/anim/Anim.h' l='480' ll='588'/>
+<size>984</size>
+<doc f='codebrowser/game/anim/Anim.h' l='472'>/*
+==============================================================================================
+
+	idAnimator
+
+==============================================================================================
+*/</doc>
+<fun r='_ZN10idAnimatorC1Ev'/>
+<fun r='_ZN10idAnimatorD1Ev'/>
+<fun r='_ZNK10idAnimator9AllocatedEv'/>
+<fun r='_ZNK10idAnimator4SizeEv'/>
+<fun r='_ZNK10idAnimator4SaveEP10idSaveGame'/>
+<fun r='_ZN10idAnimator7RestoreEP13idRestoreGame'/>
+<fun r='_ZN10idAnimator9SetEntityEP8idEntity'/>
+<fun r='_ZNK10idAnimator9GetEntityEv'/>
+<fun r='_ZN10idAnimator18RemoveOriginOffsetEb'/>
+<fun r='_ZNK10idAnimator12RemoveOriginEv'/>
+<fun r='_ZNK10idAnimator12GetJointListEPKcR6idListI13jointHandle_tE'/>
+<fun r='_ZNK10idAnimator8NumAnimsEv'/>
+<fun r='_ZNK10idAnimator7GetAnimEi'/>
+<fun r='_ZNK10idAnimator7GetAnimEPKc'/>
+<fun r='_ZNK10idAnimator7HasAnimEPKc'/>
+<fun r='_ZN10idAnimator12ServiceAnimsEii'/>
+<fun r='_ZNK10idAnimator11IsAnimatingEi'/>
+<fun r='_ZN10idAnimator9GetJointsEPiPP10idJointMat'/>
+<fun r='_ZNK10idAnimator9NumJointsEv'/>
+<fun r='_ZNK10idAnimator13GetFirstChildE13jointHandle_t'/>
+<fun r='_ZNK10idAnimator13GetFirstChildEPKc'/>
+<fun r='_ZN10idAnimator8SetModelEPKc'/>
+<fun r='_ZNK10idAnimator11ModelHandleEv'/>
+<fun r='_ZNK10idAnimator8ModelDefEv'/>
+<fun r='_ZN10idAnimator11ForceUpdateEv'/>
+<fun r='_ZN10idAnimator16ClearForceUpdateEv'/>
+<fun r='_ZN10idAnimator11CreateFrameEib'/>
+<fun r='_ZNK10idAnimator15FrameHasChangedEi'/>
+<fun r='_ZNK10idAnimator8GetDeltaEiiR6idVec3'/>
+<fun r='_ZNK10idAnimator16GetDeltaRotationEiiR6idMat3'/>
+<fun r='_ZNK10idAnimator9GetOriginEiR6idVec3'/>
+<fun r='_ZN10idAnimator9GetBoundsEiR8idBounds'/>
+<fun r='_ZN10idAnimator11CurrentAnimEi'/>
+<fun r='_ZN10idAnimator5ClearEiii'/>
+<fun r='_ZN10idAnimator8SetFrameEiiiii'/>
+<fun r='_ZN10idAnimator9CycleAnimEiiii'/>
+<fun r='_ZN10idAnimator8PlayAnimEiiii'/>
+<fun r='_ZN10idAnimator16SyncAnimChannelsEiiii'/>
+<fun r='_ZN10idAnimator11SetJointPosE13jointHandle_t19jointModTransform_tRK6idVec3'/>
+<fun r='_ZN10idAnimator12SetJointAxisE13jointHandle_t19jointModTransform_tRK6idMat3'/>
+<fun r='_ZN10idAnimator10ClearJointE13jointHandle_t'/>
+<fun r='_ZN10idAnimator14ClearAllJointsEv'/>
+<fun r='_ZN10idAnimator10InitAFPoseEv'/>
+<fun r='_ZN10idAnimator17SetAFPoseJointModE13jointHandle_t16AFJointModType_tRK6idMat3RK6idVec3'/>
+<fun r='_ZN10idAnimator12FinishAFPoseEiRK8idBoundsi'/>
+<fun r='_ZN10idAnimator20SetAFPoseBlendWeightEf'/>
+<fun r='_ZNK10idAnimator11BlendAFPoseEP11idJointQuat'/>
+<fun r='_ZN10idAnimator11ClearAFPoseEv'/>
+<fun r='_ZN10idAnimator13ClearAllAnimsEii'/>
+<fun r='_ZNK10idAnimator14GetJointHandleEPKc'/>
+<fun r='_ZNK10idAnimator12GetJointNameE13jointHandle_t'/>
+<fun r='_ZNK10idAnimator18GetChannelForJointE13jointHandle_t'/>
+<fun r='_ZN10idAnimator17GetJointTransformE13jointHandle_tiR6idVec3R6idMat3'/>
+<fun r='_ZN10idAnimator22GetJointLocalTransformE13jointHandle_tiR6idVec3R6idMat3'/>
+<fun r='_ZNK10idAnimator12GetAnimFlagsEi'/>
+<fun r='_ZNK10idAnimator9NumFramesEi'/>
+<fun r='_ZNK10idAnimator14NumSyncedAnimsEi'/>
+<fun r='_ZNK10idAnimator8AnimNameEi'/>
+<fun r='_ZNK10idAnimator12AnimFullNameEi'/>
+<fun r='_ZNK10idAnimator10AnimLengthEi'/>
+<fun r='_ZNK10idAnimator18TotalMovementDeltaEi'/>
+<fun r='_ZN10idAnimator8FreeDataEv'/>
+<fun r='_ZN10idAnimator9PushAnimsEiii'/>
+<mbr r='idAnimator::modelDef' o='0' t='const idDeclModelDef *'/>
+<mbr r='idAnimator::entity' o='32' t='idEntity *'/>
+<mbr r='idAnimator::channels' o='64' t='idAnimBlend [5][3]'/>
+<mbr r='idAnimator::jointMods' o='6784' t='idList&lt;jointMod_t *&gt;'/>
+<mbr r='idAnimator::numJoints' o='6912' t='int'/>
+<mbr r='idAnimator::joints' o='6944' t='idJointMat *'/>
+<mbr r='idAnimator::lastTransformTime' o='6976' t='int'/>
+<mbr r='idAnimator::stoppedAnimatingUpdate' o='7008' t='bool'/>
+<mbr r='idAnimator::removeOriginOffset' o='7016' t='bool'/>
+<mbr r='idAnimator::forceUpdate' o='7024' t='bool'/>
+<mbr r='idAnimator::frameBounds' o='7040' t='idBounds'/>
+<mbr r='idAnimator::AFPoseBlendWeight' o='7232' t='float'/>
+<mbr r='idAnimator::AFPoseJoints' o='7264' t='idList&lt;int&gt;'/>
+<mbr r='idAnimator::AFPoseJointMods' o='7392' t='idList&lt;idAFPoseJointMod&gt;'/>
+<mbr r='idAnimator::AFPoseJointFrame' o='7520' t='idList&lt;idJointQuat&gt;'/>
+<mbr r='idAnimator::AFPoseBounds' o='7648' t='idBounds'/>
+<mbr r='idAnimator::AFPoseTime' o='7840' t='int'/>

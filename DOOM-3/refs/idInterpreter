@@ -1,0 +1,134 @@
+<def f='codebrowser/d3xp/script/Script_Interpreter.h' l='41' ll='117'/>
+<size>6960</size>
+<mbr r='idInterpreter::callStack' o='0' t='prstack_t [64]'/>
+<mbr r='idInterpreter::callStackDepth' o='6144' t='int'/>
+<mbr r='idInterpreter::maxStackDepth' o='6176' t='int'/>
+<mbr r='idInterpreter::localstack' o='6208' t='byte [6144]'/>
+<mbr r='idInterpreter::localstackUsed' o='55360' t='int'/>
+<mbr r='idInterpreter::localstackBase' o='55392' t='int'/>
+<mbr r='idInterpreter::maxLocalstackUsed' o='55424' t='int'/>
+<mbr r='idInterpreter::currentFunction' o='55456' t='const function_t *'/>
+<mbr r='idInterpreter::instructionPointer' o='55488' t='int'/>
+<mbr r='idInterpreter::popParms' o='55520' t='int'/>
+<mbr r='idInterpreter::multiFrameEvent' o='55552' t='const idEventDef *'/>
+<mbr r='idInterpreter::eventEntity' o='55584' t='idEntity *'/>
+<mbr r='idInterpreter::thread' o='55616' t='idThread *'/>
+<fun r='_ZN13idInterpreter8PopParmsEi'/>
+<fun r='_ZN13idInterpreter10PushStringEPKc'/>
+<fun r='_ZN13idInterpreter4PushEi'/>
+<fun r='_ZN13idInterpreter13FloatToStringEf'/>
+<fun r='_ZN13idInterpreter12AppendStringEP8idVarDefPKc'/>
+<fun r='_ZN13idInterpreter9SetStringEP8idVarDefPKc'/>
+<fun r='_ZN13idInterpreter9GetStringEP8idVarDef'/>
+<fun r='_ZN13idInterpreter11GetVariableEP8idVarDef'/>
+<fun r='_ZNK13idInterpreter9GetEntityEi'/>
+<fun r='_ZNK13idInterpreter15GetScriptObjectEi'/>
+<fun r='_ZN13idInterpreter15NextInstructionEi'/>
+<fun r='_ZN13idInterpreter13LeaveFunctionEP8idVarDef'/>
+<fun r='_ZN13idInterpreter9CallEventEPK10function_ti'/>
+<fun r='_ZN13idInterpreter12CallSysEventEPK10function_ti'/>
+<mbr r='idInterpreter::doneProcessing' o='55648' t='bool'/>
+<mbr r='idInterpreter::threadDying' o='55656' t='bool'/>
+<mbr r='idInterpreter::terminateOnExit' o='55664' t='bool'/>
+<mbr r='idInterpreter::debug' o='55672' t='bool'/>
+<fun r='_ZN13idInterpreterC1Ev'/>
+<fun r='_ZNK13idInterpreter4SaveEP10idSaveGame'/>
+<fun r='_ZN13idInterpreter7RestoreEP13idRestoreGame'/>
+<fun r='_ZN13idInterpreter9SetThreadEP8idThread'/>
+<fun r='_ZNK13idInterpreter10StackTraceEv'/>
+<fun r='_ZNK13idInterpreter11CurrentLineEv'/>
+<fun r='_ZNK13idInterpreter11CurrentFileEv'/>
+<fun r='_ZNK13idInterpreter5ErrorEPcz'/>
+<fun r='_ZNK13idInterpreter7WarningEPcz'/>
+<fun r='_ZNK13idInterpreter11DisplayInfoEv'/>
+<fun r='_ZN13idInterpreter20BeginMultiFrameEventEP8idEntityPK10idEventDef'/>
+<fun r='_ZN13idInterpreter18EndMultiFrameEventEP8idEntityPK10idEventDef'/>
+<fun r='_ZNK13idInterpreter25MultiFrameEventInProgressEv'/>
+<fun r='_ZN13idInterpreter10ThreadCallEPS_PK10function_ti'/>
+<fun r='_ZN13idInterpreter13EnterFunctionEPK10function_tb'/>
+<fun r='_ZN13idInterpreter19EnterObjectFunctionEP8idEntityPK10function_tb'/>
+<fun r='_ZN13idInterpreter7ExecuteEv'/>
+<fun r='_ZN13idInterpreter5ResetEv'/>
+<fun r='_ZN13idInterpreter16GetRegisterValueEPKcR5idStri'/>
+<fun r='_ZNK13idInterpreter17GetCallstackDepthEv'/>
+<fun r='_ZNK13idInterpreter12GetCallstackEv'/>
+<fun r='_ZNK13idInterpreter18GetCurrentFunctionEv'/>
+<fun r='_ZNK13idInterpreter9GetThreadEv'/>
+<fun r='_ZN13idInterpreter8PopParmsEi'/>
+<fun r='_ZN13idInterpreter4PushEi'/>
+<fun r='_ZN13idInterpreter10PushStringEPKc'/>
+<fun r='_ZN13idInterpreter13FloatToStringEf'/>
+<fun r='_ZN13idInterpreter12AppendStringEP8idVarDefPKc'/>
+<fun r='_ZN13idInterpreter9SetStringEP8idVarDefPKc'/>
+<fun r='_ZN13idInterpreter9GetStringEP8idVarDef'/>
+<fun r='_ZN13idInterpreter11GetVariableEP8idVarDef'/>
+<fun r='_ZNK13idInterpreter9GetEntityEi'/>
+<fun r='_ZNK13idInterpreter15GetScriptObjectEi'/>
+<fun r='_ZN13idInterpreter15NextInstructionEi'/>
+<def f='codebrowser/game/script/Script_Interpreter.h' l='41' ll='117'/>
+<size>6960</size>
+<mbr r='idInterpreter::callStack' o='0' t='prstack_t [64]'/>
+<mbr r='idInterpreter::callStackDepth' o='6144' t='int'/>
+<mbr r='idInterpreter::maxStackDepth' o='6176' t='int'/>
+<mbr r='idInterpreter::localstack' o='6208' t='byte [6144]'/>
+<mbr r='idInterpreter::localstackUsed' o='55360' t='int'/>
+<mbr r='idInterpreter::localstackBase' o='55392' t='int'/>
+<mbr r='idInterpreter::maxLocalstackUsed' o='55424' t='int'/>
+<mbr r='idInterpreter::currentFunction' o='55456' t='const function_t *'/>
+<mbr r='idInterpreter::instructionPointer' o='55488' t='int'/>
+<mbr r='idInterpreter::popParms' o='55520' t='int'/>
+<mbr r='idInterpreter::multiFrameEvent' o='55552' t='const idEventDef *'/>
+<mbr r='idInterpreter::eventEntity' o='55584' t='idEntity *'/>
+<mbr r='idInterpreter::thread' o='55616' t='idThread *'/>
+<fun r='_ZN13idInterpreter8PopParmsEi'/>
+<fun r='_ZN13idInterpreter10PushStringEPKc'/>
+<fun r='_ZN13idInterpreter4PushEi'/>
+<fun r='_ZN13idInterpreter13FloatToStringEf'/>
+<fun r='_ZN13idInterpreter12AppendStringEP8idVarDefPKc'/>
+<fun r='_ZN13idInterpreter9SetStringEP8idVarDefPKc'/>
+<fun r='_ZN13idInterpreter9GetStringEP8idVarDef'/>
+<fun r='_ZN13idInterpreter11GetVariableEP8idVarDef'/>
+<fun r='_ZNK13idInterpreter9GetEntityEi'/>
+<fun r='_ZNK13idInterpreter15GetScriptObjectEi'/>
+<fun r='_ZN13idInterpreter15NextInstructionEi'/>
+<fun r='_ZN13idInterpreter13LeaveFunctionEP8idVarDef'/>
+<fun r='_ZN13idInterpreter9CallEventEPK10function_ti'/>
+<fun r='_ZN13idInterpreter12CallSysEventEPK10function_ti'/>
+<mbr r='idInterpreter::doneProcessing' o='55648' t='bool'/>
+<mbr r='idInterpreter::threadDying' o='55656' t='bool'/>
+<mbr r='idInterpreter::terminateOnExit' o='55664' t='bool'/>
+<mbr r='idInterpreter::debug' o='55672' t='bool'/>
+<fun r='_ZN13idInterpreterC1Ev'/>
+<fun r='_ZNK13idInterpreter4SaveEP10idSaveGame'/>
+<fun r='_ZN13idInterpreter7RestoreEP13idRestoreGame'/>
+<fun r='_ZN13idInterpreter9SetThreadEP8idThread'/>
+<fun r='_ZNK13idInterpreter10StackTraceEv'/>
+<fun r='_ZNK13idInterpreter11CurrentLineEv'/>
+<fun r='_ZNK13idInterpreter11CurrentFileEv'/>
+<fun r='_ZNK13idInterpreter5ErrorEPcz'/>
+<fun r='_ZNK13idInterpreter7WarningEPcz'/>
+<fun r='_ZNK13idInterpreter11DisplayInfoEv'/>
+<fun r='_ZN13idInterpreter20BeginMultiFrameEventEP8idEntityPK10idEventDef'/>
+<fun r='_ZN13idInterpreter18EndMultiFrameEventEP8idEntityPK10idEventDef'/>
+<fun r='_ZNK13idInterpreter25MultiFrameEventInProgressEv'/>
+<fun r='_ZN13idInterpreter10ThreadCallEPS_PK10function_ti'/>
+<fun r='_ZN13idInterpreter13EnterFunctionEPK10function_tb'/>
+<fun r='_ZN13idInterpreter19EnterObjectFunctionEP8idEntityPK10function_tb'/>
+<fun r='_ZN13idInterpreter7ExecuteEv'/>
+<fun r='_ZN13idInterpreter5ResetEv'/>
+<fun r='_ZN13idInterpreter16GetRegisterValueEPKcR5idStri'/>
+<fun r='_ZNK13idInterpreter17GetCallstackDepthEv'/>
+<fun r='_ZNK13idInterpreter12GetCallstackEv'/>
+<fun r='_ZNK13idInterpreter18GetCurrentFunctionEv'/>
+<fun r='_ZNK13idInterpreter9GetThreadEv'/>
+<fun r='_ZN13idInterpreter8PopParmsEi'/>
+<fun r='_ZN13idInterpreter4PushEi'/>
+<fun r='_ZN13idInterpreter10PushStringEPKc'/>
+<fun r='_ZN13idInterpreter13FloatToStringEf'/>
+<fun r='_ZN13idInterpreter12AppendStringEP8idVarDefPKc'/>
+<fun r='_ZN13idInterpreter9SetStringEP8idVarDefPKc'/>
+<fun r='_ZN13idInterpreter9GetStringEP8idVarDef'/>
+<fun r='_ZN13idInterpreter11GetVariableEP8idVarDef'/>
+<fun r='_ZNK13idInterpreter9GetEntityEi'/>
+<fun r='_ZNK13idInterpreter15GetScriptObjectEi'/>
+<fun r='_ZN13idInterpreter15NextInstructionEi'/>

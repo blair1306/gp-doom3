@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Random.h source code [codebrowser/idlib/math/Random.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idRandom,idRandom2 "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/idlib/math/Random.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>idlib</a>/<a href='./'>math</a>/<a href='Random.h.html'>Random.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__MATH_RANDOM_H__">__MATH_RANDOM_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__MATH_RANDOM_H__" data-ref="_M/__MATH_RANDOM_H__">__MATH_RANDOM_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>	Random number generator</i></td></tr>
+<tr><th id="36">36</th><td><i></i></td></tr>
+<tr><th id="37">37</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="38">38</th><td><i>*/</i></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><b>class</b> <dfn class="type def" id="idRandom" title='idRandom' data-ref="idRandom">idRandom</dfn> {</td></tr>
+<tr><th id="41">41</th><td><b>public</b>:</td></tr>
+<tr><th id="42">42</th><td>						<a class="decl" href="#_ZN8idRandomC1Ei" title='idRandom::idRandom' data-ref="_ZN8idRandomC1Ei">idRandom</a>( <em>int</em> <dfn class="local col2 decl" id="2262seed" title='seed' data-type='int' data-ref="2262seed">seed</dfn> = <var>0</var> );</td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td>	<em>void</em>				<a class="decl" href="#_ZN8idRandom7SetSeedEi" title='idRandom::SetSeed' data-ref="_ZN8idRandom7SetSeedEi">SetSeed</a>( <em>int</em> <dfn class="local col3 decl" id="2263seed" title='seed' data-type='int' data-ref="2263seed">seed</dfn> );</td></tr>
+<tr><th id="45">45</th><td>	<em>int</em>					<a class="decl" href="#_ZNK8idRandom7GetSeedEv" title='idRandom::GetSeed' data-ref="_ZNK8idRandom7GetSeedEv">GetSeed</a>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td>	<em>int</em>					<a class="decl" href="#_ZN8idRandom9RandomIntEv" title='idRandom::RandomInt' data-ref="_ZN8idRandom9RandomIntEv">RandomInt</a>( <em>void</em> );			<i>// random integer in the range [0, MAX_RAND]</i></td></tr>
+<tr><th id="48">48</th><td>	<em>int</em>					<a class="decl" href="#_ZN8idRandom9RandomIntEi" title='idRandom::RandomInt' data-ref="_ZN8idRandom9RandomIntEi">RandomInt</a>( <em>int</em> <dfn class="local col4 decl" id="2264max" title='max' data-type='int' data-ref="2264max">max</dfn> );		<i>// random integer in the range [0, max[</i></td></tr>
+<tr><th id="49">49</th><td>	<em>float</em>				<a class="decl" href="#_ZN8idRandom11RandomFloatEv" title='idRandom::RandomFloat' data-ref="_ZN8idRandom11RandomFloatEv">RandomFloat</a>( <em>void</em> );		<i>// random number in the range [0.0f, 1.0f]</i></td></tr>
+<tr><th id="50">50</th><td>	<em>float</em>				<a class="decl" href="#_ZN8idRandom12CRandomFloatEv" title='idRandom::CRandomFloat' data-ref="_ZN8idRandom12CRandomFloatEv">CRandomFloat</a>( <em>void</em> );		<i>// random number in the range [-1.0f, 1.0f]</i></td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td>	<em>static</em> <em>const</em> <em>int</em>	<dfn class="decl" id="idRandom::MAX_RAND" title='idRandom::MAX_RAND' data-ref="idRandom::MAX_RAND">MAX_RAND</dfn> = <var>0x7fff</var>;</td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td><b>private</b>:</td></tr>
+<tr><th id="55">55</th><td>	<em>int</em>					<dfn class="decl" id="idRandom::seed" title='idRandom::seed' data-ref="idRandom::seed">seed</dfn>;</td></tr>
+<tr><th id="56">56</th><td>};</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <a class="type" href="#idRandom" title='idRandom' data-ref="idRandom">idRandom</a>::<dfn class="decl def" id="_ZN8idRandomC1Ei" title='idRandom::idRandom' data-ref="_ZN8idRandomC1Ei">idRandom</dfn>( <em>int</em> <dfn class="local col5 decl" id="2265seed" title='seed' data-type='int' data-ref="2265seed">seed</dfn> ) {</td></tr>
+<tr><th id="59">59</th><td>	<b>this</b>-&gt;<a class="member" href="#idRandom::seed" title='idRandom::seed' data-ref="idRandom::seed">seed</a> = <a class="local col5 ref" href="#2265seed" title='seed' data-ref="2265seed">seed</a>;</td></tr>
+<tr><th id="60">60</th><td>}</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>void</em> <a class="type" href="#idRandom" title='idRandom' data-ref="idRandom">idRandom</a>::<dfn class="decl def" id="_ZN8idRandom7SetSeedEi" title='idRandom::SetSeed' data-ref="_ZN8idRandom7SetSeedEi">SetSeed</dfn>( <em>int</em> <dfn class="local col6 decl" id="2266seed" title='seed' data-type='int' data-ref="2266seed">seed</dfn> ) {</td></tr>
+<tr><th id="63">63</th><td>	<b>this</b>-&gt;<a class="member" href="#idRandom::seed" title='idRandom::seed' data-ref="idRandom::seed">seed</a> = <a class="local col6 ref" href="#2266seed" title='seed' data-ref="2266seed">seed</a>;</td></tr>
+<tr><th id="64">64</th><td>}</td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>int</em> <a class="type" href="#idRandom" title='idRandom' data-ref="idRandom">idRandom</a>::<dfn class="decl def" id="_ZNK8idRandom7GetSeedEv" title='idRandom::GetSeed' data-ref="_ZNK8idRandom7GetSeedEv">GetSeed</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="67">67</th><td>	<b>return</b> <a class="member" href="#idRandom::seed" title='idRandom::seed' data-ref="idRandom::seed">seed</a>;</td></tr>
+<tr><th id="68">68</th><td>}</td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>int</em> <a class="type" href="#idRandom" title='idRandom' data-ref="idRandom">idRandom</a>::<dfn class="decl def" id="_ZN8idRandom9RandomIntEv" title='idRandom::RandomInt' data-ref="_ZN8idRandom9RandomIntEv">RandomInt</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="71">71</th><td>	<a class="member" href="#idRandom::seed" title='idRandom::seed' data-ref="idRandom::seed">seed</a> = <var>69069</var> * <a class="member" href="#idRandom::seed" title='idRandom::seed' data-ref="idRandom::seed">seed</a> + <var>1</var>;</td></tr>
+<tr><th id="72">72</th><td>	<b>return</b> ( <a class="member" href="#idRandom::seed" title='idRandom::seed' data-ref="idRandom::seed">seed</a> &amp; <a class="type" href="#idRandom" title='idRandom' data-ref="idRandom">idRandom</a>::<a class="member" href="#idRandom::MAX_RAND" title='idRandom::MAX_RAND' data-ref="idRandom::MAX_RAND">MAX_RAND</a> );</td></tr>
+<tr><th id="73">73</th><td>}</td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>int</em> <a class="type" href="#idRandom" title='idRandom' data-ref="idRandom">idRandom</a>::<dfn class="decl def" id="_ZN8idRandom9RandomIntEi" title='idRandom::RandomInt' data-ref="_ZN8idRandom9RandomIntEi">RandomInt</dfn>( <em>int</em> <dfn class="local col7 decl" id="2267max" title='max' data-type='int' data-ref="2267max">max</dfn> ) {</td></tr>
+<tr><th id="76">76</th><td>	<b>if</b> ( <a class="local col7 ref" href="#2267max" title='max' data-ref="2267max">max</a> == <var>0</var> ) {</td></tr>
+<tr><th id="77">77</th><td>		<b>return</b> <var>0</var>;			<i>// avoid divide by zero error</i></td></tr>
+<tr><th id="78">78</th><td>	}</td></tr>
+<tr><th id="79">79</th><td>	<b>return</b> <a class="member" href="#_ZN8idRandom9RandomIntEv" title='idRandom::RandomInt' data-ref="_ZN8idRandom9RandomIntEv">RandomInt</a>() % <a class="local col7 ref" href="#2267max" title='max' data-ref="2267max">max</a>;</td></tr>
+<tr><th id="80">80</th><td>}</td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>float</em> <a class="type" href="#idRandom" title='idRandom' data-ref="idRandom">idRandom</a>::<dfn class="decl def" id="_ZN8idRandom11RandomFloatEv" title='idRandom::RandomFloat' data-ref="_ZN8idRandom11RandomFloatEv">RandomFloat</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="83">83</th><td>	<b>return</b> ( <a class="member" href="#_ZN8idRandom9RandomIntEv" title='idRandom::RandomInt' data-ref="_ZN8idRandom9RandomIntEv">RandomInt</a>() / ( <em>float</em> )( <a class="type" href="#idRandom" title='idRandom' data-ref="idRandom">idRandom</a>::<a class="member" href="#idRandom::MAX_RAND" title='idRandom::MAX_RAND' data-ref="idRandom::MAX_RAND">MAX_RAND</a> + <var>1</var> ) );</td></tr>
+<tr><th id="84">84</th><td>}</td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>float</em> <a class="type" href="#idRandom" title='idRandom' data-ref="idRandom">idRandom</a>::<dfn class="decl def" id="_ZN8idRandom12CRandomFloatEv" title='idRandom::CRandomFloat' data-ref="_ZN8idRandom12CRandomFloatEv">CRandomFloat</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="87">87</th><td>	<b>return</b> ( <var>2.0f</var> * ( <a class="member" href="#_ZN8idRandom11RandomFloatEv" title='idRandom::RandomFloat' data-ref="_ZN8idRandom11RandomFloatEv">RandomFloat</a>() - <var>0.5f</var> ) );</td></tr>
+<tr><th id="88">88</th><td>}</td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td><i>/*</i></td></tr>
+<tr><th id="92">92</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="93">93</th><td><i></i></td></tr>
+<tr><th id="94">94</th><td><i>	Random number generator</i></td></tr>
+<tr><th id="95">95</th><td><i></i></td></tr>
+<tr><th id="96">96</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="97">97</th><td><i>*/</i></td></tr>
+<tr><th id="98">98</th><td></td></tr>
+<tr><th id="99">99</th><td><b>class</b> <dfn class="type def" id="idRandom2" title='idRandom2' data-ref="idRandom2">idRandom2</dfn> {</td></tr>
+<tr><th id="100">100</th><td><b>public</b>:</td></tr>
+<tr><th id="101">101</th><td>							<a class="decl" href="#_ZN9idRandom2C1Em" title='idRandom2::idRandom2' data-ref="_ZN9idRandom2C1Em">idRandom2</a>( <em>unsigned</em> <em>long</em> <dfn class="local col8 decl" id="2268seed" title='seed' data-type='unsigned long' data-ref="2268seed">seed</dfn> = <var>0</var> );</td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td>	<em>void</em>					<a class="decl" href="#_ZN9idRandom27SetSeedEm" title='idRandom2::SetSeed' data-ref="_ZN9idRandom27SetSeedEm">SetSeed</a>( <em>unsigned</em> <em>long</em> <dfn class="local col9 decl" id="2269seed" title='seed' data-type='unsigned long' data-ref="2269seed">seed</dfn> );</td></tr>
+<tr><th id="104">104</th><td>	<em>unsigned</em> <em>long</em>			<a class="decl" href="#_ZNK9idRandom27GetSeedEv" title='idRandom2::GetSeed' data-ref="_ZNK9idRandom27GetSeedEv">GetSeed</a>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="105">105</th><td></td></tr>
+<tr><th id="106">106</th><td>	<em>int</em>						<a class="decl" href="#_ZN9idRandom29RandomIntEv" title='idRandom2::RandomInt' data-ref="_ZN9idRandom29RandomIntEv">RandomInt</a>( <em>void</em> );			<i>// random integer in the range [0, MAX_RAND]</i></td></tr>
+<tr><th id="107">107</th><td>	<em>int</em>						<a class="decl" href="#_ZN9idRandom29RandomIntEi" title='idRandom2::RandomInt' data-ref="_ZN9idRandom29RandomIntEi">RandomInt</a>( <em>int</em> <dfn class="local col0 decl" id="2270max" title='max' data-type='int' data-ref="2270max">max</dfn> );		<i>// random integer in the range [0, max]</i></td></tr>
+<tr><th id="108">108</th><td>	<em>float</em>					<a class="decl" href="#_ZN9idRandom211RandomFloatEv" title='idRandom2::RandomFloat' data-ref="_ZN9idRandom211RandomFloatEv">RandomFloat</a>( <em>void</em> );		<i>// random number in the range [0.0f, 1.0f]</i></td></tr>
+<tr><th id="109">109</th><td>	<em>float</em>					<a class="decl" href="#_ZN9idRandom212CRandomFloatEv" title='idRandom2::CRandomFloat' data-ref="_ZN9idRandom212CRandomFloatEv">CRandomFloat</a>( <em>void</em> );		<i>// random number in the range [-1.0f, 1.0f]</i></td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td>	<em>static</em> <em>const</em> <em>int</em>		<dfn class="decl" id="idRandom2::MAX_RAND" title='idRandom2::MAX_RAND' data-ref="idRandom2::MAX_RAND">MAX_RAND</dfn> = <var>0x7fff</var>;</td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td><b>private</b>:</td></tr>
+<tr><th id="114">114</th><td>	<em>unsigned</em> <em>long</em>			<dfn class="decl" id="idRandom2::seed" title='idRandom2::seed' data-ref="idRandom2::seed">seed</dfn>;</td></tr>
+<tr><th id="115">115</th><td></td></tr>
+<tr><th id="116">116</th><td>	<em>static</em> <em>const</em> <em>unsigned</em> <em>long</em>	<dfn class="decl" id="idRandom2::IEEE_ONE" title='idRandom2::IEEE_ONE' data-ref="idRandom2::IEEE_ONE">IEEE_ONE</dfn> = <var>0x3f800000</var>;</td></tr>
+<tr><th id="117">117</th><td>	<em>static</em> <em>const</em> <em>unsigned</em> <em>long</em>	<dfn class="decl" id="idRandom2::IEEE_MASK" title='idRandom2::IEEE_MASK' data-ref="idRandom2::IEEE_MASK">IEEE_MASK</dfn> = <var>0x007fffff</var>;</td></tr>
+<tr><th id="118">118</th><td>};</td></tr>
+<tr><th id="119">119</th><td></td></tr>
+<tr><th id="120">120</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <a class="type" href="#idRandom2" title='idRandom2' data-ref="idRandom2">idRandom2</a>::<dfn class="decl def" id="_ZN9idRandom2C1Em" title='idRandom2::idRandom2' data-ref="_ZN9idRandom2C1Em">idRandom2</dfn>( <em>unsigned</em> <em>long</em> <dfn class="local col1 decl" id="2271seed" title='seed' data-type='unsigned long' data-ref="2271seed">seed</dfn> ) {</td></tr>
+<tr><th id="121">121</th><td>	<b>this</b>-&gt;<a class="member" href="#idRandom2::seed" title='idRandom2::seed' data-ref="idRandom2::seed">seed</a> = <a class="local col1 ref" href="#2271seed" title='seed' data-ref="2271seed">seed</a>;</td></tr>
+<tr><th id="122">122</th><td>}</td></tr>
+<tr><th id="123">123</th><td></td></tr>
+<tr><th id="124">124</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>void</em> <a class="type" href="#idRandom2" title='idRandom2' data-ref="idRandom2">idRandom2</a>::<dfn class="decl def" id="_ZN9idRandom27SetSeedEm" title='idRandom2::SetSeed' data-ref="_ZN9idRandom27SetSeedEm">SetSeed</dfn>( <em>unsigned</em> <em>long</em> <dfn class="local col2 decl" id="2272seed" title='seed' data-type='unsigned long' data-ref="2272seed">seed</dfn> ) {</td></tr>
+<tr><th id="125">125</th><td>	<b>this</b>-&gt;<a class="member" href="#idRandom2::seed" title='idRandom2::seed' data-ref="idRandom2::seed">seed</a> = <a class="local col2 ref" href="#2272seed" title='seed' data-ref="2272seed">seed</a>;</td></tr>
+<tr><th id="126">126</th><td>}</td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>unsigned</em> <em>long</em> <a class="type" href="#idRandom2" title='idRandom2' data-ref="idRandom2">idRandom2</a>::<dfn class="decl def" id="_ZNK9idRandom27GetSeedEv" title='idRandom2::GetSeed' data-ref="_ZNK9idRandom27GetSeedEv">GetSeed</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="129">129</th><td>	<b>return</b> <a class="member" href="#idRandom2::seed" title='idRandom2::seed' data-ref="idRandom2::seed">seed</a>;</td></tr>
+<tr><th id="130">130</th><td>}</td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>int</em> <a class="type" href="#idRandom2" title='idRandom2' data-ref="idRandom2">idRandom2</a>::<dfn class="decl def" id="_ZN9idRandom29RandomIntEv" title='idRandom2::RandomInt' data-ref="_ZN9idRandom29RandomIntEv">RandomInt</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="133">133</th><td>	<a class="member" href="#idRandom2::seed" title='idRandom2::seed' data-ref="idRandom2::seed">seed</a> = <var>1664525L</var> * <a class="member" href="#idRandom2::seed" title='idRandom2::seed' data-ref="idRandom2::seed">seed</a> + <var>1013904223L</var>;</td></tr>
+<tr><th id="134">134</th><td>	<b>return</b> ( (<em>int</em>) <a class="member" href="#idRandom2::seed" title='idRandom2::seed' data-ref="idRandom2::seed">seed</a> &amp; <a class="type" href="#idRandom2" title='idRandom2' data-ref="idRandom2">idRandom2</a>::<a class="member" href="#idRandom2::MAX_RAND" title='idRandom2::MAX_RAND' data-ref="idRandom2::MAX_RAND">MAX_RAND</a> );</td></tr>
+<tr><th id="135">135</th><td>}</td></tr>
+<tr><th id="136">136</th><td></td></tr>
+<tr><th id="137">137</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>int</em> <a class="type" href="#idRandom2" title='idRandom2' data-ref="idRandom2">idRandom2</a>::<dfn class="decl def" id="_ZN9idRandom29RandomIntEi" title='idRandom2::RandomInt' data-ref="_ZN9idRandom29RandomIntEi">RandomInt</dfn>( <em>int</em> <dfn class="local col3 decl" id="2273max" title='max' data-type='int' data-ref="2273max">max</dfn> ) {</td></tr>
+<tr><th id="138">138</th><td>	<b>if</b> ( <a class="local col3 ref" href="#2273max" title='max' data-ref="2273max">max</a> == <var>0</var> ) {</td></tr>
+<tr><th id="139">139</th><td>		<b>return</b> <var>0</var>;		<i>// avoid divide by zero error</i></td></tr>
+<tr><th id="140">140</th><td>	}</td></tr>
+<tr><th id="141">141</th><td>	<b>return</b> ( <a class="member" href="#_ZN9idRandom29RandomIntEv" title='idRandom2::RandomInt' data-ref="_ZN9idRandom29RandomIntEv">RandomInt</a>() &gt;&gt; ( <var>16</var> - <a class="type" href="Math.h.html#idMath" title='idMath' data-ref="idMath">idMath</a>::<a class="ref" href="Math.h.html#_ZN6idMath14BitsForIntegerEi" title='idMath::BitsForInteger' data-ref="_ZN6idMath14BitsForIntegerEi">BitsForInteger</a>( <a class="local col3 ref" href="#2273max" title='max' data-ref="2273max">max</a> ) ) ) % <a class="local col3 ref" href="#2273max" title='max' data-ref="2273max">max</a>;</td></tr>
+<tr><th id="142">142</th><td>}</td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>float</em> <a class="type" href="#idRandom2" title='idRandom2' data-ref="idRandom2">idRandom2</a>::<dfn class="decl def" id="_ZN9idRandom211RandomFloatEv" title='idRandom2::RandomFloat' data-ref="_ZN9idRandom211RandomFloatEv">RandomFloat</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="145">145</th><td>	<em>unsigned</em> <em>long</em> <dfn class="local col4 decl" id="2274i" title='i' data-type='unsigned long' data-ref="2274i">i</dfn>;</td></tr>
+<tr><th id="146">146</th><td>	<a class="member" href="#idRandom2::seed" title='idRandom2::seed' data-ref="idRandom2::seed">seed</a> = <var>1664525L</var> * <a class="member" href="#idRandom2::seed" title='idRandom2::seed' data-ref="idRandom2::seed">seed</a> + <var>1013904223L</var>;</td></tr>
+<tr><th id="147">147</th><td>	<a class="local col4 ref" href="#2274i" title='i' data-ref="2274i">i</a> = <a class="type" href="#idRandom2" title='idRandom2' data-ref="idRandom2">idRandom2</a>::<a class="member" href="#idRandom2::IEEE_ONE" title='idRandom2::IEEE_ONE' data-ref="idRandom2::IEEE_ONE">IEEE_ONE</a> | ( <a class="member" href="#idRandom2::seed" title='idRandom2::seed' data-ref="idRandom2::seed">seed</a> &amp; <a class="type" href="#idRandom2" title='idRandom2' data-ref="idRandom2">idRandom2</a>::<a class="member" href="#idRandom2::IEEE_MASK" title='idRandom2::IEEE_MASK' data-ref="idRandom2::IEEE_MASK">IEEE_MASK</a> );</td></tr>
+<tr><th id="148">148</th><td>	<b>return</b> ( ( *(<em>float</em> *)&amp;<a class="local col4 ref" href="#2274i" title='i' data-ref="2274i">i</a> ) - <var>1.0f</var> );</td></tr>
+<tr><th id="149">149</th><td>}</td></tr>
+<tr><th id="150">150</th><td></td></tr>
+<tr><th id="151">151</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>float</em> <a class="type" href="#idRandom2" title='idRandom2' data-ref="idRandom2">idRandom2</a>::<dfn class="decl def" id="_ZN9idRandom212CRandomFloatEv" title='idRandom2::CRandomFloat' data-ref="_ZN9idRandom212CRandomFloatEv">CRandomFloat</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="152">152</th><td>	<em>unsigned</em> <em>long</em> <dfn class="local col5 decl" id="2275i" title='i' data-type='unsigned long' data-ref="2275i">i</dfn>;</td></tr>
+<tr><th id="153">153</th><td>	<a class="member" href="#idRandom2::seed" title='idRandom2::seed' data-ref="idRandom2::seed">seed</a> = <var>1664525L</var> * <a class="member" href="#idRandom2::seed" title='idRandom2::seed' data-ref="idRandom2::seed">seed</a> + <var>1013904223L</var>;</td></tr>
+<tr><th id="154">154</th><td>	<a class="local col5 ref" href="#2275i" title='i' data-ref="2275i">i</a> = <a class="type" href="#idRandom2" title='idRandom2' data-ref="idRandom2">idRandom2</a>::<a class="member" href="#idRandom2::IEEE_ONE" title='idRandom2::IEEE_ONE' data-ref="idRandom2::IEEE_ONE">IEEE_ONE</a> | ( <a class="member" href="#idRandom2::seed" title='idRandom2::seed' data-ref="idRandom2::seed">seed</a> &amp; <a class="type" href="#idRandom2" title='idRandom2' data-ref="idRandom2">idRandom2</a>::<a class="member" href="#idRandom2::IEEE_MASK" title='idRandom2::IEEE_MASK' data-ref="idRandom2::IEEE_MASK">IEEE_MASK</a> );</td></tr>
+<tr><th id="155">155</th><td>	<b>return</b> ( <var>2.0f</var> * ( *(<em>float</em> *)&amp;<a class="local col5 ref" href="#2275i" title='i' data-ref="2275i">i</a> ) - <var>3.0f</var> );</td></tr>
+<tr><th id="156">156</th><td>}</td></tr>
+<tr><th id="157">157</th><td></td></tr>
+<tr><th id="158">158</th><td><u>#<span data-ppcond="29">endif</span> /* !__MATH_RANDOM_H__ */</u></td></tr>
+<tr><th id="159">159</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../TypeInfo/TypeInfoGen.cpp.html'>codebrowser/TypeInfo/TypeInfoGen.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

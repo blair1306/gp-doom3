@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Rotation.cpp source code [codebrowser/idlib/math/Rotation.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/idlib/math/Rotation.cpp'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>idlib</a>/<a href='./'>math</a>/<a href='Rotation.cpp.html'>Rotation.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="../precompiled.h.html">"../precompiled.h"</a></u></td></tr>
+<tr><th id="30">30</th><td><u>#pragma hdrstop</u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><i>/*</i></td></tr>
+<tr><th id="34">34</th><td><i>============</i></td></tr>
+<tr><th id="35">35</th><td><i>idRotation::ToAngles</i></td></tr>
+<tr><th id="36">36</th><td><i>============</i></td></tr>
+<tr><th id="37">37</th><td><i>*/</i></td></tr>
+<tr><th id="38">38</th><td><a class="type" href="Angles.h.html#idAngles" title='idAngles' data-ref="idAngles">idAngles</a> <a class="type" href="Rotation.h.html#idRotation" title='idRotation' data-ref="idRotation">idRotation</a>::<dfn class="decl def" id="_ZNK10idRotation8ToAnglesEv" title='idRotation::ToAngles' data-ref="_ZNK10idRotation8ToAnglesEv">ToAngles</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="39">39</th><td>	<b>return</b> <a class="member" href="#_ZNK10idRotation6ToMat3Ev" title='idRotation::ToMat3' data-ref="_ZNK10idRotation6ToMat3Ev">ToMat3</a>().<a class="ref" href="Matrix.h.html#_ZNK6idMat38ToAnglesEv" title='idMat3::ToAngles' data-ref="_ZNK6idMat38ToAnglesEv">ToAngles</a>();</td></tr>
+<tr><th id="40">40</th><td>}</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><i>/*</i></td></tr>
+<tr><th id="43">43</th><td><i>============</i></td></tr>
+<tr><th id="44">44</th><td><i>idRotation::ToQuat</i></td></tr>
+<tr><th id="45">45</th><td><i>============</i></td></tr>
+<tr><th id="46">46</th><td><i>*/</i></td></tr>
+<tr><th id="47">47</th><td><a class="type" href="Quat.h.html#idQuat" title='idQuat' data-ref="idQuat">idQuat</a> <a class="type" href="Rotation.h.html#idRotation" title='idRotation' data-ref="idRotation">idRotation</a>::<dfn class="decl def" id="_ZNK10idRotation6ToQuatEv" title='idRotation::ToQuat' data-ref="_ZNK10idRotation6ToQuatEv">ToQuat</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="48">48</th><td>	<em>float</em> <dfn class="local col1 decl" id="1a" title='a' data-type='float' data-ref="1a">a</dfn>, <dfn class="local col2 decl" id="2s" title='s' data-type='float' data-ref="2s">s</dfn>, <dfn class="local col3 decl" id="3c" title='c' data-type='float' data-ref="3c">c</dfn>;</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td>	<a class="local col1 ref" href="#1a" title='a' data-ref="1a">a</a> = <a class="member" href="Rotation.h.html#idRotation::angle" title='idRotation::angle' data-ref="idRotation::angle">angle</a> * ( <a class="type" href="Math.h.html#idMath" title='idMath' data-ref="idMath">idMath</a>::<a class="ref" href="Math.h.html#idMath::M_DEG2RAD" title='idMath::M_DEG2RAD' data-ref="idMath::M_DEG2RAD">M_DEG2RAD</a> * <var>0.5f</var> );</td></tr>
+<tr><th id="51">51</th><td>	<a class="type" href="Math.h.html#idMath" title='idMath' data-ref="idMath">idMath</a>::<a class="ref" href="Math.h.html#_ZN6idMath6SinCosEfRfS0_" title='idMath::SinCos' data-ref="_ZN6idMath6SinCosEfRfS0_">SinCos</a>( <a class="local col1 ref" href="#1a" title='a' data-ref="1a">a</a>, <span class='refarg'><a class="local col2 ref" href="#2s" title='s' data-ref="2s">s</a></span>, <span class='refarg'><a class="local col3 ref" href="#3c" title='c' data-ref="3c">c</a></span> );</td></tr>
+<tr><th id="52">52</th><td>	<b>return</b> <a class="type" href="Quat.h.html#idQuat" title='idQuat' data-ref="idQuat">idQuat</a><a class="ref" href="Quat.h.html#_ZN6idQuatC1Effff" title='idQuat::idQuat' data-ref="_ZN6idQuatC1Effff">(</a> <a class="member" href="Rotation.h.html#idRotation::vec" title='idRotation::vec' data-ref="idRotation::vec">vec</a>.<a class="ref" href="Vector.h.html#idVec3::x" title='idVec3::x' data-ref="idVec3::x">x</a> * <a class="local col2 ref" href="#2s" title='s' data-ref="2s">s</a>, <a class="member" href="Rotation.h.html#idRotation::vec" title='idRotation::vec' data-ref="idRotation::vec">vec</a>.<a class="ref" href="Vector.h.html#idVec3::y" title='idVec3::y' data-ref="idVec3::y">y</a> * <a class="local col2 ref" href="#2s" title='s' data-ref="2s">s</a>, <a class="member" href="Rotation.h.html#idRotation::vec" title='idRotation::vec' data-ref="idRotation::vec">vec</a>.<a class="ref" href="Vector.h.html#idVec3::z" title='idVec3::z' data-ref="idVec3::z">z</a> * <a class="local col2 ref" href="#2s" title='s' data-ref="2s">s</a>, <a class="local col3 ref" href="#3c" title='c' data-ref="3c">c</a> );</td></tr>
+<tr><th id="53">53</th><td>}</td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td><i>/*</i></td></tr>
+<tr><th id="56">56</th><td><i>============</i></td></tr>
+<tr><th id="57">57</th><td><i>idRotation::toMat3</i></td></tr>
+<tr><th id="58">58</th><td><i>============</i></td></tr>
+<tr><th id="59">59</th><td><i>*/</i></td></tr>
+<tr><th id="60">60</th><td><em>const</em> <a class="type" href="Matrix.h.html#idMat3" title='idMat3' data-ref="idMat3">idMat3</a> &amp;<a class="type" href="Rotation.h.html#idRotation" title='idRotation' data-ref="idRotation">idRotation</a>::<dfn class="decl def" id="_ZNK10idRotation6ToMat3Ev" title='idRotation::ToMat3' data-ref="_ZNK10idRotation6ToMat3Ev">ToMat3</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="61">61</th><td>	<em>float</em> <dfn class="local col4 decl" id="4wx" title='wx' data-type='float' data-ref="4wx">wx</dfn>, <dfn class="local col5 decl" id="5wy" title='wy' data-type='float' data-ref="5wy">wy</dfn>, <dfn class="local col6 decl" id="6wz" title='wz' data-type='float' data-ref="6wz">wz</dfn>;</td></tr>
+<tr><th id="62">62</th><td>	<em>float</em> <dfn class="local col7 decl" id="7xx" title='xx' data-type='float' data-ref="7xx">xx</dfn>, <dfn class="local col8 decl" id="8yy" title='yy' data-type='float' data-ref="8yy">yy</dfn>, <dfn class="local col9 decl" id="9yz" title='yz' data-type='float' data-ref="9yz">yz</dfn>;</td></tr>
+<tr><th id="63">63</th><td>	<em>float</em> <dfn class="local col0 decl" id="10xy" title='xy' data-type='float' data-ref="10xy">xy</dfn>, <dfn class="local col1 decl" id="11xz" title='xz' data-type='float' data-ref="11xz">xz</dfn>, <dfn class="local col2 decl" id="12zz" title='zz' data-type='float' data-ref="12zz">zz</dfn>;</td></tr>
+<tr><th id="64">64</th><td>	<em>float</em> <dfn class="local col3 decl" id="13x2" title='x2' data-type='float' data-ref="13x2">x2</dfn>, <dfn class="local col4 decl" id="14y2" title='y2' data-type='float' data-ref="14y2">y2</dfn>, <dfn class="local col5 decl" id="15z2" title='z2' data-type='float' data-ref="15z2">z2</dfn>;</td></tr>
+<tr><th id="65">65</th><td>	<em>float</em> <dfn class="local col6 decl" id="16a" title='a' data-type='float' data-ref="16a">a</dfn>, <dfn class="local col7 decl" id="17c" title='c' data-type='float' data-ref="17c">c</dfn>, <dfn class="local col8 decl" id="18s" title='s' data-type='float' data-ref="18s">s</dfn>, <dfn class="local col9 decl" id="19x" title='x' data-type='float' data-ref="19x">x</dfn>, <dfn class="local col0 decl" id="20y" title='y' data-type='float' data-ref="20y">y</dfn>, <dfn class="local col1 decl" id="21z" title='z' data-type='float' data-ref="21z">z</dfn>;</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td>	<b>if</b> ( <a class="member" href="Rotation.h.html#idRotation::axisValid" title='idRotation::axisValid' data-ref="idRotation::axisValid">axisValid</a> ) {</td></tr>
+<tr><th id="68">68</th><td>		<b>return</b> <a class="member" href="Rotation.h.html#idRotation::axis" title='idRotation::axis' data-ref="idRotation::axis">axis</a>;</td></tr>
+<tr><th id="69">69</th><td>	}</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td>	<a class="local col6 ref" href="#16a" title='a' data-ref="16a">a</a> = <a class="member" href="Rotation.h.html#idRotation::angle" title='idRotation::angle' data-ref="idRotation::angle">angle</a> * ( <a class="type" href="Math.h.html#idMath" title='idMath' data-ref="idMath">idMath</a>::<a class="ref" href="Math.h.html#idMath::M_DEG2RAD" title='idMath::M_DEG2RAD' data-ref="idMath::M_DEG2RAD">M_DEG2RAD</a> * <var>0.5f</var> );</td></tr>
+<tr><th id="72">72</th><td>	<a class="type" href="Math.h.html#idMath" title='idMath' data-ref="idMath">idMath</a>::<a class="ref" href="Math.h.html#_ZN6idMath6SinCosEfRfS0_" title='idMath::SinCos' data-ref="_ZN6idMath6SinCosEfRfS0_">SinCos</a>( <a class="local col6 ref" href="#16a" title='a' data-ref="16a">a</a>, <span class='refarg'><a class="local col8 ref" href="#18s" title='s' data-ref="18s">s</a></span>, <span class='refarg'><a class="local col7 ref" href="#17c" title='c' data-ref="17c">c</a></span> );</td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td>	<a class="local col9 ref" href="#19x" title='x' data-ref="19x">x</a> = <a class="member" href="Rotation.h.html#idRotation::vec" title='idRotation::vec' data-ref="idRotation::vec">vec</a><a class="ref" href="Vector.h.html#_ZNK6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZNK6idVec3ixEi">[<var>0</var>]</a> * <a class="local col8 ref" href="#18s" title='s' data-ref="18s">s</a>;</td></tr>
+<tr><th id="75">75</th><td>	<a class="local col0 ref" href="#20y" title='y' data-ref="20y">y</a> = <a class="member" href="Rotation.h.html#idRotation::vec" title='idRotation::vec' data-ref="idRotation::vec">vec</a><a class="ref" href="Vector.h.html#_ZNK6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZNK6idVec3ixEi">[<var>1</var>]</a> * <a class="local col8 ref" href="#18s" title='s' data-ref="18s">s</a>;</td></tr>
+<tr><th id="76">76</th><td>	<a class="local col1 ref" href="#21z" title='z' data-ref="21z">z</a> = <a class="member" href="Rotation.h.html#idRotation::vec" title='idRotation::vec' data-ref="idRotation::vec">vec</a><a class="ref" href="Vector.h.html#_ZNK6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZNK6idVec3ixEi">[<var>2</var>]</a> * <a class="local col8 ref" href="#18s" title='s' data-ref="18s">s</a>;</td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td>	<a class="local col3 ref" href="#13x2" title='x2' data-ref="13x2">x2</a> = <a class="local col9 ref" href="#19x" title='x' data-ref="19x">x</a> + <a class="local col9 ref" href="#19x" title='x' data-ref="19x">x</a>;</td></tr>
+<tr><th id="79">79</th><td>	<a class="local col4 ref" href="#14y2" title='y2' data-ref="14y2">y2</a> = <a class="local col0 ref" href="#20y" title='y' data-ref="20y">y</a> + <a class="local col0 ref" href="#20y" title='y' data-ref="20y">y</a>;</td></tr>
+<tr><th id="80">80</th><td>	<a class="local col5 ref" href="#15z2" title='z2' data-ref="15z2">z2</a> = <a class="local col1 ref" href="#21z" title='z' data-ref="21z">z</a> + <a class="local col1 ref" href="#21z" title='z' data-ref="21z">z</a>;</td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td>	<a class="local col7 ref" href="#7xx" title='xx' data-ref="7xx">xx</a> = <a class="local col9 ref" href="#19x" title='x' data-ref="19x">x</a> * <a class="local col3 ref" href="#13x2" title='x2' data-ref="13x2">x2</a>;</td></tr>
+<tr><th id="83">83</th><td>	<a class="local col0 ref" href="#10xy" title='xy' data-ref="10xy">xy</a> = <a class="local col9 ref" href="#19x" title='x' data-ref="19x">x</a> * <a class="local col4 ref" href="#14y2" title='y2' data-ref="14y2">y2</a>;</td></tr>
+<tr><th id="84">84</th><td>	<a class="local col1 ref" href="#11xz" title='xz' data-ref="11xz">xz</a> = <a class="local col9 ref" href="#19x" title='x' data-ref="19x">x</a> * <a class="local col5 ref" href="#15z2" title='z2' data-ref="15z2">z2</a>;</td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td>	<a class="local col8 ref" href="#8yy" title='yy' data-ref="8yy">yy</a> = <a class="local col0 ref" href="#20y" title='y' data-ref="20y">y</a> * <a class="local col4 ref" href="#14y2" title='y2' data-ref="14y2">y2</a>;</td></tr>
+<tr><th id="87">87</th><td>	<a class="local col9 ref" href="#9yz" title='yz' data-ref="9yz">yz</a> = <a class="local col0 ref" href="#20y" title='y' data-ref="20y">y</a> * <a class="local col5 ref" href="#15z2" title='z2' data-ref="15z2">z2</a>;</td></tr>
+<tr><th id="88">88</th><td>	<a class="local col2 ref" href="#12zz" title='zz' data-ref="12zz">zz</a> = <a class="local col1 ref" href="#21z" title='z' data-ref="21z">z</a> * <a class="local col5 ref" href="#15z2" title='z2' data-ref="15z2">z2</a>;</td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td>	<a class="local col4 ref" href="#4wx" title='wx' data-ref="4wx">wx</a> = <a class="local col7 ref" href="#17c" title='c' data-ref="17c">c</a> * <a class="local col3 ref" href="#13x2" title='x2' data-ref="13x2">x2</a>;</td></tr>
+<tr><th id="91">91</th><td>	<a class="local col5 ref" href="#5wy" title='wy' data-ref="5wy">wy</a> = <a class="local col7 ref" href="#17c" title='c' data-ref="17c">c</a> * <a class="local col4 ref" href="#14y2" title='y2' data-ref="14y2">y2</a>;</td></tr>
+<tr><th id="92">92</th><td>	<a class="local col6 ref" href="#6wz" title='wz' data-ref="6wz">wz</a> = <a class="local col7 ref" href="#17c" title='c' data-ref="17c">c</a> * <a class="local col5 ref" href="#15z2" title='z2' data-ref="15z2">z2</a>;</td></tr>
+<tr><th id="93">93</th><td></td></tr>
+<tr><th id="94">94</th><td>	<a class="member" href="Rotation.h.html#idRotation::axis" title='idRotation::axis' data-ref="idRotation::axis">axis</a><a class="ref" href="Matrix.h.html#_ZN6idMat3ixEi" title='idMat3::operator[]' data-ref="_ZN6idMat3ixEi">[ <var>0</var> ]</a><a class="ref" href="Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[ <var>0</var> ]</a> = <var>1.0f</var> - ( <a class="local col8 ref" href="#8yy" title='yy' data-ref="8yy">yy</a> + <a class="local col2 ref" href="#12zz" title='zz' data-ref="12zz">zz</a> );</td></tr>
+<tr><th id="95">95</th><td>	<a class="member" href="Rotation.h.html#idRotation::axis" title='idRotation::axis' data-ref="idRotation::axis">axis</a><a class="ref" href="Matrix.h.html#_ZN6idMat3ixEi" title='idMat3::operator[]' data-ref="_ZN6idMat3ixEi">[ <var>0</var> ]</a><a class="ref" href="Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[ <var>1</var> ]</a> = <a class="local col0 ref" href="#10xy" title='xy' data-ref="10xy">xy</a> - <a class="local col6 ref" href="#6wz" title='wz' data-ref="6wz">wz</a>;</td></tr>
+<tr><th id="96">96</th><td>	<a class="member" href="Rotation.h.html#idRotation::axis" title='idRotation::axis' data-ref="idRotation::axis">axis</a><a class="ref" href="Matrix.h.html#_ZN6idMat3ixEi" title='idMat3::operator[]' data-ref="_ZN6idMat3ixEi">[ <var>0</var> ]</a><a class="ref" href="Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[ <var>2</var> ]</a> = <a class="local col1 ref" href="#11xz" title='xz' data-ref="11xz">xz</a> + <a class="local col5 ref" href="#5wy" title='wy' data-ref="5wy">wy</a>;</td></tr>
+<tr><th id="97">97</th><td></td></tr>
+<tr><th id="98">98</th><td>	<a class="member" href="Rotation.h.html#idRotation::axis" title='idRotation::axis' data-ref="idRotation::axis">axis</a><a class="ref" href="Matrix.h.html#_ZN6idMat3ixEi" title='idMat3::operator[]' data-ref="_ZN6idMat3ixEi">[ <var>1</var> ]</a><a class="ref" href="Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[ <var>0</var> ]</a> = <a class="local col0 ref" href="#10xy" title='xy' data-ref="10xy">xy</a> + <a class="local col6 ref" href="#6wz" title='wz' data-ref="6wz">wz</a>;</td></tr>
+<tr><th id="99">99</th><td>	<a class="member" href="Rotation.h.html#idRotation::axis" title='idRotation::axis' data-ref="idRotation::axis">axis</a><a class="ref" href="Matrix.h.html#_ZN6idMat3ixEi" title='idMat3::operator[]' data-ref="_ZN6idMat3ixEi">[ <var>1</var> ]</a><a class="ref" href="Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[ <var>1</var> ]</a> = <var>1.0f</var> - ( <a class="local col7 ref" href="#7xx" title='xx' data-ref="7xx">xx</a> + <a class="local col2 ref" href="#12zz" title='zz' data-ref="12zz">zz</a> );</td></tr>
+<tr><th id="100">100</th><td>	<a class="member" href="Rotation.h.html#idRotation::axis" title='idRotation::axis' data-ref="idRotation::axis">axis</a><a class="ref" href="Matrix.h.html#_ZN6idMat3ixEi" title='idMat3::operator[]' data-ref="_ZN6idMat3ixEi">[ <var>1</var> ]</a><a class="ref" href="Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[ <var>2</var> ]</a> = <a class="local col9 ref" href="#9yz" title='yz' data-ref="9yz">yz</a> - <a class="local col4 ref" href="#4wx" title='wx' data-ref="4wx">wx</a>;</td></tr>
+<tr><th id="101">101</th><td></td></tr>
+<tr><th id="102">102</th><td>	<a class="member" href="Rotation.h.html#idRotation::axis" title='idRotation::axis' data-ref="idRotation::axis">axis</a><a class="ref" href="Matrix.h.html#_ZN6idMat3ixEi" title='idMat3::operator[]' data-ref="_ZN6idMat3ixEi">[ <var>2</var> ]</a><a class="ref" href="Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[ <var>0</var> ]</a> = <a class="local col1 ref" href="#11xz" title='xz' data-ref="11xz">xz</a> - <a class="local col5 ref" href="#5wy" title='wy' data-ref="5wy">wy</a>;</td></tr>
+<tr><th id="103">103</th><td>	<a class="member" href="Rotation.h.html#idRotation::axis" title='idRotation::axis' data-ref="idRotation::axis">axis</a><a class="ref" href="Matrix.h.html#_ZN6idMat3ixEi" title='idMat3::operator[]' data-ref="_ZN6idMat3ixEi">[ <var>2</var> ]</a><a class="ref" href="Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[ <var>1</var> ]</a> = <a class="local col9 ref" href="#9yz" title='yz' data-ref="9yz">yz</a> + <a class="local col4 ref" href="#4wx" title='wx' data-ref="4wx">wx</a>;</td></tr>
+<tr><th id="104">104</th><td>	<a class="member" href="Rotation.h.html#idRotation::axis" title='idRotation::axis' data-ref="idRotation::axis">axis</a><a class="ref" href="Matrix.h.html#_ZN6idMat3ixEi" title='idMat3::operator[]' data-ref="_ZN6idMat3ixEi">[ <var>2</var> ]</a><a class="ref" href="Vector.h.html#_ZN6idVec3ixEi" title='idVec3::operator[]' data-ref="_ZN6idVec3ixEi">[ <var>2</var> ]</a> = <var>1.0f</var> - ( <a class="local col7 ref" href="#7xx" title='xx' data-ref="7xx">xx</a> + <a class="local col8 ref" href="#8yy" title='yy' data-ref="8yy">yy</a> );</td></tr>
+<tr><th id="105">105</th><td></td></tr>
+<tr><th id="106">106</th><td>	<a class="member" href="Rotation.h.html#idRotation::axisValid" title='idRotation::axisValid' data-ref="idRotation::axisValid">axisValid</a> = <b>true</b>;</td></tr>
+<tr><th id="107">107</th><td></td></tr>
+<tr><th id="108">108</th><td>	<b>return</b> <a class="member" href="Rotation.h.html#idRotation::axis" title='idRotation::axis' data-ref="idRotation::axis">axis</a>;</td></tr>
+<tr><th id="109">109</th><td>}</td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td><i>/*</i></td></tr>
+<tr><th id="112">112</th><td><i>============</i></td></tr>
+<tr><th id="113">113</th><td><i>idRotation::ToMat4</i></td></tr>
+<tr><th id="114">114</th><td><i>============</i></td></tr>
+<tr><th id="115">115</th><td><i>*/</i></td></tr>
+<tr><th id="116">116</th><td><a class="type" href="Matrix.h.html#idMat4" title='idMat4' data-ref="idMat4">idMat4</a> <a class="type" href="Rotation.h.html#idRotation" title='idRotation' data-ref="idRotation">idRotation</a>::<dfn class="decl def" id="_ZNK10idRotation6ToMat4Ev" title='idRotation::ToMat4' data-ref="_ZNK10idRotation6ToMat4Ev">ToMat4</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="117">117</th><td>	<b>return</b> <a class="member" href="#_ZNK10idRotation6ToMat3Ev" title='idRotation::ToMat3' data-ref="_ZNK10idRotation6ToMat3Ev">ToMat3</a>().<a class="ref" href="Matrix.h.html#_ZNK6idMat36ToMat4Ev" title='idMat3::ToMat4' data-ref="_ZNK6idMat36ToMat4Ev">ToMat4</a>();</td></tr>
+<tr><th id="118">118</th><td>}</td></tr>
+<tr><th id="119">119</th><td></td></tr>
+<tr><th id="120">120</th><td><i>/*</i></td></tr>
+<tr><th id="121">121</th><td><i>============</i></td></tr>
+<tr><th id="122">122</th><td><i>idRotation::ToAngularVelocity</i></td></tr>
+<tr><th id="123">123</th><td><i>============</i></td></tr>
+<tr><th id="124">124</th><td><i>*/</i></td></tr>
+<tr><th id="125">125</th><td><a class="type" href="Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> <a class="type" href="Rotation.h.html#idRotation" title='idRotation' data-ref="idRotation">idRotation</a>::<dfn class="decl def" id="_ZNK10idRotation17ToAngularVelocityEv" title='idRotation::ToAngularVelocity' data-ref="_ZNK10idRotation17ToAngularVelocityEv">ToAngularVelocity</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="126">126</th><td>	<b>return</b> <a class="member" href="Rotation.h.html#idRotation::vec" title='idRotation::vec' data-ref="idRotation::vec">vec</a> <a class="ref" href="Vector.h.html#_ZNK6idVec3mlEf" title='idVec3::operator*' data-ref="_ZNK6idVec3mlEf">*</a> <a class="macro" href="Math.h.html#54" title="( (angle) * idMath::M_DEG2RAD )" data-ref="_M/DEG2RAD">DEG2RAD</a>( <a class="member" href="Rotation.h.html#idRotation::angle" title='idRotation::angle' data-ref="idRotation::angle">angle</a> );</td></tr>
+<tr><th id="127">127</th><td>}</td></tr>
+<tr><th id="128">128</th><td></td></tr>
+<tr><th id="129">129</th><td><i>/*</i></td></tr>
+<tr><th id="130">130</th><td><i>============</i></td></tr>
+<tr><th id="131">131</th><td><i>idRotation::Normalize180</i></td></tr>
+<tr><th id="132">132</th><td><i>============</i></td></tr>
+<tr><th id="133">133</th><td><i>*/</i></td></tr>
+<tr><th id="134">134</th><td><em>void</em> <a class="type" href="Rotation.h.html#idRotation" title='idRotation' data-ref="idRotation">idRotation</a>::<dfn class="decl def" id="_ZN10idRotation12Normalize180Ev" title='idRotation::Normalize180' data-ref="_ZN10idRotation12Normalize180Ev">Normalize180</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="135">135</th><td>	<a class="member" href="Rotation.h.html#idRotation::angle" title='idRotation::angle' data-ref="idRotation::angle">angle</a> -= <a class="ref" href="../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#184" title='floor' data-ref="floor">floor</a>( <a class="member" href="Rotation.h.html#idRotation::angle" title='idRotation::angle' data-ref="idRotation::angle">angle</a> / <var>360.0f</var> ) * <var>360.0f</var>;</td></tr>
+<tr><th id="136">136</th><td>	<b>if</b> ( <a class="member" href="Rotation.h.html#idRotation::angle" title='idRotation::angle' data-ref="idRotation::angle">angle</a> &gt; <var>180.0f</var> ) {</td></tr>
+<tr><th id="137">137</th><td>		<a class="member" href="Rotation.h.html#idRotation::angle" title='idRotation::angle' data-ref="idRotation::angle">angle</a> -= <var>360.0f</var>;</td></tr>
+<tr><th id="138">138</th><td>	}</td></tr>
+<tr><th id="139">139</th><td>	<b>else</b> <b>if</b> ( <a class="member" href="Rotation.h.html#idRotation::angle" title='idRotation::angle' data-ref="idRotation::angle">angle</a> &lt; -<var>180.0f</var> ) {</td></tr>
+<tr><th id="140">140</th><td>		<a class="member" href="Rotation.h.html#idRotation::angle" title='idRotation::angle' data-ref="idRotation::angle">angle</a> += <var>360.0f</var>;</td></tr>
+<tr><th id="141">141</th><td>	}</td></tr>
+<tr><th id="142">142</th><td>}</td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td><i>/*</i></td></tr>
+<tr><th id="145">145</th><td><i>============</i></td></tr>
+<tr><th id="146">146</th><td><i>idRotation::Normalize360</i></td></tr>
+<tr><th id="147">147</th><td><i>============</i></td></tr>
+<tr><th id="148">148</th><td><i>*/</i></td></tr>
+<tr><th id="149">149</th><td><em>void</em> <a class="type" href="Rotation.h.html#idRotation" title='idRotation' data-ref="idRotation">idRotation</a>::<dfn class="decl def" id="_ZN10idRotation12Normalize360Ev" title='idRotation::Normalize360' data-ref="_ZN10idRotation12Normalize360Ev">Normalize360</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="150">150</th><td>	<a class="member" href="Rotation.h.html#idRotation::angle" title='idRotation::angle' data-ref="idRotation::angle">angle</a> -= <a class="ref" href="../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#184" title='floor' data-ref="floor">floor</a>( <a class="member" href="Rotation.h.html#idRotation::angle" title='idRotation::angle' data-ref="idRotation::angle">angle</a> / <var>360.0f</var> ) * <var>360.0f</var>;</td></tr>
+<tr><th id="151">151</th><td>	<b>if</b> ( <a class="member" href="Rotation.h.html#idRotation::angle" title='idRotation::angle' data-ref="idRotation::angle">angle</a> &gt; <var>360.0f</var> ) {</td></tr>
+<tr><th id="152">152</th><td>		<a class="member" href="Rotation.h.html#idRotation::angle" title='idRotation::angle' data-ref="idRotation::angle">angle</a> -= <var>360.0f</var>;</td></tr>
+<tr><th id="153">153</th><td>	}</td></tr>
+<tr><th id="154">154</th><td>	<b>else</b> <b>if</b> ( <a class="member" href="Rotation.h.html#idRotation::angle" title='idRotation::angle' data-ref="idRotation::angle">angle</a> &lt; <var>0.0f</var> ) {</td></tr>
+<tr><th id="155">155</th><td>		<a class="member" href="Rotation.h.html#idRotation::angle" title='idRotation::angle' data-ref="idRotation::angle">angle</a> += <var>360.0f</var>;</td></tr>
+<tr><th id="156">156</th><td>	}</td></tr>
+<tr><th id="157">157</th><td>}</td></tr>
+<tr><th id="158">158</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

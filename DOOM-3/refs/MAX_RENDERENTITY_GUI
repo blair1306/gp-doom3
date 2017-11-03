@@ -1,0 +1,53 @@
+<def f='codebrowser/renderer/RenderWorld.h' l='74' type='const int'/>
+<use f='codebrowser/renderer/RenderWorld.h' l='130'/>
+<doc f='codebrowser/renderer/RenderWorld.h' l='73'>// guis</doc>
+<use f='codebrowser/d3xp/Target.h' l='326' u='r' c='_ZN10SavedGui_sC1Ev'/>
+<use f='codebrowser/d3xp/Target.h' l='327'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='307' u='r' c='_ZN10idGameEdit28ParseSpawnArgsToRenderEntityEPK6idDictP14renderEntity_s'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='391' u='r' c='_ZN8idEntity25UpdateChangeableSpawnArgsEPK6idDict'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='526' u='r' c='_ZN8idEntity5SpawnEv'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='3416' u='r' c='_ZN8idEntity11TriggerGuisEv'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='3663' u='r' c='_ZNK8idEntity15ActivateTargetsEPS_'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='4353' u='r' c='_ZN8idEntity16Event_SetGuiParmEPKcS1_'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='4370' u='r' c='_ZN8idEntity17Event_SetGuiFloatEPKcf'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='4684' u='r' c='_ZN8idEntity12Event_SetGuiEiPKc'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='542' u='r' c='_ZNK7idMover11SetGuiStateEPKcS1_'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='572' u='r' c='_ZN7idMover12SetGuiStatesEPKc'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='1923' u='r' c='_ZN10idElevator9BeginMoveEP8idThread'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='1999' u='r' c='_ZN10idElevator10DoneMovingEv'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='2930' u='r' c='_ZNK14idMover_Binary11SetGuiStateEPKcS1_'/>
+<use f='codebrowser/d3xp/Target.cpp' l='795' u='r' c='_ZNK21idTarget_SetInfluence4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/Target.cpp' l='862' u='r' c='_ZN21idTarget_SetInfluence7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/d3xp/Target.cpp' l='1107' u='r' c='_ZN21idTarget_SetInfluence14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/d3xp/Target.cpp' l='1234' u='r' c='_ZN21idTarget_SetInfluence22Event_RestoreInfluenceEv'/>
+<use f='codebrowser/d3xp/Target.cpp' l='1296' u='r' c='_ZN18idTarget_SetKeyVal14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/d3xp/gamesys/SaveGame.cpp' l='531' u='r' c='_ZN10idSaveGame17WriteRenderEntityERK14renderEntity_s'/>
+<use f='codebrowser/d3xp/gamesys/SaveGame.cpp' l='1303' u='r' c='_ZN13idRestoreGame16ReadRenderEntityER14renderEntity_s'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='2236' c='_Z13Cmd_NextGUI_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='2256' u='r' c='_Z13Cmd_NextGUI_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='2299' u='r' c='_Z13Cmd_NextGUI_fRK9idCmdArgs'/>
+<use f='codebrowser/game/Entity.cpp' l='291' u='r' c='_ZN10idGameEdit28ParseSpawnArgsToRenderEntityEPK6idDictP14renderEntity_s'/>
+<use f='codebrowser/game/Entity.cpp' l='375' u='r' c='_ZN8idEntity25UpdateChangeableSpawnArgsEPK6idDict'/>
+<use f='codebrowser/game/Entity.cpp' l='488' u='r' c='_ZN8idEntity5SpawnEv'/>
+<use f='codebrowser/game/Entity.cpp' l='3320' u='r' c='_ZN8idEntity11TriggerGuisEv'/>
+<use f='codebrowser/game/Entity.cpp' l='3558' u='r' c='_ZNK8idEntity15ActivateTargetsEPS_'/>
+<use f='codebrowser/game/Entity.cpp' l='4244' u='r' c='_ZN8idEntity16Event_SetGuiParmEPKcS1_'/>
+<use f='codebrowser/game/Entity.cpp' l='4261' u='r' c='_ZN8idEntity17Event_SetGuiFloatEPKcf'/>
+<use f='codebrowser/game/Mover.cpp' l='540' u='r' c='_ZNK7idMover11SetGuiStateEPKcS1_'/>
+<use f='codebrowser/game/Mover.cpp' l='570' u='r' c='_ZN7idMover12SetGuiStatesEPKc'/>
+<use f='codebrowser/game/Mover.cpp' l='1916' u='r' c='_ZN10idElevator9BeginMoveEP8idThread'/>
+<use f='codebrowser/game/Mover.cpp' l='1986' u='r' c='_ZN10idElevator10DoneMovingEv'/>
+<use f='codebrowser/game/Mover.cpp' l='2899' u='r' c='_ZNK14idMover_Binary11SetGuiStateEPKcS1_'/>
+<use f='codebrowser/game/Target.cpp' l='1079' u='r' c='_ZN21idTarget_SetInfluence14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/game/Target.cpp' l='1202' u='r' c='_ZN21idTarget_SetInfluence22Event_RestoreInfluenceEv'/>
+<use f='codebrowser/game/Target.cpp' l='1260' u='r' c='_ZN18idTarget_SetKeyVal14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/game/gamesys/SaveGame.cpp' l='531' u='r' c='_ZN10idSaveGame17WriteRenderEntityERK14renderEntity_s'/>
+<use f='codebrowser/game/gamesys/SaveGame.cpp' l='1298' u='r' c='_ZN13idRestoreGame16ReadRenderEntityER14renderEntity_s'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='2161' c='_Z13Cmd_NextGUI_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='2181' u='r' c='_Z13Cmd_NextGUI_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='2224' u='r' c='_Z13Cmd_NextGUI_fRK9idCmdArgs'/>
+<use f='codebrowser/renderer/RenderWorld_demo.cpp' l='554' u='r' c='_ZN18idRenderWorldLocal17WriteRenderEntityEiPK14renderEntity_s'/>
+<use f='codebrowser/renderer/RenderWorld_demo.cpp' l='654' u='r' c='_ZN18idRenderWorldLocal16ReadRenderEntityEv'/>
+<use f='codebrowser/renderer/RenderWorld_demo.cpp' l='706' u='r' c='_ZN18idRenderWorldLocal16ReadRenderEntityEv'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1290' u='r' c='_Z13R_AddDrawSurfPK14srfTriangles_sPK12viewEntity_sPK14renderEntity_sPK10idMaterialRK12idScreenRect'/>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='648' u='r' c='_Z26R_FreeEntityDefDerivedDataP19idRenderEntityLocalbb'/>

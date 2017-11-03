@@ -1,0 +1,39 @@
+<dec f='codebrowser/renderer/Image.h' l='482' type='void R_LoadImage(const char * name, byte ** pic, int * width, int * height, time_t * timestamp, bool makePowerOf2)'/>
+<doc f='codebrowser/renderer/Image.h' l='474'>/*
+====================================================================
+
+IMAGEFILES
+
+====================================================================
+*/</doc>
+<def f='codebrowser/renderer/Image_files.cpp' l='998' ll='1077' type='void R_LoadImage(const char * cname, byte ** pic, int * width, int * height, time_t * timestamp, bool makePowerOf2)'/>
+<doc f='codebrowser/renderer/Image_files.cpp' l='974'>/*
+=================
+R_LoadImage
+
+Loads any of the supported image types into a cannonical
+32 bit format.
+
+Automatically attempts to load .jpg files if .tga files fail to load.
+
+*pic will be NULL if the load failed.
+
+Anything that is going to make this into a texture would use
+makePowerOf2 = true, but something loading an image as a lookup
+table of some sort would leave it in identity form.
+
+It is important to do this at image load time instead of texture load
+time for bump maps.
+
+Timestamp may be NULL if the value is going to be ignored
+
+If pic is NULL, the image won&apos;t actually be loaded, it will just find the
+timestamp.
+=================
+*/</doc>
+<use f='codebrowser/renderer/Image_init.cpp' l='1715' u='c' c='_Z21R_CombineCubeImages_fRK9idCmdArgs'/>
+<use f='codebrowser/renderer/Image_program.cpp' l='596' u='c' c='_ZL21R_ParseImageProgram_rR7idLexerPPhPiS3_PlP14textureDepth_t'/>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='1654' u='c' c='_Z18R_MakeAmbientMap_fRK9idCmdArgs'/>
+<dec f='codebrowser/tools/compilers/roqvq/NSBitmapImageRep.cpp' l='33' type='void R_LoadImage(const char * name, byte ** pic, int * width, int * height, time_t * timestamp, bool makePowerOf2)'/>
+<use f='codebrowser/tools/compilers/roqvq/NSBitmapImageRep.cpp' l='44' u='c' c='_ZN16NSBitmapImageRepC1EPKc'/>
+<use f='codebrowser/ui/GameBustOutWindow.cpp' l='896' u='c' c='_ZN19idGameBustOutWindow14LoadBoardFilesEv'/>

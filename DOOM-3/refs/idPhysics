@@ -1,0 +1,158 @@
+<inh f='codebrowser/d3xp/gamesys/Class.h' l='174' c='idClass'/>
+<def f='codebrowser/d3xp/physics/Physics.h' l='76' ll='181'/>
+<ovr f='codebrowser/d3xp/physics/Physics_Static.h' l='47' c='idPhysics_Static'/>
+<ovr f='codebrowser/d3xp/physics/Physics_StaticMulti.h' l='40' c='idPhysics_StaticMulti'/>
+<ovr f='codebrowser/d3xp/physics/Physics_Base.h' l='42' c='idPhysics_Base'/>
+<size>4</size>
+<smbr r='idPhysics::Type' t='idTypeInfo'/>
+<fun r='_ZN9idPhysics14CreateInstanceEv'/>
+<fun r='_ZNK9idPhysics7GetTypeEv'/>
+<smbr r='idPhysics::eventCallbacks' t='idEventFunc&lt;idPhysics&gt; []'/>
+<fun r='_ZN9idPhysicsD1Ev'/>
+<fun r='_ZN9idPhysics22SnapTimeToPhysicsFrameEi'/>
+<fun r='_ZNK9idPhysics4SaveEP10idSaveGame'/>
+<fun r='_ZN9idPhysics7RestoreEP13idRestoreGame'/>
+<fun r='_ZN9idPhysics7SetSelfEP8idEntity'/>
+<fun r='_ZN9idPhysics12SetClipModelEP11idClipModelfib'/>
+<fun r='_ZN9idPhysics10SetClipBoxERK8idBoundsf'/>
+<fun r='_ZNK9idPhysics12GetClipModelEi'/>
+<fun r='_ZNK9idPhysics16GetNumClipModelsEv'/>
+<fun r='_ZN9idPhysics7SetMassEfi'/>
+<fun r='_ZNK9idPhysics7GetMassEi'/>
+<fun r='_ZN9idPhysics11SetContentsEii'/>
+<fun r='_ZNK9idPhysics11GetContentsEi'/>
+<fun r='_ZN9idPhysics11SetClipMaskEii'/>
+<fun r='_ZNK9idPhysics11GetClipMaskEi'/>
+<fun r='_ZNK9idPhysics9GetBoundsEi'/>
+<fun r='_ZNK9idPhysics12GetAbsBoundsEi'/>
+<fun r='_ZN9idPhysics8EvaluateEii'/>
+<fun r='_ZN9idPhysics10UpdateTimeEi'/>
+<fun r='_ZNK9idPhysics7GetTimeEv'/>
+<fun r='_ZNK9idPhysics13GetImpactInfoEiRK6idVec3P12impactInfo_s'/>
+<fun r='_ZN9idPhysics12ApplyImpulseEiRK6idVec3S2_'/>
+<fun r='_ZN9idPhysics8AddForceEiRK6idVec3S2_'/>
+<fun r='_ZN9idPhysics8ActivateEv'/>
+<fun r='_ZN9idPhysics9PutToRestEv'/>
+<fun r='_ZNK9idPhysics8IsAtRestEv'/>
+<fun r='_ZNK9idPhysics16GetRestStartTimeEv'/>
+<fun r='_ZNK9idPhysics10IsPushableEv'/>
+<fun r='_ZN9idPhysics9SaveStateEv'/>
+<fun r='_ZN9idPhysics12RestoreStateEv'/>
+<fun r='_ZN9idPhysics9SetOriginERK6idVec3i'/>
+<fun r='_ZN9idPhysics7SetAxisERK6idMat3i'/>
+<fun r='_ZN9idPhysics9TranslateERK6idVec3i'/>
+<fun r='_ZN9idPhysics6RotateERK10idRotationi'/>
+<fun r='_ZNK9idPhysics9GetOriginEi'/>
+<fun r='_ZNK9idPhysics7GetAxisEi'/>
+<fun r='_ZN9idPhysics17SetLinearVelocityERK6idVec3i'/>
+<fun r='_ZN9idPhysics18SetAngularVelocityERK6idVec3i'/>
+<fun r='_ZNK9idPhysics17GetLinearVelocityEi'/>
+<fun r='_ZNK9idPhysics18GetAngularVelocityEi'/>
+<fun r='_ZN9idPhysics10SetGravityERK6idVec3'/>
+<fun r='_ZNK9idPhysics10GetGravityEv'/>
+<fun r='_ZNK9idPhysics16GetGravityNormalEv'/>
+<fun r='_ZNK9idPhysics15ClipTranslationER7trace_sRK6idVec3PK11idClipModel'/>
+<fun r='_ZNK9idPhysics12ClipRotationER7trace_sRK10idRotationPK11idClipModel'/>
+<fun r='_ZNK9idPhysics12ClipContentsEPK11idClipModel'/>
+<fun r='_ZN9idPhysics11DisableClipEv'/>
+<fun r='_ZN9idPhysics10EnableClipEv'/>
+<fun r='_ZN9idPhysics10UnlinkClipEv'/>
+<fun r='_ZN9idPhysics8LinkClipEv'/>
+<fun r='_ZN9idPhysics16EvaluateContactsEv'/>
+<fun r='_ZNK9idPhysics14GetNumContactsEv'/>
+<fun r='_ZNK9idPhysics10GetContactEi'/>
+<fun r='_ZN9idPhysics13ClearContactsEv'/>
+<fun r='_ZN9idPhysics16AddContactEntityEP8idEntity'/>
+<fun r='_ZN9idPhysics19RemoveContactEntityEP8idEntity'/>
+<fun r='_ZNK9idPhysics17HasGroundContactsEv'/>
+<fun r='_ZNK9idPhysics14IsGroundEntityEi'/>
+<fun r='_ZNK9idPhysics17IsGroundClipModelEii'/>
+<fun r='_ZN9idPhysics9SetMasterEP8idEntityb'/>
+<fun r='_ZN9idPhysics9SetPushedEi'/>
+<fun r='_ZNK9idPhysics23GetPushedLinearVelocityEi'/>
+<fun r='_ZNK9idPhysics24GetPushedAngularVelocityEi'/>
+<fun r='_ZNK9idPhysics15GetBlockingInfoEv'/>
+<fun r='_ZNK9idPhysics17GetBlockingEntityEv'/>
+<fun r='_ZNK9idPhysics16GetLinearEndTimeEv'/>
+<fun r='_ZNK9idPhysics17GetAngularEndTimeEv'/>
+<fun r='_ZNK9idPhysics15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN9idPhysics16ReadFromSnapshotERK13idBitMsgDelta'/>
+<inh f='codebrowser/game/gamesys/Class.h' l='174' c='idClass'/>
+<def f='codebrowser/game/physics/Physics.h' l='76' ll='181'/>
+<ovr f='codebrowser/game/physics/Physics_Static.h' l='47' c='idPhysics_Static'/>
+<ovr f='codebrowser/game/physics/Physics_StaticMulti.h' l='40' c='idPhysics_StaticMulti'/>
+<ovr f='codebrowser/game/physics/Physics_Base.h' l='42' c='idPhysics_Base'/>
+<size>4</size>
+<smbr r='idPhysics::Type' t='idTypeInfo'/>
+<fun r='_ZN9idPhysics14CreateInstanceEv'/>
+<fun r='_ZNK9idPhysics7GetTypeEv'/>
+<smbr r='idPhysics::eventCallbacks' t='idEventFunc&lt;idPhysics&gt; []'/>
+<fun r='_ZN9idPhysicsD1Ev'/>
+<fun r='_ZN9idPhysics22SnapTimeToPhysicsFrameEi'/>
+<fun r='_ZNK9idPhysics4SaveEP10idSaveGame'/>
+<fun r='_ZN9idPhysics7RestoreEP13idRestoreGame'/>
+<fun r='_ZN9idPhysics7SetSelfEP8idEntity'/>
+<fun r='_ZN9idPhysics12SetClipModelEP11idClipModelfib'/>
+<fun r='_ZN9idPhysics10SetClipBoxERK8idBoundsf'/>
+<fun r='_ZNK9idPhysics12GetClipModelEi'/>
+<fun r='_ZNK9idPhysics16GetNumClipModelsEv'/>
+<fun r='_ZN9idPhysics7SetMassEfi'/>
+<fun r='_ZNK9idPhysics7GetMassEi'/>
+<fun r='_ZN9idPhysics11SetContentsEii'/>
+<fun r='_ZNK9idPhysics11GetContentsEi'/>
+<fun r='_ZN9idPhysics11SetClipMaskEii'/>
+<fun r='_ZNK9idPhysics11GetClipMaskEi'/>
+<fun r='_ZNK9idPhysics9GetBoundsEi'/>
+<fun r='_ZNK9idPhysics12GetAbsBoundsEi'/>
+<fun r='_ZN9idPhysics8EvaluateEii'/>
+<fun r='_ZN9idPhysics10UpdateTimeEi'/>
+<fun r='_ZNK9idPhysics7GetTimeEv'/>
+<fun r='_ZNK9idPhysics13GetImpactInfoEiRK6idVec3P12impactInfo_s'/>
+<fun r='_ZN9idPhysics12ApplyImpulseEiRK6idVec3S2_'/>
+<fun r='_ZN9idPhysics8AddForceEiRK6idVec3S2_'/>
+<fun r='_ZN9idPhysics8ActivateEv'/>
+<fun r='_ZN9idPhysics9PutToRestEv'/>
+<fun r='_ZNK9idPhysics8IsAtRestEv'/>
+<fun r='_ZNK9idPhysics16GetRestStartTimeEv'/>
+<fun r='_ZNK9idPhysics10IsPushableEv'/>
+<fun r='_ZN9idPhysics9SaveStateEv'/>
+<fun r='_ZN9idPhysics12RestoreStateEv'/>
+<fun r='_ZN9idPhysics9SetOriginERK6idVec3i'/>
+<fun r='_ZN9idPhysics7SetAxisERK6idMat3i'/>
+<fun r='_ZN9idPhysics9TranslateERK6idVec3i'/>
+<fun r='_ZN9idPhysics6RotateERK10idRotationi'/>
+<fun r='_ZNK9idPhysics9GetOriginEi'/>
+<fun r='_ZNK9idPhysics7GetAxisEi'/>
+<fun r='_ZN9idPhysics17SetLinearVelocityERK6idVec3i'/>
+<fun r='_ZN9idPhysics18SetAngularVelocityERK6idVec3i'/>
+<fun r='_ZNK9idPhysics17GetLinearVelocityEi'/>
+<fun r='_ZNK9idPhysics18GetAngularVelocityEi'/>
+<fun r='_ZN9idPhysics10SetGravityERK6idVec3'/>
+<fun r='_ZNK9idPhysics10GetGravityEv'/>
+<fun r='_ZNK9idPhysics16GetGravityNormalEv'/>
+<fun r='_ZNK9idPhysics15ClipTranslationER7trace_sRK6idVec3PK11idClipModel'/>
+<fun r='_ZNK9idPhysics12ClipRotationER7trace_sRK10idRotationPK11idClipModel'/>
+<fun r='_ZNK9idPhysics12ClipContentsEPK11idClipModel'/>
+<fun r='_ZN9idPhysics11DisableClipEv'/>
+<fun r='_ZN9idPhysics10EnableClipEv'/>
+<fun r='_ZN9idPhysics10UnlinkClipEv'/>
+<fun r='_ZN9idPhysics8LinkClipEv'/>
+<fun r='_ZN9idPhysics16EvaluateContactsEv'/>
+<fun r='_ZNK9idPhysics14GetNumContactsEv'/>
+<fun r='_ZNK9idPhysics10GetContactEi'/>
+<fun r='_ZN9idPhysics13ClearContactsEv'/>
+<fun r='_ZN9idPhysics16AddContactEntityEP8idEntity'/>
+<fun r='_ZN9idPhysics19RemoveContactEntityEP8idEntity'/>
+<fun r='_ZNK9idPhysics17HasGroundContactsEv'/>
+<fun r='_ZNK9idPhysics14IsGroundEntityEi'/>
+<fun r='_ZNK9idPhysics17IsGroundClipModelEii'/>
+<fun r='_ZN9idPhysics9SetMasterEP8idEntityb'/>
+<fun r='_ZN9idPhysics9SetPushedEi'/>
+<fun r='_ZNK9idPhysics23GetPushedLinearVelocityEi'/>
+<fun r='_ZNK9idPhysics24GetPushedAngularVelocityEi'/>
+<fun r='_ZNK9idPhysics15GetBlockingInfoEv'/>
+<fun r='_ZNK9idPhysics17GetBlockingEntityEv'/>
+<fun r='_ZNK9idPhysics16GetLinearEndTimeEv'/>
+<fun r='_ZNK9idPhysics17GetAngularEndTimeEv'/>
+<fun r='_ZNK9idPhysics15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN9idPhysics16ReadFromSnapshotERK13idBitMsgDelta'/>

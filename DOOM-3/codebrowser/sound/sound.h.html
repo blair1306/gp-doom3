@@ -1,0 +1,369 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>sound.h source code [codebrowser/sound/sound.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idSoundEmitter,idSoundShader,idSoundSystem,idSoundWorld "/>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/sound/sound.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>sound</a>/<a href='sound.h.html'>sound.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__SOUND__">__SOUND__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__SOUND__" data-ref="_M/__SOUND__">__SOUND__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>	SOUND SHADER DECL</i></td></tr>
+<tr><th id="36">36</th><td><i></i></td></tr>
+<tr><th id="37">37</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="38">38</th><td><i>*/</i></td></tr>
+<tr><th id="39">39</th><td><i></i></td></tr>
+<tr><th id="40">40</th><td><i>// unfortunately, our minDistance / maxDistance is specified in meters, and</i></td></tr>
+<tr><th id="41">41</th><td><i>// we have far too many of them to change at this time.</i></td></tr>
+<tr><th id="42">42</th><td><em>const</em> <em>float</em> <dfn class="decl def" id="DOOM_TO_METERS" title='DOOM_TO_METERS' data-ref="DOOM_TO_METERS">DOOM_TO_METERS</dfn> = <var>0.0254f</var>;					<i>// doom to meters</i></td></tr>
+<tr><th id="43">43</th><td><em>const</em> <em>float</em> <dfn class="decl def" id="METERS_TO_DOOM" title='METERS_TO_DOOM' data-ref="METERS_TO_DOOM">METERS_TO_DOOM</dfn> = (<var>1.0f</var>/<a class="ref" href="#DOOM_TO_METERS" title='DOOM_TO_METERS' data-ref="DOOM_TO_METERS">DOOM_TO_METERS</a>);	<i>// meters to doom</i></td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td><b>class</b> <dfn class="type" id="idSoundSample" title='idSoundSample' data-ref="idSoundSample">idSoundSample</dfn>;</td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td><i>// sound shader flags</i></td></tr>
+<tr><th id="48">48</th><td><em>static</em> <em>const</em> <em>int</em>	<dfn class="decl def" id="SSF_PRIVATE_SOUND" title='SSF_PRIVATE_SOUND' data-ref="SSF_PRIVATE_SOUND">SSF_PRIVATE_SOUND</dfn> =		<a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 0 ) )" data-ref="_M/BIT">BIT</a>(<var>0</var>);	<i>// only plays for the current listenerId</i></td></tr>
+<tr><th id="49">49</th><td><em>static</em> <em>const</em> <em>int</em>	<dfn class="decl def" id="SSF_ANTI_PRIVATE_SOUND" title='SSF_ANTI_PRIVATE_SOUND' data-ref="SSF_ANTI_PRIVATE_SOUND">SSF_ANTI_PRIVATE_SOUND</dfn> =<a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 1 ) )" data-ref="_M/BIT">BIT</a>(<var>1</var>);	<i>// plays for everyone but the current listenerId</i></td></tr>
+<tr><th id="50">50</th><td><em>static</em> <em>const</em> <em>int</em>	<dfn class="decl def" id="SSF_NO_OCCLUSION" title='SSF_NO_OCCLUSION' data-ref="SSF_NO_OCCLUSION">SSF_NO_OCCLUSION</dfn> =		<a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 2 ) )" data-ref="_M/BIT">BIT</a>(<var>2</var>);	<i>// don't flow through portals, only use straight line</i></td></tr>
+<tr><th id="51">51</th><td><em>static</em> <em>const</em> <em>int</em>	<dfn class="decl def" id="SSF_GLOBAL" title='SSF_GLOBAL' data-ref="SSF_GLOBAL">SSF_GLOBAL</dfn> =			<a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 3 ) )" data-ref="_M/BIT">BIT</a>(<var>3</var>);	<i>// play full volume to all speakers and all listeners</i></td></tr>
+<tr><th id="52">52</th><td><em>static</em> <em>const</em> <em>int</em>	<dfn class="decl def" id="SSF_OMNIDIRECTIONAL" title='SSF_OMNIDIRECTIONAL' data-ref="SSF_OMNIDIRECTIONAL">SSF_OMNIDIRECTIONAL</dfn> =	<a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 4 ) )" data-ref="_M/BIT">BIT</a>(<var>4</var>);	<i>// fall off with distance, but play same volume in all speakers</i></td></tr>
+<tr><th id="53">53</th><td><em>static</em> <em>const</em> <em>int</em>	<dfn class="decl def" id="SSF_LOOPING" title='SSF_LOOPING' data-ref="SSF_LOOPING">SSF_LOOPING</dfn> =			<a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 5 ) )" data-ref="_M/BIT">BIT</a>(<var>5</var>);	<i>// repeat the sound continuously</i></td></tr>
+<tr><th id="54">54</th><td><em>static</em> <em>const</em> <em>int</em>	<dfn class="decl def" id="SSF_PLAY_ONCE" title='SSF_PLAY_ONCE' data-ref="SSF_PLAY_ONCE">SSF_PLAY_ONCE</dfn> =			<a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 6 ) )" data-ref="_M/BIT">BIT</a>(<var>6</var>);	<i>// never restart if already playing on any channel of a given emitter</i></td></tr>
+<tr><th id="55">55</th><td><em>static</em> <em>const</em> <em>int</em>	<dfn class="decl def" id="SSF_UNCLAMPED" title='SSF_UNCLAMPED' data-ref="SSF_UNCLAMPED">SSF_UNCLAMPED</dfn> =			<a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 7 ) )" data-ref="_M/BIT">BIT</a>(<var>7</var>);	<i>// don't clamp calculated volumes at 1.0</i></td></tr>
+<tr><th id="56">56</th><td><em>static</em> <em>const</em> <em>int</em>	<dfn class="decl def" id="SSF_NO_FLICKER" title='SSF_NO_FLICKER' data-ref="SSF_NO_FLICKER">SSF_NO_FLICKER</dfn> =		<a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 8 ) )" data-ref="_M/BIT">BIT</a>(<var>8</var>);	<i>// always return 1.0 for volume queries</i></td></tr>
+<tr><th id="57">57</th><td><em>static</em> <em>const</em> <em>int</em>	<dfn class="decl def" id="SSF_NO_DUPS" title='SSF_NO_DUPS' data-ref="SSF_NO_DUPS">SSF_NO_DUPS</dfn> =			<a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 9 ) )" data-ref="_M/BIT">BIT</a>(<var>9</var>);	<i>// try not to play the same sound twice in a row</i></td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td><i>// these options can be overriden from sound shader defaults on a per-emitter and per-channel basis</i></td></tr>
+<tr><th id="60">60</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="61">61</th><td>	<em>float</em>					<dfn class="decl" id="(anonymous)::minDistance" title='(anonymous struct)::minDistance' data-ref="(anonymous)::minDistance">minDistance</dfn>;</td></tr>
+<tr><th id="62">62</th><td>	<em>float</em>					<dfn class="decl" id="(anonymous)::maxDistance" title='(anonymous struct)::maxDistance' data-ref="(anonymous)::maxDistance">maxDistance</dfn>;</td></tr>
+<tr><th id="63">63</th><td>	<em>float</em>					<dfn class="decl" id="(anonymous)::volume" title='(anonymous struct)::volume' data-ref="(anonymous)::volume">volume</dfn>;					<i>// in dB, unfortunately.  Negative values get quieter</i></td></tr>
+<tr><th id="64">64</th><td>	<em>float</em>					<dfn class="decl" id="(anonymous)::shakes" title='(anonymous struct)::shakes' data-ref="(anonymous)::shakes">shakes</dfn>;</td></tr>
+<tr><th id="65">65</th><td>	<em>int</em>						<dfn class="decl" id="(anonymous)::soundShaderFlags" title='(anonymous struct)::soundShaderFlags' data-ref="(anonymous)::soundShaderFlags">soundShaderFlags</dfn>;		<i>// SSF_* bit flags</i></td></tr>
+<tr><th id="66">66</th><td>	<em>int</em>						<dfn class="decl" id="(anonymous)::soundClass" title='(anonymous struct)::soundClass' data-ref="(anonymous)::soundClass">soundClass</dfn>;				<i>// for global fading of sounds</i></td></tr>
+<tr><th id="67">67</th><td>} <dfn class="typedef" id="soundShaderParms_t" title='soundShaderParms_t' data-type='struct soundShaderParms_t' data-ref="soundShaderParms_t">soundShaderParms_t</dfn>;</td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td><em>const</em> <em>int</em>		<dfn class="decl def" id="SOUND_MAX_LIST_WAVS" title='SOUND_MAX_LIST_WAVS' data-ref="SOUND_MAX_LIST_WAVS">SOUND_MAX_LIST_WAVS</dfn>		= <var>32</var>;</td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td><i>// sound classes are used to fade most sounds down inside cinematics, leaving dialog</i></td></tr>
+<tr><th id="73">73</th><td><i>// flagged with a non-zero class full volume</i></td></tr>
+<tr><th id="74">74</th><td><em>const</em> <em>int</em>		<dfn class="decl def" id="SOUND_MAX_CLASSES" title='SOUND_MAX_CLASSES' data-ref="SOUND_MAX_CLASSES">SOUND_MAX_CLASSES</dfn>		= <var>4</var>;</td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td><i>// it is somewhat tempting to make this a virtual class to hide the private</i></td></tr>
+<tr><th id="77">77</th><td><i>// details here, but that doesn't fit easily with the decl manager at the moment.</i></td></tr>
+<tr><th id="78">78</th><td><b>class</b> <dfn class="type def" id="idSoundShader" title='idSoundShader' data-ref="idSoundShader">idSoundShader</dfn> : <b>public</b> <a class="type" href="../framework/DeclManager.h.html#idDecl" title='idDecl' data-ref="idDecl">idDecl</a> {</td></tr>
+<tr><th id="79">79</th><td><b>public</b>:</td></tr>
+<tr><th id="80">80</th><td>							<dfn class="decl" id="_ZN13idSoundShaderC1Ev" title='idSoundShader::idSoundShader' data-ref="_ZN13idSoundShaderC1Ev">idSoundShader</dfn>( <em>void</em> );</td></tr>
+<tr><th id="81">81</th><td>	<b>virtual</b>					<dfn class="virtual decl" id="_ZN13idSoundShaderD1Ev" title='idSoundShader::~idSoundShader' data-ref="_ZN13idSoundShaderD1Ev">~idSoundShader</dfn>( <em>void</em> );</td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td>	<b>virtual</b> <span class='typedef' title='size_t' data-type='unsigned int' data-ref="size_t">size_t</span>			<dfn class="virtual decl" id="_ZNK13idSoundShader4SizeEv" title='idSoundShader::Size' data-ref="_ZNK13idSoundShader4SizeEv">Size</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="84">84</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN13idSoundShader14SetDefaultTextEv" title='idSoundShader::SetDefaultText' data-ref="_ZN13idSoundShader14SetDefaultTextEv">SetDefaultText</dfn>( <em>void</em> );</td></tr>
+<tr><th id="85">85</th><td>	<b>virtual</b> <em>const</em> <em>char</em> *	<dfn class="virtual decl" id="_ZNK13idSoundShader17DefaultDefinitionEv" title='idSoundShader::DefaultDefinition' data-ref="_ZNK13idSoundShader17DefaultDefinitionEv">DefaultDefinition</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="86">86</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN13idSoundShader5ParseEPKci" title='idSoundShader::Parse' data-ref="_ZN13idSoundShader5ParseEPKci">Parse</dfn>( <em>const</em> <em>char</em> *<dfn class="local col3 decl" id="13213text" title='text' data-type='const char *' data-ref="13213text">text</dfn>, <em>const</em> <em>int</em> <dfn class="local col4 decl" id="13214textLength" title='textLength' data-type='const int' data-ref="13214textLength">textLength</dfn> );</td></tr>
+<tr><th id="87">87</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN13idSoundShader8FreeDataEv" title='idSoundShader::FreeData' data-ref="_ZN13idSoundShader8FreeDataEv">FreeData</dfn>( <em>void</em> );</td></tr>
+<tr><th id="88">88</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZNK13idSoundShader4ListEv" title='idSoundShader::List' data-ref="_ZNK13idSoundShader4ListEv">List</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td>	<b>virtual</b> <em>const</em> <em>char</em> *	<dfn class="virtual decl" id="_ZNK13idSoundShader14GetDescriptionEv" title='idSoundShader::GetDescription' data-ref="_ZNK13idSoundShader14GetDescriptionEv">GetDescription</dfn>() <em>const</em>;</td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td>	<i>// so the editor can draw correct default sound spheres</i></td></tr>
+<tr><th id="93">93</th><td><i>	// this is currently defined as meters, which sucks, IMHO.</i></td></tr>
+<tr><th id="94">94</th><td>	<b>virtual</b> <em>float</em>			<dfn class="virtual decl" id="_ZNK13idSoundShader14GetMinDistanceEv" title='idSoundShader::GetMinDistance' data-ref="_ZNK13idSoundShader14GetMinDistanceEv">GetMinDistance</dfn>() <em>const</em>;		<i>// FIXME: replace this with a GetSoundShaderParms()</i></td></tr>
+<tr><th id="95">95</th><td>	<b>virtual</b> <em>float</em>			<dfn class="virtual decl" id="_ZNK13idSoundShader14GetMaxDistanceEv" title='idSoundShader::GetMaxDistance' data-ref="_ZNK13idSoundShader14GetMaxDistanceEv">GetMaxDistance</dfn>() <em>const</em>;</td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td>	<i>// returns NULL if an AltSound isn't defined in the shader.</i></td></tr>
+<tr><th id="98">98</th><td><i>	// we use this for pairing a specific broken light sound with a normal light sound</i></td></tr>
+<tr><th id="99">99</th><td>	<b>virtual</b> <em>const</em> <a class="type" href="#idSoundShader" title='idSoundShader' data-ref="idSoundShader">idSoundShader</a> *<dfn class="virtual decl" id="_ZNK13idSoundShader11GetAltSoundEv" title='idSoundShader::GetAltSound' data-ref="_ZNK13idSoundShader11GetAltSoundEv">GetAltSound</dfn>() <em>const</em>;</td></tr>
+<tr><th id="100">100</th><td></td></tr>
+<tr><th id="101">101</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZNK13idSoundShader15HasDefaultSoundEv" title='idSoundShader::HasDefaultSound' data-ref="_ZNK13idSoundShader15HasDefaultSoundEv">HasDefaultSound</dfn>() <em>const</em>;</td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td>	<b>virtual</b> <em>const</em> <a class="typedef" href="#soundShaderParms_t" title='soundShaderParms_t' data-type='struct soundShaderParms_t' data-ref="soundShaderParms_t">soundShaderParms_t</a> *<dfn class="virtual decl" id="_ZNK13idSoundShader8GetParmsEv" title='idSoundShader::GetParms' data-ref="_ZNK13idSoundShader8GetParmsEv">GetParms</dfn>() <em>const</em>;</td></tr>
+<tr><th id="104">104</th><td>	<b>virtual</b> <em>int</em>				<dfn class="virtual decl" id="_ZNK13idSoundShader12GetNumSoundsEv" title='idSoundShader::GetNumSounds' data-ref="_ZNK13idSoundShader12GetNumSoundsEv">GetNumSounds</dfn>() <em>const</em>;</td></tr>
+<tr><th id="105">105</th><td>	<b>virtual</b> <em>const</em> <em>char</em> *	<dfn class="virtual decl" id="_ZNK13idSoundShader8GetSoundEi" title='idSoundShader::GetSound' data-ref="_ZNK13idSoundShader8GetSoundEi">GetSound</dfn>( <em>int</em> <dfn class="local col5 decl" id="13215index" title='index' data-type='int' data-ref="13215index">index</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="106">106</th><td></td></tr>
+<tr><th id="107">107</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZNK13idSoundShader17CheckShakesAndOggEv" title='idSoundShader::CheckShakesAndOgg' data-ref="_ZNK13idSoundShader17CheckShakesAndOggEv">CheckShakesAndOgg</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="108">108</th><td></td></tr>
+<tr><th id="109">109</th><td><b>private</b>:</td></tr>
+<tr><th id="110">110</th><td>	<b>friend</b> <b>class</b> <a class="type" href="#idSoundWorldLocal" title='idSoundWorldLocal' data-ref="idSoundWorldLocal">idSoundWorldLocal</a>;</td></tr>
+<tr><th id="111">111</th><td>	<b>friend</b> <b>class</b> <a class="type" href="#idSoundEmitterLocal" title='idSoundEmitterLocal' data-ref="idSoundEmitterLocal">idSoundEmitterLocal</a>;</td></tr>
+<tr><th id="112">112</th><td>	<b>friend</b> <b>class</b> <a class="type" href="#idSoundChannel" title='idSoundChannel' data-ref="idSoundChannel">idSoundChannel</a>;</td></tr>
+<tr><th id="113">113</th><td>	<b>friend</b> <b>class</b> <a class="type" href="#idSoundCache" title='idSoundCache' data-ref="idSoundCache">idSoundCache</a>;</td></tr>
+<tr><th id="114">114</th><td></td></tr>
+<tr><th id="115">115</th><td>	<i>// options from sound shader text</i></td></tr>
+<tr><th id="116">116</th><td>	<a class="typedef" href="#soundShaderParms_t" title='soundShaderParms_t' data-type='struct soundShaderParms_t' data-ref="soundShaderParms_t">soundShaderParms_t</a>		<dfn class="decl" id="idSoundShader::parms" title='idSoundShader::parms' data-ref="idSoundShader::parms">parms</dfn>;						<i>// can be overriden on a per-channel basis</i></td></tr>
+<tr><th id="117">117</th><td></td></tr>
+<tr><th id="118">118</th><td>	<em>bool</em>					<dfn class="decl" id="idSoundShader::onDemand" title='idSoundShader::onDemand' data-ref="idSoundShader::onDemand">onDemand</dfn>;					<i>// only load when played, and free when finished</i></td></tr>
+<tr><th id="119">119</th><td>	<em>int</em>						<dfn class="decl" id="idSoundShader::speakerMask" title='idSoundShader::speakerMask' data-ref="idSoundShader::speakerMask">speakerMask</dfn>;</td></tr>
+<tr><th id="120">120</th><td>	<em>const</em> <a class="type" href="#idSoundShader" title='idSoundShader' data-ref="idSoundShader">idSoundShader</a> *	<dfn class="decl" id="idSoundShader::altSound" title='idSoundShader::altSound' data-ref="idSoundShader::altSound">altSound</dfn>;</td></tr>
+<tr><th id="121">121</th><td>	<a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>					<dfn class="decl" id="idSoundShader::desc" title='idSoundShader::desc' data-ref="idSoundShader::desc">desc</dfn>;						<i>// description</i></td></tr>
+<tr><th id="122">122</th><td>	<em>bool</em>					<dfn class="decl" id="idSoundShader::errorDuringParse" title='idSoundShader::errorDuringParse' data-ref="idSoundShader::errorDuringParse">errorDuringParse</dfn>;</td></tr>
+<tr><th id="123">123</th><td>	<em>float</em>					<dfn class="decl" id="idSoundShader::leadinVolume" title='idSoundShader::leadinVolume' data-ref="idSoundShader::leadinVolume">leadinVolume</dfn>;				<i>// allows light breaking leadin sounds to be much louder than the broken loop</i></td></tr>
+<tr><th id="124">124</th><td></td></tr>
+<tr><th id="125">125</th><td>	<a class="type" href="#idSoundSample" title='idSoundSample' data-ref="idSoundSample">idSoundSample</a> *	<dfn class="decl" id="idSoundShader::leadins" title='idSoundShader::leadins' data-ref="idSoundShader::leadins">leadins</dfn>[<a class="ref" href="#SOUND_MAX_LIST_WAVS" title='SOUND_MAX_LIST_WAVS' data-ref="SOUND_MAX_LIST_WAVS">SOUND_MAX_LIST_WAVS</a>];</td></tr>
+<tr><th id="126">126</th><td>	<em>int</em>						<dfn class="decl" id="idSoundShader::numLeadins" title='idSoundShader::numLeadins' data-ref="idSoundShader::numLeadins">numLeadins</dfn>;</td></tr>
+<tr><th id="127">127</th><td>	<a class="type" href="#idSoundSample" title='idSoundSample' data-ref="idSoundSample">idSoundSample</a> *	<dfn class="decl" id="idSoundShader::entries" title='idSoundShader::entries' data-ref="idSoundShader::entries">entries</dfn>[<a class="ref" href="#SOUND_MAX_LIST_WAVS" title='SOUND_MAX_LIST_WAVS' data-ref="SOUND_MAX_LIST_WAVS">SOUND_MAX_LIST_WAVS</a>];</td></tr>
+<tr><th id="128">128</th><td>	<em>int</em>						<dfn class="decl" id="idSoundShader::numEntries" title='idSoundShader::numEntries' data-ref="idSoundShader::numEntries">numEntries</dfn>;</td></tr>
+<tr><th id="129">129</th><td></td></tr>
+<tr><th id="130">130</th><td><b>private</b>:</td></tr>
+<tr><th id="131">131</th><td>	<em>void</em>					<dfn class="decl" id="_ZN13idSoundShader4InitEv" title='idSoundShader::Init' data-ref="_ZN13idSoundShader4InitEv">Init</dfn>( <em>void</em> );</td></tr>
+<tr><th id="132">132</th><td>	<em>bool</em>					<dfn class="decl" id="_ZN13idSoundShader11ParseShaderER7idLexer" title='idSoundShader::ParseShader' data-ref="_ZN13idSoundShader11ParseShaderER7idLexer">ParseShader</dfn>( <a class="type" href="../idlib/Lexer.h.html#idLexer" title='idLexer' data-ref="idLexer">idLexer</a> &amp;<dfn class="local col6 decl" id="13216src" title='src' data-type='idLexer &amp;' data-ref="13216src">src</dfn> );</td></tr>
+<tr><th id="133">133</th><td>};</td></tr>
+<tr><th id="134">134</th><td></td></tr>
+<tr><th id="135">135</th><td><i>/*</i></td></tr>
+<tr><th id="136">136</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="137">137</th><td><i></i></td></tr>
+<tr><th id="138">138</th><td><i>	SOUND EMITTER</i></td></tr>
+<tr><th id="139">139</th><td><i></i></td></tr>
+<tr><th id="140">140</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="141">141</th><td><i>*/</i></td></tr>
+<tr><th id="142">142</th><td><i></i></td></tr>
+<tr><th id="143">143</th><td><i>// sound channels</i></td></tr>
+<tr><th id="144">144</th><td><em>static</em> <em>const</em> <em>int</em> <dfn class="decl def" id="SCHANNEL_ANY" title='SCHANNEL_ANY' data-ref="SCHANNEL_ANY">SCHANNEL_ANY</dfn> = <var>0</var>;	<i>// used in queries and commands to effect every channel at once, in</i></td></tr>
+<tr><th id="145">145</th><td>									<i>// startSound to have it not override any other channel</i></td></tr>
+<tr><th id="146">146</th><td><em>static</em> <em>const</em> <em>int</em> <dfn class="decl def" id="SCHANNEL_ONE" title='SCHANNEL_ONE' data-ref="SCHANNEL_ONE">SCHANNEL_ONE</dfn> = <var>1</var>;	<i>// any following integer can be used as a channel number</i></td></tr>
+<tr><th id="147">147</th><td><b>typedef</b> <em>int</em> <dfn class="typedef" id="s_channelType" title='s_channelType' data-type='int' data-ref="s_channelType">s_channelType</dfn>;	<i>// the game uses its own series of enums, and we don't want to require casts</i></td></tr>
+<tr><th id="148">148</th><td></td></tr>
+<tr><th id="149">149</th><td></td></tr>
+<tr><th id="150">150</th><td><b>class</b> <dfn class="type def" id="idSoundEmitter" title='idSoundEmitter' data-ref="idSoundEmitter">idSoundEmitter</dfn> {</td></tr>
+<tr><th id="151">151</th><td><b>public</b>:</td></tr>
+<tr><th id="152">152</th><td>	<b>virtual</b>					<dfn class="virtual decl def" id="_ZN14idSoundEmitterD1Ev" title='idSoundEmitter::~idSoundEmitter' data-ref="_ZN14idSoundEmitterD1Ev">~idSoundEmitter</dfn>( <em>void</em> ) {}</td></tr>
+<tr><th id="153">153</th><td></td></tr>
+<tr><th id="154">154</th><td>	<i>// a non-immediate free will let all currently playing sounds complete</i></td></tr>
+<tr><th id="155">155</th><td><i>	// soundEmitters are not actually deleted, they are just marked as</i></td></tr>
+<tr><th id="156">156</th><td><i>	// reusable by the soundWorld</i></td></tr>
+<tr><th id="157">157</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN14idSoundEmitter4FreeEb" title='idSoundEmitter::Free' data-ref="_ZN14idSoundEmitter4FreeEb">Free</dfn>( <em>bool</em> <dfn class="local col7 decl" id="13217immediate" title='immediate' data-type='bool' data-ref="13217immediate">immediate</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="158">158</th><td></td></tr>
+<tr><th id="159">159</th><td>	<i>// the parms specified will be the default overrides for all sounds started on this emitter.</i></td></tr>
+<tr><th id="160">160</th><td><i>	// NULL is acceptable for parms</i></td></tr>
+<tr><th id="161">161</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN14idSoundEmitter13UpdateEmitterERK6idVec3iPK18soundShaderParms_t" title='idSoundEmitter::UpdateEmitter' data-ref="_ZN14idSoundEmitter13UpdateEmitterERK6idVec3iPK18soundShaderParms_t">UpdateEmitter</dfn>( <em>const</em> <a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col8 decl" id="13218origin" title='origin' data-type='const idVec3 &amp;' data-ref="13218origin">origin</dfn>, <em>int</em> <dfn class="local col9 decl" id="13219listenerId" title='listenerId' data-type='int' data-ref="13219listenerId">listenerId</dfn>, <em>const</em> <a class="typedef" href="#soundShaderParms_t" title='soundShaderParms_t' data-type='struct soundShaderParms_t' data-ref="soundShaderParms_t">soundShaderParms_t</a> *<dfn class="local col0 decl" id="13220parms" title='parms' data-type='const soundShaderParms_t *' data-ref="13220parms">parms</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="162">162</th><td></td></tr>
+<tr><th id="163">163</th><td>	<i>// returns the length of the started sound in msec</i></td></tr>
+<tr><th id="164">164</th><td>	<b>virtual</b> <em>int</em>				<dfn class="virtual decl" id="_ZN14idSoundEmitter10StartSoundEPK13idSoundShaderifib" title='idSoundEmitter::StartSound' data-ref="_ZN14idSoundEmitter10StartSoundEPK13idSoundShaderifib">StartSound</dfn>( <em>const</em> <a class="type" href="#idSoundShader" title='idSoundShader' data-ref="idSoundShader">idSoundShader</a> *<dfn class="local col1 decl" id="13221shader" title='shader' data-type='const idSoundShader *' data-ref="13221shader">shader</dfn>, <em>const</em> <a class="typedef" href="#s_channelType" title='s_channelType' data-type='int' data-ref="s_channelType">s_channelType</a> <dfn class="local col2 decl" id="13222channel" title='channel' data-type='const s_channelType' data-ref="13222channel">channel</dfn>, <em>float</em> <dfn class="local col3 decl" id="13223diversity" title='diversity' data-type='float' data-ref="13223diversity">diversity</dfn> = <var>0</var>, <em>int</em> <dfn class="local col4 decl" id="13224shaderFlags" title='shaderFlags' data-type='int' data-ref="13224shaderFlags">shaderFlags</dfn> = <var>0</var>, <em>bool</em> <dfn class="local col5 decl" id="13225allowSlow" title='allowSlow' data-type='bool' data-ref="13225allowSlow">allowSlow</dfn> = <b>true</b> ) = <var>0</var>;</td></tr>
+<tr><th id="165">165</th><td></td></tr>
+<tr><th id="166">166</th><td>	<i>// pass SCHANNEL_ANY to effect all channels</i></td></tr>
+<tr><th id="167">167</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN14idSoundEmitter11ModifySoundEiPK18soundShaderParms_t" title='idSoundEmitter::ModifySound' data-ref="_ZN14idSoundEmitter11ModifySoundEiPK18soundShaderParms_t">ModifySound</dfn>( <em>const</em> <a class="typedef" href="#s_channelType" title='s_channelType' data-type='int' data-ref="s_channelType">s_channelType</a> <dfn class="local col6 decl" id="13226channel" title='channel' data-type='const s_channelType' data-ref="13226channel">channel</dfn>, <em>const</em> <a class="typedef" href="#soundShaderParms_t" title='soundShaderParms_t' data-type='struct soundShaderParms_t' data-ref="soundShaderParms_t">soundShaderParms_t</a> *<dfn class="local col7 decl" id="13227parms" title='parms' data-type='const soundShaderParms_t *' data-ref="13227parms">parms</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="168">168</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN14idSoundEmitter9StopSoundEi" title='idSoundEmitter::StopSound' data-ref="_ZN14idSoundEmitter9StopSoundEi">StopSound</dfn>( <em>const</em> <a class="typedef" href="#s_channelType" title='s_channelType' data-type='int' data-ref="s_channelType">s_channelType</a> <dfn class="local col8 decl" id="13228channel" title='channel' data-type='const s_channelType' data-ref="13228channel">channel</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="169">169</th><td>	<i>// to is in Db (sigh), over is in seconds</i></td></tr>
+<tr><th id="170">170</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN14idSoundEmitter9FadeSoundEiff" title='idSoundEmitter::FadeSound' data-ref="_ZN14idSoundEmitter9FadeSoundEiff">FadeSound</dfn>( <em>const</em> <a class="typedef" href="#s_channelType" title='s_channelType' data-type='int' data-ref="s_channelType">s_channelType</a> <dfn class="local col9 decl" id="13229channel" title='channel' data-type='const s_channelType' data-ref="13229channel">channel</dfn>, <em>float</em> <dfn class="local col0 decl" id="13230to" title='to' data-type='float' data-ref="13230to">to</dfn>, <em>float</em> <dfn class="local col1 decl" id="13231over" title='over' data-type='float' data-ref="13231over">over</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="171">171</th><td></td></tr>
+<tr><th id="172">172</th><td>	<i>// returns true if there are any sounds playing from this emitter.  There is some conservative</i></td></tr>
+<tr><th id="173">173</th><td><i>	// slop at the end to remove inconsistent race conditions with the sound thread updates.</i></td></tr>
+<tr><th id="174">174</th><td><i>	// FIXME: network game: on a dedicated server, this will always be false</i></td></tr>
+<tr><th id="175">175</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZNK14idSoundEmitter16CurrentlyPlayingEv" title='idSoundEmitter::CurrentlyPlaying' data-ref="_ZNK14idSoundEmitter16CurrentlyPlayingEv">CurrentlyPlaying</dfn>( <em>void</em> ) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="176">176</th><td></td></tr>
+<tr><th id="177">177</th><td>	<i>// returns a 0.0 to 1.0 value based on the current sound amplitude, allowing</i></td></tr>
+<tr><th id="178">178</th><td><i>	// graphic effects to be modified in time with the audio.</i></td></tr>
+<tr><th id="179">179</th><td><i>	// just samples the raw wav file, it doesn't account for volume overrides in the</i></td></tr>
+<tr><th id="180">180</th><td>	<b>virtual</b>	<em>float</em>			<dfn class="virtual decl" id="_ZN14idSoundEmitter16CurrentAmplitudeEv" title='idSoundEmitter::CurrentAmplitude' data-ref="_ZN14idSoundEmitter16CurrentAmplitudeEv">CurrentAmplitude</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="181">181</th><td></td></tr>
+<tr><th id="182">182</th><td>	<i>// for save games.  Index will always be &gt; 0</i></td></tr>
+<tr><th id="183">183</th><td>	<b>virtual</b>	<em>int</em>				<dfn class="virtual decl" id="_ZNK14idSoundEmitter5IndexEv" title='idSoundEmitter::Index' data-ref="_ZNK14idSoundEmitter5IndexEv">Index</dfn>( <em>void</em> ) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="184">184</th><td>};</td></tr>
+<tr><th id="185">185</th><td></td></tr>
+<tr><th id="186">186</th><td><i>/*</i></td></tr>
+<tr><th id="187">187</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="188">188</th><td><i></i></td></tr>
+<tr><th id="189">189</th><td><i>	SOUND WORLD</i></td></tr>
+<tr><th id="190">190</th><td><i></i></td></tr>
+<tr><th id="191">191</th><td><i>There can be multiple independent sound worlds, just as there can be multiple</i></td></tr>
+<tr><th id="192">192</th><td><i>independent render worlds.  The prime example is the editor sound preview</i></td></tr>
+<tr><th id="193">193</th><td><i>option existing simultaniously with a live game.</i></td></tr>
+<tr><th id="194">194</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="195">195</th><td><i>*/</i></td></tr>
+<tr><th id="196">196</th><td></td></tr>
+<tr><th id="197">197</th><td><b>class</b> <dfn class="type def" id="idSoundWorld" title='idSoundWorld' data-ref="idSoundWorld">idSoundWorld</dfn> {</td></tr>
+<tr><th id="198">198</th><td><b>public</b>:</td></tr>
+<tr><th id="199">199</th><td>	<b>virtual</b>					<dfn class="virtual decl def" id="_ZN12idSoundWorldD1Ev" title='idSoundWorld::~idSoundWorld' data-ref="_ZN12idSoundWorldD1Ev">~idSoundWorld</dfn>( <em>void</em> ) {}</td></tr>
+<tr><th id="200">200</th><td></td></tr>
+<tr><th id="201">201</th><td>	<i>// call at each map start</i></td></tr>
+<tr><th id="202">202</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN12idSoundWorld21ClearAllSoundEmittersEv" title='idSoundWorld::ClearAllSoundEmitters' data-ref="_ZN12idSoundWorld21ClearAllSoundEmittersEv">ClearAllSoundEmitters</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="203">203</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN12idSoundWorld13StopAllSoundsEv" title='idSoundWorld::StopAllSounds' data-ref="_ZN12idSoundWorld13StopAllSoundsEv">StopAllSounds</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="204">204</th><td></td></tr>
+<tr><th id="205">205</th><td>	<i>// get a new emitter that can play sounds in this world</i></td></tr>
+<tr><th id="206">206</th><td>	<b>virtual</b> <a class="type" href="#idSoundEmitter" title='idSoundEmitter' data-ref="idSoundEmitter">idSoundEmitter</a> *<dfn class="virtual decl" id="_ZN12idSoundWorld17AllocSoundEmitterEv" title='idSoundWorld::AllocSoundEmitter' data-ref="_ZN12idSoundWorld17AllocSoundEmitterEv">AllocSoundEmitter</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="207">207</th><td></td></tr>
+<tr><th id="208">208</th><td>	<i>// for load games, index 0 will return NULL</i></td></tr>
+<tr><th id="209">209</th><td>	<b>virtual</b> <a class="type" href="#idSoundEmitter" title='idSoundEmitter' data-ref="idSoundEmitter">idSoundEmitter</a> *<dfn class="virtual decl" id="_ZN12idSoundWorld15EmitterForIndexEi" title='idSoundWorld::EmitterForIndex' data-ref="_ZN12idSoundWorld15EmitterForIndexEi">EmitterForIndex</dfn>( <em>int</em> <dfn class="local col2 decl" id="13232index" title='index' data-type='int' data-ref="13232index">index</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="210">210</th><td></td></tr>
+<tr><th id="211">211</th><td>	<i>// query sound samples from all emitters reaching a given position</i></td></tr>
+<tr><th id="212">212</th><td>	<b>virtual</b>	<em>float</em>			<dfn class="virtual decl" id="_ZN12idSoundWorld32CurrentShakeAmplitudeForPositionEiRK6idVec3" title='idSoundWorld::CurrentShakeAmplitudeForPosition' data-ref="_ZN12idSoundWorld32CurrentShakeAmplitudeForPositionEiRK6idVec3">CurrentShakeAmplitudeForPosition</dfn>( <em>const</em> <em>int</em> <dfn class="local col3 decl" id="13233time" title='time' data-type='const int' data-ref="13233time">time</dfn>, <em>const</em> <a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col4 decl" id="13234listenerPosition" title='listenerPosition' data-type='const idVec3 &amp;' data-ref="13234listenerPosition">listenerPosition</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="213">213</th><td></td></tr>
+<tr><th id="214">214</th><td>	<i>// where is the camera/microphone</i></td></tr>
+<tr><th id="215">215</th><td><i>	// listenerId allows listener-private and antiPrivate sounds to be filtered</i></td></tr>
+<tr><th id="216">216</th><td><i>	// gameTime is in msec, and is used to time sound queries and removals so that they are independent</i></td></tr>
+<tr><th id="217">217</th><td><i>	// of any race conditions with the async update</i></td></tr>
+<tr><th id="218">218</th><td>	<b>virtual</b>	<em>void</em>			<dfn class="virtual decl" id="_ZN12idSoundWorld13PlaceListenerERK6idVec3RK6idMat3iiRK5idStr" title='idSoundWorld::PlaceListener' data-ref="_ZN12idSoundWorld13PlaceListenerERK6idVec3RK6idMat3iiRK5idStr">PlaceListener</dfn>( <em>const</em> <a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col5 decl" id="13235origin" title='origin' data-type='const idVec3 &amp;' data-ref="13235origin">origin</dfn>, <em>const</em> <a class="type" href="../idlib/math/Matrix.h.html#idMat3" title='idMat3' data-ref="idMat3">idMat3</a> &amp;<dfn class="local col6 decl" id="13236axis" title='axis' data-type='const idMat3 &amp;' data-ref="13236axis">axis</dfn>, <em>const</em> <em>int</em> <dfn class="local col7 decl" id="13237listenerId" title='listenerId' data-type='const int' data-ref="13237listenerId">listenerId</dfn>, <em>const</em> <em>int</em> <dfn class="local col8 decl" id="13238gameTime" title='gameTime' data-type='const int' data-ref="13238gameTime">gameTime</dfn>, <em>const</em> <a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>&amp; <dfn class="local col9 decl" id="13239areaName" title='areaName' data-type='const idStr &amp;' data-ref="13239areaName">areaName</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="219">219</th><td></td></tr>
+<tr><th id="220">220</th><td>	<i>// fade all sounds in the world with a given shader soundClass</i></td></tr>
+<tr><th id="221">221</th><td><i>	// to is in Db (sigh), over is in seconds</i></td></tr>
+<tr><th id="222">222</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN12idSoundWorld16FadeSoundClassesEiff" title='idSoundWorld::FadeSoundClasses' data-ref="_ZN12idSoundWorld16FadeSoundClassesEiff">FadeSoundClasses</dfn>( <em>const</em> <em>int</em> <dfn class="local col0 decl" id="13240soundClass" title='soundClass' data-type='const int' data-ref="13240soundClass">soundClass</dfn>, <em>const</em> <em>float</em> <dfn class="local col1 decl" id="13241to" title='to' data-type='const float' data-ref="13241to">to</dfn>, <em>const</em> <em>float</em> <dfn class="local col2 decl" id="13242over" title='over' data-type='const float' data-ref="13242over">over</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="223">223</th><td></td></tr>
+<tr><th id="224">224</th><td>	<i>// background music</i></td></tr>
+<tr><th id="225">225</th><td>	<b>virtual</b>	<em>void</em>			<dfn class="virtual decl" id="_ZN12idSoundWorld18PlayShaderDirectlyEPKci" title='idSoundWorld::PlayShaderDirectly' data-ref="_ZN12idSoundWorld18PlayShaderDirectlyEPKci">PlayShaderDirectly</dfn>( <em>const</em> <em>char</em> *<dfn class="local col3 decl" id="13243name" title='name' data-type='const char *' data-ref="13243name">name</dfn>, <em>int</em> <dfn class="local col4 decl" id="13244channel" title='channel' data-type='int' data-ref="13244channel">channel</dfn> = -<var>1</var> ) = <var>0</var>;</td></tr>
+<tr><th id="226">226</th><td></td></tr>
+<tr><th id="227">227</th><td>	<i>// dumps the current state and begins archiving commands</i></td></tr>
+<tr><th id="228">228</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN12idSoundWorld16StartWritingDemoEP10idDemoFile" title='idSoundWorld::StartWritingDemo' data-ref="_ZN12idSoundWorld16StartWritingDemoEP10idDemoFile">StartWritingDemo</dfn>( <a class="type" href="../framework/DemoFile.h.html#idDemoFile" title='idDemoFile' data-ref="idDemoFile">idDemoFile</a> *<dfn class="local col5 decl" id="13245demo" title='demo' data-type='idDemoFile *' data-ref="13245demo">demo</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="229">229</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN12idSoundWorld15StopWritingDemoEv" title='idSoundWorld::StopWritingDemo' data-ref="_ZN12idSoundWorld15StopWritingDemoEv">StopWritingDemo</dfn>() = <var>0</var>;</td></tr>
+<tr><th id="230">230</th><td></td></tr>
+<tr><th id="231">231</th><td>	<i>// read a sound command from a demo file</i></td></tr>
+<tr><th id="232">232</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN12idSoundWorld18ProcessDemoCommandEP10idDemoFile" title='idSoundWorld::ProcessDemoCommand' data-ref="_ZN12idSoundWorld18ProcessDemoCommandEP10idDemoFile">ProcessDemoCommand</dfn>( <a class="type" href="../framework/DemoFile.h.html#idDemoFile" title='idDemoFile' data-ref="idDemoFile">idDemoFile</a> *<dfn class="local col6 decl" id="13246demo" title='demo' data-type='idDemoFile *' data-ref="13246demo">demo</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="233">233</th><td></td></tr>
+<tr><th id="234">234</th><td>	<i>// pause and unpause the sound world</i></td></tr>
+<tr><th id="235">235</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN12idSoundWorld5PauseEv" title='idSoundWorld::Pause' data-ref="_ZN12idSoundWorld5PauseEv">Pause</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="236">236</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN12idSoundWorld7UnPauseEv" title='idSoundWorld::UnPause' data-ref="_ZN12idSoundWorld7UnPauseEv">UnPause</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="237">237</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN12idSoundWorld8IsPausedEv" title='idSoundWorld::IsPaused' data-ref="_ZN12idSoundWorld8IsPausedEv">IsPaused</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="238">238</th><td></td></tr>
+<tr><th id="239">239</th><td>	<i>// Write the sound output to multiple wav files.  Note that this does not use the</i></td></tr>
+<tr><th id="240">240</th><td><i>	// work done by AsyncUpdate, it mixes explicitly in the foreground every PlaceOrigin(),</i></td></tr>
+<tr><th id="241">241</th><td><i>	// under the assumption that we are rendering out screenshots and the gameTime is going</i></td></tr>
+<tr><th id="242">242</th><td><i>	// much slower than real time.</i></td></tr>
+<tr><th id="243">243</th><td><i>	// path should not include an extension, and the generated filenames will be:</i></td></tr>
+<tr><th id="244">244</th><td><i>	// &lt;path&gt;_left.raw, &lt;path&gt;_right.raw, or &lt;path&gt;_51left.raw, &lt;path&gt;_51right.raw, </i></td></tr>
+<tr><th id="245">245</th><td><i>	// &lt;path&gt;_51center.raw, &lt;path&gt;_51lfe.raw, &lt;path&gt;_51backleft.raw, &lt;path&gt;_51backright.raw, </i></td></tr>
+<tr><th id="246">246</th><td><i>	// If only two channel mixing is enabled, the left and right .raw files will also be</i></td></tr>
+<tr><th id="247">247</th><td><i>	// combined into a stereo .wav file.</i></td></tr>
+<tr><th id="248">248</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN12idSoundWorld7AVIOpenEPKcS1_" title='idSoundWorld::AVIOpen' data-ref="_ZN12idSoundWorld7AVIOpenEPKcS1_">AVIOpen</dfn>( <em>const</em> <em>char</em> *<dfn class="local col7 decl" id="13247path" title='path' data-type='const char *' data-ref="13247path">path</dfn>, <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="13248name" title='name' data-type='const char *' data-ref="13248name">name</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="249">249</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN12idSoundWorld8AVICloseEv" title='idSoundWorld::AVIClose' data-ref="_ZN12idSoundWorld8AVICloseEv">AVIClose</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="250">250</th><td></td></tr>
+<tr><th id="251">251</th><td>	<i>// SaveGame / demo Support</i></td></tr>
+<tr><th id="252">252</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN12idSoundWorld15WriteToSaveGameEP6idFile" title='idSoundWorld::WriteToSaveGame' data-ref="_ZN12idSoundWorld15WriteToSaveGameEP6idFile">WriteToSaveGame</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col9 decl" id="13249savefile" title='savefile' data-type='idFile *' data-ref="13249savefile">savefile</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="253">253</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN12idSoundWorld16ReadFromSaveGameEP6idFile" title='idSoundWorld::ReadFromSaveGame' data-ref="_ZN12idSoundWorld16ReadFromSaveGameEP6idFile">ReadFromSaveGame</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col0 decl" id="13250savefile" title='savefile' data-type='idFile *' data-ref="13250savefile">savefile</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="254">254</th><td></td></tr>
+<tr><th id="255">255</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN12idSoundWorld9SetSlowmoEb" title='idSoundWorld::SetSlowmo' data-ref="_ZN12idSoundWorld9SetSlowmoEb">SetSlowmo</dfn>( <em>bool</em> <dfn class="local col1 decl" id="13251active" title='active' data-type='bool' data-ref="13251active">active</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="256">256</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN12idSoundWorld14SetSlowmoSpeedEf" title='idSoundWorld::SetSlowmoSpeed' data-ref="_ZN12idSoundWorld14SetSlowmoSpeedEf">SetSlowmoSpeed</dfn>( <em>float</em> <dfn class="local col2 decl" id="13252speed" title='speed' data-type='float' data-ref="13252speed">speed</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="257">257</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN12idSoundWorld13SetEnviroSuitEb" title='idSoundWorld::SetEnviroSuit' data-ref="_ZN12idSoundWorld13SetEnviroSuitEb">SetEnviroSuit</dfn>( <em>bool</em> <dfn class="local col3 decl" id="13253active" title='active' data-type='bool' data-ref="13253active">active</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="258">258</th><td>};</td></tr>
+<tr><th id="259">259</th><td></td></tr>
+<tr><th id="260">260</th><td></td></tr>
+<tr><th id="261">261</th><td><i>/*</i></td></tr>
+<tr><th id="262">262</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="263">263</th><td><i></i></td></tr>
+<tr><th id="264">264</th><td><i>	SOUND SYSTEM</i></td></tr>
+<tr><th id="265">265</th><td><i></i></td></tr>
+<tr><th id="266">266</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="267">267</th><td><i>*/</i></td></tr>
+<tr><th id="268">268</th><td></td></tr>
+<tr><th id="269">269</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="270">270</th><td>	<a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>					<dfn class="decl" id="(anonymous)::name" title='(anonymous struct)::name' data-ref="(anonymous)::name">name</dfn>;</td></tr>
+<tr><th id="271">271</th><td>	<a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>					<dfn class="decl" id="(anonymous)::format" title='(anonymous struct)::format' data-ref="(anonymous)::format">format</dfn>;</td></tr>
+<tr><th id="272">272</th><td>	<em>int</em>						<dfn class="decl" id="(anonymous)::numChannels" title='(anonymous struct)::numChannels' data-ref="(anonymous)::numChannels">numChannels</dfn>;</td></tr>
+<tr><th id="273">273</th><td>	<em>int</em>						<dfn class="decl" id="(anonymous)::numSamplesPerSecond" title='(anonymous struct)::numSamplesPerSecond' data-ref="(anonymous)::numSamplesPerSecond">numSamplesPerSecond</dfn>;</td></tr>
+<tr><th id="274">274</th><td>	<em>int</em>						<dfn class="decl" id="(anonymous)::num44kHzSamples" title='(anonymous struct)::num44kHzSamples' data-ref="(anonymous)::num44kHzSamples">num44kHzSamples</dfn>;</td></tr>
+<tr><th id="275">275</th><td>	<em>int</em>						<dfn class="decl" id="(anonymous)::numBytes" title='(anonymous struct)::numBytes' data-ref="(anonymous)::numBytes">numBytes</dfn>;</td></tr>
+<tr><th id="276">276</th><td>	<em>bool</em>					<dfn class="decl" id="(anonymous)::looping" title='(anonymous struct)::looping' data-ref="(anonymous)::looping">looping</dfn>;</td></tr>
+<tr><th id="277">277</th><td>	<em>float</em>					<dfn class="decl" id="(anonymous)::lastVolume" title='(anonymous struct)::lastVolume' data-ref="(anonymous)::lastVolume">lastVolume</dfn>;</td></tr>
+<tr><th id="278">278</th><td>	<em>int</em>						<dfn class="decl" id="(anonymous)::start44kHzTime" title='(anonymous struct)::start44kHzTime' data-ref="(anonymous)::start44kHzTime">start44kHzTime</dfn>;</td></tr>
+<tr><th id="279">279</th><td>	<em>int</em>						<dfn class="decl" id="(anonymous)::current44kHzTime" title='(anonymous struct)::current44kHzTime' data-ref="(anonymous)::current44kHzTime">current44kHzTime</dfn>;</td></tr>
+<tr><th id="280">280</th><td>} <dfn class="typedef" id="soundDecoderInfo_t" title='soundDecoderInfo_t' data-type='struct soundDecoderInfo_t' data-ref="soundDecoderInfo_t">soundDecoderInfo_t</dfn>;</td></tr>
+<tr><th id="281">281</th><td></td></tr>
+<tr><th id="282">282</th><td></td></tr>
+<tr><th id="283">283</th><td><b>class</b> <dfn class="type def" id="idSoundSystem" title='idSoundSystem' data-ref="idSoundSystem">idSoundSystem</dfn> {</td></tr>
+<tr><th id="284">284</th><td><b>public</b>:</td></tr>
+<tr><th id="285">285</th><td>	<b>virtual</b>					<dfn class="virtual decl def" id="_ZN13idSoundSystemD1Ev" title='idSoundSystem::~idSoundSystem' data-ref="_ZN13idSoundSystemD1Ev">~idSoundSystem</dfn>( <em>void</em> ) {}</td></tr>
+<tr><th id="286">286</th><td></td></tr>
+<tr><th id="287">287</th><td>	<i>// all non-hardware initialization</i></td></tr>
+<tr><th id="288">288</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN13idSoundSystem4InitEv" title='idSoundSystem::Init' data-ref="_ZN13idSoundSystem4InitEv">Init</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="289">289</th><td></td></tr>
+<tr><th id="290">290</th><td>	<i>// shutdown routine</i></td></tr>
+<tr><th id="291">291</th><td>	<b>virtual</b>	<em>void</em>			<dfn class="virtual decl" id="_ZN13idSoundSystem8ShutdownEv" title='idSoundSystem::Shutdown' data-ref="_ZN13idSoundSystem8ShutdownEv">Shutdown</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="292">292</th><td></td></tr>
+<tr><th id="293">293</th><td>	<i>// call ClearBuffer if there is a chance that the AsyncUpdate won't get called</i></td></tr>
+<tr><th id="294">294</th><td><i>	// for 20+ msec, which would cause a stuttering repeat of the current</i></td></tr>
+<tr><th id="295">295</th><td><i>	// buffer contents</i></td></tr>
+<tr><th id="296">296</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN13idSoundSystem11ClearBufferEv" title='idSoundSystem::ClearBuffer' data-ref="_ZN13idSoundSystem11ClearBufferEv">ClearBuffer</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="297">297</th><td></td></tr>
+<tr><th id="298">298</th><td>	<i>// sound is attached to the window, and must be recreated when the window is changed</i></td></tr>
+<tr><th id="299">299</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN13idSoundSystem6InitHWEv" title='idSoundSystem::InitHW' data-ref="_ZN13idSoundSystem6InitHWEv">InitHW</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="300">300</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN13idSoundSystem10ShutdownHWEv" title='idSoundSystem::ShutdownHW' data-ref="_ZN13idSoundSystem10ShutdownHWEv">ShutdownHW</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="301">301</th><td></td></tr>
+<tr><th id="302">302</th><td>	<i>// asyn loop, called at 60Hz</i></td></tr>
+<tr><th id="303">303</th><td>	<b>virtual</b> <em>int</em>				<dfn class="virtual decl" id="_ZN13idSoundSystem11AsyncUpdateEi" title='idSoundSystem::AsyncUpdate' data-ref="_ZN13idSoundSystem11AsyncUpdateEi">AsyncUpdate</dfn>( <em>int</em> <dfn class="local col4 decl" id="13254time" title='time' data-type='int' data-ref="13254time">time</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="304">304</th><td></td></tr>
+<tr><th id="305">305</th><td>	<i>// async loop, when the sound driver uses a write strategy</i></td></tr>
+<tr><th id="306">306</th><td>	<b>virtual</b> <em>int</em>				<dfn class="virtual decl" id="_ZN13idSoundSystem16AsyncUpdateWriteEi" title='idSoundSystem::AsyncUpdateWrite' data-ref="_ZN13idSoundSystem16AsyncUpdateWriteEi">AsyncUpdateWrite</dfn>( <em>int</em> <dfn class="local col5 decl" id="13255time" title='time' data-type='int' data-ref="13255time">time</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="307">307</th><td></td></tr>
+<tr><th id="308">308</th><td>	<i>// it is a good idea to mute everything when starting a new level,</i></td></tr>
+<tr><th id="309">309</th><td><i>	// because sounds may be started before a valid listener origin</i></td></tr>
+<tr><th id="310">310</th><td><i>	// is specified</i></td></tr>
+<tr><th id="311">311</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN13idSoundSystem7SetMuteEb" title='idSoundSystem::SetMute' data-ref="_ZN13idSoundSystem7SetMuteEb">SetMute</dfn>( <em>bool</em> <dfn class="local col6 decl" id="13256mute" title='mute' data-type='bool' data-ref="13256mute">mute</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="312">312</th><td></td></tr>
+<tr><th id="313">313</th><td>	<i>// for the sound level meter window</i></td></tr>
+<tr><th id="314">314</th><td>	<b>virtual</b> <a class="typedef" href="../renderer/Cinematic.h.html#cinData_t" title='cinData_t' data-type='struct cinData_t' data-ref="cinData_t">cinData_t</a>		<dfn class="virtual decl" id="_ZN13idSoundSystem12ImageForTimeEib" title='idSoundSystem::ImageForTime' data-ref="_ZN13idSoundSystem12ImageForTimeEib">ImageForTime</dfn>( <em>const</em> <em>int</em> <dfn class="local col7 decl" id="13257milliseconds" title='milliseconds' data-type='const int' data-ref="13257milliseconds">milliseconds</dfn>, <em>const</em> <em>bool</em> <dfn class="local col8 decl" id="13258waveform" title='waveform' data-type='const bool' data-ref="13258waveform">waveform</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="315">315</th><td></td></tr>
+<tr><th id="316">316</th><td>	<i>// get sound decoder info</i></td></tr>
+<tr><th id="317">317</th><td>	<b>virtual</b> <em>int</em>				<dfn class="virtual decl" id="_ZN13idSoundSystem19GetSoundDecoderInfoEiR18soundDecoderInfo_t" title='idSoundSystem::GetSoundDecoderInfo' data-ref="_ZN13idSoundSystem19GetSoundDecoderInfoEiR18soundDecoderInfo_t">GetSoundDecoderInfo</dfn>( <em>int</em> <dfn class="local col9 decl" id="13259index" title='index' data-type='int' data-ref="13259index">index</dfn>, <a class="typedef" href="#soundDecoderInfo_t" title='soundDecoderInfo_t' data-type='struct soundDecoderInfo_t' data-ref="soundDecoderInfo_t">soundDecoderInfo_t</a> &amp;<dfn class="local col0 decl" id="13260decoderInfo" title='decoderInfo' data-type='soundDecoderInfo_t &amp;' data-ref="13260decoderInfo">decoderInfo</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="318">318</th><td></td></tr>
+<tr><th id="319">319</th><td>	<i>// if rw == NULL, no portal occlusion or rendered debugging is available</i></td></tr>
+<tr><th id="320">320</th><td>	<b>virtual</b> <a class="type" href="#idSoundWorld" title='idSoundWorld' data-ref="idSoundWorld">idSoundWorld</a> *	<dfn class="virtual decl" id="_ZN13idSoundSystem15AllocSoundWorldEP13idRenderWorld" title='idSoundSystem::AllocSoundWorld' data-ref="_ZN13idSoundSystem15AllocSoundWorldEP13idRenderWorld">AllocSoundWorld</dfn>( <a class="type" href="../renderer/RenderWorld.h.html#idRenderWorld" title='idRenderWorld' data-ref="idRenderWorld">idRenderWorld</a> *<dfn class="local col1 decl" id="13261rw" title='rw' data-type='idRenderWorld *' data-ref="13261rw">rw</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="321">321</th><td></td></tr>
+<tr><th id="322">322</th><td>	<i>// specifying NULL will cause silence to be played</i></td></tr>
+<tr><th id="323">323</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN13idSoundSystem20SetPlayingSoundWorldEP12idSoundWorld" title='idSoundSystem::SetPlayingSoundWorld' data-ref="_ZN13idSoundSystem20SetPlayingSoundWorldEP12idSoundWorld">SetPlayingSoundWorld</dfn>( <a class="type" href="#idSoundWorld" title='idSoundWorld' data-ref="idSoundWorld">idSoundWorld</a> *<dfn class="local col2 decl" id="13262soundWorld" title='soundWorld' data-type='idSoundWorld *' data-ref="13262soundWorld">soundWorld</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="324">324</th><td></td></tr>
+<tr><th id="325">325</th><td>	<i>// some tools, like the sound dialog, may be used in both the game and the editor</i></td></tr>
+<tr><th id="326">326</th><td><i>	// This can return NULL, so check!</i></td></tr>
+<tr><th id="327">327</th><td>	<b>virtual</b> <a class="type" href="#idSoundWorld" title='idSoundWorld' data-ref="idSoundWorld">idSoundWorld</a> *	<dfn class="virtual decl" id="_ZN13idSoundSystem20GetPlayingSoundWorldEv" title='idSoundSystem::GetPlayingSoundWorld' data-ref="_ZN13idSoundSystem20GetPlayingSoundWorldEv">GetPlayingSoundWorld</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="328">328</th><td></td></tr>
+<tr><th id="329">329</th><td>	<i>// Mark all soundSamples as currently unused,</i></td></tr>
+<tr><th id="330">330</th><td><i>	// but don't free anything.</i></td></tr>
+<tr><th id="331">331</th><td>	<b>virtual</b>	<em>void</em>			<dfn class="virtual decl" id="_ZN13idSoundSystem14BeginLevelLoadEv" title='idSoundSystem::BeginLevelLoad' data-ref="_ZN13idSoundSystem14BeginLevelLoadEv">BeginLevelLoad</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="332">332</th><td></td></tr>
+<tr><th id="333">333</th><td>	<i>// Free all soundSamples marked as unused</i></td></tr>
+<tr><th id="334">334</th><td><i>	// We might want to defer the loading of new sounds to this point,</i></td></tr>
+<tr><th id="335">335</th><td><i>	// as we do with images, to avoid having a union in memory at one time.</i></td></tr>
+<tr><th id="336">336</th><td>	<b>virtual</b>	<em>void</em>			<dfn class="virtual decl" id="_ZN13idSoundSystem12EndLevelLoadEPKc" title='idSoundSystem::EndLevelLoad' data-ref="_ZN13idSoundSystem12EndLevelLoadEPKc">EndLevelLoad</dfn>( <em>const</em> <em>char</em> *<dfn class="local col3 decl" id="13263mapString" title='mapString' data-type='const char *' data-ref="13263mapString">mapString</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="337">337</th><td></td></tr>
+<tr><th id="338">338</th><td>	<i>// direct mixing for OSes that support it</i></td></tr>
+<tr><th id="339">339</th><td>	<b>virtual</b> <em>int</em>				<dfn class="virtual decl" id="_ZN13idSoundSystem8AsyncMixEiPf" title='idSoundSystem::AsyncMix' data-ref="_ZN13idSoundSystem8AsyncMixEiPf">AsyncMix</dfn>( <em>int</em> <dfn class="local col4 decl" id="13264soundTime" title='soundTime' data-type='int' data-ref="13264soundTime">soundTime</dfn>, <em>float</em> *<dfn class="local col5 decl" id="13265mixBuffer" title='mixBuffer' data-type='float *' data-ref="13265mixBuffer">mixBuffer</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="340">340</th><td></td></tr>
+<tr><th id="341">341</th><td>	<i>// prints memory info</i></td></tr>
+<tr><th id="342">342</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN13idSoundSystem12PrintMemInfoEP9MemInfo_t" title='idSoundSystem::PrintMemInfo' data-ref="_ZN13idSoundSystem12PrintMemInfoEP9MemInfo_t">PrintMemInfo</dfn>( <a class="type" href="../framework/Common.h.html#MemInfo_t" title='MemInfo_t' data-ref="MemInfo_t">MemInfo_t</a> *<dfn class="local col6 decl" id="13266mi" title='mi' data-type='MemInfo_t *' data-ref="13266mi">mi</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="343">343</th><td></td></tr>
+<tr><th id="344">344</th><td>	<i>// is EAX support present - -1: disabled at compile time, 0: no suitable hardware, 1: ok, 2: failed to load OpenAL DLL</i></td></tr>
+<tr><th id="345">345</th><td>	<b>virtual</b> <em>int</em>				<dfn class="virtual decl" id="_ZN13idSoundSystem14IsEAXAvailableEv" title='idSoundSystem::IsEAXAvailable' data-ref="_ZN13idSoundSystem14IsEAXAvailableEv">IsEAXAvailable</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="346">346</th><td>};</td></tr>
+<tr><th id="347">347</th><td></td></tr>
+<tr><th id="348">348</th><td><b>extern</b> <a class="type" href="#idSoundSystem" title='idSoundSystem' data-ref="idSoundSystem">idSoundSystem</a>	*<dfn class="decl" id="soundSystem" title='soundSystem' data-ref="soundSystem">soundSystem</dfn>;</td></tr>
+<tr><th id="349">349</th><td></td></tr>
+<tr><th id="350">350</th><td><u>#<span data-ppcond="29">endif</span> /* !__SOUND__ */</u></td></tr>
+<tr><th id="351">351</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../TypeInfo/TypeInfoGen.cpp.html'>codebrowser/TypeInfo/TypeInfoGen.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

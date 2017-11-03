@@ -1,0 +1,25 @@
+<dec f='codebrowser/idlib/math/Matrix.h' l='1947' type='bool idMatX::LDLT_Factor()'/>
+<doc f='codebrowser/idlib/math/Matrix.h' l='1947'>// factor in-place: L * D * L.Transpose()</doc>
+<def f='codebrowser/idlib/math/Matrix.cpp' l='5750' ll='5785' type='bool idMatX::LDLT_Factor()'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7884' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7908' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7913' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7936' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7941' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7970' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7974' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='8002' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='8006' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='8024' u='c' c='_ZN6idMatX4TestEv'/>
+<doc f='codebrowser/idlib/math/Matrix.cpp' l='5738'>/*
+============
+idMatX::LDLT_Factor
+
+  in-place factorization: LDL&apos;
+  L is a triangular matrix stored in the lower triangle.
+  L has ones on the diagonal that are not stored.
+  D is a diagonal matrix stored on the diagonal.
+  The upper triangle is not cleared.
+  The initial matrix has to be symmetric.
+============
+*/</doc>

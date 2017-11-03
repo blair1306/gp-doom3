@@ -1,0 +1,24 @@
+<dec f='codebrowser/framework/Unzip.cpp' l='621' type='int inflateSetDictionary(z_streamp strm, const Byte * dictionary, uInt dictLength)'/>
+<def f='codebrowser/framework/Unzip.cpp' l='4375' ll='4393' type='int inflateSetDictionary(z_streamp z, const Byte * dictionary, uInt dictLength)'/>
+<doc f='codebrowser/framework/Unzip.cpp' l='598'>/*   
+int inflateInit2 OF((z_streamp strm,
+                                     int  windowBits));
+
+     This is another version of inflateInit with an extra parameter. The
+   fields next_in, avail_in, zalloc, zfree and opaque must be initialized
+   before by the caller.
+
+     The windowBits parameter is the base two logarithm of the maximum window
+   size (the size of the history buffer).  It should be in the range 8..15 for
+   this version of the library. The default value is 15 if inflateInit is used
+   instead. If a compressed stream with a larger window size is given as
+   input, inflate() will return with the error code Z_DATA_ERROR instead of
+   trying to allocate a larger window.
+
+      inflateInit2 returns Z_OK if success, Z_MEM_ERROR if there was not enough
+   memory, Z_STREAM_ERROR if a parameter is invalid (such as a negative
+   memLevel). msg is set to null if there is no error message.  inflateInit2
+   does not perform any decompression apart from reading the zlib header if
+   present: this will be done by inflate(). (So next_in and avail_in may be
+   modified, but next_out and avail_out are unchanged.)
+*/</doc>

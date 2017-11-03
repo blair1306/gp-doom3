@@ -1,0 +1,342 @@
+<inh f='codebrowser/d3xp/physics/Physics_Base.h' l='42' c='idPhysics_Base'/>
+<def f='codebrowser/d3xp/physics/Physics_AF.h' l='812' ll='1045'/>
+<size>428</size>
+<smbr r='idPhysics_AF::Type' t='idTypeInfo'/>
+<fun r='_ZN12idPhysics_AF14CreateInstanceEv'/>
+<fun r='_ZNK12idPhysics_AF7GetTypeEv'/>
+<smbr r='idPhysics_AF::eventCallbacks' t='idEventFunc&lt;idPhysics_AF&gt; []'/>
+<fun r='_ZN12idPhysics_AFC1Ev'/>
+<fun r='_ZN12idPhysics_AFD1Ev'/>
+<fun r='_ZNK12idPhysics_AF4SaveEP10idSaveGame'/>
+<fun r='_ZN12idPhysics_AF7RestoreEP13idRestoreGame'/>
+<fun r='_ZN12idPhysics_AF7AddBodyEP8idAFBody'/>
+<fun r='_ZN12idPhysics_AF13AddConstraintEP14idAFConstraint'/>
+<fun r='_ZN12idPhysics_AF18AddFrameConstraintEP14idAFConstraint'/>
+<fun r='_ZN12idPhysics_AF11ForceBodyIdEP8idAFBodyi'/>
+<fun r='_ZNK12idPhysics_AF9GetBodyIdEP8idAFBody'/>
+<fun r='_ZNK12idPhysics_AF9GetBodyIdEPKc'/>
+<fun r='_ZNK12idPhysics_AF15GetConstraintIdEP14idAFConstraint'/>
+<fun r='_ZNK12idPhysics_AF15GetConstraintIdEPKc'/>
+<fun r='_ZNK12idPhysics_AF12GetNumBodiesEv'/>
+<fun r='_ZNK12idPhysics_AF17GetNumConstraintsEv'/>
+<fun r='_ZNK12idPhysics_AF7GetBodyEPKc'/>
+<fun r='_ZNK12idPhysics_AF7GetBodyEi'/>
+<fun r='_ZNK12idPhysics_AF13GetMasterBodyEv'/>
+<fun r='_ZNK12idPhysics_AF13GetConstraintEPKc'/>
+<fun r='_ZNK12idPhysics_AF13GetConstraintEi'/>
+<fun r='_ZN12idPhysics_AF10DeleteBodyEPKc'/>
+<fun r='_ZN12idPhysics_AF10DeleteBodyEi'/>
+<fun r='_ZN12idPhysics_AF16DeleteConstraintEPKc'/>
+<fun r='_ZN12idPhysics_AF16DeleteConstraintEi'/>
+<fun r='_ZNK12idPhysics_AF25GetBodyContactConstraintsEiPP22idAFConstraint_Contacti'/>
+<fun r='_ZN12idPhysics_AF18SetDefaultFrictionEfff'/>
+<fun r='_ZN12idPhysics_AF15SetSuspendSpeedERK6idVec2S2_'/>
+<fun r='_ZN12idPhysics_AF19SetSuspendToleranceEfff'/>
+<fun r='_ZN12idPhysics_AF14SetSuspendTimeEff'/>
+<fun r='_ZN12idPhysics_AF12SetTimeScaleEf'/>
+<fun r='_ZN12idPhysics_AF16SetTimeScaleRampEff'/>
+<fun r='_ZN12idPhysics_AF21SetJointFrictionScaleEf'/>
+<fun r='_ZN12idPhysics_AF20SetJointFrictionDentEfff'/>
+<fun r='_ZNK12idPhysics_AF21GetJointFrictionScaleEv'/>
+<fun r='_ZN12idPhysics_AF23SetContactFrictionScaleEf'/>
+<fun r='_ZN12idPhysics_AF22SetContactFrictionDentEfff'/>
+<fun r='_ZNK12idPhysics_AF23GetContactFrictionScaleEv'/>
+<fun r='_ZN12idPhysics_AF12SetCollisionEb'/>
+<fun r='_ZN12idPhysics_AF16SetSelfCollisionEb'/>
+<fun r='_ZN12idPhysics_AF13SetComeToRestEb'/>
+<fun r='_ZN12idPhysics_AF10SetChangedEv'/>
+<fun r='_ZN12idPhysics_AF12EnableImpactEv'/>
+<fun r='_ZN12idPhysics_AF13DisableImpactEv'/>
+<fun r='_ZN12idPhysics_AF20LockWorldConstraintsEb'/>
+<fun r='_ZN12idPhysics_AF16SetForcePushableEb'/>
+<fun r='_ZN12idPhysics_AF16UpdateClipModelsEv'/>
+<fun r='_ZN12idPhysics_AF12SetClipModelEP11idClipModelfib'/>
+<fun r='_ZNK12idPhysics_AF12GetClipModelEi'/>
+<fun r='_ZNK12idPhysics_AF16GetNumClipModelsEv'/>
+<fun r='_ZN12idPhysics_AF7SetMassEfi'/>
+<fun r='_ZNK12idPhysics_AF7GetMassEi'/>
+<fun r='_ZN12idPhysics_AF11SetContentsEii'/>
+<fun r='_ZNK12idPhysics_AF11GetContentsEi'/>
+<fun r='_ZNK12idPhysics_AF9GetBoundsEi'/>
+<fun r='_ZNK12idPhysics_AF12GetAbsBoundsEi'/>
+<fun r='_ZN12idPhysics_AF8EvaluateEii'/>
+<fun r='_ZN12idPhysics_AF10UpdateTimeEi'/>
+<fun r='_ZNK12idPhysics_AF7GetTimeEv'/>
+<fun r='_ZNK12idPhysics_AF13GetImpactInfoEiRK6idVec3P12impactInfo_s'/>
+<fun r='_ZN12idPhysics_AF12ApplyImpulseEiRK6idVec3S2_'/>
+<fun r='_ZN12idPhysics_AF8AddForceEiRK6idVec3S2_'/>
+<fun r='_ZNK12idPhysics_AF8IsAtRestEv'/>
+<fun r='_ZNK12idPhysics_AF16GetRestStartTimeEv'/>
+<fun r='_ZN12idPhysics_AF8ActivateEv'/>
+<fun r='_ZN12idPhysics_AF9PutToRestEv'/>
+<fun r='_ZNK12idPhysics_AF10IsPushableEv'/>
+<fun r='_ZN12idPhysics_AF9SaveStateEv'/>
+<fun r='_ZN12idPhysics_AF12RestoreStateEv'/>
+<fun r='_ZN12idPhysics_AF9SetOriginERK6idVec3i'/>
+<fun r='_ZN12idPhysics_AF7SetAxisERK6idMat3i'/>
+<fun r='_ZN12idPhysics_AF9TranslateERK6idVec3i'/>
+<fun r='_ZN12idPhysics_AF6RotateERK10idRotationi'/>
+<fun r='_ZNK12idPhysics_AF9GetOriginEi'/>
+<fun r='_ZNK12idPhysics_AF7GetAxisEi'/>
+<fun r='_ZN12idPhysics_AF17SetLinearVelocityERK6idVec3i'/>
+<fun r='_ZN12idPhysics_AF18SetAngularVelocityERK6idVec3i'/>
+<fun r='_ZNK12idPhysics_AF17GetLinearVelocityEi'/>
+<fun r='_ZNK12idPhysics_AF18GetAngularVelocityEi'/>
+<fun r='_ZNK12idPhysics_AF15ClipTranslationER7trace_sRK6idVec3PK11idClipModel'/>
+<fun r='_ZNK12idPhysics_AF12ClipRotationER7trace_sRK10idRotationPK11idClipModel'/>
+<fun r='_ZNK12idPhysics_AF12ClipContentsEPK11idClipModel'/>
+<fun r='_ZN12idPhysics_AF11DisableClipEv'/>
+<fun r='_ZN12idPhysics_AF10EnableClipEv'/>
+<fun r='_ZN12idPhysics_AF10UnlinkClipEv'/>
+<fun r='_ZN12idPhysics_AF8LinkClipEv'/>
+<fun r='_ZN12idPhysics_AF16EvaluateContactsEv'/>
+<fun r='_ZN12idPhysics_AF9SetPushedEi'/>
+<fun r='_ZNK12idPhysics_AF23GetPushedLinearVelocityEi'/>
+<fun r='_ZNK12idPhysics_AF24GetPushedAngularVelocityEi'/>
+<fun r='_ZN12idPhysics_AF9SetMasterEP8idEntityb'/>
+<fun r='_ZNK12idPhysics_AF15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN12idPhysics_AF16ReadFromSnapshotERK13idBitMsgDelta'/>
+<mbr r='idPhysics_AF::trees' o='544' t='idList&lt;idAFTree *&gt;'/>
+<mbr r='idPhysics_AF::bodies' o='672' t='idList&lt;idAFBody *&gt;'/>
+<mbr r='idPhysics_AF::constraints' o='800' t='idList&lt;idAFConstraint *&gt;'/>
+<mbr r='idPhysics_AF::primaryConstraints' o='928' t='idList&lt;idAFConstraint *&gt;'/>
+<mbr r='idPhysics_AF::auxiliaryConstraints' o='1056' t='idList&lt;idAFConstraint *&gt;'/>
+<mbr r='idPhysics_AF::frameConstraints' o='1184' t='idList&lt;idAFConstraint *&gt;'/>
+<mbr r='idPhysics_AF::contactConstraints' o='1312' t='idList&lt;idAFConstraint_Contact *&gt;'/>
+<mbr r='idPhysics_AF::contactBodies' o='1440' t='idList&lt;int&gt;'/>
+<mbr r='idPhysics_AF::collisions' o='1568' t='idList&lt;AFCollision_t&gt;'/>
+<mbr r='idPhysics_AF::changedAF' o='1696' t='bool'/>
+<mbr r='idPhysics_AF::linearFriction' o='1728' t='float'/>
+<mbr r='idPhysics_AF::angularFriction' o='1760' t='float'/>
+<mbr r='idPhysics_AF::contactFriction' o='1792' t='float'/>
+<mbr r='idPhysics_AF::bouncyness' o='1824' t='float'/>
+<mbr r='idPhysics_AF::totalMass' o='1856' t='float'/>
+<mbr r='idPhysics_AF::forceTotalMass' o='1888' t='float'/>
+<mbr r='idPhysics_AF::suspendVelocity' o='1920' t='idVec2'/>
+<mbr r='idPhysics_AF::suspendAcceleration' o='1984' t='idVec2'/>
+<mbr r='idPhysics_AF::noMoveTime' o='2048' t='float'/>
+<mbr r='idPhysics_AF::noMoveTranslation' o='2080' t='float'/>
+<mbr r='idPhysics_AF::noMoveRotation' o='2112' t='float'/>
+<mbr r='idPhysics_AF::minMoveTime' o='2144' t='float'/>
+<mbr r='idPhysics_AF::maxMoveTime' o='2176' t='float'/>
+<mbr r='idPhysics_AF::impulseThreshold' o='2208' t='float'/>
+<mbr r='idPhysics_AF::timeScale' o='2240' t='float'/>
+<mbr r='idPhysics_AF::timeScaleRampStart' o='2272' t='float'/>
+<mbr r='idPhysics_AF::timeScaleRampEnd' o='2304' t='float'/>
+<mbr r='idPhysics_AF::jointFrictionScale' o='2336' t='float'/>
+<mbr r='idPhysics_AF::jointFrictionDent' o='2368' t='float'/>
+<mbr r='idPhysics_AF::jointFrictionDentStart' o='2400' t='float'/>
+<mbr r='idPhysics_AF::jointFrictionDentEnd' o='2432' t='float'/>
+<mbr r='idPhysics_AF::jointFrictionDentScale' o='2464' t='float'/>
+<mbr r='idPhysics_AF::contactFrictionScale' o='2496' t='float'/>
+<mbr r='idPhysics_AF::contactFrictionDent' o='2528' t='float'/>
+<mbr r='idPhysics_AF::contactFrictionDentStart' o='2560' t='float'/>
+<mbr r='idPhysics_AF::contactFrictionDentEnd' o='2592' t='float'/>
+<mbr r='idPhysics_AF::contactFrictionDentScale' o='2624' t='float'/>
+<mbr r='idPhysics_AF::enableCollision' o='2656' t='bool'/>
+<mbr r='idPhysics_AF::selfCollision' o='2664' t='bool'/>
+<mbr r='idPhysics_AF::comeToRest' o='2672' t='bool'/>
+<mbr r='idPhysics_AF::linearTime' o='2680' t='bool'/>
+<mbr r='idPhysics_AF::noImpact' o='2688' t='bool'/>
+<mbr r='idPhysics_AF::worldConstraintsLocked' o='2696' t='bool'/>
+<mbr r='idPhysics_AF::forcePushable' o='2704' t='bool'/>
+<mbr r='idPhysics_AF::current' o='2720' t='AFPState_t'/>
+<mbr r='idPhysics_AF::saved' o='3040' t='AFPState_t'/>
+<mbr r='idPhysics_AF::masterBody' o='3360' t='idAFBody *'/>
+<mbr r='idPhysics_AF::lcp' o='3392' t='idLCP *'/>
+<fun r='_ZN12idPhysics_AF10BuildTreesEv'/>
+<fun r='_ZNK12idPhysics_AF12IsClosedLoopEPK8idAFBodyS2_'/>
+<fun r='_ZN12idPhysics_AF13PrimaryFactorEv'/>
+<fun r='_ZN12idPhysics_AF14EvaluateBodiesEf'/>
+<fun r='_ZN12idPhysics_AF19EvaluateConstraintsEf'/>
+<fun r='_ZN12idPhysics_AF19AddFrameConstraintsEv'/>
+<fun r='_ZN12idPhysics_AF22RemoveFrameConstraintsEv'/>
+<fun r='_ZN12idPhysics_AF13ApplyFrictionEff'/>
+<fun r='_ZN12idPhysics_AF13PrimaryForcesEf'/>
+<fun r='_ZN12idPhysics_AF15AuxiliaryForcesEf'/>
+<fun r='_ZN12idPhysics_AF24VerifyContactConstraintsEv'/>
+<fun r='_ZN12idPhysics_AF23SetupContactConstraintsEv'/>
+<fun r='_ZN12idPhysics_AF18ApplyContactForcesEv'/>
+<fun r='_ZN12idPhysics_AF6EvolveEf'/>
+<fun r='_ZNK12idPhysics_AF21SetupCollisionForBodyEP8idAFBody'/>
+<fun r='_ZN12idPhysics_AF16CollisionImpulseEfP8idAFBodyR7trace_s'/>
+<fun r='_ZN12idPhysics_AF15ApplyCollisionsEf'/>
+<fun r='_ZN12idPhysics_AF18CheckForCollisionsEf'/>
+<fun r='_ZN12idPhysics_AF18ClearExternalForceEv'/>
+<fun r='_ZN12idPhysics_AF10AddGravityEv'/>
+<fun r='_ZN12idPhysics_AF10SwapStatesEv'/>
+<fun r='_ZN12idPhysics_AF12TestIfAtRestEf'/>
+<fun r='_ZN12idPhysics_AF4RestEv'/>
+<fun r='_ZN12idPhysics_AF15AddPushVelocityERK6idVec6'/>
+<fun r='_ZN12idPhysics_AF9DebugDrawEv'/>
+<inh f='codebrowser/game/physics/Physics_Base.h' l='42' c='idPhysics_Base'/>
+<def f='codebrowser/game/physics/Physics_AF.h' l='812' ll='1045'/>
+<size>428</size>
+<smbr r='idPhysics_AF::Type' t='idTypeInfo'/>
+<fun r='_ZN12idPhysics_AF14CreateInstanceEv'/>
+<fun r='_ZNK12idPhysics_AF7GetTypeEv'/>
+<smbr r='idPhysics_AF::eventCallbacks' t='idEventFunc&lt;idPhysics_AF&gt; []'/>
+<fun r='_ZN12idPhysics_AFC1Ev'/>
+<fun r='_ZN12idPhysics_AFD1Ev'/>
+<fun r='_ZNK12idPhysics_AF4SaveEP10idSaveGame'/>
+<fun r='_ZN12idPhysics_AF7RestoreEP13idRestoreGame'/>
+<fun r='_ZN12idPhysics_AF7AddBodyEP8idAFBody'/>
+<fun r='_ZN12idPhysics_AF13AddConstraintEP14idAFConstraint'/>
+<fun r='_ZN12idPhysics_AF18AddFrameConstraintEP14idAFConstraint'/>
+<fun r='_ZN12idPhysics_AF11ForceBodyIdEP8idAFBodyi'/>
+<fun r='_ZNK12idPhysics_AF9GetBodyIdEP8idAFBody'/>
+<fun r='_ZNK12idPhysics_AF9GetBodyIdEPKc'/>
+<fun r='_ZNK12idPhysics_AF15GetConstraintIdEP14idAFConstraint'/>
+<fun r='_ZNK12idPhysics_AF15GetConstraintIdEPKc'/>
+<fun r='_ZNK12idPhysics_AF12GetNumBodiesEv'/>
+<fun r='_ZNK12idPhysics_AF17GetNumConstraintsEv'/>
+<fun r='_ZNK12idPhysics_AF7GetBodyEPKc'/>
+<fun r='_ZNK12idPhysics_AF7GetBodyEi'/>
+<fun r='_ZNK12idPhysics_AF13GetMasterBodyEv'/>
+<fun r='_ZNK12idPhysics_AF13GetConstraintEPKc'/>
+<fun r='_ZNK12idPhysics_AF13GetConstraintEi'/>
+<fun r='_ZN12idPhysics_AF10DeleteBodyEPKc'/>
+<fun r='_ZN12idPhysics_AF10DeleteBodyEi'/>
+<fun r='_ZN12idPhysics_AF16DeleteConstraintEPKc'/>
+<fun r='_ZN12idPhysics_AF16DeleteConstraintEi'/>
+<fun r='_ZNK12idPhysics_AF25GetBodyContactConstraintsEiPP22idAFConstraint_Contacti'/>
+<fun r='_ZN12idPhysics_AF18SetDefaultFrictionEfff'/>
+<fun r='_ZN12idPhysics_AF15SetSuspendSpeedERK6idVec2S2_'/>
+<fun r='_ZN12idPhysics_AF19SetSuspendToleranceEfff'/>
+<fun r='_ZN12idPhysics_AF14SetSuspendTimeEff'/>
+<fun r='_ZN12idPhysics_AF12SetTimeScaleEf'/>
+<fun r='_ZN12idPhysics_AF16SetTimeScaleRampEff'/>
+<fun r='_ZN12idPhysics_AF21SetJointFrictionScaleEf'/>
+<fun r='_ZN12idPhysics_AF20SetJointFrictionDentEfff'/>
+<fun r='_ZNK12idPhysics_AF21GetJointFrictionScaleEv'/>
+<fun r='_ZN12idPhysics_AF23SetContactFrictionScaleEf'/>
+<fun r='_ZN12idPhysics_AF22SetContactFrictionDentEfff'/>
+<fun r='_ZNK12idPhysics_AF23GetContactFrictionScaleEv'/>
+<fun r='_ZN12idPhysics_AF12SetCollisionEb'/>
+<fun r='_ZN12idPhysics_AF16SetSelfCollisionEb'/>
+<fun r='_ZN12idPhysics_AF13SetComeToRestEb'/>
+<fun r='_ZN12idPhysics_AF10SetChangedEv'/>
+<fun r='_ZN12idPhysics_AF12EnableImpactEv'/>
+<fun r='_ZN12idPhysics_AF13DisableImpactEv'/>
+<fun r='_ZN12idPhysics_AF20LockWorldConstraintsEb'/>
+<fun r='_ZN12idPhysics_AF16SetForcePushableEb'/>
+<fun r='_ZN12idPhysics_AF16UpdateClipModelsEv'/>
+<fun r='_ZN12idPhysics_AF12SetClipModelEP11idClipModelfib'/>
+<fun r='_ZNK12idPhysics_AF12GetClipModelEi'/>
+<fun r='_ZNK12idPhysics_AF16GetNumClipModelsEv'/>
+<fun r='_ZN12idPhysics_AF7SetMassEfi'/>
+<fun r='_ZNK12idPhysics_AF7GetMassEi'/>
+<fun r='_ZN12idPhysics_AF11SetContentsEii'/>
+<fun r='_ZNK12idPhysics_AF11GetContentsEi'/>
+<fun r='_ZNK12idPhysics_AF9GetBoundsEi'/>
+<fun r='_ZNK12idPhysics_AF12GetAbsBoundsEi'/>
+<fun r='_ZN12idPhysics_AF8EvaluateEii'/>
+<fun r='_ZN12idPhysics_AF10UpdateTimeEi'/>
+<fun r='_ZNK12idPhysics_AF7GetTimeEv'/>
+<fun r='_ZNK12idPhysics_AF13GetImpactInfoEiRK6idVec3P12impactInfo_s'/>
+<fun r='_ZN12idPhysics_AF12ApplyImpulseEiRK6idVec3S2_'/>
+<fun r='_ZN12idPhysics_AF8AddForceEiRK6idVec3S2_'/>
+<fun r='_ZNK12idPhysics_AF8IsAtRestEv'/>
+<fun r='_ZNK12idPhysics_AF16GetRestStartTimeEv'/>
+<fun r='_ZN12idPhysics_AF8ActivateEv'/>
+<fun r='_ZN12idPhysics_AF9PutToRestEv'/>
+<fun r='_ZNK12idPhysics_AF10IsPushableEv'/>
+<fun r='_ZN12idPhysics_AF9SaveStateEv'/>
+<fun r='_ZN12idPhysics_AF12RestoreStateEv'/>
+<fun r='_ZN12idPhysics_AF9SetOriginERK6idVec3i'/>
+<fun r='_ZN12idPhysics_AF7SetAxisERK6idMat3i'/>
+<fun r='_ZN12idPhysics_AF9TranslateERK6idVec3i'/>
+<fun r='_ZN12idPhysics_AF6RotateERK10idRotationi'/>
+<fun r='_ZNK12idPhysics_AF9GetOriginEi'/>
+<fun r='_ZNK12idPhysics_AF7GetAxisEi'/>
+<fun r='_ZN12idPhysics_AF17SetLinearVelocityERK6idVec3i'/>
+<fun r='_ZN12idPhysics_AF18SetAngularVelocityERK6idVec3i'/>
+<fun r='_ZNK12idPhysics_AF17GetLinearVelocityEi'/>
+<fun r='_ZNK12idPhysics_AF18GetAngularVelocityEi'/>
+<fun r='_ZNK12idPhysics_AF15ClipTranslationER7trace_sRK6idVec3PK11idClipModel'/>
+<fun r='_ZNK12idPhysics_AF12ClipRotationER7trace_sRK10idRotationPK11idClipModel'/>
+<fun r='_ZNK12idPhysics_AF12ClipContentsEPK11idClipModel'/>
+<fun r='_ZN12idPhysics_AF11DisableClipEv'/>
+<fun r='_ZN12idPhysics_AF10EnableClipEv'/>
+<fun r='_ZN12idPhysics_AF10UnlinkClipEv'/>
+<fun r='_ZN12idPhysics_AF8LinkClipEv'/>
+<fun r='_ZN12idPhysics_AF16EvaluateContactsEv'/>
+<fun r='_ZN12idPhysics_AF9SetPushedEi'/>
+<fun r='_ZNK12idPhysics_AF23GetPushedLinearVelocityEi'/>
+<fun r='_ZNK12idPhysics_AF24GetPushedAngularVelocityEi'/>
+<fun r='_ZN12idPhysics_AF9SetMasterEP8idEntityb'/>
+<fun r='_ZNK12idPhysics_AF15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN12idPhysics_AF16ReadFromSnapshotERK13idBitMsgDelta'/>
+<mbr r='idPhysics_AF::trees' o='544' t='idList&lt;idAFTree *&gt;'/>
+<mbr r='idPhysics_AF::bodies' o='672' t='idList&lt;idAFBody *&gt;'/>
+<mbr r='idPhysics_AF::constraints' o='800' t='idList&lt;idAFConstraint *&gt;'/>
+<mbr r='idPhysics_AF::primaryConstraints' o='928' t='idList&lt;idAFConstraint *&gt;'/>
+<mbr r='idPhysics_AF::auxiliaryConstraints' o='1056' t='idList&lt;idAFConstraint *&gt;'/>
+<mbr r='idPhysics_AF::frameConstraints' o='1184' t='idList&lt;idAFConstraint *&gt;'/>
+<mbr r='idPhysics_AF::contactConstraints' o='1312' t='idList&lt;idAFConstraint_Contact *&gt;'/>
+<mbr r='idPhysics_AF::contactBodies' o='1440' t='idList&lt;int&gt;'/>
+<mbr r='idPhysics_AF::collisions' o='1568' t='idList&lt;AFCollision_t&gt;'/>
+<mbr r='idPhysics_AF::changedAF' o='1696' t='bool'/>
+<mbr r='idPhysics_AF::linearFriction' o='1728' t='float'/>
+<mbr r='idPhysics_AF::angularFriction' o='1760' t='float'/>
+<mbr r='idPhysics_AF::contactFriction' o='1792' t='float'/>
+<mbr r='idPhysics_AF::bouncyness' o='1824' t='float'/>
+<mbr r='idPhysics_AF::totalMass' o='1856' t='float'/>
+<mbr r='idPhysics_AF::forceTotalMass' o='1888' t='float'/>
+<mbr r='idPhysics_AF::suspendVelocity' o='1920' t='idVec2'/>
+<mbr r='idPhysics_AF::suspendAcceleration' o='1984' t='idVec2'/>
+<mbr r='idPhysics_AF::noMoveTime' o='2048' t='float'/>
+<mbr r='idPhysics_AF::noMoveTranslation' o='2080' t='float'/>
+<mbr r='idPhysics_AF::noMoveRotation' o='2112' t='float'/>
+<mbr r='idPhysics_AF::minMoveTime' o='2144' t='float'/>
+<mbr r='idPhysics_AF::maxMoveTime' o='2176' t='float'/>
+<mbr r='idPhysics_AF::impulseThreshold' o='2208' t='float'/>
+<mbr r='idPhysics_AF::timeScale' o='2240' t='float'/>
+<mbr r='idPhysics_AF::timeScaleRampStart' o='2272' t='float'/>
+<mbr r='idPhysics_AF::timeScaleRampEnd' o='2304' t='float'/>
+<mbr r='idPhysics_AF::jointFrictionScale' o='2336' t='float'/>
+<mbr r='idPhysics_AF::jointFrictionDent' o='2368' t='float'/>
+<mbr r='idPhysics_AF::jointFrictionDentStart' o='2400' t='float'/>
+<mbr r='idPhysics_AF::jointFrictionDentEnd' o='2432' t='float'/>
+<mbr r='idPhysics_AF::jointFrictionDentScale' o='2464' t='float'/>
+<mbr r='idPhysics_AF::contactFrictionScale' o='2496' t='float'/>
+<mbr r='idPhysics_AF::contactFrictionDent' o='2528' t='float'/>
+<mbr r='idPhysics_AF::contactFrictionDentStart' o='2560' t='float'/>
+<mbr r='idPhysics_AF::contactFrictionDentEnd' o='2592' t='float'/>
+<mbr r='idPhysics_AF::contactFrictionDentScale' o='2624' t='float'/>
+<mbr r='idPhysics_AF::enableCollision' o='2656' t='bool'/>
+<mbr r='idPhysics_AF::selfCollision' o='2664' t='bool'/>
+<mbr r='idPhysics_AF::comeToRest' o='2672' t='bool'/>
+<mbr r='idPhysics_AF::linearTime' o='2680' t='bool'/>
+<mbr r='idPhysics_AF::noImpact' o='2688' t='bool'/>
+<mbr r='idPhysics_AF::worldConstraintsLocked' o='2696' t='bool'/>
+<mbr r='idPhysics_AF::forcePushable' o='2704' t='bool'/>
+<mbr r='idPhysics_AF::current' o='2720' t='AFPState_t'/>
+<mbr r='idPhysics_AF::saved' o='3040' t='AFPState_t'/>
+<mbr r='idPhysics_AF::masterBody' o='3360' t='idAFBody *'/>
+<mbr r='idPhysics_AF::lcp' o='3392' t='idLCP *'/>
+<fun r='_ZN12idPhysics_AF10BuildTreesEv'/>
+<fun r='_ZNK12idPhysics_AF12IsClosedLoopEPK8idAFBodyS2_'/>
+<fun r='_ZN12idPhysics_AF13PrimaryFactorEv'/>
+<fun r='_ZN12idPhysics_AF14EvaluateBodiesEf'/>
+<fun r='_ZN12idPhysics_AF19EvaluateConstraintsEf'/>
+<fun r='_ZN12idPhysics_AF19AddFrameConstraintsEv'/>
+<fun r='_ZN12idPhysics_AF22RemoveFrameConstraintsEv'/>
+<fun r='_ZN12idPhysics_AF13ApplyFrictionEff'/>
+<fun r='_ZN12idPhysics_AF13PrimaryForcesEf'/>
+<fun r='_ZN12idPhysics_AF15AuxiliaryForcesEf'/>
+<fun r='_ZN12idPhysics_AF24VerifyContactConstraintsEv'/>
+<fun r='_ZN12idPhysics_AF23SetupContactConstraintsEv'/>
+<fun r='_ZN12idPhysics_AF18ApplyContactForcesEv'/>
+<fun r='_ZN12idPhysics_AF6EvolveEf'/>
+<fun r='_ZNK12idPhysics_AF21SetupCollisionForBodyEP8idAFBody'/>
+<fun r='_ZN12idPhysics_AF16CollisionImpulseEfP8idAFBodyR7trace_s'/>
+<fun r='_ZN12idPhysics_AF15ApplyCollisionsEf'/>
+<fun r='_ZN12idPhysics_AF18CheckForCollisionsEf'/>
+<fun r='_ZN12idPhysics_AF18ClearExternalForceEv'/>
+<fun r='_ZN12idPhysics_AF10AddGravityEv'/>
+<fun r='_ZN12idPhysics_AF10SwapStatesEv'/>
+<fun r='_ZN12idPhysics_AF12TestIfAtRestEf'/>
+<fun r='_ZN12idPhysics_AF4RestEv'/>
+<fun r='_ZN12idPhysics_AF15AddPushVelocityERK6idVec6'/>
+<fun r='_ZN12idPhysics_AF9DebugDrawEv'/>

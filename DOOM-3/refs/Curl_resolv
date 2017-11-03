@@ -1,0 +1,27 @@
+<dec f='codebrowser/curl/lib/hostip.h' l='55' type='int Curl_resolv(struct connectdata * conn, char * hostname, int port, struct Curl_dns_entry ** dnsentry)'/>
+<use f='codebrowser/curl/lib/connect.c' l='247' u='c' c='bindlocal'/>
+<use f='codebrowser/curl/lib/connect.c' l='260' u='c' c='bindlocal'/>
+<doc f='codebrowser/curl/lib/hostip.h' l='47'>/*
+ * Curl_resolv() returns an entry with the info for the specified host
+ * and port.
+ *
+ * The returned data *MUST* be &quot;unlocked&quot; with Curl_resolv_unlock() after
+ * use, or we&apos;ll leak memory!
+ */</doc>
+<use f='codebrowser/curl/lib/ftp.c' l='1352' u='c' c='ftp_use_port'/>
+<use f='codebrowser/curl/lib/ftp.c' l='1359' u='c' c='ftp_use_port'/>
+<use f='codebrowser/curl/lib/ftp.c' l='1627' u='c' c='ftp_use_pasv'/>
+<use f='codebrowser/curl/lib/ftp.c' l='1637' u='c' c='ftp_use_pasv'/>
+<def f='codebrowser/curl/lib/hostip.c' l='315' ll='406' type='int Curl_resolv(struct connectdata * conn, char * hostname, int port, struct Curl_dns_entry ** entry)'/>
+<doc f='codebrowser/curl/lib/hostip.c' l='306'>/* Resolve a name and return a pointer in the &apos;entry&apos; argument if one
+   is available.
+
+   Return codes:
+
+   -1 = error, no pointer
+   0 = OK, pointer provided
+   1 = waiting for response, no pointer
+*/</doc>
+<use f='codebrowser/curl/lib/url.c' l='1737' u='c' c='handleSock5Proxy'/>
+<use f='codebrowser/curl/lib/url.c' l='3064' u='c' c='CreateConnection'/>
+<use f='codebrowser/curl/lib/url.c' l='3078' u='c' c='CreateConnection'/>

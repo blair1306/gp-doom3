@@ -1,0 +1,10 @@
+<dec f='codebrowser/renderer/jpeg-6/jpeglib.h' l='187' type='JQUANT_TBL *'/>
+<offset>608</offset>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='183'>/* Saved quantization table for component; NULL if none yet saved.
+   * See jdinput.c comments about the need for this information.
+   * This field is not currently used by the compressor.
+   */</doc>
+<use f='codebrowser/renderer/jpeg-6/jddctmgr.c' l='155' u='r' c='start_pass'/>
+<use f='codebrowser/renderer/jpeg-6/jdinput.c' l='104' u='w' c='initial_setup'/>
+<use f='codebrowser/renderer/jpeg-6/jdinput.c' l='229' u='r' c='latch_quant_tables'/>
+<use f='codebrowser/renderer/jpeg-6/jdinput.c' l='241' u='w' c='latch_quant_tables'/>

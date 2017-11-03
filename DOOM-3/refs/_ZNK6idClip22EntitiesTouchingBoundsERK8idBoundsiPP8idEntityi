@@ -1,0 +1,28 @@
+<dec f='codebrowser/d3xp/physics/Clip.h' l='298' type='int idClip::EntitiesTouchingBounds(const idBounds &amp; bounds, int contentMask, idEntity ** entityList, int maxCount) const'/>
+<doc f='codebrowser/d3xp/physics/Clip.h' l='297'>// get entities/clip models within or touching the given bounds</doc>
+<use f='codebrowser/d3xp/Game_local.cpp' l='3869' u='c' c='_ZN11idGameLocal12RadiusDamageERK6idVec3P8idEntityS4_S4_S4_PKcf'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='2120' u='c' c='_ZN15idBFGProjectile6LaunchERK6idVec3S2_S2_fff'/>
+<use f='codebrowser/d3xp/ai/AI_Vagary.cpp' l='81' u='c' c='_ZN11idAI_Vagary25Event_ChooseObjectToThrowERK6idVec3S2_fff'/>
+<use f='codebrowser/d3xp/ai/AI_events.cpp' l='2715' u='c' c='_ZN4idAI24Event_FindActorsInBoundsERK6idVec3S2_'/>
+<def f='codebrowser/d3xp/physics/Clip.cpp' l='833' ll='857' type='int idClip::EntitiesTouchingBounds(const idBounds &amp; bounds, int contentMask, idEntity ** entityList, int maxCount) const'/>
+<doc f='codebrowser/d3xp/physics/Clip.cpp' l='828'>/*
+================
+idClip::EntitiesTouchingBounds
+================
+*/</doc>
+<use f='codebrowser/d3xp/physics/Push.cpp' l='1083' u='c' c='_ZN6idPush21ClipTranslationalPushER7trace_sP8idEntityiRK6idVec3S6_'/>
+<use f='codebrowser/d3xp/physics/Push.cpp' l='1259' u='c' c='_ZN6idPush18ClipRotationalPushER7trace_sP8idEntityiRK6idMat3RK10idRotation'/>
+<dec f='codebrowser/game/physics/Clip.h' l='298' type='int idClip::EntitiesTouchingBounds(const idBounds &amp; bounds, int contentMask, idEntity ** entityList, int maxCount) const'/>
+<doc f='codebrowser/game/physics/Clip.h' l='297'>// get entities/clip models within or touching the given bounds</doc>
+<use f='codebrowser/game/Game_local.cpp' l='3571' u='c' c='_ZN11idGameLocal12RadiusDamageERK6idVec3P8idEntityS4_S4_S4_PKcf'/>
+<use f='codebrowser/game/Projectile.cpp' l='1908' u='c' c='_ZN15idBFGProjectile6LaunchERK6idVec3S2_S2_fff'/>
+<use f='codebrowser/game/ai/AI_Vagary.cpp' l='81' u='c' c='_ZN11idAI_Vagary25Event_ChooseObjectToThrowERK6idVec3S2_fff'/>
+<use f='codebrowser/game/ai/AI_events.cpp' l='2561' u='c' c='_ZN4idAI24Event_FindActorsInBoundsERK6idVec3S2_'/>
+<def f='codebrowser/game/physics/Clip.cpp' l='833' ll='857' type='int idClip::EntitiesTouchingBounds(const idBounds &amp; bounds, int contentMask, idEntity ** entityList, int maxCount) const'/>
+<doc f='codebrowser/game/physics/Clip.cpp' l='828'>/*
+================
+idClip::EntitiesTouchingBounds
+================
+*/</doc>
+<use f='codebrowser/game/physics/Push.cpp' l='1083' u='c' c='_ZN6idPush21ClipTranslationalPushER7trace_sP8idEntityiRK6idVec3S6_'/>
+<use f='codebrowser/game/physics/Push.cpp' l='1259' u='c' c='_ZN6idPush18ClipRotationalPushER7trace_sP8idEntityiRK6idMat3RK10idRotation'/>

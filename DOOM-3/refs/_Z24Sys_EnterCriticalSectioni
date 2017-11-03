@@ -1,0 +1,28 @@
+<dec f='codebrowser/sys/sys_public.h' l='514' type='void Sys_EnterCriticalSection(int index = CRITICAL_SECTION_ZERO)'/>
+<use f='codebrowser/framework/Common.cpp' l='2550' u='c' c='_ZN13idCommonLocal14SingleAsyncTicEv'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='3628' u='c' c='_Z24BackgroundDownloadThreadPv'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='3767' u='c' c='_ZN17idFileSystemLocal18BackgroundDownloadEP20backgroundDownload_s'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='3779' u='c' c='_ZN17idFileSystemLocal18BackgroundDownloadEP20backgroundDownload_s'/>
+<use f='codebrowser/framework/Session.cpp' l='1842' u='c' c='_Z15Session_Hitch_fRK9idCmdArgs'/>
+<use f='codebrowser/sound/snd_decoder.cpp' l='172' u='c' c='_ZN10idWaveFile7OpenOGGEPKcP14waveformatex_s'/>
+<use f='codebrowser/sound/snd_decoder.cpp' l='261' u='c' c='_ZN10idWaveFile8CloseOGGEv'/>
+<use f='codebrowser/sound/snd_decoder.cpp' l='386' u='c' c='_ZN20idSampleDecoderLocal12ClearDecoderEv'/>
+<use f='codebrowser/sound/snd_decoder.cpp' l='442' u='c' c='_ZN20idSampleDecoderLocal6DecodeEP13idSoundSampleiiPf'/>
+<use f='codebrowser/sound/snd_emitter.cpp' l='757' u='c' c='_ZN19idSoundEmitterLocal10StartSoundEPK13idSoundShaderifib'/>
+<use f='codebrowser/sound/snd_emitter.cpp' l='935' u='c' c='_ZN19idSoundEmitterLocal9StopSoundEi'/>
+<use f='codebrowser/sound/snd_system.cpp' l='846' u='c' c='_ZN18idSoundSystemLocal12ImageForTimeEib'/>
+<use f='codebrowser/sound/snd_world.cpp' l='126' u='c' c='_ZN17idSoundWorldLocal21ClearAllSoundEmittersEv'/>
+<use f='codebrowser/sound/snd_world.cpp' l='170' u='c' c='_ZN17idSoundWorldLocal22AllocLocalSoundEmitterEv'/>
+<use f='codebrowser/sound/snd_world.cpp' l='263' u='c' c='_ZN17idSoundWorldLocal18ProcessDemoCommandEP10idDemoFile'/>
+<use f='codebrowser/sound/snd_world.cpp' l='967' u='c' c='_ZN17idSoundWorldLocal16ForegroundUpdateEi'/>
+<def f='codebrowser/sys/posix/posix_threads.cpp' l='61' ll='73' type='void Sys_EnterCriticalSection(int index = CRITICAL_SECTION_ZERO)'/>
+<use f='codebrowser/sys/posix/posix_threads.cpp' l='115' u='c' c='_Z16Sys_WaitForEventi'/>
+<use f='codebrowser/sys/posix/posix_threads.cpp' l='135' u='c' c='_Z16Sys_TriggerEventi'/>
+<use f='codebrowser/sys/posix/posix_threads.cpp' l='165' u='c' c='_Z16Sys_CreateThreadPFjPvES_15xthreadPriorityR11xthreadInfoPKcPPS3_Pi'/>
+<use f='codebrowser/sys/posix/posix_threads.cpp' l='199' u='c' c='_Z17Sys_DestroyThreadR11xthreadInfo'/>
+<use f='codebrowser/sys/posix/posix_threads.cpp' l='223' u='c' c='_Z17Sys_GetThreadNamePi'/>
+<doc f='codebrowser/sys/posix/posix_threads.cpp' l='56'>/*
+==================
+Sys_EnterCriticalSection
+==================
+*/</doc>

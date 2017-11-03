@@ -1,0 +1,8 @@
+<dec f='codebrowser/renderer/RenderWorld.h' l='345' type='bool idRenderWorld::AreasAreConnected(int areaNum1, int areaNum2, portalConnection_t connection)'/>
+<doc f='codebrowser/renderer/RenderWorld.h' l='343'>// returns true only if a chain of portals without the given connection bits set
+	// exists between the two areas (a door doesn&apos;t separate them, etc)</doc>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4319' u='c' c='_ZN11idGameLocal15SpreadLocationsEv'/>
+<use f='codebrowser/d3xp/Player.cpp' l='6063' u='c' c='_ZN8idPlayer9UpdateAirEv'/>
+<use f='codebrowser/game/Game_local.cpp' l='4021' u='c' c='_ZN11idGameLocal15SpreadLocationsEv'/>
+<use f='codebrowser/game/Player.cpp' l='5057' u='c' c='_ZN8idPlayer9UpdateAirEv'/>
+<ovr f='codebrowser/renderer/RenderWorld_portals.cpp' l='954' c='_ZN18idRenderWorldLocal17AreasAreConnectedEii18portalConnection_t'/>

@@ -1,0 +1,13 @@
+<dec f='codebrowser/idlib/containers/StaticList.h' l='70' type='int idStaticList::FindNull() const'/>
+<def f='codebrowser/idlib/containers/StaticList.h' l='449' ll='461' type='int idStaticList::FindNull() const'/>
+<doc f='codebrowser/idlib/containers/StaticList.h' l='70'>// find the index for the first NULL pointer in the list</doc>
+<doc f='codebrowser/idlib/containers/StaticList.h' l='439'>/*
+================
+idStaticList&lt;type,size&gt;::FindNull
+
+Searches for a NULL pointer in the list.  Returns -1 if NULL is not found.
+
+NOTE: This function can only be called on lists containing pointers. Calling it
+on non-pointer lists will cause a compiler error.
+================
+*/</doc>

@@ -1,0 +1,11 @@
+<dec f='codebrowser/framework/Session_local.h' l='120' type='bool idSessionLocal::CheckKey(const char * key, bool netConnect, bool * offline_valid)'/>
+<use f='codebrowser/framework/Session.cpp' l='249' u='c' c='_ZL19Session_PromptKey_fRK9idCmdArgs'/>
+<inh f='codebrowser/framework/Session.h' l='132' c='_ZN9idSession8CheckKeyEPKcbPb'/>
+<def f='codebrowser/framework/Session.cpp' l='3123' ll='3195' type='bool idSessionLocal::CheckKey(const char * key, bool netConnect, bool * offline_valid)'/>
+<doc f='codebrowser/framework/Session.cpp' l='3116'>/*
+================
+idSessionLocal::CheckKey
+the function will only modify keys to _OK or _CHECKING if the offline checks are passed
+if the function returns false, the offline checks failed, and offline_valid holds which keys are bad
+================
+*/</doc>

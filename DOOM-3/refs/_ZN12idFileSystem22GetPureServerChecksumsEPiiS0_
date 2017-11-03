@@ -1,0 +1,9 @@
+<dec f='codebrowser/framework/FileSystem.h' l='205' type='void idFileSystem::GetPureServerChecksums(int * checksums, int OS, int * gamePakChecksum)'/>
+<doc f='codebrowser/framework/FileSystem.h' l='203'>// fills a 0-terminated list of pak checksums for a client
+							// if OS is -1, give the current game pak checksum. if &gt;= 0, lookup the game pak table (server only)</doc>
+<ovr f='codebrowser/framework/FileSystem.cpp' l='2789' c='_ZN17idFileSystemLocal22GetPureServerChecksumsEPiiS0_'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='907' u='c' c='_ZN13idAsyncClient26ProcessReliableMessagePureERK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1505' u='c' c='_ZN13idAsyncClient18ProcessPureMessageE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1567' u='c' c='_ZN13idAsyncServer21SendPureServerMessageE8netadr_ti'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1605' u='c' c='_ZN13idAsyncServer24SendReliablePureToClientEi'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1909' u='c' c='_ZN13idAsyncServer21VerifyChecksumMessageEiPK8netadr_tRK8idBitMsgR5idStri'/>

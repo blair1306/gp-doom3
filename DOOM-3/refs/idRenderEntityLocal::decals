@@ -1,0 +1,21 @@
+<dec f='codebrowser/renderer/tr_local.h' l='282' type='idRenderModelDecal *'/>
+<offset>2784</offset>
+<doc f='codebrowser/renderer/tr_local.h' l='277'>// if tr.viewCount == visibleCount, at least one ambient
+	// surface has actually been added by R_AddAmbientDrawsurfs
+	// note that an entity could still be in the view frustum and not be visible due
+	// to portal passing</doc>
+<doc f='codebrowser/renderer/tr_local.h' l='282'>// chain of decals that have been projected on this model</doc>
+<use f='codebrowser/renderer/RenderEntity.cpp' l='49' u='w' c='_ZN19idRenderEntityLocalC1Ev'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='548' u='r' c='_ZN18idRenderWorldLocal21ProjectDecalOntoWorldERK14idFixedWindingRK6idVec3bfPK10idMateriali'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='549' u='w' c='_ZN18idRenderWorldLocal21ProjectDecalOntoWorldERK14idFixedWindingRK6idVec3bfPK10idMateriali'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='551' u='r' c='_ZN18idRenderWorldLocal21ProjectDecalOntoWorldERK14idFixedWindingRK6idVec3bfPK10idMateriali'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='596' u='r' c='_ZN18idRenderWorldLocal12ProjectDecalEiRK14idFixedWindingRK6idVec3bfPK10idMateriali'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='597' u='w' c='_ZN18idRenderWorldLocal12ProjectDecalEiRK14idFixedWindingRK6idVec3bfPK10idMateriali'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='599' u='r' c='_ZN18idRenderWorldLocal12ProjectDecalEiRK14idFixedWindingRK6idVec3bfPK10idMateriali'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1430' u='r' c='_ZL21R_AddAmbientDrawsurfsP12viewEntity_s'/>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='717' u='r' c='_Z21R_FreeEntityDefDecalsP19idRenderEntityLocal'/>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='718' u='r' c='_Z21R_FreeEntityDefDecalsP19idRenderEntityLocal'/>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='719' u='r' c='_Z21R_FreeEntityDefDecalsP19idRenderEntityLocal'/>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='720' u='w' c='_Z21R_FreeEntityDefDecalsP19idRenderEntityLocal'/>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='730' u='w' c='_Z26R_FreeEntityDefFadedDecalsP19idRenderEntityLocali'/>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='730' u='r' c='_Z26R_FreeEntityDefFadedDecalsP19idRenderEntityLocali'/>

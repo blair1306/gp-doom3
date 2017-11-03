@@ -1,0 +1,51 @@
+<dec f='codebrowser/d3xp/Actor.h' l='168' type='void idActor::Damage(idEntity * inflictor, idEntity * attacker, const idVec3 &amp; dir, const char * damageDefName, const float damageScale, const int location)'/>
+<inh f='codebrowser/d3xp/AFEntity.h' l='224' c='_ZN19idAFEntity_Gibbable6DamageEP8idEntityS1_RK6idVec3PKcfi'/>
+<def f='codebrowser/d3xp/Actor.cpp' l='2203' ll='2276' type='void idActor::Damage(idEntity * inflictor, idEntity * attacker, const idVec3 &amp; dir, const char * damageDefName, const float damageScale, const int location)'/>
+<doc f='codebrowser/d3xp/Actor.cpp' l='2184'>/*
+============
+idActor::Damage
+
+this		entity that is being damaged
+inflictor	entity that is causing the damage
+attacker	entity that caused the inflictor to damage targ
+	example: this=monster, inflictor=rocket, attacker=player
+
+dir			direction of the attack for knockback in global space
+point		point at which the damage is being inflicted, used for headshots
+damage		amount of damage being inflicted
+
+inflictor, attacker, dir, and point can be NULL for environmental effects
+
+Bleeding wounds and surface overlays are applied in the collision code that
+calls Damage()
+============
+*/</doc>
+<use f='codebrowser/d3xp/Grabber.cpp' l='342' u='c' c='_ZN9idGrabber8StopDragEb'/>
+<ovr f='codebrowser/d3xp/Player.cpp' l='8033' c='_ZN8idPlayer6DamageEP8idEntityS1_RK6idVec3PKcfi'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='1726' u='c' c='_ZN17idSoulCubeMissile10KillTargetERK6idVec3'/>
+<use f='codebrowser/d3xp/ai/AI.cpp' l='4537' u='c' c='_ZN4idAI11AttackMeleeEPKc'/>
+<dec f='codebrowser/game/Actor.h' l='164' type='void idActor::Damage(idEntity * inflictor, idEntity * attacker, const idVec3 &amp; dir, const char * damageDefName, const float damageScale, const int location)'/>
+<inh f='codebrowser/game/AFEntity.h' l='224' c='_ZN19idAFEntity_Gibbable6DamageEP8idEntityS1_RK6idVec3PKcfi'/>
+<def f='codebrowser/game/Actor.cpp' l='2155' ll='2205' type='void idActor::Damage(idEntity * inflictor, idEntity * attacker, const idVec3 &amp; dir, const char * damageDefName, const float damageScale, const int location)'/>
+<doc f='codebrowser/game/Actor.cpp' l='2136'>/*
+============
+idActor::Damage
+
+this		entity that is being damaged
+inflictor	entity that is causing the damage
+attacker	entity that caused the inflictor to damage targ
+	example: this=monster, inflictor=rocket, attacker=player
+
+dir			direction of the attack for knockback in global space
+point		point at which the damage is being inflicted, used for headshots
+damage		amount of damage being inflicted
+
+inflictor, attacker, dir, and point can be NULL for environmental effects
+
+Bleeding wounds and surface overlays are applied in the collision code that
+calls Damage()
+============
+*/</doc>
+<ovr f='codebrowser/game/Player.cpp' l='6695' c='_ZN8idPlayer6DamageEP8idEntityS1_RK6idVec3PKcfi'/>
+<use f='codebrowser/game/Projectile.cpp' l='1539' u='c' c='_ZN17idSoulCubeMissile10KillTargetERK6idVec3'/>
+<use f='codebrowser/game/ai/AI.cpp' l='4401' u='c' c='_ZN4idAI11AttackMeleeEPKc'/>

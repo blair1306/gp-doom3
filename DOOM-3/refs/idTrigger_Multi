@@ -1,0 +1,69 @@
+<inh f='codebrowser/d3xp/Trigger.h' l='43' c='idTrigger'/>
+<def f='codebrowser/d3xp/Trigger.h' l='78' ll='112'/>
+<ovr f='codebrowser/d3xp/Trigger.h' l='300' c='idTrigger_Flag'/>
+<size>932</size>
+<doc f='codebrowser/d3xp/Trigger.h' l='70'>/*
+===============================================================================
+
+  Trigger which can be activated multiple times.
+
+===============================================================================
+*/</doc>
+<smbr r='idTrigger_Multi::Type' t='idTypeInfo'/>
+<fun r='_ZN15idTrigger_Multi14CreateInstanceEv'/>
+<fun r='_ZNK15idTrigger_Multi7GetTypeEv'/>
+<smbr r='idTrigger_Multi::eventCallbacks' t='idEventFunc&lt;idTrigger_Multi&gt; []'/>
+<fun r='_ZN15idTrigger_MultiC1Ev'/>
+<fun r='_ZN15idTrigger_Multi5SpawnEv'/>
+<fun r='_ZNK15idTrigger_Multi4SaveEP10idSaveGame'/>
+<fun r='_ZN15idTrigger_Multi7RestoreEP13idRestoreGame'/>
+<mbr r='idTrigger_Multi::wait' o='6976' t='float'/>
+<mbr r='idTrigger_Multi::random' o='7008' t='float'/>
+<mbr r='idTrigger_Multi::delay' o='7040' t='float'/>
+<mbr r='idTrigger_Multi::random_delay' o='7072' t='float'/>
+<mbr r='idTrigger_Multi::nextTriggerTime' o='7104' t='int'/>
+<mbr r='idTrigger_Multi::requires' o='7136' t='idStr'/>
+<mbr r='idTrigger_Multi::removeItem' o='7392' t='int'/>
+<mbr r='idTrigger_Multi::touchClient' o='7424' t='bool'/>
+<mbr r='idTrigger_Multi::touchOther' o='7432' t='bool'/>
+<mbr r='idTrigger_Multi::triggerFirst' o='7440' t='bool'/>
+<mbr r='idTrigger_Multi::triggerWithSelf' o='7448' t='bool'/>
+<fun r='_ZN15idTrigger_Multi11CheckFacingEP8idEntity'/>
+<fun r='_ZN15idTrigger_Multi13TriggerActionEP8idEntity'/>
+<fun r='_ZN15idTrigger_Multi19Event_TriggerActionEP8idEntity'/>
+<fun r='_ZN15idTrigger_Multi13Event_TriggerEP8idEntity'/>
+<fun r='_ZN15idTrigger_Multi11Event_TouchEP8idEntityP7trace_s'/>
+<inh f='codebrowser/game/Trigger.h' l='43' c='idTrigger'/>
+<def f='codebrowser/game/Trigger.h' l='78' ll='107'/>
+<size>700</size>
+<doc f='codebrowser/game/Trigger.h' l='70'>/*
+===============================================================================
+
+  Trigger which can be activated multiple times.
+
+===============================================================================
+*/</doc>
+<smbr r='idTrigger_Multi::Type' t='idTypeInfo'/>
+<fun r='_ZN15idTrigger_Multi14CreateInstanceEv'/>
+<fun r='_ZNK15idTrigger_Multi7GetTypeEv'/>
+<smbr r='idTrigger_Multi::eventCallbacks' t='idEventFunc&lt;idTrigger_Multi&gt; []'/>
+<fun r='_ZN15idTrigger_MultiC1Ev'/>
+<fun r='_ZN15idTrigger_Multi5SpawnEv'/>
+<fun r='_ZNK15idTrigger_Multi4SaveEP10idSaveGame'/>
+<fun r='_ZN15idTrigger_Multi7RestoreEP13idRestoreGame'/>
+<mbr r='idTrigger_Multi::wait' o='5120' t='float'/>
+<mbr r='idTrigger_Multi::random' o='5152' t='float'/>
+<mbr r='idTrigger_Multi::delay' o='5184' t='float'/>
+<mbr r='idTrigger_Multi::random_delay' o='5216' t='float'/>
+<mbr r='idTrigger_Multi::nextTriggerTime' o='5248' t='int'/>
+<mbr r='idTrigger_Multi::requires' o='5280' t='idStr'/>
+<mbr r='idTrigger_Multi::removeItem' o='5536' t='int'/>
+<mbr r='idTrigger_Multi::touchClient' o='5568' t='bool'/>
+<mbr r='idTrigger_Multi::touchOther' o='5576' t='bool'/>
+<mbr r='idTrigger_Multi::triggerFirst' o='5584' t='bool'/>
+<mbr r='idTrigger_Multi::triggerWithSelf' o='5592' t='bool'/>
+<fun r='_ZN15idTrigger_Multi11CheckFacingEP8idEntity'/>
+<fun r='_ZN15idTrigger_Multi13TriggerActionEP8idEntity'/>
+<fun r='_ZN15idTrigger_Multi19Event_TriggerActionEP8idEntity'/>
+<fun r='_ZN15idTrigger_Multi13Event_TriggerEP8idEntity'/>
+<fun r='_ZN15idTrigger_Multi11Event_TouchEP8idEntityP7trace_s'/>

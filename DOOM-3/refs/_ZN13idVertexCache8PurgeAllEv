@@ -1,0 +1,14 @@
+<dec f='codebrowser/renderer/VertexCache.h' l='65' type='void idVertexCache::PurgeAll()'/>
+<doc f='codebrowser/renderer/VertexCache.h' l='63'>// called when vertex programs are enabled or disabled, because
+	// the cached data is no longer valid</doc>
+<use f='codebrowser/renderer/RenderSystem.cpp' l='613' u='c' c='_ZN19idRenderSystemLocal18SetBackEndRendererEv'/>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='1910' u='c' c='_Z14R_VidRestart_fRK9idCmdArgs'/>
+<def f='codebrowser/renderer/VertexCache.cpp' l='205' ll='209' type='void idVertexCache::PurgeAll()'/>
+<doc f='codebrowser/renderer/VertexCache.cpp' l='197'>/*
+===========
+idVertexCache::PurgeAll
+
+Used when toggling vertex programs on or off, because
+the cached data isn&apos;t valid
+===========
+*/</doc>

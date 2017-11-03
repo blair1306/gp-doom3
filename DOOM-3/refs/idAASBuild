@@ -1,0 +1,75 @@
+<def f='codebrowser/tools/compilers/aas/AASBuild_local.h' l='75' ll='147'/>
+<size>48</size>
+<fun r='_ZN10idAASBuildC1Ev'/>
+<fun r='_ZN10idAASBuildD1Ev'/>
+<fun r='_ZN10idAASBuild5BuildERK5idStrPK13idAASSettings'/>
+<fun r='_ZN10idAASBuild17BuildReachabilityERK5idStrPK13idAASSettings'/>
+<fun r='_ZN10idAASBuild8ShutdownEv'/>
+<mbr r='idAASBuild::aasSettings' o='0' t='const idAASSettings *'/>
+<mbr r='idAASBuild::file' o='32' t='idAASFileLocal *'/>
+<mbr r='idAASBuild::procNodes' o='64' t='aasProcNode_t *'/>
+<mbr r='idAASBuild::numProcNodes' o='96' t='int'/>
+<mbr r='idAASBuild::numGravitationalSubdivisions' o='128' t='int'/>
+<mbr r='idAASBuild::numMergedLeafNodes' o='160' t='int'/>
+<mbr r='idAASBuild::numLedgeSubdivisions' o='192' t='int'/>
+<mbr r='idAASBuild::ledgeList' o='224' t='idList&lt;idLedge&gt;'/>
+<mbr r='idAASBuild::ledgeMap' o='352' t='idBrushMap *'/>
+<fun r='_ZN10idAASBuild14ParseProcNodesEP7idLexer'/>
+<fun r='_ZN10idAASBuild11LoadProcBSPEPKcl'/>
+<fun r='_ZN10idAASBuild13DeleteProcBSPEv'/>
+<fun r='_ZN10idAASBuild20ChoppedAwayByProcBSPEiP14idFixedWindingRK6idVec3S4_f'/>
+<fun r='_ZN10idAASBuild25ClipBrushSidesWithProcBSPER11idBrushList'/>
+<fun r='_ZN10idAASBuild14ContentsForAASEi'/>
+<fun r='_ZN10idAASBuild21AddBrushesForMapBrushEPK10idMapBrushRK6idVec3RK6idMat3ii11idBrushList'/>
+<fun r='_ZN10idAASBuild21AddBrushesForMapPatchEPK10idMapPatchRK6idVec3RK6idMat3ii11idBrushList'/>
+<fun r='_ZN10idAASBuild22AddBrushesForMapEntityEPK11idMapEntityi11idBrushList'/>
+<fun r='_ZN10idAASBuild20AddBrushesForMapFileEPK9idMapFile11idBrushList'/>
+<fun r='_ZNK10idAASBuild16CheckForEntitiesEPK9idMapFileR6idListI5idStrE'/>
+<fun r='_ZN10idAASBuild35ChangeMultipleBoundingBoxContents_rEP14idBrushBSPNodei'/>
+<fun r='_ZN10idAASBuild16SetPortalFlags_rEP14idBrushBSPNode'/>
+<fun r='_ZN10idAASBuild11PortalIsGapEP16idBrushBSPPortali'/>
+<fun r='_ZN10idAASBuild18GravSubdivLeafNodeEP14idBrushBSPNode'/>
+<fun r='_ZN10idAASBuild12GravSubdiv_rEP14idBrushBSPNode'/>
+<fun r='_ZN10idAASBuild24GravitationalSubdivisionER10idBrushBSP'/>
+<fun r='_ZN10idAASBuild18LedgeSubdivFlood_rEP14idBrushBSPNodePK7idLedge'/>
+<fun r='_ZN10idAASBuild22LedgeSubdivLeafNodes_rEP14idBrushBSPNodePK7idLedge'/>
+<fun r='_ZN10idAASBuild11LedgeSubdivEP14idBrushBSPNode'/>
+<fun r='_ZN10idAASBuild13IsLedgeSide_rEP14idBrushBSPNodeP14idFixedWindingRK7idPlaneRK6idVec3S9_f'/>
+<fun r='_ZN10idAASBuild8AddLedgeERK6idVec3S2_P14idBrushBSPNode'/>
+<fun r='_ZN10idAASBuild18FindLeafNodeLedgesEP14idBrushBSPNodeS1_'/>
+<fun r='_ZN10idAASBuild12FindLedges_rEP14idBrushBSPNodeS1_'/>
+<fun r='_ZN10idAASBuild16LedgeSubdivisionER10idBrushBSP'/>
+<fun r='_ZN10idAASBuild13WriteLedgeMapERK5idStrS2_'/>
+<fun r='_ZN10idAASBuild22AllGapsLeadToOtherNodeEP14idBrushBSPNodeS1_'/>
+<fun r='_ZN10idAASBuild26MergeWithAdjacentLeafNodesER10idBrushBSPP14idBrushBSPNode'/>
+<fun r='_ZN10idAASBuild16MergeLeafNodes_rER10idBrushBSPP14idBrushBSPNode'/>
+<fun r='_ZN10idAASBuild14MergeLeafNodesER10idBrushBSP'/>
+<fun r='_ZN10idAASBuild9SetupHashEv'/>
+<fun r='_ZN10idAASBuild12ShutdownHashEv'/>
+<fun r='_ZN10idAASBuild9ClearHashERK8idBounds'/>
+<fun r='_ZN10idAASBuild7HashVecERK6idVec3'/>
+<fun r='_ZN10idAASBuild9GetVertexERK6idVec3Pi'/>
+<fun r='_ZN10idAASBuild7GetEdgeERK6idVec3S2_Pii'/>
+<fun r='_ZN10idAASBuild16GetFaceForPortalEP16idBrushBSPPortaliPi'/>
+<fun r='_ZN10idAASBuild18GetAreaForLeafNodeEP14idBrushBSPNodePi'/>
+<fun r='_ZN10idAASBuild11StoreTree_rEP14idBrushBSPNode'/>
+<fun r='_ZN10idAASBuild17GetSizeEstimate_rEP14idBrushBSPNodeS1_R14sizeEstimate_s'/>
+<fun r='_ZN10idAASBuild15SetSizeEstimateERK10idBrushBSPP14idAASFileLocal'/>
+<fun r='_ZN10idAASBuild9StoreFileERK10idBrushBSP'/>
+<fun r='_ZN10idAASBuildC1Ev'/>
+<fun r='_ZN10idAASBuildD1Ev'/>
+<fun r='_ZN10idAASBuild8ShutdownEv'/>
+<fun r='_ZN10idAASBuild14ParseProcNodesEP7idLexer'/>
+<fun r='_ZN10idAASBuild11LoadProcBSPEPKcl'/>
+<fun r='_ZN10idAASBuild13DeleteProcBSPEv'/>
+<fun r='_ZN10idAASBuild20ChoppedAwayByProcBSPEiP14idFixedWindingRK6idVec3S4_f'/>
+<fun r='_ZN10idAASBuild25ClipBrushSidesWithProcBSPER11idBrushList'/>
+<fun r='_ZN10idAASBuild14ContentsForAASEi'/>
+<fun r='_ZN10idAASBuild21AddBrushesForMapBrushEPK10idMapBrushRK6idVec3RK6idMat3ii11idBrushList'/>
+<fun r='_ZN10idAASBuild21AddBrushesForMapPatchEPK10idMapPatchRK6idVec3RK6idMat3ii11idBrushList'/>
+<fun r='_ZN10idAASBuild22AddBrushesForMapEntityEPK11idMapEntityi11idBrushList'/>
+<fun r='_ZN10idAASBuild20AddBrushesForMapFileEPK9idMapFile11idBrushList'/>
+<fun r='_ZNK10idAASBuild16CheckForEntitiesEPK9idMapFileR6idListI5idStrE'/>
+<fun r='_ZN10idAASBuild35ChangeMultipleBoundingBoxContents_rEP14idBrushBSPNodei'/>
+<fun r='_ZN10idAASBuild5BuildERK5idStrPK13idAASSettings'/>
+<fun r='_ZN10idAASBuild17BuildReachabilityERK5idStrPK13idAASSettings'/>

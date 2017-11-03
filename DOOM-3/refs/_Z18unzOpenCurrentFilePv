@@ -1,0 +1,11 @@
+<dec f='codebrowser/framework/Unzip.h' l='291' type='int unzOpenCurrentFile(unzFile file)'/>
+<use f='codebrowser/framework/File.cpp' l='1343' u='c' c='_ZN12idFile_InZip4SeekEl10fsOrigin_t'/>
+<doc f='codebrowser/framework/Unzip.h' l='287'>/* for reading the content of the current zipfile, you can open it, read data
+   from it, and close it (you can close it before reading all the file)
+   */</doc>
+<use f='codebrowser/framework/FileSystem.cpp' l='3125' u='c' c='_ZN17idFileSystemLocal15ReadFileFromZipEP6pack_tP12fileInPack_sPKc'/>
+<def f='codebrowser/framework/Unzip.cpp' l='1852' ll='1939' type='int unzOpenCurrentFile(unzFile file)'/>
+<doc f='codebrowser/framework/Unzip.cpp' l='1848'>/*
+  Open for reading data the current file in the zipfile.
+  If there is no error and the file is opened, the return value is UNZ_OK.
+*/</doc>

@@ -1,0 +1,72 @@
+<inh f='codebrowser/d3xp/Entity.h' l='107' c='idEntity'/>
+<def f='codebrowser/d3xp/Entity.h' l='500' ll='545'/>
+<ovr f='codebrowser/d3xp/AFEntity.h' l='95' c='idAFAttachment'/>
+<ovr f='codebrowser/d3xp/AFEntity.h' l='146' c='idAFEntity_Base'/>
+<ovr f='codebrowser/d3xp/Weapon.h' l='85' c='idWeapon'/>
+<ovr f='codebrowser/d3xp/anim/Anim_Testmodel.h' l='40' c='idTestModel'/>
+<size>1856</size>
+<smbr r='idAnimatedEntity::Type' t='idTypeInfo'/>
+<fun r='_ZN16idAnimatedEntity14CreateInstanceEv'/>
+<fun r='_ZNK16idAnimatedEntity7GetTypeEv'/>
+<smbr r='idAnimatedEntity::eventCallbacks' t='idEventFunc&lt;idAnimatedEntity&gt; []'/>
+<fun r='_ZN16idAnimatedEntityC1Ev'/>
+<fun r='_ZN16idAnimatedEntityD1Ev'/>
+<fun r='_ZNK16idAnimatedEntity4SaveEP10idSaveGame'/>
+<fun r='_ZN16idAnimatedEntity7RestoreEP13idRestoreGame'/>
+<fun r='_ZN16idAnimatedEntity21ClientPredictionThinkEv'/>
+<fun r='_ZN16idAnimatedEntity5ThinkEv'/>
+<fun r='_ZN16idAnimatedEntity15UpdateAnimationEv'/>
+<fun r='_ZN16idAnimatedEntity11GetAnimatorEv'/>
+<fun r='_ZN16idAnimatedEntity8SetModelEPKc'/>
+<fun r='_ZN16idAnimatedEntity22GetJointWorldTransformE13jointHandle_tiR6idVec3R6idMat3'/>
+<fun r='_ZNK16idAnimatedEntity24GetJointTransformForAnimE13jointHandle_tiiR6idVec3R6idMat3'/>
+<fun r='_ZNK16idAnimatedEntity21GetDefaultSurfaceTypeEv'/>
+<fun r='_ZN16idAnimatedEntity15AddDamageEffectERK7trace_sRK6idVec3PKc'/>
+<fun r='_ZN16idAnimatedEntity20AddLocalDamageEffectE13jointHandle_tRK6idVec3S3_S3_PK15idDeclEntityDefPK10idMaterial'/>
+<fun r='_ZN16idAnimatedEntity19UpdateDamageEffectsEv'/>
+<fun r='_ZN16idAnimatedEntity18ClientReceiveEventEiiRK8idBitMsg'/>
+<mbr r='idAnimatedEntity::animator' o='6944' t='idAnimator'/>
+<mbr r='idAnimatedEntity::damageEffects' o='14816' t='damageEffect_t *'/>
+<fun r='_ZN16idAnimatedEntity20Event_GetJointHandleEPKc'/>
+<fun r='_ZN16idAnimatedEntity20Event_ClearAllJointsEv'/>
+<fun r='_ZN16idAnimatedEntity16Event_ClearJointE13jointHandle_t'/>
+<fun r='_ZN16idAnimatedEntity17Event_SetJointPosE13jointHandle_t19jointModTransform_tRK6idVec3'/>
+<fun r='_ZN16idAnimatedEntity19Event_SetJointAngleE13jointHandle_t19jointModTransform_tRK8idAngles'/>
+<fun r='_ZN16idAnimatedEntity17Event_GetJointPosE13jointHandle_t'/>
+<fun r='_ZN16idAnimatedEntity19Event_GetJointAngleE13jointHandle_t'/>
+<inh f='codebrowser/game/Entity.h' l='107' c='idEntity'/>
+<def f='codebrowser/game/Entity.h' l='477' ll='522'/>
+<ovr f='codebrowser/game/AFEntity.h' l='95' c='idAFAttachment'/>
+<ovr f='codebrowser/game/AFEntity.h' l='146' c='idAFEntity_Base'/>
+<ovr f='codebrowser/game/Weapon.h' l='59' c='idWeapon'/>
+<ovr f='codebrowser/game/anim/Anim_Testmodel.h' l='40' c='idTestModel'/>
+<size>1624</size>
+<smbr r='idAnimatedEntity::Type' t='idTypeInfo'/>
+<fun r='_ZN16idAnimatedEntity14CreateInstanceEv'/>
+<fun r='_ZNK16idAnimatedEntity7GetTypeEv'/>
+<smbr r='idAnimatedEntity::eventCallbacks' t='idEventFunc&lt;idAnimatedEntity&gt; []'/>
+<fun r='_ZN16idAnimatedEntityC1Ev'/>
+<fun r='_ZN16idAnimatedEntityD1Ev'/>
+<fun r='_ZNK16idAnimatedEntity4SaveEP10idSaveGame'/>
+<fun r='_ZN16idAnimatedEntity7RestoreEP13idRestoreGame'/>
+<fun r='_ZN16idAnimatedEntity21ClientPredictionThinkEv'/>
+<fun r='_ZN16idAnimatedEntity5ThinkEv'/>
+<fun r='_ZN16idAnimatedEntity15UpdateAnimationEv'/>
+<fun r='_ZN16idAnimatedEntity11GetAnimatorEv'/>
+<fun r='_ZN16idAnimatedEntity8SetModelEPKc'/>
+<fun r='_ZN16idAnimatedEntity22GetJointWorldTransformE13jointHandle_tiR6idVec3R6idMat3'/>
+<fun r='_ZNK16idAnimatedEntity24GetJointTransformForAnimE13jointHandle_tiiR6idVec3R6idMat3'/>
+<fun r='_ZNK16idAnimatedEntity21GetDefaultSurfaceTypeEv'/>
+<fun r='_ZN16idAnimatedEntity15AddDamageEffectERK7trace_sRK6idVec3PKc'/>
+<fun r='_ZN16idAnimatedEntity20AddLocalDamageEffectE13jointHandle_tRK6idVec3S3_S3_PK15idDeclEntityDefPK10idMaterial'/>
+<fun r='_ZN16idAnimatedEntity19UpdateDamageEffectsEv'/>
+<fun r='_ZN16idAnimatedEntity18ClientReceiveEventEiiRK8idBitMsg'/>
+<mbr r='idAnimatedEntity::animator' o='5088' t='idAnimator'/>
+<mbr r='idAnimatedEntity::damageEffects' o='12960' t='damageEffect_t *'/>
+<fun r='_ZN16idAnimatedEntity20Event_GetJointHandleEPKc'/>
+<fun r='_ZN16idAnimatedEntity20Event_ClearAllJointsEv'/>
+<fun r='_ZN16idAnimatedEntity16Event_ClearJointE13jointHandle_t'/>
+<fun r='_ZN16idAnimatedEntity17Event_SetJointPosE13jointHandle_t19jointModTransform_tRK6idVec3'/>
+<fun r='_ZN16idAnimatedEntity19Event_SetJointAngleE13jointHandle_t19jointModTransform_tRK8idAngles'/>
+<fun r='_ZN16idAnimatedEntity17Event_GetJointPosE13jointHandle_t'/>
+<fun r='_ZN16idAnimatedEntity19Event_GetJointAngleE13jointHandle_t'/>

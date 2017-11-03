@@ -1,0 +1,15 @@
+<dec f='codebrowser/curl/include/curl/curl.h' l='1083' type='void curl_slist_free_all(struct curl_slist * )'/>
+<doc f='codebrowser/curl/include/curl/curl.h' l='1076'>/*
+ * NAME curl_slist_free_all()
+ *
+ * DESCRIPTION
+ *
+ * free a previously built curl_slist.
+ */</doc>
+<def f='codebrowser/curl/lib/sendf.c' l='108' ll='126' type='void curl_slist_free_all(struct curl_slist * list)'/>
+<doc f='codebrowser/curl/lib/sendf.c' l='107'>/* be nice and clean up resources */</doc>
+<use f='codebrowser/curl/lib/transfer.c' l='1488' u='c' c='Curl_pretransfer'/>
+<use f='codebrowser/curl/lib/url.c' l='198' u='c' c='Curl_close'/>
+<use f='codebrowser/curl/src/main.c' l='2560' u='c' c='free_config_fields'/>
+<use f='codebrowser/curl/src/main.c' l='2561' u='c' c='free_config_fields'/>
+<use f='codebrowser/curl/src/main.c' l='2562' u='c' c='free_config_fields'/>

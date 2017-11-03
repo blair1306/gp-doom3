@@ -1,0 +1,152 @@
+<inh f='codebrowser/d3xp/Entity.h' l='107' c='idEntity'/>
+<def f='codebrowser/d3xp/Light.h' l='44' ll='133'/>
+<size>1240</size>
+<smbr r='idLight::Type' t='idTypeInfo'/>
+<fun r='_ZN7idLight14CreateInstanceEv'/>
+<fun r='_ZNK7idLight7GetTypeEv'/>
+<smbr r='idLight::eventCallbacks' t='idEventFunc&lt;idLight&gt; []'/>
+<fun r='_ZN7idLightC1Ev'/>
+<fun r='_ZN7idLightD1Ev'/>
+<fun r='_ZN7idLight5SpawnEv'/>
+<fun r='_ZNK7idLight4SaveEP10idSaveGame'/>
+<fun r='_ZN7idLight7RestoreEP13idRestoreGame'/>
+<fun r='_ZN7idLight25UpdateChangeableSpawnArgsEPK6idDict'/>
+<fun r='_ZN7idLight5ThinkEv'/>
+<fun r='_ZN7idLight12FreeLightDefEv'/>
+<fun r='_ZN7idLight26GetPhysicsToSoundTransformER6idVec3R6idMat3'/>
+<fun r='_ZN7idLight7PresentEv'/>
+<fun r='_ZN7idLight9SaveStateEP6idDict'/>
+<fun r='_ZN7idLight8SetColorEfff'/>
+<fun r='_ZN7idLight8SetColorERK6idVec4'/>
+<fun r='_ZNK7idLight8GetColorER6idVec3'/>
+<fun r='_ZNK7idLight8GetColorER6idVec4'/>
+<fun r='_ZNK7idLight12GetBaseColorEv'/>
+<fun r='_ZN7idLight9SetShaderEPKc'/>
+<fun r='_ZN7idLight12SetLightParmEif'/>
+<fun r='_ZN7idLight13SetLightParmsEffff'/>
+<fun r='_ZN7idLight12SetRadiusXYZEfff'/>
+<fun r='_ZN7idLight9SetRadiusEf'/>
+<fun r='_ZN7idLight2OnEv'/>
+<fun r='_ZN7idLight3OffEv'/>
+<fun r='_ZN7idLight4FadeERK6idVec4f'/>
+<fun r='_ZN7idLight7FadeOutEf'/>
+<fun r='_ZN7idLight6FadeInEf'/>
+<fun r='_ZN7idLight6KilledEP8idEntityS1_iRK6idVec3i'/>
+<fun r='_ZN7idLight12BecomeBrokenEP8idEntity'/>
+<fun r='_ZNK7idLight17GetLightDefHandleEv'/>
+<fun r='_ZN7idLight14SetLightParentEP8idEntity'/>
+<fun r='_ZN7idLight13SetLightLevelEv'/>
+<fun r='_ZN7idLight17ShowEditingDialogEv'/>
+<fun r='_ZN7idLight21ClientPredictionThinkEv'/>
+<fun r='_ZNK7idLight15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN7idLight16ReadFromSnapshotERK13idBitMsgDelta'/>
+<fun r='_ZN7idLight18ClientReceiveEventEiiRK8idBitMsg'/>
+<mbr r='idLight::renderLight' o='6944' t='renderLight_t'/>
+<mbr r='idLight::localLightOrigin' o='8608' t='idVec3'/>
+<mbr r='idLight::localLightAxis' o='8704' t='idMat3'/>
+<mbr r='idLight::lightDefHandle' o='8992' t='qhandle_t'/>
+<mbr r='idLight::brokenModel' o='9024' t='idStr'/>
+<mbr r='idLight::levels' o='9280' t='int'/>
+<mbr r='idLight::currentLevel' o='9312' t='int'/>
+<mbr r='idLight::baseColor' o='9344' t='idVec3'/>
+<mbr r='idLight::breakOnTrigger' o='9440' t='bool'/>
+<mbr r='idLight::count' o='9472' t='int'/>
+<mbr r='idLight::triggercount' o='9504' t='int'/>
+<mbr r='idLight::lightParent' o='9536' t='idEntity *'/>
+<mbr r='idLight::fadeFrom' o='9568' t='idVec4'/>
+<mbr r='idLight::fadeTo' o='9696' t='idVec4'/>
+<mbr r='idLight::fadeStart' o='9824' t='int'/>
+<mbr r='idLight::fadeEnd' o='9856' t='int'/>
+<mbr r='idLight::soundWasPlaying' o='9888' t='bool'/>
+<fun r='_ZN7idLight21PresentLightDefChangeEv'/>
+<fun r='_ZN7idLight21PresentModelDefChangeEv'/>
+<fun r='_ZN7idLight15Event_SetShaderEPKc'/>
+<fun r='_ZN7idLight18Event_GetLightParmEi'/>
+<fun r='_ZN7idLight18Event_SetLightParmEif'/>
+<fun r='_ZN7idLight19Event_SetLightParmsEffff'/>
+<fun r='_ZN7idLight18Event_SetRadiusXYZEfff'/>
+<fun r='_ZN7idLight15Event_SetRadiusEf'/>
+<fun r='_ZN7idLight10Event_HideEv'/>
+<fun r='_ZN7idLight10Event_ShowEv'/>
+<fun r='_ZN7idLight8Event_OnEv'/>
+<fun r='_ZN7idLight9Event_OffEv'/>
+<fun r='_ZN7idLight17Event_ToggleOnOffEP8idEntity'/>
+<fun r='_ZN7idLight21Event_SetSoundHandlesEv'/>
+<fun r='_ZN7idLight13Event_FadeOutEf'/>
+<fun r='_ZN7idLight12Event_FadeInEf'/>
+<inh f='codebrowser/game/Entity.h' l='107' c='idEntity'/>
+<def f='codebrowser/game/Light.h' l='44' ll='133'/>
+<size>1008</size>
+<smbr r='idLight::Type' t='idTypeInfo'/>
+<fun r='_ZN7idLight14CreateInstanceEv'/>
+<fun r='_ZNK7idLight7GetTypeEv'/>
+<smbr r='idLight::eventCallbacks' t='idEventFunc&lt;idLight&gt; []'/>
+<fun r='_ZN7idLightC1Ev'/>
+<fun r='_ZN7idLightD1Ev'/>
+<fun r='_ZN7idLight5SpawnEv'/>
+<fun r='_ZNK7idLight4SaveEP10idSaveGame'/>
+<fun r='_ZN7idLight7RestoreEP13idRestoreGame'/>
+<fun r='_ZN7idLight25UpdateChangeableSpawnArgsEPK6idDict'/>
+<fun r='_ZN7idLight5ThinkEv'/>
+<fun r='_ZN7idLight12FreeLightDefEv'/>
+<fun r='_ZN7idLight26GetPhysicsToSoundTransformER6idVec3R6idMat3'/>
+<fun r='_ZN7idLight7PresentEv'/>
+<fun r='_ZN7idLight9SaveStateEP6idDict'/>
+<fun r='_ZN7idLight8SetColorEfff'/>
+<fun r='_ZN7idLight8SetColorERK6idVec4'/>
+<fun r='_ZNK7idLight8GetColorER6idVec3'/>
+<fun r='_ZNK7idLight8GetColorER6idVec4'/>
+<fun r='_ZNK7idLight12GetBaseColorEv'/>
+<fun r='_ZN7idLight9SetShaderEPKc'/>
+<fun r='_ZN7idLight12SetLightParmEif'/>
+<fun r='_ZN7idLight13SetLightParmsEffff'/>
+<fun r='_ZN7idLight12SetRadiusXYZEfff'/>
+<fun r='_ZN7idLight9SetRadiusEf'/>
+<fun r='_ZN7idLight2OnEv'/>
+<fun r='_ZN7idLight3OffEv'/>
+<fun r='_ZN7idLight4FadeERK6idVec4f'/>
+<fun r='_ZN7idLight7FadeOutEf'/>
+<fun r='_ZN7idLight6FadeInEf'/>
+<fun r='_ZN7idLight6KilledEP8idEntityS1_iRK6idVec3i'/>
+<fun r='_ZN7idLight12BecomeBrokenEP8idEntity'/>
+<fun r='_ZNK7idLight17GetLightDefHandleEv'/>
+<fun r='_ZN7idLight14SetLightParentEP8idEntity'/>
+<fun r='_ZN7idLight13SetLightLevelEv'/>
+<fun r='_ZN7idLight17ShowEditingDialogEv'/>
+<fun r='_ZN7idLight21ClientPredictionThinkEv'/>
+<fun r='_ZNK7idLight15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN7idLight16ReadFromSnapshotERK13idBitMsgDelta'/>
+<fun r='_ZN7idLight18ClientReceiveEventEiiRK8idBitMsg'/>
+<mbr r='idLight::renderLight' o='5088' t='renderLight_t'/>
+<mbr r='idLight::localLightOrigin' o='6752' t='idVec3'/>
+<mbr r='idLight::localLightAxis' o='6848' t='idMat3'/>
+<mbr r='idLight::lightDefHandle' o='7136' t='qhandle_t'/>
+<mbr r='idLight::brokenModel' o='7168' t='idStr'/>
+<mbr r='idLight::levels' o='7424' t='int'/>
+<mbr r='idLight::currentLevel' o='7456' t='int'/>
+<mbr r='idLight::baseColor' o='7488' t='idVec3'/>
+<mbr r='idLight::breakOnTrigger' o='7584' t='bool'/>
+<mbr r='idLight::count' o='7616' t='int'/>
+<mbr r='idLight::triggercount' o='7648' t='int'/>
+<mbr r='idLight::lightParent' o='7680' t='idEntity *'/>
+<mbr r='idLight::fadeFrom' o='7712' t='idVec4'/>
+<mbr r='idLight::fadeTo' o='7840' t='idVec4'/>
+<mbr r='idLight::fadeStart' o='7968' t='int'/>
+<mbr r='idLight::fadeEnd' o='8000' t='int'/>
+<mbr r='idLight::soundWasPlaying' o='8032' t='bool'/>
+<fun r='_ZN7idLight21PresentLightDefChangeEv'/>
+<fun r='_ZN7idLight21PresentModelDefChangeEv'/>
+<fun r='_ZN7idLight15Event_SetShaderEPKc'/>
+<fun r='_ZN7idLight18Event_GetLightParmEi'/>
+<fun r='_ZN7idLight18Event_SetLightParmEif'/>
+<fun r='_ZN7idLight19Event_SetLightParmsEffff'/>
+<fun r='_ZN7idLight18Event_SetRadiusXYZEfff'/>
+<fun r='_ZN7idLight15Event_SetRadiusEf'/>
+<fun r='_ZN7idLight10Event_HideEv'/>
+<fun r='_ZN7idLight10Event_ShowEv'/>
+<fun r='_ZN7idLight8Event_OnEv'/>
+<fun r='_ZN7idLight9Event_OffEv'/>
+<fun r='_ZN7idLight17Event_ToggleOnOffEP8idEntity'/>
+<fun r='_ZN7idLight21Event_SetSoundHandlesEv'/>
+<fun r='_ZN7idLight13Event_FadeOutEf'/>
+<fun r='_ZN7idLight12Event_FadeInEf'/>

@@ -1,0 +1,19 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1628' type='void R_SurfaceToTextureAxis(const srfTriangles_t * tri, idVec3 &amp; origin, idVec3 * axis)'/>
+<doc f='codebrowser/renderer/tr_local.h' l='1620'>/*
+=============================================================
+
+TR_GUISURF
+
+=============================================================
+*/</doc>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1030' u='c' c='_ZNK18idRenderWorldLocal8GuiTraceEi6idVec3S0_'/>
+<def f='codebrowser/renderer/tr_guisurf.cpp' l='49' ll='118' type='void R_SurfaceToTextureAxis(const srfTriangles_t * tri, idVec3 &amp; origin, idVec3 * axis)'/>
+<use f='codebrowser/renderer/tr_guisurf.cpp' l='144' u='c' c='_Z15R_RenderGuiSurfP15idUserInterfaceP10drawSurf_s'/>
+<doc f='codebrowser/renderer/tr_guisurf.cpp' l='41'>/*
+================
+R_SurfaceToTextureAxis
+
+Calculates two axis for the surface sutch that a point dotted against
+the axis will give a 0.0 to 1.0 range in S and T when inside the gui surface
+================
+*/</doc>

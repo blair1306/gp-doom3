@@ -1,0 +1,105 @@
+<dec f='codebrowser/renderer/tr_local.h' l='998' type='void GL_SelectTexture(int unit)'/>
+<doc f='codebrowser/renderer/tr_local.h' l='990'>/*
+====================================================================
+
+GL wrapper/helper functions
+
+====================================================================
+*/</doc>
+<use f='codebrowser/renderer/MegaTexture.cpp' l='227' u='c' c='_ZN13idMegaTexture17BindForViewOriginE6idVec3'/>
+<use f='codebrowser/renderer/MegaTexture.cpp' l='232' u='c' c='_ZN13idMegaTexture17BindForViewOriginE6idVec3'/>
+<use f='codebrowser/renderer/MegaTexture.cpp' l='279' u='c' c='_ZN13idMegaTexture6UnbindEv'/>
+<use f='codebrowser/renderer/draw_arb.cpp' l='87' u='c' c='_ZL22RB_ARB_DrawInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb.cpp' l='162' u='c' c='_ZL22RB_ARB_DrawInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb.cpp' l='169' u='c' c='_ZL22RB_ARB_DrawInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb.cpp' l='197' u='c' c='_ZL22RB_ARB_DrawInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb.cpp' l='211' u='c' c='_ZL22RB_ARB_DrawInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb.cpp' l='238' u='c' c='_ZL22RB_ARB_DrawInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb.cpp' l='257' u='c' c='_ZL22RB_ARB_DrawInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb.cpp' l='287' u='c' c='_ZL34RB_ARB_DrawThreeTextureInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb.cpp' l='298' u='c' c='_ZL34RB_ARB_DrawThreeTextureInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb.cpp' l='305' u='c' c='_ZL34RB_ARB_DrawThreeTextureInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb.cpp' l='333' u='c' c='_ZL34RB_ARB_DrawThreeTextureInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb.cpp' l='347' u='c' c='_ZL34RB_ARB_DrawThreeTextureInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb.cpp' l='374' u='c' c='_ZL34RB_ARB_DrawThreeTextureInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb.cpp' l='385' u='c' c='_ZL34RB_ARB_DrawThreeTextureInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb.cpp' l='416' u='c' c='_ZL34RB_ARB_DrawThreeTextureInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb.cpp' l='422' u='c' c='_ZL34RB_ARB_DrawThreeTextureInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb2.cpp' l='231' u='c' c='_Z30RB_ARB2_CreateDrawInteractionsPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_arb2.cpp' l='247' u='c' c='_Z24RB_ARB2_DrawInteractionsv'/>
+<use f='codebrowser/renderer/draw_arb2.cpp' l='321' u='c' c='_Z24RB_ARB2_DrawInteractionsv'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='158' u='c' c='_Z24RB_PrepareStageTexturingPK13shaderStage_tPK10drawSurf_sP10idDrawVert'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='161' u='c' c='_Z24RB_PrepareStageTexturingPK13shaderStage_tPK10drawSurf_sP10idDrawVert'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='189' u='c' c='_Z24RB_PrepareStageTexturingPK13shaderStage_tPK10drawSurf_sP10idDrawVert'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='199' u='c' c='_Z24RB_PrepareStageTexturingPK13shaderStage_tPK10drawSurf_sP10idDrawVert'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='201' u='c' c='_Z24RB_PrepareStageTexturingPK13shaderStage_tPK10drawSurf_sP10idDrawVert'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='277' u='c' c='_Z23RB_FinishStageTexturingPK13shaderStage_tPK10drawSurf_sP10idDrawVert'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='280' u='c' c='_Z23RB_FinishStageTexturingPK13shaderStage_tPK10drawSurf_sP10idDrawVert'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='289' u='c' c='_Z23RB_FinishStageTexturingPK13shaderStage_tPK10drawSurf_sP10idDrawVert'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='299' u='c' c='_Z23RB_FinishStageTexturingPK13shaderStage_tPK10drawSurf_sP10idDrawVert'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='301' u='c' c='_Z23RB_FinishStageTexturingPK13shaderStage_tPK10drawSurf_sP10idDrawVert'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='363' u='c' c='_Z20RB_T_FillDepthBufferPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='370' u='c' c='_Z20RB_T_FillDepthBufferPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='531' u='c' c='_Z22RB_STD_FillDepthBufferPP10drawSurf_si'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='539' u='c' c='_Z22RB_STD_FillDepthBufferPP10drawSurf_si'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='556' u='c' c='_Z22RB_STD_FillDepthBufferPP10drawSurf_si'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='559' u='c' c='_Z22RB_STD_FillDepthBufferPP10drawSurf_si'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='829' u='c' c='_Z27RB_STD_T_RenderShaderPassesPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='841' u='c' c='_Z27RB_STD_T_RenderShaderPassesPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='849' u='c' c='_Z27RB_STD_T_RenderShaderPassesPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='907' u='c' c='_Z27RB_STD_T_RenderShaderPassesPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='928' u='c' c='_Z27RB_STD_T_RenderShaderPassesPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='948' u='c' c='_Z27RB_STD_T_RenderShaderPassesPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='951' u='c' c='_Z27RB_STD_T_RenderShaderPassesPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='998' u='c' c='_Z23RB_STD_DrawShaderPassesPP10drawSurf_si'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='1001' u='c' c='_Z23RB_STD_DrawShaderPassesPP10drawSurf_si'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='1262' u='c' c='_ZL15RB_T_BlendLightPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='1267' u='c' c='_ZL15RB_T_BlendLightPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='1310' u='c' c='_ZL13RB_BlendLightPK10drawSurf_sS1_'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='1317' u='c' c='_ZL13RB_BlendLightPK10drawSurf_sS1_'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='1332' u='c' c='_ZL13RB_BlendLightPK10drawSurf_sS1_'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='1350' u='c' c='_ZL13RB_BlendLightPK10drawSurf_sS1_'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='1357' u='c' c='_ZL13RB_BlendLightPK10drawSurf_sS1_'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='1361' u='c' c='_ZL13RB_BlendLightPK10drawSurf_sS1_'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='1382' u='c' c='_ZL13RB_T_BasicFogPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='1393' u='c' c='_ZL13RB_T_BasicFogPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='1462' u='c' c='_ZL10RB_FogPassPK10drawSurf_sS1_'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='1482' u='c' c='_ZL10RB_FogPassPK10drawSurf_sS1_'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='1516' u='c' c='_ZL10RB_FogPassPK10drawSurf_sS1_'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='1521' u='c' c='_ZL10RB_FogPassPK10drawSurf_sS1_'/>
+<use f='codebrowser/renderer/draw_nv10.cpp' l='100' u='c' c='_ZL20RB_RenderInteractionPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_nv10.cpp' l='146' u='c' c='_ZL20RB_RenderInteractionPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_nv10.cpp' l='156' u='c' c='_ZL20RB_RenderInteractionPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_nv10.cpp' l='204' u='c' c='_ZL20RB_RenderInteractionPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_nv10.cpp' l='250' u='c' c='_ZL20RB_RenderInteractionPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_nv10.cpp' l='256' u='c' c='_ZL20RB_RenderInteractionPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_nv10.cpp' l='287' u='c' c='_ZL20RB_RenderInteractionPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_nv10.cpp' l='328' u='c' c='_ZL20RB_RenderInteractionPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_nv10.cpp' l='339' u='c' c='_ZL20RB_RenderInteractionPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_nv10.cpp' l='397' u='c' c='_ZL20RB_RenderInteractionPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_nv10.cpp' l='419' u='c' c='_ZL20RB_RenderInteractionPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_nv10.cpp' l='430' u='c' c='_ZL20RB_RenderInteractionPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_nv10.cpp' l='526' u='c' c='_ZL20RB_RenderInteractionPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_nv20.cpp' l='746' u='c' c='_ZL30RB_NV20_CreateDrawInteractionsPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_r200.cpp' l='154' u='c' c='_ZL27RB_R200_ARB_DrawInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_r200.cpp' l='161' u='c' c='_ZL27RB_R200_ARB_DrawInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_r200.cpp' l='164' u='c' c='_ZL27RB_R200_ARB_DrawInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_r200.cpp' l='168' u='c' c='_ZL27RB_R200_ARB_DrawInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_r200.cpp' l='172' u='c' c='_ZL27RB_R200_ARB_DrawInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_r200.cpp' l='176' u='c' c='_ZL27RB_R200_ARB_DrawInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_r200.cpp' l='231' u='c' c='_ZL34RB_R200_ARB_CreateDrawInteractionsPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_r200.cpp' l='233' u='c' c='_ZL34RB_R200_ARB_CreateDrawInteractionsPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_r200.cpp' l='235' u='c' c='_ZL34RB_R200_ARB_CreateDrawInteractionsPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_r200.cpp' l='242' u='c' c='_ZL34RB_R200_ARB_CreateDrawInteractionsPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_r200.cpp' l='245' u='c' c='_ZL34RB_R200_ARB_CreateDrawInteractionsPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_r200.cpp' l='248' u='c' c='_ZL34RB_R200_ARB_CreateDrawInteractionsPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_r200.cpp' l='252' u='c' c='_ZL34RB_R200_ARB_CreateDrawInteractionsPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_r200.cpp' l='256' u='c' c='_ZL34RB_R200_ARB_CreateDrawInteractionsPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_r200.cpp' l='260' u='c' c='_ZL34RB_R200_ARB_CreateDrawInteractionsPK10drawSurf_s'/>
+<use f='codebrowser/renderer/tr_backend.cpp' l='87' u='c' c='_Z20RB_SetDefaultGLStatev'/>
+<def f='codebrowser/renderer/tr_backend.cpp' l='135' ll='150' type='void GL_SelectTexture(int unit)'/>
+<doc f='codebrowser/renderer/tr_backend.cpp' l='130'>/*
+====================
+GL_SelectTexture
+====================
+*/</doc>

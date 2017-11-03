@@ -1,0 +1,11 @@
+<dec f='codebrowser/renderer/Interaction.h' l='119' type='static idInteraction * idInteraction::AllocAndLink(idRenderEntityLocal * edef, idRenderLightLocal * ldef)'/>
+<doc f='codebrowser/renderer/Interaction.h' l='116'>// because these are generated and freed each game tic for active elements all
+	// over the world, we use a custom pool allocater to avoid memory allocation overhead
+	// and fragmentation</doc>
+<def f='codebrowser/renderer/Interaction.cpp' l='459' ll='510' type='static idInteraction * idInteraction::AllocAndLink(idRenderEntityLocal * edef, idRenderLightLocal * ldef)'/>
+<doc f='codebrowser/renderer/Interaction.cpp' l='454'>/*
+===============
+idInteraction::AllocAndLink
+===============
+*/</doc>
+<use f='codebrowser/renderer/tr_light.cpp' l='623' u='c' c='_ZN18idRenderWorldLocal26CreateLightDefInteractionsEP18idRenderLightLocal'/>

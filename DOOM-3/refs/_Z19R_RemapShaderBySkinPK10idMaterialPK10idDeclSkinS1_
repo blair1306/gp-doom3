@@ -1,0 +1,15 @@
+<dec f='codebrowser/renderer/tr_local.h' l='562' type='const idMaterial * R_RemapShaderBySkin(const idMaterial * shader, const idDeclSkin * customSkin, const idMaterial * customShader)'/>
+<doc f='codebrowser/renderer/tr_local.h' l='561'>// this does various checks before calling the idDeclSkin</doc>
+<use f='codebrowser/renderer/Interaction.cpp' l='871' u='c' c='_ZN13idInteraction17CreateInteractionEPK13idRenderModel'/>
+<use f='codebrowser/renderer/Model_md5.cpp' l='779' u='c' c='_ZN16idRenderModelMD523InstantiateDynamicModelEPK14renderEntity_sPK9viewDef_sP13idRenderModel'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1015' u='c' c='_ZNK18idRenderWorldLocal8GuiTraceEi6idVec3S0_'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1092' u='c' c='_ZNK18idRenderWorldLocal10ModelTraceER12modelTrace_siRK6idVec3S4_f'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1104' u='c' c='_ZNK18idRenderWorldLocal10ModelTraceER12modelTrace_siRK6idVec3S4_f'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1236' u='c' c='_ZNK18idRenderWorldLocal5TraceER12modelTrace_sRK6idVec3S4_fbb'/>
+<def f='codebrowser/renderer/RenderWorld.cpp' l='2117' ll='2142' type='const idMaterial * R_RemapShaderBySkin(const idMaterial * shader, const idDeclSkin * skin, const idMaterial * customShader)'/>
+<doc f='codebrowser/renderer/RenderWorld.cpp' l='2112'>/*
+===============
+R_RemapShaderBySkin
+===============
+*/</doc>
+<use f='codebrowser/renderer/tr_light.cpp' l='1368' u='c' c='_ZL21R_AddAmbientDrawsurfsP12viewEntity_s'/>

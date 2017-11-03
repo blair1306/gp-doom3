@@ -1,0 +1,326 @@
+<inh f='codebrowser/d3xp/AFEntity.h' l='213' c='idAFEntity_Gibbable'/>
+<def f='codebrowser/d3xp/Actor.h' l='111' ll='338'/>
+<ovr f='codebrowser/d3xp/Player.h' l='235' c='idPlayer'/>
+<ovr f='codebrowser/d3xp/ai/AI.h' l='253' c='idAI'/>
+<size>4180</size>
+<smbr r='idActor::Type' t='idTypeInfo'/>
+<fun r='_ZN7idActor14CreateInstanceEv'/>
+<fun r='_ZNK7idActor7GetTypeEv'/>
+<smbr r='idActor::eventCallbacks' t='idEventFunc&lt;idActor&gt; []'/>
+<mbr r='idActor::team' o='19936' t='int'/>
+<mbr r='idActor::rank' o='19968' t='int'/>
+<mbr r='idActor::viewAxis' o='20000' t='idMat3'/>
+<mbr r='idActor::enemyNode' o='20288' t='idLinkList&lt;idActor&gt;'/>
+<mbr r='idActor::enemyList' o='20416' t='idLinkList&lt;idActor&gt;'/>
+<fun r='_ZN7idActorC1Ev'/>
+<fun r='_ZN7idActorD1Ev'/>
+<fun r='_ZN7idActor5SpawnEv'/>
+<fun r='_ZN7idActor7RestartEv'/>
+<fun r='_ZNK7idActor4SaveEP10idSaveGame'/>
+<fun r='_ZN7idActor7RestoreEP13idRestoreGame'/>
+<fun r='_ZN7idActor4HideEv'/>
+<fun r='_ZN7idActor4ShowEv'/>
+<fun r='_ZNK7idActor21GetDefaultSurfaceTypeEv'/>
+<fun r='_ZN7idActor14ProjectOverlayERK6idVec3S2_fPKc'/>
+<fun r='_ZN7idActor6LoadAFEv'/>
+<fun r='_ZN7idActor9SetupBodyEv'/>
+<fun r='_ZN7idActor10CheckBlinkEv'/>
+<fun r='_ZN7idActor27GetPhysicsToVisualTransformER6idVec3R6idMat3'/>
+<fun r='_ZN7idActor26GetPhysicsToSoundTransformER6idVec3R6idMat3'/>
+<fun r='_ZN7idActor15ShutdownThreadsEv'/>
+<fun r='_ZNK7idActor34ShouldConstructScriptObjectAtSpawnEv'/>
+<fun r='_ZN7idActor21ConstructScriptObjectEv'/>
+<fun r='_ZN7idActor12UpdateScriptEv'/>
+<fun r='_ZN7idActor17GetScriptFunctionEPKc'/>
+<fun r='_ZN7idActor8SetStateEPK10function_t'/>
+<fun r='_ZN7idActor8SetStateEPKc'/>
+<fun r='_ZN7idActor12SetEyeHeightEf'/>
+<fun r='_ZNK7idActor9EyeHeightEv'/>
+<fun r='_ZNK7idActor9EyeOffsetEv'/>
+<fun r='_ZNK7idActor14GetEyePositionEv'/>
+<fun r='_ZNK7idActor10GetViewPosER6idVec3R6idMat3'/>
+<fun r='_ZN7idActor6SetFOVEf'/>
+<fun r='_ZNK7idActor8CheckFOVERK6idVec3'/>
+<fun r='_ZNK7idActor6CanSeeEP8idEntityb'/>
+<fun r='_ZNK7idActor12PointVisibleERK6idVec3'/>
+<fun r='_ZN7idActor15GetAIAimTargetsERK6idVec3RS0_S3_'/>
+<fun r='_ZN7idActor17SetupDamageGroupsEv'/>
+<fun r='_ZN7idActor6DamageEP8idEntityS1_RK6idVec3PKcfi'/>
+<fun r='_ZN7idActor20GetDamageForLocationEii'/>
+<fun r='_ZN7idActor14GetDamageGroupEi'/>
+<fun r='_ZN7idActor9ClearPainEv'/>
+<fun r='_ZN7idActor4PainEP8idEntityS1_iRK6idVec3i'/>
+<fun r='_ZN7idActor14SetCombatModelEv'/>
+<fun r='_ZNK7idActor14GetCombatModelEv'/>
+<fun r='_ZN7idActor10LinkCombatEv'/>
+<fun r='_ZN7idActor12UnlinkCombatEv'/>
+<fun r='_ZN7idActor12StartRagdollEv'/>
+<fun r='_ZN7idActor11StopRagdollEv'/>
+<fun r='_ZN7idActor26UpdateAnimationControllersEv'/>
+<fun r='_ZNK7idActor18GetDeltaViewAnglesEv'/>
+<fun r='_ZN7idActor18SetDeltaViewAnglesERK8idAngles'/>
+<fun r='_ZNK7idActor10HasEnemiesEv'/>
+<fun r='_ZN7idActor19ClosestEnemyToPointERK6idVec3'/>
+<fun r='_ZN7idActor19EnemyWithMostHealthEv'/>
+<fun r='_ZNK7idActor8OnLadderEv'/>
+<fun r='_ZNK7idActor14GetAASLocationEP5idAASR6idVec3Ri'/>
+<fun r='_ZN7idActor6AttachEP8idEntity'/>
+<fun r='_ZN7idActor8TeleportERK6idVec3RK8idAnglesP8idEntity'/>
+<fun r='_ZN7idActor13GetRenderViewEv'/>
+<fun r='_ZN7idActor7GetAnimEiPKc'/>
+<fun r='_ZN7idActor15UpdateAnimStateEv'/>
+<fun r='_ZN7idActor12SetAnimStateEiPKci'/>
+<fun r='_ZNK7idActor12GetAnimStateEi'/>
+<fun r='_ZNK7idActor11InAnimStateEiPKc'/>
+<fun r='_ZNK7idActor9WaitStateEv'/>
+<fun r='_ZN7idActor12SetWaitStateEPKc'/>
+<fun r='_ZNK7idActor8AnimDoneEii'/>
+<fun r='_ZN7idActor9SpawnGibsERK6idVec3PKc'/>
+<fun r='_ZN7idActor13GetHeadEntityEv'/>
+<mbr r='idActor::fovDot' o='20544' t='float'/>
+<mbr r='idActor::eyeOffset' o='20576' t='idVec3'/>
+<mbr r='idActor::modelOffset' o='20672' t='idVec3'/>
+<mbr r='idActor::deltaViewAngles' o='20768' t='idAngles'/>
+<mbr r='idActor::pain_debounce_time' o='20864' t='int'/>
+<mbr r='idActor::pain_delay' o='20896' t='int'/>
+<mbr r='idActor::pain_threshold' o='20928' t='int'/>
+<mbr r='idActor::damageGroups' o='20960' t='idStrList'/>
+<mbr r='idActor::damageScale' o='21088' t='idList&lt;float&gt;'/>
+<mbr r='idActor::use_combat_bbox' o='21216' t='bool'/>
+<mbr r='idActor::head' o='21248' t='idEntityPtr&lt;idAFAttachment&gt;'/>
+<mbr r='idActor::copyJoints' o='21280' t='idList&lt;copyJoints_t&gt;'/>
+<mbr r='idActor::state' o='21408' t='const function_t *'/>
+<mbr r='idActor::idealState' o='21440' t='const function_t *'/>
+<mbr r='idActor::leftEyeJoint' o='21472' t='jointHandle_t'/>
+<mbr r='idActor::rightEyeJoint' o='21504' t='jointHandle_t'/>
+<mbr r='idActor::soundJoint' o='21536' t='jointHandle_t'/>
+<mbr r='idActor::walkIK' o='21568' t='idIK_Walk'/>
+<mbr r='idActor::animPrefix' o='30752' t='idStr'/>
+<mbr r='idActor::painAnim' o='31008' t='idStr'/>
+<mbr r='idActor::blink_anim' o='31264' t='int'/>
+<mbr r='idActor::blink_time' o='31296' t='int'/>
+<mbr r='idActor::blink_min' o='31328' t='int'/>
+<mbr r='idActor::blink_max' o='31360' t='int'/>
+<mbr r='idActor::scriptThread' o='31392' t='idThread *'/>
+<mbr r='idActor::waitState' o='31424' t='idStr'/>
+<mbr r='idActor::headAnim' o='31680' t='idAnimState'/>
+<mbr r='idActor::torsoAnim' o='32192' t='idAnimState'/>
+<mbr r='idActor::legsAnim' o='32704' t='idAnimState'/>
+<mbr r='idActor::allowPain' o='33216' t='bool'/>
+<mbr r='idActor::allowEyeFocus' o='33224' t='bool'/>
+<mbr r='idActor::finalBoss' o='33232' t='bool'/>
+<mbr r='idActor::painTime' o='33248' t='int'/>
+<mbr r='idActor::attachments' o='33280' t='idList&lt;idAttachInfo&gt;'/>
+<mbr r='idActor::damageCap' o='33408' t='int'/>
+<fun r='_ZN7idActor3GibERK6idVec3PKc'/>
+<fun r='_ZN7idActor17RemoveAttachmentsEv'/>
+<fun r='_ZN7idActor24CopyJointsFromBodyToHeadEv'/>
+<fun r='_ZN7idActor16SyncAnimChannelsEiii'/>
+<fun r='_ZN7idActor11FinishSetupEv'/>
+<fun r='_ZN7idActor9SetupHeadEv'/>
+<fun r='_ZN7idActor17PlayFootStepSoundEv'/>
+<fun r='_ZN7idActor20Event_EnableEyeFocusEv'/>
+<fun r='_ZN7idActor21Event_DisableEyeFocusEv'/>
+<fun r='_ZN7idActor14Event_FootstepEv'/>
+<fun r='_ZN7idActor18Event_EnableWalkIKEv'/>
+<fun r='_ZN7idActor19Event_DisableWalkIKEv'/>
+<fun r='_ZN7idActor17Event_EnableLegIKEi'/>
+<fun r='_ZN7idActor18Event_DisableLegIKEi'/>
+<fun r='_ZN7idActor19Event_SetAnimPrefixEPKc'/>
+<fun r='_ZN7idActor18Event_LookAtEntityEP8idEntityf'/>
+<fun r='_ZN7idActor17Event_PreventPainEf'/>
+<fun r='_ZN7idActor17Event_DisablePainEv'/>
+<fun r='_ZN7idActor16Event_EnablePainEv'/>
+<fun r='_ZN7idActor17Event_GetPainAnimEv'/>
+<fun r='_ZN7idActor14Event_StopAnimEii'/>
+<fun r='_ZN7idActor14Event_PlayAnimEiPKc'/>
+<fun r='_ZN7idActor15Event_PlayCycleEiPKc'/>
+<fun r='_ZN7idActor14Event_IdleAnimEiPKc'/>
+<fun r='_ZN7idActor25Event_SetSyncedAnimWeightEiif'/>
+<fun r='_ZN7idActor18Event_OverrideAnimEi'/>
+<fun r='_ZN7idActor16Event_EnableAnimEii'/>
+<fun r='_ZN7idActor20Event_SetBlendFramesEii'/>
+<fun r='_ZN7idActor20Event_GetBlendFramesEi'/>
+<fun r='_ZN7idActor15Event_AnimStateEiPKci'/>
+<fun r='_ZN7idActor18Event_GetAnimStateEi'/>
+<fun r='_ZN7idActor17Event_InAnimStateEiPKc'/>
+<fun r='_ZN7idActor18Event_FinishActionEPKc'/>
+<fun r='_ZN7idActor14Event_AnimDoneEii'/>
+<fun r='_ZN7idActor13Event_HasAnimEiPKc'/>
+<fun r='_ZN7idActor15Event_CheckAnimEiPKc'/>
+<fun r='_ZN7idActor16Event_ChooseAnimEiPKc'/>
+<fun r='_ZN7idActor16Event_AnimLengthEiPKc'/>
+<fun r='_ZN7idActor18Event_AnimDistanceEiPKc'/>
+<fun r='_ZN7idActor16Event_HasEnemiesEv'/>
+<fun r='_ZN7idActor15Event_NextEnemyEP8idEntity'/>
+<fun r='_ZN7idActor25Event_ClosestEnemyToPointERK6idVec3'/>
+<fun r='_ZN7idActor15Event_StopSoundEii'/>
+<fun r='_ZN7idActor18Event_SetNextStateEPKc'/>
+<fun r='_ZN7idActor14Event_SetStateEPKc'/>
+<fun r='_ZN7idActor14Event_GetStateEv'/>
+<fun r='_ZN7idActor13Event_GetHeadEv'/>
+<fun r='_ZN7idActor25Event_SetDamageGroupScaleEPKcf'/>
+<fun r='_ZN7idActor28Event_SetDamageGroupScaleAllEf'/>
+<fun r='_ZN7idActor25Event_GetDamageGroupScaleEPKc'/>
+<fun r='_ZN7idActor18Event_SetDamageCapEf'/>
+<fun r='_ZN7idActor18Event_SetWaitStateEPKc'/>
+<fun r='_ZN7idActor18Event_GetWaitStateEv'/>
+<inh f='codebrowser/game/AFEntity.h' l='213' c='idAFEntity_Gibbable'/>
+<def f='codebrowser/game/Actor.h' l='107' ll='317'/>
+<ovr f='codebrowser/game/Player.h' l='197' c='idPlayer'/>
+<ovr f='codebrowser/game/ai/AI.h' l='239' c='idAI'/>
+<size>3944</size>
+<smbr r='idActor::Type' t='idTypeInfo'/>
+<fun r='_ZN7idActor14CreateInstanceEv'/>
+<fun r='_ZNK7idActor7GetTypeEv'/>
+<smbr r='idActor::eventCallbacks' t='idEventFunc&lt;idActor&gt; []'/>
+<mbr r='idActor::team' o='18080' t='int'/>
+<mbr r='idActor::rank' o='18112' t='int'/>
+<mbr r='idActor::viewAxis' o='18144' t='idMat3'/>
+<mbr r='idActor::enemyNode' o='18432' t='idLinkList&lt;idActor&gt;'/>
+<mbr r='idActor::enemyList' o='18560' t='idLinkList&lt;idActor&gt;'/>
+<fun r='_ZN7idActorC1Ev'/>
+<fun r='_ZN7idActorD1Ev'/>
+<fun r='_ZN7idActor5SpawnEv'/>
+<fun r='_ZN7idActor7RestartEv'/>
+<fun r='_ZNK7idActor4SaveEP10idSaveGame'/>
+<fun r='_ZN7idActor7RestoreEP13idRestoreGame'/>
+<fun r='_ZN7idActor4HideEv'/>
+<fun r='_ZN7idActor4ShowEv'/>
+<fun r='_ZNK7idActor21GetDefaultSurfaceTypeEv'/>
+<fun r='_ZN7idActor14ProjectOverlayERK6idVec3S2_fPKc'/>
+<fun r='_ZN7idActor6LoadAFEv'/>
+<fun r='_ZN7idActor9SetupBodyEv'/>
+<fun r='_ZN7idActor10CheckBlinkEv'/>
+<fun r='_ZN7idActor27GetPhysicsToVisualTransformER6idVec3R6idMat3'/>
+<fun r='_ZN7idActor26GetPhysicsToSoundTransformER6idVec3R6idMat3'/>
+<fun r='_ZN7idActor15ShutdownThreadsEv'/>
+<fun r='_ZNK7idActor34ShouldConstructScriptObjectAtSpawnEv'/>
+<fun r='_ZN7idActor21ConstructScriptObjectEv'/>
+<fun r='_ZN7idActor12UpdateScriptEv'/>
+<fun r='_ZN7idActor17GetScriptFunctionEPKc'/>
+<fun r='_ZN7idActor8SetStateEPK10function_t'/>
+<fun r='_ZN7idActor8SetStateEPKc'/>
+<fun r='_ZN7idActor12SetEyeHeightEf'/>
+<fun r='_ZNK7idActor9EyeHeightEv'/>
+<fun r='_ZNK7idActor9EyeOffsetEv'/>
+<fun r='_ZNK7idActor14GetEyePositionEv'/>
+<fun r='_ZNK7idActor10GetViewPosER6idVec3R6idMat3'/>
+<fun r='_ZN7idActor6SetFOVEf'/>
+<fun r='_ZNK7idActor8CheckFOVERK6idVec3'/>
+<fun r='_ZNK7idActor6CanSeeEP8idEntityb'/>
+<fun r='_ZNK7idActor12PointVisibleERK6idVec3'/>
+<fun r='_ZN7idActor15GetAIAimTargetsERK6idVec3RS0_S3_'/>
+<fun r='_ZN7idActor17SetupDamageGroupsEv'/>
+<fun r='_ZN7idActor6DamageEP8idEntityS1_RK6idVec3PKcfi'/>
+<fun r='_ZN7idActor20GetDamageForLocationEii'/>
+<fun r='_ZN7idActor14GetDamageGroupEi'/>
+<fun r='_ZN7idActor9ClearPainEv'/>
+<fun r='_ZN7idActor4PainEP8idEntityS1_iRK6idVec3i'/>
+<fun r='_ZN7idActor14SetCombatModelEv'/>
+<fun r='_ZNK7idActor14GetCombatModelEv'/>
+<fun r='_ZN7idActor10LinkCombatEv'/>
+<fun r='_ZN7idActor12UnlinkCombatEv'/>
+<fun r='_ZN7idActor12StartRagdollEv'/>
+<fun r='_ZN7idActor11StopRagdollEv'/>
+<fun r='_ZN7idActor26UpdateAnimationControllersEv'/>
+<fun r='_ZNK7idActor18GetDeltaViewAnglesEv'/>
+<fun r='_ZN7idActor18SetDeltaViewAnglesERK8idAngles'/>
+<fun r='_ZNK7idActor10HasEnemiesEv'/>
+<fun r='_ZN7idActor19ClosestEnemyToPointERK6idVec3'/>
+<fun r='_ZN7idActor19EnemyWithMostHealthEv'/>
+<fun r='_ZNK7idActor8OnLadderEv'/>
+<fun r='_ZNK7idActor14GetAASLocationEP5idAASR6idVec3Ri'/>
+<fun r='_ZN7idActor6AttachEP8idEntity'/>
+<fun r='_ZN7idActor8TeleportERK6idVec3RK8idAnglesP8idEntity'/>
+<fun r='_ZN7idActor13GetRenderViewEv'/>
+<fun r='_ZN7idActor7GetAnimEiPKc'/>
+<fun r='_ZN7idActor15UpdateAnimStateEv'/>
+<fun r='_ZN7idActor12SetAnimStateEiPKci'/>
+<fun r='_ZNK7idActor12GetAnimStateEi'/>
+<fun r='_ZNK7idActor11InAnimStateEiPKc'/>
+<fun r='_ZNK7idActor9WaitStateEv'/>
+<fun r='_ZN7idActor12SetWaitStateEPKc'/>
+<fun r='_ZNK7idActor8AnimDoneEii'/>
+<fun r='_ZN7idActor9SpawnGibsERK6idVec3PKc'/>
+<mbr r='idActor::fovDot' o='18688' t='float'/>
+<mbr r='idActor::eyeOffset' o='18720' t='idVec3'/>
+<mbr r='idActor::modelOffset' o='18816' t='idVec3'/>
+<mbr r='idActor::deltaViewAngles' o='18912' t='idAngles'/>
+<mbr r='idActor::pain_debounce_time' o='19008' t='int'/>
+<mbr r='idActor::pain_delay' o='19040' t='int'/>
+<mbr r='idActor::pain_threshold' o='19072' t='int'/>
+<mbr r='idActor::damageGroups' o='19104' t='idStrList'/>
+<mbr r='idActor::damageScale' o='19232' t='idList&lt;float&gt;'/>
+<mbr r='idActor::use_combat_bbox' o='19360' t='bool'/>
+<mbr r='idActor::head' o='19392' t='idEntityPtr&lt;idAFAttachment&gt;'/>
+<mbr r='idActor::copyJoints' o='19424' t='idList&lt;copyJoints_t&gt;'/>
+<mbr r='idActor::state' o='19552' t='const function_t *'/>
+<mbr r='idActor::idealState' o='19584' t='const function_t *'/>
+<mbr r='idActor::leftEyeJoint' o='19616' t='jointHandle_t'/>
+<mbr r='idActor::rightEyeJoint' o='19648' t='jointHandle_t'/>
+<mbr r='idActor::soundJoint' o='19680' t='jointHandle_t'/>
+<mbr r='idActor::walkIK' o='19712' t='idIK_Walk'/>
+<mbr r='idActor::animPrefix' o='28896' t='idStr'/>
+<mbr r='idActor::painAnim' o='29152' t='idStr'/>
+<mbr r='idActor::blink_anim' o='29408' t='int'/>
+<mbr r='idActor::blink_time' o='29440' t='int'/>
+<mbr r='idActor::blink_min' o='29472' t='int'/>
+<mbr r='idActor::blink_max' o='29504' t='int'/>
+<mbr r='idActor::scriptThread' o='29536' t='idThread *'/>
+<mbr r='idActor::waitState' o='29568' t='idStr'/>
+<mbr r='idActor::headAnim' o='29824' t='idAnimState'/>
+<mbr r='idActor::torsoAnim' o='30336' t='idAnimState'/>
+<mbr r='idActor::legsAnim' o='30848' t='idAnimState'/>
+<mbr r='idActor::allowPain' o='31360' t='bool'/>
+<mbr r='idActor::allowEyeFocus' o='31368' t='bool'/>
+<mbr r='idActor::finalBoss' o='31376' t='bool'/>
+<mbr r='idActor::painTime' o='31392' t='int'/>
+<mbr r='idActor::attachments' o='31424' t='idList&lt;idAttachInfo&gt;'/>
+<fun r='_ZN7idActor3GibERK6idVec3PKc'/>
+<fun r='_ZN7idActor17RemoveAttachmentsEv'/>
+<fun r='_ZN7idActor24CopyJointsFromBodyToHeadEv'/>
+<fun r='_ZN7idActor16SyncAnimChannelsEiii'/>
+<fun r='_ZN7idActor11FinishSetupEv'/>
+<fun r='_ZN7idActor9SetupHeadEv'/>
+<fun r='_ZN7idActor17PlayFootStepSoundEv'/>
+<fun r='_ZN7idActor20Event_EnableEyeFocusEv'/>
+<fun r='_ZN7idActor21Event_DisableEyeFocusEv'/>
+<fun r='_ZN7idActor14Event_FootstepEv'/>
+<fun r='_ZN7idActor18Event_EnableWalkIKEv'/>
+<fun r='_ZN7idActor19Event_DisableWalkIKEv'/>
+<fun r='_ZN7idActor17Event_EnableLegIKEi'/>
+<fun r='_ZN7idActor18Event_DisableLegIKEi'/>
+<fun r='_ZN7idActor19Event_SetAnimPrefixEPKc'/>
+<fun r='_ZN7idActor18Event_LookAtEntityEP8idEntityf'/>
+<fun r='_ZN7idActor17Event_PreventPainEf'/>
+<fun r='_ZN7idActor17Event_DisablePainEv'/>
+<fun r='_ZN7idActor16Event_EnablePainEv'/>
+<fun r='_ZN7idActor17Event_GetPainAnimEv'/>
+<fun r='_ZN7idActor14Event_StopAnimEii'/>
+<fun r='_ZN7idActor14Event_PlayAnimEiPKc'/>
+<fun r='_ZN7idActor15Event_PlayCycleEiPKc'/>
+<fun r='_ZN7idActor14Event_IdleAnimEiPKc'/>
+<fun r='_ZN7idActor25Event_SetSyncedAnimWeightEiif'/>
+<fun r='_ZN7idActor18Event_OverrideAnimEi'/>
+<fun r='_ZN7idActor16Event_EnableAnimEii'/>
+<fun r='_ZN7idActor20Event_SetBlendFramesEii'/>
+<fun r='_ZN7idActor20Event_GetBlendFramesEi'/>
+<fun r='_ZN7idActor15Event_AnimStateEiPKci'/>
+<fun r='_ZN7idActor18Event_GetAnimStateEi'/>
+<fun r='_ZN7idActor17Event_InAnimStateEiPKc'/>
+<fun r='_ZN7idActor18Event_FinishActionEPKc'/>
+<fun r='_ZN7idActor14Event_AnimDoneEii'/>
+<fun r='_ZN7idActor13Event_HasAnimEiPKc'/>
+<fun r='_ZN7idActor15Event_CheckAnimEiPKc'/>
+<fun r='_ZN7idActor16Event_ChooseAnimEiPKc'/>
+<fun r='_ZN7idActor16Event_AnimLengthEiPKc'/>
+<fun r='_ZN7idActor18Event_AnimDistanceEiPKc'/>
+<fun r='_ZN7idActor16Event_HasEnemiesEv'/>
+<fun r='_ZN7idActor15Event_NextEnemyEP8idEntity'/>
+<fun r='_ZN7idActor25Event_ClosestEnemyToPointERK6idVec3'/>
+<fun r='_ZN7idActor15Event_StopSoundEii'/>
+<fun r='_ZN7idActor18Event_SetNextStateEPKc'/>
+<fun r='_ZN7idActor14Event_SetStateEPKc'/>
+<fun r='_ZN7idActor14Event_GetStateEv'/>
+<fun r='_ZN7idActor13Event_GetHeadEv'/>

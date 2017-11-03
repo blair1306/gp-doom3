@@ -1,0 +1,221 @@
+<def f='codebrowser/ui/Window.h' l='166' ll='449'/>
+<ovr f='codebrowser/ui/EditWindow.h' l='39' c='idEditWindow'/>
+<ovr f='codebrowser/ui/ListWindow.h' l='48' c='idListWindow'/>
+<ovr f='codebrowser/ui/BindWindow.h' l='32' c='idBindWindow'/>
+<ovr f='codebrowser/ui/RenderWindow.h' l='32' c='idRenderWindow'/>
+<ovr f='codebrowser/ui/ChoiceWindow.h' l='34' c='idChoiceWindow'/>
+<size>932</size>
+<fun r='_ZN8idWindowC1EP20idUserInterfaceLocal'/>
+<fun r='_ZN8idWindowC1EP15idDeviceContextP20idUserInterfaceLocal'/>
+<fun r='_ZN8idWindowD1Ev'/>
+<smbr r='idWindow::ScriptNames' t='const char *[11]'/>
+<smbr r='idWindow::RegisterVars' t='const idRegEntry []'/>
+<smbr r='idWindow::NumRegisterVars' t='const int'/>
+<fun r='_ZN8idWindow5SetDCEP15idDeviceContext'/>
+<fun r='_ZN8idWindow5GetDCEv'/>
+<fun r='_ZN8idWindow8SetFocusEPS_b'/>
+<fun r='_ZN8idWindow10SetCaptureEPS_'/>
+<fun r='_ZN8idWindow9SetParentEPS_'/>
+<fun r='_ZN8idWindow7SetFlagEj'/>
+<fun r='_ZN8idWindow9ClearFlagEj'/>
+<fun r='_ZN8idWindow8GetFlagsEv'/>
+<fun r='_ZN8idWindow4MoveEff'/>
+<fun r='_ZN8idWindow10BringToTopEPS_'/>
+<fun r='_ZN8idWindow6AdjustEff'/>
+<fun r='_ZN8idWindow13SetAdjustModeEPS_'/>
+<fun r='_ZN8idWindow4SizeEffff'/>
+<fun r='_ZN8idWindow14SetupFromStateEv'/>
+<fun r='_ZN8idWindow15SetupBackgroundEv'/>
+<fun r='_ZN8idWindow15FindChildByNameEPKc'/>
+<fun r='_ZN8idWindow19FindSimpleWinByNameEPKc'/>
+<fun r='_ZN8idWindow9GetParentEv'/>
+<fun r='_ZN8idWindow6GetGuiEv'/>
+<fun r='_ZN8idWindow8ContainsEff'/>
+<fun r='_ZN8idWindow4SizeEv'/>
+<fun r='_ZN8idWindow9AllocatedEv'/>
+<fun r='_ZN8idWindow15GetStrPtrByNameEPKc'/>
+<fun r='_ZN8idWindow15GetWinVarByNameEPKcbPP9drawWin_t'/>
+<fun r='_ZN8idWindow15GetWinVarOffsetEP8idWinVarP9drawWin_t'/>
+<fun r='_ZN8idWindow16GetMaxCharHeightEv'/>
+<fun r='_ZN8idWindow15GetMaxCharWidthEv'/>
+<fun r='_ZN8idWindow7SetFontEv'/>
+<fun r='_ZN8idWindow15SetInitialStateEPKc'/>
+<fun r='_ZN8idWindow8AddChildEPS_'/>
+<fun r='_ZN8idWindow9DebugDrawEiff'/>
+<fun r='_ZN8idWindow14CalcClientRectEff'/>
+<fun r='_ZN8idWindow10CommonInitEv'/>
+<fun r='_ZN8idWindow7CleanUpEv'/>
+<fun r='_ZN8idWindow20DrawBorderAndCaptionERK11idRectangle'/>
+<fun r='_ZN8idWindow11DrawCaptionEiff'/>
+<fun r='_ZN8idWindow15SetupTransformsEff'/>
+<fun r='_ZN8idWindow8ContainsERK11idRectangleff'/>
+<fun r='_ZN8idWindow7GetNameEv'/>
+<fun r='_ZN8idWindow5ParseEP8idParserb'/>
+<fun r='_ZN8idWindow11HandleEventEPK10sysEvent_sPb'/>
+<fun r='_ZN8idWindow9CalcRectsEff'/>
+<fun r='_ZN8idWindow6RedrawEff'/>
+<fun r='_ZN8idWindow19ArchiveToDictionaryEP6idDictb'/>
+<fun r='_ZN8idWindow18InitFromDictionaryEP6idDictb'/>
+<fun r='_ZN8idWindow9PostParseEv'/>
+<fun r='_ZN8idWindow8ActivateEbR5idStr'/>
+<fun r='_ZN8idWindow7TriggerEv'/>
+<fun r='_ZN8idWindow9GainFocusEv'/>
+<fun r='_ZN8idWindow9LoseFocusEv'/>
+<fun r='_ZN8idWindow11GainCaptureEv'/>
+<fun r='_ZN8idWindow11LoseCaptureEv'/>
+<fun r='_ZN8idWindow5SizedEv'/>
+<fun r='_ZN8idWindow5MovedEv'/>
+<fun r='_ZN8idWindow4DrawEiff'/>
+<fun r='_ZN8idWindow9MouseExitEv'/>
+<fun r='_ZN8idWindow10MouseEnterEv'/>
+<fun r='_ZN8idWindow14DrawBackgroundERK11idRectangle'/>
+<fun r='_ZN8idWindow16RouteMouseCoordsEff'/>
+<fun r='_ZN8idWindow8SetBuddyEPS_'/>
+<fun r='_ZN8idWindow17HandleBuddyUpdateEPS_'/>
+<fun r='_ZN8idWindow12StateChangedEb'/>
+<fun r='_ZN8idWindow16ReadFromDemoFileEP10idDemoFileb'/>
+<fun r='_ZN8idWindow15WriteToDemoFileEP10idDemoFile'/>
+<fun r='_ZN8idWindow19WriteSaveGameStringEPKcP6idFile'/>
+<fun r='_ZN8idWindow23WriteSaveGameTransitionER16idTransitionDataP6idFile'/>
+<fun r='_ZN8idWindow15WriteToSaveGameEP6idFile'/>
+<fun r='_ZN8idWindow18ReadSaveGameStringER5idStrP6idFile'/>
+<fun r='_ZN8idWindow22ReadSaveGameTransitionER16idTransitionDataP6idFile'/>
+<fun r='_ZN8idWindow16ReadFromSaveGameEP6idFile'/>
+<fun r='_ZN8idWindow16FixupTransitionsEv'/>
+<fun r='_ZN8idWindow9HasActionEv'/>
+<fun r='_ZN8idWindow10HasScriptsEv'/>
+<fun r='_ZN8idWindow10FixupParmsEv'/>
+<fun r='_ZN8idWindow15GetScriptStringEPKcR5idStr'/>
+<fun r='_ZN8idWindow15SetScriptParamsEv'/>
+<fun r='_ZN8idWindow6HasOpsEv'/>
+<fun r='_ZN8idWindow8EvalRegsEib'/>
+<fun r='_ZN8idWindow15StartTransitionEv'/>
+<fun r='_ZN8idWindow13AddTransitionEP8idWinVar6idVec4S2_iff'/>
+<fun r='_ZN8idWindow9ResetTimeEi'/>
+<fun r='_ZN8idWindow15ResetCinematicsEv'/>
+<fun r='_ZN8idWindow14NumTransitionsEv'/>
+<fun r='_ZN8idWindow11ParseScriptEP8idParserR15idGuiScriptListPib'/>
+<fun r='_ZN8idWindow9RunScriptEi'/>
+<fun r='_ZN8idWindow13RunScriptListEP15idGuiScriptList'/>
+<fun r='_ZN8idWindow7SetRegsEPKcS1_'/>
+<fun r='_ZN8idWindow15ParseExpressionEP8idParserP8idWinVari'/>
+<fun r='_ZN8idWindow18ExpressionConstantEf'/>
+<fun r='_ZN8idWindow7RegListEv'/>
+<fun r='_ZN8idWindow10AddCommandEPKc'/>
+<fun r='_ZN8idWindow12AddUpdateVarEP8idWinVar'/>
+<fun r='_ZN8idWindow11InteractiveEv'/>
+<fun r='_ZN8idWindow17ContainsStateVarsEv'/>
+<fun r='_ZN8idWindow17SetChildWinVarValEPKcS1_S1_'/>
+<fun r='_ZN8idWindow15GetFocusedChildEv'/>
+<fun r='_ZN8idWindow15GetCaptureChildEv'/>
+<fun r='_ZN8idWindow10GetCommentEv'/>
+<fun r='_ZN8idWindow10SetCommentEPKc'/>
+<mbr r='idWindow::cmd' o='32' t='idStr'/>
+<fun r='_ZN8idWindow13RunNamedEventEPKc'/>
+<fun r='_ZN8idWindow13AddDefinedVarEP8idWinVar'/>
+<fun r='_ZN8idWindow16FindChildByPointEffPS_'/>
+<fun r='_ZN8idWindow13GetChildIndexEPS_'/>
+<fun r='_ZN8idWindow13GetChildCountEv'/>
+<fun r='_ZN8idWindow8GetChildEi'/>
+<fun r='_ZN8idWindow11RemoveChildEPS_'/>
+<fun r='_ZN8idWindow11InsertChildEPS_S0_'/>
+<fun r='_ZN8idWindow14ScreenToClientEP11idRectangle'/>
+<fun r='_ZN8idWindow14ClientToScreenEP11idRectangle'/>
+<fun r='_ZN8idWindow20UpdateFromDictionaryER6idDict'/>
+<fun r='_ZN8idWindow16FindChildByPointEffPPS_'/>
+<fun r='_ZN8idWindow11SetDefaultsEv'/>
+<fun r='_ZN8idWindow8IsSimpleEv'/>
+<fun r='_ZN8idWindow13UpdateWinVarsEv'/>
+<fun r='_ZN8idWindow15DisableRegisterEPKc'/>
+<fun r='_ZN8idWindow10TransitionEv'/>
+<fun r='_ZN8idWindow4TimeEv'/>
+<fun r='_ZN8idWindow13RunTimeEventsEi'/>
+<fun r='_ZN8idWindow4DumpEv'/>
+<fun r='_ZN8idWindow19ExpressionTemporaryEv'/>
+<fun r='_ZN8idWindow12ExpressionOpEv'/>
+<fun r='_ZN8idWindow6EmitOpEii12wexpOpType_tPP8wexpOp_t'/>
+<fun r='_ZN8idWindow11ParseEmitOpEP8idParseri12wexpOpType_tiPP8wexpOp_t'/>
+<fun r='_ZN8idWindow9ParseTermEP8idParserP8idWinVari'/>
+<fun r='_ZN8idWindow23ParseExpressionPriorityEP8idParseriP8idWinVari'/>
+<fun r='_ZN8idWindow17EvaluateRegistersEPf'/>
+<fun r='_ZN8idWindow24SaveExpressionParseStateEv'/>
+<fun r='_ZN8idWindow27RestoreExpressionParseStateEv'/>
+<fun r='_ZN8idWindow21ParseBracedExpressionEP8idParser'/>
+<fun r='_ZN8idWindow16ParseScriptEntryEPKcP8idParser'/>
+<fun r='_ZN8idWindow13ParseRegEntryEPKcP8idParser'/>
+<fun r='_ZN8idWindow16ParseInternalVarEPKcP8idParser'/>
+<fun r='_ZN8idWindow11ParseStringEP8idParserR5idStr'/>
+<fun r='_ZN8idWindow9ParseVec4EP8idParserR6idVec4'/>
+<fun r='_ZN8idWindow15ConvertRegEntryEPKcP8idParserR5idStri'/>
+<mbr r='idWindow::actualX' o='288' t='float'/>
+<mbr r='idWindow::actualY' o='320' t='float'/>
+<mbr r='idWindow::childID' o='352' t='int'/>
+<mbr r='idWindow::flags' o='384' t='unsigned int'/>
+<mbr r='idWindow::lastTimeRun' o='416' t='int'/>
+<mbr r='idWindow::drawRect' o='448' t='idRectangle'/>
+<mbr r='idWindow::clientRect' o='576' t='idRectangle'/>
+<mbr r='idWindow::origin' o='704' t='idVec2'/>
+<mbr r='idWindow::timeLine' o='768' t='int'/>
+<mbr r='idWindow::xOffset' o='800' t='float'/>
+<mbr r='idWindow::yOffset' o='832' t='float'/>
+<mbr r='idWindow::forceAspectWidth' o='864' t='float'/>
+<mbr r='idWindow::forceAspectHeight' o='896' t='float'/>
+<mbr r='idWindow::matScalex' o='928' t='float'/>
+<mbr r='idWindow::matScaley' o='960' t='float'/>
+<mbr r='idWindow::borderSize' o='992' t='float'/>
+<mbr r='idWindow::textAlignx' o='1024' t='float'/>
+<mbr r='idWindow::textAligny' o='1056' t='float'/>
+<mbr r='idWindow::name' o='1088' t='idStr'/>
+<mbr r='idWindow::comment' o='1344' t='idStr'/>
+<mbr r='idWindow::shear' o='1600' t='idVec2'/>
+<mbr r='idWindow::textShadow' o='1664' t='signed char'/>
+<mbr r='idWindow::fontNum' o='1672' t='unsigned char'/>
+<mbr r='idWindow::cursor' o='1680' t='unsigned char'/>
+<mbr r='idWindow::textAlign' o='1688' t='signed char'/>
+<mbr r='idWindow::noTime' o='1696' t='idWinBool'/>
+<mbr r='idWindow::visible' o='1824' t='idWinBool'/>
+<mbr r='idWindow::noEvents' o='1952' t='idWinBool'/>
+<mbr r='idWindow::rect' o='2080' t='idWinRectangle'/>
+<mbr r='idWindow::backColor' o='2336' t='idWinVec4'/>
+<mbr r='idWindow::matColor' o='2592' t='idWinVec4'/>
+<mbr r='idWindow::foreColor' o='2848' t='idWinVec4'/>
+<mbr r='idWindow::hoverColor' o='3104' t='idWinVec4'/>
+<mbr r='idWindow::borderColor' o='3360' t='idWinVec4'/>
+<mbr r='idWindow::textScale' o='3616' t='idWinFloat'/>
+<mbr r='idWindow::rotate' o='3776' t='idWinFloat'/>
+<mbr r='idWindow::text' o='3936' t='idWinStr'/>
+<mbr r='idWindow::backGroundName' o='4320' t='idWinBackground'/>
+<mbr r='idWindow::definedVars' o='4992' t='idList&lt;idWinVar *&gt;'/>
+<mbr r='idWindow::updateVars' o='5120' t='idList&lt;idWinVar *&gt;'/>
+<mbr r='idWindow::textRect' o='5248' t='idRectangle'/>
+<mbr r='idWindow::background' o='5376' t='const idMaterial *'/>
+<mbr r='idWindow::parent' o='5408' t='idWindow *'/>
+<mbr r='idWindow::children' o='5440' t='idList&lt;idWindow *&gt;'/>
+<mbr r='idWindow::drawWindows' o='5568' t='idList&lt;drawWin_t&gt;'/>
+<mbr r='idWindow::focusedChild' o='5696' t='idWindow *'/>
+<mbr r='idWindow::captureChild' o='5728' t='idWindow *'/>
+<mbr r='idWindow::overChild' o='5760' t='idWindow *'/>
+<mbr r='idWindow::hover' o='5792' t='bool'/>
+<mbr r='idWindow::dc' o='5824' t='idDeviceContext *'/>
+<mbr r='idWindow::gui' o='5856' t='idUserInterfaceLocal *'/>
+<smbr r='idWindow::gui_debug' t='idCVar'/>
+<smbr r='idWindow::gui_edit' t='idCVar'/>
+<mbr r='idWindow::scripts' o='5888' t='idGuiScriptList *[11]'/>
+<mbr r='idWindow::saveTemps' o='6240' t='bool *'/>
+<mbr r='idWindow::timeLineEvents' o='6272' t='idList&lt;idTimeLineEvent *&gt;'/>
+<mbr r='idWindow::transitions' o='6400' t='idList&lt;idTransitionData&gt;'/>
+<smbr r='idWindow::registerIsTemporary' t='bool [4096]'/>
+<mbr r='idWindow::ops' o='6528' t='idList&lt;wexpOp_t&gt;'/>
+<mbr r='idWindow::expressionRegisters' o='6656' t='idList&lt;float&gt;'/>
+<mbr r='idWindow::saveOps' o='6784' t='idList&lt;wexpOp_t&gt; *'/>
+<mbr r='idWindow::namedEvents' o='6816' t='idList&lt;rvNamedEvent *&gt;'/>
+<mbr r='idWindow::saveRegs' o='6944' t='idList&lt;float&gt; *'/>
+<mbr r='idWindow::regList' o='6976' t='idRegisterList'/>
+<mbr r='idWindow::hideCursor' o='7328' t='idWinBool'/>
+<fun r='_ZN8idWindow13AddDefinedVarEP8idWinVar'/>
+<ovr f='codebrowser/ui/SliderWindow.h' l='34' c='idSliderWindow'/>
+<ovr f='codebrowser/ui/FieldWindow.h' l='34' c='idFieldWindow'/>
+<ovr f='codebrowser/ui/GameBearShootWindow.h' l='69' c='idGameBearShootWindow'/>
+<ovr f='codebrowser/ui/GameBustOutWindow.h' l='111' c='idGameBustOutWindow'/>
+<ovr f='codebrowser/ui/GameSSDWindow.h' l='483' c='idGameSSDWindow'/>
+<ovr f='codebrowser/ui/MarkerWindow.h' l='39' c='idMarkerWindow'/>

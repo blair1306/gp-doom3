@@ -1,0 +1,63 @@
+<dec f='codebrowser/d3xp/script/Script_Program.h' l='515' type='function_t * idProgram::FindFunction(const char * name) const'/>
+<doc f='codebrowser/d3xp/script/Script_Program.h' l='515'>// returns NULL if function not found</doc>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='2459' u='c' c='_ZN27idAFEntity_VehicleAutomated5ThinkEv'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='821' u='c' c='_ZN8idEntity7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='3479' u='c' c='_ZN8idEntity17HandleGuiCommandsEPS_PKc'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='1220' u='c' c='_ZN11idGameLocal7NextMapEv'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='1223' u='c' c='_ZN11idGameLocal7NextMapEv'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='1992' u='c' c='_ZN11idGameLocal16InitScriptForMapEv'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='3349' u='c' c='_ZN11idGameLocal14SpawnEntityDefERK6idDictPP8idEntityb'/>
+<use f='codebrowser/d3xp/Item.cpp' l='779' u='c' c='_ZN10idItemTeam10LoadScriptEPc'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='3497' u='c' c='_ZN19idFuncMountedObject5SpawnEv'/>
+<use f='codebrowser/d3xp/Trigger.cpp' l='182' u='c' c='_ZN9idTrigger7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/d3xp/Trigger.cpp' l='228' u='c' c='_ZN9idTrigger5SpawnEv'/>
+<use f='codebrowser/d3xp/WorldSpawn.cpp' l='80' u='c' c='_ZN12idWorldspawn5SpawnEv'/>
+<use f='codebrowser/d3xp/WorldSpawn.cpp' l='90' u='c' c='_ZN12idWorldspawn5SpawnEv'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='308' u='c' c='_ZN6idAnim15AddFrameCommandEPK14idDeclModelDefiR7idLexerPK6idDict'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='195' u='c' c='_Z12Cmd_Script_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='2187' u='c' c='_ZN10idCompiler16ParseFunctionDefEP9idTypeDefPKc'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='2214' u='c' c='_ZN10idCompiler16ParseFunctionDefEP9idTypeDefPKc'/>
+<def f='codebrowser/d3xp/script/Script_Program.cpp' l='1452' ll='1494' type='function_t * idProgram::FindFunction(const char * name) const'/>
+<use f='codebrowser/d3xp/script/Script_Program.cpp' l='1830' u='c' c='_ZN9idProgram15CompileFunctionEPKcS1_'/>
+<doc f='codebrowser/d3xp/script/Script_Program.cpp' l='1441'>/*
+================
+idProgram::FindFunction
+
+Searches for the specified function in the currently loaded script.  A full namespace should be
+specified if not in the global namespace.
+
+Returns 0 if function not found.
+Returns &gt;0 if function found.
+================
+*/</doc>
+<use f='codebrowser/d3xp/script/Script_Thread.cpp' l='1445' u='c' c='_ZN8idThread14Event_OnSignalEiP8idEntityPKc'/>
+<dec f='codebrowser/game/script/Script_Program.h' l='501' type='function_t * idProgram::FindFunction(const char * name) const'/>
+<doc f='codebrowser/game/script/Script_Program.h' l='501'>// returns NULL if function not found</doc>
+<use f='codebrowser/game/Entity.cpp' l='752' u='c' c='_ZN8idEntity7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/game/Entity.cpp' l='3383' u='c' c='_ZN8idEntity17HandleGuiCommandsEPS_PKc'/>
+<use f='codebrowser/game/Game_local.cpp' l='1084' u='c' c='_ZN11idGameLocal7NextMapEv'/>
+<use f='codebrowser/game/Game_local.cpp' l='1087' u='c' c='_ZN11idGameLocal7NextMapEv'/>
+<use f='codebrowser/game/Game_local.cpp' l='1809' u='c' c='_ZN11idGameLocal16InitScriptForMapEv'/>
+<use f='codebrowser/game/Game_local.cpp' l='3068' u='c' c='_ZN11idGameLocal14SpawnEntityDefERK6idDictPP8idEntityb'/>
+<use f='codebrowser/game/Trigger.cpp' l='182' u='c' c='_ZN9idTrigger7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/game/Trigger.cpp' l='228' u='c' c='_ZN9idTrigger5SpawnEv'/>
+<use f='codebrowser/game/WorldSpawn.cpp' l='80' u='c' c='_ZN12idWorldspawn5SpawnEv'/>
+<use f='codebrowser/game/WorldSpawn.cpp' l='90' u='c' c='_ZN12idWorldspawn5SpawnEv'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='308' u='c' c='_ZN6idAnim15AddFrameCommandEPK14idDeclModelDefiR7idLexerPK6idDict'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='175' u='c' c='_Z12Cmd_Script_fRK9idCmdArgs'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='2187' u='c' c='_ZN10idCompiler16ParseFunctionDefEP9idTypeDefPKc'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='2214' u='c' c='_ZN10idCompiler16ParseFunctionDefEP9idTypeDefPKc'/>
+<def f='codebrowser/game/script/Script_Program.cpp' l='1452' ll='1494' type='function_t * idProgram::FindFunction(const char * name) const'/>
+<use f='codebrowser/game/script/Script_Program.cpp' l='1830' u='c' c='_ZN9idProgram15CompileFunctionEPKcS1_'/>
+<doc f='codebrowser/game/script/Script_Program.cpp' l='1441'>/*
+================
+idProgram::FindFunction
+
+Searches for the specified function in the currently loaded script.  A full namespace should be
+specified if not in the global namespace.
+
+Returns 0 if function not found.
+Returns &gt;0 if function found.
+================
+*/</doc>
+<use f='codebrowser/game/script/Script_Thread.cpp' l='1365' u='c' c='_ZN8idThread14Event_OnSignalEiP8idEntityPKc'/>

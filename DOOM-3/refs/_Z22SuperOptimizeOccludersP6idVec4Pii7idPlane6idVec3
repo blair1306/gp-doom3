@@ -1,0 +1,12 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1454' type='optimizedShadow_t SuperOptimizeOccluders(idVec4 * verts, glIndex_t * indexes, int numIndexes, idPlane projectionPlane, idVec3 projectionOrigin)'/>
+<use f='codebrowser/renderer/tr_stencilshadow.cpp' l='932' u='c' c='_ZL29R_CreateShadowVolumeInFrustumPK19idRenderEntityLocalPK14srfTriangles_sPK18idRenderLightLocal6idVec3PK7idPlaneRSA_b'/>
+<def f='codebrowser/tools/compilers/dmap/shadowopt3.cpp' l='1009' ll='1089' type='optimizedShadow_t SuperOptimizeOccluders(idVec4 * verts, glIndex_t * indexes, int numIndexes, idPlane projectionPlane, idVec3 projectionOrigin)'/>
+<doc f='codebrowser/tools/compilers/dmap/shadowopt3.cpp' l='1000'>/*
+====================
+SuperOptimizeOccluders
+
+This is the callback from the renderer shadow generation routine, after
+verts have been culled against individual frustums of point lights
+
+====================
+*/</doc>

@@ -1,0 +1,30 @@
+<def f='codebrowser/idlib/containers/List.h' l='56' ll='58' macro='1' type='int idListSortCompare(const type * a, const type * b)'/>
+<def f='codebrowser/idlib/containers/StrList.h' l='51' ll='54' type='int idListSortCompare(const idStrPtr * a, const idStrPtr * b)'/>
+<doc f='codebrowser/idlib/containers/StrList.h' l='44'>/*
+================
+idListSortCompare&lt;idStrPtr&gt;
+
+Compares two pointers to strings. Used to sort a list of string pointers alphabetically in idList&lt;idStr&gt;::Sort.
+================
+*/</doc>
+<def f='codebrowser/framework/CVarSystem.cpp' l='1060' ll='1063' type='int idListSortCompare(const idInternalCVar *const * a, const idInternalCVar *const * b)'/>
+<doc f='codebrowser/framework/CVarSystem.cpp' l='1054'>/*
+============
+idCVarSystemLocal::ListByFlags
+============
+*/
+// NOTE: the const wonkyness is required to make msvc happy</doc>
+<def f='codebrowser/framework/CmdSystem.cpp' l='125' ll='128' type='int idListSortCompare(const commandDef_t *const * a, const commandDef_t *const * b)'/>
+<doc f='codebrowser/framework/CmdSystem.cpp' l='119'>/*
+============
+idCmdSystemLocal::ListByFlags
+============
+*/
+// NOTE: the const wonkyness is required to make msvc happy</doc>
+<def f='codebrowser/idlib/Dict.cpp' l='658' ll='661' type='int idListSortCompare(const idPoolStr *const * a, const idPoolStr *const * b)'/>
+<doc f='codebrowser/idlib/Dict.cpp' l='652'>/*
+================
+idDictStringSortCmp
+================
+*/
+// NOTE: the const wonkyness is required to make msvc happy</doc>

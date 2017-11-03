@@ -1,0 +1,17 @@
+<dec f='codebrowser/idlib/containers/List.h' l='125' type='int idList::FindNull() const'/>
+<def f='codebrowser/idlib/containers/List.h' l='803' ll='815' type='int idList::FindNull() const'/>
+<doc f='codebrowser/idlib/containers/List.h' l='125'>// find the index for the first NULL pointer in the list</doc>
+<doc f='codebrowser/idlib/containers/List.h' l='793'>/*
+================
+idList&lt;type&gt;::FindNull
+
+Searches for a NULL pointer in the list.  Returns -1 if NULL is not found.
+
+NOTE: This function can only be called on lists containing pointers. Calling it
+on non-pointer lists will cause a compiler error.
+================
+*/</doc>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='182' u='c' c='_ZN18idRenderWorldLocal12AddEntityDefEPK14renderEntity_s'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='360' u='c' c='_ZN18idRenderWorldLocal11AddLightDefEPK13renderLight_s'/>
+<use f='codebrowser/renderer/RenderWorld_load.cpp' l='637' u='c' c='_ZN18idRenderWorldLocal21AddWorldModelEntitiesEv'/>
+<use f='codebrowser/sound/snd_cache.cpp' l='110' u='c' c='_ZN12idSoundCache9FindSoundERK5idStrb'/>

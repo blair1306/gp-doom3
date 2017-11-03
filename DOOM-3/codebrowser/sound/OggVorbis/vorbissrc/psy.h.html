@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>psy.h source code [codebrowser/sound/OggVorbis/vorbissrc/psy.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="vorbis_info_psy "/>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/sound/OggVorbis/vorbissrc/psy.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>sound</a>/<a href='..'>OggVorbis</a>/<a href='./'>vorbissrc</a>/<a href='psy.h.html'>psy.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/********************************************************************</i></td></tr>
+<tr><th id="2">2</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="3">3</th><td><i> * THIS FILE IS PART OF THE OggVorbis SOFTWARE CODEC SOURCE CODE.   *</i></td></tr>
+<tr><th id="4">4</th><td><i> * USE, DISTRIBUTION AND REPRODUCTION OF THIS LIBRARY SOURCE IS     *</i></td></tr>
+<tr><th id="5">5</th><td><i> * GOVERNED BY A BSD-STYLE SOURCE LICENSE INCLUDED WITH THIS SOURCE *</i></td></tr>
+<tr><th id="6">6</th><td><i> * IN 'COPYING'. PLEASE READ THESE TERMS BEFORE DISTRIBUTING.       *</i></td></tr>
+<tr><th id="7">7</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="8">8</th><td><i> * THE OggVorbis SOURCE CODE IS (C) COPYRIGHT 1994-2002             *</i></td></tr>
+<tr><th id="9">9</th><td><i> * by the XIPHOPHORUS Company <a href="http://www.xiph.org/">http://www.xiph.org/</a>                  *</i></td></tr>
+<tr><th id="10">10</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="11">11</th><td><i> ********************************************************************</i></td></tr>
+<tr><th id="12">12</th><td><i></i></td></tr>
+<tr><th id="13">13</th><td><i> function: random psychoacoustics (not including preecho)</i></td></tr>
+<tr><th id="14">14</th><td><i> last mod: $Id: psy.h,v 1.32 2002/07/13 06:12:47 xiphmont Exp $</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i> ********************************************************************/</i></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><u>#<span data-ppcond="18">ifndef</span> <span class="macro" data-ref="_M/_V_PSY_H_">_V_PSY_H_</span></u></td></tr>
+<tr><th id="19">19</th><td><u>#define <dfn class="macro" id="_M/_V_PSY_H_" data-ref="_M/_V_PSY_H_">_V_PSY_H_</dfn></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="smallft.h.html">"smallft.h"</a></u></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="backends.h.html">"backends.h"</a></u></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="envelope.h.html">"envelope.h"</a></u></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><u>#<span data-ppcond="25">ifndef</span> <span class="macro" data-ref="_M/EHMER_MAX">EHMER_MAX</span></u></td></tr>
+<tr><th id="26">26</th><td><u>#define <dfn class="macro" id="_M/EHMER_MAX" data-ref="_M/EHMER_MAX">EHMER_MAX</dfn> 56</u></td></tr>
+<tr><th id="27">27</th><td><u>#<span data-ppcond="25">endif</span></u></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><i>/* psychoacoustic setup ********************************************/</i></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/P_BANDS" data-ref="_M/P_BANDS">P_BANDS</dfn> 17      /* 62Hz to 16kHz */</u></td></tr>
+<tr><th id="31">31</th><td><u>#define <dfn class="macro" id="_M/P_LEVELS" data-ref="_M/P_LEVELS">P_LEVELS</dfn> 8      /* 30dB to 100dB */</u></td></tr>
+<tr><th id="32">32</th><td><u>#define <dfn class="macro" id="_M/P_LEVEL_0" data-ref="_M/P_LEVEL_0">P_LEVEL_0</dfn> 30.    /* 30 dB */</u></td></tr>
+<tr><th id="33">33</th><td><u>#define <dfn class="macro" id="_M/P_NOISECURVES" data-ref="_M/P_NOISECURVES">P_NOISECURVES</dfn> 3</u></td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><u>#define <dfn class="macro" id="_M/NOISE_COMPAND_LEVELS" data-ref="_M/NOISE_COMPAND_LEVELS">NOISE_COMPAND_LEVELS</dfn> 40</u></td></tr>
+<tr><th id="36">36</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="vorbis_info_psy" title='vorbis_info_psy' data-ref="vorbis_info_psy"><a class="type" href="#vorbis_info_psy" title='vorbis_info_psy' data-ref="vorbis_info_psy">vorbis_info_psy</a></dfn>{</td></tr>
+<tr><th id="37">37</th><td>  <em>int</em>   <dfn class="decl" id="vorbis_info_psy::blockflag" title='vorbis_info_psy::blockflag' data-ref="vorbis_info_psy::blockflag">blockflag</dfn>;</td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td>  <em>float</em> <dfn class="decl" id="vorbis_info_psy::ath_adjatt" title='vorbis_info_psy::ath_adjatt' data-ref="vorbis_info_psy::ath_adjatt">ath_adjatt</dfn>;</td></tr>
+<tr><th id="40">40</th><td>  <em>float</em> <dfn class="decl" id="vorbis_info_psy::ath_maxatt" title='vorbis_info_psy::ath_maxatt' data-ref="vorbis_info_psy::ath_maxatt">ath_maxatt</dfn>;</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td>  <em>float</em> <dfn class="decl" id="vorbis_info_psy::tone_masteratt" title='vorbis_info_psy::tone_masteratt' data-ref="vorbis_info_psy::tone_masteratt">tone_masteratt</dfn>[<a class="macro" href="#33" title="3" data-ref="_M/P_NOISECURVES">P_NOISECURVES</a>];</td></tr>
+<tr><th id="43">43</th><td>  <em>float</em> <dfn class="decl" id="vorbis_info_psy::tone_centerboost" title='vorbis_info_psy::tone_centerboost' data-ref="vorbis_info_psy::tone_centerboost">tone_centerboost</dfn>;</td></tr>
+<tr><th id="44">44</th><td>  <em>float</em> <dfn class="decl" id="vorbis_info_psy::tone_decay" title='vorbis_info_psy::tone_decay' data-ref="vorbis_info_psy::tone_decay">tone_decay</dfn>;</td></tr>
+<tr><th id="45">45</th><td>  <em>float</em> <dfn class="decl" id="vorbis_info_psy::tone_abs_limit" title='vorbis_info_psy::tone_abs_limit' data-ref="vorbis_info_psy::tone_abs_limit">tone_abs_limit</dfn>;</td></tr>
+<tr><th id="46">46</th><td>  <em>float</em> <dfn class="decl" id="vorbis_info_psy::toneatt" title='vorbis_info_psy::toneatt' data-ref="vorbis_info_psy::toneatt">toneatt</dfn>[<a class="macro" href="#30" title="17" data-ref="_M/P_BANDS">P_BANDS</a>];</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td>  <em>int</em> <dfn class="decl" id="vorbis_info_psy::noisemaskp" title='vorbis_info_psy::noisemaskp' data-ref="vorbis_info_psy::noisemaskp">noisemaskp</dfn>;</td></tr>
+<tr><th id="49">49</th><td>  <em>float</em> <dfn class="decl" id="vorbis_info_psy::noisemaxsupp" title='vorbis_info_psy::noisemaxsupp' data-ref="vorbis_info_psy::noisemaxsupp">noisemaxsupp</dfn>;</td></tr>
+<tr><th id="50">50</th><td>  <em>float</em> <dfn class="decl" id="vorbis_info_psy::noisewindowlo" title='vorbis_info_psy::noisewindowlo' data-ref="vorbis_info_psy::noisewindowlo">noisewindowlo</dfn>;</td></tr>
+<tr><th id="51">51</th><td>  <em>float</em> <dfn class="decl" id="vorbis_info_psy::noisewindowhi" title='vorbis_info_psy::noisewindowhi' data-ref="vorbis_info_psy::noisewindowhi">noisewindowhi</dfn>;</td></tr>
+<tr><th id="52">52</th><td>  <em>int</em>   <dfn class="decl" id="vorbis_info_psy::noisewindowlomin" title='vorbis_info_psy::noisewindowlomin' data-ref="vorbis_info_psy::noisewindowlomin">noisewindowlomin</dfn>;</td></tr>
+<tr><th id="53">53</th><td>  <em>int</em>   <dfn class="decl" id="vorbis_info_psy::noisewindowhimin" title='vorbis_info_psy::noisewindowhimin' data-ref="vorbis_info_psy::noisewindowhimin">noisewindowhimin</dfn>;</td></tr>
+<tr><th id="54">54</th><td>  <em>int</em>   <dfn class="decl" id="vorbis_info_psy::noisewindowfixed" title='vorbis_info_psy::noisewindowfixed' data-ref="vorbis_info_psy::noisewindowfixed">noisewindowfixed</dfn>;</td></tr>
+<tr><th id="55">55</th><td>  <em>float</em> <dfn class="decl" id="vorbis_info_psy::noiseoff" title='vorbis_info_psy::noiseoff' data-ref="vorbis_info_psy::noiseoff">noiseoff</dfn>[<a class="macro" href="#33" title="3" data-ref="_M/P_NOISECURVES">P_NOISECURVES</a>][<a class="macro" href="#30" title="17" data-ref="_M/P_BANDS">P_BANDS</a>];</td></tr>
+<tr><th id="56">56</th><td>  <em>float</em> <dfn class="decl" id="vorbis_info_psy::noisecompand" title='vorbis_info_psy::noisecompand' data-ref="vorbis_info_psy::noisecompand">noisecompand</dfn>[<a class="macro" href="#35" title="40" data-ref="_M/NOISE_COMPAND_LEVELS">NOISE_COMPAND_LEVELS</a>];</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td>  <em>float</em> <dfn class="decl" id="vorbis_info_psy::max_curve_dB" title='vorbis_info_psy::max_curve_dB' data-ref="vorbis_info_psy::max_curve_dB">max_curve_dB</dfn>;</td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td>  <em>int</em> <dfn class="decl" id="vorbis_info_psy::normal_channel_p" title='vorbis_info_psy::normal_channel_p' data-ref="vorbis_info_psy::normal_channel_p">normal_channel_p</dfn>;</td></tr>
+<tr><th id="61">61</th><td>  <em>int</em> <dfn class="decl" id="vorbis_info_psy::normal_point_p" title='vorbis_info_psy::normal_point_p' data-ref="vorbis_info_psy::normal_point_p">normal_point_p</dfn>;</td></tr>
+<tr><th id="62">62</th><td>  <em>int</em> <dfn class="decl" id="vorbis_info_psy::normal_start" title='vorbis_info_psy::normal_start' data-ref="vorbis_info_psy::normal_start">normal_start</dfn>;</td></tr>
+<tr><th id="63">63</th><td>  <em>int</em> <dfn class="decl" id="vorbis_info_psy::normal_partition" title='vorbis_info_psy::normal_partition' data-ref="vorbis_info_psy::normal_partition">normal_partition</dfn>;</td></tr>
+<tr><th id="64">64</th><td>  <em>double</em> <dfn class="decl" id="vorbis_info_psy::normal_thresh" title='vorbis_info_psy::normal_thresh' data-ref="vorbis_info_psy::normal_thresh">normal_thresh</dfn>;</td></tr>
+<tr><th id="65">65</th><td>} <dfn class="typedef" id="vorbis_info_psy" title='vorbis_info_psy' data-type='struct vorbis_info_psy' data-ref="vorbis_info_psy">vorbis_info_psy</dfn>;</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td><b>typedef</b> <b>struct</b>{</td></tr>
+<tr><th id="68">68</th><td>  <em>int</em>   <dfn class="decl" id="(anonymous)::eighth_octave_lines" title='(anonymous struct)::eighth_octave_lines' data-ref="(anonymous)::eighth_octave_lines">eighth_octave_lines</dfn>;</td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td>  <i>/* for block long/short tuning; encode only */</i></td></tr>
+<tr><th id="71">71</th><td>  <em>float</em> <dfn class="decl" id="(anonymous)::preecho_thresh" title='(anonymous struct)::preecho_thresh' data-ref="(anonymous)::preecho_thresh">preecho_thresh</dfn>[<a class="macro" href="envelope.h.html#28" title="7" data-ref="_M/VE_BANDS">VE_BANDS</a>];</td></tr>
+<tr><th id="72">72</th><td>  <em>float</em> <dfn class="decl" id="(anonymous)::postecho_thresh" title='(anonymous struct)::postecho_thresh' data-ref="(anonymous)::postecho_thresh">postecho_thresh</dfn>[<a class="macro" href="envelope.h.html#28" title="7" data-ref="_M/VE_BANDS">VE_BANDS</a>];</td></tr>
+<tr><th id="73">73</th><td>  <em>float</em> <dfn class="decl" id="(anonymous)::stretch_penalty" title='(anonymous struct)::stretch_penalty' data-ref="(anonymous)::stretch_penalty">stretch_penalty</dfn>;</td></tr>
+<tr><th id="74">74</th><td>  <em>float</em> <dfn class="decl" id="(anonymous)::preecho_minenergy" title='(anonymous struct)::preecho_minenergy' data-ref="(anonymous)::preecho_minenergy">preecho_minenergy</dfn>;</td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td>  <em>float</em> <dfn class="decl" id="(anonymous)::ampmax_att_per_sec" title='(anonymous struct)::ampmax_att_per_sec' data-ref="(anonymous)::ampmax_att_per_sec">ampmax_att_per_sec</dfn>;</td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td>  <i>/* channel coupling config */</i></td></tr>
+<tr><th id="79">79</th><td>  <em>int</em>   <dfn class="decl" id="(anonymous)::coupling_pkHz" title='(anonymous struct)::coupling_pkHz' data-ref="(anonymous)::coupling_pkHz">coupling_pkHz</dfn>[<a class="macro" href="codec_internal.h.html#29" title="15" data-ref="_M/PACKETBLOBS">PACKETBLOBS</a>];  </td></tr>
+<tr><th id="80">80</th><td>  <em>int</em>   <dfn class="decl" id="(anonymous)::coupling_pointlimit" title='(anonymous struct)::coupling_pointlimit' data-ref="(anonymous)::coupling_pointlimit">coupling_pointlimit</dfn>[<var>2</var>][<a class="macro" href="codec_internal.h.html#29" title="15" data-ref="_M/PACKETBLOBS">PACKETBLOBS</a>];  </td></tr>
+<tr><th id="81">81</th><td>  <em>int</em>   <dfn class="decl" id="(anonymous)::coupling_prepointamp" title='(anonymous struct)::coupling_prepointamp' data-ref="(anonymous)::coupling_prepointamp">coupling_prepointamp</dfn>[<a class="macro" href="codec_internal.h.html#29" title="15" data-ref="_M/PACKETBLOBS">PACKETBLOBS</a>];  </td></tr>
+<tr><th id="82">82</th><td>  <em>int</em>   <dfn class="decl" id="(anonymous)::coupling_postpointamp" title='(anonymous struct)::coupling_postpointamp' data-ref="(anonymous)::coupling_postpointamp">coupling_postpointamp</dfn>[<a class="macro" href="codec_internal.h.html#29" title="15" data-ref="_M/PACKETBLOBS">PACKETBLOBS</a>];  </td></tr>
+<tr><th id="83">83</th><td>  <em>int</em>   <dfn class="decl" id="(anonymous)::sliding_lowpass" title='(anonymous struct)::sliding_lowpass' data-ref="(anonymous)::sliding_lowpass">sliding_lowpass</dfn>[<var>2</var>][<a class="macro" href="codec_internal.h.html#29" title="15" data-ref="_M/PACKETBLOBS">PACKETBLOBS</a>];  </td></tr>
+<tr><th id="84">84</th><td></td></tr>
+<tr><th id="85">85</th><td>} <dfn class="typedef" id="vorbis_info_psy_global" title='vorbis_info_psy_global' data-type='struct vorbis_info_psy_global' data-ref="vorbis_info_psy_global">vorbis_info_psy_global</dfn>;</td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="88">88</th><td>  <em>float</em> <dfn class="decl" id="(anonymous)::ampmax" title='(anonymous struct)::ampmax' data-ref="(anonymous)::ampmax">ampmax</dfn>;</td></tr>
+<tr><th id="89">89</th><td>  <em>int</em>   <dfn class="decl" id="(anonymous)::channels" title='(anonymous struct)::channels' data-ref="(anonymous)::channels">channels</dfn>;</td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td>  <a class="typedef" href="#vorbis_info_psy_global" title='vorbis_info_psy_global' data-type='struct vorbis_info_psy_global' data-ref="vorbis_info_psy_global">vorbis_info_psy_global</a> *<dfn class="decl" id="(anonymous)::gi" title='(anonymous struct)::gi' data-ref="(anonymous)::gi">gi</dfn>;</td></tr>
+<tr><th id="92">92</th><td>  <em>int</em>   <dfn class="decl" id="(anonymous)::coupling_pointlimit" title='(anonymous struct)::coupling_pointlimit' data-ref="(anonymous)::coupling_pointlimit">coupling_pointlimit</dfn>[<var>2</var>][<a class="macro" href="#33" title="3" data-ref="_M/P_NOISECURVES">P_NOISECURVES</a>];  </td></tr>
+<tr><th id="93">93</th><td>} <dfn class="typedef" id="vorbis_look_psy_global" title='vorbis_look_psy_global' data-type='struct vorbis_look_psy_global' data-ref="vorbis_look_psy_global">vorbis_look_psy_global</dfn>;</td></tr>
+<tr><th id="94">94</th><td></td></tr>
+<tr><th id="95">95</th><td></td></tr>
+<tr><th id="96">96</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="97">97</th><td>  <em>int</em> <dfn class="decl" id="(anonymous)::n" title='(anonymous struct)::n' data-ref="(anonymous)::n">n</dfn>;</td></tr>
+<tr><th id="98">98</th><td>  <b>struct</b> <a class="type" href="#vorbis_info_psy" title='vorbis_info_psy' data-ref="vorbis_info_psy">vorbis_info_psy</a> *<dfn class="decl" id="(anonymous)::vi" title='(anonymous struct)::vi' data-ref="(anonymous)::vi">vi</dfn>;</td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td>  <em>float</em> ***<dfn class="decl" id="(anonymous)::tonecurves" title='(anonymous struct)::tonecurves' data-ref="(anonymous)::tonecurves">tonecurves</dfn>;</td></tr>
+<tr><th id="101">101</th><td>  <em>float</em> **<dfn class="decl" id="(anonymous)::noiseoffset" title='(anonymous struct)::noiseoffset' data-ref="(anonymous)::noiseoffset">noiseoffset</dfn>;</td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td>  <em>float</em> *<dfn class="decl" id="(anonymous)::ath" title='(anonymous struct)::ath' data-ref="(anonymous)::ath">ath</dfn>;</td></tr>
+<tr><th id="104">104</th><td>  <em>long</em>  *<dfn class="decl" id="(anonymous)::octave" title='(anonymous struct)::octave' data-ref="(anonymous)::octave">octave</dfn>;             <i>/* in n.ocshift format */</i></td></tr>
+<tr><th id="105">105</th><td>  <em>long</em>  *<dfn class="decl" id="(anonymous)::bark" title='(anonymous struct)::bark' data-ref="(anonymous)::bark">bark</dfn>;</td></tr>
+<tr><th id="106">106</th><td></td></tr>
+<tr><th id="107">107</th><td>  <em>long</em>  <dfn class="decl" id="(anonymous)::firstoc" title='(anonymous struct)::firstoc' data-ref="(anonymous)::firstoc">firstoc</dfn>;</td></tr>
+<tr><th id="108">108</th><td>  <em>long</em>  <dfn class="decl" id="(anonymous)::shiftoc" title='(anonymous struct)::shiftoc' data-ref="(anonymous)::shiftoc">shiftoc</dfn>;</td></tr>
+<tr><th id="109">109</th><td>  <em>int</em>   <dfn class="decl" id="(anonymous)::eighth_octave_lines" title='(anonymous struct)::eighth_octave_lines' data-ref="(anonymous)::eighth_octave_lines">eighth_octave_lines</dfn>; <i>/* power of two, please */</i></td></tr>
+<tr><th id="110">110</th><td>  <em>int</em>   <dfn class="decl" id="(anonymous)::total_octave_lines" title='(anonymous struct)::total_octave_lines' data-ref="(anonymous)::total_octave_lines">total_octave_lines</dfn>;  </td></tr>
+<tr><th id="111">111</th><td>  <em>long</em>  <dfn class="decl" id="(anonymous)::rate" title='(anonymous struct)::rate' data-ref="(anonymous)::rate">rate</dfn>; <i>/* cache it */</i></td></tr>
+<tr><th id="112">112</th><td>} <dfn class="typedef" id="vorbis_look_psy" title='vorbis_look_psy' data-type='struct vorbis_look_psy' data-ref="vorbis_look_psy">vorbis_look_psy</dfn>;</td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td><b>extern</b> <em>void</em>   <dfn class="decl" id="_vp_psy_init" title='_vp_psy_init' data-ref="_vp_psy_init">_vp_psy_init</dfn>(<a class="typedef" href="#vorbis_look_psy" title='vorbis_look_psy' data-type='struct vorbis_look_psy' data-ref="vorbis_look_psy">vorbis_look_psy</a> *<dfn class="local col2 decl" id="152p" title='p' data-type='vorbis_look_psy *' data-ref="152p">p</dfn>,<a class="typedef" href="#vorbis_info_psy" title='vorbis_info_psy' data-type='struct vorbis_info_psy' data-ref="vorbis_info_psy">vorbis_info_psy</a> *<dfn class="local col3 decl" id="153vi" title='vi' data-type='vorbis_info_psy *' data-ref="153vi">vi</dfn>,</td></tr>
+<tr><th id="115">115</th><td>			   <a class="typedef" href="#vorbis_info_psy_global" title='vorbis_info_psy_global' data-type='struct vorbis_info_psy_global' data-ref="vorbis_info_psy_global">vorbis_info_psy_global</a> *<dfn class="local col4 decl" id="154gi" title='gi' data-type='vorbis_info_psy_global *' data-ref="154gi">gi</dfn>,<em>int</em> <dfn class="local col5 decl" id="155n" title='n' data-type='int' data-ref="155n">n</dfn>,<em>long</em> <dfn class="local col6 decl" id="156rate" title='rate' data-type='long' data-ref="156rate">rate</dfn>);</td></tr>
+<tr><th id="116">116</th><td><b>extern</b> <em>void</em>   <dfn class="decl" id="_vp_psy_clear" title='_vp_psy_clear' data-ref="_vp_psy_clear">_vp_psy_clear</dfn>(<a class="typedef" href="#vorbis_look_psy" title='vorbis_look_psy' data-type='struct vorbis_look_psy' data-ref="vorbis_look_psy">vorbis_look_psy</a> *<dfn class="local col7 decl" id="157p" title='p' data-type='vorbis_look_psy *' data-ref="157p">p</dfn>);</td></tr>
+<tr><th id="117">117</th><td><b>extern</b> <em>void</em>  *<dfn class="decl" id="_vi_psy_dup" title='_vi_psy_dup' data-ref="_vi_psy_dup">_vi_psy_dup</dfn>(<em>void</em> *<dfn class="local col8 decl" id="158source" title='source' data-type='void *' data-ref="158source">source</dfn>);</td></tr>
+<tr><th id="118">118</th><td></td></tr>
+<tr><th id="119">119</th><td><b>extern</b> <em>void</em>   <dfn class="decl" id="_vi_psy_free" title='_vi_psy_free' data-ref="_vi_psy_free">_vi_psy_free</dfn>(<a class="typedef" href="#vorbis_info_psy" title='vorbis_info_psy' data-type='struct vorbis_info_psy' data-ref="vorbis_info_psy">vorbis_info_psy</a> *<dfn class="local col9 decl" id="159i" title='i' data-type='vorbis_info_psy *' data-ref="159i">i</dfn>);</td></tr>
+<tr><th id="120">120</th><td><b>extern</b> <a class="typedef" href="#vorbis_info_psy" title='vorbis_info_psy' data-type='struct vorbis_info_psy' data-ref="vorbis_info_psy">vorbis_info_psy</a> *<dfn class="decl" id="_vi_psy_copy" title='_vi_psy_copy' data-ref="_vi_psy_copy">_vi_psy_copy</dfn>(<a class="typedef" href="#vorbis_info_psy" title='vorbis_info_psy' data-type='struct vorbis_info_psy' data-ref="vorbis_info_psy">vorbis_info_psy</a> *<dfn class="local col0 decl" id="160i" title='i' data-type='vorbis_info_psy *' data-ref="160i">i</dfn>);</td></tr>
+<tr><th id="121">121</th><td></td></tr>
+<tr><th id="122">122</th><td><b>extern</b> <em>void</em> <dfn class="decl" id="_vp_remove_floor" title='_vp_remove_floor' data-ref="_vp_remove_floor">_vp_remove_floor</dfn>(<a class="typedef" href="#vorbis_look_psy" title='vorbis_look_psy' data-type='struct vorbis_look_psy' data-ref="vorbis_look_psy">vorbis_look_psy</a> *<dfn class="local col1 decl" id="161p" title='p' data-type='vorbis_look_psy *' data-ref="161p">p</dfn>,</td></tr>
+<tr><th id="123">123</th><td>			     <em>float</em> *<dfn class="local col2 decl" id="162mdct" title='mdct' data-type='float *' data-ref="162mdct">mdct</dfn>,</td></tr>
+<tr><th id="124">124</th><td>			     <em>int</em> *<dfn class="local col3 decl" id="163icodedflr" title='icodedflr' data-type='int *' data-ref="163icodedflr">icodedflr</dfn>,</td></tr>
+<tr><th id="125">125</th><td>			     <em>float</em> *<dfn class="local col4 decl" id="164residue" title='residue' data-type='float *' data-ref="164residue">residue</dfn>,</td></tr>
+<tr><th id="126">126</th><td>			     <em>int</em> <dfn class="local col5 decl" id="165sliding_lowpass" title='sliding_lowpass' data-type='int' data-ref="165sliding_lowpass">sliding_lowpass</dfn>);</td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td><b>extern</b> <em>void</em> <dfn class="decl" id="_vp_noisemask" title='_vp_noisemask' data-ref="_vp_noisemask">_vp_noisemask</dfn>(<a class="typedef" href="#vorbis_look_psy" title='vorbis_look_psy' data-type='struct vorbis_look_psy' data-ref="vorbis_look_psy">vorbis_look_psy</a> *<dfn class="local col6 decl" id="166p" title='p' data-type='vorbis_look_psy *' data-ref="166p">p</dfn>,</td></tr>
+<tr><th id="129">129</th><td>			  <em>float</em> *<dfn class="local col7 decl" id="167logmdct" title='logmdct' data-type='float *' data-ref="167logmdct">logmdct</dfn>, </td></tr>
+<tr><th id="130">130</th><td>			  <em>float</em> *<dfn class="local col8 decl" id="168logmask" title='logmask' data-type='float *' data-ref="168logmask">logmask</dfn>);</td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td><b>extern</b> <em>void</em> <dfn class="decl" id="_vp_tonemask" title='_vp_tonemask' data-ref="_vp_tonemask">_vp_tonemask</dfn>(<a class="typedef" href="#vorbis_look_psy" title='vorbis_look_psy' data-type='struct vorbis_look_psy' data-ref="vorbis_look_psy">vorbis_look_psy</a> *<dfn class="local col9 decl" id="169p" title='p' data-type='vorbis_look_psy *' data-ref="169p">p</dfn>,</td></tr>
+<tr><th id="133">133</th><td>			 <em>float</em> *<dfn class="local col0 decl" id="170logfft" title='logfft' data-type='float *' data-ref="170logfft">logfft</dfn>,</td></tr>
+<tr><th id="134">134</th><td>			 <em>float</em> *<dfn class="local col1 decl" id="171logmask" title='logmask' data-type='float *' data-ref="171logmask">logmask</dfn>,</td></tr>
+<tr><th id="135">135</th><td>			 <em>float</em> <dfn class="local col2 decl" id="172global_specmax" title='global_specmax' data-type='float' data-ref="172global_specmax">global_specmax</dfn>,</td></tr>
+<tr><th id="136">136</th><td>			 <em>float</em> <dfn class="local col3 decl" id="173local_specmax" title='local_specmax' data-type='float' data-ref="173local_specmax">local_specmax</dfn>);</td></tr>
+<tr><th id="137">137</th><td></td></tr>
+<tr><th id="138">138</th><td><b>extern</b> <em>void</em> <dfn class="decl" id="_vp_offset_and_mix" title='_vp_offset_and_mix' data-ref="_vp_offset_and_mix">_vp_offset_and_mix</dfn>(<a class="typedef" href="#vorbis_look_psy" title='vorbis_look_psy' data-type='struct vorbis_look_psy' data-ref="vorbis_look_psy">vorbis_look_psy</a> *<dfn class="local col4 decl" id="174p" title='p' data-type='vorbis_look_psy *' data-ref="174p">p</dfn>,</td></tr>
+<tr><th id="139">139</th><td>			       <em>float</em> *<dfn class="local col5 decl" id="175noise" title='noise' data-type='float *' data-ref="175noise">noise</dfn>,</td></tr>
+<tr><th id="140">140</th><td>			       <em>float</em> *<dfn class="local col6 decl" id="176tone" title='tone' data-type='float *' data-ref="176tone">tone</dfn>,</td></tr>
+<tr><th id="141">141</th><td>			       <em>int</em> <dfn class="local col7 decl" id="177offset_select" title='offset_select' data-type='int' data-ref="177offset_select">offset_select</dfn>,</td></tr>
+<tr><th id="142">142</th><td>			       <em>float</em> *<dfn class="local col8 decl" id="178logmask" title='logmask' data-type='float *' data-ref="178logmask">logmask</dfn>);</td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td><b>extern</b> <em>float</em> <dfn class="decl" id="_vp_ampmax_decay" title='_vp_ampmax_decay' data-ref="_vp_ampmax_decay">_vp_ampmax_decay</dfn>(<em>float</em> <dfn class="local col9 decl" id="179amp" title='amp' data-type='float' data-ref="179amp">amp</dfn>,<a class="typedef" href="../vorbis/codec.h.html#vorbis_dsp_state" title='vorbis_dsp_state' data-type='struct vorbis_dsp_state' data-ref="vorbis_dsp_state">vorbis_dsp_state</a> *<dfn class="local col0 decl" id="180vd" title='vd' data-type='vorbis_dsp_state *' data-ref="180vd">vd</dfn>);</td></tr>
+<tr><th id="145">145</th><td></td></tr>
+<tr><th id="146">146</th><td><b>extern</b> <em>float</em> **<dfn class="decl" id="_vp_quantize_couple_memo" title='_vp_quantize_couple_memo' data-ref="_vp_quantize_couple_memo">_vp_quantize_couple_memo</dfn>(<a class="typedef" href="../vorbis/codec.h.html#vorbis_block" title='vorbis_block' data-type='struct vorbis_block' data-ref="vorbis_block">vorbis_block</a> *<dfn class="local col1 decl" id="181vb" title='vb' data-type='vorbis_block *' data-ref="181vb">vb</dfn>,</td></tr>
+<tr><th id="147">147</th><td>					<a class="typedef" href="#vorbis_info_psy_global" title='vorbis_info_psy_global' data-type='struct vorbis_info_psy_global' data-ref="vorbis_info_psy_global">vorbis_info_psy_global</a> *<dfn class="local col2 decl" id="182g" title='g' data-type='vorbis_info_psy_global *' data-ref="182g">g</dfn>,</td></tr>
+<tr><th id="148">148</th><td>					<a class="typedef" href="#vorbis_look_psy" title='vorbis_look_psy' data-type='struct vorbis_look_psy' data-ref="vorbis_look_psy">vorbis_look_psy</a> *<dfn class="local col3 decl" id="183p" title='p' data-type='vorbis_look_psy *' data-ref="183p">p</dfn>,</td></tr>
+<tr><th id="149">149</th><td>					<a class="typedef" href="backends.h.html#vorbis_info_mapping0" title='vorbis_info_mapping0' data-type='struct vorbis_info_mapping0' data-ref="vorbis_info_mapping0">vorbis_info_mapping0</a> *<dfn class="local col4 decl" id="184vi" title='vi' data-type='vorbis_info_mapping0 *' data-ref="184vi">vi</dfn>,</td></tr>
+<tr><th id="150">150</th><td>					<em>float</em> **<dfn class="local col5 decl" id="185mdct" title='mdct' data-type='float **' data-ref="185mdct">mdct</dfn>);</td></tr>
+<tr><th id="151">151</th><td></td></tr>
+<tr><th id="152">152</th><td><b>extern</b> <em>void</em> <dfn class="decl" id="_vp_couple" title='_vp_couple' data-ref="_vp_couple">_vp_couple</dfn>(<em>int</em> <dfn class="local col6 decl" id="186blobno" title='blobno' data-type='int' data-ref="186blobno">blobno</dfn>,</td></tr>
+<tr><th id="153">153</th><td>		       <a class="typedef" href="#vorbis_info_psy_global" title='vorbis_info_psy_global' data-type='struct vorbis_info_psy_global' data-ref="vorbis_info_psy_global">vorbis_info_psy_global</a> *<dfn class="local col7 decl" id="187g" title='g' data-type='vorbis_info_psy_global *' data-ref="187g">g</dfn>,</td></tr>
+<tr><th id="154">154</th><td>		       <a class="typedef" href="#vorbis_look_psy" title='vorbis_look_psy' data-type='struct vorbis_look_psy' data-ref="vorbis_look_psy">vorbis_look_psy</a> *<dfn class="local col8 decl" id="188p" title='p' data-type='vorbis_look_psy *' data-ref="188p">p</dfn>,</td></tr>
+<tr><th id="155">155</th><td>		       <a class="typedef" href="backends.h.html#vorbis_info_mapping0" title='vorbis_info_mapping0' data-type='struct vorbis_info_mapping0' data-ref="vorbis_info_mapping0">vorbis_info_mapping0</a> *<dfn class="local col9 decl" id="189vi" title='vi' data-type='vorbis_info_mapping0 *' data-ref="189vi">vi</dfn>,</td></tr>
+<tr><th id="156">156</th><td>		       <em>float</em> **<dfn class="local col0 decl" id="190res" title='res' data-type='float **' data-ref="190res">res</dfn>,</td></tr>
+<tr><th id="157">157</th><td>		       <em>float</em> **<dfn class="local col1 decl" id="191mag_memo" title='mag_memo' data-type='float **' data-ref="191mag_memo">mag_memo</dfn>,</td></tr>
+<tr><th id="158">158</th><td>		       <em>int</em>   **<dfn class="local col2 decl" id="192mag_sort" title='mag_sort' data-type='int **' data-ref="192mag_sort">mag_sort</dfn>,</td></tr>
+<tr><th id="159">159</th><td>		       <em>int</em>   **<dfn class="local col3 decl" id="193ifloor" title='ifloor' data-type='int **' data-ref="193ifloor">ifloor</dfn>,</td></tr>
+<tr><th id="160">160</th><td>		       <em>int</em>   *<dfn class="local col4 decl" id="194nonzero" title='nonzero' data-type='int *' data-ref="194nonzero">nonzero</dfn>,</td></tr>
+<tr><th id="161">161</th><td>		       <em>int</em>   <dfn class="local col5 decl" id="195sliding_lowpass" title='sliding_lowpass' data-type='int' data-ref="195sliding_lowpass">sliding_lowpass</dfn>);</td></tr>
+<tr><th id="162">162</th><td></td></tr>
+<tr><th id="163">163</th><td><b>extern</b> <em>void</em> <dfn class="decl" id="_vp_noise_normalize" title='_vp_noise_normalize' data-ref="_vp_noise_normalize">_vp_noise_normalize</dfn>(<a class="typedef" href="#vorbis_look_psy" title='vorbis_look_psy' data-type='struct vorbis_look_psy' data-ref="vorbis_look_psy">vorbis_look_psy</a> *<dfn class="local col6 decl" id="196p" title='p' data-type='vorbis_look_psy *' data-ref="196p">p</dfn>,</td></tr>
+<tr><th id="164">164</th><td>				<em>float</em> *<dfn class="local col7 decl" id="197in" title='in' data-type='float *' data-ref="197in">in</dfn>,<em>float</em> *<dfn class="local col8 decl" id="198out" title='out' data-type='float *' data-ref="198out">out</dfn>,<em>int</em> *<dfn class="local col9 decl" id="199sortedindex" title='sortedindex' data-type='int *' data-ref="199sortedindex">sortedindex</dfn>);</td></tr>
+<tr><th id="165">165</th><td></td></tr>
+<tr><th id="166">166</th><td><b>extern</b> <em>void</em> <dfn class="decl" id="_vp_noise_normalize_sort" title='_vp_noise_normalize_sort' data-ref="_vp_noise_normalize_sort">_vp_noise_normalize_sort</dfn>(<a class="typedef" href="#vorbis_look_psy" title='vorbis_look_psy' data-type='struct vorbis_look_psy' data-ref="vorbis_look_psy">vorbis_look_psy</a> *<dfn class="local col0 decl" id="200p" title='p' data-type='vorbis_look_psy *' data-ref="200p">p</dfn>,</td></tr>
+<tr><th id="167">167</th><td>				     <em>float</em> *<dfn class="local col1 decl" id="201magnitudes" title='magnitudes' data-type='float *' data-ref="201magnitudes">magnitudes</dfn>,<em>int</em> *<dfn class="local col2 decl" id="202sortedindex" title='sortedindex' data-type='int *' data-ref="202sortedindex">sortedindex</dfn>);</td></tr>
+<tr><th id="168">168</th><td></td></tr>
+<tr><th id="169">169</th><td><b>extern</b> <em>int</em> **<dfn class="decl" id="_vp_quantize_couple_sort" title='_vp_quantize_couple_sort' data-ref="_vp_quantize_couple_sort">_vp_quantize_couple_sort</dfn>(<a class="typedef" href="../vorbis/codec.h.html#vorbis_block" title='vorbis_block' data-type='struct vorbis_block' data-ref="vorbis_block">vorbis_block</a> *<dfn class="local col3 decl" id="203vb" title='vb' data-type='vorbis_block *' data-ref="203vb">vb</dfn>,</td></tr>
+<tr><th id="170">170</th><td>				      <a class="typedef" href="#vorbis_look_psy" title='vorbis_look_psy' data-type='struct vorbis_look_psy' data-ref="vorbis_look_psy">vorbis_look_psy</a> *<dfn class="local col4 decl" id="204p" title='p' data-type='vorbis_look_psy *' data-ref="204p">p</dfn>,</td></tr>
+<tr><th id="171">171</th><td>				      <a class="typedef" href="backends.h.html#vorbis_info_mapping0" title='vorbis_info_mapping0' data-type='struct vorbis_info_mapping0' data-ref="vorbis_info_mapping0">vorbis_info_mapping0</a> *<dfn class="local col5 decl" id="205vi" title='vi' data-type='vorbis_info_mapping0 *' data-ref="205vi">vi</dfn>,</td></tr>
+<tr><th id="172">172</th><td>				      <em>float</em> **<dfn class="local col6 decl" id="206mags" title='mags' data-type='float **' data-ref="206mags">mags</dfn>);</td></tr>
+<tr><th id="173">173</th><td></td></tr>
+<tr><th id="174">174</th><td><u>#<span data-ppcond="18">endif</span></u></td></tr>
+<tr><th id="175">175</th><td></td></tr>
+<tr><th id="176">176</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='analysis.c.html'>codebrowser/sound/OggVorbis/vorbissrc/analysis.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

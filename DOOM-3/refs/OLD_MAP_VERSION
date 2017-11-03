@@ -1,0 +1,15 @@
+<def f='codebrowser/idlib/MapFile.h' l='46' type='const int'/>
+<doc f='codebrowser/idlib/MapFile.h' l='32'>/*
+===============================================================================
+
+	Reads or writes the contents of .map files into a standard internal
+	format, which can then be moved into private formats for collision
+	detection, map processing, or editor use.
+
+	No validation (duplicate planes, null area brushes, etc) is performed.
+	There are no limits to the number of any of the elements in maps.
+	The order of entities, brushes, and sides is maintained.
+
+===============================================================================
+*/</doc>
+<use f='codebrowser/idlib/MapFile.cpp' l='749' u='r' c='_ZN9idMapFile5ParseEPKcbb'/>

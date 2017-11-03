@@ -1,0 +1,11 @@
+<dec f='codebrowser/renderer/jpeg-6/jpeglib.h' l='517' type='JQUANT_TBL *[4]'/>
+<offset>1120</offset>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='513'>/* Quantization and Huffman tables are carried forward across input
+   * datastreams when processing abbreviated JPEG datastreams.
+   */</doc>
+<use f='codebrowser/renderer/jpeg-6/jdapimin.c' l='52' u='w' c='jpeg_create_decompress'/>
+<use f='codebrowser/renderer/jpeg-6/jdinput.c' l='234' u='r' c='latch_quant_tables'/>
+<use f='codebrowser/renderer/jpeg-6/jdinput.c' l='240' u='r' c='latch_quant_tables'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='568' u='r' c='get_dqt'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='569' u='w' c='get_dqt'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='570' u='r' c='get_dqt'/>

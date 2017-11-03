@@ -1,0 +1,28 @@
+<dec f='codebrowser/d3xp/Entity.h' l='262' type='idVec3 idEntity::GetWorldVector(const idVec3 &amp; vec) const'/>
+<def f='codebrowser/d3xp/Entity.cpp' l='2267' ll='2281' type='idVec3 idEntity::GetWorldVector(const idVec3 &amp; vec) const'/>
+<doc f='codebrowser/d3xp/Entity.cpp' l='2256'>/*
+================
+idEntity::GetWorldVector
+
+Takes a vector in the parent object&apos;s local coordinates and transforms
+it into world coordinates.
+
+Note: Does not take origin into acount.  Use getWorldCoordinate to
+convert coordinates.
+================
+*/</doc>
+<use f='codebrowser/d3xp/Mover.cpp' l='516' u='c' c='_ZN7idMover12VectorForDirEfR6idVec3'/>
+<dec f='codebrowser/game/Entity.h' l='246' type='idVec3 idEntity::GetWorldVector(const idVec3 &amp; vec) const'/>
+<def f='codebrowser/game/Entity.cpp' l='2175' ll='2189' type='idVec3 idEntity::GetWorldVector(const idVec3 &amp; vec) const'/>
+<doc f='codebrowser/game/Entity.cpp' l='2164'>/*
+================
+idEntity::GetWorldVector
+
+Takes a vector in the parent object&apos;s local coordinates and transforms
+it into world coordinates.
+
+Note: Does not take origin into acount.  Use getWorldCoordinate to
+convert coordinates.
+================
+*/</doc>
+<use f='codebrowser/game/Mover.cpp' l='514' u='c' c='_ZN7idMover12VectorForDirEfR6idVec3'/>

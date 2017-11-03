@@ -1,0 +1,104 @@
+<def f='codebrowser/framework/async/AsyncServer.h' l='131' ll='257'/>
+<size>2461672</size>
+<fun r='_ZN13idAsyncServerC1Ev'/>
+<fun r='_ZN13idAsyncServer8InitPortEv'/>
+<fun r='_ZN13idAsyncServer9ClosePortEv'/>
+<fun r='_ZN13idAsyncServer5SpawnEv'/>
+<fun r='_ZN13idAsyncServer4KillEv'/>
+<fun r='_ZN13idAsyncServer16ExecuteMapChangeEv'/>
+<fun r='_ZNK13idAsyncServer7GetPortEv'/>
+<fun r='_ZNK13idAsyncServer11GetBoundAdrEv'/>
+<fun r='_ZNK13idAsyncServer8IsActiveEv'/>
+<fun r='_ZNK13idAsyncServer8GetDelayEv'/>
+<fun r='_ZNK13idAsyncServer15GetOutgoingRateEv'/>
+<fun r='_ZNK13idAsyncServer15GetIncomingRateEv'/>
+<fun r='_ZNK13idAsyncServer14IsClientInGameEi'/>
+<fun r='_ZNK13idAsyncServer13GetClientPingEi'/>
+<fun r='_ZNK13idAsyncServer19GetClientPredictionEi'/>
+<fun r='_ZNK13idAsyncServer28GetClientTimeSinceLastPacketEi'/>
+<fun r='_ZNK13idAsyncServer27GetClientTimeSinceLastInputEi'/>
+<fun r='_ZNK13idAsyncServer21GetClientOutgoingRateEi'/>
+<fun r='_ZNK13idAsyncServer21GetClientIncomingRateEi'/>
+<fun r='_ZNK13idAsyncServer28GetClientOutgoingCompressionEi'/>
+<fun r='_ZNK13idAsyncServer28GetClientIncomingCompressionEi'/>
+<fun r='_ZNK13idAsyncServer27GetClientIncomingPacketLossEi'/>
+<fun r='_ZNK13idAsyncServer13GetNumClientsEv'/>
+<fun r='_ZNK13idAsyncServer17GetNumIdleClientsEv'/>
+<fun r='_ZNK13idAsyncServer17GetLocalClientNumEv'/>
+<fun r='_ZN13idAsyncServer8RunFrameEv'/>
+<fun r='_ZN13idAsyncServer29ProcessConnectionLessMessagesEv'/>
+<fun r='_ZN13idAsyncServer19RemoteConsoleOutputEPKc'/>
+<fun r='_ZN13idAsyncServer23SendReliableGameMessageEiRK8idBitMsg'/>
+<fun r='_ZN13idAsyncServer32SendReliableGameMessageExcludingEiRK8idBitMsg'/>
+<fun r='_ZN13idAsyncServer30LocalClientSendReliableMessageERK8idBitMsg'/>
+<fun r='_ZN13idAsyncServer15MasterHeartbeatEb'/>
+<fun r='_ZN13idAsyncServer10DropClientEiPKc'/>
+<fun r='_ZN13idAsyncServer14PacifierUpdateEv'/>
+<fun r='_ZN13idAsyncServer8UpdateUIEi'/>
+<fun r='_ZN13idAsyncServer19UpdateAsyncStatsAvgEv'/>
+<fun r='_ZN13idAsyncServer19GetAsyncStatsAvgMsgER5idStr'/>
+<fun r='_ZN13idAsyncServer20PrintLocalServerInfoEv'/>
+<mbr r='idAsyncServer::active' o='0' t='bool'/>
+<mbr r='idAsyncServer::realTime' o='32' t='int'/>
+<mbr r='idAsyncServer::serverTime' o='64' t='int'/>
+<mbr r='idAsyncServer::serverPort' o='96' t='idPort'/>
+<mbr r='idAsyncServer::serverId' o='384' t='int'/>
+<mbr r='idAsyncServer::serverDataChecksum' o='416' t='int'/>
+<mbr r='idAsyncServer::localClientNum' o='448' t='int'/>
+<mbr r='idAsyncServer::challenges' o='480' t='challenge_t [1024]'/>
+<mbr r='idAsyncServer::clients' o='754144' t='serverClient_t [32]'/>
+<mbr r='idAsyncServer::userCmds' o='17593824' t='usercmd_t [256][32]'/>
+<mbr r='idAsyncServer::gameInitId' o='19690976' t='int'/>
+<mbr r='idAsyncServer::gameFrame' o='19691008' t='int'/>
+<mbr r='idAsyncServer::gameTime' o='19691040' t='int'/>
+<mbr r='idAsyncServer::gameTimeResidual' o='19691072' t='int'/>
+<mbr r='idAsyncServer::rconAddress' o='19691104' t='netadr_t'/>
+<mbr r='idAsyncServer::nextHeartbeatTime' o='19691200' t='int'/>
+<mbr r='idAsyncServer::nextAsyncStatsTime' o='19691232' t='int'/>
+<mbr r='idAsyncServer::serverReloadingEngine' o='19691264' t='bool'/>
+<mbr r='idAsyncServer::noRconOutput' o='19691272' t='bool'/>
+<mbr r='idAsyncServer::lastAuthTime' o='19691296' t='int'/>
+<smbr r='idAsyncServer::stats_numsamples' t='const int'/>
+<mbr r='idAsyncServer::stats_outrate' o='19691328' t='int [60]'/>
+<mbr r='idAsyncServer::stats_current' o='19693248' t='int'/>
+<mbr r='idAsyncServer::stats_average_sum' o='19693280' t='int'/>
+<mbr r='idAsyncServer::stats_max' o='19693312' t='int'/>
+<mbr r='idAsyncServer::stats_max_index' o='19693344' t='int'/>
+<fun r='_ZN13idAsyncServer8PrintOOBE8netadr_tiPKc'/>
+<fun r='_ZN13idAsyncServer17DuplicateUsercmdsEii'/>
+<fun r='_ZN13idAsyncServer11ClearClientEi'/>
+<fun r='_ZN13idAsyncServer10InitClientEiii'/>
+<fun r='_ZN13idAsyncServer15InitLocalClientEi'/>
+<fun r='_ZN13idAsyncServer16BeginLocalClientEv'/>
+<fun r='_ZN13idAsyncServer16LocalClientInputEv'/>
+<fun r='_ZN13idAsyncServer19CheckClientTimeoutsEv'/>
+<fun r='_ZN13idAsyncServer18SendPrintBroadcastEPKc'/>
+<fun r='_ZN13idAsyncServer17SendPrintToClientEiPKc'/>
+<fun r='_ZN13idAsyncServer21SendUserInfoBroadcastEiRK6idDictb'/>
+<fun r='_ZN13idAsyncServer20SendUserInfoToClientEiiRK6idDict'/>
+<fun r='_ZN13idAsyncServer24SendSyncedCvarsBroadcastERK6idDict'/>
+<fun r='_ZN13idAsyncServer23SendSyncedCvarsToClientEiRK6idDict'/>
+<fun r='_ZN13idAsyncServer25SendApplySnapshotToClientEii'/>
+<fun r='_ZN13idAsyncServer17SendEmptyToClientEib'/>
+<fun r='_ZN13idAsyncServer16SendPingToClientEi'/>
+<fun r='_ZN13idAsyncServer20SendGameInitToClientEi'/>
+<fun r='_ZN13idAsyncServer20SendSnapshotToClientEi'/>
+<fun r='_ZN13idAsyncServer30ProcessUnreliableClientMessageEiRK8idBitMsg'/>
+<fun r='_ZN13idAsyncServer29ProcessReliableClientMessagesEi'/>
+<fun r='_ZN13idAsyncServer23ProcessChallengeMessageE8netadr_tRK8idBitMsg'/>
+<fun r='_ZN13idAsyncServer21ProcessConnectMessageE8netadr_tRK8idBitMsg'/>
+<fun r='_ZN13idAsyncServer27ProcessRemoteConsoleMessageE8netadr_tRK8idBitMsg'/>
+<fun r='_ZN13idAsyncServer21ProcessGetInfoMessageE8netadr_tRK8idBitMsg'/>
+<fun r='_ZN13idAsyncServer21ConnectionlessMessageE8netadr_tRK8idBitMsg'/>
+<fun r='_ZN13idAsyncServer14ProcessMessageE8netadr_tR8idBitMsg'/>
+<fun r='_ZN13idAsyncServer18ProcessAuthMessageERK8idBitMsg'/>
+<fun r='_ZN13idAsyncServer21SendPureServerMessageE8netadr_ti'/>
+<fun r='_ZN13idAsyncServer18ProcessPureMessageE8netadr_tRK8idBitMsg'/>
+<fun r='_ZN13idAsyncServer17ValidateChallengeE8netadr_tii'/>
+<fun r='_ZN13idAsyncServer24SendReliablePureToClientEi'/>
+<fun r='_ZN13idAsyncServer19ProcessReliablePureEiRK8idBitMsg'/>
+<fun r='_ZN13idAsyncServer21VerifyChecksumMessageEiPK8netadr_tRK8idBitMsgR5idStri'/>
+<fun r='_ZN13idAsyncServer19SendReliableMessageEiRK8idBitMsg'/>
+<fun r='_ZN13idAsyncServer10UpdateTimeEi'/>
+<fun r='_ZN13idAsyncServer21SendEnterGameToClientEi'/>
+<fun r='_ZN13idAsyncServer29ProcessDownloadRequestMessageE8netadr_tRK8idBitMsg'/>

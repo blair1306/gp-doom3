@@ -1,0 +1,33 @@
+<dec f='codebrowser/sound/OggVorbis/vorbis/vorbisfile.h' l='131' type='long ov_read(OggVorbis_File * vf, char * buffer, int length, int bigendianp, int word, int sgned, int * bitstream)'/>
+<def f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1527' ll='1656' type='long ov_read(OggVorbis_File * vf, char * buffer, int length, int bigendianp, int word, int sgned, int * bitstream)'/>
+<doc f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1496'>/* up to this point, everything could more or less hide the multiple
+   logical bitstream nature of chaining from the toplevel application
+   if the toplevel application didn&apos;t particularly care.  However, at
+   the point that we actually read audio back, the multiple-section
+   nature must surface: Multiple bitstream sections do not necessarily
+   have to have the same number of channels or sampling rate.
+
+   ov_read returns the sequential logical bitstream number currently
+   being decoded along with the PCM data in order that the toplevel
+   application can take action on channel/sample rate changes.  This
+   number will be incremented even for streamed (non-seekable) streams
+   (for seekable streams, it represents the actual logical bitstream
+   index within the physical bitstream.  Note that the accessor
+   functions above are aware of this dichotomy).
+
+   input values: buffer) a buffer to hold packed PCM data for return
+		 length) the byte length requested to be placed into buffer
+		 bigendianp) should the data be packed LSB first (0) or
+		             MSB first (1)
+		 word) word size for output.  currently 1 (byte) or 
+		       2 (16 bit short)
+
+   return values: &lt;0) error/hole in data (OV_HOLE), partial open (OV_EINVAL)
+                   0) EOF
+		   n) number of bytes of PCM actually returned.  The
+		   below works on a packet-by-packet basis, so the
+		   return length is not related to the &apos;length&apos; passed
+		   in, just guaranteed to fit.
+
+	    *section) set to the logical bitstream number */</doc>
+<use f='codebrowser/sound/snd_decoder.cpp' l='233' u='c' c='_ZN10idWaveFile7ReadOGGEPhiPi'/>

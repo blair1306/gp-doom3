@@ -1,0 +1,9 @@
+<dec f='codebrowser/sys/sys_public.h' l='384' type='void Sys_SetFatalError(const char * error)'/>
+<doc f='codebrowser/sys/sys_public.h' l='383'>// know early if we are performing a fatal error shutdown so the error message doesn&apos;t get lost</doc>
+<use f='codebrowser/framework/Common.cpp' l='763' u='c' c='_ZN13idCommonLocal10FatalErrorEPKcz'/>
+<def f='codebrowser/sys/posix/posix_signal.cpp' l='164' ll='166' type='void Sys_SetFatalError(const char * error)'/>
+<doc f='codebrowser/sys/posix/posix_signal.cpp' l='159'>/*
+==================
+Sys_SetFatalError
+==================
+*/</doc>

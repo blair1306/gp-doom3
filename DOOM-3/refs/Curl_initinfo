@@ -1,0 +1,8 @@
+<dec f='codebrowser/curl/lib/getinfo.h' l='26' type='CURLcode Curl_initinfo(struct SessionHandle * data)'/>
+<use f='codebrowser/curl/lib/file.c' l='183' u='c' c='Curl_file'/>
+<def f='codebrowser/curl/lib/getinfo.c' l='50' ll='73' type='CURLcode Curl_initinfo(struct SessionHandle * data)'/>
+<doc f='codebrowser/curl/lib/getinfo.c' l='46'>/*
+ * This is supposed to be called in the beginning of a permform() session
+ * and should reset all session-info variables
+ */</doc>
+<use f='codebrowser/curl/lib/transfer.c' l='1507' u='c' c='Curl_pretransfer'/>

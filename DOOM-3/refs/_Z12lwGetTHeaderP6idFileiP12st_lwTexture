@@ -1,0 +1,11 @@
+<dec f='codebrowser/renderer/Model_lwo.h' l='621' type='int lwGetTHeader(idFile * fp, int hsz, lwTexture * tex)'/>
+<def f='codebrowser/renderer/Model_lwo.cpp' l='2977' ll='3057' type='int lwGetTHeader(idFile * fp, int hsz, lwTexture * tex)'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='3455' u='c' c='_Z12lwGetTextureP6idFileij'/>
+<doc f='codebrowser/renderer/Model_lwo.cpp' l='2968'>/*
+======================================================================
+lwGetTHeader()
+
+Read a texture map header from a SURF.BLOK in an LWO2 file.  This is
+the first subchunk in a BLOK, and its contents are common to all three
+texture types.
+====================================================================== */</doc>

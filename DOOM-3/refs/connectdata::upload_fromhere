@@ -1,0 +1,19 @@
+<dec f='codebrowser/curl/lib/urldata.h' l='563' type='char *'/>
+<offset>15680</offset>
+<doc f='codebrowser/curl/lib/urldata.h' l='559'>/* &apos;upload_fromhere&apos; is used as a read-pointer when we uploaded parts of a
+      buffer, so the next read should read from where this pointer points to,
+      and the &apos;upload_present&apos; contains the number of bytes available at this
+      position */</doc>
+<use f='codebrowser/curl/lib/transfer.c' l='139' u='w' c='fillbuffer'/>
+<use f='codebrowser/curl/lib/transfer.c' l='142' u='r' c='fillbuffer'/>
+<use f='codebrowser/curl/lib/transfer.c' l='151' u='w' c='fillbuffer'/>
+<use f='codebrowser/curl/lib/transfer.c' l='155' u='r' c='fillbuffer'/>
+<use f='codebrowser/curl/lib/transfer.c' l='158' u='r' c='fillbuffer'/>
+<use f='codebrowser/curl/lib/transfer.c' l='1074' u='w' c='Curl_readwrite'/>
+<use f='codebrowser/curl/lib/transfer.c' l='1122' u='r' c='Curl_readwrite'/>
+<use f='codebrowser/curl/lib/transfer.c' l='1127' u='r' c='Curl_readwrite'/>
+<use f='codebrowser/curl/lib/transfer.c' l='1135' u='w' c='Curl_readwrite'/>
+<use f='codebrowser/curl/lib/transfer.c' l='1150' u='r' c='Curl_readwrite'/>
+<use f='codebrowser/curl/lib/transfer.c' l='1158' u='r' c='Curl_readwrite'/>
+<use f='codebrowser/curl/lib/transfer.c' l='1169' u='w' c='Curl_readwrite'/>
+<use f='codebrowser/curl/lib/transfer.c' l='1175' u='w' c='Curl_readwrite'/>

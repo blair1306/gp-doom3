@@ -1,0 +1,6 @@
+<dec f='codebrowser/sound/OggVorbis/ogg/ogg.h' l='178' type='void ogg_page_checksum_set(ogg_page * og)'/>
+<def f='codebrowser/sound/OggVorbis/oggsrc/framing.c' l='248' ll='269' type='void ogg_page_checksum_set(ogg_page * og)'/>
+<use f='codebrowser/sound/OggVorbis/oggsrc/framing.c' l='436' u='c' c='ogg_stream_flush'/>
+<use f='codebrowser/sound/OggVorbis/oggsrc/framing.c' l='585' u='c' c='ogg_sync_pageseek'/>
+<doc f='codebrowser/sound/OggVorbis/oggsrc/framing.c' l='245'>/* Direct table CRC; note that this will be faster in the future if we
+   perform the checksum silmultaneously with other copies */</doc>

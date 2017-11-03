@@ -1,0 +1,9 @@
+<def f='codebrowser/renderer/Material.h' l='468' ll='469' type='bool idMaterial::LightCastsShadows() const'/>
+<doc f='codebrowser/renderer/Material.h' l='466'>// implicitly no-shadows lights (ambients, fogs, etc) will never cast shadows
+						// but individual light entities can also override this value</doc>
+<use f='codebrowser/renderer/Interaction.cpp' l='657' u='c' c='_ZNK13idInteraction10HasShadowsEv'/>
+<use f='codebrowser/renderer/RenderWorld_portals.cpp' l='742' u='c' c='_ZN18idRenderWorldLocal16AddAreaLightRefsEiPK13portalStack_s'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='562' u='c' c='_ZN18idRenderWorldLocal26CreateLightDefInteractionsEP18idRenderLightLocal'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1592' u='c' c='_Z28R_RemoveUnecessaryViewLightsv'/>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='486' u='c' c='_Z17R_CreateLightRefsP18idRenderLightLocal'/>
+<use f='codebrowser/tools/compilers/dmap/usurface.cpp' l='819' u='c' c='_ZL17BuildLightShadowsP9uEntity_tP10mapLight_t'/>

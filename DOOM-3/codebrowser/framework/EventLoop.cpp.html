@@ -1,0 +1,292 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>EventLoop.cpp source code [codebrowser/framework/EventLoop.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/framework/EventLoop.cpp'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>framework</a>/<a href='EventLoop.cpp.html'>EventLoop.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="../idlib/precompiled.h.html">"../idlib/precompiled.h"</a></u></td></tr>
+<tr><th id="30">30</th><td><u>#pragma hdrstop</u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><a class="type" href="CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a> <a class="type" href="EventLoop.h.html#idEventLoop" title='idEventLoop' data-ref="idEventLoop">idEventLoop</a>::<dfn class="decl def" id="idEventLoop::com_journal" title='idEventLoop::com_journal' data-ref="idEventLoop::com_journal">com_journal</dfn><a class="ref" href="CVarSystem.h.html#_ZN6idCVarC1EPKcS1_iS1_ffPFvRK9idCmdArgsPFvS1_EE" title='idCVar::idCVar' data-ref="_ZN6idCVarC1EPKcS1_iS1_ffPFvRK9idCmdArgsPFvS1_EE">(</a> <q>"com_journal"</q>, <q>"0"</q>, <a class="enum" href="CVarSystem.h.html#CVAR_INIT" title='CVAR_INIT' data-ref="CVAR_INIT">CVAR_INIT</a>|<a class="enum" href="CVarSystem.h.html#CVAR_SYSTEM" title='CVAR_SYSTEM' data-ref="CVAR_SYSTEM">CVAR_SYSTEM</a>, <q>"1 = record journal, 2 = play back journal"</q>, <var>0</var>, <var>2</var>, <a class="type" href="CmdSystem.h.html#idCmdSystem" title='idCmdSystem' data-ref="idCmdSystem">idCmdSystem</a>::<a class="ref" href="CmdSystem.h.html#_ZN11idCmdSystem21ArgCompletion_IntegerERK9idCmdArgsPFvPKcE" title='idCmdSystem::ArgCompletion_Integer' data-ref="_ZN11idCmdSystem21ArgCompletion_IntegerERK9idCmdArgsPFvPKcE">ArgCompletion_Integer</a>&lt;<var>0</var>,<var>2</var>&gt; );</td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><a class="type" href="EventLoop.h.html#idEventLoop" title='idEventLoop' data-ref="idEventLoop">idEventLoop</a> <a class="ref fake" href="#_ZN11idEventLoopC1Ev" title='idEventLoop::idEventLoop' data-ref="_ZN11idEventLoopC1Ev"></a><dfn class="decl def" id="eventLoopLocal" title='eventLoopLocal' data-ref="eventLoopLocal">eventLoopLocal</dfn>;</td></tr>
+<tr><th id="35">35</th><td><a class="type" href="EventLoop.h.html#idEventLoop" title='idEventLoop' data-ref="idEventLoop">idEventLoop</a> *<dfn class="decl def" id="eventLoop" title='eventLoop' data-ref="eventLoop">eventLoop</dfn> = &amp;<a class="ref" href="#eventLoopLocal" title='eventLoopLocal' data-ref="eventLoopLocal">eventLoopLocal</a>;</td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td><i>/*</i></td></tr>
+<tr><th id="39">39</th><td><i>=================</i></td></tr>
+<tr><th id="40">40</th><td><i>idEventLoop::idEventLoop</i></td></tr>
+<tr><th id="41">41</th><td><i>=================</i></td></tr>
+<tr><th id="42">42</th><td><i>*/</i></td></tr>
+<tr><th id="43">43</th><td><a class="type" href="EventLoop.h.html#idEventLoop" title='idEventLoop' data-ref="idEventLoop">idEventLoop</a>::<dfn class="decl def" id="_ZN11idEventLoopC1Ev" title='idEventLoop::idEventLoop' data-ref="_ZN11idEventLoopC1Ev">idEventLoop</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="44">44</th><td>	<a class="member" href="EventLoop.h.html#idEventLoop::com_journalFile" title='idEventLoop::com_journalFile' data-ref="idEventLoop::com_journalFile">com_journalFile</a> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="45">45</th><td>	<a class="member" href="EventLoop.h.html#idEventLoop::com_journalDataFile" title='idEventLoop::com_journalDataFile' data-ref="idEventLoop::com_journalDataFile">com_journalDataFile</a> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="46">46</th><td>	<a class="member" href="EventLoop.h.html#idEventLoop::initialTimeOffset" title='idEventLoop::initialTimeOffset' data-ref="idEventLoop::initialTimeOffset">initialTimeOffset</a> = <var>0</var>;</td></tr>
+<tr><th id="47">47</th><td>}</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td><i>/*</i></td></tr>
+<tr><th id="50">50</th><td><i>=================</i></td></tr>
+<tr><th id="51">51</th><td><i>idEventLoop::~idEventLoop</i></td></tr>
+<tr><th id="52">52</th><td><i>=================</i></td></tr>
+<tr><th id="53">53</th><td><i>*/</i></td></tr>
+<tr><th id="54">54</th><td><a class="type" href="EventLoop.h.html#idEventLoop" title='idEventLoop' data-ref="idEventLoop">idEventLoop</a>::<dfn class="decl def" id="_ZN11idEventLoopD1Ev" title='idEventLoop::~idEventLoop' data-ref="_ZN11idEventLoopD1Ev">~idEventLoop</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="55">55</th><td>}</td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td><i>/*</i></td></tr>
+<tr><th id="58">58</th><td><i>=================</i></td></tr>
+<tr><th id="59">59</th><td><i>idEventLoop::GetRealEvent</i></td></tr>
+<tr><th id="60">60</th><td><i>=================</i></td></tr>
+<tr><th id="61">61</th><td><i>*/</i></td></tr>
+<tr><th id="62">62</th><td><a class="typedef" href="../sys/sys_public.h.html#sysEvent_t" title='sysEvent_t' data-type='struct sysEvent_s' data-ref="sysEvent_t">sysEvent_t</a>	<a class="type" href="EventLoop.h.html#idEventLoop" title='idEventLoop' data-ref="idEventLoop">idEventLoop</a>::<dfn class="decl def" id="_ZN11idEventLoop12GetRealEventEv" title='idEventLoop::GetRealEvent' data-ref="_ZN11idEventLoop12GetRealEventEv">GetRealEvent</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="63">63</th><td>	<em>int</em>			<dfn class="local col1 decl" id="1r" title='r' data-type='int' data-ref="1r">r</dfn>;</td></tr>
+<tr><th id="64">64</th><td>	<a class="typedef" href="../sys/sys_public.h.html#sysEvent_t" title='sysEvent_t' data-type='struct sysEvent_s' data-ref="sysEvent_t">sysEvent_t</a>	<a class="ref fake" href="../sys/sys_public.h.html#215" title='sysEvent_s::sysEvent_s' data-ref="_ZN10sysEvent_sC1Ev"></a><dfn class="local col2 decl" id="2ev" title='ev' data-type='sysEvent_t' data-ref="2ev">ev</dfn>;</td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td>	<i>// either get an event from the system or the journal file</i></td></tr>
+<tr><th id="67">67</th><td>	<b>if</b> ( <a class="member" href="EventLoop.h.html#idEventLoop::com_journal" title='idEventLoop::com_journal' data-ref="idEventLoop::com_journal">com_journal</a>.<a class="ref" href="CVarSystem.h.html#_ZNK6idCVar10GetIntegerEv" title='idCVar::GetInteger' data-ref="_ZNK6idCVar10GetIntegerEv">GetInteger</a>() == <var>2</var> ) {</td></tr>
+<tr><th id="68">68</th><td>		<a class="local col1 ref" href="#1r" title='r' data-ref="1r">r</a> = <a class="member" href="EventLoop.h.html#idEventLoop::com_journalFile" title='idEventLoop::com_journalFile' data-ref="idEventLoop::com_journalFile">com_journalFile</a>-&gt;<a class="virtual ref" href="File.h.html#_ZN6idFile4ReadEPvi" title='idFile::Read' data-ref="_ZN6idFile4ReadEPvi">Read</a>( &amp;<a class="local col2 ref" href="#2ev" title='ev' data-ref="2ev">ev</a>, <b>sizeof</b>(<a class="local col2 ref" href="#2ev" title='ev' data-ref="2ev">ev</a>) );</td></tr>
+<tr><th id="69">69</th><td>		<b>if</b> ( <a class="local col1 ref" href="#1r" title='r' data-ref="1r">r</a> != <b>sizeof</b>(<a class="local col2 ref" href="#2ev" title='ev' data-ref="2ev">ev</a>) ) {</td></tr>
+<tr><th id="70">70</th><td>			<a class="ref" href="Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="Common.h.html#_ZN8idCommon10FatalErrorEPKcz" title='idCommon::FatalError' data-ref="_ZN8idCommon10FatalErrorEPKcz">FatalError</a>( <q>"Error reading from journal file"</q> );</td></tr>
+<tr><th id="71">71</th><td>		}</td></tr>
+<tr><th id="72">72</th><td>		<b>if</b> ( <a class="local col2 ref" href="#2ev" title='ev' data-ref="2ev">ev</a>.<a class="ref" href="../sys/sys_public.h.html#sysEvent_s::evPtrLength" title='sysEvent_s::evPtrLength' data-ref="sysEvent_s::evPtrLength">evPtrLength</a> ) {</td></tr>
+<tr><th id="73">73</th><td>			<a class="local col2 ref" href="#2ev" title='ev' data-ref="2ev">ev</a>.<a class="ref" href="../sys/sys_public.h.html#sysEvent_s::evPtr" title='sysEvent_s::evPtr' data-ref="sysEvent_s::evPtr">evPtr</a> = <a class="ref" href="../idlib/Heap.h.html#_Z16Mem_ClearedAlloci" title='Mem_ClearedAlloc' data-ref="_Z16Mem_ClearedAlloci">Mem_ClearedAlloc</a>( <a class="local col2 ref" href="#2ev" title='ev' data-ref="2ev">ev</a>.<a class="ref" href="../sys/sys_public.h.html#sysEvent_s::evPtrLength" title='sysEvent_s::evPtrLength' data-ref="sysEvent_s::evPtrLength">evPtrLength</a> );</td></tr>
+<tr><th id="74">74</th><td>			<a class="local col1 ref" href="#1r" title='r' data-ref="1r">r</a> = <a class="member" href="EventLoop.h.html#idEventLoop::com_journalFile" title='idEventLoop::com_journalFile' data-ref="idEventLoop::com_journalFile">com_journalFile</a>-&gt;<a class="virtual ref" href="File.h.html#_ZN6idFile4ReadEPvi" title='idFile::Read' data-ref="_ZN6idFile4ReadEPvi">Read</a>( <a class="local col2 ref" href="#2ev" title='ev' data-ref="2ev">ev</a>.<a class="ref" href="../sys/sys_public.h.html#sysEvent_s::evPtr" title='sysEvent_s::evPtr' data-ref="sysEvent_s::evPtr">evPtr</a>, <a class="local col2 ref" href="#2ev" title='ev' data-ref="2ev">ev</a>.<a class="ref" href="../sys/sys_public.h.html#sysEvent_s::evPtrLength" title='sysEvent_s::evPtrLength' data-ref="sysEvent_s::evPtrLength">evPtrLength</a> );</td></tr>
+<tr><th id="75">75</th><td>			<b>if</b> ( <a class="local col1 ref" href="#1r" title='r' data-ref="1r">r</a> != <a class="local col2 ref" href="#2ev" title='ev' data-ref="2ev">ev</a>.<a class="ref" href="../sys/sys_public.h.html#sysEvent_s::evPtrLength" title='sysEvent_s::evPtrLength' data-ref="sysEvent_s::evPtrLength">evPtrLength</a> ) {</td></tr>
+<tr><th id="76">76</th><td>				<a class="ref" href="Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="Common.h.html#_ZN8idCommon10FatalErrorEPKcz" title='idCommon::FatalError' data-ref="_ZN8idCommon10FatalErrorEPKcz">FatalError</a>( <q>"Error reading from journal file"</q> );</td></tr>
+<tr><th id="77">77</th><td>			}</td></tr>
+<tr><th id="78">78</th><td>		}</td></tr>
+<tr><th id="79">79</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="80">80</th><td>		<a class="local col2 ref" href="#2ev" title='ev' data-ref="2ev">ev</a> <a class="ref" href="../sys/sys_public.h.html#215" title='sysEvent_s::operator=' data-ref="_ZN10sysEvent_saSERKS_">=</a> <a class="ref" href="../sys/sys_public.h.html#_Z12Sys_GetEventv" title='Sys_GetEvent' data-ref="_Z12Sys_GetEventv">Sys_GetEvent</a>();</td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td>		<i>// write the journal value out if needed</i></td></tr>
+<tr><th id="83">83</th><td>		<b>if</b> ( <a class="member" href="EventLoop.h.html#idEventLoop::com_journal" title='idEventLoop::com_journal' data-ref="idEventLoop::com_journal">com_journal</a>.<a class="ref" href="CVarSystem.h.html#_ZNK6idCVar10GetIntegerEv" title='idCVar::GetInteger' data-ref="_ZNK6idCVar10GetIntegerEv">GetInteger</a>() == <var>1</var> ) {</td></tr>
+<tr><th id="84">84</th><td>			<a class="local col1 ref" href="#1r" title='r' data-ref="1r">r</a> = <a class="member" href="EventLoop.h.html#idEventLoop::com_journalFile" title='idEventLoop::com_journalFile' data-ref="idEventLoop::com_journalFile">com_journalFile</a>-&gt;<a class="virtual ref" href="File.h.html#_ZN6idFile5WriteEPKvi" title='idFile::Write' data-ref="_ZN6idFile5WriteEPKvi">Write</a>( &amp;<a class="local col2 ref" href="#2ev" title='ev' data-ref="2ev">ev</a>, <b>sizeof</b>(<a class="local col2 ref" href="#2ev" title='ev' data-ref="2ev">ev</a>) );</td></tr>
+<tr><th id="85">85</th><td>			<b>if</b> ( <a class="local col1 ref" href="#1r" title='r' data-ref="1r">r</a> != <b>sizeof</b>(<a class="local col2 ref" href="#2ev" title='ev' data-ref="2ev">ev</a>) ) {</td></tr>
+<tr><th id="86">86</th><td>				<a class="ref" href="Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="Common.h.html#_ZN8idCommon10FatalErrorEPKcz" title='idCommon::FatalError' data-ref="_ZN8idCommon10FatalErrorEPKcz">FatalError</a>( <q>"Error writing to journal file"</q> );</td></tr>
+<tr><th id="87">87</th><td>			}</td></tr>
+<tr><th id="88">88</th><td>			<b>if</b> ( <a class="local col2 ref" href="#2ev" title='ev' data-ref="2ev">ev</a>.<a class="ref" href="../sys/sys_public.h.html#sysEvent_s::evPtrLength" title='sysEvent_s::evPtrLength' data-ref="sysEvent_s::evPtrLength">evPtrLength</a> ) {</td></tr>
+<tr><th id="89">89</th><td>				<a class="local col1 ref" href="#1r" title='r' data-ref="1r">r</a> = <a class="member" href="EventLoop.h.html#idEventLoop::com_journalFile" title='idEventLoop::com_journalFile' data-ref="idEventLoop::com_journalFile">com_journalFile</a>-&gt;<a class="virtual ref" href="File.h.html#_ZN6idFile5WriteEPKvi" title='idFile::Write' data-ref="_ZN6idFile5WriteEPKvi">Write</a>( <a class="local col2 ref" href="#2ev" title='ev' data-ref="2ev">ev</a>.<a class="ref" href="../sys/sys_public.h.html#sysEvent_s::evPtr" title='sysEvent_s::evPtr' data-ref="sysEvent_s::evPtr">evPtr</a>, <a class="local col2 ref" href="#2ev" title='ev' data-ref="2ev">ev</a>.<a class="ref" href="../sys/sys_public.h.html#sysEvent_s::evPtrLength" title='sysEvent_s::evPtrLength' data-ref="sysEvent_s::evPtrLength">evPtrLength</a> );</td></tr>
+<tr><th id="90">90</th><td>				<b>if</b> ( <a class="local col1 ref" href="#1r" title='r' data-ref="1r">r</a> != <a class="local col2 ref" href="#2ev" title='ev' data-ref="2ev">ev</a>.<a class="ref" href="../sys/sys_public.h.html#sysEvent_s::evPtrLength" title='sysEvent_s::evPtrLength' data-ref="sysEvent_s::evPtrLength">evPtrLength</a> ) {</td></tr>
+<tr><th id="91">91</th><td>					<a class="ref" href="Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="Common.h.html#_ZN8idCommon10FatalErrorEPKcz" title='idCommon::FatalError' data-ref="_ZN8idCommon10FatalErrorEPKcz">FatalError</a>( <q>"Error writing to journal file"</q> );</td></tr>
+<tr><th id="92">92</th><td>				}</td></tr>
+<tr><th id="93">93</th><td>			}</td></tr>
+<tr><th id="94">94</th><td>		}</td></tr>
+<tr><th id="95">95</th><td>	}</td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td>	<b>return</b> <a class="local col2 ref" href="#2ev" title='ev' data-ref="2ev">ev</a>;</td></tr>
+<tr><th id="98">98</th><td>}</td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td><i>/*</i></td></tr>
+<tr><th id="101">101</th><td><i>=================</i></td></tr>
+<tr><th id="102">102</th><td><i>idEventLoop::PushEvent</i></td></tr>
+<tr><th id="103">103</th><td><i>=================</i></td></tr>
+<tr><th id="104">104</th><td><i>*/</i></td></tr>
+<tr><th id="105">105</th><td><em>void</em> <a class="type" href="EventLoop.h.html#idEventLoop" title='idEventLoop' data-ref="idEventLoop">idEventLoop</a>::<dfn class="decl def" id="_ZN11idEventLoop9PushEventEP10sysEvent_s" title='idEventLoop::PushEvent' data-ref="_ZN11idEventLoop9PushEventEP10sysEvent_s">PushEvent</dfn>( <a class="typedef" href="../sys/sys_public.h.html#sysEvent_t" title='sysEvent_t' data-type='struct sysEvent_s' data-ref="sysEvent_t">sysEvent_t</a> *<dfn class="local col3 decl" id="3event" title='event' data-type='sysEvent_t *' data-ref="3event">event</dfn> ) {</td></tr>
+<tr><th id="106">106</th><td>	<a class="typedef" href="../sys/sys_public.h.html#sysEvent_t" title='sysEvent_t' data-type='struct sysEvent_s' data-ref="sysEvent_t">sysEvent_t</a>		*<dfn class="local col4 decl" id="4ev" title='ev' data-type='sysEvent_t *' data-ref="4ev">ev</dfn>;</td></tr>
+<tr><th id="107">107</th><td>	<em>static</em>			<em>bool</em> <dfn class="local col5 decl" id="5printedWarning" title='printedWarning' data-type='bool' data-ref="5printedWarning">printedWarning</dfn>;</td></tr>
+<tr><th id="108">108</th><td></td></tr>
+<tr><th id="109">109</th><td>	<a class="local col4 ref" href="#4ev" title='ev' data-ref="4ev">ev</a> = &amp;<a class="member" href="EventLoop.h.html#idEventLoop::com_pushedEvents" title='idEventLoop::com_pushedEvents' data-ref="idEventLoop::com_pushedEvents">com_pushedEvents</a>[ <a class="member" href="EventLoop.h.html#idEventLoop::com_pushedEventsHead" title='idEventLoop::com_pushedEventsHead' data-ref="idEventLoop::com_pushedEventsHead">com_pushedEventsHead</a> &amp; (<a class="ref" href="EventLoop.h.html#MAX_PUSHED_EVENTS" title='MAX_PUSHED_EVENTS' data-ref="MAX_PUSHED_EVENTS">MAX_PUSHED_EVENTS</a>-<var>1</var>) ];</td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td>	<b>if</b> ( <a class="member" href="EventLoop.h.html#idEventLoop::com_pushedEventsHead" title='idEventLoop::com_pushedEventsHead' data-ref="idEventLoop::com_pushedEventsHead">com_pushedEventsHead</a> - <a class="member" href="EventLoop.h.html#idEventLoop::com_pushedEventsTail" title='idEventLoop::com_pushedEventsTail' data-ref="idEventLoop::com_pushedEventsTail">com_pushedEventsTail</a> &gt;= <a class="ref" href="EventLoop.h.html#MAX_PUSHED_EVENTS" title='MAX_PUSHED_EVENTS' data-ref="MAX_PUSHED_EVENTS">MAX_PUSHED_EVENTS</a> ) {</td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td>		<i>// don't print the warning constantly, or it can give time for more...</i></td></tr>
+<tr><th id="114">114</th><td>		<b>if</b> ( !<a class="local col5 ref" href="#5printedWarning" title='printedWarning' data-ref="5printedWarning">printedWarning</a> ) {</td></tr>
+<tr><th id="115">115</th><td>			<a class="local col5 ref" href="#5printedWarning" title='printedWarning' data-ref="5printedWarning">printedWarning</a> = <b>true</b>;</td></tr>
+<tr><th id="116">116</th><td>			<a class="ref" href="Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"WARNING: Com_PushEvent overflow\n"</q> );</td></tr>
+<tr><th id="117">117</th><td>		}</td></tr>
+<tr><th id="118">118</th><td></td></tr>
+<tr><th id="119">119</th><td>		<b>if</b> ( <a class="local col4 ref" href="#4ev" title='ev' data-ref="4ev">ev</a>-&gt;<a class="ref" href="../sys/sys_public.h.html#sysEvent_s::evPtr" title='sysEvent_s::evPtr' data-ref="sysEvent_s::evPtr">evPtr</a> ) {</td></tr>
+<tr><th id="120">120</th><td>			<a class="ref" href="../idlib/Heap.h.html#_Z8Mem_FreePv" title='Mem_Free' data-ref="_Z8Mem_FreePv">Mem_Free</a>( <a class="local col4 ref" href="#4ev" title='ev' data-ref="4ev">ev</a>-&gt;<a class="ref" href="../sys/sys_public.h.html#sysEvent_s::evPtr" title='sysEvent_s::evPtr' data-ref="sysEvent_s::evPtr">evPtr</a> );</td></tr>
+<tr><th id="121">121</th><td>		}</td></tr>
+<tr><th id="122">122</th><td>		<a class="member" href="EventLoop.h.html#idEventLoop::com_pushedEventsTail" title='idEventLoop::com_pushedEventsTail' data-ref="idEventLoop::com_pushedEventsTail">com_pushedEventsTail</a>++;</td></tr>
+<tr><th id="123">123</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="124">124</th><td>		<a class="local col5 ref" href="#5printedWarning" title='printedWarning' data-ref="5printedWarning">printedWarning</a> = <b>false</b>;</td></tr>
+<tr><th id="125">125</th><td>	}</td></tr>
+<tr><th id="126">126</th><td></td></tr>
+<tr><th id="127">127</th><td>	*<a class="local col4 ref" href="#4ev" title='ev' data-ref="4ev">ev</a> <a class="ref" href="../sys/sys_public.h.html#215" title='sysEvent_s::operator=' data-ref="_ZN10sysEvent_saSERKS_">=</a> *<a class="local col3 ref" href="#3event" title='event' data-ref="3event">event</a>;</td></tr>
+<tr><th id="128">128</th><td>	<a class="member" href="EventLoop.h.html#idEventLoop::com_pushedEventsHead" title='idEventLoop::com_pushedEventsHead' data-ref="idEventLoop::com_pushedEventsHead">com_pushedEventsHead</a>++;</td></tr>
+<tr><th id="129">129</th><td>}</td></tr>
+<tr><th id="130">130</th><td></td></tr>
+<tr><th id="131">131</th><td><i>/*</i></td></tr>
+<tr><th id="132">132</th><td><i>=================</i></td></tr>
+<tr><th id="133">133</th><td><i>idEventLoop::GetEvent</i></td></tr>
+<tr><th id="134">134</th><td><i>=================</i></td></tr>
+<tr><th id="135">135</th><td><i>*/</i></td></tr>
+<tr><th id="136">136</th><td><a class="typedef" href="../sys/sys_public.h.html#sysEvent_t" title='sysEvent_t' data-type='struct sysEvent_s' data-ref="sysEvent_t">sysEvent_t</a> <a class="type" href="EventLoop.h.html#idEventLoop" title='idEventLoop' data-ref="idEventLoop">idEventLoop</a>::<dfn class="decl def" id="_ZN11idEventLoop8GetEventEv" title='idEventLoop::GetEvent' data-ref="_ZN11idEventLoop8GetEventEv">GetEvent</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="137">137</th><td>	<b>if</b> ( <a class="member" href="EventLoop.h.html#idEventLoop::com_pushedEventsHead" title='idEventLoop::com_pushedEventsHead' data-ref="idEventLoop::com_pushedEventsHead">com_pushedEventsHead</a> &gt; <a class="member" href="EventLoop.h.html#idEventLoop::com_pushedEventsTail" title='idEventLoop::com_pushedEventsTail' data-ref="idEventLoop::com_pushedEventsTail">com_pushedEventsTail</a> ) {</td></tr>
+<tr><th id="138">138</th><td>		<a class="member" href="EventLoop.h.html#idEventLoop::com_pushedEventsTail" title='idEventLoop::com_pushedEventsTail' data-ref="idEventLoop::com_pushedEventsTail">com_pushedEventsTail</a>++;</td></tr>
+<tr><th id="139">139</th><td>		<b>return</b> <a class="ref fake" href="../sys/sys_public.h.html#215" title='sysEvent_s::sysEvent_s' data-ref="_ZN10sysEvent_sC1ERKS_"></a><a class="member" href="EventLoop.h.html#idEventLoop::com_pushedEvents" title='idEventLoop::com_pushedEvents' data-ref="idEventLoop::com_pushedEvents">com_pushedEvents</a>[ (<a class="member" href="EventLoop.h.html#idEventLoop::com_pushedEventsTail" title='idEventLoop::com_pushedEventsTail' data-ref="idEventLoop::com_pushedEventsTail">com_pushedEventsTail</a>-<var>1</var>) &amp; (<a class="ref" href="EventLoop.h.html#MAX_PUSHED_EVENTS" title='MAX_PUSHED_EVENTS' data-ref="MAX_PUSHED_EVENTS">MAX_PUSHED_EVENTS</a>-<var>1</var>) ];</td></tr>
+<tr><th id="140">140</th><td>	}</td></tr>
+<tr><th id="141">141</th><td>	<b>return</b> <a class="member" href="#_ZN11idEventLoop12GetRealEventEv" title='idEventLoop::GetRealEvent' data-ref="_ZN11idEventLoop12GetRealEventEv">GetRealEvent</a>();</td></tr>
+<tr><th id="142">142</th><td>}</td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td><i>/*</i></td></tr>
+<tr><th id="145">145</th><td><i>=================</i></td></tr>
+<tr><th id="146">146</th><td><i>idEventLoop::ProcessEvent</i></td></tr>
+<tr><th id="147">147</th><td><i>=================</i></td></tr>
+<tr><th id="148">148</th><td><i>*/</i></td></tr>
+<tr><th id="149">149</th><td><em>void</em> <a class="type" href="EventLoop.h.html#idEventLoop" title='idEventLoop' data-ref="idEventLoop">idEventLoop</a>::<dfn class="decl def" id="_ZN11idEventLoop12ProcessEventE10sysEvent_s" title='idEventLoop::ProcessEvent' data-ref="_ZN11idEventLoop12ProcessEventE10sysEvent_s">ProcessEvent</dfn>( <a class="typedef" href="../sys/sys_public.h.html#sysEvent_t" title='sysEvent_t' data-type='struct sysEvent_s' data-ref="sysEvent_t">sysEvent_t</a> <dfn class="local col6 decl" id="6ev" title='ev' data-type='sysEvent_t' data-ref="6ev">ev</dfn> ) {</td></tr>
+<tr><th id="150">150</th><td>	<i>// track key up / down states</i></td></tr>
+<tr><th id="151">151</th><td>	<b>if</b> ( <a class="local col6 ref" href="#6ev" title='ev' data-ref="6ev">ev</a>.<a class="ref" href="../sys/sys_public.h.html#sysEvent_s::evType" title='sysEvent_s::evType' data-ref="sysEvent_s::evType">evType</a> == <a class="enum" href="../sys/sys_public.h.html#SE_KEY" title='SE_KEY' data-ref="SE_KEY">SE_KEY</a> ) {</td></tr>
+<tr><th id="152">152</th><td>		<a class="type" href="KeyInput.h.html#idKeyInput" title='idKeyInput' data-ref="idKeyInput">idKeyInput</a>::<a class="ref" href="KeyInput.h.html#_ZN10idKeyInput19PreliminaryKeyEventEib" title='idKeyInput::PreliminaryKeyEvent' data-ref="_ZN10idKeyInput19PreliminaryKeyEventEib">PreliminaryKeyEvent</a>( <a class="local col6 ref" href="#6ev" title='ev' data-ref="6ev">ev</a>.<a class="ref" href="../sys/sys_public.h.html#sysEvent_s::evValue" title='sysEvent_s::evValue' data-ref="sysEvent_s::evValue">evValue</a>, ( <a class="local col6 ref" href="#6ev" title='ev' data-ref="6ev">ev</a>.<a class="ref" href="../sys/sys_public.h.html#sysEvent_s::evValue2" title='sysEvent_s::evValue2' data-ref="sysEvent_s::evValue2">evValue2</a> != <var>0</var> ) );</td></tr>
+<tr><th id="153">153</th><td>	}</td></tr>
+<tr><th id="154">154</th><td></td></tr>
+<tr><th id="155">155</th><td>	<b>if</b> ( <a class="local col6 ref" href="#6ev" title='ev' data-ref="6ev">ev</a>.<a class="ref" href="../sys/sys_public.h.html#sysEvent_s::evType" title='sysEvent_s::evType' data-ref="sysEvent_s::evType">evType</a> == <a class="enum" href="../sys/sys_public.h.html#SE_CONSOLE" title='SE_CONSOLE' data-ref="SE_CONSOLE">SE_CONSOLE</a> ) {</td></tr>
+<tr><th id="156">156</th><td>		<i>// from a text console outside the game window</i></td></tr>
+<tr><th id="157">157</th><td>		<a class="ref" href="CmdSystem.h.html#cmdSystem" title='cmdSystem' data-ref="cmdSystem">cmdSystem</a>-&gt;<a class="virtual ref" href="CmdSystem.h.html#_ZN11idCmdSystem17BufferCommandTextE14cmdExecution_tPKc" title='idCmdSystem::BufferCommandText' data-ref="_ZN11idCmdSystem17BufferCommandTextE14cmdExecution_tPKc">BufferCommandText</a>( <a class="enum" href="CmdSystem.h.html#CMD_EXEC_APPEND" title='CMD_EXEC_APPEND' data-ref="CMD_EXEC_APPEND">CMD_EXEC_APPEND</a>, (<em>char</em> *)<a class="local col6 ref" href="#6ev" title='ev' data-ref="6ev">ev</a>.<a class="ref" href="../sys/sys_public.h.html#sysEvent_s::evPtr" title='sysEvent_s::evPtr' data-ref="sysEvent_s::evPtr">evPtr</a> );</td></tr>
+<tr><th id="158">158</th><td>		<a class="ref" href="CmdSystem.h.html#cmdSystem" title='cmdSystem' data-ref="cmdSystem">cmdSystem</a>-&gt;<a class="virtual ref" href="CmdSystem.h.html#_ZN11idCmdSystem17BufferCommandTextE14cmdExecution_tPKc" title='idCmdSystem::BufferCommandText' data-ref="_ZN11idCmdSystem17BufferCommandTextE14cmdExecution_tPKc">BufferCommandText</a>( <a class="enum" href="CmdSystem.h.html#CMD_EXEC_APPEND" title='CMD_EXEC_APPEND' data-ref="CMD_EXEC_APPEND">CMD_EXEC_APPEND</a>, <q>"\n"</q> );</td></tr>
+<tr><th id="159">159</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="160">160</th><td>		<a class="ref" href="Session.h.html#session" title='session' data-ref="session">session</a>-&gt;<a class="virtual ref" href="Session.h.html#_ZN9idSession12ProcessEventEPK10sysEvent_s" title='idSession::ProcessEvent' data-ref="_ZN9idSession12ProcessEventEPK10sysEvent_s">ProcessEvent</a>( &amp;<a class="local col6 ref" href="#6ev" title='ev' data-ref="6ev">ev</a> );</td></tr>
+<tr><th id="161">161</th><td>	}</td></tr>
+<tr><th id="162">162</th><td></td></tr>
+<tr><th id="163">163</th><td>	<i>// free any block data</i></td></tr>
+<tr><th id="164">164</th><td>	<b>if</b> ( <a class="local col6 ref" href="#6ev" title='ev' data-ref="6ev">ev</a>.<a class="ref" href="../sys/sys_public.h.html#sysEvent_s::evPtr" title='sysEvent_s::evPtr' data-ref="sysEvent_s::evPtr">evPtr</a> ) {</td></tr>
+<tr><th id="165">165</th><td>		<a class="ref" href="../idlib/Heap.h.html#_Z8Mem_FreePv" title='Mem_Free' data-ref="_Z8Mem_FreePv">Mem_Free</a>( <a class="local col6 ref" href="#6ev" title='ev' data-ref="6ev">ev</a>.<a class="ref" href="../sys/sys_public.h.html#sysEvent_s::evPtr" title='sysEvent_s::evPtr' data-ref="sysEvent_s::evPtr">evPtr</a> );</td></tr>
+<tr><th id="166">166</th><td>	}</td></tr>
+<tr><th id="167">167</th><td>}</td></tr>
+<tr><th id="168">168</th><td></td></tr>
+<tr><th id="169">169</th><td><i>/*</i></td></tr>
+<tr><th id="170">170</th><td><i>===============</i></td></tr>
+<tr><th id="171">171</th><td><i>idEventLoop::RunEventLoop</i></td></tr>
+<tr><th id="172">172</th><td><i>===============</i></td></tr>
+<tr><th id="173">173</th><td><i>*/</i></td></tr>
+<tr><th id="174">174</th><td><em>int</em> <a class="type" href="EventLoop.h.html#idEventLoop" title='idEventLoop' data-ref="idEventLoop">idEventLoop</a>::<dfn class="decl def" id="_ZN11idEventLoop12RunEventLoopEb" title='idEventLoop::RunEventLoop' data-ref="_ZN11idEventLoop12RunEventLoopEb">RunEventLoop</dfn>( <em>bool</em> <dfn class="local col7 decl" id="7commandExecution" title='commandExecution' data-type='bool' data-ref="7commandExecution">commandExecution</dfn> ) {</td></tr>
+<tr><th id="175">175</th><td>	<a class="typedef" href="../sys/sys_public.h.html#sysEvent_t" title='sysEvent_t' data-type='struct sysEvent_s' data-ref="sysEvent_t">sysEvent_t</a>	<a class="ref fake" href="../sys/sys_public.h.html#215" title='sysEvent_s::sysEvent_s' data-ref="_ZN10sysEvent_sC1Ev"></a><dfn class="local col8 decl" id="8ev" title='ev' data-type='sysEvent_t' data-ref="8ev">ev</dfn>;</td></tr>
+<tr><th id="176">176</th><td></td></tr>
+<tr><th id="177">177</th><td>	<b>while</b> ( <var>1</var> ) {</td></tr>
+<tr><th id="178">178</th><td></td></tr>
+<tr><th id="179">179</th><td>		<b>if</b> ( <a class="local col7 ref" href="#7commandExecution" title='commandExecution' data-ref="7commandExecution">commandExecution</a> ) {</td></tr>
+<tr><th id="180">180</th><td>			<i>// execute any bound commands before processing another event</i></td></tr>
+<tr><th id="181">181</th><td>			<a class="ref" href="CmdSystem.h.html#cmdSystem" title='cmdSystem' data-ref="cmdSystem">cmdSystem</a>-&gt;<a class="virtual ref" href="CmdSystem.h.html#_ZN11idCmdSystem20ExecuteCommandBufferEv" title='idCmdSystem::ExecuteCommandBuffer' data-ref="_ZN11idCmdSystem20ExecuteCommandBufferEv">ExecuteCommandBuffer</a>();</td></tr>
+<tr><th id="182">182</th><td>		}</td></tr>
+<tr><th id="183">183</th><td></td></tr>
+<tr><th id="184">184</th><td>		<a class="local col8 ref" href="#8ev" title='ev' data-ref="8ev">ev</a> <a class="ref" href="../sys/sys_public.h.html#215" title='sysEvent_s::operator=' data-ref="_ZN10sysEvent_saSERKS_">=</a> <a class="member" href="#_ZN11idEventLoop8GetEventEv" title='idEventLoop::GetEvent' data-ref="_ZN11idEventLoop8GetEventEv">GetEvent</a>();</td></tr>
+<tr><th id="185">185</th><td></td></tr>
+<tr><th id="186">186</th><td>		<i>// if no more events are available</i></td></tr>
+<tr><th id="187">187</th><td>		<b>if</b> ( <a class="local col8 ref" href="#8ev" title='ev' data-ref="8ev">ev</a>.<a class="ref" href="../sys/sys_public.h.html#sysEvent_s::evType" title='sysEvent_s::evType' data-ref="sysEvent_s::evType">evType</a> == <a class="enum" href="../sys/sys_public.h.html#SE_NONE" title='SE_NONE' data-ref="SE_NONE">SE_NONE</a> ) {</td></tr>
+<tr><th id="188">188</th><td>			<b>return</b> <var>0</var>;</td></tr>
+<tr><th id="189">189</th><td>		}</td></tr>
+<tr><th id="190">190</th><td>		<a class="member" href="#_ZN11idEventLoop12ProcessEventE10sysEvent_s" title='idEventLoop::ProcessEvent' data-ref="_ZN11idEventLoop12ProcessEventE10sysEvent_s">ProcessEvent</a>( <a class="ref fake" href="../sys/sys_public.h.html#215" title='sysEvent_s::sysEvent_s' data-ref="_ZN10sysEvent_sC1ERKS_"></a><a class="local col8 ref" href="#8ev" title='ev' data-ref="8ev">ev</a> );</td></tr>
+<tr><th id="191">191</th><td>	}</td></tr>
+<tr><th id="192">192</th><td></td></tr>
+<tr><th id="193">193</th><td>	<b>return</b> <var>0</var>;	<i>// never reached</i></td></tr>
+<tr><th id="194">194</th><td>}</td></tr>
+<tr><th id="195">195</th><td></td></tr>
+<tr><th id="196">196</th><td><i>/*</i></td></tr>
+<tr><th id="197">197</th><td><i>=============</i></td></tr>
+<tr><th id="198">198</th><td><i>idEventLoop::Init</i></td></tr>
+<tr><th id="199">199</th><td><i>=============</i></td></tr>
+<tr><th id="200">200</th><td><i>*/</i></td></tr>
+<tr><th id="201">201</th><td><em>void</em> <a class="type" href="EventLoop.h.html#idEventLoop" title='idEventLoop' data-ref="idEventLoop">idEventLoop</a>::<dfn class="decl def" id="_ZN11idEventLoop4InitEv" title='idEventLoop::Init' data-ref="_ZN11idEventLoop4InitEv">Init</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="202">202</th><td></td></tr>
+<tr><th id="203">203</th><td>	<a class="member" href="EventLoop.h.html#idEventLoop::initialTimeOffset" title='idEventLoop::initialTimeOffset' data-ref="idEventLoop::initialTimeOffset">initialTimeOffset</a> = <a class="ref" href="../sys/sys_public.h.html#_Z16Sys_Millisecondsv" title='Sys_Milliseconds' data-ref="_Z16Sys_Millisecondsv">Sys_Milliseconds</a>();</td></tr>
+<tr><th id="204">204</th><td></td></tr>
+<tr><th id="205">205</th><td>	<a class="ref" href="Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="Common.h.html#_ZN8idCommon15StartupVariableEPKcb" title='idCommon::StartupVariable' data-ref="_ZN8idCommon15StartupVariableEPKcb">StartupVariable</a>( <q>"journal"</q>, <b>false</b> );</td></tr>
+<tr><th id="206">206</th><td></td></tr>
+<tr><th id="207">207</th><td>	<b>if</b> ( <a class="member" href="EventLoop.h.html#idEventLoop::com_journal" title='idEventLoop::com_journal' data-ref="idEventLoop::com_journal">com_journal</a>.<a class="ref" href="CVarSystem.h.html#_ZNK6idCVar10GetIntegerEv" title='idCVar::GetInteger' data-ref="_ZNK6idCVar10GetIntegerEv">GetInteger</a>() == <var>1</var> ) {</td></tr>
+<tr><th id="208">208</th><td>		<a class="ref" href="Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"Journaling events\n"</q> );</td></tr>
+<tr><th id="209">209</th><td>		<a class="member" href="EventLoop.h.html#idEventLoop::com_journalFile" title='idEventLoop::com_journalFile' data-ref="idEventLoop::com_journalFile">com_journalFile</a> = <a class="ref" href="FileSystem.h.html#fileSystem" title='fileSystem' data-ref="fileSystem">fileSystem</a>-&gt;<a class="virtual ref" href="FileSystem.h.html#_ZN12idFileSystem13OpenFileWriteEPKcS1_" title='idFileSystem::OpenFileWrite' data-ref="_ZN12idFileSystem13OpenFileWriteEPKcS1_">OpenFileWrite</a>( <q>"journal.dat"</q> );</td></tr>
+<tr><th id="210">210</th><td>		<a class="member" href="EventLoop.h.html#idEventLoop::com_journalDataFile" title='idEventLoop::com_journalDataFile' data-ref="idEventLoop::com_journalDataFile">com_journalDataFile</a> = <a class="ref" href="FileSystem.h.html#fileSystem" title='fileSystem' data-ref="fileSystem">fileSystem</a>-&gt;<a class="virtual ref" href="FileSystem.h.html#_ZN12idFileSystem13OpenFileWriteEPKcS1_" title='idFileSystem::OpenFileWrite' data-ref="_ZN12idFileSystem13OpenFileWriteEPKcS1_">OpenFileWrite</a>( <q>"journaldata.dat"</q> );</td></tr>
+<tr><th id="211">211</th><td>	} <b>else</b> <b>if</b> ( <a class="member" href="EventLoop.h.html#idEventLoop::com_journal" title='idEventLoop::com_journal' data-ref="idEventLoop::com_journal">com_journal</a>.<a class="ref" href="CVarSystem.h.html#_ZNK6idCVar10GetIntegerEv" title='idCVar::GetInteger' data-ref="_ZNK6idCVar10GetIntegerEv">GetInteger</a>() == <var>2</var> ) {</td></tr>
+<tr><th id="212">212</th><td>		<a class="ref" href="Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"Replaying journaled events\n"</q> );</td></tr>
+<tr><th id="213">213</th><td>		<a class="member" href="EventLoop.h.html#idEventLoop::com_journalFile" title='idEventLoop::com_journalFile' data-ref="idEventLoop::com_journalFile">com_journalFile</a> = <a class="ref" href="FileSystem.h.html#fileSystem" title='fileSystem' data-ref="fileSystem">fileSystem</a>-&gt;<a class="virtual ref" href="FileSystem.h.html#_ZN12idFileSystem12OpenFileReadEPKcbS1_" title='idFileSystem::OpenFileRead' data-ref="_ZN12idFileSystem12OpenFileReadEPKcbS1_">OpenFileRead</a>( <q>"journal.dat"</q> );</td></tr>
+<tr><th id="214">214</th><td>		<a class="member" href="EventLoop.h.html#idEventLoop::com_journalDataFile" title='idEventLoop::com_journalDataFile' data-ref="idEventLoop::com_journalDataFile">com_journalDataFile</a> = <a class="ref" href="FileSystem.h.html#fileSystem" title='fileSystem' data-ref="fileSystem">fileSystem</a>-&gt;<a class="virtual ref" href="FileSystem.h.html#_ZN12idFileSystem12OpenFileReadEPKcbS1_" title='idFileSystem::OpenFileRead' data-ref="_ZN12idFileSystem12OpenFileReadEPKcbS1_">OpenFileRead</a>( <q>"journaldata.dat"</q> );</td></tr>
+<tr><th id="215">215</th><td>	}</td></tr>
+<tr><th id="216">216</th><td></td></tr>
+<tr><th id="217">217</th><td>	<b>if</b> ( !<a class="member" href="EventLoop.h.html#idEventLoop::com_journalFile" title='idEventLoop::com_journalFile' data-ref="idEventLoop::com_journalFile">com_journalFile</a> || !<a class="member" href="EventLoop.h.html#idEventLoop::com_journalDataFile" title='idEventLoop::com_journalDataFile' data-ref="idEventLoop::com_journalDataFile">com_journalDataFile</a> ) {</td></tr>
+<tr><th id="218">218</th><td>		<a class="member" href="EventLoop.h.html#idEventLoop::com_journal" title='idEventLoop::com_journal' data-ref="idEventLoop::com_journal">com_journal</a>.<a class="ref" href="CVarSystem.h.html#_ZN6idCVar10SetIntegerEi" title='idCVar::SetInteger' data-ref="_ZN6idCVar10SetIntegerEi">SetInteger</a>( <var>0</var> );</td></tr>
+<tr><th id="219">219</th><td>		<a class="member" href="EventLoop.h.html#idEventLoop::com_journalFile" title='idEventLoop::com_journalFile' data-ref="idEventLoop::com_journalFile">com_journalFile</a> = <var>0</var>;</td></tr>
+<tr><th id="220">220</th><td>		<a class="member" href="EventLoop.h.html#idEventLoop::com_journalDataFile" title='idEventLoop::com_journalDataFile' data-ref="idEventLoop::com_journalDataFile">com_journalDataFile</a> = <var>0</var>;</td></tr>
+<tr><th id="221">221</th><td>		<a class="ref" href="Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"Couldn't open journal files\n"</q> );</td></tr>
+<tr><th id="222">222</th><td>	}</td></tr>
+<tr><th id="223">223</th><td>}</td></tr>
+<tr><th id="224">224</th><td></td></tr>
+<tr><th id="225">225</th><td><i>/*</i></td></tr>
+<tr><th id="226">226</th><td><i>=============</i></td></tr>
+<tr><th id="227">227</th><td><i>idEventLoop::Shutdown</i></td></tr>
+<tr><th id="228">228</th><td><i>=============</i></td></tr>
+<tr><th id="229">229</th><td><i>*/</i></td></tr>
+<tr><th id="230">230</th><td><em>void</em> <a class="type" href="EventLoop.h.html#idEventLoop" title='idEventLoop' data-ref="idEventLoop">idEventLoop</a>::<dfn class="decl def" id="_ZN11idEventLoop8ShutdownEv" title='idEventLoop::Shutdown' data-ref="_ZN11idEventLoop8ShutdownEv">Shutdown</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="231">231</th><td>	<b>if</b> ( <a class="member" href="EventLoop.h.html#idEventLoop::com_journalFile" title='idEventLoop::com_journalFile' data-ref="idEventLoop::com_journalFile">com_journalFile</a> ) {</td></tr>
+<tr><th id="232">232</th><td>		<a class="ref" href="FileSystem.h.html#fileSystem" title='fileSystem' data-ref="fileSystem">fileSystem</a>-&gt;<a class="virtual ref" href="FileSystem.h.html#_ZN12idFileSystem9CloseFileEP6idFile" title='idFileSystem::CloseFile' data-ref="_ZN12idFileSystem9CloseFileEP6idFile">CloseFile</a>( <a class="member" href="EventLoop.h.html#idEventLoop::com_journalFile" title='idEventLoop::com_journalFile' data-ref="idEventLoop::com_journalFile">com_journalFile</a> );</td></tr>
+<tr><th id="233">233</th><td>		<a class="member" href="EventLoop.h.html#idEventLoop::com_journalFile" title='idEventLoop::com_journalFile' data-ref="idEventLoop::com_journalFile">com_journalFile</a> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="234">234</th><td>	}</td></tr>
+<tr><th id="235">235</th><td>	<b>if</b> ( <a class="member" href="EventLoop.h.html#idEventLoop::com_journalDataFile" title='idEventLoop::com_journalDataFile' data-ref="idEventLoop::com_journalDataFile">com_journalDataFile</a> ) {</td></tr>
+<tr><th id="236">236</th><td>		<a class="ref" href="FileSystem.h.html#fileSystem" title='fileSystem' data-ref="fileSystem">fileSystem</a>-&gt;<a class="virtual ref" href="FileSystem.h.html#_ZN12idFileSystem9CloseFileEP6idFile" title='idFileSystem::CloseFile' data-ref="_ZN12idFileSystem9CloseFileEP6idFile">CloseFile</a>( <a class="member" href="EventLoop.h.html#idEventLoop::com_journalDataFile" title='idEventLoop::com_journalDataFile' data-ref="idEventLoop::com_journalDataFile">com_journalDataFile</a> );</td></tr>
+<tr><th id="237">237</th><td>		<a class="member" href="EventLoop.h.html#idEventLoop::com_journalDataFile" title='idEventLoop::com_journalDataFile' data-ref="idEventLoop::com_journalDataFile">com_journalDataFile</a> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="238">238</th><td>	}</td></tr>
+<tr><th id="239">239</th><td>}</td></tr>
+<tr><th id="240">240</th><td></td></tr>
+<tr><th id="241">241</th><td><i>/*</i></td></tr>
+<tr><th id="242">242</th><td><i>================</i></td></tr>
+<tr><th id="243">243</th><td><i>idEventLoop::Milliseconds</i></td></tr>
+<tr><th id="244">244</th><td><i></i></td></tr>
+<tr><th id="245">245</th><td><i>Can be used for profiling, but will be journaled accurately</i></td></tr>
+<tr><th id="246">246</th><td><i>================</i></td></tr>
+<tr><th id="247">247</th><td><i>*/</i></td></tr>
+<tr><th id="248">248</th><td><em>int</em> <a class="type" href="EventLoop.h.html#idEventLoop" title='idEventLoop' data-ref="idEventLoop">idEventLoop</a>::<dfn class="decl def" id="_ZN11idEventLoop12MillisecondsEv" title='idEventLoop::Milliseconds' data-ref="_ZN11idEventLoop12MillisecondsEv">Milliseconds</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="249">249</th><td><u>#<span data-ppcond="249">if</span> 1	// FIXME!</u></td></tr>
+<tr><th id="250">250</th><td>	<b>return</b> <a class="ref" href="../sys/sys_public.h.html#_Z16Sys_Millisecondsv" title='Sys_Milliseconds' data-ref="_Z16Sys_Millisecondsv">Sys_Milliseconds</a>() - <a class="member" href="EventLoop.h.html#idEventLoop::initialTimeOffset" title='idEventLoop::initialTimeOffset' data-ref="idEventLoop::initialTimeOffset">initialTimeOffset</a>;</td></tr>
+<tr><th id="251">251</th><td><u>#<span data-ppcond="249">else</span></u></td></tr>
+<tr><th id="252">252</th><td>	sysEvent_t	ev;</td></tr>
+<tr><th id="253">253</th><td></td></tr>
+<tr><th id="254">254</th><td>	<i>// get events and push them until we get a null event with the current time</i></td></tr>
+<tr><th id="255">255</th><td>	<b>do</b> {</td></tr>
+<tr><th id="256">256</th><td></td></tr>
+<tr><th id="257">257</th><td>		ev = Com_GetRealEvent();</td></tr>
+<tr><th id="258">258</th><td>		<b>if</b> ( ev.evType != SE_NONE ) {</td></tr>
+<tr><th id="259">259</th><td>			Com_PushEvent( &amp;ev );</td></tr>
+<tr><th id="260">260</th><td>		}</td></tr>
+<tr><th id="261">261</th><td>	} <b>while</b> ( ev.evType != SE_NONE );</td></tr>
+<tr><th id="262">262</th><td>	</td></tr>
+<tr><th id="263">263</th><td>	<b>return</b> ev.evTime;</td></tr>
+<tr><th id="264">264</th><td><u>#<span data-ppcond="249">endif</span></u></td></tr>
+<tr><th id="265">265</th><td>}</td></tr>
+<tr><th id="266">266</th><td></td></tr>
+<tr><th id="267">267</th><td><i>/*</i></td></tr>
+<tr><th id="268">268</th><td><i>================</i></td></tr>
+<tr><th id="269">269</th><td><i>idEventLoop::JournalLevel</i></td></tr>
+<tr><th id="270">270</th><td><i>================</i></td></tr>
+<tr><th id="271">271</th><td><i>*/</i></td></tr>
+<tr><th id="272">272</th><td><em>int</em> <a class="type" href="EventLoop.h.html#idEventLoop" title='idEventLoop' data-ref="idEventLoop">idEventLoop</a>::<dfn class="decl def" id="_ZNK11idEventLoop12JournalLevelEv" title='idEventLoop::JournalLevel' data-ref="_ZNK11idEventLoop12JournalLevelEv">JournalLevel</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="273">273</th><td>	<b>return</b> <a class="member" href="EventLoop.h.html#idEventLoop::com_journal" title='idEventLoop::com_journal' data-ref="idEventLoop::com_journal">com_journal</a>.<a class="ref" href="CVarSystem.h.html#_ZNK6idCVar10GetIntegerEv" title='idCVar::GetInteger' data-ref="_ZNK6idCVar10GetIntegerEv">GetInteger</a>();</td></tr>
+<tr><th id="274">274</th><td>}</td></tr>
+<tr><th id="275">275</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

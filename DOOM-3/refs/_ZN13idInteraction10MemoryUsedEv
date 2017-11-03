@@ -1,0 +1,13 @@
+<dec f='codebrowser/renderer/Interaction.h' l='143' type='int idInteraction::MemoryUsed()'/>
+<doc f='codebrowser/renderer/Interaction.h' l='141'>// counts up the memory used by all the surfaceInteractions, which
+	// will be used to determine when we need to start purging old interactions</doc>
+<def f='codebrowser/renderer/Interaction.cpp' l='668' ll='679' type='int idInteraction::MemoryUsed()'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='1276' u='c' c='_Z25R_ShowInteractionMemory_fRK9idCmdArgs'/>
+<doc f='codebrowser/renderer/Interaction.cpp' l='660'>/*
+===============
+idInteraction::MemoryUsed
+
+Counts up the memory used by all the surfaceInteractions, which
+will be used to determine when we need to start purging old interactions.
+===============
+*/</doc>

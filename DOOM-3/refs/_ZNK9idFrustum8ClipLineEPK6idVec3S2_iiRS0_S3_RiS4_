@@ -1,0 +1,13 @@
+<dec f='codebrowser/idlib/bv/Frustum.h' l='144' type='bool idFrustum::ClipLine(const idVec3 * localPoints, const idVec3 * points, int startIndex, int endIndex, idVec3 &amp; start, idVec3 &amp; end, int &amp; startClip, int &amp; endClip) const'/>
+<def f='codebrowser/idlib/bv/Frustum.cpp' l='2468' ll='2592' type='bool idFrustum::ClipLine(const idVec3 * localPoints, const idVec3 * points, int startIndex, int endIndex, idVec3 &amp; start, idVec3 &amp; end, int &amp; startClip, int &amp; endClip) const'/>
+<use f='codebrowser/idlib/bv/Frustum.cpp' l='2739' u='c' c='_ZNK9idFrustum23ClippedProjectionBoundsERKS_RK5idBoxR8idBounds'/>
+<use f='codebrowser/idlib/bv/Frustum.cpp' l='2752' u='c' c='_ZNK9idFrustum23ClippedProjectionBoundsERKS_RK5idBoxR8idBounds'/>
+<use f='codebrowser/idlib/bv/Frustum.cpp' l='2765' u='c' c='_ZNK9idFrustum23ClippedProjectionBoundsERKS_RK5idBoxR8idBounds'/>
+<doc f='codebrowser/idlib/bv/Frustum.cpp' l='2460'>/*
+============
+idFrustum::ClipLine
+
+  Returns true if part of the line is inside the frustum.
+  Does not clip to the near and far plane.
+============
+*/</doc>

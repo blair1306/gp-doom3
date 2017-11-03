@@ -1,0 +1,11 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1629' type='void R_RenderGuiSurf(idUserInterface * gui, drawSurf_t * drawSurf)'/>
+<def f='codebrowser/renderer/tr_guisurf.cpp' l='128' ll='181' type='void R_RenderGuiSurf(idUserInterface * gui, drawSurf_t * drawSurf)'/>
+<doc f='codebrowser/renderer/tr_guisurf.cpp' l='120'>/*
+=================
+R_RenderGuiSurf
+
+Create a texture space on the given surface and
+call the GUI generator to create quads for it.
+=================
+*/</doc>
+<use f='codebrowser/renderer/tr_light.cpp' l='1314' u='c' c='_Z13R_AddDrawSurfPK14srfTriangles_sPK12viewEntity_sPK14renderEntity_sPK10idMaterialRK12idScreenRect'/>

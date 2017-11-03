@@ -1,0 +1,50 @@
+<dec f='codebrowser/framework/File.h' l='66' type='int idFile::Tell()'/>
+<doc f='codebrowser/framework/File.h' l='65'>// Returns offset in file.</doc>
+<use f='codebrowser/framework/Compressor.cpp' l='184' u='c' c='_ZN17idCompressor_None4TellEv'/>
+<def f='codebrowser/framework/File.cpp' l='217' ll='219' type='int idFile::Tell()'/>
+<ovr f='codebrowser/framework/File.cpp' l='777' c='_ZN13idFile_Memory4TellEv'/>
+<ovr f='codebrowser/framework/File.cpp' l='972' c='_ZN13idFile_BitMsg4TellEv'/>
+<ovr f='codebrowser/framework/File.cpp' l='1169' c='_ZN16idFile_Permanent4TellEv'/>
+<ovr f='codebrowser/framework/File.cpp' l='1301' c='_ZN12idFile_InZip4TellEv'/>
+<doc f='codebrowser/framework/File.cpp' l='212'>/*
+=================
+idFile::Tell
+=================
+*/</doc>
+<use f='codebrowser/framework/FileSystem.cpp' l='757' u='c' c='_ZN17idFileSystemLocal8CopyFileEP6idFilePKc'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='3848' u='c' c='_ZN17idFileSystemLocal15GetFileChecksumEP6idFile'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='112' u='c' c='_Z9lwGetClipP6idFilei'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='176' u='c' c='_Z9lwGetClipP6idFilei'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='263' u='c' c='_Z9lwGetClipP6idFilei'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='357' u='c' c='_Z13lwGetEnvelopeP6idFilei'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='454' u='c' c='_Z13lwGetEnvelopeP6idFilei'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='1204' u='c' c='_Z5getS0P6idFile'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='1609' u='c' c='_Z11lwGetObjectPKcPjPi'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='1643' u='c' c='_Z11lwGetObjectPKcPjPi'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='1852' u='c' c='_Z13lwGetSurface5P6idFileiP11st_lwObject'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='2101' u='c' c='_Z13lwGetSurface5P6idFileiP11st_lwObject'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='2309' u='c' c='_Z12lwGetObject5PKcPjPi'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='2334' u='c' c='_Z12lwGetObject5PKcPjPi'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='2987' u='c' c='_Z12lwGetTHeaderP6idFileiP12st_lwTexture'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='3044' u='c' c='_Z12lwGetTHeaderP6idFileiP12st_lwTexture'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='3055' u='c' c='_Z12lwGetTHeaderP6idFileiP12st_lwTexture'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='3074' u='c' c='_Z9lwGetTMapP6idFileiP9st_lwTMap'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='3133' u='c' c='_Z9lwGetTMapP6idFileiP9st_lwTMap'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='3144' u='c' c='_Z9lwGetTMapP6idFileiP9st_lwTMap'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='3162' u='c' c='_Z13lwGetImageMapP6idFileiP12st_lwTexture'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='3242' u='c' c='_Z13lwGetImageMapP6idFileiP12st_lwTexture'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='3253' u='c' c='_Z13lwGetImageMapP6idFileiP12st_lwTexture'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='3271' u='c' c='_Z15lwGetProceduralP6idFileiP12st_lwTexture'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='3317' u='c' c='_Z15lwGetProceduralP6idFileiP12st_lwTexture'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='3328' u='c' c='_Z15lwGetProceduralP6idFileiP12st_lwTexture'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='3346' u='c' c='_Z13lwGetGradientP6idFileiP12st_lwTexture'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='3415' u='c' c='_Z13lwGetGradientP6idFileiP12st_lwTexture'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='3426' u='c' c='_Z13lwGetGradientP6idFileiP12st_lwTexture'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='3496' u='c' c='_Z11lwGetShaderP6idFilei'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='3549' u='c' c='_Z11lwGetShaderP6idFilei'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='3560' u='c' c='_Z11lwGetShaderP6idFilei'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='3684' u='c' c='_Z12lwGetSurfaceP6idFilei'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='3864' u='c' c='_Z12lwGetSurfaceP6idFilei'/>
+<use f='codebrowser/sound/snd_decoder.cpp' l='137' u='c' c='_Z10FS_TellOGGPv'/>
+<use f='codebrowser/sound/snd_wavefile.cpp' l='254' u='c' c='_ZN10idWaveFile9ResetFileEv'/>
+<use f='codebrowser/sound/snd_wavefile.cpp' l='347' u='c' c='_ZN10idWaveFile4SeekEi'/>

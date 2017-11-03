@@ -1,0 +1,9 @@
+<dec f='codebrowser/game/Game.h' l='137' type='const char * idGame::HandleGuiCommands(const char * menuCommand)'/>
+<doc f='codebrowser/game/Game.h' l='135'>// When the game is running it&apos;s own UI fullscreen, GUI commands are passed through here
+	// return NULL once the fullscreen UI mode should stop, or &quot;main&quot; to go to main menu</doc>
+<dec f='codebrowser/d3xp/Game.h' l='139' type='const char * idGame::HandleGuiCommands(const char * menuCommand)'/>
+<doc f='codebrowser/d3xp/Game.h' l='137'>// When the game is running it&apos;s own UI fullscreen, GUI commands are passed through here
+	// return NULL once the fullscreen UI mode should stop, or &quot;main&quot; to go to main menu</doc>
+<ovr f='codebrowser/d3xp/Game_local.cpp' l='2764' c='_ZN11idGameLocal17HandleGuiCommandsEPKc'/>
+<use f='codebrowser/framework/Session_menu.cpp' l='1140' u='c' c='_ZN14idSessionLocal15DispatchCommandEP15idUserInterfacePKcb'/>
+<ovr f='codebrowser/game/Game_local.cpp' l='2500' c='_ZN11idGameLocal17HandleGuiCommandsEPKc'/>

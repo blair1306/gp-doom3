@@ -1,0 +1,13 @@
+<dec f='codebrowser/sound/snd_local.h' l='453' type='int idSoundEmitterLocal::StartSound(const idSoundShader * shader, const s_channelType channel, float diversity = 0, int shaderFlags = 0, bool allowSlow = true)'/>
+<doc f='codebrowser/sound/snd_local.h' l='452'>// returns the length of the started sound in msec</doc>
+<doc f='codebrowser/sound/snd_local.h' l='453'>/* D3XP */</doc>
+<inh f='codebrowser/sound/sound.h' l='164' c='_ZN14idSoundEmitter10StartSoundEPK13idSoundShaderifib'/>
+<def f='codebrowser/sound/snd_emitter.cpp' l='654' ll='869' type='int idSoundEmitterLocal::StartSound(const idSoundShader * shader, const s_channelType channel, float diversity = 0, int soundShaderFlags = 0, bool allowSlow = true)'/>
+<doc f='codebrowser/sound/snd_emitter.cpp' l='647'>/*
+=====================
+idSoundEmitterLocal::StartSound
+
+returns the length of the started sound in msec
+=====================
+*/</doc>
+<use f='codebrowser/sound/snd_world.cpp' l='1490' u='c' c='_ZN17idSoundWorldLocal18PlayShaderDirectlyEPKci'/>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>hash.h source code [codebrowser/curl/lib/hash.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="_curl_hash,_curl_hash_element "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/curl/lib/hash.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>curl</a>/<a href='./'>lib</a>/<a href='hash.h.html'>hash.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><u>#<span data-ppcond="1">ifndef</span> <span class="macro" data-ref="_M/__HASH_H">__HASH_H</span></u></td></tr>
+<tr><th id="2">2</th><td><u>#define <dfn class="macro" id="_M/__HASH_H" data-ref="_M/__HASH_H">__HASH_H</dfn></u></td></tr>
+<tr><th id="3">3</th><td><i>/***************************************************************************</i></td></tr>
+<tr><th id="4">4</th><td><i> *                                  _   _ ____  _     </i></td></tr>
+<tr><th id="5">5</th><td><i> *  Project                     ___| | | |  _ \| |    </i></td></tr>
+<tr><th id="6">6</th><td><i> *                             / __| | | | |_) | |    </i></td></tr>
+<tr><th id="7">7</th><td><i> *                            | (__| |_| |  _ &lt;| |___ </i></td></tr>
+<tr><th id="8">8</th><td><i> *                             \___|\___/|_| \_\_____|</i></td></tr>
+<tr><th id="9">9</th><td><i> *</i></td></tr>
+<tr><th id="10">10</th><td><i> * Copyright (C) 1998 - 2004, Daniel Stenberg, &lt;daniel@haxx.se&gt;, et al.</i></td></tr>
+<tr><th id="11">11</th><td><i> *</i></td></tr>
+<tr><th id="12">12</th><td><i> * This software is licensed as described in the file COPYING, which</i></td></tr>
+<tr><th id="13">13</th><td><i> * you should have received as part of this distribution. The terms</i></td></tr>
+<tr><th id="14">14</th><td><i> * are also available at <a href="http://curl.haxx.se/docs/copyright.html">http://curl.haxx.se/docs/copyright.html</a>.</i></td></tr>
+<tr><th id="15">15</th><td><i> * </i></td></tr>
+<tr><th id="16">16</th><td><i> * You may opt to use, copy, modify, merge, publish, distribute and/or sell</i></td></tr>
+<tr><th id="17">17</th><td><i> * copies of the Software, and permit persons to whom the Software is</i></td></tr>
+<tr><th id="18">18</th><td><i> * furnished to do so, under the terms of the COPYING file.</i></td></tr>
+<tr><th id="19">19</th><td><i> *</i></td></tr>
+<tr><th id="20">20</th><td><i> * This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY</i></td></tr>
+<tr><th id="21">21</th><td><i> * KIND, either express or implied.</i></td></tr>
+<tr><th id="22">22</th><td><i> *</i></td></tr>
+<tr><th id="23">23</th><td><i> * $Id: hash.h,v 1.15 2004/01/07 09:19:35 bagder Exp $</i></td></tr>
+<tr><th id="24">24</th><td><i> ***************************************************************************/</i></td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="setup.h.html">"setup.h"</a></u></td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><u>#include &lt;stddef.h&gt;</u></td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td><u>#include <a href="llist.h.html">"llist.h"</a></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><b>typedef</b> <em>void</em> (*<dfn class="typedef" id="curl_hash_dtor" title='curl_hash_dtor' data-type='void (*)(void *)' data-ref="curl_hash_dtor">curl_hash_dtor</dfn>)(<em>void</em> *);</td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="_curl_hash" title='_curl_hash' data-ref="_curl_hash"><a class="type" href="#_curl_hash" title='_curl_hash' data-ref="_curl_hash">_curl_hash</a></dfn> {</td></tr>
+<tr><th id="35">35</th><td>  <a class="typedef" href="llist.h.html#curl_llist" title='curl_llist' data-type='struct _curl_llist' data-ref="curl_llist">curl_llist</a>     **<dfn class="decl" id="_curl_hash::table" title='_curl_hash::table' data-ref="_curl_hash::table">table</dfn>;</td></tr>
+<tr><th id="36">36</th><td>  <a class="typedef" href="#curl_hash_dtor" title='curl_hash_dtor' data-type='void (*)(void *)' data-ref="curl_hash_dtor">curl_hash_dtor</a>   <dfn class="decl" id="_curl_hash::dtor" title='_curl_hash::dtor' data-ref="_curl_hash::dtor">dtor</dfn>;</td></tr>
+<tr><th id="37">37</th><td>  <em>int</em>              <dfn class="decl" id="_curl_hash::slots" title='_curl_hash::slots' data-ref="_curl_hash::slots">slots</dfn>;</td></tr>
+<tr><th id="38">38</th><td>  <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span>           <dfn class="decl" id="_curl_hash::size" title='_curl_hash::size' data-ref="_curl_hash::size">size</dfn>;</td></tr>
+<tr><th id="39">39</th><td>} <dfn class="typedef" id="curl_hash" title='curl_hash' data-type='struct _curl_hash' data-ref="curl_hash">curl_hash</dfn>;</td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="_curl_hash_element" title='_curl_hash_element' data-ref="_curl_hash_element"><a class="type" href="#_curl_hash_element" title='_curl_hash_element' data-ref="_curl_hash_element">_curl_hash_element</a></dfn> {</td></tr>
+<tr><th id="42">42</th><td>  <em>void</em>   *<dfn class="decl" id="_curl_hash_element::ptr" title='_curl_hash_element::ptr' data-ref="_curl_hash_element::ptr">ptr</dfn>;</td></tr>
+<tr><th id="43">43</th><td>  <em>char</em>   *<dfn class="decl" id="_curl_hash_element::key" title='_curl_hash_element::key' data-ref="_curl_hash_element::key">key</dfn>;</td></tr>
+<tr><th id="44">44</th><td>  <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="decl" id="_curl_hash_element::key_len" title='_curl_hash_element::key_len' data-ref="_curl_hash_element::key_len">key_len</dfn>;</td></tr>
+<tr><th id="45">45</th><td>} <dfn class="typedef" id="curl_hash_element" title='curl_hash_element' data-type='struct _curl_hash_element' data-ref="curl_hash_element">curl_hash_element</dfn>;</td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td><em>int</em> <dfn class="decl" id="Curl_hash_init" title='Curl_hash_init' data-ref="Curl_hash_init">Curl_hash_init</dfn>(<a class="typedef" href="#curl_hash" title='curl_hash' data-type='struct _curl_hash' data-ref="curl_hash">curl_hash</a> *, <em>int</em>, <a class="typedef" href="#curl_hash_dtor" title='curl_hash_dtor' data-type='void (*)(void *)' data-ref="curl_hash_dtor">curl_hash_dtor</a>);</td></tr>
+<tr><th id="49">49</th><td><a class="typedef" href="#curl_hash" title='curl_hash' data-type='struct _curl_hash' data-ref="curl_hash">curl_hash</a> *<dfn class="decl" id="Curl_hash_alloc" title='Curl_hash_alloc' data-ref="Curl_hash_alloc">Curl_hash_alloc</dfn>(<em>int</em>, <a class="typedef" href="#curl_hash_dtor" title='curl_hash_dtor' data-type='void (*)(void *)' data-ref="curl_hash_dtor">curl_hash_dtor</a>);</td></tr>
+<tr><th id="50">50</th><td><em>void</em> *<dfn class="decl" id="Curl_hash_add" title='Curl_hash_add' data-ref="Curl_hash_add">Curl_hash_add</dfn>(<a class="typedef" href="#curl_hash" title='curl_hash' data-type='struct _curl_hash' data-ref="curl_hash">curl_hash</a> *, <em>char</em> *, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span>, <em>void</em> *);</td></tr>
+<tr><th id="51">51</th><td><em>int</em> <dfn class="decl" id="Curl_hash_delete" title='Curl_hash_delete' data-ref="Curl_hash_delete">Curl_hash_delete</dfn>(<a class="typedef" href="#curl_hash" title='curl_hash' data-type='struct _curl_hash' data-ref="curl_hash">curl_hash</a> *<dfn class="local col8 decl" id="498h" title='h' data-type='curl_hash *' data-ref="498h">h</dfn>, <em>char</em> *<dfn class="local col9 decl" id="499key" title='key' data-type='char *' data-ref="499key">key</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col0 decl" id="500key_len" title='key_len' data-type='size_t' data-ref="500key_len">key_len</dfn>);</td></tr>
+<tr><th id="52">52</th><td><em>void</em> *<dfn class="decl" id="Curl_hash_pick" title='Curl_hash_pick' data-ref="Curl_hash_pick">Curl_hash_pick</dfn>(<a class="typedef" href="#curl_hash" title='curl_hash' data-type='struct _curl_hash' data-ref="curl_hash">curl_hash</a> *, <em>char</em> *, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span>);</td></tr>
+<tr><th id="53">53</th><td><em>void</em> <dfn class="decl" id="Curl_hash_apply" title='Curl_hash_apply' data-ref="Curl_hash_apply">Curl_hash_apply</dfn>(<a class="typedef" href="#curl_hash" title='curl_hash' data-type='struct _curl_hash' data-ref="curl_hash">curl_hash</a> *<dfn class="local col1 decl" id="501h" title='h' data-type='curl_hash *' data-ref="501h">h</dfn>, <em>void</em> *<dfn class="local col2 decl" id="502user" title='user' data-type='void *' data-ref="502user">user</dfn>,</td></tr>
+<tr><th id="54">54</th><td>                     <em>void</em> (*<dfn class="local col3 decl" id="503cb" title='cb' data-type='void (*)(void *, void *)' data-ref="503cb">cb</dfn>)(<em>void</em> *<dfn class="local col4 decl" id="504user" title='user' data-type='void *' data-ref="504user">user</dfn>, <em>void</em> *<dfn class="local col5 decl" id="505ptr" title='ptr' data-type='void *' data-ref="505ptr">ptr</dfn>));</td></tr>
+<tr><th id="55">55</th><td><em>int</em> <dfn class="decl" id="Curl_hash_count" title='Curl_hash_count' data-ref="Curl_hash_count">Curl_hash_count</dfn>(<a class="typedef" href="#curl_hash" title='curl_hash' data-type='struct _curl_hash' data-ref="curl_hash">curl_hash</a> *<dfn class="local col6 decl" id="506h" title='h' data-type='curl_hash *' data-ref="506h">h</dfn>);</td></tr>
+<tr><th id="56">56</th><td><em>void</em> <dfn class="decl" id="Curl_hash_clean" title='Curl_hash_clean' data-ref="Curl_hash_clean">Curl_hash_clean</dfn>(<a class="typedef" href="#curl_hash" title='curl_hash' data-type='struct _curl_hash' data-ref="curl_hash">curl_hash</a> *<dfn class="local col7 decl" id="507h" title='h' data-type='curl_hash *' data-ref="507h">h</dfn>);</td></tr>
+<tr><th id="57">57</th><td><em>void</em> <dfn class="decl" id="Curl_hash_clean_with_criterium" title='Curl_hash_clean_with_criterium' data-ref="Curl_hash_clean_with_criterium">Curl_hash_clean_with_criterium</dfn>(<a class="typedef" href="#curl_hash" title='curl_hash' data-type='struct _curl_hash' data-ref="curl_hash">curl_hash</a> *<dfn class="local col8 decl" id="508h" title='h' data-type='curl_hash *' data-ref="508h">h</dfn>, <em>void</em> *<dfn class="local col9 decl" id="509user" title='user' data-type='void *' data-ref="509user">user</dfn>, <em>int</em> (*<dfn class="local col0 decl" id="510comp" title='comp' data-type='int (*)(void *, void *)' data-ref="510comp">comp</dfn>)(<em>void</em> *, <em>void</em> *));</td></tr>
+<tr><th id="58">58</th><td><em>void</em> <dfn class="decl" id="Curl_hash_destroy" title='Curl_hash_destroy' data-ref="Curl_hash_destroy">Curl_hash_destroy</dfn>(<a class="typedef" href="#curl_hash" title='curl_hash' data-type='struct _curl_hash' data-ref="curl_hash">curl_hash</a> *<dfn class="local col1 decl" id="511h" title='h' data-type='curl_hash *' data-ref="511h">h</dfn>);</td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td><u>#<span data-ppcond="1">endif</span></u></td></tr>
+<tr><th id="61">61</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='connect.c.html'>codebrowser/curl/lib/connect.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

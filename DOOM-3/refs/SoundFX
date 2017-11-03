@@ -1,0 +1,20 @@
+<def f='codebrowser/sound/snd_local.h' l='302' ll='328'/>
+<ovr f='codebrowser/sound/snd_local.h' l='330' c='SoundFX_Lowpass'/>
+<ovr f='codebrowser/sound/snd_local.h' l='335' c='SoundFX_LowpassFast'/>
+<ovr f='codebrowser/sound/snd_local.h' l='346' c='SoundFX_Comb'/>
+<size>40</size>
+<mbr r='SoundFX::initialized' o='32' t='bool'/>
+<mbr r='SoundFX::channel' o='64' t='int'/>
+<mbr r='SoundFX::maxlen' o='96' t='int'/>
+<mbr r='SoundFX::buffer' o='128' t='float *'/>
+<mbr r='SoundFX::continuitySamples' o='160' t='float [4]'/>
+<mbr r='SoundFX::param' o='288' t='float'/>
+<fun r='_ZN7SoundFXC1Ev'/>
+<fun r='_ZN7SoundFXD1Ev'/>
+<fun r='_ZN7SoundFX10InitializeEv'/>
+<fun r='_ZN7SoundFX13ProcessSampleEPfS0_'/>
+<fun r='_ZN7SoundFX10SetChannelEi'/>
+<fun r='_ZN7SoundFX10GetChannelEv'/>
+<fun r='_ZN7SoundFX20SetContinuitySamplesEffff'/>
+<fun r='_ZN7SoundFX20GetContinuitySamplesERfS0_S0_S0_'/>
+<fun r='_ZN7SoundFX12SetParameterEf'/>

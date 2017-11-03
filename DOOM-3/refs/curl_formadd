@@ -1,0 +1,14 @@
+<dec f='codebrowser/curl/include/curl/curl.h' l='976' type='CURLFORMcode curl_formadd(struct curl_httppost ** httppost, struct curl_httppost ** last_post)'/>
+<doc f='codebrowser/curl/include/curl/curl.h' l='967'>/*
+ * NAME curl_formadd()
+ *
+ * DESCRIPTION
+ *
+ * Pretty advanved function for building multi-part formposts. Each invoke
+ * adds one part that together construct a full post. Then use
+ * CURLOPT_HTTPPOST to send it off to libcurl.
+ */</doc>
+<def f='codebrowser/curl/lib/formdata.c' l='978' ll='988' type='CURLFORMcode curl_formadd(struct curl_httppost ** httppost, struct curl_httppost ** last_post)'/>
+<use f='codebrowser/curl/src/main.c' l='902' u='c' c='formparse'/>
+<use f='codebrowser/curl/src/main.c' l='915' u='c' c='formparse'/>
+<use f='codebrowser/curl/src/main.c' l='924' u='c' c='formparse'/>

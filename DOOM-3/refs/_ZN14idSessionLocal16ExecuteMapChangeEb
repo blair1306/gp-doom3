@@ -1,0 +1,19 @@
+<dec f='codebrowser/framework/Session_local.h' l='302' type='void idSessionLocal::ExecuteMapChange(bool noFadeWipe = false)'/>
+<use f='codebrowser/framework/Session.cpp' l='1228' u='c' c='_ZN14idSessionLocal12MoveToNewMapEPKc'/>
+<use f='codebrowser/framework/Session.cpp' l='1357' u='c' c='_ZN14idSessionLocal19StartPlayingCmdDemoEPKc'/>
+<def f='codebrowser/framework/Session.cpp' l='1515' ll='1730' type='void idSessionLocal::ExecuteMapChange(bool noFadeWipe = false)'/>
+<use f='codebrowser/framework/Session.cpp' l='2132' u='c' c='_ZN14idSessionLocal8LoadGameEPKc'/>
+<doc f='codebrowser/framework/Session.cpp' l='1505'>/*
+===============
+idSessionLocal::ExecuteMapChange
+
+Performs the initialization of a game based on mapSpawnData, used for both single
+player and multiplayer, but not for renderDemos, which don&apos;t
+create a game at all.
+Exits with mapSpawned = true
+===============
+*/</doc>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='785' u='c' c='_ZN13idAsyncClient30ProcessUnreliableServerMessageERK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='904' u='c' c='_ZN13idAsyncClient26ProcessReliableMessagePureERK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1139' u='c' c='_ZN13idAsyncClient29ProcessConnectResponseMessageE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='351' u='c' c='_ZN13idAsyncServer16ExecuteMapChangeEv'/>

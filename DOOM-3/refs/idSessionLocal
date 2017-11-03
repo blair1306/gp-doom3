@@ -1,0 +1,259 @@
+<inh f='codebrowser/framework/Session.h' l='63' c='idSession'/>
+<def f='codebrowser/framework/Session_local.h' l='83' ll='359'/>
+<size>7838120</size>
+<fun r='_ZN14idSessionLocalC1Ev'/>
+<fun r='_ZN14idSessionLocalD1Ev'/>
+<fun r='_ZN14idSessionLocal4InitEv'/>
+<fun r='_ZN14idSessionLocal8ShutdownEv'/>
+<fun r='_ZN14idSessionLocal4StopEv'/>
+<fun r='_ZN14idSessionLocal12UpdateScreenEb'/>
+<fun r='_ZN14idSessionLocal14PacifierUpdateEv'/>
+<fun r='_ZN14idSessionLocal5FrameEv'/>
+<fun r='_ZN14idSessionLocal13IsMultiplayerEv'/>
+<fun r='_ZN14idSessionLocal12ProcessEventEPK10sysEvent_s'/>
+<fun r='_ZN14idSessionLocal9StartMenuEb'/>
+<fun r='_ZN14idSessionLocal8ExitMenuEv'/>
+<fun r='_ZN14idSessionLocal14GuiFrameEventsEv'/>
+<fun r='_ZN14idSessionLocal6SetGUIEP15idUserInterfacePFPKcS3_E'/>
+<fun r='_ZN14idSessionLocal10MessageBoxE12msgBoxType_tPKcS2_bS2_S2_b'/>
+<fun r='_ZN14idSessionLocal7StopBoxEv'/>
+<fun r='_ZN14idSessionLocal19DownloadProgressBoxEP20backgroundDownload_sPKcii'/>
+<fun r='_ZN14idSessionLocal20SetPlayingSoundWorldEv'/>
+<fun r='_ZN14idSessionLocal9TimeHitchEi'/>
+<fun r='_ZN14idSessionLocal9ReadCDKeyEv'/>
+<fun r='_ZN14idSessionLocal10WriteCDKeyEv'/>
+<fun r='_ZN14idSessionLocal8GetCDKeyEb'/>
+<fun r='_ZN14idSessionLocal8CheckKeyEPKcbPb'/>
+<fun r='_ZN14idSessionLocal14CDKeysAreValidEb'/>
+<fun r='_ZN14idSessionLocal10ClearCDKeyEPb'/>
+<fun r='_ZN14idSessionLocal15SetCDKeyGuiVarsEv'/>
+<fun r='_ZN14idSessionLocal18WaitingForGameAuthEv'/>
+<fun r='_ZN14idSessionLocal15CDKeysAuthReplyEbPKc'/>
+<fun r='_ZN14idSessionLocal18GetSaveGameVersionEv'/>
+<fun r='_ZN14idSessionLocal17GetCurrentMapNameEv'/>
+<fun r='_ZN14idSessionLocal17GetLocalClientNumEv'/>
+<fun r='_ZN14idSessionLocal12MoveToNewMapEPKc'/>
+<fun r='_ZN14idSessionLocal12StartNewGameEPKcb'/>
+<fun r='_ZN14idSessionLocal12PlayIntroGuiEv'/>
+<fun r='_ZN14idSessionLocal11LoadSessionEPKc'/>
+<fun r='_ZN14idSessionLocal11SaveSessionEPKc'/>
+<fun r='_ZN14idSessionLocal13DrawWipeModelEv'/>
+<fun r='_ZN14idSessionLocal9StartWipeEPKcb'/>
+<fun r='_ZN14idSessionLocal12CompleteWipeEv'/>
+<fun r='_ZN14idSessionLocal9ClearWipeEv'/>
+<fun r='_ZN14idSessionLocal14ShowLoadingGuiEv'/>
+<fun r='_ZNK14idSessionLocal21ScrubSaveGameFileNameER5idStr'/>
+<fun r='_ZNK14idSessionLocal15GetAutoSaveNameEPKc'/>
+<fun r='_ZN14idSessionLocal8LoadGameEPKc'/>
+<fun r='_ZN14idSessionLocal8SaveGameEPKcb'/>
+<fun r='_ZN14idSessionLocal10GetAuthMsgEv'/>
+<smbr r='idSessionLocal::com_showAngles' t='idCVar'/>
+<smbr r='idSessionLocal::com_showTics' t='idCVar'/>
+<smbr r='idSessionLocal::com_minTics' t='idCVar'/>
+<smbr r='idSessionLocal::com_fixedTic' t='idCVar'/>
+<smbr r='idSessionLocal::com_showDemo' t='idCVar'/>
+<smbr r='idSessionLocal::com_skipGameDraw' t='idCVar'/>
+<smbr r='idSessionLocal::com_aviDemoWidth' t='idCVar'/>
+<smbr r='idSessionLocal::com_aviDemoHeight' t='idCVar'/>
+<smbr r='idSessionLocal::com_aviDemoSamples' t='idCVar'/>
+<smbr r='idSessionLocal::com_aviDemoTics' t='idCVar'/>
+<smbr r='idSessionLocal::com_wipeSeconds' t='idCVar'/>
+<smbr r='idSessionLocal::com_guid' t='idCVar'/>
+<smbr r='idSessionLocal::gui_configServerRate' t='idCVar'/>
+<mbr r='idSessionLocal::timeHitch' o='192' t='int'/>
+<mbr r='idSessionLocal::menuActive' o='224' t='bool'/>
+<mbr r='idSessionLocal::menuSoundWorld' o='256' t='idSoundWorld *'/>
+<mbr r='idSessionLocal::insideExecuteMapChange' o='288' t='bool'/>
+<mbr r='idSessionLocal::bytesNeededForMapLoad' o='320' t='int'/>
+<mbr r='idSessionLocal::lastPacifierTime' o='352' t='int'/>
+<mbr r='idSessionLocal::mapSpawnData' o='384' t='mapSpawnData_t'/>
+<mbr r='idSessionLocal::currentMapName' o='31808' t='idStr'/>
+<mbr r='idSessionLocal::mapSpawned' o='32064' t='bool'/>
+<mbr r='idSessionLocal::numClients' o='32096' t='int'/>
+<mbr r='idSessionLocal::logIndex' o='32128' t='int'/>
+<mbr r='idSessionLocal::loggedUsercmds' o='32160' t='logCmd_t [216000]'/>
+<mbr r='idSessionLocal::statIndex' o='62240160' t='int'/>
+<mbr r='idSessionLocal::loggedStats' o='62240192' t='logStats_t [7200]'/>
+<mbr r='idSessionLocal::lastSaveIndex' o='62700992' t='int'/>
+<mbr r='idSessionLocal::insideUpdateScreen' o='62701024' t='bool'/>
+<mbr r='idSessionLocal::loadingSaveGame' o='62701032' t='bool'/>
+<mbr r='idSessionLocal::savegameFile' o='62701056' t='idFile *'/>
+<mbr r='idSessionLocal::savegameVersion' o='62701088' t='int'/>
+<mbr r='idSessionLocal::cmdDemoFile' o='62701120' t='idFile *'/>
+<mbr r='idSessionLocal::latchedTicNumber' o='62701152' t='int'/>
+<mbr r='idSessionLocal::lastGameTic' o='62701184' t='int'/>
+<mbr r='idSessionLocal::lastDemoTic' o='62701216' t='int'/>
+<mbr r='idSessionLocal::syncNextGameFrame' o='62701248' t='bool'/>
+<mbr r='idSessionLocal::aviCaptureMode' o='62701256' t='bool'/>
+<mbr r='idSessionLocal::aviDemoShortName' o='62701280' t='idStr'/>
+<mbr r='idSessionLocal::aviDemoFrameCount' o='62701536' t='float'/>
+<mbr r='idSessionLocal::aviTicStart' o='62701568' t='int'/>
+<mbr r='idSessionLocal::timeDemo' o='62701600' t='timeDemo_t'/>
+<mbr r='idSessionLocal::timeDemoStartTime' o='62701632' t='int'/>
+<mbr r='idSessionLocal::numDemoFrames' o='62701664' t='int'/>
+<mbr r='idSessionLocal::demoTimeOffset' o='62701696' t='int'/>
+<mbr r='idSessionLocal::currentDemoRenderView' o='62701728' t='renderView_t'/>
+<mbr r='idSessionLocal::guiActive' o='62702816' t='idUserInterface *'/>
+<mbr r='idSessionLocal::guiHandle' o='62702848' t='HandleGuiCommand_t'/>
+<mbr r='idSessionLocal::guiInGame' o='62702880' t='idUserInterface *'/>
+<mbr r='idSessionLocal::guiMainMenu' o='62702912' t='idUserInterface *'/>
+<mbr r='idSessionLocal::guiMainMenu_MapList' o='62702944' t='idListGUI *'/>
+<mbr r='idSessionLocal::guiRestartMenu' o='62702976' t='idUserInterface *'/>
+<mbr r='idSessionLocal::guiLoading' o='62703008' t='idUserInterface *'/>
+<mbr r='idSessionLocal::guiIntro' o='62703040' t='idUserInterface *'/>
+<mbr r='idSessionLocal::guiGameOver' o='62703072' t='idUserInterface *'/>
+<mbr r='idSessionLocal::guiTest' o='62703104' t='idUserInterface *'/>
+<mbr r='idSessionLocal::guiTakeNotes' o='62703136' t='idUserInterface *'/>
+<mbr r='idSessionLocal::guiMsg' o='62703168' t='idUserInterface *'/>
+<mbr r='idSessionLocal::guiMsgRestore' o='62703200' t='idUserInterface *'/>
+<mbr r='idSessionLocal::msgFireBack' o='62703232' t='idStr [2]'/>
+<mbr r='idSessionLocal::msgRunning' o='62703744' t='bool'/>
+<mbr r='idSessionLocal::msgRetIndex' o='62703776' t='int'/>
+<mbr r='idSessionLocal::msgIgnoreButtons' o='62703808' t='bool'/>
+<mbr r='idSessionLocal::waitingOnBind' o='62703816' t='bool'/>
+<mbr r='idSessionLocal::whiteMaterial' o='62703840' t='const idMaterial *'/>
+<mbr r='idSessionLocal::wipeMaterial' o='62703872' t='const idMaterial *'/>
+<mbr r='idSessionLocal::wipeStartTic' o='62703904' t='int'/>
+<mbr r='idSessionLocal::wipeStopTic' o='62703936' t='int'/>
+<mbr r='idSessionLocal::wipeHold' o='62703968' t='bool'/>
+<fun r='_ZN14idSessionLocal5ClearEv'/>
+<fun r='_ZN14idSessionLocal12DrawCmdGraphEv'/>
+<fun r='_ZN14idSessionLocal4DrawEv'/>
+<fun r='_ZN14idSessionLocal12WriteCmdDemoEPKcb'/>
+<fun r='_ZN14idSessionLocal19StartPlayingCmdDemoEPKc'/>
+<fun r='_ZN14idSessionLocal11TimeCmdDemoEPKc'/>
+<fun r='_ZN14idSessionLocal17SaveCmdDemoToFileEP6idFile'/>
+<fun r='_ZN14idSessionLocal19LoadCmdDemoFromFileEP6idFile'/>
+<fun r='_ZN14idSessionLocal24StartRecordingRenderDemoEPKc'/>
+<fun r='_ZN14idSessionLocal23StopRecordingRenderDemoEv'/>
+<fun r='_ZN14idSessionLocal22StartPlayingRenderDemoE5idStr'/>
+<fun r='_ZN14idSessionLocal21StopPlayingRenderDemoEv'/>
+<fun r='_ZN14idSessionLocal16CompressDemoFileEPKcS1_'/>
+<fun r='_ZN14idSessionLocal14TimeRenderDemoEPKcb'/>
+<fun r='_ZN14idSessionLocal13AVIRenderDemoEPKc'/>
+<fun r='_ZN14idSessionLocal10AVICmdDemoEPKc'/>
+<fun r='_ZN14idSessionLocal7AVIGameEPKc'/>
+<fun r='_ZN14idSessionLocal15BeginAVICaptureEPKc'/>
+<fun r='_ZN14idSessionLocal13EndAVICaptureEv'/>
+<fun r='_ZN14idSessionLocal17AdvanceRenderDemoEb'/>
+<fun r='_ZN14idSessionLocal10RunGameTicEv'/>
+<fun r='_ZN14idSessionLocal13FinishCmdLoadEv'/>
+<fun r='_ZN14idSessionLocal14LoadLoadingGuiEPKc'/>
+<fun r='_ZN14idSessionLocal8DemoShotEPKc'/>
+<fun r='_ZN14idSessionLocal7TestGUIEPKc'/>
+<fun r='_ZN14idSessionLocal24GetBytesNeededForMapLoadEPKc'/>
+<fun r='_ZN14idSessionLocal24SetBytesNeededForMapLoadEPKci'/>
+<fun r='_ZN14idSessionLocal16ExecuteMapChangeEb'/>
+<fun r='_ZN14idSessionLocal9UnloadMapEv'/>
+<fun r='_ZN14idSessionLocal16MaybeWaitOnCDKeyEv'/>
+<mbr r='idSessionLocal::loadGameList' o='62704000' t='idStrList'/>
+<mbr r='idSessionLocal::modsList' o='62704128' t='idStrList'/>
+<fun r='_ZN14idSessionLocal13GetActiveMenuEv'/>
+<fun r='_ZN14idSessionLocal15DispatchCommandEP15idUserInterfacePKcb'/>
+<fun r='_ZN14idSessionLocal9MenuEventEPK10sysEvent_s'/>
+<fun r='_ZN14idSessionLocal25HandleSaveGameMenuCommandER9idCmdArgsRi'/>
+<fun r='_ZN14idSessionLocal20HandleInGameCommandsEPKc'/>
+<fun r='_ZN14idSessionLocal22HandleMainMenuCommandsEPKc'/>
+<fun r='_ZN14idSessionLocal22HandleChatMenuCommandsEPKc'/>
+<fun r='_ZN14idSessionLocal23HandleIntroMenuCommandsEPKc'/>
+<fun r='_ZN14idSessionLocal25HandleRestartMenuCommandsEPKc'/>
+<fun r='_ZN14idSessionLocal17HandleMsgCommandsEPKc'/>
+<fun r='_ZN14idSessionLocal18HandleNoteCommandsEPKc'/>
+<fun r='_ZN14idSessionLocal15GetSaveGameListER6idListI5idStrERS0_I10fileTIME_TE'/>
+<fun r='_ZN14idSessionLocal9TakeNotesEPKcb'/>
+<fun r='_ZN14idSessionLocal17UpdateMPLevelShotEv'/>
+<fun r='_ZN14idSessionLocal18SetSaveGameGuiVarsEv'/>
+<fun r='_ZN14idSessionLocal18SetMainMenuGuiVarsEv'/>
+<fun r='_ZN14idSessionLocal18SetModsMenuGuiVarsEv'/>
+<fun r='_ZN14idSessionLocal15SetMainMenuSkinEv'/>
+<fun r='_ZN14idSessionLocal16SetPbMenuGuiVarsEv'/>
+<fun r='_ZN14idSessionLocal20BoxDialogSanityCheckEv'/>
+<fun r='_ZN14idSessionLocal12EmitGameAuthEv'/>
+<smbr r='idSessionLocal::CDKEY_BUF_LEN' t='const int'/>
+<smbr r='idSessionLocal::CDKEY_AUTH_TIMEOUT' t='const int'/>
+<mbr r='idSessionLocal::cdkey' o='62704256' t='char [17]'/>
+<mbr r='idSessionLocal::cdkey_state' o='62704416' t='cdKeyState_t'/>
+<mbr r='idSessionLocal::xpkey' o='62704448' t='char [17]'/>
+<mbr r='idSessionLocal::xpkey_state' o='62704608' t='cdKeyState_t'/>
+<mbr r='idSessionLocal::authEmitTimeout' o='62704640' t='int'/>
+<mbr r='idSessionLocal::authWaitBox' o='62704672' t='bool'/>
+<mbr r='idSessionLocal::authMsg' o='62704704' t='idStr'/>
+<smbr r='idSessionLocal::com_showAngles' t='idCVar'/>
+<smbr r='idSessionLocal::com_minTics' t='idCVar'/>
+<smbr r='idSessionLocal::com_showTics' t='idCVar'/>
+<smbr r='idSessionLocal::com_fixedTic' t='idCVar'/>
+<smbr r='idSessionLocal::com_showDemo' t='idCVar'/>
+<smbr r='idSessionLocal::com_skipGameDraw' t='idCVar'/>
+<smbr r='idSessionLocal::com_aviDemoSamples' t='idCVar'/>
+<smbr r='idSessionLocal::com_aviDemoWidth' t='idCVar'/>
+<smbr r='idSessionLocal::com_aviDemoHeight' t='idCVar'/>
+<smbr r='idSessionLocal::com_aviDemoTics' t='idCVar'/>
+<smbr r='idSessionLocal::com_wipeSeconds' t='idCVar'/>
+<smbr r='idSessionLocal::com_guid' t='idCVar'/>
+<fun r='_ZN14idSessionLocal16MaybeWaitOnCDKeyEv'/>
+<fun r='_ZN14idSessionLocal5ClearEv'/>
+<fun r='_ZN14idSessionLocalC1Ev'/>
+<fun r='_ZN14idSessionLocalD1Ev'/>
+<fun r='_ZN14idSessionLocal4StopEv'/>
+<fun r='_ZN14idSessionLocal8ShutdownEv'/>
+<fun r='_ZN14idSessionLocal13IsMultiplayerEv'/>
+<fun r='_ZN14idSessionLocal9StartWipeEPKcb'/>
+<fun r='_ZN14idSessionLocal12CompleteWipeEv'/>
+<fun r='_ZN14idSessionLocal14ShowLoadingGuiEv'/>
+<fun r='_ZN14idSessionLocal9ClearWipeEv'/>
+<fun r='_ZN14idSessionLocal7TestGUIEPKc'/>
+<fun r='_ZN14idSessionLocal24StartRecordingRenderDemoEPKc'/>
+<fun r='_ZN14idSessionLocal23StopRecordingRenderDemoEv'/>
+<fun r='_ZN14idSessionLocal21StopPlayingRenderDemoEv'/>
+<fun r='_ZN14idSessionLocal8DemoShotEPKc'/>
+<fun r='_ZN14idSessionLocal22StartPlayingRenderDemoE5idStr'/>
+<fun r='_ZN14idSessionLocal14TimeRenderDemoEPKcb'/>
+<fun r='_ZN14idSessionLocal15BeginAVICaptureEPKc'/>
+<fun r='_ZN14idSessionLocal13EndAVICaptureEv'/>
+<fun r='_ZN14idSessionLocal13AVIRenderDemoEPKc'/>
+<fun r='_ZN14idSessionLocal10AVICmdDemoEPKc'/>
+<fun r='_ZN14idSessionLocal7AVIGameEPKc'/>
+<fun r='_ZN14idSessionLocal16CompressDemoFileEPKcS1_'/>
+<fun r='_ZN14idSessionLocal12StartNewGameEPKcb'/>
+<fun r='_ZNK14idSessionLocal15GetAutoSaveNameEPKc'/>
+<fun r='_ZN14idSessionLocal12MoveToNewMapEPKc'/>
+<fun r='_ZN14idSessionLocal17SaveCmdDemoToFileEP6idFile'/>
+<fun r='_ZN14idSessionLocal19LoadCmdDemoFromFileEP6idFile'/>
+<fun r='_ZN14idSessionLocal12WriteCmdDemoEPKcb'/>
+<fun r='_ZN14idSessionLocal13FinishCmdLoadEv'/>
+<fun r='_ZN14idSessionLocal19StartPlayingCmdDemoEPKc'/>
+<fun r='_ZN14idSessionLocal11TimeCmdDemoEPKc'/>
+<fun r='_ZN14idSessionLocal9UnloadMapEv'/>
+<fun r='_ZN14idSessionLocal14LoadLoadingGuiEPKc'/>
+<fun r='_ZN14idSessionLocal24GetBytesNeededForMapLoadEPKc'/>
+<fun r='_ZN14idSessionLocal24SetBytesNeededForMapLoadEPKci'/>
+<fun r='_ZN14idSessionLocal16ExecuteMapChangeEb'/>
+<fun r='_ZN14idSessionLocal9TakeNotesEPKcb'/>
+<fun r='_ZNK14idSessionLocal21ScrubSaveGameFileNameER5idStr'/>
+<fun r='_ZN14idSessionLocal8SaveGameEPKcb'/>
+<fun r='_ZN14idSessionLocal8LoadGameEPKc'/>
+<fun r='_ZN14idSessionLocal12ProcessEventEPK10sysEvent_s'/>
+<fun r='_ZN14idSessionLocal13DrawWipeModelEv'/>
+<fun r='_ZN14idSessionLocal17AdvanceRenderDemoEb'/>
+<fun r='_ZN14idSessionLocal12DrawCmdGraphEv'/>
+<fun r='_ZN14idSessionLocal14PacifierUpdateEv'/>
+<fun r='_ZN14idSessionLocal4DrawEv'/>
+<fun r='_ZN14idSessionLocal12UpdateScreenEb'/>
+<fun r='_ZN14idSessionLocal5FrameEv'/>
+<fun r='_ZN14idSessionLocal10RunGameTicEv'/>
+<fun r='_ZN14idSessionLocal4InitEv'/>
+<fun r='_ZN14idSessionLocal17GetLocalClientNumEv'/>
+<fun r='_ZN14idSessionLocal20SetPlayingSoundWorldEv'/>
+<fun r='_ZN14idSessionLocal9TimeHitchEi'/>
+<fun r='_ZN14idSessionLocal9ReadCDKeyEv'/>
+<fun r='_ZN14idSessionLocal10WriteCDKeyEv'/>
+<fun r='_ZN14idSessionLocal10ClearCDKeyEPb'/>
+<fun r='_ZN14idSessionLocal8GetCDKeyEb'/>
+<fun r='_ZN14idSessionLocal12EmitGameAuthEv'/>
+<fun r='_ZN14idSessionLocal8CheckKeyEPKcbPb'/>
+<fun r='_ZN14idSessionLocal14CDKeysAreValidEb'/>
+<fun r='_ZN14idSessionLocal18WaitingForGameAuthEv'/>
+<fun r='_ZN14idSessionLocal15CDKeysAuthReplyEbPKc'/>
+<fun r='_ZN14idSessionLocal17GetCurrentMapNameEv'/>
+<fun r='_ZN14idSessionLocal18GetSaveGameVersionEv'/>
+<fun r='_ZN14idSessionLocal10GetAuthMsgEv'/>

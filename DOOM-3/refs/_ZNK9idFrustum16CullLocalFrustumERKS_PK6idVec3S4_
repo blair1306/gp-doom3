@@ -1,0 +1,15 @@
+<dec f='codebrowser/idlib/bv/Frustum.h' l='128' type='bool idFrustum::CullLocalFrustum(const idFrustum &amp; localFrustum, const idVec3 * indexPoints, const idVec3 * cornerVecs) const'/>
+<def f='codebrowser/idlib/bv/Frustum.cpp' l='308' ll='383' type='bool idFrustum::CullLocalFrustum(const idFrustum &amp; localFrustum, const idVec3 * indexPoints, const idVec3 * cornerVecs) const'/>
+<use f='codebrowser/idlib/bv/Frustum.cpp' l='406' u='c' c='_ZNK9idFrustum11CullFrustumERKS_'/>
+<use f='codebrowser/idlib/bv/Frustum.cpp' l='1064' u='c' c='_ZNK9idFrustum17IntersectsFrustumERKS_'/>
+<use f='codebrowser/idlib/bv/Frustum.cpp' l='1076' u='c' c='_ZNK9idFrustum17IntersectsFrustumERKS_'/>
+<doc f='codebrowser/idlib/bv/Frustum.cpp' l='298'>/*
+============
+idFrustum::CullLocalFrustum
+
+  Tests if any of the planes of this frustum can be used as a separating plane.
+
+   0 muls best case
+  30 muls worst case
+============
+*/</doc>

@@ -1,0 +1,16 @@
+<dec f='codebrowser/sound/snd_local.h' l='446' type='void idSoundEmitterLocal::Free(bool immediate)'/>
+<doc f='codebrowser/sound/snd_local.h' l='440'>//----------------------------------------------
+
+	// the &quot;time&quot; parameters should be game time in msec, which is used to make queries
+	// return deterministic values regardless of async buffer scheduling
+
+	// a non-immediate free will let all currently playing sounds complete</doc>
+<inh f='codebrowser/sound/sound.h' l='157' c='_ZN14idSoundEmitter4FreeEb'/>
+<def f='codebrowser/sound/snd_emitter.cpp' l='625' ll='645' type='void idSoundEmitterLocal::Free(bool immediate)'/>
+<doc f='codebrowser/sound/snd_emitter.cpp' l='618'>/*
+=====================
+idSoundEmitterLocal::Free
+
+They are never truly freed, just marked so they can be reused by the soundWorld
+=====================
+*/</doc>

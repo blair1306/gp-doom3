@@ -1,0 +1,85 @@
+<def f='include/X11/Xlibint.h' l='75' ll='208'/>
+<size>2372</size>
+<mbr r='_XDisplay::ext_data' o='0' t='XExtData *'/>
+<mbr r='_XDisplay::free_funcs' o='32' t='struct _XFreeFuncs *'/>
+<mbr r='_XDisplay::fd' o='64' t='int'/>
+<mbr r='_XDisplay::conn_checker' o='96' t='int'/>
+<mbr r='_XDisplay::proto_major_version' o='128' t='int'/>
+<mbr r='_XDisplay::proto_minor_version' o='160' t='int'/>
+<mbr r='_XDisplay::vendor' o='192' t='char *'/>
+<mbr r='_XDisplay::resource_base' o='224' t='XID'/>
+<mbr r='_XDisplay::resource_mask' o='256' t='XID'/>
+<mbr r='_XDisplay::resource_id' o='288' t='XID'/>
+<mbr r='_XDisplay::resource_shift' o='320' t='int'/>
+<mbr r='_XDisplay::resource_alloc' o='352' t='XID (*)(struct _XDisplay *)'/>
+<mbr r='_XDisplay::byte_order' o='384' t='int'/>
+<mbr r='_XDisplay::bitmap_unit' o='416' t='int'/>
+<mbr r='_XDisplay::bitmap_pad' o='448' t='int'/>
+<mbr r='_XDisplay::bitmap_bit_order' o='480' t='int'/>
+<mbr r='_XDisplay::nformats' o='512' t='int'/>
+<mbr r='_XDisplay::pixmap_format' o='544' t='ScreenFormat *'/>
+<mbr r='_XDisplay::vnumber' o='576' t='int'/>
+<mbr r='_XDisplay::release' o='608' t='int'/>
+<mbr r='_XDisplay::head' o='640' t='struct _XSQEvent *'/>
+<mbr r='_XDisplay::tail' o='672' t='struct _XSQEvent *'/>
+<mbr r='_XDisplay::qlen' o='704' t='int'/>
+<mbr r='_XDisplay::last_request_read' o='736' t='unsigned long'/>
+<mbr r='_XDisplay::request' o='768' t='unsigned long'/>
+<mbr r='_XDisplay::last_req' o='800' t='char *'/>
+<mbr r='_XDisplay::buffer' o='832' t='char *'/>
+<mbr r='_XDisplay::bufptr' o='864' t='char *'/>
+<mbr r='_XDisplay::bufmax' o='896' t='char *'/>
+<mbr r='_XDisplay::max_request_size' o='928' t='unsigned int'/>
+<mbr r='_XDisplay::db' o='960' t='struct _XrmHashBucketRec *'/>
+<mbr r='_XDisplay::synchandler' o='992' t='int (*)(struct _XDisplay *)'/>
+<mbr r='_XDisplay::display_name' o='1024' t='char *'/>
+<mbr r='_XDisplay::default_screen' o='1056' t='int'/>
+<mbr r='_XDisplay::nscreens' o='1088' t='int'/>
+<mbr r='_XDisplay::screens' o='1120' t='Screen *'/>
+<mbr r='_XDisplay::motion_buffer' o='1152' t='unsigned long'/>
+<mbr r='_XDisplay::flags' o='1184' t='volatile unsigned long'/>
+<mbr r='_XDisplay::min_keycode' o='1216' t='int'/>
+<mbr r='_XDisplay::max_keycode' o='1248' t='int'/>
+<mbr r='_XDisplay::keysyms' o='1280' t='KeySym *'/>
+<mbr r='_XDisplay::modifiermap' o='1312' t='XModifierKeymap *'/>
+<mbr r='_XDisplay::keysyms_per_keycode' o='1344' t='int'/>
+<mbr r='_XDisplay::xdefaults' o='1376' t='char *'/>
+<mbr r='_XDisplay::scratch_buffer' o='1408' t='char *'/>
+<mbr r='_XDisplay::scratch_length' o='1440' t='unsigned long'/>
+<mbr r='_XDisplay::ext_number' o='1472' t='int'/>
+<mbr r='_XDisplay::ext_procs' o='1504' t='struct _XExten *'/>
+<mbr r='_XDisplay::event_vec' o='1536' t='int (*[128])(Display *, XEvent *, xEvent *)'/>
+<mbr r='_XDisplay::wire_vec' o='5632' t='int (*[128])(Display *, XEvent *, xEvent *)'/>
+<mbr r='_XDisplay::lock_meaning' o='9728' t='KeySym'/>
+<mbr r='_XDisplay::lock' o='9760' t='struct _XLockInfo *'/>
+<mbr r='_XDisplay::async_handlers' o='9792' t='struct _XInternalAsync *'/>
+<mbr r='_XDisplay::bigreq_size' o='9824' t='unsigned long'/>
+<mbr r='_XDisplay::lock_fns' o='9856' t='struct _XLockPtrs *'/>
+<mbr r='_XDisplay::idlist_alloc' o='9888' t='void (*)(Display *, XID *, int)'/>
+<mbr r='_XDisplay::key_bindings' o='9920' t='struct _XKeytrans *'/>
+<mbr r='_XDisplay::cursor_font' o='9952' t='Font'/>
+<mbr r='_XDisplay::atoms' o='9984' t='struct _XDisplayAtoms *'/>
+<mbr r='_XDisplay::mode_switch' o='10016' t='unsigned int'/>
+<mbr r='_XDisplay::num_lock' o='10048' t='unsigned int'/>
+<mbr r='_XDisplay::context_db' o='10080' t='struct _XContextDB *'/>
+<mbr r='_XDisplay::error_vec' o='10112' t='int (**)(Display *, XErrorEvent *, xError *)'/>
+<mbr r='_XDisplay::cms' o='10144' t='struct (anonymous struct at /usr/include/X11/Xlibint.h:171:2)'/>
+<mbr r='_XDisplay::im_filters' o='10240' t='struct _XIMFilter *'/>
+<mbr r='_XDisplay::qfree' o='10272' t='struct _XSQEvent *'/>
+<mbr r='_XDisplay::next_event_serial_num' o='10304' t='unsigned long'/>
+<mbr r='_XDisplay::flushes' o='10336' t='struct _XExten *'/>
+<mbr r='_XDisplay::im_fd_info' o='10368' t='struct _XConnectionInfo *'/>
+<mbr r='_XDisplay::im_fd_length' o='10400' t='int'/>
+<mbr r='_XDisplay::conn_watchers' o='10432' t='struct _XConnWatchInfo *'/>
+<mbr r='_XDisplay::watcher_count' o='10464' t='int'/>
+<mbr r='_XDisplay::filedes' o='10496' t='XPointer'/>
+<mbr r='_XDisplay::savedsynchandler' o='10528' t='int (*)(Display *)'/>
+<mbr r='_XDisplay::resource_max' o='10560' t='XID'/>
+<mbr r='_XDisplay::xcmisc_opcode' o='10592' t='int'/>
+<mbr r='_XDisplay::xkb_info' o='10624' t='struct _XkbInfoRec *'/>
+<mbr r='_XDisplay::trans_conn' o='10656' t='struct _XtransConnInfo *'/>
+<mbr r='_XDisplay::xcb' o='10688' t='struct _X11XCBPrivate *'/>
+<mbr r='_XDisplay::next_cookie' o='10720' t='unsigned int'/>
+<mbr r='_XDisplay::generic_event_vec' o='10752' t='int (*[128])(Display *, XGenericEventCookie *, xEvent *)'/>
+<mbr r='_XDisplay::generic_event_copy_vec' o='14848' t='int (*[128])(Display *, XGenericEventCookie *, XGenericEventCookie *)'/>
+<mbr r='_XDisplay::cookiejar' o='18944' t='void *'/>

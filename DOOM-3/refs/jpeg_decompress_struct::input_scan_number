@@ -1,0 +1,11 @@
+<dec f='codebrowser/renderer/jpeg-6/jpeglib.h' l='489' type='int'/>
+<offset>960</offset>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='486'>/* Current input scan number and number of iMCU rows completed in scan.
+   * These indicate the progress of the decompressor input side.
+   */</doc>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='489'>/* Number of SOS markers seen so far */</doc>
+<use f='codebrowser/renderer/jpeg-6/jdapistd.c' l='78' u='r' c='jpeg_start_decompress'/>
+<use f='codebrowser/renderer/jpeg-6/jdinput.c' l='322' u='r' c='consume_markers'/>
+<use f='codebrowser/renderer/jpeg-6/jdinput.c' l='323' u='r' c='consume_markers'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='330' u='w' c='get_sos'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='1019' u='w' c='reset_marker_reader'/>

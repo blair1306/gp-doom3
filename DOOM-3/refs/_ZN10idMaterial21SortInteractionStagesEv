@@ -1,0 +1,16 @@
+<dec f='codebrowser/renderer/Material.h' l='615' type='void idMaterial::SortInteractionStages()'/>
+<def f='codebrowser/renderer/Material.cpp' l='1742' ll='1771' type='void idMaterial::SortInteractionStages()'/>
+<use f='codebrowser/renderer/Material.cpp' l='2071' u='c' c='_ZN10idMaterial13ParseMaterialER7idLexer'/>
+<doc f='codebrowser/renderer/Material.cpp' l='1729'>/*
+===============
+idMaterial::SortInteractionStages
+
+The renderer expects bump, then diffuse, then specular
+There can be multiple bump maps, followed by additional
+diffuse and specular stages, which allows cross-faded bump mapping.
+
+Ambient stages can be interspersed anywhere, but they are
+ignored during interactions, and all the interaction
+stages are ignored during ambient drawing.
+===============
+*/</doc>

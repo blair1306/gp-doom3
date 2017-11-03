@@ -1,0 +1,18 @@
+<dec f='codebrowser/renderer/Model_lwo.h' l='589' type='void lwGetVertNormals(lwPointList * point, lwPolygonList * polygon)'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='1632' u='c' c='_Z11lwGetObjectPKcPjPi'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='2327' u='c' c='_Z12lwGetObject5PKcPjPi'/>
+<def f='codebrowser/renderer/Model_lwo.cpp' l='2733' ll='2763' type='void lwGetVertNormals(lwPointList * point, lwPolygonList * polygon)'/>
+<doc f='codebrowser/renderer/Model_lwo.cpp' l='2718'>/*
+======================================================================
+lwGetVertNormals()
+
+Calculate the vertex normals.  For each polygon vertex, sum the
+normals of the polygons that share the point.  If the normals of the
+current and adjacent polygons form an angle greater than the max
+smoothing angle for the current polygon&apos;s surface, the normal of the
+adjacent polygon is excluded from the sum.  It&apos;s also excluded if the
+polygons aren&apos;t in the same smoothing group.
+
+Assumes that lwGetPointPolygons(), lwGetPolyNormals() and
+lwResolvePolySurfaces() have already been called.
+====================================================================== */</doc>

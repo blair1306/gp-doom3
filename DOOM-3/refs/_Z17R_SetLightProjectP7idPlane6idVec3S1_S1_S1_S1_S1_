@@ -1,0 +1,12 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1204' type='void R_SetLightProject(idPlane * lightProject, const idVec3 origin, const idVec3 targetPoint, const idVec3 rightVector, const idVec3 upVector, const idVec3 start, const idVec3 stop)'/>
+<def f='codebrowser/renderer/tr_lightrun.cpp' l='231' ll='287' type='void R_SetLightProject(idPlane * lightProject, const idVec3 origin, const idVec3 target, const idVec3 rightVector, const idVec3 upVector, const idVec3 start, const idVec3 stop)'/>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='386' u='c' c='_Z17R_DeriveLightDataP18idRenderLightLocal'/>
+<doc f='codebrowser/renderer/tr_lightrun.cpp' l='222'>/*
+=====================
+R_SetLightProject
+
+All values are reletive to the origin
+Assumes that right and up are not normalized
+This is also called by dmap during map processing.
+=====================
+*/</doc>

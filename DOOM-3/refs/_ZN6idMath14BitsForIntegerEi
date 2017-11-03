@@ -1,0 +1,54 @@
+<dec f='codebrowser/idlib/math/Math.h' l='170' type='static int idMath::BitsForInteger(int i)'/>
+<def f='codebrowser/idlib/math/Math.h' l='725' ll='727' macro='1' type='static int idMath::BitsForInteger(int i)'/>
+<use f='codebrowser/idlib/math/Random.h' l='141' u='c' c='_ZN9idRandom29RandomIntEi'/>
+<doc f='codebrowser/idlib/math/Math.h' l='170'>// minumum number of bits required to represent i</doc>
+<use f='codebrowser/d3xp/Game_local.h' l='116' u='c'/>
+<use f='codebrowser/d3xp/Player.h' l='73' u='c'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='4917' u='c' c='_ZNK8idEntity15ServerSendEventEiPK8idBitMsgbi'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='4920' u='c' c='_ZNK8idEntity15ServerSendEventEiPK8idBitMsgbi'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='4959' u='c' c='_ZNK8idEntity15ClientSendEventEiPK8idBitMsg'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='4962' u='c' c='_ZNK8idEntity15ClientSendEventEiPK8idBitMsg'/>
+<use f='codebrowser/d3xp/Game_network.cpp' l='78' u='c' c='_ZN11idGameLocal16InitAsyncNetworkEv'/>
+<use f='codebrowser/d3xp/Game_network.cpp' l='405' u='c' c='_ZN11idGameLocal34ServerWriteInitialReliableMessagesEi'/>
+<use f='codebrowser/d3xp/Game_network.cpp' l='857' u='c' c='_ZN11idGameLocal28ServerProcessReliableMessageEiRK8idBitMsg'/>
+<use f='codebrowser/d3xp/Game_network.cpp' l='1418' u='c' c='_ZN11idGameLocal28ClientProcessReliableMessageEiRK8idBitMsg'/>
+<use f='codebrowser/d3xp/MultiplayerGame.cpp' l='2674' u='c'/>
+<use f='codebrowser/d3xp/MultiplayerGame.cpp' l='2678' u='c'/>
+<use f='codebrowser/d3xp/MultiplayerGame.cpp' l='2679' u='c'/>
+<use f='codebrowser/d3xp/Player.cpp' l='9537' u='c' c='_ZNK8idPlayer15WriteToSnapshotER13idBitMsgDelta'/>
+<use f='codebrowser/d3xp/Player.cpp' l='9540' u='c' c='_ZNK8idPlayer15WriteToSnapshotER13idBitMsgDelta'/>
+<use f='codebrowser/d3xp/Player.cpp' l='9581' u='c' c='_ZN8idPlayer16ReadFromSnapshotERK13idBitMsgDelta'/>
+<use f='codebrowser/d3xp/Player.cpp' l='9584' u='c' c='_ZN8idPlayer16ReadFromSnapshotERK13idBitMsgDelta'/>
+<use f='codebrowser/d3xp/gamesys/Class.cpp' l='402' u='c' c='_ZN7idClass4InitEv'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='7905' u='c'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='7909' u='c'/>
+<use f='codebrowser/d3xp/physics/Physics_Monster.cpp' l='761' u='c'/>
+<use f='codebrowser/d3xp/physics/Physics_Player.cpp' l='1989' u='c'/>
+<use f='codebrowser/d3xp/physics/Physics_RigidBody.cpp' l='1443' u='c'/>
+<use f='codebrowser/d3xp/physics/Physics_RigidBody.cpp' l='1447' u='c'/>
+<use f='codebrowser/d3xp/physics/Physics_RigidBody.cpp' l='1451' u='c'/>
+<use f='codebrowser/game/Game_local.h' l='116' u='c'/>
+<use f='codebrowser/game/Player.h' l='69' u='c'/>
+<use f='codebrowser/game/Entity.cpp' l='4743' u='c' c='_ZNK8idEntity15ServerSendEventEiPK8idBitMsgbi'/>
+<use f='codebrowser/game/Entity.cpp' l='4746' u='c' c='_ZNK8idEntity15ServerSendEventEiPK8idBitMsgbi'/>
+<use f='codebrowser/game/Entity.cpp' l='4785' u='c' c='_ZNK8idEntity15ClientSendEventEiPK8idBitMsg'/>
+<use f='codebrowser/game/Entity.cpp' l='4788' u='c' c='_ZNK8idEntity15ClientSendEventEiPK8idBitMsg'/>
+<use f='codebrowser/game/Game_network.cpp' l='78' u='c' c='_ZN11idGameLocal16InitAsyncNetworkEv'/>
+<use f='codebrowser/game/Game_network.cpp' l='405' u='c' c='_ZN11idGameLocal34ServerWriteInitialReliableMessagesEi'/>
+<use f='codebrowser/game/Game_network.cpp' l='843' u='c' c='_ZN11idGameLocal28ServerProcessReliableMessageEiRK8idBitMsg'/>
+<use f='codebrowser/game/Game_network.cpp' l='1386' u='c' c='_ZN11idGameLocal28ClientProcessReliableMessageEiRK8idBitMsg'/>
+<use f='codebrowser/game/MultiplayerGame.cpp' l='2093' u='c'/>
+<use f='codebrowser/game/MultiplayerGame.cpp' l='2094' u='c'/>
+<use f='codebrowser/game/MultiplayerGame.cpp' l='2095' u='c'/>
+<use f='codebrowser/game/Player.cpp' l='8016' u='c' c='_ZNK8idPlayer15WriteToSnapshotER13idBitMsgDelta'/>
+<use f='codebrowser/game/Player.cpp' l='8019' u='c' c='_ZNK8idPlayer15WriteToSnapshotER13idBitMsgDelta'/>
+<use f='codebrowser/game/Player.cpp' l='8053' u='c' c='_ZN8idPlayer16ReadFromSnapshotERK13idBitMsgDelta'/>
+<use f='codebrowser/game/Player.cpp' l='8056' u='c' c='_ZN8idPlayer16ReadFromSnapshotERK13idBitMsgDelta'/>
+<use f='codebrowser/game/gamesys/Class.cpp' l='402' u='c' c='_ZN7idClass4InitEv'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='7904' u='c'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='7908' u='c'/>
+<use f='codebrowser/game/physics/Physics_Monster.cpp' l='761' u='c'/>
+<use f='codebrowser/game/physics/Physics_Player.cpp' l='1989' u='c'/>
+<use f='codebrowser/game/physics/Physics_RigidBody.cpp' l='1443' u='c'/>
+<use f='codebrowser/game/physics/Physics_RigidBody.cpp' l='1447' u='c'/>
+<use f='codebrowser/game/physics/Physics_RigidBody.cpp' l='1451' u='c'/>

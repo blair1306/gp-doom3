@@ -1,0 +1,45 @@
+<dec f='codebrowser/idlib/math/Vector.h' l='378' type='void idVec3::NormalVectors(idVec3 &amp; left, idVec3 &amp; down) const'/>
+<def f='codebrowser/idlib/math/Vector.h' l='727' ll='742' macro='1' type='void idVec3::NormalVectors(idVec3 &amp; left, idVec3 &amp; down) const'/>
+<doc f='codebrowser/idlib/math/Vector.h' l='378'>// vector should be normalized</doc>
+<use f='codebrowser/cm/CollisionModel_rotate.cpp' l='1321' u='c' c='_ZN28idCollisionModelManagerLocal11Rotation180EP7trace_sRK6idVec3S4_ffS4_PK12idTraceModelRK6idMat3iiS4_SA_'/>
+<use f='codebrowser/cm/CollisionModel_translate.cpp' l='750' u='c' c='_ZN28idCollisionModelManagerLocal27SetupTranslationHeartPlanesEP14cm_traceWork_s'/>
+<use f='codebrowser/d3xp/AF.cpp' l='534' u='c' c='_ZN4idAF8LoadBodyEPK13idDeclAF_BodyPK10idJointMat'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='3053' u='c' c='_ZN10idGameEdit13AF_CreateMeshERK6idDictR6idVec3R6idMat3Rb'/>
+<use f='codebrowser/d3xp/BrittleFracture.cpp' l='747' u='c' c='_ZN17idBrittleFracture12ProjectDecalERK6idVec3S2_iPKc'/>
+<use f='codebrowser/d3xp/BrittleFracture.cpp' l='1071' u='c' c='_ZN17idBrittleFracture10Fracture_rER14idFixedWinding'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='1437' u='c' c='_ZN8idEntity14ProjectOverlayERK6idVec3S2_fPKc'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4101' u='c' c='_ZN11idGameLocal12ProjectDecalERK6idVec3S2_fbfPKcf'/>
+<use f='codebrowser/d3xp/SecurityCamera.cpp' l='195' u='c' c='_ZN16idSecurityCamera14Event_AddLightEv'/>
+<use f='codebrowser/d3xp/SecurityCamera.cpp' l='235' u='c' c='_ZN16idSecurityCamera7DrawFovEv'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='1940' u='c' c='_ZN8idWeapon10BloodSplatEf'/>
+<use f='codebrowser/d3xp/ai/AAS_debug.cpp' l='47' u='c' c='_ZNK10idAASLocal8DrawConeERK6idVec3S2_fRK6idVec4'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1341' u='c' c='_Z16D_DrawDebugLinesv'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='1460' u='c' c='_ZN37idAFConstraint_UniversalJointFriction3AddEP12idPhysics_AFf'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='2640' u='c' c='_ZN20idAFConstraint_Plane9DebugDrawEv'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='3141' u='c' c='_ZN22idAFConstraint_Contact9DebugDrawEv'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='3242' u='c' c='_ZN30idAFConstraint_ContactFriction3AddEP12idPhysics_AFf'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='3541' u='c' c='_ZN24idAFConstraint_ConeLimit9DebugDrawEv'/>
+<use f='codebrowser/d3xp/physics/Physics_Actor.cpp' l='117' u='c' c='_ZN15idPhysics_Actor16SetClipModelAxisEv'/>
+<use f='codebrowser/game/AF.cpp' l='534' u='c' c='_ZN4idAF8LoadBodyEPK13idDeclAF_BodyPK10idJointMat'/>
+<use f='codebrowser/game/AFEntity.cpp' l='2775' u='c' c='_ZN10idGameEdit13AF_CreateMeshERK6idDictR6idVec3R6idMat3Rb'/>
+<use f='codebrowser/game/BrittleFracture.cpp' l='717' u='c' c='_ZN17idBrittleFracture12ProjectDecalERK6idVec3S2_iPKc'/>
+<use f='codebrowser/game/BrittleFracture.cpp' l='1032' u='c' c='_ZN17idBrittleFracture10Fracture_rER14idFixedWinding'/>
+<use f='codebrowser/game/Entity.cpp' l='1349' u='c' c='_ZN8idEntity14ProjectOverlayERK6idVec3S2_fPKc'/>
+<use f='codebrowser/game/Game_local.cpp' l='3803' u='c' c='_ZN11idGameLocal12ProjectDecalERK6idVec3S2_fbfPKcf'/>
+<use f='codebrowser/game/SecurityCamera.cpp' l='195' u='c' c='_ZN16idSecurityCamera14Event_AddLightEv'/>
+<use f='codebrowser/game/SecurityCamera.cpp' l='235' u='c' c='_ZN16idSecurityCamera7DrawFovEv'/>
+<use f='codebrowser/game/Weapon.cpp' l='1653' u='c' c='_ZN8idWeapon10BloodSplatEf'/>
+<use f='codebrowser/game/ai/AAS_debug.cpp' l='47' u='c' c='_ZNK10idAASLocal8DrawConeERK6idVec3S2_fRK6idVec4'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1272' u='c' c='_Z16D_DrawDebugLinesv'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='1460' u='c' c='_ZN37idAFConstraint_UniversalJointFriction3AddEP12idPhysics_AFf'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='2640' u='c' c='_ZN20idAFConstraint_Plane9DebugDrawEv'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='3140' u='c' c='_ZN22idAFConstraint_Contact9DebugDrawEv'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='3241' u='c' c='_ZN30idAFConstraint_ContactFriction3AddEP12idPhysics_AFf'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='3540' u='c' c='_ZN24idAFConstraint_ConeLimit9DebugDrawEv'/>
+<use f='codebrowser/game/physics/Physics_Actor.cpp' l='117' u='c' c='_ZN15idPhysics_Actor16SetClipModelAxisEv'/>
+<use f='codebrowser/idlib/geometry/Winding.cpp' l='71' u='c' c='_ZN9idWinding12BaseForPlaneERK6idVec3f'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1769' u='c' c='_ZN18idRenderWorldLocal10DebugArrowERK6idVec4RK6idVec3S5_ii'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1953' u='c' c='_ZN18idRenderWorldLocal9DebugConeERK6idVec4RK6idVec3S5_ffi'/>
+<use f='codebrowser/renderer/tr_subview.cpp' l='236' u='c' c='_ZL21R_MirrorViewBySurfaceP10drawSurf_s'/>
+<use f='codebrowser/renderer/tr_trace.cpp' l='63' u='c' c='_Z12R_LocalTraceRK6idVec3S1_fPK14srfTriangles_s'/>
+<use f='codebrowser/tools/compilers/dmap/optimize.cpp' l='1897' u='c' c='_ZL15OptimizeOptListP15optimizeGroup_s'/>

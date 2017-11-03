@@ -1,0 +1,58 @@
+<inh f='codebrowser/d3xp/Entity.h' l='107' c='idEntity'/>
+<def f='codebrowser/d3xp/Mover.h' l='485' ll='507'/>
+<ovr f='codebrowser/d3xp/Mover.h' l='509' c='idRotater'/>
+<ovr f='codebrowser/d3xp/Mover.h' l='526' c='idBobber'/>
+<ovr f='codebrowser/d3xp/Mover.h' l='537' c='idPendulum'/>
+<ovr f='codebrowser/d3xp/Mover.h' l='548' c='idRiser'/>
+<size>2048</size>
+<doc f='codebrowser/d3xp/Mover.h' l='477'>/*
+===============================================================================
+
+  Special periodic movers.
+
+===============================================================================
+*/</doc>
+<smbr r='idMover_Periodic::Type' t='idTypeInfo'/>
+<fun r='_ZN16idMover_Periodic14CreateInstanceEv'/>
+<fun r='_ZNK16idMover_Periodic7GetTypeEv'/>
+<smbr r='idMover_Periodic::eventCallbacks' t='idEventFunc&lt;idMover_Periodic&gt; []'/>
+<fun r='_ZN16idMover_PeriodicC1Ev'/>
+<fun r='_ZN16idMover_Periodic5SpawnEv'/>
+<fun r='_ZNK16idMover_Periodic4SaveEP10idSaveGame'/>
+<fun r='_ZN16idMover_Periodic7RestoreEP13idRestoreGame'/>
+<fun r='_ZN16idMover_Periodic5ThinkEv'/>
+<fun r='_ZNK16idMover_Periodic15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN16idMover_Periodic16ReadFromSnapshotERK13idBitMsgDelta'/>
+<mbr r='idMover_Periodic::physicsObj' o='6944' t='idPhysics_Parametric'/>
+<mbr r='idMover_Periodic::damage' o='16352' t='float'/>
+<fun r='_ZN16idMover_Periodic17Event_TeamBlockedEP8idEntityS1_'/>
+<fun r='_ZN16idMover_Periodic17Event_PartBlockedEP8idEntity'/>
+<inh f='codebrowser/game/Entity.h' l='107' c='idEntity'/>
+<def f='codebrowser/game/Mover.h' l='475' ll='497'/>
+<ovr f='codebrowser/game/Mover.h' l='499' c='idRotater'/>
+<ovr f='codebrowser/game/Mover.h' l='516' c='idBobber'/>
+<ovr f='codebrowser/game/Mover.h' l='527' c='idPendulum'/>
+<ovr f='codebrowser/game/Mover.h' l='538' c='idRiser'/>
+<size>1816</size>
+<doc f='codebrowser/game/Mover.h' l='467'>/*
+===============================================================================
+
+  Special periodic movers.
+
+===============================================================================
+*/</doc>
+<smbr r='idMover_Periodic::Type' t='idTypeInfo'/>
+<fun r='_ZN16idMover_Periodic14CreateInstanceEv'/>
+<fun r='_ZNK16idMover_Periodic7GetTypeEv'/>
+<smbr r='idMover_Periodic::eventCallbacks' t='idEventFunc&lt;idMover_Periodic&gt; []'/>
+<fun r='_ZN16idMover_PeriodicC1Ev'/>
+<fun r='_ZN16idMover_Periodic5SpawnEv'/>
+<fun r='_ZNK16idMover_Periodic4SaveEP10idSaveGame'/>
+<fun r='_ZN16idMover_Periodic7RestoreEP13idRestoreGame'/>
+<fun r='_ZN16idMover_Periodic5ThinkEv'/>
+<fun r='_ZNK16idMover_Periodic15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN16idMover_Periodic16ReadFromSnapshotERK13idBitMsgDelta'/>
+<mbr r='idMover_Periodic::physicsObj' o='5088' t='idPhysics_Parametric'/>
+<mbr r='idMover_Periodic::damage' o='14496' t='float'/>
+<fun r='_ZN16idMover_Periodic17Event_TeamBlockedEP8idEntityS1_'/>
+<fun r='_ZN16idMover_Periodic17Event_PartBlockedEP8idEntity'/>

@@ -1,0 +1,13 @@
+<dec f='codebrowser/idlib/math/Simd_Generic.h' l='120' type='void idSIMD_Generic::DeriveTangents(idPlane * planes, idDrawVert * verts, const int numVerts, const int * indexes, const int numIndexes)'/>
+<inh f='codebrowser/idlib/math/Simd.h' l='183' c='_ZN15idSIMDProcessor14DeriveTangentsEP7idPlaneP10idDrawVertiPKii'/>
+<def f='codebrowser/idlib/math/Simd_Generic.cpp' l='2493' ll='2602' type='void idSIMD_Generic::DeriveTangents(idPlane * planes, idDrawVert * verts, const int numVerts, const int * indexes, const int numIndexes)'/>
+<doc f='codebrowser/idlib/math/Simd_Generic.cpp' l='2483'>/*
+============
+idSIMD_Generic::DeriveTangents
+
+	Derives the normal and orthogonal tangent vectors for the triangle vertices.
+	For each vertex the normal and tangent vectors are derived from all triangles
+	using the vertex which results in smooth tangents across the mesh.
+	In the process the triangle planes are calculated as well.
+============
+*/</doc>

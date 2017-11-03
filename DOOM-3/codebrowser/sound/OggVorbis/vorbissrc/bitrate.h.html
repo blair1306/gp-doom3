@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>bitrate.h source code [codebrowser/sound/OggVorbis/vorbissrc/bitrate.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="bitrate_manager_info,bitrate_manager_state "/>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/sound/OggVorbis/vorbissrc/bitrate.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>sound</a>/<a href='..'>OggVorbis</a>/<a href='./'>vorbissrc</a>/<a href='bitrate.h.html'>bitrate.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/********************************************************************</i></td></tr>
+<tr><th id="2">2</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="3">3</th><td><i> * THIS FILE IS PART OF THE OggVorbis SOFTWARE CODEC SOURCE CODE.   *</i></td></tr>
+<tr><th id="4">4</th><td><i> * USE, DISTRIBUTION AND REPRODUCTION OF THIS LIBRARY SOURCE IS     *</i></td></tr>
+<tr><th id="5">5</th><td><i> * GOVERNED BY A BSD-STYLE SOURCE LICENSE INCLUDED WITH THIS SOURCE *</i></td></tr>
+<tr><th id="6">6</th><td><i> * IN 'COPYING'. PLEASE READ THESE TERMS BEFORE DISTRIBUTING.       *</i></td></tr>
+<tr><th id="7">7</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="8">8</th><td><i> * THE OggVorbis SOURCE CODE IS (C) COPYRIGHT 1994-2002             *</i></td></tr>
+<tr><th id="9">9</th><td><i> * by the XIPHOPHORUS Company <a href="http://www.xiph.org/">http://www.xiph.org/</a>                  *</i></td></tr>
+<tr><th id="10">10</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="11">11</th><td><i> ********************************************************************</i></td></tr>
+<tr><th id="12">12</th><td><i></i></td></tr>
+<tr><th id="13">13</th><td><i> function: bitrate tracking and management</i></td></tr>
+<tr><th id="14">14</th><td><i> last mod: $Id: bitrate.h,v 1.7 2002/07/11 06:40:48 xiphmont Exp $</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i> ********************************************************************/</i></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><u>#<span data-ppcond="18">ifndef</span> <span class="macro" data-ref="_M/_V_BITRATE_H_">_V_BITRATE_H_</span></u></td></tr>
+<tr><th id="19">19</th><td><u>#define <dfn class="macro" id="_M/_V_BITRATE_H_" data-ref="_M/_V_BITRATE_H_">_V_BITRATE_H_</dfn></u></td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../vorbis/codec.h.html">"../vorbis/codec.h"</a></u></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="codec_internal.h.html">"codec_internal.h"</a></u></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="os.h.html">"os.h"</a></u></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><i>/* encode side bitrate tracking */</i></td></tr>
+<tr><th id="26">26</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="bitrate_manager_state" title='bitrate_manager_state' data-ref="bitrate_manager_state"><a class="type" href="#bitrate_manager_state" title='bitrate_manager_state' data-ref="bitrate_manager_state">bitrate_manager_state</a></dfn> {</td></tr>
+<tr><th id="27">27</th><td>  <a class="typedef" href="../ogg/os_types.h.html#ogg_uint32_t" title='ogg_uint32_t' data-type='u_int32_t' data-ref="ogg_uint32_t">ogg_uint32_t</a>  *<dfn class="decl" id="bitrate_manager_state::queue_binned" title='bitrate_manager_state::queue_binned' data-ref="bitrate_manager_state::queue_binned">queue_binned</dfn>;</td></tr>
+<tr><th id="28">28</th><td>  <a class="typedef" href="../ogg/os_types.h.html#ogg_uint32_t" title='ogg_uint32_t' data-type='u_int32_t' data-ref="ogg_uint32_t">ogg_uint32_t</a>  *<dfn class="decl" id="bitrate_manager_state::queue_actual" title='bitrate_manager_state::queue_actual' data-ref="bitrate_manager_state::queue_actual">queue_actual</dfn>;</td></tr>
+<tr><th id="29">29</th><td>  <em>int</em>            <dfn class="decl" id="bitrate_manager_state::queue_size" title='bitrate_manager_state::queue_size' data-ref="bitrate_manager_state::queue_size">queue_size</dfn>;</td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td>  <em>int</em>            <dfn class="decl" id="bitrate_manager_state::queue_head" title='bitrate_manager_state::queue_head' data-ref="bitrate_manager_state::queue_head">queue_head</dfn>;</td></tr>
+<tr><th id="32">32</th><td>  <em>int</em>            <dfn class="decl" id="bitrate_manager_state::queue_bins" title='bitrate_manager_state::queue_bins' data-ref="bitrate_manager_state::queue_bins">queue_bins</dfn>;</td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td>  <em>long</em>          *<dfn class="decl" id="bitrate_manager_state::avg_binacc" title='bitrate_manager_state::avg_binacc' data-ref="bitrate_manager_state::avg_binacc">avg_binacc</dfn>;</td></tr>
+<tr><th id="35">35</th><td>  <em>int</em>            <dfn class="decl" id="bitrate_manager_state::avg_center" title='bitrate_manager_state::avg_center' data-ref="bitrate_manager_state::avg_center">avg_center</dfn>;</td></tr>
+<tr><th id="36">36</th><td>  <em>int</em>            <dfn class="decl" id="bitrate_manager_state::avg_tail" title='bitrate_manager_state::avg_tail' data-ref="bitrate_manager_state::avg_tail">avg_tail</dfn>;</td></tr>
+<tr><th id="37">37</th><td>  <a class="typedef" href="../ogg/os_types.h.html#ogg_uint32_t" title='ogg_uint32_t' data-type='u_int32_t' data-ref="ogg_uint32_t">ogg_uint32_t</a>   <dfn class="decl" id="bitrate_manager_state::avg_centeracc" title='bitrate_manager_state::avg_centeracc' data-ref="bitrate_manager_state::avg_centeracc">avg_centeracc</dfn>;</td></tr>
+<tr><th id="38">38</th><td>  <a class="typedef" href="../ogg/os_types.h.html#ogg_uint32_t" title='ogg_uint32_t' data-type='u_int32_t' data-ref="ogg_uint32_t">ogg_uint32_t</a>   <dfn class="decl" id="bitrate_manager_state::avg_sampleacc" title='bitrate_manager_state::avg_sampleacc' data-ref="bitrate_manager_state::avg_sampleacc">avg_sampleacc</dfn>;</td></tr>
+<tr><th id="39">39</th><td>  <a class="typedef" href="../ogg/os_types.h.html#ogg_uint32_t" title='ogg_uint32_t' data-type='u_int32_t' data-ref="ogg_uint32_t">ogg_uint32_t</a>   <dfn class="decl" id="bitrate_manager_state::avg_sampledesired" title='bitrate_manager_state::avg_sampledesired' data-ref="bitrate_manager_state::avg_sampledesired">avg_sampledesired</dfn>;</td></tr>
+<tr><th id="40">40</th><td>  <a class="typedef" href="../ogg/os_types.h.html#ogg_uint32_t" title='ogg_uint32_t' data-type='u_int32_t' data-ref="ogg_uint32_t">ogg_uint32_t</a>   <dfn class="decl" id="bitrate_manager_state::avg_centerdesired" title='bitrate_manager_state::avg_centerdesired' data-ref="bitrate_manager_state::avg_centerdesired">avg_centerdesired</dfn>;</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td>  <em>long</em>          *<dfn class="decl" id="bitrate_manager_state::minmax_binstack" title='bitrate_manager_state::minmax_binstack' data-ref="bitrate_manager_state::minmax_binstack">minmax_binstack</dfn>;</td></tr>
+<tr><th id="43">43</th><td>  <em>long</em>          *<dfn class="decl" id="bitrate_manager_state::minmax_posstack" title='bitrate_manager_state::minmax_posstack' data-ref="bitrate_manager_state::minmax_posstack">minmax_posstack</dfn>;</td></tr>
+<tr><th id="44">44</th><td>  <em>long</em>          *<dfn class="decl" id="bitrate_manager_state::minmax_limitstack" title='bitrate_manager_state::minmax_limitstack' data-ref="bitrate_manager_state::minmax_limitstack">minmax_limitstack</dfn>;</td></tr>
+<tr><th id="45">45</th><td>  <em>long</em>           <dfn class="decl" id="bitrate_manager_state::minmax_stackptr" title='bitrate_manager_state::minmax_stackptr' data-ref="bitrate_manager_state::minmax_stackptr">minmax_stackptr</dfn>;</td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td>  <em>long</em>           <dfn class="decl" id="bitrate_manager_state::minmax_acctotal" title='bitrate_manager_state::minmax_acctotal' data-ref="bitrate_manager_state::minmax_acctotal">minmax_acctotal</dfn>;</td></tr>
+<tr><th id="48">48</th><td>  <em>int</em>            <dfn class="decl" id="bitrate_manager_state::minmax_tail" title='bitrate_manager_state::minmax_tail' data-ref="bitrate_manager_state::minmax_tail">minmax_tail</dfn>;</td></tr>
+<tr><th id="49">49</th><td>  <a class="typedef" href="../ogg/os_types.h.html#ogg_uint32_t" title='ogg_uint32_t' data-type='u_int32_t' data-ref="ogg_uint32_t">ogg_uint32_t</a>   <dfn class="decl" id="bitrate_manager_state::minmax_sampleacc" title='bitrate_manager_state::minmax_sampleacc' data-ref="bitrate_manager_state::minmax_sampleacc">minmax_sampleacc</dfn>;</td></tr>
+<tr><th id="50">50</th><td>  <a class="typedef" href="../ogg/os_types.h.html#ogg_uint32_t" title='ogg_uint32_t' data-type='u_int32_t' data-ref="ogg_uint32_t">ogg_uint32_t</a>   <dfn class="decl" id="bitrate_manager_state::minmax_sampledesired" title='bitrate_manager_state::minmax_sampledesired' data-ref="bitrate_manager_state::minmax_sampledesired">minmax_sampledesired</dfn>;</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td>  <em>int</em>            <dfn class="decl" id="bitrate_manager_state::next_to_flush" title='bitrate_manager_state::next_to_flush' data-ref="bitrate_manager_state::next_to_flush">next_to_flush</dfn>;</td></tr>
+<tr><th id="53">53</th><td>  <em>int</em>            <dfn class="decl" id="bitrate_manager_state::last_to_flush" title='bitrate_manager_state::last_to_flush' data-ref="bitrate_manager_state::last_to_flush">last_to_flush</dfn>;</td></tr>
+<tr><th id="54">54</th><td>  </td></tr>
+<tr><th id="55">55</th><td>  <em>double</em>         <dfn class="decl" id="bitrate_manager_state::avgfloat" title='bitrate_manager_state::avgfloat' data-ref="bitrate_manager_state::avgfloat">avgfloat</dfn>;</td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td>  <i>/* unfortunately, we need to hold queued packet data somewhere */</i></td></tr>
+<tr><th id="58">58</th><td>  <a class="typedef" href="../ogg/ogg.h.html#oggpack_buffer" title='oggpack_buffer' data-type='struct oggpack_buffer' data-ref="oggpack_buffer">oggpack_buffer</a> *<dfn class="decl" id="bitrate_manager_state::packetbuffers" title='bitrate_manager_state::packetbuffers' data-ref="bitrate_manager_state::packetbuffers">packetbuffers</dfn>;</td></tr>
+<tr><th id="59">59</th><td>  <a class="typedef" href="../ogg/ogg.h.html#ogg_packet" title='ogg_packet' data-type='struct ogg_packet' data-ref="ogg_packet">ogg_packet</a>     *<dfn class="decl" id="bitrate_manager_state::packets" title='bitrate_manager_state::packets' data-ref="bitrate_manager_state::packets">packets</dfn>;</td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td>} <dfn class="typedef" id="bitrate_manager_state" title='bitrate_manager_state' data-type='struct bitrate_manager_state' data-ref="bitrate_manager_state">bitrate_manager_state</dfn>;</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="bitrate_manager_info" title='bitrate_manager_info' data-ref="bitrate_manager_info"><a class="type" href="#bitrate_manager_info" title='bitrate_manager_info' data-ref="bitrate_manager_info">bitrate_manager_info</a></dfn>{</td></tr>
+<tr><th id="64">64</th><td>  <i>/* detailed bitrate management setup */</i></td></tr>
+<tr><th id="65">65</th><td>  <em>double</em> <dfn class="decl" id="bitrate_manager_info::queue_avg_time" title='bitrate_manager_info::queue_avg_time' data-ref="bitrate_manager_info::queue_avg_time">queue_avg_time</dfn>;</td></tr>
+<tr><th id="66">66</th><td>  <em>double</em> <dfn class="decl" id="bitrate_manager_info::queue_avg_center" title='bitrate_manager_info::queue_avg_center' data-ref="bitrate_manager_info::queue_avg_center">queue_avg_center</dfn>;</td></tr>
+<tr><th id="67">67</th><td>  <em>double</em> <dfn class="decl" id="bitrate_manager_info::queue_minmax_time" title='bitrate_manager_info::queue_minmax_time' data-ref="bitrate_manager_info::queue_minmax_time">queue_minmax_time</dfn>;</td></tr>
+<tr><th id="68">68</th><td>  <em>double</em> <dfn class="decl" id="bitrate_manager_info::queue_hardmin" title='bitrate_manager_info::queue_hardmin' data-ref="bitrate_manager_info::queue_hardmin">queue_hardmin</dfn>;</td></tr>
+<tr><th id="69">69</th><td>  <em>double</em> <dfn class="decl" id="bitrate_manager_info::queue_hardmax" title='bitrate_manager_info::queue_hardmax' data-ref="bitrate_manager_info::queue_hardmax">queue_hardmax</dfn>;</td></tr>
+<tr><th id="70">70</th><td>  <em>double</em> <dfn class="decl" id="bitrate_manager_info::queue_avgmin" title='bitrate_manager_info::queue_avgmin' data-ref="bitrate_manager_info::queue_avgmin">queue_avgmin</dfn>;</td></tr>
+<tr><th id="71">71</th><td>  <em>double</em> <dfn class="decl" id="bitrate_manager_info::queue_avgmax" title='bitrate_manager_info::queue_avgmax' data-ref="bitrate_manager_info::queue_avgmax">queue_avgmax</dfn>;</td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td>  <em>double</em> <dfn class="decl" id="bitrate_manager_info::avgfloat_downslew_max" title='bitrate_manager_info::avgfloat_downslew_max' data-ref="bitrate_manager_info::avgfloat_downslew_max">avgfloat_downslew_max</dfn>;</td></tr>
+<tr><th id="74">74</th><td>  <em>double</em> <dfn class="decl" id="bitrate_manager_info::avgfloat_upslew_max" title='bitrate_manager_info::avgfloat_upslew_max' data-ref="bitrate_manager_info::avgfloat_upslew_max">avgfloat_upslew_max</dfn>;</td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td>} <dfn class="typedef" id="bitrate_manager_info" title='bitrate_manager_info' data-type='struct bitrate_manager_info' data-ref="bitrate_manager_info">bitrate_manager_info</dfn>;</td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td><b>extern</b> <em>void</em> <dfn class="decl" id="vorbis_bitrate_init" title='vorbis_bitrate_init' data-ref="vorbis_bitrate_init">vorbis_bitrate_init</dfn>(<a class="typedef" href="../vorbis/codec.h.html#vorbis_info" title='vorbis_info' data-type='struct vorbis_info' data-ref="vorbis_info">vorbis_info</a> *<dfn class="local col3 decl" id="223vi" title='vi' data-type='vorbis_info *' data-ref="223vi">vi</dfn>,<a class="typedef" href="#bitrate_manager_state" title='bitrate_manager_state' data-type='struct bitrate_manager_state' data-ref="bitrate_manager_state">bitrate_manager_state</a> *<dfn class="local col4 decl" id="224bs" title='bs' data-type='bitrate_manager_state *' data-ref="224bs">bs</dfn>);</td></tr>
+<tr><th id="79">79</th><td><b>extern</b> <em>void</em> <dfn class="decl" id="vorbis_bitrate_clear" title='vorbis_bitrate_clear' data-ref="vorbis_bitrate_clear">vorbis_bitrate_clear</dfn>(<a class="typedef" href="#bitrate_manager_state" title='bitrate_manager_state' data-type='struct bitrate_manager_state' data-ref="bitrate_manager_state">bitrate_manager_state</a> *<dfn class="local col5 decl" id="225bs" title='bs' data-type='bitrate_manager_state *' data-ref="225bs">bs</dfn>);</td></tr>
+<tr><th id="80">80</th><td><b>extern</b> <em>int</em> <dfn class="decl" id="vorbis_bitrate_managed" title='vorbis_bitrate_managed' data-ref="vorbis_bitrate_managed">vorbis_bitrate_managed</dfn>(<a class="typedef" href="../vorbis/codec.h.html#vorbis_block" title='vorbis_block' data-type='struct vorbis_block' data-ref="vorbis_block">vorbis_block</a> *<dfn class="local col6 decl" id="226vb" title='vb' data-type='vorbis_block *' data-ref="226vb">vb</dfn>);</td></tr>
+<tr><th id="81">81</th><td><b>extern</b> <em>int</em> <a class="decl" href="../vorbis/codec.h.html#vorbis_bitrate_addblock" title='vorbis_bitrate_addblock' data-ref="vorbis_bitrate_addblock" id="vorbis_bitrate_addblock">vorbis_bitrate_addblock</a>(<a class="typedef" href="../vorbis/codec.h.html#vorbis_block" title='vorbis_block' data-type='struct vorbis_block' data-ref="vorbis_block">vorbis_block</a> *<dfn class="local col7 decl" id="227vb" title='vb' data-type='vorbis_block *' data-ref="227vb">vb</dfn>);</td></tr>
+<tr><th id="82">82</th><td><b>extern</b> <em>int</em> <a class="decl" href="../vorbis/codec.h.html#vorbis_bitrate_flushpacket" title='vorbis_bitrate_flushpacket' data-ref="vorbis_bitrate_flushpacket" id="vorbis_bitrate_flushpacket">vorbis_bitrate_flushpacket</a>(<a class="typedef" href="../vorbis/codec.h.html#vorbis_dsp_state" title='vorbis_dsp_state' data-type='struct vorbis_dsp_state' data-ref="vorbis_dsp_state">vorbis_dsp_state</a> *<dfn class="local col8 decl" id="228vd" title='vd' data-type='vorbis_dsp_state *' data-ref="228vd">vd</dfn>, <a class="typedef" href="../ogg/ogg.h.html#ogg_packet" title='ogg_packet' data-type='struct ogg_packet' data-ref="ogg_packet">ogg_packet</a> *<dfn class="local col9 decl" id="229op" title='op' data-type='ogg_packet *' data-ref="229op">op</dfn>);</td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td><u>#<span data-ppcond="18">endif</span></u></td></tr>
+<tr><th id="85">85</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='analysis.c.html'>codebrowser/sound/OggVorbis/vorbissrc/analysis.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

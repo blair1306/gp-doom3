@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Physics_Monster.h source code [codebrowser/d3xp/physics/Physics_Monster.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idPhysics_Monster,monsterPState_s "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/d3xp/physics/Physics_Monster.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>d3xp</a>/<a href='./'>physics</a>/<a href='Physics_Monster.h.html'>Physics_Monster.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__PHYSICS_MONSTER_H__">__PHYSICS_MONSTER_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__PHYSICS_MONSTER_H__" data-ref="_M/__PHYSICS_MONSTER_H__">__PHYSICS_MONSTER_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>===================================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>	Monster physics</i></td></tr>
+<tr><th id="36">36</th><td><i></i></td></tr>
+<tr><th id="37">37</th><td><i>	Simulates the motion of a monster through the environment. The monster motion</i></td></tr>
+<tr><th id="38">38</th><td><i>	is typically driven by animations.</i></td></tr>
+<tr><th id="39">39</th><td><i></i></td></tr>
+<tr><th id="40">40</th><td><i>===================================================================================</i></td></tr>
+<tr><th id="41">41</th><td><i>*/</i></td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="44">44</th><td>	<dfn class="enum" id="MM_OK" title='MM_OK' data-ref="MM_OK">MM_OK</dfn>,</td></tr>
+<tr><th id="45">45</th><td>	<dfn class="enum" id="MM_SLIDING" title='MM_SLIDING' data-ref="MM_SLIDING">MM_SLIDING</dfn>,</td></tr>
+<tr><th id="46">46</th><td>	<dfn class="enum" id="MM_BLOCKED" title='MM_BLOCKED' data-ref="MM_BLOCKED">MM_BLOCKED</dfn>,</td></tr>
+<tr><th id="47">47</th><td>	<dfn class="enum" id="MM_STEPPED" title='MM_STEPPED' data-ref="MM_STEPPED">MM_STEPPED</dfn>,</td></tr>
+<tr><th id="48">48</th><td>	<dfn class="enum" id="MM_FALLING" title='MM_FALLING' data-ref="MM_FALLING">MM_FALLING</dfn></td></tr>
+<tr><th id="49">49</th><td>} <dfn class="typedef" id="monsterMoveResult_t" title='monsterMoveResult_t' data-type='enum monsterMoveResult_t' data-ref="monsterMoveResult_t">monsterMoveResult_t</dfn>;</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="monsterPState_s" title='monsterPState_s' data-ref="monsterPState_s"><a class="type" href="#monsterPState_s" title='monsterPState_s' data-ref="monsterPState_s">monsterPState_s</a></dfn> {</td></tr>
+<tr><th id="52">52</th><td>	<em>int</em>						<dfn class="decl" id="monsterPState_s::atRest" title='monsterPState_s::atRest' data-ref="monsterPState_s::atRest">atRest</dfn>;</td></tr>
+<tr><th id="53">53</th><td>	<em>bool</em>					<dfn class="decl" id="monsterPState_s::onGround" title='monsterPState_s::onGround' data-ref="monsterPState_s::onGround">onGround</dfn>;</td></tr>
+<tr><th id="54">54</th><td>	<a class="type" href="../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a>					<dfn class="decl" id="monsterPState_s::origin" title='monsterPState_s::origin' data-ref="monsterPState_s::origin">origin</dfn>;</td></tr>
+<tr><th id="55">55</th><td>	<a class="type" href="../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a>					<dfn class="decl" id="monsterPState_s::velocity" title='monsterPState_s::velocity' data-ref="monsterPState_s::velocity">velocity</dfn>;</td></tr>
+<tr><th id="56">56</th><td>	<a class="type" href="../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a>					<dfn class="decl" id="monsterPState_s::localOrigin" title='monsterPState_s::localOrigin' data-ref="monsterPState_s::localOrigin">localOrigin</dfn>;</td></tr>
+<tr><th id="57">57</th><td>	<a class="type" href="../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a>					<dfn class="decl" id="monsterPState_s::pushVelocity" title='monsterPState_s::pushVelocity' data-ref="monsterPState_s::pushVelocity">pushVelocity</dfn>;</td></tr>
+<tr><th id="58">58</th><td>} <dfn class="typedef" id="monsterPState_t" title='monsterPState_t' data-type='struct monsterPState_s' data-ref="monsterPState_t">monsterPState_t</dfn>;</td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td><b>class</b> <dfn class="type def" id="idPhysics_Monster" title='idPhysics_Monster' data-ref="idPhysics_Monster">idPhysics_Monster</dfn> : <b>public</b> <a class="type" href="Physics_Actor.h.html#idPhysics_Actor" title='idPhysics_Actor' data-ref="idPhysics_Actor">idPhysics_Actor</a> {</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td><b>public</b>:</td></tr>
+<tr><th id="63">63</th><td>	<a class="macro" href="../gamesys/Class.h.html#92" title="public: static idTypeInfo Type; static idClass *CreateInstance( void ); virtual idTypeInfo *GetType( void ) const; static idEventFunc&lt;idPhysics_Monster&gt; eventCallbacks[]" data-ref="_M/CLASS_PROTOTYPE">CLASS_PROTOTYPE</a>( <a class="type" href="#idPhysics_Monster" title='idPhysics_Monster' data-ref="idPhysics_Monster">idPhysics_Monster</a> );</td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td>							<dfn class="decl" id="_ZN17idPhysics_MonsterC1Ev" title='idPhysics_Monster::idPhysics_Monster' data-ref="_ZN17idPhysics_MonsterC1Ev">idPhysics_Monster</dfn>( <em>void</em> );</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td>	<em>void</em>					<dfn class="decl" id="_ZNK17idPhysics_Monster4SaveEP10idSaveGame" title='idPhysics_Monster::Save' data-ref="_ZNK17idPhysics_Monster4SaveEP10idSaveGame">Save</dfn>( <a class="type" href="../gamesys/SaveGame.h.html#idSaveGame" title='idSaveGame' data-ref="idSaveGame">idSaveGame</a> *<dfn class="local col4 decl" id="1904savefile" title='savefile' data-type='idSaveGame *' data-ref="1904savefile">savefile</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="68">68</th><td>	<em>void</em>					<dfn class="decl" id="_ZN17idPhysics_Monster7RestoreEP13idRestoreGame" title='idPhysics_Monster::Restore' data-ref="_ZN17idPhysics_Monster7RestoreEP13idRestoreGame">Restore</dfn>( <a class="type" href="../gamesys/SaveGame.h.html#idRestoreGame" title='idRestoreGame' data-ref="idRestoreGame">idRestoreGame</a> *<dfn class="local col5 decl" id="1905savefile" title='savefile' data-type='idRestoreGame *' data-ref="1905savefile">savefile</dfn> );</td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td>							<i>// maximum step up the monster can take, default 18 units</i></td></tr>
+<tr><th id="71">71</th><td>	<em>void</em>					<dfn class="decl" id="_ZN17idPhysics_Monster16SetMaxStepHeightEf" title='idPhysics_Monster::SetMaxStepHeight' data-ref="_ZN17idPhysics_Monster16SetMaxStepHeightEf">SetMaxStepHeight</dfn>( <em>const</em> <em>float</em> <dfn class="local col6 decl" id="1906newMaxStepHeight" title='newMaxStepHeight' data-type='const float' data-ref="1906newMaxStepHeight">newMaxStepHeight</dfn> );</td></tr>
+<tr><th id="72">72</th><td>	<em>float</em>					<dfn class="decl" id="_ZNK17idPhysics_Monster16GetMaxStepHeightEv" title='idPhysics_Monster::GetMaxStepHeight' data-ref="_ZNK17idPhysics_Monster16GetMaxStepHeightEv">GetMaxStepHeight</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="73">73</th><td>							<i>// minimum cosine of floor angle to be able to stand on the floor</i></td></tr>
+<tr><th id="74">74</th><td>	<em>void</em>					<dfn class="decl" id="_ZN17idPhysics_Monster17SetMinFloorCosineEf" title='idPhysics_Monster::SetMinFloorCosine' data-ref="_ZN17idPhysics_Monster17SetMinFloorCosineEf">SetMinFloorCosine</dfn>( <em>const</em> <em>float</em> <dfn class="local col7 decl" id="1907newMinFloorCosine" title='newMinFloorCosine' data-type='const float' data-ref="1907newMinFloorCosine">newMinFloorCosine</dfn> );</td></tr>
+<tr><th id="75">75</th><td>							<i>// set delta for next move</i></td></tr>
+<tr><th id="76">76</th><td>	<em>void</em>					<dfn class="decl" id="_ZN17idPhysics_Monster8SetDeltaERK6idVec3" title='idPhysics_Monster::SetDelta' data-ref="_ZN17idPhysics_Monster8SetDeltaERK6idVec3">SetDelta</dfn>( <em>const</em> <a class="type" href="../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col8 decl" id="1908d" title='d' data-type='const idVec3 &amp;' data-ref="1908d">d</dfn> );</td></tr>
+<tr><th id="77">77</th><td>							<i>// returns true if monster is standing on the ground</i></td></tr>
+<tr><th id="78">78</th><td>	<em>bool</em>					<dfn class="decl" id="_ZNK17idPhysics_Monster8OnGroundEv" title='idPhysics_Monster::OnGround' data-ref="_ZNK17idPhysics_Monster8OnGroundEv">OnGround</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="79">79</th><td>							<i>// returns the movement result</i></td></tr>
+<tr><th id="80">80</th><td>	<a class="typedef" href="#monsterMoveResult_t" title='monsterMoveResult_t' data-type='enum monsterMoveResult_t' data-ref="monsterMoveResult_t">monsterMoveResult_t</a>		<dfn class="decl" id="_ZNK17idPhysics_Monster13GetMoveResultEv" title='idPhysics_Monster::GetMoveResult' data-ref="_ZNK17idPhysics_Monster13GetMoveResultEv">GetMoveResult</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="81">81</th><td>							<i>// overrides any velocity for pure delta movement</i></td></tr>
+<tr><th id="82">82</th><td>	<em>void</em>					<dfn class="decl" id="_ZN17idPhysics_Monster14ForceDeltaMoveEb" title='idPhysics_Monster::ForceDeltaMove' data-ref="_ZN17idPhysics_Monster14ForceDeltaMoveEb">ForceDeltaMove</dfn>( <em>bool</em> <dfn class="local col9 decl" id="1909force" title='force' data-type='bool' data-ref="1909force">force</dfn> );</td></tr>
+<tr><th id="83">83</th><td>							<i>// whether velocity should be affected by gravity</i></td></tr>
+<tr><th id="84">84</th><td>	<em>void</em>					<dfn class="decl" id="_ZN17idPhysics_Monster10UseFlyMoveEb" title='idPhysics_Monster::UseFlyMove' data-ref="_ZN17idPhysics_Monster10UseFlyMoveEb">UseFlyMove</dfn>( <em>bool</em> <dfn class="local col0 decl" id="1910force" title='force' data-type='bool' data-ref="1910force">force</dfn> );</td></tr>
+<tr><th id="85">85</th><td>							<i>// don't use delta movement</i></td></tr>
+<tr><th id="86">86</th><td>	<em>void</em>					<dfn class="decl" id="_ZN17idPhysics_Monster15UseVelocityMoveEb" title='idPhysics_Monster::UseVelocityMove' data-ref="_ZN17idPhysics_Monster15UseVelocityMoveEb">UseVelocityMove</dfn>( <em>bool</em> <dfn class="local col1 decl" id="1911force" title='force' data-type='bool' data-ref="1911force">force</dfn> );</td></tr>
+<tr><th id="87">87</th><td>							<i>// get entity blocking the move</i></td></tr>
+<tr><th id="88">88</th><td>	<a class="type" href="../Entity.h.html#idEntity" title='idEntity' data-ref="idEntity">idEntity</a> *				<dfn class="decl" id="_ZNK17idPhysics_Monster18GetSlideMoveEntityEv" title='idPhysics_Monster::GetSlideMoveEntity' data-ref="_ZNK17idPhysics_Monster18GetSlideMoveEntityEv">GetSlideMoveEntity</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="89">89</th><td>							<i>// enable/disable activation by impact</i></td></tr>
+<tr><th id="90">90</th><td>	<em>void</em>					<dfn class="decl" id="_ZN17idPhysics_Monster12EnableImpactEv" title='idPhysics_Monster::EnableImpact' data-ref="_ZN17idPhysics_Monster12EnableImpactEv">EnableImpact</dfn>( <em>void</em> );</td></tr>
+<tr><th id="91">91</th><td>	<em>void</em>					<dfn class="decl" id="_ZN17idPhysics_Monster13DisableImpactEv" title='idPhysics_Monster::DisableImpact' data-ref="_ZN17idPhysics_Monster13DisableImpactEv">DisableImpact</dfn>( <em>void</em> );</td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td><b>public</b>:	<i>// common physics interface</i></td></tr>
+<tr><th id="94">94</th><td>	<em>bool</em>					<dfn class="virtual decl" id="_ZN17idPhysics_Monster8EvaluateEii" title='idPhysics_Monster::Evaluate' data-ref="_ZN17idPhysics_Monster8EvaluateEii">Evaluate</dfn>( <em>int</em> <dfn class="local col2 decl" id="1912timeStepMSec" title='timeStepMSec' data-type='int' data-ref="1912timeStepMSec">timeStepMSec</dfn>, <em>int</em> <dfn class="local col3 decl" id="1913endTimeMSec" title='endTimeMSec' data-type='int' data-ref="1913endTimeMSec">endTimeMSec</dfn> );</td></tr>
+<tr><th id="95">95</th><td>	<em>void</em>					<dfn class="virtual decl" id="_ZN17idPhysics_Monster10UpdateTimeEi" title='idPhysics_Monster::UpdateTime' data-ref="_ZN17idPhysics_Monster10UpdateTimeEi">UpdateTime</dfn>( <em>int</em> <dfn class="local col4 decl" id="1914endTimeMSec" title='endTimeMSec' data-type='int' data-ref="1914endTimeMSec">endTimeMSec</dfn> );</td></tr>
+<tr><th id="96">96</th><td>	<em>int</em>						<dfn class="virtual decl" id="_ZNK17idPhysics_Monster7GetTimeEv" title='idPhysics_Monster::GetTime' data-ref="_ZNK17idPhysics_Monster7GetTimeEv">GetTime</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="97">97</th><td></td></tr>
+<tr><th id="98">98</th><td>	<em>void</em>					<dfn class="virtual decl" id="_ZNK17idPhysics_Monster13GetImpactInfoEiRK6idVec3P12impactInfo_s" title='idPhysics_Monster::GetImpactInfo' data-ref="_ZNK17idPhysics_Monster13GetImpactInfoEiRK6idVec3P12impactInfo_s">GetImpactInfo</dfn>( <em>const</em> <em>int</em> <dfn class="local col5 decl" id="1915id" title='id' data-type='const int' data-ref="1915id">id</dfn>, <em>const</em> <a class="type" href="../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col6 decl" id="1916point" title='point' data-type='const idVec3 &amp;' data-ref="1916point">point</dfn>, <a class="typedef" href="Physics.h.html#impactInfo_t" title='impactInfo_t' data-type='struct impactInfo_s' data-ref="impactInfo_t">impactInfo_t</a> *<dfn class="local col7 decl" id="1917info" title='info' data-type='impactInfo_t *' data-ref="1917info">info</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="99">99</th><td>	<em>void</em>					<dfn class="virtual decl" id="_ZN17idPhysics_Monster12ApplyImpulseEiRK6idVec3S2_" title='idPhysics_Monster::ApplyImpulse' data-ref="_ZN17idPhysics_Monster12ApplyImpulseEiRK6idVec3S2_">ApplyImpulse</dfn>( <em>const</em> <em>int</em> <dfn class="local col8 decl" id="1918id" title='id' data-type='const int' data-ref="1918id">id</dfn>, <em>const</em> <a class="type" href="../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col9 decl" id="1919point" title='point' data-type='const idVec3 &amp;' data-ref="1919point">point</dfn>, <em>const</em> <a class="type" href="../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col0 decl" id="1920impulse" title='impulse' data-type='const idVec3 &amp;' data-ref="1920impulse">impulse</dfn> );</td></tr>
+<tr><th id="100">100</th><td>	<em>void</em>					<dfn class="virtual decl" id="_ZN17idPhysics_Monster8ActivateEv" title='idPhysics_Monster::Activate' data-ref="_ZN17idPhysics_Monster8ActivateEv">Activate</dfn>( <em>void</em> );</td></tr>
+<tr><th id="101">101</th><td>	<em>void</em>					<dfn class="virtual decl" id="_ZN17idPhysics_Monster9PutToRestEv" title='idPhysics_Monster::PutToRest' data-ref="_ZN17idPhysics_Monster9PutToRestEv">PutToRest</dfn>( <em>void</em> );</td></tr>
+<tr><th id="102">102</th><td>	<em>bool</em>					<dfn class="virtual decl" id="_ZNK17idPhysics_Monster8IsAtRestEv" title='idPhysics_Monster::IsAtRest' data-ref="_ZNK17idPhysics_Monster8IsAtRestEv">IsAtRest</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="103">103</th><td>	<em>int</em>						<dfn class="virtual decl" id="_ZNK17idPhysics_Monster16GetRestStartTimeEv" title='idPhysics_Monster::GetRestStartTime' data-ref="_ZNK17idPhysics_Monster16GetRestStartTimeEv">GetRestStartTime</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="104">104</th><td></td></tr>
+<tr><th id="105">105</th><td>	<em>void</em>					<dfn class="virtual decl" id="_ZN17idPhysics_Monster9SaveStateEv" title='idPhysics_Monster::SaveState' data-ref="_ZN17idPhysics_Monster9SaveStateEv">SaveState</dfn>( <em>void</em> );</td></tr>
+<tr><th id="106">106</th><td>	<em>void</em>					<dfn class="virtual decl" id="_ZN17idPhysics_Monster12RestoreStateEv" title='idPhysics_Monster::RestoreState' data-ref="_ZN17idPhysics_Monster12RestoreStateEv">RestoreState</dfn>( <em>void</em> );</td></tr>
+<tr><th id="107">107</th><td></td></tr>
+<tr><th id="108">108</th><td>	<em>void</em>					<dfn class="virtual decl" id="_ZN17idPhysics_Monster9SetOriginERK6idVec3i" title='idPhysics_Monster::SetOrigin' data-ref="_ZN17idPhysics_Monster9SetOriginERK6idVec3i">SetOrigin</dfn>( <em>const</em> <a class="type" href="../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col1 decl" id="1921newOrigin" title='newOrigin' data-type='const idVec3 &amp;' data-ref="1921newOrigin">newOrigin</dfn>, <em>int</em> <dfn class="local col2 decl" id="1922id" title='id' data-type='int' data-ref="1922id">id</dfn> = -<var>1</var> );</td></tr>
+<tr><th id="109">109</th><td>	<em>void</em>					<dfn class="virtual decl" id="_ZN17idPhysics_Monster7SetAxisERK6idMat3i" title='idPhysics_Monster::SetAxis' data-ref="_ZN17idPhysics_Monster7SetAxisERK6idMat3i">SetAxis</dfn>( <em>const</em> <a class="type" href="../../idlib/math/Matrix.h.html#idMat3" title='idMat3' data-ref="idMat3">idMat3</a> &amp;<dfn class="local col3 decl" id="1923newAxis" title='newAxis' data-type='const idMat3 &amp;' data-ref="1923newAxis">newAxis</dfn>, <em>int</em> <dfn class="local col4 decl" id="1924id" title='id' data-type='int' data-ref="1924id">id</dfn> = -<var>1</var> );</td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td>	<em>void</em>					<dfn class="virtual decl" id="_ZN17idPhysics_Monster9TranslateERK6idVec3i" title='idPhysics_Monster::Translate' data-ref="_ZN17idPhysics_Monster9TranslateERK6idVec3i">Translate</dfn>( <em>const</em> <a class="type" href="../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col5 decl" id="1925translation" title='translation' data-type='const idVec3 &amp;' data-ref="1925translation">translation</dfn>, <em>int</em> <dfn class="local col6 decl" id="1926id" title='id' data-type='int' data-ref="1926id">id</dfn> = -<var>1</var> );</td></tr>
+<tr><th id="112">112</th><td>	<em>void</em>					<dfn class="virtual decl" id="_ZN17idPhysics_Monster6RotateERK10idRotationi" title='idPhysics_Monster::Rotate' data-ref="_ZN17idPhysics_Monster6RotateERK10idRotationi">Rotate</dfn>( <em>const</em> <a class="type" href="../../idlib/math/Rotation.h.html#idRotation" title='idRotation' data-ref="idRotation">idRotation</a> &amp;<dfn class="local col7 decl" id="1927rotation" title='rotation' data-type='const idRotation &amp;' data-ref="1927rotation">rotation</dfn>, <em>int</em> <dfn class="local col8 decl" id="1928id" title='id' data-type='int' data-ref="1928id">id</dfn> = -<var>1</var> );</td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td>	<em>void</em>					<dfn class="virtual decl" id="_ZN17idPhysics_Monster17SetLinearVelocityERK6idVec3i" title='idPhysics_Monster::SetLinearVelocity' data-ref="_ZN17idPhysics_Monster17SetLinearVelocityERK6idVec3i">SetLinearVelocity</dfn>( <em>const</em> <a class="type" href="../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col9 decl" id="1929newLinearVelocity" title='newLinearVelocity' data-type='const idVec3 &amp;' data-ref="1929newLinearVelocity">newLinearVelocity</dfn>, <em>int</em> <dfn class="local col0 decl" id="1930id" title='id' data-type='int' data-ref="1930id">id</dfn> = <var>0</var> );</td></tr>
+<tr><th id="115">115</th><td></td></tr>
+<tr><th id="116">116</th><td>	<em>const</em> <a class="type" href="../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;			<dfn class="virtual decl" id="_ZNK17idPhysics_Monster17GetLinearVelocityEi" title='idPhysics_Monster::GetLinearVelocity' data-ref="_ZNK17idPhysics_Monster17GetLinearVelocityEi">GetLinearVelocity</dfn>( <em>int</em> <dfn class="local col1 decl" id="1931id" title='id' data-type='int' data-ref="1931id">id</dfn> = <var>0</var> ) <em>const</em>;</td></tr>
+<tr><th id="117">117</th><td></td></tr>
+<tr><th id="118">118</th><td>	<em>void</em>					<dfn class="virtual decl" id="_ZN17idPhysics_Monster9SetPushedEi" title='idPhysics_Monster::SetPushed' data-ref="_ZN17idPhysics_Monster9SetPushedEi">SetPushed</dfn>( <em>int</em> <dfn class="local col2 decl" id="1932deltaTime" title='deltaTime' data-type='int' data-ref="1932deltaTime">deltaTime</dfn> );</td></tr>
+<tr><th id="119">119</th><td>	<em>const</em> <a class="type" href="../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;			<dfn class="virtual decl" id="_ZNK17idPhysics_Monster23GetPushedLinearVelocityEi" title='idPhysics_Monster::GetPushedLinearVelocity' data-ref="_ZNK17idPhysics_Monster23GetPushedLinearVelocityEi">GetPushedLinearVelocity</dfn>( <em>const</em> <em>int</em> <dfn class="local col3 decl" id="1933id" title='id' data-type='const int' data-ref="1933id">id</dfn> = <var>0</var> ) <em>const</em>;</td></tr>
+<tr><th id="120">120</th><td></td></tr>
+<tr><th id="121">121</th><td>	<em>void</em>					<dfn class="virtual decl" id="_ZN17idPhysics_Monster9SetMasterEP8idEntityb" title='idPhysics_Monster::SetMaster' data-ref="_ZN17idPhysics_Monster9SetMasterEP8idEntityb">SetMaster</dfn>( <a class="type" href="../Entity.h.html#idEntity" title='idEntity' data-ref="idEntity">idEntity</a> *<dfn class="local col4 decl" id="1934master" title='master' data-type='idEntity *' data-ref="1934master">master</dfn>, <em>const</em> <em>bool</em> <dfn class="local col5 decl" id="1935orientated" title='orientated' data-type='const bool' data-ref="1935orientated">orientated</dfn> = <b>true</b> );</td></tr>
+<tr><th id="122">122</th><td></td></tr>
+<tr><th id="123">123</th><td>	<em>void</em>					<dfn class="virtual decl" id="_ZNK17idPhysics_Monster15WriteToSnapshotER13idBitMsgDelta" title='idPhysics_Monster::WriteToSnapshot' data-ref="_ZNK17idPhysics_Monster15WriteToSnapshotER13idBitMsgDelta">WriteToSnapshot</dfn>( <a class="type" href="../../idlib/BitMsg.h.html#idBitMsgDelta" title='idBitMsgDelta' data-ref="idBitMsgDelta">idBitMsgDelta</a> &amp;<dfn class="local col6 decl" id="1936msg" title='msg' data-type='idBitMsgDelta &amp;' data-ref="1936msg">msg</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="124">124</th><td>	<em>void</em>					<dfn class="virtual decl" id="_ZN17idPhysics_Monster16ReadFromSnapshotERK13idBitMsgDelta" title='idPhysics_Monster::ReadFromSnapshot' data-ref="_ZN17idPhysics_Monster16ReadFromSnapshotERK13idBitMsgDelta">ReadFromSnapshot</dfn>( <em>const</em> <a class="type" href="../../idlib/BitMsg.h.html#idBitMsgDelta" title='idBitMsgDelta' data-ref="idBitMsgDelta">idBitMsgDelta</a> &amp;<dfn class="local col7 decl" id="1937msg" title='msg' data-type='const idBitMsgDelta &amp;' data-ref="1937msg">msg</dfn> );</td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td><b>private</b>:</td></tr>
+<tr><th id="127">127</th><td>	<i>// monster physics state</i></td></tr>
+<tr><th id="128">128</th><td>	<a class="typedef" href="#monsterPState_t" title='monsterPState_t' data-type='struct monsterPState_s' data-ref="monsterPState_t">monsterPState_t</a>			<dfn class="decl" id="idPhysics_Monster::current" title='idPhysics_Monster::current' data-ref="idPhysics_Monster::current">current</dfn>;</td></tr>
+<tr><th id="129">129</th><td>	<a class="typedef" href="#monsterPState_t" title='monsterPState_t' data-type='struct monsterPState_s' data-ref="monsterPState_t">monsterPState_t</a>			<dfn class="decl" id="idPhysics_Monster::saved" title='idPhysics_Monster::saved' data-ref="idPhysics_Monster::saved">saved</dfn>;</td></tr>
+<tr><th id="130">130</th><td></td></tr>
+<tr><th id="131">131</th><td>	<i>// properties</i></td></tr>
+<tr><th id="132">132</th><td>	<em>float</em>					<dfn class="decl" id="idPhysics_Monster::maxStepHeight" title='idPhysics_Monster::maxStepHeight' data-ref="idPhysics_Monster::maxStepHeight">maxStepHeight</dfn>;		<i>// maximum step height</i></td></tr>
+<tr><th id="133">133</th><td>	<em>float</em>					<dfn class="decl" id="idPhysics_Monster::minFloorCosine" title='idPhysics_Monster::minFloorCosine' data-ref="idPhysics_Monster::minFloorCosine">minFloorCosine</dfn>;		<i>// minimum cosine of floor angle</i></td></tr>
+<tr><th id="134">134</th><td>	<a class="type" href="../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a>					<dfn class="decl" id="idPhysics_Monster::delta" title='idPhysics_Monster::delta' data-ref="idPhysics_Monster::delta">delta</dfn>;				<i>// delta for next move</i></td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td>	<em>bool</em>					<dfn class="decl" id="idPhysics_Monster::forceDeltaMove" title='idPhysics_Monster::forceDeltaMove' data-ref="idPhysics_Monster::forceDeltaMove">forceDeltaMove</dfn>;</td></tr>
+<tr><th id="137">137</th><td>	<em>bool</em>					<dfn class="decl" id="idPhysics_Monster::fly" title='idPhysics_Monster::fly' data-ref="idPhysics_Monster::fly">fly</dfn>;</td></tr>
+<tr><th id="138">138</th><td>	<em>bool</em>					<dfn class="decl" id="idPhysics_Monster::useVelocityMove" title='idPhysics_Monster::useVelocityMove' data-ref="idPhysics_Monster::useVelocityMove">useVelocityMove</dfn>;</td></tr>
+<tr><th id="139">139</th><td>	<em>bool</em>					<dfn class="decl" id="idPhysics_Monster::noImpact" title='idPhysics_Monster::noImpact' data-ref="idPhysics_Monster::noImpact">noImpact</dfn>;			<i>// if true do not activate when another object collides</i></td></tr>
+<tr><th id="140">140</th><td></td></tr>
+<tr><th id="141">141</th><td>	<i>// results of last evaluate</i></td></tr>
+<tr><th id="142">142</th><td>	<a class="typedef" href="#monsterMoveResult_t" title='monsterMoveResult_t' data-type='enum monsterMoveResult_t' data-ref="monsterMoveResult_t">monsterMoveResult_t</a>		<dfn class="decl" id="idPhysics_Monster::moveResult" title='idPhysics_Monster::moveResult' data-ref="idPhysics_Monster::moveResult">moveResult</dfn>;</td></tr>
+<tr><th id="143">143</th><td>	<a class="type" href="../Entity.h.html#idEntity" title='idEntity' data-ref="idEntity">idEntity</a> *				<dfn class="decl" id="idPhysics_Monster::blockingEntity" title='idPhysics_Monster::blockingEntity' data-ref="idPhysics_Monster::blockingEntity">blockingEntity</dfn>;</td></tr>
+<tr><th id="144">144</th><td></td></tr>
+<tr><th id="145">145</th><td><b>private</b>:</td></tr>
+<tr><th id="146">146</th><td>	<em>void</em>					<dfn class="decl" id="_ZN17idPhysics_Monster11CheckGroundER15monsterPState_s" title='idPhysics_Monster::CheckGround' data-ref="_ZN17idPhysics_Monster11CheckGroundER15monsterPState_s">CheckGround</dfn>( <a class="typedef" href="#monsterPState_t" title='monsterPState_t' data-type='struct monsterPState_s' data-ref="monsterPState_t">monsterPState_t</a> &amp;<dfn class="local col8 decl" id="1938state" title='state' data-type='monsterPState_t &amp;' data-ref="1938state">state</dfn> );</td></tr>
+<tr><th id="147">147</th><td>	<a class="typedef" href="#monsterMoveResult_t" title='monsterMoveResult_t' data-type='enum monsterMoveResult_t' data-ref="monsterMoveResult_t">monsterMoveResult_t</a>		<dfn class="decl" id="_ZN17idPhysics_Monster9SlideMoveER6idVec3S1_RKS0_" title='idPhysics_Monster::SlideMove' data-ref="_ZN17idPhysics_Monster9SlideMoveER6idVec3S1_RKS0_">SlideMove</dfn>( <a class="type" href="../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col9 decl" id="1939start" title='start' data-type='idVec3 &amp;' data-ref="1939start">start</dfn>, <a class="type" href="../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col0 decl" id="1940velocity" title='velocity' data-type='idVec3 &amp;' data-ref="1940velocity">velocity</dfn>, <em>const</em> <a class="type" href="../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col1 decl" id="1941delta" title='delta' data-type='const idVec3 &amp;' data-ref="1941delta">delta</dfn> );</td></tr>
+<tr><th id="148">148</th><td>	<a class="typedef" href="#monsterMoveResult_t" title='monsterMoveResult_t' data-type='enum monsterMoveResult_t' data-ref="monsterMoveResult_t">monsterMoveResult_t</a>		<dfn class="decl" id="_ZN17idPhysics_Monster8StepMoveER6idVec3S1_RKS0_" title='idPhysics_Monster::StepMove' data-ref="_ZN17idPhysics_Monster8StepMoveER6idVec3S1_RKS0_">StepMove</dfn>( <a class="type" href="../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col2 decl" id="1942start" title='start' data-type='idVec3 &amp;' data-ref="1942start">start</dfn>, <a class="type" href="../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col3 decl" id="1943velocity" title='velocity' data-type='idVec3 &amp;' data-ref="1943velocity">velocity</dfn>, <em>const</em> <a class="type" href="../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col4 decl" id="1944delta" title='delta' data-type='const idVec3 &amp;' data-ref="1944delta">delta</dfn> );</td></tr>
+<tr><th id="149">149</th><td>	<em>void</em>					<dfn class="decl" id="_ZN17idPhysics_Monster4RestEv" title='idPhysics_Monster::Rest' data-ref="_ZN17idPhysics_Monster4RestEv">Rest</dfn>( <em>void</em> );</td></tr>
+<tr><th id="150">150</th><td>};</td></tr>
+<tr><th id="151">151</th><td></td></tr>
+<tr><th id="152">152</th><td><u>#<span data-ppcond="29">endif</span> /* !__PHYSICS_MONSTER_H__ */</u></td></tr>
+<tr><th id="153">153</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../AF.cpp.html'>codebrowser/d3xp/AF.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

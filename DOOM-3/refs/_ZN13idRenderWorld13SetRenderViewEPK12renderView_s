@@ -1,0 +1,8 @@
+<dec f='codebrowser/renderer/RenderWorld.h' l='320' type='void idRenderWorld::SetRenderView(const renderView_t * renderView)'/>
+<doc f='codebrowser/renderer/RenderWorld.h' l='316'>//-------------- Scene Rendering -----------------
+
+	// some calls to material functions use the current renderview time when servicing cinematics.  this function
+	// ensures that any parms accessed (such as time) are properly set.</doc>
+<use f='codebrowser/d3xp/Game_local.cpp' l='2454' u='c' c='_ZN11idGameLocal8RunFrameEPK9usercmd_t'/>
+<use f='codebrowser/game/Game_local.cpp' l='2206' u='c' c='_ZN11idGameLocal8RunFrameEPK9usercmd_t'/>
+<ovr f='codebrowser/renderer/RenderWorld.cpp' l='660' c='_ZN18idRenderWorldLocal13SetRenderViewEPK12renderView_s'/>

@@ -1,0 +1,16 @@
+<dec f='codebrowser/sound/snd_local.h' l='409' type='void idSoundChannel::GatherChannelSamples(int sampleOffset44k, int sampleCount44k, float * dest) const'/>
+<def f='codebrowser/sound/snd_emitter.cpp' l='260' ll='332' type='void idSoundChannel::GatherChannelSamples(int sampleOffset44k, int sampleCount44k, float * dest) const'/>
+<use f='codebrowser/sound/snd_emitter.cpp' l='1167' u='c' c='_ZN13idSlowChannel19GenerateSlowChannelER8FracTimeiPf'/>
+<doc f='codebrowser/sound/snd_emitter.cpp' l='251'>/*
+===================
+idSoundChannel::GatherChannelSamples
+
+Will always return 44kHz samples for the given range, even if it deeply looped or
+out of the range of the unlooped samples.  Handles looping between multiple different
+samples and leadins
+===================
+*/</doc>
+<use f='codebrowser/sound/snd_world.cpp' l='1788' u='c' c='_ZN17idSoundWorldLocal22AddChannelContributionEP19idSoundEmitterLocalP14idSoundChanneliiPf'/>
+<use f='codebrowser/sound/snd_world.cpp' l='1833' u='c' c='_ZN17idSoundWorldLocal22AddChannelContributionEP19idSoundEmitterLocalP14idSoundChanneliiPf'/>
+<use f='codebrowser/sound/snd_world.cpp' l='1835' u='c' c='_ZN17idSoundWorldLocal22AddChannelContributionEP19idSoundEmitterLocalP14idSoundChanneliiPf'/>
+<use f='codebrowser/sound/snd_world.cpp' l='2036' u='c' c='_ZN17idSoundWorldLocal13FindAmplitudeEP19idSoundEmitterLocaliPK6idVec3ib'/>

@@ -1,0 +1,166 @@
+<def f='codebrowser/d3xp/physics/Physics_AF.h' l='657' ll='765'/>
+<size>704</size>
+<fun r='_ZN8idAFBodyC1Ev'/>
+<fun r='_ZN8idAFBodyC1ERK5idStrP11idClipModelf'/>
+<fun r='_ZN8idAFBodyD1Ev'/>
+<fun r='_ZN8idAFBody4InitEv'/>
+<fun r='_ZNK8idAFBody7GetNameEv'/>
+<fun r='_ZNK8idAFBody14GetWorldOriginEv'/>
+<fun r='_ZNK8idAFBody12GetWorldAxisEv'/>
+<fun r='_ZNK8idAFBody17GetLinearVelocityEv'/>
+<fun r='_ZNK8idAFBody18GetAngularVelocityEv'/>
+<fun r='_ZNK8idAFBody16GetPointVelocityERK6idVec3'/>
+<fun r='_ZNK8idAFBody15GetCenterOfMassEv'/>
+<fun r='_ZN8idAFBody12SetClipModelEP11idClipModel'/>
+<fun r='_ZNK8idAFBody12GetClipModelEv'/>
+<fun r='_ZN8idAFBody11SetClipMaskEi'/>
+<fun r='_ZNK8idAFBody11GetClipMaskEv'/>
+<fun r='_ZN8idAFBody16SetSelfCollisionEb'/>
+<fun r='_ZN8idAFBody14SetWorldOriginERK6idVec3'/>
+<fun r='_ZN8idAFBody12SetWorldAxisERK6idMat3'/>
+<fun r='_ZNK8idAFBody17SetLinearVelocityERK6idVec3'/>
+<fun r='_ZNK8idAFBody18SetAngularVelocityERK6idVec3'/>
+<fun r='_ZN8idAFBody11SetFrictionEfff'/>
+<fun r='_ZNK8idAFBody18GetContactFrictionEv'/>
+<fun r='_ZN8idAFBody13SetBouncynessEf'/>
+<fun r='_ZNK8idAFBody13GetBouncynessEv'/>
+<fun r='_ZN8idAFBody10SetDensityEfRK6idMat3'/>
+<fun r='_ZNK8idAFBody14GetInverseMassEv'/>
+<fun r='_ZNK8idAFBody22GetInverseWorldInertiaEv'/>
+<fun r='_ZN8idAFBody20SetFrictionDirectionERK6idVec3'/>
+<fun r='_ZNK8idAFBody20GetFrictionDirectionER6idVec3'/>
+<fun r='_ZN8idAFBody24SetContactMotorDirectionERK6idVec3'/>
+<fun r='_ZNK8idAFBody24GetContactMotorDirectionER6idVec3'/>
+<fun r='_ZN8idAFBody23SetContactMotorVelocityEf'/>
+<fun r='_ZNK8idAFBody23GetContactMotorVelocityEv'/>
+<fun r='_ZN8idAFBody20SetContactMotorForceEf'/>
+<fun r='_ZNK8idAFBody20GetContactMotorForceEv'/>
+<fun r='_ZN8idAFBody8AddForceERK6idVec3S2_'/>
+<fun r='_ZNK8idAFBody34InverseWorldSpatialInertiaMultiplyER6idVecXPKf'/>
+<fun r='_ZN8idAFBody16GetResponseForceEi'/>
+<fun r='_ZN8idAFBody4SaveEP10idSaveGame'/>
+<fun r='_ZN8idAFBody7RestoreEP13idRestoreGame'/>
+<mbr r='idAFBody::name' o='0' t='idStr'/>
+<mbr r='idAFBody::parent' o='256' t='idAFBody *'/>
+<mbr r='idAFBody::children' o='288' t='idList&lt;idAFBody *&gt;'/>
+<mbr r='idAFBody::clipModel' o='416' t='idClipModel *'/>
+<mbr r='idAFBody::primaryConstraint' o='448' t='idAFConstraint *'/>
+<mbr r='idAFBody::constraints' o='480' t='idList&lt;idAFConstraint *&gt;'/>
+<mbr r='idAFBody::tree' o='608' t='idAFTree *'/>
+<mbr r='idAFBody::linearFriction' o='640' t='float'/>
+<mbr r='idAFBody::angularFriction' o='672' t='float'/>
+<mbr r='idAFBody::contactFriction' o='704' t='float'/>
+<mbr r='idAFBody::bouncyness' o='736' t='float'/>
+<mbr r='idAFBody::clipMask' o='768' t='int'/>
+<mbr r='idAFBody::frictionDir' o='800' t='idVec3'/>
+<mbr r='idAFBody::contactMotorDir' o='896' t='idVec3'/>
+<mbr r='idAFBody::contactMotorVelocity' o='992' t='float'/>
+<mbr r='idAFBody::contactMotorForce' o='1024' t='float'/>
+<mbr r='idAFBody::mass' o='1056' t='float'/>
+<mbr r='idAFBody::invMass' o='1088' t='float'/>
+<mbr r='idAFBody::centerOfMass' o='1120' t='idVec3'/>
+<mbr r='idAFBody::inertiaTensor' o='1216' t='idMat3'/>
+<mbr r='idAFBody::inverseInertiaTensor' o='1504' t='idMat3'/>
+<mbr r='idAFBody::state' o='1792' t='AFBodyPState_t [2]'/>
+<mbr r='idAFBody::current' o='3328' t='AFBodyPState_t *'/>
+<mbr r='idAFBody::next' o='3360' t='AFBodyPState_t *'/>
+<mbr r='idAFBody::saved' o='3392' t='AFBodyPState_t'/>
+<mbr r='idAFBody::atRestOrigin' o='4160' t='idVec3'/>
+<mbr r='idAFBody::atRestAxis' o='4256' t='idMat3'/>
+<mbr r='idAFBody::inverseWorldSpatialInertia' o='4544' t='idMatX'/>
+<mbr r='idAFBody::I' o='4672' t='idMatX'/>
+<mbr r='idAFBody::invI' o='4800' t='idMatX'/>
+<mbr r='idAFBody::J' o='4928' t='idMatX'/>
+<mbr r='idAFBody::s' o='5056' t='idVecX'/>
+<mbr r='idAFBody::totalForce' o='5152' t='idVecX'/>
+<mbr r='idAFBody::auxForce' o='5248' t='idVecX'/>
+<mbr r='idAFBody::acceleration' o='5344' t='idVecX'/>
+<mbr r='idAFBody::response' o='5440' t='float *'/>
+<mbr r='idAFBody::responseIndex' o='5472' t='int *'/>
+<mbr r='idAFBody::numResponses' o='5504' t='int'/>
+<mbr r='idAFBody::maxAuxiliaryIndex' o='5536' t='int'/>
+<mbr r='idAFBody::maxSubTreeAuxiliaryIndex' o='5568' t='int'/>
+<mbr r='idAFBody::fl' o='5600' t='struct bodyFlags_s'/>
+<def f='codebrowser/game/physics/Physics_AF.h' l='657' ll='765'/>
+<size>704</size>
+<fun r='_ZN8idAFBodyC1Ev'/>
+<fun r='_ZN8idAFBodyC1ERK5idStrP11idClipModelf'/>
+<fun r='_ZN8idAFBodyD1Ev'/>
+<fun r='_ZN8idAFBody4InitEv'/>
+<fun r='_ZNK8idAFBody7GetNameEv'/>
+<fun r='_ZNK8idAFBody14GetWorldOriginEv'/>
+<fun r='_ZNK8idAFBody12GetWorldAxisEv'/>
+<fun r='_ZNK8idAFBody17GetLinearVelocityEv'/>
+<fun r='_ZNK8idAFBody18GetAngularVelocityEv'/>
+<fun r='_ZNK8idAFBody16GetPointVelocityERK6idVec3'/>
+<fun r='_ZNK8idAFBody15GetCenterOfMassEv'/>
+<fun r='_ZN8idAFBody12SetClipModelEP11idClipModel'/>
+<fun r='_ZNK8idAFBody12GetClipModelEv'/>
+<fun r='_ZN8idAFBody11SetClipMaskEi'/>
+<fun r='_ZNK8idAFBody11GetClipMaskEv'/>
+<fun r='_ZN8idAFBody16SetSelfCollisionEb'/>
+<fun r='_ZN8idAFBody14SetWorldOriginERK6idVec3'/>
+<fun r='_ZN8idAFBody12SetWorldAxisERK6idMat3'/>
+<fun r='_ZNK8idAFBody17SetLinearVelocityERK6idVec3'/>
+<fun r='_ZNK8idAFBody18SetAngularVelocityERK6idVec3'/>
+<fun r='_ZN8idAFBody11SetFrictionEfff'/>
+<fun r='_ZNK8idAFBody18GetContactFrictionEv'/>
+<fun r='_ZN8idAFBody13SetBouncynessEf'/>
+<fun r='_ZNK8idAFBody13GetBouncynessEv'/>
+<fun r='_ZN8idAFBody10SetDensityEfRK6idMat3'/>
+<fun r='_ZNK8idAFBody14GetInverseMassEv'/>
+<fun r='_ZNK8idAFBody22GetInverseWorldInertiaEv'/>
+<fun r='_ZN8idAFBody20SetFrictionDirectionERK6idVec3'/>
+<fun r='_ZNK8idAFBody20GetFrictionDirectionER6idVec3'/>
+<fun r='_ZN8idAFBody24SetContactMotorDirectionERK6idVec3'/>
+<fun r='_ZNK8idAFBody24GetContactMotorDirectionER6idVec3'/>
+<fun r='_ZN8idAFBody23SetContactMotorVelocityEf'/>
+<fun r='_ZNK8idAFBody23GetContactMotorVelocityEv'/>
+<fun r='_ZN8idAFBody20SetContactMotorForceEf'/>
+<fun r='_ZNK8idAFBody20GetContactMotorForceEv'/>
+<fun r='_ZN8idAFBody8AddForceERK6idVec3S2_'/>
+<fun r='_ZNK8idAFBody34InverseWorldSpatialInertiaMultiplyER6idVecXPKf'/>
+<fun r='_ZN8idAFBody16GetResponseForceEi'/>
+<fun r='_ZN8idAFBody4SaveEP10idSaveGame'/>
+<fun r='_ZN8idAFBody7RestoreEP13idRestoreGame'/>
+<mbr r='idAFBody::name' o='0' t='idStr'/>
+<mbr r='idAFBody::parent' o='256' t='idAFBody *'/>
+<mbr r='idAFBody::children' o='288' t='idList&lt;idAFBody *&gt;'/>
+<mbr r='idAFBody::clipModel' o='416' t='idClipModel *'/>
+<mbr r='idAFBody::primaryConstraint' o='448' t='idAFConstraint *'/>
+<mbr r='idAFBody::constraints' o='480' t='idList&lt;idAFConstraint *&gt;'/>
+<mbr r='idAFBody::tree' o='608' t='idAFTree *'/>
+<mbr r='idAFBody::linearFriction' o='640' t='float'/>
+<mbr r='idAFBody::angularFriction' o='672' t='float'/>
+<mbr r='idAFBody::contactFriction' o='704' t='float'/>
+<mbr r='idAFBody::bouncyness' o='736' t='float'/>
+<mbr r='idAFBody::clipMask' o='768' t='int'/>
+<mbr r='idAFBody::frictionDir' o='800' t='idVec3'/>
+<mbr r='idAFBody::contactMotorDir' o='896' t='idVec3'/>
+<mbr r='idAFBody::contactMotorVelocity' o='992' t='float'/>
+<mbr r='idAFBody::contactMotorForce' o='1024' t='float'/>
+<mbr r='idAFBody::mass' o='1056' t='float'/>
+<mbr r='idAFBody::invMass' o='1088' t='float'/>
+<mbr r='idAFBody::centerOfMass' o='1120' t='idVec3'/>
+<mbr r='idAFBody::inertiaTensor' o='1216' t='idMat3'/>
+<mbr r='idAFBody::inverseInertiaTensor' o='1504' t='idMat3'/>
+<mbr r='idAFBody::state' o='1792' t='AFBodyPState_t [2]'/>
+<mbr r='idAFBody::current' o='3328' t='AFBodyPState_t *'/>
+<mbr r='idAFBody::next' o='3360' t='AFBodyPState_t *'/>
+<mbr r='idAFBody::saved' o='3392' t='AFBodyPState_t'/>
+<mbr r='idAFBody::atRestOrigin' o='4160' t='idVec3'/>
+<mbr r='idAFBody::atRestAxis' o='4256' t='idMat3'/>
+<mbr r='idAFBody::inverseWorldSpatialInertia' o='4544' t='idMatX'/>
+<mbr r='idAFBody::I' o='4672' t='idMatX'/>
+<mbr r='idAFBody::invI' o='4800' t='idMatX'/>
+<mbr r='idAFBody::J' o='4928' t='idMatX'/>
+<mbr r='idAFBody::s' o='5056' t='idVecX'/>
+<mbr r='idAFBody::totalForce' o='5152' t='idVecX'/>
+<mbr r='idAFBody::auxForce' o='5248' t='idVecX'/>
+<mbr r='idAFBody::acceleration' o='5344' t='idVecX'/>
+<mbr r='idAFBody::response' o='5440' t='float *'/>
+<mbr r='idAFBody::responseIndex' o='5472' t='int *'/>
+<mbr r='idAFBody::numResponses' o='5504' t='int'/>
+<mbr r='idAFBody::maxAuxiliaryIndex' o='5536' t='int'/>
+<mbr r='idAFBody::maxSubTreeAuxiliaryIndex' o='5568' t='int'/>
+<mbr r='idAFBody::fl' o='5600' t='struct bodyFlags_s'/>

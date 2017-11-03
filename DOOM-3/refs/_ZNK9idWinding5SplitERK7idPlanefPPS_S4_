@@ -1,0 +1,23 @@
+<dec f='codebrowser/idlib/geometry/Winding.h' l='72' type='int idWinding::Split(const idPlane &amp; plane, const float epsilon, idWinding ** front, idWinding ** back) const'/>
+<doc f='codebrowser/idlib/geometry/Winding.h' l='70'>// splits the winding into a front and back winding, the winding itself stays unchanged
+					// returns a SIDE_?</doc>
+<def f='codebrowser/idlib/geometry/Winding.cpp' l='92' ll='227' type='int idWinding::Split(const idPlane &amp; plane, const float epsilon, idWinding ** front, idWinding ** back) const'/>
+<doc f='codebrowser/idlib/geometry/Winding.cpp' l='87'>/*
+=============
+idWinding::Split
+=============
+*/</doc>
+<use f='codebrowser/tools/compilers/aas/Brush.cpp' l='135' u='c' c='_ZNK11idBrushSide5SplitERK7idPlanePPS_S4_'/>
+<use f='codebrowser/tools/compilers/aas/BrushBSP.cpp' l='177' u='c' c='_ZN16idBrushBSPPortal5SplitERK7idPlanePPS_S4_'/>
+<use f='codebrowser/tools/compilers/aas/BrushBSP.cpp' l='1190' u='c' c='_ZN10idBrushBSP16SplitNodePortalsEP14idBrushBSPNode'/>
+<use f='codebrowser/tools/compilers/dmap/facebsp.cpp' l='320' u='c' c='_Z15BuildFaceTree_rP6node_sP9bspface_s'/>
+<use f='codebrowser/tools/compilers/dmap/portals.cpp' l='376' u='c' c='_ZL16SplitNodePortalsP6node_s'/>
+<use f='codebrowser/tools/compilers/dmap/shadowopt3.cpp' l='264' u='c' c='_ZL14ClipTriangle_rPK11shadowTri_tiiiS1_'/>
+<use f='codebrowser/tools/compilers/dmap/shadowopt3.cpp' l='266' u='c' c='_ZL14ClipTriangle_rPK11shadowTri_tiiiS1_'/>
+<use f='codebrowser/tools/compilers/dmap/tritools.cpp' l='367' u='c' c='_Z11ClipTriListPK8mapTri_sRK7idPlanefPPS_S6_'/>
+<use f='codebrowser/tools/compilers/dmap/ubrush.cpp' l='623' u='c' c='_Z10SplitBrushP10bspbrush_siPS0_S1_'/>
+<use f='codebrowser/tools/compilers/dmap/usurface.cpp' l='289' u='c' c='_ZL16ClipSideByTree_rP9idWindingP6side_sP6node_s'/>
+<use f='codebrowser/tools/compilers/dmap/usurface.cpp' l='377' u='c' c='_Z17ClipTriIntoTree_rP9idWindingP8mapTri_sP9uEntity_tP6node_s'/>
+<use f='codebrowser/tools/compilers/dmap/usurface.cpp' l='437' u='c' c='_ZL21CheckWindingInAreas_rPK9idWindingP6node_s'/>
+<use f='codebrowser/tools/compilers/dmap/usurface.cpp' l='507' u='c' c='_ZL21PutWindingIntoAreas_rP9uEntity_tPK9idWindingP6side_sP6node_s'/>
+<use f='codebrowser/tools/compilers/dmap/usurface.cpp' l='720' u='c' c='_ZL14ClipTriByLightPK10mapLight_tPK8mapTri_sPPS2_S6_'/>

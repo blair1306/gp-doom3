@@ -1,0 +1,7 @@
+<dec f='codebrowser/game/Game.h' l='167' type='void idGame::ClientReadSnapshot(int clientNum, int sequence, const int gameFrame, const int gameTime, const int dupeUsercmds, const int aheadOfServer, const idBitMsg &amp; msg)'/>
+<doc f='codebrowser/game/Game.h' l='166'>// Reads a snapshot and updates the client game state.</doc>
+<dec f='codebrowser/d3xp/Game.h' l='169' type='void idGame::ClientReadSnapshot(int clientNum, int sequence, const int gameFrame, const int gameTime, const int dupeUsercmds, const int aheadOfServer, const idBitMsg &amp; msg)'/>
+<doc f='codebrowser/d3xp/Game.h' l='168'>// Reads a snapshot and updates the client game state.</doc>
+<ovr f='codebrowser/d3xp/Game_network.cpp' l='971' c='_ZN11idGameLocal18ClientReadSnapshotEiiiiiiRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='806' u='c' c='_ZN13idAsyncClient30ProcessUnreliableServerMessageERK8idBitMsg'/>
+<ovr f='codebrowser/game/Game_network.cpp' l='957' c='_ZN11idGameLocal18ClientReadSnapshotEiiiiiiRK8idBitMsg'/>

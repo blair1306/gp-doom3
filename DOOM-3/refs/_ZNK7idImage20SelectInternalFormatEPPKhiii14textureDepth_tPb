@@ -1,0 +1,12 @@
+<dec f='codebrowser/renderer/Image.h' l='209' type='GLenum idImage::SelectInternalFormat(const byte ** dataPtrs, int numDataPtrs, int width, int height, textureDepth_t minimumDepth, bool * monochromeResult) const'/>
+<def f='codebrowser/renderer/Image_load.cpp' l='207' ll='363' type='GLenum idImage::SelectInternalFormat(const byte ** dataPtrs, int numDataPtrs, int width, int height, textureDepth_t minimumDepth, bool * monochromeResult) const'/>
+<use f='codebrowser/renderer/Image_load.cpp' l='556' u='c' c='_ZN7idImage13GenerateImageEPKhii15textureFilter_tb15textureRepeat_t14textureDepth_t'/>
+<use f='codebrowser/renderer/Image_load.cpp' l='765' u='c' c='_ZN7idImage15Generate3DImageEPKhiii15textureFilter_tb15textureRepeat_t14textureDepth_t'/>
+<use f='codebrowser/renderer/Image_load.cpp' l='899' u='c' c='_ZN7idImage17GenerateCubeImageEPPKhi15textureFilter_tb14textureDepth_t'/>
+<doc f='codebrowser/renderer/Image_load.cpp' l='200'>/*
+===============
+SelectInternalFormat
+
+This may need to scan six cube map images
+===============
+*/</doc>

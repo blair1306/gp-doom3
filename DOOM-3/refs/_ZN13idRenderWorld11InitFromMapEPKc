@@ -1,0 +1,6 @@
+<dec f='codebrowser/renderer/RenderWorld.h' l='274' type='bool idRenderWorld::InitFromMap(const char * mapName)'/>
+<doc f='codebrowser/renderer/RenderWorld.h' l='272'>// The same render world can be reinitialized as often as desired
+	// a NULL or empty mapName will create an empty, single area world</doc>
+<use f='codebrowser/framework/Session.cpp' l='1616' u='c' c='_ZN14idSessionLocal16ExecuteMapChangeEb'/>
+<ovr f='codebrowser/renderer/RenderWorld_load.cpp' l='479' c='_ZN18idRenderWorldLocal11InitFromMapEPKc'/>
+<use f='codebrowser/ui/RenderWindow.cpp' l='88' u='c' c='_ZN14idRenderWindow9PreRenderEv'/>

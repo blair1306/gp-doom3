@@ -1,0 +1,20 @@
+<def f='codebrowser/renderer/tr_local.h' l='53' ll='65'/>
+<size>16</size>
+<doc f='codebrowser/renderer/tr_local.h' l='48'>// picky to get the bilerp correct at terminator
+
+
+// idScreenRect gets carried around with each drawSurf, so it makes sense
+// to keep it compact, instead of just using the idBounds class</doc>
+<mbr r='idScreenRect::x1' o='0' t='short'/>
+<mbr r='idScreenRect::y1' o='16' t='short'/>
+<mbr r='idScreenRect::x2' o='32' t='short'/>
+<mbr r='idScreenRect::y2' o='48' t='short'/>
+<mbr r='idScreenRect::zmin' o='64' t='float'/>
+<mbr r='idScreenRect::zmax' o='96' t='float'/>
+<fun r='_ZN12idScreenRect5ClearEv'/>
+<fun r='_ZN12idScreenRect8AddPointEff'/>
+<fun r='_ZN12idScreenRect6ExpandEv'/>
+<fun r='_ZN12idScreenRect9IntersectERKS_'/>
+<fun r='_ZN12idScreenRect5UnionERKS_'/>
+<fun r='_ZNK12idScreenRect6EqualsERKS_'/>
+<fun r='_ZNK12idScreenRect7IsEmptyEv'/>

@@ -1,0 +1,22 @@
+<def f='codebrowser/renderer/MegaTexture.h' l='67' ll='98'/>
+<size>2036</size>
+<fun r='_ZN13idMegaTexture16InitFromMegaFileEPKc'/>
+<fun r='_ZN13idMegaTexture20SetMappingForSurfaceEPK14srfTriangles_s'/>
+<fun r='_ZN13idMegaTexture17BindForViewOriginE6idVec3'/>
+<fun r='_ZN13idMegaTexture6UnbindEv'/>
+<fun r='_ZN13idMegaTexture17MakeMegaTexture_fERK9idCmdArgs'/>
+<fun r='_ZN13idMegaTexture13SetViewOriginE6idVec3'/>
+<fun r='_ZN13idMegaTexture19GenerateMegaMipMapsEP19megaTextureHeader_tP6idFile'/>
+<fun r='_ZN13idMegaTexture19GenerateMegaPreviewEPKc'/>
+<mbr r='idMegaTexture::fileHandle' o='0' t='idFile *'/>
+<mbr r='idMegaTexture::currentTriMapping' o='32' t='const srfTriangles_t *'/>
+<mbr r='idMegaTexture::currentViewOrigin' o='64' t='idVec3'/>
+<mbr r='idMegaTexture::localViewToTextureCenter' o='160' t='float [2][4]'/>
+<mbr r='idMegaTexture::numLevels' o='416' t='int'/>
+<mbr r='idMegaTexture::levels' o='448' t='idTextureLevel [12]'/>
+<mbr r='idMegaTexture::header' o='16192' t='megaTextureHeader_t'/>
+<smbr r='idMegaTexture::r_megaTextureLevel' t='idCVar'/>
+<smbr r='idMegaTexture::r_showMegaTexture' t='idCVar'/>
+<smbr r='idMegaTexture::r_showMegaTextureLabels' t='idCVar'/>
+<smbr r='idMegaTexture::r_skipMegaTexture' t='idCVar'/>
+<smbr r='idMegaTexture::r_terrainScale' t='idCVar'/>

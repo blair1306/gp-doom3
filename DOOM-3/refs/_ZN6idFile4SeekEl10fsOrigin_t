@@ -1,0 +1,49 @@
+<dec f='codebrowser/framework/File.h' l='72' type='int idFile::Seek(long offset, fsOrigin_t origin)'/>
+<doc f='codebrowser/framework/File.h' l='71'>// Seek on a file.</doc>
+<def f='codebrowser/framework/File.cpp' l='242' ll='244' type='int idFile::Seek(long offset, fsOrigin_t origin)'/>
+<use f='codebrowser/framework/File.cpp' l='252' u='c' c='_ZN6idFile6RewindEv'/>
+<ovr f='codebrowser/framework/File.cpp' l='804' c='_ZN13idFile_Memory4SeekEl10fsOrigin_t'/>
+<ovr f='codebrowser/framework/File.cpp' l='1003' c='_ZN13idFile_BitMsg4SeekEl10fsOrigin_t'/>
+<ovr f='codebrowser/framework/File.cpp' l='1198' c='_ZN16idFile_Permanent4SeekEl10fsOrigin_t'/>
+<ovr f='codebrowser/framework/File.cpp' l='1332' c='_ZN12idFile_InZip4SeekEl10fsOrigin_t'/>
+<doc f='codebrowser/framework/File.cpp' l='237'>/*
+=================
+idFile::Seek
+=================
+*/</doc>
+<use f='codebrowser/framework/FileSystem.cpp' l='756' u='c' c='_ZN17idFileSystemLocal8CopyFileEP6idFilePKc'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='758' u='c' c='_ZN17idFileSystemLocal8CopyFileEP6idFilePKc'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='3774' u='c' c='_ZN17idFileSystemLocal18BackgroundDownloadEP20backgroundDownload_s'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='3847' u='c' c='_ZN17idFileSystemLocal15GetFileChecksumEP6idFile'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='3849' u='c' c='_ZN17idFileSystemLocal15GetFileChecksumEP6idFile'/>
+<use f='codebrowser/renderer/Cinematic.cpp' l='1280' u='c' c='_ZN16idCinematicLocal8RoQResetEv'/>
+<use f='codebrowser/renderer/MegaTexture.cpp' l='357' u='c' c='_ZN14idTextureLevel10UpdateTileEiiii'/>
+<use f='codebrowser/renderer/MegaTexture.cpp' l='545' u='c' c='_ZN13idMegaTexture19GenerateMegaMipMapsEP19megaTextureHeader_tP6idFile'/>
+<use f='codebrowser/renderer/MegaTexture.cpp' l='562' u='c' c='_ZN13idMegaTexture19GenerateMegaMipMapsEP19megaTextureHeader_tP6idFile'/>
+<use f='codebrowser/renderer/MegaTexture.cpp' l='628' u='c' c='_ZN13idMegaTexture19GenerateMegaPreviewEPKc'/>
+<use f='codebrowser/renderer/MegaTexture.cpp' l='721' u='c' c='_ZN13idMegaTexture17MakeMegaTexture_fERK9idCmdArgs'/>
+<use f='codebrowser/renderer/MegaTexture.cpp' l='741' u='c' c='_ZN13idMegaTexture17MakeMegaTexture_fERK9idCmdArgs'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='172' u='c' c='_Z9lwGetClipP6idFilei'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='259' u='c' c='_Z9lwGetClipP6idFilei'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='450' u='c' c='_Z13lwGetEnvelopeP6idFilei'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='1034' u='c' c='_Z9skipbytesP6idFilei'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='1215' u='c' c='_Z5getS0P6idFile'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='1229' u='c' c='_Z5getS0P6idFile'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='1534' u='c' c='_Z11lwGetObjectPKcPjPi'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='1570' u='c' c='_Z11lwGetObjectPKcPjPi'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='1603' u='c' c='_Z11lwGetObjectPKcPjPi'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='2097' u='c' c='_Z13lwGetSurface5P6idFileiP11st_lwObject'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='2303' u='c' c='_Z12lwGetObject5PKcPjPi'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='2868' u='c' c='_Z16lwGetPolygonTagsP6idFileiP12st_lwTagListP16st_lwPolygonList'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='3040' u='c' c='_Z12lwGetTHeaderP6idFileiP12st_lwTexture'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='3129' u='c' c='_Z9lwGetTMapP6idFileiP9st_lwTMap'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='3238' u='c' c='_Z13lwGetImageMapP6idFileiP12st_lwTexture'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='3313' u='c' c='_Z15lwGetProceduralP6idFileiP12st_lwTexture'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='3411' u='c' c='_Z13lwGetGradientP6idFileiP12st_lwTexture'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='3466' u='c' c='_Z12lwGetTextureP6idFileij'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='3512' u='c' c='_Z11lwGetShaderP6idFilei'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='3545' u='c' c='_Z11lwGetShaderP6idFilei'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='3860' u='c' c='_Z12lwGetSurfaceP6idFilei'/>
+<use f='codebrowser/sound/snd_decoder.cpp' l='118' u='c' c='_Z10FS_SeekOGGPvxi'/>
+<use f='codebrowser/sound/snd_wavefile.cpp' l='237' u='c' c='_ZN10idWaveFile9ResetFileEv'/>
+<use f='codebrowser/sound/snd_wavefile.cpp' l='350' u='c' c='_ZN10idWaveFile4SeekEi'/>

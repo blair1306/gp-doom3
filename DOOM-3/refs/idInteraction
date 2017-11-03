@@ -1,0 +1,28 @@
+<def f='codebrowser/renderer/Interaction.h' l='93' ll='175'/>
+<size>112</size>
+<mbr r='idInteraction::numSurfaces' o='0' t='int'/>
+<mbr r='idInteraction::surfaces' o='32' t='surfaceInteraction_t *'/>
+<mbr r='idInteraction::entityDef' o='64' t='idRenderEntityLocal *'/>
+<mbr r='idInteraction::lightDef' o='96' t='idRenderLightLocal *'/>
+<mbr r='idInteraction::lightNext' o='128' t='idInteraction *'/>
+<mbr r='idInteraction::lightPrev' o='160' t='idInteraction *'/>
+<mbr r='idInteraction::entityNext' o='192' t='idInteraction *'/>
+<mbr r='idInteraction::entityPrev' o='224' t='idInteraction *'/>
+<fun r='_ZN13idInteractionC1Ev'/>
+<fun r='_ZN13idInteraction12AllocAndLinkEP19idRenderEntityLocalP18idRenderLightLocal'/>
+<fun r='_ZN13idInteraction13UnlinkAndFreeEv'/>
+<fun r='_ZN13idInteraction12FreeSurfacesEv'/>
+<fun r='_ZN13idInteraction9MakeEmptyEv'/>
+<fun r='_ZNK13idInteraction7IsEmptyEv'/>
+<fun r='_ZNK13idInteraction10IsDeferredEv'/>
+<fun r='_ZNK13idInteraction10HasShadowsEv'/>
+<fun r='_ZN13idInteraction10MemoryUsedEv'/>
+<fun r='_ZN13idInteraction20AddActiveInteractionEv'/>
+<mbr r='idInteraction::frustumState' o='256' t='enum (anonymous enum at /home/jon/workspace/id-software/DOOM-3/neo/TypeInfo/../idlib/../renderer/Interaction.h:150:2)'/>
+<mbr r='idInteraction::frustum' o='288' t='idFrustum'/>
+<mbr r='idInteraction::frustumAreas' o='832' t='areaNumRef_t *'/>
+<mbr r='idInteraction::dynamicModelFrameCount' o='864' t='int'/>
+<fun r='_ZN13idInteraction17CreateInteractionEPK13idRenderModel'/>
+<fun r='_ZN13idInteraction6UnlinkEv'/>
+<fun r='_ZN13idInteraction28CullInteractionByViewFrustumERK9idFrustum'/>
+<fun r='_ZN13idInteraction31CalcInteractionScissorRectangleERK9idFrustum'/>

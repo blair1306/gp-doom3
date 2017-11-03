@@ -1,0 +1,12 @@
+<dec f='codebrowser/cm/CollisionModel_local.h' l='303' type='cmHandle_t idCollisionModelManagerLocal::SetupTrmModel(const idTraceModel &amp; trm, const idMaterial * material)'/>
+<doc f='codebrowser/cm/CollisionModel_local.h' l='302'>// sets up a trace model for collision with other trace models</doc>
+<inh f='codebrowser/cm/CollisionModel.h' l='99' c='_ZN23idCollisionModelManager13SetupTrmModelERK12idTraceModelPK10idMaterial'/>
+<def f='codebrowser/cm/CollisionModel_load.cpp' l='789' ll='866' type='cmHandle_t idCollisionModelManagerLocal::SetupTrmModel(const idTraceModel &amp; trm, const idMaterial * material)'/>
+<doc f='codebrowser/cm/CollisionModel_load.cpp' l='781'>/*
+================
+idCollisionModelManagerLocal::SetupTrmModel
+
+Trace models (item boxes, etc) are converted to collision models on the fly, using the last model slot
+as a reusable temporary buffer
+================
+*/</doc>

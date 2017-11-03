@@ -1,0 +1,18 @@
+<def f='codebrowser/sound/sound.h' l='42' type='const float'/>
+<use f='codebrowser/sound/sound.h' l='43' u='r'/>
+<doc f='codebrowser/sound/sound.h' l='32'>/*
+===============================================================================
+
+	SOUND SHADER DECL
+
+===============================================================================
+*/
+
+// unfortunately, our minDistance / maxDistance is specified in meters, and
+// we have far too many of them to change at this time.</doc>
+<doc f='codebrowser/sound/sound.h' l='42'>// doom to meters</doc>
+<use f='codebrowser/sound/snd_emitter.cpp' l='536' u='r' c='_ZN19idSoundEmitterLocal10SpatializeE6idVec3iP13idRenderWorld'/>
+<use f='codebrowser/sound/snd_world.cpp' l='936' u='r' c='_ZN17idSoundWorldLocal13PlaceListenerERK6idVec3RK6idMat3iiRK5idStr'/>
+<use f='codebrowser/sound/snd_world.cpp' l='1665' u='r' c='_ZN17idSoundWorldLocal22AddChannelContributionEP19idSoundEmitterLocalP14idSoundChanneliiPf'/>
+<use f='codebrowser/sound/snd_world.cpp' l='1669' u='r' c='_ZN17idSoundWorldLocal22AddChannelContributionEP19idSoundEmitterLocalP14idSoundChanneliiPf'/>
+<use f='codebrowser/sound/snd_world.cpp' l='1946' u='r' c='_ZN17idSoundWorldLocal13FindAmplitudeEP19idSoundEmitterLocaliPK6idVec3ib'/>

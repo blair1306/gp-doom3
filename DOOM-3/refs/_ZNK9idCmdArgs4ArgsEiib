@@ -1,0 +1,23 @@
+<dec f='codebrowser/idlib/CmdArgs.h' l='53' type='const char * idCmdArgs::Args(int start = 1, int end = -1, bool escapeArgs = false) const'/>
+<doc f='codebrowser/idlib/CmdArgs.h' l='51'>// Returns a single string containing argv(start) to argv(end)
+							// escapeArgs is a fugly way to put the string back into a state ready to tokenize again</doc>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='61' u='c' c='_Z16Cmd_EntityList_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='192' u='c' c='_Z12Cmd_Script_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='605' u='c' c='_ZL7Cmd_SaybRK9idCmdArgs'/>
+<use f='codebrowser/framework/CVarSystem.cpp' l='752' u='c' c='_ZN17idCVarSystemLocal7CommandERK9idCmdArgs'/>
+<use f='codebrowser/framework/CVarSystem.cpp' l='962' u='c' c='_ZN17idCVarSystemLocal5Set_fERK9idCmdArgs'/>
+<use f='codebrowser/framework/CVarSystem.cpp' l='1095' u='c' c='_ZN17idCVarSystemLocal11ListByFlagsERK9idCmdArgs11cvarFlags_t'/>
+<use f='codebrowser/framework/CmdSystem.cpp' l='137' u='c' c='_ZN16idCmdSystemLocal11ListByFlagsERK9idCmdArgs10cmdFlags_t'/>
+<use f='codebrowser/framework/EditField.cpp' l='198' u='c' c='_ZN11idEditField12AutoCompleteEv'/>
+<use f='codebrowser/framework/async/AsyncNetwork.cpp' l='401' u='c' c='_ZN14idAsyncNetwork15RemoteConsole_fERK9idCmdArgs'/>
+<use f='codebrowser/framework/async/AsyncNetwork.cpp' l='491' u='c' c='_ZN14idAsyncNetwork10UpdateUI_fERK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='61' u='c' c='_Z16Cmd_EntityList_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='172' u='c' c='_Z12Cmd_Script_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='554' u='c' c='_ZL7Cmd_SaybRK9idCmdArgs'/>
+<def f='codebrowser/idlib/CmdArgs.cpp' l='52' ll='94' type='const char * idCmdArgs::Args(int start = 1, int end = -1, bool escapeArgs = false) const'/>
+<doc f='codebrowser/idlib/CmdArgs.cpp' l='47'>/*
+============
+idCmdArgs::Args
+============
+*/</doc>
+<use f='codebrowser/idlib/math/Simd.cpp' l='4113' u='c' c='_ZN6idSIMD6Test_fERK9idCmdArgs'/>

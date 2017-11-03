@@ -1,0 +1,46 @@
+<dec f='codebrowser/idlib/containers/List.h' l='117' type='const type * idList::Ptr() const'/>
+<def f='codebrowser/idlib/containers/List.h' l='611' ll='614' type='const type * idList::Ptr() const'/>
+<use f='codebrowser/idlib/geometry/Surface.h' l='61' u='c' c='_ZNK9idSurface10GetIndexesEv'/>
+<use f='codebrowser/idlib/geometry/Surface.h' l='63' u='c' c='_ZNK9idSurface11GetVerticesEv'/>
+<use f='codebrowser/idlib/geometry/Surface.h' l='64' u='c' c='_ZNK9idSurface14GetEdgeIndexesEv'/>
+<use f='codebrowser/idlib/geometry/Surface.h' l='65' u='c' c='_ZNK9idSurface8GetEdgesEv'/>
+<doc f='codebrowser/idlib/containers/List.h' l='117'>// returns a pointer to the list</doc>
+<doc f='codebrowser/idlib/containers/List.h' l='600'>/*
+================
+idList&lt;type&gt;::Ptr
+
+Returns a pointer to the begining of the array.  Useful for iterating through the list in loops.
+
+Note: may return NULL if the list is empty.
+
+FIXME: Create an iterator template for this kind of thing.
+================
+*/</doc>
+<use f='codebrowser/d3xp/anim/Anim.cpp' l='644' u='c' c='_ZNK9idMD5Anim20GetInterpolatedFrameER12frameBlend_tP11idJointQuatPKii'/>
+<use f='codebrowser/d3xp/anim/Anim.cpp' l='829' u='c' c='_ZNK9idMD5Anim14GetSingleFrameEiP11idJointQuatPKii'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='77' u='c' c='_ZN6idAnimC1EPK14idDeclModelDefPKS_'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='2218' u='c' c='_ZN14idDeclModelDef8CopyDeclEPKS_'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='2220' u='c' c='_ZN14idDeclModelDef8CopyDeclEPKS_'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='2448' u='c' c='_ZNK14idDeclModelDef11SetupJointsEPiPP10idJointMatR8idBoundsb'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='2999' u='c' c='_ZNK14idDeclModelDef12JointParentsEv'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='3064' u='c' c='_ZNK14idDeclModelDef16GetChannelJointsEi'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='4133' u='c' c='_ZNK10idAnimator11BlendAFPoseEP11idJointQuat'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='4133' u='c' c='_ZNK10idAnimator11BlendAFPoseEP11idJointQuat'/>
+<use f='codebrowser/game/anim/Anim.cpp' l='644' u='c' c='_ZNK9idMD5Anim20GetInterpolatedFrameER12frameBlend_tP11idJointQuatPKii'/>
+<use f='codebrowser/game/anim/Anim.cpp' l='829' u='c' c='_ZNK9idMD5Anim14GetSingleFrameEiP11idJointQuatPKii'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='77' u='c' c='_ZN6idAnimC1EPK14idDeclModelDefPKS_'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='2132' u='c' c='_ZN14idDeclModelDef8CopyDeclEPKS_'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='2134' u='c' c='_ZN14idDeclModelDef8CopyDeclEPKS_'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='2362' u='c' c='_ZNK14idDeclModelDef11SetupJointsEPiPP10idJointMatR8idBoundsb'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='2913' u='c' c='_ZNK14idDeclModelDef12JointParentsEv'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='2978' u='c' c='_ZNK14idDeclModelDef16GetChannelJointsEi'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='4047' u='c' c='_ZNK10idAnimator11BlendAFPoseEP11idJointQuat'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='4047' u='c' c='_ZNK10idAnimator11BlendAFPoseEP11idJointQuat'/>
+<use f='codebrowser/renderer/Model_md5.cpp' l='592' u='c' c='_ZNK16idRenderModelMD55PrintEv'/>
+<use f='codebrowser/renderer/Model_md5.cpp' l='616' u='c' c='_ZNK16idRenderModelMD54ListEv'/>
+<use f='codebrowser/renderer/Model_md5.cpp' l='685' u='c' c='_ZNK16idRenderModelMD510DrawJointsEPK14renderEntity_sPK9viewDef_s'/>
+<use f='codebrowser/renderer/Model_md5.cpp' l='689' u='c' c='_ZNK16idRenderModelMD510DrawJointsEPK14renderEntity_sPK9viewDef_s'/>
+<use f='codebrowser/renderer/Model_md5.cpp' l='837' u='c' c='_ZNK16idRenderModelMD59GetJointsEv'/>
+<use f='codebrowser/renderer/Model_md5.cpp' l='846' u='c' c='_ZNK16idRenderModelMD514GetDefaultPoseEv'/>
+<use f='codebrowser/renderer/Model_md5.cpp' l='858' u='c' c='_ZNK16idRenderModelMD514GetJointHandleEPKc'/>
+<use f='codebrowser/renderer/Model_md5.cpp' l='894' u='c' c='_ZNK16idRenderModelMD512NearestJointEiiii'/>

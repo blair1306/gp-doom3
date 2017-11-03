@@ -1,0 +1,14 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1214' type='void R_CreateEntityRefs(idRenderEntityLocal * def)'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='288' u='c' c='_ZN18idRenderWorldLocal15UpdateEntityDefEiPK14renderEntity_s'/>
+<def f='codebrowser/renderer/tr_lightrun.cpp' l='168' ll='211' type='void R_CreateEntityRefs(idRenderEntityLocal * def)'/>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='838' u='c' c='_Z25R_ReCreateWorldReferencesv'/>
+<doc f='codebrowser/renderer/tr_lightrun.cpp' l='158'>/*
+===============
+R_CreateEntityRefs
+
+Creates all needed model references in portal areas,
+chaining them to both the area and the entityDef.
+
+Bumps tr.viewCount.
+===============
+*/</doc>

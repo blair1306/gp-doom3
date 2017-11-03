@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>envelope.h source code [codebrowser/sound/OggVorbis/vorbissrc/envelope.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/sound/OggVorbis/vorbissrc/envelope.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>sound</a>/<a href='..'>OggVorbis</a>/<a href='./'>vorbissrc</a>/<a href='envelope.h.html'>envelope.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/********************************************************************</i></td></tr>
+<tr><th id="2">2</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="3">3</th><td><i> * THIS FILE IS PART OF THE OggVorbis SOFTWARE CODEC SOURCE CODE.   *</i></td></tr>
+<tr><th id="4">4</th><td><i> * USE, DISTRIBUTION AND REPRODUCTION OF THIS LIBRARY SOURCE IS     *</i></td></tr>
+<tr><th id="5">5</th><td><i> * GOVERNED BY A BSD-STYLE SOURCE LICENSE INCLUDED WITH THIS SOURCE *</i></td></tr>
+<tr><th id="6">6</th><td><i> * IN 'COPYING'. PLEASE READ THESE TERMS BEFORE DISTRIBUTING.       *</i></td></tr>
+<tr><th id="7">7</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="8">8</th><td><i> * THE OggVorbis SOURCE CODE IS (C) COPYRIGHT 1994-2002             *</i></td></tr>
+<tr><th id="9">9</th><td><i> * by the XIPHOPHORUS Company <a href="http://www.xiph.org/">http://www.xiph.org/</a>                  *</i></td></tr>
+<tr><th id="10">10</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="11">11</th><td><i> ********************************************************************</i></td></tr>
+<tr><th id="12">12</th><td><i></i></td></tr>
+<tr><th id="13">13</th><td><i> function: PCM data envelope analysis and manipulation</i></td></tr>
+<tr><th id="14">14</th><td><i> last mod: $Id: envelope.h,v 1.25 2002/07/11 06:40:48 xiphmont Exp $</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i> ********************************************************************/</i></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><u>#<span data-ppcond="18">ifndef</span> <span class="macro" data-ref="_M/_V_ENVELOPE_">_V_ENVELOPE_</span></u></td></tr>
+<tr><th id="19">19</th><td><u>#define <dfn class="macro" id="_M/_V_ENVELOPE_" data-ref="_M/_V_ENVELOPE_">_V_ENVELOPE_</dfn></u></td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="mdct.h.html">"mdct.h"</a></u></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><u>#define <dfn class="macro" id="_M/VE_PRE" data-ref="_M/VE_PRE">VE_PRE</dfn>    16</u></td></tr>
+<tr><th id="24">24</th><td><u>#define <dfn class="macro" id="_M/VE_WIN" data-ref="_M/VE_WIN">VE_WIN</dfn>    4</u></td></tr>
+<tr><th id="25">25</th><td><u>#define <dfn class="macro" id="_M/VE_POST" data-ref="_M/VE_POST">VE_POST</dfn>   2</u></td></tr>
+<tr><th id="26">26</th><td><u>#define <dfn class="macro" id="_M/VE_AMP" data-ref="_M/VE_AMP">VE_AMP</dfn>    (VE_PRE+VE_POST-1)</u></td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><u>#define <dfn class="macro" id="_M/VE_BANDS" data-ref="_M/VE_BANDS">VE_BANDS</dfn>  7</u></td></tr>
+<tr><th id="29">29</th><td><u>#define <dfn class="macro" id="_M/VE_NEARDC" data-ref="_M/VE_NEARDC">VE_NEARDC</dfn> 15</u></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><u>#define <dfn class="macro" id="_M/VE_MINSTRETCH" data-ref="_M/VE_MINSTRETCH">VE_MINSTRETCH</dfn> 2   /* a bit less than short block */</u></td></tr>
+<tr><th id="32">32</th><td><u>#define <dfn class="macro" id="_M/VE_MAXSTRETCH" data-ref="_M/VE_MAXSTRETCH">VE_MAXSTRETCH</dfn> 12  /* one-third full block */</u></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="35">35</th><td>  <em>float</em> <dfn class="decl" id="(anonymous)::ampbuf" title='(anonymous struct)::ampbuf' data-ref="(anonymous)::ampbuf">ampbuf</dfn>[<a class="macro" href="#26" title="(16+2-1)" data-ref="_M/VE_AMP">VE_AMP</a>];</td></tr>
+<tr><th id="36">36</th><td>  <em>int</em>   <dfn class="decl" id="(anonymous)::ampptr" title='(anonymous struct)::ampptr' data-ref="(anonymous)::ampptr">ampptr</dfn>;</td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td>  <em>float</em> <dfn class="decl" id="(anonymous)::nearDC" title='(anonymous struct)::nearDC' data-ref="(anonymous)::nearDC">nearDC</dfn>[<a class="macro" href="#29" title="15" data-ref="_M/VE_NEARDC">VE_NEARDC</a>];</td></tr>
+<tr><th id="39">39</th><td>  <em>float</em> <dfn class="decl" id="(anonymous)::nearDC_acc" title='(anonymous struct)::nearDC_acc' data-ref="(anonymous)::nearDC_acc">nearDC_acc</dfn>;</td></tr>
+<tr><th id="40">40</th><td>  <em>float</em> <dfn class="decl" id="(anonymous)::nearDC_partialacc" title='(anonymous struct)::nearDC_partialacc' data-ref="(anonymous)::nearDC_partialacc">nearDC_partialacc</dfn>;</td></tr>
+<tr><th id="41">41</th><td>  <em>int</em>   <dfn class="decl" id="(anonymous)::nearptr" title='(anonymous struct)::nearptr' data-ref="(anonymous)::nearptr">nearptr</dfn>;</td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td>} <dfn class="typedef" id="envelope_filter_state" title='envelope_filter_state' data-type='struct envelope_filter_state' data-ref="envelope_filter_state">envelope_filter_state</dfn>;</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="46">46</th><td>  <em>int</em> <dfn class="decl" id="(anonymous)::begin" title='(anonymous struct)::begin' data-ref="(anonymous)::begin">begin</dfn>;</td></tr>
+<tr><th id="47">47</th><td>  <em>int</em> <dfn class="decl" id="(anonymous)::end" title='(anonymous struct)::end' data-ref="(anonymous)::end">end</dfn>;</td></tr>
+<tr><th id="48">48</th><td>  <em>float</em> *<dfn class="decl" id="(anonymous)::window" title='(anonymous struct)::window' data-ref="(anonymous)::window">window</dfn>;</td></tr>
+<tr><th id="49">49</th><td>  <em>float</em> <dfn class="decl" id="(anonymous)::total" title='(anonymous struct)::total' data-ref="(anonymous)::total">total</dfn>;</td></tr>
+<tr><th id="50">50</th><td>} <dfn class="typedef" id="envelope_band" title='envelope_band' data-type='struct envelope_band' data-ref="envelope_band">envelope_band</dfn>;</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="53">53</th><td>  <em>int</em> <dfn class="decl" id="(anonymous)::ch" title='(anonymous struct)::ch' data-ref="(anonymous)::ch">ch</dfn>;</td></tr>
+<tr><th id="54">54</th><td>  <em>int</em> <dfn class="decl" id="(anonymous)::winlength" title='(anonymous struct)::winlength' data-ref="(anonymous)::winlength">winlength</dfn>;</td></tr>
+<tr><th id="55">55</th><td>  <em>int</em> <dfn class="decl" id="(anonymous)::searchstep" title='(anonymous struct)::searchstep' data-ref="(anonymous)::searchstep">searchstep</dfn>;</td></tr>
+<tr><th id="56">56</th><td>  <em>float</em> <dfn class="decl" id="(anonymous)::minenergy" title='(anonymous struct)::minenergy' data-ref="(anonymous)::minenergy">minenergy</dfn>;</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td>  <a class="typedef" href="mdct.h.html#mdct_lookup" title='mdct_lookup' data-type='struct mdct_lookup' data-ref="mdct_lookup">mdct_lookup</a>  <dfn class="decl" id="(anonymous)::mdct" title='(anonymous struct)::mdct' data-ref="(anonymous)::mdct">mdct</dfn>;</td></tr>
+<tr><th id="59">59</th><td>  <em>float</em>       *<dfn class="decl" id="(anonymous)::mdct_win" title='(anonymous struct)::mdct_win' data-ref="(anonymous)::mdct_win">mdct_win</dfn>;</td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td>  <a class="typedef" href="#envelope_band" title='envelope_band' data-type='struct envelope_band' data-ref="envelope_band">envelope_band</a>          <dfn class="decl" id="(anonymous)::band" title='(anonymous struct)::band' data-ref="(anonymous)::band">band</dfn>[<a class="macro" href="#28" title="7" data-ref="_M/VE_BANDS">VE_BANDS</a>];</td></tr>
+<tr><th id="62">62</th><td>  <a class="typedef" href="#envelope_filter_state" title='envelope_filter_state' data-type='struct envelope_filter_state' data-ref="envelope_filter_state">envelope_filter_state</a> *<dfn class="decl" id="(anonymous)::filter" title='(anonymous struct)::filter' data-ref="(anonymous)::filter">filter</dfn>;</td></tr>
+<tr><th id="63">63</th><td>  <em>int</em>   <dfn class="decl" id="(anonymous)::stretch" title='(anonymous struct)::stretch' data-ref="(anonymous)::stretch">stretch</dfn>;</td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td>  <em>int</em>                   *<dfn class="decl" id="(anonymous)::mark" title='(anonymous struct)::mark' data-ref="(anonymous)::mark">mark</dfn>;</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td>  <em>long</em> <dfn class="decl" id="(anonymous)::storage" title='(anonymous struct)::storage' data-ref="(anonymous)::storage">storage</dfn>;</td></tr>
+<tr><th id="68">68</th><td>  <em>long</em> <dfn class="decl" id="(anonymous)::current" title='(anonymous struct)::current' data-ref="(anonymous)::current">current</dfn>;</td></tr>
+<tr><th id="69">69</th><td>  <em>long</em> <dfn class="decl" id="(anonymous)::curmark" title='(anonymous struct)::curmark' data-ref="(anonymous)::curmark">curmark</dfn>;</td></tr>
+<tr><th id="70">70</th><td>  <em>long</em> <dfn class="decl" id="(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</dfn>;</td></tr>
+<tr><th id="71">71</th><td>} <dfn class="typedef" id="envelope_lookup" title='envelope_lookup' data-type='struct envelope_lookup' data-ref="envelope_lookup">envelope_lookup</dfn>;</td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td><b>extern</b> <em>void</em> <dfn class="decl" id="_ve_envelope_init" title='_ve_envelope_init' data-ref="_ve_envelope_init">_ve_envelope_init</dfn>(<a class="typedef" href="#envelope_lookup" title='envelope_lookup' data-type='struct envelope_lookup' data-ref="envelope_lookup">envelope_lookup</a> *<dfn class="local col5 decl" id="75e" title='e' data-type='envelope_lookup *' data-ref="75e">e</dfn>,<a class="typedef" href="../vorbis/codec.h.html#vorbis_info" title='vorbis_info' data-type='struct vorbis_info' data-ref="vorbis_info">vorbis_info</a> *<dfn class="local col6 decl" id="76vi" title='vi' data-type='vorbis_info *' data-ref="76vi">vi</dfn>);</td></tr>
+<tr><th id="74">74</th><td><b>extern</b> <em>void</em> <dfn class="decl" id="_ve_envelope_clear" title='_ve_envelope_clear' data-ref="_ve_envelope_clear">_ve_envelope_clear</dfn>(<a class="typedef" href="#envelope_lookup" title='envelope_lookup' data-type='struct envelope_lookup' data-ref="envelope_lookup">envelope_lookup</a> *<dfn class="local col7 decl" id="77e" title='e' data-type='envelope_lookup *' data-ref="77e">e</dfn>);</td></tr>
+<tr><th id="75">75</th><td><b>extern</b> <em>long</em> <dfn class="decl" id="_ve_envelope_search" title='_ve_envelope_search' data-ref="_ve_envelope_search">_ve_envelope_search</dfn>(<a class="typedef" href="../vorbis/codec.h.html#vorbis_dsp_state" title='vorbis_dsp_state' data-type='struct vorbis_dsp_state' data-ref="vorbis_dsp_state">vorbis_dsp_state</a> *<dfn class="local col8 decl" id="78v" title='v' data-type='vorbis_dsp_state *' data-ref="78v">v</dfn>);</td></tr>
+<tr><th id="76">76</th><td><b>extern</b> <em>void</em> <dfn class="decl" id="_ve_envelope_shift" title='_ve_envelope_shift' data-ref="_ve_envelope_shift">_ve_envelope_shift</dfn>(<a class="typedef" href="#envelope_lookup" title='envelope_lookup' data-type='struct envelope_lookup' data-ref="envelope_lookup">envelope_lookup</a> *<dfn class="local col9 decl" id="79e" title='e' data-type='envelope_lookup *' data-ref="79e">e</dfn>,<em>long</em> <dfn class="local col0 decl" id="80shift" title='shift' data-type='long' data-ref="80shift">shift</dfn>);</td></tr>
+<tr><th id="77">77</th><td><b>extern</b> <em>int</em>  <dfn class="decl" id="_ve_envelope_mark" title='_ve_envelope_mark' data-ref="_ve_envelope_mark">_ve_envelope_mark</dfn>(<a class="typedef" href="../vorbis/codec.h.html#vorbis_dsp_state" title='vorbis_dsp_state' data-type='struct vorbis_dsp_state' data-ref="vorbis_dsp_state">vorbis_dsp_state</a> *<dfn class="local col1 decl" id="81v" title='v' data-type='vorbis_dsp_state *' data-ref="81v">v</dfn>);</td></tr>
+<tr><th id="78">78</th><td></td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td><u>#<span data-ppcond="18">endif</span></u></td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='analysis.c.html'>codebrowser/sound/OggVorbis/vorbissrc/analysis.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,18 @@
+<dec f='codebrowser/renderer/Image.h' l='205' type='void idImage::ActuallyLoadImage(bool checkForPrecompressed, bool fromBackEnd)'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='1042' u='c' c='_ZN7idImage6ReloadEbb'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='1467' u='c' c='_ZN14idImageManager17ImageFromFunctionEPKcPFvP7idImageE'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='1552' u='c' c='_ZN14idImageManager13ImageFromFileEPKc15textureFilter_tb15textureRepeat_t14textureDepth_t11cubeFiles_t'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='1603' u='c' c='_ZN14idImageManager13ImageFromFileEPKc15textureFilter_tb15textureRepeat_t14textureDepth_t11cubeFiles_t'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='1614' u='c' c='_ZN14idImageManager13ImageFromFileEPKc15textureFilter_tb15textureRepeat_t14textureDepth_t11cubeFiles_t'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='2079' u='c' c='_ZN14idImageManager12EndLevelLoadEv'/>
+<def f='codebrowser/renderer/Image_load.cpp' l='1576' ll='1664' type='void idImage::ActuallyLoadImage(bool checkForPrecompressed, bool fromBackEnd)'/>
+<use f='codebrowser/renderer/Image_load.cpp' l='1731' u='c' c='_ZN7idImage4BindEv'/>
+<use f='codebrowser/renderer/Image_load.cpp' l='1827' u='c' c='_ZN7idImage12BindFragmentEv'/>
+<doc f='codebrowser/renderer/Image_load.cpp' l='1568'>/*
+===============
+ActuallyLoadImage
+
+Absolutely every image goes through this path
+On exit, the idImage will have a valid OpenGL texture number that can be bound
+===============
+*/</doc>

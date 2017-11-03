@@ -1,0 +1,9 @@
+<dec f='codebrowser/curl/lib/http.h' l='48' type='void Curl_http_auth_act(struct connectdata * conn)'/>
+<def f='codebrowser/curl/lib/http.c' l='167' ll='189' type='void Curl_http_auth_act(struct connectdata * conn)'/>
+<use f='codebrowser/curl/lib/http.c' l='932' u='c' c='Curl_ConnectHTTPProxyTunnel'/>
+<doc f='codebrowser/curl/lib/http.c' l='161'>/*
+ * Curl_http_auth_act() checks what authentication methods that are available
+ * and decides which one (if any) to use. It will set &apos;newurl&apos; if an auth
+ * metod was picked.
+ */</doc>
+<use f='codebrowser/curl/lib/transfer.c' l='482' u='c' c='Curl_readwrite'/>

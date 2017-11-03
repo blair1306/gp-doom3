@@ -1,0 +1,48 @@
+<dec f='codebrowser/renderer/RenderWorld.h' l='281' type='qhandle_t idRenderWorld::AddEntityDef(const renderEntity_t * re)'/>
+<doc f='codebrowser/renderer/RenderWorld.h' l='276'>//-------------- Entity and Light Defs -----------------
+
+	// entityDefs and lightDefs are added to a given world to determine
+	// what will be drawn for a rendered scene.  Most update work is defered
+	// until it is determined that it is actually needed for a given view.</doc>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='109' u='c' c='_ZN14idMultiModelAF7PresentEv'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='1083' u='c' c='_ZN19idAFEntity_Gibbable7PresentEv'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='2644' u='c' c='_ZN20idAFEntity_SteamPipe21InitSteamRenderEntityEv'/>
+<use f='codebrowser/d3xp/BrittleFracture.cpp' l='579' u='c' c='_ZN17idBrittleFracture7PresentEv'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='788' u='c' c='_ZN8idEntity7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='833' u='c' c='_ZN8idEntity7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='1297' u='c' c='_ZN8idEntity11UpdateModelEv'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='1495' u='c' c='_ZN8idEntity7PresentEv'/>
+<use f='codebrowser/d3xp/Fx.cpp' l='123' u='c' c='_ZN10idEntityFx7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/d3xp/Fx.cpp' l='510' u='c' c='_ZN10idEntityFx3RunEi'/>
+<use f='codebrowser/d3xp/Item.cpp' l='257' u='c' c='_ZN6idItem7PresentEv'/>
+<use f='codebrowser/d3xp/Light.cpp' l='726' u='c' c='_ZN7idLight21PresentModelDefChangeEv'/>
+<use f='codebrowser/d3xp/Moveable.cpp' l='912' u='c' c='_ZN17idExplodingBarrel7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/d3xp/Moveable.cpp' l='1064' u='c' c='_ZN17idExplodingBarrel12AddParticlesEPKcb'/>
+<use f='codebrowser/d3xp/PlayerIcon.cpp' l='180' u='c' c='_ZN12idPlayerIcon10CreateIconEP8idPlayer16playerIconType_tPKcRK6idVec3RK6idMat3'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='1947' u='c' c='_ZN15idBFGProjectile7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='1957' u='c' c='_ZN15idBFGProjectile7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='2113' u='c' c='_ZN15idBFGProjectile6LaunchERK6idVec3S2_S2_fff'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='2155' u='c' c='_ZN15idBFGProjectile6LaunchERK6idVec3S2_S2_fff'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='2194' u='c' c='_ZN15idBFGProjectile6LaunchERK6idVec3S2_S2_fff'/>
+<use f='codebrowser/d3xp/SecurityCamera.cpp' l='583' u='c' c='_ZN16idSecurityCamera7PresentEv'/>
+<use f='codebrowser/d3xp/SmokeParticles.cpp' l='92' u='c' c='_ZN16idSmokeParticles4InitEv'/>
+<use f='codebrowser/game/AFEntity.cpp' l='109' u='c' c='_ZN14idMultiModelAF7PresentEv'/>
+<use f='codebrowser/game/AFEntity.cpp' l='1071' u='c' c='_ZN19idAFEntity_Gibbable7PresentEv'/>
+<use f='codebrowser/game/AFEntity.cpp' l='2366' u='c' c='_ZN20idAFEntity_SteamPipe21InitSteamRenderEntityEv'/>
+<use f='codebrowser/game/BrittleFracture.cpp' l='549' u='c' c='_ZN17idBrittleFracture7PresentEv'/>
+<use f='codebrowser/game/Entity.cpp' l='764' u='c' c='_ZN8idEntity7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/game/Entity.cpp' l='1407' u='c' c='_ZN8idEntity7PresentEv'/>
+<use f='codebrowser/game/Fx.cpp' l='123' u='c' c='_ZN10idEntityFx7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/game/Fx.cpp' l='510' u='c' c='_ZN10idEntityFx3RunEi'/>
+<use f='codebrowser/game/Item.cpp' l='257' u='c' c='_ZN6idItem7PresentEv'/>
+<use f='codebrowser/game/Light.cpp' l='719' u='c' c='_ZN7idLight21PresentModelDefChangeEv'/>
+<use f='codebrowser/game/Moveable.cpp' l='902' u='c' c='_ZN17idExplodingBarrel12AddParticlesEPKcb'/>
+<use f='codebrowser/game/PlayerIcon.cpp' l='165' u='c' c='_ZN12idPlayerIcon10CreateIconEP8idPlayer16playerIconType_tPKcRK6idVec3RK6idMat3'/>
+<use f='codebrowser/game/Projectile.cpp' l='1760' u='c' c='_ZN15idBFGProjectile7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/game/Projectile.cpp' l='1770' u='c' c='_ZN15idBFGProjectile7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/game/Projectile.cpp' l='1901' u='c' c='_ZN15idBFGProjectile6LaunchERK6idVec3S2_S2_fff'/>
+<use f='codebrowser/game/Projectile.cpp' l='1943' u='c' c='_ZN15idBFGProjectile6LaunchERK6idVec3S2_S2_fff'/>
+<use f='codebrowser/game/SecurityCamera.cpp' l='583' u='c' c='_ZN16idSecurityCamera7PresentEv'/>
+<use f='codebrowser/game/SmokeParticles.cpp' l='92' u='c' c='_ZN16idSmokeParticles4InitEv'/>
+<ovr f='codebrowser/renderer/RenderWorld.cpp' l='180' c='_ZN18idRenderWorldLocal12AddEntityDefEPK14renderEntity_s'/>
+<use f='codebrowser/ui/RenderWindow.cpp' l='112' u='c' c='_ZN14idRenderWindow9PreRenderEv'/>

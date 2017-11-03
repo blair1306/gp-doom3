@@ -1,0 +1,50 @@
+<dec f='codebrowser/d3xp/script/Script_Thread.h' l='227' type='void idThread::CallFunction(idEntity * obj, const function_t * func, bool clearStack)'/>
+<doc f='codebrowser/d3xp/script/Script_Thread.h' l='226'>// NOTE: If this is called from within a event called by this thread, the function arguments will be invalid after calling this function.</doc>
+<use f='codebrowser/d3xp/Actor.cpp' l='162' u='c' c='_ZN11idAnimState8SetStateEPKci'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='1318' u='c' c='_ZN7idActor21ConstructScriptObjectEv'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='1355' u='c' c='_ZN7idActor8SetStateEPK10function_t'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='3206' u='c' c='_ZN8idEntity21ConstructScriptObjectEv'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='3242' u='c' c='_ZN8idEntity23DeconstructScriptObjectEv'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='3379' u='c' c='_ZN8idEntity6SignalE11signalNum_t'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='4660' u='c' c='_ZN8idEntity18Event_CallFunctionEPKc'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='2821' u='c' c='_ZN11idGameLocal16CallFrameCommandEP8idEntityPK10function_t'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='2839' u='c' c='_ZN11idGameLocal22CallObjectFrameCommandEP8idEntityPKc'/>
+<use f='codebrowser/d3xp/Target.cpp' l='1492' u='c' c='_ZN27idTarget_CallObjectFunction14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/d3xp/Trigger.cpp' l='1170' u='c' c='_ZN15idTrigger_Touch13TouchEntitiesEv'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='1437' u='c' c='_ZN8idWeapon10UpdateSkinEv'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='1832' u='c' c='_ZN8idWeapon8SetStateEPKci'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='2024' u='c' c='_ZN8idWeapon21ConstructScriptObjectEv'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='2057' u='c' c='_ZN8idWeapon23DeconstructScriptObjectEv'/>
+<def f='codebrowser/d3xp/script/Script_Thread.cpp' l='738' ll='742' type='void idThread::CallFunction(idEntity * self, const function_t * func, bool clearStack)'/>
+<doc f='codebrowser/d3xp/script/Script_Thread.cpp' l='731'>/*
+================
+idThread::CallFunction
+
+NOTE: If this is called from within a event called by this thread, the function arguments will be invalid after calling this function.
+================
+*/</doc>
+<dec f='codebrowser/game/script/Script_Thread.h' l='216' type='void idThread::CallFunction(idEntity * obj, const function_t * func, bool clearStack)'/>
+<doc f='codebrowser/game/script/Script_Thread.h' l='215'>// NOTE: If this is called from within a event called by this thread, the function arguments will be invalid after calling this function.</doc>
+<use f='codebrowser/game/Actor.cpp' l='162' u='c' c='_ZN11idAnimState8SetStateEPKci'/>
+<use f='codebrowser/game/Actor.cpp' l='1270' u='c' c='_ZN7idActor21ConstructScriptObjectEv'/>
+<use f='codebrowser/game/Actor.cpp' l='1307' u='c' c='_ZN7idActor8SetStateEPK10function_t'/>
+<use f='codebrowser/game/Entity.cpp' l='3110' u='c' c='_ZN8idEntity21ConstructScriptObjectEv'/>
+<use f='codebrowser/game/Entity.cpp' l='3146' u='c' c='_ZN8idEntity23DeconstructScriptObjectEv'/>
+<use f='codebrowser/game/Entity.cpp' l='3283' u='c' c='_ZN8idEntity6SignalE11signalNum_t'/>
+<use f='codebrowser/game/Entity.cpp' l='4548' u='c' c='_ZN8idEntity18Event_CallFunctionEPKc'/>
+<use f='codebrowser/game/Game_local.cpp' l='2557' u='c' c='_ZN11idGameLocal16CallFrameCommandEP8idEntityPK10function_t'/>
+<use f='codebrowser/game/Game_local.cpp' l='2575' u='c' c='_ZN11idGameLocal22CallObjectFrameCommandEP8idEntityPKc'/>
+<use f='codebrowser/game/Target.cpp' l='1456' u='c' c='_ZN27idTarget_CallObjectFunction14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/game/Trigger.cpp' l='1146' u='c' c='_ZN15idTrigger_Touch13TouchEntitiesEv'/>
+<use f='codebrowser/game/Weapon.cpp' l='1157' u='c' c='_ZN8idWeapon10UpdateSkinEv'/>
+<use f='codebrowser/game/Weapon.cpp' l='1545' u='c' c='_ZN8idWeapon8SetStateEPKci'/>
+<use f='codebrowser/game/Weapon.cpp' l='1737' u='c' c='_ZN8idWeapon21ConstructScriptObjectEv'/>
+<use f='codebrowser/game/Weapon.cpp' l='1770' u='c' c='_ZN8idWeapon23DeconstructScriptObjectEv'/>
+<def f='codebrowser/game/script/Script_Thread.cpp' l='716' ll='720' type='void idThread::CallFunction(idEntity * self, const function_t * func, bool clearStack)'/>
+<doc f='codebrowser/game/script/Script_Thread.cpp' l='709'>/*
+================
+idThread::CallFunction
+
+NOTE: If this is called from within a event called by this thread, the function arguments will be invalid after calling this function.
+================
+*/</doc>

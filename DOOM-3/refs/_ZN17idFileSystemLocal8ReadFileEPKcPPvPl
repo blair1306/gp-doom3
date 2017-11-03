@@ -1,0 +1,15 @@
+<dec f='codebrowser/framework/FileSystem.cpp' l='367' type='int idFileSystemLocal::ReadFile(const char * relativePath, void ** buffer, time_t * timestamp)'/>
+<inh f='codebrowser/framework/FileSystem.h' l='220' c='_ZN12idFileSystem8ReadFileEPKcPPvPl'/>
+<def f='codebrowser/framework/FileSystem.cpp' l='1041' ll='1138' type='int idFileSystemLocal::ReadFile(const char * relativePath, void ** buffer, time_t * timestamp)'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='2894' u='c' c='_ZN17idFileSystemLocal4InitEv'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='2916' u='c' c='_ZN17idFileSystemLocal7RestartEv'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='4201' u='c' c='_ZN17idFileSystemLocal17FindMapScreenshotEPKcPci'/>
+<doc f='codebrowser/framework/FileSystem.cpp' l='1032'>/*
+============
+idFileSystemLocal::ReadFile
+
+Filename are relative to the search path
+a null buffer will just return the file length and time without loading
+timestamp can be NULL if not required
+============
+*/</doc>

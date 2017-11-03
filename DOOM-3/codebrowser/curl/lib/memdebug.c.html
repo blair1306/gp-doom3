@@ -1,0 +1,307 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>memdebug.c source code [codebrowser/curl/lib/memdebug.c] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="memdebug "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/curl/lib/memdebug.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>curl</a>/<a href='./'>lib</a>/<a href='memdebug.c.html'>memdebug.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><u>#<span data-ppcond="1">ifdef</span> <span class="macro" data-ref="_M/CURLDEBUG">CURLDEBUG</span></u></td></tr>
+<tr><th id="2">2</th><td><i>/***************************************************************************</i></td></tr>
+<tr><th id="3">3</th><td><i> *                                  _   _ ____  _     </i></td></tr>
+<tr><th id="4">4</th><td><i> *  Project                     ___| | | |  _ \| |    </i></td></tr>
+<tr><th id="5">5</th><td><i> *                             / __| | | | |_) | |    </i></td></tr>
+<tr><th id="6">6</th><td><i> *                            | (__| |_| |  _ &lt;| |___ </i></td></tr>
+<tr><th id="7">7</th><td><i> *                             \___|\___/|_| \_\_____|</i></td></tr>
+<tr><th id="8">8</th><td><i> *</i></td></tr>
+<tr><th id="9">9</th><td><i> * Copyright (C) 1998 - 2004, Daniel Stenberg, &lt;daniel@haxx.se&gt;, et al.</i></td></tr>
+<tr><th id="10">10</th><td><i> *</i></td></tr>
+<tr><th id="11">11</th><td><i> * This software is licensed as described in the file COPYING, which</i></td></tr>
+<tr><th id="12">12</th><td><i> * you should have received as part of this distribution. The terms</i></td></tr>
+<tr><th id="13">13</th><td><i> * are also available at <a href="http://curl.haxx.se/docs/copyright.html">http://curl.haxx.se/docs/copyright.html</a>.</i></td></tr>
+<tr><th id="14">14</th><td><i> * </i></td></tr>
+<tr><th id="15">15</th><td><i> * You may opt to use, copy, modify, merge, publish, distribute and/or sell</i></td></tr>
+<tr><th id="16">16</th><td><i> * copies of the Software, and permit persons to whom the Software is</i></td></tr>
+<tr><th id="17">17</th><td><i> * furnished to do so, under the terms of the COPYING file.</i></td></tr>
+<tr><th id="18">18</th><td><i> *</i></td></tr>
+<tr><th id="19">19</th><td><i> * This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY</i></td></tr>
+<tr><th id="20">20</th><td><i> * KIND, either express or implied.</i></td></tr>
+<tr><th id="21">21</th><td><i> *</i></td></tr>
+<tr><th id="22">22</th><td><i> * $Id: memdebug.c,v 1.41 2004/03/08 11:33:49 bagder Exp $</i></td></tr>
+<tr><th id="23">23</th><td><i> ***************************************************************************/</i></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="setup.h.html">"setup.h"</a></u></td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><u>#include <a href="../include/curl/curl.h.html">&lt;curl/curl.h&gt;</a></u></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifdef</span> <a class="macro" href="config.h.html#347" data-ref="_M/HAVE_SYS_SOCKET_H">HAVE_SYS_SOCKET_H</a></u></td></tr>
+<tr><th id="30">30</th><td><u>#include <a href="../../../include/x86_64-linux-gnu/sys/socket.h.html">&lt;sys/socket.h&gt;</a></u></td></tr>
+<tr><th id="31">31</th><td><u>#<span data-ppcond="29">endif</span></u></td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><u>#define <dfn class="macro" id="_M/_MPRINTF_REPLACE" data-ref="_M/_MPRINTF_REPLACE">_MPRINTF_REPLACE</dfn></u></td></tr>
+<tr><th id="34">34</th><td><u>#include <a href="../include/curl/mprintf.h.html">&lt;curl/mprintf.h&gt;</a></u></td></tr>
+<tr><th id="35">35</th><td><u>#include <a href="urldata.h.html">"urldata.h"</a></u></td></tr>
+<tr><th id="36">36</th><td><u>#include <a href="../../../include/stdio.h.html">&lt;stdio.h&gt;</a></u></td></tr>
+<tr><th id="37">37</th><td><u>#include <a href="../../../include/string.h.html">&lt;string.h&gt;</a></u></td></tr>
+<tr><th id="38">38</th><td><u>#include <a href="../../../include/stdlib.h.html">&lt;stdlib.h&gt;</a></u></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><u>#<span data-ppcond="40">ifdef</span> <a class="macro" href="config.h.html#383" data-ref="_M/HAVE_UNISTD_H">HAVE_UNISTD_H</a></u></td></tr>
+<tr><th id="41">41</th><td><u>#include <a href="../../../include/unistd.h.html">&lt;unistd.h&gt;</a></u></td></tr>
+<tr><th id="42">42</th><td><u>#<span data-ppcond="40">endif</span></u></td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td><u>#define <dfn class="macro" id="_M/MEMDEBUG_NODEFINES" data-ref="_M/MEMDEBUG_NODEFINES">MEMDEBUG_NODEFINES</dfn> /* don't redefine the standard functions */</u></td></tr>
+<tr><th id="45">45</th><td><u>#include <a href="memdebug.h.html">"memdebug.h"</a></u></td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td><b>struct</b> <dfn class="type def" id="memdebug" title='memdebug' data-ref="memdebug">memdebug</dfn> {</td></tr>
+<tr><th id="48">48</th><td>  <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="tu decl" id="memdebug::size" title='memdebug::size' data-type='size_t' data-ref="memdebug::size">size</dfn>;</td></tr>
+<tr><th id="49">49</th><td>  <em>double</em> <dfn class="tu decl" id="memdebug::mem" title='memdebug::mem' data-type='double [1]' data-ref="memdebug::mem">mem</dfn>[<var>1</var>];</td></tr>
+<tr><th id="50">50</th><td>  <i>/* I'm hoping this is the thing with the strictest alignment</i></td></tr>
+<tr><th id="51">51</th><td><i>   * requirements.  That also means we waste some space :-( */</i></td></tr>
+<tr><th id="52">52</th><td>};</td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td><i>/*</i></td></tr>
+<tr><th id="55">55</th><td><i> * Note that these debug functions are very simple and they are meant to</i></td></tr>
+<tr><th id="56">56</th><td><i> * remain so. For advanced analysis, record a log file and write perl scripts</i></td></tr>
+<tr><th id="57">57</th><td><i> * to analyze them!</i></td></tr>
+<tr><th id="58">58</th><td><i> *</i></td></tr>
+<tr><th id="59">59</th><td><i> * Don't use these with multithreaded test programs!</i></td></tr>
+<tr><th id="60">60</th><td><i> */</i></td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td><u>#define <dfn class="macro" id="_M/logfile" data-ref="_M/logfile">logfile</dfn> <a class="ref" href="memdebug.h.html#48" title='curl_debuglogfile' data-ref="curl_debuglogfile">curl_debuglogfile</a></u></td></tr>
+<tr><th id="63">63</th><td><a class="typedef" href="../../../include/stdio.h.html#FILE" title='FILE' data-type='struct _IO_FILE' data-ref="FILE">FILE</a> *<dfn class="decl def" id="curl_debuglogfile" title='curl_debuglogfile' data-ref="curl_debuglogfile">curl_debuglogfile</dfn>;</td></tr>
+<tr><th id="64">64</th><td><em>static</em> <a class="typedef" href="setup.h.html#bool" title='bool' data-type='unsigned char' data-ref="bool">bool</a> <dfn class="tu decl def" id="memlimit" title='memlimit' data-type='bool' data-ref="memlimit">memlimit</dfn>; <i  data-doc="memlimit">/* enable memory limit */</i></td></tr>
+<tr><th id="65">65</th><td><em>static</em> <em>long</em> <dfn class="tu decl def" id="memsize" title='memsize' data-type='long' data-ref="memsize">memsize</dfn>;  <i  data-doc="memsize">/* set number of mallocs allowed */</i></td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td><i>/* this sets the log file name */</i></td></tr>
+<tr><th id="68">68</th><td><em>void</em> <dfn class="decl def" id="curl_memdebug" title='curl_memdebug' data-ref="curl_memdebug">curl_memdebug</dfn>(<em>const</em> <em>char</em> *<dfn class="local col1 decl" id="1logname" title='logname' data-type='const char *' data-ref="1logname">logname</dfn>)</td></tr>
+<tr><th id="69">69</th><td>{</td></tr>
+<tr><th id="70">70</th><td>  <b>if</b>(<a class="local col1 ref" href="#1logname" title='logname' data-ref="1logname">logname</a>)</td></tr>
+<tr><th id="71">71</th><td>    <a class="macro" href="#62" title="curl_debuglogfile" data-ref="_M/logfile">logfile</a> = <a class="ref" href="../../../include/stdio.h.html#fopen" title='fopen' data-ref="fopen">fopen</a>(<a class="local col1 ref" href="#1logname" title='logname' data-ref="1logname">logname</a>, <q>"w"</q>);</td></tr>
+<tr><th id="72">72</th><td>  <b>else</b></td></tr>
+<tr><th id="73">73</th><td>    <a class="macro" href="#62" title="curl_debuglogfile" data-ref="_M/logfile">logfile</a> = <a class="macro" href="../../../include/stdio.h.html#174" title="stderr" data-ref="_M/stderr">stderr</a>;</td></tr>
+<tr><th id="74">74</th><td>}</td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td><i>/* This function sets the number of malloc() calls that should return</i></td></tr>
+<tr><th id="77">77</th><td><i>   successfully! */</i></td></tr>
+<tr><th id="78">78</th><td><em>void</em> <dfn class="decl def" id="curl_memlimit" title='curl_memlimit' data-ref="curl_memlimit">curl_memlimit</dfn>(<em>long</em> <dfn class="local col2 decl" id="2limit" title='limit' data-type='long' data-ref="2limit">limit</dfn>)</td></tr>
+<tr><th id="79">79</th><td>{</td></tr>
+<tr><th id="80">80</th><td>  <a class="tu ref" href="#memlimit" title='memlimit' data-use='w' data-ref="memlimit">memlimit</a> = <a class="macro" href="setup.h.html#67" title="1" data-ref="_M/TRUE">TRUE</a>;</td></tr>
+<tr><th id="81">81</th><td>  <a class="tu ref" href="#memsize" title='memsize' data-use='w' data-ref="memsize">memsize</a> = <a class="local col2 ref" href="#2limit" title='limit' data-ref="2limit">limit</a>;</td></tr>
+<tr><th id="82">82</th><td>}</td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td><i  data-doc="countcheck">/* returns TRUE if this isn't allowed! */</i></td></tr>
+<tr><th id="85">85</th><td><em>static</em> <a class="typedef" href="setup.h.html#bool" title='bool' data-type='unsigned char' data-ref="bool">bool</a> <dfn class="tu decl def" id="countcheck" title='countcheck' data-type='bool countcheck(const char * func, int line, const char * source)' data-ref="countcheck">countcheck</dfn>(<em>const</em> <em>char</em> *<dfn class="local col3 decl" id="3func" title='func' data-type='const char *' data-ref="3func">func</dfn>, <em>int</em> <dfn class="local col4 decl" id="4line" title='line' data-type='int' data-ref="4line">line</dfn>, <em>const</em> <em>char</em> *<dfn class="local col5 decl" id="5source" title='source' data-type='const char *' data-ref="5source">source</dfn>)</td></tr>
+<tr><th id="86">86</th><td>{</td></tr>
+<tr><th id="87">87</th><td>  <i>/* if source is NULL, then the call is made internally and this check</i></td></tr>
+<tr><th id="88">88</th><td><i>     should not be made */</i></td></tr>
+<tr><th id="89">89</th><td>  <b>if</b>(<a class="tu ref" href="#memlimit" title='memlimit' data-use='r' data-ref="memlimit">memlimit</a> &amp;&amp; <a class="local col5 ref" href="#5source" title='source' data-ref="5source">source</a>) {</td></tr>
+<tr><th id="90">90</th><td>    <b>if</b>(!<a class="tu ref" href="#memsize" title='memsize' data-use='r' data-ref="memsize">memsize</a>) {</td></tr>
+<tr><th id="91">91</th><td>      <b>if</b>(<a class="macro" href="#62" title="curl_debuglogfile" data-ref="_M/logfile">logfile</a> &amp;&amp; <a class="local col5 ref" href="#5source" title='source' data-ref="5source">source</a>)</td></tr>
+<tr><th id="92">92</th><td>        <a class="macro" href="../include/curl/mprintf.h.html#43" title="curl_mfprintf" data-ref="_M/fprintf">fprintf</a>(<a class="macro" href="#62" title="curl_debuglogfile" data-ref="_M/logfile">logfile</a>, <q>"LIMIT %s:%d %s reached memlimit\n"</q>,</td></tr>
+<tr><th id="93">93</th><td>                <a class="local col5 ref" href="#5source" title='source' data-ref="5source">source</a>, <a class="local col4 ref" href="#4line" title='line' data-ref="4line">line</a>, <a class="local col3 ref" href="#3func" title='func' data-ref="3func">func</a>);</td></tr>
+<tr><th id="94">94</th><td>      <b>return</b> <a class="macro" href="setup.h.html#67" title="1" data-ref="_M/TRUE">TRUE</a>; <i>/* RETURN ERROR! */</i></td></tr>
+<tr><th id="95">95</th><td>    }</td></tr>
+<tr><th id="96">96</th><td>    <b>else</b></td></tr>
+<tr><th id="97">97</th><td>      <a class="tu ref" href="#memsize" title='memsize' data-use='w' data-ref="memsize">memsize</a>--; <i>/* countdown */</i></td></tr>
+<tr><th id="98">98</th><td>    </td></tr>
+<tr><th id="99">99</th><td>    <i>/* log the countdown */</i></td></tr>
+<tr><th id="100">100</th><td>    <b>if</b>(<a class="macro" href="#62" title="curl_debuglogfile" data-ref="_M/logfile">logfile</a> &amp;&amp; <a class="local col5 ref" href="#5source" title='source' data-ref="5source">source</a>)</td></tr>
+<tr><th id="101">101</th><td>      <a class="macro" href="../include/curl/mprintf.h.html#43" title="curl_mfprintf" data-ref="_M/fprintf">fprintf</a>(<a class="macro" href="#62" title="curl_debuglogfile" data-ref="_M/logfile">logfile</a>, <q>"LIMIT %s:%d %ld ALLOCS left\n"</q>,</td></tr>
+<tr><th id="102">102</th><td>              <a class="local col5 ref" href="#5source" title='source' data-ref="5source">source</a>, <a class="local col4 ref" href="#4line" title='line' data-ref="4line">line</a>, <a class="tu ref" href="#memsize" title='memsize' data-use='r' data-ref="memsize">memsize</a>);</td></tr>
+<tr><th id="103">103</th><td>    </td></tr>
+<tr><th id="104">104</th><td>  }</td></tr>
+<tr><th id="105">105</th><td></td></tr>
+<tr><th id="106">106</th><td>  <b>return</b> <a class="macro" href="setup.h.html#70" title="0" data-ref="_M/FALSE">FALSE</a>; <i>/* allow this */</i></td></tr>
+<tr><th id="107">107</th><td>}</td></tr>
+<tr><th id="108">108</th><td></td></tr>
+<tr><th id="109">109</th><td><em>void</em> *<dfn class="decl def" id="curl_domalloc" title='curl_domalloc' data-ref="curl_domalloc">curl_domalloc</dfn>(<span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col6 decl" id="6wantedsize" title='wantedsize' data-type='size_t' data-ref="6wantedsize">wantedsize</dfn>, <em>int</em> <dfn class="local col7 decl" id="7line" title='line' data-type='int' data-ref="7line">line</dfn>, <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="8source" title='source' data-type='const char *' data-ref="8source">source</dfn>)</td></tr>
+<tr><th id="110">110</th><td>{</td></tr>
+<tr><th id="111">111</th><td>  <b>struct</b> <a class="type" href="#memdebug" title='memdebug' data-ref="memdebug">memdebug</a> *<dfn class="local col9 decl" id="9mem" title='mem' data-type='struct memdebug *' data-ref="9mem">mem</dfn>;</td></tr>
+<tr><th id="112">112</th><td>  <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col0 decl" id="10size" title='size' data-type='size_t' data-ref="10size">size</dfn>;</td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td>  <b>if</b>(<a class="tu ref" href="#countcheck" title='countcheck' data-use='c' data-ref="countcheck">countcheck</a>(<q>"malloc"</q>, <a class="local col7 ref" href="#7line" title='line' data-ref="7line">line</a>, <a class="local col8 ref" href="#8source" title='source' data-ref="8source">source</a>))</td></tr>
+<tr><th id="115">115</th><td>    <b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td>  <i>/* alloc at least 64 bytes */</i></td></tr>
+<tr><th id="118">118</th><td>  <a class="local col0 ref" href="#10size" title='size' data-ref="10size">size</a> = <b>sizeof</b>(<b>struct</b> <a class="type" href="#memdebug" title='memdebug' data-ref="memdebug">memdebug</a>)+<a class="local col6 ref" href="#6wantedsize" title='wantedsize' data-ref="6wantedsize">wantedsize</a>;</td></tr>
+<tr><th id="119">119</th><td></td></tr>
+<tr><th id="120">120</th><td>  <a class="local col9 ref" href="#9mem" title='mem' data-ref="9mem">mem</a>=(<b>struct</b> <a class="type" href="#memdebug" title='memdebug' data-ref="memdebug">memdebug</a> *)(<a class="ref" href="../../../include/stdlib.h.html#malloc" title='malloc' data-ref="malloc">malloc</a>)(<a class="local col0 ref" href="#10size" title='size' data-ref="10size">size</a>);</td></tr>
+<tr><th id="121">121</th><td>  <b>if</b>(<a class="local col9 ref" href="#9mem" title='mem' data-ref="9mem">mem</a>) {</td></tr>
+<tr><th id="122">122</th><td>    <i>/* fill memory with junk */</i></td></tr>
+<tr><th id="123">123</th><td>    <a class="ref" href="../../../include/string.h.html#memset" title='memset' data-ref="memset">memset</a>(<a class="local col9 ref" href="#9mem" title='mem' data-ref="9mem">mem</a>-&gt;<a class="tu ref" href="#memdebug::mem" title='memdebug::mem' data-use='r' data-ref="memdebug::mem">mem</a>, <var>0xA5</var>, <a class="local col6 ref" href="#6wantedsize" title='wantedsize' data-ref="6wantedsize">wantedsize</a>);</td></tr>
+<tr><th id="124">124</th><td>    <a class="local col9 ref" href="#9mem" title='mem' data-ref="9mem">mem</a>-&gt;<a class="tu ref" href="#memdebug::size" title='memdebug::size' data-use='w' data-ref="memdebug::size">size</a> = <a class="local col6 ref" href="#6wantedsize" title='wantedsize' data-ref="6wantedsize">wantedsize</a>;</td></tr>
+<tr><th id="125">125</th><td>  }</td></tr>
+<tr><th id="126">126</th><td></td></tr>
+<tr><th id="127">127</th><td>  <b>if</b>(<a class="macro" href="#62" title="curl_debuglogfile" data-ref="_M/logfile">logfile</a> &amp;&amp; <a class="local col8 ref" href="#8source" title='source' data-ref="8source">source</a>)</td></tr>
+<tr><th id="128">128</th><td>    <a class="macro" href="../include/curl/mprintf.h.html#43" title="curl_mfprintf" data-ref="_M/fprintf">fprintf</a>(<a class="macro" href="#62" title="curl_debuglogfile" data-ref="_M/logfile">logfile</a>, <q>"MEM %s:%d malloc(%zd) = %p\n"</q>,</td></tr>
+<tr><th id="129">129</th><td>            <a class="local col8 ref" href="#8source" title='source' data-ref="8source">source</a>, <a class="local col7 ref" href="#7line" title='line' data-ref="7line">line</a>, <a class="local col6 ref" href="#6wantedsize" title='wantedsize' data-ref="6wantedsize">wantedsize</a>, <a class="local col9 ref" href="#9mem" title='mem' data-ref="9mem">mem</a>-&gt;<a class="tu ref" href="#memdebug::mem" title='memdebug::mem' data-ref="memdebug::mem">mem</a>);</td></tr>
+<tr><th id="130">130</th><td>  <b>return</b> <a class="local col9 ref" href="#9mem" title='mem' data-ref="9mem">mem</a>-&gt;<a class="tu ref" href="#memdebug::mem" title='memdebug::mem' data-use='r' data-ref="memdebug::mem">mem</a>;</td></tr>
+<tr><th id="131">131</th><td>}</td></tr>
+<tr><th id="132">132</th><td></td></tr>
+<tr><th id="133">133</th><td><em>void</em> *<dfn class="decl def" id="curl_docalloc" title='curl_docalloc' data-ref="curl_docalloc">curl_docalloc</dfn>(<span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col1 decl" id="11wanted_elements" title='wanted_elements' data-type='size_t' data-ref="11wanted_elements">wanted_elements</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col2 decl" id="12wanted_size" title='wanted_size' data-type='size_t' data-ref="12wanted_size">wanted_size</dfn>,</td></tr>
+<tr><th id="134">134</th><td>                    <em>int</em> <dfn class="local col3 decl" id="13line" title='line' data-type='int' data-ref="13line">line</dfn>, <em>const</em> <em>char</em> *<dfn class="local col4 decl" id="14source" title='source' data-type='const char *' data-ref="14source">source</dfn>)</td></tr>
+<tr><th id="135">135</th><td>{</td></tr>
+<tr><th id="136">136</th><td>  <b>struct</b> <a class="type" href="#memdebug" title='memdebug' data-ref="memdebug">memdebug</a> *<dfn class="local col5 decl" id="15mem" title='mem' data-type='struct memdebug *' data-ref="15mem">mem</dfn>;</td></tr>
+<tr><th id="137">137</th><td>  <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col6 decl" id="16size" title='size' data-type='size_t' data-ref="16size">size</dfn>, <dfn class="local col7 decl" id="17user_size" title='user_size' data-type='size_t' data-ref="17user_size">user_size</dfn>;</td></tr>
+<tr><th id="138">138</th><td></td></tr>
+<tr><th id="139">139</th><td>  <b>if</b>(<a class="tu ref" href="#countcheck" title='countcheck' data-use='c' data-ref="countcheck">countcheck</a>(<q>"calloc"</q>, <a class="local col3 ref" href="#13line" title='line' data-ref="13line">line</a>, <a class="local col4 ref" href="#14source" title='source' data-ref="14source">source</a>))</td></tr>
+<tr><th id="140">140</th><td>    <b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="141">141</th><td></td></tr>
+<tr><th id="142">142</th><td>  <i>/* alloc at least 64 bytes */</i></td></tr>
+<tr><th id="143">143</th><td>  <a class="local col7 ref" href="#17user_size" title='user_size' data-ref="17user_size">user_size</a> = <a class="local col2 ref" href="#12wanted_size" title='wanted_size' data-ref="12wanted_size">wanted_size</a> * <a class="local col1 ref" href="#11wanted_elements" title='wanted_elements' data-ref="11wanted_elements">wanted_elements</a>;</td></tr>
+<tr><th id="144">144</th><td>  <a class="local col6 ref" href="#16size" title='size' data-ref="16size">size</a> = <b>sizeof</b>(<b>struct</b> <a class="type" href="#memdebug" title='memdebug' data-ref="memdebug">memdebug</a>) + <a class="local col7 ref" href="#17user_size" title='user_size' data-ref="17user_size">user_size</a>;</td></tr>
+<tr><th id="145">145</th><td></td></tr>
+<tr><th id="146">146</th><td>  <a class="local col5 ref" href="#15mem" title='mem' data-ref="15mem">mem</a> = (<b>struct</b> <a class="type" href="#memdebug" title='memdebug' data-ref="memdebug">memdebug</a> *)(<a class="ref" href="../../../include/stdlib.h.html#malloc" title='malloc' data-ref="malloc">malloc</a>)(<a class="local col6 ref" href="#16size" title='size' data-ref="16size">size</a>);</td></tr>
+<tr><th id="147">147</th><td>  <b>if</b>(<a class="local col5 ref" href="#15mem" title='mem' data-ref="15mem">mem</a>) {</td></tr>
+<tr><th id="148">148</th><td>    <i>/* fill memory with zeroes */</i></td></tr>
+<tr><th id="149">149</th><td>    <a class="ref" href="../../../include/string.h.html#memset" title='memset' data-ref="memset">memset</a>(<a class="local col5 ref" href="#15mem" title='mem' data-ref="15mem">mem</a>-&gt;<a class="tu ref" href="#memdebug::mem" title='memdebug::mem' data-use='r' data-ref="memdebug::mem">mem</a>, <var>0</var>, <a class="local col7 ref" href="#17user_size" title='user_size' data-ref="17user_size">user_size</a>);</td></tr>
+<tr><th id="150">150</th><td>    <a class="local col5 ref" href="#15mem" title='mem' data-ref="15mem">mem</a>-&gt;<a class="tu ref" href="#memdebug::size" title='memdebug::size' data-use='w' data-ref="memdebug::size">size</a> = <a class="local col7 ref" href="#17user_size" title='user_size' data-ref="17user_size">user_size</a>;</td></tr>
+<tr><th id="151">151</th><td>  }</td></tr>
+<tr><th id="152">152</th><td></td></tr>
+<tr><th id="153">153</th><td>  <b>if</b>(<a class="macro" href="#62" title="curl_debuglogfile" data-ref="_M/logfile">logfile</a> &amp;&amp; <a class="local col4 ref" href="#14source" title='source' data-ref="14source">source</a>)</td></tr>
+<tr><th id="154">154</th><td>    <a class="macro" href="../include/curl/mprintf.h.html#43" title="curl_mfprintf" data-ref="_M/fprintf">fprintf</a>(<a class="macro" href="#62" title="curl_debuglogfile" data-ref="_M/logfile">logfile</a>, <q>"MEM %s:%d calloc(%u,%u) = %p\n"</q>,</td></tr>
+<tr><th id="155">155</th><td>            <a class="local col4 ref" href="#14source" title='source' data-ref="14source">source</a>, <a class="local col3 ref" href="#13line" title='line' data-ref="13line">line</a>, <a class="local col1 ref" href="#11wanted_elements" title='wanted_elements' data-ref="11wanted_elements">wanted_elements</a>, <a class="local col2 ref" href="#12wanted_size" title='wanted_size' data-ref="12wanted_size">wanted_size</a>, <a class="local col5 ref" href="#15mem" title='mem' data-ref="15mem">mem</a>-&gt;<a class="tu ref" href="#memdebug::mem" title='memdebug::mem' data-ref="memdebug::mem">mem</a>);</td></tr>
+<tr><th id="156">156</th><td>  <b>return</b> <a class="local col5 ref" href="#15mem" title='mem' data-ref="15mem">mem</a>-&gt;<a class="tu ref" href="#memdebug::mem" title='memdebug::mem' data-use='r' data-ref="memdebug::mem">mem</a>;</td></tr>
+<tr><th id="157">157</th><td>}</td></tr>
+<tr><th id="158">158</th><td></td></tr>
+<tr><th id="159">159</th><td><em>char</em> *<dfn class="decl def" id="curl_dostrdup" title='curl_dostrdup' data-ref="curl_dostrdup">curl_dostrdup</dfn>(<em>const</em> <em>char</em> *<dfn class="local col8 decl" id="18str" title='str' data-type='const char *' data-ref="18str">str</dfn>, <em>int</em> <dfn class="local col9 decl" id="19line" title='line' data-type='int' data-ref="19line">line</dfn>, <em>const</em> <em>char</em> *<dfn class="local col0 decl" id="20source" title='source' data-type='const char *' data-ref="20source">source</dfn>)</td></tr>
+<tr><th id="160">160</th><td>{</td></tr>
+<tr><th id="161">161</th><td>  <em>char</em> *<dfn class="local col1 decl" id="21mem" title='mem' data-type='char *' data-ref="21mem">mem</dfn>;</td></tr>
+<tr><th id="162">162</th><td>  <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col2 decl" id="22len" title='len' data-type='size_t' data-ref="22len">len</dfn>;</td></tr>
+<tr><th id="163">163</th><td></td></tr>
+<tr><th id="164">164</th><td>  <a class="macro" href="setup.h.html#146" title="((str != ((void*)0)) ? (void) (0) : __assert_fail (&quot;str != ((void*)0)&quot;, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/memdebug.c&quot;, 164, __PRETTY_FUNCTION__))" data-ref="_M/curlassert">curlassert</a>(<a class="local col8 ref" href="#18str" title='str' data-ref="18str">str</a> != <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>);</td></tr>
+<tr><th id="165">165</th><td>  </td></tr>
+<tr><th id="166">166</th><td>  <b>if</b>(<a class="tu ref" href="#countcheck" title='countcheck' data-use='c' data-ref="countcheck">countcheck</a>(<q>"strdup"</q>, <a class="local col9 ref" href="#19line" title='line' data-ref="19line">line</a>, <a class="local col0 ref" href="#20source" title='source' data-ref="20source">source</a>))</td></tr>
+<tr><th id="167">167</th><td>    <b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="168">168</th><td></td></tr>
+<tr><th id="169">169</th><td>  <a class="local col2 ref" href="#22len" title='len' data-ref="22len">len</a>=<a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>(<a class="local col8 ref" href="#18str" title='str' data-ref="18str">str</a>)+<var>1</var>;</td></tr>
+<tr><th id="170">170</th><td></td></tr>
+<tr><th id="171">171</th><td>  <a class="local col1 ref" href="#21mem" title='mem' data-ref="21mem">mem</a>=<a class="ref" href="#curl_domalloc" title='curl_domalloc' data-ref="curl_domalloc">curl_domalloc</a>(<a class="local col2 ref" href="#22len" title='len' data-ref="22len">len</a>, <var>0</var>, <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>); <i>/* NULL prevents logging */</i></td></tr>
+<tr><th id="172">172</th><td>  <a class="ref" href="../../../include/string.h.html#memcpy" title='memcpy' data-ref="memcpy">memcpy</a>(<a class="local col1 ref" href="#21mem" title='mem' data-ref="21mem">mem</a>, <a class="local col8 ref" href="#18str" title='str' data-ref="18str">str</a>, <a class="local col2 ref" href="#22len" title='len' data-ref="22len">len</a>);</td></tr>
+<tr><th id="173">173</th><td></td></tr>
+<tr><th id="174">174</th><td>  <b>if</b>(<a class="macro" href="#62" title="curl_debuglogfile" data-ref="_M/logfile">logfile</a>)</td></tr>
+<tr><th id="175">175</th><td>    <a class="macro" href="../include/curl/mprintf.h.html#43" title="curl_mfprintf" data-ref="_M/fprintf">fprintf</a>(<a class="macro" href="#62" title="curl_debuglogfile" data-ref="_M/logfile">logfile</a>, <q>"MEM %s:%d strdup(%p) (%zd) = %p\n"</q>,</td></tr>
+<tr><th id="176">176</th><td>            <a class="local col0 ref" href="#20source" title='source' data-ref="20source">source</a>, <a class="local col9 ref" href="#19line" title='line' data-ref="19line">line</a>, <a class="local col8 ref" href="#18str" title='str' data-ref="18str">str</a>, <a class="local col2 ref" href="#22len" title='len' data-ref="22len">len</a>, <a class="local col1 ref" href="#21mem" title='mem' data-ref="21mem">mem</a>);</td></tr>
+<tr><th id="177">177</th><td></td></tr>
+<tr><th id="178">178</th><td>  <b>return</b> <a class="local col1 ref" href="#21mem" title='mem' data-ref="21mem">mem</a>;</td></tr>
+<tr><th id="179">179</th><td>}</td></tr>
+<tr><th id="180">180</th><td></td></tr>
+<tr><th id="181">181</th><td><i>/* We provide a realloc() that accepts a NULL as pointer, which then</i></td></tr>
+<tr><th id="182">182</th><td><i>   performs a malloc(). In order to work with ares. */</i></td></tr>
+<tr><th id="183">183</th><td><em>void</em> *<dfn class="decl def" id="curl_dorealloc" title='curl_dorealloc' data-ref="curl_dorealloc">curl_dorealloc</dfn>(<em>void</em> *<dfn class="local col3 decl" id="23ptr" title='ptr' data-type='void *' data-ref="23ptr">ptr</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col4 decl" id="24wantedsize" title='wantedsize' data-type='size_t' data-ref="24wantedsize">wantedsize</dfn>,</td></tr>
+<tr><th id="184">184</th><td>                     <em>int</em> <dfn class="local col5 decl" id="25line" title='line' data-type='int' data-ref="25line">line</dfn>, <em>const</em> <em>char</em> *<dfn class="local col6 decl" id="26source" title='source' data-type='const char *' data-ref="26source">source</dfn>)</td></tr>
+<tr><th id="185">185</th><td>{</td></tr>
+<tr><th id="186">186</th><td>  <b>struct</b> <a class="type" href="#memdebug" title='memdebug' data-ref="memdebug">memdebug</a> *<dfn class="local col7 decl" id="27mem" title='mem' data-type='struct memdebug *' data-ref="27mem">mem</dfn>=<span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="187">187</th><td></td></tr>
+<tr><th id="188">188</th><td>  <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col8 decl" id="28size" title='size' data-type='size_t' data-ref="28size">size</dfn> = <b>sizeof</b>(<b>struct</b> <a class="type" href="#memdebug" title='memdebug' data-ref="memdebug">memdebug</a>)+<a class="local col4 ref" href="#24wantedsize" title='wantedsize' data-ref="24wantedsize">wantedsize</a>;</td></tr>
+<tr><th id="189">189</th><td></td></tr>
+<tr><th id="190">190</th><td>  <b>if</b>(<a class="tu ref" href="#countcheck" title='countcheck' data-use='c' data-ref="countcheck">countcheck</a>(<q>"realloc"</q>, <a class="local col5 ref" href="#25line" title='line' data-ref="25line">line</a>, <a class="local col6 ref" href="#26source" title='source' data-ref="26source">source</a>))</td></tr>
+<tr><th id="191">191</th><td>    <b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="192">192</th><td></td></tr>
+<tr><th id="193">193</th><td>  <b>if</b>(<a class="local col3 ref" href="#23ptr" title='ptr' data-ref="23ptr">ptr</a>)</td></tr>
+<tr><th id="194">194</th><td>    <a class="local col7 ref" href="#27mem" title='mem' data-ref="27mem">mem</a> = (<b>struct</b> <a class="type" href="#memdebug" title='memdebug' data-ref="memdebug">memdebug</a> *)((<em>char</em> *)<a class="local col3 ref" href="#23ptr" title='ptr' data-ref="23ptr">ptr</a> - <span class="macro" title="__builtin_offsetof(struct memdebug, mem)" data-ref="_M/offsetof">offsetof</span>(<b>struct</b> <a class="type" href="#memdebug" title='memdebug' data-ref="memdebug">memdebug</a>, mem));</td></tr>
+<tr><th id="195">195</th><td></td></tr>
+<tr><th id="196">196</th><td>  <a class="local col7 ref" href="#27mem" title='mem' data-ref="27mem">mem</a>=(<b>struct</b> <a class="type" href="#memdebug" title='memdebug' data-ref="memdebug">memdebug</a> *)(<a class="ref" href="../../../include/stdlib.h.html#realloc" title='realloc' data-ref="realloc">realloc</a>)(<a class="local col7 ref" href="#27mem" title='mem' data-ref="27mem">mem</a>, <a class="local col8 ref" href="#28size" title='size' data-ref="28size">size</a>);</td></tr>
+<tr><th id="197">197</th><td>  <b>if</b>(<a class="macro" href="#62" title="curl_debuglogfile" data-ref="_M/logfile">logfile</a>)</td></tr>
+<tr><th id="198">198</th><td>    <a class="macro" href="../include/curl/mprintf.h.html#43" title="curl_mfprintf" data-ref="_M/fprintf">fprintf</a>(<a class="macro" href="#62" title="curl_debuglogfile" data-ref="_M/logfile">logfile</a>, <q>"MEM %s:%d realloc(0x%x, %zd) = %p\n"</q>,</td></tr>
+<tr><th id="199">199</th><td>            <a class="local col6 ref" href="#26source" title='source' data-ref="26source">source</a>, <a class="local col5 ref" href="#25line" title='line' data-ref="25line">line</a>, <a class="local col3 ref" href="#23ptr" title='ptr' data-ref="23ptr">ptr</a>, <a class="local col4 ref" href="#24wantedsize" title='wantedsize' data-ref="24wantedsize">wantedsize</a>, <a class="local col7 ref" href="#27mem" title='mem' data-ref="27mem">mem</a>?<a class="local col7 ref" href="#27mem" title='mem' data-ref="27mem">mem</a>-&gt;<a class="tu ref" href="#memdebug::mem" title='memdebug::mem' data-ref="memdebug::mem">mem</a>:<span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>);</td></tr>
+<tr><th id="200">200</th><td></td></tr>
+<tr><th id="201">201</th><td>  <b>if</b>(<a class="local col7 ref" href="#27mem" title='mem' data-ref="27mem">mem</a>) {</td></tr>
+<tr><th id="202">202</th><td>    <a class="local col7 ref" href="#27mem" title='mem' data-ref="27mem">mem</a>-&gt;<a class="tu ref" href="#memdebug::size" title='memdebug::size' data-use='w' data-ref="memdebug::size">size</a> = <a class="local col4 ref" href="#24wantedsize" title='wantedsize' data-ref="24wantedsize">wantedsize</a>;</td></tr>
+<tr><th id="203">203</th><td>    <b>return</b> <a class="local col7 ref" href="#27mem" title='mem' data-ref="27mem">mem</a>-&gt;<a class="tu ref" href="#memdebug::mem" title='memdebug::mem' data-use='r' data-ref="memdebug::mem">mem</a>;</td></tr>
+<tr><th id="204">204</th><td>  }</td></tr>
+<tr><th id="205">205</th><td></td></tr>
+<tr><th id="206">206</th><td>  <b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="207">207</th><td>}</td></tr>
+<tr><th id="208">208</th><td></td></tr>
+<tr><th id="209">209</th><td><em>void</em> <dfn class="decl def" id="curl_dofree" title='curl_dofree' data-ref="curl_dofree">curl_dofree</dfn>(<em>void</em> *<dfn class="local col9 decl" id="29ptr" title='ptr' data-type='void *' data-ref="29ptr">ptr</dfn>, <em>int</em> <dfn class="local col0 decl" id="30line" title='line' data-type='int' data-ref="30line">line</dfn>, <em>const</em> <em>char</em> *<dfn class="local col1 decl" id="31source" title='source' data-type='const char *' data-ref="31source">source</dfn>)</td></tr>
+<tr><th id="210">210</th><td>{</td></tr>
+<tr><th id="211">211</th><td>  <b>struct</b> <a class="type" href="#memdebug" title='memdebug' data-ref="memdebug">memdebug</a> *<dfn class="local col2 decl" id="32mem" title='mem' data-type='struct memdebug *' data-ref="32mem">mem</dfn>;</td></tr>
+<tr><th id="212">212</th><td></td></tr>
+<tr><th id="213">213</th><td>  <a class="macro" href="setup.h.html#146" title="((ptr != ((void*)0)) ? (void) (0) : __assert_fail (&quot;ptr != ((void*)0)&quot;, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/memdebug.c&quot;, 213, __PRETTY_FUNCTION__))" data-ref="_M/curlassert">curlassert</a>(<a class="local col9 ref" href="#29ptr" title='ptr' data-ref="29ptr">ptr</a> != <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>);</td></tr>
+<tr><th id="214">214</th><td></td></tr>
+<tr><th id="215">215</th><td>  <a class="local col2 ref" href="#32mem" title='mem' data-ref="32mem">mem</a> = (<b>struct</b> <a class="type" href="#memdebug" title='memdebug' data-ref="memdebug">memdebug</a> *)((<em>char</em> *)<a class="local col9 ref" href="#29ptr" title='ptr' data-ref="29ptr">ptr</a> - <span class="macro" title="__builtin_offsetof(struct memdebug, mem)" data-ref="_M/offsetof">offsetof</span>(<b>struct</b> <a class="type" href="#memdebug" title='memdebug' data-ref="memdebug">memdebug</a>, mem));</td></tr>
+<tr><th id="216">216</th><td></td></tr>
+<tr><th id="217">217</th><td>  <i>/* destroy  */</i></td></tr>
+<tr><th id="218">218</th><td>  <a class="ref" href="../../../include/string.h.html#memset" title='memset' data-ref="memset">memset</a>(<a class="local col2 ref" href="#32mem" title='mem' data-ref="32mem">mem</a>-&gt;<a class="tu ref" href="#memdebug::mem" title='memdebug::mem' data-use='r' data-ref="memdebug::mem">mem</a>, <var>0x13</var>, <a class="local col2 ref" href="#32mem" title='mem' data-ref="32mem">mem</a>-&gt;<a class="tu ref" href="#memdebug::size" title='memdebug::size' data-use='r' data-ref="memdebug::size">size</a>);</td></tr>
+<tr><th id="219">219</th><td>  </td></tr>
+<tr><th id="220">220</th><td>  <i>/* free for real */</i></td></tr>
+<tr><th id="221">221</th><td>  (<a class="ref" href="../../../include/stdlib.h.html#free" title='free' data-ref="free">free</a>)(<a class="local col2 ref" href="#32mem" title='mem' data-ref="32mem">mem</a>);</td></tr>
+<tr><th id="222">222</th><td></td></tr>
+<tr><th id="223">223</th><td>  <b>if</b>(<a class="macro" href="#62" title="curl_debuglogfile" data-ref="_M/logfile">logfile</a>)</td></tr>
+<tr><th id="224">224</th><td>    <a class="macro" href="../include/curl/mprintf.h.html#43" title="curl_mfprintf" data-ref="_M/fprintf">fprintf</a>(<a class="macro" href="#62" title="curl_debuglogfile" data-ref="_M/logfile">logfile</a>, <q>"MEM %s:%d free(%p)\n"</q>, <a class="local col1 ref" href="#31source" title='source' data-ref="31source">source</a>, <a class="local col0 ref" href="#30line" title='line' data-ref="30line">line</a>, <a class="local col9 ref" href="#29ptr" title='ptr' data-ref="29ptr">ptr</a>);</td></tr>
+<tr><th id="225">225</th><td>}</td></tr>
+<tr><th id="226">226</th><td></td></tr>
+<tr><th id="227">227</th><td><em>int</em> <dfn class="decl def" id="curl_socket" title='curl_socket' data-ref="curl_socket">curl_socket</dfn>(<em>int</em> <dfn class="local col3 decl" id="33domain" title='domain' data-type='int' data-ref="33domain">domain</dfn>, <em>int</em> <dfn class="local col4 decl" id="34type" title='type' data-type='int' data-ref="34type">type</dfn>, <em>int</em> <dfn class="local col5 decl" id="35protocol" title='protocol' data-type='int' data-ref="35protocol">protocol</dfn>, <em>int</em> <dfn class="local col6 decl" id="36line" title='line' data-type='int' data-ref="36line">line</dfn>,</td></tr>
+<tr><th id="228">228</th><td>                <em>const</em> <em>char</em> *<dfn class="local col7 decl" id="37source" title='source' data-type='const char *' data-ref="37source">source</dfn>)</td></tr>
+<tr><th id="229">229</th><td>{</td></tr>
+<tr><th id="230">230</th><td>  <em>int</em> <dfn class="local col8 decl" id="38sockfd" title='sockfd' data-type='int' data-ref="38sockfd">sockfd</dfn>=(<a class="ref" href="../../../include/x86_64-linux-gnu/sys/socket.h.html#socket" title='socket' data-ref="socket">socket</a>)(<a class="local col3 ref" href="#33domain" title='domain' data-ref="33domain">domain</a>, <a class="local col4 ref" href="#34type" title='type' data-ref="34type">type</a>, <a class="local col5 ref" href="#35protocol" title='protocol' data-ref="35protocol">protocol</a>);</td></tr>
+<tr><th id="231">231</th><td>  <b>if</b>(<a class="macro" href="#62" title="curl_debuglogfile" data-ref="_M/logfile">logfile</a> &amp;&amp; (<a class="local col8 ref" href="#38sockfd" title='sockfd' data-ref="38sockfd">sockfd</a>!=-<var>1</var>))</td></tr>
+<tr><th id="232">232</th><td>    <a class="macro" href="../include/curl/mprintf.h.html#43" title="curl_mfprintf" data-ref="_M/fprintf">fprintf</a>(<a class="macro" href="#62" title="curl_debuglogfile" data-ref="_M/logfile">logfile</a>, <q>"FD %s:%d socket() = %d\n"</q>,</td></tr>
+<tr><th id="233">233</th><td>            <a class="local col7 ref" href="#37source" title='source' data-ref="37source">source</a>, <a class="local col6 ref" href="#36line" title='line' data-ref="36line">line</a>, <a class="local col8 ref" href="#38sockfd" title='sockfd' data-ref="38sockfd">sockfd</a>);</td></tr>
+<tr><th id="234">234</th><td>  <b>return</b> <a class="local col8 ref" href="#38sockfd" title='sockfd' data-ref="38sockfd">sockfd</a>;</td></tr>
+<tr><th id="235">235</th><td>}</td></tr>
+<tr><th id="236">236</th><td></td></tr>
+<tr><th id="237">237</th><td><em>int</em> <dfn class="decl def" id="curl_accept" title='curl_accept' data-ref="curl_accept">curl_accept</dfn>(<em>int</em> <dfn class="local col9 decl" id="39s" title='s' data-type='int' data-ref="39s">s</dfn>, <em>void</em> *<dfn class="local col0 decl" id="40saddr" title='saddr' data-type='void *' data-ref="40saddr">saddr</dfn>, <em>void</em> *<dfn class="local col1 decl" id="41saddrlen" title='saddrlen' data-type='void *' data-ref="41saddrlen">saddrlen</dfn>,</td></tr>
+<tr><th id="238">238</th><td>                <em>int</em> <dfn class="local col2 decl" id="42line" title='line' data-type='int' data-ref="42line">line</dfn>, <em>const</em> <em>char</em> *<dfn class="local col3 decl" id="43source" title='source' data-type='const char *' data-ref="43source">source</dfn>)</td></tr>
+<tr><th id="239">239</th><td>{</td></tr>
+<tr><th id="240">240</th><td>  <b>struct</b> <a class="type" href="../../../include/x86_64-linux-gnu/bits/socket.h.html#sockaddr" title='sockaddr' data-ref="sockaddr">sockaddr</a> *<dfn class="local col4 decl" id="44addr" title='addr' data-type='struct sockaddr *' data-ref="44addr">addr</dfn> = (<b>struct</b> <a class="type" href="../../../include/x86_64-linux-gnu/bits/socket.h.html#sockaddr" title='sockaddr' data-ref="sockaddr">sockaddr</a> *)<a class="local col0 ref" href="#40saddr" title='saddr' data-ref="40saddr">saddr</a>;</td></tr>
+<tr><th id="241">241</th><td>  <a class="typedef" href="../../../include/x86_64-linux-gnu/bits/socket.h.html#socklen_t" title='socklen_t' data-type='__socklen_t' data-ref="socklen_t">socklen_t</a> *<dfn class="local col5 decl" id="45addrlen" title='addrlen' data-type='socklen_t *' data-ref="45addrlen">addrlen</dfn> = (<a class="typedef" href="../../../include/x86_64-linux-gnu/bits/socket.h.html#socklen_t" title='socklen_t' data-type='__socklen_t' data-ref="socklen_t">socklen_t</a> *)<a class="local col1 ref" href="#41saddrlen" title='saddrlen' data-ref="41saddrlen">saddrlen</a>;</td></tr>
+<tr><th id="242">242</th><td>  <em>int</em> <dfn class="local col6 decl" id="46sockfd" title='sockfd' data-type='int' data-ref="46sockfd">sockfd</dfn>=(<a class="ref" href="../../../include/x86_64-linux-gnu/sys/socket.h.html#accept" title='accept' data-ref="accept">accept</a>)(<a class="local col9 ref" href="#39s" title='s' data-ref="39s">s</a>, <a class="local col4 ref" href="#44addr" title='addr' data-ref="44addr">addr</a>, <a class="local col5 ref" href="#45addrlen" title='addrlen' data-ref="45addrlen">addrlen</a>);</td></tr>
+<tr><th id="243">243</th><td>  <b>if</b>(<a class="macro" href="#62" title="curl_debuglogfile" data-ref="_M/logfile">logfile</a>)</td></tr>
+<tr><th id="244">244</th><td>    <a class="macro" href="../include/curl/mprintf.h.html#43" title="curl_mfprintf" data-ref="_M/fprintf">fprintf</a>(<a class="macro" href="#62" title="curl_debuglogfile" data-ref="_M/logfile">logfile</a>, <q>"FD %s:%d accept() = %d\n"</q>,</td></tr>
+<tr><th id="245">245</th><td>            <a class="local col3 ref" href="#43source" title='source' data-ref="43source">source</a>, <a class="local col2 ref" href="#42line" title='line' data-ref="42line">line</a>, <a class="local col6 ref" href="#46sockfd" title='sockfd' data-ref="46sockfd">sockfd</a>);</td></tr>
+<tr><th id="246">246</th><td>  <b>return</b> <a class="local col6 ref" href="#46sockfd" title='sockfd' data-ref="46sockfd">sockfd</a>;</td></tr>
+<tr><th id="247">247</th><td>}</td></tr>
+<tr><th id="248">248</th><td></td></tr>
+<tr><th id="249">249</th><td><i>/* this is our own defined way to close sockets on *ALL* platforms */</i></td></tr>
+<tr><th id="250">250</th><td><em>int</em> <dfn class="decl def" id="curl_sclose" title='curl_sclose' data-ref="curl_sclose">curl_sclose</dfn>(<em>int</em> <dfn class="local col7 decl" id="47sockfd" title='sockfd' data-type='int' data-ref="47sockfd">sockfd</dfn>, <em>int</em> <dfn class="local col8 decl" id="48line" title='line' data-type='int' data-ref="48line">line</dfn>, <em>const</em> <em>char</em> *<dfn class="local col9 decl" id="49source" title='source' data-type='const char *' data-ref="49source">source</dfn>)</td></tr>
+<tr><th id="251">251</th><td>{</td></tr>
+<tr><th id="252">252</th><td>  <em>int</em> <dfn class="local col0 decl" id="50res" title='res' data-type='int' data-ref="50res">res</dfn>=<a class="macro" href="setup.h.html#220" title="close(sockfd)" data-ref="_M/sclose">sclose</a>(<a class="local col7 ref" href="#47sockfd" title='sockfd' data-ref="47sockfd">sockfd</a>);</td></tr>
+<tr><th id="253">253</th><td>  <b>if</b>(<a class="macro" href="#62" title="curl_debuglogfile" data-ref="_M/logfile">logfile</a>)</td></tr>
+<tr><th id="254">254</th><td>    <a class="macro" href="../include/curl/mprintf.h.html#43" title="curl_mfprintf" data-ref="_M/fprintf">fprintf</a>(<a class="macro" href="#62" title="curl_debuglogfile" data-ref="_M/logfile">logfile</a>, <q>"FD %s:%d sclose(%d)\n"</q>,</td></tr>
+<tr><th id="255">255</th><td>            <a class="local col9 ref" href="#49source" title='source' data-ref="49source">source</a>, <a class="local col8 ref" href="#48line" title='line' data-ref="48line">line</a>, <a class="local col7 ref" href="#47sockfd" title='sockfd' data-ref="47sockfd">sockfd</a>);</td></tr>
+<tr><th id="256">256</th><td>  <b>return</b> <a class="local col0 ref" href="#50res" title='res' data-ref="50res">res</a>;</td></tr>
+<tr><th id="257">257</th><td>}</td></tr>
+<tr><th id="258">258</th><td></td></tr>
+<tr><th id="259">259</th><td><a class="typedef" href="../../../include/stdio.h.html#FILE" title='FILE' data-type='struct _IO_FILE' data-ref="FILE">FILE</a> *<dfn class="decl def" id="curl_fopen" title='curl_fopen' data-ref="curl_fopen">curl_fopen</dfn>(<em>const</em> <em>char</em> *<dfn class="local col1 decl" id="51file" title='file' data-type='const char *' data-ref="51file">file</dfn>, <em>const</em> <em>char</em> *<dfn class="local col2 decl" id="52mode" title='mode' data-type='const char *' data-ref="52mode">mode</dfn>,</td></tr>
+<tr><th id="260">260</th><td>                 <em>int</em> <dfn class="local col3 decl" id="53line" title='line' data-type='int' data-ref="53line">line</dfn>, <em>const</em> <em>char</em> *<dfn class="local col4 decl" id="54source" title='source' data-type='const char *' data-ref="54source">source</dfn>)</td></tr>
+<tr><th id="261">261</th><td>{</td></tr>
+<tr><th id="262">262</th><td>  <a class="typedef" href="../../../include/stdio.h.html#FILE" title='FILE' data-type='struct _IO_FILE' data-ref="FILE">FILE</a> *<dfn class="local col5 decl" id="55res" title='res' data-type='FILE *' data-ref="55res">res</dfn>=(<a class="ref" href="../../../include/stdio.h.html#fopen" title='fopen' data-ref="fopen">fopen</a>)(<a class="local col1 ref" href="#51file" title='file' data-ref="51file">file</a>, <a class="local col2 ref" href="#52mode" title='mode' data-ref="52mode">mode</a>);</td></tr>
+<tr><th id="263">263</th><td>  <b>if</b>(<a class="macro" href="#62" title="curl_debuglogfile" data-ref="_M/logfile">logfile</a>)</td></tr>
+<tr><th id="264">264</th><td>    <a class="macro" href="../include/curl/mprintf.h.html#43" title="curl_mfprintf" data-ref="_M/fprintf">fprintf</a>(<a class="macro" href="#62" title="curl_debuglogfile" data-ref="_M/logfile">logfile</a>, <q>"FILE %s:%d fopen(\"%s\",\"%s\") = %p\n"</q>,</td></tr>
+<tr><th id="265">265</th><td>            <a class="local col4 ref" href="#54source" title='source' data-ref="54source">source</a>, <a class="local col3 ref" href="#53line" title='line' data-ref="53line">line</a>, <a class="local col1 ref" href="#51file" title='file' data-ref="51file">file</a>, <a class="local col2 ref" href="#52mode" title='mode' data-ref="52mode">mode</a>, <a class="local col5 ref" href="#55res" title='res' data-ref="55res">res</a>);</td></tr>
+<tr><th id="266">266</th><td>  <b>return</b> <a class="local col5 ref" href="#55res" title='res' data-ref="55res">res</a>;</td></tr>
+<tr><th id="267">267</th><td>}</td></tr>
+<tr><th id="268">268</th><td></td></tr>
+<tr><th id="269">269</th><td><em>int</em> <dfn class="decl def" id="curl_fclose" title='curl_fclose' data-ref="curl_fclose">curl_fclose</dfn>(<a class="typedef" href="../../../include/stdio.h.html#FILE" title='FILE' data-type='struct _IO_FILE' data-ref="FILE">FILE</a> *<dfn class="local col6 decl" id="56file" title='file' data-type='FILE *' data-ref="56file">file</dfn>, <em>int</em> <dfn class="local col7 decl" id="57line" title='line' data-type='int' data-ref="57line">line</dfn>, <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="58source" title='source' data-type='const char *' data-ref="58source">source</dfn>)</td></tr>
+<tr><th id="270">270</th><td>{</td></tr>
+<tr><th id="271">271</th><td>  <em>int</em> <dfn class="local col9 decl" id="59res" title='res' data-type='int' data-ref="59res">res</dfn>;</td></tr>
+<tr><th id="272">272</th><td></td></tr>
+<tr><th id="273">273</th><td>  <a class="macro" href="setup.h.html#146" title="((file != ((void*)0)) ? (void) (0) : __assert_fail (&quot;file != ((void*)0)&quot;, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/memdebug.c&quot;, 273, __PRETTY_FUNCTION__))" data-ref="_M/curlassert">curlassert</a>(<a class="local col6 ref" href="#56file" title='file' data-ref="56file">file</a> != <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>);</td></tr>
+<tr><th id="274">274</th><td></td></tr>
+<tr><th id="275">275</th><td>  <a class="local col9 ref" href="#59res" title='res' data-ref="59res">res</a>=(<a class="ref" href="../../../include/stdio.h.html#fclose" title='fclose' data-ref="fclose">fclose</a>)(<a class="local col6 ref" href="#56file" title='file' data-ref="56file">file</a>);</td></tr>
+<tr><th id="276">276</th><td>  <b>if</b>(<a class="macro" href="#62" title="curl_debuglogfile" data-ref="_M/logfile">logfile</a>)</td></tr>
+<tr><th id="277">277</th><td>    <a class="macro" href="../include/curl/mprintf.h.html#43" title="curl_mfprintf" data-ref="_M/fprintf">fprintf</a>(<a class="macro" href="#62" title="curl_debuglogfile" data-ref="_M/logfile">logfile</a>, <q>"FILE %s:%d fclose(%p)\n"</q>,</td></tr>
+<tr><th id="278">278</th><td>            <a class="local col8 ref" href="#58source" title='source' data-ref="58source">source</a>, <a class="local col7 ref" href="#57line" title='line' data-ref="57line">line</a>, <a class="local col6 ref" href="#56file" title='file' data-ref="56file">file</a>);</td></tr>
+<tr><th id="279">279</th><td>  <b>return</b> <a class="local col9 ref" href="#59res" title='res' data-ref="59res">res</a>;</td></tr>
+<tr><th id="280">280</th><td>}</td></tr>
+<tr><th id="281">281</th><td><u>#<span data-ppcond="1">else</span></u></td></tr>
+<tr><th id="282">282</th><td><u>#ifdef VMS</u></td></tr>
+<tr><th id="283">283</th><td><em>int</em> VOID_VAR_MEMDEBUG;	</td></tr>
+<tr><th id="284">284</th><td><u>#else</u></td></tr>
+<tr><th id="285">285</th><td><i>/* we provide a fake do-nothing function here to avoid compiler warnings */</i></td></tr>
+<tr><th id="286">286</th><td><em>void</em> curl_memdebug(<em>void</em>) {}</td></tr>
+<tr><th id="287">287</th><td><u>#endif /* VMS */</u></td></tr>
+<tr><th id="288">288</th><td><u>#<span data-ppcond="1">endif</span> /* CURLDEBUG */</u></td></tr>
+<tr><th id="289">289</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

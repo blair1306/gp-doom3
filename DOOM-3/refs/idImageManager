@@ -1,0 +1,87 @@
+<def f='codebrowser/renderer/Image.h' l='299' ll='443'/>
+<size>6532</size>
+<doc f='codebrowser/renderer/Image.h' l='296'>// data is in top-to-bottom raster order unless flipVertical is set</doc>
+<fun r='_ZN14idImageManager4InitEv'/>
+<fun r='_ZN14idImageManager8ShutdownEv'/>
+<fun r='_ZN14idImageManager13ImageFromFileEPKc15textureFilter_tb15textureRepeat_t14textureDepth_t11cubeFiles_t'/>
+<fun r='_ZNK14idImageManager8GetImageEPKc'/>
+<fun r='_ZN14idImageManager17ImageFromFunctionEPKcPFvP7idImageE'/>
+<fun r='_ZN14idImageManager28CompleteBackgroundImageLoadsEv'/>
+<fun r='_ZN14idImageManager15SumOfUsedImagesEv'/>
+<fun r='_ZN14idImageManager10CheckCvarsEv'/>
+<fun r='_ZN14idImageManager14PurgeAllImagesEv'/>
+<fun r='_ZN14idImageManager15ReloadAllImagesEv'/>
+<fun r='_ZN14idImageManager8BindNullEv'/>
+<fun r='_ZN14idImageManager14BeginLevelLoadEv'/>
+<fun r='_ZN14idImageManager12EndLevelLoadEv'/>
+<fun r='_ZN14idImageManager10StartBuildEv'/>
+<fun r='_ZN14idImageManager11FinishBuildEb'/>
+<fun r='_ZN14idImageManager13AddDDSCommandEPKc'/>
+<fun r='_ZN14idImageManager12PrintMemInfoEP9MemInfo_t'/>
+<smbr r='idImageManager::image_roundDown' t='idCVar'/>
+<smbr r='idImageManager::image_colorMipLevels' t='idCVar'/>
+<smbr r='idImageManager::image_downSize' t='idCVar'/>
+<smbr r='idImageManager::image_useCompression' t='idCVar'/>
+<smbr r='idImageManager::image_filter' t='idCVar'/>
+<smbr r='idImageManager::image_anisotropy' t='idCVar'/>
+<smbr r='idImageManager::image_lodbias' t='idCVar'/>
+<smbr r='idImageManager::image_useAllFormats' t='idCVar'/>
+<smbr r='idImageManager::image_usePrecompressedTextures' t='idCVar'/>
+<smbr r='idImageManager::image_writePrecompressedTextures' t='idCVar'/>
+<smbr r='idImageManager::image_writeNormalTGA' t='idCVar'/>
+<smbr r='idImageManager::image_writeNormalTGAPalletized' t='idCVar'/>
+<smbr r='idImageManager::image_writeTGA' t='idCVar'/>
+<smbr r='idImageManager::image_useNormalCompression' t='idCVar'/>
+<smbr r='idImageManager::image_useOffLineCompression' t='idCVar'/>
+<smbr r='idImageManager::image_preload' t='idCVar'/>
+<smbr r='idImageManager::image_cacheMinK' t='idCVar'/>
+<smbr r='idImageManager::image_cacheMegs' t='idCVar'/>
+<smbr r='idImageManager::image_useCache' t='idCVar'/>
+<smbr r='idImageManager::image_showBackgroundLoads' t='idCVar'/>
+<smbr r='idImageManager::image_forceDownSize' t='idCVar'/>
+<smbr r='idImageManager::image_downSizeSpecular' t='idCVar'/>
+<smbr r='idImageManager::image_downSizeSpecularLimit' t='idCVar'/>
+<smbr r='idImageManager::image_downSizeBump' t='idCVar'/>
+<smbr r='idImageManager::image_downSizeBumpLimit' t='idCVar'/>
+<smbr r='idImageManager::image_ignoreHighQuality' t='idCVar'/>
+<smbr r='idImageManager::image_downSizeLimit' t='idCVar'/>
+<mbr r='idImageManager::defaultImage' o='0' t='idImage *'/>
+<mbr r='idImageManager::flatNormalMap' o='32' t='idImage *'/>
+<mbr r='idImageManager::ambientNormalMap' o='64' t='idImage *'/>
+<mbr r='idImageManager::rampImage' o='96' t='idImage *'/>
+<mbr r='idImageManager::alphaRampImage' o='128' t='idImage *'/>
+<mbr r='idImageManager::alphaNotchImage' o='160' t='idImage *'/>
+<mbr r='idImageManager::whiteImage' o='192' t='idImage *'/>
+<mbr r='idImageManager::blackImage' o='224' t='idImage *'/>
+<mbr r='idImageManager::normalCubeMapImage' o='256' t='idImage *'/>
+<mbr r='idImageManager::noFalloffImage' o='288' t='idImage *'/>
+<mbr r='idImageManager::fogImage' o='320' t='idImage *'/>
+<mbr r='idImageManager::fogEnterImage' o='352' t='idImage *'/>
+<mbr r='idImageManager::cinematicImage' o='384' t='idImage *'/>
+<mbr r='idImageManager::scratchImage' o='416' t='idImage *'/>
+<mbr r='idImageManager::scratchImage2' o='448' t='idImage *'/>
+<mbr r='idImageManager::accumImage' o='480' t='idImage *'/>
+<mbr r='idImageManager::currentRenderImage' o='512' t='idImage *'/>
+<mbr r='idImageManager::scratchCubeMapImage' o='544' t='idImage *'/>
+<mbr r='idImageManager::specularTableImage' o='576' t='idImage *'/>
+<mbr r='idImageManager::specular2DTableImage' o='608' t='idImage *'/>
+<mbr r='idImageManager::borderClampImage' o='640' t='idImage *'/>
+<fun r='_ZN14idImageManager10AllocImageEPKc'/>
+<fun r='_ZN14idImageManager16SetNormalPaletteEv'/>
+<fun r='_ZN14idImageManager19ChangeTextureFilterEv'/>
+<mbr r='idImageManager::images' o='672' t='idList&lt;idImage *&gt;'/>
+<mbr r='idImageManager::ddsList' o='800' t='idStrList'/>
+<mbr r='idImageManager::ddsHash' o='928' t='idHashIndex'/>
+<mbr r='idImageManager::insideLevelLoad' o='1152' t='bool'/>
+<mbr r='idImageManager::originalToCompressed' o='1160' t='byte [256]'/>
+<mbr r='idImageManager::compressedPalette' o='3208' t='byte [768]'/>
+<mbr r='idImageManager::textureMinFilter' o='9376' t='GLenum'/>
+<mbr r='idImageManager::textureMaxFilter' o='9408' t='GLenum'/>
+<mbr r='idImageManager::textureAnisotropy' o='9440' t='float'/>
+<mbr r='idImageManager::textureLODBias' o='9472' t='float'/>
+<mbr r='idImageManager::imageHashTable' o='9504' t='idImage *[1024]'/>
+<mbr r='idImageManager::backgroundImageLoads' o='42272' t='idImage *'/>
+<mbr r='idImageManager::cacheLRU' o='42304' t='idImage'/>
+<mbr r='idImageManager::totalCachedImageSize' o='52192' t='int'/>
+<mbr r='idImageManager::numActiveBackgroundImageLoads' o='52224' t='int'/>
+<smbr r='idImageManager::MAX_BACKGROUND_IMAGE_LOADS' t='const int'/>

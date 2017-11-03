@@ -1,0 +1,660 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>jdphuff.c source code [codebrowser/renderer/jpeg-6/jdphuff.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/renderer/jpeg-6/jdphuff.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>renderer</a>/<a href='./'>jpeg-6</a>/<a href='jdphuff.c.html'>jdphuff.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i> * jdphuff.c</i></td></tr>
+<tr><th id="3">3</th><td><i> *</i></td></tr>
+<tr><th id="4">4</th><td><i> * Copyright (C) 1995, Thomas G. Lane.</i></td></tr>
+<tr><th id="5">5</th><td><i> * This file is part of the Independent JPEG Group's software.</i></td></tr>
+<tr><th id="6">6</th><td><i> * For conditions of distribution and use, see the accompanying README file.</i></td></tr>
+<tr><th id="7">7</th><td><i> *</i></td></tr>
+<tr><th id="8">8</th><td><i> * This file contains Huffman entropy decoding routines for progressive JPEG.</i></td></tr>
+<tr><th id="9">9</th><td><i> *</i></td></tr>
+<tr><th id="10">10</th><td><i> * Much of the complexity here has to do with supporting input suspension.</i></td></tr>
+<tr><th id="11">11</th><td><i> * If the data source module demands suspension, we want to be able to back</i></td></tr>
+<tr><th id="12">12</th><td><i> * up to the start of the current MCU.  To do this, we copy state variables</i></td></tr>
+<tr><th id="13">13</th><td><i> * into local working storage, and update them back to the permanent</i></td></tr>
+<tr><th id="14">14</th><td><i> * storage only upon successful completion of an MCU.</i></td></tr>
+<tr><th id="15">15</th><td><i> */</i></td></tr>
+<tr><th id="16">16</th><td></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/JPEG_INTERNALS" data-ref="_M/JPEG_INTERNALS">JPEG_INTERNALS</dfn></u></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="jinclude.h.html">"jinclude.h"</a></u></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="jpeglib.h.html">"jpeglib.h"</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="jdhuff.h.html">"jdhuff.h"</a>		/* Declarations shared with jdhuff.c */</u></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><u>#<span data-ppcond="23">ifdef</span> <span class="macro" data-ref="_M/D_PROGRESSIVE_SUPPORTED">D_PROGRESSIVE_SUPPORTED</span></u></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><i>/*</i></td></tr>
+<tr><th id="26">26</th><td><i> * Expanded entropy decoder object for progressive Huffman decoding.</i></td></tr>
+<tr><th id="27">27</th><td><i> *</i></td></tr>
+<tr><th id="28">28</th><td><i> * The savable_state subrecord contains fields that change within an MCU,</i></td></tr>
+<tr><th id="29">29</th><td><i> * but must not be updated permanently until we complete the MCU.</i></td></tr>
+<tr><th id="30">30</th><td><i> */</i></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="33">33</th><td>  <em>unsigned</em> <em>int</em> EOBRUN;			<i>/* remaining EOBs in EOBRUN */</i></td></tr>
+<tr><th id="34">34</th><td>  <em>int</em> last_dc_val[MAX_COMPS_IN_SCAN];	<i>/* last DC coef for each component */</i></td></tr>
+<tr><th id="35">35</th><td>} savable_state;</td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><i>/* This macro is to work around compilers with missing or broken</i></td></tr>
+<tr><th id="38">38</th><td><i> * structure assignment.  You'll need to fix this code if you have</i></td></tr>
+<tr><th id="39">39</th><td><i> * such a compiler and you change MAX_COMPS_IN_SCAN.</i></td></tr>
+<tr><th id="40">40</th><td><i> */</i></td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><u>#ifndef NO_STRUCT_ASSIGN</u></td></tr>
+<tr><th id="43">43</th><td><u>#define ASSIGN_STATE(dest,src)  ((dest) = (src))</u></td></tr>
+<tr><th id="44">44</th><td><u>#else</u></td></tr>
+<tr><th id="45">45</th><td><u>#if MAX_COMPS_IN_SCAN == 4</u></td></tr>
+<tr><th id="46">46</th><td><u>#define ASSIGN_STATE(dest,src)  \</u></td></tr>
+<tr><th id="47">47</th><td><u>	((dest).EOBRUN = (src).EOBRUN, \</u></td></tr>
+<tr><th id="48">48</th><td><u>	 (dest).last_dc_val[0] = (src).last_dc_val[0], \</u></td></tr>
+<tr><th id="49">49</th><td><u>	 (dest).last_dc_val[1] = (src).last_dc_val[1], \</u></td></tr>
+<tr><th id="50">50</th><td><u>	 (dest).last_dc_val[2] = (src).last_dc_val[2], \</u></td></tr>
+<tr><th id="51">51</th><td><u>	 (dest).last_dc_val[3] = (src).last_dc_val[3])</u></td></tr>
+<tr><th id="52">52</th><td><u>#endif</u></td></tr>
+<tr><th id="53">53</th><td><u>#endif</u></td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="57">57</th><td>  <b>struct</b> jpeg_entropy_decoder pub; <i>/* public fields */</i></td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td>  <i>/* These fields are loaded into local variables at start of each MCU.</i></td></tr>
+<tr><th id="60">60</th><td><i>   * In case of suspension, we exit WITHOUT updating them.</i></td></tr>
+<tr><th id="61">61</th><td><i>   */</i></td></tr>
+<tr><th id="62">62</th><td>  bitread_perm_state bitstate;	<i>/* Bit buffer at start of MCU */</i></td></tr>
+<tr><th id="63">63</th><td>  savable_state saved;		<i>/* Other state at start of MCU */</i></td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td>  <i>/* These fields are NOT loaded into local working state. */</i></td></tr>
+<tr><th id="66">66</th><td>  <em>unsigned</em> <em>int</em> restarts_to_go;	<i>/* MCUs left in this restart interval */</i></td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td>  <i>/* Pointers to derived tables (these workspaces have image lifespan) */</i></td></tr>
+<tr><th id="69">69</th><td>  d_derived_tbl * derived_tbls[NUM_HUFF_TBLS];</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td>  d_derived_tbl * ac_derived_tbl; <i>/* active table during an AC scan */</i></td></tr>
+<tr><th id="72">72</th><td>} phuff_entropy_decoder;</td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td><b>typedef</b> phuff_entropy_decoder * phuff_entropy_ptr;</td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td><i>/* Forward declarations */</i></td></tr>
+<tr><th id="77">77</th><td>METHODDEF boolean decode_mcu_DC_first JPP((j_decompress_ptr cinfo,</td></tr>
+<tr><th id="78">78</th><td>					   JBLOCKROW *MCU_data));</td></tr>
+<tr><th id="79">79</th><td>METHODDEF boolean decode_mcu_AC_first JPP((j_decompress_ptr cinfo,</td></tr>
+<tr><th id="80">80</th><td>					   JBLOCKROW *MCU_data));</td></tr>
+<tr><th id="81">81</th><td>METHODDEF boolean decode_mcu_DC_refine JPP((j_decompress_ptr cinfo,</td></tr>
+<tr><th id="82">82</th><td>					    JBLOCKROW *MCU_data));</td></tr>
+<tr><th id="83">83</th><td>METHODDEF boolean decode_mcu_AC_refine JPP((j_decompress_ptr cinfo,</td></tr>
+<tr><th id="84">84</th><td>					    JBLOCKROW *MCU_data));</td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td><i>/*</i></td></tr>
+<tr><th id="88">88</th><td><i> * Initialize for a Huffman-compressed scan.</i></td></tr>
+<tr><th id="89">89</th><td><i> */</i></td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td>METHODDEF <em>void</em></td></tr>
+<tr><th id="92">92</th><td>start_pass_phuff_decoder (j_decompress_ptr cinfo)</td></tr>
+<tr><th id="93">93</th><td>{</td></tr>
+<tr><th id="94">94</th><td>  phuff_entropy_ptr entropy = (phuff_entropy_ptr) cinfo-&gt;entropy;</td></tr>
+<tr><th id="95">95</th><td>  boolean is_DC_band, bad;</td></tr>
+<tr><th id="96">96</th><td>  <em>int</em> ci, coefi, tbl;</td></tr>
+<tr><th id="97">97</th><td>  <em>int</em> *coef_bit_ptr;</td></tr>
+<tr><th id="98">98</th><td>  jpeg_component_info * compptr;</td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td>  is_DC_band = (cinfo-&gt;Ss == <var>0</var>);</td></tr>
+<tr><th id="101">101</th><td></td></tr>
+<tr><th id="102">102</th><td>  <i>/* Validate scan parameters */</i></td></tr>
+<tr><th id="103">103</th><td>  bad = FALSE;</td></tr>
+<tr><th id="104">104</th><td>  <b>if</b> (is_DC_band) {</td></tr>
+<tr><th id="105">105</th><td>    <b>if</b> (cinfo-&gt;Se != <var>0</var>)</td></tr>
+<tr><th id="106">106</th><td>      bad = TRUE;</td></tr>
+<tr><th id="107">107</th><td>  } <b>else</b> {</td></tr>
+<tr><th id="108">108</th><td>    <i>/* need not check Ss/Se &lt; 0 since they came from unsigned bytes */</i></td></tr>
+<tr><th id="109">109</th><td>    <b>if</b> (cinfo-&gt;Ss &gt; cinfo-&gt;Se || cinfo-&gt;Se &gt;= DCTSIZE2)</td></tr>
+<tr><th id="110">110</th><td>      bad = TRUE;</td></tr>
+<tr><th id="111">111</th><td>    <i>/* AC scans may have only one component */</i></td></tr>
+<tr><th id="112">112</th><td>    <b>if</b> (cinfo-&gt;comps_in_scan != <var>1</var>)</td></tr>
+<tr><th id="113">113</th><td>      bad = TRUE;</td></tr>
+<tr><th id="114">114</th><td>  }</td></tr>
+<tr><th id="115">115</th><td>  <b>if</b> (cinfo-&gt;Ah != <var>0</var>) {</td></tr>
+<tr><th id="116">116</th><td>    <i>/* Successive approximation refinement scan: must have Al = Ah-1. */</i></td></tr>
+<tr><th id="117">117</th><td>    <b>if</b> (cinfo-&gt;Al != cinfo-&gt;Ah-<var>1</var>)</td></tr>
+<tr><th id="118">118</th><td>      bad = TRUE;</td></tr>
+<tr><th id="119">119</th><td>  }</td></tr>
+<tr><th id="120">120</th><td>  <b>if</b> (cinfo-&gt;Al &gt; <var>13</var>)		<i>/* need not check for &lt; 0 */</i></td></tr>
+<tr><th id="121">121</th><td>    bad = TRUE;</td></tr>
+<tr><th id="122">122</th><td>  <b>if</b> (bad)</td></tr>
+<tr><th id="123">123</th><td>    ERREXIT4(cinfo, JERR_BAD_PROGRESSION,</td></tr>
+<tr><th id="124">124</th><td>	     cinfo-&gt;Ss, cinfo-&gt;Se, cinfo-&gt;Ah, cinfo-&gt;Al);</td></tr>
+<tr><th id="125">125</th><td>  <i>/* Update progression status, and verify that scan order is legal.</i></td></tr>
+<tr><th id="126">126</th><td><i>   * Note that inter-scan inconsistencies are treated as warnings</i></td></tr>
+<tr><th id="127">127</th><td><i>   * not fatal errors ... not clear if this is right way to behave.</i></td></tr>
+<tr><th id="128">128</th><td><i>   */</i></td></tr>
+<tr><th id="129">129</th><td>  <b>for</b> (ci = <var>0</var>; ci &lt; cinfo-&gt;comps_in_scan; ci++) {</td></tr>
+<tr><th id="130">130</th><td>    <em>int</em> cindex = cinfo-&gt;cur_comp_info[ci]-&gt;component_index;</td></tr>
+<tr><th id="131">131</th><td>    coef_bit_ptr = &amp; cinfo-&gt;coef_bits[cindex][<var>0</var>];</td></tr>
+<tr><th id="132">132</th><td>    <b>if</b> (!is_DC_band &amp;&amp; coef_bit_ptr[<var>0</var>] &lt; <var>0</var>) <i>/* AC without prior DC scan */</i></td></tr>
+<tr><th id="133">133</th><td>      WARNMS2(cinfo, JWRN_BOGUS_PROGRESSION, cindex, <var>0</var>);</td></tr>
+<tr><th id="134">134</th><td>    <b>for</b> (coefi = cinfo-&gt;Ss; coefi &lt;= cinfo-&gt;Se; coefi++) {</td></tr>
+<tr><th id="135">135</th><td>      <em>int</em> expected = (coef_bit_ptr[coefi] &lt; <var>0</var>) ? <var>0</var> : coef_bit_ptr[coefi];</td></tr>
+<tr><th id="136">136</th><td>      <b>if</b> (cinfo-&gt;Ah != expected)</td></tr>
+<tr><th id="137">137</th><td>	WARNMS2(cinfo, JWRN_BOGUS_PROGRESSION, cindex, coefi);</td></tr>
+<tr><th id="138">138</th><td>      coef_bit_ptr[coefi] = cinfo-&gt;Al;</td></tr>
+<tr><th id="139">139</th><td>    }</td></tr>
+<tr><th id="140">140</th><td>  }</td></tr>
+<tr><th id="141">141</th><td></td></tr>
+<tr><th id="142">142</th><td>  <i>/* Select MCU decoding routine */</i></td></tr>
+<tr><th id="143">143</th><td>  <b>if</b> (cinfo-&gt;Ah == <var>0</var>) {</td></tr>
+<tr><th id="144">144</th><td>    <b>if</b> (is_DC_band)</td></tr>
+<tr><th id="145">145</th><td>      entropy-&gt;pub.decode_mcu = decode_mcu_DC_first;</td></tr>
+<tr><th id="146">146</th><td>    <b>else</b></td></tr>
+<tr><th id="147">147</th><td>      entropy-&gt;pub.decode_mcu = decode_mcu_AC_first;</td></tr>
+<tr><th id="148">148</th><td>  } <b>else</b> {</td></tr>
+<tr><th id="149">149</th><td>    <b>if</b> (is_DC_band)</td></tr>
+<tr><th id="150">150</th><td>      entropy-&gt;pub.decode_mcu = decode_mcu_DC_refine;</td></tr>
+<tr><th id="151">151</th><td>    <b>else</b></td></tr>
+<tr><th id="152">152</th><td>      entropy-&gt;pub.decode_mcu = decode_mcu_AC_refine;</td></tr>
+<tr><th id="153">153</th><td>  }</td></tr>
+<tr><th id="154">154</th><td></td></tr>
+<tr><th id="155">155</th><td>  <b>for</b> (ci = <var>0</var>; ci &lt; cinfo-&gt;comps_in_scan; ci++) {</td></tr>
+<tr><th id="156">156</th><td>    compptr = cinfo-&gt;cur_comp_info[ci];</td></tr>
+<tr><th id="157">157</th><td>    <i>/* Make sure requested tables are present, and compute derived tables.</i></td></tr>
+<tr><th id="158">158</th><td><i>     * We may build same derived table more than once, but it's not expensive.</i></td></tr>
+<tr><th id="159">159</th><td><i>     */</i></td></tr>
+<tr><th id="160">160</th><td>    <b>if</b> (is_DC_band) {</td></tr>
+<tr><th id="161">161</th><td>      <b>if</b> (cinfo-&gt;Ah == <var>0</var>) {	<i>/* DC refinement needs no table */</i></td></tr>
+<tr><th id="162">162</th><td>	tbl = compptr-&gt;dc_tbl_no;</td></tr>
+<tr><th id="163">163</th><td>	<b>if</b> (tbl &lt; <var>0</var> || tbl &gt;= NUM_HUFF_TBLS ||</td></tr>
+<tr><th id="164">164</th><td>	    cinfo-&gt;dc_huff_tbl_ptrs[tbl] == NULL)</td></tr>
+<tr><th id="165">165</th><td>	  ERREXIT1(cinfo, JERR_NO_HUFF_TABLE, tbl);</td></tr>
+<tr><th id="166">166</th><td>	jpeg_make_d_derived_tbl(cinfo, cinfo-&gt;dc_huff_tbl_ptrs[tbl],</td></tr>
+<tr><th id="167">167</th><td>				&amp; entropy-&gt;derived_tbls[tbl]);</td></tr>
+<tr><th id="168">168</th><td>      }</td></tr>
+<tr><th id="169">169</th><td>    } <b>else</b> {</td></tr>
+<tr><th id="170">170</th><td>      tbl = compptr-&gt;ac_tbl_no;</td></tr>
+<tr><th id="171">171</th><td>      <b>if</b> (tbl &lt; <var>0</var> || tbl &gt;= NUM_HUFF_TBLS ||</td></tr>
+<tr><th id="172">172</th><td>          cinfo-&gt;ac_huff_tbl_ptrs[tbl] == NULL)</td></tr>
+<tr><th id="173">173</th><td>        ERREXIT1(cinfo, JERR_NO_HUFF_TABLE, tbl);</td></tr>
+<tr><th id="174">174</th><td>      jpeg_make_d_derived_tbl(cinfo, cinfo-&gt;ac_huff_tbl_ptrs[tbl],</td></tr>
+<tr><th id="175">175</th><td>			      &amp; entropy-&gt;derived_tbls[tbl]);</td></tr>
+<tr><th id="176">176</th><td>      <i>/* remember the single active table */</i></td></tr>
+<tr><th id="177">177</th><td>      entropy-&gt;ac_derived_tbl = entropy-&gt;derived_tbls[tbl];</td></tr>
+<tr><th id="178">178</th><td>    }</td></tr>
+<tr><th id="179">179</th><td>    <i>/* Initialize DC predictions to 0 */</i></td></tr>
+<tr><th id="180">180</th><td>    entropy-&gt;saved.last_dc_val[ci] = <var>0</var>;</td></tr>
+<tr><th id="181">181</th><td>  }</td></tr>
+<tr><th id="182">182</th><td></td></tr>
+<tr><th id="183">183</th><td>  <i>/* Initialize bitread state variables */</i></td></tr>
+<tr><th id="184">184</th><td>  entropy-&gt;bitstate.bits_left = <var>0</var>;</td></tr>
+<tr><th id="185">185</th><td>  entropy-&gt;bitstate.get_buffer = <var>0</var>; <i>/* unnecessary, but keeps Purify quiet */</i></td></tr>
+<tr><th id="186">186</th><td>  entropy-&gt;bitstate.printed_eod = FALSE;</td></tr>
+<tr><th id="187">187</th><td></td></tr>
+<tr><th id="188">188</th><td>  <i>/* Initialize private state variables */</i></td></tr>
+<tr><th id="189">189</th><td>  entropy-&gt;saved.EOBRUN = <var>0</var>;</td></tr>
+<tr><th id="190">190</th><td></td></tr>
+<tr><th id="191">191</th><td>  <i>/* Initialize restart counter */</i></td></tr>
+<tr><th id="192">192</th><td>  entropy-&gt;restarts_to_go = cinfo-&gt;restart_interval;</td></tr>
+<tr><th id="193">193</th><td>}</td></tr>
+<tr><th id="194">194</th><td></td></tr>
+<tr><th id="195">195</th><td></td></tr>
+<tr><th id="196">196</th><td><i>/*</i></td></tr>
+<tr><th id="197">197</th><td><i> * Figure F.12: extend sign bit.</i></td></tr>
+<tr><th id="198">198</th><td><i> * On some machines, a shift and add will be faster than a table lookup.</i></td></tr>
+<tr><th id="199">199</th><td><i> */</i></td></tr>
+<tr><th id="200">200</th><td></td></tr>
+<tr><th id="201">201</th><td><u>#ifdef AVOID_TABLES</u></td></tr>
+<tr><th id="202">202</th><td></td></tr>
+<tr><th id="203">203</th><td><u>#define HUFF_EXTEND(x,s)  ((x) &lt; (1&lt;&lt;((s)-1)) ? (x) + (((-1)&lt;&lt;(s)) + 1) : (x))</u></td></tr>
+<tr><th id="204">204</th><td></td></tr>
+<tr><th id="205">205</th><td><u>#else</u></td></tr>
+<tr><th id="206">206</th><td></td></tr>
+<tr><th id="207">207</th><td><u>#define HUFF_EXTEND(x,s)  ((x) &lt; extend_test[s] ? (x) + extend_offset[s] : (x))</u></td></tr>
+<tr><th id="208">208</th><td></td></tr>
+<tr><th id="209">209</th><td><em>static</em> <em>const</em> <em>int</em> extend_test[<var>16</var>] =   <i>/* entry n is 2**(n-1) */</i></td></tr>
+<tr><th id="210">210</th><td>  { <var>0</var>, <var>0x0001</var>, <var>0x0002</var>, <var>0x0004</var>, <var>0x0008</var>, <var>0x0010</var>, <var>0x0020</var>, <var>0x0040</var>, <var>0x0080</var>,</td></tr>
+<tr><th id="211">211</th><td>    <var>0x0100</var>, <var>0x0200</var>, <var>0x0400</var>, <var>0x0800</var>, <var>0x1000</var>, <var>0x2000</var>, <var>0x4000</var> };</td></tr>
+<tr><th id="212">212</th><td></td></tr>
+<tr><th id="213">213</th><td><em>static</em> <em>const</em> <em>int</em> extend_offset[<var>16</var>] = <i>/* entry n is (-1 &lt;&lt; n) + 1 */</i></td></tr>
+<tr><th id="214">214</th><td>  { <var>0</var>, ((-<var>1</var>)&lt;&lt;<var>1</var>) + <var>1</var>, ((-<var>1</var>)&lt;&lt;<var>2</var>) + <var>1</var>, ((-<var>1</var>)&lt;&lt;<var>3</var>) + <var>1</var>, ((-<var>1</var>)&lt;&lt;<var>4</var>) + <var>1</var>,</td></tr>
+<tr><th id="215">215</th><td>    ((-<var>1</var>)&lt;&lt;<var>5</var>) + <var>1</var>, ((-<var>1</var>)&lt;&lt;<var>6</var>) + <var>1</var>, ((-<var>1</var>)&lt;&lt;<var>7</var>) + <var>1</var>, ((-<var>1</var>)&lt;&lt;<var>8</var>) + <var>1</var>,</td></tr>
+<tr><th id="216">216</th><td>    ((-<var>1</var>)&lt;&lt;<var>9</var>) + <var>1</var>, ((-<var>1</var>)&lt;&lt;<var>10</var>) + <var>1</var>, ((-<var>1</var>)&lt;&lt;<var>11</var>) + <var>1</var>, ((-<var>1</var>)&lt;&lt;<var>12</var>) + <var>1</var>,</td></tr>
+<tr><th id="217">217</th><td>    ((-<var>1</var>)&lt;&lt;<var>13</var>) + <var>1</var>, ((-<var>1</var>)&lt;&lt;<var>14</var>) + <var>1</var>, ((-<var>1</var>)&lt;&lt;<var>15</var>) + <var>1</var> };</td></tr>
+<tr><th id="218">218</th><td></td></tr>
+<tr><th id="219">219</th><td><u>#endif /* AVOID_TABLES */</u></td></tr>
+<tr><th id="220">220</th><td></td></tr>
+<tr><th id="221">221</th><td></td></tr>
+<tr><th id="222">222</th><td><i>/*</i></td></tr>
+<tr><th id="223">223</th><td><i> * Check for a restart marker &amp; resynchronize decoder.</i></td></tr>
+<tr><th id="224">224</th><td><i> * Returns FALSE if must suspend.</i></td></tr>
+<tr><th id="225">225</th><td><i> */</i></td></tr>
+<tr><th id="226">226</th><td></td></tr>
+<tr><th id="227">227</th><td>LOCAL boolean</td></tr>
+<tr><th id="228">228</th><td>process_restart (j_decompress_ptr cinfo)</td></tr>
+<tr><th id="229">229</th><td>{</td></tr>
+<tr><th id="230">230</th><td>  phuff_entropy_ptr entropy = (phuff_entropy_ptr) cinfo-&gt;entropy;</td></tr>
+<tr><th id="231">231</th><td>  <em>int</em> ci;</td></tr>
+<tr><th id="232">232</th><td></td></tr>
+<tr><th id="233">233</th><td>  <i>/* Throw away any unused bits remaining in bit buffer; */</i></td></tr>
+<tr><th id="234">234</th><td>  <i>/* include any full bytes in next_marker's count of discarded bytes */</i></td></tr>
+<tr><th id="235">235</th><td>  cinfo-&gt;marker-&gt;discarded_bytes += entropy-&gt;bitstate.bits_left / <var>8</var>;</td></tr>
+<tr><th id="236">236</th><td>  entropy-&gt;bitstate.bits_left = <var>0</var>;</td></tr>
+<tr><th id="237">237</th><td></td></tr>
+<tr><th id="238">238</th><td>  <i>/* Advance past the RSTn marker */</i></td></tr>
+<tr><th id="239">239</th><td>  <b>if</b> (! (*cinfo-&gt;marker-&gt;read_restart_marker) (cinfo))</td></tr>
+<tr><th id="240">240</th><td>    <b>return</b> FALSE;</td></tr>
+<tr><th id="241">241</th><td></td></tr>
+<tr><th id="242">242</th><td>  <i>/* Re-initialize DC predictions to 0 */</i></td></tr>
+<tr><th id="243">243</th><td>  <b>for</b> (ci = <var>0</var>; ci &lt; cinfo-&gt;comps_in_scan; ci++)</td></tr>
+<tr><th id="244">244</th><td>    entropy-&gt;saved.last_dc_val[ci] = <var>0</var>;</td></tr>
+<tr><th id="245">245</th><td>  <i>/* Re-init EOB run count, too */</i></td></tr>
+<tr><th id="246">246</th><td>  entropy-&gt;saved.EOBRUN = <var>0</var>;</td></tr>
+<tr><th id="247">247</th><td></td></tr>
+<tr><th id="248">248</th><td>  <i>/* Reset restart counter */</i></td></tr>
+<tr><th id="249">249</th><td>  entropy-&gt;restarts_to_go = cinfo-&gt;restart_interval;</td></tr>
+<tr><th id="250">250</th><td></td></tr>
+<tr><th id="251">251</th><td>  <i>/* Next segment can get another out-of-data warning */</i></td></tr>
+<tr><th id="252">252</th><td>  entropy-&gt;bitstate.printed_eod = FALSE;</td></tr>
+<tr><th id="253">253</th><td></td></tr>
+<tr><th id="254">254</th><td>  <b>return</b> TRUE;</td></tr>
+<tr><th id="255">255</th><td>}</td></tr>
+<tr><th id="256">256</th><td></td></tr>
+<tr><th id="257">257</th><td></td></tr>
+<tr><th id="258">258</th><td><i>/*</i></td></tr>
+<tr><th id="259">259</th><td><i> * Huffman MCU decoding.</i></td></tr>
+<tr><th id="260">260</th><td><i> * Each of these routines decodes and returns one MCU's worth of</i></td></tr>
+<tr><th id="261">261</th><td><i> * Huffman-compressed coefficients. </i></td></tr>
+<tr><th id="262">262</th><td><i> * The coefficients are reordered from zigzag order into natural array order,</i></td></tr>
+<tr><th id="263">263</th><td><i> * but are not dequantized.</i></td></tr>
+<tr><th id="264">264</th><td><i> *</i></td></tr>
+<tr><th id="265">265</th><td><i> * The i'th block of the MCU is stored into the block pointed to by</i></td></tr>
+<tr><th id="266">266</th><td><i> * MCU_data[i].  WE ASSUME THIS AREA IS INITIALLY ZEROED BY THE CALLER.</i></td></tr>
+<tr><th id="267">267</th><td><i> *</i></td></tr>
+<tr><th id="268">268</th><td><i> * We return FALSE if data source requested suspension.  In that case no</i></td></tr>
+<tr><th id="269">269</th><td><i> * changes have been made to permanent state.  (Exception: some output</i></td></tr>
+<tr><th id="270">270</th><td><i> * coefficients may already have been assigned.  This is harmless for</i></td></tr>
+<tr><th id="271">271</th><td><i> * spectral selection, since we'll just re-assign them on the next call.</i></td></tr>
+<tr><th id="272">272</th><td><i> * Successive approximation AC refinement has to be more careful, however.)</i></td></tr>
+<tr><th id="273">273</th><td><i> */</i></td></tr>
+<tr><th id="274">274</th><td></td></tr>
+<tr><th id="275">275</th><td><i>/*</i></td></tr>
+<tr><th id="276">276</th><td><i> * MCU decoding for DC initial scan (either spectral selection,</i></td></tr>
+<tr><th id="277">277</th><td><i> * or first pass of successive approximation).</i></td></tr>
+<tr><th id="278">278</th><td><i> */</i></td></tr>
+<tr><th id="279">279</th><td></td></tr>
+<tr><th id="280">280</th><td>METHODDEF boolean</td></tr>
+<tr><th id="281">281</th><td>decode_mcu_DC_first (j_decompress_ptr cinfo, JBLOCKROW *MCU_data)</td></tr>
+<tr><th id="282">282</th><td>{   </td></tr>
+<tr><th id="283">283</th><td>  phuff_entropy_ptr entropy = (phuff_entropy_ptr) cinfo-&gt;entropy;</td></tr>
+<tr><th id="284">284</th><td>  <em>int</em> Al = cinfo-&gt;Al;</td></tr>
+<tr><th id="285">285</th><td>  <em>register</em> <em>int</em> s, r;</td></tr>
+<tr><th id="286">286</th><td>  <em>int</em> blkn, ci;</td></tr>
+<tr><th id="287">287</th><td>  JBLOCKROW block;</td></tr>
+<tr><th id="288">288</th><td>  BITREAD_STATE_VARS;</td></tr>
+<tr><th id="289">289</th><td>  savable_state state;</td></tr>
+<tr><th id="290">290</th><td>  d_derived_tbl * tbl;</td></tr>
+<tr><th id="291">291</th><td>  jpeg_component_info * compptr;</td></tr>
+<tr><th id="292">292</th><td></td></tr>
+<tr><th id="293">293</th><td>  <i>/* Process restart marker if needed; may have to suspend */</i></td></tr>
+<tr><th id="294">294</th><td>  <b>if</b> (cinfo-&gt;restart_interval) {</td></tr>
+<tr><th id="295">295</th><td>    <b>if</b> (entropy-&gt;restarts_to_go == <var>0</var>)</td></tr>
+<tr><th id="296">296</th><td>      <b>if</b> (! process_restart(cinfo))</td></tr>
+<tr><th id="297">297</th><td>	<b>return</b> FALSE;</td></tr>
+<tr><th id="298">298</th><td>  }</td></tr>
+<tr><th id="299">299</th><td></td></tr>
+<tr><th id="300">300</th><td>  <i>/* Load up working state */</i></td></tr>
+<tr><th id="301">301</th><td>  BITREAD_LOAD_STATE(cinfo,entropy-&gt;bitstate);</td></tr>
+<tr><th id="302">302</th><td>  ASSIGN_STATE(state, entropy-&gt;saved);</td></tr>
+<tr><th id="303">303</th><td></td></tr>
+<tr><th id="304">304</th><td>  <i>/* Outer loop handles each block in the MCU */</i></td></tr>
+<tr><th id="305">305</th><td></td></tr>
+<tr><th id="306">306</th><td>  <b>for</b> (blkn = <var>0</var>; blkn &lt; cinfo-&gt;blocks_in_MCU; blkn++) {</td></tr>
+<tr><th id="307">307</th><td>    block = MCU_data[blkn];</td></tr>
+<tr><th id="308">308</th><td>    ci = cinfo-&gt;MCU_membership[blkn];</td></tr>
+<tr><th id="309">309</th><td>    compptr = cinfo-&gt;cur_comp_info[ci];</td></tr>
+<tr><th id="310">310</th><td>    tbl = entropy-&gt;derived_tbls[compptr-&gt;dc_tbl_no];</td></tr>
+<tr><th id="311">311</th><td></td></tr>
+<tr><th id="312">312</th><td>    <i>/* Decode a single block's worth of coefficients */</i></td></tr>
+<tr><th id="313">313</th><td></td></tr>
+<tr><th id="314">314</th><td>    <i>/* Section F.2.2.1: decode the DC coefficient difference */</i></td></tr>
+<tr><th id="315">315</th><td>    HUFF_DECODE(s, br_state, tbl, <b>return</b> FALSE, label1);</td></tr>
+<tr><th id="316">316</th><td>    <b>if</b> (s) {</td></tr>
+<tr><th id="317">317</th><td>      CHECK_BIT_BUFFER(br_state, s, <b>return</b> FALSE);</td></tr>
+<tr><th id="318">318</th><td>      r = GET_BITS(s);</td></tr>
+<tr><th id="319">319</th><td>      s = HUFF_EXTEND(r, s);</td></tr>
+<tr><th id="320">320</th><td>    }</td></tr>
+<tr><th id="321">321</th><td></td></tr>
+<tr><th id="322">322</th><td>    <i>/* Convert DC difference to actual value, update last_dc_val */</i></td></tr>
+<tr><th id="323">323</th><td>    s += state.last_dc_val[ci];</td></tr>
+<tr><th id="324">324</th><td>    state.last_dc_val[ci] = s;</td></tr>
+<tr><th id="325">325</th><td>    <i>/* Scale and output the DC coefficient (assumes jpeg_natural_order[0]=0) */</i></td></tr>
+<tr><th id="326">326</th><td>    (*block)[<var>0</var>] = (JCOEF) (s &lt;&lt; Al);</td></tr>
+<tr><th id="327">327</th><td>  }</td></tr>
+<tr><th id="328">328</th><td></td></tr>
+<tr><th id="329">329</th><td>  <i>/* Completed MCU, so update state */</i></td></tr>
+<tr><th id="330">330</th><td>  BITREAD_SAVE_STATE(cinfo,entropy-&gt;bitstate);</td></tr>
+<tr><th id="331">331</th><td>  ASSIGN_STATE(entropy-&gt;saved, state);</td></tr>
+<tr><th id="332">332</th><td></td></tr>
+<tr><th id="333">333</th><td>  <i>/* Account for restart interval (no-op if not using restarts) */</i></td></tr>
+<tr><th id="334">334</th><td>  entropy-&gt;restarts_to_go--;</td></tr>
+<tr><th id="335">335</th><td></td></tr>
+<tr><th id="336">336</th><td>  <b>return</b> TRUE;</td></tr>
+<tr><th id="337">337</th><td>}</td></tr>
+<tr><th id="338">338</th><td></td></tr>
+<tr><th id="339">339</th><td></td></tr>
+<tr><th id="340">340</th><td><i>/*</i></td></tr>
+<tr><th id="341">341</th><td><i> * MCU decoding for AC initial scan (either spectral selection,</i></td></tr>
+<tr><th id="342">342</th><td><i> * or first pass of successive approximation).</i></td></tr>
+<tr><th id="343">343</th><td><i> */</i></td></tr>
+<tr><th id="344">344</th><td></td></tr>
+<tr><th id="345">345</th><td>METHODDEF boolean</td></tr>
+<tr><th id="346">346</th><td>decode_mcu_AC_first (j_decompress_ptr cinfo, JBLOCKROW *MCU_data)</td></tr>
+<tr><th id="347">347</th><td>{   </td></tr>
+<tr><th id="348">348</th><td>  phuff_entropy_ptr entropy = (phuff_entropy_ptr) cinfo-&gt;entropy;</td></tr>
+<tr><th id="349">349</th><td>  <em>int</em> Se = cinfo-&gt;Se;</td></tr>
+<tr><th id="350">350</th><td>  <em>int</em> Al = cinfo-&gt;Al;</td></tr>
+<tr><th id="351">351</th><td>  <em>register</em> <em>int</em> s, k, r;</td></tr>
+<tr><th id="352">352</th><td>  <em>unsigned</em> <em>int</em> EOBRUN;</td></tr>
+<tr><th id="353">353</th><td>  JBLOCKROW block;</td></tr>
+<tr><th id="354">354</th><td>  BITREAD_STATE_VARS;</td></tr>
+<tr><th id="355">355</th><td>  d_derived_tbl * tbl;</td></tr>
+<tr><th id="356">356</th><td></td></tr>
+<tr><th id="357">357</th><td>  <i>/* Process restart marker if needed; may have to suspend */</i></td></tr>
+<tr><th id="358">358</th><td>  <b>if</b> (cinfo-&gt;restart_interval) {</td></tr>
+<tr><th id="359">359</th><td>    <b>if</b> (entropy-&gt;restarts_to_go == <var>0</var>)</td></tr>
+<tr><th id="360">360</th><td>      <b>if</b> (! process_restart(cinfo))</td></tr>
+<tr><th id="361">361</th><td>	<b>return</b> FALSE;</td></tr>
+<tr><th id="362">362</th><td>  }</td></tr>
+<tr><th id="363">363</th><td></td></tr>
+<tr><th id="364">364</th><td>  <i>/* Load up working state.</i></td></tr>
+<tr><th id="365">365</th><td><i>   * We can avoid loading/saving bitread state if in an EOB run.</i></td></tr>
+<tr><th id="366">366</th><td><i>   */</i></td></tr>
+<tr><th id="367">367</th><td>  EOBRUN = entropy-&gt;saved.EOBRUN; <i>/* only part of saved state we care about */</i></td></tr>
+<tr><th id="368">368</th><td></td></tr>
+<tr><th id="369">369</th><td>  <i>/* There is always only one block per MCU */</i></td></tr>
+<tr><th id="370">370</th><td></td></tr>
+<tr><th id="371">371</th><td>  <b>if</b> (EOBRUN &gt; <var>0</var>)		<i>/* if it's a band of zeroes... */</i></td></tr>
+<tr><th id="372">372</th><td>    EOBRUN--;			<i>/* ...process it now (we do nothing) */</i></td></tr>
+<tr><th id="373">373</th><td>  <b>else</b> {</td></tr>
+<tr><th id="374">374</th><td>    BITREAD_LOAD_STATE(cinfo,entropy-&gt;bitstate);</td></tr>
+<tr><th id="375">375</th><td>    block = MCU_data[<var>0</var>];</td></tr>
+<tr><th id="376">376</th><td>    tbl = entropy-&gt;ac_derived_tbl;</td></tr>
+<tr><th id="377">377</th><td></td></tr>
+<tr><th id="378">378</th><td>    <b>for</b> (k = cinfo-&gt;Ss; k &lt;= Se; k++) {</td></tr>
+<tr><th id="379">379</th><td>      HUFF_DECODE(s, br_state, tbl, <b>return</b> FALSE, label2);</td></tr>
+<tr><th id="380">380</th><td>      r = s &gt;&gt; <var>4</var>;</td></tr>
+<tr><th id="381">381</th><td>      s &amp;= <var>15</var>;</td></tr>
+<tr><th id="382">382</th><td>      <b>if</b> (s) {</td></tr>
+<tr><th id="383">383</th><td>        k += r;</td></tr>
+<tr><th id="384">384</th><td>        CHECK_BIT_BUFFER(br_state, s, <b>return</b> FALSE);</td></tr>
+<tr><th id="385">385</th><td>        r = GET_BITS(s);</td></tr>
+<tr><th id="386">386</th><td>        s = HUFF_EXTEND(r, s);</td></tr>
+<tr><th id="387">387</th><td>	<i>/* Scale and output coefficient in natural (dezigzagged) order */</i></td></tr>
+<tr><th id="388">388</th><td>        (*block)[jpeg_natural_order[k]] = (JCOEF) (s &lt;&lt; Al);</td></tr>
+<tr><th id="389">389</th><td>      } <b>else</b> {</td></tr>
+<tr><th id="390">390</th><td>        <b>if</b> (r == <var>15</var>) {		<i>/* ZRL */</i></td></tr>
+<tr><th id="391">391</th><td>          k += <var>15</var>;		<i>/* skip 15 zeroes in band */</i></td></tr>
+<tr><th id="392">392</th><td>        } <b>else</b> {		<i>/* EOBr, run length is 2^r + appended bits */</i></td></tr>
+<tr><th id="393">393</th><td>          EOBRUN = <var>1</var> &lt;&lt; r;</td></tr>
+<tr><th id="394">394</th><td>          <b>if</b> (r) {		<i>/* EOBr, r &gt; 0 */</i></td></tr>
+<tr><th id="395">395</th><td>	    CHECK_BIT_BUFFER(br_state, r, <b>return</b> FALSE);</td></tr>
+<tr><th id="396">396</th><td>            r = GET_BITS(r);</td></tr>
+<tr><th id="397">397</th><td>            EOBRUN += r;</td></tr>
+<tr><th id="398">398</th><td>          }</td></tr>
+<tr><th id="399">399</th><td>	  EOBRUN--;		<i>/* this band is processed at this moment */</i></td></tr>
+<tr><th id="400">400</th><td>	  <b>break</b>;		<i>/* force end-of-band */</i></td></tr>
+<tr><th id="401">401</th><td>	}</td></tr>
+<tr><th id="402">402</th><td>      }</td></tr>
+<tr><th id="403">403</th><td>    }</td></tr>
+<tr><th id="404">404</th><td></td></tr>
+<tr><th id="405">405</th><td>    BITREAD_SAVE_STATE(cinfo,entropy-&gt;bitstate);</td></tr>
+<tr><th id="406">406</th><td>  }</td></tr>
+<tr><th id="407">407</th><td></td></tr>
+<tr><th id="408">408</th><td>  <i>/* Completed MCU, so update state */</i></td></tr>
+<tr><th id="409">409</th><td>  entropy-&gt;saved.EOBRUN = EOBRUN; <i>/* only part of saved state we care about */</i></td></tr>
+<tr><th id="410">410</th><td></td></tr>
+<tr><th id="411">411</th><td>  <i>/* Account for restart interval (no-op if not using restarts) */</i></td></tr>
+<tr><th id="412">412</th><td>  entropy-&gt;restarts_to_go--;</td></tr>
+<tr><th id="413">413</th><td></td></tr>
+<tr><th id="414">414</th><td>  <b>return</b> TRUE;</td></tr>
+<tr><th id="415">415</th><td>}</td></tr>
+<tr><th id="416">416</th><td></td></tr>
+<tr><th id="417">417</th><td></td></tr>
+<tr><th id="418">418</th><td><i>/*</i></td></tr>
+<tr><th id="419">419</th><td><i> * MCU decoding for DC successive approximation refinement scan.</i></td></tr>
+<tr><th id="420">420</th><td><i> * Note: we assume such scans can be multi-component, although the spec</i></td></tr>
+<tr><th id="421">421</th><td><i> * is not very clear on the point.</i></td></tr>
+<tr><th id="422">422</th><td><i> */</i></td></tr>
+<tr><th id="423">423</th><td></td></tr>
+<tr><th id="424">424</th><td>METHODDEF boolean</td></tr>
+<tr><th id="425">425</th><td>decode_mcu_DC_refine (j_decompress_ptr cinfo, JBLOCKROW *MCU_data)</td></tr>
+<tr><th id="426">426</th><td>{   </td></tr>
+<tr><th id="427">427</th><td>  phuff_entropy_ptr entropy = (phuff_entropy_ptr) cinfo-&gt;entropy;</td></tr>
+<tr><th id="428">428</th><td>  <em>int</em> p1 = <var>1</var> &lt;&lt; cinfo-&gt;Al;	<i>/* 1 in the bit position being coded */</i></td></tr>
+<tr><th id="429">429</th><td>  <em>int</em> blkn;</td></tr>
+<tr><th id="430">430</th><td>  JBLOCKROW block;</td></tr>
+<tr><th id="431">431</th><td>  BITREAD_STATE_VARS;</td></tr>
+<tr><th id="432">432</th><td></td></tr>
+<tr><th id="433">433</th><td>  <i>/* Process restart marker if needed; may have to suspend */</i></td></tr>
+<tr><th id="434">434</th><td>  <b>if</b> (cinfo-&gt;restart_interval) {</td></tr>
+<tr><th id="435">435</th><td>    <b>if</b> (entropy-&gt;restarts_to_go == <var>0</var>)</td></tr>
+<tr><th id="436">436</th><td>      <b>if</b> (! process_restart(cinfo))</td></tr>
+<tr><th id="437">437</th><td>	<b>return</b> FALSE;</td></tr>
+<tr><th id="438">438</th><td>  }</td></tr>
+<tr><th id="439">439</th><td></td></tr>
+<tr><th id="440">440</th><td>  <i>/* Load up working state */</i></td></tr>
+<tr><th id="441">441</th><td>  BITREAD_LOAD_STATE(cinfo,entropy-&gt;bitstate);</td></tr>
+<tr><th id="442">442</th><td></td></tr>
+<tr><th id="443">443</th><td>  <i>/* Outer loop handles each block in the MCU */</i></td></tr>
+<tr><th id="444">444</th><td></td></tr>
+<tr><th id="445">445</th><td>  <b>for</b> (blkn = <var>0</var>; blkn &lt; cinfo-&gt;blocks_in_MCU; blkn++) {</td></tr>
+<tr><th id="446">446</th><td>    block = MCU_data[blkn];</td></tr>
+<tr><th id="447">447</th><td></td></tr>
+<tr><th id="448">448</th><td>    <i>/* Encoded data is simply the next bit of the two's-complement DC value */</i></td></tr>
+<tr><th id="449">449</th><td>    CHECK_BIT_BUFFER(br_state, <var>1</var>, <b>return</b> FALSE);</td></tr>
+<tr><th id="450">450</th><td>    <b>if</b> (GET_BITS(<var>1</var>))</td></tr>
+<tr><th id="451">451</th><td>      (*block)[<var>0</var>] |= p1;</td></tr>
+<tr><th id="452">452</th><td>    <i>/* Note: since we use |=, repeating the assignment later is safe */</i></td></tr>
+<tr><th id="453">453</th><td>  }</td></tr>
+<tr><th id="454">454</th><td></td></tr>
+<tr><th id="455">455</th><td>  <i>/* Completed MCU, so update state */</i></td></tr>
+<tr><th id="456">456</th><td>  BITREAD_SAVE_STATE(cinfo,entropy-&gt;bitstate);</td></tr>
+<tr><th id="457">457</th><td></td></tr>
+<tr><th id="458">458</th><td>  <i>/* Account for restart interval (no-op if not using restarts) */</i></td></tr>
+<tr><th id="459">459</th><td>  entropy-&gt;restarts_to_go--;</td></tr>
+<tr><th id="460">460</th><td></td></tr>
+<tr><th id="461">461</th><td>  <b>return</b> TRUE;</td></tr>
+<tr><th id="462">462</th><td>}</td></tr>
+<tr><th id="463">463</th><td></td></tr>
+<tr><th id="464">464</th><td></td></tr>
+<tr><th id="465">465</th><td><i>/*</i></td></tr>
+<tr><th id="466">466</th><td><i> * MCU decoding for AC successive approximation refinement scan.</i></td></tr>
+<tr><th id="467">467</th><td><i> */</i></td></tr>
+<tr><th id="468">468</th><td></td></tr>
+<tr><th id="469">469</th><td>METHODDEF boolean</td></tr>
+<tr><th id="470">470</th><td>decode_mcu_AC_refine (j_decompress_ptr cinfo, JBLOCKROW *MCU_data)</td></tr>
+<tr><th id="471">471</th><td>{   </td></tr>
+<tr><th id="472">472</th><td>  phuff_entropy_ptr entropy = (phuff_entropy_ptr) cinfo-&gt;entropy;</td></tr>
+<tr><th id="473">473</th><td>  <em>int</em> Se = cinfo-&gt;Se;</td></tr>
+<tr><th id="474">474</th><td>  <em>int</em> p1 = <var>1</var> &lt;&lt; cinfo-&gt;Al;	<i>/* 1 in the bit position being coded */</i></td></tr>
+<tr><th id="475">475</th><td>  <em>int</em> m1 = (-<var>1</var>) &lt;&lt; cinfo-&gt;Al;	<i>/* -1 in the bit position being coded */</i></td></tr>
+<tr><th id="476">476</th><td>  <em>register</em> <em>int</em> s, k, r;</td></tr>
+<tr><th id="477">477</th><td>  <em>unsigned</em> <em>int</em> EOBRUN;</td></tr>
+<tr><th id="478">478</th><td>  JBLOCKROW block;</td></tr>
+<tr><th id="479">479</th><td>  JCOEFPTR thiscoef;</td></tr>
+<tr><th id="480">480</th><td>  BITREAD_STATE_VARS;</td></tr>
+<tr><th id="481">481</th><td>  d_derived_tbl * tbl;</td></tr>
+<tr><th id="482">482</th><td>  <em>int</em> num_newnz;</td></tr>
+<tr><th id="483">483</th><td>  <em>int</em> newnz_pos[DCTSIZE2];</td></tr>
+<tr><th id="484">484</th><td></td></tr>
+<tr><th id="485">485</th><td>  <i>/* Process restart marker if needed; may have to suspend */</i></td></tr>
+<tr><th id="486">486</th><td>  <b>if</b> (cinfo-&gt;restart_interval) {</td></tr>
+<tr><th id="487">487</th><td>    <b>if</b> (entropy-&gt;restarts_to_go == <var>0</var>)</td></tr>
+<tr><th id="488">488</th><td>      <b>if</b> (! process_restart(cinfo))</td></tr>
+<tr><th id="489">489</th><td>	<b>return</b> FALSE;</td></tr>
+<tr><th id="490">490</th><td>  }</td></tr>
+<tr><th id="491">491</th><td></td></tr>
+<tr><th id="492">492</th><td>  <i>/* Load up working state */</i></td></tr>
+<tr><th id="493">493</th><td>  BITREAD_LOAD_STATE(cinfo,entropy-&gt;bitstate);</td></tr>
+<tr><th id="494">494</th><td>  EOBRUN = entropy-&gt;saved.EOBRUN; <i>/* only part of saved state we care about */</i></td></tr>
+<tr><th id="495">495</th><td></td></tr>
+<tr><th id="496">496</th><td>  <i>/* There is always only one block per MCU */</i></td></tr>
+<tr><th id="497">497</th><td>  block = MCU_data[<var>0</var>];</td></tr>
+<tr><th id="498">498</th><td>  tbl = entropy-&gt;ac_derived_tbl;</td></tr>
+<tr><th id="499">499</th><td></td></tr>
+<tr><th id="500">500</th><td>  <i>/* If we are forced to suspend, we must undo the assignments to any newly</i></td></tr>
+<tr><th id="501">501</th><td><i>   * nonzero coefficients in the block, because otherwise we'd get confused</i></td></tr>
+<tr><th id="502">502</th><td><i>   * next time about which coefficients were already nonzero.</i></td></tr>
+<tr><th id="503">503</th><td><i>   * But we need not undo addition of bits to already-nonzero coefficients;</i></td></tr>
+<tr><th id="504">504</th><td><i>   * instead, we can test the current bit position to see if we already did it.</i></td></tr>
+<tr><th id="505">505</th><td><i>   */</i></td></tr>
+<tr><th id="506">506</th><td>  num_newnz = <var>0</var>;</td></tr>
+<tr><th id="507">507</th><td></td></tr>
+<tr><th id="508">508</th><td>  <i>/* initialize coefficient loop counter to start of band */</i></td></tr>
+<tr><th id="509">509</th><td>  k = cinfo-&gt;Ss;</td></tr>
+<tr><th id="510">510</th><td></td></tr>
+<tr><th id="511">511</th><td>  <b>if</b> (EOBRUN == <var>0</var>) {</td></tr>
+<tr><th id="512">512</th><td>    <b>for</b> (; k &lt;= Se; k++) {</td></tr>
+<tr><th id="513">513</th><td>      HUFF_DECODE(s, br_state, tbl, <b>goto</b> undoit, label3);</td></tr>
+<tr><th id="514">514</th><td>      r = s &gt;&gt; <var>4</var>;</td></tr>
+<tr><th id="515">515</th><td>      s &amp;= <var>15</var>;</td></tr>
+<tr><th id="516">516</th><td>      <b>if</b> (s) {</td></tr>
+<tr><th id="517">517</th><td>	<b>if</b> (s != <var>1</var>)		<i>/* size of new coef should always be 1 */</i></td></tr>
+<tr><th id="518">518</th><td>	  WARNMS(cinfo, JWRN_HUFF_BAD_CODE);</td></tr>
+<tr><th id="519">519</th><td>        CHECK_BIT_BUFFER(br_state, <var>1</var>, <b>goto</b> undoit);</td></tr>
+<tr><th id="520">520</th><td>        <b>if</b> (GET_BITS(<var>1</var>))</td></tr>
+<tr><th id="521">521</th><td>	  s = p1;		<i>/* newly nonzero coef is positive */</i></td></tr>
+<tr><th id="522">522</th><td>	<b>else</b></td></tr>
+<tr><th id="523">523</th><td>	  s = m1;		<i>/* newly nonzero coef is negative */</i></td></tr>
+<tr><th id="524">524</th><td>      } <b>else</b> {</td></tr>
+<tr><th id="525">525</th><td>	<b>if</b> (r != <var>15</var>) {</td></tr>
+<tr><th id="526">526</th><td>	  EOBRUN = <var>1</var> &lt;&lt; r;	<i>/* EOBr, run length is 2^r + appended bits */</i></td></tr>
+<tr><th id="527">527</th><td>	  <b>if</b> (r) {</td></tr>
+<tr><th id="528">528</th><td>	    CHECK_BIT_BUFFER(br_state, r, <b>goto</b> undoit);</td></tr>
+<tr><th id="529">529</th><td>	    r = GET_BITS(r);</td></tr>
+<tr><th id="530">530</th><td>	    EOBRUN += r;</td></tr>
+<tr><th id="531">531</th><td>	  }</td></tr>
+<tr><th id="532">532</th><td>	  <b>break</b>;		<i>/* rest of block is handled by EOB logic */</i></td></tr>
+<tr><th id="533">533</th><td>	}</td></tr>
+<tr><th id="534">534</th><td>	<i>/* note s = 0 for processing ZRL */</i></td></tr>
+<tr><th id="535">535</th><td>      }</td></tr>
+<tr><th id="536">536</th><td>      <i>/* Advance over already-nonzero coefs and r still-zero coefs,</i></td></tr>
+<tr><th id="537">537</th><td><i>       * appending correction bits to the nonzeroes.  A correction bit is 1</i></td></tr>
+<tr><th id="538">538</th><td><i>       * if the absolute value of the coefficient must be increased.</i></td></tr>
+<tr><th id="539">539</th><td><i>       */</i></td></tr>
+<tr><th id="540">540</th><td>      <b>do</b> {</td></tr>
+<tr><th id="541">541</th><td>	thiscoef = *block + jpeg_natural_order[k];</td></tr>
+<tr><th id="542">542</th><td>	<b>if</b> (*thiscoef != <var>0</var>) {</td></tr>
+<tr><th id="543">543</th><td>	  CHECK_BIT_BUFFER(br_state, <var>1</var>, <b>goto</b> undoit);</td></tr>
+<tr><th id="544">544</th><td>	  <b>if</b> (GET_BITS(<var>1</var>)) {</td></tr>
+<tr><th id="545">545</th><td>	    <b>if</b> ((*thiscoef &amp; p1) == <var>0</var>) { <i>/* do nothing if already changed it */</i></td></tr>
+<tr><th id="546">546</th><td>	      <b>if</b> (*thiscoef &gt;= <var>0</var>)</td></tr>
+<tr><th id="547">547</th><td>		*thiscoef += p1;</td></tr>
+<tr><th id="548">548</th><td>	      <b>else</b></td></tr>
+<tr><th id="549">549</th><td>		*thiscoef += m1;</td></tr>
+<tr><th id="550">550</th><td>	    }</td></tr>
+<tr><th id="551">551</th><td>	  }</td></tr>
+<tr><th id="552">552</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="553">553</th><td>	  <b>if</b> (--r &lt; <var>0</var>)</td></tr>
+<tr><th id="554">554</th><td>	    <b>break</b>;		<i>/* reached target zero coefficient */</i></td></tr>
+<tr><th id="555">555</th><td>	}</td></tr>
+<tr><th id="556">556</th><td>	k++;</td></tr>
+<tr><th id="557">557</th><td>      } <b>while</b> (k &lt;= Se);</td></tr>
+<tr><th id="558">558</th><td>      <b>if</b> (s) {</td></tr>
+<tr><th id="559">559</th><td>	<em>int</em> pos = jpeg_natural_order[k];</td></tr>
+<tr><th id="560">560</th><td>	<i>/* Output newly nonzero coefficient */</i></td></tr>
+<tr><th id="561">561</th><td>	(*block)[pos] = (JCOEF) s;</td></tr>
+<tr><th id="562">562</th><td>	<i>/* Remember its position in case we have to suspend */</i></td></tr>
+<tr><th id="563">563</th><td>	newnz_pos[num_newnz++] = pos;</td></tr>
+<tr><th id="564">564</th><td>      }</td></tr>
+<tr><th id="565">565</th><td>    }</td></tr>
+<tr><th id="566">566</th><td>  }</td></tr>
+<tr><th id="567">567</th><td></td></tr>
+<tr><th id="568">568</th><td>  <b>if</b> (EOBRUN &gt; <var>0</var>) {</td></tr>
+<tr><th id="569">569</th><td>    <i>/* Scan any remaining coefficient positions after the end-of-band</i></td></tr>
+<tr><th id="570">570</th><td><i>     * (the last newly nonzero coefficient, if any).  Append a correction</i></td></tr>
+<tr><th id="571">571</th><td><i>     * bit to each already-nonzero coefficient.  A correction bit is 1</i></td></tr>
+<tr><th id="572">572</th><td><i>     * if the absolute value of the coefficient must be increased.</i></td></tr>
+<tr><th id="573">573</th><td><i>     */</i></td></tr>
+<tr><th id="574">574</th><td>    <b>for</b> (; k &lt;= Se; k++) {</td></tr>
+<tr><th id="575">575</th><td>      thiscoef = *block + jpeg_natural_order[k];</td></tr>
+<tr><th id="576">576</th><td>      <b>if</b> (*thiscoef != <var>0</var>) {</td></tr>
+<tr><th id="577">577</th><td>	CHECK_BIT_BUFFER(br_state, <var>1</var>, <b>goto</b> undoit);</td></tr>
+<tr><th id="578">578</th><td>	<b>if</b> (GET_BITS(<var>1</var>)) {</td></tr>
+<tr><th id="579">579</th><td>	  <b>if</b> ((*thiscoef &amp; p1) == <var>0</var>) { <i>/* do nothing if already changed it */</i></td></tr>
+<tr><th id="580">580</th><td>	    <b>if</b> (*thiscoef &gt;= <var>0</var>)</td></tr>
+<tr><th id="581">581</th><td>	      *thiscoef += p1;</td></tr>
+<tr><th id="582">582</th><td>	    <b>else</b></td></tr>
+<tr><th id="583">583</th><td>	      *thiscoef += m1;</td></tr>
+<tr><th id="584">584</th><td>	  }</td></tr>
+<tr><th id="585">585</th><td>	}</td></tr>
+<tr><th id="586">586</th><td>      }</td></tr>
+<tr><th id="587">587</th><td>    }</td></tr>
+<tr><th id="588">588</th><td>    <i>/* Count one block completed in EOB run */</i></td></tr>
+<tr><th id="589">589</th><td>    EOBRUN--;</td></tr>
+<tr><th id="590">590</th><td>  }</td></tr>
+<tr><th id="591">591</th><td></td></tr>
+<tr><th id="592">592</th><td>  <i>/* Completed MCU, so update state */</i></td></tr>
+<tr><th id="593">593</th><td>  BITREAD_SAVE_STATE(cinfo,entropy-&gt;bitstate);</td></tr>
+<tr><th id="594">594</th><td>  entropy-&gt;saved.EOBRUN = EOBRUN; <i>/* only part of saved state we care about */</i></td></tr>
+<tr><th id="595">595</th><td></td></tr>
+<tr><th id="596">596</th><td>  <i>/* Account for restart interval (no-op if not using restarts) */</i></td></tr>
+<tr><th id="597">597</th><td>  entropy-&gt;restarts_to_go--;</td></tr>
+<tr><th id="598">598</th><td></td></tr>
+<tr><th id="599">599</th><td>  <b>return</b> TRUE;</td></tr>
+<tr><th id="600">600</th><td></td></tr>
+<tr><th id="601">601</th><td>undoit:</td></tr>
+<tr><th id="602">602</th><td>  <i>/* Re-zero any output coefficients that we made newly nonzero */</i></td></tr>
+<tr><th id="603">603</th><td>  <b>while</b> (num_newnz &gt; <var>0</var>)</td></tr>
+<tr><th id="604">604</th><td>    (*block)[newnz_pos[--num_newnz]] = <var>0</var>;</td></tr>
+<tr><th id="605">605</th><td></td></tr>
+<tr><th id="606">606</th><td>  <b>return</b> FALSE;</td></tr>
+<tr><th id="607">607</th><td>}</td></tr>
+<tr><th id="608">608</th><td></td></tr>
+<tr><th id="609">609</th><td></td></tr>
+<tr><th id="610">610</th><td><i>/*</i></td></tr>
+<tr><th id="611">611</th><td><i> * Module initialization routine for progressive Huffman entropy decoding.</i></td></tr>
+<tr><th id="612">612</th><td><i> */</i></td></tr>
+<tr><th id="613">613</th><td></td></tr>
+<tr><th id="614">614</th><td>GLOBAL <em>void</em></td></tr>
+<tr><th id="615">615</th><td>jinit_phuff_decoder (j_decompress_ptr cinfo)</td></tr>
+<tr><th id="616">616</th><td>{</td></tr>
+<tr><th id="617">617</th><td>  phuff_entropy_ptr entropy;</td></tr>
+<tr><th id="618">618</th><td>  <em>int</em> *coef_bit_ptr;</td></tr>
+<tr><th id="619">619</th><td>  <em>int</em> ci, i;</td></tr>
+<tr><th id="620">620</th><td></td></tr>
+<tr><th id="621">621</th><td>  entropy = (phuff_entropy_ptr)</td></tr>
+<tr><th id="622">622</th><td>    (*cinfo-&gt;mem-&gt;alloc_small) ((j_common_ptr) cinfo, JPOOL_IMAGE,</td></tr>
+<tr><th id="623">623</th><td>				SIZEOF(phuff_entropy_decoder));</td></tr>
+<tr><th id="624">624</th><td>  cinfo-&gt;entropy = (<b>struct</b> jpeg_entropy_decoder *) entropy;</td></tr>
+<tr><th id="625">625</th><td>  entropy-&gt;pub.start_pass = start_pass_phuff_decoder;</td></tr>
+<tr><th id="626">626</th><td></td></tr>
+<tr><th id="627">627</th><td>  <i>/* Mark derived tables unallocated */</i></td></tr>
+<tr><th id="628">628</th><td>  <b>for</b> (i = <var>0</var>; i &lt; NUM_HUFF_TBLS; i++) {</td></tr>
+<tr><th id="629">629</th><td>    entropy-&gt;derived_tbls[i] = NULL;</td></tr>
+<tr><th id="630">630</th><td>  }</td></tr>
+<tr><th id="631">631</th><td></td></tr>
+<tr><th id="632">632</th><td>  <i>/* Create progression status table */</i></td></tr>
+<tr><th id="633">633</th><td>  cinfo-&gt;coef_bits = (<em>int</em> (*)[DCTSIZE2])</td></tr>
+<tr><th id="634">634</th><td>    (*cinfo-&gt;mem-&gt;alloc_small) ((j_common_ptr) cinfo, JPOOL_IMAGE,</td></tr>
+<tr><th id="635">635</th><td>				cinfo-&gt;num_components*DCTSIZE2*SIZEOF(<em>int</em>));</td></tr>
+<tr><th id="636">636</th><td>  coef_bit_ptr = &amp; cinfo-&gt;coef_bits[<var>0</var>][<var>0</var>];</td></tr>
+<tr><th id="637">637</th><td>  <b>for</b> (ci = <var>0</var>; ci &lt; cinfo-&gt;num_components; ci++) </td></tr>
+<tr><th id="638">638</th><td>    <b>for</b> (i = <var>0</var>; i &lt; DCTSIZE2; i++)</td></tr>
+<tr><th id="639">639</th><td>      *coef_bit_ptr++ = -<var>1</var>;</td></tr>
+<tr><th id="640">640</th><td>}</td></tr>
+<tr><th id="641">641</th><td></td></tr>
+<tr><th id="642">642</th><td><u>#<span data-ppcond="23">endif</span> /* D_PROGRESSIVE_SUPPORTED */</u></td></tr>
+<tr><th id="643">643</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

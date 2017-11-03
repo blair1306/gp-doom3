@@ -1,0 +1,10 @@
+<def f='codebrowser/renderer/Material.h' l='452' type='bool idMaterial::NoFragment() const'/>
+<doc f='codebrowser/renderer/Material.h' l='444'>// Normally, dmap chops each surface by every BSP boundary, then reoptimizes.
+						// For gigantic polygons like sky boxes, this can cause a huge number of planar
+						// triangles that make the optimizer take forever to turn back into a single
+						// triangle.  The &quot;noFragment&quot; option causes dmap to only break the polygons at
+						// area boundaries, instead of every BSP boundary.  This has the negative effect
+						// of not automatically fixing up interpenetrations, so when this is used, you
+						// should manually make the edges of your sky box exactly meet, instead of poking
+						// into each other.</doc>
+<use f='codebrowser/tools/compilers/dmap/usurface.cpp' l='495' u='c' c='_ZL21PutWindingIntoAreas_rP9uEntity_tPK9idWindingP6side_sP6node_s'/>

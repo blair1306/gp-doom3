@@ -1,0 +1,15 @@
+<dec f='codebrowser/idlib/math/Matrix.h' l='1941' type='bool idMatX::Cholesky_UpdateIncrement(const idVecX &amp; v)'/>
+<def f='codebrowser/idlib/math/Matrix.cpp' l='5574' ll='5610' type='bool idMatX::Cholesky_UpdateIncrement(const idVecX &amp; v)'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7825' u='c' c='_ZN6idMatX4TestEv'/>
+<doc f='codebrowser/idlib/math/Matrix.cpp' l='5562'>/*
+============
+idMatX::Cholesky_UpdateIncrement
+
+  Updates the in-place Cholesky factorization to obtain the factors for the matrix:
+
+  [ A  a ]
+  [ a  b ]
+
+  where: a = v[0,numRows-1], b = v[numRows]
+============
+*/</doc>

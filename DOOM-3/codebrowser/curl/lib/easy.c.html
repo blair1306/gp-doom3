@@ -1,0 +1,394 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>easy.c source code [codebrowser/curl/lib/easy.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/curl/lib/easy.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>curl</a>/<a href='./'>lib</a>/<a href='easy.c.html'>easy.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/***************************************************************************</i></td></tr>
+<tr><th id="2">2</th><td><i> *                                  _   _ ____  _     </i></td></tr>
+<tr><th id="3">3</th><td><i> *  Project                     ___| | | |  _ \| |    </i></td></tr>
+<tr><th id="4">4</th><td><i> *                             / __| | | | |_) | |    </i></td></tr>
+<tr><th id="5">5</th><td><i> *                            | (__| |_| |  _ &lt;| |___ </i></td></tr>
+<tr><th id="6">6</th><td><i> *                             \___|\___/|_| \_\_____|</i></td></tr>
+<tr><th id="7">7</th><td><i> *</i></td></tr>
+<tr><th id="8">8</th><td><i> * Copyright (C) 1998 - 2004, Daniel Stenberg, &lt;daniel@haxx.se&gt;, et al.</i></td></tr>
+<tr><th id="9">9</th><td><i> *</i></td></tr>
+<tr><th id="10">10</th><td><i> * This software is licensed as described in the file COPYING, which</i></td></tr>
+<tr><th id="11">11</th><td><i> * you should have received as part of this distribution. The terms</i></td></tr>
+<tr><th id="12">12</th><td><i> * are also available at <a href="http://curl.haxx.se/docs/copyright.html">http://curl.haxx.se/docs/copyright.html</a>.</i></td></tr>
+<tr><th id="13">13</th><td><i> * </i></td></tr>
+<tr><th id="14">14</th><td><i> * You may opt to use, copy, modify, merge, publish, distribute and/or sell</i></td></tr>
+<tr><th id="15">15</th><td><i> * copies of the Software, and permit persons to whom the Software is</i></td></tr>
+<tr><th id="16">16</th><td><i> * furnished to do so, under the terms of the COPYING file.</i></td></tr>
+<tr><th id="17">17</th><td><i> *</i></td></tr>
+<tr><th id="18">18</th><td><i> * This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY</i></td></tr>
+<tr><th id="19">19</th><td><i> * KIND, either express or implied.</i></td></tr>
+<tr><th id="20">20</th><td><i> *</i></td></tr>
+<tr><th id="21">21</th><td><i> * $Id: easy.c,v 1.49 2004/03/15 16:28:36 bagder Exp $</i></td></tr>
+<tr><th id="22">22</th><td><i> ***************************************************************************/</i></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="setup.h.html">"setup.h"</a></u></td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><i>/* -- WIN32 approved -- */</i></td></tr>
+<tr><th id="27">27</th><td><u>#include <a href="../../../include/stdio.h.html">&lt;stdio.h&gt;</a></u></td></tr>
+<tr><th id="28">28</th><td><u>#include <a href="../../../include/string.h.html">&lt;string.h&gt;</a></u></td></tr>
+<tr><th id="29">29</th><td><u>#include &lt;stdarg.h&gt;</u></td></tr>
+<tr><th id="30">30</th><td><u>#include <a href="../../../include/stdlib.h.html">&lt;stdlib.h&gt;</a></u></td></tr>
+<tr><th id="31">31</th><td><u>#include <a href="../../../include/ctype.h.html">&lt;ctype.h&gt;</a></u></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="../../../include/x86_64-linux-gnu/sys/types.h.html">&lt;sys/types.h&gt;</a></u></td></tr>
+<tr><th id="33">33</th><td><u>#include <a href="../../../include/x86_64-linux-gnu/sys/stat.h.html">&lt;sys/stat.h&gt;</a></u></td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><u>#include <a href="../../../include/errno.h.html">&lt;errno.h&gt;</a></u></td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><u>#include <a href="strequal.h.html">"strequal.h"</a></u></td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td><u>#<span data-ppcond="39">if</span> defined(<span class="macro" data-ref="_M/WIN32">WIN32</span>) &amp;&amp; !defined(<span class="macro" data-ref="_M/__GNUC__">__GNUC__</span>) || defined(<span class="macro" data-ref="_M/__MINGW32__">__MINGW32__</span>)</u></td></tr>
+<tr><th id="40">40</th><td><u>#include &lt;time.h&gt;</u></td></tr>
+<tr><th id="41">41</th><td><u>#include &lt;io.h&gt;</u></td></tr>
+<tr><th id="42">42</th><td><u>#<span data-ppcond="39">else</span></u></td></tr>
+<tr><th id="43">43</th><td><u>#<span data-ppcond="43">ifdef</span> <a class="macro" href="config.h.html#347" data-ref="_M/HAVE_SYS_SOCKET_H">HAVE_SYS_SOCKET_H</a></u></td></tr>
+<tr><th id="44">44</th><td><u>#include <a href="../../../include/x86_64-linux-gnu/sys/socket.h.html">&lt;sys/socket.h&gt;</a></u></td></tr>
+<tr><th id="45">45</th><td><u>#<span data-ppcond="43">endif</span></u></td></tr>
+<tr><th id="46">46</th><td><u>#include <a href="../../../include/netinet/in.h.html">&lt;netinet/in.h&gt;</a></u></td></tr>
+<tr><th id="47">47</th><td><u>#include <a href="../../../include/x86_64-linux-gnu/sys/time.h.html">&lt;sys/time.h&gt;</a></u></td></tr>
+<tr><th id="48">48</th><td><u>#<span data-ppcond="48">ifdef</span> <a class="macro" href="config.h.html#383" data-ref="_M/HAVE_UNISTD_H">HAVE_UNISTD_H</a></u></td></tr>
+<tr><th id="49">49</th><td><u>#include <a href="../../../include/unistd.h.html">&lt;unistd.h&gt;</a></u></td></tr>
+<tr><th id="50">50</th><td><u>#<span data-ppcond="48">endif</span></u></td></tr>
+<tr><th id="51">51</th><td><u>#include <a href="../../../include/netdb.h.html">&lt;netdb.h&gt;</a></u></td></tr>
+<tr><th id="52">52</th><td><u>#<span data-ppcond="52">ifdef</span> <a class="macro" href="config.h.html#38" data-ref="_M/HAVE_ARPA_INET_H">HAVE_ARPA_INET_H</a></u></td></tr>
+<tr><th id="53">53</th><td><u>#include <a href="../../../include/arpa/inet.h.html">&lt;arpa/inet.h&gt;</a></u></td></tr>
+<tr><th id="54">54</th><td><u>#<span data-ppcond="52">endif</span></u></td></tr>
+<tr><th id="55">55</th><td><u>#<span data-ppcond="55">ifdef</span> <a class="macro" href="config.h.html#209" data-ref="_M/HAVE_NET_IF_H">HAVE_NET_IF_H</a></u></td></tr>
+<tr><th id="56">56</th><td><u>#include <a href="../../../include/net/if.h.html">&lt;net/if.h&gt;</a></u></td></tr>
+<tr><th id="57">57</th><td><u>#<span data-ppcond="55">endif</span></u></td></tr>
+<tr><th id="58">58</th><td><u>#include <a href="../../../include/x86_64-linux-gnu/sys/ioctl.h.html">&lt;sys/ioctl.h&gt;</a></u></td></tr>
+<tr><th id="59">59</th><td><u>#include <a href="../../../include/signal.h.html">&lt;signal.h&gt;</a></u></td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td><u>#<span data-ppcond="61">ifdef</span> <a class="macro" href="config.h.html#338" data-ref="_M/HAVE_SYS_PARAM_H">HAVE_SYS_PARAM_H</a></u></td></tr>
+<tr><th id="62">62</th><td><u>#include <a href="../../../include/x86_64-linux-gnu/sys/param.h.html">&lt;sys/param.h&gt;</a></u></td></tr>
+<tr><th id="63">63</th><td><u>#<span data-ppcond="61">endif</span></u></td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td><u>#<span data-ppcond="65">ifdef</span> <a class="macro" href="config.h.html#344" data-ref="_M/HAVE_SYS_SELECT_H">HAVE_SYS_SELECT_H</a></u></td></tr>
+<tr><th id="66">66</th><td><u>#include <a href="../../../include/x86_64-linux-gnu/sys/select.h.html">&lt;sys/select.h&gt;</a></u></td></tr>
+<tr><th id="67">67</th><td><u>#<span data-ppcond="65">endif</span></u></td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td><u>#<span data-ppcond="39">endif</span></u></td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td><u>#include <a href="urldata.h.html">"urldata.h"</a></u></td></tr>
+<tr><th id="72">72</th><td><u>#include <a href="../include/curl/curl.h.html">&lt;curl/curl.h&gt;</a></u></td></tr>
+<tr><th id="73">73</th><td><u>#include <a href="transfer.h.html">"transfer.h"</a></u></td></tr>
+<tr><th id="74">74</th><td><u>#include <a href="ssluse.h.html">"ssluse.h"</a></u></td></tr>
+<tr><th id="75">75</th><td><u>#include <a href="url.h.html">"url.h"</a></u></td></tr>
+<tr><th id="76">76</th><td><u>#include <a href="getinfo.h.html">"getinfo.h"</a></u></td></tr>
+<tr><th id="77">77</th><td><u>#include <a href="hostip.h.html">"hostip.h"</a></u></td></tr>
+<tr><th id="78">78</th><td><u>#include <a href="share.h.html">"share.h"</a></u></td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td><u>#define <dfn class="macro" id="_M/_MPRINTF_REPLACE" data-ref="_M/_MPRINTF_REPLACE">_MPRINTF_REPLACE</dfn> /* use our functions only */</u></td></tr>
+<tr><th id="81">81</th><td><u>#include <a href="../include/curl/mprintf.h.html">&lt;curl/mprintf.h&gt;</a></u></td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td><i>/* The last #include file should be: */</i></td></tr>
+<tr><th id="84">84</th><td><u>#<span data-ppcond="84">ifdef</span> <span class="macro" data-ref="_M/CURLDEBUG">CURLDEBUG</span></u></td></tr>
+<tr><th id="85">85</th><td><u>#include <a href="memdebug.h.html">"memdebug.h"</a></u></td></tr>
+<tr><th id="86">86</th><td><u>#<span data-ppcond="84">endif</span></u></td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td><i>/* Silly win32 socket initialization functions */</i></td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td><u>#<span data-ppcond="90">if</span> defined(<span class="macro" data-ref="_M/WIN32">WIN32</span>) &amp;&amp; !defined(<span class="macro" data-ref="_M/__GNUC__">__GNUC__</span>) || defined(<span class="macro" data-ref="_M/__MINGW32__">__MINGW32__</span>)</u></td></tr>
+<tr><th id="91">91</th><td><em>static</em> <em>void</em> win32_cleanup(<em>void</em>)</td></tr>
+<tr><th id="92">92</th><td>{</td></tr>
+<tr><th id="93">93</th><td>  WSACleanup();</td></tr>
+<tr><th id="94">94</th><td>}</td></tr>
+<tr><th id="95">95</th><td></td></tr>
+<tr><th id="96">96</th><td><em>static</em> CURLcode win32_init(<em>void</em>)</td></tr>
+<tr><th id="97">97</th><td>{</td></tr>
+<tr><th id="98">98</th><td>  WORD wVersionRequested;  </td></tr>
+<tr><th id="99">99</th><td>  WSADATA wsaData; </td></tr>
+<tr><th id="100">100</th><td>  <em>int</em> err; </td></tr>
+<tr><th id="101">101</th><td></td></tr>
+<tr><th id="102">102</th><td><u>#ifdef ENABLE_IPV6</u></td></tr>
+<tr><th id="103">103</th><td>  wVersionRequested = MAKEWORD(<var>2</var>, <var>0</var>);</td></tr>
+<tr><th id="104">104</th><td><u>#else</u></td></tr>
+<tr><th id="105">105</th><td>  wVersionRequested = MAKEWORD(<var>1</var>, <var>1</var>);</td></tr>
+<tr><th id="106">106</th><td><u>#endif</u></td></tr>
+<tr><th id="107">107</th><td>    </td></tr>
+<tr><th id="108">108</th><td>  err = WSAStartup(wVersionRequested, &amp;wsaData); </td></tr>
+<tr><th id="109">109</th><td>    </td></tr>
+<tr><th id="110">110</th><td>  <b>if</b> (err != <var>0</var>) </td></tr>
+<tr><th id="111">111</th><td>    <i>/* Tell the user that we couldn't find a useable */</i> </td></tr>
+<tr><th id="112">112</th><td>    <i>/* winsock.dll.     */</i> </td></tr>
+<tr><th id="113">113</th><td>    <b>return</b> CURLE_FAILED_INIT; </td></tr>
+<tr><th id="114">114</th><td>    </td></tr>
+<tr><th id="115">115</th><td>  <i>/* Confirm that the Windows Sockets DLL supports what we need.*/</i> </td></tr>
+<tr><th id="116">116</th><td>  <i>/* Note that if the DLL supports versions greater */</i> </td></tr>
+<tr><th id="117">117</th><td>  <i>/* than wVersionRequested, it will still return */</i> </td></tr>
+<tr><th id="118">118</th><td>  <i>/* wVersionRequested in wVersion. wHighVersion contains the */</i></td></tr>
+<tr><th id="119">119</th><td>  <i>/* highest supported version. */</i></td></tr>
+<tr><th id="120">120</th><td></td></tr>
+<tr><th id="121">121</th><td>  <b>if</b> ( LOBYTE( wsaData.wVersion ) != LOBYTE(wVersionRequested) || </td></tr>
+<tr><th id="122">122</th><td>       HIBYTE( wsaData.wVersion ) != HIBYTE(wVersionRequested) ) { </td></tr>
+<tr><th id="123">123</th><td>    <i>/* Tell the user that we couldn't find a useable */</i> </td></tr>
+<tr><th id="124">124</th><td></td></tr>
+<tr><th id="125">125</th><td>    <i>/* winsock.dll. */</i> </td></tr>
+<tr><th id="126">126</th><td>    WSACleanup(); </td></tr>
+<tr><th id="127">127</th><td>    <b>return</b> CURLE_FAILED_INIT; </td></tr>
+<tr><th id="128">128</th><td>  }</td></tr>
+<tr><th id="129">129</th><td>  <b>return</b> CURLE_OK;</td></tr>
+<tr><th id="130">130</th><td>}</td></tr>
+<tr><th id="131">131</th><td><i>/* The Windows Sockets DLL is acceptable. Proceed. */</i> </td></tr>
+<tr><th id="132">132</th><td><u>#<span data-ppcond="90">else</span></u></td></tr>
+<tr><th id="133">133</th><td><i  data-doc="win32_init">/* These functions exist merely to prevent compiler warnings */</i></td></tr>
+<tr><th id="134">134</th><td><em>static</em> <a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="tu decl def" id="win32_init" title='win32_init' data-type='CURLcode win32_init()' data-ref="win32_init">win32_init</dfn>(<em>void</em>) { <b>return</b> <a class="enum" href="../include/curl/curl.h.html#CURLE_OK" title='CURLE_OK' data-ref="CURLE_OK">CURLE_OK</a>; }</td></tr>
+<tr><th id="135">135</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="win32_cleanup" title='win32_cleanup' data-type='void win32_cleanup()' data-ref="win32_cleanup">win32_cleanup</dfn>(<em>void</em>) { }</td></tr>
+<tr><th id="136">136</th><td><u>#<span data-ppcond="90">endif</span></u></td></tr>
+<tr><th id="137">137</th><td></td></tr>
+<tr><th id="138">138</th><td></td></tr>
+<tr><th id="139">139</th><td><i  data-doc="initialized">/* true globals -- for curl_global_init() and curl_global_cleanup() */</i></td></tr>
+<tr><th id="140">140</th><td><em>static</em> <em>unsigned</em> <em>int</em>  <dfn class="tu decl def" id="initialized" title='initialized' data-type='unsigned int' data-ref="initialized">initialized</dfn> = <var>0</var>;</td></tr>
+<tr><th id="141">141</th><td><em>static</em> <em>long</em>          <dfn class="tu decl def" id="init_flags" title='init_flags' data-type='long' data-ref="init_flags">init_flags</dfn>  = <var>0</var>;</td></tr>
+<tr><th id="142">142</th><td></td></tr>
+<tr><th id="143">143</th><td><i class="doc">/**</i></td></tr>
+<tr><th id="144">144</th><td><i class="doc"> * Globally initializes cURL given a bitwise set of </i></td></tr>
+<tr><th id="145">145</th><td><i class="doc"> * the different features to initialize.</i></td></tr>
+<tr><th id="146">146</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="147">147</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="decl def" id="curl_global_init" title='curl_global_init' data-ref="curl_global_init">curl_global_init</dfn>(<em>long</em> <dfn class="local col2 decl" id="22flags" title='flags' data-type='long' data-ref="22flags">flags</dfn>)</td></tr>
+<tr><th id="148">148</th><td>{</td></tr>
+<tr><th id="149">149</th><td>  <b>if</b> (<a class="tu ref" href="#initialized" title='initialized' data-use='r' data-ref="initialized">initialized</a>)</td></tr>
+<tr><th id="150">150</th><td>    <b>return</b> <a class="enum" href="../include/curl/curl.h.html#CURLE_OK" title='CURLE_OK' data-ref="CURLE_OK">CURLE_OK</a>;</td></tr>
+<tr><th id="151">151</th><td></td></tr>
+<tr><th id="152">152</th><td>  <b>if</b> (<a class="local col2 ref" href="#22flags" title='flags' data-ref="22flags">flags</a> &amp; <a class="macro" href="../include/curl/curl.h.html#1151" title="(1&lt;&lt;0)" data-ref="_M/CURL_GLOBAL_SSL">CURL_GLOBAL_SSL</a>)</td></tr>
+<tr><th id="153">153</th><td>    <a class="ref" href="ssluse.h.html#Curl_SSL_init" title='Curl_SSL_init' data-ref="Curl_SSL_init">Curl_SSL_init</a>();</td></tr>
+<tr><th id="154">154</th><td></td></tr>
+<tr><th id="155">155</th><td>  <b>if</b> (<a class="local col2 ref" href="#22flags" title='flags' data-ref="22flags">flags</a> &amp; <a class="macro" href="../include/curl/curl.h.html#1152" title="(1&lt;&lt;1)" data-ref="_M/CURL_GLOBAL_WIN32">CURL_GLOBAL_WIN32</a>)</td></tr>
+<tr><th id="156">156</th><td>    <b>if</b> (<a class="tu ref" href="#win32_init" title='win32_init' data-use='c' data-ref="win32_init">win32_init</a>() != <a class="enum" href="../include/curl/curl.h.html#CURLE_OK" title='CURLE_OK' data-ref="CURLE_OK">CURLE_OK</a>)</td></tr>
+<tr><th id="157">157</th><td>      <b>return</b> <a class="enum" href="../include/curl/curl.h.html#CURLE_FAILED_INIT" title='CURLE_FAILED_INIT' data-ref="CURLE_FAILED_INIT">CURLE_FAILED_INIT</a>;</td></tr>
+<tr><th id="158">158</th><td></td></tr>
+<tr><th id="159">159</th><td><u>#<span data-ppcond="159">ifdef</span> <span class="macro" data-ref="_M/_AMIGASF">_AMIGASF</span></u></td></tr>
+<tr><th id="160">160</th><td>  <b>if</b>(!amiga_init())</td></tr>
+<tr><th id="161">161</th><td>    <b>return</b> CURLE_FAILED_INIT;</td></tr>
+<tr><th id="162">162</th><td><u>#<span data-ppcond="159">endif</span></u></td></tr>
+<tr><th id="163">163</th><td></td></tr>
+<tr><th id="164">164</th><td>  <a class="tu ref" href="#initialized" title='initialized' data-use='w' data-ref="initialized">initialized</a> = <var>1</var>;</td></tr>
+<tr><th id="165">165</th><td>  <a class="tu ref" href="#init_flags" title='init_flags' data-use='w' data-ref="init_flags">init_flags</a>  = <a class="local col2 ref" href="#22flags" title='flags' data-ref="22flags">flags</a>;</td></tr>
+<tr><th id="166">166</th><td>  </td></tr>
+<tr><th id="167">167</th><td>  <b>return</b> <a class="enum" href="../include/curl/curl.h.html#CURLE_OK" title='CURLE_OK' data-ref="CURLE_OK">CURLE_OK</a>;</td></tr>
+<tr><th id="168">168</th><td>}</td></tr>
+<tr><th id="169">169</th><td></td></tr>
+<tr><th id="170">170</th><td><i class="doc">/**</i></td></tr>
+<tr><th id="171">171</th><td><i class="doc"> * Globally cleanup cURL, uses the value of "init_flags" to determine</i></td></tr>
+<tr><th id="172">172</th><td><i class="doc"> * what needs to be cleaned up and what doesn't</i></td></tr>
+<tr><th id="173">173</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="174">174</th><td><em>void</em> <dfn class="decl def" id="curl_global_cleanup" title='curl_global_cleanup' data-ref="curl_global_cleanup">curl_global_cleanup</dfn>(<em>void</em>)</td></tr>
+<tr><th id="175">175</th><td>{</td></tr>
+<tr><th id="176">176</th><td>  <b>if</b> (!<a class="tu ref" href="#initialized" title='initialized' data-use='r' data-ref="initialized">initialized</a>)</td></tr>
+<tr><th id="177">177</th><td>    <b>return</b>;</td></tr>
+<tr><th id="178">178</th><td></td></tr>
+<tr><th id="179">179</th><td>  <a class="ref" href="hostip.h.html#Curl_global_host_cache_dtor" title='Curl_global_host_cache_dtor' data-ref="Curl_global_host_cache_dtor">Curl_global_host_cache_dtor</a>();</td></tr>
+<tr><th id="180">180</th><td></td></tr>
+<tr><th id="181">181</th><td>  <b>if</b> (<a class="tu ref" href="#init_flags" title='init_flags' data-use='r' data-ref="init_flags">init_flags</a> &amp; <a class="macro" href="../include/curl/curl.h.html#1151" title="(1&lt;&lt;0)" data-ref="_M/CURL_GLOBAL_SSL">CURL_GLOBAL_SSL</a>)</td></tr>
+<tr><th id="182">182</th><td>    <a class="ref" href="ssluse.h.html#Curl_SSL_cleanup" title='Curl_SSL_cleanup' data-ref="Curl_SSL_cleanup">Curl_SSL_cleanup</a>();</td></tr>
+<tr><th id="183">183</th><td></td></tr>
+<tr><th id="184">184</th><td>  <b>if</b> (<a class="tu ref" href="#init_flags" title='init_flags' data-use='r' data-ref="init_flags">init_flags</a> &amp; <a class="macro" href="../include/curl/curl.h.html#1152" title="(1&lt;&lt;1)" data-ref="_M/CURL_GLOBAL_WIN32">CURL_GLOBAL_WIN32</a>)</td></tr>
+<tr><th id="185">185</th><td>    <a class="tu ref" href="#win32_cleanup" title='win32_cleanup' data-use='c' data-ref="win32_cleanup">win32_cleanup</a>();</td></tr>
+<tr><th id="186">186</th><td></td></tr>
+<tr><th id="187">187</th><td><u>#<span data-ppcond="187">ifdef</span> <span class="macro" data-ref="_M/_AMIGASF">_AMIGASF</span></u></td></tr>
+<tr><th id="188">188</th><td>  amiga_cleanup();</td></tr>
+<tr><th id="189">189</th><td><u>#<span data-ppcond="187">endif</span></u></td></tr>
+<tr><th id="190">190</th><td></td></tr>
+<tr><th id="191">191</th><td>  <a class="tu ref" href="#initialized" title='initialized' data-use='w' data-ref="initialized">initialized</a> = <var>0</var>;</td></tr>
+<tr><th id="192">192</th><td>  <a class="tu ref" href="#init_flags" title='init_flags' data-use='w' data-ref="init_flags">init_flags</a>  = <var>0</var>;</td></tr>
+<tr><th id="193">193</th><td>}</td></tr>
+<tr><th id="194">194</th><td></td></tr>
+<tr><th id="195">195</th><td><a class="typedef" href="../include/curl/types.h.html#CURL" title='CURL' data-type='void' data-ref="CURL">CURL</a> *<dfn class="decl def" id="curl_easy_init" title='curl_easy_init' data-ref="curl_easy_init">curl_easy_init</dfn>(<em>void</em>)</td></tr>
+<tr><th id="196">196</th><td>{</td></tr>
+<tr><th id="197">197</th><td>  <a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="local col3 decl" id="23res" title='res' data-type='CURLcode' data-ref="23res">res</dfn>;</td></tr>
+<tr><th id="198">198</th><td>  <b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *<dfn class="local col4 decl" id="24data" title='data' data-type='struct SessionHandle *' data-ref="24data">data</dfn>;</td></tr>
+<tr><th id="199">199</th><td></td></tr>
+<tr><th id="200">200</th><td>  <i>/* Make sure we inited the global SSL stuff */</i></td></tr>
+<tr><th id="201">201</th><td>  <b>if</b> (!<a class="tu ref" href="#initialized" title='initialized' data-use='r' data-ref="initialized">initialized</a>) {</td></tr>
+<tr><th id="202">202</th><td>    <a class="local col3 ref" href="#23res" title='res' data-ref="23res">res</a> = <a class="ref" href="#curl_global_init" title='curl_global_init' data-ref="curl_global_init">curl_global_init</a>(<a class="macro" href="../include/curl/curl.h.html#1155" title="((1&lt;&lt;0)|(1&lt;&lt;1))" data-ref="_M/CURL_GLOBAL_DEFAULT">CURL_GLOBAL_DEFAULT</a>);</td></tr>
+<tr><th id="203">203</th><td>    <b>if</b>(<a class="local col3 ref" href="#23res" title='res' data-ref="23res">res</a>)</td></tr>
+<tr><th id="204">204</th><td>      <i>/* something in the global init failed, return nothing */</i></td></tr>
+<tr><th id="205">205</th><td>      <b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="206">206</th><td>  }</td></tr>
+<tr><th id="207">207</th><td></td></tr>
+<tr><th id="208">208</th><td>  <i>/* We use curl_open() with undefined URL so far */</i></td></tr>
+<tr><th id="209">209</th><td>  <a class="local col3 ref" href="#23res" title='res' data-ref="23res">res</a> = <a class="ref" href="url.h.html#Curl_open" title='Curl_open' data-ref="Curl_open">Curl_open</a>(&amp;<a class="local col4 ref" href="#24data" title='data' data-ref="24data">data</a>);</td></tr>
+<tr><th id="210">210</th><td>  <b>if</b>(<a class="local col3 ref" href="#23res" title='res' data-ref="23res">res</a> != <a class="enum" href="../include/curl/curl.h.html#CURLE_OK" title='CURLE_OK' data-ref="CURLE_OK">CURLE_OK</a>)</td></tr>
+<tr><th id="211">211</th><td>    <b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="212">212</th><td></td></tr>
+<tr><th id="213">213</th><td>  <b>return</b> <a class="local col4 ref" href="#24data" title='data' data-ref="24data">data</a>;</td></tr>
+<tr><th id="214">214</th><td>}</td></tr>
+<tr><th id="215">215</th><td></td></tr>
+<tr><th id="216">216</th><td><b>typedef</b> <em>int</em> (*<dfn class="typedef" id="func_T" title='func_T' data-type='int (*)(void)' data-ref="func_T">func_T</dfn>)(<em>void</em>);</td></tr>
+<tr><th id="217">217</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="decl def" id="curl_easy_setopt" title='curl_easy_setopt' data-ref="curl_easy_setopt">curl_easy_setopt</dfn>(<a class="typedef" href="../include/curl/types.h.html#CURL" title='CURL' data-type='void' data-ref="CURL">CURL</a> *<dfn class="local col5 decl" id="25curl" title='curl' data-type='CURL *' data-ref="25curl">curl</dfn>, <a class="typedef" href="../include/curl/curl.h.html#CURLoption" title='CURLoption' data-type='enum CURLoption' data-ref="CURLoption">CURLoption</a> <dfn class="local col6 decl" id="26tag" title='tag' data-type='CURLoption' data-ref="26tag">tag</dfn>, ...)</td></tr>
+<tr><th id="218">218</th><td>{</td></tr>
+<tr><th id="219">219</th><td>  <span class='typedef' title='va_list' data-type='__gnuc_va_list' data-ref="va_list">va_list</span> <dfn class="local col7 decl" id="27arg" title='arg' data-type='va_list' data-ref="27arg">arg</dfn>;</td></tr>
+<tr><th id="220">220</th><td>  <a class="typedef" href="#func_T" title='func_T' data-type='int (*)(void)' data-ref="func_T">func_T</a> <dfn class="local col8 decl" id="28param_func" title='param_func' data-type='func_T' data-ref="28param_func">param_func</dfn> = (<a class="typedef" href="#func_T" title='func_T' data-type='int (*)(void)' data-ref="func_T">func_T</a>)<var>0</var>;</td></tr>
+<tr><th id="221">221</th><td>  <em>long</em> <dfn class="local col9 decl" id="29param_long" title='param_long' data-type='long' data-ref="29param_long">param_long</dfn> = <var>0</var>;</td></tr>
+<tr><th id="222">222</th><td>  <em>void</em> *<dfn class="local col0 decl" id="30param_obj" title='param_obj' data-type='void *' data-ref="30param_obj">param_obj</dfn> = <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="223">223</th><td>  <a class="typedef" href="../include/curl/curl.h.html#curl_off_t" title='curl_off_t' data-type='off_t' data-ref="curl_off_t">curl_off_t</a> <dfn class="local col1 decl" id="31param_offset" title='param_offset' data-type='curl_off_t' data-ref="31param_offset">param_offset</dfn> = <var>0</var>;</td></tr>
+<tr><th id="224">224</th><td>  <b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *<dfn class="local col2 decl" id="32data" title='data' data-type='struct SessionHandle *' data-ref="32data">data</dfn> = <a class="local col5 ref" href="#25curl" title='curl' data-ref="25curl">curl</a>;</td></tr>
+<tr><th id="225">225</th><td>  <a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="local col3 decl" id="33ret" title='ret' data-type='CURLcode' data-ref="33ret">ret</dfn>=<a class="enum" href="../include/curl/curl.h.html#CURLE_FAILED_INIT" title='CURLE_FAILED_INIT' data-ref="CURLE_FAILED_INIT">CURLE_FAILED_INIT</a>;</td></tr>
+<tr><th id="226">226</th><td></td></tr>
+<tr><th id="227">227</th><td>  <span class="macro" title="__builtin_va_start(arg, tag)" data-ref="_M/va_start">va_start</span>(<a class="local col7 ref" href="#27arg" title='arg' data-ref="27arg">arg</a>, <a class="local col6 ref" href="#26tag" title='tag' data-ref="26tag">tag</a>);</td></tr>
+<tr><th id="228">228</th><td></td></tr>
+<tr><th id="229">229</th><td>  <i>/* PORTING NOTE:</i></td></tr>
+<tr><th id="230">230</th><td><i>     Object pointers can't necessarily be casted to function pointers and</i></td></tr>
+<tr><th id="231">231</th><td><i>     therefore we need to know what type it is and read the correct type</i></td></tr>
+<tr><th id="232">232</th><td><i>     at once. This should also correct problems with different sizes of</i></td></tr>
+<tr><th id="233">233</th><td><i>     the types.</i></td></tr>
+<tr><th id="234">234</th><td><i>  */</i></td></tr>
+<tr><th id="235">235</th><td></td></tr>
+<tr><th id="236">236</th><td>  <b>if</b>(<a class="local col6 ref" href="#26tag" title='tag' data-ref="26tag">tag</a> &lt; <a class="macro" href="../include/curl/curl.h.html#325" title="10000" data-ref="_M/CURLOPTTYPE_OBJECTPOINT">CURLOPTTYPE_OBJECTPOINT</a>) {</td></tr>
+<tr><th id="237">237</th><td>    <i>/* This is a LONG type */</i></td></tr>
+<tr><th id="238">238</th><td>    <a class="local col9 ref" href="#29param_long" title='param_long' data-ref="29param_long">param_long</a> = <span class="macro" title="__builtin_va_arg(arg, long)" data-ref="_M/va_arg">va_arg</span>(<a class="local col7 ref" href="#27arg" title='arg' data-ref="27arg">arg</a>, <em>long</em>);</td></tr>
+<tr><th id="239">239</th><td>    <a class="local col3 ref" href="#33ret" title='ret' data-ref="33ret">ret</a> = <a class="ref" href="url.h.html#Curl_setopt" title='Curl_setopt' data-ref="Curl_setopt">Curl_setopt</a>(<a class="local col2 ref" href="#32data" title='data' data-ref="32data">data</a>, <a class="local col6 ref" href="#26tag" title='tag' data-ref="26tag">tag</a>, <a class="local col9 ref" href="#29param_long" title='param_long' data-ref="29param_long">param_long</a>);</td></tr>
+<tr><th id="240">240</th><td>  }</td></tr>
+<tr><th id="241">241</th><td>  <b>else</b> <b>if</b>(<a class="local col6 ref" href="#26tag" title='tag' data-ref="26tag">tag</a> &lt; <a class="macro" href="../include/curl/curl.h.html#326" title="20000" data-ref="_M/CURLOPTTYPE_FUNCTIONPOINT">CURLOPTTYPE_FUNCTIONPOINT</a>) {</td></tr>
+<tr><th id="242">242</th><td>    <i>/* This is a object pointer type */</i></td></tr>
+<tr><th id="243">243</th><td>    <a class="local col0 ref" href="#30param_obj" title='param_obj' data-ref="30param_obj">param_obj</a> = <span class="macro" title="__builtin_va_arg(arg, void *)" data-ref="_M/va_arg">va_arg</span>(<a class="local col7 ref" href="#27arg" title='arg' data-ref="27arg">arg</a>, <em>void</em> *);</td></tr>
+<tr><th id="244">244</th><td>    <a class="local col3 ref" href="#33ret" title='ret' data-ref="33ret">ret</a> = <a class="ref" href="url.h.html#Curl_setopt" title='Curl_setopt' data-ref="Curl_setopt">Curl_setopt</a>(<a class="local col2 ref" href="#32data" title='data' data-ref="32data">data</a>, <a class="local col6 ref" href="#26tag" title='tag' data-ref="26tag">tag</a>, <a class="local col0 ref" href="#30param_obj" title='param_obj' data-ref="30param_obj">param_obj</a>);</td></tr>
+<tr><th id="245">245</th><td>  }</td></tr>
+<tr><th id="246">246</th><td>  <b>else</b> <b>if</b>(<a class="local col6 ref" href="#26tag" title='tag' data-ref="26tag">tag</a> &lt; <a class="macro" href="../include/curl/curl.h.html#327" title="30000" data-ref="_M/CURLOPTTYPE_OFF_T">CURLOPTTYPE_OFF_T</a>) {</td></tr>
+<tr><th id="247">247</th><td>    <i>/* This is a function pointer type */</i></td></tr>
+<tr><th id="248">248</th><td>    <a class="local col8 ref" href="#28param_func" title='param_func' data-ref="28param_func">param_func</a> = <span class="macro" title="__builtin_va_arg(arg, func_T)" data-ref="_M/va_arg">va_arg</span>(<a class="local col7 ref" href="#27arg" title='arg' data-ref="27arg">arg</a>, <a class="typedef" href="#func_T" title='func_T' data-type='int (*)(void)' data-ref="func_T">func_T</a> );</td></tr>
+<tr><th id="249">249</th><td>    <a class="local col3 ref" href="#33ret" title='ret' data-ref="33ret">ret</a> = <a class="ref" href="url.h.html#Curl_setopt" title='Curl_setopt' data-ref="Curl_setopt">Curl_setopt</a>(<a class="local col2 ref" href="#32data" title='data' data-ref="32data">data</a>, <a class="local col6 ref" href="#26tag" title='tag' data-ref="26tag">tag</a>, <a class="local col8 ref" href="#28param_func" title='param_func' data-ref="28param_func">param_func</a>);</td></tr>
+<tr><th id="250">250</th><td>  } <b>else</b> {</td></tr>
+<tr><th id="251">251</th><td>    <i>/* This is a curl_off_t type */</i></td></tr>
+<tr><th id="252">252</th><td>    <a class="local col1 ref" href="#31param_offset" title='param_offset' data-ref="31param_offset">param_offset</a> = <span class="macro" title="__builtin_va_arg(arg, curl_off_t)" data-ref="_M/va_arg">va_arg</span>(<a class="local col7 ref" href="#27arg" title='arg' data-ref="27arg">arg</a>, <a class="typedef" href="../include/curl/curl.h.html#curl_off_t" title='curl_off_t' data-type='off_t' data-ref="curl_off_t">curl_off_t</a>);</td></tr>
+<tr><th id="253">253</th><td>    <a class="local col3 ref" href="#33ret" title='ret' data-ref="33ret">ret</a> = <a class="ref" href="url.h.html#Curl_setopt" title='Curl_setopt' data-ref="Curl_setopt">Curl_setopt</a>(<a class="local col2 ref" href="#32data" title='data' data-ref="32data">data</a>, <a class="local col6 ref" href="#26tag" title='tag' data-ref="26tag">tag</a>, <a class="local col1 ref" href="#31param_offset" title='param_offset' data-ref="31param_offset">param_offset</a>);</td></tr>
+<tr><th id="254">254</th><td>  }</td></tr>
+<tr><th id="255">255</th><td></td></tr>
+<tr><th id="256">256</th><td>  <span class="macro" title="__builtin_va_end(arg)" data-ref="_M/va_end">va_end</span>(<a class="local col7 ref" href="#27arg" title='arg' data-ref="27arg">arg</a>);</td></tr>
+<tr><th id="257">257</th><td>  <b>return</b> <a class="local col3 ref" href="#33ret" title='ret' data-ref="33ret">ret</a>;</td></tr>
+<tr><th id="258">258</th><td>}</td></tr>
+<tr><th id="259">259</th><td></td></tr>
+<tr><th id="260">260</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="decl def" id="curl_easy_perform" title='curl_easy_perform' data-ref="curl_easy_perform">curl_easy_perform</dfn>(<a class="typedef" href="../include/curl/types.h.html#CURL" title='CURL' data-type='void' data-ref="CURL">CURL</a> *<dfn class="local col4 decl" id="34curl" title='curl' data-type='CURL *' data-ref="34curl">curl</dfn>)</td></tr>
+<tr><th id="261">261</th><td>{</td></tr>
+<tr><th id="262">262</th><td>  <b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *<dfn class="local col5 decl" id="35data" title='data' data-type='struct SessionHandle *' data-ref="35data">data</dfn> = (<b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *)<a class="local col4 ref" href="#34curl" title='curl' data-ref="34curl">curl</a>;</td></tr>
+<tr><th id="263">263</th><td></td></tr>
+<tr><th id="264">264</th><td>  <b>if</b> ( ! (<a class="local col5 ref" href="#35data" title='data' data-ref="35data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::share" title='SessionHandle::share' data-ref="SessionHandle::share">share</a> &amp;&amp; <a class="local col5 ref" href="#35data" title='data' data-ref="35data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::share" title='SessionHandle::share' data-ref="SessionHandle::share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::hostcache" title='Curl_share::hostcache' data-ref="Curl_share::hostcache">hostcache</a>) ) {</td></tr>
+<tr><th id="265">265</th><td></td></tr>
+<tr><th id="266">266</th><td>    <b>if</b> (<a class="macro" href="hostip.h.html#38" title="((data)-&gt;set.global_dns_cache)" data-ref="_M/Curl_global_host_cache_use">Curl_global_host_cache_use</a>(<a class="local col5 ref" href="#35data" title='data' data-ref="35data">data</a>) &amp;&amp;</td></tr>
+<tr><th id="267">267</th><td>        <a class="local col5 ref" href="#35data" title='data' data-ref="35data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::hostcache" title='SessionHandle::hostcache' data-ref="SessionHandle::hostcache">hostcache</a> != <a class="ref" href="hostip.h.html#Curl_global_host_cache_get" title='Curl_global_host_cache_get' data-ref="Curl_global_host_cache_get">Curl_global_host_cache_get</a>()) {</td></tr>
+<tr><th id="268">268</th><td>      <b>if</b> (<a class="local col5 ref" href="#35data" title='data' data-ref="35data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::hostcache" title='SessionHandle::hostcache' data-ref="SessionHandle::hostcache">hostcache</a>)</td></tr>
+<tr><th id="269">269</th><td>        <a class="ref" href="hash.h.html#Curl_hash_destroy" title='Curl_hash_destroy' data-ref="Curl_hash_destroy">Curl_hash_destroy</a>(<a class="local col5 ref" href="#35data" title='data' data-ref="35data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::hostcache" title='SessionHandle::hostcache' data-ref="SessionHandle::hostcache">hostcache</a>);</td></tr>
+<tr><th id="270">270</th><td>      <a class="local col5 ref" href="#35data" title='data' data-ref="35data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::hostcache" title='SessionHandle::hostcache' data-ref="SessionHandle::hostcache">hostcache</a> = <a class="ref" href="hostip.h.html#Curl_global_host_cache_get" title='Curl_global_host_cache_get' data-ref="Curl_global_host_cache_get">Curl_global_host_cache_get</a>();</td></tr>
+<tr><th id="271">271</th><td>    }</td></tr>
+<tr><th id="272">272</th><td></td></tr>
+<tr><th id="273">273</th><td>    <b>if</b> (!<a class="local col5 ref" href="#35data" title='data' data-ref="35data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::hostcache" title='SessionHandle::hostcache' data-ref="SessionHandle::hostcache">hostcache</a>) {</td></tr>
+<tr><th id="274">274</th><td>      <a class="local col5 ref" href="#35data" title='data' data-ref="35data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::hostcache" title='SessionHandle::hostcache' data-ref="SessionHandle::hostcache">hostcache</a> = <a class="ref" href="hash.h.html#Curl_hash_alloc" title='Curl_hash_alloc' data-ref="Curl_hash_alloc">Curl_hash_alloc</a>(<var>7</var>, <a class="ref" href="hostip.h.html#Curl_freednsinfo" title='Curl_freednsinfo' data-ref="Curl_freednsinfo">Curl_freednsinfo</a>);</td></tr>
+<tr><th id="275">275</th><td></td></tr>
+<tr><th id="276">276</th><td>      <b>if</b>(!<a class="local col5 ref" href="#35data" title='data' data-ref="35data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::hostcache" title='SessionHandle::hostcache' data-ref="SessionHandle::hostcache">hostcache</a>)</td></tr>
+<tr><th id="277">277</th><td>        <i>/* While we possibly could survive and do good without a host cache,</i></td></tr>
+<tr><th id="278">278</th><td><i>           the fact that creating it failed indicates that things are truly</i></td></tr>
+<tr><th id="279">279</th><td><i>           screwed up and we should bail out! */</i></td></tr>
+<tr><th id="280">280</th><td>        <b>return</b> <a class="enum" href="../include/curl/curl.h.html#CURLE_OUT_OF_MEMORY" title='CURLE_OUT_OF_MEMORY' data-ref="CURLE_OUT_OF_MEMORY">CURLE_OUT_OF_MEMORY</a>;</td></tr>
+<tr><th id="281">281</th><td>    }</td></tr>
+<tr><th id="282">282</th><td>    </td></tr>
+<tr><th id="283">283</th><td>  }</td></tr>
+<tr><th id="284">284</th><td>  </td></tr>
+<tr><th id="285">285</th><td>  <b>return</b> <a class="ref" href="transfer.h.html#Curl_perform" title='Curl_perform' data-ref="Curl_perform">Curl_perform</a>(<a class="local col5 ref" href="#35data" title='data' data-ref="35data">data</a>);</td></tr>
+<tr><th id="286">286</th><td>}</td></tr>
+<tr><th id="287">287</th><td></td></tr>
+<tr><th id="288">288</th><td><em>void</em> <dfn class="decl def" id="curl_easy_cleanup" title='curl_easy_cleanup' data-ref="curl_easy_cleanup">curl_easy_cleanup</dfn>(<a class="typedef" href="../include/curl/types.h.html#CURL" title='CURL' data-type='void' data-ref="CURL">CURL</a> *<dfn class="local col6 decl" id="36curl" title='curl' data-type='CURL *' data-ref="36curl">curl</dfn>)</td></tr>
+<tr><th id="289">289</th><td>{</td></tr>
+<tr><th id="290">290</th><td>  <b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *<dfn class="local col7 decl" id="37data" title='data' data-type='struct SessionHandle *' data-ref="37data">data</dfn> = (<b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *)<a class="local col6 ref" href="#36curl" title='curl' data-ref="36curl">curl</a>;</td></tr>
+<tr><th id="291">291</th><td>  <b>if</b> ( ! (<a class="local col7 ref" href="#37data" title='data' data-ref="37data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::share" title='SessionHandle::share' data-ref="SessionHandle::share">share</a> &amp;&amp; <a class="local col7 ref" href="#37data" title='data' data-ref="37data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::share" title='SessionHandle::share' data-ref="SessionHandle::share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::hostcache" title='Curl_share::hostcache' data-ref="Curl_share::hostcache">hostcache</a>) ) {</td></tr>
+<tr><th id="292">292</th><td>    <b>if</b> ( !<a class="macro" href="hostip.h.html#38" title="((data)-&gt;set.global_dns_cache)" data-ref="_M/Curl_global_host_cache_use">Curl_global_host_cache_use</a>(<a class="local col7 ref" href="#37data" title='data' data-ref="37data">data</a>)) {</td></tr>
+<tr><th id="293">293</th><td>      <a class="ref" href="hash.h.html#Curl_hash_destroy" title='Curl_hash_destroy' data-ref="Curl_hash_destroy">Curl_hash_destroy</a>(<a class="local col7 ref" href="#37data" title='data' data-ref="37data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::hostcache" title='SessionHandle::hostcache' data-ref="SessionHandle::hostcache">hostcache</a>);</td></tr>
+<tr><th id="294">294</th><td>    }</td></tr>
+<tr><th id="295">295</th><td>  }</td></tr>
+<tr><th id="296">296</th><td>  <a class="ref" href="url.h.html#Curl_close" title='Curl_close' data-ref="Curl_close">Curl_close</a>(<a class="local col7 ref" href="#37data" title='data' data-ref="37data">data</a>);</td></tr>
+<tr><th id="297">297</th><td>}</td></tr>
+<tr><th id="298">298</th><td></td></tr>
+<tr><th id="299">299</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="decl def" id="curl_easy_getinfo" title='curl_easy_getinfo' data-ref="curl_easy_getinfo">curl_easy_getinfo</dfn>(<a class="typedef" href="../include/curl/types.h.html#CURL" title='CURL' data-type='void' data-ref="CURL">CURL</a> *<dfn class="local col8 decl" id="38curl" title='curl' data-type='CURL *' data-ref="38curl">curl</dfn>, <a class="typedef" href="../include/curl/curl.h.html#CURLINFO" title='CURLINFO' data-type='enum CURLINFO' data-ref="CURLINFO">CURLINFO</a> <dfn class="local col9 decl" id="39info" title='info' data-type='CURLINFO' data-ref="39info">info</dfn>, ...)</td></tr>
+<tr><th id="300">300</th><td>{</td></tr>
+<tr><th id="301">301</th><td>  <span class='typedef' title='va_list' data-type='__gnuc_va_list' data-ref="va_list">va_list</span> <dfn class="local col0 decl" id="40arg" title='arg' data-type='va_list' data-ref="40arg">arg</dfn>;</td></tr>
+<tr><th id="302">302</th><td>  <em>void</em> *<dfn class="local col1 decl" id="41paramp" title='paramp' data-type='void *' data-ref="41paramp">paramp</dfn>;</td></tr>
+<tr><th id="303">303</th><td>  <b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *<dfn class="local col2 decl" id="42data" title='data' data-type='struct SessionHandle *' data-ref="42data">data</dfn> = (<b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *)<a class="local col8 ref" href="#38curl" title='curl' data-ref="38curl">curl</a>;</td></tr>
+<tr><th id="304">304</th><td></td></tr>
+<tr><th id="305">305</th><td>  <span class="macro" title="__builtin_va_start(arg, info)" data-ref="_M/va_start">va_start</span>(<a class="local col0 ref" href="#40arg" title='arg' data-ref="40arg">arg</a>, <a class="local col9 ref" href="#39info" title='info' data-ref="39info">info</a>);</td></tr>
+<tr><th id="306">306</th><td>  <a class="local col1 ref" href="#41paramp" title='paramp' data-ref="41paramp">paramp</a> = <span class="macro" title="__builtin_va_arg(arg, void *)" data-ref="_M/va_arg">va_arg</span>(<a class="local col0 ref" href="#40arg" title='arg' data-ref="40arg">arg</a>, <em>void</em> *);</td></tr>
+<tr><th id="307">307</th><td></td></tr>
+<tr><th id="308">308</th><td>  <b>return</b> <a class="ref" href="getinfo.h.html#Curl_getinfo" title='Curl_getinfo' data-ref="Curl_getinfo">Curl_getinfo</a>(<a class="local col2 ref" href="#42data" title='data' data-ref="42data">data</a>, <a class="local col9 ref" href="#39info" title='info' data-ref="39info">info</a>, <a class="local col1 ref" href="#41paramp" title='paramp' data-ref="41paramp">paramp</a>);</td></tr>
+<tr><th id="309">309</th><td>}</td></tr>
+<tr><th id="310">310</th><td></td></tr>
+<tr><th id="311">311</th><td><a class="typedef" href="../include/curl/types.h.html#CURL" title='CURL' data-type='void' data-ref="CURL">CURL</a> *<dfn class="decl def" id="curl_easy_duphandle" title='curl_easy_duphandle' data-ref="curl_easy_duphandle">curl_easy_duphandle</dfn>(<a class="typedef" href="../include/curl/types.h.html#CURL" title='CURL' data-type='void' data-ref="CURL">CURL</a> *<dfn class="local col3 decl" id="43incurl" title='incurl' data-type='CURL *' data-ref="43incurl">incurl</dfn>)</td></tr>
+<tr><th id="312">312</th><td>{</td></tr>
+<tr><th id="313">313</th><td>  <b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *<dfn class="local col4 decl" id="44data" title='data' data-type='struct SessionHandle *' data-ref="44data">data</dfn>=(<b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *)<a class="local col3 ref" href="#43incurl" title='incurl' data-ref="43incurl">incurl</a>;</td></tr>
+<tr><th id="314">314</th><td></td></tr>
+<tr><th id="315">315</th><td>  <b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *<dfn class="local col5 decl" id="45outcurl" title='outcurl' data-type='struct SessionHandle *' data-ref="45outcurl">outcurl</dfn> = (<b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *)</td></tr>
+<tr><th id="316">316</th><td>    <a class="macro" href="memdebug.h.html#75" title="curl_domalloc(sizeof(struct SessionHandle), 316, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/easy.c&quot;)" data-ref="_M/malloc">malloc</a>(<b>sizeof</b>(<b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a>));</td></tr>
+<tr><th id="317">317</th><td></td></tr>
+<tr><th id="318">318</th><td>  <b>if</b>(<span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span> == <a class="local col5 ref" href="#45outcurl" title='outcurl' data-ref="45outcurl">outcurl</a>)</td></tr>
+<tr><th id="319">319</th><td>    <b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>; <i>/* failure */</i></td></tr>
+<tr><th id="320">320</th><td></td></tr>
+<tr><th id="321">321</th><td>  <i>/* start with clearing the entire new struct */</i></td></tr>
+<tr><th id="322">322</th><td>  <a class="ref" href="../../../include/string.h.html#memset" title='memset' data-ref="memset">memset</a>(<a class="local col5 ref" href="#45outcurl" title='outcurl' data-ref="45outcurl">outcurl</a>, <var>0</var>, <b>sizeof</b>(<b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a>));</td></tr>
+<tr><th id="323">323</th><td></td></tr>
+<tr><th id="324">324</th><td>  <i>/*</i></td></tr>
+<tr><th id="325">325</th><td><i>   * We setup a few buffers we need. We should probably make them</i></td></tr>
+<tr><th id="326">326</th><td><i>   * get setup on-demand in the code, as that would probably decrease</i></td></tr>
+<tr><th id="327">327</th><td><i>   * the likeliness of us forgetting to init a buffer here in the future.</i></td></tr>
+<tr><th id="328">328</th><td><i>   */</i></td></tr>
+<tr><th id="329">329</th><td>  <a class="local col5 ref" href="#45outcurl" title='outcurl' data-ref="45outcurl">outcurl</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::state" title='SessionHandle::state' data-ref="SessionHandle::state">state</a>.<a class="ref" href="urldata.h.html#UrlState::headerbuff" title='UrlState::headerbuff' data-ref="UrlState::headerbuff">headerbuff</a>=(<em>char</em>*)<a class="macro" href="memdebug.h.html#75" title="curl_domalloc(256, 329, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/easy.c&quot;)" data-ref="_M/malloc">malloc</a>(<a class="macro" href="urldata.h.html#108" title="256" data-ref="_M/HEADERSIZE">HEADERSIZE</a>);</td></tr>
+<tr><th id="330">330</th><td>  <b>if</b>(!<a class="local col5 ref" href="#45outcurl" title='outcurl' data-ref="45outcurl">outcurl</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::state" title='SessionHandle::state' data-ref="SessionHandle::state">state</a>.<a class="ref" href="urldata.h.html#UrlState::headerbuff" title='UrlState::headerbuff' data-ref="UrlState::headerbuff">headerbuff</a>) {</td></tr>
+<tr><th id="331">331</th><td>    <a class="macro" href="memdebug.h.html#78" title="curl_dofree(outcurl, 331, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/easy.c&quot;)" data-ref="_M/free">free</a>(<a class="local col5 ref" href="#45outcurl" title='outcurl' data-ref="45outcurl">outcurl</a>); <i>/* free the memory again */</i></td></tr>
+<tr><th id="332">332</th><td>    <b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="333">333</th><td>  }</td></tr>
+<tr><th id="334">334</th><td>  <a class="local col5 ref" href="#45outcurl" title='outcurl' data-ref="45outcurl">outcurl</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::state" title='SessionHandle::state' data-ref="SessionHandle::state">state</a>.<a class="ref" href="urldata.h.html#UrlState::headersize" title='UrlState::headersize' data-ref="UrlState::headersize">headersize</a>=<a class="macro" href="urldata.h.html#108" title="256" data-ref="_M/HEADERSIZE">HEADERSIZE</a>;</td></tr>
+<tr><th id="335">335</th><td></td></tr>
+<tr><th id="336">336</th><td>  <i>/* copy all userdefined values */</i></td></tr>
+<tr><th id="337">337</th><td>  <a class="local col5 ref" href="#45outcurl" title='outcurl' data-ref="45outcurl">outcurl</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::set" title='SessionHandle::set' data-ref="SessionHandle::set">set</a> = <a class="local col4 ref" href="#44data" title='data' data-ref="44data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::set" title='SessionHandle::set' data-ref="SessionHandle::set">set</a>;</td></tr>
+<tr><th id="338">338</th><td>  <a class="local col5 ref" href="#45outcurl" title='outcurl' data-ref="45outcurl">outcurl</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::state" title='SessionHandle::state' data-ref="SessionHandle::state">state</a>.<a class="ref" href="urldata.h.html#UrlState::numconnects" title='UrlState::numconnects' data-ref="UrlState::numconnects">numconnects</a> = <a class="local col4 ref" href="#44data" title='data' data-ref="44data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::state" title='SessionHandle::state' data-ref="SessionHandle::state">state</a>.<a class="ref" href="urldata.h.html#UrlState::numconnects" title='UrlState::numconnects' data-ref="UrlState::numconnects">numconnects</a>;</td></tr>
+<tr><th id="339">339</th><td>  <a class="local col5 ref" href="#45outcurl" title='outcurl' data-ref="45outcurl">outcurl</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::state" title='SessionHandle::state' data-ref="SessionHandle::state">state</a>.<a class="ref" href="urldata.h.html#UrlState::connects" title='UrlState::connects' data-ref="UrlState::connects">connects</a> = (<b>struct</b> <a class="type" href="urldata.h.html#connectdata" title='connectdata' data-ref="connectdata">connectdata</a> **)</td></tr>
+<tr><th id="340">340</th><td>      <a class="macro" href="memdebug.h.html#75" title="curl_domalloc(sizeof(struct connectdata *) * outcurl-&gt;state.numconnects, 340, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/easy.c&quot;)" data-ref="_M/malloc">malloc</a>(<b>sizeof</b>(<b>struct</b> <a class="type" href="urldata.h.html#connectdata" title='connectdata' data-ref="connectdata">connectdata</a> *) * <a class="local col5 ref" href="#45outcurl" title='outcurl' data-ref="45outcurl">outcurl</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::state" title='SessionHandle::state' data-ref="SessionHandle::state">state</a>.<a class="ref" href="urldata.h.html#UrlState::numconnects" title='UrlState::numconnects' data-ref="UrlState::numconnects">numconnects</a>);</td></tr>
+<tr><th id="341">341</th><td></td></tr>
+<tr><th id="342">342</th><td>  <b>if</b>(!<a class="local col5 ref" href="#45outcurl" title='outcurl' data-ref="45outcurl">outcurl</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::state" title='SessionHandle::state' data-ref="SessionHandle::state">state</a>.<a class="ref" href="urldata.h.html#UrlState::connects" title='UrlState::connects' data-ref="UrlState::connects">connects</a>) {</td></tr>
+<tr><th id="343">343</th><td>    <a class="macro" href="memdebug.h.html#78" title="curl_dofree(outcurl-&gt;state.headerbuff, 343, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/easy.c&quot;)" data-ref="_M/free">free</a>(<a class="local col5 ref" href="#45outcurl" title='outcurl' data-ref="45outcurl">outcurl</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::state" title='SessionHandle::state' data-ref="SessionHandle::state">state</a>.<a class="ref" href="urldata.h.html#UrlState::headerbuff" title='UrlState::headerbuff' data-ref="UrlState::headerbuff">headerbuff</a>);</td></tr>
+<tr><th id="344">344</th><td>    <a class="macro" href="memdebug.h.html#78" title="curl_dofree(outcurl, 344, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/easy.c&quot;)" data-ref="_M/free">free</a>(<a class="local col5 ref" href="#45outcurl" title='outcurl' data-ref="45outcurl">outcurl</a>);</td></tr>
+<tr><th id="345">345</th><td>    <b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="346">346</th><td>  }</td></tr>
+<tr><th id="347">347</th><td>  <a class="ref" href="../../../include/string.h.html#memset" title='memset' data-ref="memset">memset</a>(<a class="local col5 ref" href="#45outcurl" title='outcurl' data-ref="45outcurl">outcurl</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::state" title='SessionHandle::state' data-ref="SessionHandle::state">state</a>.<a class="ref" href="urldata.h.html#UrlState::connects" title='UrlState::connects' data-ref="UrlState::connects">connects</a>, <var>0</var>,</td></tr>
+<tr><th id="348">348</th><td>         <b>sizeof</b>(<b>struct</b> <a class="type" href="urldata.h.html#connectdata" title='connectdata' data-ref="connectdata">connectdata</a> *)*<a class="local col5 ref" href="#45outcurl" title='outcurl' data-ref="45outcurl">outcurl</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::state" title='SessionHandle::state' data-ref="SessionHandle::state">state</a>.<a class="ref" href="urldata.h.html#UrlState::numconnects" title='UrlState::numconnects' data-ref="UrlState::numconnects">numconnects</a>);</td></tr>
+<tr><th id="349">349</th><td></td></tr>
+<tr><th id="350">350</th><td>  <a class="local col5 ref" href="#45outcurl" title='outcurl' data-ref="45outcurl">outcurl</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::progress" title='SessionHandle::progress' data-ref="SessionHandle::progress">progress</a>.<a class="ref" href="urldata.h.html#Progress::flags" title='Progress::flags' data-ref="Progress::flags">flags</a>    = <a class="local col4 ref" href="#44data" title='data' data-ref="44data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::progress" title='SessionHandle::progress' data-ref="SessionHandle::progress">progress</a>.<a class="ref" href="urldata.h.html#Progress::flags" title='Progress::flags' data-ref="Progress::flags">flags</a>;</td></tr>
+<tr><th id="351">351</th><td>  <a class="local col5 ref" href="#45outcurl" title='outcurl' data-ref="45outcurl">outcurl</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::progress" title='SessionHandle::progress' data-ref="SessionHandle::progress">progress</a>.<a class="ref" href="urldata.h.html#Progress::callback" title='Progress::callback' data-ref="Progress::callback">callback</a> = <a class="local col4 ref" href="#44data" title='data' data-ref="44data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::progress" title='SessionHandle::progress' data-ref="SessionHandle::progress">progress</a>.<a class="ref" href="urldata.h.html#Progress::callback" title='Progress::callback' data-ref="Progress::callback">callback</a>;</td></tr>
+<tr><th id="352">352</th><td></td></tr>
+<tr><th id="353">353</th><td>  <b>if</b>(<a class="local col4 ref" href="#44data" title='data' data-ref="44data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::cookies" title='SessionHandle::cookies' data-ref="SessionHandle::cookies">cookies</a>)</td></tr>
+<tr><th id="354">354</th><td>    <i>/* If cookies are enabled in the parent handle, we enable them</i></td></tr>
+<tr><th id="355">355</th><td><i>       in the clone as well! */</i></td></tr>
+<tr><th id="356">356</th><td>    <a class="local col5 ref" href="#45outcurl" title='outcurl' data-ref="45outcurl">outcurl</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::cookies" title='SessionHandle::cookies' data-ref="SessionHandle::cookies">cookies</a> = <a class="ref" href="cookie.h.html#Curl_cookie_init" title='Curl_cookie_init' data-ref="Curl_cookie_init">Curl_cookie_init</a>(<a class="local col4 ref" href="#44data" title='data' data-ref="44data">data</a>,</td></tr>
+<tr><th id="357">357</th><td>                                        <a class="local col4 ref" href="#44data" title='data' data-ref="44data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::cookies" title='SessionHandle::cookies' data-ref="SessionHandle::cookies">cookies</a>-&gt;<a class="ref" href="cookie.h.html#CookieInfo::filename" title='CookieInfo::filename' data-ref="CookieInfo::filename">filename</a>,</td></tr>
+<tr><th id="358">358</th><td>                                        <a class="local col5 ref" href="#45outcurl" title='outcurl' data-ref="45outcurl">outcurl</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::cookies" title='SessionHandle::cookies' data-ref="SessionHandle::cookies">cookies</a>,</td></tr>
+<tr><th id="359">359</th><td>                                        <a class="local col4 ref" href="#44data" title='data' data-ref="44data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::set" title='SessionHandle::set' data-ref="SessionHandle::set">set</a>.<a class="ref" href="urldata.h.html#UserDefined::cookiesession" title='UserDefined::cookiesession' data-ref="UserDefined::cookiesession">cookiesession</a>);</td></tr>
+<tr><th id="360">360</th><td></td></tr>
+<tr><th id="361">361</th><td>  <i>/* duplicate all values in 'change' */</i></td></tr>
+<tr><th id="362">362</th><td>  <b>if</b>(<a class="local col4 ref" href="#44data" title='data' data-ref="44data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::change" title='SessionHandle::change' data-ref="SessionHandle::change">change</a>.<a class="ref" href="urldata.h.html#DynamicStatic::url" title='DynamicStatic::url' data-ref="DynamicStatic::url">url</a>) {</td></tr>
+<tr><th id="363">363</th><td>    <a class="local col5 ref" href="#45outcurl" title='outcurl' data-ref="45outcurl">outcurl</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::change" title='SessionHandle::change' data-ref="SessionHandle::change">change</a>.<a class="ref" href="urldata.h.html#DynamicStatic::url" title='DynamicStatic::url' data-ref="DynamicStatic::url">url</a> = <a class="macro" href="memdebug.h.html#74" title="curl_dostrdup(data-&gt;change.url, 363, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/easy.c&quot;)" data-ref="_M/strdup">strdup</a>(<a class="local col4 ref" href="#44data" title='data' data-ref="44data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::change" title='SessionHandle::change' data-ref="SessionHandle::change">change</a>.<a class="ref" href="urldata.h.html#DynamicStatic::url" title='DynamicStatic::url' data-ref="DynamicStatic::url">url</a>);</td></tr>
+<tr><th id="364">364</th><td>    <a class="local col5 ref" href="#45outcurl" title='outcurl' data-ref="45outcurl">outcurl</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::change" title='SessionHandle::change' data-ref="SessionHandle::change">change</a>.<a class="ref" href="urldata.h.html#DynamicStatic::url_alloc" title='DynamicStatic::url_alloc' data-ref="DynamicStatic::url_alloc">url_alloc</a> = <a class="macro" href="setup.h.html#67" title="1" data-ref="_M/TRUE">TRUE</a>;</td></tr>
+<tr><th id="365">365</th><td>  }</td></tr>
+<tr><th id="366">366</th><td>  <b>if</b>(<a class="local col4 ref" href="#44data" title='data' data-ref="44data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::change" title='SessionHandle::change' data-ref="SessionHandle::change">change</a>.<a class="ref" href="urldata.h.html#DynamicStatic::proxy" title='DynamicStatic::proxy' data-ref="DynamicStatic::proxy">proxy</a>) {</td></tr>
+<tr><th id="367">367</th><td>    <a class="local col5 ref" href="#45outcurl" title='outcurl' data-ref="45outcurl">outcurl</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::change" title='SessionHandle::change' data-ref="SessionHandle::change">change</a>.<a class="ref" href="urldata.h.html#DynamicStatic::proxy" title='DynamicStatic::proxy' data-ref="DynamicStatic::proxy">proxy</a> = <a class="macro" href="memdebug.h.html#74" title="curl_dostrdup(data-&gt;change.proxy, 367, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/easy.c&quot;)" data-ref="_M/strdup">strdup</a>(<a class="local col4 ref" href="#44data" title='data' data-ref="44data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::change" title='SessionHandle::change' data-ref="SessionHandle::change">change</a>.<a class="ref" href="urldata.h.html#DynamicStatic::proxy" title='DynamicStatic::proxy' data-ref="DynamicStatic::proxy">proxy</a>);</td></tr>
+<tr><th id="368">368</th><td>    <a class="local col5 ref" href="#45outcurl" title='outcurl' data-ref="45outcurl">outcurl</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::change" title='SessionHandle::change' data-ref="SessionHandle::change">change</a>.<a class="ref" href="urldata.h.html#DynamicStatic::proxy_alloc" title='DynamicStatic::proxy_alloc' data-ref="DynamicStatic::proxy_alloc">proxy_alloc</a> = <a class="macro" href="setup.h.html#67" title="1" data-ref="_M/TRUE">TRUE</a>;</td></tr>
+<tr><th id="369">369</th><td>  }</td></tr>
+<tr><th id="370">370</th><td>  <b>if</b>(<a class="local col4 ref" href="#44data" title='data' data-ref="44data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::change" title='SessionHandle::change' data-ref="SessionHandle::change">change</a>.<a class="ref" href="urldata.h.html#DynamicStatic::referer" title='DynamicStatic::referer' data-ref="DynamicStatic::referer">referer</a>) {</td></tr>
+<tr><th id="371">371</th><td>    <a class="local col5 ref" href="#45outcurl" title='outcurl' data-ref="45outcurl">outcurl</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::change" title='SessionHandle::change' data-ref="SessionHandle::change">change</a>.<a class="ref" href="urldata.h.html#DynamicStatic::referer" title='DynamicStatic::referer' data-ref="DynamicStatic::referer">referer</a> = <a class="macro" href="memdebug.h.html#74" title="curl_dostrdup(data-&gt;change.referer, 371, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/easy.c&quot;)" data-ref="_M/strdup">strdup</a>(<a class="local col4 ref" href="#44data" title='data' data-ref="44data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::change" title='SessionHandle::change' data-ref="SessionHandle::change">change</a>.<a class="ref" href="urldata.h.html#DynamicStatic::referer" title='DynamicStatic::referer' data-ref="DynamicStatic::referer">referer</a>);</td></tr>
+<tr><th id="372">372</th><td>    <a class="local col5 ref" href="#45outcurl" title='outcurl' data-ref="45outcurl">outcurl</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::change" title='SessionHandle::change' data-ref="SessionHandle::change">change</a>.<a class="ref" href="urldata.h.html#DynamicStatic::referer_alloc" title='DynamicStatic::referer_alloc' data-ref="DynamicStatic::referer_alloc">referer_alloc</a> = <a class="macro" href="setup.h.html#67" title="1" data-ref="_M/TRUE">TRUE</a>;</td></tr>
+<tr><th id="373">373</th><td>  }</td></tr>
+<tr><th id="374">374</th><td></td></tr>
+<tr><th id="375">375</th><td>  <b>return</b> <a class="local col5 ref" href="#45outcurl" title='outcurl' data-ref="45outcurl">outcurl</a>;</td></tr>
+<tr><th id="376">376</th><td>}</td></tr>
+<tr><th id="377">377</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

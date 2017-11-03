@@ -1,0 +1,242 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Timer.h source code [codebrowser/idlib/Timer.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idTimer,idTimerReport "/>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/idlib/Timer.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>idlib</a>/<a href='Timer.h.html'>Timer.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__TIMER_H__">__TIMER_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__TIMER_H__" data-ref="_M/__TIMER_H__">__TIMER_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>	Clock tick counter. Should only be used for profiling.</i></td></tr>
+<tr><th id="36">36</th><td><i></i></td></tr>
+<tr><th id="37">37</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="38">38</th><td><i>*/</i></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><b>class</b> <dfn class="type def" id="idTimer" title='idTimer' data-ref="idTimer">idTimer</dfn> {</td></tr>
+<tr><th id="41">41</th><td><b>public</b>:</td></tr>
+<tr><th id="42">42</th><td>					<a class="decl" href="#_ZN7idTimerC1Ev" title='idTimer::idTimer' data-ref="_ZN7idTimerC1Ev">idTimer</a>( <em>void</em> );</td></tr>
+<tr><th id="43">43</th><td>					<a class="decl" href="#_ZN7idTimerC1Ed" title='idTimer::idTimer' data-ref="_ZN7idTimerC1Ed">idTimer</a>( <em>double</em> <dfn class="local col3 decl" id="7343clockTicks" title='clockTicks' data-type='double' data-ref="7343clockTicks">clockTicks</dfn> );</td></tr>
+<tr><th id="44">44</th><td>					<a class="decl" href="#_ZN7idTimerD1Ev" title='idTimer::~idTimer' data-ref="_ZN7idTimerD1Ev">~idTimer</a>( <em>void</em> );</td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td>	<a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a>			<a class="decl" href="#_ZNK7idTimerplERKS_" title='idTimer::operator+' data-ref="_ZNK7idTimerplERKS_"><b>operator</b>+</a>( <em>const</em> <a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a> &amp;<dfn class="local col4 decl" id="7344t" title='t' data-type='const idTimer &amp;' data-ref="7344t">t</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="47">47</th><td>	<a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a>			<a class="decl" href="#_ZNK7idTimermiERKS_" title='idTimer::operator-' data-ref="_ZNK7idTimermiERKS_"><b>operator</b>-</a>( <em>const</em> <a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a> &amp;<dfn class="local col5 decl" id="7345t" title='t' data-type='const idTimer &amp;' data-ref="7345t">t</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="48">48</th><td>	<a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a> &amp;		<a class="decl" href="#_ZN7idTimerpLERKS_" title='idTimer::operator+=' data-ref="_ZN7idTimerpLERKS_"><b>operator</b>+=</a>( <em>const</em> <a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a> &amp;<dfn class="local col6 decl" id="7346t" title='t' data-type='const idTimer &amp;' data-ref="7346t">t</dfn> );</td></tr>
+<tr><th id="49">49</th><td>	<a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a> &amp;		<a class="decl" href="#_ZN7idTimermIERKS_" title='idTimer::operator-=' data-ref="_ZN7idTimermIERKS_"><b>operator</b>-=</a>( <em>const</em> <a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a> &amp;<dfn class="local col7 decl" id="7347t" title='t' data-type='const idTimer &amp;' data-ref="7347t">t</dfn> );</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td>	<em>void</em>			<a class="decl" href="#_ZN7idTimer5StartEv" title='idTimer::Start' data-ref="_ZN7idTimer5StartEv">Start</a>( <em>void</em> );</td></tr>
+<tr><th id="52">52</th><td>	<em>void</em>			<a class="decl" href="#_ZN7idTimer4StopEv" title='idTimer::Stop' data-ref="_ZN7idTimer4StopEv">Stop</a>( <em>void</em> );</td></tr>
+<tr><th id="53">53</th><td>	<em>void</em>			<a class="decl" href="#_ZN7idTimer5ClearEv" title='idTimer::Clear' data-ref="_ZN7idTimer5ClearEv">Clear</a>( <em>void</em> );</td></tr>
+<tr><th id="54">54</th><td>	<em>double</em>			<a class="decl" href="#_ZNK7idTimer10ClockTicksEv" title='idTimer::ClockTicks' data-ref="_ZNK7idTimer10ClockTicksEv">ClockTicks</a>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="55">55</th><td>	<em>double</em>			<a class="decl" href="#_ZNK7idTimer12MillisecondsEv" title='idTimer::Milliseconds' data-ref="_ZNK7idTimer12MillisecondsEv">Milliseconds</a>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td><b>private</b>:</td></tr>
+<tr><th id="58">58</th><td>	<em>static</em> <em>double</em>	<dfn class="decl" id="idTimer::base" title='idTimer::base' data-ref="idTimer::base">base</dfn>;</td></tr>
+<tr><th id="59">59</th><td>	<b>enum</b>			{</td></tr>
+<tr><th id="60">60</th><td>						<dfn class="enum" id="idTimer::TS_STARTED" title='idTimer::TS_STARTED' data-ref="idTimer::TS_STARTED">TS_STARTED</dfn>,</td></tr>
+<tr><th id="61">61</th><td>						<dfn class="enum" id="idTimer::TS_STOPPED" title='idTimer::TS_STOPPED' data-ref="idTimer::TS_STOPPED">TS_STOPPED</dfn></td></tr>
+<tr><th id="62">62</th><td>					} <dfn class="decl" id="idTimer::state" title='idTimer::state' data-ref="idTimer::state">state</dfn>;</td></tr>
+<tr><th id="63">63</th><td>	<em>double</em>			<dfn class="decl" id="idTimer::start" title='idTimer::start' data-ref="idTimer::start">start</dfn>;</td></tr>
+<tr><th id="64">64</th><td>	<em>double</em>			<dfn class="decl" id="idTimer::clockTicks" title='idTimer::clockTicks' data-ref="idTimer::clockTicks">clockTicks</dfn>;</td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td>	<em>void</em>			<dfn class="decl" id="_ZNK7idTimer18InitBaseClockTicksEv" title='idTimer::InitBaseClockTicks' data-ref="_ZNK7idTimer18InitBaseClockTicksEv">InitBaseClockTicks</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="67">67</th><td>};</td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td><i>/*</i></td></tr>
+<tr><th id="70">70</th><td><i>=================</i></td></tr>
+<tr><th id="71">71</th><td><i>idTimer::idTimer</i></td></tr>
+<tr><th id="72">72</th><td><i>=================</i></td></tr>
+<tr><th id="73">73</th><td><i>*/</i></td></tr>
+<tr><th id="74">74</th><td><a class="macro" href="../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a>::<dfn class="decl def" id="_ZN7idTimerC1Ev" title='idTimer::idTimer' data-ref="_ZN7idTimerC1Ev">idTimer</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="75">75</th><td>	<a class="member" href="#idTimer::state" title='idTimer::state' data-ref="idTimer::state">state</a> = <a class="enum" href="#idTimer::TS_STOPPED" title='idTimer::TS_STOPPED' data-ref="idTimer::TS_STOPPED">TS_STOPPED</a>;</td></tr>
+<tr><th id="76">76</th><td>	<a class="member" href="#idTimer::clockTicks" title='idTimer::clockTicks' data-ref="idTimer::clockTicks">clockTicks</a> = <var>0.0</var>;</td></tr>
+<tr><th id="77">77</th><td>}</td></tr>
+<tr><th id="78">78</th><td></td></tr>
+<tr><th id="79">79</th><td><i>/*</i></td></tr>
+<tr><th id="80">80</th><td><i>=================</i></td></tr>
+<tr><th id="81">81</th><td><i>idTimer::idTimer</i></td></tr>
+<tr><th id="82">82</th><td><i>=================</i></td></tr>
+<tr><th id="83">83</th><td><i>*/</i></td></tr>
+<tr><th id="84">84</th><td><a class="macro" href="../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a>::<dfn class="decl def" id="_ZN7idTimerC1Ed" title='idTimer::idTimer' data-ref="_ZN7idTimerC1Ed">idTimer</dfn>( <em>double</em> <dfn class="local col8 decl" id="7348_clockTicks" title='_clockTicks' data-type='double' data-ref="7348_clockTicks">_clockTicks</dfn> ) {</td></tr>
+<tr><th id="85">85</th><td>	<a class="member" href="#idTimer::state" title='idTimer::state' data-ref="idTimer::state">state</a> = <a class="enum" href="#idTimer::TS_STOPPED" title='idTimer::TS_STOPPED' data-ref="idTimer::TS_STOPPED">TS_STOPPED</a>;</td></tr>
+<tr><th id="86">86</th><td>	<a class="member" href="#idTimer::clockTicks" title='idTimer::clockTicks' data-ref="idTimer::clockTicks">clockTicks</a> = <a class="local col8 ref" href="#7348_clockTicks" title='_clockTicks' data-ref="7348_clockTicks">_clockTicks</a>;</td></tr>
+<tr><th id="87">87</th><td>}</td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td><i>/*</i></td></tr>
+<tr><th id="90">90</th><td><i>=================</i></td></tr>
+<tr><th id="91">91</th><td><i>idTimer::~idTimer</i></td></tr>
+<tr><th id="92">92</th><td><i>=================</i></td></tr>
+<tr><th id="93">93</th><td><i>*/</i></td></tr>
+<tr><th id="94">94</th><td><a class="macro" href="../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a>::<dfn class="decl def" id="_ZN7idTimerD1Ev" title='idTimer::~idTimer' data-ref="_ZN7idTimerD1Ev">~idTimer</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="95">95</th><td>}</td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td><i>/*</i></td></tr>
+<tr><th id="98">98</th><td><i>=================</i></td></tr>
+<tr><th id="99">99</th><td><i>idTimer::operator+</i></td></tr>
+<tr><th id="100">100</th><td><i>=================</i></td></tr>
+<tr><th id="101">101</th><td><i>*/</i></td></tr>
+<tr><th id="102">102</th><td><a class="macro" href="../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a> <a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a>::<dfn class="decl def" id="_ZNK7idTimerplERKS_" title='idTimer::operator+' data-ref="_ZNK7idTimerplERKS_"><b>operator</b>+</dfn>( <em>const</em> <a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a> &amp;<dfn class="local col9 decl" id="7349t" title='t' data-type='const idTimer &amp;' data-ref="7349t">t</dfn> ) <em>const</em> {</td></tr>
+<tr><th id="103">103</th><td>	<a class="macro" href="Lib.h.html#147" title="if ( state == TS_STOPPED &amp;&amp; t.state == TS_STOPPED ) { } else AssertFailed( &quot;/home/jon/workspace/id-software/DOOM-3/neo/TypeInfo/../idlib/Timer.h&quot;, 103, &quot;state == TS_STOPPED &amp;&amp; t.state == TS_STOPPED&quot; )" data-ref="_M/assert">assert</a>( <a class="member" href="#idTimer::state" title='idTimer::state' data-ref="idTimer::state">state</a> == <a class="enum" href="#idTimer::TS_STOPPED" title='idTimer::TS_STOPPED' data-ref="idTimer::TS_STOPPED">TS_STOPPED</a> &amp;&amp; <a class="local col9 ref" href="#7349t" title='t' data-ref="7349t">t</a>.<a class="member" href="#idTimer::state" title='idTimer::state' data-ref="idTimer::state">state</a> == <a class="enum" href="#idTimer::TS_STOPPED" title='idTimer::TS_STOPPED' data-ref="idTimer::TS_STOPPED">TS_STOPPED</a> );</td></tr>
+<tr><th id="104">104</th><td>	<b>return</b> <a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a><a class="ref" href="#_ZN7idTimerC1Ed" title='idTimer::idTimer' data-ref="_ZN7idTimerC1Ed">(</a> <a class="member" href="#idTimer::clockTicks" title='idTimer::clockTicks' data-ref="idTimer::clockTicks">clockTicks</a> + <a class="local col9 ref" href="#7349t" title='t' data-ref="7349t">t</a>.<a class="member" href="#idTimer::clockTicks" title='idTimer::clockTicks' data-ref="idTimer::clockTicks">clockTicks</a> );</td></tr>
+<tr><th id="105">105</th><td>}</td></tr>
+<tr><th id="106">106</th><td></td></tr>
+<tr><th id="107">107</th><td><i>/*</i></td></tr>
+<tr><th id="108">108</th><td><i>=================</i></td></tr>
+<tr><th id="109">109</th><td><i>idTimer::operator-</i></td></tr>
+<tr><th id="110">110</th><td><i>=================</i></td></tr>
+<tr><th id="111">111</th><td><i>*/</i></td></tr>
+<tr><th id="112">112</th><td><a class="macro" href="../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a> <a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a>::<dfn class="decl def" id="_ZNK7idTimermiERKS_" title='idTimer::operator-' data-ref="_ZNK7idTimermiERKS_"><b>operator</b>-</dfn>( <em>const</em> <a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a> &amp;<dfn class="local col0 decl" id="7350t" title='t' data-type='const idTimer &amp;' data-ref="7350t">t</dfn> ) <em>const</em> {</td></tr>
+<tr><th id="113">113</th><td>	<a class="macro" href="Lib.h.html#147" title="if ( state == TS_STOPPED &amp;&amp; t.state == TS_STOPPED ) { } else AssertFailed( &quot;/home/jon/workspace/id-software/DOOM-3/neo/TypeInfo/../idlib/Timer.h&quot;, 113, &quot;state == TS_STOPPED &amp;&amp; t.state == TS_STOPPED&quot; )" data-ref="_M/assert">assert</a>( <a class="member" href="#idTimer::state" title='idTimer::state' data-ref="idTimer::state">state</a> == <a class="enum" href="#idTimer::TS_STOPPED" title='idTimer::TS_STOPPED' data-ref="idTimer::TS_STOPPED">TS_STOPPED</a> &amp;&amp; <a class="local col0 ref" href="#7350t" title='t' data-ref="7350t">t</a>.<a class="member" href="#idTimer::state" title='idTimer::state' data-ref="idTimer::state">state</a> == <a class="enum" href="#idTimer::TS_STOPPED" title='idTimer::TS_STOPPED' data-ref="idTimer::TS_STOPPED">TS_STOPPED</a> );</td></tr>
+<tr><th id="114">114</th><td>	<b>return</b> <a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a><a class="ref" href="#_ZN7idTimerC1Ed" title='idTimer::idTimer' data-ref="_ZN7idTimerC1Ed">(</a> <a class="member" href="#idTimer::clockTicks" title='idTimer::clockTicks' data-ref="idTimer::clockTicks">clockTicks</a> - <a class="local col0 ref" href="#7350t" title='t' data-ref="7350t">t</a>.<a class="member" href="#idTimer::clockTicks" title='idTimer::clockTicks' data-ref="idTimer::clockTicks">clockTicks</a> );</td></tr>
+<tr><th id="115">115</th><td>}</td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td><i>/*</i></td></tr>
+<tr><th id="118">118</th><td><i>=================</i></td></tr>
+<tr><th id="119">119</th><td><i>idTimer::operator+=</i></td></tr>
+<tr><th id="120">120</th><td><i>=================</i></td></tr>
+<tr><th id="121">121</th><td><i>*/</i></td></tr>
+<tr><th id="122">122</th><td><a class="macro" href="../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a> &amp;<a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a>::<dfn class="decl def" id="_ZN7idTimerpLERKS_" title='idTimer::operator+=' data-ref="_ZN7idTimerpLERKS_"><b>operator</b>+=</dfn>( <em>const</em> <a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a> &amp;<dfn class="local col1 decl" id="7351t" title='t' data-type='const idTimer &amp;' data-ref="7351t">t</dfn> ) {</td></tr>
+<tr><th id="123">123</th><td>	<a class="macro" href="Lib.h.html#147" title="if ( state == TS_STOPPED &amp;&amp; t.state == TS_STOPPED ) { } else AssertFailed( &quot;/home/jon/workspace/id-software/DOOM-3/neo/TypeInfo/../idlib/Timer.h&quot;, 123, &quot;state == TS_STOPPED &amp;&amp; t.state == TS_STOPPED&quot; )" data-ref="_M/assert">assert</a>( <a class="member" href="#idTimer::state" title='idTimer::state' data-ref="idTimer::state">state</a> == <a class="enum" href="#idTimer::TS_STOPPED" title='idTimer::TS_STOPPED' data-ref="idTimer::TS_STOPPED">TS_STOPPED</a> &amp;&amp; <a class="local col1 ref" href="#7351t" title='t' data-ref="7351t">t</a>.<a class="member" href="#idTimer::state" title='idTimer::state' data-ref="idTimer::state">state</a> == <a class="enum" href="#idTimer::TS_STOPPED" title='idTimer::TS_STOPPED' data-ref="idTimer::TS_STOPPED">TS_STOPPED</a> );</td></tr>
+<tr><th id="124">124</th><td>	<a class="member" href="#idTimer::clockTicks" title='idTimer::clockTicks' data-ref="idTimer::clockTicks">clockTicks</a> += <a class="local col1 ref" href="#7351t" title='t' data-ref="7351t">t</a>.<a class="member" href="#idTimer::clockTicks" title='idTimer::clockTicks' data-ref="idTimer::clockTicks">clockTicks</a>;</td></tr>
+<tr><th id="125">125</th><td>	<b>return</b> *<b>this</b>;</td></tr>
+<tr><th id="126">126</th><td>}</td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td><i>/*</i></td></tr>
+<tr><th id="129">129</th><td><i>=================</i></td></tr>
+<tr><th id="130">130</th><td><i>idTimer::operator-=</i></td></tr>
+<tr><th id="131">131</th><td><i>=================</i></td></tr>
+<tr><th id="132">132</th><td><i>*/</i></td></tr>
+<tr><th id="133">133</th><td><a class="macro" href="../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a> &amp;<a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a>::<dfn class="decl def" id="_ZN7idTimermIERKS_" title='idTimer::operator-=' data-ref="_ZN7idTimermIERKS_"><b>operator</b>-=</dfn>( <em>const</em> <a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a> &amp;<dfn class="local col2 decl" id="7352t" title='t' data-type='const idTimer &amp;' data-ref="7352t">t</dfn> ) {</td></tr>
+<tr><th id="134">134</th><td>	<a class="macro" href="Lib.h.html#147" title="if ( state == TS_STOPPED &amp;&amp; t.state == TS_STOPPED ) { } else AssertFailed( &quot;/home/jon/workspace/id-software/DOOM-3/neo/TypeInfo/../idlib/Timer.h&quot;, 134, &quot;state == TS_STOPPED &amp;&amp; t.state == TS_STOPPED&quot; )" data-ref="_M/assert">assert</a>( <a class="member" href="#idTimer::state" title='idTimer::state' data-ref="idTimer::state">state</a> == <a class="enum" href="#idTimer::TS_STOPPED" title='idTimer::TS_STOPPED' data-ref="idTimer::TS_STOPPED">TS_STOPPED</a> &amp;&amp; <a class="local col2 ref" href="#7352t" title='t' data-ref="7352t">t</a>.<a class="member" href="#idTimer::state" title='idTimer::state' data-ref="idTimer::state">state</a> == <a class="enum" href="#idTimer::TS_STOPPED" title='idTimer::TS_STOPPED' data-ref="idTimer::TS_STOPPED">TS_STOPPED</a> );</td></tr>
+<tr><th id="135">135</th><td>	<a class="member" href="#idTimer::clockTicks" title='idTimer::clockTicks' data-ref="idTimer::clockTicks">clockTicks</a> -= <a class="local col2 ref" href="#7352t" title='t' data-ref="7352t">t</a>.<a class="member" href="#idTimer::clockTicks" title='idTimer::clockTicks' data-ref="idTimer::clockTicks">clockTicks</a>;</td></tr>
+<tr><th id="136">136</th><td>	<b>return</b> *<b>this</b>;</td></tr>
+<tr><th id="137">137</th><td>}</td></tr>
+<tr><th id="138">138</th><td></td></tr>
+<tr><th id="139">139</th><td><i>/*</i></td></tr>
+<tr><th id="140">140</th><td><i>=================</i></td></tr>
+<tr><th id="141">141</th><td><i>idTimer::Start</i></td></tr>
+<tr><th id="142">142</th><td><i>=================</i></td></tr>
+<tr><th id="143">143</th><td><i>*/</i></td></tr>
+<tr><th id="144">144</th><td><a class="macro" href="../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>void</em> <a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a>::<dfn class="decl def" id="_ZN7idTimer5StartEv" title='idTimer::Start' data-ref="_ZN7idTimer5StartEv">Start</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="145">145</th><td>	<a class="macro" href="Lib.h.html#147" title="if ( state == TS_STOPPED ) { } else AssertFailed( &quot;/home/jon/workspace/id-software/DOOM-3/neo/TypeInfo/../idlib/Timer.h&quot;, 145, &quot;state == TS_STOPPED&quot; )" data-ref="_M/assert">assert</a>( <a class="member" href="#idTimer::state" title='idTimer::state' data-ref="idTimer::state">state</a> == <a class="enum" href="#idTimer::TS_STOPPED" title='idTimer::TS_STOPPED' data-ref="idTimer::TS_STOPPED">TS_STOPPED</a> );</td></tr>
+<tr><th id="146">146</th><td>	<a class="member" href="#idTimer::state" title='idTimer::state' data-ref="idTimer::state">state</a> = <a class="enum" href="#idTimer::TS_STARTED" title='idTimer::TS_STARTED' data-ref="idTimer::TS_STARTED">TS_STARTED</a>;</td></tr>
+<tr><th id="147">147</th><td>	<a class="member" href="#idTimer::start" title='idTimer::start' data-ref="idTimer::start">start</a> = <a class="type" href="Lib.h.html#idLib" title='idLib' data-ref="idLib">idLib</a>::<a class="ref" href="Lib.h.html#idLib::sys" title='idLib::sys' data-ref="idLib::sys">sys</a>-&gt;<a class="virtual ref" href="../sys/sys_public.h.html#_ZN5idSys13GetClockTicksEv" title='idSys::GetClockTicks' data-ref="_ZN5idSys13GetClockTicksEv">GetClockTicks</a>();</td></tr>
+<tr><th id="148">148</th><td>}</td></tr>
+<tr><th id="149">149</th><td></td></tr>
+<tr><th id="150">150</th><td><i>/*</i></td></tr>
+<tr><th id="151">151</th><td><i>=================</i></td></tr>
+<tr><th id="152">152</th><td><i>idTimer::Stop</i></td></tr>
+<tr><th id="153">153</th><td><i>=================</i></td></tr>
+<tr><th id="154">154</th><td><i>*/</i></td></tr>
+<tr><th id="155">155</th><td><a class="macro" href="../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>void</em> <a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a>::<dfn class="decl def" id="_ZN7idTimer4StopEv" title='idTimer::Stop' data-ref="_ZN7idTimer4StopEv">Stop</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="156">156</th><td>	<a class="macro" href="Lib.h.html#147" title="if ( state == TS_STARTED ) { } else AssertFailed( &quot;/home/jon/workspace/id-software/DOOM-3/neo/TypeInfo/../idlib/Timer.h&quot;, 156, &quot;state == TS_STARTED&quot; )" data-ref="_M/assert">assert</a>( <a class="member" href="#idTimer::state" title='idTimer::state' data-ref="idTimer::state">state</a> == <a class="enum" href="#idTimer::TS_STARTED" title='idTimer::TS_STARTED' data-ref="idTimer::TS_STARTED">TS_STARTED</a> );</td></tr>
+<tr><th id="157">157</th><td>	<a class="member" href="#idTimer::clockTicks" title='idTimer::clockTicks' data-ref="idTimer::clockTicks">clockTicks</a> += <a class="type" href="Lib.h.html#idLib" title='idLib' data-ref="idLib">idLib</a>::<a class="ref" href="Lib.h.html#idLib::sys" title='idLib::sys' data-ref="idLib::sys">sys</a>-&gt;<a class="virtual ref" href="../sys/sys_public.h.html#_ZN5idSys13GetClockTicksEv" title='idSys::GetClockTicks' data-ref="_ZN5idSys13GetClockTicksEv">GetClockTicks</a>() - <a class="member" href="#idTimer::start" title='idTimer::start' data-ref="idTimer::start">start</a>;</td></tr>
+<tr><th id="158">158</th><td>	<b>if</b> ( <a class="member" href="#idTimer::base" title='idTimer::base' data-ref="idTimer::base">base</a> &lt; <var>0.0</var> ) {</td></tr>
+<tr><th id="159">159</th><td>		<a class="member" href="#_ZNK7idTimer18InitBaseClockTicksEv" title='idTimer::InitBaseClockTicks' data-ref="_ZNK7idTimer18InitBaseClockTicksEv">InitBaseClockTicks</a>();</td></tr>
+<tr><th id="160">160</th><td>	}</td></tr>
+<tr><th id="161">161</th><td>	<b>if</b> ( <a class="member" href="#idTimer::clockTicks" title='idTimer::clockTicks' data-ref="idTimer::clockTicks">clockTicks</a> &gt; <a class="member" href="#idTimer::base" title='idTimer::base' data-ref="idTimer::base">base</a> ) {</td></tr>
+<tr><th id="162">162</th><td>		<a class="member" href="#idTimer::clockTicks" title='idTimer::clockTicks' data-ref="idTimer::clockTicks">clockTicks</a> -= <a class="member" href="#idTimer::base" title='idTimer::base' data-ref="idTimer::base">base</a>;</td></tr>
+<tr><th id="163">163</th><td>	}</td></tr>
+<tr><th id="164">164</th><td>	<a class="member" href="#idTimer::state" title='idTimer::state' data-ref="idTimer::state">state</a> = <a class="enum" href="#idTimer::TS_STOPPED" title='idTimer::TS_STOPPED' data-ref="idTimer::TS_STOPPED">TS_STOPPED</a>;</td></tr>
+<tr><th id="165">165</th><td>}</td></tr>
+<tr><th id="166">166</th><td></td></tr>
+<tr><th id="167">167</th><td><i>/*</i></td></tr>
+<tr><th id="168">168</th><td><i>=================</i></td></tr>
+<tr><th id="169">169</th><td><i>idTimer::Clear</i></td></tr>
+<tr><th id="170">170</th><td><i>=================</i></td></tr>
+<tr><th id="171">171</th><td><i>*/</i></td></tr>
+<tr><th id="172">172</th><td><a class="macro" href="../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>void</em> <a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a>::<dfn class="decl def" id="_ZN7idTimer5ClearEv" title='idTimer::Clear' data-ref="_ZN7idTimer5ClearEv">Clear</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="173">173</th><td>	<a class="member" href="#idTimer::clockTicks" title='idTimer::clockTicks' data-ref="idTimer::clockTicks">clockTicks</a> = <var>0.0</var>;</td></tr>
+<tr><th id="174">174</th><td>}</td></tr>
+<tr><th id="175">175</th><td></td></tr>
+<tr><th id="176">176</th><td><i>/*</i></td></tr>
+<tr><th id="177">177</th><td><i>=================</i></td></tr>
+<tr><th id="178">178</th><td><i>idTimer::ClockTicks</i></td></tr>
+<tr><th id="179">179</th><td><i>=================</i></td></tr>
+<tr><th id="180">180</th><td><i>*/</i></td></tr>
+<tr><th id="181">181</th><td><a class="macro" href="../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>double</em> <a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a>::<dfn class="decl def" id="_ZNK7idTimer10ClockTicksEv" title='idTimer::ClockTicks' data-ref="_ZNK7idTimer10ClockTicksEv">ClockTicks</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="182">182</th><td>	<a class="macro" href="Lib.h.html#147" title="if ( state == TS_STOPPED ) { } else AssertFailed( &quot;/home/jon/workspace/id-software/DOOM-3/neo/TypeInfo/../idlib/Timer.h&quot;, 182, &quot;state == TS_STOPPED&quot; )" data-ref="_M/assert">assert</a>( <a class="member" href="#idTimer::state" title='idTimer::state' data-ref="idTimer::state">state</a> == <a class="enum" href="#idTimer::TS_STOPPED" title='idTimer::TS_STOPPED' data-ref="idTimer::TS_STOPPED">TS_STOPPED</a> );</td></tr>
+<tr><th id="183">183</th><td>	<b>return</b> <a class="member" href="#idTimer::clockTicks" title='idTimer::clockTicks' data-ref="idTimer::clockTicks">clockTicks</a>;</td></tr>
+<tr><th id="184">184</th><td>}</td></tr>
+<tr><th id="185">185</th><td></td></tr>
+<tr><th id="186">186</th><td><i>/*</i></td></tr>
+<tr><th id="187">187</th><td><i>=================</i></td></tr>
+<tr><th id="188">188</th><td><i>idTimer::Milliseconds</i></td></tr>
+<tr><th id="189">189</th><td><i>=================</i></td></tr>
+<tr><th id="190">190</th><td><i>*/</i></td></tr>
+<tr><th id="191">191</th><td><a class="macro" href="../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>double</em> <a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a>::<dfn class="decl def" id="_ZNK7idTimer12MillisecondsEv" title='idTimer::Milliseconds' data-ref="_ZNK7idTimer12MillisecondsEv">Milliseconds</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="192">192</th><td>	<a class="macro" href="Lib.h.html#147" title="if ( state == TS_STOPPED ) { } else AssertFailed( &quot;/home/jon/workspace/id-software/DOOM-3/neo/TypeInfo/../idlib/Timer.h&quot;, 192, &quot;state == TS_STOPPED&quot; )" data-ref="_M/assert">assert</a>( <a class="member" href="#idTimer::state" title='idTimer::state' data-ref="idTimer::state">state</a> == <a class="enum" href="#idTimer::TS_STOPPED" title='idTimer::TS_STOPPED' data-ref="idTimer::TS_STOPPED">TS_STOPPED</a> );</td></tr>
+<tr><th id="193">193</th><td>	<b>return</b> <a class="member" href="#idTimer::clockTicks" title='idTimer::clockTicks' data-ref="idTimer::clockTicks">clockTicks</a> / ( <a class="type" href="Lib.h.html#idLib" title='idLib' data-ref="idLib">idLib</a>::<a class="ref" href="Lib.h.html#idLib::sys" title='idLib::sys' data-ref="idLib::sys">sys</a>-&gt;<a class="virtual ref" href="../sys/sys_public.h.html#_ZN5idSys19ClockTicksPerSecondEv" title='idSys::ClockTicksPerSecond' data-ref="_ZN5idSys19ClockTicksPerSecondEv">ClockTicksPerSecond</a>() * <var>0.001</var> );</td></tr>
+<tr><th id="194">194</th><td>}</td></tr>
+<tr><th id="195">195</th><td></td></tr>
+<tr><th id="196">196</th><td></td></tr>
+<tr><th id="197">197</th><td><i>/*</i></td></tr>
+<tr><th id="198">198</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="199">199</th><td><i></i></td></tr>
+<tr><th id="200">200</th><td><i>	Report of multiple named timers.</i></td></tr>
+<tr><th id="201">201</th><td><i></i></td></tr>
+<tr><th id="202">202</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="203">203</th><td><i>*/</i></td></tr>
+<tr><th id="204">204</th><td></td></tr>
+<tr><th id="205">205</th><td><b>class</b> <dfn class="type def" id="idTimerReport" title='idTimerReport' data-ref="idTimerReport">idTimerReport</dfn> {</td></tr>
+<tr><th id="206">206</th><td><b>public</b>:</td></tr>
+<tr><th id="207">207</th><td>					<dfn class="decl" id="_ZN13idTimerReportC1Ev" title='idTimerReport::idTimerReport' data-ref="_ZN13idTimerReportC1Ev">idTimerReport</dfn>( <em>void</em> );</td></tr>
+<tr><th id="208">208</th><td>					<dfn class="decl" id="_ZN13idTimerReportD1Ev" title='idTimerReport::~idTimerReport' data-ref="_ZN13idTimerReportD1Ev">~idTimerReport</dfn>( <em>void</em> );</td></tr>
+<tr><th id="209">209</th><td></td></tr>
+<tr><th id="210">210</th><td>	<em>void</em>			<dfn class="decl" id="_ZN13idTimerReport13SetReportNameEPKc" title='idTimerReport::SetReportName' data-ref="_ZN13idTimerReport13SetReportNameEPKc">SetReportName</dfn>( <em>const</em> <em>char</em> *<dfn class="local col3 decl" id="7353name" title='name' data-type='const char *' data-ref="7353name">name</dfn> );</td></tr>
+<tr><th id="211">211</th><td>	<em>int</em>				<dfn class="decl" id="_ZN13idTimerReport9AddReportEPKc" title='idTimerReport::AddReport' data-ref="_ZN13idTimerReport9AddReportEPKc">AddReport</dfn>( <em>const</em> <em>char</em> *<dfn class="local col4 decl" id="7354name" title='name' data-type='const char *' data-ref="7354name">name</dfn> );</td></tr>
+<tr><th id="212">212</th><td>	<em>void</em>			<dfn class="decl" id="_ZN13idTimerReport5ClearEv" title='idTimerReport::Clear' data-ref="_ZN13idTimerReport5ClearEv">Clear</dfn>( <em>void</em> );</td></tr>
+<tr><th id="213">213</th><td>	<em>void</em>			<dfn class="decl" id="_ZN13idTimerReport5ResetEv" title='idTimerReport::Reset' data-ref="_ZN13idTimerReport5ResetEv">Reset</dfn>( <em>void</em> );</td></tr>
+<tr><th id="214">214</th><td>	<em>void</em>			<dfn class="decl" id="_ZN13idTimerReport11PrintReportEv" title='idTimerReport::PrintReport' data-ref="_ZN13idTimerReport11PrintReportEv">PrintReport</dfn>( <em>void</em> );</td></tr>
+<tr><th id="215">215</th><td>	<em>void</em>			<dfn class="decl" id="_ZN13idTimerReport7AddTimeEPKcP7idTimer" title='idTimerReport::AddTime' data-ref="_ZN13idTimerReport7AddTimeEPKcP7idTimer">AddTime</dfn>( <em>const</em> <em>char</em> *<dfn class="local col5 decl" id="7355name" title='name' data-type='const char *' data-ref="7355name">name</dfn>, <a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a> *<dfn class="local col6 decl" id="7356time" title='time' data-type='idTimer *' data-ref="7356time">time</dfn> );</td></tr>
+<tr><th id="216">216</th><td></td></tr>
+<tr><th id="217">217</th><td><b>private</b>:</td></tr>
+<tr><th id="218">218</th><td>	<a class="type" href="../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<a class="type" href="#idTimer" title='idTimer' data-ref="idTimer">idTimer</a>*&gt;<dfn class="decl" id="idTimerReport::timers" title='idTimerReport::timers' data-ref="idTimerReport::timers">timers</dfn>;</td></tr>
+<tr><th id="219">219</th><td>	<a class="typedef" href="containers/StrList.h.html#idStrList" title='idStrList' data-type='idList&lt;idStr&gt;' data-ref="idStrList">idStrList</a>		<dfn class="decl" id="idTimerReport::names" title='idTimerReport::names' data-ref="idTimerReport::names">names</dfn>;</td></tr>
+<tr><th id="220">220</th><td>	<a class="type" href="Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>			<dfn class="decl" id="idTimerReport::reportName" title='idTimerReport::reportName' data-ref="idTimerReport::reportName">reportName</dfn>;</td></tr>
+<tr><th id="221">221</th><td>};</td></tr>
+<tr><th id="222">222</th><td></td></tr>
+<tr><th id="223">223</th><td><u>#<span data-ppcond="29">endif</span> /* !__TIMER_H__ */</u></td></tr>
+<tr><th id="224">224</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../TypeInfo/TypeInfoGen.cpp.html'>codebrowser/TypeInfo/TypeInfoGen.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

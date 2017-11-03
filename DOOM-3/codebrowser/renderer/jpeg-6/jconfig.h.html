@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>jconfig.h source code [codebrowser/renderer/jpeg-6/jconfig.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/renderer/jpeg-6/jconfig.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>renderer</a>/<a href='./'>jpeg-6</a>/<a href='jconfig.h.html'>jconfig.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* jconfig.wat --- jconfig.h for Watcom C/C++ on MS-DOS or OS/2. */</i></td></tr>
+<tr><th id="2">2</th><td><i>/* see jconfig.doc for explanations */</i></td></tr>
+<tr><th id="3">3</th><td></td></tr>
+<tr><th id="4">4</th><td><u>#define <dfn class="macro" id="_M/HAVE_PROTOTYPES" data-ref="_M/HAVE_PROTOTYPES">HAVE_PROTOTYPES</dfn></u></td></tr>
+<tr><th id="5">5</th><td><u>#define <dfn class="macro" id="_M/HAVE_UNSIGNED_CHAR" data-ref="_M/HAVE_UNSIGNED_CHAR">HAVE_UNSIGNED_CHAR</dfn></u></td></tr>
+<tr><th id="6">6</th><td><u>#define <dfn class="macro" id="_M/HAVE_UNSIGNED_SHORT" data-ref="_M/HAVE_UNSIGNED_SHORT">HAVE_UNSIGNED_SHORT</dfn></u></td></tr>
+<tr><th id="7">7</th><td><i>/* #define void char */</i></td></tr>
+<tr><th id="8">8</th><td><i>/* #define const */</i></td></tr>
+<tr><th id="9">9</th><td><u>#define <dfn class="macro" id="_M/CHAR_IS_UNSIGNED" data-ref="_M/CHAR_IS_UNSIGNED">CHAR_IS_UNSIGNED</dfn></u></td></tr>
+<tr><th id="10">10</th><td><u>#define <dfn class="macro" id="_M/HAVE_STDDEF_H" data-ref="_M/HAVE_STDDEF_H">HAVE_STDDEF_H</dfn></u></td></tr>
+<tr><th id="11">11</th><td><u>#define <dfn class="macro" id="_M/HAVE_STDLIB_H" data-ref="_M/HAVE_STDLIB_H">HAVE_STDLIB_H</dfn></u></td></tr>
+<tr><th id="12">12</th><td><u>#undef <span class="macro" data-ref="_M/NEED_BSD_STRINGS">NEED_BSD_STRINGS</span></u></td></tr>
+<tr><th id="13">13</th><td><u>#undef <span class="macro" data-ref="_M/NEED_SYS_TYPES_H">NEED_SYS_TYPES_H</span></u></td></tr>
+<tr><th id="14">14</th><td><u>#undef <span class="macro" data-ref="_M/NEED_FAR_POINTERS">NEED_FAR_POINTERS</span>	/* Watcom uses flat 32-bit addressing */</u></td></tr>
+<tr><th id="15">15</th><td><u>#undef <span class="macro" data-ref="_M/NEED_SHORT_EXTERNAL_NAMES">NEED_SHORT_EXTERNAL_NAMES</span></u></td></tr>
+<tr><th id="16">16</th><td><u>#undef <span class="macro" data-ref="_M/INCOMPLETE_TYPES_BROKEN">INCOMPLETE_TYPES_BROKEN</span></u></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><u>#define <dfn class="macro" id="_M/JDCT_DEFAULT" data-ref="_M/JDCT_DEFAULT">JDCT_DEFAULT</dfn>  JDCT_FLOAT</u></td></tr>
+<tr><th id="19">19</th><td><u>#define <dfn class="macro" id="_M/JDCT_FASTEST" data-ref="_M/JDCT_FASTEST">JDCT_FASTEST</dfn>  JDCT_FLOAT</u></td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><u>#<span data-ppcond="21">ifdef</span> <a class="macro" href="../Cinematic.cpp.html#32" data-ref="_M/JPEG_INTERNALS">JPEG_INTERNALS</a></u></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><u>#undef <span class="macro" data-ref="_M/RIGHT_SHIFT_IS_UNSIGNED">RIGHT_SHIFT_IS_UNSIGNED</span></u></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><u>#<span data-ppcond="21">endif</span> /* JPEG_INTERNALS */</u></td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><u>#<span data-ppcond="27">ifdef</span> <span class="macro" data-ref="_M/JPEG_CJPEG_DJPEG">JPEG_CJPEG_DJPEG</span></u></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#define BMP_SUPPORTED		/* BMP image file format */</u></td></tr>
+<tr><th id="30">30</th><td><u>#define GIF_SUPPORTED		/* GIF image file format */</u></td></tr>
+<tr><th id="31">31</th><td><u>#define PPM_SUPPORTED		/* PBMPLUS PPM/PGM image file format */</u></td></tr>
+<tr><th id="32">32</th><td><u>#undef RLE_SUPPORTED		/* Utah RLE image file format */</u></td></tr>
+<tr><th id="33">33</th><td><u>#define TARGA_SUPPORTED		/* Targa image file format */</u></td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><u>#undef TWO_FILE_COMMANDLINE	/* optional */</u></td></tr>
+<tr><th id="36">36</th><td><u>#define USE_SETMODE		/* Needed to make one-file style work in Watcom */</u></td></tr>
+<tr><th id="37">37</th><td><u>#undef NEED_SIGNAL_CATCHER	/* Define this if you use jmemname.c */</u></td></tr>
+<tr><th id="38">38</th><td><u>#undef DONT_USE_B_MODE</u></td></tr>
+<tr><th id="39">39</th><td><u>#undef PROGRESS_REPORT		/* optional */</u></td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><u>#<span data-ppcond="27">endif</span> /* JPEG_CJPEG_DJPEG */</u></td></tr>
+<tr><th id="42">42</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../Cinematic.cpp.html'>codebrowser/renderer/Cinematic.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

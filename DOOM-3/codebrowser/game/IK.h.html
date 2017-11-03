@@ -1,0 +1,201 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>IK.h source code [codebrowser/game/IK.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idIK,idIK_Reach,idIK_Walk "/>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/game/IK.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>game</a>/<a href='IK.h.html'>IK.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__GAME_IK_H__">__GAME_IK_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__GAME_IK_H__" data-ref="_M/__GAME_IK_H__">__GAME_IK_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>  IK base class with a simple fast two bone solver.</i></td></tr>
+<tr><th id="36">36</th><td><i></i></td></tr>
+<tr><th id="37">37</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="38">38</th><td><i>*/</i></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><u>#define <dfn class="macro" id="_M/IK_ANIM" data-ref="_M/IK_ANIM">IK_ANIM</dfn>				"ik_pose"</u></td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><b>class</b> <dfn class="type def" id="idIK" title='idIK' data-ref="idIK">idIK</dfn> {</td></tr>
+<tr><th id="43">43</th><td><b>public</b>:</td></tr>
+<tr><th id="44">44</th><td>							<dfn class="decl" id="_ZN4idIKC1Ev" title='idIK::idIK' data-ref="_ZN4idIKC1Ev">idIK</dfn>( <em>void</em> );</td></tr>
+<tr><th id="45">45</th><td>	<b>virtual</b>					<dfn class="virtual decl" id="_ZN4idIKD1Ev" title='idIK::~idIK' data-ref="_ZN4idIKD1Ev">~idIK</dfn>( <em>void</em> );</td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td>	<em>void</em>					<dfn class="decl" id="_ZNK4idIK4SaveEP10idSaveGame" title='idIK::Save' data-ref="_ZNK4idIK4SaveEP10idSaveGame">Save</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idSaveGame" title='idSaveGame' data-ref="idSaveGame">idSaveGame</a> *<dfn class="local col3 decl" id="2653savefile" title='savefile' data-type='idSaveGame *' data-ref="2653savefile">savefile</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="48">48</th><td>	<em>void</em>					<dfn class="decl" id="_ZN4idIK7RestoreEP13idRestoreGame" title='idIK::Restore' data-ref="_ZN4idIK7RestoreEP13idRestoreGame">Restore</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idRestoreGame" title='idRestoreGame' data-ref="idRestoreGame">idRestoreGame</a> *<dfn class="local col4 decl" id="2654savefile" title='savefile' data-type='idRestoreGame *' data-ref="2654savefile">savefile</dfn> );</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td>	<em>bool</em>					<dfn class="decl" id="_ZNK4idIK13IsInitializedEv" title='idIK::IsInitialized' data-ref="_ZNK4idIK13IsInitializedEv">IsInitialized</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN4idIK4InitEP8idEntityPKcRK6idVec3" title='idIK::Init' data-ref="_ZN4idIK4InitEP8idEntityPKcRK6idVec3">Init</dfn>( <a class="type" href="Entity.h.html#idEntity" title='idEntity' data-ref="idEntity">idEntity</a> *<dfn class="local col5 decl" id="2655self" title='self' data-type='idEntity *' data-ref="2655self">self</dfn>, <em>const</em> <em>char</em> *<dfn class="local col6 decl" id="2656anim" title='anim' data-type='const char *' data-ref="2656anim">anim</dfn>, <em>const</em> <a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col7 decl" id="2657modelOffset" title='modelOffset' data-type='const idVec3 &amp;' data-ref="2657modelOffset">modelOffset</dfn> );</td></tr>
+<tr><th id="53">53</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN4idIK8EvaluateEv" title='idIK::Evaluate' data-ref="_ZN4idIK8EvaluateEv">Evaluate</dfn>( <em>void</em> );</td></tr>
+<tr><th id="54">54</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN4idIK14ClearJointModsEv" title='idIK::ClearJointMods' data-ref="_ZN4idIK14ClearJointModsEv">ClearJointMods</dfn>( <em>void</em> );</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td>	<em>bool</em>					<dfn class="decl" id="_ZN4idIK13SolveTwoBonesERK6idVec3S2_S2_ffRS0_" title='idIK::SolveTwoBones' data-ref="_ZN4idIK13SolveTwoBonesERK6idVec3S2_S2_ffRS0_">SolveTwoBones</dfn>( <em>const</em> <a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col8 decl" id="2658startPos" title='startPos' data-type='const idVec3 &amp;' data-ref="2658startPos">startPos</dfn>, <em>const</em> <a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col9 decl" id="2659endPos" title='endPos' data-type='const idVec3 &amp;' data-ref="2659endPos">endPos</dfn>, <em>const</em> <a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col0 decl" id="2660dir" title='dir' data-type='const idVec3 &amp;' data-ref="2660dir">dir</dfn>, <em>float</em> <dfn class="local col1 decl" id="2661len0" title='len0' data-type='float' data-ref="2661len0">len0</dfn>, <em>float</em> <dfn class="local col2 decl" id="2662len1" title='len1' data-type='float' data-ref="2662len1">len1</dfn>, <a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col3 decl" id="2663jointPos" title='jointPos' data-type='idVec3 &amp;' data-ref="2663jointPos">jointPos</dfn> );</td></tr>
+<tr><th id="57">57</th><td>	<em>float</em>					<dfn class="decl" id="_ZN4idIK11GetBoneAxisERK6idVec3S2_S2_R6idMat3" title='idIK::GetBoneAxis' data-ref="_ZN4idIK11GetBoneAxisERK6idVec3S2_S2_R6idMat3">GetBoneAxis</dfn>( <em>const</em> <a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col4 decl" id="2664startPos" title='startPos' data-type='const idVec3 &amp;' data-ref="2664startPos">startPos</dfn>, <em>const</em> <a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col5 decl" id="2665endPos" title='endPos' data-type='const idVec3 &amp;' data-ref="2665endPos">endPos</dfn>, <em>const</em> <a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col6 decl" id="2666dir" title='dir' data-type='const idVec3 &amp;' data-ref="2666dir">dir</dfn>, <a class="type" href="../idlib/math/Matrix.h.html#idMat3" title='idMat3' data-ref="idMat3">idMat3</a> &amp;<dfn class="local col7 decl" id="2667axis" title='axis' data-type='idMat3 &amp;' data-ref="2667axis">axis</dfn> );</td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td><b>protected</b>:</td></tr>
+<tr><th id="60">60</th><td>	<em>bool</em>					<dfn class="decl" id="idIK::initialized" title='idIK::initialized' data-ref="idIK::initialized">initialized</dfn>;</td></tr>
+<tr><th id="61">61</th><td>	<em>bool</em>					<dfn class="decl" id="idIK::ik_activate" title='idIK::ik_activate' data-ref="idIK::ik_activate">ik_activate</dfn>;</td></tr>
+<tr><th id="62">62</th><td>	<a class="type" href="Entity.h.html#idEntity" title='idEntity' data-ref="idEntity">idEntity</a> *				<dfn class="decl" id="idIK::self" title='idIK::self' data-ref="idIK::self">self</dfn>;				<i>// entity using the animated model</i></td></tr>
+<tr><th id="63">63</th><td>	<a class="type" href="anim/Anim.h.html#idAnimator" title='idAnimator' data-ref="idAnimator">idAnimator</a> *			<dfn class="decl" id="idIK::animator" title='idIK::animator' data-ref="idIK::animator">animator</dfn>;			<i>// animator on entity</i></td></tr>
+<tr><th id="64">64</th><td>	<em>int</em>						<dfn class="decl" id="idIK::modifiedAnim" title='idIK::modifiedAnim' data-ref="idIK::modifiedAnim">modifiedAnim</dfn>;		<i>// animation modified by the IK</i></td></tr>
+<tr><th id="65">65</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a>					<dfn class="decl" id="idIK::modelOffset" title='idIK::modelOffset' data-ref="idIK::modelOffset">modelOffset</dfn>;</td></tr>
+<tr><th id="66">66</th><td>};</td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td><i>/*</i></td></tr>
+<tr><th id="70">70</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="71">71</th><td><i></i></td></tr>
+<tr><th id="72">72</th><td><i>  IK controller for a walking character with an arbitrary number of legs.	</i></td></tr>
+<tr><th id="73">73</th><td><i></i></td></tr>
+<tr><th id="74">74</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="75">75</th><td><i>*/</i></td></tr>
+<tr><th id="76">76</th><td></td></tr>
+<tr><th id="77">77</th><td><b>class</b> <dfn class="type def" id="idIK_Walk" title='idIK_Walk' data-ref="idIK_Walk">idIK_Walk</dfn> : <b>public</b> <a class="type" href="#idIK" title='idIK' data-ref="idIK">idIK</a> {</td></tr>
+<tr><th id="78">78</th><td><b>public</b>:</td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td>							<dfn class="decl" id="_ZN9idIK_WalkC1Ev" title='idIK_Walk::idIK_Walk' data-ref="_ZN9idIK_WalkC1Ev">idIK_Walk</dfn>( <em>void</em> );</td></tr>
+<tr><th id="81">81</th><td>	<b>virtual</b>					<dfn class="virtual decl" id="_ZN9idIK_WalkD1Ev" title='idIK_Walk::~idIK_Walk' data-ref="_ZN9idIK_WalkD1Ev">~idIK_Walk</dfn>( <em>void</em> );</td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td>	<em>void</em>					<dfn class="decl" id="_ZNK9idIK_Walk4SaveEP10idSaveGame" title='idIK_Walk::Save' data-ref="_ZNK9idIK_Walk4SaveEP10idSaveGame">Save</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idSaveGame" title='idSaveGame' data-ref="idSaveGame">idSaveGame</a> *<dfn class="local col8 decl" id="2668savefile" title='savefile' data-type='idSaveGame *' data-ref="2668savefile">savefile</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="84">84</th><td>	<em>void</em>					<dfn class="decl" id="_ZN9idIK_Walk7RestoreEP13idRestoreGame" title='idIK_Walk::Restore' data-ref="_ZN9idIK_Walk7RestoreEP13idRestoreGame">Restore</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idRestoreGame" title='idRestoreGame' data-ref="idRestoreGame">idRestoreGame</a> *<dfn class="local col9 decl" id="2669savefile" title='savefile' data-type='idRestoreGame *' data-ref="2669savefile">savefile</dfn> );</td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN9idIK_Walk4InitEP8idEntityPKcRK6idVec3" title='idIK_Walk::Init' data-ref="_ZN9idIK_Walk4InitEP8idEntityPKcRK6idVec3">Init</dfn>( <a class="type" href="Entity.h.html#idEntity" title='idEntity' data-ref="idEntity">idEntity</a> *<dfn class="local col0 decl" id="2670self" title='self' data-type='idEntity *' data-ref="2670self">self</dfn>, <em>const</em> <em>char</em> *<dfn class="local col1 decl" id="2671anim" title='anim' data-type='const char *' data-ref="2671anim">anim</dfn>, <em>const</em> <a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col2 decl" id="2672modelOffset" title='modelOffset' data-type='const idVec3 &amp;' data-ref="2672modelOffset">modelOffset</dfn> );</td></tr>
+<tr><th id="87">87</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN9idIK_Walk8EvaluateEv" title='idIK_Walk::Evaluate' data-ref="_ZN9idIK_Walk8EvaluateEv">Evaluate</dfn>( <em>void</em> );</td></tr>
+<tr><th id="88">88</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN9idIK_Walk14ClearJointModsEv" title='idIK_Walk::ClearJointMods' data-ref="_ZN9idIK_Walk14ClearJointModsEv">ClearJointMods</dfn>( <em>void</em> );</td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td>	<em>void</em>					<dfn class="decl" id="_ZN9idIK_Walk9EnableAllEv" title='idIK_Walk::EnableAll' data-ref="_ZN9idIK_Walk9EnableAllEv">EnableAll</dfn>( <em>void</em> );</td></tr>
+<tr><th id="91">91</th><td>	<em>void</em>					<dfn class="decl" id="_ZN9idIK_Walk10DisableAllEv" title='idIK_Walk::DisableAll' data-ref="_ZN9idIK_Walk10DisableAllEv">DisableAll</dfn>( <em>void</em> );</td></tr>
+<tr><th id="92">92</th><td>	<em>void</em>					<dfn class="decl" id="_ZN9idIK_Walk9EnableLegEi" title='idIK_Walk::EnableLeg' data-ref="_ZN9idIK_Walk9EnableLegEi">EnableLeg</dfn>( <em>int</em> <dfn class="local col3 decl" id="2673num" title='num' data-type='int' data-ref="2673num">num</dfn> );</td></tr>
+<tr><th id="93">93</th><td>	<em>void</em>					<dfn class="decl" id="_ZN9idIK_Walk10DisableLegEi" title='idIK_Walk::DisableLeg' data-ref="_ZN9idIK_Walk10DisableLegEi">DisableLeg</dfn>( <em>int</em> <dfn class="local col4 decl" id="2674num" title='num' data-type='int' data-ref="2674num">num</dfn> );</td></tr>
+<tr><th id="94">94</th><td></td></tr>
+<tr><th id="95">95</th><td><b>private</b>:</td></tr>
+<tr><th id="96">96</th><td>	<em>static</em> <em>const</em> <em>int</em>		<dfn class="decl" id="idIK_Walk::MAX_LEGS" title='idIK_Walk::MAX_LEGS' data-ref="idIK_Walk::MAX_LEGS">MAX_LEGS</dfn>		= <var>8</var>;</td></tr>
+<tr><th id="97">97</th><td></td></tr>
+<tr><th id="98">98</th><td>	<a class="type" href="physics/Clip.h.html#idClipModel" title='idClipModel' data-ref="idClipModel">idClipModel</a> *			<dfn class="decl" id="idIK_Walk::footModel" title='idIK_Walk::footModel' data-ref="idIK_Walk::footModel">footModel</dfn>;</td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td>	<em>int</em>						<dfn class="decl" id="idIK_Walk::numLegs" title='idIK_Walk::numLegs' data-ref="idIK_Walk::numLegs">numLegs</dfn>;</td></tr>
+<tr><th id="101">101</th><td>	<em>int</em>						<dfn class="decl" id="idIK_Walk::enabledLegs" title='idIK_Walk::enabledLegs' data-ref="idIK_Walk::enabledLegs">enabledLegs</dfn>;</td></tr>
+<tr><th id="102">102</th><td>	<a class="typedef" href="../renderer/Model.h.html#jointHandle_t" title='jointHandle_t' data-type='enum jointHandle_t' data-ref="jointHandle_t">jointHandle_t</a>			<dfn class="decl" id="idIK_Walk::footJoints" title='idIK_Walk::footJoints' data-ref="idIK_Walk::footJoints">footJoints</dfn>[<a class="ref" href="#idIK_Walk::MAX_LEGS" title='idIK_Walk::MAX_LEGS' data-ref="idIK_Walk::MAX_LEGS">MAX_LEGS</a>];</td></tr>
+<tr><th id="103">103</th><td>	<a class="typedef" href="../renderer/Model.h.html#jointHandle_t" title='jointHandle_t' data-type='enum jointHandle_t' data-ref="jointHandle_t">jointHandle_t</a>			<dfn class="decl" id="idIK_Walk::ankleJoints" title='idIK_Walk::ankleJoints' data-ref="idIK_Walk::ankleJoints">ankleJoints</dfn>[<a class="ref" href="#idIK_Walk::MAX_LEGS" title='idIK_Walk::MAX_LEGS' data-ref="idIK_Walk::MAX_LEGS">MAX_LEGS</a>];</td></tr>
+<tr><th id="104">104</th><td>	<a class="typedef" href="../renderer/Model.h.html#jointHandle_t" title='jointHandle_t' data-type='enum jointHandle_t' data-ref="jointHandle_t">jointHandle_t</a>			<dfn class="decl" id="idIK_Walk::kneeJoints" title='idIK_Walk::kneeJoints' data-ref="idIK_Walk::kneeJoints">kneeJoints</dfn>[<a class="ref" href="#idIK_Walk::MAX_LEGS" title='idIK_Walk::MAX_LEGS' data-ref="idIK_Walk::MAX_LEGS">MAX_LEGS</a>];</td></tr>
+<tr><th id="105">105</th><td>	<a class="typedef" href="../renderer/Model.h.html#jointHandle_t" title='jointHandle_t' data-type='enum jointHandle_t' data-ref="jointHandle_t">jointHandle_t</a>			<dfn class="decl" id="idIK_Walk::hipJoints" title='idIK_Walk::hipJoints' data-ref="idIK_Walk::hipJoints">hipJoints</dfn>[<a class="ref" href="#idIK_Walk::MAX_LEGS" title='idIK_Walk::MAX_LEGS' data-ref="idIK_Walk::MAX_LEGS">MAX_LEGS</a>];</td></tr>
+<tr><th id="106">106</th><td>	<a class="typedef" href="../renderer/Model.h.html#jointHandle_t" title='jointHandle_t' data-type='enum jointHandle_t' data-ref="jointHandle_t">jointHandle_t</a>			<dfn class="decl" id="idIK_Walk::dirJoints" title='idIK_Walk::dirJoints' data-ref="idIK_Walk::dirJoints">dirJoints</dfn>[<a class="ref" href="#idIK_Walk::MAX_LEGS" title='idIK_Walk::MAX_LEGS' data-ref="idIK_Walk::MAX_LEGS">MAX_LEGS</a>];</td></tr>
+<tr><th id="107">107</th><td>	<a class="typedef" href="../renderer/Model.h.html#jointHandle_t" title='jointHandle_t' data-type='enum jointHandle_t' data-ref="jointHandle_t">jointHandle_t</a>			<dfn class="decl" id="idIK_Walk::waistJoint" title='idIK_Walk::waistJoint' data-ref="idIK_Walk::waistJoint">waistJoint</dfn>;</td></tr>
+<tr><th id="108">108</th><td></td></tr>
+<tr><th id="109">109</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a>					<dfn class="decl" id="idIK_Walk::hipForward" title='idIK_Walk::hipForward' data-ref="idIK_Walk::hipForward">hipForward</dfn>[<a class="ref" href="#idIK_Walk::MAX_LEGS" title='idIK_Walk::MAX_LEGS' data-ref="idIK_Walk::MAX_LEGS">MAX_LEGS</a>];</td></tr>
+<tr><th id="110">110</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a>					<dfn class="decl" id="idIK_Walk::kneeForward" title='idIK_Walk::kneeForward' data-ref="idIK_Walk::kneeForward">kneeForward</dfn>[<a class="ref" href="#idIK_Walk::MAX_LEGS" title='idIK_Walk::MAX_LEGS' data-ref="idIK_Walk::MAX_LEGS">MAX_LEGS</a>];</td></tr>
+<tr><th id="111">111</th><td></td></tr>
+<tr><th id="112">112</th><td>	<em>float</em>					<dfn class="decl" id="idIK_Walk::upperLegLength" title='idIK_Walk::upperLegLength' data-ref="idIK_Walk::upperLegLength">upperLegLength</dfn>[<a class="ref" href="#idIK_Walk::MAX_LEGS" title='idIK_Walk::MAX_LEGS' data-ref="idIK_Walk::MAX_LEGS">MAX_LEGS</a>];</td></tr>
+<tr><th id="113">113</th><td>	<em>float</em>					<dfn class="decl" id="idIK_Walk::lowerLegLength" title='idIK_Walk::lowerLegLength' data-ref="idIK_Walk::lowerLegLength">lowerLegLength</dfn>[<a class="ref" href="#idIK_Walk::MAX_LEGS" title='idIK_Walk::MAX_LEGS' data-ref="idIK_Walk::MAX_LEGS">MAX_LEGS</a>];</td></tr>
+<tr><th id="114">114</th><td></td></tr>
+<tr><th id="115">115</th><td>	<a class="type" href="../idlib/math/Matrix.h.html#idMat3" title='idMat3' data-ref="idMat3">idMat3</a>					<dfn class="decl" id="idIK_Walk::upperLegToHipJoint" title='idIK_Walk::upperLegToHipJoint' data-ref="idIK_Walk::upperLegToHipJoint">upperLegToHipJoint</dfn>[<a class="ref" href="#idIK_Walk::MAX_LEGS" title='idIK_Walk::MAX_LEGS' data-ref="idIK_Walk::MAX_LEGS">MAX_LEGS</a>];</td></tr>
+<tr><th id="116">116</th><td>	<a class="type" href="../idlib/math/Matrix.h.html#idMat3" title='idMat3' data-ref="idMat3">idMat3</a>					<dfn class="decl" id="idIK_Walk::lowerLegToKneeJoint" title='idIK_Walk::lowerLegToKneeJoint' data-ref="idIK_Walk::lowerLegToKneeJoint">lowerLegToKneeJoint</dfn>[<a class="ref" href="#idIK_Walk::MAX_LEGS" title='idIK_Walk::MAX_LEGS' data-ref="idIK_Walk::MAX_LEGS">MAX_LEGS</a>];</td></tr>
+<tr><th id="117">117</th><td></td></tr>
+<tr><th id="118">118</th><td>	<em>float</em>					<dfn class="decl" id="idIK_Walk::smoothing" title='idIK_Walk::smoothing' data-ref="idIK_Walk::smoothing">smoothing</dfn>;</td></tr>
+<tr><th id="119">119</th><td>	<em>float</em>					<dfn class="decl" id="idIK_Walk::waistSmoothing" title='idIK_Walk::waistSmoothing' data-ref="idIK_Walk::waistSmoothing">waistSmoothing</dfn>;</td></tr>
+<tr><th id="120">120</th><td>	<em>float</em>					<dfn class="decl" id="idIK_Walk::footShift" title='idIK_Walk::footShift' data-ref="idIK_Walk::footShift">footShift</dfn>;</td></tr>
+<tr><th id="121">121</th><td>	<em>float</em>					<dfn class="decl" id="idIK_Walk::waistShift" title='idIK_Walk::waistShift' data-ref="idIK_Walk::waistShift">waistShift</dfn>;</td></tr>
+<tr><th id="122">122</th><td>	<em>float</em>					<dfn class="decl" id="idIK_Walk::minWaistFloorDist" title='idIK_Walk::minWaistFloorDist' data-ref="idIK_Walk::minWaistFloorDist">minWaistFloorDist</dfn>;</td></tr>
+<tr><th id="123">123</th><td>	<em>float</em>					<dfn class="decl" id="idIK_Walk::minWaistAnkleDist" title='idIK_Walk::minWaistAnkleDist' data-ref="idIK_Walk::minWaistAnkleDist">minWaistAnkleDist</dfn>;</td></tr>
+<tr><th id="124">124</th><td>	<em>float</em>					<dfn class="decl" id="idIK_Walk::footUpTrace" title='idIK_Walk::footUpTrace' data-ref="idIK_Walk::footUpTrace">footUpTrace</dfn>;</td></tr>
+<tr><th id="125">125</th><td>	<em>float</em>					<dfn class="decl" id="idIK_Walk::footDownTrace" title='idIK_Walk::footDownTrace' data-ref="idIK_Walk::footDownTrace">footDownTrace</dfn>;</td></tr>
+<tr><th id="126">126</th><td>	<em>bool</em>					<dfn class="decl" id="idIK_Walk::tiltWaist" title='idIK_Walk::tiltWaist' data-ref="idIK_Walk::tiltWaist">tiltWaist</dfn>;</td></tr>
+<tr><th id="127">127</th><td>	<em>bool</em>					<dfn class="decl" id="idIK_Walk::usePivot" title='idIK_Walk::usePivot' data-ref="idIK_Walk::usePivot">usePivot</dfn>;</td></tr>
+<tr><th id="128">128</th><td></td></tr>
+<tr><th id="129">129</th><td>	<i>// state</i></td></tr>
+<tr><th id="130">130</th><td>	<em>int</em>						<dfn class="decl" id="idIK_Walk::pivotFoot" title='idIK_Walk::pivotFoot' data-ref="idIK_Walk::pivotFoot">pivotFoot</dfn>;</td></tr>
+<tr><th id="131">131</th><td>	<em>float</em>					<dfn class="decl" id="idIK_Walk::pivotYaw" title='idIK_Walk::pivotYaw' data-ref="idIK_Walk::pivotYaw">pivotYaw</dfn>;</td></tr>
+<tr><th id="132">132</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a>					<dfn class="decl" id="idIK_Walk::pivotPos" title='idIK_Walk::pivotPos' data-ref="idIK_Walk::pivotPos">pivotPos</dfn>;</td></tr>
+<tr><th id="133">133</th><td>	<em>bool</em>					<dfn class="decl" id="idIK_Walk::oldHeightsValid" title='idIK_Walk::oldHeightsValid' data-ref="idIK_Walk::oldHeightsValid">oldHeightsValid</dfn>;</td></tr>
+<tr><th id="134">134</th><td>	<em>float</em>					<dfn class="decl" id="idIK_Walk::oldWaistHeight" title='idIK_Walk::oldWaistHeight' data-ref="idIK_Walk::oldWaistHeight">oldWaistHeight</dfn>;</td></tr>
+<tr><th id="135">135</th><td>	<em>float</em>					<dfn class="decl" id="idIK_Walk::oldAnkleHeights" title='idIK_Walk::oldAnkleHeights' data-ref="idIK_Walk::oldAnkleHeights">oldAnkleHeights</dfn>[<a class="ref" href="#idIK_Walk::MAX_LEGS" title='idIK_Walk::MAX_LEGS' data-ref="idIK_Walk::MAX_LEGS">MAX_LEGS</a>];</td></tr>
+<tr><th id="136">136</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a>					<dfn class="decl" id="idIK_Walk::waistOffset" title='idIK_Walk::waistOffset' data-ref="idIK_Walk::waistOffset">waistOffset</dfn>;</td></tr>
+<tr><th id="137">137</th><td>};</td></tr>
+<tr><th id="138">138</th><td></td></tr>
+<tr><th id="139">139</th><td></td></tr>
+<tr><th id="140">140</th><td><i>/*</i></td></tr>
+<tr><th id="141">141</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="142">142</th><td><i></i></td></tr>
+<tr><th id="143">143</th><td><i>  IK controller for reaching a position with an arm or leg.</i></td></tr>
+<tr><th id="144">144</th><td><i></i></td></tr>
+<tr><th id="145">145</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="146">146</th><td><i>*/</i></td></tr>
+<tr><th id="147">147</th><td></td></tr>
+<tr><th id="148">148</th><td><b>class</b> <dfn class="type def" id="idIK_Reach" title='idIK_Reach' data-ref="idIK_Reach">idIK_Reach</dfn> : <b>public</b> <a class="type" href="#idIK" title='idIK' data-ref="idIK">idIK</a> {</td></tr>
+<tr><th id="149">149</th><td><b>public</b>:</td></tr>
+<tr><th id="150">150</th><td></td></tr>
+<tr><th id="151">151</th><td>							<dfn class="decl" id="_ZN10idIK_ReachC1Ev" title='idIK_Reach::idIK_Reach' data-ref="_ZN10idIK_ReachC1Ev">idIK_Reach</dfn>( <em>void</em> );</td></tr>
+<tr><th id="152">152</th><td>	<b>virtual</b>					<dfn class="virtual decl" id="_ZN10idIK_ReachD1Ev" title='idIK_Reach::~idIK_Reach' data-ref="_ZN10idIK_ReachD1Ev">~idIK_Reach</dfn>( <em>void</em> );</td></tr>
+<tr><th id="153">153</th><td></td></tr>
+<tr><th id="154">154</th><td>	<em>void</em>					<dfn class="decl" id="_ZNK10idIK_Reach4SaveEP10idSaveGame" title='idIK_Reach::Save' data-ref="_ZNK10idIK_Reach4SaveEP10idSaveGame">Save</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idSaveGame" title='idSaveGame' data-ref="idSaveGame">idSaveGame</a> *<dfn class="local col5 decl" id="2675savefile" title='savefile' data-type='idSaveGame *' data-ref="2675savefile">savefile</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="155">155</th><td>	<em>void</em>					<dfn class="decl" id="_ZN10idIK_Reach7RestoreEP13idRestoreGame" title='idIK_Reach::Restore' data-ref="_ZN10idIK_Reach7RestoreEP13idRestoreGame">Restore</dfn>( <a class="type" href="gamesys/SaveGame.h.html#idRestoreGame" title='idRestoreGame' data-ref="idRestoreGame">idRestoreGame</a> *<dfn class="local col6 decl" id="2676savefile" title='savefile' data-type='idRestoreGame *' data-ref="2676savefile">savefile</dfn> );</td></tr>
+<tr><th id="156">156</th><td></td></tr>
+<tr><th id="157">157</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN10idIK_Reach4InitEP8idEntityPKcRK6idVec3" title='idIK_Reach::Init' data-ref="_ZN10idIK_Reach4InitEP8idEntityPKcRK6idVec3">Init</dfn>( <a class="type" href="Entity.h.html#idEntity" title='idEntity' data-ref="idEntity">idEntity</a> *<dfn class="local col7 decl" id="2677self" title='self' data-type='idEntity *' data-ref="2677self">self</dfn>, <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="2678anim" title='anim' data-type='const char *' data-ref="2678anim">anim</dfn>, <em>const</em> <a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col9 decl" id="2679modelOffset" title='modelOffset' data-type='const idVec3 &amp;' data-ref="2679modelOffset">modelOffset</dfn> );</td></tr>
+<tr><th id="158">158</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN10idIK_Reach8EvaluateEv" title='idIK_Reach::Evaluate' data-ref="_ZN10idIK_Reach8EvaluateEv">Evaluate</dfn>( <em>void</em> );</td></tr>
+<tr><th id="159">159</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN10idIK_Reach14ClearJointModsEv" title='idIK_Reach::ClearJointMods' data-ref="_ZN10idIK_Reach14ClearJointModsEv">ClearJointMods</dfn>( <em>void</em> );</td></tr>
+<tr><th id="160">160</th><td></td></tr>
+<tr><th id="161">161</th><td><b>private</b>:</td></tr>
+<tr><th id="162">162</th><td></td></tr>
+<tr><th id="163">163</th><td>	<em>static</em> <em>const</em> <em>int</em>		<dfn class="decl" id="idIK_Reach::MAX_ARMS" title='idIK_Reach::MAX_ARMS' data-ref="idIK_Reach::MAX_ARMS">MAX_ARMS</dfn>	= <var>2</var>;</td></tr>
+<tr><th id="164">164</th><td></td></tr>
+<tr><th id="165">165</th><td>	<em>int</em>						<dfn class="decl" id="idIK_Reach::numArms" title='idIK_Reach::numArms' data-ref="idIK_Reach::numArms">numArms</dfn>;</td></tr>
+<tr><th id="166">166</th><td>	<em>int</em>						<dfn class="decl" id="idIK_Reach::enabledArms" title='idIK_Reach::enabledArms' data-ref="idIK_Reach::enabledArms">enabledArms</dfn>;</td></tr>
+<tr><th id="167">167</th><td>	<a class="typedef" href="../renderer/Model.h.html#jointHandle_t" title='jointHandle_t' data-type='enum jointHandle_t' data-ref="jointHandle_t">jointHandle_t</a>			<dfn class="decl" id="idIK_Reach::handJoints" title='idIK_Reach::handJoints' data-ref="idIK_Reach::handJoints">handJoints</dfn>[<a class="ref" href="#idIK_Reach::MAX_ARMS" title='idIK_Reach::MAX_ARMS' data-ref="idIK_Reach::MAX_ARMS">MAX_ARMS</a>];</td></tr>
+<tr><th id="168">168</th><td>	<a class="typedef" href="../renderer/Model.h.html#jointHandle_t" title='jointHandle_t' data-type='enum jointHandle_t' data-ref="jointHandle_t">jointHandle_t</a>			<dfn class="decl" id="idIK_Reach::elbowJoints" title='idIK_Reach::elbowJoints' data-ref="idIK_Reach::elbowJoints">elbowJoints</dfn>[<a class="ref" href="#idIK_Reach::MAX_ARMS" title='idIK_Reach::MAX_ARMS' data-ref="idIK_Reach::MAX_ARMS">MAX_ARMS</a>];</td></tr>
+<tr><th id="169">169</th><td>	<a class="typedef" href="../renderer/Model.h.html#jointHandle_t" title='jointHandle_t' data-type='enum jointHandle_t' data-ref="jointHandle_t">jointHandle_t</a>			<dfn class="decl" id="idIK_Reach::shoulderJoints" title='idIK_Reach::shoulderJoints' data-ref="idIK_Reach::shoulderJoints">shoulderJoints</dfn>[<a class="ref" href="#idIK_Reach::MAX_ARMS" title='idIK_Reach::MAX_ARMS' data-ref="idIK_Reach::MAX_ARMS">MAX_ARMS</a>];</td></tr>
+<tr><th id="170">170</th><td>	<a class="typedef" href="../renderer/Model.h.html#jointHandle_t" title='jointHandle_t' data-type='enum jointHandle_t' data-ref="jointHandle_t">jointHandle_t</a>			<dfn class="decl" id="idIK_Reach::dirJoints" title='idIK_Reach::dirJoints' data-ref="idIK_Reach::dirJoints">dirJoints</dfn>[<a class="ref" href="#idIK_Reach::MAX_ARMS" title='idIK_Reach::MAX_ARMS' data-ref="idIK_Reach::MAX_ARMS">MAX_ARMS</a>];</td></tr>
+<tr><th id="171">171</th><td></td></tr>
+<tr><th id="172">172</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a>					<dfn class="decl" id="idIK_Reach::shoulderForward" title='idIK_Reach::shoulderForward' data-ref="idIK_Reach::shoulderForward">shoulderForward</dfn>[<a class="ref" href="#idIK_Reach::MAX_ARMS" title='idIK_Reach::MAX_ARMS' data-ref="idIK_Reach::MAX_ARMS">MAX_ARMS</a>];</td></tr>
+<tr><th id="173">173</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a>					<dfn class="decl" id="idIK_Reach::elbowForward" title='idIK_Reach::elbowForward' data-ref="idIK_Reach::elbowForward">elbowForward</dfn>[<a class="ref" href="#idIK_Reach::MAX_ARMS" title='idIK_Reach::MAX_ARMS' data-ref="idIK_Reach::MAX_ARMS">MAX_ARMS</a>];</td></tr>
+<tr><th id="174">174</th><td></td></tr>
+<tr><th id="175">175</th><td>	<em>float</em>					<dfn class="decl" id="idIK_Reach::upperArmLength" title='idIK_Reach::upperArmLength' data-ref="idIK_Reach::upperArmLength">upperArmLength</dfn>[<a class="ref" href="#idIK_Reach::MAX_ARMS" title='idIK_Reach::MAX_ARMS' data-ref="idIK_Reach::MAX_ARMS">MAX_ARMS</a>];</td></tr>
+<tr><th id="176">176</th><td>	<em>float</em>					<dfn class="decl" id="idIK_Reach::lowerArmLength" title='idIK_Reach::lowerArmLength' data-ref="idIK_Reach::lowerArmLength">lowerArmLength</dfn>[<a class="ref" href="#idIK_Reach::MAX_ARMS" title='idIK_Reach::MAX_ARMS' data-ref="idIK_Reach::MAX_ARMS">MAX_ARMS</a>];</td></tr>
+<tr><th id="177">177</th><td></td></tr>
+<tr><th id="178">178</th><td>	<a class="type" href="../idlib/math/Matrix.h.html#idMat3" title='idMat3' data-ref="idMat3">idMat3</a>					<dfn class="decl" id="idIK_Reach::upperArmToShoulderJoint" title='idIK_Reach::upperArmToShoulderJoint' data-ref="idIK_Reach::upperArmToShoulderJoint">upperArmToShoulderJoint</dfn>[<a class="ref" href="#idIK_Reach::MAX_ARMS" title='idIK_Reach::MAX_ARMS' data-ref="idIK_Reach::MAX_ARMS">MAX_ARMS</a>];</td></tr>
+<tr><th id="179">179</th><td>	<a class="type" href="../idlib/math/Matrix.h.html#idMat3" title='idMat3' data-ref="idMat3">idMat3</a>					<dfn class="decl" id="idIK_Reach::lowerArmToElbowJoint" title='idIK_Reach::lowerArmToElbowJoint' data-ref="idIK_Reach::lowerArmToElbowJoint">lowerArmToElbowJoint</dfn>[<a class="ref" href="#idIK_Reach::MAX_ARMS" title='idIK_Reach::MAX_ARMS' data-ref="idIK_Reach::MAX_ARMS">MAX_ARMS</a>];</td></tr>
+<tr><th id="180">180</th><td>};</td></tr>
+<tr><th id="181">181</th><td></td></tr>
+<tr><th id="182">182</th><td><u>#<span data-ppcond="29">endif</span> /* !__GAME_IK_H__ */</u></td></tr>
+<tr><th id="183">183</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='AF.cpp.html'>codebrowser/game/AF.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

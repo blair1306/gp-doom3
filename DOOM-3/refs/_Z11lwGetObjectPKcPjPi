@@ -1,0 +1,24 @@
+<dec f='codebrowser/renderer/Model_lwo.h' l='573' type='lwObject * lwGetObject(const char * filename, unsigned int * failID, int * failpos)'/>
+<use f='codebrowser/renderer/Model.cpp' l='1905' u='c' c='_ZN19idRenderModelStatic7LoadLWOEPKc'/>
+<doc f='codebrowser/renderer/Model_lwo.h' l='571'>/* lwo2.c */</doc>
+<def f='codebrowser/renderer/Model_lwo.cpp' l='1445' ll='1648' type='lwObject * lwGetObject(const char * filename, unsigned int * failID, int * failpos)'/>
+<doc f='codebrowser/renderer/Model_lwo.cpp' l='1424'>/*
+======================================================================
+lwGetObject()
+
+Returns the contents of a LightWave object, given its filename, or
+NULL if the file couldn&apos;t be loaded.  On failure, failID and failpos
+can be used to diagnose the cause.
+
+1.  If the file isn&apos;t an LWO2 or an LWOB, failpos will contain 12 and
+    failID will be unchanged.
+
+2.  If an error occurs while reading, failID will contain the most
+    recently read IFF chunk ID, and failpos will contain the value
+    returned by fp-&gt;Tell() at the time of the failure.
+
+3.  If the file couldn&apos;t be opened, or an error occurs while reading
+    the first 12 bytes, both failID and failpos will be unchanged.
+
+If you don&apos;t need this information, failID and failpos can be NULL.
+====================================================================== */</doc>

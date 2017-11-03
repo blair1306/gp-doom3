@@ -1,0 +1,7 @@
+<dec f='codebrowser/curl/lib/http_chunks.h' l='46' type='3'/>
+<doc f='codebrowser/curl/lib/http_chunks.h' l='43'>/* A single CR has been found and we should get a LF right away in this
+     state or we go back to POSTHEX. When LF is received, we go to DATA.
+     If the size given was zero, we set state to STOP and return. */</doc>
+<use f='codebrowser/curl/lib/http_chunks.c' l='147' u='r' c='Curl_httpchunk_read'/>
+<use f='codebrowser/curl/lib/http_chunks.c' l='152' c='Curl_httpchunk_read'/>
+<use f='codebrowser/curl/lib/http_chunks.c' l='168' u='r' c='Curl_httpchunk_read'/>

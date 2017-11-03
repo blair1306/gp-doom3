@@ -1,0 +1,8 @@
+<dec f='codebrowser/renderer/tr_local.h' l='311' type='bool'/>
+<offset>192</offset>
+<doc f='codebrowser/renderer/tr_local.h' l='309'>// if the view isn&apos;t inside the light, we can use the non-reversed
+	// shadow drawing, avoiding the draws of the front and rear caps</doc>
+<use f='codebrowser/renderer/draw_common.cpp' l='1086' u='r' c='_ZL11RB_T_ShadowPK10drawSurf_s'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='474' u='w' c='_Z22R_SetLightDefViewLightP18idRenderLightLocal'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='475' u='r' c='_Z22R_SetLightDefViewLightP18idRenderLightLocal'/>
+<use f='codebrowser/renderer/tr_rendertools.cpp' l='1612' u='r' c='_Z13RB_ShowLightsv'/>

@@ -1,0 +1,28 @@
+<dec f='codebrowser/idlib/containers/List.h' l='109' type='void idList::Resize(int newsize)'/>
+<def f='codebrowser/idlib/containers/List.h' l='359' ll='393' type='void idList::Resize(int newsize)'/>
+<doc f='codebrowser/idlib/containers/List.h' l='109'>// resizes list to the given number of elements</doc>
+<doc f='codebrowser/idlib/containers/List.h' l='351'>/*
+================
+idList&lt;type&gt;::Resize
+
+Allocates memory for the amount of elements requested while keeping the contents intact.
+Contents are copied using their = operator so that data is correnctly instantiated.
+================
+*/</doc>
+<use f='codebrowser/idlib/geometry/Surface.cpp' l='146' u='c' c='_ZNK9idSurface5SplitERK7idPlanefPPS_S4_PiS5_'/>
+<use f='codebrowser/idlib/geometry/Surface.cpp' l='147' u='c' c='_ZNK9idSurface5SplitERK7idPlanefPPS_S4_PiS5_'/>
+<use f='codebrowser/idlib/geometry/Surface.cpp' l='450' u='c' c='_ZN9idSurface11ClipInPlaceERK7idPlanefb'/>
+<use f='codebrowser/tools/compilers/aas/AASFile.cpp' l='764' u='c' c='_ZN14idAASFileLocal10ParseIndexER7idLexerR6idListIiE'/>
+<use f='codebrowser/tools/compilers/aas/AASFile.cpp' l='792' u='c' c='_ZN14idAASFileLocal11ParsePlanesER7idLexer'/>
+<use f='codebrowser/tools/compilers/aas/AASFile.cpp' l='821' u='c' c='_ZN14idAASFileLocal13ParseVerticesER7idLexer'/>
+<use f='codebrowser/tools/compilers/aas/AASFile.cpp' l='848' u='c' c='_ZN14idAASFileLocal10ParseEdgesER7idLexer'/>
+<use f='codebrowser/tools/compilers/aas/AASFile.cpp' l='876' u='c' c='_ZN14idAASFileLocal10ParseFacesER7idLexer'/>
+<use f='codebrowser/tools/compilers/aas/AASFile.cpp' l='964' u='c' c='_ZN14idAASFileLocal10ParseAreasER7idLexer'/>
+<use f='codebrowser/tools/compilers/aas/AASFile.cpp' l='1000' u='c' c='_ZN14idAASFileLocal10ParseNodesER7idLexer'/>
+<use f='codebrowser/tools/compilers/aas/AASFile.cpp' l='1029' u='c' c='_ZN14idAASFileLocal12ParsePortalsER7idLexer'/>
+<use f='codebrowser/tools/compilers/aas/AASFile.cpp' l='1060' u='c' c='_ZN14idAASFileLocal13ParseClustersER7idLexer'/>
+<use f='codebrowser/tools/compilers/aas/AASFile_optimize.cpp' l='66' u='c' c='_ZN14idAASFileLocal8OptimizeEv'/>
+<use f='codebrowser/tools/compilers/aas/AASFile_optimize.cpp' l='67' u='c' c='_ZN14idAASFileLocal8OptimizeEv'/>
+<use f='codebrowser/tools/compilers/aas/AASFile_optimize.cpp' l='69' u='c' c='_ZN14idAASFileLocal8OptimizeEv'/>
+<use f='codebrowser/tools/compilers/aas/AASFile_optimize.cpp' l='70' u='c' c='_ZN14idAASFileLocal8OptimizeEv'/>
+<use f='codebrowser/tools/compilers/aas/AASFile_optimize.cpp' l='72' u='c' c='_ZN14idAASFileLocal8OptimizeEv'/>

@@ -1,0 +1,153 @@
+<inh f='codebrowser/cm/CollisionModel.h' l='87' c='idCollisionModelManager'/>
+<def f='codebrowser/cm/CollisionModel_local.h' l='293' ll='524'/>
+<size>156</size>
+<fun r='_ZN28idCollisionModelManagerLocal7LoadMapEPK9idMapFile'/>
+<fun r='_ZN28idCollisionModelManagerLocal7FreeMapEv'/>
+<fun r='_ZN28idCollisionModelManagerLocal9LoadModelEPKcb'/>
+<fun r='_ZN28idCollisionModelManagerLocal13SetupTrmModelERK12idTraceModelPK10idMaterial'/>
+<fun r='_ZN28idCollisionModelManagerLocal12TrmFromModelEPKcR12idTraceModel'/>
+<fun r='_ZNK28idCollisionModelManagerLocal12GetModelNameEi'/>
+<fun r='_ZNK28idCollisionModelManagerLocal14GetModelBoundsEiR8idBounds'/>
+<fun r='_ZNK28idCollisionModelManagerLocal16GetModelContentsEiRi'/>
+<fun r='_ZNK28idCollisionModelManagerLocal14GetModelVertexEiiR6idVec3'/>
+<fun r='_ZNK28idCollisionModelManagerLocal12GetModelEdgeEiiR6idVec3S1_'/>
+<fun r='_ZNK28idCollisionModelManagerLocal15GetModelPolygonEiiR14idFixedWinding'/>
+<fun r='_ZN28idCollisionModelManagerLocal11TranslationEP7trace_sRK6idVec3S4_PK12idTraceModelRK6idMat3iiS4_SA_'/>
+<fun r='_ZN28idCollisionModelManagerLocal8RotationEP7trace_sRK6idVec3RK10idRotationPK12idTraceModelRK6idMat3iiS4_SD_'/>
+<fun r='_ZN28idCollisionModelManagerLocal8ContentsERK6idVec3PK12idTraceModelRK6idMat3iiS2_S8_'/>
+<fun r='_ZN28idCollisionModelManagerLocal8ContactsEP13contactInfo_tiRK6idVec3RK6idVec6fPK12idTraceModelRK6idMat3iiS4_SD_'/>
+<fun r='_ZN28idCollisionModelManagerLocal11DebugOutputERK6idVec3'/>
+<fun r='_ZN28idCollisionModelManagerLocal9DrawModelEiRK6idVec3RK6idMat3S2_f'/>
+<fun r='_ZN28idCollisionModelManagerLocal9ModelInfoEi'/>
+<fun r='_ZN28idCollisionModelManagerLocal10ListModelsEv'/>
+<fun r='_ZN28idCollisionModelManagerLocal31WriteCollisionModelForMapEntityEPK11idMapEntityPKcb'/>
+<fun r='_ZN28idCollisionModelManagerLocal24TranslateEdgeThroughEdgeER6idVec3R10idPlueckerS3_Pf'/>
+<fun r='_ZN28idCollisionModelManagerLocal30TranslateTrmEdgeThroughPolygonEP14cm_traceWork_sP12cm_polygon_sP12cm_trmEdge_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal32TranslateTrmVertexThroughPolygonEP14cm_traceWork_sP12cm_polygon_sP14cm_trmVertex_si'/>
+<fun r='_ZN28idCollisionModelManagerLocal28TranslatePointThroughPolygonEP14cm_traceWork_sP12cm_polygon_sP14cm_trmVertex_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal32TranslateVertexThroughTrmPolygonEP14cm_traceWork_sP15cm_trmPolygon_sP12cm_polygon_sP11cm_vertex_sR6idVec3R10idPluecker'/>
+<fun r='_ZN28idCollisionModelManagerLocal26TranslateTrmThroughPolygonEP14cm_traceWork_sP12cm_polygon_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal27SetupTranslationHeartPlanesEP14cm_traceWork_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal8SetupTrmEP14cm_traceWork_sPK12idTraceModel'/>
+<fun r='_ZN28idCollisionModelManagerLocal26CollisionBetweenEdgeBoundsEP14cm_traceWork_sRK6idVec3S4_S4_S4_fRS2_S5_'/>
+<fun r='_ZN28idCollisionModelManagerLocal21RotateEdgeThroughEdgeEP14cm_traceWork_sRK10idPlueckerRK6idVec3S7_fRf'/>
+<fun r='_ZN28idCollisionModelManagerLocal20EdgeFurthestFromEdgeEP14cm_traceWork_sRK10idPlueckerRK6idVec3S7_RfS8_'/>
+<fun r='_ZN28idCollisionModelManagerLocal27RotateTrmEdgeThroughPolygonEP14cm_traceWork_sP12cm_polygon_sP12cm_trmEdge_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal23RotatePointThroughPlaneEPK14cm_traceWork_sRK6idVec3RK7idPlaneffRf'/>
+<fun r='_ZN28idCollisionModelManagerLocal22PointFurthestFromPlaneEPK14cm_traceWork_sRK6idVec3RK7idPlanefRfS9_'/>
+<fun r='_ZN28idCollisionModelManagerLocal30RotatePointThroughEpsilonPlaneEPK14cm_traceWork_sRK6idVec3S5_RK7idPlanefS5_RfRS3_SA_'/>
+<fun r='_ZN28idCollisionModelManagerLocal29RotateTrmVertexThroughPolygonEP14cm_traceWork_sP12cm_polygon_sP14cm_trmVertex_si'/>
+<fun r='_ZN28idCollisionModelManagerLocal29RotateVertexThroughTrmPolygonEP14cm_traceWork_sP15cm_trmPolygon_sP12cm_polygon_sP11cm_vertex_sR6idVec3'/>
+<fun r='_ZN28idCollisionModelManagerLocal23RotateTrmThroughPolygonEP14cm_traceWork_sP12cm_polygon_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal17BoundsForRotationERK6idVec3S2_S2_S2_R8idBounds'/>
+<fun r='_ZN28idCollisionModelManagerLocal11Rotation180EP7trace_sRK6idVec3S4_ffS4_PK12idTraceModelRK6idMat3iiS4_SA_'/>
+<fun r='_ZN28idCollisionModelManagerLocal19TestTrmVertsInBrushEP14cm_traceWork_sP10cm_brush_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal16TestTrmInPolygonEP14cm_traceWork_sP12cm_polygon_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal9PointNodeERK6idVec3P10cm_model_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal13PointContentsE6idVec3i'/>
+<fun r='_ZN28idCollisionModelManagerLocal24TransformedPointContentsERK6idVec3iS2_RK6idMat3'/>
+<fun r='_ZN28idCollisionModelManagerLocal11ContentsTrmEP7trace_sRK6idVec3PK12idTraceModelRK6idMat3iiS4_SA_'/>
+<fun r='_ZN28idCollisionModelManagerLocal19TraceTrmThroughNodeEP14cm_traceWork_sP9cm_node_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal26TraceThroughAxialBSPTree_rEP14cm_traceWork_sP9cm_node_sffR6idVec3S5_'/>
+<fun r='_ZN28idCollisionModelManagerLocal17TraceThroughModelEP14cm_traceWork_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal16RecurseProcBSP_rEP7trace_siiffRK6idVec3S4_'/>
+<fun r='_ZN28idCollisionModelManagerLocal5ClearEv'/>
+<fun r='_ZN28idCollisionModelManagerLocal21FreeTrmModelStructureEv'/>
+<fun r='_ZN28idCollisionModelManagerLocal25RemovePolygonReferences_rEP9cm_node_sP12cm_polygon_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal23RemoveBrushReferences_rEP9cm_node_sP10cm_brush_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal8FreeNodeEP9cm_node_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal20FreePolygonReferenceEP15cm_polygonRef_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal18FreeBrushReferenceEP13cm_brushRef_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal11FreePolygonEP10cm_model_sP12cm_polygon_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal9FreeBrushEP10cm_model_sP10cm_brush_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal10FreeTree_rEP10cm_model_sP9cm_node_sS3_'/>
+<fun r='_ZN28idCollisionModelManagerLocal9FreeModelEP10cm_model_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal15ReplacePolygonsEP10cm_model_sP9cm_node_sP12cm_polygon_sS5_S5_'/>
+<fun r='_ZN28idCollisionModelManagerLocal16TryMergePolygonsEP10cm_model_sP12cm_polygon_sS3_'/>
+<fun r='_ZN28idCollisionModelManagerLocal28MergePolygonWithTreePolygonsEP10cm_model_sP9cm_node_sP12cm_polygon_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal17MergeTreePolygonsEP10cm_model_sP9cm_node_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal18PointInsidePolygonEP10cm_model_sP12cm_polygon_sR6idVec3'/>
+<fun r='_ZN28idCollisionModelManagerLocal26FindInternalEdgesOnPolygonEP10cm_model_sP12cm_polygon_sS3_'/>
+<fun r='_ZN28idCollisionModelManagerLocal24FindInternalPolygonEdgesEP10cm_model_sP9cm_node_sP12cm_polygon_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal17FindInternalEdgesEP10cm_model_sP9cm_node_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal18FindContainedEdgesEP10cm_model_sP12cm_polygon_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal14ParseProcNodesEP7idLexer'/>
+<fun r='_ZN28idCollisionModelManagerLocal11LoadProcBSPEPKc'/>
+<fun r='_ZN28idCollisionModelManagerLocal22R_ChoppedAwayByProcBSPEiP14idFixedWindingRK6idVec3S4_f'/>
+<fun r='_ZN28idCollisionModelManagerLocal20ChoppedAwayByProcBSPERK14idFixedWindingRK7idPlanei'/>
+<fun r='_ZN28idCollisionModelManagerLocal24ChopWindingListWithBrushEP16cm_windingList_sP10cm_brush_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal32R_ChopWindingListWithTreeBrushesEP16cm_windingList_sP9cm_node_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal21WindingOutsideBrushesEP14idFixedWindingRK7idPlaneiiP9cm_node_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal10AllocModelEv'/>
+<fun r='_ZN28idCollisionModelManagerLocal9AllocNodeEP10cm_model_si'/>
+<fun r='_ZN28idCollisionModelManagerLocal21AllocPolygonReferenceEP10cm_model_si'/>
+<fun r='_ZN28idCollisionModelManagerLocal19AllocBrushReferenceEP10cm_model_si'/>
+<fun r='_ZN28idCollisionModelManagerLocal12AllocPolygonEP10cm_model_si'/>
+<fun r='_ZN28idCollisionModelManagerLocal10AllocBrushEP10cm_model_si'/>
+<fun r='_ZN28idCollisionModelManagerLocal16AddPolygonToNodeEP10cm_model_sP9cm_node_sP12cm_polygon_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal14AddBrushToNodeEP10cm_model_sP9cm_node_sP10cm_brush_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal22SetupTrmModelStructureEv'/>
+<fun r='_ZN28idCollisionModelManagerLocal23R_FilterPolygonIntoTreeEP10cm_model_sP9cm_node_sP15cm_polygonRef_sP12cm_polygon_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal21R_FilterBrushIntoTreeEP10cm_model_sP9cm_node_sP13cm_brushRef_sP10cm_brush_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal20R_CreateAxialBSPTreeEP10cm_model_sP9cm_node_sRK8idBounds'/>
+<fun r='_ZN28idCollisionModelManagerLocal18CreateAxialBSPTreeEP10cm_model_sP9cm_node_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal9SetupHashEv'/>
+<fun r='_ZN28idCollisionModelManagerLocal12ShutdownHashEv'/>
+<fun r='_ZN28idCollisionModelManagerLocal9ClearHashER8idBounds'/>
+<fun r='_ZN28idCollisionModelManagerLocal7HashVecERK6idVec3'/>
+<fun r='_ZN28idCollisionModelManagerLocal9GetVertexEP10cm_model_sRK6idVec3Pi'/>
+<fun r='_ZN28idCollisionModelManagerLocal7GetEdgeEP10cm_model_sRK6idVec3S4_Pii'/>
+<fun r='_ZN28idCollisionModelManagerLocal13CreatePolygonEP10cm_model_sP14idFixedWindingRK7idPlanePK10idMateriali'/>
+<fun r='_ZN28idCollisionModelManagerLocal18PolygonFromWindingEP10cm_model_sP14idFixedWindingRK7idPlanePK10idMateriali'/>
+<fun r='_ZN28idCollisionModelManagerLocal20CalculateEdgeNormalsEP10cm_model_sP9cm_node_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal19CreatePatchPolygonsEP10cm_model_sR15idSurface_PatchPK10idMateriali'/>
+<fun r='_ZN28idCollisionModelManagerLocal12ConvertPatchEP10cm_model_sPK10idMapPatchi'/>
+<fun r='_ZN28idCollisionModelManagerLocal17ConvertBrushSidesEP10cm_model_sPK10idMapBrushi'/>
+<fun r='_ZN28idCollisionModelManagerLocal12ConvertBrushEP10cm_model_sPK10idMapBrushi'/>
+<fun r='_ZN28idCollisionModelManagerLocal14PrintModelInfoEPK10cm_model_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal19AccumulateModelInfoEP10cm_model_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal10RemapEdgesEP9cm_node_sPi'/>
+<fun r='_ZN28idCollisionModelManagerLocal14OptimizeArraysEP10cm_model_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal11FinishModelEP10cm_model_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal11BuildModelsEPK9idMapFile'/>
+<fun r='_ZN28idCollisionModelManagerLocal9FindModelEPKc'/>
+<fun r='_ZN28idCollisionModelManagerLocal26CollisionModelForMapEntityEPK11idMapEntity'/>
+<fun r='_ZN28idCollisionModelManagerLocal15LoadRenderModelEPKc'/>
+<fun r='_ZN28idCollisionModelManagerLocal14TrmFromModel_rER12idTraceModelP9cm_node_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal12TrmFromModelEPK10cm_model_sR12idTraceModel'/>
+<fun r='_ZN28idCollisionModelManagerLocal10WriteNodesEP6idFileP9cm_node_s'/>
+<fun r='_ZNK28idCollisionModelManagerLocal18CountPolygonMemoryEP9cm_node_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal13WritePolygonsEP6idFileP9cm_node_s'/>
+<fun r='_ZNK28idCollisionModelManagerLocal16CountBrushMemoryEP9cm_node_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal12WriteBrushesEP6idFileP9cm_node_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal19WriteCollisionModelEP6idFileP10cm_model_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal26WriteCollisionModelsToFileEPKciij'/>
+<fun r='_ZN28idCollisionModelManagerLocal10ParseNodesEP7idLexerP10cm_model_sP9cm_node_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal13ParseVerticesEP7idLexerP10cm_model_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal10ParseEdgesEP7idLexerP10cm_model_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal13ParsePolygonsEP7idLexerP10cm_model_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal12ParseBrushesEP7idLexerP10cm_model_s'/>
+<fun r='_ZN28idCollisionModelManagerLocal19ParseCollisionModelEP7idLexer'/>
+<fun r='_ZN28idCollisionModelManagerLocal22LoadCollisionModelFileEPKcj'/>
+<fun r='_ZNK28idCollisionModelManagerLocal18ContentsFromStringEPKc'/>
+<fun r='_ZNK28idCollisionModelManagerLocal18StringFromContentsEi'/>
+<fun r='_ZN28idCollisionModelManagerLocal8DrawEdgeEP10cm_model_siRK6idVec3RK6idMat3'/>
+<fun r='_ZN28idCollisionModelManagerLocal11DrawPolygonEP10cm_model_sP12cm_polygon_sRK6idVec3RK6idMat3S6_'/>
+<fun r='_ZN28idCollisionModelManagerLocal16DrawNodePolygonsEP10cm_model_sP9cm_node_sRK6idVec3RK6idMat3S6_f'/>
+<mbr r='idCollisionModelManagerLocal::mapName' o='32' t='idStr'/>
+<mbr r='idCollisionModelManagerLocal::mapFileTime' o='288' t='time_t'/>
+<mbr r='idCollisionModelManagerLocal::loaded' o='320' t='int'/>
+<mbr r='idCollisionModelManagerLocal::checkCount' o='352' t='int'/>
+<mbr r='idCollisionModelManagerLocal::maxModels' o='384' t='int'/>
+<mbr r='idCollisionModelManagerLocal::numModels' o='416' t='int'/>
+<mbr r='idCollisionModelManagerLocal::models' o='448' t='cm_model_t **'/>
+<mbr r='idCollisionModelManagerLocal::trmPolygons' o='480' t='cm_polygonRef_t *[16]'/>
+<mbr r='idCollisionModelManagerLocal::trmBrushes' o='992' t='cm_brushRef_t *[1]'/>
+<mbr r='idCollisionModelManagerLocal::trmMaterial' o='1024' t='const idMaterial *'/>
+<mbr r='idCollisionModelManagerLocal::numProcNodes' o='1056' t='int'/>
+<mbr r='idCollisionModelManagerLocal::procNodes' o='1088' t='cm_procNode_t *'/>
+<mbr r='idCollisionModelManagerLocal::getContacts' o='1120' t='bool'/>
+<mbr r='idCollisionModelManagerLocal::contacts' o='1152' t='contactInfo_t *'/>
+<mbr r='idCollisionModelManagerLocal::maxContacts' o='1184' t='int'/>
+<mbr r='idCollisionModelManagerLocal::numContacts' o='1216' t='int'/>
+<fun r='_ZN28idCollisionModelManagerLocal8ContactsEP13contactInfo_tiRK6idVec3RK6idVec6fPK12idTraceModelRK6idMat3iiS4_SD_'/>

@@ -1,0 +1,608 @@
+<inh f='codebrowser/d3xp/gamesys/Class.h' l='174' c='idClass'/>
+<def f='codebrowser/d3xp/Entity.h' l='107' ll='481'/>
+<ovr f='codebrowser/d3xp/Entity.h' l='500' c='idAnimatedEntity'/>
+<ovr f='codebrowser/d3xp/GameEdit.h' l='41' c='idCursor3D'/>
+<ovr f='codebrowser/d3xp/Grabber.h' l='41' c='idGrabber'/>
+<ovr f='codebrowser/d3xp/AFEntity.h' l='45' c='idMultiModelAF'/>
+<ovr f='codebrowser/d3xp/AFEntity.h' l='534' c='idHarvestable'/>
+<ovr f='codebrowser/d3xp/Misc.h' l='45' c='idSpawnableEntity'/>
+<ovr f='codebrowser/d3xp/Misc.h' l='66' c='idPlayerStart'/>
+<ovr f='codebrowser/d3xp/Misc.h' l='104' c='idActivator'/>
+<ovr f='codebrowser/d3xp/Misc.h' l='129' c='idPathCorner'/>
+<ovr f='codebrowser/d3xp/Misc.h' l='152' c='idDamagable'/>
+<ovr f='codebrowser/d3xp/Misc.h' l='187' c='idExplodable'/>
+<ovr f='codebrowser/d3xp/Misc.h' l='206' c='idSpring'/>
+<ovr f='codebrowser/d3xp/Misc.h' l='235' c='idForceField'/>
+<ovr f='codebrowser/d3xp/Misc.h' l='313' c='idStaticEntity'/>
+<ovr f='codebrowser/d3xp/Misc.h' l='382' c='idFuncSmoke'/>
+<ovr f='codebrowser/d3xp/Misc.h' l='433' c='idTextEntity'/>
+<ovr f='codebrowser/d3xp/Misc.h' l='458' c='idLocationEntity'/>
+<ovr f='codebrowser/d3xp/Misc.h' l='469' c='idLocationSeparatorEntity'/>
+<ovr f='codebrowser/d3xp/Misc.h' l='478' c='idVacuumSeparatorEntity'/>
+<ovr f='codebrowser/d3xp/Misc.h' l='495' c='idVacuumEntity'/>
+<ovr f='codebrowser/d3xp/Misc.h' l='513' c='idBeam'/>
+<ovr f='codebrowser/d3xp/Misc.h' l='553' c='idLiquid'/>
+<ovr f='codebrowser/d3xp/Misc.h' l='578' c='idShaking'/>
+<ovr f='codebrowser/d3xp/Misc.h' l='606' c='idEarthQuake'/>
+<ovr f='codebrowser/d3xp/Misc.h' l='641' c='idFuncPortal'/>
+<ovr f='codebrowser/d3xp/Misc.h' l='667' c='idFuncAASPortal'/>
+<ovr f='codebrowser/d3xp/Misc.h' l='692' c='idFuncAASObstacle'/>
+<ovr f='codebrowser/d3xp/Misc.h' l='718' c='idFuncRadioChatter'/>
+<ovr f='codebrowser/d3xp/Misc.h' l='744' c='idPhantomObjects'/>
+<ovr f='codebrowser/d3xp/Misc.h' l='782' c='idShockwave'/>
+<ovr f='codebrowser/d3xp/Misc.h' l='821' c='idFuncMountedObject'/>
+<ovr f='codebrowser/d3xp/Misc.h' l='883' c='idPortalSky'/>
+<ovr f='codebrowser/d3xp/Projectile.h' l='42' c='idProjectile'/>
+<ovr f='codebrowser/d3xp/Projectile.h' l='250' c='idDebris'/>
+<ovr f='codebrowser/d3xp/Light.h' l='44' c='idLight'/>
+<ovr f='codebrowser/d3xp/WorldSpawn.h' l='40' c='idWorldspawn'/>
+<ovr f='codebrowser/d3xp/Item.h' l='41' c='idItem'/>
+<ovr f='codebrowser/d3xp/Item.h' l='284' c='idItemRemover'/>
+<ovr f='codebrowser/d3xp/Mover.h' l='45' c='idMover'/>
+<ovr f='codebrowser/d3xp/Mover.h' l='198' c='idSplinePath'/>
+<ovr f='codebrowser/d3xp/Mover.h' l='287' c='idMover_Binary'/>
+<ovr f='codebrowser/d3xp/Mover.h' l='485' c='idMover_Periodic'/>
+<ovr f='codebrowser/d3xp/Camera.h' l='41' c='idCamera'/>
+<ovr f='codebrowser/d3xp/Moveable.h' l='43' c='idMoveable'/>
+<ovr f='codebrowser/d3xp/Target.h' l='41' c='idTarget'/>
+<ovr f='codebrowser/d3xp/Trigger.h' l='43' c='idTrigger'/>
+<ovr f='codebrowser/d3xp/Sound.h' l='40' c='idSound'/>
+<ovr f='codebrowser/d3xp/Fx.h' l='54' c='idEntityFx'/>
+<ovr f='codebrowser/d3xp/SecurityCamera.h' l='41' c='idSecurityCamera'/>
+<ovr f='codebrowser/d3xp/BrittleFracture.h' l='55' c='idBrittleFracture'/>
+<ovr f='codebrowser/d3xp/ai/AI.h' l='707' c='idCombatNode'/>
+<size>868</size>
+<smbr r='idEntity::MAX_PVS_AREAS' t='const int'/>
+<mbr r='idEntity::entityNumber' o='32' t='int'/>
+<mbr r='idEntity::entityDefNumber' o='64' t='int'/>
+<mbr r='idEntity::spawnNode' o='96' t='idLinkList&lt;idEntity&gt;'/>
+<mbr r='idEntity::activeNode' o='224' t='idLinkList&lt;idEntity&gt;'/>
+<mbr r='idEntity::snapshotNode' o='352' t='idLinkList&lt;idEntity&gt;'/>
+<mbr r='idEntity::snapshotSequence' o='480' t='int'/>
+<mbr r='idEntity::snapshotBits' o='512' t='int'/>
+<mbr r='idEntity::name' o='544' t='idStr'/>
+<mbr r='idEntity::spawnArgs' o='800' t='idDict'/>
+<mbr r='idEntity::scriptObject' o='1152' t='idScriptObject'/>
+<mbr r='idEntity::thinkFlags' o='1216' t='int'/>
+<mbr r='idEntity::dormantStart' o='1248' t='int'/>
+<mbr r='idEntity::cinematic' o='1280' t='bool'/>
+<mbr r='idEntity::renderView' o='1312' t='renderView_t *'/>
+<mbr r='idEntity::cameraTarget' o='1344' t='idEntity *'/>
+<mbr r='idEntity::targets' o='1376' t='idList&lt;idEntityPtr&lt;idEntity&gt; &gt;'/>
+<mbr r='idEntity::health' o='1504' t='int'/>
+<mbr r='idEntity::fl' o='1536' t='struct entityFlags_s'/>
+<mbr r='idEntity::timeGroup' o='1568' t='int'/>
+<mbr r='idEntity::noGrab' o='1600' t='bool'/>
+<mbr r='idEntity::xrayEntity' o='1632' t='renderEntity_t'/>
+<mbr r='idEntity::xrayEntityHandle' o='3360' t='qhandle_t'/>
+<mbr r='idEntity::xraySkin' o='3392' t='const idDeclSkin *'/>
+<fun r='_ZN8idEntity18DetermineTimeGroupEb'/>
+<fun r='_ZN8idEntity15SetGrabbedStateEb'/>
+<fun r='_ZN8idEntity9IsGrabbedEv'/>
+<smbr r='idEntity::Type' t='idTypeInfo'/>
+<fun r='_ZN8idEntity14CreateInstanceEv'/>
+<fun r='_ZNK8idEntity7GetTypeEv'/>
+<smbr r='idEntity::eventCallbacks' t='idEventFunc&lt;idEntity&gt; []'/>
+<fun r='_ZN8idEntityC1Ev'/>
+<fun r='_ZN8idEntityD1Ev'/>
+<fun r='_ZN8idEntity5SpawnEv'/>
+<fun r='_ZNK8idEntity4SaveEP10idSaveGame'/>
+<fun r='_ZN8idEntity7RestoreEP13idRestoreGame'/>
+<fun r='_ZNK8idEntity16GetEntityDefNameEv'/>
+<fun r='_ZN8idEntity7SetNameEPKc'/>
+<fun r='_ZNK8idEntity7GetNameEv'/>
+<fun r='_ZN8idEntity25UpdateChangeableSpawnArgsEPK6idDict'/>
+<fun r='_ZN8idEntity13GetRenderViewEv'/>
+<fun r='_ZN8idEntity5ThinkEv'/>
+<fun r='_ZN8idEntity12CheckDormantEv'/>
+<fun r='_ZN8idEntity12DormantBeginEv'/>
+<fun r='_ZN8idEntity10DormantEndEv'/>
+<fun r='_ZNK8idEntity8IsActiveEv'/>
+<fun r='_ZN8idEntity12BecomeActiveEi'/>
+<fun r='_ZN8idEntity14BecomeInactiveEi'/>
+<fun r='_ZN8idEntity14UpdatePVSAreasERK6idVec3'/>
+<fun r='_ZN8idEntity7PresentEv'/>
+<fun r='_ZN8idEntity15GetRenderEntityEv'/>
+<fun r='_ZN8idEntity17GetModelDefHandleEv'/>
+<fun r='_ZN8idEntity8SetModelEPKc'/>
+<fun r='_ZN8idEntity7SetSkinEPK10idDeclSkin'/>
+<fun r='_ZNK8idEntity7GetSkinEv'/>
+<fun r='_ZN8idEntity13SetShaderParmEif'/>
+<fun r='_ZN8idEntity8SetColorEfff'/>
+<fun r='_ZN8idEntity8SetColorERK6idVec3'/>
+<fun r='_ZNK8idEntity8GetColorER6idVec3'/>
+<fun r='_ZN8idEntity8SetColorERK6idVec4'/>
+<fun r='_ZNK8idEntity8GetColorER6idVec4'/>
+<fun r='_ZN8idEntity12FreeModelDefEv'/>
+<fun r='_ZN8idEntity12FreeLightDefEv'/>
+<fun r='_ZN8idEntity4HideEv'/>
+<fun r='_ZN8idEntity4ShowEv'/>
+<fun r='_ZNK8idEntity8IsHiddenEv'/>
+<fun r='_ZN8idEntity13UpdateVisualsEv'/>
+<fun r='_ZN8idEntity11UpdateModelEv'/>
+<fun r='_ZN8idEntity20UpdateModelTransformEv'/>
+<fun r='_ZN8idEntity14ProjectOverlayERK6idVec3S2_fPKc'/>
+<fun r='_ZN8idEntity14GetNumPVSAreasEv'/>
+<fun r='_ZN8idEntity11GetPVSAreasEv'/>
+<fun r='_ZN8idEntity13ClearPVSAreasEv'/>
+<fun r='_ZN8idEntity16PhysicsTeamInPVSE11pvsHandle_s'/>
+<fun r='_ZN8idEntity26UpdateAnimationControllersEv'/>
+<fun r='_ZN8idEntity18UpdateRenderEntityEP14renderEntity_sPK12renderView_s'/>
+<fun r='_ZN8idEntity13ModelCallbackEP14renderEntity_sPK12renderView_s'/>
+<fun r='_ZN8idEntity11GetAnimatorEv'/>
+<fun r='_ZNK8idEntity20CanPlayChatterSoundsEv'/>
+<fun r='_ZN8idEntity10StartSoundEPKciibPi'/>
+<fun r='_ZN8idEntity16StartSoundShaderEPK13idSoundShaderiibPi'/>
+<fun r='_ZN8idEntity9StopSoundEib'/>
+<fun r='_ZN8idEntity14SetSoundVolumeEf'/>
+<fun r='_ZN8idEntity11UpdateSoundEv'/>
+<fun r='_ZNK8idEntity13GetListenerIdEv'/>
+<fun r='_ZNK8idEntity15GetSoundEmitterEv'/>
+<fun r='_ZN8idEntity16FreeSoundEmitterEb'/>
+<fun r='_ZN8idEntity7PreBindEv'/>
+<fun r='_ZN8idEntity8PostBindEv'/>
+<fun r='_ZN8idEntity9PreUnbindEv'/>
+<fun r='_ZN8idEntity10PostUnbindEv'/>
+<fun r='_ZN8idEntity8JoinTeamEPS_'/>
+<fun r='_ZN8idEntity4BindEPS_b'/>
+<fun r='_ZN8idEntity11BindToJointEPS_PKcb'/>
+<fun r='_ZN8idEntity11BindToJointEPS_13jointHandle_tb'/>
+<fun r='_ZN8idEntity10BindToBodyEPS_ib'/>
+<fun r='_ZN8idEntity6UnbindEv'/>
+<fun r='_ZNK8idEntity7IsBoundEv'/>
+<fun r='_ZNK8idEntity9IsBoundToEPS_'/>
+<fun r='_ZNK8idEntity13GetBindMasterEv'/>
+<fun r='_ZNK8idEntity12GetBindJointEv'/>
+<fun r='_ZNK8idEntity11GetBindBodyEv'/>
+<fun r='_ZNK8idEntity13GetTeamMasterEv'/>
+<fun r='_ZNK8idEntity17GetNextTeamEntityEv'/>
+<fun r='_ZN8idEntity28ConvertLocalToWorldTransformER6idVec3R6idMat3'/>
+<fun r='_ZNK8idEntity14GetLocalVectorERK6idVec3'/>
+<fun r='_ZNK8idEntity19GetLocalCoordinatesERK6idVec3'/>
+<fun r='_ZNK8idEntity14GetWorldVectorERK6idVec3'/>
+<fun r='_ZNK8idEntity19GetWorldCoordinatesERK6idVec3'/>
+<fun r='_ZNK8idEntity17GetMasterPositionER6idVec3R6idMat3'/>
+<fun r='_ZNK8idEntity18GetWorldVelocitiesER6idVec3S1_'/>
+<fun r='_ZN8idEntity10SetPhysicsEP9idPhysics'/>
+<fun r='_ZNK8idEntity10GetPhysicsEv'/>
+<fun r='_ZN8idEntity14RestorePhysicsEP9idPhysics'/>
+<fun r='_ZN8idEntity10RunPhysicsEv'/>
+<fun r='_ZN8idEntity9SetOriginERK6idVec3'/>
+<fun r='_ZN8idEntity7SetAxisERK6idMat3'/>
+<fun r='_ZN8idEntity9SetAnglesERK8idAngles'/>
+<fun r='_ZNK8idEntity11GetFloorPosEfR6idVec3'/>
+<fun r='_ZN8idEntity27GetPhysicsToVisualTransformER6idVec3R6idMat3'/>
+<fun r='_ZN8idEntity26GetPhysicsToSoundTransformER6idVec3R6idMat3'/>
+<fun r='_ZN8idEntity7CollideERK7trace_sRK6idVec3'/>
+<fun r='_ZN8idEntity13GetImpactInfoEPS_iRK6idVec3P12impactInfo_s'/>
+<fun r='_ZN8idEntity12ApplyImpulseEPS_iRK6idVec3S3_'/>
+<fun r='_ZN8idEntity8AddForceEPS_iRK6idVec3S3_'/>
+<fun r='_ZN8idEntity15ActivatePhysicsEPS_'/>
+<fun r='_ZNK8idEntity8IsAtRestEv'/>
+<fun r='_ZNK8idEntity16GetRestStartTimeEv'/>
+<fun r='_ZN8idEntity16AddContactEntityEPS_'/>
+<fun r='_ZN8idEntity19RemoveContactEntityEPS_'/>
+<fun r='_ZNK8idEntity9CanDamageERK6idVec3RS0_'/>
+<fun r='_ZN8idEntity6DamageEPS_S0_RK6idVec3PKcfi'/>
+<fun r='_ZN8idEntity15AddDamageEffectERK7trace_sRK6idVec3PKc'/>
+<fun r='_ZN8idEntity14DamageFeedbackEPS_S0_Ri'/>
+<fun r='_ZN8idEntity4PainEPS_S0_iRK6idVec3i'/>
+<fun r='_ZN8idEntity6KilledEPS_S0_iRK6idVec3i'/>
+<fun r='_ZNK8idEntity34ShouldConstructScriptObjectAtSpawnEv'/>
+<fun r='_ZN8idEntity21ConstructScriptObjectEv'/>
+<fun r='_ZN8idEntity23DeconstructScriptObjectEv'/>
+<fun r='_ZN8idEntity9SetSignalE11signalNum_tP8idThreadPK10function_t'/>
+<fun r='_ZN8idEntity11ClearSignalEP8idThread11signalNum_t'/>
+<fun r='_ZN8idEntity17ClearSignalThreadE11signalNum_tP8idThread'/>
+<fun r='_ZNK8idEntity9HasSignalE11signalNum_t'/>
+<fun r='_ZN8idEntity6SignalE11signalNum_t'/>
+<fun r='_ZN8idEntity11SignalEventEP8idThread11signalNum_t'/>
+<fun r='_ZN8idEntity11TriggerGuisEv'/>
+<fun r='_ZN8idEntity17HandleGuiCommandsEPS_PKc'/>
+<fun r='_ZN8idEntity22HandleSingleGuiCommandEPS_P7idLexer'/>
+<fun r='_ZN8idEntity11FindTargetsEv'/>
+<fun r='_ZN8idEntity17RemoveNullTargetsEv'/>
+<fun r='_ZNK8idEntity15ActivateTargetsEPS_'/>
+<fun r='_ZN8idEntity8TeleportERK6idVec3RK8idAnglesPS_'/>
+<fun r='_ZNK8idEntity13TouchTriggersEv'/>
+<fun r='_ZNK8idEntity9GetSplineEv'/>
+<fun r='_ZN8idEntity17ShowEditingDialogEv'/>
+<fun r='_ZN8idEntity21ClientPredictionThinkEv'/>
+<fun r='_ZNK8idEntity15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN8idEntity16ReadFromSnapshotERK13idBitMsgDelta'/>
+<fun r='_ZN8idEntity18ServerReceiveEventEiiRK8idBitMsg'/>
+<fun r='_ZN8idEntity18ClientReceiveEventEiiRK8idBitMsg'/>
+<fun r='_ZNK8idEntity19WriteBindToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN8idEntity20ReadBindFromSnapshotERK13idBitMsgDelta'/>
+<fun r='_ZNK8idEntity20WriteColorToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN8idEntity21ReadColorFromSnapshotERK13idBitMsgDelta'/>
+<fun r='_ZNK8idEntity18WriteGUIToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN8idEntity19ReadGUIFromSnapshotERK13idBitMsgDelta'/>
+<fun r='_ZNK8idEntity15ServerSendEventEiPK8idBitMsgbi'/>
+<fun r='_ZNK8idEntity15ClientSendEventEiPK8idBitMsg'/>
+<mbr r='idEntity::renderEntity' o='3424' t='renderEntity_t'/>
+<mbr r='idEntity::modelDefHandle' o='5152' t='int'/>
+<mbr r='idEntity::refSound' o='5184' t='refSound_t'/>
+<mbr r='idEntity::defaultPhysicsObj' o='5632' t='idPhysics_Static'/>
+<mbr r='idEntity::physics' o='6528' t='idPhysics *'/>
+<mbr r='idEntity::bindMaster' o='6560' t='idEntity *'/>
+<mbr r='idEntity::bindJoint' o='6592' t='jointHandle_t'/>
+<mbr r='idEntity::bindBody' o='6624' t='int'/>
+<mbr r='idEntity::teamMaster' o='6656' t='idEntity *'/>
+<mbr r='idEntity::teamChain' o='6688' t='idEntity *'/>
+<mbr r='idEntity::numPVSAreas' o='6720' t='int'/>
+<mbr r='idEntity::PVSAreas' o='6752' t='int [4]'/>
+<mbr r='idEntity::signals' o='6880' t='signalList_t *'/>
+<mbr r='idEntity::mpGUIState' o='6912' t='int'/>
+<fun r='_ZN8idEntity21FixupLocalizedStringsEv'/>
+<fun r='_ZN8idEntity14DoDormantTestsEv'/>
+<fun r='_ZN8idEntity18InitDefaultPhysicsERK6idVec3RK6idMat3'/>
+<fun r='_ZN8idEntity17UpdateFromPhysicsEb'/>
+<fun r='_ZN8idEntity8InitBindEPS_'/>
+<fun r='_ZN8idEntity10FinishBindEv'/>
+<fun r='_ZN8idEntity11RemoveBindsEv'/>
+<fun r='_ZN8idEntity8QuitTeamEv'/>
+<fun r='_ZN8idEntity14UpdatePVSAreasEv'/>
+<fun r='_ZN8idEntity13Event_GetNameEv'/>
+<fun r='_ZN8idEntity13Event_SetNameEPKc'/>
+<fun r='_ZN8idEntity17Event_FindTargetsEv'/>
+<fun r='_ZN8idEntity21Event_ActivateTargetsEPS_'/>
+<fun r='_ZN8idEntity16Event_NumTargetsEv'/>
+<fun r='_ZN8idEntity15Event_GetTargetEf'/>
+<fun r='_ZN8idEntity18Event_RandomTargetEPKc'/>
+<fun r='_ZN8idEntity10Event_BindEPS_'/>
+<fun r='_ZN8idEntity18Event_BindPositionEPS_'/>
+<fun r='_ZN8idEntity17Event_BindToJointEPS_PKcf'/>
+<fun r='_ZN8idEntity12Event_UnbindEv'/>
+<fun r='_ZN8idEntity17Event_RemoveBindsEv'/>
+<fun r='_ZN8idEntity15Event_SpawnBindEv'/>
+<fun r='_ZN8idEntity14Event_SetOwnerEPS_'/>
+<fun r='_ZN8idEntity14Event_SetModelEPKc'/>
+<fun r='_ZN8idEntity13Event_SetSkinEPKc'/>
+<fun r='_ZN8idEntity19Event_GetShaderParmEi'/>
+<fun r='_ZN8idEntity19Event_SetShaderParmEif'/>
+<fun r='_ZN8idEntity20Event_SetShaderParmsEffff'/>
+<fun r='_ZN8idEntity14Event_SetColorEfff'/>
+<fun r='_ZN8idEntity14Event_GetColorEv'/>
+<fun r='_ZN8idEntity14Event_IsHiddenEv'/>
+<fun r='_ZN8idEntity10Event_HideEv'/>
+<fun r='_ZN8idEntity10Event_ShowEv'/>
+<fun r='_ZN8idEntity22Event_CacheSoundShaderEPKc'/>
+<fun r='_ZN8idEntity22Event_StartSoundShaderEPKci'/>
+<fun r='_ZN8idEntity15Event_StopSoundEii'/>
+<fun r='_ZN8idEntity16Event_StartSoundEPKcii'/>
+<fun r='_ZN8idEntity15Event_FadeSoundEiff'/>
+<fun r='_ZN8idEntity20Event_GetWorldOriginEv'/>
+<fun r='_ZN8idEntity20Event_SetWorldOriginERK6idVec3'/>
+<fun r='_ZN8idEntity15Event_GetOriginEv'/>
+<fun r='_ZN8idEntity15Event_SetOriginERK6idVec3'/>
+<fun r='_ZN8idEntity15Event_GetAnglesEv'/>
+<fun r='_ZN8idEntity15Event_SetAnglesERK8idAngles'/>
+<fun r='_ZN8idEntity23Event_SetLinearVelocityERK6idVec3'/>
+<fun r='_ZN8idEntity23Event_GetLinearVelocityEv'/>
+<fun r='_ZN8idEntity24Event_SetAngularVelocityERK6idVec3'/>
+<fun r='_ZN8idEntity24Event_GetAngularVelocityEv'/>
+<fun r='_ZN8idEntity13Event_SetSizeERK6idVec3S2_'/>
+<fun r='_ZN8idEntity13Event_GetSizeEv'/>
+<fun r='_ZN8idEntity13Event_GetMinsEv'/>
+<fun r='_ZN8idEntity13Event_GetMaxsEv'/>
+<fun r='_ZN8idEntity13Event_TouchesEPS_'/>
+<fun r='_ZN8idEntity16Event_SetGuiParmEPKcS1_'/>
+<fun r='_ZN8idEntity17Event_SetGuiFloatEPKcf'/>
+<fun r='_ZN8idEntity16Event_GetNextKeyEPKcS1_'/>
+<fun r='_ZN8idEntity12Event_SetKeyEPKcS1_'/>
+<fun r='_ZN8idEntity12Event_GetKeyEPKc'/>
+<fun r='_ZN8idEntity15Event_GetIntKeyEPKc'/>
+<fun r='_ZN8idEntity17Event_GetFloatKeyEPKc'/>
+<fun r='_ZN8idEntity18Event_GetVectorKeyEPKc'/>
+<fun r='_ZN8idEntity18Event_GetEntityKeyEPKc'/>
+<fun r='_ZN8idEntity21Event_RestorePositionEv'/>
+<fun r='_ZN8idEntity24Event_UpdateCameraTargetEv'/>
+<fun r='_ZN8idEntity16Event_DistanceToEPS_'/>
+<fun r='_ZN8idEntity21Event_DistanceToPointERK6idVec3'/>
+<fun r='_ZN8idEntity13Event_StartFxEPKc'/>
+<fun r='_ZN8idEntity15Event_WaitFrameEv'/>
+<fun r='_ZN8idEntity10Event_WaitEf'/>
+<fun r='_ZN8idEntity17Event_HasFunctionEPKc'/>
+<fun r='_ZN8idEntity18Event_CallFunctionEPKc'/>
+<fun r='_ZN8idEntity21Event_SetNeverDormantEi'/>
+<fun r='_ZN8idEntity12Event_SetGuiEiPKc'/>
+<fun r='_ZN8idEntity17Event_PrecacheGuiEPKc'/>
+<fun r='_ZN8idEntity16Event_GetGuiParmEiPKc'/>
+<fun r='_ZN8idEntity21Event_GetGuiParmFloatEiPKc'/>
+<fun r='_ZN8idEntity19Event_GuiNamedEventEiPKc'/>
+<inh f='codebrowser/game/gamesys/Class.h' l='174' c='idClass'/>
+<def f='codebrowser/game/Entity.h' l='107' ll='458'/>
+<ovr f='codebrowser/game/Entity.h' l='477' c='idAnimatedEntity'/>
+<ovr f='codebrowser/game/GameEdit.h' l='41' c='idCursor3D'/>
+<ovr f='codebrowser/game/AFEntity.h' l='45' c='idMultiModelAF'/>
+<ovr f='codebrowser/game/Misc.h' l='45' c='idSpawnableEntity'/>
+<ovr f='codebrowser/game/Misc.h' l='66' c='idPlayerStart'/>
+<ovr f='codebrowser/game/Misc.h' l='104' c='idActivator'/>
+<ovr f='codebrowser/game/Misc.h' l='129' c='idPathCorner'/>
+<ovr f='codebrowser/game/Misc.h' l='152' c='idDamagable'/>
+<ovr f='codebrowser/game/Misc.h' l='182' c='idExplodable'/>
+<ovr f='codebrowser/game/Misc.h' l='201' c='idSpring'/>
+<ovr f='codebrowser/game/Misc.h' l='230' c='idForceField'/>
+<ovr f='codebrowser/game/Misc.h' l='304' c='idStaticEntity'/>
+<ovr f='codebrowser/game/Misc.h' l='373' c='idFuncSmoke'/>
+<ovr f='codebrowser/game/Misc.h' l='424' c='idTextEntity'/>
+<ovr f='codebrowser/game/Misc.h' l='449' c='idLocationEntity'/>
+<ovr f='codebrowser/game/Misc.h' l='460' c='idLocationSeparatorEntity'/>
+<ovr f='codebrowser/game/Misc.h' l='469' c='idVacuumSeparatorEntity'/>
+<ovr f='codebrowser/game/Misc.h' l='486' c='idVacuumEntity'/>
+<ovr f='codebrowser/game/Misc.h' l='504' c='idBeam'/>
+<ovr f='codebrowser/game/Misc.h' l='544' c='idLiquid'/>
+<ovr f='codebrowser/game/Misc.h' l='569' c='idShaking'/>
+<ovr f='codebrowser/game/Misc.h' l='597' c='idEarthQuake'/>
+<ovr f='codebrowser/game/Misc.h' l='632' c='idFuncPortal'/>
+<ovr f='codebrowser/game/Misc.h' l='658' c='idFuncAASPortal'/>
+<ovr f='codebrowser/game/Misc.h' l='683' c='idFuncAASObstacle'/>
+<ovr f='codebrowser/game/Misc.h' l='709' c='idFuncRadioChatter'/>
+<ovr f='codebrowser/game/Misc.h' l='735' c='idPhantomObjects'/>
+<ovr f='codebrowser/game/Projectile.h' l='42' c='idProjectile'/>
+<ovr f='codebrowser/game/Projectile.h' l='235' c='idDebris'/>
+<ovr f='codebrowser/game/Light.h' l='44' c='idLight'/>
+<ovr f='codebrowser/game/WorldSpawn.h' l='40' c='idWorldspawn'/>
+<ovr f='codebrowser/game/Item.h' l='41' c='idItem'/>
+<ovr f='codebrowser/game/Item.h' l='197' c='idItemRemover'/>
+<ovr f='codebrowser/game/Mover.h' l='45' c='idMover'/>
+<ovr f='codebrowser/game/Mover.h' l='198' c='idSplinePath'/>
+<ovr f='codebrowser/game/Mover.h' l='283' c='idMover_Binary'/>
+<ovr f='codebrowser/game/Mover.h' l='475' c='idMover_Periodic'/>
+<ovr f='codebrowser/game/Camera.h' l='41' c='idCamera'/>
+<ovr f='codebrowser/game/Moveable.h' l='43' c='idMoveable'/>
+<ovr f='codebrowser/game/Target.h' l='41' c='idTarget'/>
+<ovr f='codebrowser/game/Trigger.h' l='43' c='idTrigger'/>
+<ovr f='codebrowser/game/Sound.h' l='40' c='idSound'/>
+<ovr f='codebrowser/game/Fx.h' l='54' c='idEntityFx'/>
+<ovr f='codebrowser/game/SecurityCamera.h' l='41' c='idSecurityCamera'/>
+<ovr f='codebrowser/game/BrittleFracture.h' l='55' c='idBrittleFracture'/>
+<ovr f='codebrowser/game/ai/AI.h' l='662' c='idCombatNode'/>
+<size>636</size>
+<smbr r='idEntity::MAX_PVS_AREAS' t='const int'/>
+<mbr r='idEntity::entityNumber' o='32' t='int'/>
+<mbr r='idEntity::entityDefNumber' o='64' t='int'/>
+<mbr r='idEntity::spawnNode' o='96' t='idLinkList&lt;idEntity&gt;'/>
+<mbr r='idEntity::activeNode' o='224' t='idLinkList&lt;idEntity&gt;'/>
+<mbr r='idEntity::snapshotNode' o='352' t='idLinkList&lt;idEntity&gt;'/>
+<mbr r='idEntity::snapshotSequence' o='480' t='int'/>
+<mbr r='idEntity::snapshotBits' o='512' t='int'/>
+<mbr r='idEntity::name' o='544' t='idStr'/>
+<mbr r='idEntity::spawnArgs' o='800' t='idDict'/>
+<mbr r='idEntity::scriptObject' o='1152' t='idScriptObject'/>
+<mbr r='idEntity::thinkFlags' o='1216' t='int'/>
+<mbr r='idEntity::dormantStart' o='1248' t='int'/>
+<mbr r='idEntity::cinematic' o='1280' t='bool'/>
+<mbr r='idEntity::renderView' o='1312' t='renderView_t *'/>
+<mbr r='idEntity::cameraTarget' o='1344' t='idEntity *'/>
+<mbr r='idEntity::targets' o='1376' t='idList&lt;idEntityPtr&lt;idEntity&gt; &gt;'/>
+<mbr r='idEntity::health' o='1504' t='int'/>
+<mbr r='idEntity::fl' o='1536' t='struct entityFlags_s'/>
+<smbr r='idEntity::Type' t='idTypeInfo'/>
+<fun r='_ZN8idEntity14CreateInstanceEv'/>
+<fun r='_ZNK8idEntity7GetTypeEv'/>
+<smbr r='idEntity::eventCallbacks' t='idEventFunc&lt;idEntity&gt; []'/>
+<fun r='_ZN8idEntityC1Ev'/>
+<fun r='_ZN8idEntityD1Ev'/>
+<fun r='_ZN8idEntity5SpawnEv'/>
+<fun r='_ZNK8idEntity4SaveEP10idSaveGame'/>
+<fun r='_ZN8idEntity7RestoreEP13idRestoreGame'/>
+<fun r='_ZNK8idEntity16GetEntityDefNameEv'/>
+<fun r='_ZN8idEntity7SetNameEPKc'/>
+<fun r='_ZNK8idEntity7GetNameEv'/>
+<fun r='_ZN8idEntity25UpdateChangeableSpawnArgsEPK6idDict'/>
+<fun r='_ZN8idEntity13GetRenderViewEv'/>
+<fun r='_ZN8idEntity5ThinkEv'/>
+<fun r='_ZN8idEntity12CheckDormantEv'/>
+<fun r='_ZN8idEntity12DormantBeginEv'/>
+<fun r='_ZN8idEntity10DormantEndEv'/>
+<fun r='_ZNK8idEntity8IsActiveEv'/>
+<fun r='_ZN8idEntity12BecomeActiveEi'/>
+<fun r='_ZN8idEntity14BecomeInactiveEi'/>
+<fun r='_ZN8idEntity14UpdatePVSAreasERK6idVec3'/>
+<fun r='_ZN8idEntity7PresentEv'/>
+<fun r='_ZN8idEntity15GetRenderEntityEv'/>
+<fun r='_ZN8idEntity17GetModelDefHandleEv'/>
+<fun r='_ZN8idEntity8SetModelEPKc'/>
+<fun r='_ZN8idEntity7SetSkinEPK10idDeclSkin'/>
+<fun r='_ZNK8idEntity7GetSkinEv'/>
+<fun r='_ZN8idEntity13SetShaderParmEif'/>
+<fun r='_ZN8idEntity8SetColorEfff'/>
+<fun r='_ZN8idEntity8SetColorERK6idVec3'/>
+<fun r='_ZNK8idEntity8GetColorER6idVec3'/>
+<fun r='_ZN8idEntity8SetColorERK6idVec4'/>
+<fun r='_ZNK8idEntity8GetColorER6idVec4'/>
+<fun r='_ZN8idEntity12FreeModelDefEv'/>
+<fun r='_ZN8idEntity12FreeLightDefEv'/>
+<fun r='_ZN8idEntity4HideEv'/>
+<fun r='_ZN8idEntity4ShowEv'/>
+<fun r='_ZNK8idEntity8IsHiddenEv'/>
+<fun r='_ZN8idEntity13UpdateVisualsEv'/>
+<fun r='_ZN8idEntity11UpdateModelEv'/>
+<fun r='_ZN8idEntity20UpdateModelTransformEv'/>
+<fun r='_ZN8idEntity14ProjectOverlayERK6idVec3S2_fPKc'/>
+<fun r='_ZN8idEntity14GetNumPVSAreasEv'/>
+<fun r='_ZN8idEntity11GetPVSAreasEv'/>
+<fun r='_ZN8idEntity13ClearPVSAreasEv'/>
+<fun r='_ZN8idEntity16PhysicsTeamInPVSE11pvsHandle_s'/>
+<fun r='_ZN8idEntity26UpdateAnimationControllersEv'/>
+<fun r='_ZN8idEntity18UpdateRenderEntityEP14renderEntity_sPK12renderView_s'/>
+<fun r='_ZN8idEntity13ModelCallbackEP14renderEntity_sPK12renderView_s'/>
+<fun r='_ZN8idEntity11GetAnimatorEv'/>
+<fun r='_ZNK8idEntity20CanPlayChatterSoundsEv'/>
+<fun r='_ZN8idEntity10StartSoundEPKciibPi'/>
+<fun r='_ZN8idEntity16StartSoundShaderEPK13idSoundShaderiibPi'/>
+<fun r='_ZN8idEntity9StopSoundEib'/>
+<fun r='_ZN8idEntity14SetSoundVolumeEf'/>
+<fun r='_ZN8idEntity11UpdateSoundEv'/>
+<fun r='_ZNK8idEntity13GetListenerIdEv'/>
+<fun r='_ZNK8idEntity15GetSoundEmitterEv'/>
+<fun r='_ZN8idEntity16FreeSoundEmitterEb'/>
+<fun r='_ZN8idEntity7PreBindEv'/>
+<fun r='_ZN8idEntity8PostBindEv'/>
+<fun r='_ZN8idEntity9PreUnbindEv'/>
+<fun r='_ZN8idEntity10PostUnbindEv'/>
+<fun r='_ZN8idEntity8JoinTeamEPS_'/>
+<fun r='_ZN8idEntity4BindEPS_b'/>
+<fun r='_ZN8idEntity11BindToJointEPS_PKcb'/>
+<fun r='_ZN8idEntity11BindToJointEPS_13jointHandle_tb'/>
+<fun r='_ZN8idEntity10BindToBodyEPS_ib'/>
+<fun r='_ZN8idEntity6UnbindEv'/>
+<fun r='_ZNK8idEntity7IsBoundEv'/>
+<fun r='_ZNK8idEntity9IsBoundToEPS_'/>
+<fun r='_ZNK8idEntity13GetBindMasterEv'/>
+<fun r='_ZNK8idEntity12GetBindJointEv'/>
+<fun r='_ZNK8idEntity11GetBindBodyEv'/>
+<fun r='_ZNK8idEntity13GetTeamMasterEv'/>
+<fun r='_ZNK8idEntity17GetNextTeamEntityEv'/>
+<fun r='_ZN8idEntity28ConvertLocalToWorldTransformER6idVec3R6idMat3'/>
+<fun r='_ZNK8idEntity14GetLocalVectorERK6idVec3'/>
+<fun r='_ZNK8idEntity19GetLocalCoordinatesERK6idVec3'/>
+<fun r='_ZNK8idEntity14GetWorldVectorERK6idVec3'/>
+<fun r='_ZNK8idEntity19GetWorldCoordinatesERK6idVec3'/>
+<fun r='_ZNK8idEntity17GetMasterPositionER6idVec3R6idMat3'/>
+<fun r='_ZNK8idEntity18GetWorldVelocitiesER6idVec3S1_'/>
+<fun r='_ZN8idEntity10SetPhysicsEP9idPhysics'/>
+<fun r='_ZNK8idEntity10GetPhysicsEv'/>
+<fun r='_ZN8idEntity14RestorePhysicsEP9idPhysics'/>
+<fun r='_ZN8idEntity10RunPhysicsEv'/>
+<fun r='_ZN8idEntity9SetOriginERK6idVec3'/>
+<fun r='_ZN8idEntity7SetAxisERK6idMat3'/>
+<fun r='_ZN8idEntity9SetAnglesERK8idAngles'/>
+<fun r='_ZNK8idEntity11GetFloorPosEfR6idVec3'/>
+<fun r='_ZN8idEntity27GetPhysicsToVisualTransformER6idVec3R6idMat3'/>
+<fun r='_ZN8idEntity26GetPhysicsToSoundTransformER6idVec3R6idMat3'/>
+<fun r='_ZN8idEntity7CollideERK7trace_sRK6idVec3'/>
+<fun r='_ZN8idEntity13GetImpactInfoEPS_iRK6idVec3P12impactInfo_s'/>
+<fun r='_ZN8idEntity12ApplyImpulseEPS_iRK6idVec3S3_'/>
+<fun r='_ZN8idEntity8AddForceEPS_iRK6idVec3S3_'/>
+<fun r='_ZN8idEntity15ActivatePhysicsEPS_'/>
+<fun r='_ZNK8idEntity8IsAtRestEv'/>
+<fun r='_ZNK8idEntity16GetRestStartTimeEv'/>
+<fun r='_ZN8idEntity16AddContactEntityEPS_'/>
+<fun r='_ZN8idEntity19RemoveContactEntityEPS_'/>
+<fun r='_ZNK8idEntity9CanDamageERK6idVec3RS0_'/>
+<fun r='_ZN8idEntity6DamageEPS_S0_RK6idVec3PKcfi'/>
+<fun r='_ZN8idEntity15AddDamageEffectERK7trace_sRK6idVec3PKc'/>
+<fun r='_ZN8idEntity14DamageFeedbackEPS_S0_Ri'/>
+<fun r='_ZN8idEntity4PainEPS_S0_iRK6idVec3i'/>
+<fun r='_ZN8idEntity6KilledEPS_S0_iRK6idVec3i'/>
+<fun r='_ZNK8idEntity34ShouldConstructScriptObjectAtSpawnEv'/>
+<fun r='_ZN8idEntity21ConstructScriptObjectEv'/>
+<fun r='_ZN8idEntity23DeconstructScriptObjectEv'/>
+<fun r='_ZN8idEntity9SetSignalE11signalNum_tP8idThreadPK10function_t'/>
+<fun r='_ZN8idEntity11ClearSignalEP8idThread11signalNum_t'/>
+<fun r='_ZN8idEntity17ClearSignalThreadE11signalNum_tP8idThread'/>
+<fun r='_ZNK8idEntity9HasSignalE11signalNum_t'/>
+<fun r='_ZN8idEntity6SignalE11signalNum_t'/>
+<fun r='_ZN8idEntity11SignalEventEP8idThread11signalNum_t'/>
+<fun r='_ZN8idEntity11TriggerGuisEv'/>
+<fun r='_ZN8idEntity17HandleGuiCommandsEPS_PKc'/>
+<fun r='_ZN8idEntity22HandleSingleGuiCommandEPS_P7idLexer'/>
+<fun r='_ZN8idEntity11FindTargetsEv'/>
+<fun r='_ZN8idEntity17RemoveNullTargetsEv'/>
+<fun r='_ZNK8idEntity15ActivateTargetsEPS_'/>
+<fun r='_ZN8idEntity8TeleportERK6idVec3RK8idAnglesPS_'/>
+<fun r='_ZNK8idEntity13TouchTriggersEv'/>
+<fun r='_ZNK8idEntity9GetSplineEv'/>
+<fun r='_ZN8idEntity17ShowEditingDialogEv'/>
+<fun r='_ZN8idEntity21ClientPredictionThinkEv'/>
+<fun r='_ZNK8idEntity15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN8idEntity16ReadFromSnapshotERK13idBitMsgDelta'/>
+<fun r='_ZN8idEntity18ServerReceiveEventEiiRK8idBitMsg'/>
+<fun r='_ZN8idEntity18ClientReceiveEventEiiRK8idBitMsg'/>
+<fun r='_ZNK8idEntity19WriteBindToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN8idEntity20ReadBindFromSnapshotERK13idBitMsgDelta'/>
+<fun r='_ZNK8idEntity20WriteColorToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN8idEntity21ReadColorFromSnapshotERK13idBitMsgDelta'/>
+<fun r='_ZNK8idEntity18WriteGUIToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN8idEntity19ReadGUIFromSnapshotERK13idBitMsgDelta'/>
+<fun r='_ZNK8idEntity15ServerSendEventEiPK8idBitMsgbi'/>
+<fun r='_ZNK8idEntity15ClientSendEventEiPK8idBitMsg'/>
+<mbr r='idEntity::renderEntity' o='1568' t='renderEntity_t'/>
+<mbr r='idEntity::modelDefHandle' o='3296' t='int'/>
+<mbr r='idEntity::refSound' o='3328' t='refSound_t'/>
+<mbr r='idEntity::defaultPhysicsObj' o='3776' t='idPhysics_Static'/>
+<mbr r='idEntity::physics' o='4672' t='idPhysics *'/>
+<mbr r='idEntity::bindMaster' o='4704' t='idEntity *'/>
+<mbr r='idEntity::bindJoint' o='4736' t='jointHandle_t'/>
+<mbr r='idEntity::bindBody' o='4768' t='int'/>
+<mbr r='idEntity::teamMaster' o='4800' t='idEntity *'/>
+<mbr r='idEntity::teamChain' o='4832' t='idEntity *'/>
+<mbr r='idEntity::numPVSAreas' o='4864' t='int'/>
+<mbr r='idEntity::PVSAreas' o='4896' t='int [4]'/>
+<mbr r='idEntity::signals' o='5024' t='signalList_t *'/>
+<mbr r='idEntity::mpGUIState' o='5056' t='int'/>
+<fun r='_ZN8idEntity21FixupLocalizedStringsEv'/>
+<fun r='_ZN8idEntity14DoDormantTestsEv'/>
+<fun r='_ZN8idEntity18InitDefaultPhysicsERK6idVec3RK6idMat3'/>
+<fun r='_ZN8idEntity17UpdateFromPhysicsEb'/>
+<fun r='_ZN8idEntity8InitBindEPS_'/>
+<fun r='_ZN8idEntity10FinishBindEv'/>
+<fun r='_ZN8idEntity11RemoveBindsEv'/>
+<fun r='_ZN8idEntity8QuitTeamEv'/>
+<fun r='_ZN8idEntity14UpdatePVSAreasEv'/>
+<fun r='_ZN8idEntity13Event_GetNameEv'/>
+<fun r='_ZN8idEntity13Event_SetNameEPKc'/>
+<fun r='_ZN8idEntity17Event_FindTargetsEv'/>
+<fun r='_ZN8idEntity21Event_ActivateTargetsEPS_'/>
+<fun r='_ZN8idEntity16Event_NumTargetsEv'/>
+<fun r='_ZN8idEntity15Event_GetTargetEf'/>
+<fun r='_ZN8idEntity18Event_RandomTargetEPKc'/>
+<fun r='_ZN8idEntity10Event_BindEPS_'/>
+<fun r='_ZN8idEntity18Event_BindPositionEPS_'/>
+<fun r='_ZN8idEntity17Event_BindToJointEPS_PKcf'/>
+<fun r='_ZN8idEntity12Event_UnbindEv'/>
+<fun r='_ZN8idEntity17Event_RemoveBindsEv'/>
+<fun r='_ZN8idEntity15Event_SpawnBindEv'/>
+<fun r='_ZN8idEntity14Event_SetOwnerEPS_'/>
+<fun r='_ZN8idEntity14Event_SetModelEPKc'/>
+<fun r='_ZN8idEntity13Event_SetSkinEPKc'/>
+<fun r='_ZN8idEntity19Event_GetShaderParmEi'/>
+<fun r='_ZN8idEntity19Event_SetShaderParmEif'/>
+<fun r='_ZN8idEntity20Event_SetShaderParmsEffff'/>
+<fun r='_ZN8idEntity14Event_SetColorEfff'/>
+<fun r='_ZN8idEntity14Event_GetColorEv'/>
+<fun r='_ZN8idEntity14Event_IsHiddenEv'/>
+<fun r='_ZN8idEntity10Event_HideEv'/>
+<fun r='_ZN8idEntity10Event_ShowEv'/>
+<fun r='_ZN8idEntity22Event_CacheSoundShaderEPKc'/>
+<fun r='_ZN8idEntity22Event_StartSoundShaderEPKci'/>
+<fun r='_ZN8idEntity15Event_StopSoundEii'/>
+<fun r='_ZN8idEntity16Event_StartSoundEPKcii'/>
+<fun r='_ZN8idEntity15Event_FadeSoundEiff'/>
+<fun r='_ZN8idEntity20Event_GetWorldOriginEv'/>
+<fun r='_ZN8idEntity20Event_SetWorldOriginERK6idVec3'/>
+<fun r='_ZN8idEntity15Event_GetOriginEv'/>
+<fun r='_ZN8idEntity15Event_SetOriginERK6idVec3'/>
+<fun r='_ZN8idEntity15Event_GetAnglesEv'/>
+<fun r='_ZN8idEntity15Event_SetAnglesERK8idAngles'/>
+<fun r='_ZN8idEntity23Event_SetLinearVelocityERK6idVec3'/>
+<fun r='_ZN8idEntity23Event_GetLinearVelocityEv'/>
+<fun r='_ZN8idEntity24Event_SetAngularVelocityERK6idVec3'/>
+<fun r='_ZN8idEntity24Event_GetAngularVelocityEv'/>
+<fun r='_ZN8idEntity13Event_SetSizeERK6idVec3S2_'/>
+<fun r='_ZN8idEntity13Event_GetSizeEv'/>
+<fun r='_ZN8idEntity13Event_GetMinsEv'/>
+<fun r='_ZN8idEntity13Event_GetMaxsEv'/>
+<fun r='_ZN8idEntity13Event_TouchesEPS_'/>
+<fun r='_ZN8idEntity16Event_SetGuiParmEPKcS1_'/>
+<fun r='_ZN8idEntity17Event_SetGuiFloatEPKcf'/>
+<fun r='_ZN8idEntity16Event_GetNextKeyEPKcS1_'/>
+<fun r='_ZN8idEntity12Event_SetKeyEPKcS1_'/>
+<fun r='_ZN8idEntity12Event_GetKeyEPKc'/>
+<fun r='_ZN8idEntity15Event_GetIntKeyEPKc'/>
+<fun r='_ZN8idEntity17Event_GetFloatKeyEPKc'/>
+<fun r='_ZN8idEntity18Event_GetVectorKeyEPKc'/>
+<fun r='_ZN8idEntity18Event_GetEntityKeyEPKc'/>
+<fun r='_ZN8idEntity21Event_RestorePositionEv'/>
+<fun r='_ZN8idEntity24Event_UpdateCameraTargetEv'/>
+<fun r='_ZN8idEntity16Event_DistanceToEPS_'/>
+<fun r='_ZN8idEntity21Event_DistanceToPointERK6idVec3'/>
+<fun r='_ZN8idEntity13Event_StartFxEPKc'/>
+<fun r='_ZN8idEntity15Event_WaitFrameEv'/>
+<fun r='_ZN8idEntity10Event_WaitEf'/>
+<fun r='_ZN8idEntity17Event_HasFunctionEPKc'/>
+<fun r='_ZN8idEntity18Event_CallFunctionEPKc'/>
+<fun r='_ZN8idEntity21Event_SetNeverDormantEi'/>

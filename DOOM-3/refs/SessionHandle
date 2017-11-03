@@ -1,0 +1,20 @@
+<def f='codebrowser/curl/lib/urldata.h' l='895' ll='909'/>
+<size>34080</size>
+<doc f='codebrowser/curl/lib/urldata.h' l='884'>/*
+ * In August 2001, this struct was redesigned and is since stricter than
+ * before. The &apos;connectdata&apos; struct MUST have all the connection oriented
+ * stuff as we may now have several simultaneous connections and connection
+ * structs in memory.
+ *
+ * From now on, the &apos;SessionHandle&apos; must only contain data that is set once to
+ * go for many (perhaps) independent connections. Values that are generated or
+ * calculated internally for the &quot;session handle&quot; must be defined within the
+ * &apos;struct urlstate&apos; instead.  */</doc>
+<mbr r='SessionHandle::hostcache' o='0' t='curl_hash *'/>
+<mbr r='SessionHandle::share' o='64' t='struct Curl_share *'/>
+<mbr r='SessionHandle::set' o='128' t='struct UserDefined'/>
+<mbr r='SessionHandle::change' o='5504' t='struct DynamicStatic'/>
+<mbr r='SessionHandle::cookies' o='5952' t='struct CookieInfo *'/>
+<mbr r='SessionHandle::progress' o='6016' t='struct Progress'/>
+<mbr r='SessionHandle::state' o='8512' t='struct UrlState'/>
+<mbr r='SessionHandle::info' o='272128' t='struct PureInfo'/>

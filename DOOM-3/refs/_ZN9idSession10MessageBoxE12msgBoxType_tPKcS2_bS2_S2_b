@@ -1,0 +1,31 @@
+<dec f='codebrowser/framework/Session.h' l='111' type='const char * idSession::MessageBox(msgBoxType_t type, const char * message, const char * title = __null, bool wait = false, const char * fire_yes = __null, const char * fire_no = __null, bool network = false)'/>
+<doc f='codebrowser/framework/Session.h' l='107'>// fires up the optional GUI event, also returns them if you set wait to true
+	// if MSG_PROMPT and wait, returns the prompt string or NULL if aborted
+	// if MSG_CDKEY and want, returns the cd key or NULL if aborted
+	// network tells wether one should still run the network loop in a wait dialog</doc>
+<ovr f='codebrowser/framework/Session_menu.cpp' l='1254' c='_ZN14idSessionLocal10MessageBoxE12msgBoxType_tPKcS2_bS2_S2_b'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='239' u='c' c='_ZN13idAsyncClient15ConnectToServerEPKc'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='245' u='c' c='_ZN13idAsyncClient15ConnectToServerEPKc'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='781' u='c' c='_ZN13idAsyncClient30ProcessUnreliableServerMessageERK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1006' u='c' c='_ZN13idAsyncClient29ProcessReliableServerMessagesEv'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1159' u='c' c='_ZN13idAsyncClient24ProcessDisconnectMessageE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1226' u='c' c='_ZN13idAsyncClient19ProcessPrintMessageE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1237' u='c' c='_ZN13idAsyncClient19ProcessPrintMessageE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1324' u='c' c='_ZN13idAsyncClient21ProcessAuthKeyMessageE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1331' u='c' c='_ZN13idAsyncClient21ProcessAuthKeyMessageE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1438' u='c' c='_ZN13idAsyncClient27ValidatePureServerChecksumsE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1969' u='c' c='_ZN13idAsyncClient15HandleDownloadsEv'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1977' u='c' c='_ZN13idAsyncClient15HandleDownloadsEv'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='2006' u='c' c='_ZN13idAsyncClient15HandleDownloadsEv'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='2013' u='c' c='_ZN13idAsyncClient15HandleDownloadsEv'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='2023' u='c' c='_ZN13idAsyncClient15HandleDownloadsEv'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='2121' u='c' c='_ZN13idAsyncClient15HandleDownloadsEv'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='2136' u='c' c='_ZN13idAsyncClient15HandleDownloadsEv'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='2181' u='c' c='_ZN13idAsyncClient12CheckTimeoutEv'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='2217' u='c' c='_ZN13idAsyncClient26ProcessDownloadInfoMessageE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='2274' u='c' c='_ZN13idAsyncClient26ProcessDownloadInfoMessageE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='2282' u='c' c='_ZN13idAsyncClient26ProcessDownloadInfoMessageE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='2291' u='c' c='_ZN13idAsyncClient26ProcessDownloadInfoMessageE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='2300' u='c' c='_ZN13idAsyncClient26ProcessDownloadInfoMessageE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='2310' u='c' c='_ZN13idAsyncClient26ProcessDownloadInfoMessageE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='344' u='c' c='_ZN13idAsyncServer16ExecuteMapChangeEv'/>

@@ -1,0 +1,35 @@
+<dec f='codebrowser/d3xp/Entity.h' l='289' type='bool idEntity::Collide(const trace_t &amp; collision, const idVec3 &amp; velocity)'/>
+<doc f='codebrowser/d3xp/Entity.h' l='288'>// called from the physics object when colliding, should return true if the physics simulation should stop</doc>
+<ovr f='codebrowser/d3xp/AFEntity.cpp' l='749' c='_ZN15idAFEntity_Base7CollideERK7trace_sRK6idVec3'/>
+<def f='codebrowser/d3xp/Entity.cpp' l='2868' ll='2871' type='bool idEntity::Collide(const trace_t &amp; collision, const idVec3 &amp; velocity)'/>
+<doc f='codebrowser/d3xp/Entity.cpp' l='2863'>/*
+================
+idEntity::Collide
+================
+*/</doc>
+<ovr f='codebrowser/d3xp/Item.cpp' l='1786' c='_ZN14idMoveableItem7CollideERK7trace_sRK6idVec3'/>
+<ovr f='codebrowser/d3xp/Moveable.cpp' l='283' c='_ZN10idMoveable7CollideERK7trace_sRK6idVec3'/>
+<ovr f='codebrowser/d3xp/Projectile.cpp' l='530' c='_ZN12idProjectile7CollideERK7trace_sRK6idVec3'/>
+<ovr f='codebrowser/d3xp/Projectile.cpp' l='2557' c='_ZN8idDebris7CollideERK7trace_sRK6idVec3'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='5439' u='c' c='_ZN12idPhysics_AF16CollisionImpulseEfP8idAFBodyR7trace_s'/>
+<use f='codebrowser/d3xp/physics/Physics_Monster.cpp' l='73' u='c' c='_ZN17idPhysics_Monster11CheckGroundER15monsterPState_s'/>
+<use f='codebrowser/d3xp/physics/Physics_Player.cpp' l='310' u='c' c='_ZN16idPhysics_Player9SlideMoveEbbbb'/>
+<use f='codebrowser/d3xp/physics/Physics_Player.cpp' l='1054' u='c' c='_ZN16idPhysics_Player11CheckGroundEv'/>
+<use f='codebrowser/d3xp/physics/Physics_RigidBody.cpp' l='161' u='c' c='_ZN19idPhysics_RigidBody16CollisionImpulseERK7trace_sR6idVec3'/>
+<dec f='codebrowser/game/Entity.h' l='273' type='bool idEntity::Collide(const trace_t &amp; collision, const idVec3 &amp; velocity)'/>
+<doc f='codebrowser/game/Entity.h' l='272'>// called from the physics object when colliding, should return true if the physics simulation should stop</doc>
+<ovr f='codebrowser/game/AFEntity.cpp' l='749' c='_ZN15idAFEntity_Base7CollideERK7trace_sRK6idVec3'/>
+<def f='codebrowser/game/Entity.cpp' l='2776' ll='2779' type='bool idEntity::Collide(const trace_t &amp; collision, const idVec3 &amp; velocity)'/>
+<doc f='codebrowser/game/Entity.cpp' l='2771'>/*
+================
+idEntity::Collide
+================
+*/</doc>
+<ovr f='codebrowser/game/Moveable.cpp' l='267' c='_ZN10idMoveable7CollideERK7trace_sRK6idVec3'/>
+<ovr f='codebrowser/game/Projectile.cpp' l='485' c='_ZN12idProjectile7CollideERK7trace_sRK6idVec3'/>
+<ovr f='codebrowser/game/Projectile.cpp' l='2298' c='_ZN8idDebris7CollideERK7trace_sRK6idVec3'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='5438' u='c' c='_ZN12idPhysics_AF16CollisionImpulseEfP8idAFBodyR7trace_s'/>
+<use f='codebrowser/game/physics/Physics_Monster.cpp' l='73' u='c' c='_ZN17idPhysics_Monster11CheckGroundER15monsterPState_s'/>
+<use f='codebrowser/game/physics/Physics_Player.cpp' l='310' u='c' c='_ZN16idPhysics_Player9SlideMoveEbbbb'/>
+<use f='codebrowser/game/physics/Physics_Player.cpp' l='1054' u='c' c='_ZN16idPhysics_Player11CheckGroundEv'/>
+<use f='codebrowser/game/physics/Physics_RigidBody.cpp' l='161' u='c' c='_ZN19idPhysics_RigidBody16CollisionImpulseERK7trace_sR6idVec3'/>

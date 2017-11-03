@@ -1,0 +1,19 @@
+<dec f='codebrowser/framework/FileSystem.cpp' l='371' type='idFile * idFileSystemLocal::OpenFileReadFlags(const char * relativePath, int searchFlags, pack_t ** foundInPak = __null, bool allowCopyFiles = true, const char * gamedir = __null)'/>
+<def f='codebrowser/framework/FileSystem.cpp' l='3141' ll='3381' type='idFile * idFileSystemLocal::OpenFileReadFlags(const char * relativePath, int searchFlags, pack_t ** foundInPak = __null, bool allowCopyFiles = true, const char * gamedir = __null)'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='3389' u='c' c='_ZN17idFileSystemLocal12OpenFileReadEPKcbS1_'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='3890' u='c' c='_ZN17idFileSystemLocal7FindDLLEPKcPcb'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='3896' u='c' c='_ZN17idFileSystemLocal7FindDLLEPKcPcb'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='3906' u='c' c='_ZN17idFileSystemLocal7FindDLLEPKcPcb'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='3935' u='c' c='_ZN17idFileSystemLocal7FindDLLEPKcPcb'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='4093' u='c' c='_ZN17idFileSystemLocal8FindFileEPKcb'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='4203' u='c' c='_ZN17idFileSystemLocal17FindMapScreenshotEPKcPci'/>
+<doc f='codebrowser/framework/FileSystem.cpp' l='3131'>/*
+===========
+idFileSystemLocal::OpenFileReadFlags
+
+Finds the file in the search path, following search flag recommendations
+Returns filesize and an open FILE pointer.
+Used for streaming data out of either a
+separate file or a ZIP file.
+===========
+*/</doc>

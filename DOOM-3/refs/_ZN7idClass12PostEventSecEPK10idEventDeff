@@ -1,0 +1,85 @@
+<dec f='codebrowser/d3xp/gamesys/Class.h' l='213' type='bool idClass::PostEventSec(const idEventDef * ev, float time)'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='1208' u='c' c='_ZN19idAFEntity_Gibbable9SpawnGibsERK6idVec3PKc'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='1259' u='c' c='_ZN19idAFEntity_Gibbable3GibERK6idVec3PKc'/>
+<use f='codebrowser/d3xp/Fx.cpp' l='666' u='c' c='_ZN10idEntityFx13Event_ClearFxEv'/>
+<use f='codebrowser/d3xp/Item.cpp' l='404' u='c' c='_ZN6idItem6PickupEP8idPlayer'/>
+<use f='codebrowser/d3xp/Item.cpp' l='406' u='c' c='_ZN6idItem6PickupEP8idPlayer'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='203' u='c' c='_ZN13idPlayerStart14TeleportPlayerEP8idPlayer'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='881' u='c' c='_ZN12idForceField14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='1800' u='c' c='_ZN11idFuncSplat14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/d3xp/Moveable.cpp' l='349' u='c' c='_ZN10idMoveable7CollideERK7trace_sRK6idVec3'/>
+<use f='codebrowser/d3xp/Moveable.cpp' l='1145' u='c' c='_ZN17idExplodingBarrel6KilledEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/d3xp/Moveable.cpp' l='1212' u='c' c='_ZN17idExplodingBarrel6KilledEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/d3xp/Moveable.cpp' l='1283' u='c' c='_ZN17idExplodingBarrel13Event_RespawnEv'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='2010' u='c' c='_ZN10idElevator10DoneMovingEv'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='2655' u='c' c='_ZN14idMover_Binary25Event_Reached_BinaryMoverEv'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='2861' u='c' c='_ZN14idMover_Binary15Use_BinaryMoverEP8idEntity'/>
+<use f='codebrowser/d3xp/Player.cpp' l='8969' u='c' c='_ZN8idPlayer10StartFxFovEf'/>
+<use f='codebrowser/d3xp/Player.cpp' l='9887' u='c' c='_ZN8idPlayer7ShowTipEPKcS1_b'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='432' u='c' c='_ZN12idProjectile6LaunchERK6idVec3S2_S2_fff'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='438' u='c' c='_ZN12idProjectile6LaunchERK6idVec3S2_S2_fff'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='1763' u='c' c='_ZN17idSoulCubeMissile5ThinkEv'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='2493' u='c' c='_ZN8idDebris6LaunchEv'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='2498' u='c' c='_ZN8idDebris6LaunchEv'/>
+<use f='codebrowser/d3xp/SecurityCamera.cpp' l='388' u='c' c='_ZN16idSecurityCamera5ThinkEv'/>
+<use f='codebrowser/d3xp/SecurityCamera.cpp' l='398' u='c' c='_ZN16idSecurityCamera5ThinkEv'/>
+<use f='codebrowser/d3xp/SecurityCamera.cpp' l='487' u='c' c='_ZN16idSecurityCamera11Event_AlertEv'/>
+<use f='codebrowser/d3xp/SecurityCamera.cpp' l='513' u='c' c='_ZN16idSecurityCamera11Event_PauseEv'/>
+<use f='codebrowser/d3xp/Sound.cpp' l='127' u='c' c='_ZN7idSound5SpawnEv'/>
+<use f='codebrowser/d3xp/Sound.cpp' l='148' u='c' c='_ZN7idSound13Event_TriggerEP8idEntity'/>
+<use f='codebrowser/d3xp/Sound.cpp' l='174' u='c' c='_ZN7idSound11Event_TimerEv'/>
+<use f='codebrowser/d3xp/Sound.cpp' l='229' u='c' c='_ZN7idSound25UpdateChangeableSpawnArgsEPK6idDict'/>
+<use f='codebrowser/d3xp/Sound.cpp' l='279' u='c' c='_ZN7idSound8Event_OnEv'/>
+<use f='codebrowser/d3xp/Target.cpp' l='1784' u='c' c='_ZN23idTarget_FadeSoundClass14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/d3xp/Trigger.cpp' l='778' u='c' c='_ZN15idTrigger_Timer5SpawnEv'/>
+<use f='codebrowser/d3xp/Trigger.cpp' l='791' u='c' c='_ZN15idTrigger_Timer6EnableEv'/>
+<use f='codebrowser/d3xp/Trigger.cpp' l='818' u='c' c='_ZN15idTrigger_Timer11Event_TimerEv'/>
+<use f='codebrowser/d3xp/Trigger.cpp' l='841' u='c' c='_ZN15idTrigger_Timer9Event_UseEP8idEntity'/>
+<def f='codebrowser/d3xp/gamesys/Class.cpp' l='747' ll='749' type='bool idClass::PostEventSec(const idEventDef * ev, float time)'/>
+<doc f='codebrowser/d3xp/gamesys/Class.cpp' l='742'>/*
+================
+idClass::PostEventSec
+================
+*/</doc>
+<dec f='codebrowser/game/gamesys/Class.h' l='213' type='bool idClass::PostEventSec(const idEventDef * ev, float time)'/>
+<use f='codebrowser/game/AFEntity.cpp' l='1138' u='c' c='_ZN19idAFEntity_Gibbable9SpawnGibsERK6idVec3PKc'/>
+<use f='codebrowser/game/AFEntity.cpp' l='1184' u='c' c='_ZN19idAFEntity_Gibbable3GibERK6idVec3PKc'/>
+<use f='codebrowser/game/Fx.cpp' l='636' u='c' c='_ZN10idEntityFx13Event_ClearFxEv'/>
+<use f='codebrowser/game/Item.cpp' l='396' u='c' c='_ZN6idItem6PickupEP8idPlayer'/>
+<use f='codebrowser/game/Item.cpp' l='398' u='c' c='_ZN6idItem6PickupEP8idPlayer'/>
+<use f='codebrowser/game/Misc.cpp' l='199' u='c' c='_ZN13idPlayerStart14TeleportPlayerEP8idPlayer'/>
+<use f='codebrowser/game/Misc.cpp' l='855' u='c' c='_ZN12idForceField14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/game/Misc.cpp' l='1734' u='c' c='_ZN11idFuncSplat14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/game/Moveable.cpp' l='983' u='c' c='_ZN17idExplodingBarrel6KilledEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/game/Moveable.cpp' l='1050' u='c' c='_ZN17idExplodingBarrel6KilledEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/game/Moveable.cpp' l='1121' u='c' c='_ZN17idExplodingBarrel13Event_RespawnEv'/>
+<use f='codebrowser/game/Mover.cpp' l='1997' u='c' c='_ZN10idElevator10DoneMovingEv'/>
+<use f='codebrowser/game/Mover.cpp' l='2623' u='c' c='_ZN14idMover_Binary25Event_Reached_BinaryMoverEv'/>
+<use f='codebrowser/game/Mover.cpp' l='2830' u='c' c='_ZN14idMover_Binary15Use_BinaryMoverEP8idEntity'/>
+<use f='codebrowser/game/Player.cpp' l='7590' u='c' c='_ZN8idPlayer10StartFxFovEf'/>
+<use f='codebrowser/game/Player.cpp' l='8333' u='c' c='_ZN8idPlayer7ShowTipEPKcS1_b'/>
+<use f='codebrowser/game/Projectile.cpp' l='394' u='c' c='_ZN12idProjectile6LaunchERK6idVec3S2_S2_fff'/>
+<use f='codebrowser/game/Projectile.cpp' l='400' u='c' c='_ZN12idProjectile6LaunchERK6idVec3S2_S2_fff'/>
+<use f='codebrowser/game/Projectile.cpp' l='1576' u='c' c='_ZN17idSoulCubeMissile5ThinkEv'/>
+<use f='codebrowser/game/Projectile.cpp' l='2234' u='c' c='_ZN8idDebris6LaunchEv'/>
+<use f='codebrowser/game/Projectile.cpp' l='2239' u='c' c='_ZN8idDebris6LaunchEv'/>
+<use f='codebrowser/game/SecurityCamera.cpp' l='388' u='c' c='_ZN16idSecurityCamera5ThinkEv'/>
+<use f='codebrowser/game/SecurityCamera.cpp' l='398' u='c' c='_ZN16idSecurityCamera5ThinkEv'/>
+<use f='codebrowser/game/SecurityCamera.cpp' l='487' u='c' c='_ZN16idSecurityCamera11Event_AlertEv'/>
+<use f='codebrowser/game/SecurityCamera.cpp' l='513' u='c' c='_ZN16idSecurityCamera11Event_PauseEv'/>
+<use f='codebrowser/game/Sound.cpp' l='127' u='c' c='_ZN7idSound5SpawnEv'/>
+<use f='codebrowser/game/Sound.cpp' l='148' u='c' c='_ZN7idSound13Event_TriggerEP8idEntity'/>
+<use f='codebrowser/game/Sound.cpp' l='174' u='c' c='_ZN7idSound11Event_TimerEv'/>
+<use f='codebrowser/game/Sound.cpp' l='229' u='c' c='_ZN7idSound25UpdateChangeableSpawnArgsEPK6idDict'/>
+<use f='codebrowser/game/Sound.cpp' l='279' u='c' c='_ZN7idSound8Event_OnEv'/>
+<use f='codebrowser/game/Target.cpp' l='1748' u='c' c='_ZN23idTarget_FadeSoundClass14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/game/Trigger.cpp' l='772' u='c' c='_ZN15idTrigger_Timer5SpawnEv'/>
+<use f='codebrowser/game/Trigger.cpp' l='785' u='c' c='_ZN15idTrigger_Timer6EnableEv'/>
+<use f='codebrowser/game/Trigger.cpp' l='812' u='c' c='_ZN15idTrigger_Timer11Event_TimerEv'/>
+<use f='codebrowser/game/Trigger.cpp' l='835' u='c' c='_ZN15idTrigger_Timer9Event_UseEP8idEntity'/>
+<def f='codebrowser/game/gamesys/Class.cpp' l='747' ll='749' type='bool idClass::PostEventSec(const idEventDef * ev, float time)'/>
+<doc f='codebrowser/game/gamesys/Class.cpp' l='742'>/*
+================
+idClass::PostEventSec
+================
+*/</doc>

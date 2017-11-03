@@ -1,0 +1,27 @@
+<dec f='codebrowser/game/SmokeParticles.h' l='78' type='bool idSmokeParticles::EmitSmoke(const idDeclParticle * smoke, const int startTime, const float diversity, const idVec3 &amp; origin, const idMat3 &amp; axis)'/>
+<doc f='codebrowser/game/SmokeParticles.h' l='77'>// spits out a particle, returning false if the system will not emit any more particles in the future</doc>
+<use f='codebrowser/game/AFEntity.cpp' l='2045' u='c' c='_ZN28idAFEntity_VehicleFourWheels5ThinkEv'/>
+<use f='codebrowser/game/AFEntity.cpp' l='2235' u='c' c='_ZN27idAFEntity_VehicleSixWheels5ThinkEv'/>
+<use f='codebrowser/game/Entity.cpp' l='5254' u='c' c='_ZN16idAnimatedEntity19UpdateDamageEffectsEv'/>
+<use f='codebrowser/game/Item.cpp' l='990' u='c' c='_ZN14idMoveableItem5ThinkEv'/>
+<use f='codebrowser/game/Item.cpp' l='1157' u='c' c='_ZN14idMoveableItem3GibERK6idVec3PKc'/>
+<use f='codebrowser/game/Misc.cpp' l='1835' u='c' c='_ZN11idFuncSmoke5ThinkEv'/>
+<use f='codebrowser/game/Projectile.cpp' l='175' u='c' c='_ZN12idProjectile7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/game/Projectile.cpp' l='453' u='c' c='_ZN12idProjectile5ThinkEv'/>
+<use f='codebrowser/game/Projectile.cpp' l='1559' u='c' c='_ZN17idSoulCubeMissile5ThinkEv'/>
+<use f='codebrowser/game/Projectile.cpp' l='2251' u='c' c='_ZN8idDebris6LaunchEv'/>
+<use f='codebrowser/game/Projectile.cpp' l='2274' u='c' c='_ZN8idDebris5ThinkEv'/>
+<use f='codebrowser/game/Projectile.cpp' l='2326' u='c' c='_ZN8idDebris6FizzleEv'/>
+<use f='codebrowser/game/Projectile.cpp' l='2366' u='c' c='_ZN8idDebris7ExplodeEv'/>
+<def f='codebrowser/game/SmokeParticles.cpp' l='165' ll='281' type='bool idSmokeParticles::EmitSmoke(const idDeclParticle * smoke, const int systemStartTime, const float diversity, const idVec3 &amp; origin, const idMat3 &amp; axis)'/>
+<doc f='codebrowser/game/SmokeParticles.cpp' l='158'>/*
+================
+idSmokeParticles::EmitSmoke
+
+Called by game code to drop another particle into the list
+================
+*/</doc>
+<use f='codebrowser/game/Weapon.cpp' l='1944' u='c' c='_ZN8idWeapon13PresentWeaponEb'/>
+<use f='codebrowser/game/Weapon.cpp' l='1951' u='c' c='_ZN8idWeapon13PresentWeaponEb'/>
+<use f='codebrowser/game/ai/AI.cpp' l='3302' u='c' c='_ZN4idAI21SpawnParticlesOnJointER17particleEmitter_sPKcS3_'/>
+<use f='codebrowser/game/ai/AI.cpp' l='4669' u='c' c='_ZN4idAI15UpdateParticlesEv'/>

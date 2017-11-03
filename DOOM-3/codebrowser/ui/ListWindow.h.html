@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ListWindow.h source code [codebrowser/ui/ListWindow.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idListWindow,idTabRect "/>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/ui/ListWindow.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>ui</a>/<a href='ListWindow.h.html'>ListWindow.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td><u>#<span data-ppcond="28">ifndef</span> <span class="macro" data-ref="_M/__LISTWINDOW_H">__LISTWINDOW_H</span></u></td></tr>
+<tr><th id="29">29</th><td><u>#define <dfn class="macro" id="_M/__LISTWINDOW_H" data-ref="_M/__LISTWINDOW_H">__LISTWINDOW_H</dfn></u></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><b>class</b> <a class="type" href="EditWindow.h.html#idSliderWindow" title='idSliderWindow' data-ref="idSliderWindow" id="idSliderWindow">idSliderWindow</a>;</td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><b>enum</b> {</td></tr>
+<tr><th id="34">34</th><td>	<dfn class="enum" id="TAB_TYPE_TEXT" title='TAB_TYPE_TEXT' data-ref="TAB_TYPE_TEXT">TAB_TYPE_TEXT</dfn> = <var>0</var>,</td></tr>
+<tr><th id="35">35</th><td>	<dfn class="enum" id="TAB_TYPE_ICON" title='TAB_TYPE_ICON' data-ref="TAB_TYPE_ICON">TAB_TYPE_ICON</dfn> = <var>1</var></td></tr>
+<tr><th id="36">36</th><td>};</td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td><b>struct</b> <dfn class="type def" id="idTabRect" title='idTabRect' data-ref="idTabRect">idTabRect</dfn> {</td></tr>
+<tr><th id="39">39</th><td>	<em>int</em> <dfn class="decl" id="idTabRect::x" title='idTabRect::x' data-ref="idTabRect::x">x</dfn>;</td></tr>
+<tr><th id="40">40</th><td>	<em>int</em> <dfn class="decl" id="idTabRect::w" title='idTabRect::w' data-ref="idTabRect::w">w</dfn>;</td></tr>
+<tr><th id="41">41</th><td>	<em>int</em> <dfn class="decl" id="idTabRect::align" title='idTabRect::align' data-ref="idTabRect::align">align</dfn>;</td></tr>
+<tr><th id="42">42</th><td>	<em>int</em> <dfn class="decl" id="idTabRect::valign" title='idTabRect::valign' data-ref="idTabRect::valign">valign</dfn>;</td></tr>
+<tr><th id="43">43</th><td>	<em>int</em>	<dfn class="decl" id="idTabRect::type" title='idTabRect::type' data-ref="idTabRect::type">type</dfn>;</td></tr>
+<tr><th id="44">44</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec2" title='idVec2' data-ref="idVec2">idVec2</a> <dfn class="decl" id="idTabRect::iconSize" title='idTabRect::iconSize' data-ref="idTabRect::iconSize">iconSize</dfn>;</td></tr>
+<tr><th id="45">45</th><td>	<em>float</em> <dfn class="decl" id="idTabRect::iconVOffset" title='idTabRect::iconVOffset' data-ref="idTabRect::iconVOffset">iconVOffset</dfn>;</td></tr>
+<tr><th id="46">46</th><td>};</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td><b>class</b> <dfn class="type def" id="idListWindow" title='idListWindow' data-ref="idListWindow">idListWindow</dfn> : <b>public</b> <a class="type" href="Window.h.html#idWindow" title='idWindow' data-ref="idWindow">idWindow</a> {</td></tr>
+<tr><th id="49">49</th><td><b>public</b>:</td></tr>
+<tr><th id="50">50</th><td>	<dfn class="decl" id="_ZN12idListWindowC1EP20idUserInterfaceLocal" title='idListWindow::idListWindow' data-ref="_ZN12idListWindowC1EP20idUserInterfaceLocal">idListWindow</dfn>(<a class="type" href="SimpleWindow.h.html#idUserInterfaceLocal" title='idUserInterfaceLocal' data-ref="idUserInterfaceLocal">idUserInterfaceLocal</a> *<dfn class="local col3 decl" id="543gui" title='gui' data-type='idUserInterfaceLocal *' data-ref="543gui">gui</dfn>);</td></tr>
+<tr><th id="51">51</th><td>	<dfn class="decl" id="_ZN12idListWindowC1EP15idDeviceContextP20idUserInterfaceLocal" title='idListWindow::idListWindow' data-ref="_ZN12idListWindowC1EP15idDeviceContextP20idUserInterfaceLocal">idListWindow</dfn>(<a class="type" href="DeviceContext.h.html#idDeviceContext" title='idDeviceContext' data-ref="idDeviceContext">idDeviceContext</a> *<dfn class="local col4 decl" id="544d" title='d' data-type='idDeviceContext *' data-ref="544d">d</dfn>, <a class="type" href="SimpleWindow.h.html#idUserInterfaceLocal" title='idUserInterfaceLocal' data-ref="idUserInterfaceLocal">idUserInterfaceLocal</a> *<dfn class="local col5 decl" id="545gui" title='gui' data-type='idUserInterfaceLocal *' data-ref="545gui">gui</dfn>);</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td>	<b>virtual</b> <em>const</em> <em>char</em>*	<dfn class="virtual decl" id="_ZN12idListWindow11HandleEventEPK10sysEvent_sPb" title='idListWindow::HandleEvent' data-ref="_ZN12idListWindow11HandleEventEPK10sysEvent_sPb">HandleEvent</dfn>(<em>const</em> <a class="typedef" href="../sys/sys_public.h.html#sysEvent_t" title='sysEvent_t' data-type='struct sysEvent_s' data-ref="sysEvent_t">sysEvent_t</a> *<dfn class="local col6 decl" id="546event" title='event' data-type='const sysEvent_t *' data-ref="546event">event</dfn>, <em>bool</em> *<dfn class="local col7 decl" id="547updateVisuals" title='updateVisuals' data-type='bool *' data-ref="547updateVisuals">updateVisuals</dfn>);</td></tr>
+<tr><th id="54">54</th><td>	<b>virtual</b> <em>void</em>		<dfn class="virtual decl" id="_ZN12idListWindow9PostParseEv" title='idListWindow::PostParse' data-ref="_ZN12idListWindow9PostParseEv">PostParse</dfn>();</td></tr>
+<tr><th id="55">55</th><td>	<b>virtual</b> <em>void</em>		<dfn class="virtual decl" id="_ZN12idListWindow4DrawEiff" title='idListWindow::Draw' data-ref="_ZN12idListWindow4DrawEiff">Draw</dfn>(<em>int</em> <dfn class="local col8 decl" id="548time" title='time' data-type='int' data-ref="548time">time</dfn>, <em>float</em> <dfn class="local col9 decl" id="549x" title='x' data-type='float' data-ref="549x">x</dfn>, <em>float</em> <dfn class="local col0 decl" id="550y" title='y' data-type='float' data-ref="550y">y</dfn>);</td></tr>
+<tr><th id="56">56</th><td>	<b>virtual</b> <em>void</em>		<dfn class="virtual decl" id="_ZN12idListWindow8ActivateEbR5idStr" title='idListWindow::Activate' data-ref="_ZN12idListWindow8ActivateEbR5idStr">Activate</dfn>(<em>bool</em> <dfn class="local col1 decl" id="551activate" title='activate' data-type='bool' data-ref="551activate">activate</dfn>, <a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a> &amp;<dfn class="local col2 decl" id="552act" title='act' data-type='idStr &amp;' data-ref="552act">act</dfn>);</td></tr>
+<tr><th id="57">57</th><td>	<b>virtual</b> <em>void</em>		<dfn class="virtual decl" id="_ZN12idListWindow17HandleBuddyUpdateEP8idWindow" title='idListWindow::HandleBuddyUpdate' data-ref="_ZN12idListWindow17HandleBuddyUpdateEP8idWindow">HandleBuddyUpdate</dfn>(<a class="type" href="Window.h.html#idWindow" title='idWindow' data-ref="idWindow">idWindow</a> *<dfn class="local col3 decl" id="553buddy" title='buddy' data-type='idWindow *' data-ref="553buddy">buddy</dfn>);</td></tr>
+<tr><th id="58">58</th><td>	<b>virtual</b> <em>void</em>		<dfn class="virtual decl" id="_ZN12idListWindow12StateChangedEb" title='idListWindow::StateChanged' data-ref="_ZN12idListWindow12StateChangedEb">StateChanged</dfn>( <em>bool</em> <dfn class="local col4 decl" id="554redraw" title='redraw' data-type='bool' data-ref="554redraw">redraw</dfn> = <b>false</b> );</td></tr>
+<tr><th id="59">59</th><td>	<b>virtual</b> <span class='typedef' title='size_t' data-type='unsigned int' data-ref="size_t">size_t</span>		<dfn class="virtual decl def" id="_ZN12idListWindow9AllocatedEv" title='idListWindow::Allocated' data-ref="_ZN12idListWindow9AllocatedEv">Allocated</dfn>(){<b>return</b> <a class="type" href="Window.h.html#idWindow" title='idWindow' data-ref="idWindow">idWindow</a>::<a class="virtual member" href="Window.h.html#_ZN8idWindow9AllocatedEv" title='idWindow::Allocated' data-ref="_ZN8idWindow9AllocatedEv">Allocated</a>();};</td></tr>
+<tr><th id="60">60</th><td>	<b>virtual</b> <a class="type" href="Winvar.h.html#idWinVar" title='idWinVar' data-ref="idWinVar">idWinVar</a>*	<dfn class="virtual decl" id="_ZN12idListWindow15GetWinVarByNameEPKcbPP9drawWin_t" title='idListWindow::GetWinVarByName' data-ref="_ZN12idListWindow15GetWinVarByNameEPKcbPP9drawWin_t">GetWinVarByName</dfn>(<em>const</em> <em>char</em> *<dfn class="local col5 decl" id="555_name" title='_name' data-type='const char *' data-ref="555_name">_name</dfn>, <em>bool</em> <dfn class="local col6 decl" id="556winLookup" title='winLookup' data-type='bool' data-ref="556winLookup">winLookup</dfn> = <b>false</b>, <a class="typedef" href="SimpleWindow.h.html#drawWin_t" title='drawWin_t' data-type='struct drawWin_t' data-ref="drawWin_t">drawWin_t</a>** <dfn class="local col7 decl" id="557owner" title='owner' data-type='drawWin_t **' data-ref="557owner">owner</dfn> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>);</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idListWindow10UpdateListEv" title='idListWindow::UpdateList' data-ref="_ZN12idListWindow10UpdateListEv">UpdateList</dfn>();</td></tr>
+<tr><th id="63">63</th><td>	</td></tr>
+<tr><th id="64">64</th><td><b>private</b>:</td></tr>
+<tr><th id="65">65</th><td>	<b>virtual</b> <em>bool</em>		<dfn class="virtual decl" id="_ZN12idListWindow16ParseInternalVarEPKcP8idParser" title='idListWindow::ParseInternalVar' data-ref="_ZN12idListWindow16ParseInternalVarEPKcP8idParser">ParseInternalVar</dfn>(<em>const</em> <em>char</em> *<dfn class="local col8 decl" id="558name" title='name' data-type='const char *' data-ref="558name">name</dfn>, <a class="type" href="../idlib/Parser.h.html#idParser" title='idParser' data-ref="idParser">idParser</a> *<dfn class="local col9 decl" id="559src" title='src' data-type='idParser *' data-ref="559src">src</dfn>);</td></tr>
+<tr><th id="66">66</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idListWindow10CommonInitEv" title='idListWindow::CommonInit' data-ref="_ZN12idListWindow10CommonInitEv">CommonInit</dfn>();</td></tr>
+<tr><th id="67">67</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idListWindow12InitScrollerEb" title='idListWindow::InitScroller' data-ref="_ZN12idListWindow12InitScrollerEb">InitScroller</dfn>( <em>bool</em> <dfn class="local col0 decl" id="560horizontal" title='horizontal' data-type='bool' data-ref="560horizontal">horizontal</dfn> );</td></tr>
+<tr><th id="68">68</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idListWindow13SetCurrentSelEi" title='idListWindow::SetCurrentSel' data-ref="_ZN12idListWindow13SetCurrentSelEi">SetCurrentSel</dfn>( <em>int</em> <dfn class="local col1 decl" id="561sel" title='sel' data-type='int' data-ref="561sel">sel</dfn> );</td></tr>
+<tr><th id="69">69</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idListWindow13AddCurrentSelEi" title='idListWindow::AddCurrentSel' data-ref="_ZN12idListWindow13AddCurrentSelEi">AddCurrentSel</dfn>( <em>int</em> <dfn class="local col2 decl" id="562sel" title='sel' data-type='int' data-ref="562sel">sel</dfn> );</td></tr>
+<tr><th id="70">70</th><td>	<em>int</em>					<dfn class="decl" id="_ZN12idListWindow13GetCurrentSelEv" title='idListWindow::GetCurrentSel' data-ref="_ZN12idListWindow13GetCurrentSelEv">GetCurrentSel</dfn>();</td></tr>
+<tr><th id="71">71</th><td>	<em>bool</em>				<dfn class="decl" id="_ZN12idListWindow10IsSelectedEi" title='idListWindow::IsSelected' data-ref="_ZN12idListWindow10IsSelectedEi">IsSelected</dfn>( <em>int</em> <dfn class="local col3 decl" id="563index" title='index' data-type='int' data-ref="563index">index</dfn> );</td></tr>
+<tr><th id="72">72</th><td>	<em>void</em>				<dfn class="decl" id="_ZN12idListWindow14ClearSelectionEi" title='idListWindow::ClearSelection' data-ref="_ZN12idListWindow14ClearSelectionEi">ClearSelection</dfn>( <em>int</em> <dfn class="local col4 decl" id="564sel" title='sel' data-type='int' data-ref="564sel">sel</dfn> );</td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td>	<a class="type" href="../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<a class="type" href="#idTabRect" title='idTabRect' data-ref="idTabRect">idTabRect</a>&gt;	<dfn class="decl" id="idListWindow::tabInfo" title='idListWindow::tabInfo' data-ref="idListWindow::tabInfo">tabInfo</dfn>;</td></tr>
+<tr><th id="75">75</th><td>	<em>int</em>					<dfn class="decl" id="idListWindow::top" title='idListWindow::top' data-ref="idListWindow::top">top</dfn>;</td></tr>
+<tr><th id="76">76</th><td>	<em>float</em>				<dfn class="decl" id="idListWindow::sizeBias" title='idListWindow::sizeBias' data-ref="idListWindow::sizeBias">sizeBias</dfn>;</td></tr>
+<tr><th id="77">77</th><td>	<em>bool</em>				<dfn class="decl" id="idListWindow::horizontal" title='idListWindow::horizontal' data-ref="idListWindow::horizontal">horizontal</dfn>;</td></tr>
+<tr><th id="78">78</th><td>	<a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>				<dfn class="decl" id="idListWindow::tabStopStr" title='idListWindow::tabStopStr' data-ref="idListWindow::tabStopStr">tabStopStr</dfn>;</td></tr>
+<tr><th id="79">79</th><td>	<a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>				<dfn class="decl" id="idListWindow::tabAlignStr" title='idListWindow::tabAlignStr' data-ref="idListWindow::tabAlignStr">tabAlignStr</dfn>;</td></tr>
+<tr><th id="80">80</th><td>	<a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>				<dfn class="decl" id="idListWindow::tabVAlignStr" title='idListWindow::tabVAlignStr' data-ref="idListWindow::tabVAlignStr">tabVAlignStr</dfn>;</td></tr>
+<tr><th id="81">81</th><td>	<a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>				<dfn class="decl" id="idListWindow::tabTypeStr" title='idListWindow::tabTypeStr' data-ref="idListWindow::tabTypeStr">tabTypeStr</dfn>;</td></tr>
+<tr><th id="82">82</th><td>	<a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>				<dfn class="decl" id="idListWindow::tabIconSizeStr" title='idListWindow::tabIconSizeStr' data-ref="idListWindow::tabIconSizeStr">tabIconSizeStr</dfn>;</td></tr>
+<tr><th id="83">83</th><td>	<a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>				<dfn class="decl" id="idListWindow::tabIconVOffsetStr" title='idListWindow::tabIconVOffsetStr' data-ref="idListWindow::tabIconVOffsetStr">tabIconVOffsetStr</dfn>;</td></tr>
+<tr><th id="84">84</th><td>	<a class="type" href="../idlib/containers/HashTable.h.html#idHashTable" title='idHashTable' data-ref="idHashTable">idHashTable</a>&lt;<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a>*&gt; <dfn class="decl" id="idListWindow::iconMaterials" title='idListWindow::iconMaterials' data-ref="idListWindow::iconMaterials">iconMaterials</dfn>;						</td></tr>
+<tr><th id="85">85</th><td>	<em>bool</em>				<dfn class="decl" id="idListWindow::multipleSel" title='idListWindow::multipleSel' data-ref="idListWindow::multipleSel">multipleSel</dfn>;</td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td>	<a class="typedef" href="../idlib/containers/StrList.h.html#idStrList" title='idStrList' data-type='idList&lt;idStr&gt;' data-ref="idStrList">idStrList</a>			<dfn class="decl" id="idListWindow::listItems" title='idListWindow::listItems' data-ref="idListWindow::listItems">listItems</dfn>;</td></tr>
+<tr><th id="88">88</th><td>	<a class="type" href="EditWindow.h.html#idSliderWindow" title='idSliderWindow' data-ref="idSliderWindow">idSliderWindow</a>*		<dfn class="decl" id="idListWindow::scroller" title='idListWindow::scroller' data-ref="idListWindow::scroller">scroller</dfn>;</td></tr>
+<tr><th id="89">89</th><td>	<a class="type" href="../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<em>int</em>&gt;			<dfn class="decl" id="idListWindow::currentSel" title='idListWindow::currentSel' data-ref="idListWindow::currentSel">currentSel</dfn>;</td></tr>
+<tr><th id="90">90</th><td>	<a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>				<dfn class="decl" id="idListWindow::listName" title='idListWindow::listName' data-ref="idListWindow::listName">listName</dfn>;</td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td>	<em>int</em>					<dfn class="decl" id="idListWindow::clickTime" title='idListWindow::clickTime' data-ref="idListWindow::clickTime">clickTime</dfn>;</td></tr>
+<tr><th id="93">93</th><td></td></tr>
+<tr><th id="94">94</th><td>	<em>int</em>					<dfn class="decl" id="idListWindow::typedTime" title='idListWindow::typedTime' data-ref="idListWindow::typedTime">typedTime</dfn>;</td></tr>
+<tr><th id="95">95</th><td>	<a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>				<dfn class="decl" id="idListWindow::typed" title='idListWindow::typed' data-ref="idListWindow::typed">typed</dfn>;</td></tr>
+<tr><th id="96">96</th><td>};</td></tr>
+<tr><th id="97">97</th><td></td></tr>
+<tr><th id="98">98</th><td><u>#<span data-ppcond="28">endif</span> // __LISTWINDOW_H</u></td></tr>
+<tr><th id="99">99</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../tools/guied/GEWindowWrapper_stub.cpp.html'>codebrowser/tools/guied/GEWindowWrapper_stub.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

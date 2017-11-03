@@ -1,0 +1,11 @@
+<dec f='codebrowser/sys/sys_public.h' l='423' type='bool idPort::GetPacket(netadr_t &amp; from, void * data, int &amp; size, int maxSize)'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='147' u='c' c='_ZN13idAsyncClient19ClearPendingPacketsEv'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='168' u='c' c='_ZN13idAsyncServer5SpawnEv'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='2342' u='c' c='_ZN13idAsyncServer29ProcessConnectionLessMessagesEv'/>
+<def f='codebrowser/sys/posix/posix_net.cpp' l='487' ll='513' type='bool idPort::GetPacket(netadr_t &amp; net_from, void * data, int &amp; size, int maxSize)'/>
+<use f='codebrowser/sys/posix/posix_net.cpp' l='530' u='c' c='_ZN6idPort17GetPacketBlockingER8netadr_tPvRiii'/>
+<doc f='codebrowser/sys/posix/posix_net.cpp' l='482'>/*
+==================
+idPort::GetPacket
+==================
+*/</doc>

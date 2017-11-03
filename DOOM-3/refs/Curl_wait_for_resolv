@@ -1,0 +1,14 @@
+<dec f='codebrowser/curl/lib/hostip.h' l='62' type='CURLcode Curl_wait_for_resolv(struct connectdata * conn, struct Curl_dns_entry ** dnsentry)'/>
+<use f='codebrowser/curl/lib/connect.c' l='249' u='c' c='bindlocal'/>
+<use f='codebrowser/curl/lib/connect.c' l='262' u='c' c='bindlocal'/>
+<use f='codebrowser/curl/lib/ftp.c' l='1354' u='c' c='ftp_use_port'/>
+<use f='codebrowser/curl/lib/ftp.c' l='1361' u='c' c='ftp_use_port'/>
+<use f='codebrowser/curl/lib/ftp.c' l='1629' u='c' c='ftp_use_pasv'/>
+<use f='codebrowser/curl/lib/ftp.c' l='1639' u='c' c='ftp_use_pasv'/>
+<def f='codebrowser/curl/lib/hostip.c' l='676' ll='682' type='CURLcode Curl_wait_for_resolv(struct connectdata * conn, struct Curl_dns_entry ** entry)'/>
+<doc f='codebrowser/curl/lib/hostip.c' l='673'>/* For builds without ARES and threaded gethostbyname, Curl_resolv() can never
+   return wait==TRUE, so this function will never be called. If it still gets
+   called, we return failure at once. */</doc>
+<use f='codebrowser/curl/lib/transfer.c' l='1891' u='c' c='Curl_perform'/>
+<use f='codebrowser/curl/lib/url.c' l='1744' u='c' c='handleSock5Proxy'/>
+<use f='codebrowser/curl/lib/url.c' l='3369' u='c' c='Curl_do'/>

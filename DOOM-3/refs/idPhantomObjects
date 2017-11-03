@@ -1,0 +1,64 @@
+<inh f='codebrowser/d3xp/Entity.h' l='107' c='idEntity'/>
+<def f='codebrowser/d3xp/Misc.h' l='744' ll='772'/>
+<size>940</size>
+<doc f='codebrowser/d3xp/Misc.h' l='736'>/*
+===============================================================================
+
+  idPhantomObjects
+
+===============================================================================
+*/</doc>
+<smbr r='idPhantomObjects::Type' t='idTypeInfo'/>
+<fun r='_ZN16idPhantomObjects14CreateInstanceEv'/>
+<fun r='_ZNK16idPhantomObjects7GetTypeEv'/>
+<smbr r='idPhantomObjects::eventCallbacks' t='idEventFunc&lt;idPhantomObjects&gt; []'/>
+<fun r='_ZN16idPhantomObjectsC1Ev'/>
+<fun r='_ZN16idPhantomObjects5SpawnEv'/>
+<fun r='_ZNK16idPhantomObjects4SaveEP10idSaveGame'/>
+<fun r='_ZN16idPhantomObjects7RestoreEP13idRestoreGame'/>
+<fun r='_ZN16idPhantomObjects5ThinkEv'/>
+<fun r='_ZN16idPhantomObjects14Event_ActivateEP8idEntity'/>
+<fun r='_ZN16idPhantomObjects11Event_ThrowEv'/>
+<fun r='_ZN16idPhantomObjects17Event_ShakeObjectEP8idEntityi'/>
+<mbr r='idPhantomObjects::end_time' o='6944' t='int'/>
+<mbr r='idPhantomObjects::throw_time' o='6976' t='float'/>
+<mbr r='idPhantomObjects::shake_time' o='7008' t='float'/>
+<mbr r='idPhantomObjects::shake_ang' o='7040' t='idVec3'/>
+<mbr r='idPhantomObjects::speed' o='7136' t='float'/>
+<mbr r='idPhantomObjects::min_wait' o='7168' t='int'/>
+<mbr r='idPhantomObjects::max_wait' o='7200' t='int'/>
+<mbr r='idPhantomObjects::target' o='7232' t='idEntityPtr&lt;idActor&gt;'/>
+<mbr r='idPhantomObjects::targetTime' o='7264' t='idList&lt;int&gt;'/>
+<mbr r='idPhantomObjects::lastTargetPos' o='7392' t='idList&lt;idVec3&gt;'/>
+<inh f='codebrowser/game/Entity.h' l='107' c='idEntity'/>
+<def f='codebrowser/game/Misc.h' l='735' ll='763'/>
+<size>708</size>
+<doc f='codebrowser/game/Misc.h' l='727'>/*
+===============================================================================
+
+  idPhantomObjects
+
+===============================================================================
+*/</doc>
+<smbr r='idPhantomObjects::Type' t='idTypeInfo'/>
+<fun r='_ZN16idPhantomObjects14CreateInstanceEv'/>
+<fun r='_ZNK16idPhantomObjects7GetTypeEv'/>
+<smbr r='idPhantomObjects::eventCallbacks' t='idEventFunc&lt;idPhantomObjects&gt; []'/>
+<fun r='_ZN16idPhantomObjectsC1Ev'/>
+<fun r='_ZN16idPhantomObjects5SpawnEv'/>
+<fun r='_ZNK16idPhantomObjects4SaveEP10idSaveGame'/>
+<fun r='_ZN16idPhantomObjects7RestoreEP13idRestoreGame'/>
+<fun r='_ZN16idPhantomObjects5ThinkEv'/>
+<fun r='_ZN16idPhantomObjects14Event_ActivateEP8idEntity'/>
+<fun r='_ZN16idPhantomObjects11Event_ThrowEv'/>
+<fun r='_ZN16idPhantomObjects17Event_ShakeObjectEP8idEntityi'/>
+<mbr r='idPhantomObjects::end_time' o='5088' t='int'/>
+<mbr r='idPhantomObjects::throw_time' o='5120' t='float'/>
+<mbr r='idPhantomObjects::shake_time' o='5152' t='float'/>
+<mbr r='idPhantomObjects::shake_ang' o='5184' t='idVec3'/>
+<mbr r='idPhantomObjects::speed' o='5280' t='float'/>
+<mbr r='idPhantomObjects::min_wait' o='5312' t='int'/>
+<mbr r='idPhantomObjects::max_wait' o='5344' t='int'/>
+<mbr r='idPhantomObjects::target' o='5376' t='idEntityPtr&lt;idActor&gt;'/>
+<mbr r='idPhantomObjects::targetTime' o='5408' t='idList&lt;int&gt;'/>
+<mbr r='idPhantomObjects::lastTargetPos' o='5536' t='idList&lt;idVec3&gt;'/>

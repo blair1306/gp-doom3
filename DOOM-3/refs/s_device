@@ -1,0 +1,19 @@
+<def f='codebrowser/sys/linux/sound.cpp' l='147' type='idCVar'/>
+<use f='codebrowser/sys/linux/sound.cpp' l='163' u='m' c='_ZN18idAudioHardwareOSS10InitializeEv'/>
+<use f='codebrowser/sys/linux/sound.cpp' l='165' u='m' c='_ZN18idAudioHardwareOSS10InitializeEv'/>
+<use f='codebrowser/sys/linux/sound.cpp' l='172' u='m' c='_ZN18idAudioHardwareOSS10InitializeEv'/>
+<use f='codebrowser/sys/linux/sound.cpp' l='178' u='m' c='_ZN18idAudioHardwareOSS10InitializeEv'/>
+<use f='codebrowser/sys/linux/sound.cpp' l='183' u='m' c='_ZN18idAudioHardwareOSS10InitializeEv'/>
+<use f='codebrowser/sys/linux/sound.cpp' l='194' u='m' c='_ZN18idAudioHardwareOSS10InitializeEv'/>
+<use f='codebrowser/sys/linux/sound.cpp' l='287' u='m' c='_ZN18idAudioHardwareOSS10InitializeEv'/>
+<doc f='codebrowser/sys/linux/sound.cpp' l='136'>/*
+=================
+idAudioHardwareOSS::Initialize
+
+http://www.4front-tech.com/pguide/index.html
+though OSS API docs (1.1) advertise AFMT_S32_LE, AFMT_S16_LE is the only output format I&apos;ve found in kernel emu10k1 headers
+
+BSD NOTE: With the GNU library, you can use free to free the blocks that memalign, posix_memalign, and valloc return.
+That does not work in BSD, however--BSD does not provide any way to free such blocks.
+=================	
+*/</doc>

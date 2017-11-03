@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>SmokeParticles.h source code [codebrowser/d3xp/SmokeParticles.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idSmokeParticles,singleSmoke_s "/>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/d3xp/SmokeParticles.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>d3xp</a>/<a href='SmokeParticles.h.html'>SmokeParticles.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__SMOKEPARTICLES_H__">__SMOKEPARTICLES_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__SMOKEPARTICLES_H__" data-ref="_M/__SMOKEPARTICLES_H__">__SMOKEPARTICLES_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>	Smoke systems are for particles that are emitted off of things that are</i></td></tr>
+<tr><th id="36">36</th><td><i>	constantly changing position and orientation, like muzzle smoke coming</i></td></tr>
+<tr><th id="37">37</th><td><i>	from a bone on a weapon, blood spurting from a wound, or particles</i></td></tr>
+<tr><th id="38">38</th><td><i>	trailing from a monster limb.</i></td></tr>
+<tr><th id="39">39</th><td><i></i></td></tr>
+<tr><th id="40">40</th><td><i>	The smoke particles are always evaluated and rendered each tic, so there</i></td></tr>
+<tr><th id="41">41</th><td><i>	is a performance cost with using them for continuous effects. The general</i></td></tr>
+<tr><th id="42">42</th><td><i>	particle systems are completely parametric, and have no performance</i></td></tr>
+<tr><th id="43">43</th><td><i>	overhead when not in view.</i></td></tr>
+<tr><th id="44">44</th><td><i></i></td></tr>
+<tr><th id="45">45</th><td><i>	All smoke systems share the same shaderparms, so any coloration must be</i></td></tr>
+<tr><th id="46">46</th><td><i>	done in the particle definition.</i></td></tr>
+<tr><th id="47">47</th><td><i></i></td></tr>
+<tr><th id="48">48</th><td><i>	Each particle model has its own shaderparms, which can be used by the</i></td></tr>
+<tr><th id="49">49</th><td><i>	particle materials.</i></td></tr>
+<tr><th id="50">50</th><td><i></i></td></tr>
+<tr><th id="51">51</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="52">52</th><td><i>*/</i></td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="singleSmoke_s" title='singleSmoke_s' data-ref="singleSmoke_s"><a class="type" href="#singleSmoke_s" title='singleSmoke_s' data-ref="singleSmoke_s">singleSmoke_s</a></dfn> {</td></tr>
+<tr><th id="55">55</th><td>	<b>struct</b> <a class="type" href="#singleSmoke_s" title='singleSmoke_s' data-ref="singleSmoke_s">singleSmoke_s</a>	 *	<dfn class="decl" id="singleSmoke_s::next" title='singleSmoke_s::next' data-ref="singleSmoke_s::next">next</dfn>;</td></tr>
+<tr><th id="56">56</th><td>	<em>int</em>							<dfn class="decl" id="singleSmoke_s::privateStartTime" title='singleSmoke_s::privateStartTime' data-ref="singleSmoke_s::privateStartTime">privateStartTime</dfn>;	<i>// start time for this particular particle</i></td></tr>
+<tr><th id="57">57</th><td>	<em>int</em>							<dfn class="decl" id="singleSmoke_s::index" title='singleSmoke_s::index' data-ref="singleSmoke_s::index">index</dfn>;				<i>// particle index in system, 0 &lt;= index &lt; stage-&gt;totalParticles</i></td></tr>
+<tr><th id="58">58</th><td>	<a class="type" href="../idlib/math/Random.h.html#idRandom" title='idRandom' data-ref="idRandom">idRandom</a>					<dfn class="decl" id="singleSmoke_s::random" title='singleSmoke_s::random' data-ref="singleSmoke_s::random">random</dfn>;</td></tr>
+<tr><th id="59">59</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a>						<dfn class="decl" id="singleSmoke_s::origin" title='singleSmoke_s::origin' data-ref="singleSmoke_s::origin">origin</dfn>;</td></tr>
+<tr><th id="60">60</th><td>	<a class="type" href="../idlib/math/Matrix.h.html#idMat3" title='idMat3' data-ref="idMat3">idMat3</a>						<dfn class="decl" id="singleSmoke_s::axis" title='singleSmoke_s::axis' data-ref="singleSmoke_s::axis">axis</dfn>;</td></tr>
+<tr><th id="61">61</th><td><u>#<span data-ppcond="61">ifdef</span> <span class="macro" data-ref="_M/_D3XP">_D3XP</span></u></td></tr>
+<tr><th id="62">62</th><td>	<em>int</em>							<dfn class="decl" id="singleSmoke_s::timeGroup" title='singleSmoke_s::timeGroup' data-ref="singleSmoke_s::timeGroup">timeGroup</dfn>;</td></tr>
+<tr><th id="63">63</th><td><u>#<span data-ppcond="61">endif</span></u></td></tr>
+<tr><th id="64">64</th><td>} <dfn class="typedef" id="singleSmoke_t" title='singleSmoke_t' data-type='struct singleSmoke_s' data-ref="singleSmoke_t">singleSmoke_t</dfn>;</td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="67">67</th><td>	<em>const</em> <a class="type" href="../framework/DeclParticle.h.html#idParticleStage" title='idParticleStage' data-ref="idParticleStage">idParticleStage</a> *		<dfn class="decl" id="(anonymous)::stage" title='(anonymous struct)::stage' data-ref="(anonymous)::stage">stage</dfn>;</td></tr>
+<tr><th id="68">68</th><td>	<a class="typedef" href="#singleSmoke_t" title='singleSmoke_t' data-type='struct singleSmoke_s' data-ref="singleSmoke_t">singleSmoke_t</a> *				<dfn class="decl" id="(anonymous)::smokes" title='(anonymous struct)::smokes' data-ref="(anonymous)::smokes">smokes</dfn>;</td></tr>
+<tr><th id="69">69</th><td>} <dfn class="typedef" id="activeSmokeStage_t" title='activeSmokeStage_t' data-type='struct activeSmokeStage_t' data-ref="activeSmokeStage_t">activeSmokeStage_t</dfn>;</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td><b>class</b> <dfn class="type def" id="idSmokeParticles" title='idSmokeParticles' data-ref="idSmokeParticles">idSmokeParticles</dfn> {</td></tr>
+<tr><th id="73">73</th><td><b>public</b>:</td></tr>
+<tr><th id="74">74</th><td>								<dfn class="decl" id="_ZN16idSmokeParticlesC1Ev" title='idSmokeParticles::idSmokeParticles' data-ref="_ZN16idSmokeParticlesC1Ev">idSmokeParticles</dfn>( <em>void</em> );</td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td>	<i>// creats an entity covering the entire world that will call back each rendering</i></td></tr>
+<tr><th id="77">77</th><td>	<em>void</em>						<dfn class="decl" id="_ZN16idSmokeParticles4InitEv" title='idSmokeParticles::Init' data-ref="_ZN16idSmokeParticles4InitEv">Init</dfn>( <em>void</em> );</td></tr>
+<tr><th id="78">78</th><td>	<em>void</em>						<dfn class="decl" id="_ZN16idSmokeParticles8ShutdownEv" title='idSmokeParticles::Shutdown' data-ref="_ZN16idSmokeParticles8ShutdownEv">Shutdown</dfn>( <em>void</em> );</td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td>	<i>// spits out a particle, returning false if the system will not emit any more particles in the future</i></td></tr>
+<tr><th id="81">81</th><td>	<em>bool</em>						<dfn class="decl" id="_ZN16idSmokeParticles9EmitSmokeEPK14idDeclParticleifRK6idVec3RK6idMat3i" title='idSmokeParticles::EmitSmoke' data-ref="_ZN16idSmokeParticles9EmitSmokeEPK14idDeclParticleifRK6idVec3RK6idMat3i">EmitSmoke</dfn>( <em>const</em> <a class="type" href="../framework/DeclParticle.h.html#idDeclParticle" title='idDeclParticle' data-ref="idDeclParticle">idDeclParticle</a> *<dfn class="local col9 decl" id="2549smoke" title='smoke' data-type='const idDeclParticle *' data-ref="2549smoke">smoke</dfn>, <em>const</em> <em>int</em> <dfn class="local col0 decl" id="2550startTime" title='startTime' data-type='const int' data-ref="2550startTime">startTime</dfn>, <em>const</em> <em>float</em> <dfn class="local col1 decl" id="2551diversity" title='diversity' data-type='const float' data-ref="2551diversity">diversity</dfn>,</td></tr>
+<tr><th id="82">82</th><td>											<em>const</em> <a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col2 decl" id="2552origin" title='origin' data-type='const idVec3 &amp;' data-ref="2552origin">origin</dfn>, <em>const</em> <a class="type" href="../idlib/math/Matrix.h.html#idMat3" title='idMat3' data-ref="idMat3">idMat3</a> &amp;<dfn class="local col3 decl" id="2553axis" title='axis' data-type='const idMat3 &amp;' data-ref="2553axis">axis</dfn>, <em>int</em> <dfn class="local col4 decl" id="2554timeGroup" title='timeGroup' data-type='int' data-ref="2554timeGroup">timeGroup</dfn> <i>/*_D3XP*/</i> );</td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td>	<i>// free old smokes</i></td></tr>
+<tr><th id="85">85</th><td>	<em>void</em>						<dfn class="decl" id="_ZN16idSmokeParticles10FreeSmokesEv" title='idSmokeParticles::FreeSmokes' data-ref="_ZN16idSmokeParticles10FreeSmokesEv">FreeSmokes</dfn>( <em>void</em> );</td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td><b>private</b>:</td></tr>
+<tr><th id="88">88</th><td>	<em>bool</em>						<dfn class="decl" id="idSmokeParticles::initialized" title='idSmokeParticles::initialized' data-ref="idSmokeParticles::initialized">initialized</dfn>;</td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td>	<a class="typedef" href="../framework/DeclParticle.h.html#renderEntity_t" title='renderEntity_t' data-type='struct renderEntity_s' data-ref="renderEntity_t">renderEntity_t</a>				<dfn class="decl" id="idSmokeParticles::renderEntity" title='idSmokeParticles::renderEntity' data-ref="idSmokeParticles::renderEntity">renderEntity</dfn>;			<i>// used to present a model to the renderer</i></td></tr>
+<tr><th id="91">91</th><td>	<em>int</em>							<dfn class="decl" id="idSmokeParticles::renderEntityHandle" title='idSmokeParticles::renderEntityHandle' data-ref="idSmokeParticles::renderEntityHandle">renderEntityHandle</dfn>;		<i>// handle to static renderer model</i></td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td>	<em>static</em> <em>const</em> <em>int</em>			<dfn class="decl" id="idSmokeParticles::MAX_SMOKE_PARTICLES" title='idSmokeParticles::MAX_SMOKE_PARTICLES' data-ref="idSmokeParticles::MAX_SMOKE_PARTICLES">MAX_SMOKE_PARTICLES</dfn> = <var>10000</var>;</td></tr>
+<tr><th id="94">94</th><td>	<a class="typedef" href="#singleSmoke_t" title='singleSmoke_t' data-type='struct singleSmoke_s' data-ref="singleSmoke_t">singleSmoke_t</a>				<dfn class="decl" id="idSmokeParticles::smokes" title='idSmokeParticles::smokes' data-ref="idSmokeParticles::smokes">smokes</dfn>[<a class="ref" href="#idSmokeParticles::MAX_SMOKE_PARTICLES" title='idSmokeParticles::MAX_SMOKE_PARTICLES' data-ref="idSmokeParticles::MAX_SMOKE_PARTICLES">MAX_SMOKE_PARTICLES</a>];</td></tr>
+<tr><th id="95">95</th><td></td></tr>
+<tr><th id="96">96</th><td>	<a class="type" href="../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<a class="typedef" href="#activeSmokeStage_t" title='activeSmokeStage_t' data-type='struct activeSmokeStage_t' data-ref="activeSmokeStage_t">activeSmokeStage_t</a>&gt;	<dfn class="decl" id="idSmokeParticles::activeStages" title='idSmokeParticles::activeStages' data-ref="idSmokeParticles::activeStages">activeStages</dfn>;</td></tr>
+<tr><th id="97">97</th><td>	<a class="typedef" href="#singleSmoke_t" title='singleSmoke_t' data-type='struct singleSmoke_s' data-ref="singleSmoke_t">singleSmoke_t</a> *				<dfn class="decl" id="idSmokeParticles::freeSmokes" title='idSmokeParticles::freeSmokes' data-ref="idSmokeParticles::freeSmokes">freeSmokes</dfn>;</td></tr>
+<tr><th id="98">98</th><td>	<em>int</em>							<dfn class="decl" id="idSmokeParticles::numActiveSmokes" title='idSmokeParticles::numActiveSmokes' data-ref="idSmokeParticles::numActiveSmokes">numActiveSmokes</dfn>;</td></tr>
+<tr><th id="99">99</th><td>	<em>int</em>							<dfn class="decl" id="idSmokeParticles::currentParticleTime" title='idSmokeParticles::currentParticleTime' data-ref="idSmokeParticles::currentParticleTime">currentParticleTime</dfn>;	<i>// don't need to recalculate if == view time</i></td></tr>
+<tr><th id="100">100</th><td></td></tr>
+<tr><th id="101">101</th><td>	<em>bool</em>						<dfn class="decl" id="_ZN16idSmokeParticles18UpdateRenderEntityEP14renderEntity_sPK12renderView_s" title='idSmokeParticles::UpdateRenderEntity' data-ref="_ZN16idSmokeParticles18UpdateRenderEntityEP14renderEntity_sPK12renderView_s">UpdateRenderEntity</dfn>( <a class="type" href="../renderer/RenderWorld.h.html#renderEntity_s" title='renderEntity_s' data-ref="renderEntity_s">renderEntity_s</a> *<dfn class="local col5 decl" id="2555renderEntity" title='renderEntity' data-type='renderEntity_s *' data-ref="2555renderEntity">renderEntity</dfn>, <em>const</em> <a class="typedef" href="../framework/DeclParticle.h.html#renderView_t" title='renderView_t' data-type='struct renderView_s' data-ref="renderView_t">renderView_t</a> *<dfn class="local col6 decl" id="2556renderView" title='renderView' data-type='const renderView_t *' data-ref="2556renderView">renderView</dfn> );</td></tr>
+<tr><th id="102">102</th><td>	<em>static</em> <em>bool</em>					<dfn class="decl" id="_ZN16idSmokeParticles13ModelCallbackEP14renderEntity_sPK12renderView_s" title='idSmokeParticles::ModelCallback' data-ref="_ZN16idSmokeParticles13ModelCallbackEP14renderEntity_sPK12renderView_s">ModelCallback</dfn>( <a class="type" href="../renderer/RenderWorld.h.html#renderEntity_s" title='renderEntity_s' data-ref="renderEntity_s">renderEntity_s</a> *<dfn class="local col7 decl" id="2557renderEntity" title='renderEntity' data-type='renderEntity_s *' data-ref="2557renderEntity">renderEntity</dfn>, <em>const</em> <a class="typedef" href="../framework/DeclParticle.h.html#renderView_t" title='renderView_t' data-type='struct renderView_s' data-ref="renderView_t">renderView_t</a> *<dfn class="local col8 decl" id="2558renderView" title='renderView' data-type='const renderView_t *' data-ref="2558renderView">renderView</dfn> );</td></tr>
+<tr><th id="103">103</th><td>};</td></tr>
+<tr><th id="104">104</th><td></td></tr>
+<tr><th id="105">105</th><td><u>#<span data-ppcond="29">endif</span> /* !__SMOKEPARTICLES_H__ */</u></td></tr>
+<tr><th id="106">106</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='AF.cpp.html'>codebrowser/d3xp/AF.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

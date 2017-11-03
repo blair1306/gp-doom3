@@ -1,0 +1,99 @@
+<dec f='codebrowser/d3xp/Entity.h' l='188' type='void idEntity::Think()'/>
+<doc f='codebrowser/d3xp/Entity.h' l='187'>// thinking</doc>
+<ovr f='codebrowser/d3xp/AFEntity.cpp' l='121' c='_ZN14idMultiModelAF5ThinkEv'/>
+<ovr f='codebrowser/d3xp/AFEntity.cpp' l='3281' c='_ZN13idHarvestable5ThinkEv'/>
+<ovr f='codebrowser/d3xp/BrittleFracture.cpp' l='592' c='_ZN17idBrittleFracture5ThinkEv'/>
+<ovr f='codebrowser/d3xp/Camera.cpp' l='500' c='_ZN12idCameraAnim5ThinkEv'/>
+<def f='codebrowser/d3xp/Entity.cpp' l='891' ll='894' type='void idEntity::Think()'/>
+<ovr f='codebrowser/d3xp/Entity.cpp' l='5160' c='_ZN16idAnimatedEntity5ThinkEv'/>
+<doc f='codebrowser/d3xp/Entity.cpp' l='886'>/*
+================
+idEntity::Think
+================
+*/</doc>
+<ovr f='codebrowser/d3xp/Fx.cpp' l='630' c='_ZN10idEntityFx5ThinkEv'/>
+<ovr f='codebrowser/d3xp/GameEdit.cpp' l='94' c='_ZN10idCursor3D5ThinkEv'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='2381' u='c' c='_ZN11idGameLocal13RunTimeGroup2Ev'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='2495' u='c' c='_ZN11idGameLocal8RunFrameEPK9usercmd_t'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='2511' u='c' c='_ZN11idGameLocal8RunFrameEPK9usercmd_t'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='2522' u='c' c='_ZN11idGameLocal8RunFrameEPK9usercmd_t'/>
+<ovr f='codebrowser/d3xp/Item.cpp' l='216' c='_ZN6idItem5ThinkEv'/>
+<ovr f='codebrowser/d3xp/Light.cpp' l='770' c='_ZN7idLight5ThinkEv'/>
+<ovr f='codebrowser/d3xp/Misc.cpp' l='310' c='_ZN11idActivator5ThinkEv'/>
+<ovr f='codebrowser/d3xp/Misc.cpp' l='671' c='_ZN8idSpring5ThinkEv'/>
+<ovr f='codebrowser/d3xp/Misc.cpp' l='793' c='_ZN12idForceField5ThinkEv'/>
+<ovr f='codebrowser/d3xp/Misc.cpp' l='1510' c='_ZN14idStaticEntity5ThinkEv'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='1511' u='c' c='_ZN14idStaticEntity5ThinkEv'/>
+<ovr f='codebrowser/d3xp/Misc.cpp' l='1893' c='_ZN11idFuncSmoke5ThinkEv'/>
+<ovr f='codebrowser/d3xp/Misc.cpp' l='1965' c='_ZN12idTextEntity5ThinkEv'/>
+<ovr f='codebrowser/d3xp/Misc.cpp' l='2216' c='_ZN6idBeam5ThinkEv'/>
+<ovr f='codebrowser/d3xp/Misc.cpp' l='2656' c='_ZN12idEarthQuake5ThinkEv'/>
+<ovr f='codebrowser/d3xp/Misc.cpp' l='3122' c='_ZN16idPhantomObjects5ThinkEv'/>
+<ovr f='codebrowser/d3xp/Misc.cpp' l='3316' c='_ZN11idShockwave5ThinkEv'/>
+<ovr f='codebrowser/d3xp/Misc.cpp' l='3511' c='_ZN19idFuncMountedObject5ThinkEv'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='3513' u='c' c='_ZN19idFuncMountedObject5ThinkEv'/>
+<ovr f='codebrowser/d3xp/Moveable.cpp' l='482' c='_ZN10idMoveable5ThinkEv'/>
+<use f='codebrowser/d3xp/Moveable.cpp' l='488' u='c' c='_ZN10idMoveable5ThinkEv'/>
+<ovr f='codebrowser/d3xp/Mover.cpp' l='1731' c='_ZN10idElevator5ThinkEv'/>
+<ovr f='codebrowser/d3xp/Mover.cpp' l='3376' c='_ZN6idDoor5ThinkEv'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='3380' u='c' c='_ZN6idDoor5ThinkEv'/>
+<ovr f='codebrowser/d3xp/Mover.cpp' l='4165' c='_ZN6idPlat5ThinkEv'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='4169' u='c' c='_ZN6idPlat5ThinkEv'/>
+<ovr f='codebrowser/d3xp/Mover.cpp' l='4353' c='_ZN16idMover_Periodic5ThinkEv'/>
+<ovr f='codebrowser/d3xp/Projectile.cpp' l='476' c='_ZN12idProjectile5ThinkEv'/>
+<ovr f='codebrowser/d3xp/Projectile.cpp' l='2526' c='_ZN8idDebris5ThinkEv'/>
+<ovr f='codebrowser/d3xp/SecurityCamera.cpp' l='353' c='_ZN16idSecurityCamera5ThinkEv'/>
+<ovr f='codebrowser/d3xp/Sound.cpp' l='182' c='_ZN7idSound5ThinkEv'/>
+<ovr f='codebrowser/d3xp/Target.cpp' l='252' c='_ZN22idTarget_WaitForButton5ThinkEv'/>
+<ovr f='codebrowser/d3xp/Target.cpp' l='461' c='_ZN19idTarget_FadeEntity5ThinkEv'/>
+<ovr f='codebrowser/d3xp/Target.cpp' l='1154' c='_ZN21idTarget_SetInfluence5ThinkEv'/>
+<ovr f='codebrowser/d3xp/Target.cpp' l='1379' c='_ZN15idTarget_SetFov5ThinkEv'/>
+<ovr f='codebrowser/d3xp/Trigger.cpp' l='1180' c='_ZN15idTrigger_Touch5ThinkEv'/>
+<use f='codebrowser/d3xp/Trigger.cpp' l='1184' u='c' c='_ZN15idTrigger_Touch5ThinkEv'/>
+<dec f='codebrowser/game/Entity.h' l='172' type='void idEntity::Think()'/>
+<doc f='codebrowser/game/Entity.h' l='171'>// thinking</doc>
+<ovr f='codebrowser/game/AFEntity.cpp' l='121' c='_ZN14idMultiModelAF5ThinkEv'/>
+<ovr f='codebrowser/game/BrittleFracture.cpp' l='562' c='_ZN17idBrittleFracture5ThinkEv'/>
+<ovr f='codebrowser/game/Camera.cpp' l='500' c='_ZN12idCameraAnim5ThinkEv'/>
+<def f='codebrowser/game/Entity.cpp' l='822' ll='825' type='void idEntity::Think()'/>
+<ovr f='codebrowser/game/Entity.cpp' l='4952' c='_ZN16idAnimatedEntity5ThinkEv'/>
+<doc f='codebrowser/game/Entity.cpp' l='817'>/*
+================
+idEntity::Think
+================
+*/</doc>
+<ovr f='codebrowser/game/Fx.cpp' l='600' c='_ZN10idEntityFx5ThinkEv'/>
+<ovr f='codebrowser/game/GameEdit.cpp' l='94' c='_ZN10idCursor3D5ThinkEv'/>
+<use f='codebrowser/game/Game_local.cpp' l='2247' u='c' c='_ZN11idGameLocal8RunFrameEPK9usercmd_t'/>
+<use f='codebrowser/game/Game_local.cpp' l='2263' u='c' c='_ZN11idGameLocal8RunFrameEPK9usercmd_t'/>
+<use f='codebrowser/game/Game_local.cpp' l='2269' u='c' c='_ZN11idGameLocal8RunFrameEPK9usercmd_t'/>
+<ovr f='codebrowser/game/Item.cpp' l='216' c='_ZN6idItem5ThinkEv'/>
+<ovr f='codebrowser/game/Light.cpp' l='763' c='_ZN7idLight5ThinkEv'/>
+<ovr f='codebrowser/game/Misc.cpp' l='306' c='_ZN11idActivator5ThinkEv'/>
+<ovr f='codebrowser/game/Misc.cpp' l='645' c='_ZN8idSpring5ThinkEv'/>
+<ovr f='codebrowser/game/Misc.cpp' l='767' c='_ZN12idForceField5ThinkEv'/>
+<ovr f='codebrowser/game/Misc.cpp' l='1444' c='_ZN14idStaticEntity5ThinkEv'/>
+<use f='codebrowser/game/Misc.cpp' l='1445' u='c' c='_ZN14idStaticEntity5ThinkEv'/>
+<ovr f='codebrowser/game/Misc.cpp' l='1827' c='_ZN11idFuncSmoke5ThinkEv'/>
+<ovr f='codebrowser/game/Misc.cpp' l='1899' c='_ZN12idTextEntity5ThinkEv'/>
+<ovr f='codebrowser/game/Misc.cpp' l='2150' c='_ZN6idBeam5ThinkEv'/>
+<ovr f='codebrowser/game/Misc.cpp' l='2590' c='_ZN12idEarthQuake5ThinkEv'/>
+<ovr f='codebrowser/game/Misc.cpp' l='3064' c='_ZN16idPhantomObjects5ThinkEv'/>
+<ovr f='codebrowser/game/Moveable.cpp' l='416' c='_ZN10idMoveable5ThinkEv'/>
+<use f='codebrowser/game/Moveable.cpp' l='422' u='c' c='_ZN10idMoveable5ThinkEv'/>
+<ovr f='codebrowser/game/Mover.cpp' l='1723' c='_ZN10idElevator5ThinkEv'/>
+<ovr f='codebrowser/game/Mover.cpp' l='3336' c='_ZN6idDoor5ThinkEv'/>
+<use f='codebrowser/game/Mover.cpp' l='3340' u='c' c='_ZN6idDoor5ThinkEv'/>
+<ovr f='codebrowser/game/Mover.cpp' l='4104' c='_ZN6idPlat5ThinkEv'/>
+<use f='codebrowser/game/Mover.cpp' l='4108' u='c' c='_ZN6idPlat5ThinkEv'/>
+<ovr f='codebrowser/game/Mover.cpp' l='4292' c='_ZN16idMover_Periodic5ThinkEv'/>
+<ovr f='codebrowser/game/Projectile.cpp' l='434' c='_ZN12idProjectile5ThinkEv'/>
+<ovr f='codebrowser/game/Projectile.cpp' l='2267' c='_ZN8idDebris5ThinkEv'/>
+<ovr f='codebrowser/game/SecurityCamera.cpp' l='353' c='_ZN16idSecurityCamera5ThinkEv'/>
+<ovr f='codebrowser/game/Sound.cpp' l='182' c='_ZN7idSound5ThinkEv'/>
+<ovr f='codebrowser/game/Target.cpp' l='252' c='_ZN22idTarget_WaitForButton5ThinkEv'/>
+<ovr f='codebrowser/game/Target.cpp' l='461' c='_ZN19idTarget_FadeEntity5ThinkEv'/>
+<ovr f='codebrowser/game/Target.cpp' l='1122' c='_ZN21idTarget_SetInfluence5ThinkEv'/>
+<ovr f='codebrowser/game/Target.cpp' l='1343' c='_ZN15idTarget_SetFov5ThinkEv'/>
+<ovr f='codebrowser/game/Trigger.cpp' l='1156' c='_ZN15idTrigger_Touch5ThinkEv'/>
+<use f='codebrowser/game/Trigger.cpp' l='1160' u='c' c='_ZN15idTrigger_Touch5ThinkEv'/>

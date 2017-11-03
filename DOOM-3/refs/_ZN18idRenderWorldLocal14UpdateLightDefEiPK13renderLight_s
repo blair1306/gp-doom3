@@ -1,0 +1,16 @@
+<dec f='codebrowser/renderer/RenderWorld_local.h' l='89' type='void idRenderWorldLocal::UpdateLightDef(qhandle_t lightHandle, const renderLight_t * rlight)'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='368' u='c' c='_ZN18idRenderWorldLocal11AddLightDefEPK13renderLight_s'/>
+<inh f='codebrowser/renderer/RenderWorld.h' l='287' c='_ZN13idRenderWorld14UpdateLightDefEiPK13renderLight_s'/>
+<def f='codebrowser/renderer/RenderWorld.cpp' l='383' ll='441' type='void idRenderWorldLocal::UpdateLightDef(qhandle_t lightHandle, const renderLight_t * rlight)'/>
+<doc f='codebrowser/renderer/RenderWorld.cpp' l='373'>/*
+=================
+UpdateLightDef
+
+The generation of all the derived interaction data will
+usually be deferred until it is visible in a scene
+
+Does not write to the demo file, which will only be done for visible lights
+=================
+*/</doc>
+<use f='codebrowser/renderer/RenderWorld_demo.cpp' l='511' u='c' c='_ZN18idRenderWorldLocal15ReadRenderLightEv'/>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='850' u='c' c='_Z25R_ReCreateWorldReferencesv'/>

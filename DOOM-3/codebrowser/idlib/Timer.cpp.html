@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Timer.cpp source code [codebrowser/idlib/Timer.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/idlib/Timer.cpp'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>idlib</a>/<a href='Timer.cpp.html'>Timer.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="precompiled.h.html">"precompiled.h"</a></u></td></tr>
+<tr><th id="30">30</th><td><u>#pragma hdrstop</u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><em>double</em> <a class="type" href="Timer.h.html#idTimer" title='idTimer' data-ref="idTimer">idTimer</a>::<dfn class="decl def" id="idTimer::base" title='idTimer::base' data-ref="idTimer::base">base</dfn> = -<var>1.0</var>;</td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><i>/*</i></td></tr>
+<tr><th id="36">36</th><td><i>=================</i></td></tr>
+<tr><th id="37">37</th><td><i>idTimer::InitBaseClockTicks</i></td></tr>
+<tr><th id="38">38</th><td><i>=================</i></td></tr>
+<tr><th id="39">39</th><td><i>*/</i></td></tr>
+<tr><th id="40">40</th><td><em>void</em> <a class="type" href="Timer.h.html#idTimer" title='idTimer' data-ref="idTimer">idTimer</a>::<dfn class="decl def" id="_ZNK7idTimer18InitBaseClockTicksEv" title='idTimer::InitBaseClockTicks' data-ref="_ZNK7idTimer18InitBaseClockTicksEv">InitBaseClockTicks</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="41">41</th><td>	<a class="type" href="Timer.h.html#idTimer" title='idTimer' data-ref="idTimer">idTimer</a> <a class="ref fake" href="Timer.h.html#_ZN7idTimerC1Ev" title='idTimer::idTimer' data-ref="_ZN7idTimerC1Ev"></a><dfn class="local col1 decl" id="1timer" title='timer' data-type='idTimer' data-ref="1timer">timer</dfn>;</td></tr>
+<tr><th id="42">42</th><td>	<em>double</em> <dfn class="local col2 decl" id="2ct" title='ct' data-type='double' data-ref="2ct">ct</dfn>, <dfn class="local col3 decl" id="3b" title='b' data-type='double' data-ref="3b">b</dfn>;</td></tr>
+<tr><th id="43">43</th><td>	<em>int</em> <dfn class="local col4 decl" id="4i" title='i' data-type='int' data-ref="4i">i</dfn>;</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td>	<a class="member" href="Timer.h.html#idTimer::base" title='idTimer::base' data-ref="idTimer::base">base</a> = <var>0.0</var>;</td></tr>
+<tr><th id="46">46</th><td>	<a class="local col3 ref" href="#3b" title='b' data-ref="3b">b</a> = -<var>1.0</var>;</td></tr>
+<tr><th id="47">47</th><td>	<b>for</b> ( <a class="local col4 ref" href="#4i" title='i' data-ref="4i">i</a> = <var>0</var>; <a class="local col4 ref" href="#4i" title='i' data-ref="4i">i</a> &lt; <var>1000</var>; <a class="local col4 ref" href="#4i" title='i' data-ref="4i">i</a>++ ) {</td></tr>
+<tr><th id="48">48</th><td>		<a class="local col1 ref" href="#1timer" title='timer' data-ref="1timer">timer</a>.<a class="member" href="Timer.h.html#_ZN7idTimer5ClearEv" title='idTimer::Clear' data-ref="_ZN7idTimer5ClearEv">Clear</a>();</td></tr>
+<tr><th id="49">49</th><td>		<a class="local col1 ref" href="#1timer" title='timer' data-ref="1timer">timer</a>.<a class="member" href="Timer.h.html#_ZN7idTimer5StartEv" title='idTimer::Start' data-ref="_ZN7idTimer5StartEv">Start</a>();</td></tr>
+<tr><th id="50">50</th><td>		<a class="local col1 ref" href="#1timer" title='timer' data-ref="1timer">timer</a>.<a class="member" href="Timer.h.html#_ZN7idTimer4StopEv" title='idTimer::Stop' data-ref="_ZN7idTimer4StopEv">Stop</a>();</td></tr>
+<tr><th id="51">51</th><td>		<a class="local col2 ref" href="#2ct" title='ct' data-ref="2ct">ct</a> = <a class="local col1 ref" href="#1timer" title='timer' data-ref="1timer">timer</a>.<a class="member" href="Timer.h.html#_ZNK7idTimer10ClockTicksEv" title='idTimer::ClockTicks' data-ref="_ZNK7idTimer10ClockTicksEv">ClockTicks</a>();</td></tr>
+<tr><th id="52">52</th><td>		<b>if</b> ( <a class="local col3 ref" href="#3b" title='b' data-ref="3b">b</a> &lt; <var>0.0</var> || <a class="local col2 ref" href="#2ct" title='ct' data-ref="2ct">ct</a> &lt; <a class="local col3 ref" href="#3b" title='b' data-ref="3b">b</a> ) {</td></tr>
+<tr><th id="53">53</th><td>			<a class="local col3 ref" href="#3b" title='b' data-ref="3b">b</a> = <a class="local col2 ref" href="#2ct" title='ct' data-ref="2ct">ct</a>;</td></tr>
+<tr><th id="54">54</th><td>		}</td></tr>
+<tr><th id="55">55</th><td>	}</td></tr>
+<tr><th id="56">56</th><td>	<a class="member" href="Timer.h.html#idTimer::base" title='idTimer::base' data-ref="idTimer::base">base</a> = <a class="local col3 ref" href="#3b" title='b' data-ref="3b">b</a>;</td></tr>
+<tr><th id="57">57</th><td>}</td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td><i>/*</i></td></tr>
+<tr><th id="61">61</th><td><i>=================</i></td></tr>
+<tr><th id="62">62</th><td><i>idTimerReport::idTimerReport</i></td></tr>
+<tr><th id="63">63</th><td><i>=================</i></td></tr>
+<tr><th id="64">64</th><td><i>*/</i></td></tr>
+<tr><th id="65">65</th><td><a class="type" href="Timer.h.html#idTimerReport" title='idTimerReport' data-ref="idTimerReport">idTimerReport</a>::<dfn class="decl def" id="_ZN13idTimerReportC1Ev" title='idTimerReport::idTimerReport' data-ref="_ZN13idTimerReportC1Ev">idTimerReport</dfn>() {</td></tr>
+<tr><th id="66">66</th><td>}</td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td><i>/*</i></td></tr>
+<tr><th id="69">69</th><td><i>=================</i></td></tr>
+<tr><th id="70">70</th><td><i>idTimerReport::SetReportName</i></td></tr>
+<tr><th id="71">71</th><td><i>=================</i></td></tr>
+<tr><th id="72">72</th><td><i>*/</i></td></tr>
+<tr><th id="73">73</th><td><em>void</em> <a class="type" href="Timer.h.html#idTimerReport" title='idTimerReport' data-ref="idTimerReport">idTimerReport</a>::<dfn class="decl def" id="_ZN13idTimerReport13SetReportNameEPKc" title='idTimerReport::SetReportName' data-ref="_ZN13idTimerReport13SetReportNameEPKc">SetReportName</dfn>( <em>const</em> <em>char</em> *<dfn class="local col5 decl" id="5name" title='name' data-type='const char *' data-ref="5name">name</dfn> ) {</td></tr>
+<tr><th id="74">74</th><td>	<a class="member" href="Timer.h.html#idTimerReport::reportName" title='idTimerReport::reportName' data-ref="idTimerReport::reportName">reportName</a> <a class="ref" href="Str.h.html#_ZN5idStraSEPKc" title='idStr::operator=' data-ref="_ZN5idStraSEPKc">=</a> ( <a class="local col5 ref" href="#5name" title='name' data-ref="5name">name</a> ) ? <a class="local col5 ref" href="#5name" title='name' data-ref="5name">name</a> : <q>"Timer Report"</q>;</td></tr>
+<tr><th id="75">75</th><td>}</td></tr>
+<tr><th id="76">76</th><td></td></tr>
+<tr><th id="77">77</th><td><i>/*</i></td></tr>
+<tr><th id="78">78</th><td><i>=================</i></td></tr>
+<tr><th id="79">79</th><td><i>idTimerReport::~idTimerReport</i></td></tr>
+<tr><th id="80">80</th><td><i>=================</i></td></tr>
+<tr><th id="81">81</th><td><i>*/</i></td></tr>
+<tr><th id="82">82</th><td><a class="type" href="Timer.h.html#idTimerReport" title='idTimerReport' data-ref="idTimerReport">idTimerReport</a>::<dfn class="decl def" id="_ZN13idTimerReportD1Ev" title='idTimerReport::~idTimerReport' data-ref="_ZN13idTimerReportD1Ev">~idTimerReport</dfn>() {</td></tr>
+<tr><th id="83">83</th><td>	<a class="member" href="#_ZN13idTimerReport5ClearEv" title='idTimerReport::Clear' data-ref="_ZN13idTimerReport5ClearEv">Clear</a>();</td></tr>
+<tr><th id="84">84</th><td>}</td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td><i>/*</i></td></tr>
+<tr><th id="87">87</th><td><i>=================</i></td></tr>
+<tr><th id="88">88</th><td><i>idTimerReport::AddReport</i></td></tr>
+<tr><th id="89">89</th><td><i>=================</i></td></tr>
+<tr><th id="90">90</th><td><i>*/</i></td></tr>
+<tr><th id="91">91</th><td><em>int</em> <a class="type" href="Timer.h.html#idTimerReport" title='idTimerReport' data-ref="idTimerReport">idTimerReport</a>::<dfn class="decl def" id="_ZN13idTimerReport9AddReportEPKc" title='idTimerReport::AddReport' data-ref="_ZN13idTimerReport9AddReportEPKc">AddReport</dfn>( <em>const</em> <em>char</em> *<dfn class="local col6 decl" id="6name" title='name' data-type='const char *' data-ref="6name">name</dfn> ) {</td></tr>
+<tr><th id="92">92</th><td>	<b>if</b> ( <a class="local col6 ref" href="#6name" title='name' data-ref="6name">name</a> &amp;&amp; *<a class="local col6 ref" href="#6name" title='name' data-ref="6name">name</a> ) {</td></tr>
+<tr><th id="93">93</th><td>		<a class="member" href="Timer.h.html#idTimerReport::names" title='idTimerReport::names' data-ref="idTimerReport::names">names</a>.<a class="ref" href="containers/List.h.html#_ZN6idList6AppendERKT_" title='idList::Append' data-ref="_ZN6idList6AppendERKT_">Append</a>( <a class="ref fake" href="Str.h.html#_ZN5idStrC1EPKc" title='idStr::idStr' data-ref="_ZN5idStrC1EPKc"></a><a class="local col6 ref" href="#6name" title='name' data-ref="6name">name</a> );</td></tr>
+<tr><th id="94">94</th><td>		<b>return</b> <a class="member" href="Timer.h.html#idTimerReport::timers" title='idTimerReport::timers' data-ref="idTimerReport::timers">timers</a>.<a class="ref" href="containers/List.h.html#_ZN6idList6AppendERKT_" title='idList::Append' data-ref="_ZN6idList6AppendERKT_">Append</a>( <b>new</b> <a class="type" href="Timer.h.html#idTimer" title='idTimer' data-ref="idTimer">idTimer</a><a class="ref" href="Timer.h.html#_ZN7idTimerC1Ev" title='idTimer::idTimer' data-ref="_ZN7idTimerC1Ev">(</a>) );</td></tr>
+<tr><th id="95">95</th><td>	}</td></tr>
+<tr><th id="96">96</th><td>	<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="97">97</th><td>}</td></tr>
+<tr><th id="98">98</th><td></td></tr>
+<tr><th id="99">99</th><td><i>/*</i></td></tr>
+<tr><th id="100">100</th><td><i>=================</i></td></tr>
+<tr><th id="101">101</th><td><i>idTimerReport::Clear</i></td></tr>
+<tr><th id="102">102</th><td><i>=================</i></td></tr>
+<tr><th id="103">103</th><td><i>*/</i></td></tr>
+<tr><th id="104">104</th><td><em>void</em> <a class="type" href="Timer.h.html#idTimerReport" title='idTimerReport' data-ref="idTimerReport">idTimerReport</a>::<dfn class="decl def" id="_ZN13idTimerReport5ClearEv" title='idTimerReport::Clear' data-ref="_ZN13idTimerReport5ClearEv">Clear</dfn>() {</td></tr>
+<tr><th id="105">105</th><td>	<a class="member" href="Timer.h.html#idTimerReport::timers" title='idTimerReport::timers' data-ref="idTimerReport::timers">timers</a>.<a class="ref" href="containers/List.h.html#_ZN6idList14DeleteContentsEb" title='idList::DeleteContents' data-ref="_ZN6idList14DeleteContentsEb">DeleteContents</a>( <b>true</b> );</td></tr>
+<tr><th id="106">106</th><td>	<a class="member" href="Timer.h.html#idTimerReport::names" title='idTimerReport::names' data-ref="idTimerReport::names">names</a>.<a class="ref" href="containers/List.h.html#_ZN6idList5ClearEv" title='idList::Clear' data-ref="_ZN6idList5ClearEv">Clear</a>();</td></tr>
+<tr><th id="107">107</th><td>	<a class="member" href="Timer.h.html#idTimerReport::reportName" title='idTimerReport::reportName' data-ref="idTimerReport::reportName">reportName</a>.<a class="ref" href="Str.h.html#_ZN5idStr5ClearEv" title='idStr::Clear' data-ref="_ZN5idStr5ClearEv">Clear</a>();</td></tr>
+<tr><th id="108">108</th><td>}</td></tr>
+<tr><th id="109">109</th><td></td></tr>
+<tr><th id="110">110</th><td><i>/*</i></td></tr>
+<tr><th id="111">111</th><td><i>=================</i></td></tr>
+<tr><th id="112">112</th><td><i>idTimerReport::Reset</i></td></tr>
+<tr><th id="113">113</th><td><i>=================</i></td></tr>
+<tr><th id="114">114</th><td><i>*/</i></td></tr>
+<tr><th id="115">115</th><td><em>void</em> <a class="type" href="Timer.h.html#idTimerReport" title='idTimerReport' data-ref="idTimerReport">idTimerReport</a>::<dfn class="decl def" id="_ZN13idTimerReport5ResetEv" title='idTimerReport::Reset' data-ref="_ZN13idTimerReport5ResetEv">Reset</dfn>() {</td></tr>
+<tr><th id="116">116</th><td>	<a class="macro" href="Lib.h.html#147" title="if ( timers.Num() == names.Num() ) { } else AssertFailed( &quot;/home/jon/workspace/id-software/DOOM-3/neo/idlib/Timer.cpp&quot;, 116, &quot;timers.Num() == names.Num()&quot; )" data-ref="_M/assert">assert</a> ( <a class="member" href="Timer.h.html#idTimerReport::timers" title='idTimerReport::timers' data-ref="idTimerReport::timers">timers</a>.<a class="ref" href="containers/List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>() == <a class="member" href="Timer.h.html#idTimerReport::names" title='idTimerReport::names' data-ref="idTimerReport::names">names</a>.<a class="ref" href="containers/List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>() );</td></tr>
+<tr><th id="117">117</th><td>	<b>for</b> ( <em>int</em> <dfn class="local col7 decl" id="7i" title='i' data-type='int' data-ref="7i">i</dfn> = <var>0</var>; <a class="local col7 ref" href="#7i" title='i' data-ref="7i">i</a> &lt; <a class="member" href="Timer.h.html#idTimerReport::timers" title='idTimerReport::timers' data-ref="idTimerReport::timers">timers</a>.<a class="ref" href="containers/List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>(); <a class="local col7 ref" href="#7i" title='i' data-ref="7i">i</a>++ ) {</td></tr>
+<tr><th id="118">118</th><td>		<a class="member" href="Timer.h.html#idTimerReport::timers" title='idTimerReport::timers' data-ref="idTimerReport::timers">timers</a><a class="ref" href="containers/List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[<a class="local col7 ref" href="#7i" title='i' data-ref="7i">i</a>]</a>-&gt;<a class="ref" href="Timer.h.html#_ZN7idTimer5ClearEv" title='idTimer::Clear' data-ref="_ZN7idTimer5ClearEv">Clear</a>();</td></tr>
+<tr><th id="119">119</th><td>	}</td></tr>
+<tr><th id="120">120</th><td>}</td></tr>
+<tr><th id="121">121</th><td></td></tr>
+<tr><th id="122">122</th><td><i>/*</i></td></tr>
+<tr><th id="123">123</th><td><i>=================</i></td></tr>
+<tr><th id="124">124</th><td><i>idTimerReport::AddTime</i></td></tr>
+<tr><th id="125">125</th><td><i>=================</i></td></tr>
+<tr><th id="126">126</th><td><i>*/</i></td></tr>
+<tr><th id="127">127</th><td><em>void</em> <a class="type" href="Timer.h.html#idTimerReport" title='idTimerReport' data-ref="idTimerReport">idTimerReport</a>::<dfn class="decl def" id="_ZN13idTimerReport7AddTimeEPKcP7idTimer" title='idTimerReport::AddTime' data-ref="_ZN13idTimerReport7AddTimeEPKcP7idTimer">AddTime</dfn>( <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="8name" title='name' data-type='const char *' data-ref="8name">name</dfn>, <a class="type" href="Timer.h.html#idTimer" title='idTimer' data-ref="idTimer">idTimer</a> *<dfn class="local col9 decl" id="9time" title='time' data-type='idTimer *' data-ref="9time">time</dfn> ) {</td></tr>
+<tr><th id="128">128</th><td>	<a class="macro" href="Lib.h.html#147" title="if ( timers.Num() == names.Num() ) { } else AssertFailed( &quot;/home/jon/workspace/id-software/DOOM-3/neo/idlib/Timer.cpp&quot;, 128, &quot;timers.Num() == names.Num()&quot; )" data-ref="_M/assert">assert</a> ( <a class="member" href="Timer.h.html#idTimerReport::timers" title='idTimerReport::timers' data-ref="idTimerReport::timers">timers</a>.<a class="ref" href="containers/List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>() == <a class="member" href="Timer.h.html#idTimerReport::names" title='idTimerReport::names' data-ref="idTimerReport::names">names</a>.<a class="ref" href="containers/List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>() );</td></tr>
+<tr><th id="129">129</th><td>	<em>int</em> <dfn class="local col0 decl" id="10i" title='i' data-type='int' data-ref="10i">i</dfn>;</td></tr>
+<tr><th id="130">130</th><td>	<b>for</b> ( <a class="local col0 ref" href="#10i" title='i' data-ref="10i">i</a> = <var>0</var>; <a class="local col0 ref" href="#10i" title='i' data-ref="10i">i</a> &lt; <a class="member" href="Timer.h.html#idTimerReport::names" title='idTimerReport::names' data-ref="idTimerReport::names">names</a>.<a class="ref" href="containers/List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>(); <a class="local col0 ref" href="#10i" title='i' data-ref="10i">i</a>++ ) {</td></tr>
+<tr><th id="131">131</th><td>		<b>if</b> ( <a class="member" href="Timer.h.html#idTimerReport::names" title='idTimerReport::names' data-ref="idTimerReport::names">names</a><a class="ref" href="containers/List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[<a class="local col0 ref" href="#10i" title='i' data-ref="10i">i</a>]</a>.<a class="ref" href="Str.h.html#_ZNK5idStr4IcmpEPKc" title='idStr::Icmp' data-ref="_ZNK5idStr4IcmpEPKc">Icmp</a>( <a class="local col8 ref" href="#8name" title='name' data-ref="8name">name</a> ) == <var>0</var> ) {</td></tr>
+<tr><th id="132">132</th><td>			*<a class="member" href="Timer.h.html#idTimerReport::timers" title='idTimerReport::timers' data-ref="idTimerReport::timers">timers</a><a class="ref" href="containers/List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[<a class="local col0 ref" href="#10i" title='i' data-ref="10i">i</a>]</a> <a class="ref" href="Timer.h.html#_ZN7idTimerpLERKS_" title='idTimer::operator+=' data-ref="_ZN7idTimerpLERKS_">+=</a> *<a class="local col9 ref" href="#9time" title='time' data-ref="9time">time</a>;</td></tr>
+<tr><th id="133">133</th><td>			<b>break</b>;</td></tr>
+<tr><th id="134">134</th><td>		}</td></tr>
+<tr><th id="135">135</th><td>	}</td></tr>
+<tr><th id="136">136</th><td>	<b>if</b> ( <a class="local col0 ref" href="#10i" title='i' data-ref="10i">i</a> == <a class="member" href="Timer.h.html#idTimerReport::names" title='idTimerReport::names' data-ref="idTimerReport::names">names</a>.<a class="ref" href="containers/List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>() ) {</td></tr>
+<tr><th id="137">137</th><td>		<em>int</em> <dfn class="local col1 decl" id="11index" title='index' data-type='int' data-ref="11index">index</dfn> = <a class="member" href="#_ZN13idTimerReport9AddReportEPKc" title='idTimerReport::AddReport' data-ref="_ZN13idTimerReport9AddReportEPKc">AddReport</a>( <a class="local col8 ref" href="#8name" title='name' data-ref="8name">name</a> );</td></tr>
+<tr><th id="138">138</th><td>		<b>if</b> ( <a class="local col1 ref" href="#11index" title='index' data-ref="11index">index</a> &gt;= <var>0</var> ) {</td></tr>
+<tr><th id="139">139</th><td>			<a class="member" href="Timer.h.html#idTimerReport::timers" title='idTimerReport::timers' data-ref="idTimerReport::timers">timers</a><a class="ref" href="containers/List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[<a class="local col1 ref" href="#11index" title='index' data-ref="11index">index</a>]</a>-&gt;<a class="ref" href="Timer.h.html#_ZN7idTimer5ClearEv" title='idTimer::Clear' data-ref="_ZN7idTimer5ClearEv">Clear</a>();</td></tr>
+<tr><th id="140">140</th><td>			*<a class="member" href="Timer.h.html#idTimerReport::timers" title='idTimerReport::timers' data-ref="idTimerReport::timers">timers</a><a class="ref" href="containers/List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[<a class="local col1 ref" href="#11index" title='index' data-ref="11index">index</a>]</a> <a class="ref" href="Timer.h.html#_ZN7idTimerpLERKS_" title='idTimer::operator+=' data-ref="_ZN7idTimerpLERKS_">+=</a> *<a class="local col9 ref" href="#9time" title='time' data-ref="9time">time</a>;</td></tr>
+<tr><th id="141">141</th><td>		}</td></tr>
+<tr><th id="142">142</th><td>	}</td></tr>
+<tr><th id="143">143</th><td>}</td></tr>
+<tr><th id="144">144</th><td></td></tr>
+<tr><th id="145">145</th><td><i>/*</i></td></tr>
+<tr><th id="146">146</th><td><i>=================</i></td></tr>
+<tr><th id="147">147</th><td><i>idTimerReport::PrintReport</i></td></tr>
+<tr><th id="148">148</th><td><i>=================</i></td></tr>
+<tr><th id="149">149</th><td><i>*/</i></td></tr>
+<tr><th id="150">150</th><td><em>void</em> <a class="type" href="Timer.h.html#idTimerReport" title='idTimerReport' data-ref="idTimerReport">idTimerReport</a>::<dfn class="decl def" id="_ZN13idTimerReport11PrintReportEv" title='idTimerReport::PrintReport' data-ref="_ZN13idTimerReport11PrintReportEv">PrintReport</dfn>() {</td></tr>
+<tr><th id="151">151</th><td>	<a class="macro" href="Lib.h.html#147" title="if ( timers.Num() == names.Num() ) { } else AssertFailed( &quot;/home/jon/workspace/id-software/DOOM-3/neo/idlib/Timer.cpp&quot;, 151, &quot;timers.Num() == names.Num()&quot; )" data-ref="_M/assert">assert</a>( <a class="member" href="Timer.h.html#idTimerReport::timers" title='idTimerReport::timers' data-ref="idTimerReport::timers">timers</a>.<a class="ref" href="containers/List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>() == <a class="member" href="Timer.h.html#idTimerReport::names" title='idTimerReport::names' data-ref="idTimerReport::names">names</a>.<a class="ref" href="containers/List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>() );</td></tr>
+<tr><th id="152">152</th><td>	<a class="type" href="Lib.h.html#idLib" title='idLib' data-ref="idLib">idLib</a>::<a class="ref" href="Lib.h.html#idLib::common" title='idLib::common' data-ref="idLib::common">common</a>-&gt;<a class="virtual ref" href="../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"Timing Report for %s\n"</q>, <a class="member" href="Timer.h.html#idTimerReport::reportName" title='idTimerReport::reportName' data-ref="idTimerReport::reportName">reportName</a>.<a class="ref" href="Str.h.html#_ZNK5idStr5c_strEv" title='idStr::c_str' data-ref="_ZNK5idStr5c_strEv">c_str</a>() );</td></tr>
+<tr><th id="153">153</th><td>	<a class="type" href="Lib.h.html#idLib" title='idLib' data-ref="idLib">idLib</a>::<a class="ref" href="Lib.h.html#idLib::common" title='idLib::common' data-ref="idLib::common">common</a>-&gt;<a class="virtual ref" href="../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"-------------------------------\n"</q> );</td></tr>
+<tr><th id="154">154</th><td>	<em>float</em> <dfn class="local col2 decl" id="12total" title='total' data-type='float' data-ref="12total">total</dfn> = <var>0.0f</var>;</td></tr>
+<tr><th id="155">155</th><td>	<b>for</b> ( <em>int</em> <dfn class="local col3 decl" id="13i" title='i' data-type='int' data-ref="13i">i</dfn> = <var>0</var>; <a class="local col3 ref" href="#13i" title='i' data-ref="13i">i</a> &lt; <a class="member" href="Timer.h.html#idTimerReport::names" title='idTimerReport::names' data-ref="idTimerReport::names">names</a>.<a class="ref" href="containers/List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>(); <a class="local col3 ref" href="#13i" title='i' data-ref="13i">i</a>++ ) {</td></tr>
+<tr><th id="156">156</th><td>		<a class="type" href="Lib.h.html#idLib" title='idLib' data-ref="idLib">idLib</a>::<a class="ref" href="Lib.h.html#idLib::common" title='idLib::common' data-ref="idLib::common">common</a>-&gt;<a class="virtual ref" href="../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"%s consumed %5.2f seconds\n"</q>, <a class="member" href="Timer.h.html#idTimerReport::names" title='idTimerReport::names' data-ref="idTimerReport::names">names</a><a class="ref" href="containers/List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[<a class="local col3 ref" href="#13i" title='i' data-ref="13i">i</a>]</a>.<a class="ref" href="Str.h.html#_ZNK5idStr5c_strEv" title='idStr::c_str' data-ref="_ZNK5idStr5c_strEv">c_str</a>(), <a class="member" href="Timer.h.html#idTimerReport::timers" title='idTimerReport::timers' data-ref="idTimerReport::timers">timers</a><a class="ref" href="containers/List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[<a class="local col3 ref" href="#13i" title='i' data-ref="13i">i</a>]</a>-&gt;<a class="ref" href="Timer.h.html#_ZNK7idTimer12MillisecondsEv" title='idTimer::Milliseconds' data-ref="_ZNK7idTimer12MillisecondsEv">Milliseconds</a>() * <var>0.001f</var> );</td></tr>
+<tr><th id="157">157</th><td>		<a class="local col2 ref" href="#12total" title='total' data-ref="12total">total</a> += <a class="member" href="Timer.h.html#idTimerReport::timers" title='idTimerReport::timers' data-ref="idTimerReport::timers">timers</a><a class="ref" href="containers/List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[<a class="local col3 ref" href="#13i" title='i' data-ref="13i">i</a>]</a>-&gt;<a class="ref" href="Timer.h.html#_ZNK7idTimer12MillisecondsEv" title='idTimer::Milliseconds' data-ref="_ZNK7idTimer12MillisecondsEv">Milliseconds</a>();</td></tr>
+<tr><th id="158">158</th><td>	}</td></tr>
+<tr><th id="159">159</th><td>	<a class="type" href="Lib.h.html#idLib" title='idLib' data-ref="idLib">idLib</a>::<a class="ref" href="Lib.h.html#idLib::common" title='idLib::common' data-ref="idLib::common">common</a>-&gt;<a class="virtual ref" href="../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"Total time for report %s was %5.2f\n\n"</q>, <a class="member" href="Timer.h.html#idTimerReport::reportName" title='idTimerReport::reportName' data-ref="idTimerReport::reportName">reportName</a>.<a class="ref" href="Str.h.html#_ZNK5idStr5c_strEv" title='idStr::c_str' data-ref="_ZNK5idStr5c_strEv">c_str</a>(), <a class="local col2 ref" href="#12total" title='total' data-ref="12total">total</a> * <var>0.001f</var> );</td></tr>
+<tr><th id="160">160</th><td>}</td></tr>
+<tr><th id="161">161</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

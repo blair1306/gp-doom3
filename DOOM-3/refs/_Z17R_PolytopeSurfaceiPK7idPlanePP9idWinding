@@ -1,0 +1,18 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1238' type='srfTriangles_t * R_PolytopeSurface(int numPlanes, const idPlane * planes, idWinding ** windings)'/>
+<doc f='codebrowser/renderer/tr_local.h' l='1230'>/*
+============================================================
+
+POLYTOPE
+
+============================================================
+*/</doc>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='434' u='c' c='_Z17R_DeriveLightDataP18idRenderLightLocal'/>
+<def f='codebrowser/renderer/tr_polytope.cpp' l='44' ll='111' type='srfTriangles_t * R_PolytopeSurface(int numPlanes, const idPlane * planes, idWinding ** windings)'/>
+<doc f='codebrowser/renderer/tr_polytope.cpp' l='36'>/*
+=====================
+R_PolytopeSurface
+
+Generate vertexes and indexes for a polytope, and optionally returns the polygon windings.
+The positive sides of the planes will be visible.
+=====================
+*/</doc>

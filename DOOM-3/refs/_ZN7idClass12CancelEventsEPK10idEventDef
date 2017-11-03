@@ -1,0 +1,62 @@
+<dec f='codebrowser/d3xp/gamesys/Class.h' l='234' type='void idClass::CancelEvents(const idEventDef * ev)'/>
+<use f='codebrowser/d3xp/script/Script_Thread.h' l='244' u='c' c='_ZN8idThread13ManualControlEv'/>
+<use f='codebrowser/d3xp/Item.cpp' l='559' u='c' c='_ZN6idItem13Event_RespawnEv'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='1356' u='c' c='_ZN10idAnimated20Event_LaunchMissilesEPKcS1_S1_S1_ii'/>
+<use f='codebrowser/d3xp/Moveable.cpp' l='1207' u='c' c='_ZN17idExplodingBarrel6KilledEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/d3xp/Moveable.cpp' l='1208' u='c' c='_ZN17idExplodingBarrel6KilledEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='2711' u='c' c='_ZN14idMover_Binary13GotoPosition1Ev'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='2860' u='c' c='_ZN14idMover_Binary15Use_BinaryMoverEP8idEntity'/>
+<use f='codebrowser/d3xp/Player.cpp' l='5208' u='c' c='_ZN8idPlayer22HandleSingleGuiCommandEP8idEntityP7idLexer'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='787' u='c' c='_ZN12idProjectile6FizzleEv'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='1037' u='c' c='_ZN12idProjectile7ExplodeERK7trace_sP8idEntity'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='2598' u='c' c='_ZN8idDebris6FizzleEv'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='2632' u='c' c='_ZN8idDebris7ExplodeEv'/>
+<use f='codebrowser/d3xp/SecurityCamera.cpp' l='379' u='c' c='_ZN16idSecurityCamera5ThinkEv'/>
+<use f='codebrowser/d3xp/SecurityCamera.cpp' l='381' u='c' c='_ZN16idSecurityCamera5ThinkEv'/>
+<use f='codebrowser/d3xp/SecurityCamera.cpp' l='395' u='c' c='_ZN16idSecurityCamera5ThinkEv'/>
+<use f='codebrowser/d3xp/SecurityCamera.cpp' l='484' u='c' c='_ZN16idSecurityCamera11Event_AlertEv'/>
+<use f='codebrowser/d3xp/Sound.cpp' l='144' u='c' c='_ZN7idSound13Event_TriggerEP8idEntity'/>
+<use f='codebrowser/d3xp/Sound.cpp' l='228' u='c' c='_ZN7idSound25UpdateChangeableSpawnArgsEPK6idDict'/>
+<use f='codebrowser/d3xp/Sound.cpp' l='292' u='c' c='_ZN7idSound9Event_OffEv'/>
+<use f='codebrowser/d3xp/Trigger.cpp' l='804' u='c' c='_ZN15idTrigger_Timer7DisableEv'/>
+<use f='codebrowser/d3xp/Trigger.cpp' l='834' u='c' c='_ZN15idTrigger_Timer9Event_UseEP8idEntity'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='678' u='c' c='_ZN8idWeapon5ClearEv'/>
+<def f='codebrowser/d3xp/gamesys/Class.cpp' l='619' ll='621' type='void idClass::CancelEvents(const idEventDef * ev)'/>
+<doc f='codebrowser/d3xp/gamesys/Class.cpp' l='614'>/*
+================
+idClass::CancelEvents
+================
+*/</doc>
+<use f='codebrowser/d3xp/script/Script_Thread.cpp' l='559' u='c' c='_ZN8idThread12DelayedStartEi'/>
+<use f='codebrowser/d3xp/script/Script_Thread.cpp' l='574' u='c' c='_ZN8idThread5StartEv'/>
+<dec f='codebrowser/game/gamesys/Class.h' l='234' type='void idClass::CancelEvents(const idEventDef * ev)'/>
+<use f='codebrowser/game/script/Script_Thread.h' l='233' u='c' c='_ZN8idThread13ManualControlEv'/>
+<use f='codebrowser/game/Item.cpp' l='551' u='c' c='_ZN6idItem13Event_RespawnEv'/>
+<use f='codebrowser/game/Misc.cpp' l='1322' u='c' c='_ZN10idAnimated20Event_LaunchMissilesEPKcS1_S1_S1_ii'/>
+<use f='codebrowser/game/Moveable.cpp' l='1045' u='c' c='_ZN17idExplodingBarrel6KilledEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/game/Moveable.cpp' l='1046' u='c' c='_ZN17idExplodingBarrel6KilledEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/game/Mover.cpp' l='2680' u='c' c='_ZN14idMover_Binary13GotoPosition1Ev'/>
+<use f='codebrowser/game/Mover.cpp' l='2829' u='c' c='_ZN14idMover_Binary15Use_BinaryMoverEP8idEntity'/>
+<use f='codebrowser/game/Player.cpp' l='4237' u='c' c='_ZN8idPlayer22HandleSingleGuiCommandEP8idEntityP7idLexer'/>
+<use f='codebrowser/game/Projectile.cpp' l='742' u='c' c='_ZN12idProjectile6FizzleEv'/>
+<use f='codebrowser/game/Projectile.cpp' l='940' u='c' c='_ZN12idProjectile7ExplodeERK7trace_sP8idEntity'/>
+<use f='codebrowser/game/Projectile.cpp' l='2339' u='c' c='_ZN8idDebris6FizzleEv'/>
+<use f='codebrowser/game/Projectile.cpp' l='2373' u='c' c='_ZN8idDebris7ExplodeEv'/>
+<use f='codebrowser/game/SecurityCamera.cpp' l='379' u='c' c='_ZN16idSecurityCamera5ThinkEv'/>
+<use f='codebrowser/game/SecurityCamera.cpp' l='381' u='c' c='_ZN16idSecurityCamera5ThinkEv'/>
+<use f='codebrowser/game/SecurityCamera.cpp' l='395' u='c' c='_ZN16idSecurityCamera5ThinkEv'/>
+<use f='codebrowser/game/SecurityCamera.cpp' l='484' u='c' c='_ZN16idSecurityCamera11Event_AlertEv'/>
+<use f='codebrowser/game/Sound.cpp' l='144' u='c' c='_ZN7idSound13Event_TriggerEP8idEntity'/>
+<use f='codebrowser/game/Sound.cpp' l='228' u='c' c='_ZN7idSound25UpdateChangeableSpawnArgsEPK6idDict'/>
+<use f='codebrowser/game/Sound.cpp' l='292' u='c' c='_ZN7idSound9Event_OffEv'/>
+<use f='codebrowser/game/Trigger.cpp' l='798' u='c' c='_ZN15idTrigger_Timer7DisableEv'/>
+<use f='codebrowser/game/Trigger.cpp' l='828' u='c' c='_ZN15idTrigger_Timer9Event_UseEP8idEntity'/>
+<use f='codebrowser/game/Weapon.cpp' l='538' u='c' c='_ZN8idWeapon5ClearEv'/>
+<def f='codebrowser/game/gamesys/Class.cpp' l='619' ll='621' type='void idClass::CancelEvents(const idEventDef * ev)'/>
+<doc f='codebrowser/game/gamesys/Class.cpp' l='614'>/*
+================
+idClass::CancelEvents
+================
+*/</doc>
+<use f='codebrowser/game/script/Script_Thread.cpp' l='537' u='c' c='_ZN8idThread12DelayedStartEi'/>
+<use f='codebrowser/game/script/Script_Thread.cpp' l='552' u='c' c='_ZN8idThread5StartEv'/>

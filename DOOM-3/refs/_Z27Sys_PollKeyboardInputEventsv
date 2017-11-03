@@ -1,0 +1,12 @@
+<dec f='codebrowser/sys/sys_public.h' l='351' type='int Sys_PollKeyboardInputEvents()'/>
+<doc f='codebrowser/sys/sys_public.h' l='350'>// keyboard input polling</doc>
+<use f='codebrowser/framework/UsercmdGen.cpp' l='1014' u='c' c='_ZN17idUsercmdGenLocal8KeyboardEv'/>
+<def f='codebrowser/sys/posix/posix_input.cpp' l='93' ll='95' type='int Sys_PollKeyboardInputEvents()'/>
+<doc f='codebrowser/sys/posix/posix_input.cpp' l='84'>/*
+===========================================================================
+polled from GetDirectUsercmd
+async input polling is obsolete
+we have a single entry point for both mouse and keyboard
+the mouse/keyboard seperation is API legacy
+===========================================================================
+*/</doc>

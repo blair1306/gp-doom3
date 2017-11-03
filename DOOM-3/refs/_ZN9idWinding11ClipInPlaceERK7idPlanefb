@@ -1,0 +1,25 @@
+<dec f='codebrowser/idlib/geometry/Winding.h' l='78' type='bool idWinding::ClipInPlace(const idPlane &amp; plane, const float epsilon = 0.100000001F, const bool keepOn = false)'/>
+<doc f='codebrowser/idlib/geometry/Winding.h' l='76'>// cuts off the part at the back side of the plane, returns true if some part was at the front
+					// if there is nothing at the front the number of points is set to zero</doc>
+<use f='codebrowser/cm/CollisionModel_load.cpp' l='2670' u='c' c='_ZN28idCollisionModelManagerLocal17ConvertBrushSidesEP10cm_model_sPK10idMapBrushi'/>
+<use f='codebrowser/cm/CollisionModel_load.cpp' l='2714' u='c' c='_ZN28idCollisionModelManagerLocal12ConvertBrushEP10cm_model_sPK10idMapBrushi'/>
+<use f='codebrowser/d3xp/Pvs.cpp' l='658' u='c' c='_ZNK5idPVS14CreatePassagesEv'/>
+<use f='codebrowser/game/Pvs.cpp' l='658' u='c' c='_ZNK5idPVS14CreatePassagesEv'/>
+<def f='codebrowser/idlib/geometry/Winding.cpp' l='349' ll='457' type='bool idWinding::ClipInPlace(const idPlane &amp; plane, const float epsilon = 0.100000001F, const bool keepOn = false)'/>
+<doc f='codebrowser/idlib/geometry/Winding.cpp' l='344'>/*
+=============
+idWinding::ClipInPlace
+=============
+*/</doc>
+<use f='codebrowser/renderer/GuiModel.cpp' l='400' u='c' c='_ZN10idGuiModel14DrawStretchPicEPK10idDrawVertPKiiiPK10idMaterialbffff'/>
+<use f='codebrowser/renderer/GuiModel.cpp' l='402' u='c' c='_ZN10idGuiModel14DrawStretchPicEPK10idDrawVertPKiiiPK10idMaterialbffff'/>
+<use f='codebrowser/renderer/GuiModel.cpp' l='404' u='c' c='_ZN10idGuiModel14DrawStretchPicEPK10idDrawVertPKiiiPK10idMaterialbffff'/>
+<use f='codebrowser/renderer/GuiModel.cpp' l='406' u='c' c='_ZN10idGuiModel14DrawStretchPicEPK10idDrawVertPKiiiPK10idMaterialbffff'/>
+<use f='codebrowser/renderer/ModelDecal.cpp' l='369' u='c' c='_ZN18idRenderModelDecal11CreateDecalEPK13idRenderModelRK21decalProjectionInfo_s'/>
+<use f='codebrowser/renderer/RenderWorld_portals.cpp' l='214' u='c' c='_ZN18idRenderWorldLocal22FloodViewThroughArea_rE6idVec3iPK13portalStack_s'/>
+<use f='codebrowser/renderer/RenderWorld_portals.cpp' l='379' u='c' c='_ZN18idRenderWorldLocal23FloodLightThroughArea_rEP18idRenderLightLocaliPK13portalStack_s'/>
+<use f='codebrowser/renderer/RenderWorld_portals.cpp' l='389' u='c' c='_ZN18idRenderWorldLocal23FloodLightThroughArea_rEP18idRenderLightLocaliPK13portalStack_s'/>
+<use f='codebrowser/renderer/RenderWorld_portals.cpp' l='678' u='c' c='_ZN18idRenderWorldLocal18CullLightByPortalsEPK18idRenderLightLocalPK13portalStack_s'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='741' u='c' c='_Z30R_ClippedLightScissorRectangleP11viewLight_s'/>
+<use f='codebrowser/renderer/tr_polytope.cpp' l='66' u='c' c='_Z17R_PolytopeSurfaceiPK7idPlanePP9idWinding'/>
+<use f='codebrowser/renderer/tr_subview.cpp' l='192' u='c' c='_Z20R_PreciseCullSurfacePK10drawSurf_sR8idBounds'/>

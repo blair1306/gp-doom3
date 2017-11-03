@@ -1,0 +1,12 @@
+<dec f='codebrowser/idlib/bv/Frustum.h' l='73' type='bool idFrustum::CullBounds(const idBounds &amp; bounds) const'/>
+<def f='codebrowser/idlib/bv/Frustum.cpp' l='218' ll='230' type='bool idFrustum::CullBounds(const idBounds &amp; bounds) const'/>
+<doc f='codebrowser/idlib/bv/Frustum.cpp' l='208'>/*
+============
+idFrustum::CullBounds
+
+  Tests if any of the planes of the frustum can be used as a separating plane.
+
+  24 muls best case
+  37 muls worst case
+============
+*/</doc>

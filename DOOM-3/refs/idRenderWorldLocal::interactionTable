@@ -1,0 +1,26 @@
+<dec f='codebrowser/renderer/RenderWorld_local.h' l='166' type='idInteraction **'/>
+<offset>1344</offset>
+<doc f='codebrowser/renderer/RenderWorld_local.h' l='161'>// all light / entity interactions are referenced here for fast lookup without
+	// having to crawl the doubly linked lists.  EnntityDefs are sequential for better
+	// cache access, because the table is accessed by light in idRenderWorldLocal::CreateLightDefInteractions()
+	// Growing this table is time consuming, so we add a pad value to the number
+	// of entityDefs and lightDefs</doc>
+<use f='codebrowser/renderer/Interaction.cpp' l='501' u='r' c='_ZN13idInteraction12AllocAndLinkEP19idRenderEntityLocalP18idRenderLightLocal'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='503' u='r' c='_ZN13idInteraction12AllocAndLinkEP19idRenderEntityLocalP18idRenderLightLocal'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='506' u='r' c='_ZN13idInteraction12AllocAndLinkEP19idRenderEntityLocalP18idRenderLightLocal'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='593' u='r' c='_ZN13idInteraction13UnlinkAndFreeEv'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='595' u='r' c='_ZN13idInteraction13UnlinkAndFreeEv'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='598' u='r' c='_ZN13idInteraction13UnlinkAndFreeEv'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='142' u='w' c='_ZN18idRenderWorldLocalC1Ev'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='171' u='r' c='_ZN18idRenderWorldLocal22ResizeInteractionTableEv'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='172' u='w' c='_ZN18idRenderWorldLocal22ResizeInteractionTableEv'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='185' u='r' c='_ZN18idRenderWorldLocal12AddEntityDefEPK14renderEntity_s'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='364' u='r' c='_ZN18idRenderWorldLocal11AddLightDefEPK13renderLight_s'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1479' u='r' c='_ZN18idRenderWorldLocal23GenerateAllInteractionsEv'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1480' u='w' c='_ZN18idRenderWorldLocal23GenerateAllInteractionsEv'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1493' u='r' c='_ZN18idRenderWorldLocal23GenerateAllInteractionsEv'/>
+<use f='codebrowser/renderer/RenderWorld_load.cpp' l='443' u='r' c='_ZN18idRenderWorldLocal8FreeDefsEv'/>
+<use f='codebrowser/renderer/RenderWorld_load.cpp' l='444' u='r' c='_ZN18idRenderWorldLocal8FreeDefsEv'/>
+<use f='codebrowser/renderer/RenderWorld_load.cpp' l='445' u='w' c='_ZN18idRenderWorldLocal8FreeDefsEv'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='584' u='r' c='_ZN18idRenderWorldLocal26CreateLightDefInteractionsEP18idRenderLightLocal'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='588' u='r' c='_ZN18idRenderWorldLocal26CreateLightDefInteractionsEP18idRenderLightLocal'/>

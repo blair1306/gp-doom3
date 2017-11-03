@@ -1,0 +1,23 @@
+<dec f='codebrowser/renderer/jpeg-6/jdhuff.h' l='139'/>
+<use f='codebrowser/renderer/jpeg-6/jdhuff.c' l='332' u='c'/>
+<use f='codebrowser/renderer/jpeg-6/jdhuff.c' l='340' u='c'/>
+<use f='codebrowser/renderer/jpeg-6/jdhuff.c' l='474' u='c'/>
+<use f='codebrowser/renderer/jpeg-6/jdhuff.c' l='502' u='c'/>
+<use f='codebrowser/renderer/jpeg-6/jdhuff.c' l='530' u='c'/>
+<doc f='codebrowser/renderer/jpeg-6/jdhuff.h' l='121'>/*
+ * These macros provide the in-line portion of bit fetching.
+ * Use CHECK_BIT_BUFFER to ensure there are N bits in get_buffer
+ * before using GET_BITS, PEEK_BITS, or DROP_BITS.
+ * The variables get_buffer and bits_left are assumed to be locals,
+ * but the state struct might not be (jpeg_huff_decode needs this).
+ *	CHECK_BIT_BUFFER(state,n,action);
+ *		Ensure there are N bits in get_buffer; if suspend, take action.
+ *      val = GET_BITS(n);
+ *		Fetch next N bits.
+ *      val = PEEK_BITS(n);
+ *		Fetch next N bits without removing them from the buffer.
+ *	DROP_BITS(n);
+ *		Discard next N bits.
+ * The value N should be a simple variable, not an expression, because it
+ * is evaluated multiple times.
+ */</doc>

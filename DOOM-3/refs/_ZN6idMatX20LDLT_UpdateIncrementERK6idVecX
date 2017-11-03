@@ -1,0 +1,15 @@
+<dec f='codebrowser/idlib/math/Matrix.h' l='1950' type='bool idMatX::LDLT_UpdateIncrement(const idVecX &amp; v)'/>
+<def f='codebrowser/idlib/math/Matrix.cpp' l='6041' ll='6077' type='bool idMatX::LDLT_UpdateIncrement(const idVecX &amp; v)'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7979' u='c' c='_ZN6idMatX4TestEv'/>
+<doc f='codebrowser/idlib/math/Matrix.cpp' l='6029'>/*
+============
+idMatX::LDLT_UpdateIncrement
+
+  Updates the in-place LDL&apos; factorization to obtain the factors for the matrix:
+
+  [ A  a ]
+  [ a  b ]
+
+  where: a = v[0,numRows-1], b = v[numRows]
+============
+*/</doc>

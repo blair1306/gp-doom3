@@ -1,0 +1,12 @@
+<dec f='codebrowser/curl/include/curl/curl.h' l='987' type='void curl_formfree(struct curl_httppost * form)'/>
+<doc f='codebrowser/curl/include/curl/curl.h' l='980'>/*
+ * NAME curl_formfree()
+ *
+ * DESCRIPTION
+ *
+ * Free a multipart formpost previously built with curl_formadd().
+ */</doc>
+<def f='codebrowser/curl/lib/formdata.c' l='1073' ll='1099' type='void curl_formfree(struct curl_httppost * form)'/>
+<use f='codebrowser/curl/lib/formdata.c' l='1086' u='c' c='curl_formfree'/>
+<doc f='codebrowser/curl/lib/formdata.c' l='1072'>/* external function to free up a whole form post chain */</doc>
+<use f='codebrowser/curl/src/main.c' l='2552' u='c' c='free_config_fields'/>

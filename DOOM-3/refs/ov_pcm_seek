@@ -1,0 +1,7 @@
+<dec f='codebrowser/sound/OggVorbis/vorbis/vorbisfile.h' l='111' type='int ov_pcm_seek(OggVorbis_File * vf, ogg_int64_t pos)'/>
+<def f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1265' ll='1355' type='int ov_pcm_seek(OggVorbis_File * vf, ogg_int64_t pos)'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1380' u='c' c='ov_time_seek'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1919' u='r' c='ov_pcm_seek_lap'/>
+<doc f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1262'>/* seek to a sample offset relative to the decompressed pcm stream 
+   returns zero on success, nonzero on failure */</doc>
+<use f='codebrowser/sound/snd_decoder.cpp' l='539' u='c' c='_ZN20idSampleDecoderLocal9DecodeOGGEP13idSoundSampleiiPf'/>

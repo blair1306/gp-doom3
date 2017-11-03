@@ -1,0 +1,13 @@
+<dec f='codebrowser/curl/include/curl/curl.h' l='1169' type='1'/>
+<doc f='codebrowser/curl/include/curl/curl.h' l='1165'>/*  CURL_LOCK_DATA_SHARE is used internaly to say that
+   *  the locking is just made to change the internal state of the share
+   *  itself.
+   */</doc>
+<use f='codebrowser/curl/lib/share.c' l='44' u='r' c='curl_share_init'/>
+<use f='codebrowser/curl/lib/share.c' l='158' c='curl_share_cleanup'/>
+<use f='codebrowser/curl/lib/share.c' l='162' c='curl_share_cleanup'/>
+<use f='codebrowser/curl/lib/share.c' l='172' c='curl_share_cleanup'/>
+<use f='codebrowser/curl/lib/url.c' l='1210' u='r' c='Curl_setopt'/>
+<use f='codebrowser/curl/lib/url.c' l='1220' u='r' c='Curl_setopt'/>
+<use f='codebrowser/curl/lib/url.c' l='1228' u='r' c='Curl_setopt'/>
+<use f='codebrowser/curl/lib/url.c' l='1247' u='r' c='Curl_setopt'/>

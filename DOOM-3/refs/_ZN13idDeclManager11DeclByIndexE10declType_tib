@@ -1,0 +1,43 @@
+<dec f='codebrowser/framework/DeclManager.h' l='294' type='const idDecl * idDeclManager::DeclByIndex(declType_t type, int index, bool forceParse = true)'/>
+<doc f='codebrowser/framework/DeclManager.h' l='291'>// The complete lists of decls can be walked to populate editor browsers.
+							// If forceParse is set false, you can get the decl to check name / filename / etc.
+							// without causing it to parse the source and load media.</doc>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='2889' u='c' c='_ZN10idGameEdit14AF_UndoChangesEv'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='846' u='c' c='_ZNK8idEntity16GetEntityDefNameEv'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='5493' u='c' c='_ZN16idAnimatedEntity18ClientReceiveEventEiiRK8idBitMsg'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='5494' u='c' c='_ZN16idAnimatedEntity18ClientReceiveEventEiiRK8idBitMsg'/>
+<use f='codebrowser/d3xp/Fx.cpp' l='776' u='c' c='_ZN10idEntityFx16ReadFromSnapshotERK13idBitMsgDelta'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='1686' u='c' c='_ZN11idGameLocal13DumpOggSoundsEv'/>
+<use f='codebrowser/d3xp/Game_network.cpp' l='134' u='c' c='_ZN11idGameLocal19InitClientDeclRemapEi'/>
+<use f='codebrowser/d3xp/Game_network.cpp' l='166' u='c' c='_ZN11idGameLocal27ServerSendDeclRemapToClientEi10declType_ti'/>
+<use f='codebrowser/d3xp/Game_network.cpp' l='1074' u='c' c='_ZN11idGameLocal18ClientReadSnapshotEiiiiiiRK8idBitMsg'/>
+<use f='codebrowser/d3xp/MultiplayerGame.cpp' l='2083' u='c' c='_ZN17idMultiplayerGame9StartMenuEv'/>
+<use f='codebrowser/d3xp/MultiplayerGame.cpp' l='4317' u='c' c='_ZN17idMultiplayerGame15SetBestGametypeEPKc'/>
+<use f='codebrowser/d3xp/MultiplayerGame.cpp' l='4363' u='c' c='_ZN17idMultiplayerGame15GetBestGametypeEPKcS1_'/>
+<use f='codebrowser/d3xp/Player.cpp' l='9649' u='c' c='_ZN8idPlayer16ReadFromSnapshotERK13idBitMsgDelta'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='1375' u='c' c='_ZN12idProjectile18ClientReceiveEventEiiRK8idBitMsg'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='2744' u='c' c='_ZN8idWeapon18ClientReceiveEventEiiRK8idBitMsg'/>
+<use f='codebrowser/d3xp/anim/Anim_Testmodel.cpp' l='806' u='c' c='_ZN11idTestModel23ArgCompletion_TestModelERK9idCmdArgsPFvPKcE'/>
+<use f='codebrowser/d3xp/anim/Anim_Testmodel.cpp' l='810' u='c' c='_ZN11idTestModel23ArgCompletion_TestModelERK9idCmdArgsPFvPKcE'/>
+<use f='codebrowser/framework/CmdSystem.cpp' l='757' u='c' c='_ZN16idCmdSystemLocal22ArgCompletion_DeclNameERK9idCmdArgsPFvPKcEi'/>
+<ovr f='codebrowser/framework/DeclManager.cpp' l='1192' c='_ZN18idDeclManagerLocal11DeclByIndexE10declType_tib'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='4156' u='c' c='_ZN17idFileSystemLocal10GetMapDeclEi'/>
+<use f='codebrowser/game/AFEntity.cpp' l='2611' u='c' c='_ZN10idGameEdit14AF_UndoChangesEv'/>
+<use f='codebrowser/game/Entity.cpp' l='777' u='c' c='_ZNK8idEntity16GetEntityDefNameEv'/>
+<use f='codebrowser/game/Entity.cpp' l='5281' u='c' c='_ZN16idAnimatedEntity18ClientReceiveEventEiiRK8idBitMsg'/>
+<use f='codebrowser/game/Entity.cpp' l='5282' u='c' c='_ZN16idAnimatedEntity18ClientReceiveEventEiiRK8idBitMsg'/>
+<use f='codebrowser/game/Fx.cpp' l='746' u='c' c='_ZN10idEntityFx16ReadFromSnapshotERK13idBitMsgDelta'/>
+<use f='codebrowser/game/Game_local.cpp' l='1517' u='c' c='_ZN11idGameLocal13DumpOggSoundsEv'/>
+<use f='codebrowser/game/Game_network.cpp' l='134' u='c' c='_ZN11idGameLocal19InitClientDeclRemapEi'/>
+<use f='codebrowser/game/Game_network.cpp' l='166' u='c' c='_ZN11idGameLocal27ServerSendDeclRemapToClientEi10declType_ti'/>
+<use f='codebrowser/game/Game_network.cpp' l='1060' u='c' c='_ZN11idGameLocal18ClientReadSnapshotEiiiiiiRK8idBitMsg'/>
+<use f='codebrowser/game/Player.cpp' l='8113' u='c' c='_ZN8idPlayer16ReadFromSnapshotERK13idBitMsgDelta'/>
+<use f='codebrowser/game/Projectile.cpp' l='1203' u='c' c='_ZN12idProjectile18ClientReceiveEventEiiRK8idBitMsg'/>
+<use f='codebrowser/game/Weapon.cpp' l='2317' u='c' c='_ZN8idWeapon18ClientReceiveEventEiiRK8idBitMsg'/>
+<use f='codebrowser/game/anim/Anim_Testmodel.cpp' l='803' u='c' c='_ZN11idTestModel23ArgCompletion_TestModelERK9idCmdArgsPFvPKcE'/>
+<use f='codebrowser/game/anim/Anim_Testmodel.cpp' l='807' u='c' c='_ZN11idTestModel23ArgCompletion_TestModelERK9idCmdArgsPFvPKcE'/>
+<use f='codebrowser/renderer/Material.cpp' l='2355' u='c' c='_ZNK10idMaterial5PrintEv'/>
+<use f='codebrowser/renderer/Material.cpp' l='2452' u='c' c='_ZNK10idMaterial17EvaluateRegistersEPfPKfPK9viewDef_sP14idSoundEmitter'/>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='946' u='c' c='_Z22R_ReportSurfaceAreas_fRK9idCmdArgs'/>
+<use f='codebrowser/ui/UserInterface.cpp' l='105' u='c' c='_ZN27idUserInterfaceManagerLocal12EndLevelLoadEv'/>
+<use f='codebrowser/ui/Window.cpp' l='3072' u='c' c='_ZN8idWindow17EvaluateRegistersEPf'/>

@@ -1,0 +1,25 @@
+<def f='codebrowser/sound/OggVorbis/vorbis/codec.h' l='59' ll='86'/>
+<size>104</size>
+<doc f='codebrowser/sound/OggVorbis/vorbis/codec.h' l='56'>/* vorbis_dsp_state buffers the current vorbis audio
+   analysis/synthesis state.  The DSP state belongs to a specific
+   logical bitstream ****************************************************/</doc>
+<mbr r='vorbis_dsp_state::analysisp' o='0' t='int'/>
+<mbr r='vorbis_dsp_state::vi' o='32' t='vorbis_info *'/>
+<mbr r='vorbis_dsp_state::pcm' o='64' t='float **'/>
+<mbr r='vorbis_dsp_state::pcmret' o='96' t='float **'/>
+<mbr r='vorbis_dsp_state::pcm_storage' o='128' t='int'/>
+<mbr r='vorbis_dsp_state::pcm_current' o='160' t='int'/>
+<mbr r='vorbis_dsp_state::pcm_returned' o='192' t='int'/>
+<mbr r='vorbis_dsp_state::preextrapolate' o='224' t='int'/>
+<mbr r='vorbis_dsp_state::eofflag' o='256' t='int'/>
+<mbr r='vorbis_dsp_state::lW' o='288' t='long'/>
+<mbr r='vorbis_dsp_state::W' o='320' t='long'/>
+<mbr r='vorbis_dsp_state::nW' o='352' t='long'/>
+<mbr r='vorbis_dsp_state::centerW' o='384' t='long'/>
+<mbr r='vorbis_dsp_state::granulepos' o='416' t='ogg_int64_t'/>
+<mbr r='vorbis_dsp_state::sequence' o='480' t='ogg_int64_t'/>
+<mbr r='vorbis_dsp_state::glue_bits' o='544' t='ogg_int64_t'/>
+<mbr r='vorbis_dsp_state::time_bits' o='608' t='ogg_int64_t'/>
+<mbr r='vorbis_dsp_state::floor_bits' o='672' t='ogg_int64_t'/>
+<mbr r='vorbis_dsp_state::res_bits' o='736' t='ogg_int64_t'/>
+<mbr r='vorbis_dsp_state::backend_state' o='800' t='void *'/>

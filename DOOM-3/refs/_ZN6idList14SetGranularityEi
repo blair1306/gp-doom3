@@ -1,0 +1,104 @@
+<dec f='codebrowser/idlib/containers/List.h' l='97' type='void idList::SetGranularity(int newgranularity)'/>
+<def f='codebrowser/idlib/containers/List.h' l='304' ll='319' type='void idList::SetGranularity(int newgranularity)'/>
+<use f='codebrowser/idlib/containers/StrList.h' l='83' u='c' c='_ZN6idList4SortEPFiPKT_S2_E'/>
+<use f='codebrowser/idlib/containers/StrList.h' l='196' u='c' c='_Z18idStrListSortPathsR6idListI5idStrE'/>
+<use f='codebrowser/idlib/Dict.h' l='164' u='c' c='_ZN6idDictC1Ev'/>
+<use f='codebrowser/idlib/Dict.h' l='178' u='c' c='_ZN6idDict14SetGranularityEi'/>
+<doc f='codebrowser/idlib/containers/List.h' l='97'>// set new granularity</doc>
+<doc f='codebrowser/idlib/containers/List.h' l='297'>/*
+================
+idList&lt;type&gt;::SetGranularity
+
+Sets the base size of the array and resizes the array to match.
+================
+*/</doc>
+<use f='codebrowser/d3xp/Actor.cpp' l='468' u='c' c='_ZN7idActorC1Ev'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='941' u='c' c='_ZN7idActor7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/d3xp/Camera.cpp' l='346' u='c' c='_ZN12idCameraAnim8LoadAnimEv'/>
+<use f='codebrowser/d3xp/Camera.cpp' l='348' u='c' c='_ZN12idCameraAnim8LoadAnimEv'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='3030' u='c' c='_ZN16idPhantomObjects7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='3032' u='c' c='_ZN16idPhantomObjects7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/d3xp/Player.cpp' l='2371' u='c' c='_ZN8idPlayer7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/d3xp/Player.cpp' l='6932' u='c' c='_ZN8idPlayer15InitAASLocationEv'/>
+<use f='codebrowser/d3xp/ai/AI.cpp' l='610' u='c' c='_ZN4idAI7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/d3xp/ai/AI.cpp' l='654' u='c' c='_ZN4idAI7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/d3xp/ai/AI.cpp' l='656' u='c' c='_ZN4idAI7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/d3xp/ai/AI.cpp' l='832' u='c' c='_ZN4idAI5SpawnEv'/>
+<use f='codebrowser/d3xp/ai/AI.cpp' l='833' u='c' c='_ZN4idAI5SpawnEv'/>
+<use f='codebrowser/d3xp/ai/AI.cpp' l='4055' u='c' c='_ZN4idAI22CalculateAttackOffsetsEv'/>
+<use f='codebrowser/d3xp/anim/Anim.cpp' l='212' u='c' c='_ZN9idMD5Anim8LoadAnimEPKc'/>
+<use f='codebrowser/d3xp/anim/Anim.cpp' l='248' u='c' c='_ZN9idMD5Anim8LoadAnimEPKc'/>
+<use f='codebrowser/d3xp/anim/Anim.cpp' l='257' u='c' c='_ZN9idMD5Anim8LoadAnimEPKc'/>
+<use f='codebrowser/d3xp/anim/Anim.cpp' l='270' u='c' c='_ZN9idMD5Anim8LoadAnimEPKc'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='682' u='c' c='_ZN6idAnim15AddFrameCommandEPK14idDeclModelDefiR7idLexerPK6idDict'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='2727' u='c' c='_ZN14idDeclModelDef5ParseEPKci'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='2855' u='c' c='_ZN14idDeclModelDef5ParseEPKci'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='3101' u='c' c='_ZN10idAnimatorC1Ev'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='3102' u='c' c='_ZN10idAnimatorC1Ev'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='3103' u='c' c='_ZN10idAnimatorC1Ev'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='3250' u='c' c='_ZN10idAnimator7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='3257' u='c' c='_ZN10idAnimator7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='3266' u='c' c='_ZN10idAnimator7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/d3xp/gamesys/Class.cpp' l='406' u='c' c='_ZN7idClass4InitEv'/>
+<use f='codebrowser/d3xp/gamesys/Class.cpp' l='408' u='c' c='_ZN7idClass4InitEv'/>
+<use f='codebrowser/d3xp/script/Script_Program.cpp' l='145' u='c' c='_ZN9idTypeDefC1E7etype_tP8idVarDefPKciPS_'/>
+<use f='codebrowser/d3xp/script/Script_Program.cpp' l='146' u='c' c='_ZN9idTypeDefC1E7etype_tP8idVarDefPKciPS_'/>
+<use f='codebrowser/d3xp/script/Script_Program.cpp' l='147' u='c' c='_ZN9idTypeDefC1E7etype_tP8idVarDefPKciPS_'/>
+<use f='codebrowser/d3xp/script/Script_Program.cpp' l='1542' u='c' c='_ZN9idProgram13AllocFunctionEP8idVarDef'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='1681' u='c' c='_ZN17idFileSystemLocal13ListFilesTreeEPKcS1_bS1_'/>
+<use f='codebrowser/game/Actor.cpp' l='452' u='c' c='_ZN7idActorC1Ev'/>
+<use f='codebrowser/game/Actor.cpp' l='903' u='c' c='_ZN7idActor7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/game/Camera.cpp' l='346' u='c' c='_ZN12idCameraAnim8LoadAnimEv'/>
+<use f='codebrowser/game/Camera.cpp' l='348' u='c' c='_ZN12idCameraAnim8LoadAnimEv'/>
+<use f='codebrowser/game/Misc.cpp' l='2964' u='c' c='_ZN16idPhantomObjects7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/game/Misc.cpp' l='2966' u='c' c='_ZN16idPhantomObjects7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/game/Player.cpp' l='1929' u='c' c='_ZN8idPlayer7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/game/Player.cpp' l='5838' u='c' c='_ZN8idPlayer15InitAASLocationEv'/>
+<use f='codebrowser/game/ai/AI.cpp' l='587' u='c' c='_ZN4idAI7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/game/ai/AI.cpp' l='631' u='c' c='_ZN4idAI7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/game/ai/AI.cpp' l='633' u='c' c='_ZN4idAI7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/game/ai/AI.cpp' l='773' u='c' c='_ZN4idAI5SpawnEv'/>
+<use f='codebrowser/game/ai/AI.cpp' l='774' u='c' c='_ZN4idAI5SpawnEv'/>
+<use f='codebrowser/game/ai/AI.cpp' l='3939' u='c' c='_ZN4idAI22CalculateAttackOffsetsEv'/>
+<use f='codebrowser/game/anim/Anim.cpp' l='212' u='c' c='_ZN9idMD5Anim8LoadAnimEPKc'/>
+<use f='codebrowser/game/anim/Anim.cpp' l='248' u='c' c='_ZN9idMD5Anim8LoadAnimEPKc'/>
+<use f='codebrowser/game/anim/Anim.cpp' l='257' u='c' c='_ZN9idMD5Anim8LoadAnimEPKc'/>
+<use f='codebrowser/game/anim/Anim.cpp' l='270' u='c' c='_ZN9idMD5Anim8LoadAnimEPKc'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='621' u='c' c='_ZN6idAnim15AddFrameCommandEPK14idDeclModelDefiR7idLexerPK6idDict'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='2641' u='c' c='_ZN14idDeclModelDef5ParseEPKci'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='2769' u='c' c='_ZN14idDeclModelDef5ParseEPKci'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='3015' u='c' c='_ZN10idAnimatorC1Ev'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='3016' u='c' c='_ZN10idAnimatorC1Ev'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='3017' u='c' c='_ZN10idAnimatorC1Ev'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='3164' u='c' c='_ZN10idAnimator7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='3171' u='c' c='_ZN10idAnimator7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='3180' u='c' c='_ZN10idAnimator7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/game/gamesys/Class.cpp' l='406' u='c' c='_ZN7idClass4InitEv'/>
+<use f='codebrowser/game/gamesys/Class.cpp' l='408' u='c' c='_ZN7idClass4InitEv'/>
+<use f='codebrowser/game/script/Script_Program.cpp' l='145' u='c' c='_ZN9idTypeDefC1E7etype_tP8idVarDefPKciPS_'/>
+<use f='codebrowser/game/script/Script_Program.cpp' l='146' u='c' c='_ZN9idTypeDefC1E7etype_tP8idVarDefPKciPS_'/>
+<use f='codebrowser/game/script/Script_Program.cpp' l='147' u='c' c='_ZN9idTypeDefC1E7etype_tP8idVarDefPKciPS_'/>
+<use f='codebrowser/game/script/Script_Program.cpp' l='1542' u='c' c='_ZN9idProgram13AllocFunctionEP8idVarDef'/>
+<use f='codebrowser/idlib/LangDict.cpp' l='39' u='c' c='_ZN10idLangDictC1Ev'/>
+<use f='codebrowser/renderer/GuiModel.cpp' l='41' u='c' c='_ZN10idGuiModelC1Ev'/>
+<use f='codebrowser/renderer/GuiModel.cpp' l='42' u='c' c='_ZN10idGuiModelC1Ev'/>
+<use f='codebrowser/renderer/Model_md5.cpp' l='528' u='c' c='_ZN16idRenderModelMD59LoadModelEv'/>
+<use f='codebrowser/renderer/Model_md5.cpp' l='530' u='c' c='_ZN16idRenderModelMD59LoadModelEv'/>
+<use f='codebrowser/renderer/Model_md5.cpp' l='540' u='c' c='_ZN16idRenderModelMD59LoadModelEv'/>
+<use f='codebrowser/sound/snd_cache.cpp' l='51' u='c' c='_ZN12idSoundCacheC1Ev'/>
+<use f='codebrowser/tools/compilers/aas/AASFile.cpp' l='573' u='c' c='_ZN14idAASFileLocalC1Ev'/>
+<use f='codebrowser/tools/compilers/aas/AASFile.cpp' l='574' u='c' c='_ZN14idAASFileLocalC1Ev'/>
+<use f='codebrowser/tools/compilers/aas/AASFile.cpp' l='575' u='c' c='_ZN14idAASFileLocalC1Ev'/>
+<use f='codebrowser/tools/compilers/aas/AASFile.cpp' l='576' u='c' c='_ZN14idAASFileLocalC1Ev'/>
+<use f='codebrowser/tools/compilers/aas/AASFile.cpp' l='577' u='c' c='_ZN14idAASFileLocalC1Ev'/>
+<use f='codebrowser/tools/compilers/aas/AASFile.cpp' l='578' u='c' c='_ZN14idAASFileLocalC1Ev'/>
+<use f='codebrowser/tools/compilers/aas/AASFile.cpp' l='579' u='c' c='_ZN14idAASFileLocalC1Ev'/>
+<use f='codebrowser/tools/compilers/aas/AASFile.cpp' l='580' u='c' c='_ZN14idAASFileLocalC1Ev'/>
+<use f='codebrowser/tools/compilers/aas/AASFile.cpp' l='581' u='c' c='_ZN14idAASFileLocalC1Ev'/>
+<use f='codebrowser/tools/compilers/aas/AASFile.cpp' l='582' u='c' c='_ZN14idAASFileLocalC1Ev'/>
+<use f='codebrowser/tools/compilers/aas/AASFile.cpp' l='583' u='c' c='_ZN14idAASFileLocalC1Ev'/>
+<use f='codebrowser/tools/compilers/dmap/map.cpp' l='533' u='c' c='_Z12LoadDMapFilePKc'/>
+<use f='codebrowser/ui/RegExp.h' l='103' u='c' c='_ZN14idRegisterListC1Ev'/>
+<use f='codebrowser/ui/GuiScript.h' l='84' u='c' c='_ZN15idGuiScriptListC1Ev'/>
+<use f='codebrowser/ui/DeviceContext.cpp' l='75' u='c' c='_ZN15idDeviceContext10SetupFontsEv'/>
+<use f='codebrowser/ui/GuiScript.cpp' l='273' u='c' c='_ZN11idGuiScriptC1Ev'/>

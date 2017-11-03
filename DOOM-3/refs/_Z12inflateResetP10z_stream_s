@@ -1,0 +1,17 @@
+<dec f='codebrowser/framework/Unzip.cpp' l='655' type='int inflateReset(z_streamp strm)'/>
+<def f='codebrowser/framework/Unzip.cpp' l='4160' ll='4170' type='int inflateReset(z_streamp z)'/>
+<use f='codebrowser/framework/Unzip.cpp' l='4235' u='c' c='_Z13inflateInit2_P10z_stream_siPKci'/>
+<use f='codebrowser/framework/Unzip.cpp' l='4439' u='c' c='_Z11inflateSyncP10z_stream_s'/>
+<doc f='codebrowser/framework/Unzip.cpp' l='641'>/* 
+    Skips invalid compressed data until a full flush point (see above the
+  description of deflate with Z_FULL_FLUSH) can be found, or until all
+  available input is skipped. No output is provided.
+
+    inflateSync returns Z_OK if a full flush point has been found, Z_BUF_ERROR
+  if no more input was provided, Z_DATA_ERROR if no flush point has been found,
+  or Z_STREAM_ERROR if the stream structure was inconsistent. In the success
+  case, the application may save the current current value of total_in which
+  indicates where valid compressed data was found. In the error case, the
+  application may repeatedly call inflateSync, providing more input each time,
+  until success or end of the input data.
+*/</doc>

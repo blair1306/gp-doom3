@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>multi.h source code [codebrowser/curl/include/curl/multi.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="CURLMsg "/>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/curl/include/curl/multi.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>curl</a>/<a href='..'>include</a>/<a href='./'>curl</a>/<a href='multi.h.html'>multi.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><u>#<span data-ppcond="1">ifndef</span> <span class="macro" data-ref="_M/__CURL_MULTI_H">__CURL_MULTI_H</span></u></td></tr>
+<tr><th id="2">2</th><td><u>#define <dfn class="macro" id="_M/__CURL_MULTI_H" data-ref="_M/__CURL_MULTI_H">__CURL_MULTI_H</dfn></u></td></tr>
+<tr><th id="3">3</th><td><i>/***************************************************************************</i></td></tr>
+<tr><th id="4">4</th><td><i> *                                  _   _ ____  _     </i></td></tr>
+<tr><th id="5">5</th><td><i> *  Project                     ___| | | |  _ \| |    </i></td></tr>
+<tr><th id="6">6</th><td><i> *                             / __| | | | |_) | |    </i></td></tr>
+<tr><th id="7">7</th><td><i> *                            | (__| |_| |  _ &lt;| |___ </i></td></tr>
+<tr><th id="8">8</th><td><i> *                             \___|\___/|_| \_\_____|</i></td></tr>
+<tr><th id="9">9</th><td><i> *</i></td></tr>
+<tr><th id="10">10</th><td><i> * Copyright (C) 1998 - 2004, Daniel Stenberg, &lt;daniel@haxx.se&gt;, et al.</i></td></tr>
+<tr><th id="11">11</th><td><i> *</i></td></tr>
+<tr><th id="12">12</th><td><i> * This software is licensed as described in the file COPYING, which</i></td></tr>
+<tr><th id="13">13</th><td><i> * you should have received as part of this distribution. The terms</i></td></tr>
+<tr><th id="14">14</th><td><i> * are also available at <a href="http://curl.haxx.se/docs/copyright.html">http://curl.haxx.se/docs/copyright.html</a>.</i></td></tr>
+<tr><th id="15">15</th><td><i> * </i></td></tr>
+<tr><th id="16">16</th><td><i> * You may opt to use, copy, modify, merge, publish, distribute and/or sell</i></td></tr>
+<tr><th id="17">17</th><td><i> * copies of the Software, and permit persons to whom the Software is</i></td></tr>
+<tr><th id="18">18</th><td><i> * furnished to do so, under the terms of the COPYING file.</i></td></tr>
+<tr><th id="19">19</th><td><i> *</i></td></tr>
+<tr><th id="20">20</th><td><i> * This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY</i></td></tr>
+<tr><th id="21">21</th><td><i> * KIND, either express or implied.</i></td></tr>
+<tr><th id="22">22</th><td><i> *</i></td></tr>
+<tr><th id="23">23</th><td><i> * $Id: multi.h,v 1.17 2004/03/17 12:46:45 bagder Exp $</i></td></tr>
+<tr><th id="24">24</th><td><i> ***************************************************************************/</i></td></tr>
+<tr><th id="25">25</th><td><i>/*</i></td></tr>
+<tr><th id="26">26</th><td><i>  This is meant to be the "external" header file. Don't give away any</i></td></tr>
+<tr><th id="27">27</th><td><i>  internals here!</i></td></tr>
+<tr><th id="28">28</th><td><i></i></td></tr>
+<tr><th id="29">29</th><td><i>  This document presents a mixture of ideas from at least:</i></td></tr>
+<tr><th id="30">30</th><td><i>  - Daniel Stenberg</i></td></tr>
+<tr><th id="31">31</th><td><i>  - Steve Dekorte</i></td></tr>
+<tr><th id="32">32</th><td><i>  - Sterling Hughes</i></td></tr>
+<tr><th id="33">33</th><td><i>  - Ben Greear</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>  -------------------------------------------</i></td></tr>
+<tr><th id="36">36</th><td><i>  GOALS</i></td></tr>
+<tr><th id="37">37</th><td><i></i></td></tr>
+<tr><th id="38">38</th><td><i>  o Enable a "pull" interface. The application that uses libcurl decides where</i></td></tr>
+<tr><th id="39">39</th><td><i>    and when to ask libcurl to get/send data.</i></td></tr>
+<tr><th id="40">40</th><td><i></i></td></tr>
+<tr><th id="41">41</th><td><i>  o Enable multiple simultaneous transfers in the same thread without making it</i></td></tr>
+<tr><th id="42">42</th><td><i>    complicated for the application.</i></td></tr>
+<tr><th id="43">43</th><td><i></i></td></tr>
+<tr><th id="44">44</th><td><i>  o Enable the application to select() on its own file descriptors and curl's</i></td></tr>
+<tr><th id="45">45</th><td><i>    file descriptors simultaneous easily.</i></td></tr>
+<tr><th id="46">46</th><td><i>  </i></td></tr>
+<tr><th id="47">47</th><td><i>*/</i></td></tr>
+<tr><th id="48">48</th><td><u>#<span data-ppcond="48">if</span> defined(<span class="macro" data-ref="_M/_WIN32">_WIN32</span>) &amp;&amp; !defined(<span class="macro" data-ref="_M/WIN32">WIN32</span>)</u></td></tr>
+<tr><th id="49">49</th><td><i>/* Chris Lewis mentioned that he doesn't get WIN32 defined, only _WIN32 so we</i></td></tr>
+<tr><th id="50">50</th><td><i>   make this adjustment to catch this. */</i></td></tr>
+<tr><th id="51">51</th><td><u>#define WIN32 1</u></td></tr>
+<tr><th id="52">52</th><td><u>#<span data-ppcond="48">endif</span></u></td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td><u>#<span data-ppcond="54">if</span> defined(<span class="macro" data-ref="_M/WIN32">WIN32</span>) &amp;&amp; !defined(<span class="macro" data-ref="_M/__GNUC__">__GNUC__</span>) || defined(<span class="macro" data-ref="_M/__MINGW32__">__MINGW32__</span>)</u></td></tr>
+<tr><th id="55">55</th><td><u>#include &lt;winsock2.h&gt;</u></td></tr>
+<tr><th id="56">56</th><td><u>#<span data-ppcond="54">else</span></u></td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td><i>/* HP-UX systems version 9, 10 and 11 lack sys/select.h and so does oldish</i></td></tr>
+<tr><th id="59">59</th><td><i>   libc5-based Linux systems. Only include it on system that are known to</i></td></tr>
+<tr><th id="60">60</th><td><i>   require it! */</i></td></tr>
+<tr><th id="61">61</th><td><u>#<span data-ppcond="61">if</span> defined(<span class="macro" data-ref="_M/_AIX">_AIX</span>) || defined(<span class="macro" data-ref="_M/NETWARE">NETWARE</span>)</u></td></tr>
+<tr><th id="62">62</th><td><u>#include &lt;sys/select.h&gt;</u></td></tr>
+<tr><th id="63">63</th><td><u>#<span data-ppcond="61">endif</span></u></td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td><u>#include <a href="../../../../include/x86_64-linux-gnu/sys/socket.h.html">&lt;sys/socket.h&gt;</a></u></td></tr>
+<tr><th id="66">66</th><td><u>#include <a href="../../../../include/x86_64-linux-gnu/sys/time.h.html">&lt;sys/time.h&gt;</a></u></td></tr>
+<tr><th id="67">67</th><td><u>#include <a href="../../../../include/x86_64-linux-gnu/sys/types.h.html">&lt;sys/types.h&gt;</a></u></td></tr>
+<tr><th id="68">68</th><td><u>#<span data-ppcond="54">endif</span></u></td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td><u>#include <a href="curl.h.html">"curl.h"</a></u></td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td><u>#<span data-ppcond="72">ifdef</span>  <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="73">73</th><td><b>extern</b> <q>"C"</q> {</td></tr>
+<tr><th id="74">74</th><td><u>#<span data-ppcond="72">endif</span></u></td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td><b>typedef</b> <em>void</em> <dfn class="typedef" id="CURLM" title='CURLM' data-type='void' data-ref="CURLM">CURLM</dfn>;</td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="79">79</th><td>  <dfn class="enum" id="CURLM_CALL_MULTI_PERFORM" title='CURLM_CALL_MULTI_PERFORM' data-ref="CURLM_CALL_MULTI_PERFORM">CURLM_CALL_MULTI_PERFORM</dfn>=-<var>1</var>, <i>/* please call curl_multi_perform() soon */</i></td></tr>
+<tr><th id="80">80</th><td>  <dfn class="enum" id="CURLM_OK" title='CURLM_OK' data-ref="CURLM_OK">CURLM_OK</dfn>,</td></tr>
+<tr><th id="81">81</th><td>  <dfn class="enum" id="CURLM_BAD_HANDLE" title='CURLM_BAD_HANDLE' data-ref="CURLM_BAD_HANDLE">CURLM_BAD_HANDLE</dfn>,      <i>/* the passed-in handle is not a valid CURLM handle */</i></td></tr>
+<tr><th id="82">82</th><td>  <dfn class="enum" id="CURLM_BAD_EASY_HANDLE" title='CURLM_BAD_EASY_HANDLE' data-ref="CURLM_BAD_EASY_HANDLE">CURLM_BAD_EASY_HANDLE</dfn>, <i>/* an easy handle was not good/valid */</i></td></tr>
+<tr><th id="83">83</th><td>  <dfn class="enum" id="CURLM_OUT_OF_MEMORY" title='CURLM_OUT_OF_MEMORY' data-ref="CURLM_OUT_OF_MEMORY">CURLM_OUT_OF_MEMORY</dfn>,   <i>/* if you ever get this, you're in deep sh*t */</i></td></tr>
+<tr><th id="84">84</th><td>  <dfn class="enum" id="CURLM_INTERNAL_ERROR" title='CURLM_INTERNAL_ERROR' data-ref="CURLM_INTERNAL_ERROR">CURLM_INTERNAL_ERROR</dfn>,  <i>/* this is a libcurl bug */</i></td></tr>
+<tr><th id="85">85</th><td>  <dfn class="enum" id="CURLM_LAST" title='CURLM_LAST' data-ref="CURLM_LAST">CURLM_LAST</dfn></td></tr>
+<tr><th id="86">86</th><td>} <dfn class="typedef" id="CURLMcode" title='CURLMcode' data-type='enum CURLMcode' data-ref="CURLMcode">CURLMcode</dfn>;</td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="89">89</th><td>  <dfn class="enum" id="CURLMSG_NONE" title='CURLMSG_NONE' data-ref="CURLMSG_NONE">CURLMSG_NONE</dfn>, <i>/* first, not used */</i></td></tr>
+<tr><th id="90">90</th><td>  <dfn class="enum" id="CURLMSG_DONE" title='CURLMSG_DONE' data-ref="CURLMSG_DONE">CURLMSG_DONE</dfn>, <i>/* This easy handle has completed. 'result' contains</i></td></tr>
+<tr><th id="91">91</th><td><i>                   the CURLcode of the transfer */</i></td></tr>
+<tr><th id="92">92</th><td>  <dfn class="enum" id="CURLMSG_LAST" title='CURLMSG_LAST' data-ref="CURLMSG_LAST">CURLMSG_LAST</dfn> <i>/* last, not used */</i></td></tr>
+<tr><th id="93">93</th><td>} <dfn class="typedef" id="CURLMSG" title='CURLMSG' data-type='enum CURLMSG' data-ref="CURLMSG">CURLMSG</dfn>;</td></tr>
+<tr><th id="94">94</th><td></td></tr>
+<tr><th id="95">95</th><td><b>struct</b> <dfn class="type def" id="CURLMsg" title='CURLMsg' data-ref="CURLMsg">CURLMsg</dfn> {</td></tr>
+<tr><th id="96">96</th><td>  <a class="typedef" href="#CURLMSG" title='CURLMSG' data-type='enum CURLMSG' data-ref="CURLMSG">CURLMSG</a> <dfn class="decl" id="CURLMsg::msg" title='CURLMsg::msg' data-ref="CURLMsg::msg">msg</dfn>;       <i>/* what this message means */</i></td></tr>
+<tr><th id="97">97</th><td>  <a class="typedef" href="types.h.html#CURL" title='CURL' data-type='void' data-ref="CURL">CURL</a> *<dfn class="decl" id="CURLMsg::easy_handle" title='CURLMsg::easy_handle' data-ref="CURLMsg::easy_handle">easy_handle</dfn>; <i>/* the handle it concerns */</i></td></tr>
+<tr><th id="98">98</th><td>  <b>union</b> {</td></tr>
+<tr><th id="99">99</th><td>    <em>void</em> *<dfn class="decl" id="CURLMsg::(anonymous)::whatever" title='CURLMsg::(anonymous union)::whatever' data-ref="CURLMsg::(anonymous)::whatever">whatever</dfn>;    <i>/* message-specific data */</i></td></tr>
+<tr><th id="100">100</th><td>    <a class="typedef" href="curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="decl" id="CURLMsg::(anonymous)::result" title='CURLMsg::(anonymous union)::result' data-ref="CURLMsg::(anonymous)::result">result</dfn>;   <i>/* return code for transfer */</i></td></tr>
+<tr><th id="101">101</th><td>  } <dfn class="decl" id="CURLMsg::data" title='CURLMsg::data' data-ref="CURLMsg::data">data</dfn>;</td></tr>
+<tr><th id="102">102</th><td>};</td></tr>
+<tr><th id="103">103</th><td><b>typedef</b> <b>struct</b> <a class="type" href="#CURLMsg" title='CURLMsg' data-ref="CURLMsg">CURLMsg</a> <dfn class="typedef" id="CURLMsg" title='CURLMsg' data-type='struct CURLMsg' data-ref="CURLMsg">CURLMsg</dfn>;</td></tr>
+<tr><th id="104">104</th><td></td></tr>
+<tr><th id="105">105</th><td><i>/*</i></td></tr>
+<tr><th id="106">106</th><td><i> * Name:    curl_multi_init()</i></td></tr>
+<tr><th id="107">107</th><td><i> *</i></td></tr>
+<tr><th id="108">108</th><td><i> * Desc:    inititalize multi-style curl usage</i></td></tr>
+<tr><th id="109">109</th><td><i> * Returns: a new CURLM handle to use in all 'curl_multi' functions.</i></td></tr>
+<tr><th id="110">110</th><td><i> */</i></td></tr>
+<tr><th id="111">111</th><td><a class="typedef" href="#CURLM" title='CURLM' data-type='void' data-ref="CURLM">CURLM</a> *<dfn class="decl" id="curl_multi_init" title='curl_multi_init' data-ref="curl_multi_init">curl_multi_init</dfn>(<em>void</em>);</td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td><i>/*</i></td></tr>
+<tr><th id="114">114</th><td><i> * Name:    curl_multi_add_handle()</i></td></tr>
+<tr><th id="115">115</th><td><i> *</i></td></tr>
+<tr><th id="116">116</th><td><i> * Desc:    add a standard curl handle to the multi stack</i></td></tr>
+<tr><th id="117">117</th><td><i> * Returns: CURLMcode type, general multi error code.</i></td></tr>
+<tr><th id="118">118</th><td><i> */</i></td></tr>
+<tr><th id="119">119</th><td><a class="typedef" href="#CURLMcode" title='CURLMcode' data-type='enum CURLMcode' data-ref="CURLMcode">CURLMcode</a> <dfn class="decl" id="curl_multi_add_handle" title='curl_multi_add_handle' data-ref="curl_multi_add_handle">curl_multi_add_handle</dfn>(<a class="typedef" href="#CURLM" title='CURLM' data-type='void' data-ref="CURLM">CURLM</a> *<dfn class="local col0 decl" id="320multi_handle" title='multi_handle' data-type='CURLM *' data-ref="320multi_handle">multi_handle</dfn>,</td></tr>
+<tr><th id="120">120</th><td>                                <a class="typedef" href="types.h.html#CURL" title='CURL' data-type='void' data-ref="CURL">CURL</a> *<dfn class="local col1 decl" id="321curl_handle" title='curl_handle' data-type='CURL *' data-ref="321curl_handle">curl_handle</dfn>);</td></tr>
+<tr><th id="121">121</th><td></td></tr>
+<tr><th id="122">122</th><td> <i>/*</i></td></tr>
+<tr><th id="123">123</th><td><i>  * Name:    curl_multi_remove_handle()</i></td></tr>
+<tr><th id="124">124</th><td><i>  *</i></td></tr>
+<tr><th id="125">125</th><td><i>  * Desc:    removes a curl handle from the multi stack again</i></td></tr>
+<tr><th id="126">126</th><td><i>  * Returns: CURLMcode type, general multi error code.</i></td></tr>
+<tr><th id="127">127</th><td><i>  */</i></td></tr>
+<tr><th id="128">128</th><td><a class="typedef" href="#CURLMcode" title='CURLMcode' data-type='enum CURLMcode' data-ref="CURLMcode">CURLMcode</a> <dfn class="decl" id="curl_multi_remove_handle" title='curl_multi_remove_handle' data-ref="curl_multi_remove_handle">curl_multi_remove_handle</dfn>(<a class="typedef" href="#CURLM" title='CURLM' data-type='void' data-ref="CURLM">CURLM</a> *<dfn class="local col2 decl" id="322multi_handle" title='multi_handle' data-type='CURLM *' data-ref="322multi_handle">multi_handle</dfn>,</td></tr>
+<tr><th id="129">129</th><td>                                   <a class="typedef" href="types.h.html#CURL" title='CURL' data-type='void' data-ref="CURL">CURL</a> *<dfn class="local col3 decl" id="323curl_handle" title='curl_handle' data-type='CURL *' data-ref="323curl_handle">curl_handle</dfn>);</td></tr>
+<tr><th id="130">130</th><td></td></tr>
+<tr><th id="131">131</th><td> <i>/*</i></td></tr>
+<tr><th id="132">132</th><td><i>  * Name:    curl_multi_fdset()</i></td></tr>
+<tr><th id="133">133</th><td><i>  *</i></td></tr>
+<tr><th id="134">134</th><td><i>  * Desc:    Ask curl for its fd_set sets. The app can use these to select() or</i></td></tr>
+<tr><th id="135">135</th><td><i>  *          poll() on. We want curl_multi_perform() called as soon as one of</i></td></tr>
+<tr><th id="136">136</th><td><i>  *          them are ready.</i></td></tr>
+<tr><th id="137">137</th><td><i>  * Returns: CURLMcode type, general multi error code.</i></td></tr>
+<tr><th id="138">138</th><td><i>  */</i></td></tr>
+<tr><th id="139">139</th><td><a class="typedef" href="#CURLMcode" title='CURLMcode' data-type='enum CURLMcode' data-ref="CURLMcode">CURLMcode</a> <dfn class="decl" id="curl_multi_fdset" title='curl_multi_fdset' data-ref="curl_multi_fdset">curl_multi_fdset</dfn>(<a class="typedef" href="#CURLM" title='CURLM' data-type='void' data-ref="CURLM">CURLM</a> *<dfn class="local col4 decl" id="324multi_handle" title='multi_handle' data-type='CURLM *' data-ref="324multi_handle">multi_handle</dfn>,</td></tr>
+<tr><th id="140">140</th><td>                           <a class="typedef" href="../../../../include/x86_64-linux-gnu/sys/select.h.html#fd_set" title='fd_set' data-type='struct fd_set' data-ref="fd_set">fd_set</a> *<dfn class="local col5 decl" id="325read_fd_set" title='read_fd_set' data-type='fd_set *' data-ref="325read_fd_set">read_fd_set</dfn>,</td></tr>
+<tr><th id="141">141</th><td>                           <a class="typedef" href="../../../../include/x86_64-linux-gnu/sys/select.h.html#fd_set" title='fd_set' data-type='struct fd_set' data-ref="fd_set">fd_set</a> *<dfn class="local col6 decl" id="326write_fd_set" title='write_fd_set' data-type='fd_set *' data-ref="326write_fd_set">write_fd_set</dfn>,</td></tr>
+<tr><th id="142">142</th><td>                           <a class="typedef" href="../../../../include/x86_64-linux-gnu/sys/select.h.html#fd_set" title='fd_set' data-type='struct fd_set' data-ref="fd_set">fd_set</a> *<dfn class="local col7 decl" id="327exc_fd_set" title='exc_fd_set' data-type='fd_set *' data-ref="327exc_fd_set">exc_fd_set</dfn>,</td></tr>
+<tr><th id="143">143</th><td>                           <em>int</em> *<dfn class="local col8 decl" id="328max_fd" title='max_fd' data-type='int *' data-ref="328max_fd">max_fd</dfn>);</td></tr>
+<tr><th id="144">144</th><td></td></tr>
+<tr><th id="145">145</th><td> <i>/*</i></td></tr>
+<tr><th id="146">146</th><td><i>  * Name:    curl_multi_perform()</i></td></tr>
+<tr><th id="147">147</th><td><i>  *</i></td></tr>
+<tr><th id="148">148</th><td><i>  * Desc:    When the app thinks there's data available for curl it calls this</i></td></tr>
+<tr><th id="149">149</th><td><i>  *          function to read/write whatever there is right now. This returns</i></td></tr>
+<tr><th id="150">150</th><td><i>  *          as soon as the reads and writes are done. This function does not</i></td></tr>
+<tr><th id="151">151</th><td><i>  *          require that there actually is data available for reading or that</i></td></tr>
+<tr><th id="152">152</th><td><i>  *          data can be written, it can be called just in case. It returns</i></td></tr>
+<tr><th id="153">153</th><td><i>  *          the number of handles that still transfer data in the second</i></td></tr>
+<tr><th id="154">154</th><td><i>  *          argument's integer-pointer.</i></td></tr>
+<tr><th id="155">155</th><td><i>  *</i></td></tr>
+<tr><th id="156">156</th><td><i>  * Returns: CURLMcode type, general multi error code. *NOTE* that this only</i></td></tr>
+<tr><th id="157">157</th><td><i>  *          returns errors etc regarding the whole multi stack. There might</i></td></tr>
+<tr><th id="158">158</th><td><i>  *          still have occurred problems on invidual transfers even when this</i></td></tr>
+<tr><th id="159">159</th><td><i>  *          returns OK.</i></td></tr>
+<tr><th id="160">160</th><td><i>  */</i></td></tr>
+<tr><th id="161">161</th><td><a class="typedef" href="#CURLMcode" title='CURLMcode' data-type='enum CURLMcode' data-ref="CURLMcode">CURLMcode</a> <dfn class="decl" id="curl_multi_perform" title='curl_multi_perform' data-ref="curl_multi_perform">curl_multi_perform</dfn>(<a class="typedef" href="#CURLM" title='CURLM' data-type='void' data-ref="CURLM">CURLM</a> *<dfn class="local col9 decl" id="329multi_handle" title='multi_handle' data-type='CURLM *' data-ref="329multi_handle">multi_handle</dfn>,</td></tr>
+<tr><th id="162">162</th><td>                             <em>int</em> *<dfn class="local col0 decl" id="330running_handles" title='running_handles' data-type='int *' data-ref="330running_handles">running_handles</dfn>);</td></tr>
+<tr><th id="163">163</th><td></td></tr>
+<tr><th id="164">164</th><td> <i>/*</i></td></tr>
+<tr><th id="165">165</th><td><i>  * Name:    curl_multi_cleanup()</i></td></tr>
+<tr><th id="166">166</th><td><i>  *</i></td></tr>
+<tr><th id="167">167</th><td><i>  * Desc:    Cleans up and removes a whole multi stack. It does not free or</i></td></tr>
+<tr><th id="168">168</th><td><i>  *          touch any individual easy handles in any way. We need to define</i></td></tr>
+<tr><th id="169">169</th><td><i>  *          in what state those handles will be if this function is called</i></td></tr>
+<tr><th id="170">170</th><td><i>  *          in the middle of a transfer.</i></td></tr>
+<tr><th id="171">171</th><td><i>  * Returns: CURLMcode type, general multi error code.</i></td></tr>
+<tr><th id="172">172</th><td><i>  */</i></td></tr>
+<tr><th id="173">173</th><td><a class="typedef" href="#CURLMcode" title='CURLMcode' data-type='enum CURLMcode' data-ref="CURLMcode">CURLMcode</a> <dfn class="decl" id="curl_multi_cleanup" title='curl_multi_cleanup' data-ref="curl_multi_cleanup">curl_multi_cleanup</dfn>(<a class="typedef" href="#CURLM" title='CURLM' data-type='void' data-ref="CURLM">CURLM</a> *<dfn class="local col1 decl" id="331multi_handle" title='multi_handle' data-type='CURLM *' data-ref="331multi_handle">multi_handle</dfn>);</td></tr>
+<tr><th id="174">174</th><td></td></tr>
+<tr><th id="175">175</th><td><i>/*</i></td></tr>
+<tr><th id="176">176</th><td><i> * Name:    curl_multi_info_read()</i></td></tr>
+<tr><th id="177">177</th><td><i> *</i></td></tr>
+<tr><th id="178">178</th><td><i> * Desc:    Ask the multi handle if there's any messages/informationals from</i></td></tr>
+<tr><th id="179">179</th><td><i> *          the individual transfers. Messages include informationals such as</i></td></tr>
+<tr><th id="180">180</th><td><i> *          error code from the transfer or just the fact that a transfer is</i></td></tr>
+<tr><th id="181">181</th><td><i> *          completed. More details on these should be written down as well.</i></td></tr>
+<tr><th id="182">182</th><td><i> *</i></td></tr>
+<tr><th id="183">183</th><td><i> *          Repeated calls to this function will return a new struct each</i></td></tr>
+<tr><th id="184">184</th><td><i> *          time, until a special "end of msgs" struct is returned as a signal</i></td></tr>
+<tr><th id="185">185</th><td><i> *          that there is no more to get at this point.</i></td></tr>
+<tr><th id="186">186</th><td><i> *</i></td></tr>
+<tr><th id="187">187</th><td><i> *          The data the returned pointer points to will not survive calling</i></td></tr>
+<tr><th id="188">188</th><td><i> *          curl_multi_cleanup().</i></td></tr>
+<tr><th id="189">189</th><td><i> *</i></td></tr>
+<tr><th id="190">190</th><td><i> *          The 'CURLMsg' struct is meant to be very simple and only contain</i></td></tr>
+<tr><th id="191">191</th><td><i> *          very basic informations. If more involved information is wanted,</i></td></tr>
+<tr><th id="192">192</th><td><i> *          we will provide the particular "transfer handle" in that struct</i></td></tr>
+<tr><th id="193">193</th><td><i> *          and that should/could/would be used in subsequent</i></td></tr>
+<tr><th id="194">194</th><td><i> *          curl_easy_getinfo() calls (or similar). The point being that we</i></td></tr>
+<tr><th id="195">195</th><td><i> *          must never expose complex structs to applications, as then we'll</i></td></tr>
+<tr><th id="196">196</th><td><i> *          undoubtably get backwards compatibility problems in the future.</i></td></tr>
+<tr><th id="197">197</th><td><i> *</i></td></tr>
+<tr><th id="198">198</th><td><i> * Returns: A pointer to a filled-in struct, or NULL if it failed or ran out</i></td></tr>
+<tr><th id="199">199</th><td><i> *          of structs. It also writes the number of messages left in the</i></td></tr>
+<tr><th id="200">200</th><td><i> *          queue (after this read) in the integer the second argument points</i></td></tr>
+<tr><th id="201">201</th><td><i> *          to.</i></td></tr>
+<tr><th id="202">202</th><td><i> */</i></td></tr>
+<tr><th id="203">203</th><td><a class="typedef" href="#CURLMsg" title='CURLMsg' data-type='struct CURLMsg' data-ref="CURLMsg">CURLMsg</a> *<dfn class="decl" id="curl_multi_info_read" title='curl_multi_info_read' data-ref="curl_multi_info_read">curl_multi_info_read</dfn>(<a class="typedef" href="#CURLM" title='CURLM' data-type='void' data-ref="CURLM">CURLM</a> *<dfn class="local col2 decl" id="332multi_handle" title='multi_handle' data-type='CURLM *' data-ref="332multi_handle">multi_handle</dfn>,</td></tr>
+<tr><th id="204">204</th><td>                              <em>int</em> *<dfn class="local col3 decl" id="333msgs_in_queue" title='msgs_in_queue' data-type='int *' data-ref="333msgs_in_queue">msgs_in_queue</dfn>);</td></tr>
+<tr><th id="205">205</th><td></td></tr>
+<tr><th id="206">206</th><td><u>#<span data-ppcond="206">ifdef</span> <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="207">207</th><td>} <i>/* end of extern "C" */</i></td></tr>
+<tr><th id="208">208</th><td><u>#<span data-ppcond="206">endif</span></u></td></tr>
+<tr><th id="209">209</th><td>  </td></tr>
+<tr><th id="210">210</th><td><u>#<span data-ppcond="1">endif</span></u></td></tr>
+<tr><th id="211">211</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../lib/connect.c.html'>codebrowser/curl/lib/connect.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

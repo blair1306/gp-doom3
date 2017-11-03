@@ -1,0 +1,79 @@
+<inh f='codebrowser/ui/Window.h' l='166' c='idWindow'/>
+<def f='codebrowser/ui/GameBustOutWindow.h' l='111' ll='184'/>
+<size>1320</size>
+<fun r='_ZN19idGameBustOutWindowC1EP20idUserInterfaceLocal'/>
+<fun r='_ZN19idGameBustOutWindowC1EP15idDeviceContextP20idUserInterfaceLocal'/>
+<fun r='_ZN19idGameBustOutWindowD1Ev'/>
+<fun r='_ZN19idGameBustOutWindow15WriteToSaveGameEP6idFile'/>
+<fun r='_ZN19idGameBustOutWindow16ReadFromSaveGameEP6idFile'/>
+<fun r='_ZN19idGameBustOutWindow11HandleEventEPK10sysEvent_sPb'/>
+<fun r='_ZN19idGameBustOutWindow9PostParseEv'/>
+<fun r='_ZN19idGameBustOutWindow4DrawEiff'/>
+<fun r='_ZN19idGameBustOutWindow8ActivateEb'/>
+<fun r='_ZN19idGameBustOutWindow15GetWinVarByNameEPKcbPP9drawWin_t'/>
+<mbr r='idGameBustOutWindow::entities' o='7456' t='idList&lt;BOEntity *&gt;'/>
+<fun r='_ZN19idGameBustOutWindow10CommonInitEv'/>
+<fun r='_ZN19idGameBustOutWindow14ResetGameStateEv'/>
+<fun r='_ZN19idGameBustOutWindow10ClearBoardEv'/>
+<fun r='_ZN19idGameBustOutWindow13ClearPowerupsEv'/>
+<fun r='_ZN19idGameBustOutWindow10ClearBallsEv'/>
+<fun r='_ZN19idGameBustOutWindow14LoadBoardFilesEv'/>
+<fun r='_ZN19idGameBustOutWindow15SetCurrentBoardEv'/>
+<fun r='_ZN19idGameBustOutWindow10UpdateGameEv'/>
+<fun r='_ZN19idGameBustOutWindow14UpdatePowerupsEv'/>
+<fun r='_ZN19idGameBustOutWindow12UpdatePaddleEv'/>
+<fun r='_ZN19idGameBustOutWindow10UpdateBallEv'/>
+<fun r='_ZN19idGameBustOutWindow11UpdateScoreEv'/>
+<fun r='_ZN19idGameBustOutWindow13CreateNewBallEv'/>
+<fun r='_ZN19idGameBustOutWindow13CreatePowerupEP7BOBrick'/>
+<fun r='_ZN19idGameBustOutWindow16ParseInternalVarEPKcP8idParser'/>
+<mbr r='idGameBustOutWindow::gamerunning' o='7584' t='idWinBool'/>
+<mbr r='idGameBustOutWindow::onFire' o='7712' t='idWinBool'/>
+<mbr r='idGameBustOutWindow::onContinue' o='7840' t='idWinBool'/>
+<mbr r='idGameBustOutWindow::onNewGame' o='7968' t='idWinBool'/>
+<mbr r='idGameBustOutWindow::onNewLevel' o='8096' t='idWinBool'/>
+<mbr r='idGameBustOutWindow::timeSlice' o='8224' t='float'/>
+<mbr r='idGameBustOutWindow::gameOver' o='8256' t='bool'/>
+<mbr r='idGameBustOutWindow::numLevels' o='8288' t='int'/>
+<mbr r='idGameBustOutWindow::levelBoardData' o='8320' t='byte *'/>
+<mbr r='idGameBustOutWindow::boardDataLoaded' o='8352' t='bool'/>
+<mbr r='idGameBustOutWindow::numBricks' o='8384' t='int'/>
+<mbr r='idGameBustOutWindow::currentLevel' o='8416' t='int'/>
+<mbr r='idGameBustOutWindow::updateScore' o='8448' t='bool'/>
+<mbr r='idGameBustOutWindow::gameScore' o='8480' t='int'/>
+<mbr r='idGameBustOutWindow::nextBallScore' o='8512' t='int'/>
+<mbr r='idGameBustOutWindow::bigPaddleTime' o='8544' t='int'/>
+<mbr r='idGameBustOutWindow::paddleVelocity' o='8576' t='float'/>
+<mbr r='idGameBustOutWindow::ballSpeed' o='8608' t='float'/>
+<mbr r='idGameBustOutWindow::ballsRemaining' o='8640' t='int'/>
+<mbr r='idGameBustOutWindow::ballsInPlay' o='8672' t='int'/>
+<mbr r='idGameBustOutWindow::ballHitCeiling' o='8704' t='bool'/>
+<mbr r='idGameBustOutWindow::balls' o='8736' t='idList&lt;BOEntity *&gt;'/>
+<mbr r='idGameBustOutWindow::powerUps' o='8864' t='idList&lt;BOEntity *&gt;'/>
+<mbr r='idGameBustOutWindow::paddle' o='8992' t='BOBrick *'/>
+<mbr r='idGameBustOutWindow::board' o='9024' t='idList&lt;BOBrick *&gt; [12]'/>
+<fun r='_ZN19idGameBustOutWindowC1EP15idDeviceContextP20idUserInterfaceLocal'/>
+<fun r='_ZN19idGameBustOutWindowC1EP20idUserInterfaceLocal'/>
+<fun r='_ZN19idGameBustOutWindowD1Ev'/>
+<fun r='_ZN19idGameBustOutWindow15WriteToSaveGameEP6idFile'/>
+<fun r='_ZN19idGameBustOutWindow16ReadFromSaveGameEP6idFile'/>
+<fun r='_ZN19idGameBustOutWindow14ResetGameStateEv'/>
+<fun r='_ZN19idGameBustOutWindow10CommonInitEv'/>
+<fun r='_ZN19idGameBustOutWindow11HandleEventEPK10sysEvent_sPb'/>
+<fun r='_ZN19idGameBustOutWindow16ParseInternalVarEPKcP8idParser'/>
+<fun r='_ZN19idGameBustOutWindow15GetWinVarByNameEPKcbPP9drawWin_t'/>
+<fun r='_ZN19idGameBustOutWindow9PostParseEv'/>
+<fun r='_ZN19idGameBustOutWindow4DrawEiff'/>
+<fun r='_ZN19idGameBustOutWindow8ActivateEb'/>
+<fun r='_ZN19idGameBustOutWindow11UpdateScoreEv'/>
+<fun r='_ZN19idGameBustOutWindow10ClearBoardEv'/>
+<fun r='_ZN19idGameBustOutWindow13ClearPowerupsEv'/>
+<fun r='_ZN19idGameBustOutWindow10ClearBallsEv'/>
+<fun r='_ZN19idGameBustOutWindow14LoadBoardFilesEv'/>
+<fun r='_ZN19idGameBustOutWindow15SetCurrentBoardEv'/>
+<fun r='_ZN19idGameBustOutWindow13CreateNewBallEv'/>
+<fun r='_ZN19idGameBustOutWindow13CreatePowerupEP7BOBrick'/>
+<fun r='_ZN19idGameBustOutWindow14UpdatePowerupsEv'/>
+<fun r='_ZN19idGameBustOutWindow12UpdatePaddleEv'/>
+<fun r='_ZN19idGameBustOutWindow10UpdateBallEv'/>
+<fun r='_ZN19idGameBustOutWindow10UpdateGameEv'/>

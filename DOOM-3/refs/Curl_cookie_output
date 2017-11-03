@@ -1,0 +1,11 @@
+<dec f='codebrowser/curl/lib/cookie.h' l='86' type='int Curl_cookie_output(struct CookieInfo * , char * )'/>
+<def f='codebrowser/curl/lib/cookie.c' l='788' ll='846' type='int Curl_cookie_output(struct CookieInfo * c, char * dumphere)'/>
+<doc f='codebrowser/curl/lib/cookie.c' l='780'>/*
+ * Curl_cookie_output()
+ *
+ * Writes all internally known cookies to the specified file. Specify
+ * &quot;-&quot; as file name to write to stdout.
+ *
+ * The function returns non-zero on write failure.
+ */</doc>
+<use f='codebrowser/curl/lib/url.c' l='218' u='c' c='Curl_close'/>

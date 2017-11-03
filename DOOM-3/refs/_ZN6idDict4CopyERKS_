@@ -1,0 +1,26 @@
+<dec f='codebrowser/idlib/Dict.h' l='78' type='void idDict::Copy(const idDict &amp; other)'/>
+<doc f='codebrowser/idlib/Dict.h' l='77'>// copy from other while leaving existing key/value pairs in place</doc>
+<use f='codebrowser/d3xp/Player.cpp' l='2794' u='c' c='_ZN8idPlayer21RestorePersistantInfoEv'/>
+<use f='codebrowser/d3xp/Sound.cpp' l='203' u='c' c='_ZN7idSound25UpdateChangeableSpawnArgsEPK6idDict'/>
+<use f='codebrowser/d3xp/Target.cpp' l='618' u='c' c='_ZN13idTarget_Give14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1699' u='c' c='_ZL18Cmd_SaveSelected_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1871' u='c' c='_ZL18Cmd_SaveRagdolls_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1976' u='c' c='_ZL16Cmd_SaveLights_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='2030' u='c' c='_ZL19Cmd_SaveParticles_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/script/Script_Thread.cpp' l='1166' u='c' c='_ZN8idThread19Event_CopySpawnArgsEP8idEntity'/>
+<use f='codebrowser/game/Player.cpp' l='2302' u='c' c='_ZN8idPlayer21RestorePersistantInfoEv'/>
+<use f='codebrowser/game/Sound.cpp' l='203' u='c' c='_ZN7idSound25UpdateChangeableSpawnArgsEPK6idDict'/>
+<use f='codebrowser/game/Target.cpp' l='618' u='c' c='_ZN13idTarget_Give14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1630' u='c' c='_ZL18Cmd_SaveSelected_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1802' u='c' c='_ZL18Cmd_SaveRagdolls_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1907' u='c' c='_ZL16Cmd_SaveLights_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1961' u='c' c='_ZL19Cmd_SaveParticles_fRK9idCmdArgs'/>
+<use f='codebrowser/game/script/Script_Thread.cpp' l='1134' u='c' c='_ZN8idThread19Event_CopySpawnArgsEP8idEntity'/>
+<def f='codebrowser/idlib/Dict.cpp' l='70' ll='102' type='void idDict::Copy(const idDict &amp; other)'/>
+<doc f='codebrowser/idlib/Dict.cpp' l='63'>/*
+================
+idDict::Copy
+
+  copy all key value pairs without removing existing key/value pairs not present in the other dict
+================
+*/</doc>

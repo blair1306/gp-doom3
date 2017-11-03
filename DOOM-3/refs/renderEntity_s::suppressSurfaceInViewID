@@ -1,0 +1,25 @@
+<dec f='codebrowser/renderer/RenderWorld.h' l='104' type='int'/>
+<offset>352</offset>
+<doc f='codebrowser/renderer/RenderWorld.h' l='100'>// player bodies and possibly player shadows should be suppressed in views from
+	// that player&apos;s eyes, but will show up in mirrors and other subviews
+	// security cameras could suppress their model in their subviews if we add a way
+	// of specifying a view number for a remoteRenderMap view</doc>
+<use f='codebrowser/d3xp/Player.cpp' l='1804' u='w' c='_ZN8idPlayer5SpawnEv'/>
+<use f='codebrowser/d3xp/Player.cpp' l='1811' u='w' c='_ZN8idPlayer5SpawnEv'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='906' u='w' c='_ZN8idWeapon14InitWorldModelEPK15idDeclEntityDef'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='5062' u='w' c='_ZN10idGameEdit22ANIM_CreateMeshForAnimEP13idRenderModelPKcS3_ib'/>
+<use f='codebrowser/d3xp/gamesys/SaveGame.cpp' l='509' u='r' c='_ZN10idSaveGame17WriteRenderEntityERK14renderEntity_s'/>
+<use f='codebrowser/d3xp/gamesys/SaveGame.cpp' l='1284' u='a' c='_ZN13idRestoreGame16ReadRenderEntityER14renderEntity_s'/>
+<use f='codebrowser/game/Player.cpp' l='1488' u='w' c='_ZN8idPlayer5SpawnEv'/>
+<use f='codebrowser/game/Player.cpp' l='1495' u='w' c='_ZN8idPlayer5SpawnEv'/>
+<use f='codebrowser/game/Weapon.cpp' l='738' u='w' c='_ZN8idWeapon14InitWorldModelEPK15idDeclEntityDef'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='4976' u='w' c='_ZN10idGameEdit22ANIM_CreateMeshForAnimEP13idRenderModelPKcS3_ib'/>
+<use f='codebrowser/game/gamesys/SaveGame.cpp' l='509' u='r' c='_ZN10idSaveGame17WriteRenderEntityERK14renderEntity_s'/>
+<use f='codebrowser/game/gamesys/SaveGame.cpp' l='1279' u='a' c='_ZN13idRestoreGame16ReadRenderEntityER14renderEntity_s'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='916' u='r' c='_ZN13idInteraction17CreateInteractionEPK13idRenderModel'/>
+<use f='codebrowser/renderer/Model_md5.cpp' l='761' u='r' c='_ZN16idRenderModelMD523InstantiateDynamicModelEPK14renderEntity_sPK9viewDef_sP13idRenderModel'/>
+<use f='codebrowser/renderer/Model_md5.cpp' l='761' u='r' c='_ZN16idRenderModelMD523InstantiateDynamicModelEPK14renderEntity_sPK9viewDef_sP13idRenderModel'/>
+<use f='codebrowser/renderer/RenderWorld_demo.cpp' l='542' u='r' c='_ZN18idRenderWorldLocal17WriteRenderEntityEiPK14renderEntity_s'/>
+<use f='codebrowser/renderer/RenderWorld_demo.cpp' l='641' u='a' c='_ZN18idRenderWorldLocal16ReadRenderEntityEv'/>
+<use f='codebrowser/renderer/RenderWorld_portals.cpp' l='613' u='r' c='_ZN18idRenderWorldLocal17AddAreaEntityRefsEiPK13portalStack_s'/>
+<use f='codebrowser/renderer/RenderWorld_portals.cpp' l='614' u='r' c='_ZN18idRenderWorldLocal17AddAreaEntityRefsEiPK13portalStack_s'/>

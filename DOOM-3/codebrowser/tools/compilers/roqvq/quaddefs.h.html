@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>quaddefs.h source code [codebrowser/tools/compilers/roqvq/quaddefs.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/tools/compilers/roqvq/quaddefs.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>tools</a>/<a href='..'>compilers</a>/<a href='./'>roqvq</a>/<a href='quaddefs.h.html'>quaddefs.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td><u>#<span data-ppcond="28">ifndef</span> <span class="macro" data-ref="_M/__quaddefs_h__">__quaddefs_h__</span></u></td></tr>
+<tr><th id="29">29</th><td><u>#define <dfn class="macro" id="_M/__quaddefs_h__" data-ref="_M/__quaddefs_h__">__quaddefs_h__</dfn></u></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><u>#pragma once</u></td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><u>#define <dfn class="macro" id="_M/DEP" data-ref="_M/DEP">DEP</dfn> 0</u></td></tr>
+<tr><th id="34">34</th><td><u>#define <dfn class="macro" id="_M/FCC" data-ref="_M/FCC">FCC</dfn> 1</u></td></tr>
+<tr><th id="35">35</th><td><u>#define <dfn class="macro" id="_M/CCC" data-ref="_M/CCC">CCC</dfn> 2</u></td></tr>
+<tr><th id="36">36</th><td><u>#define <dfn class="macro" id="_M/SLD" data-ref="_M/SLD">SLD</dfn> 3</u></td></tr>
+<tr><th id="37">37</th><td><u>#define <dfn class="macro" id="_M/PAT" data-ref="_M/PAT">PAT</dfn> 4</u></td></tr>
+<tr><th id="38">38</th><td><u>#define <dfn class="macro" id="_M/MOT" data-ref="_M/MOT">MOT</dfn> 5</u></td></tr>
+<tr><th id="39">39</th><td><u>#define <dfn class="macro" id="_M/DEAD" data-ref="_M/DEAD">DEAD</dfn> 6</u></td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><u>#define <dfn class="macro" id="_M/COLA" data-ref="_M/COLA">COLA</dfn> 0</u></td></tr>
+<tr><th id="42">42</th><td><u>#define <dfn class="macro" id="_M/COLB" data-ref="_M/COLB">COLB</dfn> 1</u></td></tr>
+<tr><th id="43">43</th><td><u>#define <dfn class="macro" id="_M/COLC" data-ref="_M/COLC">COLC</dfn> 2</u></td></tr>
+<tr><th id="44">44</th><td><u>#define <dfn class="macro" id="_M/COLS" data-ref="_M/COLS">COLS</dfn> 3</u></td></tr>
+<tr><th id="45">45</th><td><u>#define <dfn class="macro" id="_M/COLPATA" data-ref="_M/COLPATA">COLPATA</dfn> 4</u></td></tr>
+<tr><th id="46">46</th><td><u>#define <dfn class="macro" id="_M/COLPATB" data-ref="_M/COLPATB">COLPATB</dfn> 5</u></td></tr>
+<tr><th id="47">47</th><td><u>#define <dfn class="macro" id="_M/COLPATS" data-ref="_M/COLPATS">COLPATS</dfn> 6</u></td></tr>
+<tr><th id="48">48</th><td><u>#define <dfn class="macro" id="_M/GENERATION" data-ref="_M/GENERATION">GENERATION</dfn> 7</u></td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td><u>#define <dfn class="macro" id="_M/CCCBITMAP" data-ref="_M/CCCBITMAP">CCCBITMAP</dfn> 0</u></td></tr>
+<tr><th id="51">51</th><td><u>#define <dfn class="macro" id="_M/FCCDOMAIN" data-ref="_M/FCCDOMAIN">FCCDOMAIN</dfn> 1</u></td></tr>
+<tr><th id="52">52</th><td><u>#define <dfn class="macro" id="_M/PATNUMBER" data-ref="_M/PATNUMBER">PATNUMBER</dfn> 2</u></td></tr>
+<tr><th id="53">53</th><td><u>#define <dfn class="macro" id="_M/PATNUMBE2" data-ref="_M/PATNUMBE2">PATNUMBE2</dfn> 3</u></td></tr>
+<tr><th id="54">54</th><td><u>#define <dfn class="macro" id="_M/PATNUMBE3" data-ref="_M/PATNUMBE3">PATNUMBE3</dfn> 4</u></td></tr>
+<tr><th id="55">55</th><td><u>#define <dfn class="macro" id="_M/PATNUMBE4" data-ref="_M/PATNUMBE4">PATNUMBE4</dfn> 5</u></td></tr>
+<tr><th id="56">56</th><td><u>#define <dfn class="macro" id="_M/PATNUMBE5" data-ref="_M/PATNUMBE5">PATNUMBE5</dfn> 6</u></td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td><u>#define <dfn class="macro" id="_M/MAXSIZE" data-ref="_M/MAXSIZE">MAXSIZE</dfn>		16</u></td></tr>
+<tr><th id="59">59</th><td><u>#define <dfn class="macro" id="_M/MINSIZE" data-ref="_M/MINSIZE">MINSIZE</dfn>		4</u></td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td><u>#define <dfn class="macro" id="_M/RoQ_ID" data-ref="_M/RoQ_ID">RoQ_ID</dfn> 			0x1084</u></td></tr>
+<tr><th id="62">62</th><td><u>#define	<dfn class="macro" id="_M/RoQ_QUAD" data-ref="_M/RoQ_QUAD">RoQ_QUAD</dfn>		0x1000</u></td></tr>
+<tr><th id="63">63</th><td><u>#define	<dfn class="macro" id="_M/RoQ_PUZZLE_QUAD" data-ref="_M/RoQ_PUZZLE_QUAD">RoQ_PUZZLE_QUAD</dfn>	0x1003</u></td></tr>
+<tr><th id="64">64</th><td><u>#define <dfn class="macro" id="_M/RoQ_QUAD_HANG" data-ref="_M/RoQ_QUAD_HANG">RoQ_QUAD_HANG</dfn>	0x1013</u></td></tr>
+<tr><th id="65">65</th><td><u>#define	<dfn class="macro" id="_M/RoQ_QUAD_SMALL" data-ref="_M/RoQ_QUAD_SMALL">RoQ_QUAD_SMALL</dfn>	0x1010</u></td></tr>
+<tr><th id="66">66</th><td><u>#define	<dfn class="macro" id="_M/RoQ_QUAD_INFO" data-ref="_M/RoQ_QUAD_INFO">RoQ_QUAD_INFO</dfn>	0x1001</u></td></tr>
+<tr><th id="67">67</th><td><u>#define <dfn class="macro" id="_M/RoQ_QUAD_VQ" data-ref="_M/RoQ_QUAD_VQ">RoQ_QUAD_VQ</dfn>		0x1011</u></td></tr>
+<tr><th id="68">68</th><td><u>#define <dfn class="macro" id="_M/RoQ_QUAD_JPEG" data-ref="_M/RoQ_QUAD_JPEG">RoQ_QUAD_JPEG</dfn>	0x1012</u></td></tr>
+<tr><th id="69">69</th><td><u>#define <dfn class="macro" id="_M/RoQ_QUAD_CODEBOOK" data-ref="_M/RoQ_QUAD_CODEBOOK">RoQ_QUAD_CODEBOOK</dfn>		0x1002</u></td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="72">72</th><td>	<a class="typedef" href="../../../idlib/Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>	<dfn class="decl" id="(anonymous)::size" title='(anonymous struct)::size' data-ref="(anonymous)::size">size</dfn>;				<i>//	32, 16, 8, or 4</i></td></tr>
+<tr><th id="73">73</th><td>	<a class="typedef" href="../../../idlib/Lib.h.html#word" title='word' data-type='unsigned short' data-ref="word">word</a>	<dfn class="decl" id="(anonymous)::xat" title='(anonymous struct)::xat' data-ref="(anonymous)::xat">xat</dfn>;				<i>// where is it at on the screen</i></td></tr>
+<tr><th id="74">74</th><td>	<a class="typedef" href="../../../idlib/Lib.h.html#word" title='word' data-type='unsigned short' data-ref="word">word</a>	<dfn class="decl" id="(anonymous)::yat" title='(anonymous struct)::yat' data-ref="(anonymous)::yat">yat</dfn>;				<i>// </i></td></tr>
+<tr><th id="75">75</th><td>} <dfn class="typedef" id="shortQuadCel" title='shortQuadCel' data-type='struct shortQuadCel' data-ref="shortQuadCel">shortQuadCel</dfn>;</td></tr>
+<tr><th id="76">76</th><td></td></tr>
+<tr><th id="77">77</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="78">78</th><td>	<a class="typedef" href="../../../idlib/Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>	<dfn class="decl" id="(anonymous)::size" title='(anonymous struct)::size' data-ref="(anonymous)::size">size</dfn>;				<i>//	32, 16, 8, or 4</i></td></tr>
+<tr><th id="79">79</th><td>	<a class="typedef" href="../../../idlib/Lib.h.html#word" title='word' data-type='unsigned short' data-ref="word">word</a>	<dfn class="decl" id="(anonymous)::xat" title='(anonymous struct)::xat' data-ref="(anonymous)::xat">xat</dfn>;				<i>// where is it at on the screen</i></td></tr>
+<tr><th id="80">80</th><td>	<a class="typedef" href="../../../idlib/Lib.h.html#word" title='word' data-type='unsigned short' data-ref="word">word</a>	<dfn class="decl" id="(anonymous)::yat" title='(anonymous struct)::yat' data-ref="(anonymous)::yat">yat</dfn>;				<i>// </i></td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td>	<em>float</em>	<dfn class="decl" id="(anonymous)::cccsnr" title='(anonymous struct)::cccsnr' data-ref="(anonymous)::cccsnr">cccsnr</dfn>;				<i>// ccc bitmap snr to actual image</i></td></tr>
+<tr><th id="83">83</th><td>	<em>float</em>	<dfn class="decl" id="(anonymous)::fccsnr" title='(anonymous struct)::fccsnr' data-ref="(anonymous)::fccsnr">fccsnr</dfn>;				<i>// fcc bitmap snr to actual image</i></td></tr>
+<tr><th id="84">84</th><td>	<em>float</em>	<dfn class="decl" id="(anonymous)::motsnr" title='(anonymous struct)::motsnr' data-ref="(anonymous)::motsnr">motsnr</dfn>;				<i>// delta snr to previous image</i></td></tr>
+<tr><th id="85">85</th><td>	<em>float</em>	<dfn class="decl" id="(anonymous)::sldsnr" title='(anonymous struct)::sldsnr' data-ref="(anonymous)::sldsnr">sldsnr</dfn>;				<i>// solid color snr</i></td></tr>
+<tr><th id="86">86</th><td>	<em>float</em>	<dfn class="decl" id="(anonymous)::patsnr" title='(anonymous struct)::patsnr' data-ref="(anonymous)::patsnr">patsnr</dfn>;</td></tr>
+<tr><th id="87">87</th><td>	<em>float</em>	<dfn class="decl" id="(anonymous)::dctsnr" title='(anonymous struct)::dctsnr' data-ref="(anonymous)::dctsnr">dctsnr</dfn>;</td></tr>
+<tr><th id="88">88</th><td>	<em>float</em>	<dfn class="decl" id="(anonymous)::rsnr" title='(anonymous struct)::rsnr' data-ref="(anonymous)::rsnr">rsnr</dfn>;				<i>// what's the current snr</i></td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td>	<em>unsigned</em> <em>int</em>	<dfn class="decl" id="(anonymous)::cola" title='(anonymous struct)::cola' data-ref="(anonymous)::cola">cola</dfn>;			<i>// color a for ccc</i></td></tr>
+<tr><th id="91">91</th><td>	<em>unsigned</em> <em>int</em>	<dfn class="decl" id="(anonymous)::colb" title='(anonymous struct)::colb' data-ref="(anonymous)::colb">colb</dfn>;			<i>// color b for ccc</i></td></tr>
+<tr><th id="92">92</th><td>	<em>unsigned</em> <em>int</em>	<dfn class="decl" id="(anonymous)::colc" title='(anonymous struct)::colc' data-ref="(anonymous)::colc">colc</dfn>;			<i>// color b for ccc</i></td></tr>
+<tr><th id="93">93</th><td>	<em>unsigned</em> <em>int</em>	<dfn class="decl" id="(anonymous)::sldcol" title='(anonymous struct)::sldcol' data-ref="(anonymous)::sldcol">sldcol</dfn>;			<i>// sold color</i></td></tr>
+<tr><th id="94">94</th><td>	<em>unsigned</em> <em>int</em>	<dfn class="decl" id="(anonymous)::colpata" title='(anonymous struct)::colpata' data-ref="(anonymous)::colpata">colpata</dfn>;</td></tr>
+<tr><th id="95">95</th><td>	<em>unsigned</em> <em>int</em>	<dfn class="decl" id="(anonymous)::colpatb" title='(anonymous struct)::colpatb' data-ref="(anonymous)::colpatb">colpatb</dfn>;</td></tr>
+<tr><th id="96">96</th><td>	<em>unsigned</em> <em>int</em>	<dfn class="decl" id="(anonymous)::colpats" title='(anonymous struct)::colpats' data-ref="(anonymous)::colpats">colpats</dfn>;</td></tr>
+<tr><th id="97">97</th><td>	<em>unsigned</em> <em>int</em>	<dfn class="decl" id="(anonymous)::bitmap" title='(anonymous struct)::bitmap' data-ref="(anonymous)::bitmap">bitmap</dfn>;				<i>// ccc bitmap</i></td></tr>
+<tr><th id="98">98</th><td>	</td></tr>
+<tr><th id="99">99</th><td>	<a class="typedef" href="../../../idlib/Lib.h.html#word" title='word' data-type='unsigned short' data-ref="word">word</a>	<dfn class="decl" id="(anonymous)::domain" title='(anonymous struct)::domain' data-ref="(anonymous)::domain">domain</dfn>;				<i>// where to copy from for fcc</i></td></tr>
+<tr><th id="100">100</th><td>	<a class="typedef" href="../../../idlib/Lib.h.html#word" title='word' data-type='unsigned short' data-ref="word">word</a>	<dfn class="decl" id="(anonymous)::patten" title='(anonymous struct)::patten' data-ref="(anonymous)::patten">patten</dfn>[<var>5</var>];			<i>// which pattern</i></td></tr>
+<tr><th id="101">101</th><td></td></tr>
+<tr><th id="102">102</th><td>	<em>int</em>		<dfn class="decl" id="(anonymous)::status" title='(anonymous struct)::status' data-ref="(anonymous)::status">status</dfn>;</td></tr>
+<tr><th id="103">103</th><td>	<em>bool</em>		<dfn class="decl" id="(anonymous)::mark" title='(anonymous struct)::mark' data-ref="(anonymous)::mark">mark</dfn>;</td></tr>
+<tr><th id="104">104</th><td>	<em>float</em>			<dfn class="decl" id="(anonymous)::snr" title='(anonymous struct)::snr' data-ref="(anonymous)::snr">snr</dfn>[<a class="macro" href="#39" title="6" data-ref="_M/DEAD">DEAD</a>+<var>1</var>];				<i>// snrssss</i></td></tr>
+<tr><th id="105">105</th><td>} <dfn class="typedef" id="quadcel" title='quadcel' data-type='struct quadcel' data-ref="quadcel">quadcel</dfn>;</td></tr>
+<tr><th id="106">106</th><td></td></tr>
+<tr><th id="107">107</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="108">108</th><td>	<em>float</em>			<dfn class="decl" id="(anonymous)::snr" title='(anonymous struct)::snr' data-ref="(anonymous)::snr">snr</dfn>[<a class="macro" href="#39" title="6" data-ref="_M/DEAD">DEAD</a>+<var>1</var>];				<i>// snrssss</i></td></tr>
+<tr><th id="109">109</th><td>	<em>unsigned</em> <em>int</em>	<dfn class="decl" id="(anonymous)::cols" title='(anonymous struct)::cols' data-ref="(anonymous)::cols">cols</dfn>[<var>8</var>];</td></tr>
+<tr><th id="110">110</th><td>	<em>unsigned</em> <em>int</em>	<dfn class="decl" id="(anonymous)::bitmaps" title='(anonymous struct)::bitmaps' data-ref="(anonymous)::bitmaps">bitmaps</dfn>[<var>7</var>];				<i>// ccc bitmap</i></td></tr>
+<tr><th id="111">111</th><td>} <dfn class="typedef" id="dataQuadCel" title='dataQuadCel' data-type='struct dataQuadCel' data-ref="dataQuadCel">dataQuadCel</dfn>;</td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="114">114</th><td>	<em>float</em>				<dfn class="decl" id="(anonymous)::normal" title='(anonymous struct)::normal' data-ref="(anonymous)::normal">normal</dfn>;</td></tr>
+<tr><th id="115">115</th><td>	<em>unsigned</em> <em>short</em> <em>int</em>	<dfn class="decl" id="(anonymous)::index" title='(anonymous struct)::index' data-ref="(anonymous)::index">index</dfn>;</td></tr>
+<tr><th id="116">116</th><td>} <dfn class="typedef" id="norm" title='norm' data-type='struct norm' data-ref="norm">norm</dfn>;</td></tr>
+<tr><th id="117">117</th><td></td></tr>
+<tr><th id="118">118</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="119">119</th><td>	<em>unsigned</em> <em>char</em> <dfn class="decl" id="(anonymous)::dtlMap" title='(anonymous struct)::dtlMap' data-ref="(anonymous)::dtlMap">dtlMap</dfn>[<var>256</var>];</td></tr>
+<tr><th id="120">120</th><td>	<em>int</em>	<dfn class="decl" id="(anonymous)::r" title='(anonymous struct)::r' data-ref="(anonymous)::r">r</dfn>[<var>4</var>];</td></tr>
+<tr><th id="121">121</th><td>	<em>int</em> <dfn class="decl" id="(anonymous)::g" title='(anonymous struct)::g' data-ref="(anonymous)::g">g</dfn>[<var>4</var>];</td></tr>
+<tr><th id="122">122</th><td>	<em>int</em> <dfn class="decl" id="(anonymous)::b" title='(anonymous struct)::b' data-ref="(anonymous)::b">b</dfn>[<var>4</var>];</td></tr>
+<tr><th id="123">123</th><td>	<em>int</em> <dfn class="decl" id="(anonymous)::a" title='(anonymous struct)::a' data-ref="(anonymous)::a">a</dfn>[<var>4</var>];</td></tr>
+<tr><th id="124">124</th><td>	<em>float</em> <dfn class="decl" id="(anonymous)::ymean" title='(anonymous struct)::ymean' data-ref="(anonymous)::ymean">ymean</dfn>;</td></tr>
+<tr><th id="125">125</th><td>} <dfn class="typedef" id="dtlCel" title='dtlCel' data-type='struct dtlCel' data-ref="dtlCel">dtlCel</dfn>;</td></tr>
+<tr><th id="126">126</th><td></td></tr>
+<tr><th id="127">127</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="128">128</th><td>	<a class="typedef" href="../../../idlib/Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>	<dfn class="decl" id="(anonymous)::r" title='(anonymous struct)::r' data-ref="(anonymous)::r">r</dfn>,<dfn class="decl" id="(anonymous)::g" title='(anonymous struct)::g' data-ref="(anonymous)::g">g</dfn>,<dfn class="decl" id="(anonymous)::b" title='(anonymous struct)::b' data-ref="(anonymous)::b">b</dfn>,<dfn class="decl" id="(anonymous)::a" title='(anonymous struct)::a' data-ref="(anonymous)::a">a</dfn>;</td></tr>
+<tr><th id="129">129</th><td>} <dfn class="typedef" id="pPixel" title='pPixel' data-type='struct pPixel' data-ref="pPixel">pPixel</dfn>;</td></tr>
+<tr><th id="130">130</th><td></td></tr>
+<tr><th id="131">131</th><td><u>#<span data-ppcond="28">endif</span>   // quaddef</u></td></tr>
+<tr><th id="132">132</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='NSBitmapImageRep.cpp.html'>codebrowser/tools/compilers/roqvq/NSBitmapImageRep.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

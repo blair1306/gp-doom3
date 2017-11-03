@@ -1,0 +1,10 @@
+<dec f='codebrowser/sys/sys_public.h' l='329' type='int Sys_DLL_Load(const char * dllName)'/>
+<doc f='codebrowser/sys/sys_public.h' l='328'>// DLL loading, the path should be a fully qualified OS path to the DLL file to be loaded</doc>
+<def f='codebrowser/sys/posix/posix_main.cpp' l='388' ll='394' type='int Sys_DLL_Load(const char * path)'/>
+<doc f='codebrowser/sys/posix/posix_main.cpp' l='382'>/*
+=================
+Sys_DLL_Load
+TODO: OSX - use the native API instead? NSModule
+=================
+*/</doc>
+<use f='codebrowser/sys/sys_local.cpp' l='112' u='c' c='_ZN10idSysLocal8DLL_LoadEPKc'/>

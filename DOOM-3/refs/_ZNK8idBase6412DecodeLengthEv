@@ -1,0 +1,12 @@
+<dec f='codebrowser/idlib/Base64.h' l='48' type='int idBase64::DecodeLength() const'/>
+<doc f='codebrowser/idlib/Base64.h' l='48'>// minimum size in bytes of destination buffer for decoding</doc>
+<def f='codebrowser/idlib/Base64.cpp' l='86' ll='88' type='int idBase64::DecodeLength() const'/>
+<use f='codebrowser/idlib/Base64.cpp' l='152' u='c' c='_ZNK8idBase646DecodeER5idStr'/>
+<use f='codebrowser/idlib/Base64.cpp' l='165' u='c' c='_ZNK8idBase646DecodeEP6idFile'/>
+<doc f='codebrowser/idlib/Base64.cpp' l='79'>/*
+============
+idBase64::DecodeLength
+returns the minimum size in bytes of the target buffer for decoding
+4 base64 digits &lt;-&gt; 3 bytes
+============
+*/</doc>

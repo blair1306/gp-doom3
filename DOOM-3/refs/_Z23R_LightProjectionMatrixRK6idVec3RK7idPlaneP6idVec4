@@ -1,0 +1,11 @@
+<dec f='codebrowser/renderer/RenderSystem.h' l='271' type='void R_LightProjectionMatrix(const idVec3 &amp; origin, const idPlane &amp; rearPlane, idVec4 * mat)'/>
+<doc f='codebrowser/renderer/RenderSystem.h' l='270'>// for use by dmap to do the carving-on-light-boundaries and for the editor for display</doc>
+<def f='codebrowser/renderer/tr_stencilshadow.cpp' l='257' ll='289' type='void R_LightProjectionMatrix(const idVec3 &amp; origin, const idPlane &amp; rearPlane, idVec4 * mat)'/>
+<use f='codebrowser/renderer/tr_stencilshadow.cpp' l='308' u='c' c='_ZL25R_ProjectPointsToFarPlanePK19idRenderEntityLocalPK18idRenderLightLocalRK7idPlaneii'/>
+<doc f='codebrowser/renderer/tr_stencilshadow.cpp' l='251'>/*
+====================
+R_LightProjectionMatrix
+
+====================
+*/</doc>
+<use f='codebrowser/tools/compilers/dmap/shadowopt3.cpp' l='972' u='c' c='_ZL14ProjectUniqued6idVec37idPlane'/>

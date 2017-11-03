@@ -1,0 +1,12 @@
+<dec f='codebrowser/cm/CollisionModel_local.h' l='371' type='int idCollisionModelManagerLocal::PointFurthestFromPlane(const cm_traceWork_t * tw, const idVec3 &amp; point, const idPlane &amp; plane, const float angle, float &amp; tanHalfAngle, float &amp; dir)'/>
+<def f='codebrowser/cm/CollisionModel_rotate.cpp' l='730' ll='827' type='int idCollisionModelManagerLocal::PointFurthestFromPlane(const cm_traceWork_t * tw, const idVec3 &amp; point, const idPlane &amp; plane, const float angle, float &amp; tanHalfAngle, float &amp; dir)'/>
+<use f='codebrowser/cm/CollisionModel_rotate.cpp' l='880' u='c' c='_ZN28idCollisionModelManagerLocal30RotatePointThroughEpsilonPlaneEPK14cm_traceWork_sRK6idVec3S5_RK7idPlanefS5_RfRS3_SA_'/>
+<doc f='codebrowser/cm/CollisionModel_rotate.cpp' l='721'>/*
+================
+idCollisionModelManagerLocal::PointFurthestFromPlane
+
+  calculates the direction of motion at the initial position, where dir &lt; 0 means the point moves towards the plane
+  if the point moves away from the plane the tangent of half the rotation angle at which
+  the point is furthest away from the plane is also calculated
+================
+*/</doc>

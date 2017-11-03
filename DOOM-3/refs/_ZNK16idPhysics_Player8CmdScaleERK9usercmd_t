@@ -1,0 +1,36 @@
+<dec f='codebrowser/d3xp/physics/Physics_Player.h' l='171' type='float idPhysics_Player::CmdScale(const usercmd_t &amp; cmd) const'/>
+<def f='codebrowser/d3xp/physics/Physics_Player.cpp' l='79' ll='114' type='float idPhysics_Player::CmdScale(const usercmd_t &amp; cmd) const'/>
+<use f='codebrowser/d3xp/physics/Physics_Player.cpp' l='538' u='c' c='_ZN16idPhysics_Player9WaterMoveEv'/>
+<use f='codebrowser/d3xp/physics/Physics_Player.cpp' l='584' u='c' c='_ZN16idPhysics_Player7FlyMoveEv'/>
+<use f='codebrowser/d3xp/physics/Physics_Player.cpp' l='614' u='c' c='_ZN16idPhysics_Player7AirMoveEv'/>
+<use f='codebrowser/d3xp/physics/Physics_Player.cpp' l='674' u='c' c='_ZN16idPhysics_Player8WalkMoveEv'/>
+<use f='codebrowser/d3xp/physics/Physics_Player.cpp' l='802' u='c' c='_ZN16idPhysics_Player10NoclipMoveEv'/>
+<use f='codebrowser/d3xp/physics/Physics_Player.cpp' l='833' u='c' c='_ZN16idPhysics_Player13SpectatorMoveEv'/>
+<use f='codebrowser/d3xp/physics/Physics_Player.cpp' l='871' u='c' c='_ZN16idPhysics_Player10LadderMoveEv'/>
+<doc f='codebrowser/d3xp/physics/Physics_Player.cpp' l='70'>/*
+============
+idPhysics_Player::CmdScale
+
+Returns the scale factor to apply to cmd movements
+This allows the clients to use axial -127 to 127 values for all directions
+without getting a sqrt(2) distortion in speed.
+============
+*/</doc>
+<dec f='codebrowser/game/physics/Physics_Player.h' l='171' type='float idPhysics_Player::CmdScale(const usercmd_t &amp; cmd) const'/>
+<def f='codebrowser/game/physics/Physics_Player.cpp' l='79' ll='114' type='float idPhysics_Player::CmdScale(const usercmd_t &amp; cmd) const'/>
+<use f='codebrowser/game/physics/Physics_Player.cpp' l='538' u='c' c='_ZN16idPhysics_Player9WaterMoveEv'/>
+<use f='codebrowser/game/physics/Physics_Player.cpp' l='584' u='c' c='_ZN16idPhysics_Player7FlyMoveEv'/>
+<use f='codebrowser/game/physics/Physics_Player.cpp' l='614' u='c' c='_ZN16idPhysics_Player7AirMoveEv'/>
+<use f='codebrowser/game/physics/Physics_Player.cpp' l='674' u='c' c='_ZN16idPhysics_Player8WalkMoveEv'/>
+<use f='codebrowser/game/physics/Physics_Player.cpp' l='802' u='c' c='_ZN16idPhysics_Player10NoclipMoveEv'/>
+<use f='codebrowser/game/physics/Physics_Player.cpp' l='833' u='c' c='_ZN16idPhysics_Player13SpectatorMoveEv'/>
+<use f='codebrowser/game/physics/Physics_Player.cpp' l='871' u='c' c='_ZN16idPhysics_Player10LadderMoveEv'/>
+<doc f='codebrowser/game/physics/Physics_Player.cpp' l='70'>/*
+============
+idPhysics_Player::CmdScale
+
+Returns the scale factor to apply to cmd movements
+This allows the clients to use axial -127 to 127 values for all directions
+without getting a sqrt(2) distortion in speed.
+============
+*/</doc>

@@ -1,0 +1,118 @@
+<def f='codebrowser/idlib/Parser.h' l='76' ll='245'/>
+<size>108</size>
+<fun r='_ZN8idParserC1Ev'/>
+<fun r='_ZN8idParserC1Ei'/>
+<fun r='_ZN8idParserC1EPKcib'/>
+<fun r='_ZN8idParserC1EPKciS1_i'/>
+<fun r='_ZN8idParserD1Ev'/>
+<fun r='_ZN8idParser8LoadFileEPKcb'/>
+<fun r='_ZN8idParser10LoadMemoryEPKciS1_'/>
+<fun r='_ZN8idParser10FreeSourceEb'/>
+<fun r='_ZNK8idParser8IsLoadedEv'/>
+<fun r='_ZN8idParser9ReadTokenEP7idToken'/>
+<fun r='_ZN8idParser17ExpectTokenStringEPKc'/>
+<fun r='_ZN8idParser15ExpectTokenTypeEiiP7idToken'/>
+<fun r='_ZN8idParser14ExpectAnyTokenEP7idToken'/>
+<fun r='_ZN8idParser16CheckTokenStringEPKc'/>
+<fun r='_ZN8idParser14CheckTokenTypeEiiP7idToken'/>
+<fun r='_ZN8idParser15PeekTokenStringEPKc'/>
+<fun r='_ZN8idParser13PeekTokenTypeEiiP7idToken'/>
+<fun r='_ZN8idParser15SkipUntilStringEPKc'/>
+<fun r='_ZN8idParser14SkipRestOfLineEv'/>
+<fun r='_ZN8idParser17SkipBracedSectionEb'/>
+<fun r='_ZN8idParser18ParseBracedSectionER5idStri'/>
+<fun r='_ZN8idParser23ParseBracedSectionExactER5idStri'/>
+<fun r='_ZN8idParser15ParseRestOfLineER5idStr'/>
+<fun r='_ZN8idParser11UnreadTokenEP7idToken'/>
+<fun r='_ZN8idParser15ReadTokenOnLineEP7idToken'/>
+<fun r='_ZN8idParser8ParseIntEv'/>
+<fun r='_ZN8idParser9ParseBoolEv'/>
+<fun r='_ZN8idParser10ParseFloatEv'/>
+<fun r='_ZN8idParser13Parse1DMatrixEiPf'/>
+<fun r='_ZN8idParser13Parse2DMatrixEiiPf'/>
+<fun r='_ZN8idParser13Parse3DMatrixEiiiPf'/>
+<fun r='_ZNK8idParser17GetLastWhiteSpaceER5idStr'/>
+<fun r='_ZN8idParser9SetMarkerEv'/>
+<fun r='_ZN8idParser19GetStringFromMarkerER5idStrb'/>
+<fun r='_ZN8idParser9AddDefineEPKc'/>
+<fun r='_ZN8idParser17AddBuiltinDefinesEv'/>
+<fun r='_ZN8idParser14SetIncludePathEPKc'/>
+<fun r='_ZN8idParser15SetPunctuationsEPK13punctuation_s'/>
+<fun r='_ZN8idParser20GetPunctuationFromIdEi'/>
+<fun r='_ZN8idParser16GetPunctuationIdEPKc'/>
+<fun r='_ZN8idParser8SetFlagsEi'/>
+<fun r='_ZNK8idParser8GetFlagsEv'/>
+<fun r='_ZNK8idParser11GetFileNameEv'/>
+<fun r='_ZNK8idParser13GetFileOffsetEv'/>
+<fun r='_ZNK8idParser11GetFileTimeEv'/>
+<fun r='_ZNK8idParser10GetLineNumEv'/>
+<fun r='_ZNK8idParser5ErrorEPKcz'/>
+<fun r='_ZNK8idParser7WarningEPKcz'/>
+<fun r='_ZN8idParser15AddGlobalDefineEPKc'/>
+<fun r='_ZN8idParser18RemoveGlobalDefineEPKc'/>
+<fun r='_ZN8idParser22RemoveAllGlobalDefinesEv'/>
+<fun r='_ZN8idParser13SetBaseFolderEPKc'/>
+<mbr r='idParser::loaded' o='0' t='int'/>
+<mbr r='idParser::filename' o='32' t='idStr'/>
+<mbr r='idParser::includepath' o='288' t='idStr'/>
+<mbr r='idParser::OSPath' o='544' t='bool'/>
+<mbr r='idParser::punctuations' o='576' t='const punctuation_t *'/>
+<mbr r='idParser::flags' o='608' t='int'/>
+<mbr r='idParser::scriptstack' o='640' t='idLexer *'/>
+<mbr r='idParser::tokens' o='672' t='idToken *'/>
+<mbr r='idParser::defines' o='704' t='define_t *'/>
+<mbr r='idParser::definehash' o='736' t='define_t **'/>
+<mbr r='idParser::indentstack' o='768' t='indent_t *'/>
+<mbr r='idParser::skip' o='800' t='int'/>
+<mbr r='idParser::marker_p' o='832' t='const char *'/>
+<smbr r='idParser::globaldefines' t='define_t *'/>
+<fun r='_ZN8idParser10PushIndentEii'/>
+<fun r='_ZN8idParser9PopIndentEPiS0_'/>
+<fun r='_ZN8idParser10PushScriptEP7idLexer'/>
+<fun r='_ZN8idParser15ReadSourceTokenEP7idToken'/>
+<fun r='_ZN8idParser8ReadLineEP7idToken'/>
+<fun r='_ZN8idParser17UnreadSourceTokenEP7idToken'/>
+<fun r='_ZN8idParser15ReadDefineParmsEP8define_sPP7idTokeni'/>
+<fun r='_ZN8idParser15StringizeTokensEP7idTokenS1_'/>
+<fun r='_ZN8idParser11MergeTokensEP7idTokenS1_'/>
+<fun r='_ZN8idParser19ExpandBuiltinDefineEP7idTokenP8define_sPS1_S4_'/>
+<fun r='_ZN8idParser12ExpandDefineEP7idTokenP8define_sPS1_S4_'/>
+<fun r='_ZN8idParser22ExpandDefineIntoSourceEP7idTokenP8define_s'/>
+<fun r='_ZN8idParser24AddGlobalDefinesToSourceEv'/>
+<fun r='_ZN8idParser10CopyDefineEP8define_s'/>
+<fun r='_ZN8idParser16FindHashedDefineEPP8define_sPKc'/>
+<fun r='_ZN8idParser14FindDefineParmEP8define_sPKc'/>
+<fun r='_ZN8idParser15AddDefineToHashEP8define_sPS1_'/>
+<fun r='_ZN8idParser11PrintDefineEP8define_s'/>
+<fun r='_ZN8idParser10FreeDefineEP8define_s'/>
+<fun r='_ZN8idParser10FindDefineEP8define_sPKc'/>
+<fun r='_ZN8idParser16DefineFromStringEPKc'/>
+<fun r='_ZN8idParser15CopyFirstDefineEv'/>
+<fun r='_ZN8idParser17Directive_includeEv'/>
+<fun r='_ZN8idParser15Directive_undefEv'/>
+<fun r='_ZN8idParser16Directive_if_defEi'/>
+<fun r='_ZN8idParser15Directive_ifdefEv'/>
+<fun r='_ZN8idParser16Directive_ifndefEv'/>
+<fun r='_ZN8idParser14Directive_elseEv'/>
+<fun r='_ZN8idParser15Directive_endifEv'/>
+<fun r='_ZN8idParser14EvaluateTokensEP7idTokenPlPdi'/>
+<fun r='_ZN8idParser8EvaluateEPlPdi'/>
+<fun r='_ZN8idParser14DollarEvaluateEPlPdi'/>
+<fun r='_ZN8idParser16Directive_defineEv'/>
+<fun r='_ZN8idParser14Directive_elifEv'/>
+<fun r='_ZN8idParser12Directive_ifEv'/>
+<fun r='_ZN8idParser14Directive_lineEv'/>
+<fun r='_ZN8idParser15Directive_errorEv'/>
+<fun r='_ZN8idParser17Directive_warningEv'/>
+<fun r='_ZN8idParser16Directive_pragmaEv'/>
+<fun r='_ZN8idParser15UnreadSignTokenEv'/>
+<fun r='_ZN8idParser14Directive_evalEv'/>
+<fun r='_ZN8idParser19Directive_evalfloatEv'/>
+<fun r='_ZN8idParser13ReadDirectiveEv'/>
+<fun r='_ZN8idParser23DollarDirective_evalintEv'/>
+<fun r='_ZN8idParser25DollarDirective_evalfloatEv'/>
+<fun r='_ZN8idParser19ReadDollarDirectiveEv'/>
+<fun r='_ZNK8idParser11GetFileNameEv'/>
+<fun r='_ZNK8idParser13GetFileOffsetEv'/>
+<fun r='_ZNK8idParser11GetFileTimeEv'/>
+<fun r='_ZNK8idParser10GetLineNumEv'/>

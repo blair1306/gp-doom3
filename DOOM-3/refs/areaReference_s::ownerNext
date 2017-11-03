@@ -1,0 +1,12 @@
+<dec f='codebrowser/renderer/tr_local.h' l='144' type='struct areaReference_s *'/>
+<offset>64</offset>
+<doc f='codebrowser/renderer/tr_local.h' l='144'>// chain on either the entityDef or lightDef</doc>
+<use f='codebrowser/renderer/Interaction.cpp' l='713' u='r' c='_ZN13idInteraction31CalcInteractionScissorRectangleERK9idFrustum'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='66' u='r' c='_Z23R_ListRenderLightDefs_fRK9idCmdArgs'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='110' u='r' c='_Z24R_ListRenderEntityDefs_fRK9idCmdArgs'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1398' u='w' c='_ZN18idRenderWorldLocal18AddEntityRefToAreaEP19idRenderEntityLocalP12portalArea_s'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1422' u='w' c='_ZN18idRenderWorldLocal17AddLightRefToAreaEP18idRenderLightLocalP12portalArea_s'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='548' u='r' c='_ZN18idRenderWorldLocal26CreateLightDefInteractionsEP18idRenderLightLocal'/>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='563' u='r' c='_Z26R_CreateLightDefFogPortalsP18idRenderLightLocal'/>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='611' u='r' c='_Z25R_FreeLightDefDerivedDataP18idRenderLightLocal'/>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='678' u='r' c='_Z26R_FreeEntityDefDerivedDataP19idRenderEntityLocalbb'/>

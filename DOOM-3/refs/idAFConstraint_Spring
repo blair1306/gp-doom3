@@ -1,0 +1,50 @@
+<inh f='codebrowser/d3xp/physics/Physics_AF.h' l='93' c='idAFConstraint'/>
+<def f='codebrowser/d3xp/physics/Physics_AF.h' l='467' ll='494'/>
+<size>284</size>
+<doc f='codebrowser/d3xp/physics/Physics_AF.h' l='465'>// spring constraint which allows 6 or 5 degrees of freedom based on the spring limits
+// constrains body1 relative to body2 with a spring</doc>
+<fun r='_ZN21idAFConstraint_SpringC1ERK5idStrP8idAFBodyS4_'/>
+<fun r='_ZN21idAFConstraint_Spring9SetAnchorERK6idVec3S2_'/>
+<fun r='_ZN21idAFConstraint_Spring9SetSpringEffff'/>
+<fun r='_ZN21idAFConstraint_Spring8SetLimitEff'/>
+<fun r='_ZN21idAFConstraint_Spring9DebugDrawEv'/>
+<fun r='_ZN21idAFConstraint_Spring9TranslateERK6idVec3'/>
+<fun r='_ZN21idAFConstraint_Spring6RotateERK10idRotation'/>
+<fun r='_ZN21idAFConstraint_Spring9GetCenterER6idVec3'/>
+<fun r='_ZNK21idAFConstraint_Spring4SaveEP10idSaveGame'/>
+<fun r='_ZN21idAFConstraint_Spring7RestoreEP13idRestoreGame'/>
+<mbr r='idAFConstraint_Spring::anchor1' o='1888' t='idVec3'/>
+<mbr r='idAFConstraint_Spring::anchor2' o='1984' t='idVec3'/>
+<mbr r='idAFConstraint_Spring::kstretch' o='2080' t='float'/>
+<mbr r='idAFConstraint_Spring::kcompress' o='2112' t='float'/>
+<mbr r='idAFConstraint_Spring::damping' o='2144' t='float'/>
+<mbr r='idAFConstraint_Spring::restLength' o='2176' t='float'/>
+<mbr r='idAFConstraint_Spring::minLength' o='2208' t='float'/>
+<mbr r='idAFConstraint_Spring::maxLength' o='2240' t='float'/>
+<fun r='_ZN21idAFConstraint_Spring8EvaluateEf'/>
+<fun r='_ZN21idAFConstraint_Spring13ApplyFrictionEf'/>
+<inh f='codebrowser/game/physics/Physics_AF.h' l='93' c='idAFConstraint'/>
+<def f='codebrowser/game/physics/Physics_AF.h' l='467' ll='494'/>
+<size>284</size>
+<doc f='codebrowser/game/physics/Physics_AF.h' l='465'>// spring constraint which allows 6 or 5 degrees of freedom based on the spring limits
+// constrains body1 relative to body2 with a spring</doc>
+<fun r='_ZN21idAFConstraint_SpringC1ERK5idStrP8idAFBodyS4_'/>
+<fun r='_ZN21idAFConstraint_Spring9SetAnchorERK6idVec3S2_'/>
+<fun r='_ZN21idAFConstraint_Spring9SetSpringEffff'/>
+<fun r='_ZN21idAFConstraint_Spring8SetLimitEff'/>
+<fun r='_ZN21idAFConstraint_Spring9DebugDrawEv'/>
+<fun r='_ZN21idAFConstraint_Spring9TranslateERK6idVec3'/>
+<fun r='_ZN21idAFConstraint_Spring6RotateERK10idRotation'/>
+<fun r='_ZN21idAFConstraint_Spring9GetCenterER6idVec3'/>
+<fun r='_ZNK21idAFConstraint_Spring4SaveEP10idSaveGame'/>
+<fun r='_ZN21idAFConstraint_Spring7RestoreEP13idRestoreGame'/>
+<mbr r='idAFConstraint_Spring::anchor1' o='1888' t='idVec3'/>
+<mbr r='idAFConstraint_Spring::anchor2' o='1984' t='idVec3'/>
+<mbr r='idAFConstraint_Spring::kstretch' o='2080' t='float'/>
+<mbr r='idAFConstraint_Spring::kcompress' o='2112' t='float'/>
+<mbr r='idAFConstraint_Spring::damping' o='2144' t='float'/>
+<mbr r='idAFConstraint_Spring::restLength' o='2176' t='float'/>
+<mbr r='idAFConstraint_Spring::minLength' o='2208' t='float'/>
+<mbr r='idAFConstraint_Spring::maxLength' o='2240' t='float'/>
+<fun r='_ZN21idAFConstraint_Spring8EvaluateEf'/>
+<fun r='_ZN21idAFConstraint_Spring13ApplyFrictionEf'/>

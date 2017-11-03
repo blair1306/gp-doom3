@@ -1,0 +1,24 @@
+<def f='codebrowser/renderer/Model_md3.h' l='86' ll='105'/>
+<size>108</size>
+<doc f='codebrowser/renderer/Model_md3.h' l='75'>/*
+** md3Surface_t
+**
+** CHUNK			SIZE
+** header			sizeof( md3Surface_t )
+** shaders			sizeof( md3Shader_t ) * numShaders
+** triangles[0]		sizeof( md3Triangle_t ) * numTriangles
+** st				sizeof( md3St_t ) * numVerts
+** XyzNormals		sizeof( md3XyzNormal_t ) * numVerts * numFrames
+*/</doc>
+<mbr r='md3Surface_s::ident' o='0' t='int'/>
+<mbr r='md3Surface_s::name' o='32' t='char [64]'/>
+<mbr r='md3Surface_s::flags' o='544' t='int'/>
+<mbr r='md3Surface_s::numFrames' o='576' t='int'/>
+<mbr r='md3Surface_s::numShaders' o='608' t='int'/>
+<mbr r='md3Surface_s::numVerts' o='640' t='int'/>
+<mbr r='md3Surface_s::numTriangles' o='672' t='int'/>
+<mbr r='md3Surface_s::ofsTriangles' o='704' t='int'/>
+<mbr r='md3Surface_s::ofsShaders' o='736' t='int'/>
+<mbr r='md3Surface_s::ofsSt' o='768' t='int'/>
+<mbr r='md3Surface_s::ofsXyzNormals' o='800' t='int'/>
+<mbr r='md3Surface_s::ofsEnd' o='832' t='int'/>

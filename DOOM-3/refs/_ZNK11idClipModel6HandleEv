@@ -1,0 +1,74 @@
+<dec f='codebrowser/d3xp/physics/Clip.h' l='100' type='cmHandle_t idClipModel::Handle() const'/>
+<use f='codebrowser/d3xp/AF.cpp' l='368' u='c' c='_ZNK4idAF18EntitiesTouchingAFEP9afTouch_s'/>
+<doc f='codebrowser/d3xp/physics/Clip.h' l='100'>// returns handle used to collide vs this model</doc>
+<use f='codebrowser/d3xp/Trigger.cpp' l='1163' u='c' c='_ZN15idTrigger_Touch13TouchEntitiesEv'/>
+<def f='codebrowser/d3xp/physics/Clip.cpp' l='457' ll='468' type='cmHandle_t idClipModel::Handle() const'/>
+<use f='codebrowser/d3xp/physics/Clip.cpp' l='1037' u='c' c='_ZN6idClip19TranslationEntitiesER7trace_sRK6idVec3S4_PK11idClipModelRK6idMat3iPK8idEntity'/>
+<use f='codebrowser/d3xp/physics/Clip.cpp' l='1109' u='c' c='_ZN6idClip11TranslationER7trace_sRK6idVec3S4_PK11idClipModelRK6idMat3iPK8idEntity'/>
+<use f='codebrowser/d3xp/physics/Clip.cpp' l='1177' u='c' c='_ZN6idClip8RotationER7trace_sRK6idVec3RK10idRotationPK11idClipModelRK6idMat3iPK8idEntity'/>
+<use f='codebrowser/d3xp/physics/Clip.cpp' l='1275' u='c' c='_ZN6idClip6MotionER7trace_sRK6idVec3S4_RK10idRotationPK11idClipModelRK6idMat3iPK8idEntity'/>
+<use f='codebrowser/d3xp/physics/Clip.cpp' l='1328' u='c' c='_ZN6idClip6MotionER7trace_sRK6idVec3S4_RK10idRotationPK11idClipModelRK6idMat3iPK8idEntity'/>
+<use f='codebrowser/d3xp/physics/Clip.cpp' l='1408' u='c' c='_ZN6idClip8ContactsEP13contactInfo_tiRK6idVec3RK6idVec6fPK11idClipModelRK6idMat3iPK8idEntity'/>
+<use f='codebrowser/d3xp/physics/Clip.cpp' l='1480' u='c' c='_ZN6idClip8ContentsERK6idVec3PK11idClipModelRK6idMat3iPK8idEntity'/>
+<use f='codebrowser/d3xp/physics/Clip.cpp' l='1635' u='c' c='_ZN6idClip14DrawClipModelsERK6idVec3fPK8idEntity'/>
+<doc f='codebrowser/d3xp/physics/Clip.cpp' l='452'>/*
+================
+idClipModel::Handle
+================
+*/</doc>
+<use f='codebrowser/d3xp/physics/Force_Field.cpp' l='190' u='c' c='_ZN13idForce_Field8EvaluateEi'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='6472' u='c' c='_ZN12idPhysics_AF9DebugDrawEv'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='6478' u='c' c='_ZN12idPhysics_AF9DebugDrawEv'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='6490' u='c' c='_ZN12idPhysics_AF9DebugDrawEv'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='6505' u='c' c='_ZN12idPhysics_AF9DebugDrawEv'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='7687' u='c' c='_ZNK12idPhysics_AF15ClipTranslationER7trace_sRK6idVec3PK11idClipModel'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='7723' u='c' c='_ZNK12idPhysics_AF12ClipRotationER7trace_sRK10idRotationPK11idClipModel'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='7758' u='c' c='_ZNK12idPhysics_AF12ClipContentsEPK11idClipModel'/>
+<use f='codebrowser/d3xp/physics/Physics_Actor.cpp' l='293' u='c' c='_ZNK15idPhysics_Actor15ClipTranslationER7trace_sRK6idVec3PK11idClipModel'/>
+<use f='codebrowser/d3xp/physics/Physics_Actor.cpp' l='310' u='c' c='_ZNK15idPhysics_Actor12ClipRotationER7trace_sRK10idRotationPK11idClipModel'/>
+<use f='codebrowser/d3xp/physics/Physics_Actor.cpp' l='326' u='c' c='_ZNK15idPhysics_Actor12ClipContentsEPK11idClipModel'/>
+<use f='codebrowser/d3xp/physics/Physics_RigidBody.cpp' l='409' u='c' c='_ZN19idPhysics_RigidBody9DebugDrawEv'/>
+<use f='codebrowser/d3xp/physics/Physics_RigidBody.cpp' l='1273' u='c' c='_ZNK19idPhysics_RigidBody15ClipTranslationER7trace_sRK6idVec3PK11idClipModel'/>
+<use f='codebrowser/d3xp/physics/Physics_RigidBody.cpp' l='1290' u='c' c='_ZNK19idPhysics_RigidBody12ClipRotationER7trace_sRK10idRotationPK11idClipModel'/>
+<use f='codebrowser/d3xp/physics/Physics_RigidBody.cpp' l='1306' u='c' c='_ZNK19idPhysics_RigidBody12ClipContentsEPK11idClipModel'/>
+<use f='codebrowser/d3xp/physics/Physics_Static.cpp' l='541' u='c' c='_ZNK16idPhysics_Static15ClipTranslationER7trace_sRK6idVec3PK11idClipModel'/>
+<use f='codebrowser/d3xp/physics/Physics_Static.cpp' l='556' u='c' c='_ZNK16idPhysics_Static12ClipRotationER7trace_sRK10idRotationPK11idClipModel'/>
+<use f='codebrowser/d3xp/physics/Physics_Static.cpp' l='571' u='c' c='_ZNK16idPhysics_Static12ClipContentsEPK11idClipModel'/>
+<use f='codebrowser/d3xp/physics/Physics_StaticMulti.cpp' l='747' u='c' c='_ZNK21idPhysics_StaticMulti12ClipContentsEPK11idClipModel'/>
+<dec f='codebrowser/game/physics/Clip.h' l='100' type='cmHandle_t idClipModel::Handle() const'/>
+<use f='codebrowser/game/AF.cpp' l='368' u='c' c='_ZNK4idAF18EntitiesTouchingAFEP9afTouch_s'/>
+<doc f='codebrowser/game/physics/Clip.h' l='100'>// returns handle used to collide vs this model</doc>
+<use f='codebrowser/game/Trigger.cpp' l='1139' u='c' c='_ZN15idTrigger_Touch13TouchEntitiesEv'/>
+<def f='codebrowser/game/physics/Clip.cpp' l='457' ll='468' type='cmHandle_t idClipModel::Handle() const'/>
+<use f='codebrowser/game/physics/Clip.cpp' l='1032' u='c' c='_ZN6idClip19TranslationEntitiesER7trace_sRK6idVec3S4_PK11idClipModelRK6idMat3iPK8idEntity'/>
+<use f='codebrowser/game/physics/Clip.cpp' l='1104' u='c' c='_ZN6idClip11TranslationER7trace_sRK6idVec3S4_PK11idClipModelRK6idMat3iPK8idEntity'/>
+<use f='codebrowser/game/physics/Clip.cpp' l='1172' u='c' c='_ZN6idClip8RotationER7trace_sRK6idVec3RK10idRotationPK11idClipModelRK6idMat3iPK8idEntity'/>
+<use f='codebrowser/game/physics/Clip.cpp' l='1270' u='c' c='_ZN6idClip6MotionER7trace_sRK6idVec3S4_RK10idRotationPK11idClipModelRK6idMat3iPK8idEntity'/>
+<use f='codebrowser/game/physics/Clip.cpp' l='1323' u='c' c='_ZN6idClip6MotionER7trace_sRK6idVec3S4_RK10idRotationPK11idClipModelRK6idMat3iPK8idEntity'/>
+<use f='codebrowser/game/physics/Clip.cpp' l='1403' u='c' c='_ZN6idClip8ContactsEP13contactInfo_tiRK6idVec3RK6idVec6fPK11idClipModelRK6idMat3iPK8idEntity'/>
+<use f='codebrowser/game/physics/Clip.cpp' l='1475' u='c' c='_ZN6idClip8ContentsERK6idVec3PK11idClipModelRK6idMat3iPK8idEntity'/>
+<use f='codebrowser/game/physics/Clip.cpp' l='1630' u='c' c='_ZN6idClip14DrawClipModelsERK6idVec3fPK8idEntity'/>
+<doc f='codebrowser/game/physics/Clip.cpp' l='452'>/*
+================
+idClipModel::Handle
+================
+*/</doc>
+<use f='codebrowser/game/physics/Force_Field.cpp' l='190' u='c' c='_ZN13idForce_Field8EvaluateEi'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='6471' u='c' c='_ZN12idPhysics_AF9DebugDrawEv'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='6477' u='c' c='_ZN12idPhysics_AF9DebugDrawEv'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='6489' u='c' c='_ZN12idPhysics_AF9DebugDrawEv'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='6504' u='c' c='_ZN12idPhysics_AF9DebugDrawEv'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='7686' u='c' c='_ZNK12idPhysics_AF15ClipTranslationER7trace_sRK6idVec3PK11idClipModel'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='7722' u='c' c='_ZNK12idPhysics_AF12ClipRotationER7trace_sRK10idRotationPK11idClipModel'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='7757' u='c' c='_ZNK12idPhysics_AF12ClipContentsEPK11idClipModel'/>
+<use f='codebrowser/game/physics/Physics_Actor.cpp' l='293' u='c' c='_ZNK15idPhysics_Actor15ClipTranslationER7trace_sRK6idVec3PK11idClipModel'/>
+<use f='codebrowser/game/physics/Physics_Actor.cpp' l='310' u='c' c='_ZNK15idPhysics_Actor12ClipRotationER7trace_sRK10idRotationPK11idClipModel'/>
+<use f='codebrowser/game/physics/Physics_Actor.cpp' l='326' u='c' c='_ZNK15idPhysics_Actor12ClipContentsEPK11idClipModel'/>
+<use f='codebrowser/game/physics/Physics_RigidBody.cpp' l='409' u='c' c='_ZN19idPhysics_RigidBody9DebugDrawEv'/>
+<use f='codebrowser/game/physics/Physics_RigidBody.cpp' l='1273' u='c' c='_ZNK19idPhysics_RigidBody15ClipTranslationER7trace_sRK6idVec3PK11idClipModel'/>
+<use f='codebrowser/game/physics/Physics_RigidBody.cpp' l='1290' u='c' c='_ZNK19idPhysics_RigidBody12ClipRotationER7trace_sRK10idRotationPK11idClipModel'/>
+<use f='codebrowser/game/physics/Physics_RigidBody.cpp' l='1306' u='c' c='_ZNK19idPhysics_RigidBody12ClipContentsEPK11idClipModel'/>
+<use f='codebrowser/game/physics/Physics_Static.cpp' l='541' u='c' c='_ZNK16idPhysics_Static15ClipTranslationER7trace_sRK6idVec3PK11idClipModel'/>
+<use f='codebrowser/game/physics/Physics_Static.cpp' l='556' u='c' c='_ZNK16idPhysics_Static12ClipRotationER7trace_sRK10idRotationPK11idClipModel'/>
+<use f='codebrowser/game/physics/Physics_Static.cpp' l='571' u='c' c='_ZNK16idPhysics_Static12ClipContentsEPK11idClipModel'/>
+<use f='codebrowser/game/physics/Physics_StaticMulti.cpp' l='747' u='c' c='_ZNK21idPhysics_StaticMulti12ClipContentsEPK11idClipModel'/>

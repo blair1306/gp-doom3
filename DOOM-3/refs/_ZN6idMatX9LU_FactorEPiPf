@@ -1,0 +1,29 @@
+<dec f='codebrowser/idlib/math/Matrix.h' l='1912' type='bool idMatX::LU_Factor(int * index, float * det = __null)'/>
+<use f='codebrowser/idlib/math/Curve.h' l='1338' u='c' c='_ZNK26idCurve_NaturalCubicSpline11SetupClosedEv'/>
+<doc f='codebrowser/idlib/math/Matrix.h' l='1912'>// factor in-place: L * U</doc>
+<def f='codebrowser/idlib/math/Matrix.cpp' l='3863' ll='3938' type='bool idMatX::LU_Factor(int * index, float * det = __null)'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7147' u='c' c='_ZNK6idMatX18DeterminantGenericEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7168' u='c' c='_ZN6idMatX18InverseSelfGenericEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7368' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7387' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7391' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7419' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7423' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7451' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7455' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7486' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7490' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7517' u='c' c='_ZN6idMatX4TestEv'/>
+<doc f='codebrowser/idlib/math/Matrix.cpp' l='3850'>/*
+============
+idMatX::LU_Factor
+
+  in-place factorization: LU
+  L is a triangular matrix stored in the lower triangle.
+  L has ones on the diagonal that are not stored.
+  U is a triangular matrix stored in the upper triangle.
+  If index != NULL partial pivoting is used for numerical stability.
+  If index != NULL it must point to an array of numRow integers and is used to keep track of the row permutation.
+  If det != NULL the determinant of the matrix is calculated and stored.
+============
+*/</doc>

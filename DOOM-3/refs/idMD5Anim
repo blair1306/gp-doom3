@@ -1,0 +1,88 @@
+<def f='codebrowser/d3xp/anim/Anim.h' l='226' ll='270'/>
+<size>132</size>
+<doc f='codebrowser/d3xp/anim/Anim.h' l='218'>/*
+==============================================================================================
+
+	idMD5Anim
+
+==============================================================================================
+*/</doc>
+<mbr r='idMD5Anim::numFrames' o='0' t='int'/>
+<mbr r='idMD5Anim::frameRate' o='32' t='int'/>
+<mbr r='idMD5Anim::animLength' o='64' t='int'/>
+<mbr r='idMD5Anim::numJoints' o='96' t='int'/>
+<mbr r='idMD5Anim::numAnimatedComponents' o='128' t='int'/>
+<mbr r='idMD5Anim::bounds' o='160' t='idList&lt;idBounds&gt;'/>
+<mbr r='idMD5Anim::jointInfo' o='288' t='idList&lt;jointAnimInfo_t&gt;'/>
+<mbr r='idMD5Anim::baseFrame' o='416' t='idList&lt;idJointQuat&gt;'/>
+<mbr r='idMD5Anim::componentFrames' o='544' t='idList&lt;float&gt;'/>
+<mbr r='idMD5Anim::name' o='672' t='idStr'/>
+<mbr r='idMD5Anim::totaldelta' o='928' t='idVec3'/>
+<mbr r='idMD5Anim::ref_count' o='1024' t='int'/>
+<fun r='_ZN9idMD5AnimC1Ev'/>
+<fun r='_ZN9idMD5AnimD1Ev'/>
+<fun r='_ZN9idMD5Anim4FreeEv'/>
+<fun r='_ZN9idMD5Anim6ReloadEv'/>
+<fun r='_ZNK9idMD5Anim9AllocatedEv'/>
+<fun r='_ZNK9idMD5Anim4SizeEv'/>
+<fun r='_ZN9idMD5Anim8LoadAnimEPKc'/>
+<fun r='_ZNK9idMD5Anim12IncreaseRefsEv'/>
+<fun r='_ZNK9idMD5Anim12DecreaseRefsEv'/>
+<fun r='_ZNK9idMD5Anim7NumRefsEv'/>
+<fun r='_ZNK9idMD5Anim19CheckModelHierarchyEPK13idRenderModel'/>
+<fun r='_ZNK9idMD5Anim20GetInterpolatedFrameER12frameBlend_tP11idJointQuatPKii'/>
+<fun r='_ZNK9idMD5Anim14GetSingleFrameEiP11idJointQuatPKii'/>
+<fun r='_ZNK9idMD5Anim6LengthEv'/>
+<fun r='_ZNK9idMD5Anim9NumFramesEv'/>
+<fun r='_ZNK9idMD5Anim9NumJointsEv'/>
+<fun r='_ZNK9idMD5Anim18TotalMovementDeltaEv'/>
+<fun r='_ZNK9idMD5Anim4NameEv'/>
+<fun r='_ZNK9idMD5Anim13GetFrameBlendEiR12frameBlend_t'/>
+<fun r='_ZNK9idMD5Anim18ConvertTimeToFrameEiiR12frameBlend_t'/>
+<fun r='_ZNK9idMD5Anim9GetOriginER6idVec3ii'/>
+<fun r='_ZNK9idMD5Anim17GetOriginRotationER6idQuatii'/>
+<fun r='_ZNK9idMD5Anim9GetBoundsER8idBoundsii'/>
+<def f='codebrowser/game/anim/Anim.h' l='220' ll='264'/>
+<size>132</size>
+<doc f='codebrowser/game/anim/Anim.h' l='212'>/*
+==============================================================================================
+
+	idMD5Anim
+
+==============================================================================================
+*/</doc>
+<mbr r='idMD5Anim::numFrames' o='0' t='int'/>
+<mbr r='idMD5Anim::frameRate' o='32' t='int'/>
+<mbr r='idMD5Anim::animLength' o='64' t='int'/>
+<mbr r='idMD5Anim::numJoints' o='96' t='int'/>
+<mbr r='idMD5Anim::numAnimatedComponents' o='128' t='int'/>
+<mbr r='idMD5Anim::bounds' o='160' t='idList&lt;idBounds&gt;'/>
+<mbr r='idMD5Anim::jointInfo' o='288' t='idList&lt;jointAnimInfo_t&gt;'/>
+<mbr r='idMD5Anim::baseFrame' o='416' t='idList&lt;idJointQuat&gt;'/>
+<mbr r='idMD5Anim::componentFrames' o='544' t='idList&lt;float&gt;'/>
+<mbr r='idMD5Anim::name' o='672' t='idStr'/>
+<mbr r='idMD5Anim::totaldelta' o='928' t='idVec3'/>
+<mbr r='idMD5Anim::ref_count' o='1024' t='int'/>
+<fun r='_ZN9idMD5AnimC1Ev'/>
+<fun r='_ZN9idMD5AnimD1Ev'/>
+<fun r='_ZN9idMD5Anim4FreeEv'/>
+<fun r='_ZN9idMD5Anim6ReloadEv'/>
+<fun r='_ZNK9idMD5Anim9AllocatedEv'/>
+<fun r='_ZNK9idMD5Anim4SizeEv'/>
+<fun r='_ZN9idMD5Anim8LoadAnimEPKc'/>
+<fun r='_ZNK9idMD5Anim12IncreaseRefsEv'/>
+<fun r='_ZNK9idMD5Anim12DecreaseRefsEv'/>
+<fun r='_ZNK9idMD5Anim7NumRefsEv'/>
+<fun r='_ZNK9idMD5Anim19CheckModelHierarchyEPK13idRenderModel'/>
+<fun r='_ZNK9idMD5Anim20GetInterpolatedFrameER12frameBlend_tP11idJointQuatPKii'/>
+<fun r='_ZNK9idMD5Anim14GetSingleFrameEiP11idJointQuatPKii'/>
+<fun r='_ZNK9idMD5Anim6LengthEv'/>
+<fun r='_ZNK9idMD5Anim9NumFramesEv'/>
+<fun r='_ZNK9idMD5Anim9NumJointsEv'/>
+<fun r='_ZNK9idMD5Anim18TotalMovementDeltaEv'/>
+<fun r='_ZNK9idMD5Anim4NameEv'/>
+<fun r='_ZNK9idMD5Anim13GetFrameBlendEiR12frameBlend_t'/>
+<fun r='_ZNK9idMD5Anim18ConvertTimeToFrameEiiR12frameBlend_t'/>
+<fun r='_ZNK9idMD5Anim9GetOriginER6idVec3ii'/>
+<fun r='_ZNK9idMD5Anim17GetOriginRotationER6idQuatii'/>
+<fun r='_ZNK9idMD5Anim9GetBoundsER8idBoundsii'/>

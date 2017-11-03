@@ -1,0 +1,67 @@
+<inh f='codebrowser/ui/UserInterface.h' l='45' c='idUserInterface'/>
+<def f='codebrowser/ui/UserInterfaceLocal.h' l='31' ll='116'/>
+<size>208</size>
+<fun r='_ZN20idUserInterfaceLocalC1Ev'/>
+<fun r='_ZN20idUserInterfaceLocalD1Ev'/>
+<fun r='_ZNK20idUserInterfaceLocal4NameEv'/>
+<fun r='_ZNK20idUserInterfaceLocal7CommentEv'/>
+<fun r='_ZNK20idUserInterfaceLocal13IsInteractiveEv'/>
+<fun r='_ZN20idUserInterfaceLocal12InitFromFileEPKcbb'/>
+<fun r='_ZN20idUserInterfaceLocal11HandleEventEPK10sysEvent_siPb'/>
+<fun r='_ZN20idUserInterfaceLocal16HandleNamedEventEPKc'/>
+<fun r='_ZN20idUserInterfaceLocal6RedrawEi'/>
+<fun r='_ZN20idUserInterfaceLocal10DrawCursorEv'/>
+<fun r='_ZNK20idUserInterfaceLocal5StateEv'/>
+<fun r='_ZN20idUserInterfaceLocal14DeleteStateVarEPKc'/>
+<fun r='_ZN20idUserInterfaceLocal14SetStateStringEPKcS1_'/>
+<fun r='_ZN20idUserInterfaceLocal12SetStateBoolEPKcb'/>
+<fun r='_ZN20idUserInterfaceLocal11SetStateIntEPKci'/>
+<fun r='_ZN20idUserInterfaceLocal13SetStateFloatEPKcf'/>
+<fun r='_ZNK20idUserInterfaceLocal14GetStateStringEPKcS1_'/>
+<fun r='_ZNK20idUserInterfaceLocal12GetStateBoolEPKcS1_'/>
+<fun r='_ZNK20idUserInterfaceLocal11GetStateIntEPKcS1_'/>
+<fun r='_ZNK20idUserInterfaceLocal13GetStateFloatEPKcS1_'/>
+<fun r='_ZN20idUserInterfaceLocal12StateChangedEib'/>
+<fun r='_ZN20idUserInterfaceLocal8ActivateEbi'/>
+<fun r='_ZN20idUserInterfaceLocal7TriggerEi'/>
+<fun r='_ZN20idUserInterfaceLocal16ReadFromDemoFileEP10idDemoFile'/>
+<fun r='_ZN20idUserInterfaceLocal15WriteToDemoFileEP10idDemoFile'/>
+<fun r='_ZNK20idUserInterfaceLocal15WriteToSaveGameEP6idFile'/>
+<fun r='_ZN20idUserInterfaceLocal16ReadFromSaveGameEP6idFile'/>
+<fun r='_ZN20idUserInterfaceLocal18SetKeyBindingNamesEv'/>
+<fun r='_ZNK20idUserInterfaceLocal9IsUniquedEv'/>
+<fun r='_ZN20idUserInterfaceLocal10SetUniquedEb'/>
+<fun r='_ZN20idUserInterfaceLocal9SetCursorEff'/>
+<fun r='_ZN20idUserInterfaceLocal7CursorXEv'/>
+<fun r='_ZN20idUserInterfaceLocal7CursorYEv'/>
+<fun r='_ZN20idUserInterfaceLocal4SizeEv'/>
+<fun r='_ZN20idUserInterfaceLocal12GetStateDictEv'/>
+<fun r='_ZNK20idUserInterfaceLocal13GetSourceFileEv'/>
+<fun r='_ZNK20idUserInterfaceLocal12GetTimeStampEv'/>
+<fun r='_ZNK20idUserInterfaceLocal10GetDesktopEv'/>
+<fun r='_ZN20idUserInterfaceLocal14SetBindHandlerEP8idWindow'/>
+<fun r='_ZNK20idUserInterfaceLocal6ActiveEv'/>
+<fun r='_ZNK20idUserInterfaceLocal7GetTimeEv'/>
+<fun r='_ZN20idUserInterfaceLocal7SetTimeEi'/>
+<fun r='_ZN20idUserInterfaceLocal9ClearRefsEv'/>
+<fun r='_ZN20idUserInterfaceLocal6AddRefEv'/>
+<fun r='_ZN20idUserInterfaceLocal7GetRefsEv'/>
+<fun r='_ZN20idUserInterfaceLocal25RecurseSetKeyBindingNamesEP8idWindow'/>
+<fun r='_ZN20idUserInterfaceLocal13GetPendingCmdEv'/>
+<fun r='_ZN20idUserInterfaceLocal12GetReturnCmdEv'/>
+<mbr r='idUserInterfaceLocal::active' o='32' t='bool'/>
+<mbr r='idUserInterfaceLocal::loading' o='40' t='bool'/>
+<mbr r='idUserInterfaceLocal::interactive' o='48' t='bool'/>
+<mbr r='idUserInterfaceLocal::uniqued' o='56' t='bool'/>
+<mbr r='idUserInterfaceLocal::state' o='64' t='idDict'/>
+<mbr r='idUserInterfaceLocal::desktop' o='416' t='idWindow *'/>
+<mbr r='idUserInterfaceLocal::bindHandler' o='448' t='idWindow *'/>
+<mbr r='idUserInterfaceLocal::source' o='480' t='idStr'/>
+<mbr r='idUserInterfaceLocal::activateStr' o='736' t='idStr'/>
+<mbr r='idUserInterfaceLocal::pendingCmd' o='992' t='idStr'/>
+<mbr r='idUserInterfaceLocal::returnCmd' o='1248' t='idStr'/>
+<mbr r='idUserInterfaceLocal::timeStamp' o='1504' t='time_t'/>
+<mbr r='idUserInterfaceLocal::cursorX' o='1536' t='float'/>
+<mbr r='idUserInterfaceLocal::cursorY' o='1568' t='float'/>
+<mbr r='idUserInterfaceLocal::time' o='1600' t='int'/>
+<mbr r='idUserInterfaceLocal::refs' o='1632' t='int'/>

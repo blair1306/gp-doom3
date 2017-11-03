@@ -1,0 +1,36 @@
+<dec f='codebrowser/d3xp/Player.h' l='202' type='int idInventory::HasAmmo(ammo_t type, int amount)'/>
+<def f='codebrowser/d3xp/Player.cpp' l='1010' ll='1024' type='int idInventory::HasAmmo(ammo_t type, int amount)'/>
+<use f='codebrowser/d3xp/Player.cpp' l='1036' u='c' c='_ZN11idInventory7HasAmmoEPKcbP8idPlayer'/>
+<use f='codebrowser/d3xp/Player.cpp' l='1071' u='c' c='_ZN11idInventory24HasEmptyClipCannotRefillEPKcP8idPlayer'/>
+<use f='codebrowser/d3xp/Player.cpp' l='1085' u='c' c='_ZN11idInventory7UseAmmoEii'/>
+<use f='codebrowser/d3xp/Player.cpp' l='3031' u='c' c='_ZN8idPlayer13UpdateHudAmmoEP15idUserInterface'/>
+<use f='codebrowser/d3xp/Player.cpp' l='3514' u='c' c='_ZN8idPlayer4GiveEPKcS1_'/>
+<doc f='codebrowser/d3xp/Player.cpp' l='1005'>/*
+===============
+idInventory::HasAmmo
+===============
+*/</doc>
+<use f='codebrowser/d3xp/Weapon.cpp' l='1132' u='c' c='_ZN8idWeapon12GetWeaponDefEPKci'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='2585' u='c' c='_ZNK8idWeapon13AmmoAvailableEv'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='2668' u='c' c='_ZNK8idWeapon9AmmoCountEv'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='2916' u='c' c='_ZN8idWeapon15Event_AddToClipEi'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='2957' u='c' c='_ZN8idWeapon19Event_AmmoAvailableEv'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='2972' u='c' c='_ZN8idWeapon20Event_TotalAmmoCountEv'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='3302' u='c' c='_ZN8idWeapon23Event_LaunchProjectilesEiffff'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='3503' u='c' c='_ZN8idWeapon30Event_LaunchProjectilesEllipseEiffff'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='3626' u='c' c='_ZN8idWeapon19Event_LaunchPowerupEPKcfi'/>
+<dec f='codebrowser/game/Player.h' l='174' type='int idInventory::HasAmmo(ammo_t type, int amount)'/>
+<def f='codebrowser/game/Player.cpp' l='877' ll='890' type='int idInventory::HasAmmo(ammo_t type, int amount)'/>
+<use f='codebrowser/game/Player.cpp' l='900' u='c' c='_ZN11idInventory7HasAmmoEPKc'/>
+<use f='codebrowser/game/Player.cpp' l='909' u='c' c='_ZN11idInventory7UseAmmoEii'/>
+<doc f='codebrowser/game/Player.cpp' l='872'>/*
+===============
+idInventory::HasAmmo
+===============
+*/</doc>
+<use f='codebrowser/game/Weapon.cpp' l='955' u='c' c='_ZN8idWeapon12GetWeaponDefEPKci'/>
+<use f='codebrowser/game/Weapon.cpp' l='2188' u='c' c='_ZNK8idWeapon13AmmoAvailableEv'/>
+<use f='codebrowser/game/Weapon.cpp' l='2492' u='c' c='_ZN8idWeapon15Event_AddToClipEi'/>
+<use f='codebrowser/game/Weapon.cpp' l='2514' u='c' c='_ZN8idWeapon19Event_AmmoAvailableEv'/>
+<use f='codebrowser/game/Weapon.cpp' l='2524' u='c' c='_ZN8idWeapon20Event_TotalAmmoCountEv'/>
+<use f='codebrowser/game/Weapon.cpp' l='2819' u='c' c='_ZN8idWeapon23Event_LaunchProjectilesEiffff'/>

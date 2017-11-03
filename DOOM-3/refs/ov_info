@@ -1,0 +1,17 @@
+<dec f='codebrowser/sound/OggVorbis/vorbis/vorbisfile.h' l='126' type='vorbis_info * ov_info(OggVorbis_File * vf, int link)'/>
+<def f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1454' ll='1469' type='vorbis_info * ov_info(OggVorbis_File * vf, int link)'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1558' u='c' c='ov_read'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1835' u='c' c='ov_crosslap'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1836' u='c' c='ov_crosslap'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1877' u='c' c='_ov_64_seek_lap'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1899' u='c' c='_ov_64_seek_lap'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1938' u='c' c='_ov_d_seek_lap'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1960' u='c' c='_ov_d_seek_lap'/>
+<doc f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1446'>/*  link:   -1) return the vorbis_info struct for the bitstream section
+                currently being decoded
+           0-n) to request information for a specific bitstream section
+    
+    In the case of a non-seekable bitstream, any call returns the
+    current bitstream.  NULL in the case that the machine is not
+    initialized */</doc>
+<use f='codebrowser/sound/snd_decoder.cpp' l='186' u='c' c='_ZN10idWaveFile7OpenOGGEPKcP14waveformatex_s'/>

@@ -1,0 +1,13 @@
+<dec f='codebrowser/idlib/bv/Frustum.h' l='75' type='bool idFrustum::CullSphere(const idSphere &amp; sphere) const'/>
+<def f='codebrowser/idlib/bv/Frustum.cpp' l='263' ll='296' type='bool idFrustum::CullSphere(const idSphere &amp; sphere) const'/>
+<use f='codebrowser/idlib/bv/Frustum.cpp' l='960' u='c' c='_ZNK9idFrustum16IntersectsSphereERK8idSphere'/>
+<doc f='codebrowser/idlib/bv/Frustum.cpp' l='253'>/*
+============
+idFrustum::CullSphere
+
+  Tests if any of the planes of the frustum can be used as a separating plane.
+
+   9 muls best case
+  21 muls worst case
+============
+*/</doc>

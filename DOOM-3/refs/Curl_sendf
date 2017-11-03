@@ -1,0 +1,29 @@
+<dec f='codebrowser/curl/lib/sendf.h' l='26' type='CURLcode Curl_sendf(curl_socket_t sockfd, struct connectdata * , const char * fmt)'/>
+<doc f='codebrowser/curl/lib/sendf.h' l='3'>/***************************************************************************
+ *                                  _   _ ____  _     
+ *  Project                     ___| | | |  _ \| |    
+ *                             / __| | | | |_) | |    
+ *                            | (__| |_| |  _ &lt;| |___ 
+ *                             \___|\___/|_| \_\_____|
+ *
+ * Copyright (C) 1998 - 2004, Daniel Stenberg, &lt;daniel@haxx.se&gt;, et al.
+ *
+ * This software is licensed as described in the file COPYING, which
+ * you should have received as part of this distribution. The terms
+ * are also available at http://curl.haxx.se/docs/copyright.html.
+ * 
+ * You may opt to use, copy, modify, merge, publish, distribute and/or sell
+ * copies of the Software, and permit persons to whom the Software is
+ * furnished to do so, under the terms of the COPYING file.
+ *
+ * This software is distributed on an &quot;AS IS&quot; basis, WITHOUT WARRANTY OF ANY
+ * KIND, either express or implied.
+ *
+ * $Id: sendf.h,v 1.24 2004/03/10 16:01:48 bagder Exp $
+ ***************************************************************************/</doc>
+<use f='codebrowser/curl/lib/dict.c' l='132' u='c' c='Curl_dict'/>
+<use f='codebrowser/curl/lib/dict.c' l='176' u='c' c='Curl_dict'/>
+<use f='codebrowser/curl/lib/dict.c' l='205' u='c' c='Curl_dict'/>
+<use f='codebrowser/curl/lib/http.c' l='784' u='c' c='Curl_ConnectHTTPProxyTunnel'/>
+<def f='codebrowser/curl/lib/sendf.c' l='172' ll='215' type='CURLcode Curl_sendf(curl_socket_t sockfd, struct connectdata * conn, const char * fmt)'/>
+<doc f='codebrowser/curl/lib/sendf.c' l='171'>/* Curl_sendf() sends formated data to the server */</doc>

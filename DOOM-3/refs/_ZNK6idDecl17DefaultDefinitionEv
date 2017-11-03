@@ -1,0 +1,22 @@
+<def f='codebrowser/framework/DeclManager.h' l='207' type='const char * idDecl::DefaultDefinition() const'/>
+<doc f='codebrowser/framework/DeclManager.h' l='202'>// Each declaration type must have a default string that it is guaranteed
+							// to parse acceptably. When a decl is not explicitly found, is purged, or
+							// has an error while parsing, MakeDefault() will do a FreeData(), then a
+							// Parse() with DefaultDefinition(). The defaultDefintion should start with
+							// an open brace and end with a close brace.</doc>
+<ovr f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='2248' c='_ZNK14idDeclModelDef17DefaultDefinitionEv'/>
+<ovr f='codebrowser/framework/DeclAF.cpp' l='1526' c='_ZNK8idDeclAF17DefaultDefinitionEv'/>
+<ovr f='codebrowser/framework/DeclEntityDef.cpp' l='137' c='_ZNK15idDeclEntityDef17DefaultDefinitionEv'/>
+<ovr f='codebrowser/framework/DeclFX.cpp' l='456' c='_ZNK8idDeclFX17DefaultDefinitionEv'/>
+<use f='codebrowser/framework/DeclManager.cpp' l='1389' u='c' c='_ZN18idDeclManagerLocal13CreateNewDeclE10declType_tPKcS2_'/>
+<use f='codebrowser/framework/DeclManager.cpp' l='2058' u='c' c='_ZN11idDeclLocal11MakeDefaultEv'/>
+<ovr f='codebrowser/framework/DeclPDA.cpp' l='163' c='_ZNK9idDeclPDA17DefaultDefinitionEv'/>
+<ovr f='codebrowser/framework/DeclPDA.cpp' l='430' c='_ZNK11idDeclEmail17DefaultDefinitionEv'/>
+<ovr f='codebrowser/framework/DeclPDA.cpp' l='546' c='_ZNK11idDeclVideo17DefaultDefinitionEv'/>
+<ovr f='codebrowser/framework/DeclPDA.cpp' l='653' c='_ZNK11idDeclAudio17DefaultDefinitionEv'/>
+<ovr f='codebrowser/framework/DeclParticle.cpp' l='493' c='_ZNK14idDeclParticle17DefaultDefinitionEv'/>
+<ovr f='codebrowser/framework/DeclSkin.cpp' l='129' c='_ZNK10idDeclSkin17DefaultDefinitionEv'/>
+<ovr f='codebrowser/framework/DeclTable.cpp' l='103' c='_ZNK11idDeclTable17DefaultDefinitionEv'/>
+<ovr f='codebrowser/game/anim/Anim_Blend.cpp' l='2162' c='_ZNK14idDeclModelDef17DefaultDefinitionEv'/>
+<ovr f='codebrowser/renderer/Material.cpp' l='2693' c='_ZNK10idMaterial17DefaultDefinitionEv'/>
+<ovr f='codebrowser/sound/snd_shader.cpp' l='117' c='_ZNK13idSoundShader17DefaultDefinitionEv'/>

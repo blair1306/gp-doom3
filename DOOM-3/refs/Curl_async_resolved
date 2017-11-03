@@ -1,0 +1,7 @@
+<dec f='codebrowser/curl/lib/url.h' l='35' type='CURLcode Curl_async_resolved(struct connectdata * conn)'/>
+<use f='codebrowser/curl/lib/multi.c' l='391' u='c' c='curl_multi_perform'/>
+<use f='codebrowser/curl/lib/transfer.c' l='1894' u='c' c='Curl_perform'/>
+<def f='codebrowser/curl/lib/url.c' l='3254' ll='3269' type='CURLcode Curl_async_resolved(struct connectdata * conn)'/>
+<use f='codebrowser/curl/lib/url.c' l='3374' u='c' c='Curl_do'/>
+<doc f='codebrowser/curl/lib/url.c' l='3252'>/* Call this function after Curl_connect() has returned async=TRUE and
+   then a successful name resolve has been received */</doc>

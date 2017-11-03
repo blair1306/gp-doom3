@@ -1,0 +1,24 @@
+<dec f='codebrowser/idlib/math/Matrix.h' l='1938' type='bool idMatX::Cholesky_Factor()'/>
+<doc f='codebrowser/idlib/math/Matrix.h' l='1938'>// factor in-place: L * L.Transpose()</doc>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='3290' u='c' c='_ZNK6idMatX27IsSymmetricPositiveDefiniteEf'/>
+<def f='codebrowser/idlib/math/Matrix.cpp' l='5294' ll='5327' type='bool idMatX::Cholesky_Factor()'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7735' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7752' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7757' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7778' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7787' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7816' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7820' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7848' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7852' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7870' u='c' c='_ZN6idMatX4TestEv'/>
+<doc f='codebrowser/idlib/math/Matrix.cpp' l='5284'>/*
+============
+idMatX::Cholesky_Factor
+
+  in-place Cholesky factorization: LL&apos;
+  L is a triangular matrix stored in the lower triangle.
+  The upper triangle is not cleared.
+  The initial matrix has to be symmetric positive definite.
+============
+*/</doc>

@@ -1,0 +1,30 @@
+<dec f='codebrowser/curl/include/curl/easy.h' l='47' type='CURLcode curl_easy_getinfo(CURL * curl, CURLINFO info)'/>
+<doc f='codebrowser/curl/include/curl/easy.h' l='34'>/*
+ * NAME curl_easy_getinfo()
+ *
+ * DESCRIPTION
+ *
+ * Request internal information from the curl session with this function.  The
+ * third argument MUST be a pointer to a long, a pointer to a char * or a
+ * pointer to a double (as the documentation describes elsewhere).  The data
+ * pointed to will be filled in accordingly and can be relied upon only if the
+ * function returns CURLE_OK.  This function is intended to get used *AFTER* a
+ * performed transfer, all results from this function are undefined until the
+ * transfer is completed.
+ */</doc>
+<def f='codebrowser/curl/lib/easy.c' l='299' ll='309' type='CURLcode curl_easy_getinfo(CURL * curl, CURLINFO info)'/>
+<use f='codebrowser/curl/src/main.c' l='3368' u='c' c='operate'/>
+<use f='codebrowser/curl/src/writeout.c' l='115' u='c' c='ourWriteOut'/>
+<use f='codebrowser/curl/src/writeout.c' l='121' u='c' c='ourWriteOut'/>
+<use f='codebrowser/curl/src/writeout.c' l='126' u='c' c='ourWriteOut'/>
+<use f='codebrowser/curl/src/writeout.c' l='131' u='c' c='ourWriteOut'/>
+<use f='codebrowser/curl/src/writeout.c' l='136' u='c' c='ourWriteOut'/>
+<use f='codebrowser/curl/src/writeout.c' l='141' u='c' c='ourWriteOut'/>
+<use f='codebrowser/curl/src/writeout.c' l='147' u='c' c='ourWriteOut'/>
+<use f='codebrowser/curl/src/writeout.c' l='152' u='c' c='ourWriteOut'/>
+<use f='codebrowser/curl/src/writeout.c' l='157' u='c' c='ourWriteOut'/>
+<use f='codebrowser/curl/src/writeout.c' l='162' u='c' c='ourWriteOut'/>
+<use f='codebrowser/curl/src/writeout.c' l='167' u='c' c='ourWriteOut'/>
+<use f='codebrowser/curl/src/writeout.c' l='172' u='c' c='ourWriteOut'/>
+<use f='codebrowser/curl/src/writeout.c' l='177' u='c' c='ourWriteOut'/>
+<use f='codebrowser/curl/src/writeout.c' l='182' u='c' c='ourWriteOut'/>

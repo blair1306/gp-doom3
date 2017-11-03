@@ -1,0 +1,13 @@
+<dec f='codebrowser/framework/Unzip.h' l='298' type='int unzCloseCurrentFile(unzFile file)'/>
+<use f='codebrowser/framework/File.cpp' l='1251' u='c' c='_ZN12idFile_InZipD1Ev'/>
+<doc f='codebrowser/framework/Unzip.h' l='293'>/*
+  Open for reading data the current file in the zipfile.
+  If there is no error, the return value is UNZ_OK.
+*/</doc>
+<use f='codebrowser/framework/Unzip.cpp' l='1412' u='c' c='_Z8unzClosePv'/>
+<use f='codebrowser/framework/Unzip.cpp' l='1869' u='c' c='_Z18unzOpenCurrentFilePv'/>
+<def f='codebrowser/framework/Unzip.cpp' l='2172' ll='2205' type='int unzCloseCurrentFile(unzFile file)'/>
+<doc f='codebrowser/framework/Unzip.cpp' l='2168'>/*
+  Close the file in zip opened with unzipOpenCurrentFile
+  Return UNZ_CRCERROR if all the file was read but the CRC is not good
+*/</doc>

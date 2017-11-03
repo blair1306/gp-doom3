@@ -1,0 +1,13 @@
+<dec f='codebrowser/framework/async/MsgChannel.h' l='139' type='bool idMsgChannel::SendReliableMessage(const idBitMsg &amp; msg)'/>
+<doc f='codebrowser/framework/async/MsgChannel.h' l='138'>// Sends a reliable message, in order and without duplicates.</doc>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='276' u='c' c='_ZN13idAsyncClient20DisconnectFromServerEv'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='595' u='c' c='_ZN13idAsyncClient20SendUserInfoToServerEv'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='920' u='c' c='_ZN13idAsyncClient26ProcessReliableMessagePureERK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1733' u='c' c='_ZN13idAsyncClient23SendReliableGameMessageERK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='801' u='c' c='_ZN13idAsyncServer19SendReliableMessageEiRK8idBitMsg'/>
+<def f='codebrowser/framework/async/MsgChannel.cpp' l='670' ll='683' type='bool idMsgChannel::SendReliableMessage(const idBitMsg &amp; msg)'/>
+<doc f='codebrowser/framework/async/MsgChannel.cpp' l='665'>/*
+=================
+idMsgChannel::SendReliableMessage
+=================
+*/</doc>

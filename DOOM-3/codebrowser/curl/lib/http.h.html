@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>http.h source code [codebrowser/curl/lib/http.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/curl/lib/http.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>curl</a>/<a href='./'>lib</a>/<a href='http.h.html'>http.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><u>#<span data-ppcond="1">ifndef</span> <span class="macro" data-ref="_M/__HTTP_H">__HTTP_H</span></u></td></tr>
+<tr><th id="2">2</th><td><u>#define <dfn class="macro" id="_M/__HTTP_H" data-ref="_M/__HTTP_H">__HTTP_H</dfn></u></td></tr>
+<tr><th id="3">3</th><td></td></tr>
+<tr><th id="4">4</th><td><i>/***************************************************************************</i></td></tr>
+<tr><th id="5">5</th><td><i> *                                  _   _ ____  _     </i></td></tr>
+<tr><th id="6">6</th><td><i> *  Project                     ___| | | |  _ \| |    </i></td></tr>
+<tr><th id="7">7</th><td><i> *                             / __| | | | |_) | |    </i></td></tr>
+<tr><th id="8">8</th><td><i> *                            | (__| |_| |  _ &lt;| |___ </i></td></tr>
+<tr><th id="9">9</th><td><i> *                             \___|\___/|_| \_\_____|</i></td></tr>
+<tr><th id="10">10</th><td><i> *</i></td></tr>
+<tr><th id="11">11</th><td><i> * Copyright (C) 1998 - 2004, Daniel Stenberg, &lt;daniel@haxx.se&gt;, et al.</i></td></tr>
+<tr><th id="12">12</th><td><i> *</i></td></tr>
+<tr><th id="13">13</th><td><i> * This software is licensed as described in the file COPYING, which</i></td></tr>
+<tr><th id="14">14</th><td><i> * you should have received as part of this distribution. The terms</i></td></tr>
+<tr><th id="15">15</th><td><i> * are also available at <a href="http://curl.haxx.se/docs/copyright.html">http://curl.haxx.se/docs/copyright.html</a>.</i></td></tr>
+<tr><th id="16">16</th><td><i> * </i></td></tr>
+<tr><th id="17">17</th><td><i> * You may opt to use, copy, modify, merge, publish, distribute and/or sell</i></td></tr>
+<tr><th id="18">18</th><td><i> * copies of the Software, and permit persons to whom the Software is</i></td></tr>
+<tr><th id="19">19</th><td><i> * furnished to do so, under the terms of the COPYING file.</i></td></tr>
+<tr><th id="20">20</th><td><i> *</i></td></tr>
+<tr><th id="21">21</th><td><i> * This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY</i></td></tr>
+<tr><th id="22">22</th><td><i> * KIND, either express or implied.</i></td></tr>
+<tr><th id="23">23</th><td><i> *</i></td></tr>
+<tr><th id="24">24</th><td><i> * $Id: http.h,v 1.20 2004/01/07 09:19:35 bagder Exp $</i></td></tr>
+<tr><th id="25">25</th><td><i> ***************************************************************************/</i></td></tr>
+<tr><th id="26">26</th><td><u>#<span data-ppcond="26">ifndef</span> <span class="macro" data-ref="_M/CURL_DISABLE_HTTP">CURL_DISABLE_HTTP</span></u></td></tr>
+<tr><th id="27">27</th><td><a class="typedef" href="setup.h.html#bool" title='bool' data-type='unsigned char' data-ref="bool">bool</a> <dfn class="decl" id="Curl_compareheader" title='Curl_compareheader' data-ref="Curl_compareheader">Curl_compareheader</dfn>(<em>char</em> *<dfn class="local col2 decl" id="2headerline" title='headerline' data-type='char *' data-ref="2headerline">headerline</dfn>,     <i>/* line to check */</i></td></tr>
+<tr><th id="28">28</th><td>                        <em>const</em> <em>char</em> *<dfn class="local col3 decl" id="3header" title='header' data-type='const char *' data-ref="3header">header</dfn>,   <i>/* header keyword _with_ colon */</i></td></tr>
+<tr><th id="29">29</th><td>                        <em>const</em> <em>char</em> *<dfn class="local col4 decl" id="4content" title='content' data-type='const char *' data-ref="4content">content</dfn>); <i>/* content string to find */</i></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><i>/* ftp can use this as well */</i></td></tr>
+<tr><th id="32">32</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="decl" id="Curl_ConnectHTTPProxyTunnel" title='Curl_ConnectHTTPProxyTunnel' data-ref="Curl_ConnectHTTPProxyTunnel">Curl_ConnectHTTPProxyTunnel</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#connectdata" title='connectdata' data-ref="connectdata">connectdata</a> *<dfn class="local col5 decl" id="5conn" title='conn' data-type='struct connectdata *' data-ref="5conn">conn</dfn>,</td></tr>
+<tr><th id="33">33</th><td>                                     <em>int</em> <dfn class="local col6 decl" id="6tunnelsocket" title='tunnelsocket' data-type='int' data-ref="6tunnelsocket">tunnelsocket</dfn>,</td></tr>
+<tr><th id="34">34</th><td>                                     <em>char</em> *<dfn class="local col7 decl" id="7hostname" title='hostname' data-type='char *' data-ref="7hostname">hostname</dfn>, <em>int</em> <dfn class="local col8 decl" id="8remote_port" title='remote_port' data-type='int' data-ref="8remote_port">remote_port</dfn>);</td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><i>/* protocol-specific functions set up to be called by the main engine */</i></td></tr>
+<tr><th id="37">37</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="decl" id="Curl_http" title='Curl_http' data-ref="Curl_http">Curl_http</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#connectdata" title='connectdata' data-ref="connectdata">connectdata</a> *<dfn class="local col9 decl" id="9conn" title='conn' data-type='struct connectdata *' data-ref="9conn">conn</dfn>);</td></tr>
+<tr><th id="38">38</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="decl" id="Curl_http_done" title='Curl_http_done' data-ref="Curl_http_done">Curl_http_done</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#connectdata" title='connectdata' data-ref="connectdata">connectdata</a> *<dfn class="local col0 decl" id="10conn" title='conn' data-type='struct connectdata *' data-ref="10conn">conn</dfn>);</td></tr>
+<tr><th id="39">39</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="decl" id="Curl_http_connect" title='Curl_http_connect' data-ref="Curl_http_connect">Curl_http_connect</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#connectdata" title='connectdata' data-ref="connectdata">connectdata</a> *<dfn class="local col1 decl" id="11conn" title='conn' data-type='struct connectdata *' data-ref="11conn">conn</dfn>);</td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><i>/* The following functions are defined in http_chunks.c */</i></td></tr>
+<tr><th id="42">42</th><td><em>void</em> <dfn class="decl" id="Curl_httpchunk_init" title='Curl_httpchunk_init' data-ref="Curl_httpchunk_init">Curl_httpchunk_init</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#connectdata" title='connectdata' data-ref="connectdata">connectdata</a> *<dfn class="local col2 decl" id="12conn" title='conn' data-type='struct connectdata *' data-ref="12conn">conn</dfn>);</td></tr>
+<tr><th id="43">43</th><td><a class="typedef" href="http_chunks.h.html#CHUNKcode" title='CHUNKcode' data-type='enum CHUNKcode' data-ref="CHUNKcode">CHUNKcode</a> <dfn class="decl" id="Curl_httpchunk_read" title='Curl_httpchunk_read' data-ref="Curl_httpchunk_read">Curl_httpchunk_read</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#connectdata" title='connectdata' data-ref="connectdata">connectdata</a> *<dfn class="local col3 decl" id="13conn" title='conn' data-type='struct connectdata *' data-ref="13conn">conn</dfn>, <em>char</em> *<dfn class="local col4 decl" id="14datap" title='datap' data-type='char *' data-ref="14datap">datap</dfn>,</td></tr>
+<tr><th id="44">44</th><td>                              <a class="typedef" href="../../../include/stdio.h.html#ssize_t" title='ssize_t' data-type='__ssize_t' data-ref="ssize_t">ssize_t</a> <dfn class="local col5 decl" id="15length" title='length' data-type='ssize_t' data-ref="15length">length</dfn>, <a class="typedef" href="../../../include/stdio.h.html#ssize_t" title='ssize_t' data-type='__ssize_t' data-ref="ssize_t">ssize_t</a> *<dfn class="local col6 decl" id="16wrote" title='wrote' data-type='ssize_t *' data-ref="16wrote">wrote</dfn>);</td></tr>
+<tr><th id="45">45</th><td><em>void</em> <dfn class="decl" id="Curl_http_auth_stage" title='Curl_http_auth_stage' data-ref="Curl_http_auth_stage">Curl_http_auth_stage</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *<dfn class="local col7 decl" id="17data" title='data' data-type='struct SessionHandle *' data-ref="17data">data</dfn>, <em>int</em> <dfn class="local col8 decl" id="18stage" title='stage' data-type='int' data-ref="18stage">stage</dfn>);</td></tr>
+<tr><th id="46">46</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="decl" id="Curl_http_auth" title='Curl_http_auth' data-ref="Curl_http_auth">Curl_http_auth</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#connectdata" title='connectdata' data-ref="connectdata">connectdata</a> *<dfn class="local col9 decl" id="19conn" title='conn' data-type='struct connectdata *' data-ref="19conn">conn</dfn>,</td></tr>
+<tr><th id="47">47</th><td>                        <em>int</em> <dfn class="local col0 decl" id="20httpcode" title='httpcode' data-type='int' data-ref="20httpcode">httpcode</dfn>, <em>char</em> *<dfn class="local col1 decl" id="21header" title='header' data-type='char *' data-ref="21header">header</dfn>);</td></tr>
+<tr><th id="48">48</th><td><em>void</em> <dfn class="decl" id="Curl_http_auth_act" title='Curl_http_auth_act' data-ref="Curl_http_auth_act">Curl_http_auth_act</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#connectdata" title='connectdata' data-ref="connectdata">connectdata</a> *<dfn class="local col2 decl" id="22conn" title='conn' data-type='struct connectdata *' data-ref="22conn">conn</dfn>);</td></tr>
+<tr><th id="49">49</th><td><u>#<span data-ppcond="26">endif</span></u></td></tr>
+<tr><th id="50">50</th><td><u>#<span data-ppcond="1">endif</span></u></td></tr>
+<tr><th id="51">51</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='ftp.c.html'>codebrowser/curl/lib/ftp.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

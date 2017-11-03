@@ -1,0 +1,8 @@
+<dec f='codebrowser/sound/OggVorbis/ogg/ogg.h' l='172' type='int ogg_stream_clear(ogg_stream_state * os)'/>
+<def f='codebrowser/sound/OggVorbis/oggsrc/framing.c' l='207' ll='216' type='int ogg_stream_clear(ogg_stream_state * os)'/>
+<use f='codebrowser/sound/OggVorbis/oggsrc/framing.c' l='220' u='c' c='ogg_stream_destroy'/>
+<doc f='codebrowser/sound/OggVorbis/oggsrc/framing.c' l='206'>/* _clear does not free os, only the non-flat storage within */</doc>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='696' u='c' c='ov_clear'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1049' u='c' c='ov_raw_seek'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1075' u='c' c='ov_raw_seek'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1083' u='c' c='ov_raw_seek'/>

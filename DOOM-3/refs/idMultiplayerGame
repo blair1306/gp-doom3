@@ -1,0 +1,314 @@
+<def f='codebrowser/d3xp/MultiplayerGame.h' l='134' ll='464'/>
+<size>1504</size>
+<fun r='_ZN17idMultiplayerGameC1Ev'/>
+<fun r='_ZN17idMultiplayerGame8ShutdownEv'/>
+<fun r='_ZN17idMultiplayerGame5ResetEv'/>
+<fun r='_ZN17idMultiplayerGame11SpawnPlayerEi'/>
+<fun r='_ZN17idMultiplayerGame3RunEv'/>
+<fun r='_ZN17idMultiplayerGame4DrawEi'/>
+<fun r='_ZN17idMultiplayerGame10PlayerVoteEi12playerVote_t'/>
+<fun r='_ZN17idMultiplayerGame11PlayerDeathEP8idPlayerS1_b'/>
+<fun r='_ZN17idMultiplayerGame11AddChatLineEPKcz'/>
+<fun r='_ZN17idMultiplayerGame13UpdateMainGuiEv'/>
+<fun r='_ZN17idMultiplayerGame9StartMenuEv'/>
+<fun r='_ZN17idMultiplayerGame17HandleGuiCommandsEPKc'/>
+<fun r='_ZN17idMultiplayerGame11SetMenuSkinEv'/>
+<fun r='_ZNK17idMultiplayerGame15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN17idMultiplayerGame16ReadFromSnapshotERK13idBitMsgDelta'/>
+<smbr r='idMultiplayerGame::GameStateStrings' t='const char *[7]'/>
+<fun r='_ZNK17idMultiplayerGame12GetGameStateEv'/>
+<smbr r='idMultiplayerGame::GlobalSoundStrings' t='const char *[17]'/>
+<fun r='_ZN17idMultiplayerGame15PlayGlobalSoundEi9snd_evt_tPKc'/>
+<fun r='_ZN17idMultiplayerGame13PlayTeamSoundEi9snd_evt_tPKc'/>
+<fun r='_ZN17idMultiplayerGame17PrintMessageEventEiNS_9msg_evt_tEii'/>
+<fun r='_ZN17idMultiplayerGame16DisconnectClientEi'/>
+<fun r='_ZN17idMultiplayerGame12ForceReady_fERK9idCmdArgs'/>
+<fun r='_ZN17idMultiplayerGame12DropWeapon_fERK9idCmdArgs'/>
+<fun r='_ZN17idMultiplayerGame13MessageMode_fERK9idCmdArgs'/>
+<fun r='_ZN17idMultiplayerGame11VoiceChat_fERK9idCmdArgs'/>
+<fun r='_ZN17idMultiplayerGame15VoiceChatTeam_fERK9idCmdArgs'/>
+<fun r='_ZN17idMultiplayerGame6Vote_fERK9idCmdArgs'/>
+<fun r='_ZN17idMultiplayerGame10CallVote_fERK9idCmdArgs'/>
+<fun r='_ZN17idMultiplayerGame14ClientCallVoteENS_12vote_flags_tEPKc'/>
+<fun r='_ZN17idMultiplayerGame14ServerCallVoteEiRK8idBitMsg'/>
+<fun r='_ZN17idMultiplayerGame15ClientStartVoteEiPKc'/>
+<fun r='_ZN17idMultiplayerGame15ServerStartVoteEiNS_12vote_flags_tEPKc'/>
+<fun r='_ZN17idMultiplayerGame16ClientUpdateVoteENS_13vote_result_tEii'/>
+<fun r='_ZN17idMultiplayerGame8CastVoteEib'/>
+<fun r='_ZN17idMultiplayerGame11ExecuteVoteEv'/>
+<fun r='_ZN17idMultiplayerGame10WantKilledEi'/>
+<fun r='_ZN17idMultiplayerGame16NumActualClientsEbPi'/>
+<fun r='_ZN17idMultiplayerGame10DropWeaponEi'/>
+<fun r='_ZN17idMultiplayerGame10MapRestartEv'/>
+<fun r='_ZN17idMultiplayerGame12SwitchToTeamEiii'/>
+<fun r='_ZNK17idMultiplayerGame11IsPureReadyEv'/>
+<fun r='_ZN17idMultiplayerGame18ProcessChatMessageEibPKcS1_S1_'/>
+<fun r='_ZN17idMultiplayerGame16ProcessVoiceChatEibi'/>
+<fun r='_ZN17idMultiplayerGame8PrecacheEv'/>
+<fun r='_ZN17idMultiplayerGame16ThrottleUserInfoEv'/>
+<fun r='_ZN17idMultiplayerGame14ToggleSpectateEv'/>
+<fun r='_ZN17idMultiplayerGame11ToggleReadyEv'/>
+<fun r='_ZN17idMultiplayerGame10ToggleTeamEv'/>
+<fun r='_ZN17idMultiplayerGame10ClearFragsEi'/>
+<fun r='_ZN17idMultiplayerGame9EnterGameEi'/>
+<fun r='_ZN17idMultiplayerGame7CanPlayEP8idPlayer'/>
+<fun r='_ZN17idMultiplayerGame8IsInGameEi'/>
+<fun r='_ZN17idMultiplayerGame11WantRespawnEP8idPlayer'/>
+<fun r='_ZN17idMultiplayerGame34ServerWriteInitialReliableMessagesEi'/>
+<fun r='_ZN17idMultiplayerGame20ClientReadStartStateERK8idBitMsg'/>
+<fun r='_ZN17idMultiplayerGame20ClientReadWarmupTimeERK8idBitMsg'/>
+<fun r='_ZN17idMultiplayerGame19ServerClientConnectEi'/>
+<fun r='_ZN17idMultiplayerGame14ClearHUDStatusEv'/>
+<fun r='_ZN17idMultiplayerGame13GetFlagPointsEi'/>
+<fun r='_ZN17idMultiplayerGame10SetFlagMsgEb'/>
+<fun r='_ZN17idMultiplayerGame11IsFlagMsgOnEv'/>
+<fun r='_ZN17idMultiplayerGame9ClearGuisEv'/>
+<mbr r='idMultiplayerGame::player_red_flag' o='0' t='int'/>
+<mbr r='idMultiplayerGame::player_blue_flag' o='32' t='int'/>
+<fun r='_ZN17idMultiplayerGame11PlayerStatsEiPci'/>
+<smbr r='idMultiplayerGame::MPGuis' t='const char *[]'/>
+<smbr r='idMultiplayerGame::ThrottleVars' t='const char *[]'/>
+<smbr r='idMultiplayerGame::ThrottleVarsInEnglish' t='const char *[]'/>
+<smbr r='idMultiplayerGame::ThrottleDelay' t='const int []'/>
+<mbr r='idMultiplayerGame::gameState' o='64' t='gameState_t'/>
+<mbr r='idMultiplayerGame::nextState' o='96' t='gameState_t'/>
+<mbr r='idMultiplayerGame::pingUpdateTime' o='128' t='int'/>
+<mbr r='idMultiplayerGame::playerState' o='160' t='mpPlayerState_t [32]'/>
+<mbr r='idMultiplayerGame::vote' o='6304' t='vote_flags_t'/>
+<mbr r='idMultiplayerGame::voteTimeOut' o='6336' t='int'/>
+<mbr r='idMultiplayerGame::voteExecTime' o='6368' t='int'/>
+<mbr r='idMultiplayerGame::yesVotes' o='6400' t='float'/>
+<mbr r='idMultiplayerGame::noVotes' o='6432' t='float'/>
+<mbr r='idMultiplayerGame::voteValue' o='6464' t='idStr'/>
+<mbr r='idMultiplayerGame::voteString' o='6720' t='idStr'/>
+<mbr r='idMultiplayerGame::voted' o='6976' t='bool'/>
+<mbr r='idMultiplayerGame::kickVoteMap' o='7008' t='int [32]'/>
+<mbr r='idMultiplayerGame::nextStateSwitch' o='8032' t='int'/>
+<mbr r='idMultiplayerGame::warmupEndTime' o='8064' t='int'/>
+<mbr r='idMultiplayerGame::matchStartedTime' o='8096' t='int'/>
+<mbr r='idMultiplayerGame::currentTourneyPlayer' o='8128' t='int [2]'/>
+<mbr r='idMultiplayerGame::lastWinner' o='8192' t='int'/>
+<mbr r='idMultiplayerGame::warmupText' o='8224' t='idStr'/>
+<mbr r='idMultiplayerGame::one' o='8480' t='bool'/>
+<mbr r='idMultiplayerGame::two' o='8488' t='bool'/>
+<mbr r='idMultiplayerGame::three' o='8496' t='bool'/>
+<mbr r='idMultiplayerGame::scoreBoard' o='8512' t='idUserInterface *'/>
+<mbr r='idMultiplayerGame::spectateGui' o='8544' t='idUserInterface *'/>
+<mbr r='idMultiplayerGame::guiChat' o='8576' t='idUserInterface *'/>
+<mbr r='idMultiplayerGame::mainGui' o='8608' t='idUserInterface *'/>
+<mbr r='idMultiplayerGame::mapList' o='8640' t='idListGUI *'/>
+<mbr r='idMultiplayerGame::msgmodeGui' o='8672' t='idUserInterface *'/>
+<mbr r='idMultiplayerGame::currentMenu' o='8704' t='int'/>
+<mbr r='idMultiplayerGame::nextMenu' o='8736' t='int'/>
+<mbr r='idMultiplayerGame::bCurrentMenuMsg' o='8768' t='bool'/>
+<mbr r='idMultiplayerGame::chatHistory' o='8800' t='mpChatLine_t [5]'/>
+<mbr r='idMultiplayerGame::chatHistoryIndex' o='10240' t='int'/>
+<mbr r='idMultiplayerGame::chatHistorySize' o='10272' t='int'/>
+<mbr r='idMultiplayerGame::chatDataUpdated' o='10304' t='bool'/>
+<mbr r='idMultiplayerGame::lastChatLineTime' o='10336' t='int'/>
+<mbr r='idMultiplayerGame::numRankedPlayers' o='10368' t='int'/>
+<mbr r='idMultiplayerGame::rankedPlayers' o='10400' t='idPlayer *[32]'/>
+<mbr r='idMultiplayerGame::pureReady' o='11424' t='bool'/>
+<mbr r='idMultiplayerGame::fragLimitTimeout' o='11456' t='int'/>
+<mbr r='idMultiplayerGame::switchThrottle' o='11488' t='int [3]'/>
+<mbr r='idMultiplayerGame::voiceChatThrottle' o='11584' t='int'/>
+<mbr r='idMultiplayerGame::lastGameType' o='11616' t='gameType_t'/>
+<mbr r='idMultiplayerGame::startFragLimit' o='11648' t='int'/>
+<mbr r='idMultiplayerGame::teamFlags' o='11680' t='idItemTeam *[2]'/>
+<mbr r='idMultiplayerGame::teamPoints' o='11744' t='int [2]'/>
+<mbr r='idMultiplayerGame::flagMsgOn' o='11808' t='bool'/>
+<mbr r='idMultiplayerGame::gameTypeVoteMap' o='11840' t='const char *[6]'/>
+<fun r='_ZN17idMultiplayerGame17UpdatePlayerRanksEv'/>
+<fun r='_ZN17idMultiplayerGame15UpdateRankColorEP15idUserInterfacePKciRK6idVec3'/>
+<fun r='_ZN17idMultiplayerGame16UpdateScoreboardEP15idUserInterfaceP8idPlayer'/>
+<fun r='_ZN17idMultiplayerGame19UpdateCTFScoreboardEP15idUserInterfaceP8idPlayer'/>
+<fun r='_ZN17idMultiplayerGame14DrawScoreBoardEP8idPlayer'/>
+<fun r='_ZN17idMultiplayerGame9UpdateHudEP8idPlayerP15idUserInterface'/>
+<fun r='_ZN17idMultiplayerGame6WarmupEv'/>
+<fun r='_ZN17idMultiplayerGame9CheckVoteEv'/>
+<fun r='_ZN17idMultiplayerGame15AllPlayersReadyEv'/>
+<fun r='_ZN17idMultiplayerGame12FragLimitHitEv'/>
+<fun r='_ZN17idMultiplayerGame10FragLeaderEv'/>
+<fun r='_ZN17idMultiplayerGame12TimeLimitHitEv'/>
+<fun r='_ZN17idMultiplayerGame13PointLimitHitEv'/>
+<fun r='_ZN17idMultiplayerGame11WinningTeamEv'/>
+<fun r='_ZN17idMultiplayerGame8NewStateENS_11gameState_tEP8idPlayer'/>
+<fun r='_ZN17idMultiplayerGame16UpdateWinsLossesEP8idPlayer'/>
+<fun r='_ZN17idMultiplayerGame16FillTourneySlotsEv'/>
+<fun r='_ZN17idMultiplayerGame19CycleTourneyPlayersEv'/>
+<fun r='_ZN17idMultiplayerGame17UpdateTourneyLineEv'/>
+<fun r='_ZN17idMultiplayerGame8GameTimeEv'/>
+<fun r='_ZN17idMultiplayerGame5ClearEv'/>
+<fun r='_ZN17idMultiplayerGame19EnoughClientsToPlayEv'/>
+<fun r='_ZN17idMultiplayerGame13ClearChatDataEv'/>
+<fun r='_ZN17idMultiplayerGame8DrawChatEv'/>
+<fun r='_ZN17idMultiplayerGame13CheckRespawnsEP8idPlayer'/>
+<fun r='_ZN17idMultiplayerGame10ForceReadyEv'/>
+<fun r='_ZN17idMultiplayerGame14CheckAbortGameEv'/>
+<fun r='_ZN17idMultiplayerGame11MessageModeERK9idCmdArgs'/>
+<fun r='_ZN17idMultiplayerGame11DisableMenuEv'/>
+<fun r='_ZN17idMultiplayerGame10SetMapShotEv'/>
+<fun r='_ZN17idMultiplayerGame9TeamScoreEiii'/>
+<fun r='_ZN17idMultiplayerGame9VoiceChatERK9idCmdArgsb'/>
+<fun r='_ZN17idMultiplayerGame15DumpTourneyLineEv'/>
+<fun r='_ZN17idMultiplayerGame13SuddenRespawnEv'/>
+<fun r='_ZN17idMultiplayerGame13FindTeamFlagsEv'/>
+<fun r='_ZN17idMultiplayerGame11GetTeamFlagEi'/>
+<fun r='_ZN17idMultiplayerGame13GetFlagStatusEi'/>
+<fun r='_ZN17idMultiplayerGame12TeamScoreCTFEii'/>
+<fun r='_ZN17idMultiplayerGame14PlayerScoreCTFEii'/>
+<fun r='_ZN17idMultiplayerGame14GetFlagCarrierEi'/>
+<fun r='_ZN17idMultiplayerGame26UpdateScoreboardFlagStatusEv'/>
+<fun r='_ZN17idMultiplayerGame15SetBestGametypeEPKc'/>
+<fun r='_ZN17idMultiplayerGame16ReloadScoreboardEv'/>
+<fun r='_ZN17idMultiplayerGame15GetBestGametypeEPKcS1_'/>
+<fun r='_ZN17idMultiplayerGame19IsGametypeFlagBasedEv'/>
+<fun r='_ZN17idMultiplayerGame19IsGametypeTeamBasedEv'/>
+<fun r='_ZNK17idMultiplayerGame12GetGameStateEv'/>
+<fun r='_ZNK17idMultiplayerGame11IsPureReadyEv'/>
+<fun r='_ZN17idMultiplayerGame10ClearFragsEi'/>
+<fun r='_ZN17idMultiplayerGame8IsInGameEi'/>
+<def f='codebrowser/game/MultiplayerGame.h' l='95' ll='352'/>
+<size>1452</size>
+<fun r='_ZN17idMultiplayerGameC1Ev'/>
+<fun r='_ZN17idMultiplayerGame8ShutdownEv'/>
+<fun r='_ZN17idMultiplayerGame5ResetEv'/>
+<fun r='_ZN17idMultiplayerGame11SpawnPlayerEi'/>
+<fun r='_ZN17idMultiplayerGame3RunEv'/>
+<fun r='_ZN17idMultiplayerGame4DrawEi'/>
+<fun r='_ZN17idMultiplayerGame10PlayerVoteEi12playerVote_t'/>
+<fun r='_ZN17idMultiplayerGame11PlayerDeathEP8idPlayerS1_b'/>
+<fun r='_ZN17idMultiplayerGame11AddChatLineEPKcz'/>
+<fun r='_ZN17idMultiplayerGame13UpdateMainGuiEv'/>
+<fun r='_ZN17idMultiplayerGame9StartMenuEv'/>
+<fun r='_ZN17idMultiplayerGame17HandleGuiCommandsEPKc'/>
+<fun r='_ZN17idMultiplayerGame11SetMenuSkinEv'/>
+<fun r='_ZNK17idMultiplayerGame15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN17idMultiplayerGame16ReadFromSnapshotERK13idBitMsgDelta'/>
+<smbr r='idMultiplayerGame::GameStateStrings' t='const char *[7]'/>
+<fun r='_ZNK17idMultiplayerGame12GetGameStateEv'/>
+<smbr r='idMultiplayerGame::GlobalSoundStrings' t='const char *[10]'/>
+<fun r='_ZN17idMultiplayerGame15PlayGlobalSoundEi9snd_evt_tPKc'/>
+<fun r='_ZN17idMultiplayerGame17PrintMessageEventEiNS_9msg_evt_tEii'/>
+<fun r='_ZN17idMultiplayerGame16DisconnectClientEi'/>
+<fun r='_ZN17idMultiplayerGame12ForceReady_fERK9idCmdArgs'/>
+<fun r='_ZN17idMultiplayerGame12DropWeapon_fERK9idCmdArgs'/>
+<fun r='_ZN17idMultiplayerGame13MessageMode_fERK9idCmdArgs'/>
+<fun r='_ZN17idMultiplayerGame11VoiceChat_fERK9idCmdArgs'/>
+<fun r='_ZN17idMultiplayerGame15VoiceChatTeam_fERK9idCmdArgs'/>
+<fun r='_ZN17idMultiplayerGame6Vote_fERK9idCmdArgs'/>
+<fun r='_ZN17idMultiplayerGame10CallVote_fERK9idCmdArgs'/>
+<fun r='_ZN17idMultiplayerGame14ClientCallVoteENS_12vote_flags_tEPKc'/>
+<fun r='_ZN17idMultiplayerGame14ServerCallVoteEiRK8idBitMsg'/>
+<fun r='_ZN17idMultiplayerGame15ClientStartVoteEiPKc'/>
+<fun r='_ZN17idMultiplayerGame15ServerStartVoteEiNS_12vote_flags_tEPKc'/>
+<fun r='_ZN17idMultiplayerGame16ClientUpdateVoteENS_13vote_result_tEii'/>
+<fun r='_ZN17idMultiplayerGame8CastVoteEib'/>
+<fun r='_ZN17idMultiplayerGame11ExecuteVoteEv'/>
+<fun r='_ZN17idMultiplayerGame10WantKilledEi'/>
+<fun r='_ZN17idMultiplayerGame16NumActualClientsEbPi'/>
+<fun r='_ZN17idMultiplayerGame10DropWeaponEi'/>
+<fun r='_ZN17idMultiplayerGame10MapRestartEv'/>
+<fun r='_ZN17idMultiplayerGame12SwitchToTeamEiii'/>
+<fun r='_ZNK17idMultiplayerGame11IsPureReadyEv'/>
+<fun r='_ZN17idMultiplayerGame18ProcessChatMessageEibPKcS1_S1_'/>
+<fun r='_ZN17idMultiplayerGame16ProcessVoiceChatEibi'/>
+<fun r='_ZN17idMultiplayerGame8PrecacheEv'/>
+<fun r='_ZN17idMultiplayerGame16ThrottleUserInfoEv'/>
+<fun r='_ZN17idMultiplayerGame14ToggleSpectateEv'/>
+<fun r='_ZN17idMultiplayerGame11ToggleReadyEv'/>
+<fun r='_ZN17idMultiplayerGame10ToggleTeamEv'/>
+<fun r='_ZN17idMultiplayerGame10ClearFragsEi'/>
+<fun r='_ZN17idMultiplayerGame9EnterGameEi'/>
+<fun r='_ZN17idMultiplayerGame7CanPlayEP8idPlayer'/>
+<fun r='_ZN17idMultiplayerGame8IsInGameEi'/>
+<fun r='_ZN17idMultiplayerGame11WantRespawnEP8idPlayer'/>
+<fun r='_ZN17idMultiplayerGame34ServerWriteInitialReliableMessagesEi'/>
+<fun r='_ZN17idMultiplayerGame20ClientReadStartStateERK8idBitMsg'/>
+<fun r='_ZN17idMultiplayerGame20ClientReadWarmupTimeERK8idBitMsg'/>
+<fun r='_ZN17idMultiplayerGame19ServerClientConnectEi'/>
+<fun r='_ZN17idMultiplayerGame11PlayerStatsEiPci'/>
+<smbr r='idMultiplayerGame::MPGuis' t='const char *[]'/>
+<smbr r='idMultiplayerGame::ThrottleVars' t='const char *[]'/>
+<smbr r='idMultiplayerGame::ThrottleVarsInEnglish' t='const char *[]'/>
+<smbr r='idMultiplayerGame::ThrottleDelay' t='const int []'/>
+<mbr r='idMultiplayerGame::gameState' o='0' t='gameState_t'/>
+<mbr r='idMultiplayerGame::nextState' o='32' t='gameState_t'/>
+<mbr r='idMultiplayerGame::pingUpdateTime' o='64' t='int'/>
+<mbr r='idMultiplayerGame::playerState' o='96' t='mpPlayerState_t [32]'/>
+<mbr r='idMultiplayerGame::vote' o='6240' t='vote_flags_t'/>
+<mbr r='idMultiplayerGame::voteTimeOut' o='6272' t='int'/>
+<mbr r='idMultiplayerGame::voteExecTime' o='6304' t='int'/>
+<mbr r='idMultiplayerGame::yesVotes' o='6336' t='float'/>
+<mbr r='idMultiplayerGame::noVotes' o='6368' t='float'/>
+<mbr r='idMultiplayerGame::voteValue' o='6400' t='idStr'/>
+<mbr r='idMultiplayerGame::voteString' o='6656' t='idStr'/>
+<mbr r='idMultiplayerGame::voted' o='6912' t='bool'/>
+<mbr r='idMultiplayerGame::kickVoteMap' o='6944' t='int [32]'/>
+<mbr r='idMultiplayerGame::nextStateSwitch' o='7968' t='int'/>
+<mbr r='idMultiplayerGame::warmupEndTime' o='8000' t='int'/>
+<mbr r='idMultiplayerGame::matchStartedTime' o='8032' t='int'/>
+<mbr r='idMultiplayerGame::currentTourneyPlayer' o='8064' t='int [2]'/>
+<mbr r='idMultiplayerGame::lastWinner' o='8128' t='int'/>
+<mbr r='idMultiplayerGame::warmupText' o='8160' t='idStr'/>
+<mbr r='idMultiplayerGame::one' o='8416' t='bool'/>
+<mbr r='idMultiplayerGame::two' o='8424' t='bool'/>
+<mbr r='idMultiplayerGame::three' o='8432' t='bool'/>
+<mbr r='idMultiplayerGame::scoreBoard' o='8448' t='idUserInterface *'/>
+<mbr r='idMultiplayerGame::spectateGui' o='8480' t='idUserInterface *'/>
+<mbr r='idMultiplayerGame::guiChat' o='8512' t='idUserInterface *'/>
+<mbr r='idMultiplayerGame::mainGui' o='8544' t='idUserInterface *'/>
+<mbr r='idMultiplayerGame::mapList' o='8576' t='idListGUI *'/>
+<mbr r='idMultiplayerGame::msgmodeGui' o='8608' t='idUserInterface *'/>
+<mbr r='idMultiplayerGame::currentMenu' o='8640' t='int'/>
+<mbr r='idMultiplayerGame::nextMenu' o='8672' t='int'/>
+<mbr r='idMultiplayerGame::bCurrentMenuMsg' o='8704' t='bool'/>
+<mbr r='idMultiplayerGame::chatHistory' o='8736' t='mpChatLine_t [5]'/>
+<mbr r='idMultiplayerGame::chatHistoryIndex' o='10176' t='int'/>
+<mbr r='idMultiplayerGame::chatHistorySize' o='10208' t='int'/>
+<mbr r='idMultiplayerGame::chatDataUpdated' o='10240' t='bool'/>
+<mbr r='idMultiplayerGame::lastChatLineTime' o='10272' t='int'/>
+<mbr r='idMultiplayerGame::numRankedPlayers' o='10304' t='int'/>
+<mbr r='idMultiplayerGame::rankedPlayers' o='10336' t='idPlayer *[32]'/>
+<mbr r='idMultiplayerGame::pureReady' o='11360' t='bool'/>
+<mbr r='idMultiplayerGame::fragLimitTimeout' o='11392' t='int'/>
+<mbr r='idMultiplayerGame::switchThrottle' o='11424' t='int [3]'/>
+<mbr r='idMultiplayerGame::voiceChatThrottle' o='11520' t='int'/>
+<mbr r='idMultiplayerGame::lastGameType' o='11552' t='gameType_t'/>
+<mbr r='idMultiplayerGame::startFragLimit' o='11584' t='int'/>
+<fun r='_ZN17idMultiplayerGame17UpdatePlayerRanksEv'/>
+<fun r='_ZN17idMultiplayerGame15UpdateRankColorEP15idUserInterfacePKciRK6idVec3'/>
+<fun r='_ZN17idMultiplayerGame16UpdateScoreboardEP15idUserInterfaceP8idPlayer'/>
+<fun r='_ZN17idMultiplayerGame9ClearGuisEv'/>
+<fun r='_ZN17idMultiplayerGame14DrawScoreBoardEP8idPlayer'/>
+<fun r='_ZN17idMultiplayerGame9UpdateHudEP8idPlayerP15idUserInterface'/>
+<fun r='_ZN17idMultiplayerGame6WarmupEv'/>
+<fun r='_ZN17idMultiplayerGame9CheckVoteEv'/>
+<fun r='_ZN17idMultiplayerGame15AllPlayersReadyEv'/>
+<fun r='_ZN17idMultiplayerGame12FragLimitHitEv'/>
+<fun r='_ZN17idMultiplayerGame10FragLeaderEv'/>
+<fun r='_ZN17idMultiplayerGame12TimeLimitHitEv'/>
+<fun r='_ZN17idMultiplayerGame8NewStateENS_11gameState_tEP8idPlayer'/>
+<fun r='_ZN17idMultiplayerGame16UpdateWinsLossesEP8idPlayer'/>
+<fun r='_ZN17idMultiplayerGame16FillTourneySlotsEv'/>
+<fun r='_ZN17idMultiplayerGame19CycleTourneyPlayersEv'/>
+<fun r='_ZN17idMultiplayerGame17UpdateTourneyLineEv'/>
+<fun r='_ZN17idMultiplayerGame8GameTimeEv'/>
+<fun r='_ZN17idMultiplayerGame5ClearEv'/>
+<fun r='_ZN17idMultiplayerGame19EnoughClientsToPlayEv'/>
+<fun r='_ZN17idMultiplayerGame13ClearChatDataEv'/>
+<fun r='_ZN17idMultiplayerGame8DrawChatEv'/>
+<fun r='_ZN17idMultiplayerGame13CheckRespawnsEP8idPlayer'/>
+<fun r='_ZN17idMultiplayerGame10ForceReadyEv'/>
+<fun r='_ZN17idMultiplayerGame14CheckAbortGameEv'/>
+<fun r='_ZN17idMultiplayerGame11MessageModeERK9idCmdArgs'/>
+<fun r='_ZN17idMultiplayerGame11DisableMenuEv'/>
+<fun r='_ZN17idMultiplayerGame10SetMapShotEv'/>
+<fun r='_ZN17idMultiplayerGame9TeamScoreEiii'/>
+<fun r='_ZN17idMultiplayerGame9VoiceChatERK9idCmdArgsb'/>
+<fun r='_ZN17idMultiplayerGame15DumpTourneyLineEv'/>
+<fun r='_ZN17idMultiplayerGame13SuddenRespawnEv'/>
+<fun r='_ZNK17idMultiplayerGame12GetGameStateEv'/>
+<fun r='_ZNK17idMultiplayerGame11IsPureReadyEv'/>
+<fun r='_ZN17idMultiplayerGame10ClearFragsEi'/>
+<fun r='_ZN17idMultiplayerGame8IsInGameEi'/>

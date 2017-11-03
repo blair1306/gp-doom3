@@ -1,0 +1,28 @@
+<dec f='codebrowser/d3xp/physics/Push.h' l='53' type='float idPush::ClipTranslationalPush(trace_t &amp; results, idEntity * pusher, const int flags, const idVec3 &amp; newOrigin, const idVec3 &amp; move)'/>
+<doc f='codebrowser/d3xp/physics/Push.h' l='50'>// Try to push other entities by moving the given entity.
+					// If results.fraction &lt; 1.0 the move was blocked by results.c.entityNum
+					// Returns total mass of all pushed entities.</doc>
+<use f='codebrowser/d3xp/physics/Physics_Player.cpp' l='291' u='c' c='_ZN16idPhysics_Player9SlideMoveEbbbb'/>
+<def f='codebrowser/d3xp/physics/Push.cpp' l='1042' ll='1213' type='float idPush::ClipTranslationalPush(trace_t &amp; results, idEntity * pusher, const int flags, const idVec3 &amp; newOrigin, const idVec3 &amp; translation)'/>
+<use f='codebrowser/d3xp/physics/Push.cpp' l='1410' u='c' c='_ZN6idPush8ClipPushER7trace_sP8idEntityiRK6idVec3RK6idMat3RS4_RS7_'/>
+<doc f='codebrowser/d3xp/physics/Push.cpp' l='1035'>/*
+============
+idPush::ClipTranslationalPush
+
+  Try to push other entities by moving the given entity.
+============
+*/</doc>
+<dec f='codebrowser/game/physics/Push.h' l='53' type='float idPush::ClipTranslationalPush(trace_t &amp; results, idEntity * pusher, const int flags, const idVec3 &amp; newOrigin, const idVec3 &amp; move)'/>
+<doc f='codebrowser/game/physics/Push.h' l='50'>// Try to push other entities by moving the given entity.
+					// If results.fraction &lt; 1.0 the move was blocked by results.c.entityNum
+					// Returns total mass of all pushed entities.</doc>
+<use f='codebrowser/game/physics/Physics_Player.cpp' l='291' u='c' c='_ZN16idPhysics_Player9SlideMoveEbbbb'/>
+<def f='codebrowser/game/physics/Push.cpp' l='1042' ll='1213' type='float idPush::ClipTranslationalPush(trace_t &amp; results, idEntity * pusher, const int flags, const idVec3 &amp; newOrigin, const idVec3 &amp; translation)'/>
+<use f='codebrowser/game/physics/Push.cpp' l='1410' u='c' c='_ZN6idPush8ClipPushER7trace_sP8idEntityiRK6idVec3RK6idMat3RS4_RS7_'/>
+<doc f='codebrowser/game/physics/Push.cpp' l='1035'>/*
+============
+idPush::ClipTranslationalPush
+
+  Try to push other entities by moving the given entity.
+============
+*/</doc>

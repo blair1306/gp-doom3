@@ -1,0 +1,26 @@
+<dec f='codebrowser/d3xp/MultiplayerGame.h' l='414' type='void idMultiplayerGame::UpdateTourneyLine()'/>
+<doc f='codebrowser/d3xp/MultiplayerGame.h' l='413'>// walk through the tourneyRank to build a wait list for the clients</doc>
+<def f='codebrowser/d3xp/MultiplayerGame.cpp' l='1576' ll='1613' type='void idMultiplayerGame::UpdateTourneyLine()'/>
+<use f='codebrowser/d3xp/MultiplayerGame.cpp' l='1648' u='c' c='_ZN17idMultiplayerGame19CycleTourneyPlayersEv'/>
+<use f='codebrowser/d3xp/MultiplayerGame.cpp' l='3091' u='c' c='_ZN17idMultiplayerGame13CheckRespawnsEP8idPlayer'/>
+<doc f='codebrowser/d3xp/MultiplayerGame.cpp' l='1568'>/*
+================
+idMultiplayerGame::UpdateTourneyLine
+we manipulate tourneyRank on player entities for internal ranking. it&apos;s easier to deal with.
+but we need a real wait list to be synced down to clients for GUI
+ignore current players, ignore wantSpectate
+================
+*/</doc>
+<dec f='codebrowser/game/MultiplayerGame.h' l='331' type='void idMultiplayerGame::UpdateTourneyLine()'/>
+<doc f='codebrowser/game/MultiplayerGame.h' l='330'>// walk through the tourneyRank to build a wait list for the clients</doc>
+<def f='codebrowser/game/MultiplayerGame.cpp' l='1117' ll='1154' type='void idMultiplayerGame::UpdateTourneyLine()'/>
+<use f='codebrowser/game/MultiplayerGame.cpp' l='1189' u='c' c='_ZN17idMultiplayerGame19CycleTourneyPlayersEv'/>
+<use f='codebrowser/game/MultiplayerGame.cpp' l='2400' u='c' c='_ZN17idMultiplayerGame13CheckRespawnsEP8idPlayer'/>
+<doc f='codebrowser/game/MultiplayerGame.cpp' l='1109'>/*
+================
+idMultiplayerGame::UpdateTourneyLine
+we manipulate tourneyRank on player entities for internal ranking. it&apos;s easier to deal with.
+but we need a real wait list to be synced down to clients for GUI
+ignore current players, ignore wantSpectate
+================
+*/</doc>

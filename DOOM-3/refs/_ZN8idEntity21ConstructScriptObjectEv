@@ -1,0 +1,26 @@
+<dec f='codebrowser/d3xp/Entity.h' l='323' type='idThread * idEntity::ConstructScriptObject()'/>
+<ovr f='codebrowser/d3xp/Actor.cpp' l='1290' c='_ZN7idActor21ConstructScriptObjectEv'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='594' u='c' c='_ZN8idEntity5SpawnEv'/>
+<def f='codebrowser/d3xp/Entity.cpp' l='3193' ll='3216' type='idThread * idEntity::ConstructScriptObject()'/>
+<doc f='codebrowser/d3xp/Entity.cpp' l='3185'>/*
+================
+idEntity::ConstructScriptObject
+
+Called during idEntity::Spawn.  Calls the constructor on the script object.
+Can be overridden by subclasses when a thread doesn&apos;t need to be allocated.
+================
+*/</doc>
+<ovr f='codebrowser/d3xp/Weapon.cpp' l='2011' c='_ZN8idWeapon21ConstructScriptObjectEv'/>
+<dec f='codebrowser/game/Entity.h' l='307' type='idThread * idEntity::ConstructScriptObject()'/>
+<ovr f='codebrowser/game/Actor.cpp' l='1242' c='_ZN7idActor21ConstructScriptObjectEv'/>
+<use f='codebrowser/game/Entity.cpp' l='556' u='c' c='_ZN8idEntity5SpawnEv'/>
+<def f='codebrowser/game/Entity.cpp' l='3097' ll='3120' type='idThread * idEntity::ConstructScriptObject()'/>
+<doc f='codebrowser/game/Entity.cpp' l='3089'>/*
+================
+idEntity::ConstructScriptObject
+
+Called during idEntity::Spawn.  Calls the constructor on the script object.
+Can be overridden by subclasses when a thread doesn&apos;t need to be allocated.
+================
+*/</doc>
+<ovr f='codebrowser/game/Weapon.cpp' l='1724' c='_ZN8idWeapon21ConstructScriptObjectEv'/>

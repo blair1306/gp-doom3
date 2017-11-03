@@ -1,0 +1,65 @@
+<dec f='codebrowser/d3xp/Entity.h' l='367' type='void idEntity::ServerSendEvent(int eventId, const idBitMsg * msg, bool saveEvent, int excludeClient) const'/>
+<use f='codebrowser/d3xp/BrittleFracture.cpp' l='720' u='c' c='_ZN17idBrittleFracture12ProjectDecalERK6idVec3S2_iPKc'/>
+<use f='codebrowser/d3xp/BrittleFracture.cpp' l='883' u='c' c='_ZN17idBrittleFracture7ShatterERK6idVec3S2_i'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='1680' u='c' c='_ZN8idEntity16StartSoundShaderEPK13idSoundShaderiibPi'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='1725' u='c' c='_ZN8idEntity9StopSoundEib'/>
+<def f='codebrowser/d3xp/Entity.cpp' l='4897' ll='4932' type='void idEntity::ServerSendEvent(int eventId, const idBitMsg * msg, bool saveEvent, int excludeClient) const'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='5340' u='c' c='_ZN16idAnimatedEntity15AddDamageEffectERK7trace_sRK6idVec3PKc'/>
+<doc f='codebrowser/d3xp/Entity.cpp' l='4889'>/*
+================
+idEntity::ServerSendEvent
+
+   Saved events are also sent to any client that connects late so all clients
+   always receive the events nomatter what time they join the game.
+================
+*/</doc>
+<use f='codebrowser/d3xp/Item.cpp' l='372' u='c' c='_ZN6idItem6PickupEP8idPlayer'/>
+<use f='codebrowser/d3xp/Item.cpp' l='550' u='c' c='_ZN6idItem13Event_RespawnEv'/>
+<use f='codebrowser/d3xp/Item.cpp' l='569' u='c' c='_ZN6idItem15Event_RespawnFxEv'/>
+<use f='codebrowser/d3xp/Item.cpp' l='1007' u='c' c='_ZN10idItemTeam14Event_TakeFlagEP8idPlayer'/>
+<use f='codebrowser/d3xp/Item.cpp' l='1072' u='c' c='_ZN10idItemTeam14Event_DropFlagEb'/>
+<use f='codebrowser/d3xp/Item.cpp' l='1142' u='c' c='_ZN10idItemTeam16Event_FlagReturnEP8idPlayer'/>
+<use f='codebrowser/d3xp/Item.cpp' l='1189' u='c' c='_ZN10idItemTeam17Event_FlagCaptureEv'/>
+<use f='codebrowser/d3xp/Light.cpp' l='661' u='c' c='_ZN7idLight12BecomeBrokenEP8idEntity'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='244' u='c' c='_ZN13idPlayerStart20Event_TeleportPlayerEP8idEntity'/>
+<use f='codebrowser/d3xp/Moveable.cpp' l='1157' u='c' c='_ZN17idExplodingBarrel6KilledEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/d3xp/MultiplayerGame.cpp' l='3684' u='c' c='_ZN17idMultiplayerGame12SwitchToTeamEiii'/>
+<use f='codebrowser/d3xp/Player.cpp' l='797' u='c' c='_ZN11idInventory13AddPickupNameEPKcS1_P8idPlayer'/>
+<use f='codebrowser/d3xp/Player.cpp' l='3679' u='c' c='_ZN8idPlayer11GivePowerUpEii'/>
+<use f='codebrowser/d3xp/Player.cpp' l='3850' u='c' c='_ZN8idPlayer12ClearPowerupEi'/>
+<use f='codebrowser/d3xp/Player.cpp' l='6498' u='c' c='_ZN8idPlayer8SpectateEb'/>
+<use f='codebrowser/d3xp/Player.cpp' l='9234' u='c' c='_ZN8idPlayer20Event_ExitTeleporterEv'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='721' u='c' c='_ZN12idProjectile22AddDefaultDamageEffectERK7trace_sRK6idVec3'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='3007' u='c' c='_ZN8idWeapon15Event_NetReloadEv'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='3019' u='c' c='_ZN8idWeapon18Event_NetEndReloadEv'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='3149' u='c' c='_ZN8idWeapon13Event_SetSkinEPKc'/>
+<dec f='codebrowser/game/Entity.h' l='351' type='void idEntity::ServerSendEvent(int eventId, const idBitMsg * msg, bool saveEvent, int excludeClient) const'/>
+<use f='codebrowser/game/BrittleFracture.cpp' l='690' u='c' c='_ZN17idBrittleFracture12ProjectDecalERK6idVec3S2_iPKc'/>
+<use f='codebrowser/game/BrittleFracture.cpp' l='853' u='c' c='_ZN17idBrittleFracture7ShatterERK6idVec3S2_i'/>
+<use f='codebrowser/game/Entity.cpp' l='1588' u='c' c='_ZN8idEntity16StartSoundShaderEPK13idSoundShaderiibPi'/>
+<use f='codebrowser/game/Entity.cpp' l='1633' u='c' c='_ZN8idEntity9StopSoundEib'/>
+<def f='codebrowser/game/Entity.cpp' l='4723' ll='4758' type='void idEntity::ServerSendEvent(int eventId, const idBitMsg * msg, bool saveEvent, int excludeClient) const'/>
+<use f='codebrowser/game/Entity.cpp' l='5132' u='c' c='_ZN16idAnimatedEntity15AddDamageEffectERK7trace_sRK6idVec3PKc'/>
+<doc f='codebrowser/game/Entity.cpp' l='4715'>/*
+================
+idEntity::ServerSendEvent
+
+   Saved events are also sent to any client that connects late so all clients
+   always receive the events nomatter what time they join the game.
+================
+*/</doc>
+<use f='codebrowser/game/Item.cpp' l='364' u='c' c='_ZN6idItem6PickupEP8idPlayer'/>
+<use f='codebrowser/game/Item.cpp' l='542' u='c' c='_ZN6idItem13Event_RespawnEv'/>
+<use f='codebrowser/game/Item.cpp' l='561' u='c' c='_ZN6idItem15Event_RespawnFxEv'/>
+<use f='codebrowser/game/Light.cpp' l='654' u='c' c='_ZN7idLight12BecomeBrokenEP8idEntity'/>
+<use f='codebrowser/game/Misc.cpp' l='240' u='c' c='_ZN13idPlayerStart20Event_TeleportPlayerEP8idEntity'/>
+<use f='codebrowser/game/Moveable.cpp' l='995' u='c' c='_ZN17idExplodingBarrel6KilledEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/game/MultiplayerGame.cpp' l='2961' u='c' c='_ZN17idMultiplayerGame12SwitchToTeamEiii'/>
+<use f='codebrowser/game/Player.cpp' l='3030' u='c' c='_ZN8idPlayer11GivePowerUpEii'/>
+<use f='codebrowser/game/Player.cpp' l='3108' u='c' c='_ZN8idPlayer12ClearPowerupEi'/>
+<use f='codebrowser/game/Player.cpp' l='5450' u='c' c='_ZN8idPlayer8SpectateEb'/>
+<use f='codebrowser/game/Player.cpp' l='7751' u='c' c='_ZN8idPlayer20Event_ExitTeleporterEv'/>
+<use f='codebrowser/game/Projectile.cpp' l='676' u='c' c='_ZN12idProjectile22AddDefaultDamageEffectERK7trace_sRK6idVec3'/>
+<use f='codebrowser/game/Weapon.cpp' l='2559' u='c' c='_ZN8idWeapon15Event_NetReloadEv'/>
+<use f='codebrowser/game/Weapon.cpp' l='2571' u='c' c='_ZN8idWeapon18Event_NetEndReloadEv'/>
+<use f='codebrowser/game/Weapon.cpp' l='2701' u='c' c='_ZN8idWeapon13Event_SetSkinEPKc'/>

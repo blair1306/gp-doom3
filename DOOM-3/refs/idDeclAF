@@ -1,0 +1,60 @@
+<inh f='codebrowser/framework/DeclManager.h' l='132' c='idDecl'/>
+<def f='codebrowser/framework/DeclAF.h' l='141' ll='214'/>
+<size>176</size>
+<fun r='_ZN8idDeclAFC1Ev'/>
+<fun r='_ZN8idDeclAFD1Ev'/>
+<fun r='_ZNK8idDeclAF4SizeEv'/>
+<fun r='_ZNK8idDeclAF17DefaultDefinitionEv'/>
+<fun r='_ZN8idDeclAF5ParseEPKci'/>
+<fun r='_ZN8idDeclAF8FreeDataEv'/>
+<fun r='_ZNK8idDeclAF6FinishEPFbPvPK10idJointMatPKcR6idVec3R6idMat3ES3_S0_'/>
+<fun r='_ZN8idDeclAF4SaveEv'/>
+<fun r='_ZN8idDeclAF7NewBodyEPKc'/>
+<fun r='_ZN8idDeclAF10RenameBodyEPKcS1_'/>
+<fun r='_ZN8idDeclAF10DeleteBodyEPKc'/>
+<fun r='_ZN8idDeclAF13NewConstraintEPKc'/>
+<fun r='_ZN8idDeclAF16RenameConstraintEPKcS1_'/>
+<fun r='_ZN8idDeclAF16DeleteConstraintEPKc'/>
+<fun r='_ZN8idDeclAF18ContentsFromStringEPKc'/>
+<fun r='_ZN8idDeclAF16ContentsToStringEiR5idStr'/>
+<fun r='_ZN8idDeclAF18JointModFromStringEPKc'/>
+<fun r='_ZN8idDeclAF16JointModToStringE16declAFJointMod_t'/>
+<mbr r='idDeclAF::modified' o='64' t='bool'/>
+<mbr r='idDeclAF::model' o='96' t='idStr'/>
+<mbr r='idDeclAF::skin' o='352' t='idStr'/>
+<mbr r='idDeclAF::defaultLinearFriction' o='608' t='float'/>
+<mbr r='idDeclAF::defaultAngularFriction' o='640' t='float'/>
+<mbr r='idDeclAF::defaultContactFriction' o='672' t='float'/>
+<mbr r='idDeclAF::defaultConstraintFriction' o='704' t='float'/>
+<mbr r='idDeclAF::totalMass' o='736' t='float'/>
+<mbr r='idDeclAF::suspendVelocity' o='768' t='idVec2'/>
+<mbr r='idDeclAF::suspendAcceleration' o='832' t='idVec2'/>
+<mbr r='idDeclAF::noMoveTime' o='896' t='float'/>
+<mbr r='idDeclAF::noMoveTranslation' o='928' t='float'/>
+<mbr r='idDeclAF::noMoveRotation' o='960' t='float'/>
+<mbr r='idDeclAF::minMoveTime' o='992' t='float'/>
+<mbr r='idDeclAF::maxMoveTime' o='1024' t='float'/>
+<mbr r='idDeclAF::contents' o='1056' t='int'/>
+<mbr r='idDeclAF::clipMask' o='1088' t='int'/>
+<mbr r='idDeclAF::selfCollision' o='1120' t='bool'/>
+<mbr r='idDeclAF::bodies' o='1152' t='idList&lt;idDeclAF_Body *&gt;'/>
+<mbr r='idDeclAF::constraints' o='1280' t='idList&lt;idDeclAF_Constraint *&gt;'/>
+<fun r='_ZNK8idDeclAF13ParseContentsER7idLexerRi'/>
+<fun r='_ZN8idDeclAF9ParseBodyER7idLexer'/>
+<fun r='_ZN8idDeclAF10ParseFixedER7idLexer'/>
+<fun r='_ZN8idDeclAF23ParseBallAndSocketJointER7idLexer'/>
+<fun r='_ZN8idDeclAF19ParseUniversalJointER7idLexer'/>
+<fun r='_ZN8idDeclAF10ParseHingeER7idLexer'/>
+<fun r='_ZN8idDeclAF11ParseSliderER7idLexer'/>
+<fun r='_ZN8idDeclAF11ParseSpringER7idLexer'/>
+<fun r='_ZN8idDeclAF13ParseSettingsER7idLexer'/>
+<fun r='_ZNK8idDeclAF9WriteBodyEP6idFileRK13idDeclAF_Body'/>
+<fun r='_ZNK8idDeclAF10WriteFixedEP6idFileRK19idDeclAF_Constraint'/>
+<fun r='_ZNK8idDeclAF23WriteBallAndSocketJointEP6idFileRK19idDeclAF_Constraint'/>
+<fun r='_ZNK8idDeclAF19WriteUniversalJointEP6idFileRK19idDeclAF_Constraint'/>
+<fun r='_ZNK8idDeclAF10WriteHingeEP6idFileRK19idDeclAF_Constraint'/>
+<fun r='_ZNK8idDeclAF11WriteSliderEP6idFileRK19idDeclAF_Constraint'/>
+<fun r='_ZNK8idDeclAF11WriteSpringEP6idFileRK19idDeclAF_Constraint'/>
+<fun r='_ZNK8idDeclAF15WriteConstraintEP6idFileRK19idDeclAF_Constraint'/>
+<fun r='_ZNK8idDeclAF13WriteSettingsEP6idFile'/>
+<fun r='_ZN8idDeclAF17RebuildTextSourceEv'/>

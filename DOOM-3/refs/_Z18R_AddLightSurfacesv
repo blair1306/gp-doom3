@@ -1,0 +1,21 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1207' type='void R_AddLightSurfaces()'/>
+<def f='codebrowser/renderer/tr_light.cpp' l='875' ll='1051' type='void R_AddLightSurfaces()'/>
+<doc f='codebrowser/renderer/tr_light.cpp' l='857'>/*
+=================
+R_AddLightSurfaces
+
+Calc the light shader values, removing any light from the viewLight list
+if it is determined to not have any visible effect due to being flashed off or turned off.
+
+Adds entities to the viewEntity list if they are needed for shadow casting.
+
+Add any precomputed shadow volumes.
+
+Removes lights from the viewLights list if they are completely
+turned off, or completely off screen.
+
+Create any new interactions needed between the viewLights
+and the viewEntitys due to game movement
+=================
+*/</doc>
+<use f='codebrowser/renderer/tr_main.cpp' l='1132' u='c' c='_Z12R_RenderViewP9viewDef_s'/>

@@ -1,0 +1,10 @@
+<dec f='codebrowser/sys/linux/oss/include/sys/soundcard.h' l='1203'/>
+<doc f='codebrowser/sys/linux/oss/include/sys/soundcard.h' l='1194'>/*
+ * Calls to set/get the recording gain for the currently active
+ * recording source. These calls automatically map to the right control.
+ * Note that these calls are not supported by all drivers. In this case
+ * the call will return -1 with errno set to EINVAL
+ *
+ * The _MONGAIN work in similar way but set/get the monitoring gain for
+ * the currently selected recording source.
+ */</doc>

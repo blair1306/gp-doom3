@@ -1,0 +1,43 @@
+<dec f='codebrowser/framework/DeclParticle.h' l='91' type='idVec3'/>
+<dec f='codebrowser/game/Game.h' l='209' type='idVec3'/>
+<offset>32</offset>
+<doc f='codebrowser/framework/DeclParticle.h' l='91'>// dynamic smoke particles can have individual origins and axis</doc>
+<doc f='codebrowser/game/Game.h' l='208'>// with idSoundWorld::AllocSoundEmitter() when needed</doc>
+<dec f='codebrowser/d3xp/Game.h' l='211' type='idVec3'/>
+<offset>32</offset>
+<doc f='codebrowser/d3xp/Game.h' l='210'>// with idSoundWorld::AllocSoundEmitter() when needed</doc>
+<use f='codebrowser/d3xp/Entity.cpp' l='334' u='a' c='_ZN10idGameEdit24ParseSpawnArgsToRefSoundEPK6idDictP10refSound_t'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='1755' u='w' c='_ZN8idEntity11UpdateSoundEv'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='1757' u='w' c='_ZN8idEntity11UpdateSoundEv'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='1760' u='r' c='_ZN8idEntity11UpdateSoundEv'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='2369' u='w' c='_ZN14idMover_Binary5SpawnEv'/>
+<use f='codebrowser/d3xp/SmokeParticles.cpp' l='386' u='w' c='_ZN16idSmokeParticles18UpdateRenderEntityEP14renderEntity_sPK12renderView_s'/>
+<use f='codebrowser/d3xp/Sound.cpp' l='212' u='w' c='_ZN7idSound25UpdateChangeableSpawnArgsEPK6idDict'/>
+<use f='codebrowser/d3xp/Sound.cpp' l='214' u='w' c='_ZN7idSound25UpdateChangeableSpawnArgsEPK6idDict'/>
+<use f='codebrowser/d3xp/gamesys/SaveGame.cpp' l='606' u='r' c='_ZN10idSaveGame13WriteRefSoundERK10refSound_t'/>
+<use f='codebrowser/d3xp/gamesys/SaveGame.cpp' l='1382' u='a' c='_ZN13idRestoreGame12ReadRefSoundER10refSound_t'/>
+<use f='codebrowser/framework/DeclParticle.cpp' l='99' u='m' c='_ZN14idDeclParticle14GetStageBoundsEP15idParticleStage'/>
+<use f='codebrowser/framework/DeclParticle.cpp' l='1010' u='r' c='_ZNK15idParticleStage14ParticleOriginEP13particleGen_tR6idVec3'/>
+<use f='codebrowser/game/Entity.cpp' l='318' u='a' c='_ZN10idGameEdit24ParseSpawnArgsToRefSoundEPK6idDictP10refSound_t'/>
+<use f='codebrowser/game/Entity.cpp' l='1663' u='w' c='_ZN8idEntity11UpdateSoundEv'/>
+<use f='codebrowser/game/Entity.cpp' l='1665' u='w' c='_ZN8idEntity11UpdateSoundEv'/>
+<use f='codebrowser/game/Entity.cpp' l='1668' u='r' c='_ZN8idEntity11UpdateSoundEv'/>
+<use f='codebrowser/game/Mover.cpp' l='2347' u='w' c='_ZN14idMover_Binary5SpawnEv'/>
+<use f='codebrowser/game/SmokeParticles.cpp' l='360' u='w' c='_ZN16idSmokeParticles18UpdateRenderEntityEP14renderEntity_sPK12renderView_s'/>
+<use f='codebrowser/game/Sound.cpp' l='212' u='w' c='_ZN7idSound25UpdateChangeableSpawnArgsEPK6idDict'/>
+<use f='codebrowser/game/Sound.cpp' l='214' u='w' c='_ZN7idSound25UpdateChangeableSpawnArgsEPK6idDict'/>
+<use f='codebrowser/game/gamesys/SaveGame.cpp' l='601' u='r' c='_ZN10idSaveGame13WriteRefSoundERK10refSound_t'/>
+<use f='codebrowser/game/gamesys/SaveGame.cpp' l='1372' u='a' c='_ZN13idRestoreGame12ReadRefSoundER10refSound_t'/>
+<use f='codebrowser/renderer/Model_prt.cpp' l='115' u='m' c='_ZN16idRenderModelPrt23InstantiateDynamicModelEPK14renderEntity_sPK9viewDef_sP13idRenderModel'/>
+<use f='codebrowser/renderer/tr_deform.cpp' l='1061' u='m' c='_ZL16R_ParticleDeformP10drawSurf_sb'/>
+<use f='codebrowser/renderer/tr_deform.cpp' l='1181' u='w' c='_ZL16R_ParticleDeformP10drawSurf_sb'/>
+<dec f='codebrowser/tools/compilers/dmap/dmap.h' l='49' type='idVec3'/>
+<offset>32</offset>
+<use f='codebrowser/tools/compilers/dmap/map.cpp' l='221' u='r' c='_ZL21AdjustEntityForOriginP9uEntity_t'/>
+<use f='codebrowser/tools/compilers/dmap/map.cpp' l='225' u='m' c='_ZL21AdjustEntityForOriginP9uEntity_t'/>
+<use f='codebrowser/tools/compilers/dmap/map.cpp' l='225' u='m' c='_ZL21AdjustEntityForOriginP9uEntity_t'/>
+<use f='codebrowser/tools/compilers/dmap/map.cpp' l='225' u='m' c='_ZL21AdjustEntityForOriginP9uEntity_t'/>
+<use f='codebrowser/tools/compilers/dmap/map.cpp' l='226' u='m' c='_ZL21AdjustEntityForOriginP9uEntity_t'/>
+<use f='codebrowser/tools/compilers/dmap/map.cpp' l='226' u='m' c='_ZL21AdjustEntityForOriginP9uEntity_t'/>
+<use f='codebrowser/tools/compilers/dmap/map.cpp' l='226' u='m' c='_ZL21AdjustEntityForOriginP9uEntity_t'/>
+<use f='codebrowser/tools/compilers/dmap/map.cpp' l='427' u='a' c='_ZL16ProcessMapEntityP11idMapEntity'/>

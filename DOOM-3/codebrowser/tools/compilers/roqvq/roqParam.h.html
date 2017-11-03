@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>roqParam.h source code [codebrowser/tools/compilers/roqvq/roqParam.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="roqParam "/>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/tools/compilers/roqvq/roqParam.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>tools</a>/<a href='..'>compilers</a>/<a href='./'>roqvq</a>/<a href='roqParam.h.html'>roqParam.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td><u>#<span data-ppcond="28">ifndef</span> <span class="macro" data-ref="_M/__roqParam_h__">__roqParam_h__</span></u></td></tr>
+<tr><th id="29">29</th><td><u>#define <dfn class="macro" id="_M/__roqParam_h__" data-ref="_M/__roqParam_h__">__roqParam_h__</dfn></u></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><u>#include <a href="gdefs.h.html">"gdefs.h"</a></u></td></tr>
+<tr><th id="32">32</th><td><u>#pragma once</u></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><b>class</b> <dfn class="type def" id="roqParam" title='roqParam' data-ref="roqParam">roqParam</dfn></td></tr>
+<tr><th id="35">35</th><td>{</td></tr>
+<tr><th id="36">36</th><td><b>public</b>:</td></tr>
+<tr><th id="37">37</th><td>	</td></tr>
+<tr><th id="38">38</th><td>	<em>const</em> <em>char</em>*		<dfn class="decl" id="_ZN8roqParam11RoqFilenameEv" title='roqParam::RoqFilename' data-ref="_ZN8roqParam11RoqFilenameEv">RoqFilename</dfn>( <em>void</em> );</td></tr>
+<tr><th id="39">39</th><td>	<em>const</em> <em>char</em>*		<dfn class="decl" id="_ZN8roqParam15RoqTempFilenameEv" title='roqParam::RoqTempFilename' data-ref="_ZN8roqParam15RoqTempFilenameEv">RoqTempFilename</dfn>( <em>void</em> );</td></tr>
+<tr><th id="40">40</th><td>	<em>const</em> <em>char</em>*		<dfn class="decl" id="_ZN8roqParam20GetNextImageFilenameEv" title='roqParam::GetNextImageFilename' data-ref="_ZN8roqParam20GetNextImageFilenameEv">GetNextImageFilename</dfn>( <em>void</em> );</td></tr>
+<tr><th id="41">41</th><td>	<em>const</em> <em>char</em>*		<dfn class="decl" id="_ZN8roqParam13SoundFilenameEv" title='roqParam::SoundFilename' data-ref="_ZN8roqParam13SoundFilenameEv">SoundFilename</dfn>( <em>void</em> );</td></tr>
+<tr><th id="42">42</th><td>	<em>void</em>			<dfn class="decl" id="_ZN8roqParam12InitFromFileEPKc" title='roqParam::InitFromFile' data-ref="_ZN8roqParam12InitFromFileEPKc">InitFromFile</dfn>( <em>const</em> <em>char</em> *<dfn class="local col1 decl" id="1fileName" title='fileName' data-type='const char *' data-ref="1fileName">fileName</dfn> );</td></tr>
+<tr><th id="43">43</th><td>	<em>void</em>			<dfn class="decl" id="_ZN8roqParam19GetNthInputFileNameER5idStri" title='roqParam::GetNthInputFileName' data-ref="_ZN8roqParam19GetNthInputFileNameER5idStri">GetNthInputFileName</dfn>( <a class="type" href="../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a> &amp;<dfn class="local col2 decl" id="2fileName" title='fileName' data-type='idStr &amp;' data-ref="2fileName">fileName</dfn>, <em>int</em> <dfn class="local col3 decl" id="3n" title='n' data-type='int' data-ref="3n">n</dfn>);</td></tr>
+<tr><th id="44">44</th><td>	<em>bool</em>			<dfn class="decl" id="_ZN8roqParam10MoreFramesEv" title='roqParam::MoreFrames' data-ref="_ZN8roqParam10MoreFramesEv">MoreFrames</dfn>( <em>void</em> );</td></tr>
+<tr><th id="45">45</th><td>	<em>bool</em>			<dfn class="decl" id="_ZN8roqParam13OutputVectorsEv" title='roqParam::OutputVectors' data-ref="_ZN8roqParam13OutputVectorsEv">OutputVectors</dfn>( <em>void</em> );</td></tr>
+<tr><th id="46">46</th><td>	<em>bool</em>			<dfn class="decl" id="_ZN8roqParam8TimecodeEv" title='roqParam::Timecode' data-ref="_ZN8roqParam8TimecodeEv">Timecode</dfn>( <em>void</em> );</td></tr>
+<tr><th id="47">47</th><td>	<em>bool</em>			<dfn class="decl" id="_ZN8roqParam11DeltaFramesEv" title='roqParam::DeltaFrames' data-ref="_ZN8roqParam11DeltaFramesEv">DeltaFrames</dfn>( <em>void</em> );</td></tr>
+<tr><th id="48">48</th><td>	<em>bool</em>			<dfn class="decl" id="_ZN8roqParam7NoAlphaEv" title='roqParam::NoAlpha' data-ref="_ZN8roqParam7NoAlphaEv">NoAlpha</dfn>( <em>void</em> );</td></tr>
+<tr><th id="49">49</th><td>	<em>bool</em>			<dfn class="decl" id="_ZN8roqParam10SearchTypeEv" title='roqParam::SearchType' data-ref="_ZN8roqParam10SearchTypeEv">SearchType</dfn>( <em>void</em> );</td></tr>
+<tr><th id="50">50</th><td>	<em>bool</em>			<dfn class="decl" id="_ZN8roqParam18TwentyFourToThirtyEv" title='roqParam::TwentyFourToThirty' data-ref="_ZN8roqParam18TwentyFourToThirtyEv">TwentyFourToThirty</dfn>( <em>void</em> );</td></tr>
+<tr><th id="51">51</th><td>	<em>bool</em>			<dfn class="decl" id="_ZN8roqParam8HasSoundEv" title='roqParam::HasSound' data-ref="_ZN8roqParam8HasSoundEv">HasSound</dfn>( <em>void</em> );</td></tr>
+<tr><th id="52">52</th><td>	<em>int</em>				<dfn class="decl" id="_ZN8roqParam14NumberOfFramesEv" title='roqParam::NumberOfFrames' data-ref="_ZN8roqParam14NumberOfFramesEv">NumberOfFrames</dfn>( <em>void</em> );</td></tr>
+<tr><th id="53">53</th><td>	<em>int</em>				<dfn class="decl" id="_ZN8roqParam15NormalFrameSizeEv" title='roqParam::NormalFrameSize' data-ref="_ZN8roqParam15NormalFrameSizeEv">NormalFrameSize</dfn>( <em>void</em> );</td></tr>
+<tr><th id="54">54</th><td>	<em>int</em>				<dfn class="decl" id="_ZN8roqParam14FirstFrameSizeEv" title='roqParam::FirstFrameSize' data-ref="_ZN8roqParam14FirstFrameSizeEv">FirstFrameSize</dfn>( <em>void</em> );</td></tr>
+<tr><th id="55">55</th><td>	<em>int</em>				<dfn class="decl" id="_ZN8roqParam11JpegQualityEv" title='roqParam::JpegQuality' data-ref="_ZN8roqParam11JpegQualityEv">JpegQuality</dfn>( <em>void</em> );</td></tr>
+<tr><th id="56">56</th><td>	<em>bool</em>			<dfn class="decl" id="_ZN8roqParam11IsScaleableEv" title='roqParam::IsScaleable' data-ref="_ZN8roqParam11IsScaleableEv">IsScaleable</dfn>( <em>void</em> );</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td>	<a class="type" href="../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>			<dfn class="decl" id="roqParam::outputFilename" title='roqParam::outputFilename' data-ref="roqParam::outputFilename">outputFilename</dfn>;</td></tr>
+<tr><th id="59">59</th><td>	<em>int</em>				<dfn class="decl" id="roqParam::numInputFiles" title='roqParam::numInputFiles' data-ref="roqParam::numInputFiles">numInputFiles</dfn>;</td></tr>
+<tr><th id="60">60</th><td><b>private</b>:</td></tr>
+<tr><th id="61">61</th><td>	<em>int</em>				*<dfn class="decl" id="roqParam::range" title='roqParam::range' data-ref="roqParam::range">range</dfn>;</td></tr>
+<tr><th id="62">62</th><td>	<em>bool</em>			*<dfn class="decl" id="roqParam::padding" title='roqParam::padding' data-ref="roqParam::padding">padding</dfn>, *<dfn class="decl" id="roqParam::padding2" title='roqParam::padding2' data-ref="roqParam::padding2">padding2</dfn>;</td></tr>
+<tr><th id="63">63</th><td>	<a class="typedef" href="../../../idlib/containers/StrList.h.html#idStrList" title='idStrList' data-type='idList&lt;idStr&gt;' data-ref="idStrList">idStrList</a>		<dfn class="decl" id="roqParam::file" title='roqParam::file' data-ref="roqParam::file">file</dfn>;</td></tr>
+<tr><th id="64">64</th><td>	<a class="typedef" href="../../../idlib/containers/StrList.h.html#idStrList" title='idStrList' data-type='idList&lt;idStr&gt;' data-ref="idStrList">idStrList</a>		<dfn class="decl" id="roqParam::file2" title='roqParam::file2' data-ref="roqParam::file2">file2</dfn>;</td></tr>
+<tr><th id="65">65</th><td>	<a class="type" href="../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>			<dfn class="decl" id="roqParam::soundfile" title='roqParam::soundfile' data-ref="roqParam::soundfile">soundfile</dfn>;</td></tr>
+<tr><th id="66">66</th><td>	<a class="type" href="../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>			<dfn class="decl" id="roqParam::currentPath" title='roqParam::currentPath' data-ref="roqParam::currentPath">currentPath</dfn>;</td></tr>
+<tr><th id="67">67</th><td>	<a class="type" href="../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>			<dfn class="decl" id="roqParam::tempFilename" title='roqParam::tempFilename' data-ref="roqParam::tempFilename">tempFilename</dfn>;</td></tr>
+<tr><th id="68">68</th><td>	<a class="type" href="../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>			<dfn class="decl" id="roqParam::startPal" title='roqParam::startPal' data-ref="roqParam::startPal">startPal</dfn>;</td></tr>
+<tr><th id="69">69</th><td>	<a class="type" href="../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>			<dfn class="decl" id="roqParam::endPal" title='roqParam::endPal' data-ref="roqParam::endPal">endPal</dfn>;</td></tr>
+<tr><th id="70">70</th><td>	<a class="type" href="../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>			<dfn class="decl" id="roqParam::currentFile" title='roqParam::currentFile' data-ref="roqParam::currentFile">currentFile</dfn>;</td></tr>
+<tr><th id="71">71</th><td>	<em>int</em>				*<dfn class="decl" id="roqParam::skipnum" title='roqParam::skipnum' data-ref="roqParam::skipnum">skipnum</dfn>, *<dfn class="decl" id="roqParam::skipnum2" title='roqParam::skipnum2' data-ref="roqParam::skipnum2">skipnum2</dfn>;</td></tr>
+<tr><th id="72">72</th><td>	<em>int</em>				*<dfn class="decl" id="roqParam::startnum" title='roqParam::startnum' data-ref="roqParam::startnum">startnum</dfn>, *<dfn class="decl" id="roqParam::startnum2" title='roqParam::startnum2' data-ref="roqParam::startnum2">startnum2</dfn>;</td></tr>
+<tr><th id="73">73</th><td>	<em>int</em>				*<dfn class="decl" id="roqParam::endnum" title='roqParam::endnum' data-ref="roqParam::endnum">endnum</dfn>, *<dfn class="decl" id="roqParam::endnum2" title='roqParam::endnum2' data-ref="roqParam::endnum2">endnum2</dfn>;</td></tr>
+<tr><th id="74">74</th><td>	<em>int</em>				*<dfn class="decl" id="roqParam::numpadding" title='roqParam::numpadding' data-ref="roqParam::numpadding">numpadding</dfn>, *<dfn class="decl" id="roqParam::numpadding2" title='roqParam::numpadding2' data-ref="roqParam::numpadding2">numpadding2</dfn>;</td></tr>
+<tr><th id="75">75</th><td>	<em>int</em>				*<dfn class="decl" id="roqParam::numfiles" title='roqParam::numfiles' data-ref="roqParam::numfiles">numfiles</dfn>;</td></tr>
+<tr><th id="76">76</th><td>	<a class="typedef" href="../../../idlib/Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>			<dfn class="decl" id="roqParam::keyR" title='roqParam::keyR' data-ref="roqParam::keyR">keyR</dfn>, <dfn class="decl" id="roqParam::keyG" title='roqParam::keyG' data-ref="roqParam::keyG">keyG</dfn>, <dfn class="decl" id="roqParam::keyB" title='roqParam::keyB' data-ref="roqParam::keyB">keyB</dfn>;</td></tr>
+<tr><th id="77">77</th><td>	<em>int</em>				<dfn class="decl" id="roqParam::field" title='roqParam::field' data-ref="roqParam::field">field</dfn>;</td></tr>
+<tr><th id="78">78</th><td>	<em>int</em>				<dfn class="decl" id="roqParam::realnum" title='roqParam::realnum' data-ref="roqParam::realnum">realnum</dfn>;</td></tr>
+<tr><th id="79">79</th><td>	<em>int</em>				<dfn class="decl" id="roqParam::onFrame" title='roqParam::onFrame' data-ref="roqParam::onFrame">onFrame</dfn>;</td></tr>
+<tr><th id="80">80</th><td>	<em>int</em>				<dfn class="decl" id="roqParam::firstframesize" title='roqParam::firstframesize' data-ref="roqParam::firstframesize">firstframesize</dfn>;</td></tr>
+<tr><th id="81">81</th><td>	<em>int</em>				<dfn class="decl" id="roqParam::normalframesize" title='roqParam::normalframesize' data-ref="roqParam::normalframesize">normalframesize</dfn>;</td></tr>
+<tr><th id="82">82</th><td>	<em>int</em>				<dfn class="decl" id="roqParam::jpegDefault" title='roqParam::jpegDefault' data-ref="roqParam::jpegDefault">jpegDefault</dfn>;</td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td>	<em>bool</em>			<dfn class="decl" id="roqParam::scaleDown" title='roqParam::scaleDown' data-ref="roqParam::scaleDown">scaleDown</dfn>;</td></tr>
+<tr><th id="85">85</th><td>	<em>bool</em>			<dfn class="decl" id="roqParam::twentyFourToThirty" title='roqParam::twentyFourToThirty' data-ref="roqParam::twentyFourToThirty">twentyFourToThirty</dfn>;</td></tr>
+<tr><th id="86">86</th><td>	<em>bool</em>			<dfn class="decl" id="roqParam::encodeVideo" title='roqParam::encodeVideo' data-ref="roqParam::encodeVideo">encodeVideo</dfn>;</td></tr>
+<tr><th id="87">87</th><td>	<em>bool</em>			<dfn class="decl" id="roqParam::useTimecodeForRange" title='roqParam::useTimecodeForRange' data-ref="roqParam::useTimecodeForRange">useTimecodeForRange</dfn>;</td></tr>
+<tr><th id="88">88</th><td>	<em>bool</em>			<dfn class="decl" id="roqParam::addPath" title='roqParam::addPath' data-ref="roqParam::addPath">addPath</dfn>;</td></tr>
+<tr><th id="89">89</th><td>	<em>bool</em>			<dfn class="decl" id="roqParam::screenShots" title='roqParam::screenShots' data-ref="roqParam::screenShots">screenShots</dfn>;</td></tr>
+<tr><th id="90">90</th><td>	<em>bool</em>			<dfn class="decl" id="roqParam::startPalette" title='roqParam::startPalette' data-ref="roqParam::startPalette">startPalette</dfn>;</td></tr>
+<tr><th id="91">91</th><td>	<em>bool</em>			<dfn class="decl" id="roqParam::endPalette" title='roqParam::endPalette' data-ref="roqParam::endPalette">endPalette</dfn>;</td></tr>
+<tr><th id="92">92</th><td>	<em>bool</em>			<dfn class="decl" id="roqParam::fixedPalette" title='roqParam::fixedPalette' data-ref="roqParam::fixedPalette">fixedPalette</dfn>;</td></tr>
+<tr><th id="93">93</th><td>	<em>bool</em>			<dfn class="decl" id="roqParam::keyColor" title='roqParam::keyColor' data-ref="roqParam::keyColor">keyColor</dfn>;</td></tr>
+<tr><th id="94">94</th><td>	<em>bool</em>			<dfn class="decl" id="roqParam::justDelta" title='roqParam::justDelta' data-ref="roqParam::justDelta">justDelta</dfn>;</td></tr>
+<tr><th id="95">95</th><td>	<em>bool</em>			<dfn class="decl" id="roqParam::make3DO" title='roqParam::make3DO' data-ref="roqParam::make3DO">make3DO</dfn>;</td></tr>
+<tr><th id="96">96</th><td>	<em>bool</em>			<dfn class="decl" id="roqParam::makeVectors" title='roqParam::makeVectors' data-ref="roqParam::makeVectors">makeVectors</dfn>;</td></tr>
+<tr><th id="97">97</th><td>	<em>bool</em>			<dfn class="decl" id="roqParam::justDeltaFlag" title='roqParam::justDeltaFlag' data-ref="roqParam::justDeltaFlag">justDeltaFlag</dfn>;</td></tr>
+<tr><th id="98">98</th><td>	<em>bool</em>			<dfn class="decl" id="roqParam::noAlphaAtAll" title='roqParam::noAlphaAtAll' data-ref="roqParam::noAlphaAtAll">noAlphaAtAll</dfn>;</td></tr>
+<tr><th id="99">99</th><td>	<em>bool</em>			<dfn class="decl" id="roqParam::fullSearch" title='roqParam::fullSearch' data-ref="roqParam::fullSearch">fullSearch</dfn>;</td></tr>
+<tr><th id="100">100</th><td>	<em>bool</em>			<dfn class="decl" id="roqParam::hasSound" title='roqParam::hasSound' data-ref="roqParam::hasSound">hasSound</dfn>;</td></tr>
+<tr><th id="101">101</th><td>	<em>bool</em>			<dfn class="decl" id="roqParam::isScaleable" title='roqParam::isScaleable' data-ref="roqParam::isScaleable">isScaleable</dfn>;</td></tr>
+<tr><th id="102">102</th><td>};</td></tr>
+<tr><th id="103">103</th><td></td></tr>
+<tr><th id="104">104</th><td></td></tr>
+<tr><th id="105">105</th><td><u>#<span data-ppcond="28">endif</span> // roqParam</u></td></tr>
+<tr><th id="106">106</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='NSBitmapImageRep.cpp.html'>codebrowser/tools/compilers/roqvq/NSBitmapImageRep.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,28 @@
+<def f='codebrowser/renderer/tr_local.h' l='368' ll='431'/>
+<size>620</size>
+<doc f='codebrowser/renderer/tr_local.h' l='367'>// viewDefs are allocated on the frame temporary stack memory</doc>
+<mbr r='viewDef_s::renderView' o='0' t='renderView_t'/>
+<mbr r='viewDef_s::projectionMatrix' o='1088' t='float [16]'/>
+<mbr r='viewDef_s::worldSpace' o='1600' t='viewEntity_t'/>
+<mbr r='viewDef_s::renderWorld' o='2880' t='idRenderWorldLocal *'/>
+<mbr r='viewDef_s::floatTime' o='2912' t='float'/>
+<mbr r='viewDef_s::initialViewAreaOrigin' o='2944' t='idVec3'/>
+<mbr r='viewDef_s::isSubview' o='3040' t='bool'/>
+<mbr r='viewDef_s::isMirror' o='3048' t='bool'/>
+<mbr r='viewDef_s::isXraySubview' o='3056' t='bool'/>
+<mbr r='viewDef_s::isEditor' o='3064' t='bool'/>
+<mbr r='viewDef_s::numClipPlanes' o='3072' t='int'/>
+<mbr r='viewDef_s::clipPlanes' o='3104' t='idPlane [1]'/>
+<mbr r='viewDef_s::viewport' o='3232' t='idScreenRect'/>
+<mbr r='viewDef_s::scissor' o='3360' t='idScreenRect'/>
+<mbr r='viewDef_s::superView' o='3488' t='struct viewDef_s *'/>
+<mbr r='viewDef_s::subviewSurface' o='3520' t='struct drawSurf_s *'/>
+<mbr r='viewDef_s::drawSurfs' o='3552' t='drawSurf_t **'/>
+<mbr r='viewDef_s::numDrawSurfs' o='3584' t='int'/>
+<mbr r='viewDef_s::maxDrawSurfs' o='3616' t='int'/>
+<mbr r='viewDef_s::viewLights' o='3648' t='struct viewLight_s *'/>
+<mbr r='viewDef_s::viewEntitys' o='3680' t='struct viewEntity_s *'/>
+<mbr r='viewDef_s::frustum' o='3712' t='idPlane [5]'/>
+<mbr r='viewDef_s::viewFrustum' o='4352' t='idFrustum'/>
+<mbr r='viewDef_s::areaNum' o='4896' t='int'/>
+<mbr r='viewDef_s::connectedAreas' o='4928' t='bool *'/>

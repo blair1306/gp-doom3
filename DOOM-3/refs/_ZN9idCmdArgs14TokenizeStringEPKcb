@@ -1,0 +1,31 @@
+<use f='codebrowser/idlib/CmdArgs.h' l='43' u='c' c='_ZN9idCmdArgsC1EPKcb'/>
+<dec f='codebrowser/idlib/CmdArgs.h' l='58' type='void idCmdArgs::TokenizeString(const char * text, bool keepAsStrings)'/>
+<doc f='codebrowser/idlib/CmdArgs.h' l='55'>// Takes a null terminated string and breaks the string up into arg tokens.
+							// Does not need to be /n terminated.
+							// Set keepAsStrings to true to only seperate tokens from whitespace and comments, ignoring punctuation</doc>
+<use f='codebrowser/d3xp/MultiplayerGame.cpp' l='2176' u='c' c='_ZN17idMultiplayerGame17HandleGuiCommandsEPKc'/>
+<use f='codebrowser/framework/CVarSystem.cpp' l='776' u='c' c='_ZN17idCVarSystemLocal13ArgCompletionEPKcPFvS1_E'/>
+<use f='codebrowser/framework/CmdSystem.cpp' l='449' u='c' c='_ZN16idCmdSystemLocal13ArgCompletionEPKcPFvS1_E'/>
+<use f='codebrowser/framework/CmdSystem.cpp' l='658' u='c' c='_ZN16idCmdSystemLocal20ExecuteCommandBufferEv'/>
+<use f='codebrowser/framework/Common.cpp' l='2783' u='c' c='_ZN13idCommonLocal4InitEiPPKcS1_'/>
+<use f='codebrowser/framework/EditField.cpp' l='196' u='c' c='_ZN11idEditField12AutoCompleteEv'/>
+<use f='codebrowser/framework/Session.cpp' l='2811' u='c' c='_ZN14idSessionLocal10RunGameTicEv'/>
+<use f='codebrowser/framework/Session_menu.cpp' l='475' u='c' c='_ZN14idSessionLocal25HandleRestartMenuCommandsEPKc'/>
+<use f='codebrowser/framework/Session_menu.cpp' l='525' u='c' c='_ZN14idSessionLocal23HandleIntroMenuCommandsEPKc'/>
+<use f='codebrowser/framework/Session_menu.cpp' l='569' u='c' c='_ZN14idSessionLocal22HandleMainMenuCommandsEPKc'/>
+<use f='codebrowser/framework/Session_menu.cpp' l='1066' u='c' c='_ZN14idSessionLocal22HandleChatMenuCommandsEPKc'/>
+<use f='codebrowser/framework/Session_menu.cpp' l='1102' u='c' c='_ZN14idSessionLocal20HandleInGameCommandsEPKc'/>
+<use f='codebrowser/game/MultiplayerGame.cpp' l='1627' u='c' c='_ZN17idMultiplayerGame17HandleGuiCommandsEPKc'/>
+<def f='codebrowser/idlib/CmdArgs.cpp' l='106' ll='170' type='void idCmdArgs::TokenizeString(const char * text, bool keepAsStrings)'/>
+<doc f='codebrowser/idlib/CmdArgs.cpp' l='96'>/*
+============
+idCmdArgs::TokenizeString
+
+Parses the given string into command line tokens.
+The text is copied to a separate buffer and 0 characters
+are inserted in the appropriate place. The argv array
+will point into this temporary buffer.
+============
+*/</doc>
+<use f='codebrowser/renderer/Image_init.cpp' l='1682' u='c' c='_ZN14idImageManager15ReloadAllImagesEv'/>
+<use f='codebrowser/tools/compilers/renderbump/renderbump.cpp' l='1220' u='c' c='_Z12RenderBump_fRK9idCmdArgs'/>

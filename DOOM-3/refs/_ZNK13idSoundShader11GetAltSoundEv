@@ -1,0 +1,11 @@
+<dec f='codebrowser/sound/sound.h' l='99' type='const idSoundShader * idSoundShader::GetAltSound() const'/>
+<doc f='codebrowser/sound/sound.h' l='97'>// returns NULL if an AltSound isn&apos;t defined in the shader.
+	// we use this for pairing a specific broken light sound with a normal light sound</doc>
+<use f='codebrowser/d3xp/Light.cpp' l='684' u='c' c='_ZN7idLight12BecomeBrokenEP8idEntity'/>
+<use f='codebrowser/game/Light.cpp' l='677' u='c' c='_ZN7idLight12BecomeBrokenEP8idEntity'/>
+<def f='codebrowser/sound/snd_shader.cpp' l='431' ll='433' type='const idSoundShader * idSoundShader::GetAltSound() const'/>
+<doc f='codebrowser/sound/snd_shader.cpp' l='426'>/*
+===============
+idSoundShader::GetAltSound
+===============
+*/</doc>

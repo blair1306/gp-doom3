@@ -1,0 +1,82 @@
+<dec f='codebrowser/d3xp/gamesys/Class.h' l='214' type='bool idClass::PostEventSec(const idEventDef * ev, float time, idEventArg arg1)'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='1374' u='c' c='_ZN18idAFEntity_Generic14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='1381' u='c' c='_ZN18idAFEntity_Generic14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='1643' u='c' c='_ZN27idAFEntity_WithAttachedHead14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='1650' u='c' c='_ZN27idAFEntity_WithAttachedHead14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/d3xp/Fx.cpp' l='669' u='c' c='_ZN10idEntityFx13Event_ClearFxEv'/>
+<use f='codebrowser/d3xp/Fx.cpp' l='707' u='c' c='_ZN10idEntityFx13Event_TriggerEP8idEntity'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='161' u='c' c='_ZN13idPlayerStart19Event_TeleportStageEP8idEntity'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='166' u='c' c='_ZN13idPlayerStart19Event_TeleportStageEP8idEntity'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='1060' u='c' c='_ZN10idAnimated5SpawnEv'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='2588' u='c' c='_ZN12idEarthQuake5SpawnEv'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='2621' u='c' c='_ZN12idEarthQuake14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='2641' u='c' c='_ZN12idEarthQuake14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='2940' u='c' c='_ZN18idFuncRadioChatter14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/d3xp/Moveable.cpp' l='425' u='c' c='_ZN10idMoveable12EnableDamageEbf'/>
+<use f='codebrowser/d3xp/Moveable.cpp' l='571' u='c' c='_ZN10idMoveable14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/d3xp/Moveable.cpp' l='578' u='c' c='_ZN10idMoveable14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='1722' u='c' c='_ZN10idElevator11Event_TouchEP8idEntityP7trace_s'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='1834' u='c' c='_ZN10idElevator22HandleSingleGuiCommandEP8idEntityP7idLexer'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='1899' u='c' c='_ZN10idElevator15Event_GotoFloorEi'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='1977' u='c' c='_ZN10idElevator22Event_PostFloorArrivalEv'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='2679' u='c' c='_ZN14idMover_Binary25Event_Reached_BinaryMoverEv'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='3359' u='c' c='_ZN6idDoor5SpawnEv'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='984' u='c' c='_ZN12idProjectile7ExplodeERK7trace_sP8idEntity'/>
+<use f='codebrowser/d3xp/Target.cpp' l='905' u='c' c='_ZN21idTarget_SetInfluence11Event_FlashEfi'/>
+<use f='codebrowser/d3xp/Target.cpp' l='1019' u='c' c='_ZN21idTarget_SetInfluence14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/d3xp/Target.cpp' l='1046' u='c' c='_ZN21idTarget_SetInfluence14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/d3xp/Target.cpp' l='1534' u='c' c='_ZN27idTarget_EnableLevelWeapons14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/d3xp/Target.cpp' l='1616' u='c' c='_ZN12idTarget_Tip14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/d3xp/Trigger.cpp' l='458' u='c' c='_ZN15idTrigger_Multi13Event_TriggerEP8idEntity'/>
+<use f='codebrowser/d3xp/Trigger.cpp' l='508' u='c' c='_ZN15idTrigger_Multi11Event_TouchEP8idEntityP7trace_s'/>
+<use f='codebrowser/d3xp/Trigger.cpp' l='666' u='c' c='_ZN20idTrigger_EntityName13Event_TriggerEP8idEntity'/>
+<use f='codebrowser/d3xp/Trigger.cpp' l='695' u='c' c='_ZN20idTrigger_EntityName11Event_TouchEP8idEntityP7trace_s'/>
+<use f='codebrowser/d3xp/Trigger.cpp' l='917' u='c' c='_ZN15idTrigger_Count13Event_TriggerEP8idEntity'/>
+<def f='codebrowser/d3xp/gamesys/Class.cpp' l='756' ll='758' type='bool idClass::PostEventSec(const idEventDef * ev, float time, idEventArg arg1)'/>
+<doc f='codebrowser/d3xp/gamesys/Class.cpp' l='751'>/*
+================
+idClass::PostEventSec
+================
+*/</doc>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='319' u='c' c='_Z10Cmd_Give_fRK9idCmdArgs'/>
+<dec f='codebrowser/game/gamesys/Class.h' l='214' type='bool idClass::PostEventSec(const idEventDef * ev, float time, idEventArg arg1)'/>
+<use f='codebrowser/game/AFEntity.cpp' l='1299' u='c' c='_ZN18idAFEntity_Generic14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/game/AFEntity.cpp' l='1306' u='c' c='_ZN18idAFEntity_Generic14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/game/AFEntity.cpp' l='1561' u='c' c='_ZN27idAFEntity_WithAttachedHead14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/game/AFEntity.cpp' l='1568' u='c' c='_ZN27idAFEntity_WithAttachedHead14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/game/Fx.cpp' l='639' u='c' c='_ZN10idEntityFx13Event_ClearFxEv'/>
+<use f='codebrowser/game/Fx.cpp' l='677' u='c' c='_ZN10idEntityFx13Event_TriggerEP8idEntity'/>
+<use f='codebrowser/game/Misc.cpp' l='161' u='c' c='_ZN13idPlayerStart19Event_TeleportStageEP8idEntity'/>
+<use f='codebrowser/game/Misc.cpp' l='166' u='c' c='_ZN13idPlayerStart19Event_TeleportStageEP8idEntity'/>
+<use f='codebrowser/game/Misc.cpp' l='1026' u='c' c='_ZN10idAnimated5SpawnEv'/>
+<use f='codebrowser/game/Misc.cpp' l='2522' u='c' c='_ZN12idEarthQuake5SpawnEv'/>
+<use f='codebrowser/game/Misc.cpp' l='2555' u='c' c='_ZN12idEarthQuake14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/game/Misc.cpp' l='2575' u='c' c='_ZN12idEarthQuake14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/game/Misc.cpp' l='2874' u='c' c='_ZN18idFuncRadioChatter14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/game/Moveable.cpp' l='359' u='c' c='_ZN10idMoveable12EnableDamageEbf'/>
+<use f='codebrowser/game/Moveable.cpp' l='494' u='c' c='_ZN10idMoveable14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/game/Moveable.cpp' l='501' u='c' c='_ZN10idMoveable14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/game/Mover.cpp' l='1714' u='c' c='_ZN10idElevator11Event_TouchEP8idEntityP7trace_s'/>
+<use f='codebrowser/game/Mover.cpp' l='1827' u='c' c='_ZN10idElevator22HandleSingleGuiCommandEP8idEntityP7idLexer'/>
+<use f='codebrowser/game/Mover.cpp' l='1892' u='c' c='_ZN10idElevator15Event_GotoFloorEi'/>
+<use f='codebrowser/game/Mover.cpp' l='1970' u='c' c='_ZN10idElevator22Event_PostFloorArrivalEv'/>
+<use f='codebrowser/game/Mover.cpp' l='2647' u='c' c='_ZN14idMover_Binary25Event_Reached_BinaryMoverEv'/>
+<use f='codebrowser/game/Mover.cpp' l='3319' u='c' c='_ZN6idDoor5SpawnEv'/>
+<use f='codebrowser/game/Projectile.cpp' l='887' u='c' c='_ZN12idProjectile7ExplodeERK7trace_sP8idEntity'/>
+<use f='codebrowser/game/Target.cpp' l='885' u='c' c='_ZN21idTarget_SetInfluence11Event_FlashEfi'/>
+<use f='codebrowser/game/Target.cpp' l='992' u='c' c='_ZN21idTarget_SetInfluence14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/game/Target.cpp' l='1019' u='c' c='_ZN21idTarget_SetInfluence14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/game/Target.cpp' l='1498' u='c' c='_ZN27idTarget_EnableLevelWeapons14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/game/Target.cpp' l='1580' u='c' c='_ZN12idTarget_Tip14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/game/Trigger.cpp' l='452' u='c' c='_ZN15idTrigger_Multi13Event_TriggerEP8idEntity'/>
+<use f='codebrowser/game/Trigger.cpp' l='502' u='c' c='_ZN15idTrigger_Multi11Event_TouchEP8idEntityP7trace_s'/>
+<use f='codebrowser/game/Trigger.cpp' l='660' u='c' c='_ZN20idTrigger_EntityName13Event_TriggerEP8idEntity'/>
+<use f='codebrowser/game/Trigger.cpp' l='689' u='c' c='_ZN20idTrigger_EntityName11Event_TouchEP8idEntityP7trace_s'/>
+<use f='codebrowser/game/Trigger.cpp' l='911' u='c' c='_ZN15idTrigger_Count13Event_TriggerEP8idEntity'/>
+<def f='codebrowser/game/gamesys/Class.cpp' l='756' ll='758' type='bool idClass::PostEventSec(const idEventDef * ev, float time, idEventArg arg1)'/>
+<doc f='codebrowser/game/gamesys/Class.cpp' l='751'>/*
+================
+idClass::PostEventSec
+================
+*/</doc>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='299' u='c' c='_Z10Cmd_Give_fRK9idCmdArgs'/>

@@ -1,0 +1,10 @@
+<dec f='codebrowser/curl/lib/urldata.h' l='473' type='CURLcode (*)(struct connectdata *)'/>
+<offset>7488</offset>
+<doc f='codebrowser/curl/lib/urldata.h' l='469'>/* If the curl_do() function is better made in two halves, this
+   * curl_do_more() function will be called afterwards, if set. For example
+   * for doing the FTP stuff after the PASV/PORT command.
+   */</doc>
+<use f='codebrowser/curl/lib/url.c' l='2440' u='w' c='CreateConnection'/>
+<use f='codebrowser/curl/lib/url.c' l='2534' u='w' c='CreateConnection'/>
+<use f='codebrowser/curl/lib/url.c' l='3392' u='r' c='Curl_do_more'/>
+<use f='codebrowser/curl/lib/url.c' l='3393' u='r' c='Curl_do_more'/>

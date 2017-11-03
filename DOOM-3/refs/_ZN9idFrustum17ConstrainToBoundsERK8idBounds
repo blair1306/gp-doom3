@@ -1,0 +1,11 @@
+<dec f='codebrowser/idlib/bv/Frustum.h' l='95' type='bool idFrustum::ConstrainToBounds(const idBounds &amp; bounds)'/>
+<doc f='codebrowser/idlib/bv/Frustum.h' l='94'>// moves the far plane so it extends just beyond the bounding volume</doc>
+<def f='codebrowser/idlib/bv/Frustum.cpp' l='1414' ll='1425' type='bool idFrustum::ConstrainToBounds(const idBounds &amp; bounds)'/>
+<doc f='codebrowser/idlib/bv/Frustum.cpp' l='1407'>/*
+============
+idFrustum::ConstrainToBounds
+
+  Returns false if no part of the bounds extends beyond the near plane.
+============
+*/</doc>
+<use f='codebrowser/renderer/tr_main.cpp' l='1027' u='c' c='_ZL22R_ConstrainViewFrustumv'/>

@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>MsgChannel.h source code [codebrowser/framework/async/MsgChannel.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idMsgChannel,idMsgQueue "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/framework/async/MsgChannel.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>framework</a>/<a href='./'>async</a>/<a href='MsgChannel.h.html'>MsgChannel.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__MSGCHANNEL_H__">__MSGCHANNEL_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__MSGCHANNEL_H__" data-ref="_M/__MSGCHANNEL_H__">__MSGCHANNEL_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><i>/*</i></td></tr>
+<tr><th id="34">34</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="35">35</th><td><i></i></td></tr>
+<tr><th id="36">36</th><td><i>  Network channel.</i></td></tr>
+<tr><th id="37">37</th><td><i></i></td></tr>
+<tr><th id="38">38</th><td><i>  Handles message fragmentation and out of order / duplicate suppression.</i></td></tr>
+<tr><th id="39">39</th><td><i>  Unreliable messages are not garrenteed to arrive but when they do, they</i></td></tr>
+<tr><th id="40">40</th><td><i>  arrive in order and without duplicates. Reliable messages always arrive,</i></td></tr>
+<tr><th id="41">41</th><td><i>  and they also arrive in order without duplicates. Reliable messages piggy</i></td></tr>
+<tr><th id="42">42</th><td><i>  back on unreliable messages. As such an unreliable message stream is</i></td></tr>
+<tr><th id="43">43</th><td><i>  required for the reliable messages to be delivered.</i></td></tr>
+<tr><th id="44">44</th><td><i></i></td></tr>
+<tr><th id="45">45</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="46">46</th><td><i>*/</i></td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td><u>#define	<dfn class="macro" id="_M/MAX_MESSAGE_SIZE" data-ref="_M/MAX_MESSAGE_SIZE">MAX_MESSAGE_SIZE</dfn>				16384		// max length of a message, which may</u></td></tr>
+<tr><th id="49">49</th><td>													<i>// be fragmented into multiple packets</i></td></tr>
+<tr><th id="50">50</th><td><u>#define <dfn class="macro" id="_M/CONNECTIONLESS_MESSAGE_ID" data-ref="_M/CONNECTIONLESS_MESSAGE_ID">CONNECTIONLESS_MESSAGE_ID</dfn>		-1			// id for connectionless messages</u></td></tr>
+<tr><th id="51">51</th><td><u>#define <dfn class="macro" id="_M/CONNECTIONLESS_MESSAGE_ID_MASK" data-ref="_M/CONNECTIONLESS_MESSAGE_ID_MASK">CONNECTIONLESS_MESSAGE_ID_MASK</dfn>	0x7FFF		// value to mask away connectionless message id</u></td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td><u>#define <dfn class="macro" id="_M/MAX_MSG_QUEUE_SIZE" data-ref="_M/MAX_MSG_QUEUE_SIZE">MAX_MSG_QUEUE_SIZE</dfn>				16384		// must be a power of 2</u></td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td><b>class</b> <dfn class="type def" id="idMsgQueue" title='idMsgQueue' data-ref="idMsgQueue">idMsgQueue</dfn> {</td></tr>
+<tr><th id="57">57</th><td><b>public</b>:</td></tr>
+<tr><th id="58">58</th><td>					<dfn class="decl" id="_ZN10idMsgQueueC1Ev" title='idMsgQueue::idMsgQueue' data-ref="_ZN10idMsgQueueC1Ev">idMsgQueue</dfn>();</td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td>	<em>void</em>			<dfn class="decl" id="_ZN10idMsgQueue4InitEi" title='idMsgQueue::Init' data-ref="_ZN10idMsgQueue4InitEi">Init</dfn>( <em>int</em> <dfn class="local col7 decl" id="13717sequence" title='sequence' data-type='int' data-ref="13717sequence">sequence</dfn> );</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td>	<em>bool</em>			<dfn class="decl" id="_ZN10idMsgQueue3AddEPKhi" title='idMsgQueue::Add' data-ref="_ZN10idMsgQueue3AddEPKhi">Add</dfn>( <em>const</em> <a class="typedef" href="../../idlib/Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *<dfn class="local col8 decl" id="13718data" title='data' data-type='const byte *' data-ref="13718data">data</dfn>, <em>const</em> <em>int</em> <dfn class="local col9 decl" id="13719size" title='size' data-type='const int' data-ref="13719size">size</dfn> );</td></tr>
+<tr><th id="63">63</th><td>	<em>bool</em>			<dfn class="decl" id="_ZN10idMsgQueue3GetEPhRi" title='idMsgQueue::Get' data-ref="_ZN10idMsgQueue3GetEPhRi">Get</dfn>( <a class="typedef" href="../../idlib/Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *<dfn class="local col0 decl" id="13720data" title='data' data-type='byte *' data-ref="13720data">data</dfn>, <em>int</em> &amp;<dfn class="local col1 decl" id="13721size" title='size' data-type='int &amp;' data-ref="13721size">size</dfn> );</td></tr>
+<tr><th id="64">64</th><td>	<em>int</em>				<dfn class="decl" id="_ZNK10idMsgQueue12GetTotalSizeEv" title='idMsgQueue::GetTotalSize' data-ref="_ZNK10idMsgQueue12GetTotalSizeEv">GetTotalSize</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="65">65</th><td>	<em>int</em>				<dfn class="decl" id="_ZNK10idMsgQueue12GetSpaceLeftEv" title='idMsgQueue::GetSpaceLeft' data-ref="_ZNK10idMsgQueue12GetSpaceLeftEv">GetSpaceLeft</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="66">66</th><td>	<em>int</em>				<dfn class="decl def" id="_ZNK10idMsgQueue8GetFirstEv" title='idMsgQueue::GetFirst' data-ref="_ZNK10idMsgQueue8GetFirstEv">GetFirst</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idMsgQueue::first" title='idMsgQueue::first' data-ref="idMsgQueue::first">first</a>; }</td></tr>
+<tr><th id="67">67</th><td>	<em>int</em>				<dfn class="decl def" id="_ZNK10idMsgQueue7GetLastEv" title='idMsgQueue::GetLast' data-ref="_ZNK10idMsgQueue7GetLastEv">GetLast</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idMsgQueue::last" title='idMsgQueue::last' data-ref="idMsgQueue::last">last</a>; }</td></tr>
+<tr><th id="68">68</th><td>	<em>void</em>			<dfn class="decl" id="_ZNK10idMsgQueue12CopyToBufferEPh" title='idMsgQueue::CopyToBuffer' data-ref="_ZNK10idMsgQueue12CopyToBufferEPh">CopyToBuffer</dfn>( <a class="typedef" href="../../idlib/Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *<dfn class="local col2 decl" id="13722buf" title='buf' data-type='byte *' data-ref="13722buf">buf</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td><b>private</b>:</td></tr>
+<tr><th id="71">71</th><td>	<a class="typedef" href="../../idlib/Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>			<dfn class="decl" id="idMsgQueue::buffer" title='idMsgQueue::buffer' data-ref="idMsgQueue::buffer">buffer</dfn>[<a class="macro" href="#53" title="16384" data-ref="_M/MAX_MSG_QUEUE_SIZE">MAX_MSG_QUEUE_SIZE</a>];</td></tr>
+<tr><th id="72">72</th><td>	<em>int</em>				<dfn class="decl" id="idMsgQueue::first" title='idMsgQueue::first' data-ref="idMsgQueue::first">first</dfn>;			<i>// sequence number of first message in queue</i></td></tr>
+<tr><th id="73">73</th><td>	<em>int</em>				<dfn class="decl" id="idMsgQueue::last" title='idMsgQueue::last' data-ref="idMsgQueue::last">last</dfn>;			<i>// sequence number of last message in queue</i></td></tr>
+<tr><th id="74">74</th><td>	<em>int</em>				<dfn class="decl" id="idMsgQueue::startIndex" title='idMsgQueue::startIndex' data-ref="idMsgQueue::startIndex">startIndex</dfn>;		<i>// index pointing to the first byte of the first message</i></td></tr>
+<tr><th id="75">75</th><td>	<em>int</em>				<dfn class="decl" id="idMsgQueue::endIndex" title='idMsgQueue::endIndex' data-ref="idMsgQueue::endIndex">endIndex</dfn>;		<i>// index pointing to the first byte after the last message</i></td></tr>
+<tr><th id="76">76</th><td></td></tr>
+<tr><th id="77">77</th><td>	<em>void</em>			<dfn class="decl" id="_ZN10idMsgQueue9WriteByteEh" title='idMsgQueue::WriteByte' data-ref="_ZN10idMsgQueue9WriteByteEh">WriteByte</dfn>( <a class="typedef" href="../../idlib/Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> <dfn class="local col3 decl" id="13723b" title='b' data-type='byte' data-ref="13723b">b</dfn> );</td></tr>
+<tr><th id="78">78</th><td>	<a class="typedef" href="../../idlib/Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>			<dfn class="decl" id="_ZN10idMsgQueue8ReadByteEv" title='idMsgQueue::ReadByte' data-ref="_ZN10idMsgQueue8ReadByteEv">ReadByte</dfn>( <em>void</em> );</td></tr>
+<tr><th id="79">79</th><td>	<em>void</em>			<dfn class="decl" id="_ZN10idMsgQueue10WriteShortEi" title='idMsgQueue::WriteShort' data-ref="_ZN10idMsgQueue10WriteShortEi">WriteShort</dfn>( <em>int</em> <dfn class="local col4 decl" id="13724s" title='s' data-type='int' data-ref="13724s">s</dfn> );</td></tr>
+<tr><th id="80">80</th><td>	<em>int</em>				<dfn class="decl" id="_ZN10idMsgQueue9ReadShortEv" title='idMsgQueue::ReadShort' data-ref="_ZN10idMsgQueue9ReadShortEv">ReadShort</dfn>( <em>void</em> );</td></tr>
+<tr><th id="81">81</th><td>	<em>void</em>			<dfn class="decl" id="_ZN10idMsgQueue9WriteLongEi" title='idMsgQueue::WriteLong' data-ref="_ZN10idMsgQueue9WriteLongEi">WriteLong</dfn>( <em>int</em> <dfn class="local col5 decl" id="13725l" title='l' data-type='int' data-ref="13725l">l</dfn> );</td></tr>
+<tr><th id="82">82</th><td>	<em>int</em>				<dfn class="decl" id="_ZN10idMsgQueue8ReadLongEv" title='idMsgQueue::ReadLong' data-ref="_ZN10idMsgQueue8ReadLongEv">ReadLong</dfn>( <em>void</em> );</td></tr>
+<tr><th id="83">83</th><td>	<em>void</em>			<dfn class="decl" id="_ZN10idMsgQueue9WriteDataEPKhi" title='idMsgQueue::WriteData' data-ref="_ZN10idMsgQueue9WriteDataEPKhi">WriteData</dfn>( <em>const</em> <a class="typedef" href="../../idlib/Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *<dfn class="local col6 decl" id="13726data" title='data' data-type='const byte *' data-ref="13726data">data</dfn>, <em>const</em> <em>int</em> <dfn class="local col7 decl" id="13727size" title='size' data-type='const int' data-ref="13727size">size</dfn> );</td></tr>
+<tr><th id="84">84</th><td>	<em>void</em>			<dfn class="decl" id="_ZN10idMsgQueue8ReadDataEPhi" title='idMsgQueue::ReadData' data-ref="_ZN10idMsgQueue8ReadDataEPhi">ReadData</dfn>( <a class="typedef" href="../../idlib/Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *<dfn class="local col8 decl" id="13728data" title='data' data-type='byte *' data-ref="13728data">data</dfn>, <em>const</em> <em>int</em> <dfn class="local col9 decl" id="13729size" title='size' data-type='const int' data-ref="13729size">size</dfn> );</td></tr>
+<tr><th id="85">85</th><td>};</td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td><b>class</b> <dfn class="type def" id="idMsgChannel" title='idMsgChannel' data-ref="idMsgChannel">idMsgChannel</dfn> {</td></tr>
+<tr><th id="89">89</th><td><b>public</b>:</td></tr>
+<tr><th id="90">90</th><td>					<dfn class="decl" id="_ZN12idMsgChannelC1Ev" title='idMsgChannel::idMsgChannel' data-ref="_ZN12idMsgChannelC1Ev">idMsgChannel</dfn>();</td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td>	<em>void</em>			<dfn class="decl" id="_ZN12idMsgChannel4InitE8netadr_ti" title='idMsgChannel::Init' data-ref="_ZN12idMsgChannel4InitE8netadr_ti">Init</dfn>( <em>const</em> <a class="typedef" href="../../sys/sys_public.h.html#netadr_t" title='netadr_t' data-type='struct netadr_t' data-ref="netadr_t">netadr_t</a> <dfn class="local col0 decl" id="13730adr" title='adr' data-type='const netadr_t' data-ref="13730adr">adr</dfn>, <em>const</em> <em>int</em> <dfn class="local col1 decl" id="13731id" title='id' data-type='const int' data-ref="13731id">id</dfn> );</td></tr>
+<tr><th id="93">93</th><td>	<em>void</em>			<dfn class="decl" id="_ZN12idMsgChannel8ShutdownEv" title='idMsgChannel::Shutdown' data-ref="_ZN12idMsgChannel8ShutdownEv">Shutdown</dfn>( <em>void</em> );</td></tr>
+<tr><th id="94">94</th><td>	<em>void</em>			<dfn class="decl" id="_ZN12idMsgChannel9ResetRateEv" title='idMsgChannel::ResetRate' data-ref="_ZN12idMsgChannel9ResetRateEv">ResetRate</dfn>( <em>void</em> );</td></tr>
+<tr><th id="95">95</th><td></td></tr>
+<tr><th id="96">96</th><td>					<i>// Sets the maximum outgoing rate.</i></td></tr>
+<tr><th id="97">97</th><td>	<em>void</em>			<dfn class="decl def" id="_ZN12idMsgChannel18SetMaxOutgoingRateEi" title='idMsgChannel::SetMaxOutgoingRate' data-ref="_ZN12idMsgChannel18SetMaxOutgoingRateEi">SetMaxOutgoingRate</dfn>( <em>int</em> <dfn class="local col2 decl" id="13732rate" title='rate' data-type='int' data-ref="13732rate">rate</dfn> ) { <a class="member" href="#idMsgChannel::maxRate" title='idMsgChannel::maxRate' data-ref="idMsgChannel::maxRate">maxRate</a> = <a class="local col2 ref" href="#13732rate" title='rate' data-ref="13732rate">rate</a>; }</td></tr>
+<tr><th id="98">98</th><td></td></tr>
+<tr><th id="99">99</th><td>					<i>// Gets the maximum outgoing rate.</i></td></tr>
+<tr><th id="100">100</th><td>	<em>int</em>				<dfn class="decl def" id="_ZN12idMsgChannel18GetMaxOutgoingRateEv" title='idMsgChannel::GetMaxOutgoingRate' data-ref="_ZN12idMsgChannel18GetMaxOutgoingRateEv">GetMaxOutgoingRate</dfn>( <em>void</em> ) { <b>return</b> <a class="member" href="#idMsgChannel::maxRate" title='idMsgChannel::maxRate' data-ref="idMsgChannel::maxRate">maxRate</a>; }</td></tr>
+<tr><th id="101">101</th><td></td></tr>
+<tr><th id="102">102</th><td>					<i>// Returns the address of the entity at the other side of the channel.</i></td></tr>
+<tr><th id="103">103</th><td>	<a class="typedef" href="../../sys/sys_public.h.html#netadr_t" title='netadr_t' data-type='struct netadr_t' data-ref="netadr_t">netadr_t</a>		<dfn class="decl def" id="_ZNK12idMsgChannel16GetRemoteAddressEv" title='idMsgChannel::GetRemoteAddress' data-ref="_ZNK12idMsgChannel16GetRemoteAddressEv">GetRemoteAddress</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="ref fake" href="../../sys/sys_public.h.html#404" title='(anonymous struct)::' data-ref="_ZN8netadr_tC1ERKS_"></a><a class="member" href="#idMsgChannel::remoteAddress" title='idMsgChannel::remoteAddress' data-ref="idMsgChannel::remoteAddress">remoteAddress</a>; }</td></tr>
+<tr><th id="104">104</th><td></td></tr>
+<tr><th id="105">105</th><td>					<i>// Returns the average outgoing rate over the last second.</i></td></tr>
+<tr><th id="106">106</th><td>	<em>int</em>				<dfn class="decl def" id="_ZNK12idMsgChannel15GetOutgoingRateEv" title='idMsgChannel::GetOutgoingRate' data-ref="_ZNK12idMsgChannel15GetOutgoingRateEv">GetOutgoingRate</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idMsgChannel::outgoingRateBytes" title='idMsgChannel::outgoingRateBytes' data-ref="idMsgChannel::outgoingRateBytes">outgoingRateBytes</a>; }</td></tr>
+<tr><th id="107">107</th><td></td></tr>
+<tr><th id="108">108</th><td>					<i>// Returns the average incoming rate over the last second.</i></td></tr>
+<tr><th id="109">109</th><td>	<em>int</em>				<dfn class="decl def" id="_ZNK12idMsgChannel15GetIncomingRateEv" title='idMsgChannel::GetIncomingRate' data-ref="_ZNK12idMsgChannel15GetIncomingRateEv">GetIncomingRate</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idMsgChannel::incomingRateBytes" title='idMsgChannel::incomingRateBytes' data-ref="idMsgChannel::incomingRateBytes">incomingRateBytes</a>; }</td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td>					<i>// Returns the average outgoing compression ratio over the last second.</i></td></tr>
+<tr><th id="112">112</th><td>	<em>float</em>			<dfn class="decl def" id="_ZNK12idMsgChannel22GetOutgoingCompressionEv" title='idMsgChannel::GetOutgoingCompression' data-ref="_ZNK12idMsgChannel22GetOutgoingCompressionEv">GetOutgoingCompression</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idMsgChannel::outgoingCompression" title='idMsgChannel::outgoingCompression' data-ref="idMsgChannel::outgoingCompression">outgoingCompression</a>; }</td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td>					<i>// Returns the average incoming compression ratio over the last second.</i></td></tr>
+<tr><th id="115">115</th><td>	<em>float</em>			<dfn class="decl def" id="_ZNK12idMsgChannel22GetIncomingCompressionEv" title='idMsgChannel::GetIncomingCompression' data-ref="_ZNK12idMsgChannel22GetIncomingCompressionEv">GetIncomingCompression</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idMsgChannel::incomingCompression" title='idMsgChannel::incomingCompression' data-ref="idMsgChannel::incomingCompression">incomingCompression</a>; }</td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td>					<i>// Returns the average incoming packet loss over the last 5 seconds.</i></td></tr>
+<tr><th id="118">118</th><td>	<em>float</em>			<dfn class="decl" id="_ZNK12idMsgChannel21GetIncomingPacketLossEv" title='idMsgChannel::GetIncomingPacketLoss' data-ref="_ZNK12idMsgChannel21GetIncomingPacketLossEv">GetIncomingPacketLoss</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="119">119</th><td></td></tr>
+<tr><th id="120">120</th><td>					<i>// Returns true if the channel is ready to send new data based on the maximum rate.</i></td></tr>
+<tr><th id="121">121</th><td>	<em>bool</em>			<dfn class="decl" id="_ZNK12idMsgChannel11ReadyToSendEi" title='idMsgChannel::ReadyToSend' data-ref="_ZNK12idMsgChannel11ReadyToSendEi">ReadyToSend</dfn>( <em>const</em> <em>int</em> <dfn class="local col3 decl" id="13733time" title='time' data-type='const int' data-ref="13733time">time</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="122">122</th><td></td></tr>
+<tr><th id="123">123</th><td>					<i>// Sends an unreliable message, in order and without duplicates.</i></td></tr>
+<tr><th id="124">124</th><td>	<em>int</em>				<dfn class="decl" id="_ZN12idMsgChannel11SendMessageER6idPortiRK8idBitMsg" title='idMsgChannel::SendMessage' data-ref="_ZN12idMsgChannel11SendMessageER6idPortiRK8idBitMsg">SendMessage</dfn>( <a class="type" href="../../sys/sys_public.h.html#idPort" title='idPort' data-ref="idPort">idPort</a> &amp;<dfn class="local col4 decl" id="13734port" title='port' data-type='idPort &amp;' data-ref="13734port">port</dfn>, <em>const</em> <em>int</em> <dfn class="local col5 decl" id="13735time" title='time' data-type='const int' data-ref="13735time">time</dfn>, <em>const</em> <a class="type" href="../../idlib/BitMsg.h.html#idBitMsg" title='idBitMsg' data-ref="idBitMsg">idBitMsg</a> &amp;<dfn class="local col6 decl" id="13736msg" title='msg' data-type='const idBitMsg &amp;' data-ref="13736msg">msg</dfn> );</td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td>					<i>// Sends the next fragment if the last message was too large to send at once.</i></td></tr>
+<tr><th id="127">127</th><td>	<em>void</em>			<dfn class="decl" id="_ZN12idMsgChannel16SendNextFragmentER6idPorti" title='idMsgChannel::SendNextFragment' data-ref="_ZN12idMsgChannel16SendNextFragmentER6idPorti">SendNextFragment</dfn>( <a class="type" href="../../sys/sys_public.h.html#idPort" title='idPort' data-ref="idPort">idPort</a> &amp;<dfn class="local col7 decl" id="13737port" title='port' data-type='idPort &amp;' data-ref="13737port">port</dfn>, <em>const</em> <em>int</em> <dfn class="local col8 decl" id="13738time" title='time' data-type='const int' data-ref="13738time">time</dfn> );</td></tr>
+<tr><th id="128">128</th><td></td></tr>
+<tr><th id="129">129</th><td>					<i>// Returns true if there are unsent fragments left.</i></td></tr>
+<tr><th id="130">130</th><td>	<em>bool</em>			<dfn class="decl def" id="_ZNK12idMsgChannel19UnsentFragmentsLeftEv" title='idMsgChannel::UnsentFragmentsLeft' data-ref="_ZNK12idMsgChannel19UnsentFragmentsLeftEv">UnsentFragmentsLeft</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idMsgChannel::unsentFragments" title='idMsgChannel::unsentFragments' data-ref="idMsgChannel::unsentFragments">unsentFragments</a>; }</td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td>					<i>// Processes the incoming message. Returns true when a complete message</i></td></tr>
+<tr><th id="133">133</th><td><i>					// is ready for further processing. In that case the read pointer of msg</i></td></tr>
+<tr><th id="134">134</th><td><i>					// points to the first byte ready for reading, and sequence is set to</i></td></tr>
+<tr><th id="135">135</th><td><i>					// the sequence number of the message.</i></td></tr>
+<tr><th id="136">136</th><td>	<em>bool</em>			<dfn class="decl" id="_ZN12idMsgChannel7ProcessE8netadr_tiR8idBitMsgRi" title='idMsgChannel::Process' data-ref="_ZN12idMsgChannel7ProcessE8netadr_tiR8idBitMsgRi">Process</dfn>( <em>const</em> <a class="typedef" href="../../sys/sys_public.h.html#netadr_t" title='netadr_t' data-type='struct netadr_t' data-ref="netadr_t">netadr_t</a> <dfn class="local col9 decl" id="13739from" title='from' data-type='const netadr_t' data-ref="13739from">from</dfn>, <em>int</em> <dfn class="local col0 decl" id="13740time" title='time' data-type='int' data-ref="13740time">time</dfn>, <a class="type" href="../../idlib/BitMsg.h.html#idBitMsg" title='idBitMsg' data-ref="idBitMsg">idBitMsg</a> &amp;<dfn class="local col1 decl" id="13741msg" title='msg' data-type='idBitMsg &amp;' data-ref="13741msg">msg</dfn>, <em>int</em> &amp;<dfn class="local col2 decl" id="13742sequence" title='sequence' data-type='int &amp;' data-ref="13742sequence">sequence</dfn> );</td></tr>
+<tr><th id="137">137</th><td></td></tr>
+<tr><th id="138">138</th><td>					<i>// Sends a reliable message, in order and without duplicates.</i></td></tr>
+<tr><th id="139">139</th><td>	<em>bool</em>			<dfn class="decl" id="_ZN12idMsgChannel19SendReliableMessageERK8idBitMsg" title='idMsgChannel::SendReliableMessage' data-ref="_ZN12idMsgChannel19SendReliableMessageERK8idBitMsg">SendReliableMessage</dfn>( <em>const</em> <a class="type" href="../../idlib/BitMsg.h.html#idBitMsg" title='idBitMsg' data-ref="idBitMsg">idBitMsg</a> &amp;<dfn class="local col3 decl" id="13743msg" title='msg' data-type='const idBitMsg &amp;' data-ref="13743msg">msg</dfn> );</td></tr>
+<tr><th id="140">140</th><td></td></tr>
+<tr><th id="141">141</th><td>					<i>// Returns true if a new reliable message is available and stores the message.</i></td></tr>
+<tr><th id="142">142</th><td>	<em>bool</em>			<dfn class="decl" id="_ZN12idMsgChannel18GetReliableMessageER8idBitMsg" title='idMsgChannel::GetReliableMessage' data-ref="_ZN12idMsgChannel18GetReliableMessageER8idBitMsg">GetReliableMessage</dfn>( <a class="type" href="../../idlib/BitMsg.h.html#idBitMsg" title='idBitMsg' data-ref="idBitMsg">idBitMsg</a> &amp;<dfn class="local col4 decl" id="13744msg" title='msg' data-type='idBitMsg &amp;' data-ref="13744msg">msg</dfn> );</td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td>					<i>// Removes any pending outgoing or incoming reliable messages.</i></td></tr>
+<tr><th id="145">145</th><td>	<em>void</em>			<dfn class="decl" id="_ZN12idMsgChannel21ClearReliableMessagesEv" title='idMsgChannel::ClearReliableMessages' data-ref="_ZN12idMsgChannel21ClearReliableMessagesEv">ClearReliableMessages</dfn>( <em>void</em> );</td></tr>
+<tr><th id="146">146</th><td></td></tr>
+<tr><th id="147">147</th><td><b>private</b>:</td></tr>
+<tr><th id="148">148</th><td>	<a class="typedef" href="../../sys/sys_public.h.html#netadr_t" title='netadr_t' data-type='struct netadr_t' data-ref="netadr_t">netadr_t</a>		<dfn class="decl" id="idMsgChannel::remoteAddress" title='idMsgChannel::remoteAddress' data-ref="idMsgChannel::remoteAddress">remoteAddress</dfn>;	<i>// address of remote host</i></td></tr>
+<tr><th id="149">149</th><td>	<em>int</em>				<dfn class="decl" id="idMsgChannel::id" title='idMsgChannel::id' data-ref="idMsgChannel::id">id</dfn>;				<i>// our identification used instead of port number</i></td></tr>
+<tr><th id="150">150</th><td>	<em>int</em>				<dfn class="decl" id="idMsgChannel::maxRate" title='idMsgChannel::maxRate' data-ref="idMsgChannel::maxRate">maxRate</dfn>;		<i>// maximum number of bytes that may go out per second</i></td></tr>
+<tr><th id="151">151</th><td>	<a class="type" href="../Compressor.h.html#idCompressor" title='idCompressor' data-ref="idCompressor">idCompressor</a> *	<dfn class="decl" id="idMsgChannel::compressor" title='idMsgChannel::compressor' data-ref="idMsgChannel::compressor">compressor</dfn>;		<i>// compressor used for data compression</i></td></tr>
+<tr><th id="152">152</th><td></td></tr>
+<tr><th id="153">153</th><td>	<i>// variables to control the outgoing rate</i></td></tr>
+<tr><th id="154">154</th><td>	<em>int</em>				<dfn class="decl" id="idMsgChannel::lastSendTime" title='idMsgChannel::lastSendTime' data-ref="idMsgChannel::lastSendTime">lastSendTime</dfn>;	<i>// last time data was sent out</i></td></tr>
+<tr><th id="155">155</th><td>	<em>int</em>				<dfn class="decl" id="idMsgChannel::lastDataBytes" title='idMsgChannel::lastDataBytes' data-ref="idMsgChannel::lastDataBytes">lastDataBytes</dfn>;	<i>// bytes left to send at last send time</i></td></tr>
+<tr><th id="156">156</th><td></td></tr>
+<tr><th id="157">157</th><td>	<i>// variables to keep track of the rate</i></td></tr>
+<tr><th id="158">158</th><td>	<em>int</em>				<dfn class="decl" id="idMsgChannel::outgoingRateTime" title='idMsgChannel::outgoingRateTime' data-ref="idMsgChannel::outgoingRateTime">outgoingRateTime</dfn>;</td></tr>
+<tr><th id="159">159</th><td>	<em>int</em>				<dfn class="decl" id="idMsgChannel::outgoingRateBytes" title='idMsgChannel::outgoingRateBytes' data-ref="idMsgChannel::outgoingRateBytes">outgoingRateBytes</dfn>;</td></tr>
+<tr><th id="160">160</th><td>	<em>int</em>				<dfn class="decl" id="idMsgChannel::incomingRateTime" title='idMsgChannel::incomingRateTime' data-ref="idMsgChannel::incomingRateTime">incomingRateTime</dfn>;</td></tr>
+<tr><th id="161">161</th><td>	<em>int</em>				<dfn class="decl" id="idMsgChannel::incomingRateBytes" title='idMsgChannel::incomingRateBytes' data-ref="idMsgChannel::incomingRateBytes">incomingRateBytes</dfn>;</td></tr>
+<tr><th id="162">162</th><td></td></tr>
+<tr><th id="163">163</th><td>	<i>// variables to keep track of the compression ratio</i></td></tr>
+<tr><th id="164">164</th><td>	<em>float</em>			<dfn class="decl" id="idMsgChannel::outgoingCompression" title='idMsgChannel::outgoingCompression' data-ref="idMsgChannel::outgoingCompression">outgoingCompression</dfn>;</td></tr>
+<tr><th id="165">165</th><td>	<em>float</em>			<dfn class="decl" id="idMsgChannel::incomingCompression" title='idMsgChannel::incomingCompression' data-ref="idMsgChannel::incomingCompression">incomingCompression</dfn>;</td></tr>
+<tr><th id="166">166</th><td></td></tr>
+<tr><th id="167">167</th><td>	<i>// variables to keep track of the incoming packet loss</i></td></tr>
+<tr><th id="168">168</th><td>	<em>float</em>			<dfn class="decl" id="idMsgChannel::incomingReceivedPackets" title='idMsgChannel::incomingReceivedPackets' data-ref="idMsgChannel::incomingReceivedPackets">incomingReceivedPackets</dfn>;</td></tr>
+<tr><th id="169">169</th><td>	<em>float</em>			<dfn class="decl" id="idMsgChannel::incomingDroppedPackets" title='idMsgChannel::incomingDroppedPackets' data-ref="idMsgChannel::incomingDroppedPackets">incomingDroppedPackets</dfn>;</td></tr>
+<tr><th id="170">170</th><td>	<em>int</em>				<dfn class="decl" id="idMsgChannel::incomingPacketLossTime" title='idMsgChannel::incomingPacketLossTime' data-ref="idMsgChannel::incomingPacketLossTime">incomingPacketLossTime</dfn>;</td></tr>
+<tr><th id="171">171</th><td></td></tr>
+<tr><th id="172">172</th><td>	<i>// sequencing variables</i></td></tr>
+<tr><th id="173">173</th><td>	<em>int</em>				<dfn class="decl" id="idMsgChannel::outgoingSequence" title='idMsgChannel::outgoingSequence' data-ref="idMsgChannel::outgoingSequence">outgoingSequence</dfn>;</td></tr>
+<tr><th id="174">174</th><td>	<em>int</em>				<dfn class="decl" id="idMsgChannel::incomingSequence" title='idMsgChannel::incomingSequence' data-ref="idMsgChannel::incomingSequence">incomingSequence</dfn>;</td></tr>
+<tr><th id="175">175</th><td></td></tr>
+<tr><th id="176">176</th><td>	<i>// outgoing fragment buffer</i></td></tr>
+<tr><th id="177">177</th><td>	<em>bool</em>			<dfn class="decl" id="idMsgChannel::unsentFragments" title='idMsgChannel::unsentFragments' data-ref="idMsgChannel::unsentFragments">unsentFragments</dfn>;</td></tr>
+<tr><th id="178">178</th><td>	<em>int</em>				<dfn class="decl" id="idMsgChannel::unsentFragmentStart" title='idMsgChannel::unsentFragmentStart' data-ref="idMsgChannel::unsentFragmentStart">unsentFragmentStart</dfn>;</td></tr>
+<tr><th id="179">179</th><td>	<a class="typedef" href="../../idlib/Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>			<dfn class="decl" id="idMsgChannel::unsentBuffer" title='idMsgChannel::unsentBuffer' data-ref="idMsgChannel::unsentBuffer">unsentBuffer</dfn>[<a class="macro" href="#48" title="16384" data-ref="_M/MAX_MESSAGE_SIZE">MAX_MESSAGE_SIZE</a>];</td></tr>
+<tr><th id="180">180</th><td>	<a class="type" href="../../idlib/BitMsg.h.html#idBitMsg" title='idBitMsg' data-ref="idBitMsg">idBitMsg</a>		<dfn class="decl" id="idMsgChannel::unsentMsg" title='idMsgChannel::unsentMsg' data-ref="idMsgChannel::unsentMsg">unsentMsg</dfn>;</td></tr>
+<tr><th id="181">181</th><td></td></tr>
+<tr><th id="182">182</th><td>	<i>// incoming fragment assembly buffer</i></td></tr>
+<tr><th id="183">183</th><td>	<em>int</em>				<dfn class="decl" id="idMsgChannel::fragmentSequence" title='idMsgChannel::fragmentSequence' data-ref="idMsgChannel::fragmentSequence">fragmentSequence</dfn>;</td></tr>
+<tr><th id="184">184</th><td>	<em>int</em>				<dfn class="decl" id="idMsgChannel::fragmentLength" title='idMsgChannel::fragmentLength' data-ref="idMsgChannel::fragmentLength">fragmentLength</dfn>;</td></tr>
+<tr><th id="185">185</th><td>	<a class="typedef" href="../../idlib/Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>			<dfn class="decl" id="idMsgChannel::fragmentBuffer" title='idMsgChannel::fragmentBuffer' data-ref="idMsgChannel::fragmentBuffer">fragmentBuffer</dfn>[<a class="macro" href="#48" title="16384" data-ref="_M/MAX_MESSAGE_SIZE">MAX_MESSAGE_SIZE</a>];</td></tr>
+<tr><th id="186">186</th><td></td></tr>
+<tr><th id="187">187</th><td>	<i>// reliable messages</i></td></tr>
+<tr><th id="188">188</th><td>	<a class="type" href="#idMsgQueue" title='idMsgQueue' data-ref="idMsgQueue">idMsgQueue</a>		<dfn class="decl" id="idMsgChannel::reliableSend" title='idMsgChannel::reliableSend' data-ref="idMsgChannel::reliableSend">reliableSend</dfn>;</td></tr>
+<tr><th id="189">189</th><td>	<a class="type" href="#idMsgQueue" title='idMsgQueue' data-ref="idMsgQueue">idMsgQueue</a>		<dfn class="decl" id="idMsgChannel::reliableReceive" title='idMsgChannel::reliableReceive' data-ref="idMsgChannel::reliableReceive">reliableReceive</dfn>;</td></tr>
+<tr><th id="190">190</th><td></td></tr>
+<tr><th id="191">191</th><td><b>private</b>:</td></tr>
+<tr><th id="192">192</th><td>	<em>void</em>			<dfn class="decl" id="_ZN12idMsgChannel16WriteMessageDataER8idBitMsgRKS0_" title='idMsgChannel::WriteMessageData' data-ref="_ZN12idMsgChannel16WriteMessageDataER8idBitMsgRKS0_">WriteMessageData</dfn>( <a class="type" href="../../idlib/BitMsg.h.html#idBitMsg" title='idBitMsg' data-ref="idBitMsg">idBitMsg</a> &amp;<dfn class="local col5 decl" id="13745out" title='out' data-type='idBitMsg &amp;' data-ref="13745out">out</dfn>, <em>const</em> <a class="type" href="../../idlib/BitMsg.h.html#idBitMsg" title='idBitMsg' data-ref="idBitMsg">idBitMsg</a> &amp;<dfn class="local col6 decl" id="13746msg" title='msg' data-type='const idBitMsg &amp;' data-ref="13746msg">msg</dfn> );</td></tr>
+<tr><th id="193">193</th><td>	<em>bool</em>			<dfn class="decl" id="_ZN12idMsgChannel15ReadMessageDataER8idBitMsgRKS0_" title='idMsgChannel::ReadMessageData' data-ref="_ZN12idMsgChannel15ReadMessageDataER8idBitMsgRKS0_">ReadMessageData</dfn>( <a class="type" href="../../idlib/BitMsg.h.html#idBitMsg" title='idBitMsg' data-ref="idBitMsg">idBitMsg</a> &amp;<dfn class="local col7 decl" id="13747out" title='out' data-type='idBitMsg &amp;' data-ref="13747out">out</dfn>, <em>const</em> <a class="type" href="../../idlib/BitMsg.h.html#idBitMsg" title='idBitMsg' data-ref="idBitMsg">idBitMsg</a> &amp;<dfn class="local col8 decl" id="13748msg" title='msg' data-type='const idBitMsg &amp;' data-ref="13748msg">msg</dfn> );</td></tr>
+<tr><th id="194">194</th><td></td></tr>
+<tr><th id="195">195</th><td>	<em>void</em>			<dfn class="decl" id="_ZN12idMsgChannel18UpdateOutgoingRateEii" title='idMsgChannel::UpdateOutgoingRate' data-ref="_ZN12idMsgChannel18UpdateOutgoingRateEii">UpdateOutgoingRate</dfn>( <em>const</em> <em>int</em> <dfn class="local col9 decl" id="13749time" title='time' data-type='const int' data-ref="13749time">time</dfn>, <em>const</em> <em>int</em> <dfn class="local col0 decl" id="13750size" title='size' data-type='const int' data-ref="13750size">size</dfn> );</td></tr>
+<tr><th id="196">196</th><td>	<em>void</em>			<dfn class="decl" id="_ZN12idMsgChannel18UpdateIncomingRateEii" title='idMsgChannel::UpdateIncomingRate' data-ref="_ZN12idMsgChannel18UpdateIncomingRateEii">UpdateIncomingRate</dfn>( <em>const</em> <em>int</em> <dfn class="local col1 decl" id="13751time" title='time' data-type='const int' data-ref="13751time">time</dfn>, <em>const</em> <em>int</em> <dfn class="local col2 decl" id="13752size" title='size' data-type='const int' data-ref="13752size">size</dfn> );</td></tr>
+<tr><th id="197">197</th><td></td></tr>
+<tr><th id="198">198</th><td>	<em>void</em>			<dfn class="decl" id="_ZN12idMsgChannel16UpdatePacketLossEiii" title='idMsgChannel::UpdatePacketLoss' data-ref="_ZN12idMsgChannel16UpdatePacketLossEiii">UpdatePacketLoss</dfn>( <em>const</em> <em>int</em> <dfn class="local col3 decl" id="13753time" title='time' data-type='const int' data-ref="13753time">time</dfn>, <em>const</em> <em>int</em> <dfn class="local col4 decl" id="13754numReceived" title='numReceived' data-type='const int' data-ref="13754numReceived">numReceived</dfn>, <em>const</em> <em>int</em> <dfn class="local col5 decl" id="13755numDropped" title='numDropped' data-type='const int' data-ref="13755numDropped">numDropped</dfn> );</td></tr>
+<tr><th id="199">199</th><td>};</td></tr>
+<tr><th id="200">200</th><td></td></tr>
+<tr><th id="201">201</th><td><u>#<span data-ppcond="29">endif</span> /* !__MSGCHANNEL_H__ */</u></td></tr>
+<tr><th id="202">202</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../TypeInfo/TypeInfoGen.cpp.html'>codebrowser/TypeInfo/TypeInfoGen.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

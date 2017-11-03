@@ -1,0 +1,12 @@
+<dec f='codebrowser/renderer/Material.h' l='584' type='const float * idMaterial::ConstantRegisters() const'/>
+<doc f='codebrowser/renderer/Material.h' l='581'>// if a material only uses constants (no entityParm or globalparm references), this
+						// will return a pointer to an internal table, and EvaluateRegisters will not need
+						// to be called.  If NULL is returned, EvaluateRegisters must be used.</doc>
+<def f='codebrowser/renderer/Material.cpp' l='2588' ll='2593' type='const float * idMaterial::ConstantRegisters() const'/>
+<doc f='codebrowser/renderer/Material.cpp' l='2583'>/*
+=============
+idMaterial::ConstantRegisters
+=============
+*/</doc>
+<use f='codebrowser/renderer/tr_light.cpp' l='682' u='c' c='_Z15R_LinkLightSurfPPK10drawSurf_sPK14srfTriangles_sPK12viewEntity_sPK18idRenderLightLocalPK10idMaterialRK12idScreenRectb'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1221' u='c' c='_Z13R_AddDrawSurfPK14srfTriangles_sPK12viewEntity_sPK14renderEntity_sPK10idMaterialRK12idScreenRect'/>

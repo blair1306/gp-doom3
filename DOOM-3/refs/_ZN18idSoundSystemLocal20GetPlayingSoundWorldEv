@@ -1,0 +1,12 @@
+<dec f='codebrowser/sound/snd_local.h' l='714' type='idSoundWorld * idSoundSystemLocal::GetPlayingSoundWorld()'/>
+<doc f='codebrowser/sound/snd_local.h' l='712'>// some tools, like the sound dialog, may be used in both the game and the editor
+	// This can return NULL, so check!</doc>
+<use f='codebrowser/sound/snd_emitter.cpp' l='1134' u='c' c='_ZN13idSlowChannel14GetSlowmoSpeedEv'/>
+<use f='codebrowser/sound/snd_emitter.cpp' l='1149' u='c' c='_ZN13idSlowChannel19GenerateSlowChannelER8FracTimeiPf'/>
+<inh f='codebrowser/sound/sound.h' l='327' c='_ZN13idSoundSystem20GetPlayingSoundWorldEv'/>
+<def f='codebrowser/sound/snd_system.cpp' l='1103' ll='1105' type='idSoundWorld * idSoundSystemLocal::GetPlayingSoundWorld()'/>
+<doc f='codebrowser/sound/snd_system.cpp' l='1098'>/*
+===================
+idSoundSystemLocal::GetPlayingSoundWorld
+===================
+*/</doc>

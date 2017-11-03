@@ -1,0 +1,42 @@
+<inh f='codebrowser/sound/snd_local.h' l='234' c='idAudioHardware'/>
+<def f='codebrowser/sys/linux/sound.h' l='114' ll='183'/>
+<size>96</size>
+<smbr r='idAudioHardwareALSA::MIXBUFFER_CHUNKS' t='const int'/>
+<mbr r='idAudioHardwareALSA::m_pcm_handle' o='32' t='snd_pcm_t *'/>
+<mbr r='idAudioHardwareALSA::m_channels' o='64' t='unsigned int'/>
+<mbr r='idAudioHardwareALSA::m_buffer' o='96' t='void *'/>
+<mbr r='idAudioHardwareALSA::m_buffer_size' o='128' t='int'/>
+<mbr r='idAudioHardwareALSA::m_remainingFrames' o='160' t='int'/>
+<mbr r='idAudioHardwareALSA::m_handle' o='192' t='void *'/>
+<fun r='_ZN19idAudioHardwareALSAC1Ev'/>
+<fun r='_ZN19idAudioHardwareALSAD1Ev'/>
+<fun r='_ZN19idAudioHardwareALSA6DLOpenEv'/>
+<fun r='_ZN19idAudioHardwareALSA10InitializeEv'/>
+<fun r='_ZN19idAudioHardwareALSA4LockEPPvPm'/>
+<fun r='_ZN19idAudioHardwareALSA6UnlockEPvj'/>
+<fun r='_ZN19idAudioHardwareALSA18GetCurrentPositionEPm'/>
+<fun r='_ZN19idAudioHardwareALSA5FlushEv'/>
+<fun r='_ZN19idAudioHardwareALSA5WriteEb'/>
+<fun r='_ZN19idAudioHardwareALSA19GetNumberOfSpeakersEv'/>
+<fun r='_ZN19idAudioHardwareALSA16GetMixBufferSizeEv'/>
+<fun r='_ZN19idAudioHardwareALSA12GetMixBufferEv'/>
+<fun r='_ZN19idAudioHardwareALSA7ReleaseEv'/>
+<fun r='_ZN19idAudioHardwareALSA10InitFailedEv'/>
+<fun r='_ZN19idAudioHardwareALSA15PlayTestPatternEv'/>
+<mbr r='idAudioHardwareALSA::id_snd_asoundlib_version' o='224' t='pfn_snd_asoundlib_version'/>
+<mbr r='idAudioHardwareALSA::id_snd_pcm_avail_update' o='256' t='pfn_snd_pcm_avail_update'/>
+<mbr r='idAudioHardwareALSA::id_snd_pcm_close' o='288' t='pfn_snd_pcm_close'/>
+<mbr r='idAudioHardwareALSA::id_snd_strerror' o='320' t='pfn_snd_strerror'/>
+<mbr r='idAudioHardwareALSA::id_snd_pcm_hw_params' o='352' t='pfn_snd_pcm_hw_params'/>
+<mbr r='idAudioHardwareALSA::id_snd_pcm_hw_params_any' o='384' t='pfn_snd_pcm_hw_params_any'/>
+<mbr r='idAudioHardwareALSA::id_snd_pcm_hw_params_get_buffer_size' o='416' t='pfn_snd_pcm_hw_params_get_buffer_size'/>
+<mbr r='idAudioHardwareALSA::id_snd_pcm_hw_params_set_access' o='448' t='pfn_snd_pcm_hw_params_set_access'/>
+<mbr r='idAudioHardwareALSA::id_snd_pcm_hw_params_set_buffer_size_min' o='480' t='pfn_snd_pcm_hw_params_set_buffer_size_min'/>
+<mbr r='idAudioHardwareALSA::id_snd_pcm_hw_params_set_channels' o='512' t='pfn_snd_pcm_hw_params_set_channels'/>
+<mbr r='idAudioHardwareALSA::id_snd_pcm_hw_params_set_format' o='544' t='pfn_snd_pcm_hw_params_set_format'/>
+<mbr r='idAudioHardwareALSA::id_snd_pcm_hw_params_set_rate' o='576' t='pfn_snd_pcm_hw_params_set_rate'/>
+<mbr r='idAudioHardwareALSA::id_snd_pcm_hw_params_sizeof' o='608' t='pfn_snd_pcm_hw_params_sizeof'/>
+<mbr r='idAudioHardwareALSA::id_snd_pcm_open' o='640' t='pfn_snd_pcm_open'/>
+<mbr r='idAudioHardwareALSA::id_snd_pcm_prepare' o='672' t='pfn_snd_pcm_prepare'/>
+<mbr r='idAudioHardwareALSA::id_snd_pcm_state' o='704' t='pfn_snd_pcm_state'/>
+<mbr r='idAudioHardwareALSA::id_snd_pcm_writei' o='736' t='pfn_snd_pcm_writei'/>

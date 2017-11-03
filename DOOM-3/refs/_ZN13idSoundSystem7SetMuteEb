@@ -1,0 +1,27 @@
+<dec f='codebrowser/sound/sound.h' l='311' type='void idSoundSystem::SetMute(bool mute)'/>
+<doc f='codebrowser/sound/sound.h' l='308'>// it is a good idea to mute everything when starting a new level,
+	// because sounds may be started before a valid listener origin
+	// is specified</doc>
+<use f='codebrowser/d3xp/Game_local.cpp' l='2613' u='c' c='_ZN11idGameLocal8RunFrameEPK9usercmd_t'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4268' u='c' c='_ZN11idGameLocal13SkipCinematicEv'/>
+<use f='codebrowser/framework/DeclManager.cpp' l='1642' u='c' c='_ZN18idDeclManagerLocal13ReloadDecls_fERK9idCmdArgs'/>
+<use f='codebrowser/framework/DeclManager.cpp' l='1646' u='c' c='_ZN18idDeclManagerLocal13ReloadDecls_fERK9idCmdArgs'/>
+<use f='codebrowser/framework/Session.cpp' l='744' u='c' c='_ZL20Session_Disconnect_fRK9idCmdArgs'/>
+<use f='codebrowser/framework/Session.cpp' l='874' u='c' c='_ZN14idSessionLocal21StopPlayingRenderDemoEv'/>
+<use f='codebrowser/framework/Session.cpp' l='876' u='c' c='_ZN14idSessionLocal21StopPlayingRenderDemoEv'/>
+<use f='codebrowser/framework/Session.cpp' l='933' u='c' c='_ZN14idSessionLocal22StartPlayingRenderDemoE5idStr'/>
+<use f='codebrowser/framework/Session.cpp' l='964' u='c' c='_ZN14idSessionLocal14TimeRenderDemoEPKcb'/>
+<use f='codebrowser/framework/Session.cpp' l='1529' u='c' c='_ZN14idSessionLocal16ExecuteMapChangeEb'/>
+<use f='codebrowser/framework/Session.cpp' l='1725' u='c' c='_ZN14idSessionLocal16ExecuteMapChangeEb'/>
+<use f='codebrowser/framework/Session.cpp' l='1840' u='c' c='_Z15Session_Hitch_fRK9idCmdArgs'/>
+<use f='codebrowser/framework/Session.cpp' l='1852' u='c' c='_Z15Session_Hitch_fRK9idCmdArgs'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='773' u='c' c='_ZN13idAsyncClient30ProcessUnreliableServerMessageERK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncNetwork.cpp' l='320' u='c' c='_ZN14idAsyncNetwork13SpawnServer_fERK9idCmdArgs'/>
+<use f='codebrowser/game/Game_local.cpp' l='2349' u='c' c='_ZN11idGameLocal8RunFrameEPK9usercmd_t'/>
+<use f='codebrowser/game/Game_local.cpp' l='3970' u='c' c='_ZN11idGameLocal13SkipCinematicEv'/>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='1960' u='c' c='_Z14R_VidRestart_fRK9idCmdArgs'/>
+<use f='codebrowser/sound/snd_system.cpp' l='109' u='c' c='_Z19SoundReloadSounds_fRK9idCmdArgs'/>
+<use f='codebrowser/sound/snd_system.cpp' l='111' u='c' c='_Z19SoundReloadSounds_fRK9idCmdArgs'/>
+<use f='codebrowser/sound/snd_system.cpp' l='285' u='c' c='_Z20SoundSystemRestart_fRK9idCmdArgs'/>
+<use f='codebrowser/sound/snd_system.cpp' l='288' u='c' c='_Z20SoundSystemRestart_fRK9idCmdArgs'/>
+<ovr f='codebrowser/sound/snd_system.cpp' l='1065' c='_ZN18idSoundSystemLocal7SetMuteEb'/>

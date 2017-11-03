@@ -1,0 +1,29 @@
+<dec f='codebrowser/d3xp/SmokeParticles.h' l='81' type='bool idSmokeParticles::EmitSmoke(const idDeclParticle * smoke, const int startTime, const float diversity, const idVec3 &amp; origin, const idMat3 &amp; axis, int timeGroup)'/>
+<doc f='codebrowser/d3xp/SmokeParticles.h' l='80'>// spits out a particle, returning false if the system will not emit any more particles in the future</doc>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='2127' u='c' c='_ZN28idAFEntity_VehicleFourWheels5ThinkEv'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='2319' u='c' c='_ZN27idAFEntity_VehicleSixWheels5ThinkEv'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='5466' u='c' c='_ZN16idAnimatedEntity19UpdateDamageEffectsEv'/>
+<use f='codebrowser/d3xp/Item.cpp' l='1762' u='c' c='_ZN14idMoveableItem5ThinkEv'/>
+<use f='codebrowser/d3xp/Item.cpp' l='1962' u='c' c='_ZN14idMoveableItem3GibERK6idVec3PKc'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='1901' u='c' c='_ZN11idFuncSmoke5ThinkEv'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='194' u='c' c='_ZN12idProjectile7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='498' u='c' c='_ZN12idProjectile5ThinkEv'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='1746' u='c' c='_ZN17idSoulCubeMissile5ThinkEv'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='2510' u='c' c='_ZN8idDebris6LaunchEv'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='2533' u='c' c='_ZN8idDebris5ThinkEv'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='2585' u='c' c='_ZN8idDebris6FizzleEv'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='2625' u='c' c='_ZN8idDebris7ExplodeEv'/>
+<def f='codebrowser/d3xp/SmokeParticles.cpp' l='176' ll='298' type='bool idSmokeParticles::EmitSmoke(const idDeclParticle * smoke, const int systemStartTime, const float diversity, const idVec3 &amp; origin, const idMat3 &amp; axis, int timeGroup)'/>
+<doc f='codebrowser/d3xp/SmokeParticles.cpp' l='169'>/*
+================
+idSmokeParticles::EmitSmoke
+
+Called by game code to drop another particle into the list
+================
+*/</doc>
+<doc f='codebrowser/d3xp/SmokeParticles.cpp' l='176'>/*_D3XP*/</doc>
+<use f='codebrowser/d3xp/Weapon.cpp' l='2239' u='c' c='_ZN8idWeapon13PresentWeaponEb'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='2246' u='c' c='_ZN8idWeapon13PresentWeaponEb'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='2266' u='c' c='_ZN8idWeapon13PresentWeaponEb'/>
+<use f='codebrowser/d3xp/ai/AI.cpp' l='3387' u='c' c='_ZN4idAI21SpawnParticlesOnJointER17particleEmitter_sPKcS3_'/>
+<use f='codebrowser/d3xp/ai/AI.cpp' l='4809' u='c' c='_ZN4idAI15UpdateParticlesEv'/>

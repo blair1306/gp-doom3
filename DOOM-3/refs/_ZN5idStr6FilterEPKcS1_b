@@ -1,0 +1,17 @@
+<dec f='codebrowser/idlib/Str.h' l='272' type='static bool idStr::Filter(const char * filter, const char * name, bool casesensitive)'/>
+<use f='codebrowser/idlib/Str.h' l='889' u='c' c='_ZNK5idStr6FilterEPKcb'/>
+<def f='codebrowser/idlib/Str.cpp' l='249' ll='350' type='static bool idStr::Filter(const char * filter, const char * name, bool casesensitive)'/>
+<doc f='codebrowser/idlib/Str.cpp' l='235'>/*
+============
+idStr::Filter
+
+Returns true if the string conforms the given filter.
+Several metacharacter may be used in the filter.
+
+*          match any string of zero or more characters
+?          match any single character
+[abc...]   match any of the enclosed characters; a hyphen can
+           be used to specify a range (e.g. a-z, A-Z, 0-9)
+
+============
+*/</doc>

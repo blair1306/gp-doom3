@@ -1,0 +1,242 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GEWindowWrapper.h source code [codebrowser/tools/guied/GEWindowWrapper.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="rvGEWindowWrapper "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/tools/guied/GEWindowWrapper.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>tools</a>/<a href='./'>guied</a>/<a href='GEWindowWrapper.h.html'>GEWindowWrapper.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/GEWINDOWWRAPPER_H_">GEWINDOWWRAPPER_H_</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/GEWINDOWWRAPPER_H_" data-ref="_M/GEWINDOWWRAPPER_H_">GEWINDOWWRAPPER_H_</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><b>class</b> <a class="type" href="../../ui/Window.h.html#idWindow" title='idWindow' data-ref="idWindow" id="idWindow">idWindow</a>;</td></tr>
+<tr><th id="33">33</th><td><b>class</b> <a class="type" href="#rvGEWindowWrapper" title='rvGEWindowWrapper' data-ref="rvGEWindowWrapper">rvGEWindowWrapper</a>;</td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><b>typedef</b> <em>bool</em> (*<dfn class="typedef" id="PFNENUMCHILDRENPROC" title='PFNENUMCHILDRENPROC' data-type='bool (*)(rvGEWindowWrapper *, void *)' data-ref="PFNENUMCHILDRENPROC">PFNENUMCHILDRENPROC</dfn>) ( <a class="type" href="#rvGEWindowWrapper" title='rvGEWindowWrapper' data-ref="rvGEWindowWrapper">rvGEWindowWrapper</a>* <dfn class="local col9 decl" id="609wrapper" title='wrapper' data-type='rvGEWindowWrapper *' data-ref="609wrapper">wrapper</dfn>, <em>void</em>* <dfn class="local col0 decl" id="610data" title='data' data-type='void *' data-ref="610data">data</dfn> );</td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><b>class</b> <dfn class="type def" id="rvGEWindowWrapper" title='rvGEWindowWrapper' data-ref="rvGEWindowWrapper">rvGEWindowWrapper</dfn></td></tr>
+<tr><th id="38">38</th><td>{</td></tr>
+<tr><th id="39">39</th><td><b>public</b>:</td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td>	<b>enum</b> <dfn class="type def" id="rvGEWindowWrapper::EWindowType" title='rvGEWindowWrapper::EWindowType' data-ref="rvGEWindowWrapper::EWindowType">EWindowType</dfn></td></tr>
+<tr><th id="42">42</th><td>	{</td></tr>
+<tr><th id="43">43</th><td>		<dfn class="enum" id="rvGEWindowWrapper::EWindowType::WT_UNKNOWN" title='rvGEWindowWrapper::EWindowType::WT_UNKNOWN' data-ref="rvGEWindowWrapper::EWindowType::WT_UNKNOWN">WT_UNKNOWN</dfn>,</td></tr>
+<tr><th id="44">44</th><td>		<dfn class="enum" id="rvGEWindowWrapper::EWindowType::WT_NORMAL" title='rvGEWindowWrapper::EWindowType::WT_NORMAL' data-ref="rvGEWindowWrapper::EWindowType::WT_NORMAL">WT_NORMAL</dfn>,</td></tr>
+<tr><th id="45">45</th><td>		<dfn class="enum" id="rvGEWindowWrapper::EWindowType::WT_EDIT" title='rvGEWindowWrapper::EWindowType::WT_EDIT' data-ref="rvGEWindowWrapper::EWindowType::WT_EDIT">WT_EDIT</dfn>,</td></tr>
+<tr><th id="46">46</th><td>		<dfn class="enum" id="rvGEWindowWrapper::EWindowType::WT_HTML" title='rvGEWindowWrapper::EWindowType::WT_HTML' data-ref="rvGEWindowWrapper::EWindowType::WT_HTML">WT_HTML</dfn>,</td></tr>
+<tr><th id="47">47</th><td>		<dfn class="enum" id="rvGEWindowWrapper::EWindowType::WT_CHOICE" title='rvGEWindowWrapper::EWindowType::WT_CHOICE' data-ref="rvGEWindowWrapper::EWindowType::WT_CHOICE">WT_CHOICE</dfn>,</td></tr>
+<tr><th id="48">48</th><td>		<dfn class="enum" id="rvGEWindowWrapper::EWindowType::WT_SLIDER" title='rvGEWindowWrapper::EWindowType::WT_SLIDER' data-ref="rvGEWindowWrapper::EWindowType::WT_SLIDER">WT_SLIDER</dfn>,</td></tr>
+<tr><th id="49">49</th><td>		<dfn class="enum" id="rvGEWindowWrapper::EWindowType::WT_BIND" title='rvGEWindowWrapper::EWindowType::WT_BIND' data-ref="rvGEWindowWrapper::EWindowType::WT_BIND">WT_BIND</dfn>,</td></tr>
+<tr><th id="50">50</th><td>		<dfn class="enum" id="rvGEWindowWrapper::EWindowType::WT_LIST" title='rvGEWindowWrapper::EWindowType::WT_LIST' data-ref="rvGEWindowWrapper::EWindowType::WT_LIST">WT_LIST</dfn>,</td></tr>
+<tr><th id="51">51</th><td>		<dfn class="enum" id="rvGEWindowWrapper::EWindowType::WT_RENDER" title='rvGEWindowWrapper::EWindowType::WT_RENDER' data-ref="rvGEWindowWrapper::EWindowType::WT_RENDER">WT_RENDER</dfn>,</td></tr>
+<tr><th id="52">52</th><td>		<dfn class="enum" id="rvGEWindowWrapper::EWindowType::WT_TRANSITION" title='rvGEWindowWrapper::EWindowType::WT_TRANSITION' data-ref="rvGEWindowWrapper::EWindowType::WT_TRANSITION">WT_TRANSITION</dfn></td></tr>
+<tr><th id="53">53</th><td>	};</td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td>	<a class="decl" href="GEWindowWrapper_stub.cpp.html#_ZN17rvGEWindowWrapperC1EP8idWindowNS_11EWindowTypeE" title='rvGEWindowWrapper::rvGEWindowWrapper' data-ref="_ZN17rvGEWindowWrapperC1EP8idWindowNS_11EWindowTypeE" id="_ZN17rvGEWindowWrapperC1EP8idWindowNS_11EWindowTypeE">rvGEWindowWrapper</a> ( <a class="type" href="../../ui/Window.h.html#idWindow" title='idWindow' data-ref="idWindow">idWindow</a>* <dfn class="local col1 decl" id="611window" title='window' data-type='idWindow *' data-ref="611window">window</dfn>, <a class="type" href="#rvGEWindowWrapper::EWindowType" title='rvGEWindowWrapper::EWindowType' data-ref="rvGEWindowWrapper::EWindowType">EWindowType</a> <dfn class="local col2 decl" id="612type" title='type' data-type='rvGEWindowWrapper::EWindowType' data-ref="612type">type</dfn> );</td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td>	<em>static</em> <a class="type" href="#rvGEWindowWrapper" title='rvGEWindowWrapper' data-ref="rvGEWindowWrapper">rvGEWindowWrapper</a>*	<a class="decl" href="GEWindowWrapper_stub.cpp.html#_ZN17rvGEWindowWrapper10GetWrapperEP8idWindow" title='rvGEWindowWrapper::GetWrapper' data-ref="_ZN17rvGEWindowWrapper10GetWrapperEP8idWindow" id="_ZN17rvGEWindowWrapper10GetWrapperEP8idWindow">GetWrapper</a> ( <a class="type" href="../../ui/Window.h.html#idWindow" title='idWindow' data-ref="idWindow">idWindow</a>* <dfn class="local col3 decl" id="613window" title='window' data-type='idWindow *' data-ref="613window">window</dfn> );	</td></tr>
+<tr><th id="58">58</th><td>		</td></tr>
+<tr><th id="59">59</th><td>	<a class="type" href="../../ui/Window.h.html#idWindow" title='idWindow' data-ref="idWindow">idWindow</a>*			<a class="decl" href="#_ZN17rvGEWindowWrapper9GetWindowEv" title='rvGEWindowWrapper::GetWindow' data-ref="_ZN17rvGEWindowWrapper9GetWindowEv">GetWindow</a>			( <em>void</em> );</td></tr>
+<tr><th id="60">60</th><td>	<a class="type" href="../../idlib/Dict.h.html#idDict" title='idDict' data-ref="idDict">idDict</a>&amp;				<a class="decl" href="#_ZN17rvGEWindowWrapper12GetStateDictEv" title='rvGEWindowWrapper::GetStateDict' data-ref="_ZN17rvGEWindowWrapper12GetStateDictEv">GetStateDict</a>		( <em>void</em> );</td></tr>
+<tr><th id="61">61</th><td>	<a class="type" href="../../idlib/Dict.h.html#idDict" title='idDict' data-ref="idDict">idDict</a>&amp;				<a class="decl" href="#_ZN17rvGEWindowWrapper15GetVariableDictEv" title='rvGEWindowWrapper::GetVariableDict' data-ref="_ZN17rvGEWindowWrapper15GetVariableDictEv">GetVariableDict</a>		( <em>void</em> );</td></tr>
+<tr><th id="62">62</th><td>	<a class="type" href="../../idlib/Dict.h.html#idDict" title='idDict' data-ref="idDict">idDict</a>&amp;				<a class="decl" href="#_ZN17rvGEWindowWrapper13GetScriptDictEv" title='rvGEWindowWrapper::GetScriptDict' data-ref="_ZN17rvGEWindowWrapper13GetScriptDictEv">GetScriptDict</a>		( <em>void</em> );</td></tr>
+<tr><th id="63">63</th><td>	<a class="type" href="../../ui/Rectangle.h.html#idRectangle" title='idRectangle' data-ref="idRectangle">idRectangle</a>&amp;		<a class="decl" href="#_ZN17rvGEWindowWrapper13GetClientRectEv" title='rvGEWindowWrapper::GetClientRect' data-ref="_ZN17rvGEWindowWrapper13GetClientRectEv">GetClientRect</a>		( <em>void</em> );</td></tr>
+<tr><th id="64">64</th><td>	<a class="type" href="../../ui/Rectangle.h.html#idRectangle" title='idRectangle' data-ref="idRectangle">idRectangle</a>&amp;		<a class="decl" href="#_ZN17rvGEWindowWrapper13GetScreenRectEv" title='rvGEWindowWrapper::GetScreenRect' data-ref="_ZN17rvGEWindowWrapper13GetScreenRectEv">GetScreenRect</a>		( <em>void</em> );</td></tr>
+<tr><th id="65">65</th><td>	<a class="type" href="#rvGEWindowWrapper::EWindowType" title='rvGEWindowWrapper::EWindowType' data-ref="rvGEWindowWrapper::EWindowType">EWindowType</a>			<a class="decl" href="#_ZN17rvGEWindowWrapper13GetWindowTypeEv" title='rvGEWindowWrapper::GetWindowType' data-ref="_ZN17rvGEWindowWrapper13GetWindowTypeEv">GetWindowType</a>		( <em>void</em> );</td></tr>
+<tr><th id="66">66</th><td>	<em>int</em>					<dfn class="decl" id="_ZN17rvGEWindowWrapper13GetChildCountEv" title='rvGEWindowWrapper::GetChildCount' data-ref="_ZN17rvGEWindowWrapper13GetChildCountEv">GetChildCount</dfn>		( <em>void</em> );</td></tr>
+<tr><th id="67">67</th><td>	<em>int</em>					<dfn class="decl" id="_ZN17rvGEWindowWrapper8GetDepthEv" title='rvGEWindowWrapper::GetDepth' data-ref="_ZN17rvGEWindowWrapper8GetDepthEv">GetDepth</dfn>			( <em>void</em> );</td></tr>
+<tr><th id="68">68</th><td>	<a class="type" href="../../ui/Window.h.html#idWindow" title='idWindow' data-ref="idWindow">idWindow</a>*			<a class="decl" href="#_ZN17rvGEWindowWrapper8GetChildEi" title='rvGEWindowWrapper::GetChild' data-ref="_ZN17rvGEWindowWrapper8GetChildEi">GetChild</a>			( <em>int</em> <dfn class="local col4 decl" id="614index" title='index' data-type='int' data-ref="614index">index</dfn> );</td></tr>
+<tr><th id="69">69</th><td>	</td></tr>
+<tr><th id="70">70</th><td>	<em>void</em>				<dfn class="decl" id="_ZN17rvGEWindowWrapper7SetRectER11idRectangle" title='rvGEWindowWrapper::SetRect' data-ref="_ZN17rvGEWindowWrapper7SetRectER11idRectangle">SetRect</dfn>				( <a class="type" href="../../ui/Rectangle.h.html#idRectangle" title='idRectangle' data-ref="idRectangle">idRectangle</a>&amp; <dfn class="local col5 decl" id="615rect" title='rect' data-type='idRectangle &amp;' data-ref="615rect">rect</dfn> );</td></tr>
+<tr><th id="71">71</th><td>	<em>void</em>				<dfn class="decl" id="_ZN17rvGEWindowWrapper8SetStateERK6idDict" title='rvGEWindowWrapper::SetState' data-ref="_ZN17rvGEWindowWrapper8SetStateERK6idDict">SetState</dfn>			( <em>const</em> <a class="type" href="../../idlib/Dict.h.html#idDict" title='idDict' data-ref="idDict">idDict</a>&amp; <dfn class="local col6 decl" id="616dict" title='dict' data-type='const idDict &amp;' data-ref="616dict">dict</dfn> );</td></tr>
+<tr><th id="72">72</th><td>	<em>void</em>				<a class="decl" href="GEWindowWrapper_stub.cpp.html#_ZN17rvGEWindowWrapper11SetStateKeyEPKcS1_b" title='rvGEWindowWrapper::SetStateKey' data-ref="_ZN17rvGEWindowWrapper11SetStateKeyEPKcS1_b" id="_ZN17rvGEWindowWrapper11SetStateKeyEPKcS1_b">SetStateKey</a>			( <em>const</em> <em>char</em>* <dfn class="local col7 decl" id="617key" title='key' data-type='const char *' data-ref="617key">key</dfn>, <em>const</em> <em>char</em>* <dfn class="local col8 decl" id="618value" title='value' data-type='const char *' data-ref="618value">value</dfn>, <em>bool</em> <dfn class="local col9 decl" id="619update" title='update' data-type='bool' data-ref="619update">update</dfn> = <b>true</b> );</td></tr>
+<tr><th id="73">73</th><td>	<em>void</em>				<dfn class="decl" id="_ZN17rvGEWindowWrapper14DeleteStateKeyEPKc" title='rvGEWindowWrapper::DeleteStateKey' data-ref="_ZN17rvGEWindowWrapper14DeleteStateKeyEPKc">DeleteStateKey</dfn>		( <em>const</em> <em>char</em>* <dfn class="local col0 decl" id="620key" title='key' data-type='const char *' data-ref="620key">key</dfn> );</td></tr>
+<tr><th id="74">74</th><td>	<em>bool</em>				<dfn class="decl" id="_ZN17rvGEWindowWrapper14VerfiyStateKeyEPKcS1_P5idStr" title='rvGEWindowWrapper::VerfiyStateKey' data-ref="_ZN17rvGEWindowWrapper14VerfiyStateKeyEPKcS1_P5idStr">VerfiyStateKey</dfn>		( <em>const</em> <em>char</em>* <dfn class="local col1 decl" id="621name" title='name' data-type='const char *' data-ref="621name">name</dfn>, <em>const</em> <em>char</em>* <dfn class="local col2 decl" id="622value" title='value' data-type='const char *' data-ref="622value">value</dfn>, <a class="type" href="../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>* <dfn class="local col3 decl" id="623result" title='result' data-type='idStr *' data-ref="623result">result</dfn> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> );</td></tr>
+<tr><th id="75">75</th><td>	</td></tr>
+<tr><th id="76">76</th><td>	<em>bool</em>				<a class="decl" href="#_ZN17rvGEWindowWrapper13IsFlippedHorzEv" title='rvGEWindowWrapper::IsFlippedHorz' data-ref="_ZN17rvGEWindowWrapper13IsFlippedHorzEv">IsFlippedHorz</a>		( <em>void</em> );</td></tr>
+<tr><th id="77">77</th><td>	<em>bool</em>				<a class="decl" href="#_ZN17rvGEWindowWrapper13IsFlippedVertEv" title='rvGEWindowWrapper::IsFlippedVert' data-ref="_ZN17rvGEWindowWrapper13IsFlippedVertEv">IsFlippedVert</a>		( <em>void</em> );</td></tr>
+<tr><th id="78">78</th><td>	<em>bool</em>				<a class="decl" href="#_ZN17rvGEWindowWrapper8IsHiddenEv" title='rvGEWindowWrapper::IsHidden' data-ref="_ZN17rvGEWindowWrapper8IsHiddenEv">IsHidden</a>			( <em>void</em> );</td></tr>
+<tr><th id="79">79</th><td>	<em>bool</em>				<a class="decl" href="#_ZN17rvGEWindowWrapper9IsDeletedEv" title='rvGEWindowWrapper::IsDeleted' data-ref="_ZN17rvGEWindowWrapper9IsDeletedEv">IsDeleted</a>			( <em>void</em> );</td></tr>
+<tr><th id="80">80</th><td>	<em>bool</em>				<a class="decl" href="#_ZN17rvGEWindowWrapper10IsSelectedEv" title='rvGEWindowWrapper::IsSelected' data-ref="_ZN17rvGEWindowWrapper10IsSelectedEv">IsSelected</a>			( <em>void</em> );</td></tr>
+<tr><th id="81">81</th><td>	<em>bool</em>				<a class="decl" href="#_ZN17rvGEWindowWrapper10IsExpandedEv" title='rvGEWindowWrapper::IsExpanded' data-ref="_ZN17rvGEWindowWrapper10IsExpandedEv">IsExpanded</a>			( <em>void</em> );</td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td>	<em>bool</em>				<dfn class="decl" id="_ZN17rvGEWindowWrapper15CanHaveChildrenEv" title='rvGEWindowWrapper::CanHaveChildren' data-ref="_ZN17rvGEWindowWrapper15CanHaveChildrenEv">CanHaveChildren</dfn>		( <em>void</em> );</td></tr>
+<tr><th id="84">84</th><td>	<em>bool</em>				<a class="decl" href="#_ZN17rvGEWindowWrapper14CanMoveAndSizeEv" title='rvGEWindowWrapper::CanMoveAndSize' data-ref="_ZN17rvGEWindowWrapper14CanMoveAndSizeEv">CanMoveAndSize</a>		( <em>void</em> );</td></tr>
+<tr><th id="85">85</th><td>	</td></tr>
+<tr><th id="86">86</th><td>	<em>void</em>				<a class="decl" href="#_ZN17rvGEWindowWrapper14SetFlippedHorzEb" title='rvGEWindowWrapper::SetFlippedHorz' data-ref="_ZN17rvGEWindowWrapper14SetFlippedHorzEb">SetFlippedHorz</a>		( <em>bool</em> <dfn class="local col4 decl" id="624f" title='f' data-type='bool' data-ref="624f">f</dfn> );</td></tr>
+<tr><th id="87">87</th><td>	<em>void</em>				<a class="decl" href="#_ZN17rvGEWindowWrapper14SetFlippedVertEb" title='rvGEWindowWrapper::SetFlippedVert' data-ref="_ZN17rvGEWindowWrapper14SetFlippedVertEb">SetFlippedVert</a>		( <em>bool</em> <dfn class="local col5 decl" id="625f" title='f' data-type='bool' data-ref="625f">f</dfn> );</td></tr>
+<tr><th id="88">88</th><td>	<em>void</em>				<dfn class="decl" id="_ZN17rvGEWindowWrapper9SetHiddenEb" title='rvGEWindowWrapper::SetHidden' data-ref="_ZN17rvGEWindowWrapper9SetHiddenEb">SetHidden</dfn>			( <em>bool</em> <dfn class="local col6 decl" id="626v" title='v' data-type='bool' data-ref="626v">v</dfn> );</td></tr>
+<tr><th id="89">89</th><td>	<em>void</em>				<dfn class="decl" id="_ZN17rvGEWindowWrapper10SetDeletedEb" title='rvGEWindowWrapper::SetDeleted' data-ref="_ZN17rvGEWindowWrapper10SetDeletedEb">SetDeleted</dfn>			( <em>bool</em> <dfn class="local col7 decl" id="627del" title='del' data-type='bool' data-ref="627del">del</dfn> );</td></tr>
+<tr><th id="90">90</th><td>	<em>void</em>				<a class="decl" href="#_ZN17rvGEWindowWrapper11SetSelectedEb" title='rvGEWindowWrapper::SetSelected' data-ref="_ZN17rvGEWindowWrapper11SetSelectedEb">SetSelected</a>			( <em>bool</em> <dfn class="local col8 decl" id="628sel" title='sel' data-type='bool' data-ref="628sel">sel</dfn> );</td></tr>
+<tr><th id="91">91</th><td>	<em>void</em>				<a class="decl" href="#_ZN17rvGEWindowWrapper13SetWindowTypeENS_11EWindowTypeE" title='rvGEWindowWrapper::SetWindowType' data-ref="_ZN17rvGEWindowWrapper13SetWindowTypeENS_11EWindowTypeE">SetWindowType</a>		( <a class="type" href="#rvGEWindowWrapper::EWindowType" title='rvGEWindowWrapper::EWindowType' data-ref="rvGEWindowWrapper::EWindowType">EWindowType</a> <dfn class="local col9 decl" id="629type" title='type' data-type='rvGEWindowWrapper::EWindowType' data-ref="629type">type</dfn> );</td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td>	<em>bool</em>				<dfn class="decl" id="_ZN17rvGEWindowWrapper6ExpandEv" title='rvGEWindowWrapper::Expand' data-ref="_ZN17rvGEWindowWrapper6ExpandEv">Expand</dfn>				( <em>void</em> );</td></tr>
+<tr><th id="94">94</th><td>	<em>bool</em>				<dfn class="decl" id="_ZN17rvGEWindowWrapper8CollapseEv" title='rvGEWindowWrapper::Collapse' data-ref="_ZN17rvGEWindowWrapper8CollapseEv">Collapse</dfn>			( <em>void</em> );</td></tr>
+<tr><th id="95">95</th><td></td></tr>
+<tr><th id="96">96</th><td>	<em>bool</em>				<dfn class="decl" id="_ZN17rvGEWindowWrapper12EnumChildrenEPFbPS_PvES1_" title='rvGEWindowWrapper::EnumChildren' data-ref="_ZN17rvGEWindowWrapper12EnumChildrenEPFbPS_PvES1_">EnumChildren</dfn>		( <a class="typedef" href="#PFNENUMCHILDRENPROC" title='PFNENUMCHILDRENPROC' data-type='bool (*)(rvGEWindowWrapper *, void *)' data-ref="PFNENUMCHILDRENPROC">PFNENUMCHILDRENPROC</a> <dfn class="local col0 decl" id="630proc" title='proc' data-type='PFNENUMCHILDRENPROC' data-ref="630proc">proc</dfn>, <em>void</em>* <dfn class="local col1 decl" id="631data" title='data' data-type='void *' data-ref="631data">data</dfn> );</td></tr>
+<tr><th id="97">97</th><td></td></tr>
+<tr><th id="98">98</th><td>	<a class="type" href="../../ui/Window.h.html#idWindow" title='idWindow' data-ref="idWindow">idWindow</a>*			<dfn class="decl" id="_ZN17rvGEWindowWrapper15WindowFromPointEffb" title='rvGEWindowWrapper::WindowFromPoint' data-ref="_ZN17rvGEWindowWrapper15WindowFromPointEffb">WindowFromPoint</dfn>		( <em>float</em> <dfn class="local col2 decl" id="632x" title='x' data-type='float' data-ref="632x">x</dfn>, <em>float</em> <dfn class="local col3 decl" id="633y" title='y' data-type='float' data-ref="633y">y</dfn>, <em>bool</em> <dfn class="local col4 decl" id="634visibleOnly" title='visibleOnly' data-type='bool' data-ref="634visibleOnly">visibleOnly</dfn> = <b>true</b> );</td></tr>
+<tr><th id="99">99</th><td>	</td></tr>
+<tr><th id="100">100</th><td>	<em>void</em>				<a class="decl" href="GEWindowWrapper_stub.cpp.html#_ZN17rvGEWindowWrapper6FinishEv" title='rvGEWindowWrapper::Finish' data-ref="_ZN17rvGEWindowWrapper6FinishEv" id="_ZN17rvGEWindowWrapper6FinishEv">Finish</a>				( <em>void</em> );</td></tr>
+<tr><th id="101">101</th><td>	</td></tr>
+<tr><th id="102">102</th><td>	<em>static</em> <a class="type" href="#rvGEWindowWrapper::EWindowType" title='rvGEWindowWrapper::EWindowType' data-ref="rvGEWindowWrapper::EWindowType">EWindowType</a>	<dfn class="decl" id="_ZN17rvGEWindowWrapper18StringToWindowTypeEPKc" title='rvGEWindowWrapper::StringToWindowType' data-ref="_ZN17rvGEWindowWrapper18StringToWindowTypeEPKc">StringToWindowType</dfn>		( <em>const</em> <em>char</em>* <dfn class="local col5 decl" id="635string" title='string' data-type='const char *' data-ref="635string">string</dfn> );</td></tr>
+<tr><th id="103">103</th><td>	<em>static</em> <em>const</em> <em>char</em>*	<dfn class="decl" id="_ZN17rvGEWindowWrapper18WindowTypeToStringENS_11EWindowTypeE" title='rvGEWindowWrapper::WindowTypeToString' data-ref="_ZN17rvGEWindowWrapper18WindowTypeToStringENS_11EWindowTypeE">WindowTypeToString</dfn>		( <a class="type" href="#rvGEWindowWrapper::EWindowType" title='rvGEWindowWrapper::EWindowType' data-ref="rvGEWindowWrapper::EWindowType">EWindowType</a> <dfn class="local col6 decl" id="636type" title='type' data-type='rvGEWindowWrapper::EWindowType' data-ref="636type">type</dfn> );</td></tr>
+<tr><th id="104">104</th><td>	</td></tr>
+<tr><th id="105">105</th><td><b>protected</b>:</td></tr>
+<tr><th id="106">106</th><td></td></tr>
+<tr><th id="107">107</th><td>	<em>void</em>				<dfn class="decl" id="_ZN17rvGEWindowWrapper14CalcScreenRectEv" title='rvGEWindowWrapper::CalcScreenRect' data-ref="_ZN17rvGEWindowWrapper14CalcScreenRectEv">CalcScreenRect</dfn>		( <em>void</em> );</td></tr>
+<tr><th id="108">108</th><td>	<em>void</em>				<dfn class="decl" id="_ZN17rvGEWindowWrapper10UpdateRectEv" title='rvGEWindowWrapper::UpdateRect' data-ref="_ZN17rvGEWindowWrapper10UpdateRectEv">UpdateRect</dfn>			( <em>void</em> );</td></tr>
+<tr><th id="109">109</th><td>	<em>void</em>				<dfn class="decl" id="_ZN17rvGEWindowWrapper17UpdateWindowStateEv" title='rvGEWindowWrapper::UpdateWindowState' data-ref="_ZN17rvGEWindowWrapper17UpdateWindowStateEv">UpdateWindowState</dfn> 	( <em>void</em> );	</td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td>	<a class="type" href="../../ui/Rectangle.h.html#idRectangle" title='idRectangle' data-ref="idRectangle">idRectangle</a>		<dfn class="decl" id="rvGEWindowWrapper::mClientRect" title='rvGEWindowWrapper::mClientRect' data-ref="rvGEWindowWrapper::mClientRect">mClientRect</dfn>;</td></tr>
+<tr><th id="112">112</th><td>	<a class="type" href="../../ui/Rectangle.h.html#idRectangle" title='idRectangle' data-ref="idRectangle">idRectangle</a>		<dfn class="decl" id="rvGEWindowWrapper::mScreenRect" title='rvGEWindowWrapper::mScreenRect' data-ref="rvGEWindowWrapper::mScreenRect">mScreenRect</dfn>;</td></tr>
+<tr><th id="113">113</th><td>	<a class="type" href="../../ui/Window.h.html#idWindow" title='idWindow' data-ref="idWindow">idWindow</a>*		<dfn class="decl" id="rvGEWindowWrapper::mWindow" title='rvGEWindowWrapper::mWindow' data-ref="rvGEWindowWrapper::mWindow">mWindow</dfn>;</td></tr>
+<tr><th id="114">114</th><td>	<a class="type" href="../../idlib/Dict.h.html#idDict" title='idDict' data-ref="idDict">idDict</a>			<dfn class="decl" id="rvGEWindowWrapper::mState" title='rvGEWindowWrapper::mState' data-ref="rvGEWindowWrapper::mState">mState</dfn>;</td></tr>
+<tr><th id="115">115</th><td>	<a class="type" href="../../idlib/Dict.h.html#idDict" title='idDict' data-ref="idDict">idDict</a>			<dfn class="decl" id="rvGEWindowWrapper::mVariables" title='rvGEWindowWrapper::mVariables' data-ref="rvGEWindowWrapper::mVariables">mVariables</dfn>;</td></tr>
+<tr><th id="116">116</th><td>	<a class="type" href="../../idlib/Dict.h.html#idDict" title='idDict' data-ref="idDict">idDict</a>			<dfn class="decl" id="rvGEWindowWrapper::mScripts" title='rvGEWindowWrapper::mScripts' data-ref="rvGEWindowWrapper::mScripts">mScripts</dfn>;</td></tr>
+<tr><th id="117">117</th><td>	<em>bool</em>			<dfn class="decl" id="rvGEWindowWrapper::mFlippedHorz" title='rvGEWindowWrapper::mFlippedHorz' data-ref="rvGEWindowWrapper::mFlippedHorz">mFlippedHorz</dfn>;</td></tr>
+<tr><th id="118">118</th><td>	<em>bool</em>			<dfn class="decl" id="rvGEWindowWrapper::mFlippedVert" title='rvGEWindowWrapper::mFlippedVert' data-ref="rvGEWindowWrapper::mFlippedVert">mFlippedVert</dfn>;</td></tr>
+<tr><th id="119">119</th><td>	<em>bool</em>			<dfn class="decl" id="rvGEWindowWrapper::mHidden" title='rvGEWindowWrapper::mHidden' data-ref="rvGEWindowWrapper::mHidden">mHidden</dfn>;</td></tr>
+<tr><th id="120">120</th><td>	<em>bool</em>			<dfn class="decl" id="rvGEWindowWrapper::mDeleted" title='rvGEWindowWrapper::mDeleted' data-ref="rvGEWindowWrapper::mDeleted">mDeleted</dfn>;</td></tr>
+<tr><th id="121">121</th><td>	<em>bool</em>			<dfn class="decl" id="rvGEWindowWrapper::mSelected" title='rvGEWindowWrapper::mSelected' data-ref="rvGEWindowWrapper::mSelected">mSelected</dfn>;</td></tr>
+<tr><th id="122">122</th><td>	<em>bool</em>			<dfn class="decl" id="rvGEWindowWrapper::mExpanded" title='rvGEWindowWrapper::mExpanded' data-ref="rvGEWindowWrapper::mExpanded">mExpanded</dfn>;</td></tr>
+<tr><th id="123">123</th><td>	<em>bool</em>			<dfn class="decl" id="rvGEWindowWrapper::mOldVisible" title='rvGEWindowWrapper::mOldVisible' data-ref="rvGEWindowWrapper::mOldVisible">mOldVisible</dfn>;</td></tr>
+<tr><th id="124">124</th><td>	<em>bool</em>			<dfn class="decl" id="rvGEWindowWrapper::mMoveable" title='rvGEWindowWrapper::mMoveable' data-ref="rvGEWindowWrapper::mMoveable">mMoveable</dfn>;</td></tr>
+<tr><th id="125">125</th><td>	<a class="type" href="#rvGEWindowWrapper::EWindowType" title='rvGEWindowWrapper::EWindowType' data-ref="rvGEWindowWrapper::EWindowType">EWindowType</a>		<dfn class="decl" id="rvGEWindowWrapper::mType" title='rvGEWindowWrapper::mType' data-ref="rvGEWindowWrapper::mType">mType</dfn>;</td></tr>
+<tr><th id="126">126</th><td>};</td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <a class="type" href="../../idlib/Dict.h.html#idDict" title='idDict' data-ref="idDict">idDict</a>&amp; <a class="type" href="#rvGEWindowWrapper" title='rvGEWindowWrapper' data-ref="rvGEWindowWrapper">rvGEWindowWrapper</a>::<dfn class="decl def" id="_ZN17rvGEWindowWrapper12GetStateDictEv" title='rvGEWindowWrapper::GetStateDict' data-ref="_ZN17rvGEWindowWrapper12GetStateDictEv">GetStateDict</dfn> ( <em>void</em> )</td></tr>
+<tr><th id="129">129</th><td>{</td></tr>
+<tr><th id="130">130</th><td>	<b>return</b> <a class="member" href="#rvGEWindowWrapper::mState" title='rvGEWindowWrapper::mState' data-ref="rvGEWindowWrapper::mState">mState</a>;</td></tr>
+<tr><th id="131">131</th><td>}</td></tr>
+<tr><th id="132">132</th><td></td></tr>
+<tr><th id="133">133</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <a class="type" href="../../idlib/Dict.h.html#idDict" title='idDict' data-ref="idDict">idDict</a>&amp; <a class="type" href="#rvGEWindowWrapper" title='rvGEWindowWrapper' data-ref="rvGEWindowWrapper">rvGEWindowWrapper</a>::<dfn class="decl def" id="_ZN17rvGEWindowWrapper15GetVariableDictEv" title='rvGEWindowWrapper::GetVariableDict' data-ref="_ZN17rvGEWindowWrapper15GetVariableDictEv">GetVariableDict</dfn> ( <em>void</em> )</td></tr>
+<tr><th id="134">134</th><td>{</td></tr>
+<tr><th id="135">135</th><td>	<b>return</b> <a class="member" href="#rvGEWindowWrapper::mVariables" title='rvGEWindowWrapper::mVariables' data-ref="rvGEWindowWrapper::mVariables">mVariables</a>;</td></tr>
+<tr><th id="136">136</th><td>}</td></tr>
+<tr><th id="137">137</th><td></td></tr>
+<tr><th id="138">138</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <a class="type" href="../../idlib/Dict.h.html#idDict" title='idDict' data-ref="idDict">idDict</a>&amp; <a class="type" href="#rvGEWindowWrapper" title='rvGEWindowWrapper' data-ref="rvGEWindowWrapper">rvGEWindowWrapper</a>::<dfn class="decl def" id="_ZN17rvGEWindowWrapper13GetScriptDictEv" title='rvGEWindowWrapper::GetScriptDict' data-ref="_ZN17rvGEWindowWrapper13GetScriptDictEv">GetScriptDict</dfn> ( <em>void</em> )</td></tr>
+<tr><th id="139">139</th><td>{</td></tr>
+<tr><th id="140">140</th><td>	<b>return</b> <a class="member" href="#rvGEWindowWrapper::mScripts" title='rvGEWindowWrapper::mScripts' data-ref="rvGEWindowWrapper::mScripts">mScripts</a>;</td></tr>
+<tr><th id="141">141</th><td>}</td></tr>
+<tr><th id="142">142</th><td></td></tr>
+<tr><th id="143">143</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>bool</em> <a class="type" href="#rvGEWindowWrapper" title='rvGEWindowWrapper' data-ref="rvGEWindowWrapper">rvGEWindowWrapper</a>::<dfn class="decl def" id="_ZN17rvGEWindowWrapper13IsFlippedHorzEv" title='rvGEWindowWrapper::IsFlippedHorz' data-ref="_ZN17rvGEWindowWrapper13IsFlippedHorzEv">IsFlippedHorz</dfn> ( <em>void</em> )</td></tr>
+<tr><th id="144">144</th><td>{</td></tr>
+<tr><th id="145">145</th><td>	<b>return</b> <a class="member" href="#rvGEWindowWrapper::mFlippedHorz" title='rvGEWindowWrapper::mFlippedHorz' data-ref="rvGEWindowWrapper::mFlippedHorz">mFlippedHorz</a>;</td></tr>
+<tr><th id="146">146</th><td>}</td></tr>
+<tr><th id="147">147</th><td></td></tr>
+<tr><th id="148">148</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>bool</em> <a class="type" href="#rvGEWindowWrapper" title='rvGEWindowWrapper' data-ref="rvGEWindowWrapper">rvGEWindowWrapper</a>::<dfn class="decl def" id="_ZN17rvGEWindowWrapper13IsFlippedVertEv" title='rvGEWindowWrapper::IsFlippedVert' data-ref="_ZN17rvGEWindowWrapper13IsFlippedVertEv">IsFlippedVert</dfn> ( <em>void</em> ) </td></tr>
+<tr><th id="149">149</th><td>{</td></tr>
+<tr><th id="150">150</th><td>	<b>return</b> <a class="member" href="#rvGEWindowWrapper::mFlippedVert" title='rvGEWindowWrapper::mFlippedVert' data-ref="rvGEWindowWrapper::mFlippedVert">mFlippedVert</a>;</td></tr>
+<tr><th id="151">151</th><td>}</td></tr>
+<tr><th id="152">152</th><td></td></tr>
+<tr><th id="153">153</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>bool</em> <a class="type" href="#rvGEWindowWrapper" title='rvGEWindowWrapper' data-ref="rvGEWindowWrapper">rvGEWindowWrapper</a>::<dfn class="decl def" id="_ZN17rvGEWindowWrapper10IsExpandedEv" title='rvGEWindowWrapper::IsExpanded' data-ref="_ZN17rvGEWindowWrapper10IsExpandedEv">IsExpanded</dfn> ( <em>void</em> ) </td></tr>
+<tr><th id="154">154</th><td>{</td></tr>
+<tr><th id="155">155</th><td>	<b>return</b> <a class="member" href="#rvGEWindowWrapper::mExpanded" title='rvGEWindowWrapper::mExpanded' data-ref="rvGEWindowWrapper::mExpanded">mExpanded</a>;</td></tr>
+<tr><th id="156">156</th><td>}</td></tr>
+<tr><th id="157">157</th><td>	</td></tr>
+<tr><th id="158">158</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>void</em> <a class="type" href="#rvGEWindowWrapper" title='rvGEWindowWrapper' data-ref="rvGEWindowWrapper">rvGEWindowWrapper</a>::<dfn class="decl def" id="_ZN17rvGEWindowWrapper14SetFlippedHorzEb" title='rvGEWindowWrapper::SetFlippedHorz' data-ref="_ZN17rvGEWindowWrapper14SetFlippedHorzEb">SetFlippedHorz</dfn> ( <em>bool</em> <dfn class="local col7 decl" id="637f" title='f' data-type='bool' data-ref="637f">f</dfn> )</td></tr>
+<tr><th id="159">159</th><td>{</td></tr>
+<tr><th id="160">160</th><td>	<a class="member" href="#rvGEWindowWrapper::mFlippedHorz" title='rvGEWindowWrapper::mFlippedHorz' data-ref="rvGEWindowWrapper::mFlippedHorz">mFlippedHorz</a> = <a class="local col7 ref" href="#637f" title='f' data-ref="637f">f</a>;</td></tr>
+<tr><th id="161">161</th><td>}</td></tr>
+<tr><th id="162">162</th><td></td></tr>
+<tr><th id="163">163</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>void</em> <a class="type" href="#rvGEWindowWrapper" title='rvGEWindowWrapper' data-ref="rvGEWindowWrapper">rvGEWindowWrapper</a>::<dfn class="decl def" id="_ZN17rvGEWindowWrapper14SetFlippedVertEb" title='rvGEWindowWrapper::SetFlippedVert' data-ref="_ZN17rvGEWindowWrapper14SetFlippedVertEb">SetFlippedVert</dfn> ( <em>bool</em> <dfn class="local col8 decl" id="638f" title='f' data-type='bool' data-ref="638f">f</dfn> )</td></tr>
+<tr><th id="164">164</th><td>{</td></tr>
+<tr><th id="165">165</th><td>	<a class="member" href="#rvGEWindowWrapper::mFlippedVert" title='rvGEWindowWrapper::mFlippedVert' data-ref="rvGEWindowWrapper::mFlippedVert">mFlippedVert</a> = <a class="local col8 ref" href="#638f" title='f' data-ref="638f">f</a>;</td></tr>
+<tr><th id="166">166</th><td>}</td></tr>
+<tr><th id="167">167</th><td></td></tr>
+<tr><th id="168">168</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <a class="type" href="../../ui/Rectangle.h.html#idRectangle" title='idRectangle' data-ref="idRectangle">idRectangle</a>&amp; <a class="type" href="#rvGEWindowWrapper" title='rvGEWindowWrapper' data-ref="rvGEWindowWrapper">rvGEWindowWrapper</a>::<dfn class="decl def" id="_ZN17rvGEWindowWrapper13GetClientRectEv" title='rvGEWindowWrapper::GetClientRect' data-ref="_ZN17rvGEWindowWrapper13GetClientRectEv">GetClientRect</dfn> ( <em>void</em> )</td></tr>
+<tr><th id="169">169</th><td>{</td></tr>
+<tr><th id="170">170</th><td>	<b>return</b> <a class="member" href="#rvGEWindowWrapper::mClientRect" title='rvGEWindowWrapper::mClientRect' data-ref="rvGEWindowWrapper::mClientRect">mClientRect</a>;</td></tr>
+<tr><th id="171">171</th><td>}</td></tr>
+<tr><th id="172">172</th><td></td></tr>
+<tr><th id="173">173</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <a class="type" href="../../ui/Rectangle.h.html#idRectangle" title='idRectangle' data-ref="idRectangle">idRectangle</a>&amp; <a class="type" href="#rvGEWindowWrapper" title='rvGEWindowWrapper' data-ref="rvGEWindowWrapper">rvGEWindowWrapper</a>::<dfn class="decl def" id="_ZN17rvGEWindowWrapper13GetScreenRectEv" title='rvGEWindowWrapper::GetScreenRect' data-ref="_ZN17rvGEWindowWrapper13GetScreenRectEv">GetScreenRect</dfn> ( <em>void</em> )</td></tr>
+<tr><th id="174">174</th><td>{</td></tr>
+<tr><th id="175">175</th><td>	<b>return</b> <a class="member" href="#rvGEWindowWrapper::mScreenRect" title='rvGEWindowWrapper::mScreenRect' data-ref="rvGEWindowWrapper::mScreenRect">mScreenRect</a>;</td></tr>
+<tr><th id="176">176</th><td>}</td></tr>
+<tr><th id="177">177</th><td></td></tr>
+<tr><th id="178">178</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>bool</em> <a class="type" href="#rvGEWindowWrapper" title='rvGEWindowWrapper' data-ref="rvGEWindowWrapper">rvGEWindowWrapper</a>::<dfn class="decl def" id="_ZN17rvGEWindowWrapper8IsHiddenEv" title='rvGEWindowWrapper::IsHidden' data-ref="_ZN17rvGEWindowWrapper8IsHiddenEv">IsHidden</dfn> ( <em>void</em> )</td></tr>
+<tr><th id="179">179</th><td>{</td></tr>
+<tr><th id="180">180</th><td>	<b>return</b> <a class="member" href="#rvGEWindowWrapper::mHidden" title='rvGEWindowWrapper::mHidden' data-ref="rvGEWindowWrapper::mHidden">mHidden</a>;</td></tr>
+<tr><th id="181">181</th><td>}</td></tr>
+<tr><th id="182">182</th><td></td></tr>
+<tr><th id="183">183</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>bool</em> <a class="type" href="#rvGEWindowWrapper" title='rvGEWindowWrapper' data-ref="rvGEWindowWrapper">rvGEWindowWrapper</a>::<dfn class="decl def" id="_ZN17rvGEWindowWrapper9IsDeletedEv" title='rvGEWindowWrapper::IsDeleted' data-ref="_ZN17rvGEWindowWrapper9IsDeletedEv">IsDeleted</dfn> ( <em>void</em> )</td></tr>
+<tr><th id="184">184</th><td>{</td></tr>
+<tr><th id="185">185</th><td>	<b>return</b> <a class="member" href="#rvGEWindowWrapper::mDeleted" title='rvGEWindowWrapper::mDeleted' data-ref="rvGEWindowWrapper::mDeleted">mDeleted</a>;</td></tr>
+<tr><th id="186">186</th><td>}</td></tr>
+<tr><th id="187">187</th><td></td></tr>
+<tr><th id="188">188</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>bool</em> <a class="type" href="#rvGEWindowWrapper" title='rvGEWindowWrapper' data-ref="rvGEWindowWrapper">rvGEWindowWrapper</a>::<dfn class="decl def" id="_ZN17rvGEWindowWrapper10IsSelectedEv" title='rvGEWindowWrapper::IsSelected' data-ref="_ZN17rvGEWindowWrapper10IsSelectedEv">IsSelected</dfn> ( <em>void</em> )</td></tr>
+<tr><th id="189">189</th><td>{</td></tr>
+<tr><th id="190">190</th><td>	<b>return</b> <a class="member" href="#rvGEWindowWrapper::mSelected" title='rvGEWindowWrapper::mSelected' data-ref="rvGEWindowWrapper::mSelected">mSelected</a>;</td></tr>
+<tr><th id="191">191</th><td>}</td></tr>
+<tr><th id="192">192</th><td></td></tr>
+<tr><th id="193">193</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>void</em> <a class="type" href="#rvGEWindowWrapper" title='rvGEWindowWrapper' data-ref="rvGEWindowWrapper">rvGEWindowWrapper</a>::<dfn class="decl def" id="_ZN17rvGEWindowWrapper11SetSelectedEb" title='rvGEWindowWrapper::SetSelected' data-ref="_ZN17rvGEWindowWrapper11SetSelectedEb">SetSelected</dfn> ( <em>bool</em> <dfn class="local col9 decl" id="639sel" title='sel' data-type='bool' data-ref="639sel">sel</dfn> )</td></tr>
+<tr><th id="194">194</th><td>{</td></tr>
+<tr><th id="195">195</th><td>	<a class="member" href="#rvGEWindowWrapper::mSelected" title='rvGEWindowWrapper::mSelected' data-ref="rvGEWindowWrapper::mSelected">mSelected</a> = <a class="local col9 ref" href="#639sel" title='sel' data-ref="639sel">sel</a>;</td></tr>
+<tr><th id="196">196</th><td>}</td></tr>
+<tr><th id="197">197</th><td></td></tr>
+<tr><th id="198">198</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <a class="type" href="#rvGEWindowWrapper" title='rvGEWindowWrapper' data-ref="rvGEWindowWrapper">rvGEWindowWrapper</a>::<a class="type" href="#rvGEWindowWrapper::EWindowType" title='rvGEWindowWrapper::EWindowType' data-ref="rvGEWindowWrapper::EWindowType">EWindowType</a> <a class="type" href="#rvGEWindowWrapper" title='rvGEWindowWrapper' data-ref="rvGEWindowWrapper">rvGEWindowWrapper</a>::<dfn class="decl def" id="_ZN17rvGEWindowWrapper13GetWindowTypeEv" title='rvGEWindowWrapper::GetWindowType' data-ref="_ZN17rvGEWindowWrapper13GetWindowTypeEv">GetWindowType</dfn> ( <em>void</em> )</td></tr>
+<tr><th id="199">199</th><td>{</td></tr>
+<tr><th id="200">200</th><td>	<b>return</b> <a class="member" href="#rvGEWindowWrapper::mType" title='rvGEWindowWrapper::mType' data-ref="rvGEWindowWrapper::mType">mType</a>;</td></tr>
+<tr><th id="201">201</th><td>}</td></tr>
+<tr><th id="202">202</th><td></td></tr>
+<tr><th id="203">203</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>void</em> <a class="type" href="#rvGEWindowWrapper" title='rvGEWindowWrapper' data-ref="rvGEWindowWrapper">rvGEWindowWrapper</a>::<dfn class="decl def" id="_ZN17rvGEWindowWrapper13SetWindowTypeENS_11EWindowTypeE" title='rvGEWindowWrapper::SetWindowType' data-ref="_ZN17rvGEWindowWrapper13SetWindowTypeENS_11EWindowTypeE">SetWindowType</dfn> ( <a class="type" href="#rvGEWindowWrapper" title='rvGEWindowWrapper' data-ref="rvGEWindowWrapper">rvGEWindowWrapper</a>::<a class="type" href="#rvGEWindowWrapper::EWindowType" title='rvGEWindowWrapper::EWindowType' data-ref="rvGEWindowWrapper::EWindowType">EWindowType</a> <dfn class="local col0 decl" id="640type" title='type' data-type='rvGEWindowWrapper::EWindowType' data-ref="640type">type</dfn> )</td></tr>
+<tr><th id="204">204</th><td>{</td></tr>
+<tr><th id="205">205</th><td>	<a class="member" href="#rvGEWindowWrapper::mType" title='rvGEWindowWrapper::mType' data-ref="rvGEWindowWrapper::mType">mType</a> = <a class="local col0 ref" href="#640type" title='type' data-ref="640type">type</a>;</td></tr>
+<tr><th id="206">206</th><td>}</td></tr>
+<tr><th id="207">207</th><td></td></tr>
+<tr><th id="208">208</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <a class="type" href="../../ui/Window.h.html#idWindow" title='idWindow' data-ref="idWindow">idWindow</a>* <a class="type" href="#rvGEWindowWrapper" title='rvGEWindowWrapper' data-ref="rvGEWindowWrapper">rvGEWindowWrapper</a>::<dfn class="decl def" id="_ZN17rvGEWindowWrapper8GetChildEi" title='rvGEWindowWrapper::GetChild' data-ref="_ZN17rvGEWindowWrapper8GetChildEi">GetChild</dfn> ( <em>int</em> <dfn class="local col1 decl" id="641index" title='index' data-type='int' data-ref="641index">index</dfn> )</td></tr>
+<tr><th id="209">209</th><td>{</td></tr>
+<tr><th id="210">210</th><td>	<b>return</b> <a class="member" href="#rvGEWindowWrapper::mWindow" title='rvGEWindowWrapper::mWindow' data-ref="rvGEWindowWrapper::mWindow">mWindow</a>-&gt;<a class="ref" href="../../ui/Window.h.html#_ZN8idWindow8GetChildEi" title='idWindow::GetChild' data-ref="_ZN8idWindow8GetChildEi">GetChild</a> ( <a class="local col1 ref" href="#641index" title='index' data-ref="641index">index</a> );</td></tr>
+<tr><th id="211">211</th><td>}</td></tr>
+<tr><th id="212">212</th><td></td></tr>
+<tr><th id="213">213</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <a class="type" href="../../ui/Window.h.html#idWindow" title='idWindow' data-ref="idWindow">idWindow</a>* <a class="type" href="#rvGEWindowWrapper" title='rvGEWindowWrapper' data-ref="rvGEWindowWrapper">rvGEWindowWrapper</a>::<dfn class="decl def" id="_ZN17rvGEWindowWrapper9GetWindowEv" title='rvGEWindowWrapper::GetWindow' data-ref="_ZN17rvGEWindowWrapper9GetWindowEv">GetWindow</dfn> ( <em>void</em> )</td></tr>
+<tr><th id="214">214</th><td>{</td></tr>
+<tr><th id="215">215</th><td>	<b>return</b> <a class="member" href="#rvGEWindowWrapper::mWindow" title='rvGEWindowWrapper::mWindow' data-ref="rvGEWindowWrapper::mWindow">mWindow</a>;</td></tr>
+<tr><th id="216">216</th><td>}</td></tr>
+<tr><th id="217">217</th><td></td></tr>
+<tr><th id="218">218</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>bool</em> <a class="type" href="#rvGEWindowWrapper" title='rvGEWindowWrapper' data-ref="rvGEWindowWrapper">rvGEWindowWrapper</a>::<dfn class="decl def" id="_ZN17rvGEWindowWrapper14CanMoveAndSizeEv" title='rvGEWindowWrapper::CanMoveAndSize' data-ref="_ZN17rvGEWindowWrapper14CanMoveAndSizeEv">CanMoveAndSize</dfn> ( <em>void</em> )</td></tr>
+<tr><th id="219">219</th><td>{</td></tr>
+<tr><th id="220">220</th><td>	<b>return</b> <a class="member" href="#rvGEWindowWrapper::mMoveable" title='rvGEWindowWrapper::mMoveable' data-ref="rvGEWindowWrapper::mMoveable">mMoveable</a>;</td></tr>
+<tr><th id="221">221</th><td>}</td></tr>
+<tr><th id="222">222</th><td></td></tr>
+<tr><th id="223">223</th><td><u>#<span data-ppcond="29">endif</span> // GEWINDOWWRAPPER_H_</u></td></tr>
+<tr><th id="224">224</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='GEWindowWrapper_stub.cpp.html'>codebrowser/tools/guied/GEWindowWrapper_stub.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

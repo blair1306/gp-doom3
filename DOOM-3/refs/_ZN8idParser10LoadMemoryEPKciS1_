@@ -1,0 +1,24 @@
+<dec f='codebrowser/idlib/Parser.h' l='90' type='int idParser::LoadMemory(const char * ptr, int length, const char * name)'/>
+<use f='codebrowser/TypeInfo/TypeInfoGen.cpp' l='86' u='c' c='_ZN13idTypeInfoGen21EvaluateIntegerStringERK5idStr'/>
+<use f='codebrowser/TypeInfo/TypeInfoGen.cpp' l='103' u='c' c='_ZN13idTypeInfoGen19EvaluateFloatStringERK5idStr'/>
+<doc f='codebrowser/idlib/Parser.h' l='88'>// load a source from the given memory with the given length
+					// NOTE: the ptr is expected to point at a valid C string: ptr[length] == &apos;\0&apos;</doc>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='2593' u='c' c='_ZN10idCompiler11CompileFileEPKcS1_b'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='2083' u='c' c='_ZN17idFileSystemLocal15TouchFileList_fERK9idCmdArgs'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='2593' u='c' c='_ZN10idCompiler11CompileFileEPKcS1_b'/>
+<use f='codebrowser/idlib/Parser.cpp' l='299' u='c' c='_ZN8idParser16DefineFromStringEPKc'/>
+<def f='codebrowser/idlib/Parser.cpp' l='3049' ll='3077' type='int idParser::LoadMemory(const char * ptr, int length, const char * name)'/>
+<use f='codebrowser/idlib/Parser.cpp' l='3241' u='c' c='_ZN8idParserC1EPKciS1_i'/>
+<doc f='codebrowser/idlib/Parser.cpp' l='3044'>/*
+================
+idParser::LoadMemory
+================
+*/</doc>
+<use f='codebrowser/renderer/Model_ma.cpp' l='81' u='c' c='_Z19MA_ParseHeaderIndexP16maAttribHeader_tRiS1_PKcS3_'/>
+<use f='codebrowser/renderer/Model_ma.cpp' l='978' u='c' c='_Z8MA_ParsePKcS0_b'/>
+<use f='codebrowser/ui/GameSSDWindow.cpp' l='1522' u='c' c='_ZN15idGameSSDWindow14ParseLevelDataEiRK5idStr'/>
+<use f='codebrowser/ui/GameSSDWindow.cpp' l='1533' u='c' c='_ZN15idGameSSDWindow17ParseAsteroidDataEiRK5idStr'/>
+<use f='codebrowser/ui/GameSSDWindow.cpp' l='1556' u='c' c='_ZN15idGameSSDWindow16ParsePowerupDataEiRK5idStr'/>
+<use f='codebrowser/ui/GameSSDWindow.cpp' l='1573' u='c' c='_ZN15idGameSSDWindow15ParseWeaponDataEiRK5idStr'/>
+<use f='codebrowser/ui/GameSSDWindow.cpp' l='1584' u='c' c='_ZN15idGameSSDWindow18ParseAstronautDataEiRK5idStr'/>
+<use f='codebrowser/ui/GuiScript.cpp' l='495' u='c' c='_ZN11idGuiScript10FixupParmsEP8idWindow'/>

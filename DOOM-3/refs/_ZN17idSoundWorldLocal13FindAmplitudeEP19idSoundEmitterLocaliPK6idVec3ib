@@ -1,0 +1,18 @@
+<dec f='codebrowser/sound/snd_local.h' l='623' type='float idSoundWorldLocal::FindAmplitude(idSoundEmitterLocal * sound, const int localTime, const idVec3 * listenerPosition, const s_channelType channel, bool shakesOnly)'/>
+<use f='codebrowser/sound/snd_emitter.cpp' l='1067' u='c' c='_ZN19idSoundEmitterLocal16CurrentAmplitudeEv'/>
+<use f='codebrowser/sound/snd_world.cpp' l='403' u='c' c='_ZN17idSoundWorldLocal32CurrentShakeAmplitudeForPositionEiRK6idVec3'/>
+<def f='codebrowser/sound/snd_world.cpp' l='1926' ll='2075' type='float idSoundWorldLocal::FindAmplitude(idSoundEmitterLocal * sound, const int localTime, const idVec3 * listenerPosition, const s_channelType channel, bool shakesOnly)'/>
+<doc f='codebrowser/sound/snd_world.cpp' l='1912'>/*
+===============
+idSoundWorldLocal::FindAmplitude
+
+  this is called from the main thread
+
+  if listenerPosition is NULL, this is being used for shader parameters,
+  like flashing lights and glows based on sound level.  Otherwise, it is being used for
+  the screen-shake on a player.
+
+  This doesn&apos;t do the portal-occlusion currently, because it would have to reset all the defs
+  which would be problematic in multiplayer
+===============
+*/</doc>

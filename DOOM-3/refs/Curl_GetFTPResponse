@@ -1,0 +1,29 @@
+<dec f='codebrowser/curl/lib/ftp.h' l='32' type='CURLcode Curl_GetFTPResponse(ssize_t * nread, struct connectdata * conn, int * ftpcode)'/>
+<def f='codebrowser/curl/lib/ftp.c' l='208' ll='431' type='CURLcode Curl_GetFTPResponse(ssize_t * nreadp, struct connectdata * conn, int * ftpcode)'/>
+<use f='codebrowser/curl/lib/ftp.c' l='486' u='c' c='Curl_ftp_connect'/>
+<use f='codebrowser/curl/lib/ftp.c' l='520' u='c' c='Curl_ftp_connect'/>
+<use f='codebrowser/curl/lib/ftp.c' l='547' u='c' c='Curl_ftp_connect'/>
+<use f='codebrowser/curl/lib/ftp.c' l='561' u='c' c='Curl_ftp_connect'/>
+<use f='codebrowser/curl/lib/ftp.c' l='626' u='c' c='Curl_ftp_connect'/>
+<use f='codebrowser/curl/lib/ftp.c' l='638' u='c' c='Curl_ftp_connect'/>
+<use f='codebrowser/curl/lib/ftp.c' l='655' u='c' c='Curl_ftp_connect'/>
+<use f='codebrowser/curl/lib/ftp.c' l='784' u='c' c='Curl_ftp_done'/>
+<use f='codebrowser/curl/lib/ftp.c' l='837' u='c' c='ftp_sendquote'/>
+<use f='codebrowser/curl/lib/ftp.c' l='871' u='c' c='ftp_getfiletime'/>
+<use f='codebrowser/curl/lib/ftp.c' l='920' u='c' c='ftp_transfertype'/>
+<use f='codebrowser/curl/lib/ftp.c' l='951' u='c' c='ftp_getsize'/>
+<use f='codebrowser/curl/lib/ftp.c' l='1469' u='c' c='ftp_use_port'/>
+<use f='codebrowser/curl/lib/ftp.c' l='1534' u='c' c='ftp_use_pasv'/>
+<use f='codebrowser/curl/lib/ftp.c' l='1798' u='c' c='Curl_ftp_nextconnect'/>
+<use f='codebrowser/curl/lib/ftp.c' l='1992' u='c' c='Curl_ftp_nextconnect'/>
+<use f='codebrowser/curl/lib/ftp.c' l='2005' u='c' c='Curl_ftp_nextconnect'/>
+<use f='codebrowser/curl/lib/ftp.c' l='2237' u='c' c='ftp_perform'/>
+<use f='codebrowser/curl/lib/ftp.c' l='2475' u='c' c='Curl_ftp_quit'/>
+<use f='codebrowser/curl/lib/ftp.c' l='2536' u='c' c='ftp_mkd'/>
+<use f='codebrowser/curl/lib/ftp.c' l='2575' u='c' c='ftp_cwd'/>
+<doc f='codebrowser/curl/lib/ftp.c' l='202'>/*
+ * Curl_GetFTPResponse() is supposed to be invoked after each command sent to
+ * a remote FTP server. This function will wait and read all lines of the
+ * response and extract the relevant return code for the invoking function.
+ */</doc>
+<doc f='codebrowser/curl/lib/ftp.c' l='208'>/* return number of bytes read */</doc>

@@ -1,0 +1,126 @@
+<def f='codebrowser/d3xp/anim/Anim.h' l='384' ll='447'/>
+<size>56</size>
+<doc f='codebrowser/d3xp/anim/Anim.h' l='376'>/*
+==============================================================================================
+
+	idAnimBlend
+
+==============================================================================================
+*/</doc>
+<mbr r='idAnimBlend::modelDef' o='0' t='const class idDeclModelDef *'/>
+<mbr r='idAnimBlend::starttime' o='32' t='int'/>
+<mbr r='idAnimBlend::endtime' o='64' t='int'/>
+<mbr r='idAnimBlend::timeOffset' o='96' t='int'/>
+<mbr r='idAnimBlend::rate' o='128' t='float'/>
+<mbr r='idAnimBlend::blendStartTime' o='160' t='int'/>
+<mbr r='idAnimBlend::blendDuration' o='192' t='int'/>
+<mbr r='idAnimBlend::blendStartValue' o='224' t='float'/>
+<mbr r='idAnimBlend::blendEndValue' o='256' t='float'/>
+<mbr r='idAnimBlend::animWeights' o='288' t='float [3]'/>
+<mbr r='idAnimBlend::cycle' o='384' t='short'/>
+<mbr r='idAnimBlend::frame' o='400' t='short'/>
+<mbr r='idAnimBlend::animNum' o='416' t='short'/>
+<mbr r='idAnimBlend::allowMove' o='432' t='bool'/>
+<mbr r='idAnimBlend::allowFrameCommands' o='440' t='bool'/>
+<fun r='_ZN11idAnimBlend5ResetEPK14idDeclModelDef'/>
+<fun r='_ZNK11idAnimBlend17CallFrameCommandsEP8idEntityii'/>
+<fun r='_ZN11idAnimBlend8SetFrameEPK14idDeclModelDefiiii'/>
+<fun r='_ZN11idAnimBlend9CycleAnimEPK14idDeclModelDefiii'/>
+<fun r='_ZN11idAnimBlend8PlayAnimEPK14idDeclModelDefiii'/>
+<fun r='_ZNK11idAnimBlend9BlendAnimEiiiP11idJointQuatRfbbb'/>
+<fun r='_ZNK11idAnimBlend11BlendOriginEiR6idVec3Rfb'/>
+<fun r='_ZNK11idAnimBlend10BlendDeltaEiiR6idVec3Rf'/>
+<fun r='_ZNK11idAnimBlend18BlendDeltaRotationEiiR6idQuatRf'/>
+<fun r='_ZNK11idAnimBlend9AddBoundsEiR8idBoundsb'/>
+<fun r='_ZN11idAnimBlendC1Ev'/>
+<fun r='_ZNK11idAnimBlend4SaveEP10idSaveGame'/>
+<fun r='_ZN11idAnimBlend7RestoreEP13idRestoreGamePK14idDeclModelDef'/>
+<fun r='_ZNK11idAnimBlend8AnimNameEv'/>
+<fun r='_ZNK11idAnimBlend12AnimFullNameEv'/>
+<fun r='_ZNK11idAnimBlend9GetWeightEi'/>
+<fun r='_ZNK11idAnimBlend14GetFinalWeightEv'/>
+<fun r='_ZN11idAnimBlend9SetWeightEfii'/>
+<fun r='_ZNK11idAnimBlend14NumSyncedAnimsEv'/>
+<fun r='_ZN11idAnimBlend19SetSyncedAnimWeightEif'/>
+<fun r='_ZN11idAnimBlend5ClearEii'/>
+<fun r='_ZNK11idAnimBlend6IsDoneEi'/>
+<fun r='_ZNK11idAnimBlend15FrameHasChangedEi'/>
+<fun r='_ZNK11idAnimBlend13GetCycleCountEv'/>
+<fun r='_ZN11idAnimBlend13SetCycleCountEi'/>
+<fun r='_ZN11idAnimBlend15SetPlaybackRateEif'/>
+<fun r='_ZNK11idAnimBlend15GetPlaybackRateEv'/>
+<fun r='_ZN11idAnimBlend12SetStartTimeEi'/>
+<fun r='_ZNK11idAnimBlend12GetStartTimeEv'/>
+<fun r='_ZNK11idAnimBlend10GetEndTimeEv'/>
+<fun r='_ZNK11idAnimBlend14GetFrameNumberEi'/>
+<fun r='_ZNK11idAnimBlend8AnimTimeEi'/>
+<fun r='_ZNK11idAnimBlend9NumFramesEv'/>
+<fun r='_ZNK11idAnimBlend6LengthEv'/>
+<fun r='_ZNK11idAnimBlend10PlayLengthEv'/>
+<fun r='_ZN11idAnimBlend13AllowMovementEb'/>
+<fun r='_ZN11idAnimBlend18AllowFrameCommandsEb'/>
+<fun r='_ZNK11idAnimBlend4AnimEv'/>
+<fun r='_ZNK11idAnimBlend7AnimNumEv'/>
+<def f='codebrowser/game/anim/Anim.h' l='378' ll='441'/>
+<size>56</size>
+<doc f='codebrowser/game/anim/Anim.h' l='370'>/*
+==============================================================================================
+
+	idAnimBlend
+
+==============================================================================================
+*/</doc>
+<mbr r='idAnimBlend::modelDef' o='0' t='const class idDeclModelDef *'/>
+<mbr r='idAnimBlend::starttime' o='32' t='int'/>
+<mbr r='idAnimBlend::endtime' o='64' t='int'/>
+<mbr r='idAnimBlend::timeOffset' o='96' t='int'/>
+<mbr r='idAnimBlend::rate' o='128' t='float'/>
+<mbr r='idAnimBlend::blendStartTime' o='160' t='int'/>
+<mbr r='idAnimBlend::blendDuration' o='192' t='int'/>
+<mbr r='idAnimBlend::blendStartValue' o='224' t='float'/>
+<mbr r='idAnimBlend::blendEndValue' o='256' t='float'/>
+<mbr r='idAnimBlend::animWeights' o='288' t='float [3]'/>
+<mbr r='idAnimBlend::cycle' o='384' t='short'/>
+<mbr r='idAnimBlend::frame' o='400' t='short'/>
+<mbr r='idAnimBlend::animNum' o='416' t='short'/>
+<mbr r='idAnimBlend::allowMove' o='432' t='bool'/>
+<mbr r='idAnimBlend::allowFrameCommands' o='440' t='bool'/>
+<fun r='_ZN11idAnimBlend5ResetEPK14idDeclModelDef'/>
+<fun r='_ZNK11idAnimBlend17CallFrameCommandsEP8idEntityii'/>
+<fun r='_ZN11idAnimBlend8SetFrameEPK14idDeclModelDefiiii'/>
+<fun r='_ZN11idAnimBlend9CycleAnimEPK14idDeclModelDefiii'/>
+<fun r='_ZN11idAnimBlend8PlayAnimEPK14idDeclModelDefiii'/>
+<fun r='_ZNK11idAnimBlend9BlendAnimEiiiP11idJointQuatRfbbb'/>
+<fun r='_ZNK11idAnimBlend11BlendOriginEiR6idVec3Rfb'/>
+<fun r='_ZNK11idAnimBlend10BlendDeltaEiiR6idVec3Rf'/>
+<fun r='_ZNK11idAnimBlend18BlendDeltaRotationEiiR6idQuatRf'/>
+<fun r='_ZNK11idAnimBlend9AddBoundsEiR8idBoundsb'/>
+<fun r='_ZN11idAnimBlendC1Ev'/>
+<fun r='_ZNK11idAnimBlend4SaveEP10idSaveGame'/>
+<fun r='_ZN11idAnimBlend7RestoreEP13idRestoreGamePK14idDeclModelDef'/>
+<fun r='_ZNK11idAnimBlend8AnimNameEv'/>
+<fun r='_ZNK11idAnimBlend12AnimFullNameEv'/>
+<fun r='_ZNK11idAnimBlend9GetWeightEi'/>
+<fun r='_ZNK11idAnimBlend14GetFinalWeightEv'/>
+<fun r='_ZN11idAnimBlend9SetWeightEfii'/>
+<fun r='_ZNK11idAnimBlend14NumSyncedAnimsEv'/>
+<fun r='_ZN11idAnimBlend19SetSyncedAnimWeightEif'/>
+<fun r='_ZN11idAnimBlend5ClearEii'/>
+<fun r='_ZNK11idAnimBlend6IsDoneEi'/>
+<fun r='_ZNK11idAnimBlend15FrameHasChangedEi'/>
+<fun r='_ZNK11idAnimBlend13GetCycleCountEv'/>
+<fun r='_ZN11idAnimBlend13SetCycleCountEi'/>
+<fun r='_ZN11idAnimBlend15SetPlaybackRateEif'/>
+<fun r='_ZNK11idAnimBlend15GetPlaybackRateEv'/>
+<fun r='_ZN11idAnimBlend12SetStartTimeEi'/>
+<fun r='_ZNK11idAnimBlend12GetStartTimeEv'/>
+<fun r='_ZNK11idAnimBlend10GetEndTimeEv'/>
+<fun r='_ZNK11idAnimBlend14GetFrameNumberEi'/>
+<fun r='_ZNK11idAnimBlend8AnimTimeEi'/>
+<fun r='_ZNK11idAnimBlend9NumFramesEv'/>
+<fun r='_ZNK11idAnimBlend6LengthEv'/>
+<fun r='_ZNK11idAnimBlend10PlayLengthEv'/>
+<fun r='_ZN11idAnimBlend13AllowMovementEb'/>
+<fun r='_ZN11idAnimBlend18AllowFrameCommandsEb'/>
+<fun r='_ZNK11idAnimBlend4AnimEv'/>
+<fun r='_ZNK11idAnimBlend7AnimNumEv'/>

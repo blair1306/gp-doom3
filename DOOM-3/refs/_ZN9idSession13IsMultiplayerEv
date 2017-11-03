@@ -1,0 +1,6 @@
+<dec f='codebrowser/framework/Session.h' l='94' type='bool idSession::IsMultiplayer()'/>
+<doc f='codebrowser/framework/Session.h' l='92'>// Returns true if a multiplayer game is running.
+	// CVars and commands are checked differently in multiplayer mode.</doc>
+<use f='codebrowser/framework/CVarSystem.cpp' l='306' u='c' c='_ZN14idInternalCVar3SetEPKcbb'/>
+<use f='codebrowser/framework/CmdSystem.cpp' l='485' u='c' c='_ZN16idCmdSystemLocal22ExecuteTokenizedStringERK9idCmdArgs'/>
+<ovr f='codebrowser/framework/Session.cpp' l='452' c='_ZN14idSessionLocal13IsMultiplayerEv'/>

@@ -1,0 +1,16 @@
+<dec f='codebrowser/renderer/jpeg-6/jpeglib.h' l='293' type='int'/>
+<offset>384</offset>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='285'>/* Compression parameters --- these fields must be set before calling
+   * jpeg_start_compress().  We recommend calling jpeg_set_defaults() to
+   * initialize everything to reasonable defaults, then changing anything
+   * the application specifically wants to change.  That way you won&apos;t get
+   * burnt when new parameters are added.  Also note that there are several
+   * helper routines to simplify changing parameters.
+   */</doc>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='293'>/* bits of precision in image data */</doc>
+<use f='codebrowser/renderer/jpeg-6/jcmarker.c' l='279' u='r' c='emit_sof'/>
+<use f='codebrowser/renderer/jpeg-6/jcmarker.c' l='497' u='r' c='write_frame_header'/>
+<use f='codebrowser/renderer/jpeg-6/jcmaster.c' l='71' u='r' c='initial_setup'/>
+<use f='codebrowser/renderer/jpeg-6/jcmaster.c' l='72' u='r' c='initial_setup'/>
+<use f='codebrowser/renderer/jpeg-6/jcparam.c' l='269' u='w' c='jpeg_set_defaults'/>
+<use f='codebrowser/renderer/jpeg-6/jcparam.c' l='299' u='r' c='jpeg_set_defaults'/>

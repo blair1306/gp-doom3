@@ -1,0 +1,15 @@
+<dec f='codebrowser/renderer/jpeg-6/jpeglib.h' l='576' type='JSAMPLE *'/>
+<offset>2240</offset>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='568'>/* The coefficient controller&apos;s input and output progress is measured in
+   * units of &quot;iMCU&quot; (interleaved MCU) rows.  These are the same as MCU rows
+   * in fully interleaved JPEG scans, but are used whether the scan is
+   * interleaved or not.  We define an iMCU row as v_samp_factor DCT block
+   * rows of each component.  Therefore, the IDCT output contains
+   * v_samp_factor*DCT_scaled_size sample rows of a component per iMCU row.
+   */</doc>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='576'>/* table for fast range-limiting */</doc>
+<use f='codebrowser/renderer/jpeg-6/jdcolor.c' l='131' u='r' c='ycc_rgb_convert'/>
+<use f='codebrowser/renderer/jpeg-6/jdcolor.c' l='229' u='r' c='ycck_cmyk_convert'/>
+<use f='codebrowser/renderer/jpeg-6/jdmaster.c' l='258' u='w' c='prepare_range_limit_table'/>
+<use f='codebrowser/renderer/jpeg-6/jdmaster.c' l='272' u='r' c='prepare_range_limit_table'/>
+<use f='codebrowser/renderer/jpeg-6/jidctflt.c' l='79' macro='1' u='r'/>

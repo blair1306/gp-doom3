@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>http_digest.h source code [codebrowser/curl/lib/http_digest.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/curl/lib/http_digest.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>curl</a>/<a href='./'>lib</a>/<a href='http_digest.h.html'>http_digest.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><u>#<span data-ppcond="1">ifndef</span> <span class="macro" data-ref="_M/__HTTP_DIGEST_H">__HTTP_DIGEST_H</span></u></td></tr>
+<tr><th id="2">2</th><td><u>#define <dfn class="macro" id="_M/__HTTP_DIGEST_H" data-ref="_M/__HTTP_DIGEST_H">__HTTP_DIGEST_H</dfn></u></td></tr>
+<tr><th id="3">3</th><td><i>/***************************************************************************</i></td></tr>
+<tr><th id="4">4</th><td><i> *                                  _   _ ____  _     </i></td></tr>
+<tr><th id="5">5</th><td><i> *  Project                     ___| | | |  _ \| |    </i></td></tr>
+<tr><th id="6">6</th><td><i> *                             / __| | | | |_) | |    </i></td></tr>
+<tr><th id="7">7</th><td><i> *                            | (__| |_| |  _ &lt;| |___ </i></td></tr>
+<tr><th id="8">8</th><td><i> *                             \___|\___/|_| \_\_____|</i></td></tr>
+<tr><th id="9">9</th><td><i> *</i></td></tr>
+<tr><th id="10">10</th><td><i> * Copyright (C) 1998 - 2004, Daniel Stenberg, &lt;daniel@haxx.se&gt;, et al.</i></td></tr>
+<tr><th id="11">11</th><td><i> *</i></td></tr>
+<tr><th id="12">12</th><td><i> * This software is licensed as described in the file COPYING, which</i></td></tr>
+<tr><th id="13">13</th><td><i> * you should have received as part of this distribution. The terms</i></td></tr>
+<tr><th id="14">14</th><td><i> * are also available at <a href="http://curl.haxx.se/docs/copyright.html">http://curl.haxx.se/docs/copyright.html</a>.</i></td></tr>
+<tr><th id="15">15</th><td><i> * </i></td></tr>
+<tr><th id="16">16</th><td><i> * You may opt to use, copy, modify, merge, publish, distribute and/or sell</i></td></tr>
+<tr><th id="17">17</th><td><i> * copies of the Software, and permit persons to whom the Software is</i></td></tr>
+<tr><th id="18">18</th><td><i> * furnished to do so, under the terms of the COPYING file.</i></td></tr>
+<tr><th id="19">19</th><td><i> *</i></td></tr>
+<tr><th id="20">20</th><td><i> * This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY</i></td></tr>
+<tr><th id="21">21</th><td><i> * KIND, either express or implied.</i></td></tr>
+<tr><th id="22">22</th><td><i> *</i></td></tr>
+<tr><th id="23">23</th><td><i> * $Id: http_digest.h,v 1.4 2004/01/07 09:19:35 bagder Exp $</i></td></tr>
+<tr><th id="24">24</th><td><i> ***************************************************************************/</i></td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="27">27</th><td>  <dfn class="enum" id="CURLDIGEST_NONE" title='CURLDIGEST_NONE' data-ref="CURLDIGEST_NONE">CURLDIGEST_NONE</dfn>, <i>/* not a digest */</i></td></tr>
+<tr><th id="28">28</th><td>  <dfn class="enum" id="CURLDIGEST_BAD" title='CURLDIGEST_BAD' data-ref="CURLDIGEST_BAD">CURLDIGEST_BAD</dfn>,  <i>/* a digest, but one we don't like */</i></td></tr>
+<tr><th id="29">29</th><td>  <dfn class="enum" id="CURLDIGEST_FINE" title='CURLDIGEST_FINE' data-ref="CURLDIGEST_FINE">CURLDIGEST_FINE</dfn>, <i>/* a digest we act on */</i></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td>  <dfn class="enum" id="CURLDIGEST_LAST" title='CURLDIGEST_LAST' data-ref="CURLDIGEST_LAST">CURLDIGEST_LAST</dfn>  <i>/* last entry in this enum, don't use */</i></td></tr>
+<tr><th id="32">32</th><td>} <dfn class="typedef" id="CURLdigest" title='CURLdigest' data-type='enum CURLdigest' data-ref="CURLdigest">CURLdigest</dfn>;</td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><b>enum</b> {</td></tr>
+<tr><th id="35">35</th><td>  <dfn class="enum" id="CURLDIGESTALGO_MD5" title='CURLDIGESTALGO_MD5' data-ref="CURLDIGESTALGO_MD5">CURLDIGESTALGO_MD5</dfn>,</td></tr>
+<tr><th id="36">36</th><td>  <dfn class="enum" id="CURLDIGESTALGO_MD5SESS" title='CURLDIGESTALGO_MD5SESS' data-ref="CURLDIGESTALGO_MD5SESS">CURLDIGESTALGO_MD5SESS</dfn></td></tr>
+<tr><th id="37">37</th><td>};</td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td><i>/* this is for digest header input */</i></td></tr>
+<tr><th id="40">40</th><td><a class="typedef" href="#CURLdigest" title='CURLdigest' data-type='enum CURLdigest' data-ref="CURLdigest">CURLdigest</a> <dfn class="decl" id="Curl_input_digest" title='Curl_input_digest' data-ref="Curl_input_digest">Curl_input_digest</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#connectdata" title='connectdata' data-ref="connectdata">connectdata</a> *<dfn class="local col1 decl" id="1conn" title='conn' data-type='struct connectdata *' data-ref="1conn">conn</dfn>, <em>char</em> *<dfn class="local col2 decl" id="2header" title='header' data-type='char *' data-ref="2header">header</dfn>);</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><i>/* this is for creating digest header output */</i></td></tr>
+<tr><th id="43">43</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="decl" id="Curl_output_digest" title='Curl_output_digest' data-ref="Curl_output_digest">Curl_output_digest</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#connectdata" title='connectdata' data-ref="connectdata">connectdata</a> *<dfn class="local col3 decl" id="3conn" title='conn' data-type='struct connectdata *' data-ref="3conn">conn</dfn>,</td></tr>
+<tr><th id="44">44</th><td>                            <em>unsigned</em> <em>char</em> *<dfn class="local col4 decl" id="4request" title='request' data-type='unsigned char *' data-ref="4request">request</dfn>,</td></tr>
+<tr><th id="45">45</th><td>                            <em>unsigned</em> <em>char</em> *<dfn class="local col5 decl" id="5uripath" title='uripath' data-type='unsigned char *' data-ref="5uripath">uripath</dfn>);</td></tr>
+<tr><th id="46">46</th><td><em>void</em> <dfn class="decl" id="Curl_digest_cleanup" title='Curl_digest_cleanup' data-ref="Curl_digest_cleanup">Curl_digest_cleanup</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *<dfn class="local col6 decl" id="6data" title='data' data-type='struct SessionHandle *' data-ref="6data">data</dfn>);</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td><u>#<span data-ppcond="1">endif</span></u></td></tr>
+<tr><th id="49">49</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='http.c.html'>codebrowser/curl/lib/http.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

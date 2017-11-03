@@ -1,0 +1,50 @@
+<dec f='codebrowser/idlib/Str.h' l='269' type='static int idStr::vsnPrintf(char * dest, int size, const char * fmt, va_list argptr)'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='704' u='c' c='_ZNK11idGameLocal6PrintfEPKcz'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='724' u='c' c='_ZNK11idGameLocal7DPrintfEPKcz'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='741' u='c' c='_ZNK11idGameLocal7WarningEPKcz'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='767' u='c' c='_ZNK11idGameLocal8DWarningEPKcz'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='789' u='c' c='_ZNK11idGameLocal5ErrorEPKcz'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='810' u='c' c='_Z9gameErrorPKcz'/>
+<use f='codebrowser/d3xp/Game_network.cpp' l='727' u='c' c='_ZN11idGameLocal19NetworkEventWarningEPK16entityNetEvent_sPKcz'/>
+<use f='codebrowser/framework/Common.cpp' l='350' u='c' c='_ZN13idCommonLocal7VPrintfEPKcPc'/>
+<use f='codebrowser/framework/Common.cpp' l='483' u='c' c='_ZN13idCommonLocal7DPrintfEPKcz'/>
+<use f='codebrowser/framework/Common.cpp' l='512' u='c' c='_ZN13idCommonLocal8DWarningEPKcz'/>
+<use f='codebrowser/framework/Common.cpp' l='531' u='c' c='_ZN13idCommonLocal7WarningEPKcz'/>
+<use f='codebrowser/framework/Common.cpp' l='683' u='c' c='_ZN13idCommonLocal5ErrorEPKcz'/>
+<use f='codebrowser/framework/Common.cpp' l='743' u='c' c='_ZN13idCommonLocal10FatalErrorEPKcz'/>
+<use f='codebrowser/framework/Common.cpp' l='755' u='c' c='_ZN13idCommonLocal10FatalErrorEPKcz'/>
+<use f='codebrowser/framework/Console.cpp' l='151' u='c' c='_Z21SCR_DrawTextLeftAlignRfPKcz'/>
+<use f='codebrowser/framework/Console.cpp' l='166' u='c' c='_Z22SCR_DrawTextRightAlignRfPKcz'/>
+<use f='codebrowser/framework/DeclManager.cpp' l='1485' u='c' c='_ZN18idDeclManagerLocal10MediaPrintEPKcz'/>
+<use f='codebrowser/framework/File.cpp' l='266' u='c' c='_ZN6idFile6PrintfEPKcz'/>
+<use f='codebrowser/framework/File.cpp' l='285' u='c' c='_ZN6idFile7VPrintfEPKcPc'/>
+<use f='codebrowser/game/Game_local.cpp' l='614' u='c' c='_ZNK11idGameLocal6PrintfEPKcz'/>
+<use f='codebrowser/game/Game_local.cpp' l='634' u='c' c='_ZNK11idGameLocal7DPrintfEPKcz'/>
+<use f='codebrowser/game/Game_local.cpp' l='651' u='c' c='_ZNK11idGameLocal7WarningEPKcz'/>
+<use f='codebrowser/game/Game_local.cpp' l='677' u='c' c='_ZNK11idGameLocal8DWarningEPKcz'/>
+<use f='codebrowser/game/Game_local.cpp' l='699' u='c' c='_ZNK11idGameLocal5ErrorEPKcz'/>
+<use f='codebrowser/game/Game_local.cpp' l='720' u='c' c='_Z9gameErrorPKcz'/>
+<use f='codebrowser/game/Game_network.cpp' l='713' u='c' c='_ZN11idGameLocal19NetworkEventWarningEPK16entityNetEvent_sPKcz'/>
+<use f='codebrowser/idlib/Lib.cpp' l='235' u='c' c='_ZN5idLib5ErrorEPKcz'/>
+<use f='codebrowser/idlib/Lib.cpp' l='251' u='c' c='_ZN5idLib7WarningEPKcz'/>
+<def f='codebrowser/idlib/Str.cpp' l='1502' ll='1519' type='static int idStr::vsnPrintf(char * dest, int size, const char * fmt, va_list argptr)'/>
+<use f='codebrowser/idlib/Str.cpp' l='1534' u='c' c='_Z7sprintfR5idStrPKcz'/>
+<use f='codebrowser/idlib/Str.cpp' l='1553' u='c' c='_Z8vsprintfR5idStrPKcPc'/>
+<doc f='codebrowser/idlib/Str.cpp' l='1484'>/*
+============
+idStr::vsnPrintf
+
+vsnprintf portability:
+
+C99 standard: vsnprintf returns the number of characters (excluding the trailing
+&apos;\0&apos;) which would have been written to the final string if enough space had been available
+snprintf and vsnprintf do not write more than size bytes (including the trailing &apos;\0&apos;)
+
+win32: _vsnprintf returns the number of characters written, not including the terminating null character,
+or a negative value if an output error occurs. If the number of characters to write exceeds count, then count 
+characters are written and -1 is returned and no trailing &apos;\0&apos; is added.
+
+idStr::vsnPrintf: always appends a trailing &apos;\0&apos;, returns number of characters written (not including terminal \0)
+or returns -1 on failure or if the buffer would be overflowed.
+============
+*/</doc>

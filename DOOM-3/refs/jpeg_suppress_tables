@@ -1,0 +1,14 @@
+<dec f='codebrowser/renderer/jpeg-6/jpeglib.h' l='896' type='void jpeg_suppress_tables(j_compress_ptr cinfo, boolean suppress)'/>
+<def f='codebrowser/renderer/jpeg-6/jcapimin.c' l='103' ll='121' type='void jpeg_suppress_tables(j_compress_ptr cinfo, boolean suppress)'/>
+<doc f='codebrowser/renderer/jpeg-6/jcapimin.c' l='91'>/*
+ * Forcibly suppress or un-suppress all quantization and Huffman tables.
+ * Marks all currently defined tables as already written (if suppress)
+ * or not written (if !suppress).  This will control whether they get emitted
+ * by a subsequent jpeg_start_compress call.
+ *
+ * This routine is exported for use by applications that want to produce
+ * abbreviated JPEG datastreams.  It logically belongs in jcparam.c, but
+ * since it is called by jpeg_start_compress, we put it here --- otherwise
+ * jcparam.o would be linked whether the application used it or not.
+ */</doc>
+<use f='codebrowser/tools/compilers/roqvq/roq.cpp' l='283' u='c' c='_ZN3roq17JPEGStartCompressEP20jpeg_compress_structb'/>

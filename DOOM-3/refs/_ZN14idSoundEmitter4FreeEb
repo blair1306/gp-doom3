@@ -1,0 +1,10 @@
+<dec f='codebrowser/sound/sound.h' l='157' type='void idSoundEmitter::Free(bool immediate)'/>
+<doc f='codebrowser/sound/sound.h' l='154'>// a non-immediate free will let all currently playing sounds complete
+	// soundEmitters are not actually deleted, they are just marked as
+	// reusable by the soundWorld</doc>
+<use f='codebrowser/d3xp/Entity.cpp' l='1789' u='c' c='_ZN8idEntity16FreeSoundEmitterEb'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='730' u='c' c='_ZN8idWeapon5ClearEv'/>
+<use f='codebrowser/game/Entity.cpp' l='1697' u='c' c='_ZN8idEntity16FreeSoundEmitterEb'/>
+<use f='codebrowser/game/Weapon.cpp' l='590' u='c' c='_ZN8idWeapon5ClearEv'/>
+<ovr f='codebrowser/sound/snd_emitter.cpp' l='625' c='_ZN19idSoundEmitterLocal4FreeEb'/>
+<use f='codebrowser/sound/snd_world.cpp' l='305' u='c' c='_ZN17idSoundWorldLocal18ProcessDemoCommandEP10idDemoFile'/>

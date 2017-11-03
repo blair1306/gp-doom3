@@ -1,0 +1,36 @@
+<dec f='codebrowser/curl/lib/connect.h' l='26' type='int Curl_nonblock(curl_socket_t sockfd, int nonblock)'/>
+<def f='codebrowser/curl/lib/connect.c' l='114' ll='168' type='int Curl_nonblock(curl_socket_t sockfd, int nonblock)'/>
+<use f='codebrowser/curl/lib/connect.c' l='621' u='c' c='Curl_connecthost'/>
+<doc f='codebrowser/curl/lib/connect.c' l='107'>/*************************************************************************
+ * Curl_nonblock
+ *
+ * Description:
+ *  Set the socket to either blocking or non-blocking mode.
+ */</doc>
+<doc f='codebrowser/curl/lib/connect.c' l='114'>/* operate on this */</doc>
+<doc f='codebrowser/curl/lib/connect.h' l='3'>/***************************************************************************
+ *                                  _   _ ____  _     
+ *  Project                     ___| | | |  _ \| |    
+ *                             / __| | | | |_) | |    
+ *                            | (__| |_| |  _ &lt;| |___ 
+ *                             \___|\___/|_| \_\_____|
+ *
+ * Copyright (C) 1998 - 2004, Daniel Stenberg, &lt;daniel@haxx.se&gt;, et al.
+ *
+ * This software is licensed as described in the file COPYING, which
+ * you should have received as part of this distribution. The terms
+ * are also available at http://curl.haxx.se/docs/copyright.html.
+ * 
+ * You may opt to use, copy, modify, merge, publish, distribute and/or sell
+ * copies of the Software, and permit persons to whom the Software is
+ * furnished to do so, under the terms of the COPYING file.
+ *
+ * This software is distributed on an &quot;AS IS&quot; basis, WITHOUT WARRANTY OF ANY
+ * KIND, either express or implied.
+ *
+ * $Id: connect.h,v 1.16 2004/03/09 22:52:50 bagder Exp $
+ ***************************************************************************/</doc>
+<doc f='codebrowser/curl/lib/connect.h' l='26'>/* operate on this */</doc>
+<use f='codebrowser/curl/lib/ftp.c' l='191' u='c' c='AllowServerConnect'/>
+<use f='codebrowser/curl/lib/url.c' l='1629' u='c' c='handleSock5Proxy'/>
+<use f='codebrowser/curl/lib/url.c' l='1806' u='c' c='handleSock5Proxy'/>

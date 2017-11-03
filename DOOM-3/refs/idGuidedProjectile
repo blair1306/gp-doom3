@@ -1,0 +1,58 @@
+<inh f='codebrowser/d3xp/Projectile.h' l='42' c='idProjectile'/>
+<def f='codebrowser/d3xp/Projectile.h' l='143' ll='177'/>
+<ovr f='codebrowser/d3xp/Projectile.h' l='179' c='idSoulCubeMissile'/>
+<size>1800</size>
+<smbr r='idGuidedProjectile::Type' t='idTypeInfo'/>
+<fun r='_ZN18idGuidedProjectile14CreateInstanceEv'/>
+<fun r='_ZNK18idGuidedProjectile7GetTypeEv'/>
+<smbr r='idGuidedProjectile::eventCallbacks' t='idEventFunc&lt;idGuidedProjectile&gt; []'/>
+<fun r='_ZN18idGuidedProjectileC1Ev'/>
+<fun r='_ZN18idGuidedProjectileD1Ev'/>
+<fun r='_ZNK18idGuidedProjectile4SaveEP10idSaveGame'/>
+<fun r='_ZN18idGuidedProjectile7RestoreEP13idRestoreGame'/>
+<fun r='_ZN18idGuidedProjectile5SpawnEv'/>
+<fun r='_ZN18idGuidedProjectile5ThinkEv'/>
+<fun r='_ZN18idGuidedProjectile6LaunchERK6idVec3S2_S2_fff'/>
+<fun r='_ZN18idGuidedProjectile8SetEnemyEP8idEntity'/>
+<fun r='_ZN18idGuidedProjectile14Event_SetEnemyEP8idEntity'/>
+<mbr r='idGuidedProjectile::speed' o='13856' t='float'/>
+<mbr r='idGuidedProjectile::enemy' o='13888' t='idEntityPtr&lt;idEntity&gt;'/>
+<fun r='_ZN18idGuidedProjectile10GetSeekPosER6idVec3'/>
+<mbr r='idGuidedProjectile::rndScale' o='13920' t='idAngles'/>
+<mbr r='idGuidedProjectile::rndAng' o='14016' t='idAngles'/>
+<mbr r='idGuidedProjectile::angles' o='14112' t='idAngles'/>
+<mbr r='idGuidedProjectile::rndUpdateTime' o='14208' t='int'/>
+<mbr r='idGuidedProjectile::turn_max' o='14240' t='float'/>
+<mbr r='idGuidedProjectile::clamp_dist' o='14272' t='float'/>
+<mbr r='idGuidedProjectile::burstMode' o='14304' t='bool'/>
+<mbr r='idGuidedProjectile::unGuided' o='14312' t='bool'/>
+<mbr r='idGuidedProjectile::burstDist' o='14336' t='float'/>
+<mbr r='idGuidedProjectile::burstVelocity' o='14368' t='float'/>
+<inh f='codebrowser/game/Projectile.h' l='42' c='idProjectile'/>
+<def f='codebrowser/game/Projectile.h' l='132' ll='162'/>
+<ovr f='codebrowser/game/Projectile.h' l='164' c='idSoulCubeMissile'/>
+<size>1564</size>
+<smbr r='idGuidedProjectile::Type' t='idTypeInfo'/>
+<fun r='_ZN18idGuidedProjectile14CreateInstanceEv'/>
+<fun r='_ZNK18idGuidedProjectile7GetTypeEv'/>
+<smbr r='idGuidedProjectile::eventCallbacks' t='idEventFunc&lt;idGuidedProjectile&gt; []'/>
+<fun r='_ZN18idGuidedProjectileC1Ev'/>
+<fun r='_ZN18idGuidedProjectileD1Ev'/>
+<fun r='_ZNK18idGuidedProjectile4SaveEP10idSaveGame'/>
+<fun r='_ZN18idGuidedProjectile7RestoreEP13idRestoreGame'/>
+<fun r='_ZN18idGuidedProjectile5SpawnEv'/>
+<fun r='_ZN18idGuidedProjectile5ThinkEv'/>
+<fun r='_ZN18idGuidedProjectile6LaunchERK6idVec3S2_S2_fff'/>
+<mbr r='idGuidedProjectile::speed' o='11968' t='float'/>
+<mbr r='idGuidedProjectile::enemy' o='12000' t='idEntityPtr&lt;idEntity&gt;'/>
+<fun r='_ZN18idGuidedProjectile10GetSeekPosER6idVec3'/>
+<mbr r='idGuidedProjectile::rndScale' o='12032' t='idAngles'/>
+<mbr r='idGuidedProjectile::rndAng' o='12128' t='idAngles'/>
+<mbr r='idGuidedProjectile::angles' o='12224' t='idAngles'/>
+<mbr r='idGuidedProjectile::rndUpdateTime' o='12320' t='int'/>
+<mbr r='idGuidedProjectile::turn_max' o='12352' t='float'/>
+<mbr r='idGuidedProjectile::clamp_dist' o='12384' t='float'/>
+<mbr r='idGuidedProjectile::burstMode' o='12416' t='bool'/>
+<mbr r='idGuidedProjectile::unGuided' o='12424' t='bool'/>
+<mbr r='idGuidedProjectile::burstDist' o='12448' t='float'/>
+<mbr r='idGuidedProjectile::burstVelocity' o='12480' t='float'/>

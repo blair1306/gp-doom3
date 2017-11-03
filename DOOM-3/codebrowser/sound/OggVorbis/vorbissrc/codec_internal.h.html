@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>codec_internal.h source code [codebrowser/sound/OggVorbis/vorbissrc/codec_internal.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="codec_setup_info,private_state,vorbis_block_internal "/>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/sound/OggVorbis/vorbissrc/codec_internal.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>sound</a>/<a href='..'>OggVorbis</a>/<a href='./'>vorbissrc</a>/<a href='codec_internal.h.html'>codec_internal.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/********************************************************************</i></td></tr>
+<tr><th id="2">2</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="3">3</th><td><i> * THIS FILE IS PART OF THE OggVorbis SOFTWARE CODEC SOURCE CODE.   *</i></td></tr>
+<tr><th id="4">4</th><td><i> * USE, DISTRIBUTION AND REPRODUCTION OF THIS LIBRARY SOURCE IS     *</i></td></tr>
+<tr><th id="5">5</th><td><i> * GOVERNED BY A BSD-STYLE SOURCE LICENSE INCLUDED WITH THIS SOURCE *</i></td></tr>
+<tr><th id="6">6</th><td><i> * IN 'COPYING'. PLEASE READ THESE TERMS BEFORE DISTRIBUTING.       *</i></td></tr>
+<tr><th id="7">7</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="8">8</th><td><i> * THE OggVorbis SOURCE CODE IS (C) COPYRIGHT 1994-2002             *</i></td></tr>
+<tr><th id="9">9</th><td><i> * by the XIPHOPHORUS Company <a href="http://www.xiph.org/">http://www.xiph.org/</a>                  *</i></td></tr>
+<tr><th id="10">10</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="11">11</th><td><i> ********************************************************************</i></td></tr>
+<tr><th id="12">12</th><td><i></i></td></tr>
+<tr><th id="13">13</th><td><i> function: libvorbis codec headers</i></td></tr>
+<tr><th id="14">14</th><td><i> last mod: $Id: codec_internal.h,v 1.17 2003/08/18 05:34:01 xiphmont Exp $</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i> ********************************************************************/</i></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><u>#<span data-ppcond="18">ifndef</span> <span class="macro" data-ref="_M/_V_CODECI_H_">_V_CODECI_H_</span></u></td></tr>
+<tr><th id="19">19</th><td><u>#define <dfn class="macro" id="_M/_V_CODECI_H_" data-ref="_M/_V_CODECI_H_">_V_CODECI_H_</dfn></u></td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="envelope.h.html">"envelope.h"</a></u></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="codebook.h.html">"codebook.h"</a></u></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><u>#define <dfn class="macro" id="_M/BLOCKTYPE_IMPULSE" data-ref="_M/BLOCKTYPE_IMPULSE">BLOCKTYPE_IMPULSE</dfn>    0</u></td></tr>
+<tr><th id="25">25</th><td><u>#define <dfn class="macro" id="_M/BLOCKTYPE_PADDING" data-ref="_M/BLOCKTYPE_PADDING">BLOCKTYPE_PADDING</dfn>    1</u></td></tr>
+<tr><th id="26">26</th><td><u>#define <dfn class="macro" id="_M/BLOCKTYPE_TRANSITION" data-ref="_M/BLOCKTYPE_TRANSITION">BLOCKTYPE_TRANSITION</dfn> 0</u> </td></tr>
+<tr><th id="27">27</th><td><u>#define <dfn class="macro" id="_M/BLOCKTYPE_LONG" data-ref="_M/BLOCKTYPE_LONG">BLOCKTYPE_LONG</dfn>       1</u></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#define <dfn class="macro" id="_M/PACKETBLOBS" data-ref="_M/PACKETBLOBS">PACKETBLOBS</dfn> 15</u></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="vorbis_block_internal" title='vorbis_block_internal' data-ref="vorbis_block_internal"><a class="type" href="#vorbis_block_internal" title='vorbis_block_internal' data-ref="vorbis_block_internal">vorbis_block_internal</a></dfn>{</td></tr>
+<tr><th id="32">32</th><td>  <em>float</em>  **<dfn class="decl" id="vorbis_block_internal::pcmdelay" title='vorbis_block_internal::pcmdelay' data-ref="vorbis_block_internal::pcmdelay">pcmdelay</dfn>;  <i>/* this is a pointer into local storage */</i> </td></tr>
+<tr><th id="33">33</th><td>  <em>float</em>  <dfn class="decl" id="vorbis_block_internal::ampmax" title='vorbis_block_internal::ampmax' data-ref="vorbis_block_internal::ampmax">ampmax</dfn>;</td></tr>
+<tr><th id="34">34</th><td>  <em>int</em>    <dfn class="decl" id="vorbis_block_internal::blocktype" title='vorbis_block_internal::blocktype' data-ref="vorbis_block_internal::blocktype">blocktype</dfn>;</td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td>  <a class="typedef" href="../ogg/os_types.h.html#ogg_uint32_t" title='ogg_uint32_t' data-type='u_int32_t' data-ref="ogg_uint32_t">ogg_uint32_t</a>   <dfn class="decl" id="vorbis_block_internal::packetblob_markers" title='vorbis_block_internal::packetblob_markers' data-ref="vorbis_block_internal::packetblob_markers">packetblob_markers</dfn>[<a class="macro" href="#29" title="15" data-ref="_M/PACKETBLOBS">PACKETBLOBS</a>];</td></tr>
+<tr><th id="37">37</th><td>} <dfn class="typedef" id="vorbis_block_internal" title='vorbis_block_internal' data-type='struct vorbis_block_internal' data-ref="vorbis_block_internal">vorbis_block_internal</dfn>;</td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td><b>typedef</b> <em>void</em> <dfn class="typedef" id="vorbis_look_floor" title='vorbis_look_floor' data-type='void' data-ref="vorbis_look_floor">vorbis_look_floor</dfn>;</td></tr>
+<tr><th id="40">40</th><td><b>typedef</b> <em>void</em> <dfn class="typedef" id="vorbis_look_residue" title='vorbis_look_residue' data-type='void' data-ref="vorbis_look_residue">vorbis_look_residue</dfn>;</td></tr>
+<tr><th id="41">41</th><td><b>typedef</b> <em>void</em> <dfn class="typedef" id="vorbis_look_transform" title='vorbis_look_transform' data-type='void' data-ref="vorbis_look_transform">vorbis_look_transform</dfn>;</td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td><i>/* mode ************************************************************/</i></td></tr>
+<tr><th id="44">44</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="45">45</th><td>  <em>int</em> <dfn class="decl" id="(anonymous)::blockflag" title='(anonymous struct)::blockflag' data-ref="(anonymous)::blockflag">blockflag</dfn>;</td></tr>
+<tr><th id="46">46</th><td>  <em>int</em> <dfn class="decl" id="(anonymous)::windowtype" title='(anonymous struct)::windowtype' data-ref="(anonymous)::windowtype">windowtype</dfn>;</td></tr>
+<tr><th id="47">47</th><td>  <em>int</em> <dfn class="decl" id="(anonymous)::transformtype" title='(anonymous struct)::transformtype' data-ref="(anonymous)::transformtype">transformtype</dfn>;</td></tr>
+<tr><th id="48">48</th><td>  <em>int</em> <dfn class="decl" id="(anonymous)::mapping" title='(anonymous struct)::mapping' data-ref="(anonymous)::mapping">mapping</dfn>;</td></tr>
+<tr><th id="49">49</th><td>} <dfn class="typedef" id="vorbis_info_mode" title='vorbis_info_mode' data-type='struct vorbis_info_mode' data-ref="vorbis_info_mode">vorbis_info_mode</dfn>;</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td><b>typedef</b> <em>void</em> <dfn class="typedef" id="vorbis_info_floor" title='vorbis_info_floor' data-type='void' data-ref="vorbis_info_floor">vorbis_info_floor</dfn>;</td></tr>
+<tr><th id="52">52</th><td><b>typedef</b> <em>void</em> <dfn class="typedef" id="vorbis_info_residue" title='vorbis_info_residue' data-type='void' data-ref="vorbis_info_residue">vorbis_info_residue</dfn>;</td></tr>
+<tr><th id="53">53</th><td><b>typedef</b> <em>void</em> <dfn class="typedef" id="vorbis_info_mapping" title='vorbis_info_mapping' data-type='void' data-ref="vorbis_info_mapping">vorbis_info_mapping</dfn>;</td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td><u>#include <a href="psy.h.html">"psy.h"</a></u></td></tr>
+<tr><th id="56">56</th><td><u>#include <a href="bitrate.h.html">"bitrate.h"</a></u></td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="private_state" title='private_state' data-ref="private_state"><a class="type" href="#private_state" title='private_state' data-ref="private_state">private_state</a></dfn> {</td></tr>
+<tr><th id="59">59</th><td>  <i>/* local lookup storage */</i></td></tr>
+<tr><th id="60">60</th><td>  <a class="typedef" href="envelope.h.html#envelope_lookup" title='envelope_lookup' data-type='struct envelope_lookup' data-ref="envelope_lookup">envelope_lookup</a>        *<dfn class="decl" id="private_state::ve" title='private_state::ve' data-ref="private_state::ve">ve</dfn>; <i>/* envelope lookup */</i>    </td></tr>
+<tr><th id="61">61</th><td>  <em>int</em>                     <dfn class="decl" id="private_state::window" title='private_state::window' data-ref="private_state::window">window</dfn>[<var>2</var>];</td></tr>
+<tr><th id="62">62</th><td>  <a class="typedef" href="#vorbis_look_transform" title='vorbis_look_transform' data-type='void' data-ref="vorbis_look_transform">vorbis_look_transform</a> **<dfn class="decl" id="private_state::transform" title='private_state::transform' data-ref="private_state::transform">transform</dfn>[<var>2</var>];    <i>/* block, type */</i></td></tr>
+<tr><th id="63">63</th><td>  <a class="typedef" href="smallft.h.html#drft_lookup" title='drft_lookup' data-type='struct drft_lookup' data-ref="drft_lookup">drft_lookup</a>             <dfn class="decl" id="private_state::fft_look" title='private_state::fft_look' data-ref="private_state::fft_look">fft_look</dfn>[<var>2</var>];</td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td>  <em>int</em>                     <dfn class="decl" id="private_state::modebits" title='private_state::modebits' data-ref="private_state::modebits">modebits</dfn>;</td></tr>
+<tr><th id="66">66</th><td>  <a class="typedef" href="#vorbis_look_floor" title='vorbis_look_floor' data-type='void' data-ref="vorbis_look_floor">vorbis_look_floor</a>     **<dfn class="decl" id="private_state::flr" title='private_state::flr' data-ref="private_state::flr">flr</dfn>;</td></tr>
+<tr><th id="67">67</th><td>  <a class="typedef" href="#vorbis_look_residue" title='vorbis_look_residue' data-type='void' data-ref="vorbis_look_residue">vorbis_look_residue</a>   **<dfn class="decl" id="private_state::residue" title='private_state::residue' data-ref="private_state::residue">residue</dfn>;</td></tr>
+<tr><th id="68">68</th><td>  <a class="typedef" href="psy.h.html#vorbis_look_psy" title='vorbis_look_psy' data-type='struct vorbis_look_psy' data-ref="vorbis_look_psy">vorbis_look_psy</a>        *<dfn class="decl" id="private_state::psy" title='private_state::psy' data-ref="private_state::psy">psy</dfn>;</td></tr>
+<tr><th id="69">69</th><td>  <a class="typedef" href="psy.h.html#vorbis_look_psy_global" title='vorbis_look_psy_global' data-type='struct vorbis_look_psy_global' data-ref="vorbis_look_psy_global">vorbis_look_psy_global</a> *<dfn class="decl" id="private_state::psy_g_look" title='private_state::psy_g_look' data-ref="private_state::psy_g_look">psy_g_look</dfn>;</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td>  <i>/* local storage, only used on the encoding side.  This way the</i></td></tr>
+<tr><th id="72">72</th><td><i>     application does not need to worry about freeing some packets'</i></td></tr>
+<tr><th id="73">73</th><td><i>     memory and not others'; packet storage is always tracked.</i></td></tr>
+<tr><th id="74">74</th><td><i>     Cleared next call to a _dsp_ function */</i></td></tr>
+<tr><th id="75">75</th><td>  <em>unsigned</em> <em>char</em> *<dfn class="decl" id="private_state::header" title='private_state::header' data-ref="private_state::header">header</dfn>;</td></tr>
+<tr><th id="76">76</th><td>  <em>unsigned</em> <em>char</em> *<dfn class="decl" id="private_state::header1" title='private_state::header1' data-ref="private_state::header1">header1</dfn>;</td></tr>
+<tr><th id="77">77</th><td>  <em>unsigned</em> <em>char</em> *<dfn class="decl" id="private_state::header2" title='private_state::header2' data-ref="private_state::header2">header2</dfn>;</td></tr>
+<tr><th id="78">78</th><td></td></tr>
+<tr><th id="79">79</th><td>  <a class="typedef" href="bitrate.h.html#bitrate_manager_state" title='bitrate_manager_state' data-type='struct bitrate_manager_state' data-ref="bitrate_manager_state">bitrate_manager_state</a> <dfn class="decl" id="private_state::bms" title='private_state::bms' data-ref="private_state::bms">bms</dfn>;</td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td>  <a class="typedef" href="../ogg/os_types.h.html#ogg_int64_t" title='ogg_int64_t' data-type='int64_t' data-ref="ogg_int64_t">ogg_int64_t</a> <dfn class="decl" id="private_state::sample_count" title='private_state::sample_count' data-ref="private_state::sample_count">sample_count</dfn>;</td></tr>
+<tr><th id="82">82</th><td>} <dfn class="typedef" id="private_state" title='private_state' data-type='struct private_state' data-ref="private_state">private_state</dfn>;</td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td><i>/* codec_setup_info contains all the setup information specific to the</i></td></tr>
+<tr><th id="85">85</th><td><i>   specific compression/decompression mode in progress (eg,</i></td></tr>
+<tr><th id="86">86</th><td><i>   psychoacoustic settings, channel setup, options, codebook</i></td></tr>
+<tr><th id="87">87</th><td><i>   etc).  </i></td></tr>
+<tr><th id="88">88</th><td><i>*********************************************************************/</i></td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td><u>#include <a href="highlevel.h.html">"highlevel.h"</a></u></td></tr>
+<tr><th id="91">91</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="codec_setup_info" title='codec_setup_info' data-ref="codec_setup_info"><a class="type" href="#codec_setup_info" title='codec_setup_info' data-ref="codec_setup_info">codec_setup_info</a></dfn> {</td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td>  <i>/* Vorbis supports only short and long blocks, but allows the</i></td></tr>
+<tr><th id="94">94</th><td><i>     encoder to choose the sizes */</i></td></tr>
+<tr><th id="95">95</th><td></td></tr>
+<tr><th id="96">96</th><td>  <em>long</em> <dfn class="decl" id="codec_setup_info::blocksizes" title='codec_setup_info::blocksizes' data-ref="codec_setup_info::blocksizes">blocksizes</dfn>[<var>2</var>];</td></tr>
+<tr><th id="97">97</th><td></td></tr>
+<tr><th id="98">98</th><td>  <i>/* modes are the primary means of supporting on-the-fly different</i></td></tr>
+<tr><th id="99">99</th><td><i>     blocksizes, different channel mappings (LR or M/A),</i></td></tr>
+<tr><th id="100">100</th><td><i>     different residue backends, etc.  Each mode consists of a</i></td></tr>
+<tr><th id="101">101</th><td><i>     blocksize flag and a mapping (along with the mapping setup */</i></td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td>  <em>int</em>        <dfn class="decl" id="codec_setup_info::modes" title='codec_setup_info::modes' data-ref="codec_setup_info::modes">modes</dfn>;</td></tr>
+<tr><th id="104">104</th><td>  <em>int</em>        <dfn class="decl" id="codec_setup_info::maps" title='codec_setup_info::maps' data-ref="codec_setup_info::maps">maps</dfn>;</td></tr>
+<tr><th id="105">105</th><td>  <em>int</em>        <dfn class="decl" id="codec_setup_info::floors" title='codec_setup_info::floors' data-ref="codec_setup_info::floors">floors</dfn>;</td></tr>
+<tr><th id="106">106</th><td>  <em>int</em>        <dfn class="decl" id="codec_setup_info::residues" title='codec_setup_info::residues' data-ref="codec_setup_info::residues">residues</dfn>;</td></tr>
+<tr><th id="107">107</th><td>  <em>int</em>        <dfn class="decl" id="codec_setup_info::books" title='codec_setup_info::books' data-ref="codec_setup_info::books">books</dfn>;</td></tr>
+<tr><th id="108">108</th><td>  <em>int</em>        <dfn class="decl" id="codec_setup_info::psys" title='codec_setup_info::psys' data-ref="codec_setup_info::psys">psys</dfn>;     <i>/* encode only */</i></td></tr>
+<tr><th id="109">109</th><td></td></tr>
+<tr><th id="110">110</th><td>  <a class="typedef" href="#vorbis_info_mode" title='vorbis_info_mode' data-type='struct vorbis_info_mode' data-ref="vorbis_info_mode">vorbis_info_mode</a>       *<dfn class="decl" id="codec_setup_info::mode_param" title='codec_setup_info::mode_param' data-ref="codec_setup_info::mode_param">mode_param</dfn>[<var>64</var>];</td></tr>
+<tr><th id="111">111</th><td>  <em>int</em>                     <dfn class="decl" id="codec_setup_info::map_type" title='codec_setup_info::map_type' data-ref="codec_setup_info::map_type">map_type</dfn>[<var>64</var>];</td></tr>
+<tr><th id="112">112</th><td>  <a class="typedef" href="#vorbis_info_mapping" title='vorbis_info_mapping' data-type='void' data-ref="vorbis_info_mapping">vorbis_info_mapping</a>    *<dfn class="decl" id="codec_setup_info::map_param" title='codec_setup_info::map_param' data-ref="codec_setup_info::map_param">map_param</dfn>[<var>64</var>];</td></tr>
+<tr><th id="113">113</th><td>  <em>int</em>                     <dfn class="decl" id="codec_setup_info::floor_type" title='codec_setup_info::floor_type' data-ref="codec_setup_info::floor_type">floor_type</dfn>[<var>64</var>];</td></tr>
+<tr><th id="114">114</th><td>  <a class="typedef" href="#vorbis_info_floor" title='vorbis_info_floor' data-type='void' data-ref="vorbis_info_floor">vorbis_info_floor</a>      *<dfn class="decl" id="codec_setup_info::floor_param" title='codec_setup_info::floor_param' data-ref="codec_setup_info::floor_param">floor_param</dfn>[<var>64</var>];</td></tr>
+<tr><th id="115">115</th><td>  <em>int</em>                     <dfn class="decl" id="codec_setup_info::residue_type" title='codec_setup_info::residue_type' data-ref="codec_setup_info::residue_type">residue_type</dfn>[<var>64</var>];</td></tr>
+<tr><th id="116">116</th><td>  <a class="typedef" href="#vorbis_info_residue" title='vorbis_info_residue' data-type='void' data-ref="vorbis_info_residue">vorbis_info_residue</a>    *<dfn class="decl" id="codec_setup_info::residue_param" title='codec_setup_info::residue_param' data-ref="codec_setup_info::residue_param">residue_param</dfn>[<var>64</var>];</td></tr>
+<tr><th id="117">117</th><td>  <a class="typedef" href="codebook.h.html#static_codebook" title='static_codebook' data-type='struct static_codebook' data-ref="static_codebook">static_codebook</a>        *<dfn class="decl" id="codec_setup_info::book_param" title='codec_setup_info::book_param' data-ref="codec_setup_info::book_param">book_param</dfn>[<var>256</var>];</td></tr>
+<tr><th id="118">118</th><td>  <a class="typedef" href="codebook.h.html#codebook" title='codebook' data-type='struct codebook' data-ref="codebook">codebook</a>               *<dfn class="decl" id="codec_setup_info::fullbooks" title='codec_setup_info::fullbooks' data-ref="codec_setup_info::fullbooks">fullbooks</dfn>;</td></tr>
+<tr><th id="119">119</th><td></td></tr>
+<tr><th id="120">120</th><td>  <a class="typedef" href="psy.h.html#vorbis_info_psy" title='vorbis_info_psy' data-type='struct vorbis_info_psy' data-ref="vorbis_info_psy">vorbis_info_psy</a>        *<dfn class="decl" id="codec_setup_info::psy_param" title='codec_setup_info::psy_param' data-ref="codec_setup_info::psy_param">psy_param</dfn>[<var>4</var>]; <i>/* encode only */</i></td></tr>
+<tr><th id="121">121</th><td>  <a class="typedef" href="psy.h.html#vorbis_info_psy_global" title='vorbis_info_psy_global' data-type='struct vorbis_info_psy_global' data-ref="vorbis_info_psy_global">vorbis_info_psy_global</a> <dfn class="decl" id="codec_setup_info::psy_g_param" title='codec_setup_info::psy_g_param' data-ref="codec_setup_info::psy_g_param">psy_g_param</dfn>;</td></tr>
+<tr><th id="122">122</th><td></td></tr>
+<tr><th id="123">123</th><td>  <a class="typedef" href="bitrate.h.html#bitrate_manager_info" title='bitrate_manager_info' data-type='struct bitrate_manager_info' data-ref="bitrate_manager_info">bitrate_manager_info</a>   <dfn class="decl" id="codec_setup_info::bi" title='codec_setup_info::bi' data-ref="codec_setup_info::bi">bi</dfn>;</td></tr>
+<tr><th id="124">124</th><td>  <a class="typedef" href="highlevel.h.html#highlevel_encode_setup" title='highlevel_encode_setup' data-type='struct highlevel_encode_setup' data-ref="highlevel_encode_setup">highlevel_encode_setup</a> <dfn class="decl" id="codec_setup_info::hi" title='codec_setup_info::hi' data-ref="codec_setup_info::hi">hi</dfn>; <i>/* used only by vorbisenc.c.  It's a</i></td></tr>
+<tr><th id="125">125</th><td><i>                                highly redundant structure, but</i></td></tr>
+<tr><th id="126">126</th><td><i>                                improves clarity of program flow. */</i></td></tr>
+<tr><th id="127">127</th><td>  <em>int</em>         <dfn class="decl" id="codec_setup_info::halfrate_flag" title='codec_setup_info::halfrate_flag' data-ref="codec_setup_info::halfrate_flag">halfrate_flag</dfn>; <i>/* painless downsample for decode */</i>  </td></tr>
+<tr><th id="128">128</th><td>} <dfn class="typedef" id="codec_setup_info" title='codec_setup_info' data-type='struct codec_setup_info' data-ref="codec_setup_info">codec_setup_info</dfn>;</td></tr>
+<tr><th id="129">129</th><td></td></tr>
+<tr><th id="130">130</th><td><b>extern</b> <a class="typedef" href="psy.h.html#vorbis_look_psy_global" title='vorbis_look_psy_global' data-type='struct vorbis_look_psy_global' data-ref="vorbis_look_psy_global">vorbis_look_psy_global</a> *<dfn class="decl" id="_vp_global_look" title='_vp_global_look' data-ref="_vp_global_look">_vp_global_look</dfn>(<a class="typedef" href="../vorbis/codec.h.html#vorbis_info" title='vorbis_info' data-type='struct vorbis_info' data-ref="vorbis_info">vorbis_info</a> *<dfn class="local col0 decl" id="230vi" title='vi' data-type='vorbis_info *' data-ref="230vi">vi</dfn>);</td></tr>
+<tr><th id="131">131</th><td><b>extern</b> <em>void</em> <dfn class="decl" id="_vp_global_free" title='_vp_global_free' data-ref="_vp_global_free">_vp_global_free</dfn>(<a class="typedef" href="psy.h.html#vorbis_look_psy_global" title='vorbis_look_psy_global' data-type='struct vorbis_look_psy_global' data-ref="vorbis_look_psy_global">vorbis_look_psy_global</a> *<dfn class="local col1 decl" id="231look" title='look' data-type='vorbis_look_psy_global *' data-ref="231look">look</dfn>);</td></tr>
+<tr><th id="132">132</th><td></td></tr>
+<tr><th id="133">133</th><td><u>#<span data-ppcond="18">endif</span></u></td></tr>
+<tr><th id="134">134</th><td></td></tr>
+<tr><th id="135">135</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='analysis.c.html'>codebrowser/sound/OggVorbis/vorbissrc/analysis.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

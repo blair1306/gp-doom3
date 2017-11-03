@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>EventLoop.h source code [codebrowser/framework/EventLoop.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idEventLoop "/>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/framework/EventLoop.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>framework</a>/<a href='EventLoop.h.html'>EventLoop.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__EVENTLOOP_H__">__EVENTLOOP_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__EVENTLOOP_H__" data-ref="_M/__EVENTLOOP_H__">__EVENTLOOP_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>	The event loop receives events from the system and dispatches them to</i></td></tr>
+<tr><th id="36">36</th><td><i>	the various parts of the engine. The event loop also handles journaling.</i></td></tr>
+<tr><th id="37">37</th><td><i>	The file system copies .cfg files to the journaled file.</i></td></tr>
+<tr><th id="38">38</th><td><i></i></td></tr>
+<tr><th id="39">39</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="40">40</th><td><i>*/</i></td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="MAX_PUSHED_EVENTS" title='MAX_PUSHED_EVENTS' data-ref="MAX_PUSHED_EVENTS">MAX_PUSHED_EVENTS</dfn> =	<var>64</var>;</td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td><b>class</b> <dfn class="type def" id="idEventLoop" title='idEventLoop' data-ref="idEventLoop">idEventLoop</dfn> {</td></tr>
+<tr><th id="45">45</th><td><b>public</b>:</td></tr>
+<tr><th id="46">46</th><td>					<dfn class="decl" id="_ZN11idEventLoopC1Ev" title='idEventLoop::idEventLoop' data-ref="_ZN11idEventLoopC1Ev">idEventLoop</dfn>( <em>void</em> );</td></tr>
+<tr><th id="47">47</th><td>					<dfn class="decl" id="_ZN11idEventLoopD1Ev" title='idEventLoop::~idEventLoop' data-ref="_ZN11idEventLoopD1Ev">~idEventLoop</dfn>( <em>void</em> );</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td>	<em>void</em>			<dfn class="decl" id="_ZN11idEventLoop4InitEv" title='idEventLoop::Init' data-ref="_ZN11idEventLoop4InitEv">Init</dfn>( <em>void</em> );</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td>					<i>// Closes the journal file if needed.</i></td></tr>
+<tr><th id="52">52</th><td>	<em>void</em>			<dfn class="decl" id="_ZN11idEventLoop8ShutdownEv" title='idEventLoop::Shutdown' data-ref="_ZN11idEventLoop8ShutdownEv">Shutdown</dfn>( <em>void</em> );</td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td>					<i>// It is possible to get an event at the beginning of a frame that</i></td></tr>
+<tr><th id="55">55</th><td><i>					// has a time stamp lower than the last event from the previous frame.</i></td></tr>
+<tr><th id="56">56</th><td>	<a class="typedef" href="../sys/sys_public.h.html#sysEvent_t" title='sysEvent_t' data-type='struct sysEvent_s' data-ref="sysEvent_t">sysEvent_t</a>		<dfn class="decl" id="_ZN11idEventLoop8GetEventEv" title='idEventLoop::GetEvent' data-ref="_ZN11idEventLoop8GetEventEv">GetEvent</dfn>( <em>void</em> );</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td>					<i>// Dispatches all pending events and returns the current time.</i></td></tr>
+<tr><th id="59">59</th><td>	<em>int</em>				<dfn class="decl" id="_ZN11idEventLoop12RunEventLoopEb" title='idEventLoop::RunEventLoop' data-ref="_ZN11idEventLoop12RunEventLoopEb">RunEventLoop</dfn>( <em>bool</em> <dfn class="local col0 decl" id="13640commandExecution" title='commandExecution' data-type='bool' data-ref="13640commandExecution">commandExecution</dfn> = <b>true</b> );</td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td>					<i>// Gets the current time in a way that will be journaled properly,</i></td></tr>
+<tr><th id="62">62</th><td><i>					// as opposed to Sys_Milliseconds(), which always reads a real timer.</i></td></tr>
+<tr><th id="63">63</th><td>	<em>int</em>				<dfn class="decl" id="_ZN11idEventLoop12MillisecondsEv" title='idEventLoop::Milliseconds' data-ref="_ZN11idEventLoop12MillisecondsEv">Milliseconds</dfn>( <em>void</em> );</td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td>					<i>// Returns the journal level, 1 = record, 2 = play back.</i></td></tr>
+<tr><th id="66">66</th><td>	<em>int</em>				<dfn class="decl" id="_ZNK11idEventLoop12JournalLevelEv" title='idEventLoop::JournalLevel' data-ref="_ZNK11idEventLoop12JournalLevelEv">JournalLevel</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td>					<i>// Journal file.</i></td></tr>
+<tr><th id="69">69</th><td>	<a class="type" href="File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *		<dfn class="decl" id="idEventLoop::com_journalFile" title='idEventLoop::com_journalFile' data-ref="idEventLoop::com_journalFile">com_journalFile</dfn>;</td></tr>
+<tr><th id="70">70</th><td>	<a class="type" href="File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *		<dfn class="decl" id="idEventLoop::com_journalDataFile" title='idEventLoop::com_journalDataFile' data-ref="idEventLoop::com_journalDataFile">com_journalDataFile</dfn>;</td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td><b>private</b>:</td></tr>
+<tr><th id="73">73</th><td>					<i>// all events will have this subtracted from their time</i></td></tr>
+<tr><th id="74">74</th><td>	<em>int</em>				<dfn class="decl" id="idEventLoop::initialTimeOffset" title='idEventLoop::initialTimeOffset' data-ref="idEventLoop::initialTimeOffset">initialTimeOffset</dfn>;</td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td>	<em>int</em>				<dfn class="decl" id="idEventLoop::com_pushedEventsHead" title='idEventLoop::com_pushedEventsHead' data-ref="idEventLoop::com_pushedEventsHead">com_pushedEventsHead</dfn>, <dfn class="decl" id="idEventLoop::com_pushedEventsTail" title='idEventLoop::com_pushedEventsTail' data-ref="idEventLoop::com_pushedEventsTail">com_pushedEventsTail</dfn>;</td></tr>
+<tr><th id="77">77</th><td>	<a class="typedef" href="../sys/sys_public.h.html#sysEvent_t" title='sysEvent_t' data-type='struct sysEvent_s' data-ref="sysEvent_t">sysEvent_t</a>		<dfn class="decl" id="idEventLoop::com_pushedEvents" title='idEventLoop::com_pushedEvents' data-ref="idEventLoop::com_pushedEvents">com_pushedEvents</dfn>[<a class="ref" href="#MAX_PUSHED_EVENTS" title='MAX_PUSHED_EVENTS' data-ref="MAX_PUSHED_EVENTS">MAX_PUSHED_EVENTS</a>];</td></tr>
+<tr><th id="78">78</th><td></td></tr>
+<tr><th id="79">79</th><td>	<em>static</em> <a class="type" href="CVarSystem.h.html#idCVar" title='idCVar' data-ref="idCVar">idCVar</a>	<dfn class="decl" id="idEventLoop::com_journal" title='idEventLoop::com_journal' data-ref="idEventLoop::com_journal">com_journal</dfn>;</td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td>	<a class="typedef" href="../sys/sys_public.h.html#sysEvent_t" title='sysEvent_t' data-type='struct sysEvent_s' data-ref="sysEvent_t">sysEvent_t</a>		<dfn class="decl" id="_ZN11idEventLoop12GetRealEventEv" title='idEventLoop::GetRealEvent' data-ref="_ZN11idEventLoop12GetRealEventEv">GetRealEvent</dfn>( <em>void</em> );</td></tr>
+<tr><th id="82">82</th><td>	<em>void</em>			<dfn class="decl" id="_ZN11idEventLoop12ProcessEventE10sysEvent_s" title='idEventLoop::ProcessEvent' data-ref="_ZN11idEventLoop12ProcessEventE10sysEvent_s">ProcessEvent</dfn>( <a class="typedef" href="../sys/sys_public.h.html#sysEvent_t" title='sysEvent_t' data-type='struct sysEvent_s' data-ref="sysEvent_t">sysEvent_t</a> <dfn class="local col1 decl" id="13641ev" title='ev' data-type='sysEvent_t' data-ref="13641ev">ev</dfn> );</td></tr>
+<tr><th id="83">83</th><td>	<em>void</em>			<dfn class="decl" id="_ZN11idEventLoop9PushEventEP10sysEvent_s" title='idEventLoop::PushEvent' data-ref="_ZN11idEventLoop9PushEventEP10sysEvent_s">PushEvent</dfn>( <a class="typedef" href="../sys/sys_public.h.html#sysEvent_t" title='sysEvent_t' data-type='struct sysEvent_s' data-ref="sysEvent_t">sysEvent_t</a> *<dfn class="local col2 decl" id="13642event" title='event' data-type='sysEvent_t *' data-ref="13642event">event</dfn> );</td></tr>
+<tr><th id="84">84</th><td>};</td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td><b>extern</b>	<a class="type" href="#idEventLoop" title='idEventLoop' data-ref="idEventLoop">idEventLoop</a>	*<dfn class="decl" id="eventLoop" title='eventLoop' data-ref="eventLoop">eventLoop</dfn>;</td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td><u>#<span data-ppcond="29">endif</span> /* !__EVENTLOOP_H__ */</u></td></tr>
+<tr><th id="89">89</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../TypeInfo/TypeInfoGen.cpp.html'>codebrowser/TypeInfo/TypeInfoGen.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

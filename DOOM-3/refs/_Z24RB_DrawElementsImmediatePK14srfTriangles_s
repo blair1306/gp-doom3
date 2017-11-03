@@ -1,0 +1,12 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1251' type='void RB_DrawElementsImmediate(const srfTriangles_t * tri)'/>
+<def f='codebrowser/renderer/tr_render.cpp' l='49' ll='70' type='void RB_DrawElementsImmediate(const srfTriangles_t * tri)'/>
+<use f='codebrowser/renderer/tr_render.cpp' l='149' u='c' c='_Z24RB_RenderTriangleSurfacePK14srfTriangles_s'/>
+<doc f='codebrowser/renderer/tr_render.cpp' l='41'>/*
+=================
+RB_DrawElementsImmediate
+
+Draws with immediate mode commands, which is going to be very slow.
+This should never happen if the vertex cache is operating properly.
+=================
+*/</doc>
+<use f='codebrowser/renderer/tr_trace.cpp' l='406' u='c' c='_Z12RB_ShowTracePP10drawSurf_si'/>

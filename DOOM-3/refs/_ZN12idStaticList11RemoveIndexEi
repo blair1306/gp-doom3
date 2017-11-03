@@ -1,0 +1,13 @@
+<dec f='codebrowser/idlib/containers/StaticList.h' l='72' type='bool idStaticList::RemoveIndex(int index)'/>
+<def f='codebrowser/idlib/containers/StaticList.h' l='494' ll='511' type='bool idStaticList::RemoveIndex(int index)'/>
+<use f='codebrowser/idlib/containers/StaticList.h' l='528' u='c' c='_ZN12idStaticList6RemoveERKT_'/>
+<doc f='codebrowser/idlib/containers/StaticList.h' l='72'>// remove the element at the given index</doc>
+<doc f='codebrowser/idlib/containers/StaticList.h' l='485'>/*
+================
+idStaticList&lt;type,size&gt;::RemoveIndex
+
+Removes the element at the specified index and moves all data following the element down to fill in the gap.
+The number of elements in the list is reduced by one.  Returns false if the index is outside the bounds of the list.
+Note that the element is not destroyed, so any memory used by it may not be freed until the destruction of the list.
+================
+*/</doc>

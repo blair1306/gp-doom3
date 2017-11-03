@@ -1,0 +1,18 @@
+<dec f='codebrowser/renderer/Image.h' l='346' type='void idImageManager::BeginLevelLoad()'/>
+<doc f='codebrowser/renderer/Image.h' l='341'>// Mark all file based images as currently unused,
+	// but don&apos;t free anything.  Calls to ImageFromFile() will
+	// either mark the image as used, or create a new image without
+	// loading the actual data.
+	// Called only by renderSystem::BeginLevelLoad</doc>
+<def f='codebrowser/renderer/Image_init.cpp' l='2005' ll='2022' type='void idImageManager::BeginLevelLoad()'/>
+<doc f='codebrowser/renderer/Image_init.cpp' l='1995'>/*
+====================
+BeginLevelLoad
+
+Mark all file based images as currently unused,
+but don&apos;t free anything.  Calls to ImageFromFile() will
+either mark the image as used, or create a new image without
+loading the actual data.
+====================
+*/</doc>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='2227' u='c' c='_ZN19idRenderSystemLocal14BeginLevelLoadEv'/>

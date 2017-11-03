@@ -1,0 +1,29 @@
+<inh f='codebrowser/d3xp/physics/Force.h' l='45' c='idForce'/>
+<def f='codebrowser/d3xp/physics/Force_Grab.h' l='42' ll='78'/>
+<size>32</size>
+<doc f='codebrowser/d3xp/physics/Force_Grab.h' l='34'>/*
+===============================================================================
+
+	Drag force
+
+===============================================================================
+*/</doc>
+<smbr r='idForce_Grab::Type' t='idTypeInfo'/>
+<fun r='_ZN12idForce_Grab14CreateInstanceEv'/>
+<fun r='_ZNK12idForce_Grab7GetTypeEv'/>
+<smbr r='idForce_Grab::eventCallbacks' t='idEventFunc&lt;idForce_Grab&gt; []'/>
+<fun r='_ZNK12idForce_Grab4SaveEP10idSaveGame'/>
+<fun r='_ZN12idForce_Grab7RestoreEP13idRestoreGame'/>
+<fun r='_ZN12idForce_GrabC1Ev'/>
+<fun r='_ZN12idForce_GrabD1Ev'/>
+<fun r='_ZN12idForce_Grab4InitEf'/>
+<fun r='_ZN12idForce_Grab10SetPhysicsEP9idPhysicsiRK6idVec3'/>
+<fun r='_ZN12idForce_Grab15SetGoalPositionERK6idVec3'/>
+<fun r='_ZN12idForce_Grab8EvaluateEi'/>
+<fun r='_ZN12idForce_Grab13RemovePhysicsEPK9idPhysics'/>
+<fun r='_ZN12idForce_Grab17GetDistanceToGoalEv'/>
+<mbr r='idForce_Grab::damping' o='32' t='float'/>
+<mbr r='idForce_Grab::goalPosition' o='64' t='idVec3'/>
+<mbr r='idForce_Grab::distanceToGoal' o='160' t='float'/>
+<mbr r='idForce_Grab::physics' o='192' t='idPhysics *'/>
+<mbr r='idForce_Grab::id' o='224' t='int'/>

@@ -1,0 +1,46 @@
+<dec f='codebrowser/d3xp/Entity.h' l='319' type='void idEntity::Killed(idEntity * inflictor, idEntity * attacker, int damage, const idVec3 &amp; dir, int location)'/>
+<doc f='codebrowser/d3xp/Entity.h' l='318'>// notifies this entity that is has been killed</doc>
+<use f='codebrowser/d3xp/Actor.cpp' l='2259' u='c' c='_ZN7idActor6DamageEP8idEntityS1_RK6idVec3PKcfi'/>
+<ovr f='codebrowser/d3xp/BrittleFracture.cpp' l='1016' c='_ZN17idBrittleFracture6KilledEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='3096' u='c' c='_ZN8idEntity6DamageEPS_S0_RK6idVec3PKcfi'/>
+<def f='codebrowser/d3xp/Entity.cpp' l='3163' ll='3164' type='void idEntity::Killed(idEntity * inflictor, idEntity * attacker, int damage, const idVec3 &amp; dir, int location)'/>
+<doc f='codebrowser/d3xp/Entity.cpp' l='3155'>/*
+============
+idEntity::Killed
+
+Called whenever an entity&apos;s health is reduced to 0 or less.
+This is a virtual function that subclasses are expected to implement.
+============
+*/</doc>
+<ovr f='codebrowser/d3xp/Light.cpp' l='633' c='_ZN7idLight6KilledEP8idEntityS1_iRK6idVec3i'/>
+<ovr f='codebrowser/d3xp/Misc.cpp' l='553' c='_ZN11idDamagable6KilledEP8idEntityS1_iRK6idVec3i'/>
+<ovr f='codebrowser/d3xp/Moveable.cpp' l='367' c='_ZN10idMoveable6KilledEP8idEntityS1_iRK6idVec3i'/>
+<ovr f='codebrowser/d3xp/Mover.cpp' l='412' c='_ZN7idMover6KilledEP8idEntityS1_iRK6idVec3i'/>
+<ovr f='codebrowser/d3xp/Player.cpp' l='7773' c='_ZN8idPlayer6KilledEP8idEntityS1_iRK6idVec3i'/>
+<ovr f='codebrowser/d3xp/Projectile.cpp' l='730' c='_ZN12idProjectile6KilledEP8idEntityS1_iRK6idVec3i'/>
+<ovr f='codebrowser/d3xp/Projectile.cpp' l='2544' c='_ZN8idDebris6KilledEP8idEntityS1_iRK6idVec3i'/>
+<ovr f='codebrowser/d3xp/SecurityCamera.cpp' l='521' c='_ZN16idSecurityCamera6KilledEP8idEntityS1_iRK6idVec3i'/>
+<ovr f='codebrowser/d3xp/ai/AI.cpp' l='3398' c='_ZN4idAI6KilledEP8idEntityS1_iRK6idVec3i'/>
+<dec f='codebrowser/game/Entity.h' l='303' type='void idEntity::Killed(idEntity * inflictor, idEntity * attacker, int damage, const idVec3 &amp; dir, int location)'/>
+<doc f='codebrowser/game/Entity.h' l='302'>// notifies this entity that is has been killed</doc>
+<use f='codebrowser/game/Actor.cpp' l='2188' u='c' c='_ZN7idActor6DamageEP8idEntityS1_RK6idVec3PKcfi'/>
+<ovr f='codebrowser/game/BrittleFracture.cpp' l='986' c='_ZN17idBrittleFracture6KilledEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/game/Entity.cpp' l='3000' u='c' c='_ZN8idEntity6DamageEPS_S0_RK6idVec3PKcfi'/>
+<def f='codebrowser/game/Entity.cpp' l='3067' ll='3068' type='void idEntity::Killed(idEntity * inflictor, idEntity * attacker, int damage, const idVec3 &amp; dir, int location)'/>
+<doc f='codebrowser/game/Entity.cpp' l='3059'>/*
+============
+idEntity::Killed
+
+Called whenever an entity&apos;s health is reduced to 0 or less.
+This is a virtual function that subclasses are expected to implement.
+============
+*/</doc>
+<ovr f='codebrowser/game/Light.cpp' l='626' c='_ZN7idLight6KilledEP8idEntityS1_iRK6idVec3i'/>
+<ovr f='codebrowser/game/Misc.cpp' l='549' c='_ZN11idDamagable6KilledEP8idEntityS1_iRK6idVec3i'/>
+<ovr f='codebrowser/game/Moveable.cpp' l='307' c='_ZN10idMoveable6KilledEP8idEntityS1_iRK6idVec3i'/>
+<ovr f='codebrowser/game/Mover.cpp' l='410' c='_ZN7idMover6KilledEP8idEntityS1_iRK6idVec3i'/>
+<ovr f='codebrowser/game/Player.cpp' l='6463' c='_ZN8idPlayer6KilledEP8idEntityS1_iRK6idVec3i'/>
+<ovr f='codebrowser/game/Projectile.cpp' l='685' c='_ZN12idProjectile6KilledEP8idEntityS1_iRK6idVec3i'/>
+<ovr f='codebrowser/game/Projectile.cpp' l='2285' c='_ZN8idDebris6KilledEP8idEntityS1_iRK6idVec3i'/>
+<ovr f='codebrowser/game/SecurityCamera.cpp' l='521' c='_ZN16idSecurityCamera6KilledEP8idEntityS1_iRK6idVec3i'/>
+<ovr f='codebrowser/game/ai/AI.cpp' l='3313' c='_ZN4idAI6KilledEP8idEntityS1_iRK6idVec3i'/>

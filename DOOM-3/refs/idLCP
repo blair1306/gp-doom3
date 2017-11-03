@@ -1,0 +1,45 @@
+<def f='codebrowser/idlib/math/Lcp.h' l='62' ll='75'/>
+<size>8</size>
+<doc f='codebrowser/idlib/math/Lcp.h' l='32'>/*
+===============================================================================
+
+  Box Constrained Mixed Linear Complementarity Problem solver
+
+  A is a matrix of dimension n*n and x, b, lo, hi are vectors of dimension n
+
+  Solve: Ax = b + t, where t is a vector of dimension n, with
+  complementarity condition: (x[i] - lo[i]) * (x[i] - hi[i]) * t[i] = 0
+  such that for each 0 &lt;= i &lt; n one of the following holds:
+
+    1. lo[i] &lt; x[i] &lt; hi[i], t[i] == 0
+    2. x[i] == lo[i], t[i] &gt;= 0
+    3. x[i] == hi[i], t[i] &lt;= 0
+
+  Partly bounded or unbounded variables can have lo[i] and/or hi[i]
+  set to negative/positive idMath::INFITITY respectively.
+
+  If boxIndex != NULL and boxIndex[i] != -1 then
+
+    lo[i] = - fabs( lo[i] * x[boxIndex[i]] )
+    hi[i] = fabs( hi[i] * x[boxIndex[i]] )
+	boxIndex[boxIndex[i]] must be -1
+  
+  Before calculating any of the bounded x[i] with boxIndex[i] != -1 the
+  solver calculates all unbounded x[i] and all x[i] with boxIndex[i] == -1.
+
+===============================================================================
+*/</doc>
+<fun r='_ZN5idLCP11AllocSquareEv'/>
+<fun r='_ZN5idLCP14AllocSymmetricEv'/>
+<fun r='_ZN5idLCPD1Ev'/>
+<fun r='_ZN5idLCP5SolveERK6idMatXR6idVecXRKS3_S6_S6_PKi'/>
+<fun r='_ZN5idLCP16SetMaxIterationsEi'/>
+<fun r='_ZN5idLCP16GetMaxIterationsEv'/>
+<mbr r='idLCP::maxIterations' o='32' t='int'/>
+<ovr f='codebrowser/idlib/math/Lcp.cpp' l='47' c='idLCP_Square'/>
+<ovr f='codebrowser/idlib/math/Lcp.cpp' l='804' c='idLCP_Symmetric'/>
+<fun r='_ZN5idLCP11AllocSquareEv'/>
+<fun r='_ZN5idLCP14AllocSymmetricEv'/>
+<fun r='_ZN5idLCPD1Ev'/>
+<fun r='_ZN5idLCP16SetMaxIterationsEi'/>
+<fun r='_ZN5idLCP16GetMaxIterationsEv'/>

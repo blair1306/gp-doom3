@@ -1,0 +1,25 @@
+<dec f='codebrowser/tools/compilers/roqvq/roq.h' l='108' type='static boolean roq::JPEGEmptyOutputBuffer(j_compress_ptr cinfo)'/>
+<def f='codebrowser/tools/compilers/roqvq/roq.cpp' l='258' ll='260' type='static boolean roq::JPEGEmptyOutputBuffer(j_compress_ptr cinfo)'/>
+<use f='codebrowser/tools/compilers/roqvq/roq.cpp' l='390' u='r' c='_ZN3roq8JPEGDestEP20jpeg_compress_structPhi'/>
+<doc f='codebrowser/tools/compilers/roqvq/roq.cpp' l='235'>/*
+ * Empty the output buffer --- called whenever buffer fills up.
+ *
+ * In typical applications, this should write the entire output buffer
+ * (ignoring the current state of next_output_byte &amp; free_in_buffer),
+ * reset the pointer &amp; count to the start of the buffer, and return true
+ * indicating that the buffer has been dumped.
+ *
+ * In applications that need to be able to suspend compression due to output
+ * overrun, a FALSE return indicates that the buffer cannot be emptied now.
+ * In this situation, the compressor will return to its caller (possibly with
+ * an indication that it has not accepted all the supplied scanlines).  The
+ * application should resume compression after it has made more room in the
+ * output buffer.  Note that there are substantial restrictions on the use of
+ * suspension --- see the documentation.
+ *
+ * When suspending, the compressor will back up to a convenient restart point
+ * (typically the start of the current MCU). next_output_byte &amp; free_in_buffer
+ * indicate where the restart point will be if the current call returns FALSE.
+ * Data beyond this point will be regenerated after resumption, so do not
+ * write it out when emptying the buffer externally.
+ */</doc>

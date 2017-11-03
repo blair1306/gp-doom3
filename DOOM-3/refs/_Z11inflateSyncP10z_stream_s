@@ -1,0 +1,17 @@
+<dec f='codebrowser/framework/Unzip.cpp' l='640' type='int inflateSync(z_streamp strm)'/>
+<def f='codebrowser/framework/Unzip.cpp' l='4396' ll='4443' type='int inflateSync(z_streamp z)'/>
+<doc f='codebrowser/framework/Unzip.cpp' l='624'>/*
+     Initializes the decompression dictionary from the given uncompressed byte
+   sequence. This function must be called immediately after a call of inflate
+   if this call returned Z_NEED_DICT. The dictionary chosen by the compressor
+   can be determined from the Adler32 value returned by this call of
+   inflate. The compressor and decompressor must use exactly the same
+   dictionary (see deflateSetDictionary).
+
+     inflateSetDictionary returns Z_OK if success, Z_STREAM_ERROR if a
+   parameter is invalid (such as NULL dictionary) or the stream state is
+   inconsistent, Z_DATA_ERROR if the given dictionary doesn&apos;t match the
+   expected one (incorrect Adler32 value). inflateSetDictionary does not
+   perform any decompression: this will be done by subsequent calls of
+   inflate().
+*/</doc>

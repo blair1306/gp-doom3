@@ -1,0 +1,71 @@
+<dec f='codebrowser/d3xp/Game_local.h' l='326' type='bool'/>
+<offset>29241288</offset>
+<doc f='codebrowser/d3xp/Game_local.h' l='326'>// set if the game is run for a dedicated or listen server</doc>
+<use f='codebrowser/d3xp/BrittleFracture.cpp' l='708' u='r' c='_ZN17idBrittleFracture12ProjectDecalERK6idVec3S2_iPKc'/>
+<use f='codebrowser/d3xp/BrittleFracture.cpp' l='871' u='r' c='_ZN17idBrittleFracture7ShatterERK6idVec3S2_i'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='1672' u='r' c='_ZN8idEntity16StartSoundShaderEPK13idSoundShaderiibPi'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='1718' u='r' c='_ZN8idEntity9StopSoundEib'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='4901' u='r' c='_ZNK8idEntity15ServerSendEventEiPK8idBitMsgbi'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='5326' u='r' c='_ZN16idAnimatedEntity15AddDamageEffectERK7trace_sRK6idVec3PKc'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='258' u='w' c='_ZN11idGameLocal5ClearEv'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='599' u='r' c='_ZN11idGameLocal8SaveGameEP6idFile'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='1122' u='r' c='_ZN11idGameLocal10MapRestartEv'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='1297' u='w' c='_ZN11idGameLocal14InitFromNewMapEPKcP13idRenderWorldP12idSoundWorldbbi'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='1482' u='a' c='_ZN11idGameLocal16InitFromSaveGameEPKcP13idRenderWorldP12idSoundWorldP6idFile'/>
+<use f='codebrowser/d3xp/Game_network.cpp' l='106' u='w' c='_ZN11idGameLocal15InitLocalClientEi'/>
+<use f='codebrowser/d3xp/Item.cpp' l='371' u='r' c='_ZN6idItem6PickupEP8idPlayer'/>
+<use f='codebrowser/d3xp/Item.cpp' l='549' u='r' c='_ZN6idItem13Event_RespawnEv'/>
+<use f='codebrowser/d3xp/Item.cpp' l='568' u='r' c='_ZN6idItem15Event_RespawnFxEv'/>
+<use f='codebrowser/d3xp/Item.cpp' l='811' u='r' c='_ZN10idItemTeam5ThinkEv'/>
+<use f='codebrowser/d3xp/Item.cpp' l='959' u='r' c='_ZN10idItemTeam13PrivateReturnEv'/>
+<use f='codebrowser/d3xp/Item.cpp' l='1000' u='r' c='_ZN10idItemTeam14Event_TakeFlagEP8idPlayer'/>
+<use f='codebrowser/d3xp/Item.cpp' l='1049' u='r' c='_ZN10idItemTeam14Event_TakeFlagEP8idPlayer'/>
+<use f='codebrowser/d3xp/Item.cpp' l='1065' u='r' c='_ZN10idItemTeam14Event_DropFlagEb'/>
+<use f='codebrowser/d3xp/Item.cpp' l='1124' u='r' c='_ZN10idItemTeam14Event_DropFlagEb'/>
+<use f='codebrowser/d3xp/Item.cpp' l='1141' u='r' c='_ZN10idItemTeam16Event_FlagReturnEP8idPlayer'/>
+<use f='codebrowser/d3xp/Item.cpp' l='1172' u='r' c='_ZN10idItemTeam16Event_FlagReturnEP8idPlayer'/>
+<use f='codebrowser/d3xp/Item.cpp' l='1188' u='r' c='_ZN10idItemTeam17Event_FlagCaptureEv'/>
+<use f='codebrowser/d3xp/Item.cpp' l='1221' u='r' c='_ZN10idItemTeam17Event_FlagCaptureEv'/>
+<use f='codebrowser/d3xp/Light.cpp' l='659' u='r' c='_ZN7idLight12BecomeBrokenEP8idEntity'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='237' u='r' c='_ZN13idPlayerStart20Event_TeleportPlayerEP8idEntity'/>
+<use f='codebrowser/d3xp/Moveable.cpp' l='1151' u='r' c='_ZN17idExplodingBarrel6KilledEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/d3xp/Player.cpp' l='791' u='r' c='_ZN11idInventory13AddPickupNameEPKcS1_P8idPlayer'/>
+<use f='codebrowser/d3xp/Player.cpp' l='1578' u='r' c='_ZN8idPlayer4InitEv'/>
+<use f='codebrowser/d3xp/Player.cpp' l='3672' u='r' c='_ZN8idPlayer11GivePowerUpEii'/>
+<use f='codebrowser/d3xp/Player.cpp' l='3843' u='r' c='_ZN8idPlayer12ClearPowerupEi'/>
+<use f='codebrowser/d3xp/Player.cpp' l='6495' u='r' c='_ZN8idPlayer8SpectateEb'/>
+<use f='codebrowser/d3xp/Player.cpp' l='6651' u='r' c='_ZN8idPlayer14PerformImpulseEi'/>
+<use f='codebrowser/d3xp/Player.cpp' l='9233' u='r' c='_ZN8idPlayer20Event_ExitTeleporterEv'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='700' u='r' c='_ZN12idProjectile22AddDefaultDamageEffectERK7trace_sRK6idVec3'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='3006' u='r' c='_ZN8idWeapon15Event_NetReloadEv'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='3018' u='r' c='_ZN8idWeapon18Event_NetEndReloadEv'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='3143' u='r' c='_ZN8idWeapon13Event_SetSkinEPKc'/>
+<dec f='codebrowser/game/Game_local.h' l='300' type='bool'/>
+<offset>19448840</offset>
+<doc f='codebrowser/game/Game_local.h' l='300'>// set if the game is run for a dedicated or listen server</doc>
+<use f='codebrowser/game/BrittleFracture.cpp' l='678' u='r' c='_ZN17idBrittleFracture12ProjectDecalERK6idVec3S2_iPKc'/>
+<use f='codebrowser/game/BrittleFracture.cpp' l='841' u='r' c='_ZN17idBrittleFracture7ShatterERK6idVec3S2_i'/>
+<use f='codebrowser/game/Entity.cpp' l='1580' u='r' c='_ZN8idEntity16StartSoundShaderEPK13idSoundShaderiibPi'/>
+<use f='codebrowser/game/Entity.cpp' l='1626' u='r' c='_ZN8idEntity9StopSoundEib'/>
+<use f='codebrowser/game/Entity.cpp' l='4727' u='r' c='_ZNK8idEntity15ServerSendEventEiPK8idBitMsgbi'/>
+<use f='codebrowser/game/Entity.cpp' l='5118' u='r' c='_ZN16idAnimatedEntity15AddDamageEffectERK7trace_sRK6idVec3PKc'/>
+<use f='codebrowser/game/Game_local.cpp' l='223' u='w' c='_ZN11idGameLocal5ClearEv'/>
+<use f='codebrowser/game/Game_local.cpp' l='521' u='r' c='_ZN11idGameLocal8SaveGameEP6idFile'/>
+<use f='codebrowser/game/Game_local.cpp' l='1161' u='w' c='_ZN11idGameLocal14InitFromNewMapEPKcP13idRenderWorldP12idSoundWorldbbi'/>
+<use f='codebrowser/game/Game_local.cpp' l='1342' u='a' c='_ZN11idGameLocal16InitFromSaveGameEPKcP13idRenderWorldP12idSoundWorldP6idFile'/>
+<use f='codebrowser/game/Game_network.cpp' l='106' u='w' c='_ZN11idGameLocal15InitLocalClientEi'/>
+<use f='codebrowser/game/Item.cpp' l='363' u='r' c='_ZN6idItem6PickupEP8idPlayer'/>
+<use f='codebrowser/game/Item.cpp' l='541' u='r' c='_ZN6idItem13Event_RespawnEv'/>
+<use f='codebrowser/game/Item.cpp' l='560' u='r' c='_ZN6idItem15Event_RespawnFxEv'/>
+<use f='codebrowser/game/Light.cpp' l='652' u='r' c='_ZN7idLight12BecomeBrokenEP8idEntity'/>
+<use f='codebrowser/game/Misc.cpp' l='233' u='r' c='_ZN13idPlayerStart20Event_TeleportPlayerEP8idEntity'/>
+<use f='codebrowser/game/Moveable.cpp' l='989' u='r' c='_ZN17idExplodingBarrel6KilledEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/game/Player.cpp' l='1272' u='r' c='_ZN8idPlayer4InitEv'/>
+<use f='codebrowser/game/Player.cpp' l='3023' u='r' c='_ZN8idPlayer11GivePowerUpEii'/>
+<use f='codebrowser/game/Player.cpp' l='3101' u='r' c='_ZN8idPlayer12ClearPowerupEi'/>
+<use f='codebrowser/game/Player.cpp' l='5447' u='r' c='_ZN8idPlayer8SpectateEb'/>
+<use f='codebrowser/game/Player.cpp' l='7750' u='r' c='_ZN8idPlayer20Event_ExitTeleporterEv'/>
+<use f='codebrowser/game/Projectile.cpp' l='655' u='r' c='_ZN12idProjectile22AddDefaultDamageEffectERK7trace_sRK6idVec3'/>
+<use f='codebrowser/game/Weapon.cpp' l='2558' u='r' c='_ZN8idWeapon15Event_NetReloadEv'/>
+<use f='codebrowser/game/Weapon.cpp' l='2570' u='r' c='_ZN8idWeapon18Event_NetEndReloadEv'/>
+<use f='codebrowser/game/Weapon.cpp' l='2695' u='r' c='_ZN8idWeapon13Event_SetSkinEPKc'/>

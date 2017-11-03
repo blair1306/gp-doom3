@@ -1,0 +1,15 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1494' type='void R_CreateSilIndexes(srfTriangles_t * tri)'/>
+<def f='codebrowser/renderer/tr_trisurf.cpp' l='765' ll='783' type='void R_CreateSilIndexes(srfTriangles_t * tri)'/>
+<use f='codebrowser/renderer/tr_trisurf.cpp' l='903' u='c' c='_Z21R_CreateVertexNormalsP14srfTriangles_s'/>
+<use f='codebrowser/renderer/tr_trisurf.cpp' l='2099' u='c' c='_Z18R_CleanupTrianglesP14srfTriangles_sbbb'/>
+<use f='codebrowser/renderer/tr_trisurf.cpp' l='2167' u='c' c='_Z17R_BuildDeformInfoiPK10idDrawVertiPKib'/>
+<doc f='codebrowser/renderer/tr_trisurf.cpp' l='757'>/*
+=================
+R_CreateSilIndexes
+
+Uniquing vertexes only on xyz before creating sil edges reduces
+the edge count by about 20% on Q3 models
+=================
+*/</doc>
+<use f='codebrowser/tools/compilers/dmap/output.cpp' l='248' u='c' c='_ZL17CleanupUTrianglesP14srfTriangles_s'/>
+<use f='codebrowser/tools/compilers/renderbump/renderbump.cpp' l='954' u='c' c='_ZL19RenderBumpTrianglesP14srfTriangles_sP12renderBump_t'/>

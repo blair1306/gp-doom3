@@ -1,0 +1,9 @@
+<def f='codebrowser/framework/DeclManager.h' l='200' type='bool idDecl::SetDefaultText()'/>
+<doc f='codebrowser/framework/DeclManager.h' l='196'>// Sets textSource to a default text if necessary.
+							// This may be overridden to provide a default definition based on the
+							// decl name. For instance materials may default to an implicit definition
+							// using a texture with the same name as the decl.</doc>
+<use f='codebrowser/framework/DeclManager.cpp' l='2174' u='c' c='_ZN11idDeclLocal10ParseLocalEv'/>
+<ovr f='codebrowser/framework/DeclSkin.cpp' l='107' c='_ZN10idDeclSkin14SetDefaultTextEv'/>
+<ovr f='codebrowser/renderer/Material.cpp' l='2667' c='_ZN10idMaterial14SetDefaultTextEv'/>
+<ovr f='codebrowser/sound/snd_shader.cpp' l='91' c='_ZN13idSoundShader14SetDefaultTextEv'/>

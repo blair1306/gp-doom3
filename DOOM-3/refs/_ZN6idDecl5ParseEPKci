@@ -1,0 +1,22 @@
+<def f='codebrowser/framework/DeclManager.h' l='214' type='bool idDecl::Parse(const char * text, const int textLength)'/>
+<doc f='codebrowser/framework/DeclManager.h' l='209'>// The manager will have already parsed past the type, name and opening brace.
+							// All necessary media will be touched before return.
+							// The manager will have called FreeData() before issuing a Parse().
+							// The subclass can call MakeDefault() internally at any point if
+							// there are parse errors.</doc>
+<ovr f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='2634' c='_ZN14idDeclModelDef5ParseEPKci'/>
+<ovr f='codebrowser/framework/DeclAF.cpp' l='1430' c='_ZN8idDeclAF5ParseEPKci'/>
+<ovr f='codebrowser/framework/DeclEntityDef.cpp' l='56' c='_ZN15idDeclEntityDef5ParseEPKci'/>
+<ovr f='codebrowser/framework/DeclFX.cpp' l='411' c='_ZN8idDeclFX5ParseEPKci'/>
+<use f='codebrowser/framework/DeclManager.cpp' l='2072' u='c' c='_ZN11idDeclLocal11MakeDefaultEv'/>
+<use f='codebrowser/framework/DeclManager.cpp' l='2192' u='c' c='_ZN11idDeclLocal10ParseLocalEv'/>
+<ovr f='codebrowser/framework/DeclPDA.cpp' l='64' c='_ZN9idDeclPDA5ParseEPKci'/>
+<ovr f='codebrowser/framework/DeclPDA.cpp' l='355' c='_ZN11idDeclEmail5ParseEPKci'/>
+<ovr f='codebrowser/framework/DeclPDA.cpp' l='481' c='_ZN11idDeclVideo5ParseEPKci'/>
+<ovr f='codebrowser/framework/DeclPDA.cpp' l='595' c='_ZN11idDeclAudio5ParseEPKci'/>
+<ovr f='codebrowser/framework/DeclParticle.cpp' l='423' c='_ZN14idDeclParticle5ParseEPKci'/>
+<ovr f='codebrowser/framework/DeclSkin.cpp' l='56' c='_ZN10idDeclSkin5ParseEPKci'/>
+<ovr f='codebrowser/framework/DeclTable.cpp' l='112' c='_ZN11idDeclTable5ParseEPKci'/>
+<ovr f='codebrowser/game/anim/Anim_Blend.cpp' l='2548' c='_ZN14idDeclModelDef5ParseEPKci'/>
+<ovr f='codebrowser/renderer/Material.cpp' l='2122' c='_ZN10idMaterial5ParseEPKci'/>
+<ovr f='codebrowser/sound/snd_shader.cpp' l='131' c='_ZN13idSoundShader5ParseEPKci'/>

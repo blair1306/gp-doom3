@@ -1,0 +1,12 @@
+<dec f='codebrowser/idlib/math/Matrix.h' l='1906' type='bool idMatX::Inverse_UpdateRankOne(const idVecX &amp; v, const idVecX &amp; w, float alpha)'/>
+<def f='codebrowser/idlib/math/Matrix.cpp' l='3709' ll='3738' type='bool idMatX::Inverse_UpdateRankOne(const idVecX &amp; v, const idVecX &amp; w, float alpha)'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='3766' u='c' c='_ZN6idMatX23Inverse_UpdateRowColumnERK6idVecXS2_i'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='3769' u='c' c='_ZN6idMatX23Inverse_UpdateRowColumnERK6idVecXS2_i'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7268' u='c' c='_ZN6idMatX4TestEv'/>
+<doc f='codebrowser/idlib/math/Matrix.cpp' l='3702'>/*
+============
+idMatX::Inverse_UpdateRankOne
+
+  Updates the in-place inverse using the Sherman-Morrison formula to obtain the inverse for the matrix: A + alpha * v * w&apos;
+============
+*/</doc>

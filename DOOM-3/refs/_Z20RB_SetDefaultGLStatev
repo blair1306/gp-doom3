@@ -1,0 +1,19 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1609' type='void RB_SetDefaultGLState()'/>
+<doc f='codebrowser/renderer/tr_local.h' l='1601'>/*
+=============================================================
+
+TR_BACKEND
+
+=============================================================
+*/</doc>
+<def f='codebrowser/renderer/tr_backend.cpp' l='46' ll='104' type='void RB_SetDefaultGLState()'/>
+<use f='codebrowser/renderer/tr_backend.cpp' l='611' u='c' c='_Z25RB_ExecuteBackEndCommandsPK14emptyCommand_t'/>
+<doc f='codebrowser/renderer/tr_backend.cpp' l='38'>/*
+======================
+RB_SetDefaultGLState
+
+This should initialize all GL state that any part of the entire program
+may touch, including the editor.
+======================
+*/</doc>
+<use f='codebrowser/renderer/tr_render.cpp' l='888' u='c' c='_Z11RB_DrawViewPKv'/>

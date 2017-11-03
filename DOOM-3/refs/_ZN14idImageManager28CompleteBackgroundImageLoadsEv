@@ -1,0 +1,12 @@
+<dec f='codebrowser/renderer/Image.h' l='324' type='void idImageManager::CompleteBackgroundImageLoads()'/>
+<doc f='codebrowser/renderer/Image.h' l='322'>// called once a frame to allow any background loads that have been completed
+	// to turn into textures.</doc>
+<def f='codebrowser/renderer/Image_init.cpp' l='1846' ll='1875' type='void idImageManager::CompleteBackgroundImageLoads()'/>
+<doc f='codebrowser/renderer/Image_init.cpp' l='1839'>/*
+==================
+R_CompleteBackgroundImageLoads
+
+Do we need to worry about vid_restarts here?
+==================
+*/</doc>
+<use f='codebrowser/renderer/tr_backend.cpp' l='614' u='c' c='_Z25RB_ExecuteBackEndCommandsPK14emptyCommand_t'/>

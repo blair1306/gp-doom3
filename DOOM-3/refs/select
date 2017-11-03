@@ -1,0 +1,20 @@
+<dec f='include/x86_64-linux-gnu/sys/select.h' l='106' type='int select(int __nfds, fd_set *__restrict __readfds, fd_set *__restrict __writefds, fd_set *__restrict __exceptfds, struct timeval *__restrict __timeout)'/>
+<doc f='include/x86_64-linux-gnu/sys/select.h' l='98'>/* Check the first NFDS descriptors each in READFDS (if not NULL) for read
+   readiness, in WRITEFDS (if not NULL) for write readiness, and in EXCEPTFDS
+   (if not NULL) for exceptional conditions.  If TIMEOUT is not NULL, time out
+   after waiting the interval specified therein.  Returns the number of ready
+   descriptors, or -1 for errors.
+
+   This function is a cancellation point and therefore not marked with
+   __THROW.  */</doc>
+<use f='codebrowser/curl/lib/connect.c' l='204' u='c' c='waitconnect'/>
+<use f='codebrowser/curl/lib/ftp.c' l='162' u='c' c='AllowServerConnect'/>
+<use f='codebrowser/curl/lib/ftp.c' l='283' u='c' c='Curl_GetFTPResponse'/>
+<use f='codebrowser/curl/lib/http.c' l='831' u='c' c='Curl_ConnectHTTPProxyTunnel'/>
+<use f='codebrowser/curl/lib/transfer.c' l='220' u='c' c='Curl_readwrite'/>
+<use f='codebrowser/curl/lib/transfer.c' l='229' u='c' c='Curl_readwrite'/>
+<use f='codebrowser/curl/lib/transfer.c' l='1425' u='c' c='Transfer'/>
+<use f='codebrowser/curl/lib/url.c' l='1401' u='c' c='SocketIsDead'/>
+<use f='codebrowser/sys/linux/input.cpp' l='290' u='c' c='_ZL17Sys_XPendingInputv'/>
+<use f='codebrowser/sys/posix/posix_main.cpp' l='949' u='c' c='_Z18Posix_ConsoleInputv'/>
+<use f='codebrowser/sys/posix/posix_net.cpp' l='538' u='c' c='_ZN6idPort17GetPacketBlockingER8netadr_tPvRiii'/>

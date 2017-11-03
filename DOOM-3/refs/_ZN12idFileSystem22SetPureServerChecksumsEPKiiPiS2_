@@ -1,0 +1,10 @@
+<dec f='codebrowser/framework/FileSystem.h' l='202' type='fsPureReply_t idFileSystem::SetPureServerChecksums(const int * pureChecksums, int gamePakChecksum, int * missingChecksums, int * missingGamePakChecksum)'/>
+<doc f='codebrowser/framework/FileSystem.h' l='195'>// 0-terminated list of pak checksums
+							// if pureChecksums[ 0 ] == 0, all data sources will be allowed
+							// otherwise, only pak files that match one of the checksums will be checked for files
+							// with the sole exception of .cfg files.
+							// the function tries to configure pure mode from the paks already referenced and this new list
+							// it returns wether the switch was successfull, and sets the missing checksums
+							// the process is verbosive when fs_debug 1</doc>
+<ovr f='codebrowser/framework/FileSystem.cpp' l='2638' c='_ZN17idFileSystemLocal22SetPureServerChecksumsEPKiiPiS2_'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1405' u='c' c='_ZN13idAsyncClient27ValidatePureServerChecksumsE8netadr_tRK8idBitMsg'/>

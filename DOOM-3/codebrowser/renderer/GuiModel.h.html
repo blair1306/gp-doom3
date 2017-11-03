@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GuiModel.h source code [codebrowser/renderer/GuiModel.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idGuiModel "/>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/renderer/GuiModel.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>renderer</a>/<a href='GuiModel.h.html'>GuiModel.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="31">31</th><td>	<em>const</em> <a class="type" href="Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a>	*<dfn class="decl" id="(anonymous)::material" title='(anonymous struct)::material' data-ref="(anonymous)::material">material</dfn>;</td></tr>
+<tr><th id="32">32</th><td>	<em>float</em>				<dfn class="decl" id="(anonymous)::color" title='(anonymous struct)::color' data-ref="(anonymous)::color">color</dfn>[<var>4</var>];</td></tr>
+<tr><th id="33">33</th><td>	<em>int</em>					<dfn class="decl" id="(anonymous)::firstVert" title='(anonymous struct)::firstVert' data-ref="(anonymous)::firstVert">firstVert</dfn>;</td></tr>
+<tr><th id="34">34</th><td>	<em>int</em>					<dfn class="decl" id="(anonymous)::numVerts" title='(anonymous struct)::numVerts' data-ref="(anonymous)::numVerts">numVerts</dfn>;</td></tr>
+<tr><th id="35">35</th><td>	<em>int</em>					<dfn class="decl" id="(anonymous)::firstIndex" title='(anonymous struct)::firstIndex' data-ref="(anonymous)::firstIndex">firstIndex</dfn>;</td></tr>
+<tr><th id="36">36</th><td>	<em>int</em>					<dfn class="decl" id="(anonymous)::numIndexes" title='(anonymous struct)::numIndexes' data-ref="(anonymous)::numIndexes">numIndexes</dfn>;</td></tr>
+<tr><th id="37">37</th><td>} <dfn class="typedef" id="guiModelSurface_t" title='guiModelSurface_t' data-type='struct guiModelSurface_t' data-ref="guiModelSurface_t">guiModelSurface_t</dfn>;</td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td><b>class</b> <dfn class="type def" id="idGuiModel" title='idGuiModel' data-ref="idGuiModel">idGuiModel</dfn> {</td></tr>
+<tr><th id="40">40</th><td><b>public</b>:</td></tr>
+<tr><th id="41">41</th><td>	<dfn class="decl" id="_ZN10idGuiModelC1Ev" title='idGuiModel::idGuiModel' data-ref="_ZN10idGuiModelC1Ev">idGuiModel</dfn>();</td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td>	<em>void</em>	<dfn class="decl" id="_ZN10idGuiModel5ClearEv" title='idGuiModel::Clear' data-ref="_ZN10idGuiModel5ClearEv">Clear</dfn>();</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td>	<em>void</em>	<dfn class="decl" id="_ZN10idGuiModel11WriteToDemoEP10idDemoFile" title='idGuiModel::WriteToDemo' data-ref="_ZN10idGuiModel11WriteToDemoEP10idDemoFile">WriteToDemo</dfn>( <a class="type" href="../framework/DemoFile.h.html#idDemoFile" title='idDemoFile' data-ref="idDemoFile">idDemoFile</a> *<dfn class="local col3 decl" id="823demo" title='demo' data-type='idDemoFile *' data-ref="823demo">demo</dfn> );</td></tr>
+<tr><th id="46">46</th><td>	<em>void</em>	<dfn class="decl" id="_ZN10idGuiModel12ReadFromDemoEP10idDemoFile" title='idGuiModel::ReadFromDemo' data-ref="_ZN10idGuiModel12ReadFromDemoEP10idDemoFile">ReadFromDemo</dfn>( <a class="type" href="../framework/DemoFile.h.html#idDemoFile" title='idDemoFile' data-ref="idDemoFile">idDemoFile</a> *<dfn class="local col4 decl" id="824demo" title='demo' data-type='idDemoFile *' data-ref="824demo">demo</dfn> );	</td></tr>
+<tr><th id="47">47</th><td>	</td></tr>
+<tr><th id="48">48</th><td>	<em>void</em>	<dfn class="decl" id="_ZN10idGuiModel17EmitToCurrentViewEPfb" title='idGuiModel::EmitToCurrentView' data-ref="_ZN10idGuiModel17EmitToCurrentViewEPfb">EmitToCurrentView</dfn>( <em>float</em> <dfn class="local col5 decl" id="825modelMatrix" title='modelMatrix' data-type='float *' data-ref="825modelMatrix">modelMatrix</dfn>[<var>16</var>], <em>bool</em> <dfn class="local col6 decl" id="826depthHack" title='depthHack' data-type='bool' data-ref="826depthHack">depthHack</dfn> );</td></tr>
+<tr><th id="49">49</th><td>	<em>void</em>	<dfn class="decl" id="_ZN10idGuiModel14EmitFullScreenEv" title='idGuiModel::EmitFullScreen' data-ref="_ZN10idGuiModel14EmitFullScreenEv">EmitFullScreen</dfn>();</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td>	<i>// these calls are forwarded from the renderer</i></td></tr>
+<tr><th id="52">52</th><td>	<em>void</em>	<dfn class="decl" id="_ZN10idGuiModel8SetColorEffff" title='idGuiModel::SetColor' data-ref="_ZN10idGuiModel8SetColorEffff">SetColor</dfn>( <em>float</em> <dfn class="local col7 decl" id="827r" title='r' data-type='float' data-ref="827r">r</dfn>, <em>float</em> <dfn class="local col8 decl" id="828g" title='g' data-type='float' data-ref="828g">g</dfn>, <em>float</em> <dfn class="local col9 decl" id="829b" title='b' data-type='float' data-ref="829b">b</dfn>, <em>float</em> <dfn class="local col0 decl" id="830a" title='a' data-type='float' data-ref="830a">a</dfn> );</td></tr>
+<tr><th id="53">53</th><td>	<em>void</em>	<dfn class="decl" id="_ZN10idGuiModel14DrawStretchPicEPK10idDrawVertPKiiiPK10idMaterialbffff" title='idGuiModel::DrawStretchPic' data-ref="_ZN10idGuiModel14DrawStretchPicEPK10idDrawVertPKiiiPK10idMaterialbffff">DrawStretchPic</dfn>( <em>const</em> <a class="type" href="../idlib/geometry/DrawVert.h.html#idDrawVert" title='idDrawVert' data-ref="idDrawVert">idDrawVert</a> *<dfn class="local col1 decl" id="831verts" title='verts' data-type='const idDrawVert *' data-ref="831verts">verts</dfn>, <em>const</em> <a class="typedef" href="Model.h.html#glIndex_t" title='glIndex_t' data-type='int' data-ref="glIndex_t">glIndex_t</a> *<dfn class="local col2 decl" id="832indexes" title='indexes' data-type='const glIndex_t *' data-ref="832indexes">indexes</dfn>, <em>int</em> <dfn class="local col3 decl" id="833vertCount" title='vertCount' data-type='int' data-ref="833vertCount">vertCount</dfn>, <em>int</em> <dfn class="local col4 decl" id="834indexCount" title='indexCount' data-type='int' data-ref="834indexCount">indexCount</dfn>, <em>const</em> <a class="type" href="Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *<dfn class="local col5 decl" id="835hShader" title='hShader' data-type='const idMaterial *' data-ref="835hShader">hShader</dfn>,</td></tr>
+<tr><th id="54">54</th><td>									<em>bool</em> <dfn class="local col6 decl" id="836clip" title='clip' data-type='bool' data-ref="836clip">clip</dfn> = <b>true</b>, <em>float</em> <dfn class="local col7 decl" id="837min_x" title='min_x' data-type='float' data-ref="837min_x">min_x</dfn> = <var>0.0f</var>, <em>float</em> <dfn class="local col8 decl" id="838min_y" title='min_y' data-type='float' data-ref="838min_y">min_y</dfn> = <var>0.0f</var>, <em>float</em> <dfn class="local col9 decl" id="839max_x" title='max_x' data-type='float' data-ref="839max_x">max_x</dfn> = <var>640.0f</var>, <em>float</em> <dfn class="local col0 decl" id="840max_y" title='max_y' data-type='float' data-ref="840max_y">max_y</dfn> = <var>480.0f</var> );</td></tr>
+<tr><th id="55">55</th><td>	<em>void</em>	<dfn class="decl" id="_ZN10idGuiModel14DrawStretchPicEffffffffPK10idMaterial" title='idGuiModel::DrawStretchPic' data-ref="_ZN10idGuiModel14DrawStretchPicEffffffffPK10idMaterial">DrawStretchPic</dfn>( <em>float</em> <dfn class="local col1 decl" id="841x" title='x' data-type='float' data-ref="841x">x</dfn>, <em>float</em> <dfn class="local col2 decl" id="842y" title='y' data-type='float' data-ref="842y">y</dfn>, <em>float</em> <dfn class="local col3 decl" id="843w" title='w' data-type='float' data-ref="843w">w</dfn>, <em>float</em> <dfn class="local col4 decl" id="844h" title='h' data-type='float' data-ref="844h">h</dfn>,</td></tr>
+<tr><th id="56">56</th><td>									<em>float</em> <dfn class="local col5 decl" id="845s1" title='s1' data-type='float' data-ref="845s1">s1</dfn>, <em>float</em> <dfn class="local col6 decl" id="846t1" title='t1' data-type='float' data-ref="846t1">t1</dfn>, <em>float</em> <dfn class="local col7 decl" id="847s2" title='s2' data-type='float' data-ref="847s2">s2</dfn>, <em>float</em> <dfn class="local col8 decl" id="848t2" title='t2' data-type='float' data-ref="848t2">t2</dfn>, <em>const</em> <a class="type" href="Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *<dfn class="local col9 decl" id="849hShader" title='hShader' data-type='const idMaterial *' data-ref="849hShader">hShader</dfn>);</td></tr>
+<tr><th id="57">57</th><td>	<em>void</em>	<dfn class="decl" id="_ZN10idGuiModel14DrawStretchTriE6idVec2S0_S0_S0_S0_S0_PK10idMaterial" title='idGuiModel::DrawStretchTri' data-ref="_ZN10idGuiModel14DrawStretchTriE6idVec2S0_S0_S0_S0_S0_PK10idMaterial">DrawStretchTri</dfn> ( <a class="type" href="../idlib/math/Vector.h.html#idVec2" title='idVec2' data-ref="idVec2">idVec2</a> <dfn class="local col0 decl" id="850p1" title='p1' data-type='idVec2' data-ref="850p1">p1</dfn>, <a class="type" href="../idlib/math/Vector.h.html#idVec2" title='idVec2' data-ref="idVec2">idVec2</a> <dfn class="local col1 decl" id="851p2" title='p2' data-type='idVec2' data-ref="851p2">p2</dfn>, <a class="type" href="../idlib/math/Vector.h.html#idVec2" title='idVec2' data-ref="idVec2">idVec2</a> <dfn class="local col2 decl" id="852p3" title='p3' data-type='idVec2' data-ref="852p3">p3</dfn>, <a class="type" href="../idlib/math/Vector.h.html#idVec2" title='idVec2' data-ref="idVec2">idVec2</a> <dfn class="local col3 decl" id="853t1" title='t1' data-type='idVec2' data-ref="853t1">t1</dfn>, <a class="type" href="../idlib/math/Vector.h.html#idVec2" title='idVec2' data-ref="idVec2">idVec2</a> <dfn class="local col4 decl" id="854t2" title='t2' data-type='idVec2' data-ref="854t2">t2</dfn>, <a class="type" href="../idlib/math/Vector.h.html#idVec2" title='idVec2' data-ref="idVec2">idVec2</a> <dfn class="local col5 decl" id="855t3" title='t3' data-type='idVec2' data-ref="855t3">t3</dfn>, <em>const</em> <a class="type" href="Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *<dfn class="local col6 decl" id="856material" title='material' data-type='const idMaterial *' data-ref="856material">material</dfn> );</td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td>	<i>//---------------------------</i></td></tr>
+<tr><th id="60">60</th><td><b>private</b>:</td></tr>
+<tr><th id="61">61</th><td>	<em>void</em>	<dfn class="decl" id="_ZN10idGuiModel11AdvanceSurfEv" title='idGuiModel::AdvanceSurf' data-ref="_ZN10idGuiModel11AdvanceSurfEv">AdvanceSurf</dfn>();</td></tr>
+<tr><th id="62">62</th><td>	<em>void</em>	<dfn class="decl" id="_ZN10idGuiModel11EmitSurfaceEP17guiModelSurface_tPfS2_b" title='idGuiModel::EmitSurface' data-ref="_ZN10idGuiModel11EmitSurfaceEP17guiModelSurface_tPfS2_b">EmitSurface</dfn>( <a class="typedef" href="#guiModelSurface_t" title='guiModelSurface_t' data-type='struct guiModelSurface_t' data-ref="guiModelSurface_t">guiModelSurface_t</a> *<dfn class="local col7 decl" id="857surf" title='surf' data-type='guiModelSurface_t *' data-ref="857surf">surf</dfn>, <em>float</em> <dfn class="local col8 decl" id="858modelMatrix" title='modelMatrix' data-type='float *' data-ref="858modelMatrix">modelMatrix</dfn>[<var>16</var>], <em>float</em> <dfn class="local col9 decl" id="859modelViewMatrix" title='modelViewMatrix' data-type='float *' data-ref="859modelViewMatrix">modelViewMatrix</dfn>[<var>16</var>], <em>bool</em> <dfn class="local col0 decl" id="860depthHack" title='depthHack' data-type='bool' data-ref="860depthHack">depthHack</dfn> );</td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td>	<a class="typedef" href="#guiModelSurface_t" title='guiModelSurface_t' data-type='struct guiModelSurface_t' data-ref="guiModelSurface_t">guiModelSurface_t</a>		*<dfn class="decl" id="idGuiModel::surf" title='idGuiModel::surf' data-ref="idGuiModel::surf">surf</dfn>;</td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td>	<a class="type" href="../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<a class="typedef" href="#guiModelSurface_t" title='guiModelSurface_t' data-type='struct guiModelSurface_t' data-ref="guiModelSurface_t">guiModelSurface_t</a>&gt;	<dfn class="decl" id="idGuiModel::surfaces" title='idGuiModel::surfaces' data-ref="idGuiModel::surfaces">surfaces</dfn>;</td></tr>
+<tr><th id="67">67</th><td>	<a class="type" href="../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<a class="typedef" href="Model.h.html#glIndex_t" title='glIndex_t' data-type='int' data-ref="glIndex_t">glIndex_t</a>&gt;		<dfn class="decl" id="idGuiModel::indexes" title='idGuiModel::indexes' data-ref="idGuiModel::indexes">indexes</dfn>;</td></tr>
+<tr><th id="68">68</th><td>	<a class="type" href="../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<a class="type" href="../idlib/geometry/DrawVert.h.html#idDrawVert" title='idDrawVert' data-ref="idDrawVert">idDrawVert</a>&gt;	<dfn class="decl" id="idGuiModel::verts" title='idGuiModel::verts' data-ref="idGuiModel::verts">verts</dfn>;</td></tr>
+<tr><th id="69">69</th><td>};</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../build/debug/core/glimp/sys/linux/glimp_dlopen.cpp.html'>codebrowser/build/debug/core/glimp/sys/linux/glimp_dlopen.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

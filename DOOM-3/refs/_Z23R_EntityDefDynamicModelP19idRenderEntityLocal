@@ -1,0 +1,18 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1176' type='idRenderModel * R_EntityDefDynamicModel(idRenderEntityLocal * def)'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='1068' u='c' c='_ZN13idInteraction20AddActiveInteractionEv'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='625' u='c' c='_ZN18idRenderWorldLocal14ProjectOverlayEiPK7idPlanePK10idMaterial'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1076' u='c' c='_ZNK18idRenderWorldLocal10ModelTraceER12modelTrace_siRK6idVec3S4_f'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1219' u='c' c='_ZNK18idRenderWorldLocal5TraceER12modelTrace_sRK6idVec3S4_fbb'/>
+<def f='codebrowser/renderer/tr_light.cpp' l='1104' ll='1176' type='idRenderModel * R_EntityDefDynamicModel(idRenderEntityLocal * def)'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1513' u='c' c='_Z18R_AddModelSurfacesv'/>
+<doc f='codebrowser/renderer/tr_light.cpp' l='1094'>/*
+===================
+R_EntityDefDynamicModel
+
+Issues a deferred entity callback if necessary.
+If the model isn&apos;t dynamic, it returns the original.
+Returns the cached dynamic model if present, otherwise creates
+it and any necessary overlays
+===================
+*/</doc>
+<use f='codebrowser/renderer/tr_rendertools.cpp' l='885' u='c' c='_ZL18RB_ShowViewEntitysP12viewEntity_s'/>

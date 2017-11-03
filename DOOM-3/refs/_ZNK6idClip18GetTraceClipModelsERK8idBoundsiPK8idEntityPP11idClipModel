@@ -1,0 +1,40 @@
+<dec f='codebrowser/d3xp/physics/Clip.h' l='328' type='int idClip::GetTraceClipModels(const idBounds &amp; bounds, int contentMask, const idEntity * passEntity, idClipModel ** clipModelList) const'/>
+<def f='codebrowser/d3xp/physics/Clip.cpp' l='870' ll='906' type='int idClip::GetTraceClipModels(const idBounds &amp; bounds, int contentMask, const idEntity * passEntity, idClipModel ** clipModelList) const'/>
+<use f='codebrowser/d3xp/physics/Clip.cpp' l='1022' u='c' c='_ZN6idClip19TranslationEntitiesER7trace_sRK6idVec3S4_PK11idClipModelRK6idMat3iPK8idEntity'/>
+<use f='codebrowser/d3xp/physics/Clip.cpp' l='1094' u='c' c='_ZN6idClip11TranslationER7trace_sRK6idVec3S4_PK11idClipModelRK6idMat3iPK8idEntity'/>
+<use f='codebrowser/d3xp/physics/Clip.cpp' l='1161' u='c' c='_ZN6idClip8RotationER7trace_sRK6idVec3RK10idRotationPK11idClipModelRK6idMat3iPK8idEntity'/>
+<use f='codebrowser/d3xp/physics/Clip.cpp' l='1260' u='c' c='_ZN6idClip6MotionER7trace_sRK6idVec3S4_RK10idRotationPK11idClipModelRK6idMat3iPK8idEntity'/>
+<use f='codebrowser/d3xp/physics/Clip.cpp' l='1311' u='c' c='_ZN6idClip6MotionER7trace_sRK6idVec3S4_RK10idRotationPK11idClipModelRK6idMat3iPK8idEntity'/>
+<use f='codebrowser/d3xp/physics/Clip.cpp' l='1391' u='c' c='_ZN6idClip8ContactsEP13contactInfo_tiRK6idVec3RK6idVec6fPK11idClipModelRK6idMat3iPK8idEntity'/>
+<use f='codebrowser/d3xp/physics/Clip.cpp' l='1455' u='c' c='_ZN6idClip8ContentsERK6idVec3PK11idClipModelRK6idMat3iPK8idEntity'/>
+<doc f='codebrowser/d3xp/physics/Clip.cpp' l='859'>/*
+====================
+idClip::GetTraceClipModels
+
+  an ent will be excluded from testing if:
+  cm-&gt;entity == passEntity ( don&apos;t clip against the pass entity )
+  cm-&gt;entity == passOwner ( missiles don&apos;t clip with owner )
+  cm-&gt;owner == passEntity ( don&apos;t interact with your own missiles )
+  cm-&gt;owner == passOwner ( don&apos;t interact with other missiles from same owner )
+====================
+*/</doc>
+<dec f='codebrowser/game/physics/Clip.h' l='328' type='int idClip::GetTraceClipModels(const idBounds &amp; bounds, int contentMask, const idEntity * passEntity, idClipModel ** clipModelList) const'/>
+<def f='codebrowser/game/physics/Clip.cpp' l='870' ll='906' type='int idClip::GetTraceClipModels(const idBounds &amp; bounds, int contentMask, const idEntity * passEntity, idClipModel ** clipModelList) const'/>
+<use f='codebrowser/game/physics/Clip.cpp' l='1017' u='c' c='_ZN6idClip19TranslationEntitiesER7trace_sRK6idVec3S4_PK11idClipModelRK6idMat3iPK8idEntity'/>
+<use f='codebrowser/game/physics/Clip.cpp' l='1089' u='c' c='_ZN6idClip11TranslationER7trace_sRK6idVec3S4_PK11idClipModelRK6idMat3iPK8idEntity'/>
+<use f='codebrowser/game/physics/Clip.cpp' l='1156' u='c' c='_ZN6idClip8RotationER7trace_sRK6idVec3RK10idRotationPK11idClipModelRK6idMat3iPK8idEntity'/>
+<use f='codebrowser/game/physics/Clip.cpp' l='1255' u='c' c='_ZN6idClip6MotionER7trace_sRK6idVec3S4_RK10idRotationPK11idClipModelRK6idMat3iPK8idEntity'/>
+<use f='codebrowser/game/physics/Clip.cpp' l='1306' u='c' c='_ZN6idClip6MotionER7trace_sRK6idVec3S4_RK10idRotationPK11idClipModelRK6idMat3iPK8idEntity'/>
+<use f='codebrowser/game/physics/Clip.cpp' l='1386' u='c' c='_ZN6idClip8ContactsEP13contactInfo_tiRK6idVec3RK6idVec6fPK11idClipModelRK6idMat3iPK8idEntity'/>
+<use f='codebrowser/game/physics/Clip.cpp' l='1450' u='c' c='_ZN6idClip8ContentsERK6idVec3PK11idClipModelRK6idMat3iPK8idEntity'/>
+<doc f='codebrowser/game/physics/Clip.cpp' l='859'>/*
+====================
+idClip::GetTraceClipModels
+
+  an ent will be excluded from testing if:
+  cm-&gt;entity == passEntity ( don&apos;t clip against the pass entity )
+  cm-&gt;entity == passOwner ( missiles don&apos;t clip with owner )
+  cm-&gt;owner == passEntity ( don&apos;t interact with your own missiles )
+  cm-&gt;owner == passOwner ( don&apos;t interact with other missiles from same owner )
+====================
+*/</doc>

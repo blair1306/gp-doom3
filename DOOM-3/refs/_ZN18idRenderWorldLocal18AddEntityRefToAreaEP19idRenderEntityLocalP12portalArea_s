@@ -1,0 +1,13 @@
+<dec f='codebrowser/renderer/RenderWorld_local.h' l='242' type='void idRenderWorldLocal::AddEntityRefToArea(idRenderEntityLocal * def, portalArea_t * area)'/>
+<def f='codebrowser/renderer/RenderWorld.cpp' l='1384' ll='1407' type='void idRenderWorldLocal::AddEntityRefToArea(idRenderEntityLocal * def, portalArea_t * area)'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1559' u='c' c='_ZN18idRenderWorldLocal20PushVolumeIntoTree_rEP19idRenderEntityLocalP18idRenderLightLocalPK8idSphereiPK6idVec3i'/>
+<doc f='codebrowser/renderer/RenderWorld.cpp' l='1376'>/*
+=================
+AddEntityRefToArea
+
+This is called by R_PushVolumeIntoTree and also directly
+for the world model references that are precalculated.
+=================
+*/</doc>
+<use f='codebrowser/renderer/RenderWorld_load.cpp' l='677' u='c' c='_ZN18idRenderWorldLocal21AddWorldModelEntitiesEv'/>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='836' u='c' c='_Z25R_ReCreateWorldReferencesv'/>

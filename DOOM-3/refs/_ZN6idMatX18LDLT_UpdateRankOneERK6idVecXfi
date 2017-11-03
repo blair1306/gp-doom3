@@ -1,0 +1,11 @@
+<dec f='codebrowser/idlib/math/Matrix.h' l='1948' type='bool idMatX::LDLT_UpdateRankOne(const idVecX &amp; v, float alpha, int offset = 0)'/>
+<def f='codebrowser/idlib/math/Matrix.cpp' l='5795' ll='5832' type='bool idMatX::LDLT_UpdateRankOne(const idVecX &amp; v, float alpha, int offset = 0)'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7919' u='c' c='_ZN6idMatX4TestEv'/>
+<doc f='codebrowser/idlib/math/Matrix.cpp' l='5787'>/*
+============
+idMatX::LDLT_UpdateRankOne
+
+  Updates the in-place LDL&apos; factorization to obtain the factors for the matrix: LDL&apos; + alpha * v * v&apos;
+  If offset &gt; 0 only the lower right corner starting at (offset, offset) is updated.
+============
+*/</doc>

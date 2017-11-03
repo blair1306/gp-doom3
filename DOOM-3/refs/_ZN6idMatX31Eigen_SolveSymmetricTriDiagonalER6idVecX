@@ -1,0 +1,13 @@
+<dec f='codebrowser/idlib/math/Matrix.h' l='1961' type='bool idMatX::Eigen_SolveSymmetricTriDiagonal(idVecX &amp; eigenValues)'/>
+<def f='codebrowser/idlib/math/Matrix.cpp' l='6520' ll='6538' type='bool idMatX::Eigen_SolveSymmetricTriDiagonal(idVecX &amp; eigenValues)'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='8042' u='c' c='_ZN6idMatX4TestEv'/>
+<doc f='codebrowser/idlib/math/Matrix.cpp' l='6510'>/*
+============
+idMatX::Eigen_SolveSymmetricTriDiagonal
+
+  Determine eigen values and eigen vectors for a symmetric tri-diagonal matrix.
+  The eigen values are stored in &apos;eigenValues&apos;.
+  Column i of the original matrix will store the eigen vector corresponding to the eigenValues[i].
+  The initial matrix has to be symmetric tri-diagonal.
+============
+*/</doc>

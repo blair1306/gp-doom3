@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>timeval.c source code [codebrowser/curl/lib/timeval.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/curl/lib/timeval.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>curl</a>/<a href='./'>lib</a>/<a href='timeval.c.html'>timeval.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/***************************************************************************</i></td></tr>
+<tr><th id="2">2</th><td><i> *                                  _   _ ____  _</i></td></tr>
+<tr><th id="3">3</th><td><i> *  Project                     ___| | | |  _ \| |</i></td></tr>
+<tr><th id="4">4</th><td><i> *                             / __| | | | |_) | |</i></td></tr>
+<tr><th id="5">5</th><td><i> *                            | (__| |_| |  _ &lt;| |___</i></td></tr>
+<tr><th id="6">6</th><td><i> *                             \___|\___/|_| \_\_____|</i></td></tr>
+<tr><th id="7">7</th><td><i> *</i></td></tr>
+<tr><th id="8">8</th><td><i> * Copyright (C) 1998 - 2004, Daniel Stenberg, &lt;daniel@haxx.se&gt;, et al.</i></td></tr>
+<tr><th id="9">9</th><td><i> *</i></td></tr>
+<tr><th id="10">10</th><td><i> * This software is licensed as described in the file COPYING, which</i></td></tr>
+<tr><th id="11">11</th><td><i> * you should have received as part of this distribution. The terms</i></td></tr>
+<tr><th id="12">12</th><td><i> * are also available at <a href="http://curl.haxx.se/docs/copyright.html">http://curl.haxx.se/docs/copyright.html</a>.</i></td></tr>
+<tr><th id="13">13</th><td><i> *</i></td></tr>
+<tr><th id="14">14</th><td><i> * You may opt to use, copy, modify, merge, publish, distribute and/or sell</i></td></tr>
+<tr><th id="15">15</th><td><i> * copies of the Software, and permit persons to whom the Software is</i></td></tr>
+<tr><th id="16">16</th><td><i> * furnished to do so, under the terms of the COPYING file.</i></td></tr>
+<tr><th id="17">17</th><td><i> *</i></td></tr>
+<tr><th id="18">18</th><td><i> * This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY</i></td></tr>
+<tr><th id="19">19</th><td><i> * KIND, either express or implied.</i></td></tr>
+<tr><th id="20">20</th><td><i> *</i></td></tr>
+<tr><th id="21">21</th><td><i> * $Id: timeval.c,v 1.20 2004/03/11 13:13:35 bagder Exp $</i></td></tr>
+<tr><th id="22">22</th><td><i> ***************************************************************************/</i></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="timeval.h.html">"timeval.h"</a></u></td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><u>#<span data-ppcond="26">ifndef</span> <a class="macro" href="config.h.html#116" data-ref="_M/HAVE_GETTIMEOFDAY">HAVE_GETTIMEOFDAY</a></u></td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><u>#ifdef WIN32</u></td></tr>
+<tr><th id="29">29</th><td><u>#include &lt;mmsystem.h&gt;</u></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><em>static</em> <em>int</em> gettimeofday(<b>struct</b> timeval *tp, <em>void</em> *nothing)</td></tr>
+<tr><th id="32">32</th><td>{</td></tr>
+<tr><th id="33">33</th><td><u>#ifdef WITHOUT_MM_LIB</u></td></tr>
+<tr><th id="34">34</th><td>  SYSTEMTIME st;</td></tr>
+<tr><th id="35">35</th><td>  time_t tt;</td></tr>
+<tr><th id="36">36</th><td>  <b>struct</b> tm tmtm;</td></tr>
+<tr><th id="37">37</th><td>  <i>/* mktime converts local to UTC */</i></td></tr>
+<tr><th id="38">38</th><td>  GetLocalTime (&amp;st);</td></tr>
+<tr><th id="39">39</th><td>  tmtm.tm_sec = st.wSecond;</td></tr>
+<tr><th id="40">40</th><td>  tmtm.tm_min = st.wMinute;</td></tr>
+<tr><th id="41">41</th><td>  tmtm.tm_hour = st.wHour;</td></tr>
+<tr><th id="42">42</th><td>  tmtm.tm_mday = st.wDay;</td></tr>
+<tr><th id="43">43</th><td>  tmtm.tm_mon = st.wMonth - <var>1</var>;</td></tr>
+<tr><th id="44">44</th><td>  tmtm.tm_year = st.wYear - <var>1900</var>;</td></tr>
+<tr><th id="45">45</th><td>  tmtm.tm_isdst = -<var>1</var>;</td></tr>
+<tr><th id="46">46</th><td>  tt = mktime (&amp;tmtm);</td></tr>
+<tr><th id="47">47</th><td>  tp-&gt;tv_sec = tt;</td></tr>
+<tr><th id="48">48</th><td>  tp-&gt;tv_usec = st.wMilliseconds * <var>1000</var>;</td></tr>
+<tr><th id="49">49</th><td><u>#else</u></td></tr>
+<tr><th id="50">50</th><td>  <i class="doc">/**</i></td></tr>
+<tr><th id="51">51</th><td><i class="doc">   ** The earlier time calculations using GetLocalTime</i></td></tr>
+<tr><th id="52">52</th><td><i class="doc">   ** had a time resolution of 10ms.The timeGetTime, part</i></td></tr>
+<tr><th id="53">53</th><td><i class="doc">   ** of multimedia apis offer a better time resolution</i></td></tr>
+<tr><th id="54">54</th><td><i class="doc">   ** of 1ms.Need to link against winmm.lib for this</i></td></tr>
+<tr><th id="55">55</th><td><i class="doc">   **/</i></td></tr>
+<tr><th id="56">56</th><td>  <em>unsigned</em> <em>long</em> Ticks = <var>0</var>;</td></tr>
+<tr><th id="57">57</th><td>  <em>unsigned</em> <em>long</em> Sec =<var>0</var>;</td></tr>
+<tr><th id="58">58</th><td>  <em>unsigned</em> <em>long</em> Usec = <var>0</var>;</td></tr>
+<tr><th id="59">59</th><td>  Ticks = timeGetTime();</td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td>  Sec = Ticks/<var>1000</var>;</td></tr>
+<tr><th id="62">62</th><td>  Usec = (Ticks - (Sec*<var>1000</var>))*<var>1000</var>;</td></tr>
+<tr><th id="63">63</th><td>  tp-&gt;tv_sec = Sec;</td></tr>
+<tr><th id="64">64</th><td>  tp-&gt;tv_usec = Usec;</td></tr>
+<tr><th id="65">65</th><td><u>#endif /* WITHOUT_MM_LIB */</u></td></tr>
+<tr><th id="66">66</th><td>  (<em>void</em>)nothing;</td></tr>
+<tr><th id="67">67</th><td>  <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="68">68</th><td>}</td></tr>
+<tr><th id="69">69</th><td><u>#else /* WIN32 */</u></td></tr>
+<tr><th id="70">70</th><td><i>/* non-win32 version of Curl_gettimeofday() */</i></td></tr>
+<tr><th id="71">71</th><td><em>static</em> <em>int</em> gettimeofday(<b>struct</b> timeval *tp, <em>void</em> *nothing)</td></tr>
+<tr><th id="72">72</th><td>{</td></tr>
+<tr><th id="73">73</th><td>  (<em>void</em>)nothing; <i>/* we don't support specific time-zones */</i></td></tr>
+<tr><th id="74">74</th><td>  tp-&gt;tv_sec = (<em>long</em>)time(NULL);</td></tr>
+<tr><th id="75">75</th><td>  tp-&gt;tv_usec = <var>0</var>;</td></tr>
+<tr><th id="76">76</th><td>  <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="77">77</th><td>}</td></tr>
+<tr><th id="78">78</th><td><u>#endif /* WIN32 */</u></td></tr>
+<tr><th id="79">79</th><td><u>#<span data-ppcond="26">endif</span> /* HAVE_GETTIMEOFDAY */</u></td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td><b>struct</b> <a class="type" href="../../../include/x86_64-linux-gnu/bits/time.h.html#timeval" title='timeval' data-ref="timeval">timeval</a> <dfn class="decl def" id="Curl_tvnow" title='Curl_tvnow' data-ref="Curl_tvnow">Curl_tvnow</dfn> (<em>void</em>)</td></tr>
+<tr><th id="82">82</th><td>{</td></tr>
+<tr><th id="83">83</th><td>  <b>struct</b> <a class="type" href="../../../include/x86_64-linux-gnu/bits/time.h.html#timeval" title='timeval' data-ref="timeval">timeval</a> <dfn class="local col1 decl" id="1now" title='now' data-type='struct timeval' data-ref="1now">now</dfn>;</td></tr>
+<tr><th id="84">84</th><td>  (<em>void</em>)<a class="ref" href="../../../include/x86_64-linux-gnu/sys/time.h.html#gettimeofday" title='gettimeofday' data-ref="gettimeofday">gettimeofday</a>(&amp;<a class="local col1 ref" href="#1now" title='now' data-ref="1now">now</a>, <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>);</td></tr>
+<tr><th id="85">85</th><td>  <b>return</b> <a class="local col1 ref" href="#1now" title='now' data-ref="1now">now</a>;</td></tr>
+<tr><th id="86">86</th><td>}</td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td><i>/*</i></td></tr>
+<tr><th id="89">89</th><td><i> * Make sure that the first argument is the more recent time, as otherwise</i></td></tr>
+<tr><th id="90">90</th><td><i> * we'll get a weird negative time-diff back...</i></td></tr>
+<tr><th id="91">91</th><td><i> */</i></td></tr>
+<tr><th id="92">92</th><td><em>long</em> <dfn class="decl def" id="Curl_tvdiff" title='Curl_tvdiff' data-ref="Curl_tvdiff">Curl_tvdiff</dfn> (<b>struct</b> <a class="type" href="../../../include/x86_64-linux-gnu/bits/time.h.html#timeval" title='timeval' data-ref="timeval">timeval</a> <dfn class="local col2 decl" id="2newer" title='newer' data-type='struct timeval' data-ref="2newer">newer</dfn>, <b>struct</b> <a class="type" href="../../../include/x86_64-linux-gnu/bits/time.h.html#timeval" title='timeval' data-ref="timeval">timeval</a> <dfn class="local col3 decl" id="3older" title='older' data-type='struct timeval' data-ref="3older">older</dfn>)</td></tr>
+<tr><th id="93">93</th><td>{</td></tr>
+<tr><th id="94">94</th><td>  <b>return</b> (<a class="local col2 ref" href="#2newer" title='newer' data-ref="2newer">newer</a>.<a class="ref" href="../../../include/x86_64-linux-gnu/bits/time.h.html#timeval::tv_sec" title='timeval::tv_sec' data-ref="timeval::tv_sec">tv_sec</a>-<a class="local col3 ref" href="#3older" title='older' data-ref="3older">older</a>.<a class="ref" href="../../../include/x86_64-linux-gnu/bits/time.h.html#timeval::tv_sec" title='timeval::tv_sec' data-ref="timeval::tv_sec">tv_sec</a>)*<var>1000</var>+</td></tr>
+<tr><th id="95">95</th><td>    (<var>499</var>+<a class="local col2 ref" href="#2newer" title='newer' data-ref="2newer">newer</a>.<a class="ref" href="../../../include/x86_64-linux-gnu/bits/time.h.html#timeval::tv_usec" title='timeval::tv_usec' data-ref="timeval::tv_usec">tv_usec</a>-<a class="local col3 ref" href="#3older" title='older' data-ref="3older">older</a>.<a class="ref" href="../../../include/x86_64-linux-gnu/bits/time.h.html#timeval::tv_usec" title='timeval::tv_usec' data-ref="timeval::tv_usec">tv_usec</a>)/<var>1000</var>;</td></tr>
+<tr><th id="96">96</th><td>}</td></tr>
+<tr><th id="97">97</th><td></td></tr>
+<tr><th id="98">98</th><td><em>long</em> <dfn class="decl def" id="Curl_tvlong" title='Curl_tvlong' data-ref="Curl_tvlong">Curl_tvlong</dfn> (<b>struct</b> <a class="type" href="../../../include/x86_64-linux-gnu/bits/time.h.html#timeval" title='timeval' data-ref="timeval">timeval</a> <dfn class="local col4 decl" id="4t1" title='t1' data-type='struct timeval' data-ref="4t1">t1</dfn>)</td></tr>
+<tr><th id="99">99</th><td>{</td></tr>
+<tr><th id="100">100</th><td>  <b>return</b> <a class="local col4 ref" href="#4t1" title='t1' data-ref="4t1">t1</a>.<a class="ref" href="../../../include/x86_64-linux-gnu/bits/time.h.html#timeval::tv_sec" title='timeval::tv_sec' data-ref="timeval::tv_sec">tv_sec</a>;</td></tr>
+<tr><th id="101">101</th><td>}</td></tr>
+<tr><th id="102">102</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

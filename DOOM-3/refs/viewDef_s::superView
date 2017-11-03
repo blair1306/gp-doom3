@@ -1,0 +1,12 @@
+<dec f='codebrowser/renderer/tr_local.h' l='406' type='struct viewDef_s *'/>
+<offset>3488</offset>
+<doc f='codebrowser/renderer/tr_local.h' l='401'>// for scissor clipping, local inside renderView viewport
+	// subviews may only be rendering part of the main view
+	// these are real physical pixel values, possibly scaled and offset from the
+	// renderView x/y/width/height</doc>
+<doc f='codebrowser/renderer/tr_local.h' l='406'>// never go into an infinite subview loop </doc>
+<use f='codebrowser/renderer/tr_subview.cpp' l='330' u='w' c='_ZL14R_RemoteRenderP10drawSurf_sP14textureStage_t'/>
+<use f='codebrowser/renderer/tr_subview.cpp' l='379' u='w' c='_Z14R_MirrorRenderP10drawSurf_sP14textureStage_t12idScreenRect'/>
+<use f='codebrowser/renderer/tr_subview.cpp' l='429' u='w' c='_Z12R_XrayRenderP10drawSurf_sP14textureStage_t12idScreenRect'/>
+<use f='codebrowser/renderer/tr_subview.cpp' l='469' u='r' c='_Z24R_GenerateSurfaceSubviewP10drawSurf_s'/>
+<use f='codebrowser/renderer/tr_subview.cpp' l='525' u='w' c='_Z24R_GenerateSurfaceSubviewP10drawSurf_s'/>

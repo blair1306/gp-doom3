@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>progress.h source code [codebrowser/curl/lib/progress.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/curl/lib/progress.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>curl</a>/<a href='./'>lib</a>/<a href='progress.h.html'>progress.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><u>#<span data-ppcond="1">ifndef</span> <span class="macro" data-ref="_M/__PROGRESS_H">__PROGRESS_H</span></u></td></tr>
+<tr><th id="2">2</th><td><u>#define <dfn class="macro" id="_M/__PROGRESS_H" data-ref="_M/__PROGRESS_H">__PROGRESS_H</dfn></u></td></tr>
+<tr><th id="3">3</th><td><i>/***************************************************************************</i></td></tr>
+<tr><th id="4">4</th><td><i> *                                  _   _ ____  _     </i></td></tr>
+<tr><th id="5">5</th><td><i> *  Project                     ___| | | |  _ \| |    </i></td></tr>
+<tr><th id="6">6</th><td><i> *                             / __| | | | |_) | |    </i></td></tr>
+<tr><th id="7">7</th><td><i> *                            | (__| |_| |  _ &lt;| |___ </i></td></tr>
+<tr><th id="8">8</th><td><i> *                             \___|\___/|_| \_\_____|</i></td></tr>
+<tr><th id="9">9</th><td><i> *</i></td></tr>
+<tr><th id="10">10</th><td><i> * Copyright (C) 1998 - 2004, Daniel Stenberg, &lt;daniel@haxx.se&gt;, et al.</i></td></tr>
+<tr><th id="11">11</th><td><i> *</i></td></tr>
+<tr><th id="12">12</th><td><i> * This software is licensed as described in the file COPYING, which</i></td></tr>
+<tr><th id="13">13</th><td><i> * you should have received as part of this distribution. The terms</i></td></tr>
+<tr><th id="14">14</th><td><i> * are also available at <a href="http://curl.haxx.se/docs/copyright.html">http://curl.haxx.se/docs/copyright.html</a>.</i></td></tr>
+<tr><th id="15">15</th><td><i> * </i></td></tr>
+<tr><th id="16">16</th><td><i> * You may opt to use, copy, modify, merge, publish, distribute and/or sell</i></td></tr>
+<tr><th id="17">17</th><td><i> * copies of the Software, and permit persons to whom the Software is</i></td></tr>
+<tr><th id="18">18</th><td><i> * furnished to do so, under the terms of the COPYING file.</i></td></tr>
+<tr><th id="19">19</th><td><i> *</i></td></tr>
+<tr><th id="20">20</th><td><i> * This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY</i></td></tr>
+<tr><th id="21">21</th><td><i> * KIND, either express or implied.</i></td></tr>
+<tr><th id="22">22</th><td><i> *</i></td></tr>
+<tr><th id="23">23</th><td><i> * $Id: progress.h,v 1.20 2004/03/10 16:20:33 bagder Exp $</i></td></tr>
+<tr><th id="24">24</th><td><i> ***************************************************************************/</i></td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="timeval.h.html">"timeval.h"</a></u></td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="30">30</th><td>  <dfn class="enum" id="TIMER_NONE" title='TIMER_NONE' data-ref="TIMER_NONE">TIMER_NONE</dfn>,</td></tr>
+<tr><th id="31">31</th><td>  <dfn class="enum" id="TIMER_NAMELOOKUP" title='TIMER_NAMELOOKUP' data-ref="TIMER_NAMELOOKUP">TIMER_NAMELOOKUP</dfn>,</td></tr>
+<tr><th id="32">32</th><td>  <dfn class="enum" id="TIMER_CONNECT" title='TIMER_CONNECT' data-ref="TIMER_CONNECT">TIMER_CONNECT</dfn>,</td></tr>
+<tr><th id="33">33</th><td>  <dfn class="enum" id="TIMER_PRETRANSFER" title='TIMER_PRETRANSFER' data-ref="TIMER_PRETRANSFER">TIMER_PRETRANSFER</dfn>,</td></tr>
+<tr><th id="34">34</th><td>  <dfn class="enum" id="TIMER_STARTTRANSFER" title='TIMER_STARTTRANSFER' data-ref="TIMER_STARTTRANSFER">TIMER_STARTTRANSFER</dfn>,</td></tr>
+<tr><th id="35">35</th><td>  <dfn class="enum" id="TIMER_POSTRANSFER" title='TIMER_POSTRANSFER' data-ref="TIMER_POSTRANSFER">TIMER_POSTRANSFER</dfn>,</td></tr>
+<tr><th id="36">36</th><td>  <dfn class="enum" id="TIMER_STARTSINGLE" title='TIMER_STARTSINGLE' data-ref="TIMER_STARTSINGLE">TIMER_STARTSINGLE</dfn>,</td></tr>
+<tr><th id="37">37</th><td>  <dfn class="enum" id="TIMER_REDIRECT" title='TIMER_REDIRECT' data-ref="TIMER_REDIRECT">TIMER_REDIRECT</dfn>,</td></tr>
+<tr><th id="38">38</th><td>  <dfn class="enum" id="TIMER_LAST" title='TIMER_LAST' data-ref="TIMER_LAST">TIMER_LAST</dfn> <i>/* must be last */</i></td></tr>
+<tr><th id="39">39</th><td>} <dfn class="typedef" id="timerid" title='timerid' data-type='enum timerid' data-ref="timerid">timerid</dfn>;</td></tr>
+<tr><th id="40">40</th><td>  </td></tr>
+<tr><th id="41">41</th><td><em>void</em> <dfn class="decl" id="Curl_pgrsDone" title='Curl_pgrsDone' data-ref="Curl_pgrsDone">Curl_pgrsDone</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#connectdata" title='connectdata' data-ref="connectdata">connectdata</a> *);</td></tr>
+<tr><th id="42">42</th><td><em>void</em> <dfn class="decl" id="Curl_pgrsStartNow" title='Curl_pgrsStartNow' data-ref="Curl_pgrsStartNow">Curl_pgrsStartNow</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *<dfn class="local col8 decl" id="148data" title='data' data-type='struct SessionHandle *' data-ref="148data">data</dfn>);</td></tr>
+<tr><th id="43">43</th><td><em>void</em> <dfn class="decl" id="Curl_pgrsSetDownloadSize" title='Curl_pgrsSetDownloadSize' data-ref="Curl_pgrsSetDownloadSize">Curl_pgrsSetDownloadSize</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *<dfn class="local col9 decl" id="149data" title='data' data-type='struct SessionHandle *' data-ref="149data">data</dfn>, <a class="typedef" href="../include/curl/curl.h.html#curl_off_t" title='curl_off_t' data-type='off_t' data-ref="curl_off_t">curl_off_t</a> <dfn class="local col0 decl" id="150size" title='size' data-type='curl_off_t' data-ref="150size">size</dfn>);</td></tr>
+<tr><th id="44">44</th><td><em>void</em> <dfn class="decl" id="Curl_pgrsSetUploadSize" title='Curl_pgrsSetUploadSize' data-ref="Curl_pgrsSetUploadSize">Curl_pgrsSetUploadSize</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *<dfn class="local col1 decl" id="151data" title='data' data-type='struct SessionHandle *' data-ref="151data">data</dfn>, <a class="typedef" href="../include/curl/curl.h.html#curl_off_t" title='curl_off_t' data-type='off_t' data-ref="curl_off_t">curl_off_t</a> <dfn class="local col2 decl" id="152size" title='size' data-type='curl_off_t' data-ref="152size">size</dfn>);</td></tr>
+<tr><th id="45">45</th><td><em>void</em> <dfn class="decl" id="Curl_pgrsSetDownloadCounter" title='Curl_pgrsSetDownloadCounter' data-ref="Curl_pgrsSetDownloadCounter">Curl_pgrsSetDownloadCounter</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *<dfn class="local col3 decl" id="153data" title='data' data-type='struct SessionHandle *' data-ref="153data">data</dfn>, <a class="typedef" href="../include/curl/curl.h.html#curl_off_t" title='curl_off_t' data-type='off_t' data-ref="curl_off_t">curl_off_t</a> <dfn class="local col4 decl" id="154size" title='size' data-type='curl_off_t' data-ref="154size">size</dfn>);</td></tr>
+<tr><th id="46">46</th><td><em>void</em> <dfn class="decl" id="Curl_pgrsSetUploadCounter" title='Curl_pgrsSetUploadCounter' data-ref="Curl_pgrsSetUploadCounter">Curl_pgrsSetUploadCounter</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *<dfn class="local col5 decl" id="155data" title='data' data-type='struct SessionHandle *' data-ref="155data">data</dfn>, <a class="typedef" href="../include/curl/curl.h.html#curl_off_t" title='curl_off_t' data-type='off_t' data-ref="curl_off_t">curl_off_t</a> <dfn class="local col6 decl" id="156size" title='size' data-type='curl_off_t' data-ref="156size">size</dfn>);</td></tr>
+<tr><th id="47">47</th><td><em>int</em> <dfn class="decl" id="Curl_pgrsUpdate" title='Curl_pgrsUpdate' data-ref="Curl_pgrsUpdate">Curl_pgrsUpdate</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#connectdata" title='connectdata' data-ref="connectdata">connectdata</a> *);</td></tr>
+<tr><th id="48">48</th><td><em>void</em> <dfn class="decl" id="Curl_pgrsResetTimes" title='Curl_pgrsResetTimes' data-ref="Curl_pgrsResetTimes">Curl_pgrsResetTimes</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *<dfn class="local col7 decl" id="157data" title='data' data-type='struct SessionHandle *' data-ref="157data">data</dfn>);</td></tr>
+<tr><th id="49">49</th><td><em>void</em> <dfn class="decl" id="Curl_pgrsTime" title='Curl_pgrsTime' data-ref="Curl_pgrsTime">Curl_pgrsTime</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *<dfn class="local col8 decl" id="158data" title='data' data-type='struct SessionHandle *' data-ref="158data">data</dfn>, <a class="typedef" href="#timerid" title='timerid' data-type='enum timerid' data-ref="timerid">timerid</a> <dfn class="local col9 decl" id="159timer" title='timer' data-type='timerid' data-ref="159timer">timer</dfn>);</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td><i>/* Don't show progress for sizes smaller than: */</i></td></tr>
+<tr><th id="53">53</th><td><u>#define <dfn class="macro" id="_M/LEAST_SIZE_PROGRESS" data-ref="_M/LEAST_SIZE_PROGRESS">LEAST_SIZE_PROGRESS</dfn> BUFSIZE</u></td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td><u>#define <dfn class="macro" id="_M/PROGRESS_DOWNLOAD" data-ref="_M/PROGRESS_DOWNLOAD">PROGRESS_DOWNLOAD</dfn> (1&lt;&lt;0)</u></td></tr>
+<tr><th id="56">56</th><td><u>#define <dfn class="macro" id="_M/PROGRESS_UPLOAD" data-ref="_M/PROGRESS_UPLOAD">PROGRESS_UPLOAD</dfn>   (1&lt;&lt;1)</u></td></tr>
+<tr><th id="57">57</th><td><u>#define <dfn class="macro" id="_M/PROGRESS_DOWN_AND_UP" data-ref="_M/PROGRESS_DOWN_AND_UP">PROGRESS_DOWN_AND_UP</dfn> (PROGRESS_UPLOAD | PROGRESS_DOWNLOAD)</u></td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td><u>#define <dfn class="macro" id="_M/PGRS_SHOW_DL" data-ref="_M/PGRS_SHOW_DL">PGRS_SHOW_DL</dfn> (1&lt;&lt;0)</u></td></tr>
+<tr><th id="60">60</th><td><u>#define <dfn class="macro" id="_M/PGRS_SHOW_UL" data-ref="_M/PGRS_SHOW_UL">PGRS_SHOW_UL</dfn> (1&lt;&lt;1)</u></td></tr>
+<tr><th id="61">61</th><td><u>#define <dfn class="macro" id="_M/PGRS_DONE_DL" data-ref="_M/PGRS_DONE_DL">PGRS_DONE_DL</dfn> (1&lt;&lt;2)</u></td></tr>
+<tr><th id="62">62</th><td><u>#define <dfn class="macro" id="_M/PGRS_DONE_UL" data-ref="_M/PGRS_DONE_UL">PGRS_DONE_UL</dfn> (1&lt;&lt;3)</u></td></tr>
+<tr><th id="63">63</th><td><u>#define <dfn class="macro" id="_M/PGRS_HIDE" data-ref="_M/PGRS_HIDE">PGRS_HIDE</dfn>    (1&lt;&lt;4)</u></td></tr>
+<tr><th id="64">64</th><td><u>#define <dfn class="macro" id="_M/PGRS_UL_SIZE_KNOWN" data-ref="_M/PGRS_UL_SIZE_KNOWN">PGRS_UL_SIZE_KNOWN</dfn> (1&lt;&lt;5)</u></td></tr>
+<tr><th id="65">65</th><td><u>#define <dfn class="macro" id="_M/PGRS_DL_SIZE_KNOWN" data-ref="_M/PGRS_DL_SIZE_KNOWN">PGRS_DL_SIZE_KNOWN</dfn> (1&lt;&lt;6)</u></td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td><u>#define <dfn class="macro" id="_M/PGRS_HEADERS_OUT" data-ref="_M/PGRS_HEADERS_OUT">PGRS_HEADERS_OUT</dfn> (1&lt;&lt;7) /* set when the headers have been written */</u></td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td><u>#<span data-ppcond="1">endif</span> /* __PROGRESS_H */</u></td></tr>
+<tr><th id="71">71</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='dict.c.html'>codebrowser/curl/lib/dict.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

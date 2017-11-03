@@ -1,0 +1,12 @@
+<dec f='codebrowser/sys/linux/libXNVCtrl/NVCtrl.h' l='48'/>
+<doc f='codebrowser/sys/linux/libXNVCtrl/NVCtrl.h' l='36'>/*
+ * NV_CTRL_FLATPANEL_SCALING - the current flatpanel scaling state;
+ * possible values are:
+ *
+ * 0: default (the driver will use whatever state is current)
+ * 1: native (the driver will use the panel&apos;s scaler, if possible)
+ * 2: scaled (the driver will use the GPU&apos;s scaler, if possible)
+ * 3: centered (the driver will center the image)
+ * 4: aspect scaled (scale with the GPU&apos;s scaler, but keep the aspect
+ *    ratio correct)
+ */</doc>

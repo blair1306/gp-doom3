@@ -1,0 +1,15 @@
+<dec f='codebrowser/curl/lib/strequal.h' l='41' type='size_t Curl_strlcat(char * dst, const char * src, size_t siz)'/>
+<def f='codebrowser/curl/lib/strequal.c' l='95' ll='120' type='size_t Curl_strlcat(char * dst, const char * src, size_t siz)'/>
+<doc f='codebrowser/curl/lib/strequal.c' l='82'>/*
+ * The strlcat() function appends the NUL-terminated string src to the end
+ * of dst. It will append at most size - strlen(dst) - 1 bytes, NUL-termi-
+ * nating the result.
+ *
+ * The strlcpy() and strlcat() functions return the total length of the
+ * string they tried to create.  For strlcpy() that means the length of src.
+ * For strlcat() that means the initial length of dst plus the length of
+ * src. While this may seem somewhat confusing it was done to make trunca-
+ * tion detection simple.
+ *
+ * 
+ */</doc>

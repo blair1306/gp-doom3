@@ -1,0 +1,11 @@
+<dec f='codebrowser/sound/OggVorbis/vorbis/vorbisfile.h' l='100' type='long ov_bitrate(OggVorbis_File * vf, int i)'/>
+<def f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='821' ll='857' type='long ov_bitrate(OggVorbis_File * vf, int i)'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='824' u='c' c='ov_bitrate'/>
+<doc f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='812'>/* returns the bitrate for a given logical bitstream or the entire
+   physical bitstream.  If the file is open for random access, it will
+   find the *actual* average bitrate.  If the file is streaming, it
+   returns the nominal bitrate (if set) else the average of the
+   upper/lower bounds (if set) else -1 (unset).
+
+   If you want the actual bitrate field settings, get them from the
+   vorbis_info structs */</doc>

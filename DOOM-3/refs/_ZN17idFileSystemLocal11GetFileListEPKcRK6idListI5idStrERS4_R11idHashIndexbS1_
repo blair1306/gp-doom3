@@ -1,0 +1,13 @@
+<dec f='codebrowser/framework/FileSystem.cpp' l='458' type='int idFileSystemLocal::GetFileList(const char * relativePath, const idStrList &amp; extensions, idStrList &amp; list, idHashIndex &amp; hashIndex, bool fullRelativePath, const char * gamedir = __null)'/>
+<def f='codebrowser/framework/FileSystem.cpp' l='1480' ll='1616' type='int idFileSystemLocal::GetFileList(const char * relativePath, const idStrList &amp; extensions, idStrList &amp; list, idHashIndex &amp; hashIndex, bool fullRelativePath, const char * gamedir = __null)'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='1632' u='c' c='_ZN17idFileSystemLocal9ListFilesEPKcS1_bbS1_'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='1653' u='c' c='_ZN17idFileSystemLocal15GetFileListTreeEPKcRK6idListI5idStrERS4_R11idHashIndexS1_'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='1665' u='c' c='_ZN17idFileSystemLocal15GetFileListTreeEPKcRK6idListI5idStrERS4_R11idHashIndexS1_'/>
+<doc f='codebrowser/framework/FileSystem.cpp' l='1472'>/*
+===============
+idFileSystemLocal::GetFileList
+
+Does not clear the list first so this can be used to progressively build a file list.
+When &apos;sort&apos; is true only the new files added to the list are sorted.
+===============
+*/</doc>

@@ -1,0 +1,25 @@
+<def f='codebrowser/renderer/tr_local.h' l='298' ll='335'/>
+<size>160</size>
+<doc f='codebrowser/renderer/tr_local.h' l='293'>// viewLights are allocated on the frame temporary stack memory
+// a viewLight contains everything that the back end needs out of an idRenderLightLocal,
+// which the front end may be modifying simultaniously if running in SMP mode.
+// a viewLight may exist even without any surfaces, and may be relevent for fogging,
+// but should never exist if its volume does not intersect the view frustum</doc>
+<mbr r='viewLight_s::next' o='0' t='struct viewLight_s *'/>
+<mbr r='viewLight_s::lightDef' o='32' t='idRenderLightLocal *'/>
+<mbr r='viewLight_s::scissorRect' o='64' t='idScreenRect'/>
+<mbr r='viewLight_s::viewInsideLight' o='192' t='bool'/>
+<mbr r='viewLight_s::viewSeesGlobalLightOrigin' o='200' t='bool'/>
+<mbr r='viewLight_s::viewSeesShadowPlaneBits' o='224' t='int'/>
+<mbr r='viewLight_s::globalLightOrigin' o='256' t='idVec3'/>
+<mbr r='viewLight_s::lightProject' o='352' t='idPlane [4]'/>
+<mbr r='viewLight_s::fogPlane' o='864' t='idPlane'/>
+<mbr r='viewLight_s::frustumTris' o='992' t='const srfTriangles_t *'/>
+<mbr r='viewLight_s::lightShader' o='1024' t='const idMaterial *'/>
+<mbr r='viewLight_s::shaderRegisters' o='1056' t='const float *'/>
+<mbr r='viewLight_s::falloffImage' o='1088' t='idImage *'/>
+<mbr r='viewLight_s::globalShadows' o='1120' t='const struct drawSurf_s *'/>
+<mbr r='viewLight_s::localInteractions' o='1152' t='const struct drawSurf_s *'/>
+<mbr r='viewLight_s::localShadows' o='1184' t='const struct drawSurf_s *'/>
+<mbr r='viewLight_s::globalInteractions' o='1216' t='const struct drawSurf_s *'/>
+<mbr r='viewLight_s::translucentInteractions' o='1248' t='const struct drawSurf_s *'/>

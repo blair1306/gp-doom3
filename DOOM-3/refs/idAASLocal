@@ -1,0 +1,218 @@
+<inh f='codebrowser/d3xp/ai/AAS.h' l='75' c='idAAS'/>
+<def f='codebrowser/d3xp/ai/AAS_local.h' l='86' ll='187'/>
+<size>104</size>
+<fun r='_ZN10idAASLocalC1Ev'/>
+<fun r='_ZN10idAASLocalD1Ev'/>
+<fun r='_ZN10idAASLocal4InitERK5idStrj'/>
+<fun r='_ZN10idAASLocal8ShutdownEv'/>
+<fun r='_ZNK10idAASLocal5StatsEv'/>
+<fun r='_ZN10idAASLocal4TestERK6idVec3'/>
+<fun r='_ZNK10idAASLocal11GetSettingsEv'/>
+<fun r='_ZNK10idAASLocal12PointAreaNumERK6idVec3'/>
+<fun r='_ZNK10idAASLocal21PointReachableAreaNumERK6idVec3RK8idBoundsi'/>
+<fun r='_ZNK10idAASLocal22BoundsReachableAreaNumERK8idBoundsi'/>
+<fun r='_ZNK10idAASLocal20PushPointIntoAreaNumEiR6idVec3'/>
+<fun r='_ZNK10idAASLocal10AreaCenterEi'/>
+<fun r='_ZNK10idAASLocal9AreaFlagsEi'/>
+<fun r='_ZNK10idAASLocal15AreaTravelFlagsEi'/>
+<fun r='_ZNK10idAASLocal5TraceER10aasTrace_sRK6idVec3S4_'/>
+<fun r='_ZNK10idAASLocal8GetPlaneEi'/>
+<fun r='_ZNK10idAASLocal12GetWallEdgesEiRK8idBoundsiPii'/>
+<fun r='_ZNK10idAASLocal13SortWallEdgesEPii'/>
+<fun r='_ZNK10idAASLocal20GetEdgeVertexNumbersEiPi'/>
+<fun r='_ZNK10idAASLocal7GetEdgeEiR6idVec3S1_'/>
+<fun r='_ZN10idAASLocal12SetAreaStateERK8idBoundsib'/>
+<fun r='_ZN10idAASLocal11AddObstacleERK8idBounds'/>
+<fun r='_ZN10idAASLocal14RemoveObstacleEi'/>
+<fun r='_ZN10idAASLocal18RemoveAllObstaclesEv'/>
+<fun r='_ZNK10idAASLocal20TravelTimeToGoalAreaEiRK6idVec3ii'/>
+<fun r='_ZNK10idAASLocal15RouteToGoalAreaEi6idVec3iiRiPP14idReachability'/>
+<fun r='_ZNK10idAASLocal14WalkPathToGoalER9aasPath_siRK6idVec3iS4_i'/>
+<fun r='_ZNK10idAASLocal13WalkPathValidEiRK6idVec3iS2_iRS0_Ri'/>
+<fun r='_ZNK10idAASLocal13FlyPathToGoalER9aasPath_siRK6idVec3iS4_i'/>
+<fun r='_ZNK10idAASLocal12FlyPathValidEiRK6idVec3iS2_iRS0_Ri'/>
+<fun r='_ZNK10idAASLocal12ShowWalkPathERK6idVec3iS2_'/>
+<fun r='_ZNK10idAASLocal11ShowFlyPathERK6idVec3iS2_'/>
+<fun r='_ZNK10idAASLocal15FindNearestGoalER9aasGoal_si6idVec3RKS2_iP13aasObstacle_siR13idAASCallback'/>
+<mbr r='idAASLocal::file' o='32' t='idAASFile *'/>
+<mbr r='idAASLocal::name' o='64' t='idStr'/>
+<mbr r='idAASLocal::areaCacheIndex' o='320' t='idRoutingCache ***'/>
+<mbr r='idAASLocal::areaCacheIndexSize' o='352' t='int'/>
+<mbr r='idAASLocal::portalCacheIndex' o='384' t='idRoutingCache **'/>
+<mbr r='idAASLocal::portalCacheIndexSize' o='416' t='int'/>
+<mbr r='idAASLocal::areaUpdate' o='448' t='idRoutingUpdate *'/>
+<mbr r='idAASLocal::portalUpdate' o='480' t='idRoutingUpdate *'/>
+<mbr r='idAASLocal::goalAreaTravelTimes' o='512' t='unsigned short *'/>
+<mbr r='idAASLocal::areaTravelTimes' o='544' t='unsigned short *'/>
+<mbr r='idAASLocal::numAreaTravelTimes' o='576' t='int'/>
+<mbr r='idAASLocal::cacheListStart' o='608' t='idRoutingCache *'/>
+<mbr r='idAASLocal::cacheListEnd' o='640' t='idRoutingCache *'/>
+<mbr r='idAASLocal::totalCacheMemory' o='672' t='int'/>
+<mbr r='idAASLocal::obstacleList' o='704' t='idList&lt;idRoutingObstacle *&gt;'/>
+<fun r='_ZN10idAASLocal12SetupRoutingEv'/>
+<fun r='_ZN10idAASLocal15ShutdownRoutingEv'/>
+<fun r='_ZNK10idAASLocal14AreaTravelTimeEiRK6idVec3S2_'/>
+<fun r='_ZN10idAASLocal24CalculateAreaTravelTimesEv'/>
+<fun r='_ZN10idAASLocal21DeleteAreaTravelTimesEv'/>
+<fun r='_ZN10idAASLocal17SetupRoutingCacheEv'/>
+<fun r='_ZN10idAASLocal18DeleteClusterCacheEi'/>
+<fun r='_ZN10idAASLocal17DeletePortalCacheEv'/>
+<fun r='_ZN10idAASLocal20ShutdownRoutingCacheEv'/>
+<fun r='_ZNK10idAASLocal12RoutingStatsEv'/>
+<fun r='_ZNK10idAASLocal9LinkCacheEP14idRoutingCache'/>
+<fun r='_ZNK10idAASLocal11UnlinkCacheEP14idRoutingCache'/>
+<fun r='_ZNK10idAASLocal17DeleteOldestCacheEv'/>
+<fun r='_ZNK10idAASLocal19GetAreaReachabilityEii'/>
+<fun r='_ZNK10idAASLocal14ClusterAreaNumEii'/>
+<fun r='_ZNK10idAASLocal22UpdateAreaRoutingCacheEP14idRoutingCache'/>
+<fun r='_ZNK10idAASLocal19GetAreaRoutingCacheEiii'/>
+<fun r='_ZNK10idAASLocal24UpdatePortalRoutingCacheEP14idRoutingCache'/>
+<fun r='_ZNK10idAASLocal21GetPortalRoutingCacheEiii'/>
+<fun r='_ZN10idAASLocal27RemoveRoutingCacheUsingAreaEi'/>
+<fun r='_ZN10idAASLocal11DisableAreaEi'/>
+<fun r='_ZN10idAASLocal10EnableAreaEi'/>
+<fun r='_ZN10idAASLocal14SetAreaState_rEiRK8idBoundsib'/>
+<fun r='_ZNK10idAASLocal16GetBoundsAreas_rEiRK8idBoundsR6idListIiE'/>
+<fun r='_ZN10idAASLocal16SetObstacleStateEPK17idRoutingObstacleb'/>
+<fun r='_ZNK10idAASLocal14EdgeSplitPointER6idVec3iRK7idPlane'/>
+<fun r='_ZNK10idAASLocal19FloorEdgeSplitPointER6idVec3iRK7idPlaneS4_b'/>
+<fun r='_ZNK10idAASLocal17SubSampleWalkPathEiRK6idVec3S2_S2_iRi'/>
+<fun r='_ZNK10idAASLocal16SubSampleFlyPathEiRK6idVec3S2_S2_iRi'/>
+<fun r='_ZNK10idAASLocal19DefaultSearchBoundsEv'/>
+<fun r='_ZNK10idAASLocal8DrawConeERK6idVec3S2_fRK6idVec4'/>
+<fun r='_ZNK10idAASLocal8DrawAreaEi'/>
+<fun r='_ZNK10idAASLocal8DrawFaceEib'/>
+<fun r='_ZNK10idAASLocal8DrawEdgeEib'/>
+<fun r='_ZNK10idAASLocal16DrawReachabilityEPK14idReachability'/>
+<fun r='_ZNK10idAASLocal8ShowAreaERK6idVec3'/>
+<fun r='_ZNK10idAASLocal13ShowWallEdgesERK6idVec3'/>
+<fun r='_ZNK10idAASLocal12ShowHideAreaERK6idVec3i'/>
+<fun r='_ZNK10idAASLocal10PullPlayerERK6idVec3i'/>
+<fun r='_ZNK10idAASLocal16RandomPullPlayerERK6idVec3'/>
+<fun r='_ZNK10idAASLocal16ShowPushIntoAreaERK6idVec3'/>
+<fun r='_ZN10idAASLocalC1Ev'/>
+<fun r='_ZN10idAASLocalD1Ev'/>
+<fun r='_ZN10idAASLocal4InitERK5idStrj'/>
+<fun r='_ZN10idAASLocal8ShutdownEv'/>
+<fun r='_ZNK10idAASLocal5StatsEv'/>
+<fun r='_ZNK10idAASLocal11GetSettingsEv'/>
+<fun r='_ZNK10idAASLocal12PointAreaNumERK6idVec3'/>
+<fun r='_ZNK10idAASLocal21PointReachableAreaNumERK6idVec3RK8idBoundsi'/>
+<fun r='_ZNK10idAASLocal22BoundsReachableAreaNumERK8idBoundsi'/>
+<fun r='_ZNK10idAASLocal20PushPointIntoAreaNumEiR6idVec3'/>
+<fun r='_ZNK10idAASLocal10AreaCenterEi'/>
+<fun r='_ZNK10idAASLocal9AreaFlagsEi'/>
+<fun r='_ZNK10idAASLocal15AreaTravelFlagsEi'/>
+<fun r='_ZNK10idAASLocal5TraceER10aasTrace_sRK6idVec3S4_'/>
+<fun r='_ZNK10idAASLocal8GetPlaneEi'/>
+<fun r='_ZNK10idAASLocal20GetEdgeVertexNumbersEiPi'/>
+<fun r='_ZNK10idAASLocal7GetEdgeEiR6idVec3S1_'/>
+<inh f='codebrowser/game/ai/AAS.h' l='75' c='idAAS'/>
+<def f='codebrowser/game/ai/AAS_local.h' l='86' ll='187'/>
+<size>104</size>
+<fun r='_ZN10idAASLocalC1Ev'/>
+<fun r='_ZN10idAASLocalD1Ev'/>
+<fun r='_ZN10idAASLocal4InitERK5idStrj'/>
+<fun r='_ZN10idAASLocal8ShutdownEv'/>
+<fun r='_ZNK10idAASLocal5StatsEv'/>
+<fun r='_ZN10idAASLocal4TestERK6idVec3'/>
+<fun r='_ZNK10idAASLocal11GetSettingsEv'/>
+<fun r='_ZNK10idAASLocal12PointAreaNumERK6idVec3'/>
+<fun r='_ZNK10idAASLocal21PointReachableAreaNumERK6idVec3RK8idBoundsi'/>
+<fun r='_ZNK10idAASLocal22BoundsReachableAreaNumERK8idBoundsi'/>
+<fun r='_ZNK10idAASLocal20PushPointIntoAreaNumEiR6idVec3'/>
+<fun r='_ZNK10idAASLocal10AreaCenterEi'/>
+<fun r='_ZNK10idAASLocal9AreaFlagsEi'/>
+<fun r='_ZNK10idAASLocal15AreaTravelFlagsEi'/>
+<fun r='_ZNK10idAASLocal5TraceER10aasTrace_sRK6idVec3S4_'/>
+<fun r='_ZNK10idAASLocal8GetPlaneEi'/>
+<fun r='_ZNK10idAASLocal12GetWallEdgesEiRK8idBoundsiPii'/>
+<fun r='_ZNK10idAASLocal13SortWallEdgesEPii'/>
+<fun r='_ZNK10idAASLocal20GetEdgeVertexNumbersEiPi'/>
+<fun r='_ZNK10idAASLocal7GetEdgeEiR6idVec3S1_'/>
+<fun r='_ZN10idAASLocal12SetAreaStateERK8idBoundsib'/>
+<fun r='_ZN10idAASLocal11AddObstacleERK8idBounds'/>
+<fun r='_ZN10idAASLocal14RemoveObstacleEi'/>
+<fun r='_ZN10idAASLocal18RemoveAllObstaclesEv'/>
+<fun r='_ZNK10idAASLocal20TravelTimeToGoalAreaEiRK6idVec3ii'/>
+<fun r='_ZNK10idAASLocal15RouteToGoalAreaEi6idVec3iiRiPP14idReachability'/>
+<fun r='_ZNK10idAASLocal14WalkPathToGoalER9aasPath_siRK6idVec3iS4_i'/>
+<fun r='_ZNK10idAASLocal13WalkPathValidEiRK6idVec3iS2_iRS0_Ri'/>
+<fun r='_ZNK10idAASLocal13FlyPathToGoalER9aasPath_siRK6idVec3iS4_i'/>
+<fun r='_ZNK10idAASLocal12FlyPathValidEiRK6idVec3iS2_iRS0_Ri'/>
+<fun r='_ZNK10idAASLocal12ShowWalkPathERK6idVec3iS2_'/>
+<fun r='_ZNK10idAASLocal11ShowFlyPathERK6idVec3iS2_'/>
+<fun r='_ZNK10idAASLocal15FindNearestGoalER9aasGoal_si6idVec3RKS2_iP13aasObstacle_siR13idAASCallback'/>
+<mbr r='idAASLocal::file' o='32' t='idAASFile *'/>
+<mbr r='idAASLocal::name' o='64' t='idStr'/>
+<mbr r='idAASLocal::areaCacheIndex' o='320' t='idRoutingCache ***'/>
+<mbr r='idAASLocal::areaCacheIndexSize' o='352' t='int'/>
+<mbr r='idAASLocal::portalCacheIndex' o='384' t='idRoutingCache **'/>
+<mbr r='idAASLocal::portalCacheIndexSize' o='416' t='int'/>
+<mbr r='idAASLocal::areaUpdate' o='448' t='idRoutingUpdate *'/>
+<mbr r='idAASLocal::portalUpdate' o='480' t='idRoutingUpdate *'/>
+<mbr r='idAASLocal::goalAreaTravelTimes' o='512' t='unsigned short *'/>
+<mbr r='idAASLocal::areaTravelTimes' o='544' t='unsigned short *'/>
+<mbr r='idAASLocal::numAreaTravelTimes' o='576' t='int'/>
+<mbr r='idAASLocal::cacheListStart' o='608' t='idRoutingCache *'/>
+<mbr r='idAASLocal::cacheListEnd' o='640' t='idRoutingCache *'/>
+<mbr r='idAASLocal::totalCacheMemory' o='672' t='int'/>
+<mbr r='idAASLocal::obstacleList' o='704' t='idList&lt;idRoutingObstacle *&gt;'/>
+<fun r='_ZN10idAASLocal12SetupRoutingEv'/>
+<fun r='_ZN10idAASLocal15ShutdownRoutingEv'/>
+<fun r='_ZNK10idAASLocal14AreaTravelTimeEiRK6idVec3S2_'/>
+<fun r='_ZN10idAASLocal24CalculateAreaTravelTimesEv'/>
+<fun r='_ZN10idAASLocal21DeleteAreaTravelTimesEv'/>
+<fun r='_ZN10idAASLocal17SetupRoutingCacheEv'/>
+<fun r='_ZN10idAASLocal18DeleteClusterCacheEi'/>
+<fun r='_ZN10idAASLocal17DeletePortalCacheEv'/>
+<fun r='_ZN10idAASLocal20ShutdownRoutingCacheEv'/>
+<fun r='_ZNK10idAASLocal12RoutingStatsEv'/>
+<fun r='_ZNK10idAASLocal9LinkCacheEP14idRoutingCache'/>
+<fun r='_ZNK10idAASLocal11UnlinkCacheEP14idRoutingCache'/>
+<fun r='_ZNK10idAASLocal17DeleteOldestCacheEv'/>
+<fun r='_ZNK10idAASLocal19GetAreaReachabilityEii'/>
+<fun r='_ZNK10idAASLocal14ClusterAreaNumEii'/>
+<fun r='_ZNK10idAASLocal22UpdateAreaRoutingCacheEP14idRoutingCache'/>
+<fun r='_ZNK10idAASLocal19GetAreaRoutingCacheEiii'/>
+<fun r='_ZNK10idAASLocal24UpdatePortalRoutingCacheEP14idRoutingCache'/>
+<fun r='_ZNK10idAASLocal21GetPortalRoutingCacheEiii'/>
+<fun r='_ZN10idAASLocal27RemoveRoutingCacheUsingAreaEi'/>
+<fun r='_ZN10idAASLocal11DisableAreaEi'/>
+<fun r='_ZN10idAASLocal10EnableAreaEi'/>
+<fun r='_ZN10idAASLocal14SetAreaState_rEiRK8idBoundsib'/>
+<fun r='_ZNK10idAASLocal16GetBoundsAreas_rEiRK8idBoundsR6idListIiE'/>
+<fun r='_ZN10idAASLocal16SetObstacleStateEPK17idRoutingObstacleb'/>
+<fun r='_ZNK10idAASLocal14EdgeSplitPointER6idVec3iRK7idPlane'/>
+<fun r='_ZNK10idAASLocal19FloorEdgeSplitPointER6idVec3iRK7idPlaneS4_b'/>
+<fun r='_ZNK10idAASLocal17SubSampleWalkPathEiRK6idVec3S2_S2_iRi'/>
+<fun r='_ZNK10idAASLocal16SubSampleFlyPathEiRK6idVec3S2_S2_iRi'/>
+<fun r='_ZNK10idAASLocal19DefaultSearchBoundsEv'/>
+<fun r='_ZNK10idAASLocal8DrawConeERK6idVec3S2_fRK6idVec4'/>
+<fun r='_ZNK10idAASLocal8DrawAreaEi'/>
+<fun r='_ZNK10idAASLocal8DrawFaceEib'/>
+<fun r='_ZNK10idAASLocal8DrawEdgeEib'/>
+<fun r='_ZNK10idAASLocal16DrawReachabilityEPK14idReachability'/>
+<fun r='_ZNK10idAASLocal8ShowAreaERK6idVec3'/>
+<fun r='_ZNK10idAASLocal13ShowWallEdgesERK6idVec3'/>
+<fun r='_ZNK10idAASLocal12ShowHideAreaERK6idVec3i'/>
+<fun r='_ZNK10idAASLocal10PullPlayerERK6idVec3i'/>
+<fun r='_ZNK10idAASLocal16RandomPullPlayerERK6idVec3'/>
+<fun r='_ZNK10idAASLocal16ShowPushIntoAreaERK6idVec3'/>
+<fun r='_ZN10idAASLocalC1Ev'/>
+<fun r='_ZN10idAASLocalD1Ev'/>
+<fun r='_ZN10idAASLocal4InitERK5idStrj'/>
+<fun r='_ZN10idAASLocal8ShutdownEv'/>
+<fun r='_ZNK10idAASLocal5StatsEv'/>
+<fun r='_ZNK10idAASLocal11GetSettingsEv'/>
+<fun r='_ZNK10idAASLocal12PointAreaNumERK6idVec3'/>
+<fun r='_ZNK10idAASLocal21PointReachableAreaNumERK6idVec3RK8idBoundsi'/>
+<fun r='_ZNK10idAASLocal22BoundsReachableAreaNumERK8idBoundsi'/>
+<fun r='_ZNK10idAASLocal20PushPointIntoAreaNumEiR6idVec3'/>
+<fun r='_ZNK10idAASLocal10AreaCenterEi'/>
+<fun r='_ZNK10idAASLocal9AreaFlagsEi'/>
+<fun r='_ZNK10idAASLocal15AreaTravelFlagsEi'/>
+<fun r='_ZNK10idAASLocal5TraceER10aasTrace_sRK6idVec3S4_'/>
+<fun r='_ZNK10idAASLocal8GetPlaneEi'/>
+<fun r='_ZNK10idAASLocal20GetEdgeVertexNumbersEiPi'/>
+<fun r='_ZNK10idAASLocal7GetEdgeEiR6idVec3S1_'/>

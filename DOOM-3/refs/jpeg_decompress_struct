@@ -1,0 +1,87 @@
+<def f='codebrowser/renderer/jpeg-6/jpeglib.h' l='406' ll='617'/>
+<size>420</size>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='404'>/* Master record for a decompression instance */</doc>
+<mbr r='jpeg_decompress_struct::err' o='0' t='struct jpeg_error_mgr *'/>
+<mbr r='jpeg_decompress_struct::mem' o='32' t='struct jpeg_memory_mgr *'/>
+<mbr r='jpeg_decompress_struct::progress' o='64' t='struct jpeg_progress_mgr *'/>
+<mbr r='jpeg_decompress_struct::is_decompressor' o='96' t='boolean'/>
+<mbr r='jpeg_decompress_struct::global_state' o='128' t='int'/>
+<mbr r='jpeg_decompress_struct::src' o='160' t='struct jpeg_source_mgr *'/>
+<mbr r='jpeg_decompress_struct::image_width' o='192' t='JDIMENSION'/>
+<mbr r='jpeg_decompress_struct::image_height' o='224' t='JDIMENSION'/>
+<mbr r='jpeg_decompress_struct::num_components' o='256' t='int'/>
+<mbr r='jpeg_decompress_struct::jpeg_color_space' o='288' t='J_COLOR_SPACE'/>
+<mbr r='jpeg_decompress_struct::out_color_space' o='320' t='J_COLOR_SPACE'/>
+<mbr r='jpeg_decompress_struct::scale_num' o='352' t='unsigned int'/>
+<mbr r='jpeg_decompress_struct::scale_denom' o='384' t='unsigned int'/>
+<mbr r='jpeg_decompress_struct::output_gamma' o='416' t='double'/>
+<mbr r='jpeg_decompress_struct::buffered_image' o='480' t='boolean'/>
+<mbr r='jpeg_decompress_struct::raw_data_out' o='488' t='boolean'/>
+<mbr r='jpeg_decompress_struct::dct_method' o='512' t='J_DCT_METHOD'/>
+<mbr r='jpeg_decompress_struct::do_fancy_upsampling' o='544' t='boolean'/>
+<mbr r='jpeg_decompress_struct::do_block_smoothing' o='552' t='boolean'/>
+<mbr r='jpeg_decompress_struct::quantize_colors' o='560' t='boolean'/>
+<mbr r='jpeg_decompress_struct::dither_mode' o='576' t='J_DITHER_MODE'/>
+<mbr r='jpeg_decompress_struct::two_pass_quantize' o='608' t='boolean'/>
+<mbr r='jpeg_decompress_struct::desired_number_of_colors' o='640' t='int'/>
+<mbr r='jpeg_decompress_struct::enable_1pass_quant' o='672' t='boolean'/>
+<mbr r='jpeg_decompress_struct::enable_external_quant' o='680' t='boolean'/>
+<mbr r='jpeg_decompress_struct::enable_2pass_quant' o='688' t='boolean'/>
+<mbr r='jpeg_decompress_struct::output_width' o='704' t='JDIMENSION'/>
+<mbr r='jpeg_decompress_struct::output_height' o='736' t='JDIMENSION'/>
+<mbr r='jpeg_decompress_struct::out_color_components' o='768' t='int'/>
+<mbr r='jpeg_decompress_struct::output_components' o='800' t='int'/>
+<mbr r='jpeg_decompress_struct::rec_outbuf_height' o='832' t='int'/>
+<mbr r='jpeg_decompress_struct::actual_number_of_colors' o='864' t='int'/>
+<mbr r='jpeg_decompress_struct::colormap' o='896' t='JSAMPARRAY'/>
+<mbr r='jpeg_decompress_struct::output_scanline' o='928' t='JDIMENSION'/>
+<mbr r='jpeg_decompress_struct::input_scan_number' o='960' t='int'/>
+<mbr r='jpeg_decompress_struct::input_iMCU_row' o='992' t='JDIMENSION'/>
+<mbr r='jpeg_decompress_struct::output_scan_number' o='1024' t='int'/>
+<mbr r='jpeg_decompress_struct::output_iMCU_row' o='1056' t='JDIMENSION'/>
+<mbr r='jpeg_decompress_struct::coef_bits' o='1088' t='int (*)[64]'/>
+<mbr r='jpeg_decompress_struct::quant_tbl_ptrs' o='1120' t='JQUANT_TBL *[4]'/>
+<mbr r='jpeg_decompress_struct::dc_huff_tbl_ptrs' o='1248' t='JHUFF_TBL *[4]'/>
+<mbr r='jpeg_decompress_struct::ac_huff_tbl_ptrs' o='1376' t='JHUFF_TBL *[4]'/>
+<mbr r='jpeg_decompress_struct::data_precision' o='1504' t='int'/>
+<mbr r='jpeg_decompress_struct::comp_info' o='1536' t='jpeg_component_info *'/>
+<mbr r='jpeg_decompress_struct::progressive_mode' o='1568' t='boolean'/>
+<mbr r='jpeg_decompress_struct::arith_code' o='1576' t='boolean'/>
+<mbr r='jpeg_decompress_struct::arith_dc_L' o='1584' t='UINT8 [16]'/>
+<mbr r='jpeg_decompress_struct::arith_dc_U' o='1712' t='UINT8 [16]'/>
+<mbr r='jpeg_decompress_struct::arith_ac_K' o='1840' t='UINT8 [16]'/>
+<mbr r='jpeg_decompress_struct::restart_interval' o='1984' t='unsigned int'/>
+<mbr r='jpeg_decompress_struct::saw_JFIF_marker' o='2016' t='boolean'/>
+<mbr r='jpeg_decompress_struct::density_unit' o='2024' t='UINT8'/>
+<mbr r='jpeg_decompress_struct::X_density' o='2032' t='UINT16'/>
+<mbr r='jpeg_decompress_struct::Y_density' o='2048' t='UINT16'/>
+<mbr r='jpeg_decompress_struct::saw_Adobe_marker' o='2064' t='boolean'/>
+<mbr r='jpeg_decompress_struct::Adobe_transform' o='2072' t='UINT8'/>
+<mbr r='jpeg_decompress_struct::CCIR601_sampling' o='2080' t='boolean'/>
+<mbr r='jpeg_decompress_struct::max_h_samp_factor' o='2112' t='int'/>
+<mbr r='jpeg_decompress_struct::max_v_samp_factor' o='2144' t='int'/>
+<mbr r='jpeg_decompress_struct::min_DCT_scaled_size' o='2176' t='int'/>
+<mbr r='jpeg_decompress_struct::total_iMCU_rows' o='2208' t='JDIMENSION'/>
+<mbr r='jpeg_decompress_struct::sample_range_limit' o='2240' t='JSAMPLE *'/>
+<mbr r='jpeg_decompress_struct::comps_in_scan' o='2272' t='int'/>
+<mbr r='jpeg_decompress_struct::cur_comp_info' o='2304' t='jpeg_component_info *[4]'/>
+<mbr r='jpeg_decompress_struct::MCUs_per_row' o='2432' t='JDIMENSION'/>
+<mbr r='jpeg_decompress_struct::MCU_rows_in_scan' o='2464' t='JDIMENSION'/>
+<mbr r='jpeg_decompress_struct::blocks_in_MCU' o='2496' t='int'/>
+<mbr r='jpeg_decompress_struct::MCU_membership' o='2528' t='int [10]'/>
+<mbr r='jpeg_decompress_struct::Ss' o='2848' t='int'/>
+<mbr r='jpeg_decompress_struct::Se' o='2880' t='int'/>
+<mbr r='jpeg_decompress_struct::Ah' o='2912' t='int'/>
+<mbr r='jpeg_decompress_struct::Al' o='2944' t='int'/>
+<mbr r='jpeg_decompress_struct::unread_marker' o='2976' t='int'/>
+<mbr r='jpeg_decompress_struct::master' o='3008' t='struct jpeg_decomp_master *'/>
+<mbr r='jpeg_decompress_struct::main' o='3040' t='struct jpeg_d_main_controller *'/>
+<mbr r='jpeg_decompress_struct::coef' o='3072' t='struct jpeg_d_coef_controller *'/>
+<mbr r='jpeg_decompress_struct::post' o='3104' t='struct jpeg_d_post_controller *'/>
+<mbr r='jpeg_decompress_struct::inputctl' o='3136' t='struct jpeg_input_controller *'/>
+<mbr r='jpeg_decompress_struct::marker' o='3168' t='struct jpeg_marker_reader *'/>
+<mbr r='jpeg_decompress_struct::entropy' o='3200' t='struct jpeg_entropy_decoder *'/>
+<mbr r='jpeg_decompress_struct::idct' o='3232' t='struct jpeg_inverse_dct *'/>
+<mbr r='jpeg_decompress_struct::upsample' o='3264' t='struct jpeg_upsampler *'/>
+<mbr r='jpeg_decompress_struct::cconvert' o='3296' t='struct jpeg_color_deconverter *'/>
+<mbr r='jpeg_decompress_struct::cquantize' o='3328' t='struct jpeg_color_quantizer *'/>

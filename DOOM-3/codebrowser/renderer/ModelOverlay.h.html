@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ModelOverlay.h source code [codebrowser/renderer/ModelOverlay.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idRenderModelOverlay,overlayMaterial_s,overlaySurface_s,overlayVertex_s "/>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/renderer/ModelOverlay.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>renderer</a>/<a href='ModelOverlay.h.html'>ModelOverlay.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__MODELOVERLAY_H__">__MODELOVERLAY_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__MODELOVERLAY_H__" data-ref="_M/__MODELOVERLAY_H__">__MODELOVERLAY_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>	Render model overlay for adding decals on top of dynamic models.</i></td></tr>
+<tr><th id="36">36</th><td><i></i></td></tr>
+<tr><th id="37">37</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="38">38</th><td><i>*/</i></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="MAX_OVERLAY_SURFACES" title='MAX_OVERLAY_SURFACES' data-ref="MAX_OVERLAY_SURFACES">MAX_OVERLAY_SURFACES</dfn>	= <var>16</var>;</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="overlayVertex_s" title='overlayVertex_s' data-ref="overlayVertex_s"><a class="type" href="#overlayVertex_s" title='overlayVertex_s' data-ref="overlayVertex_s">overlayVertex_s</a></dfn> {</td></tr>
+<tr><th id="43">43</th><td>	<em>int</em>							<dfn class="decl" id="overlayVertex_s::vertexNum" title='overlayVertex_s::vertexNum' data-ref="overlayVertex_s::vertexNum">vertexNum</dfn>;</td></tr>
+<tr><th id="44">44</th><td>	<em>float</em>						<dfn class="decl" id="overlayVertex_s::st" title='overlayVertex_s::st' data-ref="overlayVertex_s::st">st</dfn>[<var>2</var>];</td></tr>
+<tr><th id="45">45</th><td>} <dfn class="typedef" id="overlayVertex_t" title='overlayVertex_t' data-type='struct overlayVertex_s' data-ref="overlayVertex_t">overlayVertex_t</dfn>;</td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="overlaySurface_s" title='overlaySurface_s' data-ref="overlaySurface_s"><a class="type" href="#overlaySurface_s" title='overlaySurface_s' data-ref="overlaySurface_s">overlaySurface_s</a></dfn> {</td></tr>
+<tr><th id="48">48</th><td>	<em>int</em>							<dfn class="decl" id="overlaySurface_s::surfaceNum" title='overlaySurface_s::surfaceNum' data-ref="overlaySurface_s::surfaceNum">surfaceNum</dfn>;</td></tr>
+<tr><th id="49">49</th><td>	<em>int</em>							<dfn class="decl" id="overlaySurface_s::surfaceId" title='overlaySurface_s::surfaceId' data-ref="overlaySurface_s::surfaceId">surfaceId</dfn>;</td></tr>
+<tr><th id="50">50</th><td>	<em>int</em>							<dfn class="decl" id="overlaySurface_s::numIndexes" title='overlaySurface_s::numIndexes' data-ref="overlaySurface_s::numIndexes">numIndexes</dfn>;</td></tr>
+<tr><th id="51">51</th><td>	<a class="typedef" href="Model.h.html#glIndex_t" title='glIndex_t' data-type='int' data-ref="glIndex_t">glIndex_t</a> *					<dfn class="decl" id="overlaySurface_s::indexes" title='overlaySurface_s::indexes' data-ref="overlaySurface_s::indexes">indexes</dfn>;</td></tr>
+<tr><th id="52">52</th><td>	<em>int</em>							<dfn class="decl" id="overlaySurface_s::numVerts" title='overlaySurface_s::numVerts' data-ref="overlaySurface_s::numVerts">numVerts</dfn>;</td></tr>
+<tr><th id="53">53</th><td>	<a class="typedef" href="#overlayVertex_t" title='overlayVertex_t' data-type='struct overlayVertex_s' data-ref="overlayVertex_t">overlayVertex_t</a> *			<dfn class="decl" id="overlaySurface_s::verts" title='overlaySurface_s::verts' data-ref="overlaySurface_s::verts">verts</dfn>;</td></tr>
+<tr><th id="54">54</th><td>} <dfn class="typedef" id="overlaySurface_t" title='overlaySurface_t' data-type='struct overlaySurface_s' data-ref="overlaySurface_t">overlaySurface_t</dfn>;</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="overlayMaterial_s" title='overlayMaterial_s' data-ref="overlayMaterial_s"><a class="type" href="#overlayMaterial_s" title='overlayMaterial_s' data-ref="overlayMaterial_s">overlayMaterial_s</a></dfn> {</td></tr>
+<tr><th id="57">57</th><td>	<em>const</em> <a class="type" href="Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *			<dfn class="decl" id="overlayMaterial_s::material" title='overlayMaterial_s::material' data-ref="overlayMaterial_s::material">material</dfn>;</td></tr>
+<tr><th id="58">58</th><td>	<a class="type" href="../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<a class="typedef" href="#overlaySurface_t" title='overlaySurface_t' data-type='struct overlaySurface_s' data-ref="overlaySurface_t">overlaySurface_t</a> *&gt;	<dfn class="decl" id="overlayMaterial_s::surfaces" title='overlayMaterial_s::surfaces' data-ref="overlayMaterial_s::surfaces">surfaces</dfn>;</td></tr>
+<tr><th id="59">59</th><td>} <dfn class="typedef" id="overlayMaterial_t" title='overlayMaterial_t' data-type='struct overlayMaterial_s' data-ref="overlayMaterial_t">overlayMaterial_t</dfn>;</td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td><b>class</b> <dfn class="type def" id="idRenderModelOverlay" title='idRenderModelOverlay' data-ref="idRenderModelOverlay">idRenderModelOverlay</dfn> {</td></tr>
+<tr><th id="63">63</th><td><b>public</b>:</td></tr>
+<tr><th id="64">64</th><td>								<dfn class="decl" id="_ZN20idRenderModelOverlayC1Ev" title='idRenderModelOverlay::idRenderModelOverlay' data-ref="_ZN20idRenderModelOverlayC1Ev">idRenderModelOverlay</dfn>();</td></tr>
+<tr><th id="65">65</th><td>								<dfn class="decl" id="_ZN20idRenderModelOverlayD1Ev" title='idRenderModelOverlay::~idRenderModelOverlay' data-ref="_ZN20idRenderModelOverlayD1Ev">~idRenderModelOverlay</dfn>();</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td>	<em>static</em> <a class="type" href="#idRenderModelOverlay" title='idRenderModelOverlay' data-ref="idRenderModelOverlay">idRenderModelOverlay</a> *<dfn class="decl" id="_ZN20idRenderModelOverlay5AllocEv" title='idRenderModelOverlay::Alloc' data-ref="_ZN20idRenderModelOverlay5AllocEv">Alloc</dfn>( <em>void</em> );</td></tr>
+<tr><th id="68">68</th><td>	<em>static</em> <em>void</em>					<dfn class="decl" id="_ZN20idRenderModelOverlay4FreeEPS_" title='idRenderModelOverlay::Free' data-ref="_ZN20idRenderModelOverlay4FreeEPS_">Free</dfn>( <a class="type" href="#idRenderModelOverlay" title='idRenderModelOverlay' data-ref="idRenderModelOverlay">idRenderModelOverlay</a> *<dfn class="local col5 decl" id="195overlay" title='overlay' data-type='idRenderModelOverlay *' data-ref="195overlay">overlay</dfn> );</td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td>	<i>// Projects an overlay onto deformable geometry and can be added to</i></td></tr>
+<tr><th id="71">71</th><td><i>	// a render entity to allow decals on top of dynamic models.</i></td></tr>
+<tr><th id="72">72</th><td><i>	// This does not generate tangent vectors, so it can't be used with</i></td></tr>
+<tr><th id="73">73</th><td><i>	// light interaction shaders. Materials for overlays should always</i></td></tr>
+<tr><th id="74">74</th><td><i>	// be clamped, because the projected texcoords can run well off the</i></td></tr>
+<tr><th id="75">75</th><td><i>	// texture since no new clip vertexes are generated.</i></td></tr>
+<tr><th id="76">76</th><td>	<em>void</em>						<dfn class="decl" id="_ZN20idRenderModelOverlay13CreateOverlayEPK13idRenderModelPK7idPlanePK10idMaterial" title='idRenderModelOverlay::CreateOverlay' data-ref="_ZN20idRenderModelOverlay13CreateOverlayEPK13idRenderModelPK7idPlanePK10idMaterial">CreateOverlay</dfn>( <em>const</em> <a class="type" href="Model.h.html#idRenderModel" title='idRenderModel' data-ref="idRenderModel">idRenderModel</a> *<dfn class="local col6 decl" id="196model" title='model' data-type='const idRenderModel *' data-ref="196model">model</dfn>, <em>const</em> <a class="type" href="../idlib/math/Plane.h.html#idPlane" title='idPlane' data-ref="idPlane">idPlane</a> <dfn class="local col7 decl" id="197localTextureAxis" title='localTextureAxis' data-type='const idPlane *' data-ref="197localTextureAxis">localTextureAxis</dfn>[<var>2</var>], <em>const</em> <a class="type" href="Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *<dfn class="local col8 decl" id="198material" title='material' data-type='const idMaterial *' data-ref="198material">material</dfn> );</td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td>	<i>// Creates new model surfaces for baseModel, which should be a static instantiation of a dynamic model.</i></td></tr>
+<tr><th id="79">79</th><td>	<em>void</em>						<dfn class="decl" id="_ZN20idRenderModelOverlay25AddOverlaySurfacesToModelEP13idRenderModel" title='idRenderModelOverlay::AddOverlaySurfacesToModel' data-ref="_ZN20idRenderModelOverlay25AddOverlaySurfacesToModelEP13idRenderModel">AddOverlaySurfacesToModel</dfn>( <a class="type" href="Model.h.html#idRenderModel" title='idRenderModel' data-ref="idRenderModel">idRenderModel</a> *<dfn class="local col9 decl" id="199baseModel" title='baseModel' data-type='idRenderModel *' data-ref="199baseModel">baseModel</dfn> );</td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td>	<i>// Removes overlay surfaces from the model.</i></td></tr>
+<tr><th id="82">82</th><td>	<em>static</em> <em>void</em>					<dfn class="decl" id="_ZN20idRenderModelOverlay30RemoveOverlaySurfacesFromModelEP13idRenderModel" title='idRenderModelOverlay::RemoveOverlaySurfacesFromModel' data-ref="_ZN20idRenderModelOverlay30RemoveOverlaySurfacesFromModelEP13idRenderModel">RemoveOverlaySurfacesFromModel</dfn>( <a class="type" href="Model.h.html#idRenderModel" title='idRenderModel' data-ref="idRenderModel">idRenderModel</a> *<dfn class="local col0 decl" id="200baseModel" title='baseModel' data-type='idRenderModel *' data-ref="200baseModel">baseModel</dfn> );</td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td>	<em>void</em>						<dfn class="decl" id="_ZN20idRenderModelOverlay16ReadFromDemoFileEP10idDemoFile" title='idRenderModelOverlay::ReadFromDemoFile' data-ref="_ZN20idRenderModelOverlay16ReadFromDemoFileEP10idDemoFile">ReadFromDemoFile</dfn>( <b>class</b> <a class="type" href="../framework/DemoFile.h.html#idDemoFile" title='idDemoFile' data-ref="idDemoFile">idDemoFile</a> *<dfn class="local col1 decl" id="201f" title='f' data-type='class idDemoFile *' data-ref="201f">f</dfn> );</td></tr>
+<tr><th id="85">85</th><td>	<em>void</em>						<dfn class="decl" id="_ZNK20idRenderModelOverlay15WriteToDemoFileEP10idDemoFile" title='idRenderModelOverlay::WriteToDemoFile' data-ref="_ZNK20idRenderModelOverlay15WriteToDemoFileEP10idDemoFile">WriteToDemoFile</dfn>( <b>class</b> <a class="type" href="../framework/DemoFile.h.html#idDemoFile" title='idDemoFile' data-ref="idDemoFile">idDemoFile</a> *<dfn class="local col2 decl" id="202f" title='f' data-type='class idDemoFile *' data-ref="202f">f</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td><b>private</b>:</td></tr>
+<tr><th id="88">88</th><td>	<a class="type" href="../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<a class="typedef" href="#overlayMaterial_t" title='overlayMaterial_t' data-type='struct overlayMaterial_s' data-ref="overlayMaterial_t">overlayMaterial_t</a> *&gt;	<dfn class="decl" id="idRenderModelOverlay::materials" title='idRenderModelOverlay::materials' data-ref="idRenderModelOverlay::materials">materials</dfn>;</td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td>	<em>void</em>						<dfn class="decl" id="_ZN20idRenderModelOverlay11FreeSurfaceEP16overlaySurface_s" title='idRenderModelOverlay::FreeSurface' data-ref="_ZN20idRenderModelOverlay11FreeSurfaceEP16overlaySurface_s">FreeSurface</dfn>( <a class="typedef" href="#overlaySurface_t" title='overlaySurface_t' data-type='struct overlaySurface_s' data-ref="overlaySurface_t">overlaySurface_t</a> *<dfn class="local col3 decl" id="203surface" title='surface' data-type='overlaySurface_t *' data-ref="203surface">surface</dfn> );</td></tr>
+<tr><th id="91">91</th><td>};</td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td><u>#<span data-ppcond="29">endif</span> /* !__MODELOVERLAY_H__ */</u></td></tr>
+<tr><th id="94">94</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../build/debug/core/glimp/sys/linux/glimp_dlopen.cpp.html'>codebrowser/build/debug/core/glimp/sys/linux/glimp_dlopen.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

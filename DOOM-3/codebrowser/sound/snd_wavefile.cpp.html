@@ -1,0 +1,372 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>snd_wavefile.cpp source code [codebrowser/sound/snd_wavefile.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/sound/snd_wavefile.cpp'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>sound</a>/<a href='snd_wavefile.cpp.html'>snd_wavefile.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="../idlib/precompiled.h.html">"../idlib/precompiled.h"</a></u></td></tr>
+<tr><th id="30">30</th><td><u>#pragma hdrstop</u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="snd_local.h.html">"snd_local.h"</a></u></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><i>//-----------------------------------------------------------------------------</i></td></tr>
+<tr><th id="35">35</th><td><i>// Name: idWaveFile::idWaveFile()</i></td></tr>
+<tr><th id="36">36</th><td><i>// Desc: Constructs the class.  Call Open() to open a wave file for reading.  </i></td></tr>
+<tr><th id="37">37</th><td><i>//       Then call Read() as needed.  Calling the destructor or Close() </i></td></tr>
+<tr><th id="38">38</th><td><i>//       will close the file.  </i></td></tr>
+<tr><th id="39">39</th><td><i>//-----------------------------------------------------------------------------</i></td></tr>
+<tr><th id="40">40</th><td><a class="type" href="snd_local.h.html#idWaveFile" title='idWaveFile' data-ref="idWaveFile">idWaveFile</a>::<dfn class="decl def" id="_ZN10idWaveFileC1Ev" title='idWaveFile::idWaveFile' data-ref="_ZN10idWaveFileC1Ev">idWaveFile</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="41">41</th><td>	<a class="ref" href="../../include/string.h.html#memset" title='memset' data-ref="memset">memset</a>( &amp;<a class="member" href="snd_local.h.html#idWaveFile::mpwfx" title='idWaveFile::mpwfx' data-ref="idWaveFile::mpwfx">mpwfx</a>, <var>0</var>, <b>sizeof</b>( <a class="typedef" href="snd_local.h.html#waveformatextensible_t" title='waveformatextensible_t' data-type='waveformatextensible_s' data-ref="waveformatextensible_t">waveformatextensible_t</a> ) );</td></tr>
+<tr><th id="42">42</th><td>	<a class="member" href="snd_local.h.html#idWaveFile::mhmmio" title='idWaveFile::mhmmio' data-ref="idWaveFile::mhmmio">mhmmio</a>		= <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="43">43</th><td>	<a class="member" href="snd_local.h.html#idWaveFile::mdwSize" title='idWaveFile::mdwSize' data-ref="idWaveFile::mdwSize">mdwSize</a>		= <var>0</var>;</td></tr>
+<tr><th id="44">44</th><td>	<a class="member" href="snd_local.h.html#idWaveFile::mseekBase" title='idWaveFile::mseekBase' data-ref="idWaveFile::mseekBase">mseekBase</a>	= <var>0</var>;</td></tr>
+<tr><th id="45">45</th><td>	<a class="member" href="snd_local.h.html#idWaveFile::mbIsReadingFromMemory" title='idWaveFile::mbIsReadingFromMemory' data-ref="idWaveFile::mbIsReadingFromMemory">mbIsReadingFromMemory</a> = <b>false</b>;</td></tr>
+<tr><th id="46">46</th><td>	<a class="member" href="snd_local.h.html#idWaveFile::mpbData" title='idWaveFile::mpbData' data-ref="idWaveFile::mpbData">mpbData</a>		= <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="47">47</th><td>	<a class="member" href="snd_local.h.html#idWaveFile::ogg" title='idWaveFile::ogg' data-ref="idWaveFile::ogg">ogg</a>			= <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="48">48</th><td>	<a class="member" href="snd_local.h.html#idWaveFile::isOgg" title='idWaveFile::isOgg' data-ref="idWaveFile::isOgg">isOgg</a>		= <b>false</b>;</td></tr>
+<tr><th id="49">49</th><td>}</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td><i>//-----------------------------------------------------------------------------</i></td></tr>
+<tr><th id="52">52</th><td><i>// Name: idWaveFile::~idWaveFile()</i></td></tr>
+<tr><th id="53">53</th><td><i>// Desc: Destructs the class</i></td></tr>
+<tr><th id="54">54</th><td><i>//-----------------------------------------------------------------------------</i></td></tr>
+<tr><th id="55">55</th><td><a class="type" href="snd_local.h.html#idWaveFile" title='idWaveFile' data-ref="idWaveFile">idWaveFile</a>::<dfn class="decl def" id="_ZN10idWaveFileD1Ev" title='idWaveFile::~idWaveFile' data-ref="_ZN10idWaveFileD1Ev">~idWaveFile</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="56">56</th><td>	<a class="member" href="#_ZN10idWaveFile5CloseEv" title='idWaveFile::Close' data-ref="_ZN10idWaveFile5CloseEv">Close</a>();</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td>	<b>if</b> ( <a class="member" href="snd_local.h.html#idWaveFile::mbIsReadingFromMemory" title='idWaveFile::mbIsReadingFromMemory' data-ref="idWaveFile::mbIsReadingFromMemory">mbIsReadingFromMemory</a> &amp;&amp; <a class="member" href="snd_local.h.html#idWaveFile::mpbData" title='idWaveFile::mpbData' data-ref="idWaveFile::mpbData">mpbData</a> ) {</td></tr>
+<tr><th id="59">59</th><td>		<a class="ref" href="../idlib/Heap.h.html#_Z8Mem_FreePv" title='Mem_Free' data-ref="_Z8Mem_FreePv">Mem_Free</a>( <a class="member" href="snd_local.h.html#idWaveFile::mpbData" title='idWaveFile::mpbData' data-ref="idWaveFile::mpbData">mpbData</a> );</td></tr>
+<tr><th id="60">60</th><td>	}</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td>	<a class="ref" href="../../include/string.h.html#memset" title='memset' data-ref="memset">memset</a>( &amp;<a class="member" href="snd_local.h.html#idWaveFile::mpwfx" title='idWaveFile::mpwfx' data-ref="idWaveFile::mpwfx">mpwfx</a>, <var>0</var>, <b>sizeof</b>( <a class="typedef" href="snd_local.h.html#waveformatextensible_t" title='waveformatextensible_t' data-type='waveformatextensible_s' data-ref="waveformatextensible_t">waveformatextensible_t</a> ) );</td></tr>
+<tr><th id="63">63</th><td>}</td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td><i>//-----------------------------------------------------------------------------</i></td></tr>
+<tr><th id="66">66</th><td><i>// Name: idWaveFile::Open()</i></td></tr>
+<tr><th id="67">67</th><td><i>// Desc: Opens a wave file for reading</i></td></tr>
+<tr><th id="68">68</th><td><i>//-----------------------------------------------------------------------------</i></td></tr>
+<tr><th id="69">69</th><td><em>int</em> <a class="type" href="snd_local.h.html#idWaveFile" title='idWaveFile' data-ref="idWaveFile">idWaveFile</a>::<dfn class="decl def" id="_ZN10idWaveFile4OpenEPKcP14waveformatex_s" title='idWaveFile::Open' data-ref="_ZN10idWaveFile4OpenEPKcP14waveformatex_s">Open</dfn>( <em>const</em> <em>char</em>* <dfn class="local col1 decl" id="1strFileName" title='strFileName' data-type='const char *' data-ref="1strFileName">strFileName</dfn>, <a class="typedef" href="snd_local.h.html#waveformatex_t" title='waveformatex_t' data-type='waveformatex_s' data-ref="waveformatex_t">waveformatex_t</a>* <dfn class="local col2 decl" id="2pwfx" title='pwfx' data-type='waveformatex_t *' data-ref="2pwfx">pwfx</dfn> ) {</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td>	<a class="member" href="snd_local.h.html#idWaveFile::mbIsReadingFromMemory" title='idWaveFile::mbIsReadingFromMemory' data-ref="idWaveFile::mbIsReadingFromMemory">mbIsReadingFromMemory</a> = <b>false</b>;</td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td>	<a class="member" href="snd_local.h.html#idWaveFile::mpbData" title='idWaveFile::mpbData' data-ref="idWaveFile::mpbData">mpbData</a>     = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="74">74</th><td>	<a class="member" href="snd_local.h.html#idWaveFile::mpbDataCur" title='idWaveFile::mpbDataCur' data-ref="idWaveFile::mpbDataCur">mpbDataCur</a>  = <a class="member" href="snd_local.h.html#idWaveFile::mpbData" title='idWaveFile::mpbData' data-ref="idWaveFile::mpbData">mpbData</a>;</td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td>	<b>if</b>( <a class="local col1 ref" href="#1strFileName" title='strFileName' data-ref="1strFileName">strFileName</a> == <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> ) {</td></tr>
+<tr><th id="77">77</th><td>		<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="78">78</th><td>	}</td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td>	<a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a> <dfn class="local col3 decl" id="3name" title='name' data-type='idStr' data-ref="3name">name</dfn> = <a class="ref fake" href="../idlib/Str.h.html#_ZN5idStrC1EPKc" title='idStr::idStr' data-ref="_ZN5idStrC1EPKc"></a><a class="local col1 ref" href="#1strFileName" title='strFileName' data-ref="1strFileName">strFileName</a>;</td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td>	<i>// note: used to only check for .wav when making a build</i></td></tr>
+<tr><th id="83">83</th><td>	<a class="local col3 ref" href="#3name" title='name' data-ref="3name">name</a>.<a class="ref" href="../idlib/Str.h.html#_ZN5idStr16SetFileExtensionEPKc" title='idStr::SetFileExtension' data-ref="_ZN5idStr16SetFileExtensionEPKc">SetFileExtension</a>( <q>".ogg"</q> );</td></tr>
+<tr><th id="84">84</th><td>	<b>if</b> ( <a class="ref" href="../framework/FileSystem.h.html#fileSystem" title='fileSystem' data-ref="fileSystem">fileSystem</a>-&gt;<a class="virtual ref" href="../framework/FileSystem.h.html#_ZN12idFileSystem8ReadFileEPKcPPvPl" title='idFileSystem::ReadFile' data-ref="_ZN12idFileSystem8ReadFileEPKcPPvPl">ReadFile</a>( <a class="ref fake" href="../idlib/Str.h.html#_ZN5idStrcvPKcEv" title='idStr::operator const char *' data-ref="_ZN5idStrcvPKcEv"></a><a class="local col3 ref" href="#3name" title='name' data-ref="3name">name</a>, <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>, <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> ) != -<var>1</var> ) {</td></tr>
+<tr><th id="85">85</th><td>		<b>return</b> <a class="member" href="snd_local.h.html#_ZN10idWaveFile7OpenOGGEPKcP14waveformatex_s" title='idWaveFile::OpenOGG' data-ref="_ZN10idWaveFile7OpenOGGEPKcP14waveformatex_s">OpenOGG</a>( <a class="ref fake" href="../idlib/Str.h.html#_ZN5idStrcvPKcEv" title='idStr::operator const char *' data-ref="_ZN5idStrcvPKcEv"></a><a class="local col3 ref" href="#3name" title='name' data-ref="3name">name</a>, <a class="local col2 ref" href="#2pwfx" title='pwfx' data-ref="2pwfx">pwfx</a> );</td></tr>
+<tr><th id="86">86</th><td>	}</td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td>	<a class="ref" href="../../include/string.h.html#memset" title='memset' data-ref="memset">memset</a>( &amp;<a class="member" href="snd_local.h.html#idWaveFile::mpwfx" title='idWaveFile::mpwfx' data-ref="idWaveFile::mpwfx">mpwfx</a>, <var>0</var>, <b>sizeof</b>( <a class="typedef" href="snd_local.h.html#waveformatextensible_t" title='waveformatextensible_t' data-type='waveformatextensible_s' data-ref="waveformatextensible_t">waveformatextensible_t</a> ) );</td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td>	<a class="member" href="snd_local.h.html#idWaveFile::mhmmio" title='idWaveFile::mhmmio' data-ref="idWaveFile::mhmmio">mhmmio</a> = <a class="ref" href="../framework/FileSystem.h.html#fileSystem" title='fileSystem' data-ref="fileSystem">fileSystem</a>-&gt;<a class="virtual ref" href="../framework/FileSystem.h.html#_ZN12idFileSystem12OpenFileReadEPKcbS1_" title='idFileSystem::OpenFileRead' data-ref="_ZN12idFileSystem12OpenFileReadEPKcbS1_">OpenFileRead</a>( <a class="local col1 ref" href="#1strFileName" title='strFileName' data-ref="1strFileName">strFileName</a> );</td></tr>
+<tr><th id="91">91</th><td>	<b>if</b> ( !<a class="member" href="snd_local.h.html#idWaveFile::mhmmio" title='idWaveFile::mhmmio' data-ref="idWaveFile::mhmmio">mhmmio</a> ) {</td></tr>
+<tr><th id="92">92</th><td>		<a class="member" href="snd_local.h.html#idWaveFile::mdwSize" title='idWaveFile::mdwSize' data-ref="idWaveFile::mdwSize">mdwSize</a> = <var>0</var>;</td></tr>
+<tr><th id="93">93</th><td>		<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="94">94</th><td>	}</td></tr>
+<tr><th id="95">95</th><td>	<b>if</b> ( <a class="member" href="snd_local.h.html#idWaveFile::mhmmio" title='idWaveFile::mhmmio' data-ref="idWaveFile::mhmmio">mhmmio</a>-&gt;<a class="virtual ref" href="../framework/File.h.html#_ZN6idFile6LengthEv" title='idFile::Length' data-ref="_ZN6idFile6LengthEv">Length</a>() &lt;= <var>0</var> ) {</td></tr>
+<tr><th id="96">96</th><td>		<a class="member" href="snd_local.h.html#idWaveFile::mhmmio" title='idWaveFile::mhmmio' data-ref="idWaveFile::mhmmio">mhmmio</a> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="97">97</th><td>		<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="98">98</th><td>	}</td></tr>
+<tr><th id="99">99</th><td>	<b>if</b> ( <a class="member" href="#_ZN10idWaveFile8ReadMMIOEv" title='idWaveFile::ReadMMIO' data-ref="_ZN10idWaveFile8ReadMMIOEv">ReadMMIO</a>() != <var>0</var> ) {</td></tr>
+<tr><th id="100">100</th><td>		<i>// ReadMMIO will fail if its an not a wave file</i></td></tr>
+<tr><th id="101">101</th><td>		<a class="member" href="#_ZN10idWaveFile5CloseEv" title='idWaveFile::Close' data-ref="_ZN10idWaveFile5CloseEv">Close</a>();</td></tr>
+<tr><th id="102">102</th><td>		<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="103">103</th><td>	}</td></tr>
+<tr><th id="104">104</th><td></td></tr>
+<tr><th id="105">105</th><td>	<a class="member" href="snd_local.h.html#idWaveFile::mfileTime" title='idWaveFile::mfileTime' data-ref="idWaveFile::mfileTime">mfileTime</a> = <a class="member" href="snd_local.h.html#idWaveFile::mhmmio" title='idWaveFile::mhmmio' data-ref="idWaveFile::mhmmio">mhmmio</a>-&gt;<a class="virtual ref" href="../framework/File.h.html#_ZN6idFile9TimestampEv" title='idFile::Timestamp' data-ref="_ZN6idFile9TimestampEv">Timestamp</a>();</td></tr>
+<tr><th id="106">106</th><td></td></tr>
+<tr><th id="107">107</th><td>	<b>if</b> ( <a class="member" href="#_ZN10idWaveFile9ResetFileEv" title='idWaveFile::ResetFile' data-ref="_ZN10idWaveFile9ResetFileEv">ResetFile</a>() != <var>0</var> ) {</td></tr>
+<tr><th id="108">108</th><td>		<a class="member" href="#_ZN10idWaveFile5CloseEv" title='idWaveFile::Close' data-ref="_ZN10idWaveFile5CloseEv">Close</a>();</td></tr>
+<tr><th id="109">109</th><td>		<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="110">110</th><td>	}</td></tr>
+<tr><th id="111">111</th><td></td></tr>
+<tr><th id="112">112</th><td>	<i>// After the reset, the size of the wav file is mck.cksize so store it now</i></td></tr>
+<tr><th id="113">113</th><td>	<a class="member" href="snd_local.h.html#idWaveFile::mdwSize" title='idWaveFile::mdwSize' data-ref="idWaveFile::mdwSize">mdwSize</a> = <a class="member" href="snd_local.h.html#idWaveFile::mck" title='idWaveFile::mck' data-ref="idWaveFile::mck">mck</a>.<a class="ref" href="snd_local.h.html#mminfo_s::cksize" title='mminfo_s::cksize' data-ref="mminfo_s::cksize">cksize</a> / <b>sizeof</b>( <em>short</em> );</td></tr>
+<tr><th id="114">114</th><td>	<a class="member" href="snd_local.h.html#idWaveFile::mMemSize" title='idWaveFile::mMemSize' data-ref="idWaveFile::mMemSize">mMemSize</a> = <a class="member" href="snd_local.h.html#idWaveFile::mck" title='idWaveFile::mck' data-ref="idWaveFile::mck">mck</a>.<a class="ref" href="snd_local.h.html#mminfo_s::cksize" title='mminfo_s::cksize' data-ref="mminfo_s::cksize">cksize</a>;</td></tr>
+<tr><th id="115">115</th><td></td></tr>
+<tr><th id="116">116</th><td>	<b>if</b> ( <a class="member" href="snd_local.h.html#idWaveFile::mck" title='idWaveFile::mck' data-ref="idWaveFile::mck">mck</a>.<a class="ref" href="snd_local.h.html#mminfo_s::cksize" title='mminfo_s::cksize' data-ref="mminfo_s::cksize">cksize</a> != <var>0xffffffff</var> ) {</td></tr>
+<tr><th id="117">117</th><td>		<b>if</b> ( <a class="local col2 ref" href="#2pwfx" title='pwfx' data-ref="2pwfx">pwfx</a> ) {</td></tr>
+<tr><th id="118">118</th><td>			<a class="ref" href="../../include/string.h.html#memcpy" title='memcpy' data-ref="memcpy">memcpy</a>( <a class="local col2 ref" href="#2pwfx" title='pwfx' data-ref="2pwfx">pwfx</a>, (<a class="typedef" href="snd_local.h.html#waveformatex_t" title='waveformatex_t' data-type='waveformatex_s' data-ref="waveformatex_t">waveformatex_t</a> *)&amp;<a class="member" href="snd_local.h.html#idWaveFile::mpwfx" title='idWaveFile::mpwfx' data-ref="idWaveFile::mpwfx">mpwfx</a>, <b>sizeof</b>(<a class="typedef" href="snd_local.h.html#waveformatex_t" title='waveformatex_t' data-type='waveformatex_s' data-ref="waveformatex_t">waveformatex_t</a>));</td></tr>
+<tr><th id="119">119</th><td>		}</td></tr>
+<tr><th id="120">120</th><td>		<b>return</b> <var>0</var>;</td></tr>
+<tr><th id="121">121</th><td>	}</td></tr>
+<tr><th id="122">122</th><td>	<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="123">123</th><td>}</td></tr>
+<tr><th id="124">124</th><td></td></tr>
+<tr><th id="125">125</th><td><i>//-----------------------------------------------------------------------------</i></td></tr>
+<tr><th id="126">126</th><td><i>// Name: idWaveFile::OpenFromMemory()</i></td></tr>
+<tr><th id="127">127</th><td><i>// Desc: copy data to idWaveFile member variable from memory</i></td></tr>
+<tr><th id="128">128</th><td><i>//-----------------------------------------------------------------------------</i></td></tr>
+<tr><th id="129">129</th><td><em>int</em> <a class="type" href="snd_local.h.html#idWaveFile" title='idWaveFile' data-ref="idWaveFile">idWaveFile</a>::<dfn class="decl def" id="_ZN10idWaveFile14OpenFromMemoryEPsiP22waveformatextensible_s" title='idWaveFile::OpenFromMemory' data-ref="_ZN10idWaveFile14OpenFromMemoryEPsiP22waveformatextensible_s">OpenFromMemory</dfn>( <em>short</em>* <dfn class="local col4 decl" id="4pbData" title='pbData' data-type='short *' data-ref="4pbData">pbData</dfn>, <em>int</em> <dfn class="local col5 decl" id="5ulDataSize" title='ulDataSize' data-type='int' data-ref="5ulDataSize">ulDataSize</dfn>, <a class="typedef" href="snd_local.h.html#waveformatextensible_t" title='waveformatextensible_t' data-type='waveformatextensible_s' data-ref="waveformatextensible_t">waveformatextensible_t</a>* <dfn class="local col6 decl" id="6pwfx" title='pwfx' data-type='waveformatextensible_t *' data-ref="6pwfx">pwfx</dfn> ) {</td></tr>
+<tr><th id="130">130</th><td>	<a class="member" href="snd_local.h.html#idWaveFile::mpwfx" title='idWaveFile::mpwfx' data-ref="idWaveFile::mpwfx">mpwfx</a>       <a class="ref" href="snd_local.h.html#142" title='waveformatextensible_s::operator=' data-ref="_ZN22waveformatextensible_saSERKS_">=</a> *<a class="local col6 ref" href="#6pwfx" title='pwfx' data-ref="6pwfx">pwfx</a>;</td></tr>
+<tr><th id="131">131</th><td>	<a class="member" href="snd_local.h.html#idWaveFile::mulDataSize" title='idWaveFile::mulDataSize' data-ref="idWaveFile::mulDataSize">mulDataSize</a> = <a class="local col5 ref" href="#5ulDataSize" title='ulDataSize' data-ref="5ulDataSize">ulDataSize</a>;</td></tr>
+<tr><th id="132">132</th><td>	<a class="member" href="snd_local.h.html#idWaveFile::mpbData" title='idWaveFile::mpbData' data-ref="idWaveFile::mpbData">mpbData</a>     = <a class="local col4 ref" href="#4pbData" title='pbData' data-ref="4pbData">pbData</a>;</td></tr>
+<tr><th id="133">133</th><td>	<a class="member" href="snd_local.h.html#idWaveFile::mpbDataCur" title='idWaveFile::mpbDataCur' data-ref="idWaveFile::mpbDataCur">mpbDataCur</a>  = <a class="member" href="snd_local.h.html#idWaveFile::mpbData" title='idWaveFile::mpbData' data-ref="idWaveFile::mpbData">mpbData</a>;</td></tr>
+<tr><th id="134">134</th><td>	<a class="member" href="snd_local.h.html#idWaveFile::mdwSize" title='idWaveFile::mdwSize' data-ref="idWaveFile::mdwSize">mdwSize</a>		= <a class="local col5 ref" href="#5ulDataSize" title='ulDataSize' data-ref="5ulDataSize">ulDataSize</a> / <b>sizeof</b>( <em>short</em> );</td></tr>
+<tr><th id="135">135</th><td>	<a class="member" href="snd_local.h.html#idWaveFile::mMemSize" title='idWaveFile::mMemSize' data-ref="idWaveFile::mMemSize">mMemSize</a>	= <a class="local col5 ref" href="#5ulDataSize" title='ulDataSize' data-ref="5ulDataSize">ulDataSize</a>;</td></tr>
+<tr><th id="136">136</th><td>	<a class="member" href="snd_local.h.html#idWaveFile::mbIsReadingFromMemory" title='idWaveFile::mbIsReadingFromMemory' data-ref="idWaveFile::mbIsReadingFromMemory">mbIsReadingFromMemory</a> = <b>true</b>;</td></tr>
+<tr><th id="137">137</th><td></td></tr>
+<tr><th id="138">138</th><td>	<b>return</b> <var>0</var>;</td></tr>
+<tr><th id="139">139</th><td>}</td></tr>
+<tr><th id="140">140</th><td></td></tr>
+<tr><th id="141">141</th><td><i>//-----------------------------------------------------------------------------</i></td></tr>
+<tr><th id="142">142</th><td><i>// Name: idWaveFile::ReadMMIO()</i></td></tr>
+<tr><th id="143">143</th><td><i>// Desc: Support function for reading from a multimedia I/O stream.</i></td></tr>
+<tr><th id="144">144</th><td><i>//       mhmmio must be valid before calling.  This function uses it to</i></td></tr>
+<tr><th id="145">145</th><td><i>//       update mckRiff, and mpwfx. </i></td></tr>
+<tr><th id="146">146</th><td><i>//-----------------------------------------------------------------------------</i></td></tr>
+<tr><th id="147">147</th><td><em>int</em> <a class="type" href="snd_local.h.html#idWaveFile" title='idWaveFile' data-ref="idWaveFile">idWaveFile</a>::<dfn class="decl def" id="_ZN10idWaveFile8ReadMMIOEv" title='idWaveFile::ReadMMIO' data-ref="_ZN10idWaveFile8ReadMMIOEv">ReadMMIO</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="148">148</th><td>	<a class="typedef" href="snd_local.h.html#mminfo_t" title='mminfo_t' data-type='mminfo_s' data-ref="mminfo_t">mminfo_t</a>		<a class="ref fake" href="snd_local.h.html#159" title='mminfo_s::mminfo_s' data-ref="_ZN8mminfo_sC1Ev"></a><dfn class="local col7 decl" id="7ckIn" title='ckIn' data-type='mminfo_t' data-ref="7ckIn">ckIn</dfn>;           <i>// chunk info. for general use.</i></td></tr>
+<tr><th id="149">149</th><td>	<a class="typedef" href="snd_local.h.html#pcmwaveformat_t" title='pcmwaveformat_t' data-type='pcmwaveformat_s' data-ref="pcmwaveformat_t">pcmwaveformat_t</a> <a class="ref fake" href="snd_local.h.html#127" title='pcmwaveformat_s::pcmwaveformat_s' data-ref="_ZN15pcmwaveformat_sC1Ev"></a><dfn class="local col8 decl" id="8pcmWaveFormat" title='pcmWaveFormat' data-type='pcmwaveformat_t' data-ref="8pcmWaveFormat">pcmWaveFormat</dfn>;  <i>// Temp PCM structure to load in.       </i></td></tr>
+<tr><th id="150">150</th><td></td></tr>
+<tr><th id="151">151</th><td>	<a class="ref" href="../../include/string.h.html#memset" title='memset' data-ref="memset">memset</a>( &amp;<a class="member" href="snd_local.h.html#idWaveFile::mpwfx" title='idWaveFile::mpwfx' data-ref="idWaveFile::mpwfx">mpwfx</a>, <var>0</var>, <b>sizeof</b>( <a class="typedef" href="snd_local.h.html#waveformatextensible_t" title='waveformatextensible_t' data-type='waveformatextensible_s' data-ref="waveformatextensible_t">waveformatextensible_t</a> ) );</td></tr>
+<tr><th id="152">152</th><td></td></tr>
+<tr><th id="153">153</th><td>	<a class="member" href="snd_local.h.html#idWaveFile::mhmmio" title='idWaveFile::mhmmio' data-ref="idWaveFile::mhmmio">mhmmio</a>-&gt;<a class="virtual ref" href="../framework/File.h.html#_ZN6idFile4ReadEPvi" title='idFile::Read' data-ref="_ZN6idFile4ReadEPvi">Read</a>( &amp;<a class="member" href="snd_local.h.html#idWaveFile::mckRiff" title='idWaveFile::mckRiff' data-ref="idWaveFile::mckRiff">mckRiff</a>, <var>12</var> );</td></tr>
+<tr><th id="154">154</th><td>	<a class="macro" href="../idlib/Lib.h.html#147" title="if ( !isOgg ) { } else AssertFailed( &quot;/home/jon/workspace/id-software/DOOM-3/neo/sound/snd_wavefile.cpp&quot;, 154, &quot;!isOgg&quot; )" data-ref="_M/assert">assert</a>( !<a class="member" href="snd_local.h.html#idWaveFile::isOgg" title='idWaveFile::isOgg' data-ref="idWaveFile::isOgg">isOgg</a> );</td></tr>
+<tr><th id="155">155</th><td>	<a class="member" href="snd_local.h.html#idWaveFile::mckRiff" title='idWaveFile::mckRiff' data-ref="idWaveFile::mckRiff">mckRiff</a>.<a class="ref" href="snd_local.h.html#mminfo_s::ckid" title='mminfo_s::ckid' data-ref="mminfo_s::ckid">ckid</a> = <a class="ref" href="../idlib/Lib.h.html#_Z10LittleLongi" title='LittleLong' data-ref="_Z10LittleLongi">LittleLong</a>( <a class="member" href="snd_local.h.html#idWaveFile::mckRiff" title='idWaveFile::mckRiff' data-ref="idWaveFile::mckRiff">mckRiff</a>.<a class="ref" href="snd_local.h.html#mminfo_s::ckid" title='mminfo_s::ckid' data-ref="mminfo_s::ckid">ckid</a> );</td></tr>
+<tr><th id="156">156</th><td>	<a class="member" href="snd_local.h.html#idWaveFile::mckRiff" title='idWaveFile::mckRiff' data-ref="idWaveFile::mckRiff">mckRiff</a>.<a class="ref" href="snd_local.h.html#mminfo_s::cksize" title='mminfo_s::cksize' data-ref="mminfo_s::cksize">cksize</a> = <a class="ref" href="../idlib/Lib.h.html#_Z10LittleLongi" title='LittleLong' data-ref="_Z10LittleLongi">LittleLong</a>( <a class="member" href="snd_local.h.html#idWaveFile::mckRiff" title='idWaveFile::mckRiff' data-ref="idWaveFile::mckRiff">mckRiff</a>.<a class="ref" href="snd_local.h.html#mminfo_s::cksize" title='mminfo_s::cksize' data-ref="mminfo_s::cksize">cksize</a> );</td></tr>
+<tr><th id="157">157</th><td>	<a class="member" href="snd_local.h.html#idWaveFile::mckRiff" title='idWaveFile::mckRiff' data-ref="idWaveFile::mckRiff">mckRiff</a>.<a class="ref" href="snd_local.h.html#mminfo_s::fccType" title='mminfo_s::fccType' data-ref="mminfo_s::fccType">fccType</a> = <a class="ref" href="../idlib/Lib.h.html#_Z10LittleLongi" title='LittleLong' data-ref="_Z10LittleLongi">LittleLong</a>( <a class="member" href="snd_local.h.html#idWaveFile::mckRiff" title='idWaveFile::mckRiff' data-ref="idWaveFile::mckRiff">mckRiff</a>.<a class="ref" href="snd_local.h.html#mminfo_s::fccType" title='mminfo_s::fccType' data-ref="mminfo_s::fccType">fccType</a> );</td></tr>
+<tr><th id="158">158</th><td>	<a class="member" href="snd_local.h.html#idWaveFile::mckRiff" title='idWaveFile::mckRiff' data-ref="idWaveFile::mckRiff">mckRiff</a>.<a class="ref" href="snd_local.h.html#mminfo_s::dwDataOffset" title='mminfo_s::dwDataOffset' data-ref="mminfo_s::dwDataOffset">dwDataOffset</a> = <var>12</var>;</td></tr>
+<tr><th id="159">159</th><td></td></tr>
+<tr><th id="160">160</th><td>	<i>// Check to make sure this is a valid wave file</i></td></tr>
+<tr><th id="161">161</th><td>	<b>if</b>( (<a class="member" href="snd_local.h.html#idWaveFile::mckRiff" title='idWaveFile::mckRiff' data-ref="idWaveFile::mckRiff">mckRiff</a>.<a class="ref" href="snd_local.h.html#mminfo_s::ckid" title='mminfo_s::ckid' data-ref="mminfo_s::ckid">ckid</a> != <a class="macro" href="snd_local.h.html#140" title="( (dword)(byte)(&apos;R&apos;) | ( (dword)(byte)(&apos;I&apos;) &lt;&lt; 8 ) | ( (dword)(byte)(&apos;F&apos;) &lt;&lt; 16 ) | ( (dword)(byte)(&apos;F&apos;) &lt;&lt; 24 ) )" data-ref="_M/fourcc_riff">fourcc_riff</a>) || (<a class="member" href="snd_local.h.html#idWaveFile::mckRiff" title='idWaveFile::mckRiff' data-ref="idWaveFile::mckRiff">mckRiff</a>.<a class="ref" href="snd_local.h.html#mminfo_s::fccType" title='mminfo_s::fccType' data-ref="mminfo_s::fccType">fccType</a> != <a class="macro" href="snd_local.h.html#135" title="( (dword)(byte)(&apos;W&apos;) | ( (dword)(byte)(&apos;A&apos;) &lt;&lt; 8 ) | ( (dword)(byte)(&apos;V&apos;) &lt;&lt; 16 ) | ( (dword)(byte)(&apos;E&apos;) &lt;&lt; 24 ) )" data-ref="_M/mmioFOURCC">mmioFOURCC</a>(<kbd>'W'</kbd>, <kbd>'A'</kbd>, <kbd>'V'</kbd>, <kbd>'E'</kbd>) ) ) {</td></tr>
+<tr><th id="162">162</th><td>		<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="163">163</th><td>	}</td></tr>
+<tr><th id="164">164</th><td></td></tr>
+<tr><th id="165">165</th><td>	<i>// Search the input file for for the 'fmt ' chunk.</i></td></tr>
+<tr><th id="166">166</th><td>	<a class="local col7 ref" href="#7ckIn" title='ckIn' data-ref="7ckIn">ckIn</a>.<a class="ref" href="snd_local.h.html#mminfo_s::dwDataOffset" title='mminfo_s::dwDataOffset' data-ref="mminfo_s::dwDataOffset">dwDataOffset</a> = <var>12</var>;</td></tr>
+<tr><th id="167">167</th><td>	<b>do</b> {</td></tr>
+<tr><th id="168">168</th><td>		<b>if</b> (<var>8</var> != <a class="member" href="snd_local.h.html#idWaveFile::mhmmio" title='idWaveFile::mhmmio' data-ref="idWaveFile::mhmmio">mhmmio</a>-&gt;<a class="virtual ref" href="../framework/File.h.html#_ZN6idFile4ReadEPvi" title='idFile::Read' data-ref="_ZN6idFile4ReadEPvi">Read</a>( &amp;<a class="local col7 ref" href="#7ckIn" title='ckIn' data-ref="7ckIn">ckIn</a>, <var>8</var> ) ) {</td></tr>
+<tr><th id="169">169</th><td>			<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="170">170</th><td>		}</td></tr>
+<tr><th id="171">171</th><td>		<a class="macro" href="../idlib/Lib.h.html#147" title="if ( !isOgg ) { } else AssertFailed( &quot;/home/jon/workspace/id-software/DOOM-3/neo/sound/snd_wavefile.cpp&quot;, 171, &quot;!isOgg&quot; )" data-ref="_M/assert">assert</a>( !<a class="member" href="snd_local.h.html#idWaveFile::isOgg" title='idWaveFile::isOgg' data-ref="idWaveFile::isOgg">isOgg</a> );</td></tr>
+<tr><th id="172">172</th><td>		<a class="local col7 ref" href="#7ckIn" title='ckIn' data-ref="7ckIn">ckIn</a>.<a class="ref" href="snd_local.h.html#mminfo_s::ckid" title='mminfo_s::ckid' data-ref="mminfo_s::ckid">ckid</a> = <a class="ref" href="../idlib/Lib.h.html#_Z10LittleLongi" title='LittleLong' data-ref="_Z10LittleLongi">LittleLong</a>( <a class="local col7 ref" href="#7ckIn" title='ckIn' data-ref="7ckIn">ckIn</a>.<a class="ref" href="snd_local.h.html#mminfo_s::ckid" title='mminfo_s::ckid' data-ref="mminfo_s::ckid">ckid</a> );</td></tr>
+<tr><th id="173">173</th><td>		<a class="local col7 ref" href="#7ckIn" title='ckIn' data-ref="7ckIn">ckIn</a>.<a class="ref" href="snd_local.h.html#mminfo_s::cksize" title='mminfo_s::cksize' data-ref="mminfo_s::cksize">cksize</a> = <a class="ref" href="../idlib/Lib.h.html#_Z10LittleLongi" title='LittleLong' data-ref="_Z10LittleLongi">LittleLong</a>( <a class="local col7 ref" href="#7ckIn" title='ckIn' data-ref="7ckIn">ckIn</a>.<a class="ref" href="snd_local.h.html#mminfo_s::cksize" title='mminfo_s::cksize' data-ref="mminfo_s::cksize">cksize</a> );</td></tr>
+<tr><th id="174">174</th><td>		<a class="local col7 ref" href="#7ckIn" title='ckIn' data-ref="7ckIn">ckIn</a>.<a class="ref" href="snd_local.h.html#mminfo_s::dwDataOffset" title='mminfo_s::dwDataOffset' data-ref="mminfo_s::dwDataOffset">dwDataOffset</a> += <a class="local col7 ref" href="#7ckIn" title='ckIn' data-ref="7ckIn">ckIn</a>.<a class="ref" href="snd_local.h.html#mminfo_s::cksize" title='mminfo_s::cksize' data-ref="mminfo_s::cksize">cksize</a>-<var>8</var>;</td></tr>
+<tr><th id="175">175</th><td>	} <b>while</b> (<a class="local col7 ref" href="#7ckIn" title='ckIn' data-ref="7ckIn">ckIn</a>.<a class="ref" href="snd_local.h.html#mminfo_s::ckid" title='mminfo_s::ckid' data-ref="mminfo_s::ckid">ckid</a> != <a class="macro" href="snd_local.h.html#135" title="( (dword)(byte)(&apos;f&apos;) | ( (dword)(byte)(&apos;m&apos;) &lt;&lt; 8 ) | ( (dword)(byte)(&apos;t&apos;) &lt;&lt; 16 ) | ( (dword)(byte)(&apos; &apos;) &lt;&lt; 24 ) )" data-ref="_M/mmioFOURCC">mmioFOURCC</a>(<kbd>'f'</kbd>, <kbd>'m'</kbd>, <kbd>'t'</kbd>, <kbd>' '</kbd>));</td></tr>
+<tr><th id="176">176</th><td></td></tr>
+<tr><th id="177">177</th><td>	<i>// Expect the 'fmt' chunk to be at least as large as &lt;PCMWAVEFORMAT&gt;;</i></td></tr>
+<tr><th id="178">178</th><td><i>	// if there are extra parameters at the end, we'll ignore them</i></td></tr>
+<tr><th id="179">179</th><td>	<b>if</b>( <a class="local col7 ref" href="#7ckIn" title='ckIn' data-ref="7ckIn">ckIn</a>.<a class="ref" href="snd_local.h.html#mminfo_s::cksize" title='mminfo_s::cksize' data-ref="mminfo_s::cksize">cksize</a> &lt; <b>sizeof</b>(<a class="typedef" href="snd_local.h.html#pcmwaveformat_t" title='pcmwaveformat_t' data-type='pcmwaveformat_s' data-ref="pcmwaveformat_t">pcmwaveformat_t</a>) ) {</td></tr>
+<tr><th id="180">180</th><td>		<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="181">181</th><td>	}</td></tr>
+<tr><th id="182">182</th><td></td></tr>
+<tr><th id="183">183</th><td>	<i>// Read the 'fmt ' chunk into &lt;pcmWaveFormat&gt;.</i></td></tr>
+<tr><th id="184">184</th><td>	<b>if</b>( <a class="member" href="snd_local.h.html#idWaveFile::mhmmio" title='idWaveFile::mhmmio' data-ref="idWaveFile::mhmmio">mhmmio</a>-&gt;<a class="virtual ref" href="../framework/File.h.html#_ZN6idFile4ReadEPvi" title='idFile::Read' data-ref="_ZN6idFile4ReadEPvi">Read</a>( &amp;<a class="local col8 ref" href="#8pcmWaveFormat" title='pcmWaveFormat' data-ref="8pcmWaveFormat">pcmWaveFormat</a>, <b>sizeof</b>(<a class="local col8 ref" href="#8pcmWaveFormat" title='pcmWaveFormat' data-ref="8pcmWaveFormat">pcmWaveFormat</a>) ) != <b>sizeof</b>(<a class="local col8 ref" href="#8pcmWaveFormat" title='pcmWaveFormat' data-ref="8pcmWaveFormat">pcmWaveFormat</a>) ) {</td></tr>
+<tr><th id="185">185</th><td>		<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="186">186</th><td>	}</td></tr>
+<tr><th id="187">187</th><td>	<a class="macro" href="../idlib/Lib.h.html#147" title="if ( !isOgg ) { } else AssertFailed( &quot;/home/jon/workspace/id-software/DOOM-3/neo/sound/snd_wavefile.cpp&quot;, 187, &quot;!isOgg&quot; )" data-ref="_M/assert">assert</a>( !<a class="member" href="snd_local.h.html#idWaveFile::isOgg" title='idWaveFile::isOgg' data-ref="idWaveFile::isOgg">isOgg</a> );</td></tr>
+<tr><th id="188">188</th><td>	<a class="local col8 ref" href="#8pcmWaveFormat" title='pcmWaveFormat' data-ref="8pcmWaveFormat">pcmWaveFormat</a>.<a class="ref" href="snd_local.h.html#pcmwaveformat_s::wf" title='pcmwaveformat_s::wf' data-ref="pcmwaveformat_s::wf">wf</a>.<a class="ref" href="snd_local.h.html#waveformat_s::wFormatTag" title='waveformat_s::wFormatTag' data-ref="waveformat_s::wFormatTag">wFormatTag</a> = <a class="ref" href="../idlib/Lib.h.html#_Z11LittleShorts" title='LittleShort' data-ref="_Z11LittleShorts">LittleShort</a>( <a class="local col8 ref" href="#8pcmWaveFormat" title='pcmWaveFormat' data-ref="8pcmWaveFormat">pcmWaveFormat</a>.<a class="ref" href="snd_local.h.html#pcmwaveformat_s::wf" title='pcmwaveformat_s::wf' data-ref="pcmwaveformat_s::wf">wf</a>.<a class="ref" href="snd_local.h.html#waveformat_s::wFormatTag" title='waveformat_s::wFormatTag' data-ref="waveformat_s::wFormatTag">wFormatTag</a> );</td></tr>
+<tr><th id="189">189</th><td>	<a class="local col8 ref" href="#8pcmWaveFormat" title='pcmWaveFormat' data-ref="8pcmWaveFormat">pcmWaveFormat</a>.<a class="ref" href="snd_local.h.html#pcmwaveformat_s::wf" title='pcmwaveformat_s::wf' data-ref="pcmwaveformat_s::wf">wf</a>.<a class="ref" href="snd_local.h.html#waveformat_s::nChannels" title='waveformat_s::nChannels' data-ref="waveformat_s::nChannels">nChannels</a> = <a class="ref" href="../idlib/Lib.h.html#_Z11LittleShorts" title='LittleShort' data-ref="_Z11LittleShorts">LittleShort</a>( <a class="local col8 ref" href="#8pcmWaveFormat" title='pcmWaveFormat' data-ref="8pcmWaveFormat">pcmWaveFormat</a>.<a class="ref" href="snd_local.h.html#pcmwaveformat_s::wf" title='pcmwaveformat_s::wf' data-ref="pcmwaveformat_s::wf">wf</a>.<a class="ref" href="snd_local.h.html#waveformat_s::nChannels" title='waveformat_s::nChannels' data-ref="waveformat_s::nChannels">nChannels</a> );</td></tr>
+<tr><th id="190">190</th><td>	<a class="local col8 ref" href="#8pcmWaveFormat" title='pcmWaveFormat' data-ref="8pcmWaveFormat">pcmWaveFormat</a>.<a class="ref" href="snd_local.h.html#pcmwaveformat_s::wf" title='pcmwaveformat_s::wf' data-ref="pcmwaveformat_s::wf">wf</a>.<a class="ref" href="snd_local.h.html#waveformat_s::nSamplesPerSec" title='waveformat_s::nSamplesPerSec' data-ref="waveformat_s::nSamplesPerSec">nSamplesPerSec</a> = <a class="ref" href="../idlib/Lib.h.html#_Z10LittleLongi" title='LittleLong' data-ref="_Z10LittleLongi">LittleLong</a>( <a class="local col8 ref" href="#8pcmWaveFormat" title='pcmWaveFormat' data-ref="8pcmWaveFormat">pcmWaveFormat</a>.<a class="ref" href="snd_local.h.html#pcmwaveformat_s::wf" title='pcmwaveformat_s::wf' data-ref="pcmwaveformat_s::wf">wf</a>.<a class="ref" href="snd_local.h.html#waveformat_s::nSamplesPerSec" title='waveformat_s::nSamplesPerSec' data-ref="waveformat_s::nSamplesPerSec">nSamplesPerSec</a> );</td></tr>
+<tr><th id="191">191</th><td>	<a class="local col8 ref" href="#8pcmWaveFormat" title='pcmWaveFormat' data-ref="8pcmWaveFormat">pcmWaveFormat</a>.<a class="ref" href="snd_local.h.html#pcmwaveformat_s::wf" title='pcmwaveformat_s::wf' data-ref="pcmwaveformat_s::wf">wf</a>.<a class="ref" href="snd_local.h.html#waveformat_s::nAvgBytesPerSec" title='waveformat_s::nAvgBytesPerSec' data-ref="waveformat_s::nAvgBytesPerSec">nAvgBytesPerSec</a> = <a class="ref" href="../idlib/Lib.h.html#_Z10LittleLongi" title='LittleLong' data-ref="_Z10LittleLongi">LittleLong</a>( <a class="local col8 ref" href="#8pcmWaveFormat" title='pcmWaveFormat' data-ref="8pcmWaveFormat">pcmWaveFormat</a>.<a class="ref" href="snd_local.h.html#pcmwaveformat_s::wf" title='pcmwaveformat_s::wf' data-ref="pcmwaveformat_s::wf">wf</a>.<a class="ref" href="snd_local.h.html#waveformat_s::nAvgBytesPerSec" title='waveformat_s::nAvgBytesPerSec' data-ref="waveformat_s::nAvgBytesPerSec">nAvgBytesPerSec</a> );</td></tr>
+<tr><th id="192">192</th><td>	<a class="local col8 ref" href="#8pcmWaveFormat" title='pcmWaveFormat' data-ref="8pcmWaveFormat">pcmWaveFormat</a>.<a class="ref" href="snd_local.h.html#pcmwaveformat_s::wf" title='pcmwaveformat_s::wf' data-ref="pcmwaveformat_s::wf">wf</a>.<a class="ref" href="snd_local.h.html#waveformat_s::nBlockAlign" title='waveformat_s::nBlockAlign' data-ref="waveformat_s::nBlockAlign">nBlockAlign</a> = <a class="ref" href="../idlib/Lib.h.html#_Z11LittleShorts" title='LittleShort' data-ref="_Z11LittleShorts">LittleShort</a>( <a class="local col8 ref" href="#8pcmWaveFormat" title='pcmWaveFormat' data-ref="8pcmWaveFormat">pcmWaveFormat</a>.<a class="ref" href="snd_local.h.html#pcmwaveformat_s::wf" title='pcmwaveformat_s::wf' data-ref="pcmwaveformat_s::wf">wf</a>.<a class="ref" href="snd_local.h.html#waveformat_s::nBlockAlign" title='waveformat_s::nBlockAlign' data-ref="waveformat_s::nBlockAlign">nBlockAlign</a> );</td></tr>
+<tr><th id="193">193</th><td>	<a class="local col8 ref" href="#8pcmWaveFormat" title='pcmWaveFormat' data-ref="8pcmWaveFormat">pcmWaveFormat</a>.<a class="ref" href="snd_local.h.html#pcmwaveformat_s::wBitsPerSample" title='pcmwaveformat_s::wBitsPerSample' data-ref="pcmwaveformat_s::wBitsPerSample">wBitsPerSample</a> = <a class="ref" href="../idlib/Lib.h.html#_Z11LittleShorts" title='LittleShort' data-ref="_Z11LittleShorts">LittleShort</a>( <a class="local col8 ref" href="#8pcmWaveFormat" title='pcmWaveFormat' data-ref="8pcmWaveFormat">pcmWaveFormat</a>.<a class="ref" href="snd_local.h.html#pcmwaveformat_s::wBitsPerSample" title='pcmwaveformat_s::wBitsPerSample' data-ref="pcmwaveformat_s::wBitsPerSample">wBitsPerSample</a> );</td></tr>
+<tr><th id="194">194</th><td></td></tr>
+<tr><th id="195">195</th><td>	<i>// Copy the bytes from the pcm structure to the waveformatex_t structure</i></td></tr>
+<tr><th id="196">196</th><td>	<a class="ref" href="../../include/string.h.html#memcpy" title='memcpy' data-ref="memcpy">memcpy</a>( &amp;<a class="member" href="snd_local.h.html#idWaveFile::mpwfx" title='idWaveFile::mpwfx' data-ref="idWaveFile::mpwfx">mpwfx</a>, &amp;<a class="local col8 ref" href="#8pcmWaveFormat" title='pcmWaveFormat' data-ref="8pcmWaveFormat">pcmWaveFormat</a>, <b>sizeof</b>(<a class="local col8 ref" href="#8pcmWaveFormat" title='pcmWaveFormat' data-ref="8pcmWaveFormat">pcmWaveFormat</a>) );</td></tr>
+<tr><th id="197">197</th><td></td></tr>
+<tr><th id="198">198</th><td>	<i>// Allocate the waveformatex_t, but if its not pcm format, read the next</i></td></tr>
+<tr><th id="199">199</th><td><i>	// word, and thats how many extra bytes to allocate.</i></td></tr>
+<tr><th id="200">200</th><td>	<b>if</b>( <a class="local col8 ref" href="#8pcmWaveFormat" title='pcmWaveFormat' data-ref="8pcmWaveFormat">pcmWaveFormat</a>.<a class="ref" href="snd_local.h.html#pcmwaveformat_s::wf" title='pcmwaveformat_s::wf' data-ref="pcmwaveformat_s::wf">wf</a>.<a class="ref" href="snd_local.h.html#waveformat_s::wFormatTag" title='waveformat_s::wFormatTag' data-ref="waveformat_s::wFormatTag">wFormatTag</a> == <a class="enum" href="snd_local.h.html#WAVE_FORMAT_TAG_PCM" title='WAVE_FORMAT_TAG_PCM' data-ref="WAVE_FORMAT_TAG_PCM">WAVE_FORMAT_TAG_PCM</a> ) {</td></tr>
+<tr><th id="201">201</th><td>		<a class="member" href="snd_local.h.html#idWaveFile::mpwfx" title='idWaveFile::mpwfx' data-ref="idWaveFile::mpwfx">mpwfx</a>.<a class="ref" href="snd_local.h.html#waveformatextensible_s::Format" title='waveformatextensible_s::Format' data-ref="waveformatextensible_s::Format">Format</a>.<a class="ref" href="snd_local.h.html#waveformatex_s::cbSize" title='waveformatex_s::cbSize' data-ref="waveformatex_s::cbSize">cbSize</a> = <var>0</var>;</td></tr>
+<tr><th id="202">202</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="203">203</th><td>		<b>return</b> -<var>1</var>;	<i>// we don't handle these (32 bit wavefiles, etc)</i></td></tr>
+<tr><th id="204">204</th><td><u>#<span data-ppcond="204">if</span> 0</u></td></tr>
+<tr><th id="205">205</th><td>		<i>// Read in length of extra bytes.</i></td></tr>
+<tr><th id="206">206</th><td>		word cbExtraBytes = <var>0L</var>;</td></tr>
+<tr><th id="207">207</th><td>		<b>if</b>( mhmmio-&gt;Read( (<em>char</em>*)&amp;cbExtraBytes, <b>sizeof</b>(word) ) != <b>sizeof</b>(word) )</td></tr>
+<tr><th id="208">208</th><td>			<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="209">209</th><td></td></tr>
+<tr><th id="210">210</th><td>		mpwfx.Format.cbSize = cbExtraBytes;</td></tr>
+<tr><th id="211">211</th><td></td></tr>
+<tr><th id="212">212</th><td>		<i>// Now, read those extra bytes into the structure, if cbExtraAlloc != 0.</i></td></tr>
+<tr><th id="213">213</th><td>		<b>if</b>( mhmmio-&gt;Read( (<em>char</em>*)(((byte*)&amp;(mpwfx.Format.cbSize))+<b>sizeof</b>(word)), cbExtraBytes ) != cbExtraBytes ) {</td></tr>
+<tr><th id="214">214</th><td>			memset( &amp;mpwfx, <var>0</var>, <b>sizeof</b>( waveformatextensible_t ) );</td></tr>
+<tr><th id="215">215</th><td>			<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="216">216</th><td>		}</td></tr>
+<tr><th id="217">217</th><td><u>#<span data-ppcond="204">endif</span></u></td></tr>
+<tr><th id="218">218</th><td>	}</td></tr>
+<tr><th id="219">219</th><td></td></tr>
+<tr><th id="220">220</th><td>	<b>return</b> <var>0</var>;</td></tr>
+<tr><th id="221">221</th><td>}</td></tr>
+<tr><th id="222">222</th><td></td></tr>
+<tr><th id="223">223</th><td><i>//-----------------------------------------------------------------------------</i></td></tr>
+<tr><th id="224">224</th><td><i>// Name: idWaveFile::ResetFile()</i></td></tr>
+<tr><th id="225">225</th><td><i>// Desc: Resets the internal mck pointer so reading starts from the </i></td></tr>
+<tr><th id="226">226</th><td><i>//       beginning of the file again </i></td></tr>
+<tr><th id="227">227</th><td><i>//-----------------------------------------------------------------------------</i></td></tr>
+<tr><th id="228">228</th><td><em>int</em> <a class="type" href="snd_local.h.html#idWaveFile" title='idWaveFile' data-ref="idWaveFile">idWaveFile</a>::<dfn class="decl def" id="_ZN10idWaveFile9ResetFileEv" title='idWaveFile::ResetFile' data-ref="_ZN10idWaveFile9ResetFileEv">ResetFile</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="229">229</th><td>	<b>if</b>( <a class="member" href="snd_local.h.html#idWaveFile::mbIsReadingFromMemory" title='idWaveFile::mbIsReadingFromMemory' data-ref="idWaveFile::mbIsReadingFromMemory">mbIsReadingFromMemory</a> ) {</td></tr>
+<tr><th id="230">230</th><td>		<a class="member" href="snd_local.h.html#idWaveFile::mpbDataCur" title='idWaveFile::mpbDataCur' data-ref="idWaveFile::mpbDataCur">mpbDataCur</a> = <a class="member" href="snd_local.h.html#idWaveFile::mpbData" title='idWaveFile::mpbData' data-ref="idWaveFile::mpbData">mpbData</a>;</td></tr>
+<tr><th id="231">231</th><td>	} <b>else</b>  {</td></tr>
+<tr><th id="232">232</th><td>		<b>if</b>( <a class="member" href="snd_local.h.html#idWaveFile::mhmmio" title='idWaveFile::mhmmio' data-ref="idWaveFile::mhmmio">mhmmio</a> == <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> ) {</td></tr>
+<tr><th id="233">233</th><td>			<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="234">234</th><td>		}</td></tr>
+<tr><th id="235">235</th><td></td></tr>
+<tr><th id="236">236</th><td>		<i>// Seek to the data</i></td></tr>
+<tr><th id="237">237</th><td>		<b>if</b>( -<var>1</var> == <a class="member" href="snd_local.h.html#idWaveFile::mhmmio" title='idWaveFile::mhmmio' data-ref="idWaveFile::mhmmio">mhmmio</a>-&gt;<a class="virtual ref" href="../framework/File.h.html#_ZN6idFile4SeekEl10fsOrigin_t" title='idFile::Seek' data-ref="_ZN6idFile4SeekEl10fsOrigin_t">Seek</a>( <a class="member" href="snd_local.h.html#idWaveFile::mckRiff" title='idWaveFile::mckRiff' data-ref="idWaveFile::mckRiff">mckRiff</a>.<a class="ref" href="snd_local.h.html#mminfo_s::dwDataOffset" title='mminfo_s::dwDataOffset' data-ref="mminfo_s::dwDataOffset">dwDataOffset</a> + <b>sizeof</b>(<a class="typedef" href="snd_local.h.html#fourcc" title='fourcc' data-type='dword' data-ref="fourcc">fourcc</a>), <a class="enum" href="../framework/File.h.html#FS_SEEK_SET" title='FS_SEEK_SET' data-ref="FS_SEEK_SET">FS_SEEK_SET</a> ) ) {</td></tr>
+<tr><th id="238">238</th><td>			<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="239">239</th><td>		}</td></tr>
+<tr><th id="240">240</th><td></td></tr>
+<tr><th id="241">241</th><td>		<i>// Search the input file for for the 'fmt ' chunk.</i></td></tr>
+<tr><th id="242">242</th><td>		<a class="member" href="snd_local.h.html#idWaveFile::mck" title='idWaveFile::mck' data-ref="idWaveFile::mck">mck</a>.<a class="ref" href="snd_local.h.html#mminfo_s::ckid" title='mminfo_s::ckid' data-ref="mminfo_s::ckid">ckid</a> = <var>0</var>;</td></tr>
+<tr><th id="243">243</th><td>		<b>do</b> {</td></tr>
+<tr><th id="244">244</th><td>			<a class="typedef" href="../idlib/Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> <dfn class="local col9 decl" id="9ioin" title='ioin' data-type='byte' data-ref="9ioin">ioin</dfn>;</td></tr>
+<tr><th id="245">245</th><td>			<b>if</b> ( !<a class="member" href="snd_local.h.html#idWaveFile::mhmmio" title='idWaveFile::mhmmio' data-ref="idWaveFile::mhmmio">mhmmio</a>-&gt;<a class="virtual ref" href="../framework/File.h.html#_ZN6idFile4ReadEPvi" title='idFile::Read' data-ref="_ZN6idFile4ReadEPvi">Read</a>( &amp;<a class="local col9 ref" href="#9ioin" title='ioin' data-ref="9ioin">ioin</a>, <var>1</var> ) ) {</td></tr>
+<tr><th id="246">246</th><td>				<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="247">247</th><td>			}</td></tr>
+<tr><th id="248">248</th><td>			<a class="member" href="snd_local.h.html#idWaveFile::mck" title='idWaveFile::mck' data-ref="idWaveFile::mck">mck</a>.<a class="ref" href="snd_local.h.html#mminfo_s::ckid" title='mminfo_s::ckid' data-ref="mminfo_s::ckid">ckid</a> = (<a class="member" href="snd_local.h.html#idWaveFile::mck" title='idWaveFile::mck' data-ref="idWaveFile::mck">mck</a>.<a class="ref" href="snd_local.h.html#mminfo_s::ckid" title='mminfo_s::ckid' data-ref="mminfo_s::ckid">ckid</a>&gt;&gt;<var>8</var>) | (<a class="local col9 ref" href="#9ioin" title='ioin' data-ref="9ioin">ioin</a>&lt;&lt;<var>24</var>);</td></tr>
+<tr><th id="249">249</th><td>		} <b>while</b> (<a class="member" href="snd_local.h.html#idWaveFile::mck" title='idWaveFile::mck' data-ref="idWaveFile::mck">mck</a>.<a class="ref" href="snd_local.h.html#mminfo_s::ckid" title='mminfo_s::ckid' data-ref="mminfo_s::ckid">ckid</a> != <a class="macro" href="snd_local.h.html#135" title="( (dword)(byte)(&apos;d&apos;) | ( (dword)(byte)(&apos;a&apos;) &lt;&lt; 8 ) | ( (dword)(byte)(&apos;t&apos;) &lt;&lt; 16 ) | ( (dword)(byte)(&apos;a&apos;) &lt;&lt; 24 ) )" data-ref="_M/mmioFOURCC">mmioFOURCC</a>(<kbd>'d'</kbd>, <kbd>'a'</kbd>, <kbd>'t'</kbd>, <kbd>'a'</kbd>));</td></tr>
+<tr><th id="250">250</th><td>		</td></tr>
+<tr><th id="251">251</th><td>		<a class="member" href="snd_local.h.html#idWaveFile::mhmmio" title='idWaveFile::mhmmio' data-ref="idWaveFile::mhmmio">mhmmio</a>-&gt;<a class="virtual ref" href="../framework/File.h.html#_ZN6idFile4ReadEPvi" title='idFile::Read' data-ref="_ZN6idFile4ReadEPvi">Read</a>( &amp;<a class="member" href="snd_local.h.html#idWaveFile::mck" title='idWaveFile::mck' data-ref="idWaveFile::mck">mck</a>.<a class="ref" href="snd_local.h.html#mminfo_s::cksize" title='mminfo_s::cksize' data-ref="mminfo_s::cksize">cksize</a>, <var>4</var> );</td></tr>
+<tr><th id="252">252</th><td>		<a class="macro" href="../idlib/Lib.h.html#147" title="if ( !isOgg ) { } else AssertFailed( &quot;/home/jon/workspace/id-software/DOOM-3/neo/sound/snd_wavefile.cpp&quot;, 252, &quot;!isOgg&quot; )" data-ref="_M/assert">assert</a>( !<a class="member" href="snd_local.h.html#idWaveFile::isOgg" title='idWaveFile::isOgg' data-ref="idWaveFile::isOgg">isOgg</a> );</td></tr>
+<tr><th id="253">253</th><td>		<a class="member" href="snd_local.h.html#idWaveFile::mck" title='idWaveFile::mck' data-ref="idWaveFile::mck">mck</a>.<a class="ref" href="snd_local.h.html#mminfo_s::cksize" title='mminfo_s::cksize' data-ref="mminfo_s::cksize">cksize</a> = <a class="ref" href="../idlib/Lib.h.html#_Z10LittleLongi" title='LittleLong' data-ref="_Z10LittleLongi">LittleLong</a>( <a class="member" href="snd_local.h.html#idWaveFile::mck" title='idWaveFile::mck' data-ref="idWaveFile::mck">mck</a>.<a class="ref" href="snd_local.h.html#mminfo_s::cksize" title='mminfo_s::cksize' data-ref="mminfo_s::cksize">cksize</a> );</td></tr>
+<tr><th id="254">254</th><td>		<a class="member" href="snd_local.h.html#idWaveFile::mseekBase" title='idWaveFile::mseekBase' data-ref="idWaveFile::mseekBase">mseekBase</a> = <a class="member" href="snd_local.h.html#idWaveFile::mhmmio" title='idWaveFile::mhmmio' data-ref="idWaveFile::mhmmio">mhmmio</a>-&gt;<a class="virtual ref" href="../framework/File.h.html#_ZN6idFile4TellEv" title='idFile::Tell' data-ref="_ZN6idFile4TellEv">Tell</a>();</td></tr>
+<tr><th id="255">255</th><td>	}</td></tr>
+<tr><th id="256">256</th><td>	</td></tr>
+<tr><th id="257">257</th><td>	<b>return</b> <var>0</var>;</td></tr>
+<tr><th id="258">258</th><td>}</td></tr>
+<tr><th id="259">259</th><td></td></tr>
+<tr><th id="260">260</th><td><i>//-----------------------------------------------------------------------------</i></td></tr>
+<tr><th id="261">261</th><td><i>// Name: idWaveFile::Read()</i></td></tr>
+<tr><th id="262">262</th><td><i>// Desc: Reads section of data from a wave file into pBuffer and returns </i></td></tr>
+<tr><th id="263">263</th><td><i>//       how much read in pdwSizeRead, reading not more than dwSizeToRead.</i></td></tr>
+<tr><th id="264">264</th><td><i>//       This uses mck to determine where to start reading from.  So </i></td></tr>
+<tr><th id="265">265</th><td><i>//       subsequent calls will be continue where the last left off unless </i></td></tr>
+<tr><th id="266">266</th><td><i>//       Reset() is called.</i></td></tr>
+<tr><th id="267">267</th><td><i>//-----------------------------------------------------------------------------</i></td></tr>
+<tr><th id="268">268</th><td><em>int</em> <a class="type" href="snd_local.h.html#idWaveFile" title='idWaveFile' data-ref="idWaveFile">idWaveFile</a>::<dfn class="decl def" id="_ZN10idWaveFile4ReadEPhiPi" title='idWaveFile::Read' data-ref="_ZN10idWaveFile4ReadEPhiPi">Read</dfn>( <a class="typedef" href="../idlib/Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>* <dfn class="local col0 decl" id="10pBuffer" title='pBuffer' data-type='byte *' data-ref="10pBuffer">pBuffer</dfn>, <em>int</em> <dfn class="local col1 decl" id="11dwSizeToRead" title='dwSizeToRead' data-type='int' data-ref="11dwSizeToRead">dwSizeToRead</dfn>, <em>int</em> *<dfn class="local col2 decl" id="12pdwSizeRead" title='pdwSizeRead' data-type='int *' data-ref="12pdwSizeRead">pdwSizeRead</dfn> ) {</td></tr>
+<tr><th id="269">269</th><td></td></tr>
+<tr><th id="270">270</th><td>	<b>if</b> ( <a class="member" href="snd_local.h.html#idWaveFile::ogg" title='idWaveFile::ogg' data-ref="idWaveFile::ogg">ogg</a> != <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> ) {</td></tr>
+<tr><th id="271">271</th><td></td></tr>
+<tr><th id="272">272</th><td>		<b>return</b> <a class="member" href="snd_local.h.html#_ZN10idWaveFile7ReadOGGEPhiPi" title='idWaveFile::ReadOGG' data-ref="_ZN10idWaveFile7ReadOGGEPhiPi">ReadOGG</a>( <a class="local col0 ref" href="#10pBuffer" title='pBuffer' data-ref="10pBuffer">pBuffer</a>, <a class="local col1 ref" href="#11dwSizeToRead" title='dwSizeToRead' data-ref="11dwSizeToRead">dwSizeToRead</a>, <a class="local col2 ref" href="#12pdwSizeRead" title='pdwSizeRead' data-ref="12pdwSizeRead">pdwSizeRead</a> );</td></tr>
+<tr><th id="273">273</th><td></td></tr>
+<tr><th id="274">274</th><td>	} <b>else</b> <b>if</b> ( <a class="member" href="snd_local.h.html#idWaveFile::mbIsReadingFromMemory" title='idWaveFile::mbIsReadingFromMemory' data-ref="idWaveFile::mbIsReadingFromMemory">mbIsReadingFromMemory</a> ) {</td></tr>
+<tr><th id="275">275</th><td></td></tr>
+<tr><th id="276">276</th><td>		<b>if</b>( <a class="member" href="snd_local.h.html#idWaveFile::mpbDataCur" title='idWaveFile::mpbDataCur' data-ref="idWaveFile::mpbDataCur">mpbDataCur</a> == <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> ) {</td></tr>
+<tr><th id="277">277</th><td>			<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="278">278</th><td>		}</td></tr>
+<tr><th id="279">279</th><td>		<b>if</b>( (<a class="typedef" href="../idlib/Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>*)(<a class="member" href="snd_local.h.html#idWaveFile::mpbDataCur" title='idWaveFile::mpbDataCur' data-ref="idWaveFile::mpbDataCur">mpbDataCur</a> + <a class="local col1 ref" href="#11dwSizeToRead" title='dwSizeToRead' data-ref="11dwSizeToRead">dwSizeToRead</a>) &gt; (<a class="typedef" href="../idlib/Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>*)(<a class="member" href="snd_local.h.html#idWaveFile::mpbData" title='idWaveFile::mpbData' data-ref="idWaveFile::mpbData">mpbData</a> + <a class="member" href="snd_local.h.html#idWaveFile::mulDataSize" title='idWaveFile::mulDataSize' data-ref="idWaveFile::mulDataSize">mulDataSize</a>) ) {</td></tr>
+<tr><th id="280">280</th><td>			<a class="local col1 ref" href="#11dwSizeToRead" title='dwSizeToRead' data-ref="11dwSizeToRead">dwSizeToRead</a> = <a class="member" href="snd_local.h.html#idWaveFile::mulDataSize" title='idWaveFile::mulDataSize' data-ref="idWaveFile::mulDataSize">mulDataSize</a> - (<em>int</em>)(<a class="member" href="snd_local.h.html#idWaveFile::mpbDataCur" title='idWaveFile::mpbDataCur' data-ref="idWaveFile::mpbDataCur">mpbDataCur</a> - <a class="member" href="snd_local.h.html#idWaveFile::mpbData" title='idWaveFile::mpbData' data-ref="idWaveFile::mpbData">mpbData</a>);</td></tr>
+<tr><th id="281">281</th><td>		}</td></tr>
+<tr><th id="282">282</th><td> 		<a class="ref" href="../idlib/math/Simd.h.html#SIMDProcessor" title='SIMDProcessor' data-ref="SIMDProcessor">SIMDProcessor</a>-&gt;<a class="virtual ref" href="../idlib/math/Simd.h.html#_ZN15idSIMDProcessor6MemcpyEPvPKvi" title='idSIMDProcessor::Memcpy' data-ref="_ZN15idSIMDProcessor6MemcpyEPvPKvi">Memcpy</a>( <a class="local col0 ref" href="#10pBuffer" title='pBuffer' data-ref="10pBuffer">pBuffer</a>, <a class="member" href="snd_local.h.html#idWaveFile::mpbDataCur" title='idWaveFile::mpbDataCur' data-ref="idWaveFile::mpbDataCur">mpbDataCur</a>, <a class="local col1 ref" href="#11dwSizeToRead" title='dwSizeToRead' data-ref="11dwSizeToRead">dwSizeToRead</a> );</td></tr>
+<tr><th id="283">283</th><td>		<a class="member" href="snd_local.h.html#idWaveFile::mpbDataCur" title='idWaveFile::mpbDataCur' data-ref="idWaveFile::mpbDataCur">mpbDataCur</a> += <a class="local col1 ref" href="#11dwSizeToRead" title='dwSizeToRead' data-ref="11dwSizeToRead">dwSizeToRead</a>;</td></tr>
+<tr><th id="284">284</th><td></td></tr>
+<tr><th id="285">285</th><td>		<b>if</b> ( <a class="local col2 ref" href="#12pdwSizeRead" title='pdwSizeRead' data-ref="12pdwSizeRead">pdwSizeRead</a> != <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> ) {</td></tr>
+<tr><th id="286">286</th><td>			*<a class="local col2 ref" href="#12pdwSizeRead" title='pdwSizeRead' data-ref="12pdwSizeRead">pdwSizeRead</a> = <a class="local col1 ref" href="#11dwSizeToRead" title='dwSizeToRead' data-ref="11dwSizeToRead">dwSizeToRead</a>;</td></tr>
+<tr><th id="287">287</th><td>		}</td></tr>
+<tr><th id="288">288</th><td></td></tr>
+<tr><th id="289">289</th><td>		<b>return</b> <a class="local col1 ref" href="#11dwSizeToRead" title='dwSizeToRead' data-ref="11dwSizeToRead">dwSizeToRead</a>;</td></tr>
+<tr><th id="290">290</th><td></td></tr>
+<tr><th id="291">291</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="292">292</th><td></td></tr>
+<tr><th id="293">293</th><td>		<b>if</b>( <a class="member" href="snd_local.h.html#idWaveFile::mhmmio" title='idWaveFile::mhmmio' data-ref="idWaveFile::mhmmio">mhmmio</a> == <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> ) {</td></tr>
+<tr><th id="294">294</th><td>			<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="295">295</th><td>		}</td></tr>
+<tr><th id="296">296</th><td>		<b>if</b>( <a class="local col0 ref" href="#10pBuffer" title='pBuffer' data-ref="10pBuffer">pBuffer</a> == <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> ) {</td></tr>
+<tr><th id="297">297</th><td>			<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="298">298</th><td>		}</td></tr>
+<tr><th id="299">299</th><td>		</td></tr>
+<tr><th id="300">300</th><td>		<a class="local col1 ref" href="#11dwSizeToRead" title='dwSizeToRead' data-ref="11dwSizeToRead">dwSizeToRead</a> = <a class="member" href="snd_local.h.html#idWaveFile::mhmmio" title='idWaveFile::mhmmio' data-ref="idWaveFile::mhmmio">mhmmio</a>-&gt;<a class="virtual ref" href="../framework/File.h.html#_ZN6idFile4ReadEPvi" title='idFile::Read' data-ref="_ZN6idFile4ReadEPvi">Read</a>( <a class="local col0 ref" href="#10pBuffer" title='pBuffer' data-ref="10pBuffer">pBuffer</a>, <a class="local col1 ref" href="#11dwSizeToRead" title='dwSizeToRead' data-ref="11dwSizeToRead">dwSizeToRead</a> );</td></tr>
+<tr><th id="301">301</th><td>		<i>// this is hit by ogg code, which does it's own byte swapping internally</i></td></tr>
+<tr><th id="302">302</th><td>		<b>if</b> ( !<a class="member" href="snd_local.h.html#idWaveFile::isOgg" title='idWaveFile::isOgg' data-ref="idWaveFile::isOgg">isOgg</a> ) {</td></tr>
+<tr><th id="303">303</th><td>			<a class="ref" href="../idlib/Lib.h.html#_Z14LittleRevBytesPvii" title='LittleRevBytes' data-ref="_Z14LittleRevBytesPvii">LittleRevBytes</a>( <a class="local col0 ref" href="#10pBuffer" title='pBuffer' data-ref="10pBuffer">pBuffer</a>, <var>2</var>, <a class="local col1 ref" href="#11dwSizeToRead" title='dwSizeToRead' data-ref="11dwSizeToRead">dwSizeToRead</a> / <var>2</var> );</td></tr>
+<tr><th id="304">304</th><td>		}</td></tr>
+<tr><th id="305">305</th><td></td></tr>
+<tr><th id="306">306</th><td>		<b>if</b> ( <a class="local col2 ref" href="#12pdwSizeRead" title='pdwSizeRead' data-ref="12pdwSizeRead">pdwSizeRead</a> != <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> ) {</td></tr>
+<tr><th id="307">307</th><td>			*<a class="local col2 ref" href="#12pdwSizeRead" title='pdwSizeRead' data-ref="12pdwSizeRead">pdwSizeRead</a> = <a class="local col1 ref" href="#11dwSizeToRead" title='dwSizeToRead' data-ref="11dwSizeToRead">dwSizeToRead</a>;</td></tr>
+<tr><th id="308">308</th><td>		}</td></tr>
+<tr><th id="309">309</th><td></td></tr>
+<tr><th id="310">310</th><td>		<b>return</b> <a class="local col1 ref" href="#11dwSizeToRead" title='dwSizeToRead' data-ref="11dwSizeToRead">dwSizeToRead</a>;</td></tr>
+<tr><th id="311">311</th><td>	}</td></tr>
+<tr><th id="312">312</th><td>}</td></tr>
+<tr><th id="313">313</th><td></td></tr>
+<tr><th id="314">314</th><td><i>//-----------------------------------------------------------------------------</i></td></tr>
+<tr><th id="315">315</th><td><i>// Name: idWaveFile::Close()</i></td></tr>
+<tr><th id="316">316</th><td><i>// Desc: Closes the wave file </i></td></tr>
+<tr><th id="317">317</th><td><i>//-----------------------------------------------------------------------------</i></td></tr>
+<tr><th id="318">318</th><td><em>int</em> <a class="type" href="snd_local.h.html#idWaveFile" title='idWaveFile' data-ref="idWaveFile">idWaveFile</a>::<dfn class="decl def" id="_ZN10idWaveFile5CloseEv" title='idWaveFile::Close' data-ref="_ZN10idWaveFile5CloseEv">Close</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="319">319</th><td>	<b>if</b> ( <a class="member" href="snd_local.h.html#idWaveFile::ogg" title='idWaveFile::ogg' data-ref="idWaveFile::ogg">ogg</a> != <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> ) {</td></tr>
+<tr><th id="320">320</th><td>		<b>return</b> <a class="member" href="snd_local.h.html#_ZN10idWaveFile8CloseOGGEv" title='idWaveFile::CloseOGG' data-ref="_ZN10idWaveFile8CloseOGGEv">CloseOGG</a>();</td></tr>
+<tr><th id="321">321</th><td>	}</td></tr>
+<tr><th id="322">322</th><td>	<b>if</b>( <a class="member" href="snd_local.h.html#idWaveFile::mhmmio" title='idWaveFile::mhmmio' data-ref="idWaveFile::mhmmio">mhmmio</a> != <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> ) {</td></tr>
+<tr><th id="323">323</th><td>		<a class="ref" href="../framework/FileSystem.h.html#fileSystem" title='fileSystem' data-ref="fileSystem">fileSystem</a>-&gt;<a class="virtual ref" href="../framework/FileSystem.h.html#_ZN12idFileSystem9CloseFileEP6idFile" title='idFileSystem::CloseFile' data-ref="_ZN12idFileSystem9CloseFileEP6idFile">CloseFile</a>( <a class="member" href="snd_local.h.html#idWaveFile::mhmmio" title='idWaveFile::mhmmio' data-ref="idWaveFile::mhmmio">mhmmio</a> );</td></tr>
+<tr><th id="324">324</th><td>		<a class="member" href="snd_local.h.html#idWaveFile::mhmmio" title='idWaveFile::mhmmio' data-ref="idWaveFile::mhmmio">mhmmio</a> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="325">325</th><td>	}</td></tr>
+<tr><th id="326">326</th><td>	<b>return</b> <var>0</var>;</td></tr>
+<tr><th id="327">327</th><td>}</td></tr>
+<tr><th id="328">328</th><td></td></tr>
+<tr><th id="329">329</th><td><i>//-----------------------------------------------------------------------------</i></td></tr>
+<tr><th id="330">330</th><td><i>// Name: idWaveFile::Seek()</i></td></tr>
+<tr><th id="331">331</th><td><i>//-----------------------------------------------------------------------------</i></td></tr>
+<tr><th id="332">332</th><td><em>int</em> <a class="type" href="snd_local.h.html#idWaveFile" title='idWaveFile' data-ref="idWaveFile">idWaveFile</a>::<dfn class="decl def" id="_ZN10idWaveFile4SeekEi" title='idWaveFile::Seek' data-ref="_ZN10idWaveFile4SeekEi">Seek</dfn>( <em>int</em> <dfn class="local col3 decl" id="13offset" title='offset' data-type='int' data-ref="13offset">offset</dfn> ) {</td></tr>
+<tr><th id="333">333</th><td></td></tr>
+<tr><th id="334">334</th><td>	<b>if</b> ( <a class="member" href="snd_local.h.html#idWaveFile::ogg" title='idWaveFile::ogg' data-ref="idWaveFile::ogg">ogg</a> != <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> ) {</td></tr>
+<tr><th id="335">335</th><td></td></tr>
+<tr><th id="336">336</th><td>		<a class="ref" href="../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../framework/Common.h.html#_ZN8idCommon10FatalErrorEPKcz" title='idCommon::FatalError' data-ref="_ZN8idCommon10FatalErrorEPKcz">FatalError</a>( <q>"idWaveFile::Seek: cannot seek on an OGG file\n"</q> );</td></tr>
+<tr><th id="337">337</th><td></td></tr>
+<tr><th id="338">338</th><td>	} <b>else</b> <b>if</b>( <a class="member" href="snd_local.h.html#idWaveFile::mbIsReadingFromMemory" title='idWaveFile::mbIsReadingFromMemory' data-ref="idWaveFile::mbIsReadingFromMemory">mbIsReadingFromMemory</a> ) {</td></tr>
+<tr><th id="339">339</th><td></td></tr>
+<tr><th id="340">340</th><td>		<a class="member" href="snd_local.h.html#idWaveFile::mpbDataCur" title='idWaveFile::mpbDataCur' data-ref="idWaveFile::mpbDataCur">mpbDataCur</a> = <a class="member" href="snd_local.h.html#idWaveFile::mpbData" title='idWaveFile::mpbData' data-ref="idWaveFile::mpbData">mpbData</a> + <a class="local col3 ref" href="#13offset" title='offset' data-ref="13offset">offset</a>;</td></tr>
+<tr><th id="341">341</th><td></td></tr>
+<tr><th id="342">342</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="343">343</th><td>		<b>if</b>( <a class="member" href="snd_local.h.html#idWaveFile::mhmmio" title='idWaveFile::mhmmio' data-ref="idWaveFile::mhmmio">mhmmio</a> == <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> ) {</td></tr>
+<tr><th id="344">344</th><td>			<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="345">345</th><td>		}</td></tr>
+<tr><th id="346">346</th><td></td></tr>
+<tr><th id="347">347</th><td>		<b>if</b> ((<em>int</em>)(<a class="local col3 ref" href="#13offset" title='offset' data-ref="13offset">offset</a>+<a class="member" href="snd_local.h.html#idWaveFile::mseekBase" title='idWaveFile::mseekBase' data-ref="idWaveFile::mseekBase">mseekBase</a>) == <a class="member" href="snd_local.h.html#idWaveFile::mhmmio" title='idWaveFile::mhmmio' data-ref="idWaveFile::mhmmio">mhmmio</a>-&gt;<a class="virtual ref" href="../framework/File.h.html#_ZN6idFile4TellEv" title='idFile::Tell' data-ref="_ZN6idFile4TellEv">Tell</a>()) {</td></tr>
+<tr><th id="348">348</th><td>			<b>return</b> <var>0</var>;</td></tr>
+<tr><th id="349">349</th><td>		}</td></tr>
+<tr><th id="350">350</th><td>		<a class="member" href="snd_local.h.html#idWaveFile::mhmmio" title='idWaveFile::mhmmio' data-ref="idWaveFile::mhmmio">mhmmio</a>-&gt;<a class="virtual ref" href="../framework/File.h.html#_ZN6idFile4SeekEl10fsOrigin_t" title='idFile::Seek' data-ref="_ZN6idFile4SeekEl10fsOrigin_t">Seek</a>( <a class="local col3 ref" href="#13offset" title='offset' data-ref="13offset">offset</a> + <a class="member" href="snd_local.h.html#idWaveFile::mseekBase" title='idWaveFile::mseekBase' data-ref="idWaveFile::mseekBase">mseekBase</a>, <a class="enum" href="../framework/File.h.html#FS_SEEK_SET" title='FS_SEEK_SET' data-ref="FS_SEEK_SET">FS_SEEK_SET</a> );</td></tr>
+<tr><th id="351">351</th><td>		<b>return</b> <var>0</var>;</td></tr>
+<tr><th id="352">352</th><td>	}</td></tr>
+<tr><th id="353">353</th><td>	<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="354">354</th><td>}</td></tr>
+<tr><th id="355">355</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

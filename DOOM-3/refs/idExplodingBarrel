@@ -1,0 +1,93 @@
+<inh f='codebrowser/d3xp/Moveable.h' l='114' c='idBarrel'/>
+<def f='codebrowser/d3xp/Moveable.h' l='150' ll='213'/>
+<size>2180</size>
+<doc f='codebrowser/d3xp/Moveable.h' l='140'>/*
+===============================================================================
+
+  A barrel using rigid body physics and special handling of the view model
+  orientation to make it look like it rolls instead of slides. The barrel
+  can burn and explode when damaged.
+
+===============================================================================
+*/</doc>
+<smbr r='idExplodingBarrel::Type' t='idTypeInfo'/>
+<fun r='_ZN17idExplodingBarrel14CreateInstanceEv'/>
+<fun r='_ZNK17idExplodingBarrel7GetTypeEv'/>
+<smbr r='idExplodingBarrel::eventCallbacks' t='idEventFunc&lt;idExplodingBarrel&gt; []'/>
+<fun r='_ZN17idExplodingBarrelC1Ev'/>
+<fun r='_ZN17idExplodingBarrelD1Ev'/>
+<fun r='_ZN17idExplodingBarrel5SpawnEv'/>
+<fun r='_ZNK17idExplodingBarrel4SaveEP10idSaveGame'/>
+<fun r='_ZN17idExplodingBarrel7RestoreEP13idRestoreGame'/>
+<fun r='_ZN17idExplodingBarrel8IsStableEv'/>
+<fun r='_ZN17idExplodingBarrel12SetStabilityEb'/>
+<fun r='_ZN17idExplodingBarrel12StartBurningEv'/>
+<fun r='_ZN17idExplodingBarrel11StopBurningEv'/>
+<fun r='_ZN17idExplodingBarrel5ThinkEv'/>
+<fun r='_ZN17idExplodingBarrel6DamageEP8idEntityS1_RK6idVec3PKcfi'/>
+<fun r='_ZN17idExplodingBarrel6KilledEP8idEntityS1_iRK6idVec3i'/>
+<fun r='_ZNK17idExplodingBarrel15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN17idExplodingBarrel16ReadFromSnapshotERK13idBitMsgDelta'/>
+<fun r='_ZN17idExplodingBarrel18ClientReceiveEventEiiRK8idBitMsg'/>
+<mbr r='idExplodingBarrel::state' o='13440' t='explode_state_t'/>
+<mbr r='idExplodingBarrel::spawnOrigin' o='13472' t='idVec3'/>
+<mbr r='idExplodingBarrel::spawnAxis' o='13568' t='idMat3'/>
+<mbr r='idExplodingBarrel::particleModelDefHandle' o='13856' t='qhandle_t'/>
+<mbr r='idExplodingBarrel::lightDefHandle' o='13888' t='qhandle_t'/>
+<mbr r='idExplodingBarrel::particleRenderEntity' o='13920' t='renderEntity_t'/>
+<mbr r='idExplodingBarrel::light' o='15648' t='renderLight_t'/>
+<mbr r='idExplodingBarrel::particleTime' o='17312' t='int'/>
+<mbr r='idExplodingBarrel::lightTime' o='17344' t='int'/>
+<mbr r='idExplodingBarrel::time' o='17376' t='float'/>
+<mbr r='idExplodingBarrel::isStable' o='17408' t='bool'/>
+<fun r='_ZN17idExplodingBarrel12AddParticlesEPKcb'/>
+<fun r='_ZN17idExplodingBarrel8AddLightEPKcb'/>
+<fun r='_ZN17idExplodingBarrel16ExplodingEffectsEv'/>
+<fun r='_ZN17idExplodingBarrel14Event_ActivateEP8idEntity'/>
+<fun r='_ZN17idExplodingBarrel13Event_RespawnEv'/>
+<fun r='_ZN17idExplodingBarrel13Event_ExplodeEv'/>
+<fun r='_ZN17idExplodingBarrel20Event_TriggerTargetsEv'/>
+<inh f='codebrowser/game/Moveable.h' l='106' c='idBarrel'/>
+<def f='codebrowser/game/Moveable.h' l='142' ll='195'/>
+<size>1908</size>
+<doc f='codebrowser/game/Moveable.h' l='132'>/*
+===============================================================================
+
+  A barrel using rigid body physics and special handling of the view model
+  orientation to make it look like it rolls instead of slides. The barrel
+  can burn and explode when damaged.
+
+===============================================================================
+*/</doc>
+<smbr r='idExplodingBarrel::Type' t='idTypeInfo'/>
+<fun r='_ZN17idExplodingBarrel14CreateInstanceEv'/>
+<fun r='_ZNK17idExplodingBarrel7GetTypeEv'/>
+<smbr r='idExplodingBarrel::eventCallbacks' t='idEventFunc&lt;idExplodingBarrel&gt; []'/>
+<fun r='_ZN17idExplodingBarrelC1Ev'/>
+<fun r='_ZN17idExplodingBarrelD1Ev'/>
+<fun r='_ZN17idExplodingBarrel5SpawnEv'/>
+<fun r='_ZNK17idExplodingBarrel4SaveEP10idSaveGame'/>
+<fun r='_ZN17idExplodingBarrel7RestoreEP13idRestoreGame'/>
+<fun r='_ZN17idExplodingBarrel5ThinkEv'/>
+<fun r='_ZN17idExplodingBarrel6DamageEP8idEntityS1_RK6idVec3PKcfi'/>
+<fun r='_ZN17idExplodingBarrel6KilledEP8idEntityS1_iRK6idVec3i'/>
+<fun r='_ZNK17idExplodingBarrel15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN17idExplodingBarrel16ReadFromSnapshotERK13idBitMsgDelta'/>
+<fun r='_ZN17idExplodingBarrel18ClientReceiveEventEiiRK8idBitMsg'/>
+<mbr r='idExplodingBarrel::state' o='11296' t='explode_state_t'/>
+<mbr r='idExplodingBarrel::spawnOrigin' o='11328' t='idVec3'/>
+<mbr r='idExplodingBarrel::spawnAxis' o='11424' t='idMat3'/>
+<mbr r='idExplodingBarrel::particleModelDefHandle' o='11712' t='qhandle_t'/>
+<mbr r='idExplodingBarrel::lightDefHandle' o='11744' t='qhandle_t'/>
+<mbr r='idExplodingBarrel::particleRenderEntity' o='11776' t='renderEntity_t'/>
+<mbr r='idExplodingBarrel::light' o='13504' t='renderLight_t'/>
+<mbr r='idExplodingBarrel::particleTime' o='15168' t='int'/>
+<mbr r='idExplodingBarrel::lightTime' o='15200' t='int'/>
+<mbr r='idExplodingBarrel::time' o='15232' t='float'/>
+<fun r='_ZN17idExplodingBarrel12AddParticlesEPKcb'/>
+<fun r='_ZN17idExplodingBarrel8AddLightEPKcb'/>
+<fun r='_ZN17idExplodingBarrel16ExplodingEffectsEv'/>
+<fun r='_ZN17idExplodingBarrel14Event_ActivateEP8idEntity'/>
+<fun r='_ZN17idExplodingBarrel13Event_RespawnEv'/>
+<fun r='_ZN17idExplodingBarrel13Event_ExplodeEv'/>
+<fun r='_ZN17idExplodingBarrel20Event_TriggerTargetsEv'/>

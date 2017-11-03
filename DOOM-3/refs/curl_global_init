@@ -1,0 +1,16 @@
+<dec f='codebrowser/curl/include/curl/curl.h' l='1048' type='CURLcode curl_global_init(long flags)'/>
+<doc f='codebrowser/curl/include/curl/curl.h' l='1040'>/*
+ * NAME curl_global_init()
+ *
+ * DESCRIPTION
+ *
+ * curl_global_init() should be invoked exactly once for each application that
+ * uses libcurl
+ */</doc>
+<def f='codebrowser/curl/lib/easy.c' l='147' ll='168' type='CURLcode curl_global_init(long flags)'/>
+<use f='codebrowser/curl/lib/easy.c' l='202' u='c' c='curl_easy_init'/>
+<doc f='codebrowser/curl/lib/easy.c' l='143'>/**
+ * Globally initializes cURL given a bitwise set of 
+ * the different features to initialize.
+ */</doc>
+<use f='codebrowser/curl/src/main.c' l='217' u='c' c='main_init'/>

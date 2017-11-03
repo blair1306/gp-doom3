@@ -1,0 +1,11 @@
+<dec f='codebrowser/openal/include/eax4.h' l='486'/>
+<doc f='codebrowser/openal/include/eax4.h' l='476'>// Used by EAXSOURCE_FLAGS for EAXSOURCEFLAGS_xxxAUTO
+//    TRUE:    value is computed automatically - property is an offset
+//    FALSE:   value is used directly
+//
+// Note: The number and order of flags may change in future EAX versions.
+//       To insure future compatibility, use flag defines as follows:
+//              myFlags = EAXSOURCE_DIRECTHFAUTO | EAXSOURCE_ROOMAUTO;
+//       instead of:
+//              myFlags = 0x00000003;
+//</doc>

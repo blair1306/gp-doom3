@@ -1,0 +1,11 @@
+<dec f='codebrowser/sys/sys_public.h' l='263' type='void Sys_Sleep(int msec)'/>
+<doc f='codebrowser/sys/sys_public.h' l='261'>// allow game to yield CPU time
+// NOTE: due to SYS_MINSLEEP this is very bad portability karma, and should be completely removed</doc>
+<use f='codebrowser/framework/Session.cpp' l='1845' u='c' c='_Z15Session_Hitch_fRK9idCmdArgs'/>
+<use f='codebrowser/framework/Session.cpp' l='1847' u='c' c='_Z15Session_Hitch_fRK9idCmdArgs'/>
+<use f='codebrowser/framework/Session_menu.cpp' l='1543' u='c' c='_ZN14idSessionLocal18HandleNoteCommandsEPKc'/>
+<use f='codebrowser/framework/Session_menu.cpp' l='1631' u='c' c='_ZN14idSessionLocal18HandleNoteCommandsEPKc'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='226' u='c' c='_ZN13idAsyncServer4KillEv'/>
+<use f='codebrowser/sound/snd_system.cpp' l='537' u='c' c='_ZN18idSoundSystemLocal10ShutdownHWEv'/>
+<use f='codebrowser/sys/linux/main.cpp' l='273' u='c' c='_Z17MeasureClockTicksv'/>
+<def f='codebrowser/sys/posix/posix_main.cpp' l='439' ll='453' type='void Sys_Sleep(int msec)'/>

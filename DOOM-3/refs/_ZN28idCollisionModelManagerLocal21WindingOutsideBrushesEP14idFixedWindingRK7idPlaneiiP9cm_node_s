@@ -1,0 +1,13 @@
+<dec f='codebrowser/cm/CollisionModel_local.h' l='434' type='idFixedWinding * idCollisionModelManagerLocal::WindingOutsideBrushes(idFixedWinding * w, const idPlane &amp; plane, int contents, int patch, cm_node_t * headNode)'/>
+<def f='codebrowser/cm/CollisionModel_load.cpp' l='1174' ll='1221' type='idFixedWinding * idCollisionModelManagerLocal::WindingOutsideBrushes(idFixedWinding * w, const idPlane &amp; plane, int contents, int primitiveNum, cm_node_t * headNode)'/>
+<use f='codebrowser/cm/CollisionModel_load.cpp' l='2493' u='c' c='_ZN28idCollisionModelManagerLocal18PolygonFromWindingEP10cm_model_sP14idFixedWindingRK7idPlanePK10idMateriali'/>
+<doc f='codebrowser/cm/CollisionModel_load.cpp' l='1164'>/*
+============
+idCollisionModelManagerLocal::WindingOutsideBrushes
+
+  Returns one winding which is not fully contained in brushes.
+  We always favor less polygons over a stitched world.
+  If the winding is partly contained and the contained pieces can be chopped off
+  without creating multiple winding fragments then the chopped winding is returned.
+============
+*/</doc>

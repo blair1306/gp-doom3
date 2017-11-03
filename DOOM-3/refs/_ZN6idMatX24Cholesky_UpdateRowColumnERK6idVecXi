@@ -1,0 +1,17 @@
+<dec f='codebrowser/idlib/math/Matrix.h' l='1940' type='bool idMatX::Cholesky_UpdateRowColumn(const idVecX &amp; v, int r)'/>
+<def f='codebrowser/idlib/math/Matrix.cpp' l='5392' ll='5560' type='bool idMatX::Cholesky_UpdateRowColumn(const idVecX &amp; v, int r)'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='5638' u='c' c='_ZN6idMatX24Cholesky_UpdateDecrementERK6idVecXi'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7793' u='c' c='_ZN6idMatX4TestEv'/>
+<doc f='codebrowser/idlib/math/Matrix.cpp' l='5379'>/*
+============
+idMatX::Cholesky_UpdateRowColumn
+
+  Updates the in-place Cholesky factorization to obtain the factors for the matrix:
+
+        [ 0  a  0 ]
+  LL&apos; + [ a  b  c ]
+        [ 0  c  0 ]
+
+  where: a = v[0,r-1], b = v[r], c = v[r+1,numRows-1]
+============
+*/</doc>

@@ -1,0 +1,14 @@
+<dec f='codebrowser/idlib/Parser.h' l='120' type='const char * idParser::ParseBracedSectionExact(idStr &amp; out, int tabs = -1)'/>
+<doc f='codebrowser/idlib/Parser.h' l='119'>// parse a braced section into a string, maintaining indents and newlines</doc>
+<def f='codebrowser/idlib/Parser.cpp' l='2642' ll='2644' type='const char * idParser::ParseBracedSectionExact(idStr &amp; out, int tabs = -1)'/>
+<doc f='codebrowser/idlib/Parser.cpp' l='2631'>/*
+=================
+idParser::ParseBracedSectionExact
+
+The next token should be an open brace.
+Parses until a matching close brace is found.
+Maintains the exact formating of the braced section
+
+  FIXME: what about precompilation ?
+=================
+*/</doc>

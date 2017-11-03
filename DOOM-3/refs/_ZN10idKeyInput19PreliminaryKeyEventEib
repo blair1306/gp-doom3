@@ -1,0 +1,12 @@
+<dec f='codebrowser/framework/KeyInput.h' l='201' type='static void idKeyInput::PreliminaryKeyEvent(int keyNum, bool down)'/>
+<use f='codebrowser/framework/EventLoop.cpp' l='152' u='c' c='_ZN11idEventLoop12ProcessEventE10sysEvent_s'/>
+<def f='codebrowser/framework/KeyInput.cpp' l='701' ll='719' type='static void idKeyInput::PreliminaryKeyEvent(int keynum, bool down)'/>
+<use f='codebrowser/framework/KeyInput.cpp' l='751' u='c' c='_ZN10idKeyInput11ClearStatesEv'/>
+<doc f='codebrowser/framework/KeyInput.cpp' l='693'>/*
+===================
+idKeyInput::PreliminaryKeyEvent
+
+Tracks global key up/down state
+Called by the system for both key up and key down events
+===================
+*/</doc>

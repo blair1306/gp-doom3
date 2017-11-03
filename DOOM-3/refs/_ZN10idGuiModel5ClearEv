@@ -1,0 +1,22 @@
+<dec f='codebrowser/renderer/GuiModel.h' l='43' type='void idGuiModel::Clear()'/>
+<def f='codebrowser/renderer/GuiModel.cpp' l='52' ll='57' type='void idGuiModel::Clear()'/>
+<doc f='codebrowser/renderer/GuiModel.cpp' l='45'>/*
+================
+idGuiModel::Clear
+
+Begins collecting draw commands into surfaces
+================
+*/</doc>
+<use f='codebrowser/renderer/RenderSystem.cpp' l='637' u='c' c='_ZN19idRenderSystemLocal10BeginFrameEii'/>
+<use f='codebrowser/renderer/RenderSystem.cpp' l='717' u='c' c='_ZN19idRenderSystemLocal8EndFrameEPiS0_'/>
+<use f='codebrowser/renderer/RenderSystem.cpp' l='809' u='c' c='_ZN19idRenderSystemLocal14CropRenderSizeEiibb'/>
+<use f='codebrowser/renderer/RenderSystem.cpp' l='893' u='c' c='_ZN19idRenderSystemLocal6UnCropEv'/>
+<use f='codebrowser/renderer/RenderSystem.cpp' l='917' u='c' c='_ZN19idRenderSystemLocal20CaptureRenderToImageEPKc'/>
+<use f='codebrowser/renderer/RenderSystem.cpp' l='943' u='c' c='_ZN19idRenderSystemLocal20CaptureRenderToImageEPKc'/>
+<use f='codebrowser/renderer/RenderSystem.cpp' l='960' u='c' c='_ZN19idRenderSystemLocal19CaptureRenderToFileEPKcb'/>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='2144' u='c' c='_ZN19idRenderSystemLocal4InitEv'/>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='2147' u='c' c='_ZN19idRenderSystemLocal4InitEv'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='697' u='c' c='_ZN18idRenderWorldLocal11RenderSceneEPK12renderView_s'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='782' u='c' c='_ZN18idRenderWorldLocal11RenderSceneEPK12renderView_s'/>
+<use f='codebrowser/renderer/tr_guisurf.cpp' l='175' u='c' c='_Z15R_RenderGuiSurfP15idUserInterfaceP10drawSurf_s'/>
+<use f='codebrowser/renderer/tr_guisurf.cpp' l='178' u='c' c='_Z15R_RenderGuiSurfP15idUserInterfaceP10drawSurf_s'/>

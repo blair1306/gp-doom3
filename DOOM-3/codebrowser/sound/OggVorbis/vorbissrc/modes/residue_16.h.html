@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>residue_16.h source code [codebrowser/sound/OggVorbis/vorbissrc/modes/residue_16.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/sound/OggVorbis/vorbissrc/modes/residue_16.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>codebrowser</a>/<a href='../../..'>sound</a>/<a href='../..'>OggVorbis</a>/<a href='..'>vorbissrc</a>/<a href='./'>modes</a>/<a href='residue_16.h.html'>residue_16.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/********************************************************************</i></td></tr>
+<tr><th id="2">2</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="3">3</th><td><i> * THIS FILE IS PART OF THE OggVorbis SOFTWARE CODEC SOURCE CODE.   *</i></td></tr>
+<tr><th id="4">4</th><td><i> * USE, DISTRIBUTION AND REPRODUCTION OF THIS LIBRARY SOURCE IS     *</i></td></tr>
+<tr><th id="5">5</th><td><i> * GOVERNED BY A BSD-STYLE SOURCE LICENSE INCLUDED WITH THIS SOURCE *</i></td></tr>
+<tr><th id="6">6</th><td><i> * IN 'COPYING'. PLEASE READ THESE TERMS BEFORE DISTRIBUTING.       *</i></td></tr>
+<tr><th id="7">7</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="8">8</th><td><i> * THE OggVorbis SOURCE CODE IS (C) COPYRIGHT 1994-2002             *</i></td></tr>
+<tr><th id="9">9</th><td><i> * by the XIPHOPHORUS Company <a href="http://www.xiph.org/">http://www.xiph.org/</a>                  *</i></td></tr>
+<tr><th id="10">10</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="11">11</th><td><i> ********************************************************************</i></td></tr>
+<tr><th id="12">12</th><td><i></i></td></tr>
+<tr><th id="13">13</th><td><i> function: toplevel residue templates 16/22kHz</i></td></tr>
+<tr><th id="14">14</th><td><i> last mod: $Id: residue_16.h,v 1.3 2002/07/11 10:27:55 xiphmont Exp $</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i> ********************************************************************/</i></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><i>/***** residue backends *********************************************/</i></td></tr>
+<tr><th id="19">19</th><td></td></tr>
+<tr><th id="20">20</th><td><em>static</em> <a class="typedef" href="../vorbisenc.c.html#static_bookblock" title='static_bookblock' data-type='struct static_bookblock' data-ref="static_bookblock">static_bookblock</a> <dfn class="decl def" id="_resbook_16s_0" title='_resbook_16s_0' data-ref="_resbook_16s_0">_resbook_16s_0</dfn>={</td></tr>
+<tr><th id="21">21</th><td>  {</td></tr>
+<tr><th id="22">22</th><td>    {<var>0</var>},</td></tr>
+<tr><th id="23">23</th><td>    {<var>0</var>,<var>0</var>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c0_s_p1_0" title='_16c0_s_p1_0' data-ref="_16c0_s_p1_0">_16c0_s_p1_0</a>},</td></tr>
+<tr><th id="24">24</th><td>    {<var>0</var>,<var>0</var>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c0_s_p2_0" title='_16c0_s_p2_0' data-ref="_16c0_s_p2_0">_16c0_s_p2_0</a>},</td></tr>
+<tr><th id="25">25</th><td>    {<var>0</var>,<var>0</var>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c0_s_p3_0" title='_16c0_s_p3_0' data-ref="_16c0_s_p3_0">_16c0_s_p3_0</a>},</td></tr>
+<tr><th id="26">26</th><td>    {<var>0</var>,<var>0</var>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c0_s_p4_0" title='_16c0_s_p4_0' data-ref="_16c0_s_p4_0">_16c0_s_p4_0</a>},</td></tr>
+<tr><th id="27">27</th><td>    {<var>0</var>,<var>0</var>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c0_s_p5_0" title='_16c0_s_p5_0' data-ref="_16c0_s_p5_0">_16c0_s_p5_0</a>},</td></tr>
+<tr><th id="28">28</th><td>    {<var>0</var>,<var>0</var>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c0_s_p6_0" title='_16c0_s_p6_0' data-ref="_16c0_s_p6_0">_16c0_s_p6_0</a>},</td></tr>
+<tr><th id="29">29</th><td>    {&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c0_s_p7_0" title='_16c0_s_p7_0' data-ref="_16c0_s_p7_0">_16c0_s_p7_0</a>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c0_s_p7_1" title='_16c0_s_p7_1' data-ref="_16c0_s_p7_1">_16c0_s_p7_1</a>},</td></tr>
+<tr><th id="30">30</th><td>    {&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c0_s_p8_0" title='_16c0_s_p8_0' data-ref="_16c0_s_p8_0">_16c0_s_p8_0</a>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c0_s_p8_1" title='_16c0_s_p8_1' data-ref="_16c0_s_p8_1">_16c0_s_p8_1</a>},</td></tr>
+<tr><th id="31">31</th><td>    {&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c0_s_p9_0" title='_16c0_s_p9_0' data-ref="_16c0_s_p9_0">_16c0_s_p9_0</a>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c0_s_p9_1" title='_16c0_s_p9_1' data-ref="_16c0_s_p9_1">_16c0_s_p9_1</a>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c0_s_p9_2" title='_16c0_s_p9_2' data-ref="_16c0_s_p9_2">_16c0_s_p9_2</a>}</td></tr>
+<tr><th id="32">32</th><td>   }</td></tr>
+<tr><th id="33">33</th><td>};</td></tr>
+<tr><th id="34">34</th><td><em>static</em> <a class="typedef" href="../vorbisenc.c.html#static_bookblock" title='static_bookblock' data-type='struct static_bookblock' data-ref="static_bookblock">static_bookblock</a> <dfn class="decl def" id="_resbook_16s_1" title='_resbook_16s_1' data-ref="_resbook_16s_1">_resbook_16s_1</dfn>={</td></tr>
+<tr><th id="35">35</th><td>  {</td></tr>
+<tr><th id="36">36</th><td>    {<var>0</var>},</td></tr>
+<tr><th id="37">37</th><td>    {<var>0</var>,<var>0</var>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c1_s_p1_0" title='_16c1_s_p1_0' data-ref="_16c1_s_p1_0">_16c1_s_p1_0</a>},</td></tr>
+<tr><th id="38">38</th><td>    {<var>0</var>,<var>0</var>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c1_s_p2_0" title='_16c1_s_p2_0' data-ref="_16c1_s_p2_0">_16c1_s_p2_0</a>},</td></tr>
+<tr><th id="39">39</th><td>    {<var>0</var>,<var>0</var>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c1_s_p3_0" title='_16c1_s_p3_0' data-ref="_16c1_s_p3_0">_16c1_s_p3_0</a>},</td></tr>
+<tr><th id="40">40</th><td>    {<var>0</var>,<var>0</var>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c1_s_p4_0" title='_16c1_s_p4_0' data-ref="_16c1_s_p4_0">_16c1_s_p4_0</a>},</td></tr>
+<tr><th id="41">41</th><td>    {<var>0</var>,<var>0</var>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c1_s_p5_0" title='_16c1_s_p5_0' data-ref="_16c1_s_p5_0">_16c1_s_p5_0</a>},</td></tr>
+<tr><th id="42">42</th><td>    {<var>0</var>,<var>0</var>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c1_s_p6_0" title='_16c1_s_p6_0' data-ref="_16c1_s_p6_0">_16c1_s_p6_0</a>},</td></tr>
+<tr><th id="43">43</th><td>    {&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c1_s_p7_0" title='_16c1_s_p7_0' data-ref="_16c1_s_p7_0">_16c1_s_p7_0</a>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c1_s_p7_1" title='_16c1_s_p7_1' data-ref="_16c1_s_p7_1">_16c1_s_p7_1</a>},</td></tr>
+<tr><th id="44">44</th><td>    {&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c1_s_p8_0" title='_16c1_s_p8_0' data-ref="_16c1_s_p8_0">_16c1_s_p8_0</a>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c1_s_p8_1" title='_16c1_s_p8_1' data-ref="_16c1_s_p8_1">_16c1_s_p8_1</a>},</td></tr>
+<tr><th id="45">45</th><td>    {&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c1_s_p9_0" title='_16c1_s_p9_0' data-ref="_16c1_s_p9_0">_16c1_s_p9_0</a>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c1_s_p9_1" title='_16c1_s_p9_1' data-ref="_16c1_s_p9_1">_16c1_s_p9_1</a>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c1_s_p9_2" title='_16c1_s_p9_2' data-ref="_16c1_s_p9_2">_16c1_s_p9_2</a>}</td></tr>
+<tr><th id="46">46</th><td>   }</td></tr>
+<tr><th id="47">47</th><td>};</td></tr>
+<tr><th id="48">48</th><td><em>static</em> <a class="typedef" href="../vorbisenc.c.html#static_bookblock" title='static_bookblock' data-type='struct static_bookblock' data-ref="static_bookblock">static_bookblock</a> <dfn class="decl def" id="_resbook_16s_2" title='_resbook_16s_2' data-ref="_resbook_16s_2">_resbook_16s_2</dfn>={</td></tr>
+<tr><th id="49">49</th><td>  {</td></tr>
+<tr><th id="50">50</th><td>    {<var>0</var>},</td></tr>
+<tr><th id="51">51</th><td>    {<var>0</var>,<var>0</var>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c2_s_p1_0" title='_16c2_s_p1_0' data-ref="_16c2_s_p1_0">_16c2_s_p1_0</a>},</td></tr>
+<tr><th id="52">52</th><td>    {<var>0</var>,<var>0</var>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c2_s_p2_0" title='_16c2_s_p2_0' data-ref="_16c2_s_p2_0">_16c2_s_p2_0</a>},</td></tr>
+<tr><th id="53">53</th><td>    {<var>0</var>,<var>0</var>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c2_s_p3_0" title='_16c2_s_p3_0' data-ref="_16c2_s_p3_0">_16c2_s_p3_0</a>},</td></tr>
+<tr><th id="54">54</th><td>    {<var>0</var>,<var>0</var>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c2_s_p4_0" title='_16c2_s_p4_0' data-ref="_16c2_s_p4_0">_16c2_s_p4_0</a>},</td></tr>
+<tr><th id="55">55</th><td>    {&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c2_s_p5_0" title='_16c2_s_p5_0' data-ref="_16c2_s_p5_0">_16c2_s_p5_0</a>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c2_s_p5_1" title='_16c2_s_p5_1' data-ref="_16c2_s_p5_1">_16c2_s_p5_1</a>},</td></tr>
+<tr><th id="56">56</th><td>    {&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c2_s_p6_0" title='_16c2_s_p6_0' data-ref="_16c2_s_p6_0">_16c2_s_p6_0</a>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c2_s_p6_1" title='_16c2_s_p6_1' data-ref="_16c2_s_p6_1">_16c2_s_p6_1</a>},</td></tr>
+<tr><th id="57">57</th><td>    {&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c2_s_p7_0" title='_16c2_s_p7_0' data-ref="_16c2_s_p7_0">_16c2_s_p7_0</a>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c2_s_p7_1" title='_16c2_s_p7_1' data-ref="_16c2_s_p7_1">_16c2_s_p7_1</a>},</td></tr>
+<tr><th id="58">58</th><td>    {&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c2_s_p8_0" title='_16c2_s_p8_0' data-ref="_16c2_s_p8_0">_16c2_s_p8_0</a>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c2_s_p8_1" title='_16c2_s_p8_1' data-ref="_16c2_s_p8_1">_16c2_s_p8_1</a>},</td></tr>
+<tr><th id="59">59</th><td>    {&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c2_s_p9_0" title='_16c2_s_p9_0' data-ref="_16c2_s_p9_0">_16c2_s_p9_0</a>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c2_s_p9_1" title='_16c2_s_p9_1' data-ref="_16c2_s_p9_1">_16c2_s_p9_1</a>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_16c2_s_p9_2" title='_16c2_s_p9_2' data-ref="_16c2_s_p9_2">_16c2_s_p9_2</a>}</td></tr>
+<tr><th id="60">60</th><td>   }</td></tr>
+<tr><th id="61">61</th><td>};</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td><em>static</em> <a class="typedef" href="../vorbisenc.c.html#vorbis_residue_template" title='vorbis_residue_template' data-type='struct vorbis_residue_template' data-ref="vorbis_residue_template">vorbis_residue_template</a> <dfn class="decl def" id="_res_16s_0" title='_res_16s_0' data-ref="_res_16s_0">_res_16s_0</dfn>[]={</td></tr>
+<tr><th id="64">64</th><td>  {<var>2</var>,<var>0</var>,  &amp;<a class="ref" href="residue_44.h.html#_residue_44_mid" title='_residue_44_mid' data-ref="_residue_44_mid">_residue_44_mid</a>,</td></tr>
+<tr><th id="65">65</th><td>   &amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_huff_book__16c0_s_single" title='_huff_book__16c0_s_single' data-ref="_huff_book__16c0_s_single">_huff_book__16c0_s_single</a>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_huff_book__16c0_s_single" title='_huff_book__16c0_s_single' data-ref="_huff_book__16c0_s_single">_huff_book__16c0_s_single</a>,</td></tr>
+<tr><th id="66">66</th><td>   &amp;<a class="ref" href="#_resbook_16s_0" title='_resbook_16s_0' data-ref="_resbook_16s_0">_resbook_16s_0</a>,&amp;<a class="ref" href="#_resbook_16s_0" title='_resbook_16s_0' data-ref="_resbook_16s_0">_resbook_16s_0</a>},</td></tr>
+<tr><th id="67">67</th><td>};</td></tr>
+<tr><th id="68">68</th><td><em>static</em> <a class="typedef" href="../vorbisenc.c.html#vorbis_residue_template" title='vorbis_residue_template' data-type='struct vorbis_residue_template' data-ref="vorbis_residue_template">vorbis_residue_template</a> <dfn class="decl def" id="_res_16s_1" title='_res_16s_1' data-ref="_res_16s_1">_res_16s_1</dfn>[]={</td></tr>
+<tr><th id="69">69</th><td>  {<var>2</var>,<var>0</var>,  &amp;<a class="ref" href="residue_44.h.html#_residue_44_mid" title='_residue_44_mid' data-ref="_residue_44_mid">_residue_44_mid</a>,</td></tr>
+<tr><th id="70">70</th><td>   &amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_huff_book__16c1_s_short" title='_huff_book__16c1_s_short' data-ref="_huff_book__16c1_s_short">_huff_book__16c1_s_short</a>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_huff_book__16c1_s_short" title='_huff_book__16c1_s_short' data-ref="_huff_book__16c1_s_short">_huff_book__16c1_s_short</a>,</td></tr>
+<tr><th id="71">71</th><td>   &amp;<a class="ref" href="#_resbook_16s_1" title='_resbook_16s_1' data-ref="_resbook_16s_1">_resbook_16s_1</a>,&amp;<a class="ref" href="#_resbook_16s_1" title='_resbook_16s_1' data-ref="_resbook_16s_1">_resbook_16s_1</a>},</td></tr>
+<tr><th id="72">72</th><td>  </td></tr>
+<tr><th id="73">73</th><td>  {<var>2</var>,<var>0</var>,  &amp;<a class="ref" href="residue_44.h.html#_residue_44_mid" title='_residue_44_mid' data-ref="_residue_44_mid">_residue_44_mid</a>,</td></tr>
+<tr><th id="74">74</th><td>   &amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_huff_book__16c1_s_long" title='_huff_book__16c1_s_long' data-ref="_huff_book__16c1_s_long">_huff_book__16c1_s_long</a>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_huff_book__16c1_s_long" title='_huff_book__16c1_s_long' data-ref="_huff_book__16c1_s_long">_huff_book__16c1_s_long</a>,</td></tr>
+<tr><th id="75">75</th><td>   &amp;<a class="ref" href="#_resbook_16s_1" title='_resbook_16s_1' data-ref="_resbook_16s_1">_resbook_16s_1</a>,&amp;<a class="ref" href="#_resbook_16s_1" title='_resbook_16s_1' data-ref="_resbook_16s_1">_resbook_16s_1</a>}</td></tr>
+<tr><th id="76">76</th><td>};</td></tr>
+<tr><th id="77">77</th><td><em>static</em> <a class="typedef" href="../vorbisenc.c.html#vorbis_residue_template" title='vorbis_residue_template' data-type='struct vorbis_residue_template' data-ref="vorbis_residue_template">vorbis_residue_template</a> <dfn class="decl def" id="_res_16s_2" title='_res_16s_2' data-ref="_res_16s_2">_res_16s_2</dfn>[]={</td></tr>
+<tr><th id="78">78</th><td>  {<var>2</var>,<var>0</var>,  &amp;<a class="ref" href="residue_44.h.html#_residue_44_high" title='_residue_44_high' data-ref="_residue_44_high">_residue_44_high</a>,</td></tr>
+<tr><th id="79">79</th><td>   &amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_huff_book__16c2_s_short" title='_huff_book__16c2_s_short' data-ref="_huff_book__16c2_s_short">_huff_book__16c2_s_short</a>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_huff_book__16c2_s_short" title='_huff_book__16c2_s_short' data-ref="_huff_book__16c2_s_short">_huff_book__16c2_s_short</a>,</td></tr>
+<tr><th id="80">80</th><td>   &amp;<a class="ref" href="#_resbook_16s_2" title='_resbook_16s_2' data-ref="_resbook_16s_2">_resbook_16s_2</a>,&amp;<a class="ref" href="#_resbook_16s_2" title='_resbook_16s_2' data-ref="_resbook_16s_2">_resbook_16s_2</a>},</td></tr>
+<tr><th id="81">81</th><td>  </td></tr>
+<tr><th id="82">82</th><td>  {<var>2</var>,<var>0</var>,  &amp;<a class="ref" href="residue_44.h.html#_residue_44_high" title='_residue_44_high' data-ref="_residue_44_high">_residue_44_high</a>,</td></tr>
+<tr><th id="83">83</th><td>   &amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_huff_book__16c2_s_long" title='_huff_book__16c2_s_long' data-ref="_huff_book__16c2_s_long">_huff_book__16c2_s_long</a>,&amp;<a class="ref" href="../books/coupled/res_books_stereo.h.html#_huff_book__16c2_s_long" title='_huff_book__16c2_s_long' data-ref="_huff_book__16c2_s_long">_huff_book__16c2_s_long</a>,</td></tr>
+<tr><th id="84">84</th><td>   &amp;<a class="ref" href="#_resbook_16s_2" title='_resbook_16s_2' data-ref="_resbook_16s_2">_resbook_16s_2</a>,&amp;<a class="ref" href="#_resbook_16s_2" title='_resbook_16s_2' data-ref="_resbook_16s_2">_resbook_16s_2</a>}</td></tr>
+<tr><th id="85">85</th><td>};</td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td><em>static</em> <a class="typedef" href="../vorbisenc.c.html#vorbis_mapping_template" title='vorbis_mapping_template' data-type='struct vorbis_mapping_template' data-ref="vorbis_mapping_template">vorbis_mapping_template</a> <dfn class="decl def" id="_mapres_template_16_stereo" title='_mapres_template_16_stereo' data-ref="_mapres_template_16_stereo">_mapres_template_16_stereo</dfn>[<var>3</var>]={</td></tr>
+<tr><th id="88">88</th><td>  { <a class="tu ref" href="../vorbisenc.c.html#_map_nominal" title='_map_nominal' data-ref="_map_nominal">_map_nominal</a>, <a class="ref" href="#_res_16s_0" title='_res_16s_0' data-ref="_res_16s_0">_res_16s_0</a> }, <i>/* 0 */</i></td></tr>
+<tr><th id="89">89</th><td>  { <a class="tu ref" href="../vorbisenc.c.html#_map_nominal" title='_map_nominal' data-ref="_map_nominal">_map_nominal</a>, <a class="ref" href="#_res_16s_1" title='_res_16s_1' data-ref="_res_16s_1">_res_16s_1</a> }, <i>/* 1 */</i></td></tr>
+<tr><th id="90">90</th><td>  { <a class="tu ref" href="../vorbisenc.c.html#_map_nominal" title='_map_nominal' data-ref="_map_nominal">_map_nominal</a>, <a class="ref" href="#_res_16s_2" title='_res_16s_2' data-ref="_res_16s_2">_res_16s_2</a> }, <i>/* 2 */</i></td></tr>
+<tr><th id="91">91</th><td>};</td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td><em>static</em> <a class="typedef" href="../vorbisenc.c.html#static_bookblock" title='static_bookblock' data-type='struct static_bookblock' data-ref="static_bookblock">static_bookblock</a> <dfn class="decl def" id="_resbook_16u_0" title='_resbook_16u_0' data-ref="_resbook_16u_0">_resbook_16u_0</dfn>={</td></tr>
+<tr><th id="94">94</th><td>  {</td></tr>
+<tr><th id="95">95</th><td>    {<var>0</var>},</td></tr>
+<tr><th id="96">96</th><td>    {<var>0</var>,<var>0</var>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u0__p1_0" title='_16u0__p1_0' data-ref="_16u0__p1_0">_16u0__p1_0</a>},</td></tr>
+<tr><th id="97">97</th><td>    {<var>0</var>,<var>0</var>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u0__p2_0" title='_16u0__p2_0' data-ref="_16u0__p2_0">_16u0__p2_0</a>},</td></tr>
+<tr><th id="98">98</th><td>    {<var>0</var>,<var>0</var>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u0__p3_0" title='_16u0__p3_0' data-ref="_16u0__p3_0">_16u0__p3_0</a>},</td></tr>
+<tr><th id="99">99</th><td>    {<var>0</var>,<var>0</var>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u0__p4_0" title='_16u0__p4_0' data-ref="_16u0__p4_0">_16u0__p4_0</a>},</td></tr>
+<tr><th id="100">100</th><td>    {<var>0</var>,<var>0</var>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u0__p5_0" title='_16u0__p5_0' data-ref="_16u0__p5_0">_16u0__p5_0</a>},</td></tr>
+<tr><th id="101">101</th><td>    {&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u0__p6_0" title='_16u0__p6_0' data-ref="_16u0__p6_0">_16u0__p6_0</a>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u0__p6_1" title='_16u0__p6_1' data-ref="_16u0__p6_1">_16u0__p6_1</a>},</td></tr>
+<tr><th id="102">102</th><td>    {&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u0__p7_0" title='_16u0__p7_0' data-ref="_16u0__p7_0">_16u0__p7_0</a>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u0__p7_1" title='_16u0__p7_1' data-ref="_16u0__p7_1">_16u0__p7_1</a>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u0__p7_2" title='_16u0__p7_2' data-ref="_16u0__p7_2">_16u0__p7_2</a>}</td></tr>
+<tr><th id="103">103</th><td>   }</td></tr>
+<tr><th id="104">104</th><td>};</td></tr>
+<tr><th id="105">105</th><td><em>static</em> <a class="typedef" href="../vorbisenc.c.html#static_bookblock" title='static_bookblock' data-type='struct static_bookblock' data-ref="static_bookblock">static_bookblock</a> <dfn class="decl def" id="_resbook_16u_1" title='_resbook_16u_1' data-ref="_resbook_16u_1">_resbook_16u_1</dfn>={</td></tr>
+<tr><th id="106">106</th><td>  {</td></tr>
+<tr><th id="107">107</th><td>    {<var>0</var>},</td></tr>
+<tr><th id="108">108</th><td>    {<var>0</var>,<var>0</var>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u1__p1_0" title='_16u1__p1_0' data-ref="_16u1__p1_0">_16u1__p1_0</a>},</td></tr>
+<tr><th id="109">109</th><td>    {<var>0</var>,<var>0</var>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u1__p2_0" title='_16u1__p2_0' data-ref="_16u1__p2_0">_16u1__p2_0</a>},</td></tr>
+<tr><th id="110">110</th><td>    {<var>0</var>,<var>0</var>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u1__p3_0" title='_16u1__p3_0' data-ref="_16u1__p3_0">_16u1__p3_0</a>},</td></tr>
+<tr><th id="111">111</th><td>    {<var>0</var>,<var>0</var>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u1__p4_0" title='_16u1__p4_0' data-ref="_16u1__p4_0">_16u1__p4_0</a>},</td></tr>
+<tr><th id="112">112</th><td>    {<var>0</var>,<var>0</var>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u1__p5_0" title='_16u1__p5_0' data-ref="_16u1__p5_0">_16u1__p5_0</a>},</td></tr>
+<tr><th id="113">113</th><td>    {<var>0</var>,<var>0</var>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u1__p6_0" title='_16u1__p6_0' data-ref="_16u1__p6_0">_16u1__p6_0</a>},</td></tr>
+<tr><th id="114">114</th><td>    {&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u1__p7_0" title='_16u1__p7_0' data-ref="_16u1__p7_0">_16u1__p7_0</a>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u1__p7_1" title='_16u1__p7_1' data-ref="_16u1__p7_1">_16u1__p7_1</a>},</td></tr>
+<tr><th id="115">115</th><td>    {&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u1__p8_0" title='_16u1__p8_0' data-ref="_16u1__p8_0">_16u1__p8_0</a>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u1__p8_1" title='_16u1__p8_1' data-ref="_16u1__p8_1">_16u1__p8_1</a>},</td></tr>
+<tr><th id="116">116</th><td>    {&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u1__p9_0" title='_16u1__p9_0' data-ref="_16u1__p9_0">_16u1__p9_0</a>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u1__p9_1" title='_16u1__p9_1' data-ref="_16u1__p9_1">_16u1__p9_1</a>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u1__p9_2" title='_16u1__p9_2' data-ref="_16u1__p9_2">_16u1__p9_2</a>}</td></tr>
+<tr><th id="117">117</th><td>   }</td></tr>
+<tr><th id="118">118</th><td>};</td></tr>
+<tr><th id="119">119</th><td><em>static</em> <a class="typedef" href="../vorbisenc.c.html#static_bookblock" title='static_bookblock' data-type='struct static_bookblock' data-ref="static_bookblock">static_bookblock</a> <dfn class="decl def" id="_resbook_16u_2" title='_resbook_16u_2' data-ref="_resbook_16u_2">_resbook_16u_2</dfn>={</td></tr>
+<tr><th id="120">120</th><td>  {</td></tr>
+<tr><th id="121">121</th><td>    {<var>0</var>},</td></tr>
+<tr><th id="122">122</th><td>    {<var>0</var>,<var>0</var>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u2_p1_0" title='_16u2_p1_0' data-ref="_16u2_p1_0">_16u2_p1_0</a>},</td></tr>
+<tr><th id="123">123</th><td>    {<var>0</var>,<var>0</var>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u2_p2_0" title='_16u2_p2_0' data-ref="_16u2_p2_0">_16u2_p2_0</a>},</td></tr>
+<tr><th id="124">124</th><td>    {<var>0</var>,<var>0</var>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u2_p3_0" title='_16u2_p3_0' data-ref="_16u2_p3_0">_16u2_p3_0</a>},</td></tr>
+<tr><th id="125">125</th><td>    {<var>0</var>,<var>0</var>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u2_p4_0" title='_16u2_p4_0' data-ref="_16u2_p4_0">_16u2_p4_0</a>},</td></tr>
+<tr><th id="126">126</th><td>    {&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u2_p5_0" title='_16u2_p5_0' data-ref="_16u2_p5_0">_16u2_p5_0</a>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u2_p5_1" title='_16u2_p5_1' data-ref="_16u2_p5_1">_16u2_p5_1</a>},</td></tr>
+<tr><th id="127">127</th><td>    {&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u2_p6_0" title='_16u2_p6_0' data-ref="_16u2_p6_0">_16u2_p6_0</a>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u2_p6_1" title='_16u2_p6_1' data-ref="_16u2_p6_1">_16u2_p6_1</a>},</td></tr>
+<tr><th id="128">128</th><td>    {&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u2_p7_0" title='_16u2_p7_0' data-ref="_16u2_p7_0">_16u2_p7_0</a>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u2_p7_1" title='_16u2_p7_1' data-ref="_16u2_p7_1">_16u2_p7_1</a>},</td></tr>
+<tr><th id="129">129</th><td>    {&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u2_p8_0" title='_16u2_p8_0' data-ref="_16u2_p8_0">_16u2_p8_0</a>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u2_p8_1" title='_16u2_p8_1' data-ref="_16u2_p8_1">_16u2_p8_1</a>},</td></tr>
+<tr><th id="130">130</th><td>    {&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u2_p9_0" title='_16u2_p9_0' data-ref="_16u2_p9_0">_16u2_p9_0</a>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u2_p9_1" title='_16u2_p9_1' data-ref="_16u2_p9_1">_16u2_p9_1</a>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_16u2_p9_2" title='_16u2_p9_2' data-ref="_16u2_p9_2">_16u2_p9_2</a>}</td></tr>
+<tr><th id="131">131</th><td>   }</td></tr>
+<tr><th id="132">132</th><td>};</td></tr>
+<tr><th id="133">133</th><td></td></tr>
+<tr><th id="134">134</th><td><em>static</em> <a class="typedef" href="../vorbisenc.c.html#vorbis_residue_template" title='vorbis_residue_template' data-type='struct vorbis_residue_template' data-ref="vorbis_residue_template">vorbis_residue_template</a> <dfn class="decl def" id="_res_16u_0" title='_res_16u_0' data-ref="_res_16u_0">_res_16u_0</dfn>[]={</td></tr>
+<tr><th id="135">135</th><td>  {<var>1</var>,<var>0</var>,  &amp;<a class="ref" href="residue_44u.h.html#_residue_44_low_un" title='_residue_44_low_un' data-ref="_residue_44_low_un">_residue_44_low_un</a>,</td></tr>
+<tr><th id="136">136</th><td>   &amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_huff_book__16u0__single" title='_huff_book__16u0__single' data-ref="_huff_book__16u0__single">_huff_book__16u0__single</a>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_huff_book__16u0__single" title='_huff_book__16u0__single' data-ref="_huff_book__16u0__single">_huff_book__16u0__single</a>,</td></tr>
+<tr><th id="137">137</th><td>   &amp;<a class="ref" href="#_resbook_16u_0" title='_resbook_16u_0' data-ref="_resbook_16u_0">_resbook_16u_0</a>,&amp;<a class="ref" href="#_resbook_16u_0" title='_resbook_16u_0' data-ref="_resbook_16u_0">_resbook_16u_0</a>},</td></tr>
+<tr><th id="138">138</th><td>};</td></tr>
+<tr><th id="139">139</th><td><em>static</em> <a class="typedef" href="../vorbisenc.c.html#vorbis_residue_template" title='vorbis_residue_template' data-type='struct vorbis_residue_template' data-ref="vorbis_residue_template">vorbis_residue_template</a> <dfn class="decl def" id="_res_16u_1" title='_res_16u_1' data-ref="_res_16u_1">_res_16u_1</dfn>[]={</td></tr>
+<tr><th id="140">140</th><td>  {<var>1</var>,<var>0</var>,  &amp;<a class="ref" href="residue_44u.h.html#_residue_44_mid_un" title='_residue_44_mid_un' data-ref="_residue_44_mid_un">_residue_44_mid_un</a>,</td></tr>
+<tr><th id="141">141</th><td>   &amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_huff_book__16u1__short" title='_huff_book__16u1__short' data-ref="_huff_book__16u1__short">_huff_book__16u1__short</a>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_huff_book__16u1__short" title='_huff_book__16u1__short' data-ref="_huff_book__16u1__short">_huff_book__16u1__short</a>,</td></tr>
+<tr><th id="142">142</th><td>   &amp;<a class="ref" href="#_resbook_16u_1" title='_resbook_16u_1' data-ref="_resbook_16u_1">_resbook_16u_1</a>,&amp;<a class="ref" href="#_resbook_16u_1" title='_resbook_16u_1' data-ref="_resbook_16u_1">_resbook_16u_1</a>},</td></tr>
+<tr><th id="143">143</th><td>  </td></tr>
+<tr><th id="144">144</th><td>  {<var>1</var>,<var>0</var>,  &amp;<a class="ref" href="residue_44u.h.html#_residue_44_mid_un" title='_residue_44_mid_un' data-ref="_residue_44_mid_un">_residue_44_mid_un</a>,</td></tr>
+<tr><th id="145">145</th><td>   &amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_huff_book__16u1__long" title='_huff_book__16u1__long' data-ref="_huff_book__16u1__long">_huff_book__16u1__long</a>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_huff_book__16u1__long" title='_huff_book__16u1__long' data-ref="_huff_book__16u1__long">_huff_book__16u1__long</a>,</td></tr>
+<tr><th id="146">146</th><td>   &amp;<a class="ref" href="#_resbook_16u_1" title='_resbook_16u_1' data-ref="_resbook_16u_1">_resbook_16u_1</a>,&amp;<a class="ref" href="#_resbook_16u_1" title='_resbook_16u_1' data-ref="_resbook_16u_1">_resbook_16u_1</a>}</td></tr>
+<tr><th id="147">147</th><td>};</td></tr>
+<tr><th id="148">148</th><td><em>static</em> <a class="typedef" href="../vorbisenc.c.html#vorbis_residue_template" title='vorbis_residue_template' data-type='struct vorbis_residue_template' data-ref="vorbis_residue_template">vorbis_residue_template</a> <dfn class="decl def" id="_res_16u_2" title='_res_16u_2' data-ref="_res_16u_2">_res_16u_2</dfn>[]={</td></tr>
+<tr><th id="149">149</th><td>  {<var>1</var>,<var>0</var>,  &amp;<a class="ref" href="residue_44u.h.html#_residue_44_hi_un" title='_residue_44_hi_un' data-ref="_residue_44_hi_un">_residue_44_hi_un</a>,</td></tr>
+<tr><th id="150">150</th><td>   &amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_huff_book__16u2__short" title='_huff_book__16u2__short' data-ref="_huff_book__16u2__short">_huff_book__16u2__short</a>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_huff_book__16u2__short" title='_huff_book__16u2__short' data-ref="_huff_book__16u2__short">_huff_book__16u2__short</a>,</td></tr>
+<tr><th id="151">151</th><td>   &amp;<a class="ref" href="#_resbook_16u_2" title='_resbook_16u_2' data-ref="_resbook_16u_2">_resbook_16u_2</a>,&amp;<a class="ref" href="#_resbook_16u_2" title='_resbook_16u_2' data-ref="_resbook_16u_2">_resbook_16u_2</a>},</td></tr>
+<tr><th id="152">152</th><td>  </td></tr>
+<tr><th id="153">153</th><td>  {<var>1</var>,<var>0</var>,  &amp;<a class="ref" href="residue_44u.h.html#_residue_44_hi_un" title='_residue_44_hi_un' data-ref="_residue_44_hi_un">_residue_44_hi_un</a>,</td></tr>
+<tr><th id="154">154</th><td>   &amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_huff_book__16u2__long" title='_huff_book__16u2__long' data-ref="_huff_book__16u2__long">_huff_book__16u2__long</a>,&amp;<a class="ref" href="../books/uncoupled/res_books_uncoupled.h.html#_huff_book__16u2__long" title='_huff_book__16u2__long' data-ref="_huff_book__16u2__long">_huff_book__16u2__long</a>,</td></tr>
+<tr><th id="155">155</th><td>   &amp;<a class="ref" href="#_resbook_16u_2" title='_resbook_16u_2' data-ref="_resbook_16u_2">_resbook_16u_2</a>,&amp;<a class="ref" href="#_resbook_16u_2" title='_resbook_16u_2' data-ref="_resbook_16u_2">_resbook_16u_2</a>}</td></tr>
+<tr><th id="156">156</th><td>};</td></tr>
+<tr><th id="157">157</th><td></td></tr>
+<tr><th id="158">158</th><td></td></tr>
+<tr><th id="159">159</th><td><em>static</em> <a class="typedef" href="../vorbisenc.c.html#vorbis_mapping_template" title='vorbis_mapping_template' data-type='struct vorbis_mapping_template' data-ref="vorbis_mapping_template">vorbis_mapping_template</a> <dfn class="decl def" id="_mapres_template_16_uncoupled" title='_mapres_template_16_uncoupled' data-ref="_mapres_template_16_uncoupled">_mapres_template_16_uncoupled</dfn>[<var>3</var>]={</td></tr>
+<tr><th id="160">160</th><td>  { <a class="ref" href="residue_44u.h.html#_map_nominal_u" title='_map_nominal_u' data-ref="_map_nominal_u">_map_nominal_u</a>, <a class="ref" href="#_res_16u_0" title='_res_16u_0' data-ref="_res_16u_0">_res_16u_0</a> }, <i>/* 0 */</i></td></tr>
+<tr><th id="161">161</th><td>  { <a class="ref" href="residue_44u.h.html#_map_nominal_u" title='_map_nominal_u' data-ref="_map_nominal_u">_map_nominal_u</a>, <a class="ref" href="#_res_16u_1" title='_res_16u_1' data-ref="_res_16u_1">_res_16u_1</a> }, <i>/* 1 */</i></td></tr>
+<tr><th id="162">162</th><td>  { <a class="ref" href="residue_44u.h.html#_map_nominal_u" title='_map_nominal_u' data-ref="_map_nominal_u">_map_nominal_u</a>, <a class="ref" href="#_res_16u_2" title='_res_16u_2' data-ref="_res_16u_2">_res_16u_2</a> }, <i>/* 2 */</i></td></tr>
+<tr><th id="163">163</th><td>};</td></tr>
+<tr><th id="164">164</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../vorbisenc.c.html'>codebrowser/sound/OggVorbis/vorbissrc/vorbisenc.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

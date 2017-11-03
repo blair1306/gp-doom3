@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Surface_Patch.h source code [codebrowser/idlib/geometry/Surface_Patch.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idSurface_Patch "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/idlib/geometry/Surface_Patch.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>idlib</a>/<a href='./'>geometry</a>/<a href='Surface_Patch.h.html'>Surface_Patch.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__SURFACE_PATCH_H__">__SURFACE_PATCH_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__SURFACE_PATCH_H__" data-ref="_M/__SURFACE_PATCH_H__">__SURFACE_PATCH_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>	Bezier patch surface.</i></td></tr>
+<tr><th id="36">36</th><td><i></i></td></tr>
+<tr><th id="37">37</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="38">38</th><td><i>*/</i></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><b>class</b> <dfn class="type def" id="idSurface_Patch" title='idSurface_Patch' data-ref="idSurface_Patch">idSurface_Patch</dfn> : <b>public</b> <a class="type" href="Surface.h.html#idSurface" title='idSurface' data-ref="idSurface">idSurface</a> {</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><b>public</b>:</td></tr>
+<tr><th id="43">43</th><td>						<a class="decl" href="#_ZN15idSurface_PatchC1Ev" title='idSurface_Patch::idSurface_Patch' data-ref="_ZN15idSurface_PatchC1Ev">idSurface_Patch</a>( <em>void</em> );</td></tr>
+<tr><th id="44">44</th><td>						<a class="decl" href="#_ZN15idSurface_PatchC1Eii" title='idSurface_Patch::idSurface_Patch' data-ref="_ZN15idSurface_PatchC1Eii">idSurface_Patch</a>( <em>int</em> <dfn class="local col6 decl" id="5836maxPatchWidth" title='maxPatchWidth' data-type='int' data-ref="5836maxPatchWidth">maxPatchWidth</dfn>, <em>int</em> <dfn class="local col7 decl" id="5837maxPatchHeight" title='maxPatchHeight' data-type='int' data-ref="5837maxPatchHeight">maxPatchHeight</dfn> );</td></tr>
+<tr><th id="45">45</th><td>						<a class="decl" href="#_ZN15idSurface_PatchC1ERKS_" title='idSurface_Patch::idSurface_Patch' data-ref="_ZN15idSurface_PatchC1ERKS_">idSurface_Patch</a>( <em>const</em> <a class="type" href="#idSurface_Patch" title='idSurface_Patch' data-ref="idSurface_Patch">idSurface_Patch</a> &amp;<dfn class="local col8 decl" id="5838patch" title='patch' data-type='const idSurface_Patch &amp;' data-ref="5838patch">patch</dfn> );</td></tr>
+<tr><th id="46">46</th><td>						<a class="decl" href="#_ZN15idSurface_PatchD1Ev" title='idSurface_Patch::~idSurface_Patch' data-ref="_ZN15idSurface_PatchD1Ev">~idSurface_Patch</a>( <em>void</em> );</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td>	<em>void</em>				<dfn class="decl" id="_ZN15idSurface_Patch7SetSizeEii" title='idSurface_Patch::SetSize' data-ref="_ZN15idSurface_Patch7SetSizeEii">SetSize</dfn>( <em>int</em> <dfn class="local col9 decl" id="5839patchWidth" title='patchWidth' data-type='int' data-ref="5839patchWidth">patchWidth</dfn>, <em>int</em> <dfn class="local col0 decl" id="5840patchHeight" title='patchHeight' data-type='int' data-ref="5840patchHeight">patchHeight</dfn> );</td></tr>
+<tr><th id="49">49</th><td>	<em>int</em>					<a class="decl" href="#_ZNK15idSurface_Patch8GetWidthEv" title='idSurface_Patch::GetWidth' data-ref="_ZNK15idSurface_Patch8GetWidthEv">GetWidth</a>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="50">50</th><td>	<em>int</em>					<a class="decl" href="#_ZNK15idSurface_Patch9GetHeightEv" title='idSurface_Patch::GetHeight' data-ref="_ZNK15idSurface_Patch9GetHeightEv">GetHeight</a>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td>						<i>// subdivide the patch mesh based on error</i></td></tr>
+<tr><th id="53">53</th><td>	<em>void</em>				<dfn class="decl" id="_ZN15idSurface_Patch9SubdivideEfffb" title='idSurface_Patch::Subdivide' data-ref="_ZN15idSurface_Patch9SubdivideEfffb">Subdivide</dfn>( <em>float</em> <dfn class="local col1 decl" id="5841maxHorizontalError" title='maxHorizontalError' data-type='float' data-ref="5841maxHorizontalError">maxHorizontalError</dfn>, <em>float</em> <dfn class="local col2 decl" id="5842maxVerticalError" title='maxVerticalError' data-type='float' data-ref="5842maxVerticalError">maxVerticalError</dfn>, <em>float</em> <dfn class="local col3 decl" id="5843maxLength" title='maxLength' data-type='float' data-ref="5843maxLength">maxLength</dfn>, <em>bool</em> <dfn class="local col4 decl" id="5844genNormals" title='genNormals' data-type='bool' data-ref="5844genNormals">genNormals</dfn> = <b>false</b> );</td></tr>
+<tr><th id="54">54</th><td>						<i>// subdivide the patch up to an explicit number of horizontal and vertical subdivisions</i></td></tr>
+<tr><th id="55">55</th><td>	<em>void</em>				<dfn class="decl" id="_ZN15idSurface_Patch17SubdivideExplicitEiibb" title='idSurface_Patch::SubdivideExplicit' data-ref="_ZN15idSurface_Patch17SubdivideExplicitEiibb">SubdivideExplicit</dfn>( <em>int</em> <dfn class="local col5 decl" id="5845horzSubdivisions" title='horzSubdivisions' data-type='int' data-ref="5845horzSubdivisions">horzSubdivisions</dfn>, <em>int</em> <dfn class="local col6 decl" id="5846vertSubdivisions" title='vertSubdivisions' data-type='int' data-ref="5846vertSubdivisions">vertSubdivisions</dfn>, <em>bool</em> <dfn class="local col7 decl" id="5847genNormals" title='genNormals' data-type='bool' data-ref="5847genNormals">genNormals</dfn>, <em>bool</em> <dfn class="local col8 decl" id="5848removeLinear" title='removeLinear' data-type='bool' data-ref="5848removeLinear">removeLinear</dfn> = <b>false</b> );</td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td><b>protected</b>:</td></tr>
+<tr><th id="58">58</th><td>	<em>int</em>					<dfn class="decl" id="idSurface_Patch::width" title='idSurface_Patch::width' data-ref="idSurface_Patch::width">width</dfn>;			<i>// width of patch</i></td></tr>
+<tr><th id="59">59</th><td>	<em>int</em>					<dfn class="decl" id="idSurface_Patch::height" title='idSurface_Patch::height' data-ref="idSurface_Patch::height">height</dfn>;			<i>// height of patch</i></td></tr>
+<tr><th id="60">60</th><td>	<em>int</em>					<dfn class="decl" id="idSurface_Patch::maxWidth" title='idSurface_Patch::maxWidth' data-ref="idSurface_Patch::maxWidth">maxWidth</dfn>;		<i>// maximum width allocated for</i></td></tr>
+<tr><th id="61">61</th><td>	<em>int</em>					<dfn class="decl" id="idSurface_Patch::maxHeight" title='idSurface_Patch::maxHeight' data-ref="idSurface_Patch::maxHeight">maxHeight</dfn>;		<i>// maximum height allocated for</i></td></tr>
+<tr><th id="62">62</th><td>	<em>bool</em>				<dfn class="decl" id="idSurface_Patch::expanded" title='idSurface_Patch::expanded' data-ref="idSurface_Patch::expanded">expanded</dfn>;		<i>// true if vertices are spaced out</i></td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td><b>private</b>:</td></tr>
+<tr><th id="65">65</th><td>						<i>// put the approximation points on the curve</i></td></tr>
+<tr><th id="66">66</th><td>	<em>void</em>				<dfn class="decl" id="_ZN15idSurface_Patch10PutOnCurveEv" title='idSurface_Patch::PutOnCurve' data-ref="_ZN15idSurface_Patch10PutOnCurveEv">PutOnCurve</dfn>( <em>void</em> );</td></tr>
+<tr><th id="67">67</th><td>						<i>// remove columns and rows with all points on one line</i></td></tr>
+<tr><th id="68">68</th><td>	<em>void</em>				<dfn class="decl" id="_ZN15idSurface_Patch23RemoveLinearColumnsRowsEv" title='idSurface_Patch::RemoveLinearColumnsRows' data-ref="_ZN15idSurface_Patch23RemoveLinearColumnsRowsEv">RemoveLinearColumnsRows</dfn>( <em>void</em> );</td></tr>
+<tr><th id="69">69</th><td>						<i>// resize verts buffer</i></td></tr>
+<tr><th id="70">70</th><td>	<em>void</em>				<dfn class="decl" id="_ZN15idSurface_Patch14ResizeExpandedEii" title='idSurface_Patch::ResizeExpanded' data-ref="_ZN15idSurface_Patch14ResizeExpandedEii">ResizeExpanded</dfn>( <em>int</em> <dfn class="local col9 decl" id="5849height" title='height' data-type='int' data-ref="5849height">height</dfn>, <em>int</em> <dfn class="local col0 decl" id="5850width" title='width' data-type='int' data-ref="5850width">width</dfn> );</td></tr>
+<tr><th id="71">71</th><td>						<i>// space points out over maxWidth * maxHeight buffer</i></td></tr>
+<tr><th id="72">72</th><td>	<em>void</em>				<dfn class="decl" id="_ZN15idSurface_Patch6ExpandEv" title='idSurface_Patch::Expand' data-ref="_ZN15idSurface_Patch6ExpandEv">Expand</dfn>( <em>void</em> );</td></tr>
+<tr><th id="73">73</th><td>						<i>// move all points to the start of the verts buffer</i></td></tr>
+<tr><th id="74">74</th><td>	<em>void</em>				<dfn class="decl" id="_ZN15idSurface_Patch8CollapseEv" title='idSurface_Patch::Collapse' data-ref="_ZN15idSurface_Patch8CollapseEv">Collapse</dfn>( <em>void</em> );</td></tr>
+<tr><th id="75">75</th><td>						<i>// project a point onto a vector to calculate maximum curve error</i></td></tr>
+<tr><th id="76">76</th><td>	<em>void</em>				<dfn class="decl" id="_ZN15idSurface_Patch22ProjectPointOntoVectorERK6idVec3S2_S2_RS0_" title='idSurface_Patch::ProjectPointOntoVector' data-ref="_ZN15idSurface_Patch22ProjectPointOntoVectorERK6idVec3S2_S2_RS0_">ProjectPointOntoVector</dfn>( <em>const</em> <a class="type" href="../math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col1 decl" id="5851point" title='point' data-type='const idVec3 &amp;' data-ref="5851point">point</dfn>, <em>const</em> <a class="type" href="../math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col2 decl" id="5852vStart" title='vStart' data-type='const idVec3 &amp;' data-ref="5852vStart">vStart</dfn>, <em>const</em> <a class="type" href="../math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col3 decl" id="5853vEnd" title='vEnd' data-type='const idVec3 &amp;' data-ref="5853vEnd">vEnd</dfn>, <a class="type" href="../math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col4 decl" id="5854vProj" title='vProj' data-type='idVec3 &amp;' data-ref="5854vProj">vProj</dfn> );</td></tr>
+<tr><th id="77">77</th><td>						<i>// generate normals</i></td></tr>
+<tr><th id="78">78</th><td>	<em>void</em>				<dfn class="decl" id="_ZN15idSurface_Patch15GenerateNormalsEv" title='idSurface_Patch::GenerateNormals' data-ref="_ZN15idSurface_Patch15GenerateNormalsEv">GenerateNormals</dfn>( <em>void</em> );</td></tr>
+<tr><th id="79">79</th><td>						<i>// generate triangle indexes</i></td></tr>
+<tr><th id="80">80</th><td>	<em>void</em>				<dfn class="decl" id="_ZN15idSurface_Patch15GenerateIndexesEv" title='idSurface_Patch::GenerateIndexes' data-ref="_ZN15idSurface_Patch15GenerateIndexesEv">GenerateIndexes</dfn>( <em>void</em> );</td></tr>
+<tr><th id="81">81</th><td>						<i>// lerp point from two patch point</i></td></tr>
+<tr><th id="82">82</th><td>	<em>void</em>				<dfn class="decl" id="_ZNK15idSurface_Patch8LerpVertERK10idDrawVertS2_RS0_" title='idSurface_Patch::LerpVert' data-ref="_ZNK15idSurface_Patch8LerpVertERK10idDrawVertS2_RS0_">LerpVert</dfn>( <em>const</em> <a class="type" href="DrawVert.h.html#idDrawVert" title='idDrawVert' data-ref="idDrawVert">idDrawVert</a> &amp;<dfn class="local col5 decl" id="5855a" title='a' data-type='const idDrawVert &amp;' data-ref="5855a">a</dfn>, <em>const</em> <a class="type" href="DrawVert.h.html#idDrawVert" title='idDrawVert' data-ref="idDrawVert">idDrawVert</a> &amp;<dfn class="local col6 decl" id="5856b" title='b' data-type='const idDrawVert &amp;' data-ref="5856b">b</dfn>, <a class="type" href="DrawVert.h.html#idDrawVert" title='idDrawVert' data-ref="idDrawVert">idDrawVert</a> &amp;<dfn class="local col7 decl" id="5857out" title='out' data-type='idDrawVert &amp;' data-ref="5857out">out</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="83">83</th><td>						<i>// sample a single 3x3 patch</i></td></tr>
+<tr><th id="84">84</th><td>	<em>void</em>				<dfn class="decl" id="_ZNK15idSurface_Patch22SampleSinglePatchPointEPA3_K10idDrawVertffPS0_" title='idSurface_Patch::SampleSinglePatchPoint' data-ref="_ZNK15idSurface_Patch22SampleSinglePatchPointEPA3_K10idDrawVertffPS0_">SampleSinglePatchPoint</dfn>( <em>const</em> <a class="type" href="DrawVert.h.html#idDrawVert" title='idDrawVert' data-ref="idDrawVert">idDrawVert</a> <dfn class="local col8 decl" id="5858ctrl" title='ctrl' data-type='const idDrawVert (*)[3]' data-ref="5858ctrl">ctrl</dfn>[<var>3</var>][<var>3</var>], <em>float</em> <dfn class="local col9 decl" id="5859u" title='u' data-type='float' data-ref="5859u">u</dfn>, <em>float</em> <dfn class="local col0 decl" id="5860v" title='v' data-type='float' data-ref="5860v">v</dfn>, <a class="type" href="DrawVert.h.html#idDrawVert" title='idDrawVert' data-ref="idDrawVert">idDrawVert</a> *<dfn class="local col1 decl" id="5861out" title='out' data-type='idDrawVert *' data-ref="5861out">out</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="85">85</th><td>	<em>void</em>				<dfn class="decl" id="_ZNK15idSurface_Patch17SampleSinglePatchEPA3_K10idDrawVertiiiiiPS0_" title='idSurface_Patch::SampleSinglePatch' data-ref="_ZNK15idSurface_Patch17SampleSinglePatchEPA3_K10idDrawVertiiiiiPS0_">SampleSinglePatch</dfn>( <em>const</em> <a class="type" href="DrawVert.h.html#idDrawVert" title='idDrawVert' data-ref="idDrawVert">idDrawVert</a> <dfn class="local col2 decl" id="5862ctrl" title='ctrl' data-type='const idDrawVert (*)[3]' data-ref="5862ctrl">ctrl</dfn>[<var>3</var>][<var>3</var>], <em>int</em> <dfn class="local col3 decl" id="5863baseCol" title='baseCol' data-type='int' data-ref="5863baseCol">baseCol</dfn>, <em>int</em> <dfn class="local col4 decl" id="5864baseRow" title='baseRow' data-type='int' data-ref="5864baseRow">baseRow</dfn>, <em>int</em> <dfn class="local col5 decl" id="5865width" title='width' data-type='int' data-ref="5865width">width</dfn>, <em>int</em> <dfn class="local col6 decl" id="5866horzSub" title='horzSub' data-type='int' data-ref="5866horzSub">horzSub</dfn>, <em>int</em> <dfn class="local col7 decl" id="5867vertSub" title='vertSub' data-type='int' data-ref="5867vertSub">vertSub</dfn>, <a class="type" href="DrawVert.h.html#idDrawVert" title='idDrawVert' data-ref="idDrawVert">idDrawVert</a> *<dfn class="local col8 decl" id="5868outVerts" title='outVerts' data-type='idDrawVert *' data-ref="5868outVerts">outVerts</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="86">86</th><td>};</td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td><i>/*</i></td></tr>
+<tr><th id="89">89</th><td><i>=================</i></td></tr>
+<tr><th id="90">90</th><td><i>idSurface_Patch::idSurface_Patch</i></td></tr>
+<tr><th id="91">91</th><td><i>=================</i></td></tr>
+<tr><th id="92">92</th><td><i>*/</i></td></tr>
+<tr><th id="93">93</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <a class="type" href="#idSurface_Patch" title='idSurface_Patch' data-ref="idSurface_Patch">idSurface_Patch</a>::<dfn class="decl def" id="_ZN15idSurface_PatchC1Ev" title='idSurface_Patch::idSurface_Patch' data-ref="_ZN15idSurface_PatchC1Ev">idSurface_Patch</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="94">94</th><td>	<a class="member" href="#idSurface_Patch::height" title='idSurface_Patch::height' data-ref="idSurface_Patch::height">height</a> = <a class="member" href="#idSurface_Patch::width" title='idSurface_Patch::width' data-ref="idSurface_Patch::width">width</a> = <a class="member" href="#idSurface_Patch::maxHeight" title='idSurface_Patch::maxHeight' data-ref="idSurface_Patch::maxHeight">maxHeight</a> = <a class="member" href="#idSurface_Patch::maxWidth" title='idSurface_Patch::maxWidth' data-ref="idSurface_Patch::maxWidth">maxWidth</a> = <var>0</var>;</td></tr>
+<tr><th id="95">95</th><td>	<a class="member" href="#idSurface_Patch::expanded" title='idSurface_Patch::expanded' data-ref="idSurface_Patch::expanded">expanded</a> = <b>false</b>;</td></tr>
+<tr><th id="96">96</th><td>}</td></tr>
+<tr><th id="97">97</th><td></td></tr>
+<tr><th id="98">98</th><td><i>/*</i></td></tr>
+<tr><th id="99">99</th><td><i>=================</i></td></tr>
+<tr><th id="100">100</th><td><i>idSurface_Patch::idSurface_Patch</i></td></tr>
+<tr><th id="101">101</th><td><i>=================</i></td></tr>
+<tr><th id="102">102</th><td><i>*/</i></td></tr>
+<tr><th id="103">103</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <a class="type" href="#idSurface_Patch" title='idSurface_Patch' data-ref="idSurface_Patch">idSurface_Patch</a>::<dfn class="decl def" id="_ZN15idSurface_PatchC1Eii" title='idSurface_Patch::idSurface_Patch' data-ref="_ZN15idSurface_PatchC1Eii">idSurface_Patch</dfn>( <em>int</em> <dfn class="local col9 decl" id="5869maxPatchWidth" title='maxPatchWidth' data-type='int' data-ref="5869maxPatchWidth">maxPatchWidth</dfn>, <em>int</em> <dfn class="local col0 decl" id="5870maxPatchHeight" title='maxPatchHeight' data-type='int' data-ref="5870maxPatchHeight">maxPatchHeight</dfn> ) {</td></tr>
+<tr><th id="104">104</th><td>	<a class="member" href="#idSurface_Patch::width" title='idSurface_Patch::width' data-ref="idSurface_Patch::width">width</a> = <a class="member" href="#idSurface_Patch::height" title='idSurface_Patch::height' data-ref="idSurface_Patch::height">height</a> = <var>0</var>;</td></tr>
+<tr><th id="105">105</th><td>	<a class="member" href="#idSurface_Patch::maxWidth" title='idSurface_Patch::maxWidth' data-ref="idSurface_Patch::maxWidth">maxWidth</a> = <a class="local col9 ref" href="#5869maxPatchWidth" title='maxPatchWidth' data-ref="5869maxPatchWidth">maxPatchWidth</a>;</td></tr>
+<tr><th id="106">106</th><td>	<a class="member" href="#idSurface_Patch::maxHeight" title='idSurface_Patch::maxHeight' data-ref="idSurface_Patch::maxHeight">maxHeight</a> = <a class="local col0 ref" href="#5870maxPatchHeight" title='maxPatchHeight' data-ref="5870maxPatchHeight">maxPatchHeight</a>;</td></tr>
+<tr><th id="107">107</th><td>	<a class="member" href="Surface.h.html#idSurface::verts" title='idSurface::verts' data-ref="idSurface::verts">verts</a>.<a class="ref" href="../containers/List.h.html#_ZN6idList6SetNumEib" title='idList::SetNum' data-ref="_ZN6idList6SetNumEib">SetNum</a>( <a class="member" href="#idSurface_Patch::maxWidth" title='idSurface_Patch::maxWidth' data-ref="idSurface_Patch::maxWidth">maxWidth</a> * <a class="member" href="#idSurface_Patch::maxHeight" title='idSurface_Patch::maxHeight' data-ref="idSurface_Patch::maxHeight">maxHeight</a> );</td></tr>
+<tr><th id="108">108</th><td>	<a class="member" href="#idSurface_Patch::expanded" title='idSurface_Patch::expanded' data-ref="idSurface_Patch::expanded">expanded</a> = <b>false</b>;</td></tr>
+<tr><th id="109">109</th><td>}</td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td><i>/*</i></td></tr>
+<tr><th id="112">112</th><td><i>=================</i></td></tr>
+<tr><th id="113">113</th><td><i>idSurface_Patch::idSurface_Patch</i></td></tr>
+<tr><th id="114">114</th><td><i>=================</i></td></tr>
+<tr><th id="115">115</th><td><i>*/</i></td></tr>
+<tr><th id="116">116</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <a class="type" href="#idSurface_Patch" title='idSurface_Patch' data-ref="idSurface_Patch">idSurface_Patch</a>::<dfn class="decl def" id="_ZN15idSurface_PatchC1ERKS_" title='idSurface_Patch::idSurface_Patch' data-ref="_ZN15idSurface_PatchC1ERKS_">idSurface_Patch</dfn>( <em>const</em> <a class="type" href="#idSurface_Patch" title='idSurface_Patch' data-ref="idSurface_Patch">idSurface_Patch</a> &amp;<dfn class="local col1 decl" id="5871patch" title='patch' data-type='const idSurface_Patch &amp;' data-ref="5871patch">patch</dfn> ) {</td></tr>
+<tr><th id="117">117</th><td>	(*<b>this</b>) <a class="member" href="#40" title='idSurface_Patch::operator=' data-ref="_ZN15idSurface_PatchaSERKS_">=</a> <a class="local col1 ref" href="#5871patch" title='patch' data-ref="5871patch">patch</a>;</td></tr>
+<tr><th id="118">118</th><td>}</td></tr>
+<tr><th id="119">119</th><td></td></tr>
+<tr><th id="120">120</th><td><i>/*</i></td></tr>
+<tr><th id="121">121</th><td><i>=================</i></td></tr>
+<tr><th id="122">122</th><td><i>idSurface_Patch::~idSurface_Patch</i></td></tr>
+<tr><th id="123">123</th><td><i>=================</i></td></tr>
+<tr><th id="124">124</th><td><i>*/</i></td></tr>
+<tr><th id="125">125</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <a class="type" href="#idSurface_Patch" title='idSurface_Patch' data-ref="idSurface_Patch">idSurface_Patch</a>::<dfn class="decl def" id="_ZN15idSurface_PatchD1Ev" title='idSurface_Patch::~idSurface_Patch' data-ref="_ZN15idSurface_PatchD1Ev">~idSurface_Patch</dfn>() {</td></tr>
+<tr><th id="126">126</th><td>}</td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td><i>/*</i></td></tr>
+<tr><th id="129">129</th><td><i>=================</i></td></tr>
+<tr><th id="130">130</th><td><i>idSurface_Patch::GetWidth</i></td></tr>
+<tr><th id="131">131</th><td><i>=================</i></td></tr>
+<tr><th id="132">132</th><td><i>*/</i></td></tr>
+<tr><th id="133">133</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>int</em> <a class="type" href="#idSurface_Patch" title='idSurface_Patch' data-ref="idSurface_Patch">idSurface_Patch</a>::<dfn class="decl def" id="_ZNK15idSurface_Patch8GetWidthEv" title='idSurface_Patch::GetWidth' data-ref="_ZNK15idSurface_Patch8GetWidthEv">GetWidth</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="134">134</th><td>	<b>return</b> <a class="member" href="#idSurface_Patch::width" title='idSurface_Patch::width' data-ref="idSurface_Patch::width">width</a>;</td></tr>
+<tr><th id="135">135</th><td>}</td></tr>
+<tr><th id="136">136</th><td></td></tr>
+<tr><th id="137">137</th><td><i>/*</i></td></tr>
+<tr><th id="138">138</th><td><i>=================</i></td></tr>
+<tr><th id="139">139</th><td><i>idSurface_Patch::GetHeight</i></td></tr>
+<tr><th id="140">140</th><td><i>=================</i></td></tr>
+<tr><th id="141">141</th><td><i>*/</i></td></tr>
+<tr><th id="142">142</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>int</em> <a class="type" href="#idSurface_Patch" title='idSurface_Patch' data-ref="idSurface_Patch">idSurface_Patch</a>::<dfn class="decl def" id="_ZNK15idSurface_Patch9GetHeightEv" title='idSurface_Patch::GetHeight' data-ref="_ZNK15idSurface_Patch9GetHeightEv">GetHeight</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="143">143</th><td>	<b>return</b> <a class="member" href="#idSurface_Patch::height" title='idSurface_Patch::height' data-ref="idSurface_Patch::height">height</a>;</td></tr>
+<tr><th id="144">144</th><td>}</td></tr>
+<tr><th id="145">145</th><td></td></tr>
+<tr><th id="146">146</th><td><u>#<span data-ppcond="29">endif</span> /* !__SURFACE_PATCH_H__ */</u></td></tr>
+<tr><th id="147">147</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../TypeInfo/TypeInfoGen.cpp.html'>codebrowser/TypeInfo/TypeInfoGen.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

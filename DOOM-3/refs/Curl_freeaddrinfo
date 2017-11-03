@@ -1,0 +1,11 @@
+<dec f='codebrowser/curl/lib/hostip.h' l='75' type='void Curl_freeaddrinfo(Curl_addrinfo * freeaddr)'/>
+<doc f='codebrowser/curl/lib/hostip.h' l='74'>/* free name info */</doc>
+<use f='codebrowser/curl/lib/hostip.c' l='277' u='c' c='cache_resolv_response'/>
+<use f='codebrowser/curl/lib/hostip.c' l='393' u='c' c='Curl_resolv'/>
+<def f='codebrowser/curl/lib/hostip.c' l='431' ll='438' type='void Curl_freeaddrinfo(Curl_addrinfo * p)'/>
+<use f='codebrowser/curl/lib/hostip.c' l='447' u='c' c='Curl_freednsinfo'/>
+<doc f='codebrowser/curl/lib/hostip.c' l='426'>/*
+ * This is a wrapper function for freeing name information in a protocol
+ * independent way. This takes care of using the appropriate underlaying
+ * function.
+ */</doc>

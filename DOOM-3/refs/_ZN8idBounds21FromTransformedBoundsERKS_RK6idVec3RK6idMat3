@@ -1,0 +1,34 @@
+<dec f='codebrowser/idlib/bv/Bounds.h' l='92' type='void idBounds::FromTransformedBounds(const idBounds &amp; bounds, const idVec3 &amp; origin, const idMat3 &amp; axis)'/>
+<use f='codebrowser/idlib/bv/Bounds.h' l='147' u='c' c='_ZNK8idBoundsmlERK6idMat3'/>
+<use f='codebrowser/idlib/bv/Bounds.h' l='152' u='c' c='_ZN8idBoundsmLERK6idMat3'/>
+<use f='codebrowser/idlib/bv/Bounds.h' l='344' u='c' c='_ZNK8idBounds6RotateERK6idMat3'/>
+<use f='codebrowser/idlib/bv/Bounds.h' l='349' u='c' c='_ZN8idBounds10RotateSelfERK6idMat3'/>
+<doc f='codebrowser/idlib/bv/Bounds.h' l='91'>// most tight bounds for the given transformed bounds</doc>
+<use f='codebrowser/d3xp/AF.cpp' l='216' u='c' c='_ZNK4idAF9GetBoundsEv'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='1325' u='c' c='_ZN8idEntity14UpdatePVSAreasEv'/>
+<use f='codebrowser/d3xp/Trigger.cpp' l='1146' u='c' c='_ZN15idTrigger_Touch13TouchEntitiesEv'/>
+<use f='codebrowser/d3xp/physics/Clip.cpp' l='563' u='c' c='_ZN11idClipModel4LinkER6idClip'/>
+<use f='codebrowser/d3xp/physics/Clip.cpp' l='1387' u='c' c='_ZN6idClip8ContactsEP13contactInfo_tiRK6idVec3RK6idVec6fPK11idClipModelRK6idMat3iPK8idEntity'/>
+<use f='codebrowser/d3xp/physics/Clip.cpp' l='1449' u='c' c='_ZN6idClip8ContentsERK6idVec3PK11idClipModelRK6idMat3iPK8idEntity'/>
+<use f='codebrowser/d3xp/physics/Force_Field.cpp' l='161' u='c' c='_ZN13idForce_Field8EvaluateEi'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='6180' u='c' c='_ZNK12idPhysics_AF9GetBoundsEi'/>
+<use f='codebrowser/game/AF.cpp' l='216' u='c' c='_ZNK4idAF9GetBoundsEv'/>
+<use f='codebrowser/game/Entity.cpp' l='1237' u='c' c='_ZN8idEntity14UpdatePVSAreasEv'/>
+<use f='codebrowser/game/Trigger.cpp' l='1122' u='c' c='_ZN15idTrigger_Touch13TouchEntitiesEv'/>
+<use f='codebrowser/game/physics/Clip.cpp' l='563' u='c' c='_ZN11idClipModel4LinkER6idClip'/>
+<use f='codebrowser/game/physics/Clip.cpp' l='1382' u='c' c='_ZN6idClip8ContactsEP13contactInfo_tiRK6idVec3RK6idVec6fPK11idClipModelRK6idMat3iPK8idEntity'/>
+<use f='codebrowser/game/physics/Clip.cpp' l='1444' u='c' c='_ZN6idClip8ContentsERK6idVec3PK11idClipModelRK6idMat3iPK8idEntity'/>
+<use f='codebrowser/game/physics/Force_Field.cpp' l='161' u='c' c='_ZN13idForce_Field8EvaluateEi'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='6179' u='c' c='_ZNK12idPhysics_AF9GetBoundsEi'/>
+<def f='codebrowser/idlib/bv/Bounds.cpp' l='232' ll='248' type='void idBounds::FromTransformedBounds(const idBounds &amp; bounds, const idVec3 &amp; origin, const idMat3 &amp; axis)'/>
+<use f='codebrowser/idlib/bv/Bounds.cpp' l='294' u='c' c='_ZN8idBounds21FromBoundsTranslationERKS_RK6idVec3RK6idMat3S4_'/>
+<doc f='codebrowser/idlib/bv/Bounds.cpp' l='227'>/*
+============
+idBounds::FromTransformedBounds
+============
+*/</doc>
+<use f='codebrowser/renderer/Model_md5.cpp' l='700' u='c' c='_ZNK16idRenderModelMD510DrawJointsEPK14renderEntity_sPK9viewDef_s'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='537' u='c' c='_ZN18idRenderWorldLocal21ProjectDecalOntoWorldERK14idFixedWindingRK6idVec3bfPK10idMateriali'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='585' u='c' c='_ZN18idRenderWorldLocal12ProjectDecalEiRK14idFixedWindingRK6idVec3bfPK10idMateriali'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1225' u='c' c='_ZNK18idRenderWorldLocal5TraceER12modelTrace_sRK6idVec3S4_fbb'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1264' u='c' c='_ZNK18idRenderWorldLocal5TraceER12modelTrace_sRK6idVec3S4_fbb'/>

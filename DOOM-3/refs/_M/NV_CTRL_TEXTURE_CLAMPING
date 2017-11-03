@@ -1,0 +1,10 @@
+<dec f='codebrowser/sys/linux/libXNVCtrl/NVCtrl.h' l='503'/>
+<doc f='codebrowser/sys/linux/libXNVCtrl/NVCtrl.h' l='493'>/*
+ * NV_CTRL_TEXTURE_CLAMPING - texture clamping mode in OpenGL.  By
+ * default, NVIDIA&apos;s OpenGL implementation uses CLAMP_TO_EDGE, which
+ * is not strictly conformant, but some applications rely on the
+ * non-conformant behavior, and not all GPUs support conformant
+ * texture clamping in hardware.  _SPEC forces OpenGL texture clamping
+ * to be conformant, but may introduce slower performance on older
+ * GPUS, or incorrect texture clamping in certain applications.
+ */</doc>

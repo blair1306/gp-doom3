@@ -1,0 +1,13 @@
+<dec f='codebrowser/curl/lib/ftp.h' l='35' type='CURLcode Curl_ftp_quit(struct connectdata * conn)'/>
+<def f='codebrowser/curl/lib/ftp.c' l='2466' ll='2479' type='CURLcode Curl_ftp_quit(struct connectdata * conn)'/>
+<use f='codebrowser/curl/lib/ftp.c' l='2502' u='c' c='Curl_ftp_disconnect'/>
+<doc f='codebrowser/curl/lib/ftp.c' l='2456'>/***********************************************************************
+ *
+ * Curl_ftp_quit()
+ *
+ * This should be called before calling sclose() on an ftp control connection
+ * (not data connections). We should then wait for the response from the 
+ * server before returning. The calling code should then try to close the
+ * connection.
+ *
+ */</doc>

@@ -1,0 +1,15 @@
+<dec f='codebrowser/curl/lib/cookie.h' l='77' type='struct Cookie * Curl_cookie_add(struct SessionHandle * data, struct CookieInfo * , bool header, char * line, char * domain, char * path)'/>
+<doc f='codebrowser/curl/lib/cookie.h' l='72'>/*
+ * Add a cookie to the internal list of cookies. The domain and path arguments
+ * are only used if the header boolean is TRUE.
+ */</doc>
+<def f='codebrowser/curl/lib/cookie.c' l='135' ll='578' type='struct Cookie * Curl_cookie_add(struct SessionHandle * data, struct CookieInfo * c, bool httpheader, char * lineptr, char * domain, char * path)'/>
+<use f='codebrowser/curl/lib/cookie.c' l='639' u='c' c='Curl_cookie_init'/>
+<doc f='codebrowser/curl/lib/cookie.c' l='127'>/****************************************************************************
+ *
+ * Curl_cookie_add()
+ *
+ * Add a single cookie line to the cookie keeping object.
+ *
+ ***************************************************************************/</doc>
+<use f='codebrowser/curl/lib/transfer.c' l='771' u='c' c='Curl_readwrite'/>

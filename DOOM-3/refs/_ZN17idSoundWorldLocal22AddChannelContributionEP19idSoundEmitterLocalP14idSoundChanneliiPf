@@ -1,0 +1,15 @@
+<dec f='codebrowser/sound/snd_local.h' l='618' type='void idSoundWorldLocal::AddChannelContribution(idSoundEmitterLocal * sound, idSoundChannel * chan, int current44kHz, int numSpeakers, float * finalMixBuffer)'/>
+<use f='codebrowser/sound/snd_world.cpp' l='503' u='c' c='_ZN17idSoundWorldLocal7MixLoopEiiPf'/>
+<use f='codebrowser/sound/snd_world.cpp' l='529' u='c' c='_ZN17idSoundWorldLocal7MixLoopEiiPf'/>
+<def f='codebrowser/sound/snd_world.cpp' l='1570' ll='1910' type='void idSoundWorldLocal::AddChannelContribution(idSoundEmitterLocal * sound, idSoundChannel * chan, int current44kHz, int numSpeakers, float * finalMixBuffer)'/>
+<doc f='codebrowser/sound/snd_world.cpp' l='1559'>/*
+===============
+idSoundWorldLocal::AddChannelContribution
+
+Adds the contribution of a single sound channel to finalMixBuffer
+this is called from the async thread
+
+Mixes MIXBUFFER_SAMPLES samples starting at current44kHz sample time into
+finalMixBuffer
+===============
+*/</doc>

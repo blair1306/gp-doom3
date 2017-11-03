@@ -1,0 +1,47 @@
+<dec f='codebrowser/ui/UserInterface.h' l='96' type='void idUserInterface::StateChanged(int time, bool redraw = false)'/>
+<doc f='codebrowser/ui/UserInterface.h' l='95'>// The state has changed and the gui needs to update from the state idDict.</doc>
+<use f='codebrowser/d3xp/Entity.cpp' l='206' u='c' c='_Z14UpdateGuiParmsP15idUserInterfacePK6idDict'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='4359' u='c' c='_ZN8idEntity16Event_SetGuiParmEPKcS1_'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='4373' u='c' c='_ZN8idEntity17Event_SetGuiFloatEPKcf'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='1517' u='c' c='_ZN14idStaticEntity5ThinkEv'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='1519' u='c' c='_ZN14idStaticEntity5ThinkEv'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='1522' u='c' c='_ZN14idStaticEntity5ThinkEv'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='545' u='c' c='_ZNK7idMover11SetGuiStateEPKcS1_'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='575' u='c' c='_ZN7idMover12SetGuiStatesEPKc'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='1926' u='c' c='_ZN10idElevator9BeginMoveEP8idThread'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='2002' u='c' c='_ZN10idElevator10DoneMovingEv'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='2933' u='c' c='_ZNK14idMover_Binary11SetGuiStateEPKcS1_'/>
+<use f='codebrowser/d3xp/MultiplayerGame.cpp' l='2005' u='c' c='_ZN17idMultiplayerGame13UpdateMainGuiEv'/>
+<use f='codebrowser/d3xp/MultiplayerGame.cpp' l='2205' u='c' c='_ZN17idMultiplayerGame17HandleGuiCommandsEPKc'/>
+<use f='codebrowser/d3xp/Player.cpp' l='1882' u='c' c='_ZN8idPlayer5SpawnEv'/>
+<use f='codebrowser/d3xp/Player.cpp' l='4096' u='c' c='_ZN8idPlayer19UpdateObjectiveInfoEv'/>
+<use f='codebrowser/d3xp/Player.cpp' l='6390' u='c' c='_ZN8idPlayer13UpdatePDAInfoEb'/>
+<use f='codebrowser/d3xp/Target.cpp' l='1300' u='c' c='_ZN18idTarget_SetKeyVal14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/d3xp/gamesys/SaveGame.cpp' l='1258' u='c' c='_ZN13idRestoreGame17ReadUserInterfaceERP15idUserInterface'/>
+<use f='codebrowser/framework/Session.cpp' l='971' u='c' c='_ZN14idSessionLocal14TimeRenderDemoEPKcb'/>
+<use f='codebrowser/framework/Session.cpp' l='1687' u='c' c='_ZN14idSessionLocal16ExecuteMapChangeEb'/>
+<use f='codebrowser/framework/Session.cpp' l='2355' u='c' c='_ZN14idSessionLocal14PacifierUpdateEv'/>
+<use f='codebrowser/framework/Session_menu.cpp' l='395' u='c' c='_ZN14idSessionLocal25HandleSaveGameMenuCommandER9idCmdArgsRi'/>
+<use f='codebrowser/framework/Session_menu.cpp' l='407' u='c' c='_ZN14idSessionLocal25HandleSaveGameMenuCommandER9idCmdArgsRi'/>
+<use f='codebrowser/framework/Session_menu.cpp' l='598' u='c' c='_ZN14idSessionLocal22HandleMainMenuCommandsEPKc'/>
+<use f='codebrowser/framework/Session_menu.cpp' l='947' u='c' c='_ZN14idSessionLocal22HandleMainMenuCommandsEPKc'/>
+<use f='codebrowser/game/Entity.cpp' l='190' u='c' c='_Z14UpdateGuiParmsP15idUserInterfacePK6idDict'/>
+<use f='codebrowser/game/Entity.cpp' l='4250' u='c' c='_ZN8idEntity16Event_SetGuiParmEPKcS1_'/>
+<use f='codebrowser/game/Entity.cpp' l='4264' u='c' c='_ZN8idEntity17Event_SetGuiFloatEPKcf'/>
+<use f='codebrowser/game/Misc.cpp' l='1451' u='c' c='_ZN14idStaticEntity5ThinkEv'/>
+<use f='codebrowser/game/Misc.cpp' l='1453' u='c' c='_ZN14idStaticEntity5ThinkEv'/>
+<use f='codebrowser/game/Misc.cpp' l='1456' u='c' c='_ZN14idStaticEntity5ThinkEv'/>
+<use f='codebrowser/game/Mover.cpp' l='543' u='c' c='_ZNK7idMover11SetGuiStateEPKcS1_'/>
+<use f='codebrowser/game/Mover.cpp' l='573' u='c' c='_ZN7idMover12SetGuiStatesEPKc'/>
+<use f='codebrowser/game/Mover.cpp' l='1919' u='c' c='_ZN10idElevator9BeginMoveEP8idThread'/>
+<use f='codebrowser/game/Mover.cpp' l='1989' u='c' c='_ZN10idElevator10DoneMovingEv'/>
+<use f='codebrowser/game/Mover.cpp' l='2902' u='c' c='_ZNK14idMover_Binary11SetGuiStateEPKcS1_'/>
+<use f='codebrowser/game/MultiplayerGame.cpp' l='1487' u='c' c='_ZN17idMultiplayerGame13UpdateMainGuiEv'/>
+<use f='codebrowser/game/MultiplayerGame.cpp' l='1656' u='c' c='_ZN17idMultiplayerGame17HandleGuiCommandsEPKc'/>
+<use f='codebrowser/game/Player.cpp' l='1555' u='c' c='_ZN8idPlayer5SpawnEv'/>
+<use f='codebrowser/game/Player.cpp' l='3237' u='c' c='_ZN8idPlayer19UpdateObjectiveInfoEv'/>
+<use f='codebrowser/game/Player.cpp' l='5342' u='c' c='_ZN8idPlayer13UpdatePDAInfoEb'/>
+<use f='codebrowser/game/Target.cpp' l='1264' u='c' c='_ZN18idTarget_SetKeyVal14Event_ActivateEP8idEntity'/>
+<use f='codebrowser/game/gamesys/SaveGame.cpp' l='1253' u='c' c='_ZN13idRestoreGame17ReadUserInterfaceERP15idUserInterface'/>
+<use f='codebrowser/ui/ListGUI.cpp' l='53' u='c' c='_ZN14idListGUILocal12StateChangedEv'/>
+<ovr f='codebrowser/ui/UserInterface.cpp' l='428' c='_ZN20idUserInterfaceLocal12StateChangedEib'/>

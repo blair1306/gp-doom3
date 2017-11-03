@@ -1,0 +1,25 @@
+<dec f='codebrowser/curl/lib/urldata.h' l='673' type='struct connectdata **'/>
+<offset>192</offset>
+<doc f='codebrowser/curl/lib/urldata.h' l='671'>/* &apos;connects&apos; will be an allocated array with pointers. If the pointer is
+     set, it holds an allocated connection. */</doc>
+<use f='codebrowser/curl/lib/easy.c' l='339' u='w' c='curl_easy_duphandle'/>
+<use f='codebrowser/curl/lib/easy.c' l='342' u='r' c='curl_easy_duphandle'/>
+<use f='codebrowser/curl/lib/easy.c' l='347' u='r' c='curl_easy_duphandle'/>
+<use f='codebrowser/curl/lib/url.c' l='230' u='r' c='Curl_close'/>
+<use f='codebrowser/curl/lib/url.c' l='316' u='w' c='Curl_open'/>
+<use f='codebrowser/curl/lib/url.c' l='319' u='r' c='Curl_open'/>
+<use f='codebrowser/curl/lib/url.c' l='336' u='r' c='Curl_open'/>
+<use f='codebrowser/curl/lib/url.c' l='397' u='r' c='Curl_setopt'/>
+<use f='codebrowser/curl/lib/url.c' l='402' u='r' c='Curl_setopt'/>
+<use f='codebrowser/curl/lib/url.c' l='413' u='w' c='Curl_setopt'/>
+<use f='codebrowser/curl/lib/url.c' l='418' u='r' c='Curl_setopt'/>
+<use f='codebrowser/curl/lib/url.c' l='419' u='r' c='Curl_setopt'/>
+<use f='codebrowser/curl/lib/url.c' l='420' u='w' c='Curl_setopt'/>
+<use f='codebrowser/curl/lib/url.c' l='1342' u='r' c='Curl_disconnect'/>
+<use f='codebrowser/curl/lib/url.c' l='1428' u='r' c='ConnectionExists'/>
+<use f='codebrowser/curl/lib/url.c' l='1488' u='r' c='ConnectionExists'/>
+<use f='codebrowser/curl/lib/url.c' l='1520' u='r' c='ConnectionKillOne'/>
+<use f='codebrowser/curl/lib/url.c' l='1554' u='r' c='ConnectionKillOne'/>
+<use f='codebrowser/curl/lib/url.c' l='1557' u='r' c='ConnectionKillOne'/>
+<use f='codebrowser/curl/lib/url.c' l='1577' u='r' c='ConnectionStore'/>
+<use f='codebrowser/curl/lib/url.c' l='1590' u='r' c='ConnectionStore'/>

@@ -1,0 +1,8 @@
+<dec f='codebrowser/framework/Unzip.cpp' l='803' type='int gzputc(gzFile file, int c)'/>
+<doc f='codebrowser/framework/Unzip.cpp' l='795'>/*
+      Reads bytes from the compressed file until len-1 characters are read, or
+   a newline character is read and transferred to buf, or an end-of-file
+   condition is encountered.  The string is then terminated with a null
+   character.
+      gzgets returns buf, or Z_NULL in case of error.
+*/</doc>

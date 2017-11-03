@@ -1,0 +1,14 @@
+<dec f='codebrowser/sys/linux/oss/include/sys/soundcard.h' l='705'/>
+<doc f='codebrowser/sys/linux/oss/include/sys/soundcard.h' l='692'>/*
+ * Preferred channel usage. These bits can be used to
+ * give recommendations to the application. Used by few drivers.
+ * For example if ((caps &amp; DSP_CH_MASK) == DSP_CH_MONO) means that
+ * the device works best in mono mode. However it doesn&apos;t necessarily mean
+ * that the device cannot be used in stereo. These bits should only be used
+ * special applications such as multi track hard disk recorders to find out
+ * the initial setup. However the user should be able to override this
+ * selection.
+ *
+ * To find out which modes are actually supported the application should 
+ * try to select them using SNDCTL_DSP_CHANNELS.
+ */</doc>

@@ -1,0 +1,99 @@
+<dec f='codebrowser/renderer/Image.h' l='154' type='void idImage::Bind()'/>
+<doc f='codebrowser/renderer/Image.h' l='150'>// Makes this image active on the current GL texture unit.
+	// automatically enables or disables cube mapping or texture3D
+	// May perform file loading if the image was not preloaded.
+	// May start a background image read.</doc>
+<use f='codebrowser/renderer/Image_init.cpp' l='993' u='c' c='_ZN14idImageManager19ChangeTextureFilterEv'/>
+<use f='codebrowser/renderer/Image_load.cpp' l='660' u='c' c='_ZN7idImage13GenerateImageEPKhii15textureFilter_tb15textureRepeat_t14textureDepth_t'/>
+<use f='codebrowser/renderer/Image_load.cpp' l='775' u='c' c='_ZN7idImage15Generate3DImageEPKhiii15textureFilter_tb15textureRepeat_t14textureDepth_t'/>
+<use f='codebrowser/renderer/Image_load.cpp' l='908' u='c' c='_ZN7idImage17GenerateCubeImageEPPKhi15textureFilter_tb14textureDepth_t'/>
+<use f='codebrowser/renderer/Image_load.cpp' l='1220' u='c' c='_ZN7idImage23WritePrecompressedImageEv'/>
+<use f='codebrowser/renderer/Image_load.cpp' l='1519' u='c' c='_ZN7idImage24UploadPrecompressedImageEPhi'/>
+<def f='codebrowser/renderer/Image_load.cpp' l='1697' ll='1783' type='void idImage::Bind()'/>
+<use f='codebrowser/renderer/Image_load.cpp' l='1721' u='c' c='_ZN7idImage4BindEv'/>
+<use f='codebrowser/renderer/Image_load.cpp' l='1854' u='c' c='_ZN7idImage15CopyFramebufferEiiiib'/>
+<use f='codebrowser/renderer/Image_load.cpp' l='1928' u='c' c='_ZN7idImage15CopyDepthbufferEiiii'/>
+<use f='codebrowser/renderer/Image_load.cpp' l='1977' u='c' c='_ZN7idImage13UploadScratchEPKhii'/>
+<use f='codebrowser/renderer/Image_load.cpp' l='2010' u='c' c='_ZN7idImage13UploadScratchEPKhii'/>
+<doc f='codebrowser/renderer/Image_load.cpp' l='1690'>/*
+==============
+Bind
+
+Automatically enables 2D mapping, cube mapping, or 3D texturing if needed
+==============
+*/</doc>
+<use f='codebrowser/renderer/MegaTexture.cpp' l='228' u='c' c='_ZN13idMegaTexture17BindForViewOriginE6idVec3'/>
+<use f='codebrowser/renderer/MegaTexture.cpp' l='235' u='c' c='_ZN13idMegaTexture17BindForViewOriginE6idVec3'/>
+<use f='codebrowser/renderer/MegaTexture.cpp' l='244' u='c' c='_ZN13idMegaTexture17BindForViewOriginE6idVec3'/>
+<use f='codebrowser/renderer/MegaTexture.cpp' l='246' u='c' c='_ZN13idMegaTexture17BindForViewOriginE6idVec3'/>
+<use f='codebrowser/renderer/MegaTexture.cpp' l='249' u='c' c='_ZN13idMegaTexture17BindForViewOriginE6idVec3'/>
+<use f='codebrowser/renderer/MegaTexture.cpp' l='439' u='c' c='_ZN14idTextureLevel15UpdateForCenterEPf'/>
+<use f='codebrowser/renderer/draw_arb.cpp' l='129' u='c' c='_ZL22RB_ARB_DrawInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb.cpp' l='165' u='c' c='_ZL22RB_ARB_DrawInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb.cpp' l='171' u='c' c='_ZL22RB_ARB_DrawInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb.cpp' l='173' u='c' c='_ZL22RB_ARB_DrawInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb.cpp' l='235' u='c' c='_ZL22RB_ARB_DrawInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb.cpp' l='247' u='c' c='_ZL22RB_ARB_DrawInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb.cpp' l='301' u='c' c='_ZL34RB_ARB_DrawThreeTextureInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb.cpp' l='307' u='c' c='_ZL34RB_ARB_DrawThreeTextureInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb.cpp' l='309' u='c' c='_ZL34RB_ARB_DrawThreeTextureInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb.cpp' l='371' u='c' c='_ZL34RB_ARB_DrawThreeTextureInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb.cpp' l='382' u='c' c='_ZL34RB_ARB_DrawThreeTextureInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb.cpp' l='406' u='c' c='_ZL34RB_ARB_DrawThreeTextureInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb2.cpp' l='115' u='c' c='_Z23RB_ARB2_DrawInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb2.cpp' l='119' u='c' c='_Z23RB_ARB2_DrawInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb2.cpp' l='123' u='c' c='_Z23RB_ARB2_DrawInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb2.cpp' l='127' u='c' c='_Z23RB_ARB2_DrawInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb2.cpp' l='131' u='c' c='_Z23RB_ARB2_DrawInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_arb2.cpp' l='174' u='c' c='_Z30RB_ARB2_CreateDrawInteractionsPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_arb2.cpp' l='176' u='c' c='_Z30RB_ARB2_CreateDrawInteractionsPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_arb2.cpp' l='182' u='c' c='_Z30RB_ARB2_CreateDrawInteractionsPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_arb2.cpp' l='184' u='c' c='_Z30RB_ARB2_CreateDrawInteractionsPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='159' u='c' c='_Z24RB_PrepareStageTexturingPK13shaderStage_tPK10drawSurf_sP10idDrawVert'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='162' u='c' c='_Z24RB_PrepareStageTexturingPK13shaderStage_tPK10drawSurf_sP10idDrawVert'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='200' u='c' c='_Z24RB_PrepareStageTexturingPK13shaderStage_tPK10drawSurf_sP10idDrawVert'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='475' u='c' c='_Z20RB_T_FillDepthBufferPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='494' u='c' c='_Z20RB_T_FillDepthBufferPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='532' u='c' c='_Z22RB_STD_FillDepthBufferPP10drawSurf_si'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='830' u='c' c='_Z27RB_STD_T_RenderShaderPassesPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='909' u='c' c='_Z27RB_STD_T_RenderShaderPassesPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='1314' u='c' c='_ZL13RB_BlendLightPK10drawSurf_sS1_'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='1333' u='c' c='_ZL13RB_BlendLightPK10drawSurf_sS1_'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='1463' u='c' c='_ZL10RB_FogPassPK10drawSurf_sS1_'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='1483' u='c' c='_ZL10RB_FogPassPK10drawSurf_sS1_'/>
+<use f='codebrowser/renderer/draw_nv10.cpp' l='152' u='c' c='_ZL20RB_RenderInteractionPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_nv10.cpp' l='161' u='c' c='_ZL20RB_RenderInteractionPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_nv10.cpp' l='218' u='c' c='_ZL20RB_RenderInteractionPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_nv10.cpp' l='257' u='c' c='_ZL20RB_RenderInteractionPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_nv10.cpp' l='334' u='c' c='_ZL20RB_RenderInteractionPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_nv10.cpp' l='340' u='c' c='_ZL20RB_RenderInteractionPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_nv10.cpp' l='426' u='c' c='_ZL20RB_RenderInteractionPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_nv20.cpp' l='161' u='c' c='_ZL27RB_NV20_DI_BumpAndLightPassPK17drawInteraction_tb'/>
+<use f='codebrowser/renderer/draw_nv20.cpp' l='163' u='c' c='_ZL27RB_NV20_DI_BumpAndLightPassPK17drawInteraction_tb'/>
+<use f='codebrowser/renderer/draw_nv20.cpp' l='173' u='c' c='_ZL27RB_NV20_DI_BumpAndLightPassPK17drawInteraction_tb'/>
+<use f='codebrowser/renderer/draw_nv20.cpp' l='182' u='c' c='_ZL27RB_NV20_DI_BumpAndLightPassPK17drawInteraction_tb'/>
+<use f='codebrowser/renderer/draw_nv20.cpp' l='192' u='c' c='_ZL27RB_NV20_DI_BumpAndLightPassPK17drawInteraction_tb'/>
+<use f='codebrowser/renderer/draw_nv20.cpp' l='196' u='c' c='_ZL27RB_NV20_DI_BumpAndLightPassPK17drawInteraction_tb'/>
+<use f='codebrowser/renderer/draw_nv20.cpp' l='274' u='c' c='_ZL27RB_NV20_DI_DiffuseColorPassPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_nv20.cpp' l='283' u='c' c='_ZL27RB_NV20_DI_DiffuseColorPassPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_nv20.cpp' l='427' u='c' c='_ZL28RB_NV20_DI_SpecularColorPassPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_nv20.cpp' l='436' u='c' c='_ZL28RB_NV20_DI_SpecularColorPassPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_nv20.cpp' l='445' u='c' c='_ZL28RB_NV20_DI_SpecularColorPassPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_nv20.cpp' l='454' u='c' c='_ZL28RB_NV20_DI_SpecularColorPassPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_nv20.cpp' l='579' u='c' c='_ZL38RB_NV20_DI_DiffuseAndSpecularColorPassPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_nv20.cpp' l='588' u='c' c='_ZL38RB_NV20_DI_DiffuseAndSpecularColorPassPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_r200.cpp' l='156' u='c' c='_ZL27RB_R200_ARB_DrawInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_r200.cpp' l='158' u='c' c='_ZL27RB_R200_ARB_DrawInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_r200.cpp' l='162' u='c' c='_ZL27RB_R200_ARB_DrawInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_r200.cpp' l='165' u='c' c='_ZL27RB_R200_ARB_DrawInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_r200.cpp' l='169' u='c' c='_ZL27RB_R200_ARB_DrawInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_r200.cpp' l='173' u='c' c='_ZL27RB_R200_ARB_DrawInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/draw_r200.cpp' l='177' u='c' c='_ZL27RB_R200_ARB_DrawInteractionPK17drawInteraction_t'/>
+<use f='codebrowser/renderer/tr_backend.cpp' l='523' u='c' c='_Z13RB_ShowImagesv'/>
+<use f='codebrowser/renderer/tr_render.cpp' l='383' u='c' c='_Z25RB_BindVariableStageImagePK14textureStage_tPKf'/>
+<use f='codebrowser/renderer/tr_render.cpp' l='395' u='c' c='_Z25RB_BindVariableStageImagePK14textureStage_tPKf'/>
+<use f='codebrowser/renderer/tr_render.cpp' l='400' u='c' c='_Z25RB_BindVariableStageImagePK14textureStage_tPKf'/>
+<use f='codebrowser/renderer/tr_rendertools.cpp' l='511' u='c' c='_Z17RB_ShowLightCountv'/>
+<use f='codebrowser/renderer/tr_rendertools.cpp' l='649' u='c' c='_ZL18RB_ShowShadowCountv'/>
+<use f='codebrowser/renderer/tr_rendertools.cpp' l='2303' u='c' c='_Z12RB_TestImagev'/>
+<use f='codebrowser/renderer/tr_trace.cpp' l='380' u='c' c='_Z12RB_ShowTracePP10drawSurf_si'/>

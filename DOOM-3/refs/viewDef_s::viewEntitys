@@ -1,0 +1,21 @@
+<dec f='codebrowser/renderer/tr_local.h' l='416' type='struct viewEntity_s *'/>
+<offset>3680</offset>
+<doc f='codebrowser/renderer/tr_local.h' l='416'>// chain of all viewEntities effecting view, including off screen ones casting shadows</doc>
+<use f='codebrowser/renderer/RenderSystem.cpp' l='216' u='r' c='_Z16R_AddDrawViewCmdP9viewDef_s'/>
+<use f='codebrowser/renderer/RenderSystem.cpp' l='256' u='r' c='_Z18R_LockSurfaceSceneP9viewDef_s'/>
+<use f='codebrowser/renderer/RenderWorld_demo.cpp' l='297' u='r' c='_ZN18idRenderWorldLocal16WriteVisibleDefsEPK9viewDef_s'/>
+<use f='codebrowser/renderer/RenderWorld_portals.cpp' l='843' u='w' c='_ZN18idRenderWorldLocal25FindViewLightsAndEntitiesEv'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='523' u='r' c='_Z22RB_STD_FillDepthBufferPP10drawSurf_si'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='976' u='r' c='_Z23RB_STD_DrawShaderPassesPP10drawSurf_si'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='990' u='r' c='_Z23RB_STD_DrawShaderPassesPP10drawSurf_si'/>
+<use f='codebrowser/renderer/tr_backend.cpp' l='622' u='r' c='_Z25RB_ExecuteBackEndCommandsPK14emptyCommand_t'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='403' u='r' c='_Z24R_SetEntityDefViewEntityP19idRenderEntityLocal'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='404' u='w' c='_Z24R_SetEntityDefViewEntityP19idRenderEntityLocal'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1471' u='r' c='_Z18R_AddModelSurfacesv'/>
+<use f='codebrowser/renderer/tr_main.cpp' l='1024' u='r' c='_ZL22R_ConstrainViewFrustumv'/>
+<use f='codebrowser/renderer/tr_render.cpp' l='578' u='r' c='_Z19RB_BeginDrawingViewv'/>
+<use f='codebrowser/renderer/tr_render.cpp' l='867' u='r' c='_Z11RB_DrawViewPKv'/>
+<use f='codebrowser/renderer/tr_render.cpp' l='874' u='r' c='_Z11RB_DrawViewPKv'/>
+<use f='codebrowser/renderer/tr_render.cpp' l='886' u='r' c='_Z11RB_DrawViewPKv'/>
+<use f='codebrowser/renderer/tr_rendertools.cpp' l='2331' u='r' c='_Z19RB_RenderDebugToolsPP10drawSurf_si'/>
+<use f='codebrowser/renderer/tr_rendertools.cpp' l='2355' u='r' c='_Z19RB_RenderDebugToolsPP10drawSurf_si'/>

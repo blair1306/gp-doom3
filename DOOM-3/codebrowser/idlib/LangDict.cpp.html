@@ -1,0 +1,327 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>LangDict.cpp source code [codebrowser/idlib/LangDict.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/idlib/LangDict.cpp'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>idlib</a>/<a href='LangDict.cpp.html'>LangDict.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="precompiled.h.html">"precompiled.h"</a></u></td></tr>
+<tr><th id="30">30</th><td><u>#pragma hdrstop</u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><i>/*</i></td></tr>
+<tr><th id="34">34</th><td><i>============</i></td></tr>
+<tr><th id="35">35</th><td><i>idLangDict::idLangDict</i></td></tr>
+<tr><th id="36">36</th><td><i>============</i></td></tr>
+<tr><th id="37">37</th><td><i>*/</i></td></tr>
+<tr><th id="38">38</th><td><a class="type" href="LangDict.h.html#idLangDict" title='idLangDict' data-ref="idLangDict">idLangDict</a>::<dfn class="decl def" id="_ZN10idLangDictC1Ev" title='idLangDict::idLangDict' data-ref="_ZN10idLangDictC1Ev">idLangDict</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="39">39</th><td>	<a class="member" href="LangDict.h.html#idLangDict::args" title='idLangDict::args' data-ref="idLangDict::args">args</a>.<a class="ref" href="containers/List.h.html#_ZN6idList14SetGranularityEi" title='idList::SetGranularity' data-ref="_ZN6idList14SetGranularityEi">SetGranularity</a>( <var>256</var> );</td></tr>
+<tr><th id="40">40</th><td>	<a class="member" href="LangDict.h.html#idLangDict::hash" title='idLangDict::hash' data-ref="idLangDict::hash">hash</a>.<a class="ref" href="containers/HashIndex.h.html#_ZN11idHashIndex14SetGranularityEi" title='idHashIndex::SetGranularity' data-ref="_ZN11idHashIndex14SetGranularityEi">SetGranularity</a>( <var>256</var> );</td></tr>
+<tr><th id="41">41</th><td>	<a class="member" href="LangDict.h.html#idLangDict::hash" title='idLangDict::hash' data-ref="idLangDict::hash">hash</a>.<a class="ref" href="containers/HashIndex.h.html#_ZN11idHashIndex5ClearEii" title='idHashIndex::Clear' data-ref="_ZN11idHashIndex5ClearEii">Clear</a>( <var>4096</var>, <var>8192</var> );</td></tr>
+<tr><th id="42">42</th><td>	<a class="member" href="LangDict.h.html#idLangDict::baseID" title='idLangDict::baseID' data-ref="idLangDict::baseID">baseID</a> = <var>0</var>;</td></tr>
+<tr><th id="43">43</th><td>}</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td><i>/*</i></td></tr>
+<tr><th id="46">46</th><td><i>============</i></td></tr>
+<tr><th id="47">47</th><td><i>idLangDict::~idLangDict</i></td></tr>
+<tr><th id="48">48</th><td><i>============</i></td></tr>
+<tr><th id="49">49</th><td><i>*/</i></td></tr>
+<tr><th id="50">50</th><td><a class="type" href="LangDict.h.html#idLangDict" title='idLangDict' data-ref="idLangDict">idLangDict</a>::<dfn class="decl def" id="_ZN10idLangDictD1Ev" title='idLangDict::~idLangDict' data-ref="_ZN10idLangDictD1Ev">~idLangDict</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="51">51</th><td>	<a class="member" href="#_ZN10idLangDict5ClearEv" title='idLangDict::Clear' data-ref="_ZN10idLangDict5ClearEv">Clear</a>();</td></tr>
+<tr><th id="52">52</th><td>}</td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td><i>/*</i></td></tr>
+<tr><th id="55">55</th><td><i>============</i></td></tr>
+<tr><th id="56">56</th><td><i>idLangDict::Clear</i></td></tr>
+<tr><th id="57">57</th><td><i>============</i></td></tr>
+<tr><th id="58">58</th><td><i>*/</i></td></tr>
+<tr><th id="59">59</th><td><em>void</em> <a class="type" href="LangDict.h.html#idLangDict" title='idLangDict' data-ref="idLangDict">idLangDict</a>::<dfn class="decl def" id="_ZN10idLangDict5ClearEv" title='idLangDict::Clear' data-ref="_ZN10idLangDict5ClearEv">Clear</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="60">60</th><td>	<a class="member" href="LangDict.h.html#idLangDict::args" title='idLangDict::args' data-ref="idLangDict::args">args</a>.<a class="ref" href="containers/List.h.html#_ZN6idList5ClearEv" title='idList::Clear' data-ref="_ZN6idList5ClearEv">Clear</a>();</td></tr>
+<tr><th id="61">61</th><td>	<a class="member" href="LangDict.h.html#idLangDict::hash" title='idLangDict::hash' data-ref="idLangDict::hash">hash</a>.<a class="ref" href="containers/HashIndex.h.html#_ZN11idHashIndex5ClearEv" title='idHashIndex::Clear' data-ref="_ZN11idHashIndex5ClearEv">Clear</a>();</td></tr>
+<tr><th id="62">62</th><td>}</td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td><i>/*</i></td></tr>
+<tr><th id="65">65</th><td><i>============</i></td></tr>
+<tr><th id="66">66</th><td><i>idLangDict::Load</i></td></tr>
+<tr><th id="67">67</th><td><i>============</i></td></tr>
+<tr><th id="68">68</th><td><i>*/</i></td></tr>
+<tr><th id="69">69</th><td><em>bool</em> <a class="type" href="LangDict.h.html#idLangDict" title='idLangDict' data-ref="idLangDict">idLangDict</a>::<dfn class="decl def" id="_ZN10idLangDict4LoadEPKcb" title='idLangDict::Load' data-ref="_ZN10idLangDict4LoadEPKcb">Load</dfn>( <em>const</em> <em>char</em> *<dfn class="local col1 decl" id="1fileName" title='fileName' data-type='const char *' data-ref="1fileName">fileName</dfn>, <em>bool</em> <dfn class="local col2 decl" id="2clear" title='clear' data-type='bool' data-ref="2clear">clear</dfn> <i>/* _D3XP */</i> ) {</td></tr>
+<tr><th id="70">70</th><td>	</td></tr>
+<tr><th id="71">71</th><td>	<b>if</b> ( <a class="local col2 ref" href="#2clear" title='clear' data-ref="2clear">clear</a> ) {</td></tr>
+<tr><th id="72">72</th><td>		<a class="member" href="#_ZN10idLangDict5ClearEv" title='idLangDict::Clear' data-ref="_ZN10idLangDict5ClearEv">Clear</a>();</td></tr>
+<tr><th id="73">73</th><td>	}</td></tr>
+<tr><th id="74">74</th><td>	</td></tr>
+<tr><th id="75">75</th><td>	<em>const</em> <em>char</em> *<dfn class="local col3 decl" id="3buffer" title='buffer' data-type='const char *' data-ref="3buffer">buffer</dfn> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="76">76</th><td>	<a class="type" href="Lexer.h.html#idLexer" title='idLexer' data-ref="idLexer">idLexer</a> <dfn class="local col4 decl" id="4src" title='src' data-type='idLexer' data-ref="4src">src</dfn><a class="ref" href="Lexer.h.html#_ZN7idLexerC1Ei" title='idLexer::idLexer' data-ref="_ZN7idLexerC1Ei">(</a> <a class="enum" href="Lexer.h.html#LEXFL_NOFATALERRORS" title='LEXFL_NOFATALERRORS' data-ref="LEXFL_NOFATALERRORS">LEXFL_NOFATALERRORS</a> | <a class="enum" href="Lexer.h.html#LEXFL_NOSTRINGCONCAT" title='LEXFL_NOSTRINGCONCAT' data-ref="LEXFL_NOSTRINGCONCAT">LEXFL_NOSTRINGCONCAT</a> | <a class="enum" href="Lexer.h.html#LEXFL_ALLOWMULTICHARLITERALS" title='LEXFL_ALLOWMULTICHARLITERALS' data-ref="LEXFL_ALLOWMULTICHARLITERALS">LEXFL_ALLOWMULTICHARLITERALS</a> | <a class="enum" href="Lexer.h.html#LEXFL_ALLOWBACKSLASHSTRINGCONCAT" title='LEXFL_ALLOWBACKSLASHSTRINGCONCAT' data-ref="LEXFL_ALLOWBACKSLASHSTRINGCONCAT">LEXFL_ALLOWBACKSLASHSTRINGCONCAT</a> );</td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td>	<em>int</em> <dfn class="local col5 decl" id="5len" title='len' data-type='int' data-ref="5len">len</dfn> = <a class="type" href="Lib.h.html#idLib" title='idLib' data-ref="idLib">idLib</a>::<a class="ref" href="Lib.h.html#idLib::fileSystem" title='idLib::fileSystem' data-ref="idLib::fileSystem">fileSystem</a>-&gt;<a class="virtual ref" href="../framework/FileSystem.h.html#_ZN12idFileSystem8ReadFileEPKcPPvPl" title='idFileSystem::ReadFile' data-ref="_ZN12idFileSystem8ReadFileEPKcPPvPl">ReadFile</a>( <a class="local col1 ref" href="#1fileName" title='fileName' data-ref="1fileName">fileName</a>, (<em>void</em>**)&amp;<a class="local col3 ref" href="#3buffer" title='buffer' data-ref="3buffer">buffer</a> );</td></tr>
+<tr><th id="79">79</th><td>	<b>if</b> ( <a class="local col5 ref" href="#5len" title='len' data-ref="5len">len</a> &lt;= <var>0</var> ) {</td></tr>
+<tr><th id="80">80</th><td>		<i>// let whoever called us deal with the failure (so sys_lang can be reset)</i></td></tr>
+<tr><th id="81">81</th><td>		<b>return</b> <b>false</b>;</td></tr>
+<tr><th id="82">82</th><td>	}</td></tr>
+<tr><th id="83">83</th><td>	<a class="local col4 ref" href="#4src" title='src' data-ref="4src">src</a>.<a class="ref" href="Lexer.h.html#_ZN7idLexer10LoadMemoryEPKciS1_i" title='idLexer::LoadMemory' data-ref="_ZN7idLexer10LoadMemoryEPKciS1_i">LoadMemory</a>( <a class="local col3 ref" href="#3buffer" title='buffer' data-ref="3buffer">buffer</a>, <a class="ref" href="../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>( <a class="local col3 ref" href="#3buffer" title='buffer' data-ref="3buffer">buffer</a> ), <a class="local col1 ref" href="#1fileName" title='fileName' data-ref="1fileName">fileName</a> );</td></tr>
+<tr><th id="84">84</th><td>	<b>if</b> ( !<a class="local col4 ref" href="#4src" title='src' data-ref="4src">src</a>.<a class="ref" href="Lexer.h.html#_ZN7idLexer8IsLoadedEv" title='idLexer::IsLoaded' data-ref="_ZN7idLexer8IsLoadedEv">IsLoaded</a>() ) {</td></tr>
+<tr><th id="85">85</th><td>		<b>return</b> <b>false</b>;</td></tr>
+<tr><th id="86">86</th><td>	}</td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td>	<a class="type" href="Token.h.html#idToken" title='idToken' data-ref="idToken">idToken</a> <a class="ref fake" href="Token.h.html#_ZN7idTokenC1Ev" title='idToken::idToken' data-ref="_ZN7idTokenC1Ev"></a><dfn class="local col6 decl" id="6tok" title='tok' data-type='idToken' data-ref="6tok">tok</dfn>, <a class="ref fake" href="Token.h.html#_ZN7idTokenC1Ev" title='idToken::idToken' data-ref="_ZN7idTokenC1Ev"></a><dfn class="local col7 decl" id="7tok2" title='tok2' data-type='idToken' data-ref="7tok2">tok2</dfn>;</td></tr>
+<tr><th id="89">89</th><td>	<a class="local col4 ref" href="#4src" title='src' data-ref="4src">src</a>.<a class="ref" href="Lexer.h.html#_ZN7idLexer17ExpectTokenStringEPKc" title='idLexer::ExpectTokenString' data-ref="_ZN7idLexer17ExpectTokenStringEPKc">ExpectTokenString</a>( <q>"{"</q> );</td></tr>
+<tr><th id="90">90</th><td>	<b>while</b> ( <a class="local col4 ref" href="#4src" title='src' data-ref="4src">src</a>.<a class="ref" href="Lexer.h.html#_ZN7idLexer9ReadTokenEP7idToken" title='idLexer::ReadToken' data-ref="_ZN7idLexer9ReadTokenEP7idToken">ReadToken</a>( &amp;<a class="local col6 ref" href="#6tok" title='tok' data-ref="6tok">tok</a> ) ) {</td></tr>
+<tr><th id="91">91</th><td>		<b>if</b> ( <a class="local col6 ref" href="#6tok" title='tok' data-ref="6tok">tok</a> <a class="ref" href="Str.h.html#_ZeqRK5idStrPKc" title='operator==' data-ref="_ZeqRK5idStrPKc">==</a> <q>"}"</q> ) {</td></tr>
+<tr><th id="92">92</th><td>			<b>break</b>;</td></tr>
+<tr><th id="93">93</th><td>		}</td></tr>
+<tr><th id="94">94</th><td>		<b>if</b> ( <a class="local col4 ref" href="#4src" title='src' data-ref="4src">src</a>.<a class="ref" href="Lexer.h.html#_ZN7idLexer9ReadTokenEP7idToken" title='idLexer::ReadToken' data-ref="_ZN7idLexer9ReadTokenEP7idToken">ReadToken</a>( &amp;<a class="local col7 ref" href="#7tok2" title='tok2' data-ref="7tok2">tok2</a> ) ) {</td></tr>
+<tr><th id="95">95</th><td>			<b>if</b> ( <a class="local col7 ref" href="#7tok2" title='tok2' data-ref="7tok2">tok2</a> <a class="ref" href="Str.h.html#_ZeqRK5idStrPKc" title='operator==' data-ref="_ZeqRK5idStrPKc">==</a> <q>"}"</q> ) {</td></tr>
+<tr><th id="96">96</th><td>				<b>break</b>;</td></tr>
+<tr><th id="97">97</th><td>			}</td></tr>
+<tr><th id="98">98</th><td>			<a class="type" href="LangDict.h.html#idLangKeyValue" title='idLangKeyValue' data-ref="idLangKeyValue">idLangKeyValue</a> <a class="ref fake" href="LangDict.h.html#40" title='idLangKeyValue::idLangKeyValue' data-ref="_ZN14idLangKeyValueC1Ev"></a><dfn class="local col8 decl" id="8kv" title='kv' data-type='idLangKeyValue' data-ref="8kv">kv</dfn>;</td></tr>
+<tr><th id="99">99</th><td>			<a class="local col8 ref" href="#8kv" title='kv' data-ref="8kv">kv</a>.<a class="ref" href="LangDict.h.html#idLangKeyValue::key" title='idLangKeyValue::key' data-ref="idLangKeyValue::key">key</a> <a class="ref" href="Str.h.html#_ZN5idStraSERKS_" title='idStr::operator=' data-ref="_ZN5idStraSERKS_">=</a> <a class="local col6 ref" href="#6tok" title='tok' data-ref="6tok">tok</a>;</td></tr>
+<tr><th id="100">100</th><td>			<a class="local col8 ref" href="#8kv" title='kv' data-ref="8kv">kv</a>.<a class="ref" href="LangDict.h.html#idLangKeyValue::value" title='idLangKeyValue::value' data-ref="idLangKeyValue::value">value</a> <a class="ref" href="Str.h.html#_ZN5idStraSERKS_" title='idStr::operator=' data-ref="_ZN5idStraSERKS_">=</a> <a class="local col7 ref" href="#7tok2" title='tok2' data-ref="7tok2">tok2</a>;</td></tr>
+<tr><th id="101">101</th><td>			<a class="macro" href="Lib.h.html#147" title="if ( kv.key.Cmpn( &quot;#str_&quot;, 5 ) == 0 ) { } else AssertFailed( &quot;/home/jon/workspace/id-software/DOOM-3/neo/idlib/LangDict.cpp&quot;, 101, &quot;kv.key.Cmpn( STRTABLE_ID, STRTABLE_ID_LENGTH ) == 0&quot; )" data-ref="_M/assert">assert</a>( <a class="local col8 ref" href="#8kv" title='kv' data-ref="8kv">kv</a>.<a class="ref" href="LangDict.h.html#idLangKeyValue::key" title='idLangKeyValue::key' data-ref="idLangKeyValue::key">key</a>.<a class="ref" href="Str.h.html#_ZNK5idStr4CmpnEPKci" title='idStr::Cmpn' data-ref="_ZNK5idStr4CmpnEPKci">Cmpn</a>( <a class="macro" href="../framework/Common.h.html#56" title="&quot;#str_&quot;" data-ref="_M/STRTABLE_ID">STRTABLE_ID</a>, <a class="macro" href="../framework/Common.h.html#57" title="5" data-ref="_M/STRTABLE_ID_LENGTH">STRTABLE_ID_LENGTH</a> ) == <var>0</var> );</td></tr>
+<tr><th id="102">102</th><td>			<a class="member" href="LangDict.h.html#idLangDict::hash" title='idLangDict::hash' data-ref="idLangDict::hash">hash</a>.<a class="ref" href="containers/HashIndex.h.html#_ZN11idHashIndex3AddEii" title='idHashIndex::Add' data-ref="_ZN11idHashIndex3AddEii">Add</a>( <a class="member" href="#_ZNK10idLangDict10GetHashKeyEPKc" title='idLangDict::GetHashKey' data-ref="_ZNK10idLangDict10GetHashKeyEPKc">GetHashKey</a>( <a class="ref fake" href="Str.h.html#_ZN5idStrcvPKcEv" title='idStr::operator const char *' data-ref="_ZN5idStrcvPKcEv"></a><a class="local col8 ref" href="#8kv" title='kv' data-ref="8kv">kv</a>.<a class="ref" href="LangDict.h.html#idLangKeyValue::key" title='idLangKeyValue::key' data-ref="idLangKeyValue::key">key</a> ), <a class="member" href="LangDict.h.html#idLangDict::args" title='idLangDict::args' data-ref="idLangDict::args">args</a>.<a class="ref" href="containers/List.h.html#_ZN6idList6AppendERKT_" title='idList::Append' data-ref="_ZN6idList6AppendERKT_">Append</a>( <a class="local col8 ref" href="#8kv" title='kv' data-ref="8kv">kv</a> ) );</td></tr>
+<tr><th id="103">103</th><td>		}</td></tr>
+<tr><th id="104">104</th><td>	}</td></tr>
+<tr><th id="105">105</th><td>	<a class="type" href="Lib.h.html#idLib" title='idLib' data-ref="idLib">idLib</a>::<a class="ref" href="Lib.h.html#idLib::common" title='idLib::common' data-ref="idLib::common">common</a>-&gt;<a class="virtual ref" href="../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"%i strings read from %s\n"</q>, <a class="member" href="LangDict.h.html#idLangDict::args" title='idLangDict::args' data-ref="idLangDict::args">args</a>.<a class="ref" href="containers/List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>(), <a class="local col1 ref" href="#1fileName" title='fileName' data-ref="1fileName">fileName</a> );</td></tr>
+<tr><th id="106">106</th><td>	<a class="type" href="Lib.h.html#idLib" title='idLib' data-ref="idLib">idLib</a>::<a class="ref" href="Lib.h.html#idLib::fileSystem" title='idLib::fileSystem' data-ref="idLib::fileSystem">fileSystem</a>-&gt;<a class="virtual ref" href="../framework/FileSystem.h.html#_ZN12idFileSystem8FreeFileEPv" title='idFileSystem::FreeFile' data-ref="_ZN12idFileSystem8FreeFileEPv">FreeFile</a>( (<em>void</em>*)<a class="local col3 ref" href="#3buffer" title='buffer' data-ref="3buffer">buffer</a> );</td></tr>
+<tr><th id="107">107</th><td>	</td></tr>
+<tr><th id="108">108</th><td>	<b>return</b> <b>true</b>;</td></tr>
+<tr><th id="109">109</th><td>}</td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td><i>/*</i></td></tr>
+<tr><th id="112">112</th><td><i>============</i></td></tr>
+<tr><th id="113">113</th><td><i>idLangDict::Save</i></td></tr>
+<tr><th id="114">114</th><td><i>============</i></td></tr>
+<tr><th id="115">115</th><td><i>*/</i></td></tr>
+<tr><th id="116">116</th><td><em>void</em> <a class="type" href="LangDict.h.html#idLangDict" title='idLangDict' data-ref="idLangDict">idLangDict</a>::<dfn class="decl def" id="_ZN10idLangDict4SaveEPKc" title='idLangDict::Save' data-ref="_ZN10idLangDict4SaveEPKc">Save</dfn>( <em>const</em> <em>char</em> *<dfn class="local col9 decl" id="9fileName" title='fileName' data-type='const char *' data-ref="9fileName">fileName</dfn> ) {</td></tr>
+<tr><th id="117">117</th><td>	<a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col0 decl" id="10outFile" title='outFile' data-type='idFile *' data-ref="10outFile">outFile</dfn> = <a class="type" href="Lib.h.html#idLib" title='idLib' data-ref="idLib">idLib</a>::<a class="ref" href="Lib.h.html#idLib::fileSystem" title='idLib::fileSystem' data-ref="idLib::fileSystem">fileSystem</a>-&gt;<a class="virtual ref" href="../framework/FileSystem.h.html#_ZN12idFileSystem13OpenFileWriteEPKcS1_" title='idFileSystem::OpenFileWrite' data-ref="_ZN12idFileSystem13OpenFileWriteEPKcS1_">OpenFileWrite</a>( <a class="local col9 ref" href="#9fileName" title='fileName' data-ref="9fileName">fileName</a> );</td></tr>
+<tr><th id="118">118</th><td>	<a class="local col0 ref" href="#10outFile" title='outFile' data-ref="10outFile">outFile</a>-&gt;<a class="virtual ref" href="../framework/File.h.html#_ZN6idFile16WriteFloatStringEPKcz" title='idFile::WriteFloatString' data-ref="_ZN6idFile16WriteFloatStringEPKcz">WriteFloatString</a>( <q>"// string table\n// english\n//\n\n{\n"</q> );</td></tr>
+<tr><th id="119">119</th><td>	<b>for</b> ( <em>int</em> <dfn class="local col1 decl" id="11j" title='j' data-type='int' data-ref="11j">j</dfn> = <var>0</var>; <a class="local col1 ref" href="#11j" title='j' data-ref="11j">j</a> &lt; <a class="member" href="LangDict.h.html#idLangDict::args" title='idLangDict::args' data-ref="idLangDict::args">args</a>.<a class="ref" href="containers/List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>(); <a class="local col1 ref" href="#11j" title='j' data-ref="11j">j</a>++ ) {</td></tr>
+<tr><th id="120">120</th><td>		<a class="local col0 ref" href="#10outFile" title='outFile' data-ref="10outFile">outFile</a>-&gt;<a class="virtual ref" href="../framework/File.h.html#_ZN6idFile16WriteFloatStringEPKcz" title='idFile::WriteFloatString' data-ref="_ZN6idFile16WriteFloatStringEPKcz">WriteFloatString</a>( <q>"\t\"%s\"\t\""</q>, <a class="member" href="LangDict.h.html#idLangDict::args" title='idLangDict::args' data-ref="idLangDict::args">args</a><a class="ref" href="containers/List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[<a class="local col1 ref" href="#11j" title='j' data-ref="11j">j</a>]</a>.<a class="ref" href="LangDict.h.html#idLangKeyValue::key" title='idLangKeyValue::key' data-ref="idLangKeyValue::key">key</a>.<a class="ref" href="Str.h.html#_ZNK5idStr5c_strEv" title='idStr::c_str' data-ref="_ZNK5idStr5c_strEv">c_str</a>() );</td></tr>
+<tr><th id="121">121</th><td>		<em>int</em> <dfn class="local col2 decl" id="12l" title='l' data-type='int' data-ref="12l">l</dfn> = <a class="member" href="LangDict.h.html#idLangDict::args" title='idLangDict::args' data-ref="idLangDict::args">args</a><a class="ref" href="containers/List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[<a class="local col1 ref" href="#11j" title='j' data-ref="11j">j</a>]</a>.<a class="ref" href="LangDict.h.html#idLangKeyValue::value" title='idLangKeyValue::value' data-ref="idLangKeyValue::value">value</a>.<a class="ref" href="Str.h.html#_ZNK5idStr6LengthEv" title='idStr::Length' data-ref="_ZNK5idStr6LengthEv">Length</a>();</td></tr>
+<tr><th id="122">122</th><td>		<em>char</em> <dfn class="local col3 decl" id="13slash" title='slash' data-type='char' data-ref="13slash">slash</dfn> = <kbd>'\\'</kbd>;</td></tr>
+<tr><th id="123">123</th><td>		<em>char</em> <dfn class="local col4 decl" id="14tab" title='tab' data-type='char' data-ref="14tab">tab</dfn> = <kbd>'t'</kbd>;</td></tr>
+<tr><th id="124">124</th><td>		<em>char</em> <dfn class="local col5 decl" id="15nl" title='nl' data-type='char' data-ref="15nl">nl</dfn> = <kbd>'n'</kbd>;</td></tr>
+<tr><th id="125">125</th><td>		<b>for</b> ( <em>int</em> <dfn class="local col6 decl" id="16k" title='k' data-type='int' data-ref="16k">k</dfn> = <var>0</var>; <a class="local col6 ref" href="#16k" title='k' data-ref="16k">k</a> &lt; <a class="local col2 ref" href="#12l" title='l' data-ref="12l">l</a>; <a class="local col6 ref" href="#16k" title='k' data-ref="16k">k</a>++ ) {</td></tr>
+<tr><th id="126">126</th><td>			<em>char</em> <dfn class="local col7 decl" id="17ch" title='ch' data-type='char' data-ref="17ch">ch</dfn> = <a class="member" href="LangDict.h.html#idLangDict::args" title='idLangDict::args' data-ref="idLangDict::args">args</a><a class="ref" href="containers/List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[<a class="local col1 ref" href="#11j" title='j' data-ref="11j">j</a>]</a>.<a class="ref" href="LangDict.h.html#idLangKeyValue::value" title='idLangKeyValue::value' data-ref="idLangKeyValue::value">value</a><a class="ref" href="Str.h.html#_ZN5idStrixEi" title='idStr::operator[]' data-ref="_ZN5idStrixEi">[<a class="local col6 ref" href="#16k" title='k' data-ref="16k">k</a>]</a>;</td></tr>
+<tr><th id="127">127</th><td>			<b>if</b> ( <a class="local col7 ref" href="#17ch" title='ch' data-ref="17ch">ch</a> == <kbd>'\t'</kbd> ) {</td></tr>
+<tr><th id="128">128</th><td>				<a class="local col0 ref" href="#10outFile" title='outFile' data-ref="10outFile">outFile</a>-&gt;<a class="virtual ref" href="../framework/File.h.html#_ZN6idFile5WriteEPKvi" title='idFile::Write' data-ref="_ZN6idFile5WriteEPKvi">Write</a>( &amp;<a class="local col3 ref" href="#13slash" title='slash' data-ref="13slash">slash</a>, <var>1</var> );</td></tr>
+<tr><th id="129">129</th><td>				<a class="local col0 ref" href="#10outFile" title='outFile' data-ref="10outFile">outFile</a>-&gt;<a class="virtual ref" href="../framework/File.h.html#_ZN6idFile5WriteEPKvi" title='idFile::Write' data-ref="_ZN6idFile5WriteEPKvi">Write</a>( &amp;<a class="local col4 ref" href="#14tab" title='tab' data-ref="14tab">tab</a>, <var>1</var> );</td></tr>
+<tr><th id="130">130</th><td>			} <b>else</b> <b>if</b> ( <a class="local col7 ref" href="#17ch" title='ch' data-ref="17ch">ch</a> == <kbd>'\n'</kbd> || <a class="local col7 ref" href="#17ch" title='ch' data-ref="17ch">ch</a> == <kbd>'\r'</kbd> ) {</td></tr>
+<tr><th id="131">131</th><td>				<a class="local col0 ref" href="#10outFile" title='outFile' data-ref="10outFile">outFile</a>-&gt;<a class="virtual ref" href="../framework/File.h.html#_ZN6idFile5WriteEPKvi" title='idFile::Write' data-ref="_ZN6idFile5WriteEPKvi">Write</a>( &amp;<a class="local col3 ref" href="#13slash" title='slash' data-ref="13slash">slash</a>, <var>1</var> );</td></tr>
+<tr><th id="132">132</th><td>				<a class="local col0 ref" href="#10outFile" title='outFile' data-ref="10outFile">outFile</a>-&gt;<a class="virtual ref" href="../framework/File.h.html#_ZN6idFile5WriteEPKvi" title='idFile::Write' data-ref="_ZN6idFile5WriteEPKvi">Write</a>( &amp;<a class="local col5 ref" href="#15nl" title='nl' data-ref="15nl">nl</a>, <var>1</var> );</td></tr>
+<tr><th id="133">133</th><td>			} <b>else</b> {</td></tr>
+<tr><th id="134">134</th><td>				<a class="local col0 ref" href="#10outFile" title='outFile' data-ref="10outFile">outFile</a>-&gt;<a class="virtual ref" href="../framework/File.h.html#_ZN6idFile5WriteEPKvi" title='idFile::Write' data-ref="_ZN6idFile5WriteEPKvi">Write</a>( &amp;<a class="local col7 ref" href="#17ch" title='ch' data-ref="17ch">ch</a>, <var>1</var> );</td></tr>
+<tr><th id="135">135</th><td>			}</td></tr>
+<tr><th id="136">136</th><td>		}</td></tr>
+<tr><th id="137">137</th><td>		<a class="local col0 ref" href="#10outFile" title='outFile' data-ref="10outFile">outFile</a>-&gt;<a class="virtual ref" href="../framework/File.h.html#_ZN6idFile16WriteFloatStringEPKcz" title='idFile::WriteFloatString' data-ref="_ZN6idFile16WriteFloatStringEPKcz">WriteFloatString</a>( <q>"\"\n"</q> );</td></tr>
+<tr><th id="138">138</th><td>	}</td></tr>
+<tr><th id="139">139</th><td>	<a class="local col0 ref" href="#10outFile" title='outFile' data-ref="10outFile">outFile</a>-&gt;<a class="virtual ref" href="../framework/File.h.html#_ZN6idFile16WriteFloatStringEPKcz" title='idFile::WriteFloatString' data-ref="_ZN6idFile16WriteFloatStringEPKcz">WriteFloatString</a>( <q>"\n}\n"</q> );</td></tr>
+<tr><th id="140">140</th><td>	<a class="type" href="Lib.h.html#idLib" title='idLib' data-ref="idLib">idLib</a>::<a class="ref" href="Lib.h.html#idLib::fileSystem" title='idLib::fileSystem' data-ref="idLib::fileSystem">fileSystem</a>-&gt;<a class="virtual ref" href="../framework/FileSystem.h.html#_ZN12idFileSystem9CloseFileEP6idFile" title='idFileSystem::CloseFile' data-ref="_ZN12idFileSystem9CloseFileEP6idFile">CloseFile</a>( <a class="local col0 ref" href="#10outFile" title='outFile' data-ref="10outFile">outFile</a> );</td></tr>
+<tr><th id="141">141</th><td>}</td></tr>
+<tr><th id="142">142</th><td></td></tr>
+<tr><th id="143">143</th><td><i>/*</i></td></tr>
+<tr><th id="144">144</th><td><i>============</i></td></tr>
+<tr><th id="145">145</th><td><i>idLangDict::GetString</i></td></tr>
+<tr><th id="146">146</th><td><i>============</i></td></tr>
+<tr><th id="147">147</th><td><i>*/</i></td></tr>
+<tr><th id="148">148</th><td><em>const</em> <em>char</em> *<a class="type" href="LangDict.h.html#idLangDict" title='idLangDict' data-ref="idLangDict">idLangDict</a>::<dfn class="decl def" id="_ZNK10idLangDict9GetStringEPKc" title='idLangDict::GetString' data-ref="_ZNK10idLangDict9GetStringEPKc">GetString</dfn>( <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="18str" title='str' data-type='const char *' data-ref="18str">str</dfn> ) <em>const</em> {</td></tr>
+<tr><th id="149">149</th><td></td></tr>
+<tr><th id="150">150</th><td>	<b>if</b> ( <a class="local col8 ref" href="#18str" title='str' data-ref="18str">str</a> == <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> || <a class="local col8 ref" href="#18str" title='str' data-ref="18str">str</a>[<var>0</var>] == <kbd>'\0'</kbd> ) {</td></tr>
+<tr><th id="151">151</th><td>		<b>return</b> <q>""</q>;</td></tr>
+<tr><th id="152">152</th><td>	}</td></tr>
+<tr><th id="153">153</th><td></td></tr>
+<tr><th id="154">154</th><td>	<b>if</b> ( <a class="type" href="Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>::<a class="ref" href="Str.h.html#_ZN5idStr4CmpnEPKcS1_i" title='idStr::Cmpn' data-ref="_ZN5idStr4CmpnEPKcS1_i">Cmpn</a>( <a class="local col8 ref" href="#18str" title='str' data-ref="18str">str</a>, <a class="macro" href="../framework/Common.h.html#56" title="&quot;#str_&quot;" data-ref="_M/STRTABLE_ID">STRTABLE_ID</a>, <a class="macro" href="../framework/Common.h.html#57" title="5" data-ref="_M/STRTABLE_ID_LENGTH">STRTABLE_ID_LENGTH</a> ) != <var>0</var> ) {</td></tr>
+<tr><th id="155">155</th><td>		<b>return</b> <a class="local col8 ref" href="#18str" title='str' data-ref="18str">str</a>;</td></tr>
+<tr><th id="156">156</th><td>	}</td></tr>
+<tr><th id="157">157</th><td></td></tr>
+<tr><th id="158">158</th><td>	<em>int</em> <dfn class="local col9 decl" id="19hashKey" title='hashKey' data-type='int' data-ref="19hashKey">hashKey</dfn> = <a class="member" href="#_ZNK10idLangDict10GetHashKeyEPKc" title='idLangDict::GetHashKey' data-ref="_ZNK10idLangDict10GetHashKeyEPKc">GetHashKey</a>( <a class="local col8 ref" href="#18str" title='str' data-ref="18str">str</a> );</td></tr>
+<tr><th id="159">159</th><td>	<b>for</b> ( <em>int</em> <dfn class="local col0 decl" id="20i" title='i' data-type='int' data-ref="20i">i</dfn> = <a class="member" href="LangDict.h.html#idLangDict::hash" title='idLangDict::hash' data-ref="idLangDict::hash">hash</a>.<a class="ref" href="containers/HashIndex.h.html#_ZNK11idHashIndex5FirstEi" title='idHashIndex::First' data-ref="_ZNK11idHashIndex5FirstEi">First</a>( <a class="local col9 ref" href="#19hashKey" title='hashKey' data-ref="19hashKey">hashKey</a> ); <a class="local col0 ref" href="#20i" title='i' data-ref="20i">i</a> != -<var>1</var>; <a class="local col0 ref" href="#20i" title='i' data-ref="20i">i</a> = <a class="member" href="LangDict.h.html#idLangDict::hash" title='idLangDict::hash' data-ref="idLangDict::hash">hash</a>.<a class="ref" href="containers/HashIndex.h.html#_ZNK11idHashIndex4NextEi" title='idHashIndex::Next' data-ref="_ZNK11idHashIndex4NextEi">Next</a>( <a class="local col0 ref" href="#20i" title='i' data-ref="20i">i</a> ) ) {</td></tr>
+<tr><th id="160">160</th><td>		<b>if</b> ( <a class="member" href="LangDict.h.html#idLangDict::args" title='idLangDict::args' data-ref="idLangDict::args">args</a><a class="ref" href="containers/List.h.html#_ZNK6idListixEi" title='idList::operator[]' data-ref="_ZNK6idListixEi">[<a class="local col0 ref" href="#20i" title='i' data-ref="20i">i</a>]</a>.<a class="ref" href="LangDict.h.html#idLangKeyValue::key" title='idLangKeyValue::key' data-ref="idLangKeyValue::key">key</a>.<a class="ref" href="Str.h.html#_ZNK5idStr3CmpEPKc" title='idStr::Cmp' data-ref="_ZNK5idStr3CmpEPKc">Cmp</a>( <a class="local col8 ref" href="#18str" title='str' data-ref="18str">str</a> ) == <var>0</var> ) {</td></tr>
+<tr><th id="161">161</th><td>			<b>return</b> <a class="ref fake" href="Str.h.html#_ZNK5idStrcvPKcEv" title='idStr::operator const char *' data-ref="_ZNK5idStrcvPKcEv"></a><a class="member" href="LangDict.h.html#idLangDict::args" title='idLangDict::args' data-ref="idLangDict::args">args</a><a class="ref" href="containers/List.h.html#_ZNK6idListixEi" title='idList::operator[]' data-ref="_ZNK6idListixEi">[<a class="local col0 ref" href="#20i" title='i' data-ref="20i">i</a>]</a>.<a class="ref" href="LangDict.h.html#idLangKeyValue::value" title='idLangKeyValue::value' data-ref="idLangKeyValue::value">value</a>;</td></tr>
+<tr><th id="162">162</th><td>		}</td></tr>
+<tr><th id="163">163</th><td>	}</td></tr>
+<tr><th id="164">164</th><td></td></tr>
+<tr><th id="165">165</th><td>	<a class="type" href="Lib.h.html#idLib" title='idLib' data-ref="idLib">idLib</a>::<a class="ref" href="Lib.h.html#idLib::common" title='idLib::common' data-ref="idLib::common">common</a>-&gt;<a class="virtual ref" href="../framework/Common.h.html#_ZN8idCommon7WarningEPKcz" title='idCommon::Warning' data-ref="_ZN8idCommon7WarningEPKcz">Warning</a>( <q>"Unknown string id %s"</q>, <a class="local col8 ref" href="#18str" title='str' data-ref="18str">str</a> );</td></tr>
+<tr><th id="166">166</th><td>	<b>return</b> <a class="local col8 ref" href="#18str" title='str' data-ref="18str">str</a>;</td></tr>
+<tr><th id="167">167</th><td>}</td></tr>
+<tr><th id="168">168</th><td></td></tr>
+<tr><th id="169">169</th><td><i>/*</i></td></tr>
+<tr><th id="170">170</th><td><i>============</i></td></tr>
+<tr><th id="171">171</th><td><i>idLangDict::AddString</i></td></tr>
+<tr><th id="172">172</th><td><i>============</i></td></tr>
+<tr><th id="173">173</th><td><i>*/</i></td></tr>
+<tr><th id="174">174</th><td><em>const</em> <em>char</em> *<a class="type" href="LangDict.h.html#idLangDict" title='idLangDict' data-ref="idLangDict">idLangDict</a>::<dfn class="decl def" id="_ZN10idLangDict9AddStringEPKc" title='idLangDict::AddString' data-ref="_ZN10idLangDict9AddStringEPKc">AddString</dfn>( <em>const</em> <em>char</em> *<dfn class="local col1 decl" id="21str" title='str' data-type='const char *' data-ref="21str">str</dfn> ) {</td></tr>
+<tr><th id="175">175</th><td>	</td></tr>
+<tr><th id="176">176</th><td>	<b>if</b> ( <a class="member" href="#_ZNK10idLangDict13ExcludeStringEPKc" title='idLangDict::ExcludeString' data-ref="_ZNK10idLangDict13ExcludeStringEPKc">ExcludeString</a>( <a class="local col1 ref" href="#21str" title='str' data-ref="21str">str</a> ) ) {</td></tr>
+<tr><th id="177">177</th><td>		<b>return</b> <a class="local col1 ref" href="#21str" title='str' data-ref="21str">str</a>;</td></tr>
+<tr><th id="178">178</th><td>	}</td></tr>
+<tr><th id="179">179</th><td></td></tr>
+<tr><th id="180">180</th><td>	<em>int</em> <dfn class="local col2 decl" id="22c" title='c' data-type='int' data-ref="22c">c</dfn> = <a class="member" href="LangDict.h.html#idLangDict::args" title='idLangDict::args' data-ref="idLangDict::args">args</a>.<a class="ref" href="containers/List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>();</td></tr>
+<tr><th id="181">181</th><td>	<b>for</b> ( <em>int</em> <dfn class="local col3 decl" id="23j" title='j' data-type='int' data-ref="23j">j</dfn> = <var>0</var>; <a class="local col3 ref" href="#23j" title='j' data-ref="23j">j</a> &lt; <a class="local col2 ref" href="#22c" title='c' data-ref="22c">c</a>; <a class="local col3 ref" href="#23j" title='j' data-ref="23j">j</a>++ ) {</td></tr>
+<tr><th id="182">182</th><td>		<b>if</b> ( <a class="type" href="Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>::<a class="ref" href="Str.h.html#_ZN5idStr3CmpEPKcS1_" title='idStr::Cmp' data-ref="_ZN5idStr3CmpEPKcS1_">Cmp</a>( <a class="ref fake" href="Str.h.html#_ZN5idStrcvPKcEv" title='idStr::operator const char *' data-ref="_ZN5idStrcvPKcEv"></a><a class="member" href="LangDict.h.html#idLangDict::args" title='idLangDict::args' data-ref="idLangDict::args">args</a><a class="ref" href="containers/List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[<a class="local col3 ref" href="#23j" title='j' data-ref="23j">j</a>]</a>.<a class="ref" href="LangDict.h.html#idLangKeyValue::value" title='idLangKeyValue::value' data-ref="idLangKeyValue::value">value</a>, <a class="local col1 ref" href="#21str" title='str' data-ref="21str">str</a> ) == <var>0</var> ){</td></tr>
+<tr><th id="183">183</th><td>			<b>return</b> <a class="ref fake" href="Str.h.html#_ZN5idStrcvPKcEv" title='idStr::operator const char *' data-ref="_ZN5idStrcvPKcEv"></a><a class="member" href="LangDict.h.html#idLangDict::args" title='idLangDict::args' data-ref="idLangDict::args">args</a><a class="ref" href="containers/List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[<a class="local col3 ref" href="#23j" title='j' data-ref="23j">j</a>]</a>.<a class="ref" href="LangDict.h.html#idLangKeyValue::key" title='idLangKeyValue::key' data-ref="idLangKeyValue::key">key</a>;</td></tr>
+<tr><th id="184">184</th><td>		}</td></tr>
+<tr><th id="185">185</th><td>	}</td></tr>
+<tr><th id="186">186</th><td></td></tr>
+<tr><th id="187">187</th><td>	<em>int</em> <dfn class="local col4 decl" id="24id" title='id' data-type='int' data-ref="24id">id</dfn> = <a class="member" href="#_ZNK10idLangDict9GetNextIdEv" title='idLangDict::GetNextId' data-ref="_ZNK10idLangDict9GetNextIdEv">GetNextId</a>();</td></tr>
+<tr><th id="188">188</th><td>	<a class="type" href="LangDict.h.html#idLangKeyValue" title='idLangKeyValue' data-ref="idLangKeyValue">idLangKeyValue</a> <a class="ref fake" href="LangDict.h.html#40" title='idLangKeyValue::idLangKeyValue' data-ref="_ZN14idLangKeyValueC1Ev"></a><dfn class="local col5 decl" id="25kv" title='kv' data-type='idLangKeyValue' data-ref="25kv">kv</dfn>;</td></tr>
+<tr><th id="189">189</th><td>	<i>// _D3XP</i></td></tr>
+<tr><th id="190">190</th><td>	<a class="local col5 ref" href="#25kv" title='kv' data-ref="25kv">kv</a>.<a class="ref" href="LangDict.h.html#idLangKeyValue::key" title='idLangKeyValue::key' data-ref="idLangKeyValue::key">key</a> <a class="ref" href="Str.h.html#_ZN5idStraSEPKc" title='idStr::operator=' data-ref="_ZN5idStraSEPKc">=</a> <a class="ref" href="Str.h.html#_Z2vaPKcz" title='va' data-ref="_Z2vaPKcz">va</a>( <q>"#str_%08i"</q>, <a class="local col4 ref" href="#24id" title='id' data-ref="24id">id</a> );</td></tr>
+<tr><th id="191">191</th><td>	<i>// kv.key = va( "#str_%05i", id );</i></td></tr>
+<tr><th id="192">192</th><td>	<a class="local col5 ref" href="#25kv" title='kv' data-ref="25kv">kv</a>.<a class="ref" href="LangDict.h.html#idLangKeyValue::value" title='idLangKeyValue::value' data-ref="idLangKeyValue::value">value</a> <a class="ref" href="Str.h.html#_ZN5idStraSEPKc" title='idStr::operator=' data-ref="_ZN5idStraSEPKc">=</a> <a class="local col1 ref" href="#21str" title='str' data-ref="21str">str</a>;</td></tr>
+<tr><th id="193">193</th><td>	<a class="local col2 ref" href="#22c" title='c' data-ref="22c">c</a> = <a class="member" href="LangDict.h.html#idLangDict::args" title='idLangDict::args' data-ref="idLangDict::args">args</a>.<a class="ref" href="containers/List.h.html#_ZN6idList6AppendERKT_" title='idList::Append' data-ref="_ZN6idList6AppendERKT_">Append</a>( <a class="local col5 ref" href="#25kv" title='kv' data-ref="25kv">kv</a> );</td></tr>
+<tr><th id="194">194</th><td>	<a class="macro" href="Lib.h.html#147" title="if ( kv.key.Cmpn( &quot;#str_&quot;, 5 ) == 0 ) { } else AssertFailed( &quot;/home/jon/workspace/id-software/DOOM-3/neo/idlib/LangDict.cpp&quot;, 194, &quot;kv.key.Cmpn( STRTABLE_ID, STRTABLE_ID_LENGTH ) == 0&quot; )" data-ref="_M/assert">assert</a>( <a class="local col5 ref" href="#25kv" title='kv' data-ref="25kv">kv</a>.<a class="ref" href="LangDict.h.html#idLangKeyValue::key" title='idLangKeyValue::key' data-ref="idLangKeyValue::key">key</a>.<a class="ref" href="Str.h.html#_ZNK5idStr4CmpnEPKci" title='idStr::Cmpn' data-ref="_ZNK5idStr4CmpnEPKci">Cmpn</a>( <a class="macro" href="../framework/Common.h.html#56" title="&quot;#str_&quot;" data-ref="_M/STRTABLE_ID">STRTABLE_ID</a>, <a class="macro" href="../framework/Common.h.html#57" title="5" data-ref="_M/STRTABLE_ID_LENGTH">STRTABLE_ID_LENGTH</a> ) == <var>0</var> );</td></tr>
+<tr><th id="195">195</th><td>	<a class="member" href="LangDict.h.html#idLangDict::hash" title='idLangDict::hash' data-ref="idLangDict::hash">hash</a>.<a class="ref" href="containers/HashIndex.h.html#_ZN11idHashIndex3AddEii" title='idHashIndex::Add' data-ref="_ZN11idHashIndex3AddEii">Add</a>( <a class="member" href="#_ZNK10idLangDict10GetHashKeyEPKc" title='idLangDict::GetHashKey' data-ref="_ZNK10idLangDict10GetHashKeyEPKc">GetHashKey</a>( <a class="ref fake" href="Str.h.html#_ZN5idStrcvPKcEv" title='idStr::operator const char *' data-ref="_ZN5idStrcvPKcEv"></a><a class="local col5 ref" href="#25kv" title='kv' data-ref="25kv">kv</a>.<a class="ref" href="LangDict.h.html#idLangKeyValue::key" title='idLangKeyValue::key' data-ref="idLangKeyValue::key">key</a> ), <a class="local col2 ref" href="#22c" title='c' data-ref="22c">c</a> );</td></tr>
+<tr><th id="196">196</th><td>	<b>return</b> <a class="ref fake" href="Str.h.html#_ZN5idStrcvPKcEv" title='idStr::operator const char *' data-ref="_ZN5idStrcvPKcEv"></a><a class="member" href="LangDict.h.html#idLangDict::args" title='idLangDict::args' data-ref="idLangDict::args">args</a><a class="ref" href="containers/List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[<a class="local col2 ref" href="#22c" title='c' data-ref="22c">c</a>]</a>.<a class="ref" href="LangDict.h.html#idLangKeyValue::key" title='idLangKeyValue::key' data-ref="idLangKeyValue::key">key</a>;</td></tr>
+<tr><th id="197">197</th><td>}</td></tr>
+<tr><th id="198">198</th><td></td></tr>
+<tr><th id="199">199</th><td><i>/*</i></td></tr>
+<tr><th id="200">200</th><td><i>============</i></td></tr>
+<tr><th id="201">201</th><td><i>idLangDict::GetNumKeyVals</i></td></tr>
+<tr><th id="202">202</th><td><i>============</i></td></tr>
+<tr><th id="203">203</th><td><i>*/</i></td></tr>
+<tr><th id="204">204</th><td><em>int</em> <a class="type" href="LangDict.h.html#idLangDict" title='idLangDict' data-ref="idLangDict">idLangDict</a>::<dfn class="decl def" id="_ZNK10idLangDict13GetNumKeyValsEv" title='idLangDict::GetNumKeyVals' data-ref="_ZNK10idLangDict13GetNumKeyValsEv">GetNumKeyVals</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="205">205</th><td>	<b>return</b> <a class="member" href="LangDict.h.html#idLangDict::args" title='idLangDict::args' data-ref="idLangDict::args">args</a>.<a class="ref" href="containers/List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>();</td></tr>
+<tr><th id="206">206</th><td>}</td></tr>
+<tr><th id="207">207</th><td></td></tr>
+<tr><th id="208">208</th><td><i>/*</i></td></tr>
+<tr><th id="209">209</th><td><i>============</i></td></tr>
+<tr><th id="210">210</th><td><i>idLangDict::GetKeyVal</i></td></tr>
+<tr><th id="211">211</th><td><i>============</i></td></tr>
+<tr><th id="212">212</th><td><i>*/</i></td></tr>
+<tr><th id="213">213</th><td><em>const</em> <a class="type" href="LangDict.h.html#idLangKeyValue" title='idLangKeyValue' data-ref="idLangKeyValue">idLangKeyValue</a> * <a class="type" href="LangDict.h.html#idLangDict" title='idLangDict' data-ref="idLangDict">idLangDict</a>::<dfn class="decl def" id="_ZNK10idLangDict9GetKeyValEi" title='idLangDict::GetKeyVal' data-ref="_ZNK10idLangDict9GetKeyValEi">GetKeyVal</dfn>( <em>int</em> <dfn class="local col6 decl" id="26i" title='i' data-type='int' data-ref="26i">i</dfn> ) <em>const</em> {</td></tr>
+<tr><th id="214">214</th><td>	<b>return</b> &amp;<a class="member" href="LangDict.h.html#idLangDict::args" title='idLangDict::args' data-ref="idLangDict::args">args</a><a class="ref" href="containers/List.h.html#_ZNK6idListixEi" title='idList::operator[]' data-ref="_ZNK6idListixEi">[<a class="local col6 ref" href="#26i" title='i' data-ref="26i">i</a>]</a>;</td></tr>
+<tr><th id="215">215</th><td>}</td></tr>
+<tr><th id="216">216</th><td></td></tr>
+<tr><th id="217">217</th><td><i>/*</i></td></tr>
+<tr><th id="218">218</th><td><i>============</i></td></tr>
+<tr><th id="219">219</th><td><i>idLangDict::AddKeyVal</i></td></tr>
+<tr><th id="220">220</th><td><i>============</i></td></tr>
+<tr><th id="221">221</th><td><i>*/</i></td></tr>
+<tr><th id="222">222</th><td><em>void</em> <a class="type" href="LangDict.h.html#idLangDict" title='idLangDict' data-ref="idLangDict">idLangDict</a>::<dfn class="decl def" id="_ZN10idLangDict9AddKeyValEPKcS1_" title='idLangDict::AddKeyVal' data-ref="_ZN10idLangDict9AddKeyValEPKcS1_">AddKeyVal</dfn>( <em>const</em> <em>char</em> *<dfn class="local col7 decl" id="27key" title='key' data-type='const char *' data-ref="27key">key</dfn>, <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="28val" title='val' data-type='const char *' data-ref="28val">val</dfn> ) {</td></tr>
+<tr><th id="223">223</th><td>	<a class="type" href="LangDict.h.html#idLangKeyValue" title='idLangKeyValue' data-ref="idLangKeyValue">idLangKeyValue</a> <a class="ref fake" href="LangDict.h.html#40" title='idLangKeyValue::idLangKeyValue' data-ref="_ZN14idLangKeyValueC1Ev"></a><dfn class="local col9 decl" id="29kv" title='kv' data-type='idLangKeyValue' data-ref="29kv">kv</dfn>;</td></tr>
+<tr><th id="224">224</th><td>	<a class="local col9 ref" href="#29kv" title='kv' data-ref="29kv">kv</a>.<a class="ref" href="LangDict.h.html#idLangKeyValue::key" title='idLangKeyValue::key' data-ref="idLangKeyValue::key">key</a> <a class="ref" href="Str.h.html#_ZN5idStraSEPKc" title='idStr::operator=' data-ref="_ZN5idStraSEPKc">=</a> <a class="local col7 ref" href="#27key" title='key' data-ref="27key">key</a>;</td></tr>
+<tr><th id="225">225</th><td>	<a class="local col9 ref" href="#29kv" title='kv' data-ref="29kv">kv</a>.<a class="ref" href="LangDict.h.html#idLangKeyValue::value" title='idLangKeyValue::value' data-ref="idLangKeyValue::value">value</a> <a class="ref" href="Str.h.html#_ZN5idStraSEPKc" title='idStr::operator=' data-ref="_ZN5idStraSEPKc">=</a> <a class="local col8 ref" href="#28val" title='val' data-ref="28val">val</a>;</td></tr>
+<tr><th id="226">226</th><td>	<a class="macro" href="Lib.h.html#147" title="if ( kv.key.Cmpn( &quot;#str_&quot;, 5 ) == 0 ) { } else AssertFailed( &quot;/home/jon/workspace/id-software/DOOM-3/neo/idlib/LangDict.cpp&quot;, 226, &quot;kv.key.Cmpn( STRTABLE_ID, STRTABLE_ID_LENGTH ) == 0&quot; )" data-ref="_M/assert">assert</a>( <a class="local col9 ref" href="#29kv" title='kv' data-ref="29kv">kv</a>.<a class="ref" href="LangDict.h.html#idLangKeyValue::key" title='idLangKeyValue::key' data-ref="idLangKeyValue::key">key</a>.<a class="ref" href="Str.h.html#_ZNK5idStr4CmpnEPKci" title='idStr::Cmpn' data-ref="_ZNK5idStr4CmpnEPKci">Cmpn</a>( <a class="macro" href="../framework/Common.h.html#56" title="&quot;#str_&quot;" data-ref="_M/STRTABLE_ID">STRTABLE_ID</a>, <a class="macro" href="../framework/Common.h.html#57" title="5" data-ref="_M/STRTABLE_ID_LENGTH">STRTABLE_ID_LENGTH</a> ) == <var>0</var> );</td></tr>
+<tr><th id="227">227</th><td>	<a class="member" href="LangDict.h.html#idLangDict::hash" title='idLangDict::hash' data-ref="idLangDict::hash">hash</a>.<a class="ref" href="containers/HashIndex.h.html#_ZN11idHashIndex3AddEii" title='idHashIndex::Add' data-ref="_ZN11idHashIndex3AddEii">Add</a>( <a class="member" href="#_ZNK10idLangDict10GetHashKeyEPKc" title='idLangDict::GetHashKey' data-ref="_ZNK10idLangDict10GetHashKeyEPKc">GetHashKey</a>( <a class="ref fake" href="Str.h.html#_ZN5idStrcvPKcEv" title='idStr::operator const char *' data-ref="_ZN5idStrcvPKcEv"></a><a class="local col9 ref" href="#29kv" title='kv' data-ref="29kv">kv</a>.<a class="ref" href="LangDict.h.html#idLangKeyValue::key" title='idLangKeyValue::key' data-ref="idLangKeyValue::key">key</a> ), <a class="member" href="LangDict.h.html#idLangDict::args" title='idLangDict::args' data-ref="idLangDict::args">args</a>.<a class="ref" href="containers/List.h.html#_ZN6idList6AppendERKT_" title='idList::Append' data-ref="_ZN6idList6AppendERKT_">Append</a>( <a class="local col9 ref" href="#29kv" title='kv' data-ref="29kv">kv</a> ) );</td></tr>
+<tr><th id="228">228</th><td>}</td></tr>
+<tr><th id="229">229</th><td></td></tr>
+<tr><th id="230">230</th><td><i>/*</i></td></tr>
+<tr><th id="231">231</th><td><i>============</i></td></tr>
+<tr><th id="232">232</th><td><i>idLangDict::ExcludeString</i></td></tr>
+<tr><th id="233">233</th><td><i>============</i></td></tr>
+<tr><th id="234">234</th><td><i>*/</i></td></tr>
+<tr><th id="235">235</th><td><em>bool</em> <a class="type" href="LangDict.h.html#idLangDict" title='idLangDict' data-ref="idLangDict">idLangDict</a>::<dfn class="decl def" id="_ZNK10idLangDict13ExcludeStringEPKc" title='idLangDict::ExcludeString' data-ref="_ZNK10idLangDict13ExcludeStringEPKc">ExcludeString</dfn>( <em>const</em> <em>char</em> *<dfn class="local col0 decl" id="30str" title='str' data-type='const char *' data-ref="30str">str</dfn> ) <em>const</em> {</td></tr>
+<tr><th id="236">236</th><td>	<b>if</b> ( <a class="local col0 ref" href="#30str" title='str' data-ref="30str">str</a> == <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> ) {</td></tr>
+<tr><th id="237">237</th><td>		<b>return</b> <b>true</b>;</td></tr>
+<tr><th id="238">238</th><td>	}</td></tr>
+<tr><th id="239">239</th><td></td></tr>
+<tr><th id="240">240</th><td>	<em>int</em> <dfn class="local col1 decl" id="31c" title='c' data-type='int' data-ref="31c">c</dfn> = <a class="ref" href="../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>( <a class="local col0 ref" href="#30str" title='str' data-ref="30str">str</a> );</td></tr>
+<tr><th id="241">241</th><td>	<b>if</b> ( <a class="local col1 ref" href="#31c" title='c' data-ref="31c">c</a> &lt;= <var>1</var> ) {</td></tr>
+<tr><th id="242">242</th><td>		<b>return</b> <b>true</b>;</td></tr>
+<tr><th id="243">243</th><td>	}</td></tr>
+<tr><th id="244">244</th><td></td></tr>
+<tr><th id="245">245</th><td>	<b>if</b> ( <a class="type" href="Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>::<a class="ref" href="Str.h.html#_ZN5idStr4CmpnEPKcS1_i" title='idStr::Cmpn' data-ref="_ZN5idStr4CmpnEPKcS1_i">Cmpn</a>( <a class="local col0 ref" href="#30str" title='str' data-ref="30str">str</a>, <a class="macro" href="../framework/Common.h.html#56" title="&quot;#str_&quot;" data-ref="_M/STRTABLE_ID">STRTABLE_ID</a>, <a class="macro" href="../framework/Common.h.html#57" title="5" data-ref="_M/STRTABLE_ID_LENGTH">STRTABLE_ID_LENGTH</a> ) == <var>0</var> ) {</td></tr>
+<tr><th id="246">246</th><td>		<b>return</b> <b>true</b>;</td></tr>
+<tr><th id="247">247</th><td>	}</td></tr>
+<tr><th id="248">248</th><td></td></tr>
+<tr><th id="249">249</th><td>	<b>if</b> ( <a class="type" href="Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>::<a class="ref" href="Str.h.html#_ZN5idStr5IcmpnEPKcS1_i" title='idStr::Icmpn' data-ref="_ZN5idStr5IcmpnEPKcS1_i">Icmpn</a>( <a class="local col0 ref" href="#30str" title='str' data-ref="30str">str</a>, <q>"gui::"</q>, <a class="ref" href="../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>( <q>"gui::"</q> ) ) == <var>0</var> ) {</td></tr>
+<tr><th id="250">250</th><td>		<b>return</b> <b>true</b>;</td></tr>
+<tr><th id="251">251</th><td>	}</td></tr>
+<tr><th id="252">252</th><td></td></tr>
+<tr><th id="253">253</th><td>	<b>if</b> ( <a class="local col0 ref" href="#30str" title='str' data-ref="30str">str</a>[<var>0</var>] == <kbd>'$'</kbd> ) {</td></tr>
+<tr><th id="254">254</th><td>		<b>return</b> <b>true</b>;</td></tr>
+<tr><th id="255">255</th><td>	}</td></tr>
+<tr><th id="256">256</th><td></td></tr>
+<tr><th id="257">257</th><td>	<em>int</em> <dfn class="local col2 decl" id="32i" title='i' data-type='int' data-ref="32i">i</dfn>;</td></tr>
+<tr><th id="258">258</th><td>	<b>for</b> ( <a class="local col2 ref" href="#32i" title='i' data-ref="32i">i</a> = <var>0</var>; <a class="local col2 ref" href="#32i" title='i' data-ref="32i">i</a> &lt; <a class="local col1 ref" href="#31c" title='c' data-ref="31c">c</a>; <a class="local col2 ref" href="#32i" title='i' data-ref="32i">i</a>++ ) {</td></tr>
+<tr><th id="259">259</th><td>		<b>if</b> ( <a class="ref" href="../../include/ctype.h.html#111" title='isalpha' data-ref="isalpha">isalpha</a>( <a class="local col0 ref" href="#30str" title='str' data-ref="30str">str</a>[<a class="local col2 ref" href="#32i" title='i' data-ref="32i">i</a>] ) ) {</td></tr>
+<tr><th id="260">260</th><td>			<b>break</b>;</td></tr>
+<tr><th id="261">261</th><td>		}</td></tr>
+<tr><th id="262">262</th><td>	}</td></tr>
+<tr><th id="263">263</th><td>	<b>if</b> ( <a class="local col2 ref" href="#32i" title='i' data-ref="32i">i</a> == <a class="local col1 ref" href="#31c" title='c' data-ref="31c">c</a> ) {</td></tr>
+<tr><th id="264">264</th><td>		<b>return</b> <b>true</b>;</td></tr>
+<tr><th id="265">265</th><td>	}</td></tr>
+<tr><th id="266">266</th><td>	</td></tr>
+<tr><th id="267">267</th><td>	<b>return</b> <b>false</b>;</td></tr>
+<tr><th id="268">268</th><td>}</td></tr>
+<tr><th id="269">269</th><td></td></tr>
+<tr><th id="270">270</th><td><i>/*</i></td></tr>
+<tr><th id="271">271</th><td><i>============</i></td></tr>
+<tr><th id="272">272</th><td><i>idLangDict::GetNextId</i></td></tr>
+<tr><th id="273">273</th><td><i>============</i></td></tr>
+<tr><th id="274">274</th><td><i>*/</i></td></tr>
+<tr><th id="275">275</th><td><em>int</em> <a class="type" href="LangDict.h.html#idLangDict" title='idLangDict' data-ref="idLangDict">idLangDict</a>::<dfn class="decl def" id="_ZNK10idLangDict9GetNextIdEv" title='idLangDict::GetNextId' data-ref="_ZNK10idLangDict9GetNextIdEv">GetNextId</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="276">276</th><td>	<em>int</em> <dfn class="local col3 decl" id="33c" title='c' data-type='int' data-ref="33c">c</dfn> = <a class="member" href="LangDict.h.html#idLangDict::args" title='idLangDict::args' data-ref="idLangDict::args">args</a>.<a class="ref" href="containers/List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>();</td></tr>
+<tr><th id="277">277</th><td></td></tr>
+<tr><th id="278">278</th><td>	<i>//Let and external user supply the base id for this dictionary</i></td></tr>
+<tr><th id="279">279</th><td>	<em>int</em> <dfn class="local col4 decl" id="34id" title='id' data-type='int' data-ref="34id">id</dfn> = <a class="member" href="LangDict.h.html#idLangDict::baseID" title='idLangDict::baseID' data-ref="idLangDict::baseID">baseID</a>;</td></tr>
+<tr><th id="280">280</th><td></td></tr>
+<tr><th id="281">281</th><td>	<b>if</b> ( <a class="local col3 ref" href="#33c" title='c' data-ref="33c">c</a> == <var>0</var> ) {</td></tr>
+<tr><th id="282">282</th><td>		<b>return</b> <a class="local col4 ref" href="#34id" title='id' data-ref="34id">id</a>;</td></tr>
+<tr><th id="283">283</th><td>	}</td></tr>
+<tr><th id="284">284</th><td></td></tr>
+<tr><th id="285">285</th><td>	<a class="type" href="Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a> <a class="ref fake" href="Str.h.html#_ZN5idStrC1Ev" title='idStr::idStr' data-ref="_ZN5idStrC1Ev"></a><dfn class="local col5 decl" id="35work" title='work' data-type='idStr' data-ref="35work">work</dfn>;</td></tr>
+<tr><th id="286">286</th><td>	<b>for</b> ( <em>int</em> <dfn class="local col6 decl" id="36j" title='j' data-type='int' data-ref="36j">j</dfn> = <var>0</var>; <a class="local col6 ref" href="#36j" title='j' data-ref="36j">j</a> &lt; <a class="local col3 ref" href="#33c" title='c' data-ref="33c">c</a>; <a class="local col6 ref" href="#36j" title='j' data-ref="36j">j</a>++ ) {</td></tr>
+<tr><th id="287">287</th><td>		<a class="local col5 ref" href="#35work" title='work' data-ref="35work">work</a> <a class="ref" href="Str.h.html#_ZN5idStraSERKS_" title='idStr::operator=' data-ref="_ZN5idStraSERKS_">=</a> <a class="member" href="LangDict.h.html#idLangDict::args" title='idLangDict::args' data-ref="idLangDict::args">args</a><a class="ref" href="containers/List.h.html#_ZNK6idListixEi" title='idList::operator[]' data-ref="_ZNK6idListixEi">[<a class="local col6 ref" href="#36j" title='j' data-ref="36j">j</a>]</a>.<a class="ref" href="LangDict.h.html#idLangKeyValue::key" title='idLangKeyValue::key' data-ref="idLangKeyValue::key">key</a>;</td></tr>
+<tr><th id="288">288</th><td>		<a class="local col5 ref" href="#35work" title='work' data-ref="35work">work</a>.<a class="ref" href="Str.h.html#_ZN5idStr12StripLeadingEPKc" title='idStr::StripLeading' data-ref="_ZN5idStr12StripLeadingEPKc">StripLeading</a>( <a class="macro" href="../framework/Common.h.html#56" title="&quot;#str_&quot;" data-ref="_M/STRTABLE_ID">STRTABLE_ID</a> );</td></tr>
+<tr><th id="289">289</th><td>		<em>int</em> <dfn class="local col7 decl" id="37test" title='test' data-type='int' data-ref="37test">test</dfn> = <a class="ref" href="../../include/stdlib.h.html#atoi" title='atoi' data-ref="atoi">atoi</a>( <a class="ref fake" href="Str.h.html#_ZN5idStrcvPKcEv" title='idStr::operator const char *' data-ref="_ZN5idStrcvPKcEv"></a><a class="local col5 ref" href="#35work" title='work' data-ref="35work">work</a> );</td></tr>
+<tr><th id="290">290</th><td>		<b>if</b> ( <a class="local col7 ref" href="#37test" title='test' data-ref="37test">test</a> &gt; <a class="local col4 ref" href="#34id" title='id' data-ref="34id">id</a> ) {</td></tr>
+<tr><th id="291">291</th><td>			<a class="local col4 ref" href="#34id" title='id' data-ref="34id">id</a> = <a class="local col7 ref" href="#37test" title='test' data-ref="37test">test</a>;</td></tr>
+<tr><th id="292">292</th><td>		}</td></tr>
+<tr><th id="293">293</th><td>	}</td></tr>
+<tr><th id="294">294</th><td>	<b>return</b> <a class="local col4 ref" href="#34id" title='id' data-ref="34id">id</a> + <var>1</var>;</td></tr>
+<tr><th id="295">295</th><td>}</td></tr>
+<tr><th id="296">296</th><td></td></tr>
+<tr><th id="297">297</th><td><i>/*</i></td></tr>
+<tr><th id="298">298</th><td><i>============</i></td></tr>
+<tr><th id="299">299</th><td><i>idLangDict::GetHashKey</i></td></tr>
+<tr><th id="300">300</th><td><i>============</i></td></tr>
+<tr><th id="301">301</th><td><i>*/</i></td></tr>
+<tr><th id="302">302</th><td><em>int</em> <a class="type" href="LangDict.h.html#idLangDict" title='idLangDict' data-ref="idLangDict">idLangDict</a>::<dfn class="decl def" id="_ZNK10idLangDict10GetHashKeyEPKc" title='idLangDict::GetHashKey' data-ref="_ZNK10idLangDict10GetHashKeyEPKc">GetHashKey</dfn>( <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="38str" title='str' data-type='const char *' data-ref="38str">str</dfn> ) <em>const</em> {</td></tr>
+<tr><th id="303">303</th><td>	<em>int</em> <dfn class="local col9 decl" id="39hashKey" title='hashKey' data-type='int' data-ref="39hashKey">hashKey</dfn> = <var>0</var>;</td></tr>
+<tr><th id="304">304</th><td>	<b>for</b> ( <a class="local col8 ref" href="#38str" title='str' data-ref="38str">str</a> += <a class="macro" href="../framework/Common.h.html#57" title="5" data-ref="_M/STRTABLE_ID_LENGTH">STRTABLE_ID_LENGTH</a>; <a class="local col8 ref" href="#38str" title='str' data-ref="38str">str</a>[<var>0</var>] != <kbd>'\0'</kbd>; <a class="local col8 ref" href="#38str" title='str' data-ref="38str">str</a>++ ) {</td></tr>
+<tr><th id="305">305</th><td>		<a class="macro" href="Lib.h.html#147" title="if ( str[0] &gt;= &apos;0&apos; &amp;&amp; str[0] &lt;= &apos;9&apos; ) { } else AssertFailed( &quot;/home/jon/workspace/id-software/DOOM-3/neo/idlib/LangDict.cpp&quot;, 305, &quot;str[0] &gt;= &apos;0&apos; &amp;&amp; str[0] &lt;= &apos;9&apos;&quot; )" data-ref="_M/assert">assert</a>( <a class="local col8 ref" href="#38str" title='str' data-ref="38str">str</a>[<var>0</var>] &gt;= <kbd>'0'</kbd> &amp;&amp; <a class="local col8 ref" href="#38str" title='str' data-ref="38str">str</a>[<var>0</var>] &lt;= <kbd>'9'</kbd> );</td></tr>
+<tr><th id="306">306</th><td>		<a class="local col9 ref" href="#39hashKey" title='hashKey' data-ref="39hashKey">hashKey</a> = <a class="local col9 ref" href="#39hashKey" title='hashKey' data-ref="39hashKey">hashKey</a> * <var>10</var> + <a class="local col8 ref" href="#38str" title='str' data-ref="38str">str</a>[<var>0</var>] - <kbd>'0'</kbd>;</td></tr>
+<tr><th id="307">307</th><td>	}</td></tr>
+<tr><th id="308">308</th><td>	<b>return</b> <a class="local col9 ref" href="#39hashKey" title='hashKey' data-ref="39hashKey">hashKey</a>;</td></tr>
+<tr><th id="309">309</th><td>}</td></tr>
+<tr><th id="310">310</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

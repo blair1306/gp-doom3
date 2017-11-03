@@ -1,0 +1,18 @@
+<def f='codebrowser/openal/include/eax4.h' l='258' ll='264'/>
+<size>28</size>
+<doc f='codebrowser/openal/include/eax4.h' l='246'>// Use this structure for EAXFXSLOT_ALLPARAMETERS
+// - all levels are hundredths of decibels
+//
+// NOTE: This structure may change in future EAX versions.
+//       It is recommended to initialize fields by name:
+//              myFXSlot.guidLoadEffect = EAX_REVERB_EFFECT;
+//              myFXSlot.lVolume = 0;
+//              myFXSlot.lLock = 1;
+//              myFXSlot.ulFlags = myFlags /* see EAXFXSLOTFLAGS below */ ;
+//       instead of:
+//              myFXSlot = { EAX_REVERB_EFFECT, 0, 1, 0x00000001 };
+//</doc>
+<mbr r='_EAXFXSLOTPROPERTIES::guidLoadEffect' o='0' t='GUID'/>
+<mbr r='_EAXFXSLOTPROPERTIES::lVolume' o='128' t='long'/>
+<mbr r='_EAXFXSLOTPROPERTIES::lLock' o='160' t='long'/>
+<mbr r='_EAXFXSLOTPROPERTIES::ulFlags' o='192' t='unsigned long'/>

@@ -1,0 +1,9 @@
+<dec f='codebrowser/renderer/RenderWorld_local.h' l='52' type='idRenderLightLocal *'/>
+<offset>96</offset>
+<doc f='codebrowser/renderer/RenderWorld_local.h' l='49'>// A portal will be considered closed if it is past the
+	// fog-out point in a fog volume.  We only support a single
+	// fog volume over each portal.</doc>
+<use f='codebrowser/renderer/RenderWorld_portals.cpp' l='102' u='r' c='_ZN18idRenderWorldLocal17PortalIsFoggedOutEPK8portal_s'/>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='576' u='r' c='_Z26R_CreateLightDefFogPortalsP18idRenderLightLocal'/>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='581' u='w' c='_Z26R_CreateLightDefFogPortalsP18idRenderLightLocal'/>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='601' u='w' c='_Z25R_FreeLightDefDerivedDataP18idRenderLightLocal'/>

@@ -1,0 +1,26 @@
+<dec f='codebrowser/renderer/jpeg-6/jpeglib.h' l='159' type='int'/>
+<offset>288</offset>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='153'>/* Size of a DCT block in samples.  Always DCTSIZE for compression.
+   * For decompression this is the size of the output from one DCT block,
+   * reflecting any scaling we choose to apply during the IDCT step.
+   * Values of 1,2,4,8 are likely to be supported.  Note that different
+   * components may receive different IDCT scalings.
+   */</doc>
+<use f='codebrowser/renderer/jpeg-6/jcmaster.c' l='99' u='w' c='initial_setup'/>
+<use f='codebrowser/renderer/jpeg-6/jdcoefct.c' l='189' u='r' c='decompress_onepass'/>
+<use f='codebrowser/renderer/jpeg-6/jdcoefct.c' l='199' u='r' c='decompress_onepass'/>
+<use f='codebrowser/renderer/jpeg-6/jdcoefct.c' l='203' u='r' c='decompress_onepass'/>
+<use f='codebrowser/renderer/jpeg-6/jddctmgr.c' l='101' u='r' c='start_pass'/>
+<use f='codebrowser/renderer/jpeg-6/jddctmgr.c' l='142' u='r' c='start_pass'/>
+<use f='codebrowser/renderer/jpeg-6/jdhuff.c' l='490' u='r' c='decode_mcu'/>
+<use f='codebrowser/renderer/jpeg-6/jdinput.c' l='82' u='w' c='initial_setup'/>
+<use f='codebrowser/renderer/jpeg-6/jdinput.c' l='141' u='r' c='per_scan_setup'/>
+<use f='codebrowser/renderer/jpeg-6/jdinput.c' l='177' u='r' c='per_scan_setup'/>
+<use f='codebrowser/renderer/jpeg-6/jdmainct.c' l='178' u='r' c='alloc_funny_pointers'/>
+<use f='codebrowser/renderer/jpeg-6/jdmainct.c' l='211' u='r' c='make_funny_pointers'/>
+<use f='codebrowser/renderer/jpeg-6/jdmainct.c' l='251' u='r' c='set_wraparound_pointers'/>
+<use f='codebrowser/renderer/jpeg-6/jdmainct.c' l='280' u='r' c='set_bottom_pointers'/>
+<use f='codebrowser/renderer/jpeg-6/jdmainct.c' l='505' u='r' c='jinit_d_main_controller'/>
+<use f='codebrowser/renderer/jpeg-6/jdmainct.c' l='509' u='r' c='jinit_d_main_controller'/>
+<use f='codebrowser/renderer/jpeg-6/jdsample.c' l='431' u='r' c='jinit_upsampler'/>
+<use f='codebrowser/renderer/jpeg-6/jdsample.c' l='433' u='r' c='jinit_upsampler'/>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Stack.h source code [codebrowser/idlib/containers/Stack.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idStackTemplate "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/idlib/containers/Stack.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>idlib</a>/<a href='./'>containers</a>/<a href='Stack.h.html'>Stack.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__STACK_H__">__STACK_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__STACK_H__" data-ref="_M/__STACK_H__">__STACK_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>	Stack template</i></td></tr>
+<tr><th id="36">36</th><td><i></i></td></tr>
+<tr><th id="37">37</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="38">38</th><td><i>*/</i></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><u>#define <dfn class="macro" id="_M/idStack" data-ref="_M/idStack">idStack</dfn>( type, next )		idStackTemplate&lt;type, (int)&amp;(((type*)NULL)-&gt;next)&gt;</u></td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><b>template</b>&lt; <b>class</b> type, <em>int</em> nextOffset &gt;</td></tr>
+<tr><th id="43">43</th><td><b>class</b> <dfn class="type def" id="idStackTemplate" title='idStackTemplate' data-ref="idStackTemplate">idStackTemplate</dfn> {</td></tr>
+<tr><th id="44">44</th><td><b>public</b>:</td></tr>
+<tr><th id="45">45</th><td>							<a class="decl" href="#_ZN15idStackTemplateC1Ev" title='idStackTemplate::idStackTemplate&lt;type, nextOffset&gt;' data-ref="_ZN15idStackTemplateC1Ev">idStackTemplate</a>( <em>void</em> );</td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td>	<em>void</em>					<a class="decl" href="#_ZN15idStackTemplate3AddEPT_" title='idStackTemplate::Add' data-ref="_ZN15idStackTemplate3AddEPT_">Add</a>( type *<dfn class="local col9 decl" id="6739element" title='element' data-type='type *' data-ref="6739element">element</dfn> );</td></tr>
+<tr><th id="48">48</th><td>	type *					<a class="decl" href="#_ZN15idStackTemplate3GetEv" title='idStackTemplate::Get' data-ref="_ZN15idStackTemplate3GetEv">Get</a>( <em>void</em> );</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td><b>private</b>:</td></tr>
+<tr><th id="51">51</th><td>	type *					<dfn class="decl" id="idStackTemplate::top" title='idStackTemplate::top' data-ref="idStackTemplate::top">top</dfn>;</td></tr>
+<tr><th id="52">52</th><td>	type *					<dfn class="decl" id="idStackTemplate::bottom" title='idStackTemplate::bottom' data-ref="idStackTemplate::bottom">bottom</dfn>;</td></tr>
+<tr><th id="53">53</th><td>};</td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td><u>#define <dfn class="macro" id="_M/STACK_NEXT_PTR" data-ref="_M/STACK_NEXT_PTR">STACK_NEXT_PTR</dfn>( element )		(*(type**)(((<a class="typedef" href="../Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>*)element)+<a class="tu ref" href="#nextOffset" title='nextOffset' data-use='r' data-ref="nextOffset">nextOffset</a>))</u></td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td><b>template</b>&lt; <b>class</b> type, <em>int</em> nextOffset &gt;</td></tr>
+<tr><th id="58">58</th><td><a class="type" href="#idStackTemplate" title='idStackTemplate' data-ref="idStackTemplate">idStackTemplate</a>&lt;type,<a class="tu ref" href="#nextOffset" title='nextOffset' data-ref="nextOffset">nextOffset</a>&gt;::<dfn class="decl def" id="_ZN15idStackTemplateC1Ev" title='idStackTemplate::idStackTemplate&lt;type, nextOffset&gt;' data-ref="_ZN15idStackTemplateC1Ev">idStackTemplate</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="59">59</th><td>	<a class="member" href="#idStackTemplate::top" title='idStackTemplate::top' data-ref="idStackTemplate::top">top</a> = <a class="member" href="#idStackTemplate::bottom" title='idStackTemplate::bottom' data-ref="idStackTemplate::bottom">bottom</a> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="60">60</th><td>}</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td><b>template</b>&lt; <b>class</b> type, <em>int</em> nextOffset &gt;</td></tr>
+<tr><th id="63">63</th><td><em>void</em> <a class="type" href="#idStackTemplate" title='idStackTemplate' data-ref="idStackTemplate">idStackTemplate</a>&lt;type,<a class="tu ref" href="#nextOffset" title='nextOffset' data-ref="nextOffset">nextOffset</a>&gt;::<dfn class="decl def" id="_ZN15idStackTemplate3AddEPT_" title='idStackTemplate::Add' data-ref="_ZN15idStackTemplate3AddEPT_">Add</dfn>( type *<dfn class="local col0 decl" id="6740element" title='element' data-type='type *' data-ref="6740element">element</dfn> ) {</td></tr>
+<tr><th id="64">64</th><td>	<a class="macro" href="#55" title="(*(type**)(((byte*)element)+nextOffset))" data-ref="_M/STACK_NEXT_PTR">STACK_NEXT_PTR</a>(<a class="local col0 ref" href="#6740element" title='element' data-ref="6740element">element</a>) = <a class="member" href="#idStackTemplate::top" title='idStackTemplate::top' data-ref="idStackTemplate::top">top</a>;</td></tr>
+<tr><th id="65">65</th><td>	<a class="member" href="#idStackTemplate::top" title='idStackTemplate::top' data-ref="idStackTemplate::top">top</a> = <a class="local col0 ref" href="#6740element" title='element' data-ref="6740element">element</a>;</td></tr>
+<tr><th id="66">66</th><td>	<b>if</b> ( !<a class="member" href="#idStackTemplate::bottom" title='idStackTemplate::bottom' data-ref="idStackTemplate::bottom">bottom</a> ) {</td></tr>
+<tr><th id="67">67</th><td>		<a class="member" href="#idStackTemplate::bottom" title='idStackTemplate::bottom' data-ref="idStackTemplate::bottom">bottom</a> = <a class="local col0 ref" href="#6740element" title='element' data-ref="6740element">element</a>;</td></tr>
+<tr><th id="68">68</th><td>	}</td></tr>
+<tr><th id="69">69</th><td>}</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td><b>template</b>&lt; <b>class</b> type, <em>int</em> nextOffset &gt;</td></tr>
+<tr><th id="72">72</th><td>type *<a class="type" href="#idStackTemplate" title='idStackTemplate' data-ref="idStackTemplate">idStackTemplate</a>&lt;type,<a class="tu ref" href="#nextOffset" title='nextOffset' data-ref="nextOffset">nextOffset</a>&gt;::<dfn class="decl def" id="_ZN15idStackTemplate3GetEv" title='idStackTemplate::Get' data-ref="_ZN15idStackTemplate3GetEv">Get</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="73">73</th><td>	type *<dfn class="local col1 decl" id="6741element" title='element' data-type='type *' data-ref="6741element">element</dfn>;</td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td>	<a class="local col1 ref" href="#6741element" title='element' data-ref="6741element">element</a> = <a class="member" href="#idStackTemplate::top" title='idStackTemplate::top' data-ref="idStackTemplate::top">top</a>;</td></tr>
+<tr><th id="76">76</th><td>	<b>if</b> ( <a class="local col1 ref" href="#6741element" title='element' data-ref="6741element">element</a> ) {</td></tr>
+<tr><th id="77">77</th><td>		<a class="member" href="#idStackTemplate::top" title='idStackTemplate::top' data-ref="idStackTemplate::top">top</a> = <a class="macro" href="#55" title="(*(type**)(((byte*)top)+nextOffset))" data-ref="_M/STACK_NEXT_PTR">STACK_NEXT_PTR</a>(<a class="member" href="#idStackTemplate::top" title='idStackTemplate::top' data-ref="idStackTemplate::top">top</a>);</td></tr>
+<tr><th id="78">78</th><td>		<b>if</b> ( <a class="member" href="#idStackTemplate::bottom" title='idStackTemplate::bottom' data-ref="idStackTemplate::bottom">bottom</a> == <a class="local col1 ref" href="#6741element" title='element' data-ref="6741element">element</a> ) {</td></tr>
+<tr><th id="79">79</th><td>			<a class="member" href="#idStackTemplate::bottom" title='idStackTemplate::bottom' data-ref="idStackTemplate::bottom">bottom</a> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="80">80</th><td>		}</td></tr>
+<tr><th id="81">81</th><td>		<a class="macro" href="#55" title="(*(type**)(((byte*)element)+nextOffset))" data-ref="_M/STACK_NEXT_PTR">STACK_NEXT_PTR</a>(<a class="local col1 ref" href="#6741element" title='element' data-ref="6741element">element</a>) = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="82">82</th><td>	}</td></tr>
+<tr><th id="83">83</th><td>	<b>return</b> <a class="local col1 ref" href="#6741element" title='element' data-ref="6741element">element</a>;</td></tr>
+<tr><th id="84">84</th><td>}</td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td><u>#<span data-ppcond="29">endif</span> /* !__STACK_H__ */</u></td></tr>
+<tr><th id="87">87</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../TypeInfo/TypeInfoGen.cpp.html'>codebrowser/TypeInfo/TypeInfoGen.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

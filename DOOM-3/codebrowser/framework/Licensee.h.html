@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Licensee.h source code [codebrowser/framework/Licensee.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/framework/Licensee.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>framework</a>/<a href='Licensee.h.html'>Licensee.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><i>/*</i></td></tr>
+<tr><th id="30">30</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="31">31</th><td><i></i></td></tr>
+<tr><th id="32">32</th><td><i>	Definitions for information that is related to a licensee's game name and location.</i></td></tr>
+<tr><th id="33">33</th><td><i></i></td></tr>
+<tr><th id="34">34</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="35">35</th><td><i>*/</i></td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><u>#define <dfn class="macro" id="_M/GAME_NAME" data-ref="_M/GAME_NAME">GAME_NAME</dfn>						"DOOM 3"		// appears on window titles and errors</u></td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td><u>#define <dfn class="macro" id="_M/ENGINE_VERSION" data-ref="_M/ENGINE_VERSION">ENGINE_VERSION</dfn>					"DOOM 1.3.1"	// printed in console</u></td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><i>// paths</i></td></tr>
+<tr><th id="42">42</th><td><u>#define	<dfn class="macro" id="_M/CD_BASEDIR" data-ref="_M/CD_BASEDIR">CD_BASEDIR</dfn>						"Doom"</u></td></tr>
+<tr><th id="43">43</th><td><u>#<span data-ppcond="43">ifdef</span> <span class="macro" data-ref="_M/ID_DEMO_BUILD">ID_DEMO_BUILD</span></u></td></tr>
+<tr><th id="44">44</th><td>	<u>#define BASE_GAMEDIR					"demo"</u></td></tr>
+<tr><th id="45">45</th><td><u>#<span data-ppcond="43">else</span></u></td></tr>
+<tr><th id="46">46</th><td>	<u>#define	<dfn class="macro" id="_M/BASE_GAMEDIR" data-ref="_M/BASE_GAMEDIR">BASE_GAMEDIR</dfn>					"base"</u></td></tr>
+<tr><th id="47">47</th><td><u>#<span data-ppcond="43">endif</span></u></td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td><i>// filenames</i></td></tr>
+<tr><th id="50">50</th><td><u>#define	<dfn class="macro" id="_M/CD_EXE" data-ref="_M/CD_EXE">CD_EXE</dfn>							"doom.exe"</u></td></tr>
+<tr><th id="51">51</th><td><u>#define <dfn class="macro" id="_M/CONFIG_FILE" data-ref="_M/CONFIG_FILE">CONFIG_FILE</dfn>						"DoomConfig.cfg"</u></td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td><i>// base folder where the source code lives</i></td></tr>
+<tr><th id="54">54</th><td><u>#define <dfn class="macro" id="_M/SOURCE_CODE_BASE_FOLDER" data-ref="_M/SOURCE_CODE_BASE_FOLDER">SOURCE_CODE_BASE_FOLDER</dfn>			"neo"</u></td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td><i>// default idnet host address</i></td></tr>
+<tr><th id="58">58</th><td><u>#<span data-ppcond="58">ifndef</span> <span class="macro" data-ref="_M/IDNET_HOST">IDNET_HOST</span></u></td></tr>
+<tr><th id="59">59</th><td>	<u>#define <dfn class="macro" id="_M/IDNET_HOST" data-ref="_M/IDNET_HOST">IDNET_HOST</dfn>					"idnet.ua-corp.com"</u></td></tr>
+<tr><th id="60">60</th><td><u>#<span data-ppcond="58">endif</span></u></td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td><i>// default idnet master port</i></td></tr>
+<tr><th id="63">63</th><td><u>#<span data-ppcond="63">ifndef</span> <span class="macro" data-ref="_M/IDNET_MASTER_PORT">IDNET_MASTER_PORT</span></u></td></tr>
+<tr><th id="64">64</th><td>	<u>#define <dfn class="macro" id="_M/IDNET_MASTER_PORT" data-ref="_M/IDNET_MASTER_PORT">IDNET_MASTER_PORT</dfn>			"27650"</u></td></tr>
+<tr><th id="65">65</th><td><u>#<span data-ppcond="63">endif</span></u></td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td><i>// default network server port</i></td></tr>
+<tr><th id="68">68</th><td><u>#<span data-ppcond="68">ifndef</span> <span class="macro" data-ref="_M/PORT_SERVER">PORT_SERVER</span></u></td></tr>
+<tr><th id="69">69</th><td>	<u>#define	<dfn class="macro" id="_M/PORT_SERVER" data-ref="_M/PORT_SERVER">PORT_SERVER</dfn>					27666</u></td></tr>
+<tr><th id="70">70</th><td><u>#<span data-ppcond="68">endif</span></u></td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td><i>// broadcast scan this many ports after PORT_SERVER so a single machine can run multiple servers</i></td></tr>
+<tr><th id="73">73</th><td><u>#define	<dfn class="macro" id="_M/NUM_SERVER_PORTS" data-ref="_M/NUM_SERVER_PORTS">NUM_SERVER_PORTS</dfn>				4</u></td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td><i>// see ASYNC_PROTOCOL_VERSION</i></td></tr>
+<tr><th id="76">76</th><td><i>// use a different major for each game</i></td></tr>
+<tr><th id="77">77</th><td><u>#define <dfn class="macro" id="_M/ASYNC_PROTOCOL_MAJOR" data-ref="_M/ASYNC_PROTOCOL_MAJOR">ASYNC_PROTOCOL_MAJOR</dfn>			1</u></td></tr>
+<tr><th id="78">78</th><td></td></tr>
+<tr><th id="79">79</th><td><i>// Savegame Version</i></td></tr>
+<tr><th id="80">80</th><td><i>// Update when you can no longer maintain compatibility with previous savegames</i></td></tr>
+<tr><th id="81">81</th><td><i>// NOTE: a seperate core savegame version and game savegame version could be useful</i></td></tr>
+<tr><th id="82">82</th><td><i>// 16: Doom v1.1</i></td></tr>
+<tr><th id="83">83</th><td><i>// 17: Doom v1.2 / D3XP. Can still read old v16 with defaults for new data</i></td></tr>
+<tr><th id="84">84</th><td><u>#define <dfn class="macro" id="_M/SAVEGAME_VERSION" data-ref="_M/SAVEGAME_VERSION">SAVEGAME_VERSION</dfn>				17</u></td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td><i>// &lt;= Doom v1.1: 1. no DS_VERSION token ( default )</i></td></tr>
+<tr><th id="87">87</th><td><i>// Doom v1.2: 2</i></td></tr>
+<tr><th id="88">88</th><td><u>#define <dfn class="macro" id="_M/RENDERDEMO_VERSION" data-ref="_M/RENDERDEMO_VERSION">RENDERDEMO_VERSION</dfn>				2</u></td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td><i>// editor info</i></td></tr>
+<tr><th id="91">91</th><td><u>#define <dfn class="macro" id="_M/EDITOR_DEFAULT_PROJECT" data-ref="_M/EDITOR_DEFAULT_PROJECT">EDITOR_DEFAULT_PROJECT</dfn>			"doom.qe4"</u></td></tr>
+<tr><th id="92">92</th><td><u>#define <dfn class="macro" id="_M/EDITOR_REGISTRY_KEY" data-ref="_M/EDITOR_REGISTRY_KEY">EDITOR_REGISTRY_KEY</dfn>				"DOOMRadiant"</u></td></tr>
+<tr><th id="93">93</th><td><u>#define <dfn class="macro" id="_M/EDITOR_WINDOWTEXT" data-ref="_M/EDITOR_WINDOWTEXT">EDITOR_WINDOWTEXT</dfn>				"DOOMEdit"</u></td></tr>
+<tr><th id="94">94</th><td></td></tr>
+<tr><th id="95">95</th><td><i>// win32 info</i></td></tr>
+<tr><th id="96">96</th><td><u>#define <dfn class="macro" id="_M/WIN32_CONSOLE_CLASS" data-ref="_M/WIN32_CONSOLE_CLASS">WIN32_CONSOLE_CLASS</dfn>				"DOOM 3 WinConsole"</u></td></tr>
+<tr><th id="97">97</th><td><u>#define	<dfn class="macro" id="_M/WIN32_WINDOW_CLASS_NAME" data-ref="_M/WIN32_WINDOW_CLASS_NAME">WIN32_WINDOW_CLASS_NAME</dfn>			"DOOM3"</u></td></tr>
+<tr><th id="98">98</th><td><u>#define	<dfn class="macro" id="_M/WIN32_FAKE_WINDOW_CLASS_NAME" data-ref="_M/WIN32_FAKE_WINDOW_CLASS_NAME">WIN32_FAKE_WINDOW_CLASS_NAME</dfn>	"DOOM3_WGL_FAKE"</u></td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td><i>// Linux info</i></td></tr>
+<tr><th id="101">101</th><td><u>#<span data-ppcond="101">ifdef</span> <span class="macro" data-ref="_M/ID_DEMO_BUILD">ID_DEMO_BUILD</span></u></td></tr>
+<tr><th id="102">102</th><td>	<u>#define LINUX_DEFAULT_PATH			"/usr/local/games/doom3-demo"</u></td></tr>
+<tr><th id="103">103</th><td><u>#<span data-ppcond="101">else</span></u></td></tr>
+<tr><th id="104">104</th><td>	<u>#define <dfn class="macro" id="_M/LINUX_DEFAULT_PATH" data-ref="_M/LINUX_DEFAULT_PATH">LINUX_DEFAULT_PATH</dfn>			"/usr/local/games/doom3"</u></td></tr>
+<tr><th id="105">105</th><td><u>#<span data-ppcond="101">endif</span></u></td></tr>
+<tr><th id="106">106</th><td></td></tr>
+<tr><th id="107">107</th><td><i>// CD Key file info</i></td></tr>
+<tr><th id="108">108</th><td><i>// goes into BASE_GAMEDIR whatever the fs_game is set to</i></td></tr>
+<tr><th id="109">109</th><td><i>// two distinct files for easier win32 installer job</i></td></tr>
+<tr><th id="110">110</th><td><u>#define <dfn class="macro" id="_M/CDKEY_FILE" data-ref="_M/CDKEY_FILE">CDKEY_FILE</dfn>						"doomkey"</u></td></tr>
+<tr><th id="111">111</th><td><u>#define <dfn class="macro" id="_M/XPKEY_FILE" data-ref="_M/XPKEY_FILE">XPKEY_FILE</dfn>						"xpkey"</u></td></tr>
+<tr><th id="112">112</th><td><u>#define <dfn class="macro" id="_M/CDKEY_TEXT" data-ref="_M/CDKEY_TEXT">CDKEY_TEXT</dfn>						"\n// Do not give this file to ANYONE.\n" \</u></td></tr>
+<tr><th id="113">113</th><td><u>										"// id Software or Zenimax will NEVER ask you to send this file to them.\n"</u></td></tr>
+<tr><th id="114">114</th><td></td></tr>
+<tr><th id="115">115</th><td><u>#define <dfn class="macro" id="_M/CONFIG_SPEC" data-ref="_M/CONFIG_SPEC">CONFIG_SPEC</dfn>						"config.spec"</u></td></tr>
+<tr><th id="116">116</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../TypeInfo/TypeInfoGen.cpp.html'>codebrowser/TypeInfo/TypeInfoGen.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

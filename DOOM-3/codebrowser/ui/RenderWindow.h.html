@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>RenderWindow.h source code [codebrowser/ui/RenderWindow.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idRenderWindow "/>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/ui/RenderWindow.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>ui</a>/<a href='RenderWindow.h.html'>RenderWindow.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td><u>#<span data-ppcond="28">ifndef</span> <span class="macro" data-ref="_M/__RENDERWINDOW_H">__RENDERWINDOW_H</span></u></td></tr>
+<tr><th id="29">29</th><td><u>#define <dfn class="macro" id="_M/__RENDERWINDOW_H" data-ref="_M/__RENDERWINDOW_H">__RENDERWINDOW_H</dfn></u></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><b>class</b> <a class="type" href="SimpleWindow.h.html#idUserInterfaceLocal" title='idUserInterfaceLocal' data-ref="idUserInterfaceLocal" id="idUserInterfaceLocal">idUserInterfaceLocal</a>;</td></tr>
+<tr><th id="32">32</th><td><b>class</b> <dfn class="type def" id="idRenderWindow" title='idRenderWindow' data-ref="idRenderWindow">idRenderWindow</dfn> : <b>public</b> <a class="type" href="Window.h.html#idWindow" title='idWindow' data-ref="idWindow">idWindow</a> {</td></tr>
+<tr><th id="33">33</th><td><b>public</b>:</td></tr>
+<tr><th id="34">34</th><td>	<dfn class="decl" id="_ZN14idRenderWindowC1EP20idUserInterfaceLocal" title='idRenderWindow::idRenderWindow' data-ref="_ZN14idRenderWindowC1EP20idUserInterfaceLocal">idRenderWindow</dfn>(<a class="type" href="SimpleWindow.h.html#idUserInterfaceLocal" title='idUserInterfaceLocal' data-ref="idUserInterfaceLocal">idUserInterfaceLocal</a> *<dfn class="local col8 decl" id="578gui" title='gui' data-type='idUserInterfaceLocal *' data-ref="578gui">gui</dfn>);</td></tr>
+<tr><th id="35">35</th><td>	<dfn class="decl" id="_ZN14idRenderWindowC1EP15idDeviceContextP20idUserInterfaceLocal" title='idRenderWindow::idRenderWindow' data-ref="_ZN14idRenderWindowC1EP15idDeviceContextP20idUserInterfaceLocal">idRenderWindow</dfn>(<a class="type" href="DeviceContext.h.html#idDeviceContext" title='idDeviceContext' data-ref="idDeviceContext">idDeviceContext</a> *<dfn class="local col9 decl" id="579d" title='d' data-type='idDeviceContext *' data-ref="579d">d</dfn>, <a class="type" href="SimpleWindow.h.html#idUserInterfaceLocal" title='idUserInterfaceLocal' data-ref="idUserInterfaceLocal">idUserInterfaceLocal</a> *<dfn class="local col0 decl" id="580gui" title='gui' data-type='idUserInterfaceLocal *' data-ref="580gui">gui</dfn>);</td></tr>
+<tr><th id="36">36</th><td>	<b>virtual</b> <dfn class="virtual decl" id="_ZN14idRenderWindowD1Ev" title='idRenderWindow::~idRenderWindow' data-ref="_ZN14idRenderWindowD1Ev">~idRenderWindow</dfn>();</td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td>	<b>virtual</b> <em>void</em> <dfn class="virtual decl" id="_ZN14idRenderWindow9PostParseEv" title='idRenderWindow::PostParse' data-ref="_ZN14idRenderWindow9PostParseEv">PostParse</dfn>();</td></tr>
+<tr><th id="39">39</th><td>	<b>virtual</b> <em>void</em> <dfn class="virtual decl" id="_ZN14idRenderWindow4DrawEiff" title='idRenderWindow::Draw' data-ref="_ZN14idRenderWindow4DrawEiff">Draw</dfn>(<em>int</em> <dfn class="local col1 decl" id="581time" title='time' data-type='int' data-ref="581time">time</dfn>, <em>float</em> <dfn class="local col2 decl" id="582x" title='x' data-type='float' data-ref="582x">x</dfn>, <em>float</em> <dfn class="local col3 decl" id="583y" title='y' data-type='float' data-ref="583y">y</dfn>);</td></tr>
+<tr><th id="40">40</th><td>	<b>virtual</b> <span class='typedef' title='size_t' data-type='unsigned int' data-ref="size_t">size_t</span> <dfn class="virtual decl def" id="_ZN14idRenderWindow9AllocatedEv" title='idRenderWindow::Allocated' data-ref="_ZN14idRenderWindow9AllocatedEv">Allocated</dfn>(){<b>return</b> <a class="type" href="Window.h.html#idWindow" title='idWindow' data-ref="idWindow">idWindow</a>::<a class="virtual member" href="Window.h.html#_ZN8idWindow9AllocatedEv" title='idWindow::Allocated' data-ref="_ZN8idWindow9AllocatedEv">Allocated</a>();};</td></tr>
+<tr><th id="41">41</th><td><i>// </i></td></tr>
+<tr><th id="42">42</th><td><i>//  </i></td></tr>
+<tr><th id="43">43</th><td>	<b>virtual</b> <a class="type" href="Winvar.h.html#idWinVar" title='idWinVar' data-ref="idWinVar">idWinVar</a> *<dfn class="virtual decl" id="_ZN14idRenderWindow15GetWinVarByNameEPKcbPP9drawWin_t" title='idRenderWindow::GetWinVarByName' data-ref="_ZN14idRenderWindow15GetWinVarByNameEPKcbPP9drawWin_t">GetWinVarByName</dfn>(<em>const</em> <em>char</em> *<dfn class="local col4 decl" id="584_name" title='_name' data-type='const char *' data-ref="584_name">_name</dfn>, <em>bool</em> <dfn class="local col5 decl" id="585winLookup" title='winLookup' data-type='bool' data-ref="585winLookup">winLookup</dfn> = <b>false</b>, <a class="typedef" href="SimpleWindow.h.html#drawWin_t" title='drawWin_t' data-type='struct drawWin_t' data-ref="drawWin_t">drawWin_t</a>** <dfn class="local col6 decl" id="586owner" title='owner' data-type='drawWin_t **' data-ref="586owner">owner</dfn> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>);</td></tr>
+<tr><th id="44">44</th><td><i>// </i></td></tr>
+<tr><th id="45">45</th><td>	</td></tr>
+<tr><th id="46">46</th><td><b>private</b>:</td></tr>
+<tr><th id="47">47</th><td>	<em>void</em> <dfn class="decl" id="_ZN14idRenderWindow10CommonInitEv" title='idRenderWindow::CommonInit' data-ref="_ZN14idRenderWindow10CommonInitEv">CommonInit</dfn>();</td></tr>
+<tr><th id="48">48</th><td>	<b>virtual</b> <em>bool</em> <dfn class="virtual decl" id="_ZN14idRenderWindow16ParseInternalVarEPKcP8idParser" title='idRenderWindow::ParseInternalVar' data-ref="_ZN14idRenderWindow16ParseInternalVarEPKcP8idParser">ParseInternalVar</dfn>(<em>const</em> <em>char</em> *<dfn class="local col7 decl" id="587name" title='name' data-type='const char *' data-ref="587name">name</dfn>, <a class="type" href="../idlib/Parser.h.html#idParser" title='idParser' data-ref="idParser">idParser</a> *<dfn class="local col8 decl" id="588src" title='src' data-type='idParser *' data-ref="588src">src</dfn>);</td></tr>
+<tr><th id="49">49</th><td>	<em>void</em> <dfn class="decl" id="_ZN14idRenderWindow6RenderEi" title='idRenderWindow::Render' data-ref="_ZN14idRenderWindow6RenderEi">Render</dfn>(<em>int</em> <dfn class="local col9 decl" id="589time" title='time' data-type='int' data-ref="589time">time</dfn>);</td></tr>
+<tr><th id="50">50</th><td>	<em>void</em> <dfn class="decl" id="_ZN14idRenderWindow9PreRenderEv" title='idRenderWindow::PreRender' data-ref="_ZN14idRenderWindow9PreRenderEv">PreRender</dfn>();</td></tr>
+<tr><th id="51">51</th><td>	<em>void</em> <dfn class="decl" id="_ZN14idRenderWindow14BuildAnimationEi" title='idRenderWindow::BuildAnimation' data-ref="_ZN14idRenderWindow14BuildAnimationEi">BuildAnimation</dfn>(<em>int</em> <dfn class="local col0 decl" id="590time" title='time' data-type='int' data-ref="590time">time</dfn>);</td></tr>
+<tr><th id="52">52</th><td>	<a class="typedef" href="../framework/DeclParticle.h.html#renderView_t" title='renderView_t' data-type='struct renderView_s' data-ref="renderView_t">renderView_t</a> <dfn class="decl" id="idRenderWindow::refdef" title='idRenderWindow::refdef' data-ref="idRenderWindow::refdef">refdef</dfn>;</td></tr>
+<tr><th id="53">53</th><td>	<a class="type" href="../renderer/RenderWorld.h.html#idRenderWorld" title='idRenderWorld' data-ref="idRenderWorld">idRenderWorld</a> *<dfn class="decl" id="idRenderWindow::world" title='idRenderWindow::world' data-ref="idRenderWindow::world">world</dfn>;</td></tr>
+<tr><th id="54">54</th><td>	<a class="typedef" href="../framework/DeclParticle.h.html#renderEntity_t" title='renderEntity_t' data-type='struct renderEntity_s' data-ref="renderEntity_t">renderEntity_t</a> <dfn class="decl" id="idRenderWindow::worldEntity" title='idRenderWindow::worldEntity' data-ref="idRenderWindow::worldEntity">worldEntity</dfn>;</td></tr>
+<tr><th id="55">55</th><td>	<a class="typedef" href="../renderer/RenderWorld.h.html#renderLight_t" title='renderLight_t' data-type='struct renderLight_s' data-ref="renderLight_t">renderLight_t</a> <dfn class="decl" id="idRenderWindow::rLight" title='idRenderWindow::rLight' data-ref="idRenderWindow::rLight">rLight</dfn>;</td></tr>
+<tr><th id="56">56</th><td>	<em>const</em> <a class="type" href="../game/Game.h.html#idMD5Anim" title='idMD5Anim' data-ref="idMD5Anim">idMD5Anim</a> *<dfn class="decl" id="idRenderWindow::modelAnim" title='idRenderWindow::modelAnim' data-ref="idRenderWindow::modelAnim">modelAnim</dfn>;</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td>	<a class="typedef" href="../idlib/Lib.h.html#qhandle_t" title='qhandle_t' data-type='int' data-ref="qhandle_t">qhandle_t</a>	<dfn class="decl" id="idRenderWindow::worldModelDef" title='idRenderWindow::worldModelDef' data-ref="idRenderWindow::worldModelDef">worldModelDef</dfn>;</td></tr>
+<tr><th id="59">59</th><td>	<a class="typedef" href="../idlib/Lib.h.html#qhandle_t" title='qhandle_t' data-type='int' data-ref="qhandle_t">qhandle_t</a>	<dfn class="decl" id="idRenderWindow::lightDef" title='idRenderWindow::lightDef' data-ref="idRenderWindow::lightDef">lightDef</dfn>;</td></tr>
+<tr><th id="60">60</th><td>	<a class="typedef" href="../idlib/Lib.h.html#qhandle_t" title='qhandle_t' data-type='int' data-ref="qhandle_t">qhandle_t</a>   <dfn class="decl" id="idRenderWindow::modelDef" title='idRenderWindow::modelDef' data-ref="idRenderWindow::modelDef">modelDef</dfn>;</td></tr>
+<tr><th id="61">61</th><td>	<a class="type" href="Winvar.h.html#idWinStr" title='idWinStr' data-ref="idWinStr">idWinStr</a> <dfn class="decl" id="idRenderWindow::modelName" title='idRenderWindow::modelName' data-ref="idRenderWindow::modelName">modelName</dfn>;</td></tr>
+<tr><th id="62">62</th><td>	<a class="type" href="Winvar.h.html#idWinStr" title='idWinStr' data-ref="idWinStr">idWinStr</a> <dfn class="decl" id="idRenderWindow::animName" title='idRenderWindow::animName' data-ref="idRenderWindow::animName">animName</dfn>;</td></tr>
+<tr><th id="63">63</th><td>	<a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>	 <dfn class="decl" id="idRenderWindow::animClass" title='idRenderWindow::animClass' data-ref="idRenderWindow::animClass">animClass</dfn>;</td></tr>
+<tr><th id="64">64</th><td>	<a class="type" href="Winvar.h.html#idWinVec4" title='idWinVec4' data-ref="idWinVec4">idWinVec4</a> <dfn class="decl" id="idRenderWindow::lightOrigin" title='idRenderWindow::lightOrigin' data-ref="idRenderWindow::lightOrigin">lightOrigin</dfn>;</td></tr>
+<tr><th id="65">65</th><td>	<a class="type" href="Winvar.h.html#idWinVec4" title='idWinVec4' data-ref="idWinVec4">idWinVec4</a> <dfn class="decl" id="idRenderWindow::lightColor" title='idRenderWindow::lightColor' data-ref="idRenderWindow::lightColor">lightColor</dfn>;</td></tr>
+<tr><th id="66">66</th><td>	<a class="type" href="Winvar.h.html#idWinVec4" title='idWinVec4' data-ref="idWinVec4">idWinVec4</a> <dfn class="decl" id="idRenderWindow::modelOrigin" title='idRenderWindow::modelOrigin' data-ref="idRenderWindow::modelOrigin">modelOrigin</dfn>;</td></tr>
+<tr><th id="67">67</th><td>	<a class="type" href="Winvar.h.html#idWinVec4" title='idWinVec4' data-ref="idWinVec4">idWinVec4</a> <dfn class="decl" id="idRenderWindow::modelRotate" title='idRenderWindow::modelRotate' data-ref="idRenderWindow::modelRotate">modelRotate</dfn>;</td></tr>
+<tr><th id="68">68</th><td>	<a class="type" href="Winvar.h.html#idWinVec4" title='idWinVec4' data-ref="idWinVec4">idWinVec4</a> <dfn class="decl" id="idRenderWindow::viewOffset" title='idRenderWindow::viewOffset' data-ref="idRenderWindow::viewOffset">viewOffset</dfn>;</td></tr>
+<tr><th id="69">69</th><td>	<a class="type" href="Winvar.h.html#idWinBool" title='idWinBool' data-ref="idWinBool">idWinBool</a> <dfn class="decl" id="idRenderWindow::needsRender" title='idRenderWindow::needsRender' data-ref="idRenderWindow::needsRender">needsRender</dfn>;</td></tr>
+<tr><th id="70">70</th><td>	<em>int</em> <dfn class="decl" id="idRenderWindow::animLength" title='idRenderWindow::animLength' data-ref="idRenderWindow::animLength">animLength</dfn>;</td></tr>
+<tr><th id="71">71</th><td>	<em>int</em> <dfn class="decl" id="idRenderWindow::animEndTime" title='idRenderWindow::animEndTime' data-ref="idRenderWindow::animEndTime">animEndTime</dfn>;</td></tr>
+<tr><th id="72">72</th><td>	<em>bool</em> <dfn class="decl" id="idRenderWindow::updateAnimation" title='idRenderWindow::updateAnimation' data-ref="idRenderWindow::updateAnimation">updateAnimation</dfn>;</td></tr>
+<tr><th id="73">73</th><td>};</td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td><u>#<span data-ppcond="28">endif</span> // __RENDERWINDOW_H</u></td></tr>
+<tr><th id="76">76</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../tools/guied/GEWindowWrapper_stub.cpp.html'>codebrowser/tools/guied/GEWindowWrapper_stub.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

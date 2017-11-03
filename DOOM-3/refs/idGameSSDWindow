@@ -1,0 +1,121 @@
+<inh f='codebrowser/ui/Window.h' l='166' c='idWindow'/>
+<def f='codebrowser/ui/GameSSDWindow.h' l='483' ll='614'/>
+<size>1224</size>
+<fun r='_ZN15idGameSSDWindowC1EP20idUserInterfaceLocal'/>
+<fun r='_ZN15idGameSSDWindowC1EP15idDeviceContextP20idUserInterfaceLocal'/>
+<fun r='_ZN15idGameSSDWindowD1Ev'/>
+<fun r='_ZN15idGameSSDWindow15WriteToSaveGameEP6idFile'/>
+<fun r='_ZN15idGameSSDWindow16ReadFromSaveGameEP6idFile'/>
+<fun r='_ZN15idGameSSDWindow11HandleEventEPK10sysEvent_sPb'/>
+<fun r='_ZN15idGameSSDWindow15GetWinVarByNameEPKcbPP9drawWin_t'/>
+<fun r='_ZN15idGameSSDWindow4DrawEiff'/>
+<fun r='_ZN15idGameSSDWindow9AddHealthEi'/>
+<fun r='_ZN15idGameSSDWindow8AddScoreEP9SSDEntityi'/>
+<fun r='_ZN15idGameSSDWindow9AddDamageEi'/>
+<fun r='_ZN15idGameSSDWindow6OnNukeEv'/>
+<fun r='_ZN15idGameSSDWindow11OnRescueAllEv'/>
+<fun r='_ZN15idGameSSDWindow14OnSuperBlasterEv'/>
+<fun r='_ZN15idGameSSDWindow17GetSpecificEntityEii'/>
+<fun r='_ZN15idGameSSDWindow9PlaySoundEPKc'/>
+<smbr r='idGameSSDWindow::random' t='idRandom'/>
+<mbr r='idGameSSDWindow::ssdTime' o='7456' t='int'/>
+<fun r='_ZN15idGameSSDWindow16ParseInternalVarEPKcP8idParser'/>
+<fun r='_ZN15idGameSSDWindow14ParseLevelDataEiRK5idStr'/>
+<fun r='_ZN15idGameSSDWindow17ParseAsteroidDataEiRK5idStr'/>
+<fun r='_ZN15idGameSSDWindow15ParseWeaponDataEiRK5idStr'/>
+<fun r='_ZN15idGameSSDWindow18ParseAstronautDataEiRK5idStr'/>
+<fun r='_ZN15idGameSSDWindow16ParsePowerupDataEiRK5idStr'/>
+<fun r='_ZN15idGameSSDWindow10CommonInitEv'/>
+<fun r='_ZN15idGameSSDWindow14ResetGameStatsEv'/>
+<fun r='_ZN15idGameSSDWindow15ResetLevelStatsEv'/>
+<fun r='_ZN15idGameSSDWindow13ResetEntitiesEv'/>
+<fun r='_ZN15idGameSSDWindow9StartGameEv'/>
+<fun r='_ZN15idGameSSDWindow8StopGameEv'/>
+<fun r='_ZN15idGameSSDWindow8GameOverEv'/>
+<fun r='_ZN15idGameSSDWindow10BeginLevelEi'/>
+<fun r='_ZN15idGameSSDWindow12ContinueGameEv'/>
+<fun r='_ZN15idGameSSDWindow13LevelCompleteEv'/>
+<fun r='_ZN15idGameSSDWindow12GameCompleteEv'/>
+<fun r='_ZN15idGameSSDWindow10UpdateGameEv'/>
+<fun r='_ZN15idGameSSDWindow12CheckForHitsEv'/>
+<fun r='_ZN15idGameSSDWindow14ZOrderEntitiesEv'/>
+<fun r='_ZN15idGameSSDWindow13SpawnAsteroidEv'/>
+<fun r='_ZN15idGameSSDWindow10FireWeaponEi'/>
+<fun r='_ZN15idGameSSDWindow13EntityHitTestERK6idVec2'/>
+<fun r='_ZN15idGameSSDWindow11HitAsteroidEP11SSDAsteroidi'/>
+<fun r='_ZN15idGameSSDWindow20AsteroidStruckPlayerEP11SSDAsteroid'/>
+<fun r='_ZN15idGameSSDWindow14RefreshGuiDataEv'/>
+<fun r='_ZN15idGameSSDWindow14GetCursorWorldEv'/>
+<fun r='_ZN15idGameSSDWindow14SpawnAstronautEv'/>
+<fun r='_ZN15idGameSSDWindow12HitAstronautEP12SSDAstronauti'/>
+<fun r='_ZN15idGameSSDWindow21AstronautStruckPlayerEP12SSDAstronaut'/>
+<fun r='_ZN15idGameSSDWindow12SpawnPowerupEv'/>
+<fun r='_ZN15idGameSSDWindow17StartSuperBlasterEv'/>
+<fun r='_ZN15idGameSSDWindow16StopSuperBlasterEv'/>
+<mbr r='idGameSSDWindow::beginLevel' o='7488' t='idWinBool'/>
+<mbr r='idGameSSDWindow::resetGame' o='7616' t='idWinBool'/>
+<mbr r='idGameSSDWindow::continueGame' o='7744' t='idWinBool'/>
+<mbr r='idGameSSDWindow::refreshGuiData' o='7872' t='idWinBool'/>
+<mbr r='idGameSSDWindow::crosshair' o='8000' t='SSDCrossHair'/>
+<mbr r='idGameSSDWindow::screenBounds' o='8192' t='idBounds'/>
+<mbr r='idGameSSDWindow::levelCount' o='8384' t='int'/>
+<mbr r='idGameSSDWindow::levelData' o='8416' t='idList&lt;SSDLevelData_t&gt;'/>
+<mbr r='idGameSSDWindow::asteroidData' o='8544' t='idList&lt;SSDAsteroidData_t&gt;'/>
+<mbr r='idGameSSDWindow::astronautData' o='8672' t='idList&lt;SSDAstronautData_t&gt;'/>
+<mbr r='idGameSSDWindow::powerupData' o='8800' t='idList&lt;SSDPowerupData_t&gt;'/>
+<mbr r='idGameSSDWindow::weaponCount' o='8928' t='int'/>
+<mbr r='idGameSSDWindow::weaponData' o='8960' t='idList&lt;SSDWeaponData_t&gt;'/>
+<mbr r='idGameSSDWindow::superBlasterTimeout' o='9088' t='int'/>
+<mbr r='idGameSSDWindow::gameStats' o='9120' t='SSDGameStats_t'/>
+<mbr r='idGameSSDWindow::entities' o='9632' t='idList&lt;SSDEntity *&gt;'/>
+<mbr r='idGameSSDWindow::currentSound' o='9760' t='int'/>
+<smbr r='idGameSSDWindow::random' t='idRandom'/>
+<fun r='_ZN15idGameSSDWindowC1EP15idDeviceContextP20idUserInterfaceLocal'/>
+<fun r='_ZN15idGameSSDWindowC1EP20idUserInterfaceLocal'/>
+<fun r='_ZN15idGameSSDWindowD1Ev'/>
+<fun r='_ZN15idGameSSDWindow15WriteToSaveGameEP6idFile'/>
+<fun r='_ZN15idGameSSDWindow16ReadFromSaveGameEP6idFile'/>
+<fun r='_ZN15idGameSSDWindow11HandleEventEPK10sysEvent_sPb'/>
+<fun r='_ZN15idGameSSDWindow15GetWinVarByNameEPKcbPP9drawWin_t'/>
+<fun r='_ZN15idGameSSDWindow4DrawEiff'/>
+<fun r='_ZN15idGameSSDWindow16ParseInternalVarEPKcP8idParser'/>
+<fun r='_ZN15idGameSSDWindow14ParseLevelDataEiRK5idStr'/>
+<fun r='_ZN15idGameSSDWindow17ParseAsteroidDataEiRK5idStr'/>
+<fun r='_ZN15idGameSSDWindow16ParsePowerupDataEiRK5idStr'/>
+<fun r='_ZN15idGameSSDWindow15ParseWeaponDataEiRK5idStr'/>
+<fun r='_ZN15idGameSSDWindow18ParseAstronautDataEiRK5idStr'/>
+<fun r='_ZN15idGameSSDWindow10CommonInitEv'/>
+<fun r='_ZN15idGameSSDWindow14ResetGameStatsEv'/>
+<fun r='_ZN15idGameSSDWindow15ResetLevelStatsEv'/>
+<fun r='_ZN15idGameSSDWindow13ResetEntitiesEv'/>
+<fun r='_ZN15idGameSSDWindow9StartGameEv'/>
+<fun r='_ZN15idGameSSDWindow8StopGameEv'/>
+<fun r='_ZN15idGameSSDWindow8GameOverEv'/>
+<fun r='_ZN15idGameSSDWindow10BeginLevelEi'/>
+<fun r='_ZN15idGameSSDWindow12ContinueGameEv'/>
+<fun r='_ZN15idGameSSDWindow13LevelCompleteEv'/>
+<fun r='_ZN15idGameSSDWindow12GameCompleteEv'/>
+<fun r='_ZN15idGameSSDWindow10UpdateGameEv'/>
+<fun r='_ZN15idGameSSDWindow12CheckForHitsEv'/>
+<fun r='_ZN15idGameSSDWindow14ZOrderEntitiesEv'/>
+<fun r='_ZN15idGameSSDWindow13SpawnAsteroidEv'/>
+<fun r='_ZN15idGameSSDWindow10FireWeaponEi'/>
+<fun r='_ZN15idGameSSDWindow13EntityHitTestERK6idVec2'/>
+<fun r='_ZN15idGameSSDWindow11HitAsteroidEP11SSDAsteroidi'/>
+<fun r='_ZN15idGameSSDWindow20AsteroidStruckPlayerEP11SSDAsteroid'/>
+<fun r='_ZN15idGameSSDWindow8AddScoreEP9SSDEntityi'/>
+<fun r='_ZN15idGameSSDWindow9AddDamageEi'/>
+<fun r='_ZN15idGameSSDWindow9AddHealthEi'/>
+<fun r='_ZN15idGameSSDWindow6OnNukeEv'/>
+<fun r='_ZN15idGameSSDWindow11OnRescueAllEv'/>
+<fun r='_ZN15idGameSSDWindow14OnSuperBlasterEv'/>
+<fun r='_ZN15idGameSSDWindow14RefreshGuiDataEv'/>
+<fun r='_ZN15idGameSSDWindow14GetCursorWorldEv'/>
+<fun r='_ZN15idGameSSDWindow14SpawnAstronautEv'/>
+<fun r='_ZN15idGameSSDWindow12HitAstronautEP12SSDAstronauti'/>
+<fun r='_ZN15idGameSSDWindow21AstronautStruckPlayerEP12SSDAstronaut'/>
+<fun r='_ZN15idGameSSDWindow12SpawnPowerupEv'/>
+<fun r='_ZN15idGameSSDWindow17StartSuperBlasterEv'/>
+<fun r='_ZN15idGameSSDWindow16StopSuperBlasterEv'/>
+<fun r='_ZN15idGameSSDWindow17GetSpecificEntityEii'/>
+<fun r='_ZN15idGameSSDWindow9PlaySoundEPKc'/>

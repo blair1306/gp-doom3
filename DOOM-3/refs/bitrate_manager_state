@@ -1,0 +1,28 @@
+<def f='codebrowser/sound/OggVorbis/vorbissrc/bitrate.h' l='26' ll='61'/>
+<size>104</size>
+<doc f='codebrowser/sound/OggVorbis/vorbissrc/bitrate.h' l='25'>/* encode side bitrate tracking */</doc>
+<mbr r='bitrate_manager_state::queue_binned' o='0' t='ogg_uint32_t *'/>
+<mbr r='bitrate_manager_state::queue_actual' o='32' t='ogg_uint32_t *'/>
+<mbr r='bitrate_manager_state::queue_size' o='64' t='int'/>
+<mbr r='bitrate_manager_state::queue_head' o='96' t='int'/>
+<mbr r='bitrate_manager_state::queue_bins' o='128' t='int'/>
+<mbr r='bitrate_manager_state::avg_binacc' o='160' t='long *'/>
+<mbr r='bitrate_manager_state::avg_center' o='192' t='int'/>
+<mbr r='bitrate_manager_state::avg_tail' o='224' t='int'/>
+<mbr r='bitrate_manager_state::avg_centeracc' o='256' t='ogg_uint32_t'/>
+<mbr r='bitrate_manager_state::avg_sampleacc' o='288' t='ogg_uint32_t'/>
+<mbr r='bitrate_manager_state::avg_sampledesired' o='320' t='ogg_uint32_t'/>
+<mbr r='bitrate_manager_state::avg_centerdesired' o='352' t='ogg_uint32_t'/>
+<mbr r='bitrate_manager_state::minmax_binstack' o='384' t='long *'/>
+<mbr r='bitrate_manager_state::minmax_posstack' o='416' t='long *'/>
+<mbr r='bitrate_manager_state::minmax_limitstack' o='448' t='long *'/>
+<mbr r='bitrate_manager_state::minmax_stackptr' o='480' t='long'/>
+<mbr r='bitrate_manager_state::minmax_acctotal' o='512' t='long'/>
+<mbr r='bitrate_manager_state::minmax_tail' o='544' t='int'/>
+<mbr r='bitrate_manager_state::minmax_sampleacc' o='576' t='ogg_uint32_t'/>
+<mbr r='bitrate_manager_state::minmax_sampledesired' o='608' t='ogg_uint32_t'/>
+<mbr r='bitrate_manager_state::next_to_flush' o='640' t='int'/>
+<mbr r='bitrate_manager_state::last_to_flush' o='672' t='int'/>
+<mbr r='bitrate_manager_state::avgfloat' o='704' t='double'/>
+<mbr r='bitrate_manager_state::packetbuffers' o='768' t='oggpack_buffer *'/>
+<mbr r='bitrate_manager_state::packets' o='800' t='ogg_packet *'/>

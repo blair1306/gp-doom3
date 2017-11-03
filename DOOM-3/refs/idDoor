@@ -1,0 +1,119 @@
+<inh f='codebrowser/d3xp/Mover.h' l='287' c='idMover_Binary'/>
+<def f='codebrowser/d3xp/Mover.h' l='377' ll='445'/>
+<size>2388</size>
+<smbr r='idDoor::Type' t='idTypeInfo'/>
+<fun r='_ZN6idDoor14CreateInstanceEv'/>
+<fun r='_ZNK6idDoor7GetTypeEv'/>
+<smbr r='idDoor::eventCallbacks' t='idEventFunc&lt;idDoor&gt; []'/>
+<fun r='_ZN6idDoorC1Ev'/>
+<fun r='_ZN6idDoorD1Ev'/>
+<fun r='_ZN6idDoor5SpawnEv'/>
+<fun r='_ZNK6idDoor4SaveEP10idSaveGame'/>
+<fun r='_ZN6idDoor7RestoreEP13idRestoreGame'/>
+<fun r='_ZN6idDoor5ThinkEv'/>
+<fun r='_ZN6idDoor7PreBindEv'/>
+<fun r='_ZN6idDoor8PostBindEv'/>
+<fun r='_ZN6idDoor4HideEv'/>
+<fun r='_ZN6idDoor4ShowEv'/>
+<fun r='_ZN6idDoor6IsOpenEv'/>
+<fun r='_ZN6idDoor9IsNoTouchEv'/>
+<fun r='_ZN6idDoor15AllowPlayerOnlyEP8idEntity'/>
+<fun r='_ZN6idDoor8IsLockedEv'/>
+<fun r='_ZN6idDoor4LockEi'/>
+<fun r='_ZN6idDoor3UseEP8idEntityS1_'/>
+<fun r='_ZN6idDoor5CloseEv'/>
+<fun r='_ZN6idDoor4OpenEv'/>
+<fun r='_ZN6idDoor12SetCompanionEPS_'/>
+<mbr r='idDoor::triggersize' o='17696' t='float'/>
+<mbr r='idDoor::crusher' o='17728' t='bool'/>
+<mbr r='idDoor::noTouch' o='17736' t='bool'/>
+<mbr r='idDoor::aas_area_closed' o='17744' t='bool'/>
+<mbr r='idDoor::buddyStr' o='17760' t='idStr'/>
+<mbr r='idDoor::trigger' o='18016' t='idClipModel *'/>
+<mbr r='idDoor::sndTrigger' o='18048' t='idClipModel *'/>
+<mbr r='idDoor::nextSndTriggerTime' o='18080' t='int'/>
+<mbr r='idDoor::localTriggerOrigin' o='18112' t='idVec3'/>
+<mbr r='idDoor::localTriggerAxis' o='18208' t='idMat3'/>
+<mbr r='idDoor::requires' o='18496' t='idStr'/>
+<mbr r='idDoor::removeItem' o='18752' t='int'/>
+<mbr r='idDoor::syncLock' o='18784' t='idStr'/>
+<mbr r='idDoor::normalAxisIndex' o='19040' t='int'/>
+<mbr r='idDoor::companionDoor' o='19072' t='idDoor *'/>
+<fun r='_ZN6idDoor15SetAASAreaStateEb'/>
+<fun r='_ZN6idDoor23GetLocalTriggerPositionEPK11idClipModel'/>
+<fun r='_ZN6idDoor17CalcTriggerBoundsEfR8idBounds'/>
+<fun r='_ZN6idDoor25Event_Reached_BinaryMoverEv'/>
+<fun r='_ZN6idDoor17Event_TeamBlockedEP8idEntityS1_'/>
+<fun r='_ZN6idDoor17Event_PartBlockedEP8idEntity'/>
+<fun r='_ZN6idDoor11Event_TouchEP8idEntityP7trace_s'/>
+<fun r='_ZN6idDoor14Event_ActivateEP8idEntity'/>
+<fun r='_ZN6idDoor15Event_StartOpenEv'/>
+<fun r='_ZN6idDoor22Event_SpawnDoorTriggerEv'/>
+<fun r='_ZN6idDoor23Event_SpawnSoundTriggerEv'/>
+<fun r='_ZN6idDoor11Event_CloseEv'/>
+<fun r='_ZN6idDoor10Event_OpenEv'/>
+<fun r='_ZN6idDoor10Event_LockEi'/>
+<fun r='_ZN6idDoor12Event_IsOpenEv'/>
+<fun r='_ZN6idDoor12Event_LockedEv'/>
+<fun r='_ZN6idDoor20Event_SpectatorTouchEP8idEntityP7trace_s'/>
+<fun r='_ZN6idDoor16Event_OpenPortalEv'/>
+<fun r='_ZN6idDoor17Event_ClosePortalEv'/>
+<inh f='codebrowser/game/Mover.h' l='283' c='idMover_Binary'/>
+<def f='codebrowser/game/Mover.h' l='370' ll='435'/>
+<size>2156</size>
+<smbr r='idDoor::Type' t='idTypeInfo'/>
+<fun r='_ZN6idDoor14CreateInstanceEv'/>
+<fun r='_ZNK6idDoor7GetTypeEv'/>
+<smbr r='idDoor::eventCallbacks' t='idEventFunc&lt;idDoor&gt; []'/>
+<fun r='_ZN6idDoorC1Ev'/>
+<fun r='_ZN6idDoorD1Ev'/>
+<fun r='_ZN6idDoor5SpawnEv'/>
+<fun r='_ZNK6idDoor4SaveEP10idSaveGame'/>
+<fun r='_ZN6idDoor7RestoreEP13idRestoreGame'/>
+<fun r='_ZN6idDoor5ThinkEv'/>
+<fun r='_ZN6idDoor7PreBindEv'/>
+<fun r='_ZN6idDoor8PostBindEv'/>
+<fun r='_ZN6idDoor4HideEv'/>
+<fun r='_ZN6idDoor4ShowEv'/>
+<fun r='_ZN6idDoor6IsOpenEv'/>
+<fun r='_ZN6idDoor9IsNoTouchEv'/>
+<fun r='_ZN6idDoor8IsLockedEv'/>
+<fun r='_ZN6idDoor4LockEi'/>
+<fun r='_ZN6idDoor3UseEP8idEntityS1_'/>
+<fun r='_ZN6idDoor5CloseEv'/>
+<fun r='_ZN6idDoor4OpenEv'/>
+<fun r='_ZN6idDoor12SetCompanionEPS_'/>
+<mbr r='idDoor::triggersize' o='15840' t='float'/>
+<mbr r='idDoor::crusher' o='15872' t='bool'/>
+<mbr r='idDoor::noTouch' o='15880' t='bool'/>
+<mbr r='idDoor::aas_area_closed' o='15888' t='bool'/>
+<mbr r='idDoor::buddyStr' o='15904' t='idStr'/>
+<mbr r='idDoor::trigger' o='16160' t='idClipModel *'/>
+<mbr r='idDoor::sndTrigger' o='16192' t='idClipModel *'/>
+<mbr r='idDoor::nextSndTriggerTime' o='16224' t='int'/>
+<mbr r='idDoor::localTriggerOrigin' o='16256' t='idVec3'/>
+<mbr r='idDoor::localTriggerAxis' o='16352' t='idMat3'/>
+<mbr r='idDoor::requires' o='16640' t='idStr'/>
+<mbr r='idDoor::removeItem' o='16896' t='int'/>
+<mbr r='idDoor::syncLock' o='16928' t='idStr'/>
+<mbr r='idDoor::normalAxisIndex' o='17184' t='int'/>
+<mbr r='idDoor::companionDoor' o='17216' t='idDoor *'/>
+<fun r='_ZN6idDoor15SetAASAreaStateEb'/>
+<fun r='_ZN6idDoor23GetLocalTriggerPositionEPK11idClipModel'/>
+<fun r='_ZN6idDoor17CalcTriggerBoundsEfR8idBounds'/>
+<fun r='_ZN6idDoor25Event_Reached_BinaryMoverEv'/>
+<fun r='_ZN6idDoor17Event_TeamBlockedEP8idEntityS1_'/>
+<fun r='_ZN6idDoor17Event_PartBlockedEP8idEntity'/>
+<fun r='_ZN6idDoor11Event_TouchEP8idEntityP7trace_s'/>
+<fun r='_ZN6idDoor14Event_ActivateEP8idEntity'/>
+<fun r='_ZN6idDoor15Event_StartOpenEv'/>
+<fun r='_ZN6idDoor22Event_SpawnDoorTriggerEv'/>
+<fun r='_ZN6idDoor23Event_SpawnSoundTriggerEv'/>
+<fun r='_ZN6idDoor11Event_CloseEv'/>
+<fun r='_ZN6idDoor10Event_OpenEv'/>
+<fun r='_ZN6idDoor10Event_LockEi'/>
+<fun r='_ZN6idDoor12Event_IsOpenEv'/>
+<fun r='_ZN6idDoor12Event_LockedEv'/>
+<fun r='_ZN6idDoor20Event_SpectatorTouchEP8idEntityP7trace_s'/>
+<fun r='_ZN6idDoor16Event_OpenPortalEv'/>
+<fun r='_ZN6idDoor17Event_ClosePortalEv'/>

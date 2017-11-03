@@ -1,0 +1,32 @@
+<dec f='codebrowser/curl/lib/ftp.h' l='31' type='CURLcode Curl_ftpsendf(struct connectdata * , const char * fmt)'/>
+<use f='codebrowser/curl/lib/ftp.c' l='115' u='c' c='Curl_ftp_connect'/>
+<use f='codebrowser/curl/lib/ftp.c' l='115' u='c' c='Curl_ftp_connect'/>
+<use f='codebrowser/curl/lib/ftp.c' l='115' u='c' c='Curl_ftp_connect'/>
+<use f='codebrowser/curl/lib/ftp.c' l='115' u='c' c='Curl_ftp_connect'/>
+<use f='codebrowser/curl/lib/ftp.c' l='115' u='c' c='Curl_ftp_connect'/>
+<use f='codebrowser/curl/lib/ftp.c' l='115' u='c' c='Curl_ftp_connect'/>
+<use f='codebrowser/curl/lib/ftp.c' l='115' u='c' c='ftp_sendquote'/>
+<use f='codebrowser/curl/lib/ftp.c' l='115' u='c' c='ftp_getfiletime'/>
+<use f='codebrowser/curl/lib/ftp.c' l='115' u='c' c='ftp_transfertype'/>
+<use f='codebrowser/curl/lib/ftp.c' l='115' u='c' c='ftp_getsize'/>
+<use f='codebrowser/curl/lib/ftp.c' l='1461' u='c' c='ftp_use_port'/>
+<use f='codebrowser/curl/lib/ftp.c' l='1531' u='c' c='ftp_use_pasv'/>
+<use f='codebrowser/curl/lib/ftp.c' l='115' u='c' c='Curl_ftp_nextconnect'/>
+<use f='codebrowser/curl/lib/ftp.c' l='115' u='c' c='Curl_ftp_nextconnect'/>
+<use f='codebrowser/curl/lib/ftp.c' l='115' u='c' c='Curl_ftp_nextconnect'/>
+<use f='codebrowser/curl/lib/ftp.c' l='115' u='c' c='Curl_ftp_nextconnect'/>
+<use f='codebrowser/curl/lib/ftp.c' l='115' u='c' c='Curl_ftp_nextconnect'/>
+<use f='codebrowser/curl/lib/ftp.c' l='115' u='c' c='ftp_perform'/>
+<def f='codebrowser/curl/lib/ftp.c' l='2416' ll='2454' type='CURLcode Curl_ftpsendf(struct connectdata * conn, const char * fmt)'/>
+<use f='codebrowser/curl/lib/ftp.c' l='2473' u='c' c='Curl_ftp_quit'/>
+<use f='codebrowser/curl/lib/ftp.c' l='115' u='c' c='ftp_mkd'/>
+<use f='codebrowser/curl/lib/ftp.c' l='115' u='c' c='ftp_cwd'/>
+<doc f='codebrowser/curl/lib/ftp.c' l='2407'>/***********************************************************************
+ *
+ * Curl_ftpsendf()
+ *
+ * Sends the formated string as a ftp command to a ftp server
+ *
+ * NOTE: we build the command in a fixed-length buffer, which sets length
+ * restrictions on the command!
+ */</doc>

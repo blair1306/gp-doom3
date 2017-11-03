@@ -1,0 +1,51 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1567' type='void * R_FrameAlloc(int bytes)'/>
+<use f='codebrowser/renderer/GuiModel.cpp' l='173' u='c' c='_ZN10idGuiModel11EmitSurfaceEP17guiModelSurface_tPfS2_b'/>
+<use f='codebrowser/renderer/GuiModel.cpp' l='179' u='c' c='_ZN10idGuiModel11EmitSurfaceEP17guiModelSurface_tPfS2_b'/>
+<use f='codebrowser/renderer/GuiModel.cpp' l='282' u='c' c='_ZN10idGuiModel14EmitFullScreenEv'/>
+<use f='codebrowser/renderer/ModelDecal.cpp' l='511' u='c' c='_ZN18idRenderModelDecal16AddDecalDrawSurfEP12viewEntity_s'/>
+<use f='codebrowser/renderer/RenderSystem.cpp' l='163' u='c' c='_Z18R_GetCommandBufferi'/>
+<use f='codebrowser/renderer/RenderSystem.cpp' l='182' u='c' c='_Z19R_ClearCommandChainv'/>
+<use f='codebrowser/renderer/RenderWorld_portals.cpp' l='813' u='c' c='_ZN18idRenderWorldLocal19BuildConnectedAreasEv'/>
+<use f='codebrowser/renderer/tr_deform.cpp' l='108' u='c' c='_ZL18R_AutospriteDeformP10drawSurf_s'/>
+<use f='codebrowser/renderer/tr_deform.cpp' l='195' u='c' c='_ZL12R_TubeDeformP10drawSurf_s'/>
+<use f='codebrowser/renderer/tr_deform.cpp' l='530' u='c' c='_ZL13R_FlareDeformP10drawSurf_s'/>
+<use f='codebrowser/renderer/tr_deform.cpp' l='916' u='c' c='_ZL15R_EyeballDeformP10drawSurf_s'/>
+<use f='codebrowser/renderer/tr_deform.cpp' l='1091' u='c' c='_ZL16R_ParticleDeformP10drawSurf_sb'/>
+<use f='codebrowser/renderer/tr_deform.cpp' l='1092' u='c' c='_ZL16R_ParticleDeformP10drawSurf_sb'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='666' u='c' c='_Z15R_LinkLightSurfPPK10drawSurf_sPK14srfTriangles_sPK12viewEntity_sPK18idRenderLightLocalPK10idMaterialRK12idScreenRectb'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='688' u='c' c='_Z15R_LinkLightSurfPPK10drawSurf_sPK14srfTriangles_sPK12viewEntity_sPK18idRenderLightLocalPK10idMaterialRK12idScreenRectb'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='908' u='c' c='_Z18R_AddLightSurfacesv'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1190' u='c' c='_Z13R_AddDrawSurfPK14srfTriangles_sPK12viewEntity_sPK14renderEntity_sPK10idMaterialRK12idScreenRect'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1214' u='c' c='_Z13R_AddDrawSurfPK14srfTriangles_sPK12viewEntity_sPK14renderEntity_sPK10idMaterialRK12idScreenRect'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1226' u='c' c='_Z13R_AddDrawSurfPK14srfTriangles_sPK12viewEntity_sPK14renderEntity_sPK10idMaterialRK12idScreenRect'/>
+<def f='codebrowser/renderer/tr_main.cpp' l='365' ll='410' type='void * R_FrameAlloc(int bytes)'/>
+<use f='codebrowser/renderer/tr_main.cpp' l='420' u='c' c='_Z19R_ClearedFrameAlloci'/>
+<doc f='codebrowser/renderer/tr_main.cpp' l='340'>/*
+================
+R_FrameAlloc
+
+This data will be automatically freed when the
+current frame&apos;s back end completes.
+
+This should only be called by the front end.  The
+back end shouldn&apos;t need to allocate memory.
+
+If we passed smpFrame in, the back end could
+alloc memory, because it will always be a
+different frameData than the front end is using.
+
+All temporary data, like dynamic tesselations
+and local spaces are allocated here.
+
+The memory will not move, but it may not be
+contiguous with previous allocations even
+from this frame.
+
+The memory is NOT zero filled.
+Should part of this be inlined in a macro?
+================
+*/</doc>
+<use f='codebrowser/renderer/tr_rendertools.cpp' l='332' u='c' c='_Z15RB_ShowOverdrawv'/>
+<use f='codebrowser/renderer/tr_subview.cpp' l='223' u='c' c='_ZL21R_MirrorViewBySurfaceP10drawSurf_s'/>
+<use f='codebrowser/renderer/tr_subview.cpp' l='277' u='c' c='_ZL19R_XrayViewBySurfaceP10drawSurf_s'/>
+<use f='codebrowser/renderer/tr_subview.cpp' l='306' u='c' c='_ZL14R_RemoteRenderP10drawSurf_sP14textureStage_t'/>

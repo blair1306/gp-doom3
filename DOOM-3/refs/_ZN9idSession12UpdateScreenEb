@@ -1,0 +1,24 @@
+<dec f='codebrowser/framework/Session.h' l='81' type='void idSession::UpdateScreen(bool outOfSequence = true)'/>
+<doc f='codebrowser/framework/Session.h' l='77'>// Redraws the screen, handling games, guis, console, etc
+	// during normal once-a-frame updates, outOfSequence will be false,
+	// but when the screen is updated in a modal manner, as with utility
+	// output, the mouse cursor will be released if running windowed.</doc>
+<use f='codebrowser/framework/Common.cpp' l='424' u='c' c='_ZN13idCommonLocal7VPrintfEPKcPc'/>
+<use f='codebrowser/framework/Common.cpp' l='1748' u='c' c='_ZN13idCommonLocal11LocalizeGuiEPKcR10idLangDict'/>
+<use f='codebrowser/framework/Common.cpp' l='2462' u='c' c='_ZN13idCommonLocal5FrameEv'/>
+<use f='codebrowser/framework/Common.cpp' l='2468' u='c' c='_ZN13idCommonLocal5FrameEv'/>
+<use f='codebrowser/framework/Common.cpp' l='2512' u='c' c='_ZN13idCommonLocal8GUIFrameEbb'/>
+<use f='codebrowser/framework/Console.cpp' l='596' u='c' c='_ZN14idConsoleLocal12KeyDownEventEi'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='2088' u='c' c='_ZN17idFileSystemLocal15TouchFileList_fERK9idCmdArgs'/>
+<use f='codebrowser/framework/Session.cpp' l='520' u='c' c='_ZN14idSessionLocal14ShowLoadingGuiEv'/>
+<ovr f='codebrowser/framework/Session.cpp' l='2471' c='_ZN14idSessionLocal12UpdateScreenEb'/>
+<use f='codebrowser/renderer/MegaTexture.cpp' l='531' u='c' c='_ZN13idMegaTexture19GenerateMegaMipMapsEP19megaTextureHeader_tP6idFile'/>
+<use f='codebrowser/renderer/MegaTexture.cpp' l='750' u='c' c='_ZN13idMegaTexture17MakeMegaTexture_fERK9idCmdArgs'/>
+<use f='codebrowser/renderer/ModelManager.cpp' l='173' u='c' c='_ZN25idRenderModelManagerLocal12TouchModel_fERK9idCmdArgs'/>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='1047' u='c' c='_Z26R_ReportImageDuplication_fRK9idCmdArgs'/>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='1177' u='c' c='_Z17R_ReadTiledPixelsiiPhP12renderView_s'/>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='1653' u='c' c='_Z18R_MakeAmbientMap_fRK9idCmdArgs'/>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='1718' u='c' c='_Z18R_MakeAmbientMap_fRK9idCmdArgs'/>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='2030' u='c' c='_Z12R_TouchGui_fRK9idCmdArgs'/>
+<use f='codebrowser/tools/compilers/roqvq/codec.cpp' l='1669' u='c' c='_ZN5codec2VQEiiPKhPfPPdb'/>
+<use f='codebrowser/tools/compilers/roqvq/roq.cpp' l='165' u='c' c='_ZN3roq12EncodeStreamEPKc'/>

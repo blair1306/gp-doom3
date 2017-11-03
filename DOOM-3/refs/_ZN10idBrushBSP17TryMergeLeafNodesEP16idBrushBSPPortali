@@ -1,0 +1,11 @@
+<dec f='codebrowser/tools/compilers/aas/BrushBSP.h' l='167' type='bool idBrushBSP::TryMergeLeafNodes(idBrushBSPPortal * portal, int side)'/>
+<doc f='codebrowser/tools/compilers/aas/BrushBSP.h' l='166'>// try to merge the two leaf nodes at either side of the portal</doc>
+<use f='codebrowser/tools/compilers/aas/AASBuild_merge.cpp' l='99' u='c' c='_ZN10idAASBuild26MergeWithAdjacentLeafNodesER10idBrushBSPP14idBrushBSPNode'/>
+<def f='codebrowser/tools/compilers/aas/BrushBSP.cpp' l='1894' ll='1979' type='bool idBrushBSP::TryMergeLeafNodes(idBrushBSPPortal * portal, int side)'/>
+<doc f='codebrowser/tools/compilers/aas/BrushBSP.cpp' l='1887'>/*
+============
+idBrushBSP::TryMergeLeafNodes
+
+  NOTE: multiple brances of the BSP tree might point to the same leaf node after merging
+============
+*/</doc>

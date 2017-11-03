@@ -1,0 +1,8 @@
+<dec f='include/x86_64-linux-gnu/sys/socket.h' l='113' type='int socket(int __domain, int __type, int __protocol)'/>
+<doc f='include/x86_64-linux-gnu/sys/socket.h' l='110'>/* Create a new socket of type TYPE in domain DOMAIN, using
+   protocol PROTOCOL.  If PROTOCOL is zero, one is chosen automatically.
+   Returns a file descriptor for the new socket, or -1 for errors.  */</doc>
+<use f='codebrowser/curl/lib/memdebug.c' l='230' u='c' c='curl_socket'/>
+<use f='codebrowser/sys/posix/posix_net.cpp' l='333' u='c' c='_Z18Sys_InitNetworkingv'/>
+<use f='codebrowser/sys/posix/posix_net.cpp' l='399' u='c' c='_ZL8IPSocketPKciP8netadr_t'/>
+<use f='codebrowser/sys/posix/posix_net.cpp' l='652' u='c' c='_ZN5idTCP4InitEPKcs'/>

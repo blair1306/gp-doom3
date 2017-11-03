@@ -1,0 +1,10 @@
+<dec f='codebrowser/renderer/RenderWorld.h' l='395' type='bool idRenderWorld::ProcessDemoCommand(idDemoFile * readDemo, renderView_t * demoRenderView, int * demoTimeOffset)'/>
+<doc f='codebrowser/renderer/RenderWorld.h' l='388'>// Returns true when demoRenderView has been filled in.
+	// adds/updates/frees entityDefs and lightDefs based on the current demo file
+	// and returns the renderView to be used to render this frame.
+	// a demo file may need to be advanced multiple times if the framerate
+	// is less than 30hz
+	// demoTimeOffset will be set if a new map load command was processed before
+	// the next renderScene</doc>
+<use f='codebrowser/framework/Session.cpp' l='2274' u='c' c='_ZN14idSessionLocal17AdvanceRenderDemoEb'/>
+<ovr f='codebrowser/renderer/RenderWorld_demo.cpp' l='84' c='_ZN18idRenderWorldLocal18ProcessDemoCommandEP10idDemoFileP12renderView_sPi'/>

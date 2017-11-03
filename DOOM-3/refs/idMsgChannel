@@ -1,0 +1,53 @@
+<def f='codebrowser/framework/async/MsgChannel.h' l='88' ll='199'/>
+<size>65692</size>
+<fun r='_ZN12idMsgChannelC1Ev'/>
+<fun r='_ZN12idMsgChannel4InitE8netadr_ti'/>
+<fun r='_ZN12idMsgChannel8ShutdownEv'/>
+<fun r='_ZN12idMsgChannel9ResetRateEv'/>
+<fun r='_ZN12idMsgChannel18SetMaxOutgoingRateEi'/>
+<fun r='_ZN12idMsgChannel18GetMaxOutgoingRateEv'/>
+<fun r='_ZNK12idMsgChannel16GetRemoteAddressEv'/>
+<fun r='_ZNK12idMsgChannel15GetOutgoingRateEv'/>
+<fun r='_ZNK12idMsgChannel15GetIncomingRateEv'/>
+<fun r='_ZNK12idMsgChannel22GetOutgoingCompressionEv'/>
+<fun r='_ZNK12idMsgChannel22GetIncomingCompressionEv'/>
+<fun r='_ZNK12idMsgChannel21GetIncomingPacketLossEv'/>
+<fun r='_ZNK12idMsgChannel11ReadyToSendEi'/>
+<fun r='_ZN12idMsgChannel11SendMessageER6idPortiRK8idBitMsg'/>
+<fun r='_ZN12idMsgChannel16SendNextFragmentER6idPorti'/>
+<fun r='_ZNK12idMsgChannel19UnsentFragmentsLeftEv'/>
+<fun r='_ZN12idMsgChannel7ProcessE8netadr_tiR8idBitMsgRi'/>
+<fun r='_ZN12idMsgChannel19SendReliableMessageERK8idBitMsg'/>
+<fun r='_ZN12idMsgChannel18GetReliableMessageER8idBitMsg'/>
+<fun r='_ZN12idMsgChannel21ClearReliableMessagesEv'/>
+<mbr r='idMsgChannel::remoteAddress' o='0' t='netadr_t'/>
+<mbr r='idMsgChannel::id' o='96' t='int'/>
+<mbr r='idMsgChannel::maxRate' o='128' t='int'/>
+<mbr r='idMsgChannel::compressor' o='160' t='idCompressor *'/>
+<mbr r='idMsgChannel::lastSendTime' o='192' t='int'/>
+<mbr r='idMsgChannel::lastDataBytes' o='224' t='int'/>
+<mbr r='idMsgChannel::outgoingRateTime' o='256' t='int'/>
+<mbr r='idMsgChannel::outgoingRateBytes' o='288' t='int'/>
+<mbr r='idMsgChannel::incomingRateTime' o='320' t='int'/>
+<mbr r='idMsgChannel::incomingRateBytes' o='352' t='int'/>
+<mbr r='idMsgChannel::outgoingCompression' o='384' t='float'/>
+<mbr r='idMsgChannel::incomingCompression' o='416' t='float'/>
+<mbr r='idMsgChannel::incomingReceivedPackets' o='448' t='float'/>
+<mbr r='idMsgChannel::incomingDroppedPackets' o='480' t='float'/>
+<mbr r='idMsgChannel::incomingPacketLossTime' o='512' t='int'/>
+<mbr r='idMsgChannel::outgoingSequence' o='544' t='int'/>
+<mbr r='idMsgChannel::incomingSequence' o='576' t='int'/>
+<mbr r='idMsgChannel::unsentFragments' o='608' t='bool'/>
+<mbr r='idMsgChannel::unsentFragmentStart' o='640' t='int'/>
+<mbr r='idMsgChannel::unsentBuffer' o='672' t='byte [16384]'/>
+<mbr r='idMsgChannel::unsentMsg' o='131744' t='idBitMsg'/>
+<mbr r='idMsgChannel::fragmentSequence' o='132000' t='int'/>
+<mbr r='idMsgChannel::fragmentLength' o='132032' t='int'/>
+<mbr r='idMsgChannel::fragmentBuffer' o='132064' t='byte [16384]'/>
+<mbr r='idMsgChannel::reliableSend' o='263136' t='idMsgQueue'/>
+<mbr r='idMsgChannel::reliableReceive' o='394336' t='idMsgQueue'/>
+<fun r='_ZN12idMsgChannel16WriteMessageDataER8idBitMsgRKS0_'/>
+<fun r='_ZN12idMsgChannel15ReadMessageDataER8idBitMsgRKS0_'/>
+<fun r='_ZN12idMsgChannel18UpdateOutgoingRateEii'/>
+<fun r='_ZN12idMsgChannel18UpdateIncomingRateEii'/>
+<fun r='_ZN12idMsgChannel16UpdatePacketLossEiii'/>

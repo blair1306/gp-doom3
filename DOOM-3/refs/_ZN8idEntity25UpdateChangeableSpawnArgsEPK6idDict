@@ -1,0 +1,44 @@
+<dec f='codebrowser/d3xp/Entity.h' l='181' type='void idEntity::UpdateChangeableSpawnArgs(const idDict * source)'/>
+<use f='codebrowser/d3xp/Camera.cpp' l='186' u='c' c='_ZN12idCameraView5SpawnEv'/>
+<def f='codebrowser/d3xp/Entity.cpp' l='377' ll='394' type='void idEntity::UpdateChangeableSpawnArgs(const idDict * source)'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='3503' u='c' c='_ZN8idEntity17HandleGuiCommandsEPS_PKc'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='4409' u='c' c='_ZN8idEntity12Event_SetKeyEPKcS1_'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='4691' u='c' c='_ZN8idEntity12Event_SetGuiEiPKc'/>
+<doc f='codebrowser/d3xp/Entity.cpp' l='367'>/*
+===============
+idEntity::UpdateChangeableSpawnArgs
+
+Any key val pair that might change during the course of the game ( via a gui or whatever )
+should be initialize here so a gui or other trigger can change something and have it updated
+properly. An optional source may be provided if the values reside in an outside dictionary and
+first need copied over to spawnArgs
+===============
+*/</doc>
+<use f='codebrowser/d3xp/GameEdit.cpp' l='866' u='c' c='_ZN10idGameEdit31EntityUpdateChangeableSpawnArgsEP8idEntityPK6idDict'/>
+<ovr f='codebrowser/d3xp/Light.cpp' l='169' c='_ZN7idLight25UpdateChangeableSpawnArgsEPK6idDict'/>
+<use f='codebrowser/d3xp/Light.cpp' l='171' u='c' c='_ZN7idLight25UpdateChangeableSpawnArgsEPK6idDict'/>
+<use f='codebrowser/d3xp/SecurityCamera.cpp' l='178' u='c' c='_ZN16idSecurityCamera5SpawnEv'/>
+<ovr f='codebrowser/d3xp/Sound.cpp' l='197' c='_ZN7idSound25UpdateChangeableSpawnArgsEPK6idDict'/>
+<use f='codebrowser/d3xp/Sound.cpp' l='199' u='c' c='_ZN7idSound25UpdateChangeableSpawnArgsEPK6idDict'/>
+<use f='codebrowser/d3xp/Target.cpp' l='1307' u='c' c='_ZN18idTarget_SetKeyVal14Event_ActivateEP8idEntity'/>
+<dec f='codebrowser/game/Entity.h' l='165' type='void idEntity::UpdateChangeableSpawnArgs(const idDict * source)'/>
+<use f='codebrowser/game/Camera.cpp' l='186' u='c' c='_ZN12idCameraView5SpawnEv'/>
+<def f='codebrowser/game/Entity.cpp' l='361' ll='378' type='void idEntity::UpdateChangeableSpawnArgs(const idDict * source)'/>
+<use f='codebrowser/game/Entity.cpp' l='3407' u='c' c='_ZN8idEntity17HandleGuiCommandsEPS_PKc'/>
+<doc f='codebrowser/game/Entity.cpp' l='351'>/*
+===============
+idEntity::UpdateChangeableSpawnArgs
+
+Any key val pair that might change during the course of the game ( via a gui or whatever )
+should be initialize here so a gui or other trigger can change something and have it updated
+properly. An optional source may be provided if the values reside in an outside dictionary and
+first need copied over to spawnArgs
+===============
+*/</doc>
+<use f='codebrowser/game/GameEdit.cpp' l='866' u='c' c='_ZN10idGameEdit31EntityUpdateChangeableSpawnArgsEP8idEntityPK6idDict'/>
+<ovr f='codebrowser/game/Light.cpp' l='169' c='_ZN7idLight25UpdateChangeableSpawnArgsEPK6idDict'/>
+<use f='codebrowser/game/Light.cpp' l='171' u='c' c='_ZN7idLight25UpdateChangeableSpawnArgsEPK6idDict'/>
+<use f='codebrowser/game/SecurityCamera.cpp' l='178' u='c' c='_ZN16idSecurityCamera5SpawnEv'/>
+<ovr f='codebrowser/game/Sound.cpp' l='197' c='_ZN7idSound25UpdateChangeableSpawnArgsEPK6idDict'/>
+<use f='codebrowser/game/Sound.cpp' l='199' u='c' c='_ZN7idSound25UpdateChangeableSpawnArgsEPK6idDict'/>
+<use f='codebrowser/game/Target.cpp' l='1271' u='c' c='_ZN18idTarget_SetKeyVal14Event_ActivateEP8idEntity'/>

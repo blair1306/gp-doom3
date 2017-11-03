@@ -1,0 +1,21 @@
+<dec f='codebrowser/renderer/Image.h' l='352' type='void idImageManager::EndLevelLoad()'/>
+<doc f='codebrowser/renderer/Image.h' l='348'>// Free all images marked as unused, and load all images that are necessary.
+	// This architecture prevents us from having the union of two level&apos;s
+	// worth of data present at one time.
+	// Called only by renderSystem::EndLevelLoad</doc>
+<def f='codebrowser/renderer/Image_init.cpp' l='2038' ll='2093' type='void idImageManager::EndLevelLoad()'/>
+<doc f='codebrowser/renderer/Image_init.cpp' l='2024'>/*
+====================
+EndLevelLoad
+
+Free all images marked as unused, and load all images that are necessary.
+This architecture prevents us from having the union of two level&apos;s
+worth of data present at one time.
+
+preload everything, never free
+preload everything, free unused after level load
+blocking load on demand
+preload low mip levels, background load remainder on demand
+====================
+*/</doc>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='2237' u='c' c='_ZN19idRenderSystemLocal12EndLevelLoadEv'/>

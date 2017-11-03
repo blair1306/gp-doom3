@@ -1,0 +1,20 @@
+<dec f='codebrowser/curl/lib/urldata.h' l='715' type='long'/>
+<offset>263488</offset>
+<doc f='codebrowser/curl/lib/urldata.h' l='715'>/* initially set to authentication methods requested by
+                     client (either with CURLOPT_HTTPAUTH or CURLOPT_PROXYAUTH
+                     depending on authstage) */</doc>
+<use f='codebrowser/curl/lib/http.c' l='175' u='w' c='Curl_http_auth_act'/>
+<use f='codebrowser/curl/lib/http.c' l='177' u='w' c='Curl_http_auth_act'/>
+<use f='codebrowser/curl/lib/http.c' l='179' u='w' c='Curl_http_auth_act'/>
+<use f='codebrowser/curl/lib/http.c' l='181' u='w' c='Curl_http_auth_act'/>
+<use f='codebrowser/curl/lib/http.c' l='183' u='w' c='Curl_http_auth_act'/>
+<use f='codebrowser/curl/lib/http.c' l='185' u='r' c='Curl_http_auth_act'/>
+<use f='codebrowser/curl/lib/http.c' l='238' u='r' c='http_auth_headers'/>
+<use f='codebrowser/curl/lib/http.c' l='279' u='r' c='http_auth_headers'/>
+<use f='codebrowser/curl/lib/http.c' l='289' u='r' c='http_auth_headers'/>
+<use f='codebrowser/curl/lib/http.c' l='399' u='r' c='Curl_http_auth'/>
+<use f='codebrowser/curl/lib/http.c' l='414' u='r' c='Curl_http_auth'/>
+<use f='codebrowser/curl/lib/http.c' l='426' u='r' c='Curl_http_auth'/>
+<use f='codebrowser/curl/lib/http.c' l='434' u='r' c='Curl_http_auth'/>
+<use f='codebrowser/curl/lib/http.c' l='1050' u='w' c='Curl_http_auth_stage'/>
+<use f='codebrowser/curl/lib/url.c' l='1459' u='r' c='ConnectionExists'/>

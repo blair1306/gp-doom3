@@ -1,0 +1,39 @@
+<dec f='codebrowser/idlib/containers/List.h' l='129' type='void idList::Sort(cmp_t * compare = (cmp_t *)&amp;idListSortCompare&lt;type&gt;)'/>
+<def f='codebrowser/idlib/containers/List.h' l='897' ll='906' type='void idList::Sort(cmp_t * compare = (cmp_t *)&amp;idListSortCompare&lt;type&gt;)'/>
+<def f='codebrowser/idlib/containers/StrList.h' l='64' ll='89' type='void idList&lt;idStr&gt;::Sort(cmp_t * compare)'/>
+<use f='codebrowser/idlib/containers/StrList.h' l='80' u='c' c='_ZN6idList4SortEPFiPKT_S2_E'/>
+<use f='codebrowser/idlib/containers/StrList.h' l='126' u='c' c='_ZN6idList14SortSubSectionEiiPFiPKT_S2_E'/>
+<use f='codebrowser/idlib/containers/StrList.h' l='193' u='c' c='_Z18idStrListSortPathsR6idListI5idStrE'/>
+<doc f='codebrowser/idlib/containers/List.h' l='889'>/*
+================
+idList&lt;type&gt;::Sort
+
+Performs a qsort on the list using the supplied comparison function.  Note that the data is merely moved around the
+list, so any pointers to data within the list may no longer be valid.
+================
+*/</doc>
+<doc f='codebrowser/idlib/containers/StrList.h' l='56'>/*
+================
+idStrList::Sort
+
+Sorts the list of strings alphabetically. Creates a list of pointers to the actual strings and sorts the
+pointer list. Then copies the strings into another list using the ordered list of pointers.
+================
+*/</doc>
+<use f='codebrowser/d3xp/gamesys/TypeInfo.cpp' l='1422' u='c' c='_Z14ListTypeInfo_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/TypeInfo.cpp' l='1424' u='c' c='_Z14ListTypeInfo_fRK9idCmdArgs'/>
+<use f='codebrowser/framework/CVarSystem.cpp' l='1115' u='c' c='_ZN17idCVarSystemLocal11ListByFlagsERK9idCmdArgs11cvarFlags_t'/>
+<use f='codebrowser/framework/CmdSystem.cpp' l='154' u='c' c='_ZN16idCmdSystemLocal11ListByFlagsERK9idCmdArgs10cmdFlags_t'/>
+<use f='codebrowser/framework/Common.cpp' l='554' u='c' c='_ZN13idCommonLocal13PrintWarningsEv'/>
+<use f='codebrowser/framework/Common.cpp' l='599' u='c' c='_ZN13idCommonLocal12DumpWarningsEv'/>
+<use f='codebrowser/framework/Common.cpp' l='611' u='c' c='_ZN13idCommonLocal12DumpWarningsEv'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='1754' u='c' c='_ZN17idFileSystemLocal8ListModsEv'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='2147' u='c' c='_ZN17idFileSystemLocal16AddGameDirectoryEPKcS1_'/>
+<use f='codebrowser/framework/Session_menu.cpp' l='176' u='c' c='_ZN14idSessionLocal15GetSaveGameListER6idListI5idStrERS0_I10fileTIME_TE'/>
+<use f='codebrowser/framework/async/ServerScan.cpp' l='216' u='c' c='_ZN12idServerScan10EndServersEv'/>
+<use f='codebrowser/framework/async/ServerScan.cpp' l='634' u='c' c='_ZN12idServerScan10SetSortingE12serverSort_t'/>
+<use f='codebrowser/game/gamesys/TypeInfo.cpp' l='1422' u='c' c='_Z14ListTypeInfo_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/TypeInfo.cpp' l='1424' u='c' c='_Z14ListTypeInfo_fRK9idCmdArgs'/>
+<use f='codebrowser/idlib/Dict.cpp' l='242' u='c' c='_ZNK6idDict8ChecksumEv'/>
+<use f='codebrowser/idlib/Dict.cpp' l='675' u='c' c='_ZN6idDict10ListKeys_fERK9idCmdArgs'/>
+<use f='codebrowser/idlib/Dict.cpp' l='694' u='c' c='_ZN6idDict12ListValues_fERK9idCmdArgs'/>

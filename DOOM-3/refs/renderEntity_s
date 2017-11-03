@@ -1,0 +1,31 @@
+<def f='codebrowser/renderer/RenderWorld.h' l='80' ll='154'/>
+<size>216</size>
+<mbr r='renderEntity_s::hModel' o='0' t='idRenderModel *'/>
+<mbr r='renderEntity_s::entityNum' o='32' t='int'/>
+<mbr r='renderEntity_s::bodyId' o='64' t='int'/>
+<mbr r='renderEntity_s::bounds' o='96' t='idBounds'/>
+<mbr r='renderEntity_s::callback' o='288' t='deferredEntityCallback_t'/>
+<mbr r='renderEntity_s::callbackData' o='320' t='void *'/>
+<mbr r='renderEntity_s::suppressSurfaceInViewID' o='352' t='int'/>
+<mbr r='renderEntity_s::suppressShadowInViewID' o='384' t='int'/>
+<mbr r='renderEntity_s::suppressShadowInLightID' o='416' t='int'/>
+<mbr r='renderEntity_s::allowSurfaceInViewID' o='448' t='int'/>
+<mbr r='renderEntity_s::origin' o='480' t='idVec3'/>
+<mbr r='renderEntity_s::axis' o='576' t='idMat3'/>
+<mbr r='renderEntity_s::customShader' o='864' t='const idMaterial *'/>
+<mbr r='renderEntity_s::referenceShader' o='896' t='const idMaterial *'/>
+<mbr r='renderEntity_s::customSkin' o='928' t='const idDeclSkin *'/>
+<mbr r='renderEntity_s::referenceSound' o='960' t='class idSoundEmitter *'/>
+<mbr r='renderEntity_s::shaderParms' o='992' t='float [12]'/>
+<mbr r='renderEntity_s::gui' o='1376' t='class idUserInterface *[3]'/>
+<mbr r='renderEntity_s::remoteRenderView' o='1472' t='struct renderView_s *'/>
+<mbr r='renderEntity_s::numJoints' o='1504' t='int'/>
+<mbr r='renderEntity_s::joints' o='1536' t='idJointMat *'/>
+<mbr r='renderEntity_s::modelDepthHack' o='1568' t='float'/>
+<mbr r='renderEntity_s::noSelfShadow' o='1600' t='bool'/>
+<mbr r='renderEntity_s::noShadow' o='1608' t='bool'/>
+<mbr r='renderEntity_s::noDynamicInteractions' o='1616' t='bool'/>
+<mbr r='renderEntity_s::weaponDepthHack' o='1624' t='bool'/>
+<mbr r='renderEntity_s::forceUpdate' o='1632' t='int'/>
+<mbr r='renderEntity_s::timeGroup' o='1664' t='int'/>
+<mbr r='renderEntity_s::xrayIndex' o='1696' t='int'/>

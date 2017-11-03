@@ -1,0 +1,12 @@
+<dec f='codebrowser/renderer/Material.h' l='597' type='void idMaterial::ParseVertexParm(idLexer &amp; src, newShaderStage_t * newStage)'/>
+<def f='codebrowser/renderer/Material.cpp' l='874' ll='916' type='void idMaterial::ParseVertexParm(idLexer &amp; src, newShaderStage_t * newStage)'/>
+<use f='codebrowser/renderer/Material.cpp' l='1525' u='c' c='_ZN10idMaterial10ParseStageER7idLexer15textureRepeat_t'/>
+<doc f='codebrowser/renderer/Material.cpp' l='865'>/*
+================
+idMaterial::ParseVertexParm
+
+If there is a single value, it will be repeated across all elements
+If there are two values, 3 = 0.0, 4 = 1.0
+if there are three values, 4 = 1.0
+================
+*/</doc>

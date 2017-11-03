@@ -1,0 +1,13 @@
+<dec f='codebrowser/renderer/Image.h' l='180' type='void idImage::UploadScratch(const byte * pic, int width, int height)'/>
+<def f='codebrowser/renderer/Image_load.cpp' l='1967' ll='2035' type='void idImage::UploadScratch(const byte * data, int cols, int rows)'/>
+<doc f='codebrowser/renderer/Image_load.cpp' l='1960'>/*
+=============
+RB_UploadScratchImage
+
+if rows = cols * 6, assume it is a cube map animation
+=============
+*/</doc>
+<use f='codebrowser/renderer/RenderSystem.cpp' l='1038' u='c' c='_ZN19idRenderSystemLocal11UploadImageEPKcPKhii'/>
+<use f='codebrowser/renderer/tr_render.cpp' l='393' u='c' c='_Z25RB_BindVariableStageImagePK14textureStage_tPKf'/>
+<use f='codebrowser/renderer/tr_rendertools.cpp' l='2278' u='c' c='_Z12RB_TestImagev'/>
+<use f='codebrowser/ui/MarkerWindow.cpp' l='346' u='c' c='_ZN14idMarkerWindow8ActivateEbR5idStr'/>

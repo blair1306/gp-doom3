@@ -1,0 +1,17 @@
+<dec f='codebrowser/tools/compilers/roqvq/roq.h' l='111' type='void roq::JPEGStartCompress(j_compress_ptr cinfo, bool write_all_tables)'/>
+<def f='codebrowser/tools/compilers/roqvq/roq.cpp' l='278' ll='297' type='void roq::JPEGStartCompress(j_compress_ptr cinfo, bool write_all_tables)'/>
+<use f='codebrowser/tools/compilers/roqvq/roq.cpp' l='475' u='c' c='_ZN3roq13WriteLosslessEv'/>
+<doc f='codebrowser/tools/compilers/roqvq/roq.cpp' l='263'>/*
+ * Compression initialization.
+ * Before calling this, all parameters and a data destination must be set up.
+ *
+ * We require a write_all_tables parameter as a failsafe check when writing
+ * multiple datastreams from the same compression object.  Since prior runs
+ * will have left all the tables marked sent_table=true, a subsequent run
+ * would emit an abbreviated stream (no tables) by default.  This may be what
+ * is wanted, but for safety&apos;s sake it should not be the default behavior:
+ * programmers should have to make a deliberate choice to emit abbreviated
+ * images.  Therefore the documentation and examples should encourage people
+ * to pass write_all_tables=true; then it will take active thought to do the
+ * wrong thing.
+ */</doc>

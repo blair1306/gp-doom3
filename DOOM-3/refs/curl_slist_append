@@ -1,0 +1,21 @@
+<dec f='codebrowser/curl/include/curl/curl.h' l='1074' type='struct curl_slist * curl_slist_append(struct curl_slist * , const char * )'/>
+<doc f='codebrowser/curl/include/curl/curl.h' l='1066'>/*
+ * NAME curl_slist_append()
+ *
+ * DESCRIPTION
+ *
+ * Appends a string to a linked list. If no list exists, it will be created
+ * first. Returns the new list, after appending.
+ */</doc>
+<def f='codebrowser/curl/lib/sendf.c' l='82' ll='105' type='struct curl_slist * curl_slist_append(struct curl_slist * list, const char * data)'/>
+<doc f='codebrowser/curl/lib/sendf.c' l='77'>/* append a struct to the linked list. It always retunrs the address of the
+ * first record, so that you can sure this function as an initialization
+ * function as well as an append function. If you find this bothersome,
+ * then simply create a separate _init function and call it appropriately from
+ * within the proram. */</doc>
+<use f='codebrowser/curl/lib/url.c' l='619' u='c' c='Curl_setopt'/>
+<use f='codebrowser/curl/src/main.c' l='1683' u='c' c='getparameter'/>
+<use f='codebrowser/curl/src/main.c' l='1815' u='c' c='getparameter'/>
+<use f='codebrowser/curl/src/main.c' l='1820' u='c' c='getparameter'/>
+<use f='codebrowser/curl/src/main.c' l='1823' u='c' c='getparameter'/>
+<use f='codebrowser/curl/src/main.c' l='1846' u='c' c='getparameter'/>

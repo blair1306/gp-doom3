@@ -1,0 +1,16 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1178' type='viewEntity_t * R_SetEntityDefViewEntity(idRenderEntityLocal * def)'/>
+<use f='codebrowser/renderer/RenderWorld_portals.cpp' l='630' u='c' c='_ZN18idRenderWorldLocal17AddAreaEntityRefsEiPK13portalStack_s'/>
+<def f='codebrowser/renderer/tr_light.cpp' l='378' ll='410' type='viewEntity_t * R_SetEntityDefViewEntity(idRenderEntityLocal * def)'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='593' u='c' c='_ZN18idRenderWorldLocal26CreateLightDefInteractionsEP18idRenderLightLocal'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='614' u='c' c='_ZN18idRenderWorldLocal26CreateLightDefInteractionsEP18idRenderLightLocal'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='646' u='c' c='_ZN18idRenderWorldLocal26CreateLightDefInteractionsEP18idRenderLightLocal'/>
+<doc f='codebrowser/renderer/tr_light.cpp' l='368'>/*
+=============
+R_SetEntityDefViewEntity
+
+If the entityDef isn&apos;t already on the viewEntity list, create
+a viewEntity and add it to the list with an empty scissor rect.
+
+This does not instantiate dynamic models for the entity yet.
+=============
+*/</doc>

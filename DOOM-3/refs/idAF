@@ -1,0 +1,160 @@
+<def f='codebrowser/d3xp/AF.h' l='55' ll='118'/>
+<size>564</size>
+<fun r='_ZN4idAFC1Ev'/>
+<fun r='_ZN4idAFD1Ev'/>
+<fun r='_ZNK4idAF4SaveEP10idSaveGame'/>
+<fun r='_ZN4idAF7RestoreEP13idRestoreGame'/>
+<fun r='_ZN4idAF11SetAnimatorEP10idAnimator'/>
+<fun r='_ZN4idAF4LoadEP8idEntityPKc'/>
+<fun r='_ZNK4idAF8IsLoadedEv'/>
+<fun r='_ZNK4idAF7GetNameEv'/>
+<fun r='_ZN4idAF9SetupPoseEP8idEntityi'/>
+<fun r='_ZN4idAF10ChangePoseEP8idEntityi'/>
+<fun r='_ZNK4idAF18EntitiesTouchingAFEP9afTouch_s'/>
+<fun r='_ZN4idAF5StartEv'/>
+<fun r='_ZN4idAF20StartFromCurrentPoseEi'/>
+<fun r='_ZN4idAF4StopEv'/>
+<fun r='_ZN4idAF4RestEv'/>
+<fun r='_ZNK4idAF8IsActiveEv'/>
+<fun r='_ZN4idAF21SetConstraintPositionEPKcRK6idVec3'/>
+<fun r='_ZN4idAF10GetPhysicsEv'/>
+<fun r='_ZNK4idAF10GetPhysicsEv'/>
+<fun r='_ZNK4idAF9GetBoundsEv'/>
+<fun r='_ZN4idAF15UpdateAnimationEv'/>
+<fun r='_ZNK4idAF27GetPhysicsToVisualTransformER6idVec3R6idMat3'/>
+<fun r='_ZN4idAF13GetImpactInfoEP8idEntityiRK6idVec3P12impactInfo_s'/>
+<fun r='_ZN4idAF12ApplyImpulseEP8idEntityiRK6idVec3S4_'/>
+<fun r='_ZN4idAF8AddForceEP8idEntityiRK6idVec3S4_'/>
+<fun r='_ZNK4idAF18BodyForClipModelIdEi'/>
+<fun r='_ZNK4idAF9SaveStateER6idDict'/>
+<fun r='_ZN4idAF9LoadStateERK6idDict'/>
+<fun r='_ZN4idAF18AddBindConstraintsEv'/>
+<fun r='_ZN4idAF21RemoveBindConstraintsEv'/>
+<mbr r='idAF::name' o='0' t='idStr'/>
+<mbr r='idAF::physicsObj' o='256' t='idPhysics_AF'/>
+<mbr r='idAF::self' o='3680' t='idEntity *'/>
+<mbr r='idAF::animator' o='3712' t='idAnimator *'/>
+<mbr r='idAF::modifiedAnim' o='3744' t='int'/>
+<mbr r='idAF::baseOrigin' o='3776' t='idVec3'/>
+<mbr r='idAF::baseAxis' o='3872' t='idMat3'/>
+<mbr r='idAF::jointMods' o='4160' t='idList&lt;jointConversion_t&gt;'/>
+<mbr r='idAF::jointBody' o='4288' t='idList&lt;int&gt;'/>
+<mbr r='idAF::poseTime' o='4416' t='int'/>
+<mbr r='idAF::restStartTime' o='4448' t='int'/>
+<mbr r='idAF::isLoaded' o='4480' t='bool'/>
+<mbr r='idAF::isActive' o='4488' t='bool'/>
+<mbr r='idAF::hasBindConstraints' o='4496' t='bool'/>
+<fun r='_ZN4idAF7SetBaseEP8idAFBodyPK10idJointMat'/>
+<fun r='_ZN4idAF7AddBodyEP8idAFBodyPK10idJointMatPKc16AFJointModType_t'/>
+<fun r='_ZN4idAF8LoadBodyEPK13idDeclAF_BodyPK10idJointMat'/>
+<fun r='_ZN4idAF14LoadConstraintEPK19idDeclAF_Constraint'/>
+<fun r='_ZNK4idAF9TestSolidEv'/>
+<fun r='_ZN4idAFC1Ev'/>
+<fun r='_ZN4idAFD1Ev'/>
+<fun r='_ZNK4idAF4SaveEP10idSaveGame'/>
+<fun r='_ZN4idAF7RestoreEP13idRestoreGame'/>
+<fun r='_ZN4idAF15UpdateAnimationEv'/>
+<fun r='_ZNK4idAF9GetBoundsEv'/>
+<fun r='_ZN4idAF9SetupPoseEP8idEntityi'/>
+<fun r='_ZN4idAF10ChangePoseEP8idEntityi'/>
+<fun r='_ZNK4idAF18EntitiesTouchingAFEP9afTouch_s'/>
+<fun r='_ZNK4idAF18BodyForClipModelIdEi'/>
+<fun r='_ZNK4idAF27GetPhysicsToVisualTransformER6idVec3R6idMat3'/>
+<fun r='_ZN4idAF13GetImpactInfoEP8idEntityiRK6idVec3P12impactInfo_s'/>
+<fun r='_ZN4idAF12ApplyImpulseEP8idEntityiRK6idVec3S4_'/>
+<fun r='_ZN4idAF8AddForceEP8idEntityiRK6idVec3S4_'/>
+<fun r='_ZN4idAF7AddBodyEP8idAFBodyPK10idJointMatPKc16AFJointModType_t'/>
+<fun r='_ZN4idAF7SetBaseEP8idAFBodyPK10idJointMat'/>
+<fun r='_ZN4idAF8LoadBodyEPK13idDeclAF_BodyPK10idJointMat'/>
+<fun r='_ZN4idAF14LoadConstraintEPK19idDeclAF_Constraint'/>
+<fun r='_ZN4idAF4LoadEP8idEntityPKc'/>
+<fun r='_ZN4idAF5StartEv'/>
+<fun r='_ZNK4idAF9TestSolidEv'/>
+<fun r='_ZN4idAF20StartFromCurrentPoseEi'/>
+<fun r='_ZN4idAF4StopEv'/>
+<fun r='_ZN4idAF4RestEv'/>
+<fun r='_ZN4idAF21SetConstraintPositionEPKcRK6idVec3'/>
+<fun r='_ZNK4idAF9SaveStateER6idDict'/>
+<fun r='_ZN4idAF9LoadStateERK6idDict'/>
+<fun r='_ZN4idAF18AddBindConstraintsEv'/>
+<fun r='_ZN4idAF21RemoveBindConstraintsEv'/>
+<def f='codebrowser/game/AF.h' l='55' ll='118'/>
+<size>564</size>
+<fun r='_ZN4idAFC1Ev'/>
+<fun r='_ZN4idAFD1Ev'/>
+<fun r='_ZNK4idAF4SaveEP10idSaveGame'/>
+<fun r='_ZN4idAF7RestoreEP13idRestoreGame'/>
+<fun r='_ZN4idAF11SetAnimatorEP10idAnimator'/>
+<fun r='_ZN4idAF4LoadEP8idEntityPKc'/>
+<fun r='_ZNK4idAF8IsLoadedEv'/>
+<fun r='_ZNK4idAF7GetNameEv'/>
+<fun r='_ZN4idAF9SetupPoseEP8idEntityi'/>
+<fun r='_ZN4idAF10ChangePoseEP8idEntityi'/>
+<fun r='_ZNK4idAF18EntitiesTouchingAFEP9afTouch_s'/>
+<fun r='_ZN4idAF5StartEv'/>
+<fun r='_ZN4idAF20StartFromCurrentPoseEi'/>
+<fun r='_ZN4idAF4StopEv'/>
+<fun r='_ZN4idAF4RestEv'/>
+<fun r='_ZNK4idAF8IsActiveEv'/>
+<fun r='_ZN4idAF21SetConstraintPositionEPKcRK6idVec3'/>
+<fun r='_ZN4idAF10GetPhysicsEv'/>
+<fun r='_ZNK4idAF10GetPhysicsEv'/>
+<fun r='_ZNK4idAF9GetBoundsEv'/>
+<fun r='_ZN4idAF15UpdateAnimationEv'/>
+<fun r='_ZNK4idAF27GetPhysicsToVisualTransformER6idVec3R6idMat3'/>
+<fun r='_ZN4idAF13GetImpactInfoEP8idEntityiRK6idVec3P12impactInfo_s'/>
+<fun r='_ZN4idAF12ApplyImpulseEP8idEntityiRK6idVec3S4_'/>
+<fun r='_ZN4idAF8AddForceEP8idEntityiRK6idVec3S4_'/>
+<fun r='_ZNK4idAF18BodyForClipModelIdEi'/>
+<fun r='_ZNK4idAF9SaveStateER6idDict'/>
+<fun r='_ZN4idAF9LoadStateERK6idDict'/>
+<fun r='_ZN4idAF18AddBindConstraintsEv'/>
+<fun r='_ZN4idAF21RemoveBindConstraintsEv'/>
+<mbr r='idAF::name' o='0' t='idStr'/>
+<mbr r='idAF::physicsObj' o='256' t='idPhysics_AF'/>
+<mbr r='idAF::self' o='3680' t='idEntity *'/>
+<mbr r='idAF::animator' o='3712' t='idAnimator *'/>
+<mbr r='idAF::modifiedAnim' o='3744' t='int'/>
+<mbr r='idAF::baseOrigin' o='3776' t='idVec3'/>
+<mbr r='idAF::baseAxis' o='3872' t='idMat3'/>
+<mbr r='idAF::jointMods' o='4160' t='idList&lt;jointConversion_t&gt;'/>
+<mbr r='idAF::jointBody' o='4288' t='idList&lt;int&gt;'/>
+<mbr r='idAF::poseTime' o='4416' t='int'/>
+<mbr r='idAF::restStartTime' o='4448' t='int'/>
+<mbr r='idAF::isLoaded' o='4480' t='bool'/>
+<mbr r='idAF::isActive' o='4488' t='bool'/>
+<mbr r='idAF::hasBindConstraints' o='4496' t='bool'/>
+<fun r='_ZN4idAF7SetBaseEP8idAFBodyPK10idJointMat'/>
+<fun r='_ZN4idAF7AddBodyEP8idAFBodyPK10idJointMatPKc16AFJointModType_t'/>
+<fun r='_ZN4idAF8LoadBodyEPK13idDeclAF_BodyPK10idJointMat'/>
+<fun r='_ZN4idAF14LoadConstraintEPK19idDeclAF_Constraint'/>
+<fun r='_ZNK4idAF9TestSolidEv'/>
+<fun r='_ZN4idAFC1Ev'/>
+<fun r='_ZN4idAFD1Ev'/>
+<fun r='_ZNK4idAF4SaveEP10idSaveGame'/>
+<fun r='_ZN4idAF7RestoreEP13idRestoreGame'/>
+<fun r='_ZN4idAF15UpdateAnimationEv'/>
+<fun r='_ZNK4idAF9GetBoundsEv'/>
+<fun r='_ZN4idAF9SetupPoseEP8idEntityi'/>
+<fun r='_ZN4idAF10ChangePoseEP8idEntityi'/>
+<fun r='_ZNK4idAF18EntitiesTouchingAFEP9afTouch_s'/>
+<fun r='_ZNK4idAF18BodyForClipModelIdEi'/>
+<fun r='_ZNK4idAF27GetPhysicsToVisualTransformER6idVec3R6idMat3'/>
+<fun r='_ZN4idAF13GetImpactInfoEP8idEntityiRK6idVec3P12impactInfo_s'/>
+<fun r='_ZN4idAF12ApplyImpulseEP8idEntityiRK6idVec3S4_'/>
+<fun r='_ZN4idAF8AddForceEP8idEntityiRK6idVec3S4_'/>
+<fun r='_ZN4idAF7AddBodyEP8idAFBodyPK10idJointMatPKc16AFJointModType_t'/>
+<fun r='_ZN4idAF7SetBaseEP8idAFBodyPK10idJointMat'/>
+<fun r='_ZN4idAF8LoadBodyEPK13idDeclAF_BodyPK10idJointMat'/>
+<fun r='_ZN4idAF14LoadConstraintEPK19idDeclAF_Constraint'/>
+<fun r='_ZN4idAF4LoadEP8idEntityPKc'/>
+<fun r='_ZN4idAF5StartEv'/>
+<fun r='_ZNK4idAF9TestSolidEv'/>
+<fun r='_ZN4idAF20StartFromCurrentPoseEi'/>
+<fun r='_ZN4idAF4StopEv'/>
+<fun r='_ZN4idAF4RestEv'/>
+<fun r='_ZN4idAF21SetConstraintPositionEPKcRK6idVec3'/>
+<fun r='_ZNK4idAF9SaveStateER6idDict'/>
+<fun r='_ZN4idAF9LoadStateERK6idDict'/>
+<fun r='_ZN4idAF18AddBindConstraintsEv'/>
+<fun r='_ZN4idAF21RemoveBindConstraintsEv'/>

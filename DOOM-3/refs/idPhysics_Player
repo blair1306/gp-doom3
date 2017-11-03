@@ -1,0 +1,182 @@
+<inh f='codebrowser/d3xp/physics/Physics_Actor.h' l='44' c='idPhysics_Actor'/>
+<def f='codebrowser/d3xp/physics/Physics_Player.h' l='72' ll='193'/>
+<size>500</size>
+<smbr r='idPhysics_Player::Type' t='idTypeInfo'/>
+<fun r='_ZN16idPhysics_Player14CreateInstanceEv'/>
+<fun r='_ZNK16idPhysics_Player7GetTypeEv'/>
+<smbr r='idPhysics_Player::eventCallbacks' t='idEventFunc&lt;idPhysics_Player&gt; []'/>
+<fun r='_ZN16idPhysics_PlayerC1Ev'/>
+<fun r='_ZNK16idPhysics_Player4SaveEP10idSaveGame'/>
+<fun r='_ZN16idPhysics_Player7RestoreEP13idRestoreGame'/>
+<fun r='_ZN16idPhysics_Player8SetSpeedEff'/>
+<fun r='_ZN16idPhysics_Player16SetMaxStepHeightEf'/>
+<fun r='_ZNK16idPhysics_Player16GetMaxStepHeightEv'/>
+<fun r='_ZN16idPhysics_Player16SetMaxJumpHeightEf'/>
+<fun r='_ZN16idPhysics_Player15SetMovementTypeE8pmtype_t'/>
+<fun r='_ZN16idPhysics_Player14SetPlayerInputERK9usercmd_tRK8idAngles'/>
+<fun r='_ZN16idPhysics_Player12SetKnockBackEi'/>
+<fun r='_ZN16idPhysics_Player13SetDebugLevelEb'/>
+<fun r='_ZNK16idPhysics_Player13GetWaterLevelEv'/>
+<fun r='_ZNK16idPhysics_Player12GetWaterTypeEv'/>
+<fun r='_ZNK16idPhysics_Player9HasJumpedEv'/>
+<fun r='_ZNK16idPhysics_Player12HasSteppedUpEv'/>
+<fun r='_ZNK16idPhysics_Player9GetStepUpEv'/>
+<fun r='_ZNK16idPhysics_Player11IsCrouchingEv'/>
+<fun r='_ZNK16idPhysics_Player8OnLadderEv'/>
+<fun r='_ZNK16idPhysics_Player15PlayerGetOriginEv'/>
+<fun r='_ZN16idPhysics_Player8EvaluateEii'/>
+<fun r='_ZN16idPhysics_Player10UpdateTimeEi'/>
+<fun r='_ZNK16idPhysics_Player7GetTimeEv'/>
+<fun r='_ZNK16idPhysics_Player13GetImpactInfoEiRK6idVec3P12impactInfo_s'/>
+<fun r='_ZN16idPhysics_Player12ApplyImpulseEiRK6idVec3S2_'/>
+<fun r='_ZNK16idPhysics_Player8IsAtRestEv'/>
+<fun r='_ZNK16idPhysics_Player16GetRestStartTimeEv'/>
+<fun r='_ZN16idPhysics_Player9SaveStateEv'/>
+<fun r='_ZN16idPhysics_Player12RestoreStateEv'/>
+<fun r='_ZN16idPhysics_Player9SetOriginERK6idVec3i'/>
+<fun r='_ZN16idPhysics_Player7SetAxisERK6idMat3i'/>
+<fun r='_ZN16idPhysics_Player9TranslateERK6idVec3i'/>
+<fun r='_ZN16idPhysics_Player6RotateERK10idRotationi'/>
+<fun r='_ZN16idPhysics_Player17SetLinearVelocityERK6idVec3i'/>
+<fun r='_ZNK16idPhysics_Player17GetLinearVelocityEi'/>
+<fun r='_ZN16idPhysics_Player9SetPushedEi'/>
+<fun r='_ZNK16idPhysics_Player23GetPushedLinearVelocityEi'/>
+<fun r='_ZN16idPhysics_Player19ClearPushedVelocityEv'/>
+<fun r='_ZN16idPhysics_Player9SetMasterEP8idEntityb'/>
+<fun r='_ZNK16idPhysics_Player15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN16idPhysics_Player16ReadFromSnapshotERK13idBitMsgDelta'/>
+<mbr r='idPhysics_Player::current' o='1056' t='playerPState_t'/>
+<mbr r='idPhysics_Player::saved' o='1568' t='playerPState_t'/>
+<mbr r='idPhysics_Player::walkSpeed' o='2080' t='float'/>
+<mbr r='idPhysics_Player::crouchSpeed' o='2112' t='float'/>
+<mbr r='idPhysics_Player::maxStepHeight' o='2144' t='float'/>
+<mbr r='idPhysics_Player::maxJumpHeight' o='2176' t='float'/>
+<mbr r='idPhysics_Player::debugLevel' o='2208' t='int'/>
+<mbr r='idPhysics_Player::command' o='2240' t='usercmd_t'/>
+<mbr r='idPhysics_Player::viewAngles' o='2496' t='idAngles'/>
+<mbr r='idPhysics_Player::framemsec' o='2592' t='int'/>
+<mbr r='idPhysics_Player::frametime' o='2624' t='float'/>
+<mbr r='idPhysics_Player::playerSpeed' o='2656' t='float'/>
+<mbr r='idPhysics_Player::viewForward' o='2688' t='idVec3'/>
+<mbr r='idPhysics_Player::viewRight' o='2784' t='idVec3'/>
+<mbr r='idPhysics_Player::walking' o='2880' t='bool'/>
+<mbr r='idPhysics_Player::groundPlane' o='2888' t='bool'/>
+<mbr r='idPhysics_Player::groundTrace' o='2912' t='trace_t'/>
+<mbr r='idPhysics_Player::groundMaterial' o='3776' t='const idMaterial *'/>
+<mbr r='idPhysics_Player::ladder' o='3808' t='bool'/>
+<mbr r='idPhysics_Player::ladderNormal' o='3840' t='idVec3'/>
+<mbr r='idPhysics_Player::waterLevel' o='3936' t='waterLevel_t'/>
+<mbr r='idPhysics_Player::waterType' o='3968' t='int'/>
+<fun r='_ZNK16idPhysics_Player8CmdScaleERK9usercmd_t'/>
+<fun r='_ZN16idPhysics_Player10AccelerateERK6idVec3ff'/>
+<fun r='_ZN16idPhysics_Player9SlideMoveEbbbb'/>
+<fun r='_ZN16idPhysics_Player8FrictionEv'/>
+<fun r='_ZN16idPhysics_Player13WaterJumpMoveEv'/>
+<fun r='_ZN16idPhysics_Player9WaterMoveEv'/>
+<fun r='_ZN16idPhysics_Player7FlyMoveEv'/>
+<fun r='_ZN16idPhysics_Player7AirMoveEv'/>
+<fun r='_ZN16idPhysics_Player8WalkMoveEv'/>
+<fun r='_ZN16idPhysics_Player8DeadMoveEv'/>
+<fun r='_ZN16idPhysics_Player10NoclipMoveEv'/>
+<fun r='_ZN16idPhysics_Player13SpectatorMoveEv'/>
+<fun r='_ZN16idPhysics_Player10LadderMoveEv'/>
+<fun r='_ZN16idPhysics_Player15CorrectAllSolidER7trace_si'/>
+<fun r='_ZN16idPhysics_Player11CheckGroundEv'/>
+<fun r='_ZN16idPhysics_Player9CheckDuckEv'/>
+<fun r='_ZN16idPhysics_Player11CheckLadderEv'/>
+<fun r='_ZN16idPhysics_Player9CheckJumpEv'/>
+<fun r='_ZN16idPhysics_Player14CheckWaterJumpEv'/>
+<fun r='_ZN16idPhysics_Player13SetWaterLevelEv'/>
+<fun r='_ZN16idPhysics_Player10DropTimersEv'/>
+<fun r='_ZN16idPhysics_Player10MovePlayerEi'/>
+<inh f='codebrowser/game/physics/Physics_Actor.h' l='44' c='idPhysics_Actor'/>
+<def f='codebrowser/game/physics/Physics_Player.h' l='72' ll='193'/>
+<size>500</size>
+<smbr r='idPhysics_Player::Type' t='idTypeInfo'/>
+<fun r='_ZN16idPhysics_Player14CreateInstanceEv'/>
+<fun r='_ZNK16idPhysics_Player7GetTypeEv'/>
+<smbr r='idPhysics_Player::eventCallbacks' t='idEventFunc&lt;idPhysics_Player&gt; []'/>
+<fun r='_ZN16idPhysics_PlayerC1Ev'/>
+<fun r='_ZNK16idPhysics_Player4SaveEP10idSaveGame'/>
+<fun r='_ZN16idPhysics_Player7RestoreEP13idRestoreGame'/>
+<fun r='_ZN16idPhysics_Player8SetSpeedEff'/>
+<fun r='_ZN16idPhysics_Player16SetMaxStepHeightEf'/>
+<fun r='_ZNK16idPhysics_Player16GetMaxStepHeightEv'/>
+<fun r='_ZN16idPhysics_Player16SetMaxJumpHeightEf'/>
+<fun r='_ZN16idPhysics_Player15SetMovementTypeE8pmtype_t'/>
+<fun r='_ZN16idPhysics_Player14SetPlayerInputERK9usercmd_tRK8idAngles'/>
+<fun r='_ZN16idPhysics_Player12SetKnockBackEi'/>
+<fun r='_ZN16idPhysics_Player13SetDebugLevelEb'/>
+<fun r='_ZNK16idPhysics_Player13GetWaterLevelEv'/>
+<fun r='_ZNK16idPhysics_Player12GetWaterTypeEv'/>
+<fun r='_ZNK16idPhysics_Player9HasJumpedEv'/>
+<fun r='_ZNK16idPhysics_Player12HasSteppedUpEv'/>
+<fun r='_ZNK16idPhysics_Player9GetStepUpEv'/>
+<fun r='_ZNK16idPhysics_Player11IsCrouchingEv'/>
+<fun r='_ZNK16idPhysics_Player8OnLadderEv'/>
+<fun r='_ZNK16idPhysics_Player15PlayerGetOriginEv'/>
+<fun r='_ZN16idPhysics_Player8EvaluateEii'/>
+<fun r='_ZN16idPhysics_Player10UpdateTimeEi'/>
+<fun r='_ZNK16idPhysics_Player7GetTimeEv'/>
+<fun r='_ZNK16idPhysics_Player13GetImpactInfoEiRK6idVec3P12impactInfo_s'/>
+<fun r='_ZN16idPhysics_Player12ApplyImpulseEiRK6idVec3S2_'/>
+<fun r='_ZNK16idPhysics_Player8IsAtRestEv'/>
+<fun r='_ZNK16idPhysics_Player16GetRestStartTimeEv'/>
+<fun r='_ZN16idPhysics_Player9SaveStateEv'/>
+<fun r='_ZN16idPhysics_Player12RestoreStateEv'/>
+<fun r='_ZN16idPhysics_Player9SetOriginERK6idVec3i'/>
+<fun r='_ZN16idPhysics_Player7SetAxisERK6idMat3i'/>
+<fun r='_ZN16idPhysics_Player9TranslateERK6idVec3i'/>
+<fun r='_ZN16idPhysics_Player6RotateERK10idRotationi'/>
+<fun r='_ZN16idPhysics_Player17SetLinearVelocityERK6idVec3i'/>
+<fun r='_ZNK16idPhysics_Player17GetLinearVelocityEi'/>
+<fun r='_ZN16idPhysics_Player9SetPushedEi'/>
+<fun r='_ZNK16idPhysics_Player23GetPushedLinearVelocityEi'/>
+<fun r='_ZN16idPhysics_Player19ClearPushedVelocityEv'/>
+<fun r='_ZN16idPhysics_Player9SetMasterEP8idEntityb'/>
+<fun r='_ZNK16idPhysics_Player15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN16idPhysics_Player16ReadFromSnapshotERK13idBitMsgDelta'/>
+<mbr r='idPhysics_Player::current' o='1056' t='playerPState_t'/>
+<mbr r='idPhysics_Player::saved' o='1568' t='playerPState_t'/>
+<mbr r='idPhysics_Player::walkSpeed' o='2080' t='float'/>
+<mbr r='idPhysics_Player::crouchSpeed' o='2112' t='float'/>
+<mbr r='idPhysics_Player::maxStepHeight' o='2144' t='float'/>
+<mbr r='idPhysics_Player::maxJumpHeight' o='2176' t='float'/>
+<mbr r='idPhysics_Player::debugLevel' o='2208' t='int'/>
+<mbr r='idPhysics_Player::command' o='2240' t='usercmd_t'/>
+<mbr r='idPhysics_Player::viewAngles' o='2496' t='idAngles'/>
+<mbr r='idPhysics_Player::framemsec' o='2592' t='int'/>
+<mbr r='idPhysics_Player::frametime' o='2624' t='float'/>
+<mbr r='idPhysics_Player::playerSpeed' o='2656' t='float'/>
+<mbr r='idPhysics_Player::viewForward' o='2688' t='idVec3'/>
+<mbr r='idPhysics_Player::viewRight' o='2784' t='idVec3'/>
+<mbr r='idPhysics_Player::walking' o='2880' t='bool'/>
+<mbr r='idPhysics_Player::groundPlane' o='2888' t='bool'/>
+<mbr r='idPhysics_Player::groundTrace' o='2912' t='trace_t'/>
+<mbr r='idPhysics_Player::groundMaterial' o='3776' t='const idMaterial *'/>
+<mbr r='idPhysics_Player::ladder' o='3808' t='bool'/>
+<mbr r='idPhysics_Player::ladderNormal' o='3840' t='idVec3'/>
+<mbr r='idPhysics_Player::waterLevel' o='3936' t='waterLevel_t'/>
+<mbr r='idPhysics_Player::waterType' o='3968' t='int'/>
+<fun r='_ZNK16idPhysics_Player8CmdScaleERK9usercmd_t'/>
+<fun r='_ZN16idPhysics_Player10AccelerateERK6idVec3ff'/>
+<fun r='_ZN16idPhysics_Player9SlideMoveEbbbb'/>
+<fun r='_ZN16idPhysics_Player8FrictionEv'/>
+<fun r='_ZN16idPhysics_Player13WaterJumpMoveEv'/>
+<fun r='_ZN16idPhysics_Player9WaterMoveEv'/>
+<fun r='_ZN16idPhysics_Player7FlyMoveEv'/>
+<fun r='_ZN16idPhysics_Player7AirMoveEv'/>
+<fun r='_ZN16idPhysics_Player8WalkMoveEv'/>
+<fun r='_ZN16idPhysics_Player8DeadMoveEv'/>
+<fun r='_ZN16idPhysics_Player10NoclipMoveEv'/>
+<fun r='_ZN16idPhysics_Player13SpectatorMoveEv'/>
+<fun r='_ZN16idPhysics_Player10LadderMoveEv'/>
+<fun r='_ZN16idPhysics_Player15CorrectAllSolidER7trace_si'/>
+<fun r='_ZN16idPhysics_Player11CheckGroundEv'/>
+<fun r='_ZN16idPhysics_Player9CheckDuckEv'/>
+<fun r='_ZN16idPhysics_Player11CheckLadderEv'/>
+<fun r='_ZN16idPhysics_Player9CheckJumpEv'/>
+<fun r='_ZN16idPhysics_Player14CheckWaterJumpEv'/>
+<fun r='_ZN16idPhysics_Player13SetWaterLevelEv'/>
+<fun r='_ZN16idPhysics_Player10DropTimersEv'/>
+<fun r='_ZN16idPhysics_Player10MovePlayerEi'/>

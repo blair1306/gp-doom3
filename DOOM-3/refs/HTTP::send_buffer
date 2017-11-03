@@ -1,0 +1,8 @@
+<dec f='codebrowser/curl/lib/urldata.h' l='234' type='void *'/>
+<offset>1280</offset>
+<doc f='codebrowser/curl/lib/urldata.h' l='234'>/* used if the request couldn&apos;t be sent in one chunk,
+                        points to an allocated send_buffer struct */</doc>
+<use f='codebrowser/curl/lib/http.c' l='594' u='w' c='add_buffer_send'/>
+<use f='codebrowser/curl/lib/http.c' l='1015' u='r' c='Curl_http_done'/>
+<use f='codebrowser/curl/lib/http.c' l='1016' u='r' c='Curl_http_done'/>
+<use f='codebrowser/curl/lib/http.c' l='1020' u='w' c='Curl_http_done'/>

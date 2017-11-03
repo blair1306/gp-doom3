@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>PlaneSet.h source code [codebrowser/idlib/containers/PlaneSet.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idPlaneSet "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/idlib/containers/PlaneSet.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>idlib</a>/<a href='./'>containers</a>/<a href='PlaneSet.h.html'>PlaneSet.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__PLANESET_H__">__PLANESET_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__PLANESET_H__" data-ref="_M/__PLANESET_H__">__PLANESET_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>	Plane Set</i></td></tr>
+<tr><th id="36">36</th><td><i></i></td></tr>
+<tr><th id="37">37</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="38">38</th><td><i>*/</i></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><b>class</b> <dfn class="type def" id="idPlaneSet" title='idPlaneSet' data-ref="idPlaneSet">idPlaneSet</dfn> : <b>public</b> <a class="type" href="../../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<a class="type" href="../math/Plane.h.html#idPlane" title='idPlane' data-ref="idPlane">idPlane</a>&gt; {</td></tr>
+<tr><th id="41">41</th><td><b>public</b>:</td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td>	<em>void</em>					<dfn class="decl def" id="_ZN10idPlaneSet5ClearEv" title='idPlaneSet::Clear' data-ref="_ZN10idPlaneSet5ClearEv">Clear</dfn>( <em>void</em> ) { <a class="type" href="../../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<a class="type" href="../math/Plane.h.html#idPlane" title='idPlane' data-ref="idPlane">idPlane</a>&gt;::<a class="member" href="List.h.html#_ZN6idList5ClearEv" title='idList::Clear' data-ref="_ZN6idList5ClearEv">Clear</a>(); <a class="member" href="#idPlaneSet::hash" title='idPlaneSet::hash' data-ref="idPlaneSet::hash">hash</a>.<a class="ref" href="HashIndex.h.html#_ZN11idHashIndex4FreeEv" title='idHashIndex::Free' data-ref="_ZN11idHashIndex4FreeEv">Free</a>(); }</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td>	<em>int</em>						<a class="decl" href="#_ZN10idPlaneSet9FindPlaneERK7idPlaneff" title='idPlaneSet::FindPlane' data-ref="_ZN10idPlaneSet9FindPlaneERK7idPlaneff">FindPlane</a>( <em>const</em> <a class="type" href="../math/Plane.h.html#idPlane" title='idPlane' data-ref="idPlane">idPlane</a> &amp;<dfn class="local col3 decl" id="6843plane" title='plane' data-type='const idPlane &amp;' data-ref="6843plane">plane</dfn>, <em>const</em> <em>float</em> <dfn class="local col4 decl" id="6844normalEps" title='normalEps' data-type='const float' data-ref="6844normalEps">normalEps</dfn>, <em>const</em> <em>float</em> <dfn class="local col5 decl" id="6845distEps" title='distEps' data-type='const float' data-ref="6845distEps">distEps</dfn> );</td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td><b>private</b>:</td></tr>
+<tr><th id="48">48</th><td>	<a class="type" href="HashIndex.h.html#idHashIndex" title='idHashIndex' data-ref="idHashIndex">idHashIndex</a>				<dfn class="decl" id="idPlaneSet::hash" title='idPlaneSet::hash' data-ref="idPlaneSet::hash">hash</dfn>;</td></tr>
+<tr><th id="49">49</th><td>};</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>int</em> <a class="type" href="#idPlaneSet" title='idPlaneSet' data-ref="idPlaneSet">idPlaneSet</a>::<dfn class="decl def" id="_ZN10idPlaneSet9FindPlaneERK7idPlaneff" title='idPlaneSet::FindPlane' data-ref="_ZN10idPlaneSet9FindPlaneERK7idPlaneff">FindPlane</dfn>( <em>const</em> <a class="type" href="../math/Plane.h.html#idPlane" title='idPlane' data-ref="idPlane">idPlane</a> &amp;<dfn class="local col6 decl" id="6846plane" title='plane' data-type='const idPlane &amp;' data-ref="6846plane">plane</dfn>, <em>const</em> <em>float</em> <dfn class="local col7 decl" id="6847normalEps" title='normalEps' data-type='const float' data-ref="6847normalEps">normalEps</dfn>, <em>const</em> <em>float</em> <dfn class="local col8 decl" id="6848distEps" title='distEps' data-type='const float' data-ref="6848distEps">distEps</dfn> ) {</td></tr>
+<tr><th id="52">52</th><td>	<em>int</em> <dfn class="local col9 decl" id="6849i" title='i' data-type='int' data-ref="6849i">i</dfn>, <dfn class="local col0 decl" id="6850border" title='border' data-type='int' data-ref="6850border">border</dfn>, <dfn class="local col1 decl" id="6851hashKey" title='hashKey' data-type='int' data-ref="6851hashKey">hashKey</dfn>;</td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td>	<a class="macro" href="../Lib.h.html#147" title="if ( distEps &lt;= 0.125f ) { } else AssertFailed( &quot;/home/jon/workspace/id-software/DOOM-3/neo/TypeInfo/../idlib/containers/PlaneSet.h&quot;, 54, &quot;distEps &lt;= 0.125f&quot; )" data-ref="_M/assert">assert</a>( <a class="local col8 ref" href="#6848distEps" title='distEps' data-ref="6848distEps">distEps</a> &lt;= <var>0.125f</var> );</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td>	<a class="local col1 ref" href="#6851hashKey" title='hashKey' data-ref="6851hashKey">hashKey</a> = (<em>int</em>)( <a class="type" href="../math/Math.h.html#idMath" title='idMath' data-ref="idMath">idMath</a>::<a class="ref" href="../math/Math.h.html#_ZN6idMath4FabsEf" title='idMath::Fabs' data-ref="_ZN6idMath4FabsEf">Fabs</a>( <a class="local col6 ref" href="#6846plane" title='plane' data-ref="6846plane">plane</a>.<a class="ref" href="../math/Plane.h.html#_ZNK7idPlane4DistEv" title='idPlane::Dist' data-ref="_ZNK7idPlane4DistEv">Dist</a>() ) * <var>0.125f</var> );</td></tr>
+<tr><th id="57">57</th><td>	<b>for</b> ( <a class="local col0 ref" href="#6850border" title='border' data-ref="6850border">border</a> = -<var>1</var>; <a class="local col0 ref" href="#6850border" title='border' data-ref="6850border">border</a> &lt;= <var>1</var>; <a class="local col0 ref" href="#6850border" title='border' data-ref="6850border">border</a>++ ) {</td></tr>
+<tr><th id="58">58</th><td>		<b>for</b> ( <a class="local col9 ref" href="#6849i" title='i' data-ref="6849i">i</a> = <a class="member" href="#idPlaneSet::hash" title='idPlaneSet::hash' data-ref="idPlaneSet::hash">hash</a>.<a class="ref" href="HashIndex.h.html#_ZNK11idHashIndex5FirstEi" title='idHashIndex::First' data-ref="_ZNK11idHashIndex5FirstEi">First</a>( <a class="local col1 ref" href="#6851hashKey" title='hashKey' data-ref="6851hashKey">hashKey</a> + <a class="local col0 ref" href="#6850border" title='border' data-ref="6850border">border</a> ); <a class="local col9 ref" href="#6849i" title='i' data-ref="6849i">i</a> &gt;= <var>0</var>; <a class="local col9 ref" href="#6849i" title='i' data-ref="6849i">i</a> = <a class="member" href="#idPlaneSet::hash" title='idPlaneSet::hash' data-ref="idPlaneSet::hash">hash</a>.<a class="ref" href="HashIndex.h.html#_ZNK11idHashIndex4NextEi" title='idHashIndex::Next' data-ref="_ZNK11idHashIndex4NextEi">Next</a>( <a class="local col9 ref" href="#6849i" title='i' data-ref="6849i">i</a> ) ) {</td></tr>
+<tr><th id="59">59</th><td>			<b>if</b> ( (*<b>this</b>)<a class="member" href="List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[<a class="local col9 ref" href="#6849i" title='i' data-ref="6849i">i</a>]</a>.<a class="ref" href="../math/Plane.h.html#_ZNK7idPlane7CompareERKS_ff" title='idPlane::Compare' data-ref="_ZNK7idPlane7CompareERKS_ff">Compare</a>( <a class="local col6 ref" href="#6846plane" title='plane' data-ref="6846plane">plane</a>, <a class="local col7 ref" href="#6847normalEps" title='normalEps' data-ref="6847normalEps">normalEps</a>, <a class="local col8 ref" href="#6848distEps" title='distEps' data-ref="6848distEps">distEps</a> ) ) {</td></tr>
+<tr><th id="60">60</th><td>				<b>return</b> <a class="local col9 ref" href="#6849i" title='i' data-ref="6849i">i</a>;</td></tr>
+<tr><th id="61">61</th><td>			}</td></tr>
+<tr><th id="62">62</th><td>		}</td></tr>
+<tr><th id="63">63</th><td>	}</td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td>	<b>if</b> ( <a class="local col6 ref" href="#6846plane" title='plane' data-ref="6846plane">plane</a>.<a class="ref" href="../math/Plane.h.html#_ZNK7idPlane4TypeEv" title='idPlane::Type' data-ref="_ZNK7idPlane4TypeEv">Type</a>() &gt;= <a class="macro" href="../math/Plane.h.html#62" title="3" data-ref="_M/PLANETYPE_NEGX">PLANETYPE_NEGX</a> &amp;&amp; <a class="local col6 ref" href="#6846plane" title='plane' data-ref="6846plane">plane</a>.<a class="ref" href="../math/Plane.h.html#_ZNK7idPlane4TypeEv" title='idPlane::Type' data-ref="_ZNK7idPlane4TypeEv">Type</a>() &lt; <a class="macro" href="../math/Plane.h.html#65" title="6" data-ref="_M/PLANETYPE_TRUEAXIAL">PLANETYPE_TRUEAXIAL</a> ) {</td></tr>
+<tr><th id="66">66</th><td>		<a class="member" href="List.h.html#_ZN6idList6AppendERKT_" title='idList::Append' data-ref="_ZN6idList6AppendERKT_">Append</a>( <a class="ref" href="../math/Plane.h.html#_ZNK7idPlanengEv" title='idPlane::operator-' data-ref="_ZNK7idPlanengEv">-</a><a class="local col6 ref" href="#6846plane" title='plane' data-ref="6846plane">plane</a> );</td></tr>
+<tr><th id="67">67</th><td>		<a class="member" href="#idPlaneSet::hash" title='idPlaneSet::hash' data-ref="idPlaneSet::hash">hash</a>.<a class="ref" href="HashIndex.h.html#_ZN11idHashIndex3AddEii" title='idHashIndex::Add' data-ref="_ZN11idHashIndex3AddEii">Add</a>( <a class="local col1 ref" href="#6851hashKey" title='hashKey' data-ref="6851hashKey">hashKey</a>, <a class="member" href="List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>()-<var>1</var> );</td></tr>
+<tr><th id="68">68</th><td>		<a class="member" href="List.h.html#_ZN6idList6AppendERKT_" title='idList::Append' data-ref="_ZN6idList6AppendERKT_">Append</a>( <a class="local col6 ref" href="#6846plane" title='plane' data-ref="6846plane">plane</a> );</td></tr>
+<tr><th id="69">69</th><td>		<a class="member" href="#idPlaneSet::hash" title='idPlaneSet::hash' data-ref="idPlaneSet::hash">hash</a>.<a class="ref" href="HashIndex.h.html#_ZN11idHashIndex3AddEii" title='idHashIndex::Add' data-ref="_ZN11idHashIndex3AddEii">Add</a>( <a class="local col1 ref" href="#6851hashKey" title='hashKey' data-ref="6851hashKey">hashKey</a>, <a class="member" href="List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>()-<var>1</var> );</td></tr>
+<tr><th id="70">70</th><td>		<b>return</b> ( <a class="member" href="List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>() - <var>1</var> );</td></tr>
+<tr><th id="71">71</th><td>	}</td></tr>
+<tr><th id="72">72</th><td>	<b>else</b> {</td></tr>
+<tr><th id="73">73</th><td>		<a class="member" href="List.h.html#_ZN6idList6AppendERKT_" title='idList::Append' data-ref="_ZN6idList6AppendERKT_">Append</a>( <a class="local col6 ref" href="#6846plane" title='plane' data-ref="6846plane">plane</a> );</td></tr>
+<tr><th id="74">74</th><td>		<a class="member" href="#idPlaneSet::hash" title='idPlaneSet::hash' data-ref="idPlaneSet::hash">hash</a>.<a class="ref" href="HashIndex.h.html#_ZN11idHashIndex3AddEii" title='idHashIndex::Add' data-ref="_ZN11idHashIndex3AddEii">Add</a>( <a class="local col1 ref" href="#6851hashKey" title='hashKey' data-ref="6851hashKey">hashKey</a>, <a class="member" href="List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>()-<var>1</var> );</td></tr>
+<tr><th id="75">75</th><td>		<a class="member" href="List.h.html#_ZN6idList6AppendERKT_" title='idList::Append' data-ref="_ZN6idList6AppendERKT_">Append</a>( <a class="ref" href="../math/Plane.h.html#_ZNK7idPlanengEv" title='idPlane::operator-' data-ref="_ZNK7idPlanengEv">-</a><a class="local col6 ref" href="#6846plane" title='plane' data-ref="6846plane">plane</a> );</td></tr>
+<tr><th id="76">76</th><td>		<a class="member" href="#idPlaneSet::hash" title='idPlaneSet::hash' data-ref="idPlaneSet::hash">hash</a>.<a class="ref" href="HashIndex.h.html#_ZN11idHashIndex3AddEii" title='idHashIndex::Add' data-ref="_ZN11idHashIndex3AddEii">Add</a>( <a class="local col1 ref" href="#6851hashKey" title='hashKey' data-ref="6851hashKey">hashKey</a>, <a class="member" href="List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>()-<var>1</var> );</td></tr>
+<tr><th id="77">77</th><td>		<b>return</b> ( <a class="member" href="List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>() - <var>2</var> );</td></tr>
+<tr><th id="78">78</th><td>	}</td></tr>
+<tr><th id="79">79</th><td>}</td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td><u>#<span data-ppcond="29">endif</span> /* !__PLANESET_H__ */</u></td></tr>
+<tr><th id="82">82</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../TypeInfo/TypeInfoGen.cpp.html'>codebrowser/TypeInfo/TypeInfoGen.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

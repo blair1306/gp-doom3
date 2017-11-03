@@ -1,0 +1,19 @@
+<dec f='codebrowser/framework/EventLoop.h' l='63' type='int idEventLoop::Milliseconds()'/>
+<doc f='codebrowser/framework/EventLoop.h' l='61'>// Gets the current time in a way that will be journaled properly,
+					// as opposed to Sys_Milliseconds(), which always reads a real timer.</doc>
+<use f='codebrowser/framework/Common.cpp' l='1336' u='c' c='_ZL12Com_Freeze_fRK9idCmdArgs'/>
+<use f='codebrowser/framework/Common.cpp' l='1339' u='c' c='_ZL12Com_Freeze_fRK9idCmdArgs'/>
+<use f='codebrowser/framework/Console.cpp' l='632' u='c' c='_ZN14idConsoleLocal12KeyDownEventEi'/>
+<use f='codebrowser/framework/Console.cpp' l='639' u='c' c='_ZN14idConsoleLocal12KeyDownEventEi'/>
+<use f='codebrowser/framework/Console.cpp' l='677' u='c' c='_ZN14idConsoleLocal6ScrollEv'/>
+<def f='codebrowser/framework/EventLoop.cpp' l='248' ll='265' type='int idEventLoop::Milliseconds()'/>
+<doc f='codebrowser/framework/EventLoop.cpp' l='241'>/*
+================
+idEventLoop::Milliseconds
+
+Can be used for profiling, but will be journaled accurately
+================
+*/</doc>
+<use f='codebrowser/framework/Session.cpp' l='2343' u='c' c='_ZN14idSessionLocal14PacifierUpdateEv'/>
+<use f='codebrowser/renderer/RenderSystem.cpp' l='675' u='c' c='_ZN19idRenderSystemLocal10BeginFrameEii'/>
+<use f='codebrowser/renderer/RenderWorld_demo.cpp' l='153' u='c' c='_ZN18idRenderWorldLocal18ProcessDemoCommandEP10idDemoFileP12renderView_sPi'/>

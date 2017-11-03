@@ -1,0 +1,72 @@
+<inh f='codebrowser/d3xp/Entity.h' l='107' c='idEntity'/>
+<def f='codebrowser/d3xp/Sound.h' l='40' ll='74'/>
+<size>916</size>
+<doc f='codebrowser/d3xp/Sound.h' l='32'>/*
+===============================================================================
+
+  Generic sound emitter.
+
+===============================================================================
+*/</doc>
+<smbr r='idSound::Type' t='idTypeInfo'/>
+<fun r='_ZN7idSound14CreateInstanceEv'/>
+<fun r='_ZNK7idSound7GetTypeEv'/>
+<smbr r='idSound::eventCallbacks' t='idEventFunc&lt;idSound&gt; []'/>
+<fun r='_ZN7idSoundC1Ev'/>
+<fun r='_ZNK7idSound4SaveEP10idSaveGame'/>
+<fun r='_ZN7idSound7RestoreEP13idRestoreGame'/>
+<fun r='_ZN7idSound25UpdateChangeableSpawnArgsEPK6idDict'/>
+<fun r='_ZN7idSound5SpawnEv'/>
+<fun r='_ZN7idSound11ToggleOnOffEP8idEntityS1_'/>
+<fun r='_ZN7idSound5ThinkEv'/>
+<fun r='_ZN7idSound8SetSoundEPKci'/>
+<fun r='_ZN7idSound17ShowEditingDialogEv'/>
+<mbr r='idSound::lastSoundVol' o='6944' t='float'/>
+<mbr r='idSound::soundVol' o='6976' t='float'/>
+<mbr r='idSound::random' o='7008' t='float'/>
+<mbr r='idSound::wait' o='7040' t='float'/>
+<mbr r='idSound::timerOn' o='7072' t='bool'/>
+<mbr r='idSound::shakeTranslate' o='7104' t='idVec3'/>
+<mbr r='idSound::shakeRotate' o='7200' t='idAngles'/>
+<mbr r='idSound::playingUntilTime' o='7296' t='int'/>
+<fun r='_ZN7idSound13Event_TriggerEP8idEntity'/>
+<fun r='_ZN7idSound11Event_TimerEv'/>
+<fun r='_ZN7idSound8Event_OnEv'/>
+<fun r='_ZN7idSound9Event_OffEv'/>
+<fun r='_ZN7idSound7DoSoundEb'/>
+<inh f='codebrowser/game/Entity.h' l='107' c='idEntity'/>
+<def f='codebrowser/game/Sound.h' l='40' ll='74'/>
+<size>684</size>
+<doc f='codebrowser/game/Sound.h' l='32'>/*
+===============================================================================
+
+  Generic sound emitter.
+
+===============================================================================
+*/</doc>
+<smbr r='idSound::Type' t='idTypeInfo'/>
+<fun r='_ZN7idSound14CreateInstanceEv'/>
+<fun r='_ZNK7idSound7GetTypeEv'/>
+<smbr r='idSound::eventCallbacks' t='idEventFunc&lt;idSound&gt; []'/>
+<fun r='_ZN7idSoundC1Ev'/>
+<fun r='_ZNK7idSound4SaveEP10idSaveGame'/>
+<fun r='_ZN7idSound7RestoreEP13idRestoreGame'/>
+<fun r='_ZN7idSound25UpdateChangeableSpawnArgsEPK6idDict'/>
+<fun r='_ZN7idSound5SpawnEv'/>
+<fun r='_ZN7idSound11ToggleOnOffEP8idEntityS1_'/>
+<fun r='_ZN7idSound5ThinkEv'/>
+<fun r='_ZN7idSound8SetSoundEPKci'/>
+<fun r='_ZN7idSound17ShowEditingDialogEv'/>
+<mbr r='idSound::lastSoundVol' o='5088' t='float'/>
+<mbr r='idSound::soundVol' o='5120' t='float'/>
+<mbr r='idSound::random' o='5152' t='float'/>
+<mbr r='idSound::wait' o='5184' t='float'/>
+<mbr r='idSound::timerOn' o='5216' t='bool'/>
+<mbr r='idSound::shakeTranslate' o='5248' t='idVec3'/>
+<mbr r='idSound::shakeRotate' o='5344' t='idAngles'/>
+<mbr r='idSound::playingUntilTime' o='5440' t='int'/>
+<fun r='_ZN7idSound13Event_TriggerEP8idEntity'/>
+<fun r='_ZN7idSound11Event_TimerEv'/>
+<fun r='_ZN7idSound8Event_OnEv'/>
+<fun r='_ZN7idSound9Event_OffEv'/>
+<fun r='_ZN7idSound7DoSoundEb'/>

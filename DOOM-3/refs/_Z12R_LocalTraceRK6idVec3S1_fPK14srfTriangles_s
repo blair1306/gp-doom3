@@ -1,0 +1,13 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1667' type='localTrace_t R_LocalTrace(const idVec3 &amp; start, const idVec3 &amp; end, const float radius, const srfTriangles_t * tri)'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1024' u='c' c='_ZNK18idRenderWorldLocal8GuiTraceEi6idVec3S0_'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1122' u='c' c='_ZNK18idRenderWorldLocal10ModelTraceER12modelTrace_siRK6idVec3S4_f'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1278' u='c' c='_ZNK18idRenderWorldLocal5TraceER12modelTrace_sRK6idVec3S4_fbb'/>
+<def f='codebrowser/renderer/tr_trace.cpp' l='43' ll='279' type='localTrace_t R_LocalTrace(const idVec3 &amp; start, const idVec3 &amp; end, const float radius, const srfTriangles_t * tri)'/>
+<use f='codebrowser/renderer/tr_trace.cpp' l='421' u='c' c='_Z12RB_ShowTracePP10drawSurf_si'/>
+<doc f='codebrowser/renderer/tr_trace.cpp' l='36'>/*
+=================
+R_LocalTrace
+
+If we resort the vertexes so all silverts come first, we can save some work here.
+=================
+*/</doc>

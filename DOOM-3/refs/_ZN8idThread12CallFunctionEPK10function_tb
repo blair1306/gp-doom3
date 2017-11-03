@@ -1,0 +1,24 @@
+<dec f='codebrowser/d3xp/script/Script_Thread.h' l='224' type='void idThread::CallFunction(const function_t * func, bool clearStack)'/>
+<doc f='codebrowser/d3xp/script/Script_Thread.h' l='223'>// NOTE: If this is called from within a event called by this thread, the function arguments will be invalid after calling this function.</doc>
+<use f='codebrowser/d3xp/Item.cpp' l='1036' u='c' c='_ZN10idItemTeam14Event_TakeFlagEP8idPlayer'/>
+<use f='codebrowser/d3xp/Item.cpp' l='1115' u='c' c='_ZN10idItemTeam14Event_DropFlagEb'/>
+<use f='codebrowser/d3xp/Item.cpp' l='1164' u='c' c='_ZN10idItemTeam16Event_FlagReturnEP8idPlayer'/>
+<use f='codebrowser/d3xp/Item.cpp' l='1213' u='c' c='_ZN10idItemTeam17Event_FlagCaptureEv'/>
+<def f='codebrowser/d3xp/script/Script_Thread.cpp' l='726' ll='729' type='void idThread::CallFunction(const function_t * func, bool clearStack)'/>
+<doc f='codebrowser/d3xp/script/Script_Thread.cpp' l='719'>/*
+================
+idThread::CallFunction
+
+NOTE: If this is called from within a event called by this thread, the function arguments will be invalid after calling this function.
+================
+*/</doc>
+<dec f='codebrowser/game/script/Script_Thread.h' l='213' type='void idThread::CallFunction(const function_t * func, bool clearStack)'/>
+<doc f='codebrowser/game/script/Script_Thread.h' l='212'>// NOTE: If this is called from within a event called by this thread, the function arguments will be invalid after calling this function.</doc>
+<def f='codebrowser/game/script/Script_Thread.cpp' l='704' ll='707' type='void idThread::CallFunction(const function_t * func, bool clearStack)'/>
+<doc f='codebrowser/game/script/Script_Thread.cpp' l='697'>/*
+================
+idThread::CallFunction
+
+NOTE: If this is called from within a event called by this thread, the function arguments will be invalid after calling this function.
+================
+*/</doc>

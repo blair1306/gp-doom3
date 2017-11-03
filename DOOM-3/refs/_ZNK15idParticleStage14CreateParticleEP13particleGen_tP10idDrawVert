@@ -1,0 +1,21 @@
+<dec f='codebrowser/framework/DeclParticle.h' l='112' type='int idParticleStage::CreateParticle(particleGen_t * g, idDrawVert * verts) const'/>
+<doc f='codebrowser/framework/DeclParticle.h' l='111'>// returns the number of verts created, which will range from 0 to 4*NumQuadsPerParticle()</doc>
+<use f='codebrowser/d3xp/SmokeParticles.cpp' l='392' u='c' c='_ZN16idSmokeParticles18UpdateRenderEntityEP14renderEntity_sPK12renderView_s'/>
+<def f='codebrowser/framework/DeclParticle.cpp' l='1280' ll='1326' type='int idParticleStage::CreateParticle(particleGen_t * g, idDrawVert * verts) const'/>
+<doc f='codebrowser/framework/DeclParticle.cpp' l='1266'>/*
+================
+idParticleStage::CreateParticle
+
+Returns 0 if no particle is created because it is completely faded out
+Returns 4 if a normal quad is created
+Returns 8 if two cross faded quads are created
+
+Vertex order is:
+
+0 1
+2 3
+================
+*/</doc>
+<use f='codebrowser/game/SmokeParticles.cpp' l='366' u='c' c='_ZN16idSmokeParticles18UpdateRenderEntityEP14renderEntity_sPK12renderView_s'/>
+<use f='codebrowser/renderer/Model_prt.cpp' l='215' u='c' c='_ZN16idRenderModelPrt23InstantiateDynamicModelEPK14renderEntity_sPK9viewDef_sP13idRenderModel'/>
+<use f='codebrowser/renderer/tr_deform.cpp' l='1195' u='c' c='_ZL16R_ParticleDeformP10drawSurf_sb'/>

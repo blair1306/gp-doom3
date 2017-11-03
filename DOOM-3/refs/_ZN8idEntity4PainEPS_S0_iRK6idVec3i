@@ -1,0 +1,28 @@
+<dec f='codebrowser/d3xp/Entity.h' l='317' type='bool idEntity::Pain(idEntity * inflictor, idEntity * attacker, int damage, const idVec3 &amp; dir, int location)'/>
+<doc f='codebrowser/d3xp/Entity.h' l='316'>// notifies this entity that it is in pain</doc>
+<ovr f='codebrowser/d3xp/Actor.cpp' l='2292' c='_ZN7idActor4PainEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='3098' u='c' c='_ZN8idEntity6DamageEPS_S0_RK6idVec3PKcfi'/>
+<def f='codebrowser/d3xp/Entity.cpp' l='3151' ll='3153' type='bool idEntity::Pain(idEntity * inflictor, idEntity * attacker, int damage, const idVec3 &amp; dir, int location)'/>
+<doc f='codebrowser/d3xp/Entity.cpp' l='3143'>/*
+============
+idEntity::Pain
+
+Called whenever an entity recieves damage.  Returns whether the entity responds to the pain.
+This is a virtual function that subclasses are expected to implement.
+============
+*/</doc>
+<ovr f='codebrowser/d3xp/SecurityCamera.cpp' l='548' c='_ZN16idSecurityCamera4PainEP8idEntityS1_iRK6idVec3i'/>
+<dec f='codebrowser/game/Entity.h' l='301' type='bool idEntity::Pain(idEntity * inflictor, idEntity * attacker, int damage, const idVec3 &amp; dir, int location)'/>
+<doc f='codebrowser/game/Entity.h' l='300'>// notifies this entity that it is in pain</doc>
+<ovr f='codebrowser/game/Actor.cpp' l='2221' c='_ZN7idActor4PainEP8idEntityS1_iRK6idVec3i'/>
+<use f='codebrowser/game/Entity.cpp' l='3002' u='c' c='_ZN8idEntity6DamageEPS_S0_RK6idVec3PKcfi'/>
+<def f='codebrowser/game/Entity.cpp' l='3055' ll='3057' type='bool idEntity::Pain(idEntity * inflictor, idEntity * attacker, int damage, const idVec3 &amp; dir, int location)'/>
+<doc f='codebrowser/game/Entity.cpp' l='3047'>/*
+============
+idEntity::Pain
+
+Called whenever an entity recieves damage.  Returns whether the entity responds to the pain.
+This is a virtual function that subclasses are expected to implement.
+============
+*/</doc>
+<ovr f='codebrowser/game/SecurityCamera.cpp' l='548' c='_ZN16idSecurityCamera4PainEP8idEntityS1_iRK6idVec3i'/>

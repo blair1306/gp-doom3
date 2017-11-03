@@ -1,0 +1,24 @@
+<dec f='codebrowser/renderer/RenderWorld.h' l='185' type='idVec3'/>
+<offset>672</offset>
+<doc f='codebrowser/renderer/RenderWorld.h' l='180'>// shadows, relative to origin
+
+	// frustum definition for projected lights, all reletive to origin
+	// FIXME: we should probably have real plane equations here, and offer
+	// a helper function for conversion from this format</doc>
+<use f='codebrowser/d3xp/Light.cpp' l='91' u='a' c='_ZN10idGameEdit27ParseSpawnArgsToRenderLightEPK6idDictP13renderLight_s'/>
+<use f='codebrowser/d3xp/Light.cpp' l='96' u='r' c='_ZN10idGameEdit27ParseSpawnArgsToRenderLightEPK6idDictP13renderLight_s'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='1079' u='w' c='_ZN8idWeapon12GetWeaponDefEPKci'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='2107' u='r' c='_ZN8idWeapon13AlertMonstersEv'/>
+<use f='codebrowser/d3xp/gamesys/SaveGame.cpp' l='571' u='r' c='_ZN10idSaveGame16WriteRenderLightERK13renderLight_s'/>
+<use f='codebrowser/d3xp/gamesys/SaveGame.cpp' l='1350' u='a' c='_ZN13idRestoreGame15ReadRenderLightER13renderLight_s'/>
+<use f='codebrowser/game/Light.cpp' l='91' u='a' c='_ZN10idGameEdit27ParseSpawnArgsToRenderLightEPK6idDictP13renderLight_s'/>
+<use f='codebrowser/game/Light.cpp' l='96' u='r' c='_ZN10idGameEdit27ParseSpawnArgsToRenderLightEPK6idDictP13renderLight_s'/>
+<use f='codebrowser/game/Weapon.cpp' l='902' u='w' c='_ZN8idWeapon12GetWeaponDefEPKci'/>
+<use f='codebrowser/game/Weapon.cpp' l='1820' u='r' c='_ZN8idWeapon13AlertMonstersEv'/>
+<use f='codebrowser/game/gamesys/SaveGame.cpp' l='566' u='r' c='_ZN10idSaveGame16WriteRenderLightERK13renderLight_s'/>
+<use f='codebrowser/game/gamesys/SaveGame.cpp' l='1340' u='a' c='_ZN13idRestoreGame15ReadRenderLightER13renderLight_s'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='408' u='m' c='_ZN18idRenderWorldLocal14UpdateLightDefEiPK13renderLight_s'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='408' u='r' c='_ZN18idRenderWorldLocal14UpdateLightDefEiPK13renderLight_s'/>
+<use f='codebrowser/renderer/RenderWorld_demo.cpp' l='436' u='r' c='_ZN18idRenderWorldLocal16WriteRenderLightEiPK13renderLight_s'/>
+<use f='codebrowser/renderer/RenderWorld_demo.cpp' l='488' u='a' c='_ZN18idRenderWorldLocal15ReadRenderLightEv'/>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='386' u='r' c='_Z17R_DeriveLightDataP18idRenderLightLocal'/>

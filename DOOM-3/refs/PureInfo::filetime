@@ -1,0 +1,15 @@
+<dec f='codebrowser/curl/lib/urldata.h' l='590' type='long'/>
+<offset>128</offset>
+<doc f='codebrowser/curl/lib/urldata.h' l='590'>/* If requested, this is might get set. Set to -1 if the time
+                    was unretrievable. We cannot have this of type time_t,
+                    since time_t is unsigned on several platforms such as
+                    OpenVMS. */</doc>
+<use f='codebrowser/curl/lib/ftp.c' l='888' u='w' c='ftp_getfiletime'/>
+<use f='codebrowser/curl/lib/ftp.c' l='2176' u='r' c='ftp_perform'/>
+<use f='codebrowser/curl/lib/ftp.c' l='2180' u='r' c='ftp_perform'/>
+<use f='codebrowser/curl/lib/ftp.c' l='2187' u='r' c='ftp_perform'/>
+<use f='codebrowser/curl/lib/ftp.c' l='2250' u='r' c='ftp_perform'/>
+<use f='codebrowser/curl/lib/ftp.c' l='2252' u='r' c='ftp_perform'/>
+<use f='codebrowser/curl/lib/getinfo.c' l='64' u='w' c='Curl_initinfo'/>
+<use f='codebrowser/curl/lib/getinfo.c' l='114' u='r' c='Curl_getinfo'/>
+<use f='codebrowser/curl/lib/transfer.c' l='786' u='w' c='Curl_readwrite'/>

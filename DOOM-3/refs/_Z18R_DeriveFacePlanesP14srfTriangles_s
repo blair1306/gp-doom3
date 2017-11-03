@@ -1,0 +1,16 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1499' type='void R_DeriveFacePlanes(srfTriangles_t * tri)'/>
+<doc f='codebrowser/renderer/tr_local.h' l='1499'>// also called by renderbump</doc>
+<use f='codebrowser/renderer/Interaction.cpp' l='67' u='c' c='_Z23R_CalcInteractionFacingPK19idRenderEntityLocalPK14srfTriangles_sPK18idRenderLightLocalR13srfCullInfo_t'/>
+<use f='codebrowser/renderer/tr_trace.cpp' l='98' u='c' c='_Z12R_LocalTraceRK6idVec3S1_fPK14srfTriangles_s'/>
+<def f='codebrowser/renderer/tr_trisurf.cpp' l='827' ll='881' type='void R_DeriveFacePlanes(srfTriangles_t * tri)'/>
+<use f='codebrowser/renderer/tr_trisurf.cpp' l='900' u='c' c='_Z21R_CreateVertexNormalsP14srfTriangles_s'/>
+<use f='codebrowser/renderer/tr_trisurf.cpp' l='2127' u='c' c='_Z18R_CleanupTrianglesP14srfTriangles_sbbb'/>
+<doc f='codebrowser/renderer/tr_trisurf.cpp' l='820'>/*
+=====================
+R_DeriveFacePlanes
+
+Writes the facePlanes values, overwriting existing ones if present
+=====================
+*/</doc>
+<use f='codebrowser/tools/compilers/renderbump/renderbump.cpp' l='953' u='c' c='_ZL19RenderBumpTrianglesP14srfTriangles_sP12renderBump_t'/>
+<use f='codebrowser/tools/compilers/renderbump/renderbump.cpp' l='1104' u='c' c='_ZL14InitRenderBumpP12renderBump_t'/>

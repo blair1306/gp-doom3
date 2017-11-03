@@ -1,0 +1,97 @@
+<def f='codebrowser/idlib/bv/Bounds.h' l='40' ll='110'/>
+<size>24</size>
+<doc f='codebrowser/idlib/bv/Bounds.h' l='32'>/*
+===============================================================================
+
+	Axis Aligned Bounding Box
+
+===============================================================================
+*/</doc>
+<fun r='_ZN8idBoundsC1Ev'/>
+<fun r='_ZN8idBoundsC1ERK6idVec3S2_'/>
+<fun r='_ZN8idBoundsC1ERK6idVec3'/>
+<fun r='_ZNK8idBoundsixEi'/>
+<fun r='_ZN8idBoundsixEi'/>
+<fun r='_ZNK8idBoundsplERK6idVec3'/>
+<fun r='_ZN8idBoundspLERK6idVec3'/>
+<fun r='_ZNK8idBoundsmlERK6idMat3'/>
+<fun r='_ZN8idBoundsmLERK6idMat3'/>
+<fun r='_ZNK8idBoundsplERKS_'/>
+<fun r='_ZN8idBoundspLERKS_'/>
+<fun r='_ZNK8idBoundsmiERKS_'/>
+<fun r='_ZN8idBoundsmIERKS_'/>
+<fun r='_ZNK8idBounds7CompareERKS_'/>
+<fun r='_ZNK8idBounds7CompareERKS_f'/>
+<fun r='_ZNK8idBoundseqERKS_'/>
+<fun r='_ZNK8idBoundsneERKS_'/>
+<fun r='_ZN8idBounds5ClearEv'/>
+<fun r='_ZN8idBounds4ZeroEv'/>
+<fun r='_ZNK8idBounds9GetCenterEv'/>
+<fun r='_ZNK8idBounds9GetRadiusEv'/>
+<fun r='_ZNK8idBounds9GetRadiusERK6idVec3'/>
+<fun r='_ZNK8idBounds9GetVolumeEv'/>
+<fun r='_ZNK8idBounds9IsClearedEv'/>
+<fun r='_ZN8idBounds8AddPointERK6idVec3'/>
+<fun r='_ZN8idBounds9AddBoundsERKS_'/>
+<fun r='_ZNK8idBounds9IntersectERKS_'/>
+<fun r='_ZN8idBounds13IntersectSelfERKS_'/>
+<fun r='_ZNK8idBounds6ExpandEf'/>
+<fun r='_ZN8idBounds10ExpandSelfEf'/>
+<fun r='_ZNK8idBounds9TranslateERK6idVec3'/>
+<fun r='_ZN8idBounds13TranslateSelfERK6idVec3'/>
+<fun r='_ZNK8idBounds6RotateERK6idMat3'/>
+<fun r='_ZN8idBounds10RotateSelfERK6idMat3'/>
+<fun r='_ZNK8idBounds13PlaneDistanceERK7idPlane'/>
+<fun r='_ZNK8idBounds9PlaneSideERK7idPlanef'/>
+<fun r='_ZNK8idBounds13ContainsPointERK6idVec3'/>
+<fun r='_ZNK8idBounds16IntersectsBoundsERKS_'/>
+<fun r='_ZNK8idBounds16LineIntersectionERK6idVec3S2_'/>
+<fun r='_ZNK8idBounds15RayIntersectionERK6idVec3S2_Rf'/>
+<fun r='_ZN8idBounds21FromTransformedBoundsERKS_RK6idVec3RK6idMat3'/>
+<fun r='_ZN8idBounds10FromPointsEPK6idVec3i'/>
+<fun r='_ZN8idBounds20FromPointTranslationERK6idVec3S2_'/>
+<fun r='_ZN8idBounds21FromBoundsTranslationERKS_RK6idVec3RK6idMat3S4_'/>
+<fun r='_ZN8idBounds17FromPointRotationERK6idVec3RK10idRotation'/>
+<fun r='_ZN8idBounds18FromBoundsRotationERKS_RK6idVec3RK6idMat3RK10idRotation'/>
+<fun r='_ZNK8idBounds8ToPointsEP6idVec3'/>
+<fun r='_ZNK8idBounds8ToSphereEv'/>
+<fun r='_ZNK8idBounds14AxisProjectionERK6idVec3RfS3_'/>
+<fun r='_ZNK8idBounds14AxisProjectionERK6idVec3RK6idMat3S2_RfS6_'/>
+<mbr r='idBounds::b' o='0' t='idVec3 [2]'/>
+<fun r='_ZN8idBoundsC1Ev'/>
+<fun r='_ZN8idBoundsC1ERK6idVec3S2_'/>
+<fun r='_ZN8idBoundsC1ERK6idVec3'/>
+<fun r='_ZNK8idBoundsixEi'/>
+<fun r='_ZN8idBoundsixEi'/>
+<fun r='_ZNK8idBoundsplERK6idVec3'/>
+<fun r='_ZN8idBoundspLERK6idVec3'/>
+<fun r='_ZNK8idBoundsmlERK6idMat3'/>
+<fun r='_ZN8idBoundsmLERK6idMat3'/>
+<fun r='_ZNK8idBoundsplERKS_'/>
+<fun r='_ZN8idBoundspLERKS_'/>
+<fun r='_ZNK8idBoundsmiERKS_'/>
+<fun r='_ZN8idBoundsmIERKS_'/>
+<fun r='_ZNK8idBounds7CompareERKS_'/>
+<fun r='_ZNK8idBounds7CompareERKS_f'/>
+<fun r='_ZNK8idBoundseqERKS_'/>
+<fun r='_ZNK8idBoundsneERKS_'/>
+<fun r='_ZN8idBounds5ClearEv'/>
+<fun r='_ZN8idBounds4ZeroEv'/>
+<fun r='_ZNK8idBounds9GetCenterEv'/>
+<fun r='_ZNK8idBounds9GetVolumeEv'/>
+<fun r='_ZNK8idBounds9IsClearedEv'/>
+<fun r='_ZN8idBounds8AddPointERK6idVec3'/>
+<fun r='_ZN8idBounds9AddBoundsERKS_'/>
+<fun r='_ZNK8idBounds9IntersectERKS_'/>
+<fun r='_ZN8idBounds13IntersectSelfERKS_'/>
+<fun r='_ZNK8idBounds6ExpandEf'/>
+<fun r='_ZN8idBounds10ExpandSelfEf'/>
+<fun r='_ZNK8idBounds9TranslateERK6idVec3'/>
+<fun r='_ZN8idBounds13TranslateSelfERK6idVec3'/>
+<fun r='_ZNK8idBounds6RotateERK6idMat3'/>
+<fun r='_ZN8idBounds10RotateSelfERK6idMat3'/>
+<fun r='_ZNK8idBounds13ContainsPointERK6idVec3'/>
+<fun r='_ZNK8idBounds16IntersectsBoundsERKS_'/>
+<fun r='_ZNK8idBounds8ToSphereEv'/>
+<fun r='_ZNK8idBounds14AxisProjectionERK6idVec3RfS3_'/>
+<fun r='_ZNK8idBounds14AxisProjectionERK6idVec3RK6idMat3S2_RfS6_'/>

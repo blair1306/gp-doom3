@@ -1,0 +1,6 @@
+<dec f='codebrowser/renderer/VertexCache.h' l='80' type='void idVertexCache::UnbindIndex()'/>
+<doc f='codebrowser/renderer/VertexCache.h' l='78'>// if r_useIndexBuffers is enabled, but you need to draw something without
+	// an indexCache, this must be called to reset GL_ELEMENT_ARRAY_BUFFER_ARB</doc>
+<def f='codebrowser/renderer/VertexCache.cpp' l='141' ll='143' type='void idVertexCache::UnbindIndex()'/>
+<use f='codebrowser/renderer/tr_render.cpp' l='101' u='c' c='_Z27RB_DrawElementsWithCountersPK14srfTriangles_s'/>
+<use f='codebrowser/renderer/tr_render.cpp' l='130' u='c' c='_Z33RB_DrawShadowElementsWithCountersPK14srfTriangles_si'/>

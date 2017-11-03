@@ -1,0 +1,10 @@
+<dec f='codebrowser/curl/lib/connect.h' l='33' type='CURLcode Curl_connecthost(struct connectdata * conn, struct Curl_dns_entry * host, int port, curl_socket_t * sockconn, Curl_ipconnect ** addr, bool * connected)'/>
+<def f='codebrowser/curl/lib/connect.c' l='513' ll='715' type='CURLcode Curl_connecthost(struct connectdata * conn, struct Curl_dns_entry * remotehost, int port, curl_socket_t * sockconn, Curl_ipconnect ** addr, bool * connected)'/>
+<doc f='codebrowser/curl/lib/connect.c' l='507'>/*
+ * TCP connect to the given host with timeout, proxy or remote doesn&apos;t matter.
+ * There might be more than one IP address to try out. Fill in the passed
+ * pointer with the connected socket.
+ */</doc>
+<doc f='codebrowser/curl/lib/connect.c' l='513'>/* context */</doc>
+<use f='codebrowser/curl/lib/ftp.c' l='1648' u='c' c='ftp_use_pasv'/>
+<use f='codebrowser/curl/lib/url.c' l='1820' u='c' c='ConnectPlease'/>

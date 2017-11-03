@@ -1,0 +1,222 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>StrList.h source code [codebrowser/idlib/containers/StrList.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/idlib/containers/StrList.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>idlib</a>/<a href='./'>containers</a>/<a href='StrList.h.html'>StrList.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__STRLIST_H__">__STRLIST_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__STRLIST_H__" data-ref="_M/__STRLIST_H__">__STRLIST_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>	idStrList</i></td></tr>
+<tr><th id="36">36</th><td><i></i></td></tr>
+<tr><th id="37">37</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="38">38</th><td><i>*/</i></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><b>typedef</b> <a class="type" href="../../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<a class="type" href="../Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>&gt; <dfn class="typedef" id="idStrList" title='idStrList' data-type='idList&lt;idStr&gt;' data-ref="idStrList">idStrList</dfn>;</td></tr>
+<tr><th id="41">41</th><td><b>typedef</b> <a class="type" href="../../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<a class="type" href="../Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>*&gt; <dfn class="typedef" id="idStrPtrList" title='idStrPtrList' data-type='idList&lt;idStr *&gt;' data-ref="idStrPtrList">idStrPtrList</dfn>;</td></tr>
+<tr><th id="42">42</th><td><b>typedef</b> <a class="type" href="../Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a> *<dfn class="typedef" id="idStrPtr" title='idStrPtr' data-type='idStr *' data-ref="idStrPtr">idStrPtr</dfn>;</td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td><i>/*</i></td></tr>
+<tr><th id="45">45</th><td><i>================</i></td></tr>
+<tr><th id="46">46</th><td><i>idListSortCompare&lt;idStrPtr&gt;</i></td></tr>
+<tr><th id="47">47</th><td><i></i></td></tr>
+<tr><th id="48">48</th><td><i>Compares two pointers to strings. Used to sort a list of string pointers alphabetically in idList&lt;idStr&gt;::Sort.</i></td></tr>
+<tr><th id="49">49</th><td><i>================</i></td></tr>
+<tr><th id="50">50</th><td><i>*/</i></td></tr>
+<tr><th id="51">51</th><td><b>template</b>&lt;&gt;</td></tr>
+<tr><th id="52">52</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>int</em> <dfn class="decl def" id="_Z17idListSortComparePKT_S1_" title='idListSortCompare' data-ref="_Z17idListSortComparePKT_S1_">idListSortCompare</dfn>&lt;<a class="typedef" href="#idStrPtr" title='idStrPtr' data-type='idStr *' data-ref="idStrPtr">idStrPtr</a>&gt;( <em>const</em> <a class="typedef" href="#idStrPtr" title='idStrPtr' data-type='idStr *' data-ref="idStrPtr">idStrPtr</a> *<dfn class="local col2 decl" id="6742a" title='a' data-type='const idStrPtr *' data-ref="6742a">a</dfn>, <em>const</em> <a class="typedef" href="#idStrPtr" title='idStrPtr' data-type='idStr *' data-ref="idStrPtr">idStrPtr</a> *<dfn class="local col3 decl" id="6743b" title='b' data-type='const idStrPtr *' data-ref="6743b">b</dfn> ) {</td></tr>
+<tr><th id="53">53</th><td>	<b>return</b> ( *<a class="local col2 ref" href="#6742a" title='a' data-ref="6742a">a</a> )-&gt;<a class="ref" href="../Str.h.html#_ZNK5idStr4IcmpEPKc" title='idStr::Icmp' data-ref="_ZNK5idStr4IcmpEPKc">Icmp</a>( <a class="ref fake" href="../Str.h.html#_ZN5idStrcvPKcEv" title='idStr::operator const char *' data-ref="_ZN5idStrcvPKcEv"></a>**<a class="local col3 ref" href="#6743b" title='b' data-ref="6743b">b</a> );</td></tr>
+<tr><th id="54">54</th><td>}</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td><i>/*</i></td></tr>
+<tr><th id="57">57</th><td><i>================</i></td></tr>
+<tr><th id="58">58</th><td><i>idStrList::Sort</i></td></tr>
+<tr><th id="59">59</th><td><i></i></td></tr>
+<tr><th id="60">60</th><td><i>Sorts the list of strings alphabetically. Creates a list of pointers to the actual strings and sorts the</i></td></tr>
+<tr><th id="61">61</th><td><i>pointer list. Then copies the strings into another list using the ordered list of pointers.</i></td></tr>
+<tr><th id="62">62</th><td><i>================</i></td></tr>
+<tr><th id="63">63</th><td><i>*/</i></td></tr>
+<tr><th id="64">64</th><td><b>template</b>&lt;&gt;</td></tr>
+<tr><th id="65">65</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>void</em> <a class="typedef" href="#idStrList" title='idStrList' data-type='idList&lt;idStr&gt;' data-ref="idStrList">idStrList</a>::<dfn class="decl def" id="_ZN6idList4SortEPFiPKT_S2_E" title='idList::Sort' data-ref="_ZN6idList4SortEPFiPKT_S2_E">Sort</dfn>( <a class="typedef" href="List.h.html#idList{idStr}::cmp_t" title='idList&lt;idStr&gt;::cmp_t' data-type='int (const idStr *, const idStr *)' data-ref="idList{idStr}::cmp_t">cmp_t</a> *<dfn class="local col4 decl" id="6744compare" title='compare' data-type='cmp_t *' data-ref="6744compare">compare</dfn> ) {</td></tr>
+<tr><th id="66">66</th><td>	<em>int</em> <dfn class="local col5 decl" id="6745i" title='i' data-type='int' data-ref="6745i">i</dfn>;</td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td>	<b>if</b> ( !<a class="member" href="List.h.html#idList::num" title='idList&lt;idStr&gt;::num' data-ref="idList::num">num</a> ) {</td></tr>
+<tr><th id="69">69</th><td>		<b>return</b>;</td></tr>
+<tr><th id="70">70</th><td>	}</td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td>	<a class="type" href="../../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<a class="type" href="../Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>&gt;		<a class="ref fake" href="List.h.html#_ZN6idListC1Ei" title='idList::idList&lt;type&gt;' data-ref="_ZN6idListC1Ei"></a><dfn class="local col6 decl" id="6746other" title='other' data-type='idList&lt;idStr&gt;' data-ref="6746other">other</dfn>;</td></tr>
+<tr><th id="73">73</th><td>	<a class="type" href="../../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<a class="typedef" href="#idStrPtr" title='idStrPtr' data-type='idStr *' data-ref="idStrPtr">idStrPtr</a>&gt;	<a class="ref fake" href="List.h.html#_ZN6idListC1Ei" title='idList::idList&lt;type&gt;' data-ref="_ZN6idListC1Ei"></a><dfn class="local col7 decl" id="6747pointerList" title='pointerList' data-type='idList&lt;idStrPtr&gt;' data-ref="6747pointerList">pointerList</dfn>;</td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td>	<a class="local col7 ref" href="#6747pointerList" title='pointerList' data-ref="6747pointerList">pointerList</a>.<a class="ref" href="List.h.html#_ZN6idList6SetNumEib" title='idList::SetNum' data-ref="_ZN6idList6SetNumEib">SetNum</a>( <a class="member" href="List.h.html#idList::num" title='idList&lt;idStr&gt;::num' data-ref="idList::num">num</a> );</td></tr>
+<tr><th id="76">76</th><td>	<b>for</b>( <a class="local col5 ref" href="#6745i" title='i' data-ref="6745i">i</a> = <var>0</var>; <a class="local col5 ref" href="#6745i" title='i' data-ref="6745i">i</a> &lt; <a class="member" href="List.h.html#idList::num" title='idList&lt;idStr&gt;::num' data-ref="idList::num">num</a>; <a class="local col5 ref" href="#6745i" title='i' data-ref="6745i">i</a>++ ) {</td></tr>
+<tr><th id="77">77</th><td>		<a class="local col7 ref" href="#6747pointerList" title='pointerList' data-ref="6747pointerList">pointerList</a><a class="ref" href="List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[ <a class="local col5 ref" href="#6745i" title='i' data-ref="6745i">i</a> ]</a> = &amp;( *<b>this</b> )<a class="member" href="List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[ <a class="local col5 ref" href="#6745i" title='i' data-ref="6745i">i</a> ]</a>;</td></tr>
+<tr><th id="78">78</th><td>	}</td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td>	<a class="local col7 ref" href="#6747pointerList" title='pointerList' data-ref="6747pointerList">pointerList</a>.<a class="ref" href="List.h.html#_ZN6idList4SortEPFiPKT_S2_E" title='idList::Sort' data-ref="_ZN6idList4SortEPFiPKT_S2_E">Sort</a>();</td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td>	<a class="local col6 ref" href="#6746other" title='other' data-ref="6746other">other</a>.<a class="member" href="List.h.html#_ZN6idList6SetNumEib" title='idList::SetNum' data-ref="_ZN6idList6SetNumEib">SetNum</a>( <a class="member" href="List.h.html#idList::num" title='idList&lt;idStr&gt;::num' data-ref="idList::num">num</a> );</td></tr>
+<tr><th id="83">83</th><td>	<a class="local col6 ref" href="#6746other" title='other' data-ref="6746other">other</a>.<a class="member" href="List.h.html#_ZN6idList14SetGranularityEi" title='idList::SetGranularity' data-ref="_ZN6idList14SetGranularityEi">SetGranularity</a>( <a class="member" href="List.h.html#idList::granularity" title='idList&lt;idStr&gt;::granularity' data-ref="idList::granularity">granularity</a> );</td></tr>
+<tr><th id="84">84</th><td>	<b>for</b>( <a class="local col5 ref" href="#6745i" title='i' data-ref="6745i">i</a> = <var>0</var>; <a class="local col5 ref" href="#6745i" title='i' data-ref="6745i">i</a> &lt; <a class="local col6 ref" href="#6746other" title='other' data-ref="6746other">other</a>.<a class="member" href="List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>(); <a class="local col5 ref" href="#6745i" title='i' data-ref="6745i">i</a>++ ) {</td></tr>
+<tr><th id="85">85</th><td>		<a class="local col6 ref" href="#6746other" title='other' data-ref="6746other">other</a><a class="member" href="List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[ <a class="local col5 ref" href="#6745i" title='i' data-ref="6745i">i</a> ]</a> <a class="ref" href="../Str.h.html#_ZN5idStraSERKS_" title='idStr::operator=' data-ref="_ZN5idStraSERKS_">=</a> *<a class="local col7 ref" href="#6747pointerList" title='pointerList' data-ref="6747pointerList">pointerList</a><a class="ref" href="List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[ <a class="local col5 ref" href="#6745i" title='i' data-ref="6745i">i</a> ]</a>;</td></tr>
+<tr><th id="86">86</th><td>	}</td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td>	<b>this</b>-&gt;<a class="member" href="List.h.html#_ZN6idList4SwapER6idListIT_E" title='idList::Swap' data-ref="_ZN6idList4SwapER6idListIT_E">Swap</a>( <span class='refarg'><a class="local col6 ref" href="#6746other" title='other' data-ref="6746other">other</a></span> );</td></tr>
+<tr><th id="89">89</th><td>}</td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td><i>/*</i></td></tr>
+<tr><th id="92">92</th><td><i>================</i></td></tr>
+<tr><th id="93">93</th><td><i>idStrList::SortSubSection</i></td></tr>
+<tr><th id="94">94</th><td><i></i></td></tr>
+<tr><th id="95">95</th><td><i>Sorts a subsection of the list of strings alphabetically.</i></td></tr>
+<tr><th id="96">96</th><td><i>================</i></td></tr>
+<tr><th id="97">97</th><td><i>*/</i></td></tr>
+<tr><th id="98">98</th><td><b>template</b>&lt;&gt;</td></tr>
+<tr><th id="99">99</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>void</em> <a class="typedef" href="#idStrList" title='idStrList' data-type='idList&lt;idStr&gt;' data-ref="idStrList">idStrList</a>::<dfn class="decl def" id="_ZN6idList14SortSubSectionEiiPFiPKT_S2_E" title='idList::SortSubSection' data-ref="_ZN6idList14SortSubSectionEiiPFiPKT_S2_E">SortSubSection</dfn>( <em>int</em> <dfn class="local col8 decl" id="6748startIndex" title='startIndex' data-type='int' data-ref="6748startIndex">startIndex</dfn>, <em>int</em> <dfn class="local col9 decl" id="6749endIndex" title='endIndex' data-type='int' data-ref="6749endIndex">endIndex</dfn>, <a class="typedef" href="List.h.html#idList{idStr}::cmp_t" title='idList&lt;idStr&gt;::cmp_t' data-type='int (const idStr *, const idStr *)' data-ref="idList{idStr}::cmp_t">cmp_t</a> *<dfn class="local col0 decl" id="6750compare" title='compare' data-type='cmp_t *' data-ref="6750compare">compare</dfn> ) {</td></tr>
+<tr><th id="100">100</th><td>	<em>int</em> <dfn class="local col1 decl" id="6751i" title='i' data-type='int' data-ref="6751i">i</dfn>, <dfn class="local col2 decl" id="6752s" title='s' data-type='int' data-ref="6752s">s</dfn>;</td></tr>
+<tr><th id="101">101</th><td></td></tr>
+<tr><th id="102">102</th><td>	<b>if</b> ( !<a class="member" href="List.h.html#idList::num" title='idList&lt;idStr&gt;::num' data-ref="idList::num">num</a> ) {</td></tr>
+<tr><th id="103">103</th><td>		<b>return</b>;</td></tr>
+<tr><th id="104">104</th><td>	}</td></tr>
+<tr><th id="105">105</th><td>	<b>if</b> ( <a class="local col8 ref" href="#6748startIndex" title='startIndex' data-ref="6748startIndex">startIndex</a> &lt; <var>0</var> ) {</td></tr>
+<tr><th id="106">106</th><td>		<a class="local col8 ref" href="#6748startIndex" title='startIndex' data-ref="6748startIndex">startIndex</a> = <var>0</var>;</td></tr>
+<tr><th id="107">107</th><td>	}</td></tr>
+<tr><th id="108">108</th><td>	<b>if</b> ( <a class="local col9 ref" href="#6749endIndex" title='endIndex' data-ref="6749endIndex">endIndex</a> &gt;= <a class="member" href="List.h.html#idList::num" title='idList&lt;idStr&gt;::num' data-ref="idList::num">num</a> ) {</td></tr>
+<tr><th id="109">109</th><td>		<a class="local col9 ref" href="#6749endIndex" title='endIndex' data-ref="6749endIndex">endIndex</a> = <a class="member" href="List.h.html#idList::num" title='idList&lt;idStr&gt;::num' data-ref="idList::num">num</a> - <var>1</var>;</td></tr>
+<tr><th id="110">110</th><td>	}</td></tr>
+<tr><th id="111">111</th><td>	<b>if</b> ( <a class="local col8 ref" href="#6748startIndex" title='startIndex' data-ref="6748startIndex">startIndex</a> &gt;= <a class="local col9 ref" href="#6749endIndex" title='endIndex' data-ref="6749endIndex">endIndex</a> ) {</td></tr>
+<tr><th id="112">112</th><td>		<b>return</b>;</td></tr>
+<tr><th id="113">113</th><td>	}</td></tr>
+<tr><th id="114">114</th><td></td></tr>
+<tr><th id="115">115</th><td>	<a class="type" href="../../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<a class="type" href="../Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>&gt;		<a class="ref fake" href="List.h.html#_ZN6idListC1Ei" title='idList::idList&lt;type&gt;' data-ref="_ZN6idListC1Ei"></a><dfn class="local col3 decl" id="6753other" title='other' data-type='idList&lt;idStr&gt;' data-ref="6753other">other</dfn>;</td></tr>
+<tr><th id="116">116</th><td>	<a class="type" href="../../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<a class="typedef" href="#idStrPtr" title='idStrPtr' data-type='idStr *' data-ref="idStrPtr">idStrPtr</a>&gt;	<a class="ref fake" href="List.h.html#_ZN6idListC1Ei" title='idList::idList&lt;type&gt;' data-ref="_ZN6idListC1Ei"></a><dfn class="local col4 decl" id="6754pointerList" title='pointerList' data-type='idList&lt;idStrPtr&gt;' data-ref="6754pointerList">pointerList</dfn>;</td></tr>
+<tr><th id="117">117</th><td></td></tr>
+<tr><th id="118">118</th><td>	<a class="local col2 ref" href="#6752s" title='s' data-ref="6752s">s</a> = <a class="local col9 ref" href="#6749endIndex" title='endIndex' data-ref="6749endIndex">endIndex</a> - <a class="local col8 ref" href="#6748startIndex" title='startIndex' data-ref="6748startIndex">startIndex</a> + <var>1</var>;</td></tr>
+<tr><th id="119">119</th><td>	<a class="local col3 ref" href="#6753other" title='other' data-ref="6753other">other</a>.<a class="member" href="List.h.html#_ZN6idList6SetNumEib" title='idList::SetNum' data-ref="_ZN6idList6SetNumEib">SetNum</a>( <a class="local col2 ref" href="#6752s" title='s' data-ref="6752s">s</a> );</td></tr>
+<tr><th id="120">120</th><td>	<a class="local col4 ref" href="#6754pointerList" title='pointerList' data-ref="6754pointerList">pointerList</a>.<a class="ref" href="List.h.html#_ZN6idList6SetNumEib" title='idList::SetNum' data-ref="_ZN6idList6SetNumEib">SetNum</a>( <a class="local col2 ref" href="#6752s" title='s' data-ref="6752s">s</a> );</td></tr>
+<tr><th id="121">121</th><td>	<b>for</b>( <a class="local col1 ref" href="#6751i" title='i' data-ref="6751i">i</a> = <var>0</var>; <a class="local col1 ref" href="#6751i" title='i' data-ref="6751i">i</a> &lt; <a class="local col2 ref" href="#6752s" title='s' data-ref="6752s">s</a>; <a class="local col1 ref" href="#6751i" title='i' data-ref="6751i">i</a>++ ) {</td></tr>
+<tr><th id="122">122</th><td>		<a class="local col3 ref" href="#6753other" title='other' data-ref="6753other">other</a><a class="member" href="List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[ <a class="local col1 ref" href="#6751i" title='i' data-ref="6751i">i</a> ]</a> <a class="ref" href="../Str.h.html#_ZN5idStraSERKS_" title='idStr::operator=' data-ref="_ZN5idStraSERKS_">=</a> ( *<b>this</b> )<a class="member" href="List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[ <a class="local col8 ref" href="#6748startIndex" title='startIndex' data-ref="6748startIndex">startIndex</a> + <a class="local col1 ref" href="#6751i" title='i' data-ref="6751i">i</a> ]</a>;</td></tr>
+<tr><th id="123">123</th><td>		<a class="local col4 ref" href="#6754pointerList" title='pointerList' data-ref="6754pointerList">pointerList</a><a class="ref" href="List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[ <a class="local col1 ref" href="#6751i" title='i' data-ref="6751i">i</a> ]</a> = &amp;<a class="local col3 ref" href="#6753other" title='other' data-ref="6753other">other</a><a class="member" href="List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[ <a class="local col1 ref" href="#6751i" title='i' data-ref="6751i">i</a> ]</a>;</td></tr>
+<tr><th id="124">124</th><td>	}</td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td>	<a class="local col4 ref" href="#6754pointerList" title='pointerList' data-ref="6754pointerList">pointerList</a>.<a class="ref" href="List.h.html#_ZN6idList4SortEPFiPKT_S2_E" title='idList::Sort' data-ref="_ZN6idList4SortEPFiPKT_S2_E">Sort</a>();</td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td>	<b>for</b>( <a class="local col1 ref" href="#6751i" title='i' data-ref="6751i">i</a> = <var>0</var>; <a class="local col1 ref" href="#6751i" title='i' data-ref="6751i">i</a> &lt; <a class="local col2 ref" href="#6752s" title='s' data-ref="6752s">s</a>; <a class="local col1 ref" href="#6751i" title='i' data-ref="6751i">i</a>++ ) {</td></tr>
+<tr><th id="129">129</th><td>		(*<b>this</b>)<a class="member" href="List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[ <a class="local col8 ref" href="#6748startIndex" title='startIndex' data-ref="6748startIndex">startIndex</a> + <a class="local col1 ref" href="#6751i" title='i' data-ref="6751i">i</a> ]</a> <a class="ref" href="../Str.h.html#_ZN5idStraSERKS_" title='idStr::operator=' data-ref="_ZN5idStraSERKS_">=</a> *<a class="local col4 ref" href="#6754pointerList" title='pointerList' data-ref="6754pointerList">pointerList</a><a class="ref" href="List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[ <a class="local col1 ref" href="#6751i" title='i' data-ref="6751i">i</a> ]</a>;</td></tr>
+<tr><th id="130">130</th><td>	}</td></tr>
+<tr><th id="131">131</th><td>}</td></tr>
+<tr><th id="132">132</th><td></td></tr>
+<tr><th id="133">133</th><td><i>/*</i></td></tr>
+<tr><th id="134">134</th><td><i>================</i></td></tr>
+<tr><th id="135">135</th><td><i>idStrList::Size</i></td></tr>
+<tr><th id="136">136</th><td><i>================</i></td></tr>
+<tr><th id="137">137</th><td><i>*/</i></td></tr>
+<tr><th id="138">138</th><td><b>template</b>&lt;&gt;</td></tr>
+<tr><th id="139">139</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <span class='typedef' title='size_t' data-type='unsigned int' data-ref="size_t">size_t</span> <a class="typedef" href="#idStrList" title='idStrList' data-type='idList&lt;idStr&gt;' data-ref="idStrList">idStrList</a>::<dfn class="decl def" id="_ZNK6idList4SizeEv" title='idList::Size' data-ref="_ZNK6idList4SizeEv">Size</dfn>( <em>void</em> ) <em>const</em> {</td></tr>
+<tr><th id="140">140</th><td>	<span class='typedef' title='size_t' data-type='unsigned int' data-ref="size_t">size_t</span> <dfn class="local col5 decl" id="6755s" title='s' data-type='size_t' data-ref="6755s">s</dfn>;</td></tr>
+<tr><th id="141">141</th><td>	<em>int</em> <dfn class="local col6 decl" id="6756i" title='i' data-type='int' data-ref="6756i">i</dfn>;</td></tr>
+<tr><th id="142">142</th><td></td></tr>
+<tr><th id="143">143</th><td>	<a class="local col5 ref" href="#6755s" title='s' data-ref="6755s">s</a> = <b>sizeof</b>( *<b>this</b> );</td></tr>
+<tr><th id="144">144</th><td>	<b>for</b>( <a class="local col6 ref" href="#6756i" title='i' data-ref="6756i">i</a> = <var>0</var>; <a class="local col6 ref" href="#6756i" title='i' data-ref="6756i">i</a> &lt; <a class="member" href="List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>(); <a class="local col6 ref" href="#6756i" title='i' data-ref="6756i">i</a>++ ) {</td></tr>
+<tr><th id="145">145</th><td>		<a class="local col5 ref" href="#6755s" title='s' data-ref="6755s">s</a> += ( *<b>this</b> )<a class="member" href="List.h.html#_ZNK6idListixEi" title='idList::operator[]' data-ref="_ZNK6idListixEi">[ <a class="local col6 ref" href="#6756i" title='i' data-ref="6756i">i</a> ]</a>.<a class="ref" href="../Str.h.html#_ZNK5idStr4SizeEv" title='idStr::Size' data-ref="_ZNK5idStr4SizeEv">Size</a>();</td></tr>
+<tr><th id="146">146</th><td>	}</td></tr>
+<tr><th id="147">147</th><td></td></tr>
+<tr><th id="148">148</th><td>	<b>return</b> <a class="local col5 ref" href="#6755s" title='s' data-ref="6755s">s</a>;</td></tr>
+<tr><th id="149">149</th><td>}</td></tr>
+<tr><th id="150">150</th><td></td></tr>
+<tr><th id="151">151</th><td><i>/*</i></td></tr>
+<tr><th id="152">152</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="153">153</th><td><i></i></td></tr>
+<tr><th id="154">154</th><td><i>	idStrList path sorting</i></td></tr>
+<tr><th id="155">155</th><td><i></i></td></tr>
+<tr><th id="156">156</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="157">157</th><td><i>*/</i></td></tr>
+<tr><th id="158">158</th><td></td></tr>
+<tr><th id="159">159</th><td><i>/*</i></td></tr>
+<tr><th id="160">160</th><td><i>================</i></td></tr>
+<tr><th id="161">161</th><td><i>idListSortComparePaths</i></td></tr>
+<tr><th id="162">162</th><td><i></i></td></tr>
+<tr><th id="163">163</th><td><i>Compares two pointers to strings. Used to sort a list of string pointers alphabetically in idList&lt;idStr&gt;::Sort.</i></td></tr>
+<tr><th id="164">164</th><td><i>================</i></td></tr>
+<tr><th id="165">165</th><td><i>*/</i></td></tr>
+<tr><th id="166">166</th><td><b>template</b>&lt;<b>class</b> idStrPtr&gt;</td></tr>
+<tr><th id="167">167</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>int</em> <dfn class="decl def" id="_Z22idListSortComparePathsPKT_S1_" title='idListSortComparePaths' data-ref="_Z22idListSortComparePathsPKT_S1_">idListSortComparePaths</dfn>( <em>const</em> idStrPtr *<dfn class="local col7 decl" id="6757a" title='a' data-type='const idStrPtr *' data-ref="6757a">a</dfn>, <em>const</em> idStrPtr *<dfn class="local col8 decl" id="6758b" title='b' data-type='const idStrPtr *' data-ref="6758b">b</dfn> ) {</td></tr>
+<tr><th id="168">168</th><td>	<b>return</b> ( *<a class="local col7 ref" href="#6757a" title='a' data-ref="6757a">a</a> )-&gt;IcmpPath( **<a class="local col8 ref" href="#6758b" title='b' data-ref="6758b">b</a> );</td></tr>
+<tr><th id="169">169</th><td>}</td></tr>
+<tr><th id="170">170</th><td></td></tr>
+<tr><th id="171">171</th><td><i>/*</i></td></tr>
+<tr><th id="172">172</th><td><i>================</i></td></tr>
+<tr><th id="173">173</th><td><i>idStrListSortPaths</i></td></tr>
+<tr><th id="174">174</th><td><i></i></td></tr>
+<tr><th id="175">175</th><td><i>Sorts the list of path strings alphabetically and makes sure folders come first.</i></td></tr>
+<tr><th id="176">176</th><td><i>================</i></td></tr>
+<tr><th id="177">177</th><td><i>*/</i></td></tr>
+<tr><th id="178">178</th><td><a class="macro" href="../../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>void</em> <dfn class="decl def" id="_Z18idStrListSortPathsR6idListI5idStrE" title='idStrListSortPaths' data-ref="_Z18idStrListSortPathsR6idListI5idStrE">idStrListSortPaths</dfn>( <a class="typedef" href="#idStrList" title='idStrList' data-type='idList&lt;idStr&gt;' data-ref="idStrList">idStrList</a> &amp;<dfn class="local col9 decl" id="6759list" title='list' data-type='idStrList &amp;' data-ref="6759list">list</dfn> ) {</td></tr>
+<tr><th id="179">179</th><td>	<em>int</em> <dfn class="local col0 decl" id="6760i" title='i' data-type='int' data-ref="6760i">i</dfn>;</td></tr>
+<tr><th id="180">180</th><td></td></tr>
+<tr><th id="181">181</th><td>	<b>if</b> ( !<a class="local col9 ref" href="#6759list" title='list' data-ref="6759list">list</a>.<a class="ref" href="List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>() ) {</td></tr>
+<tr><th id="182">182</th><td>		<b>return</b>;</td></tr>
+<tr><th id="183">183</th><td>	}</td></tr>
+<tr><th id="184">184</th><td></td></tr>
+<tr><th id="185">185</th><td>	<a class="type" href="../../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<a class="type" href="../Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>&gt;		<a class="ref fake" href="List.h.html#_ZN6idListC1Ei" title='idList::idList&lt;type&gt;' data-ref="_ZN6idListC1Ei"></a><dfn class="local col1 decl" id="6761other" title='other' data-type='idList&lt;idStr&gt;' data-ref="6761other">other</dfn>;</td></tr>
+<tr><th id="186">186</th><td>	<a class="type" href="../../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<a class="typedef" href="#idStrPtr" title='idStrPtr' data-type='idStr *' data-ref="idStrPtr">idStrPtr</a>&gt;	<a class="ref fake" href="List.h.html#_ZN6idListC1Ei" title='idList::idList&lt;type&gt;' data-ref="_ZN6idListC1Ei"></a><dfn class="local col2 decl" id="6762pointerList" title='pointerList' data-type='idList&lt;idStrPtr&gt;' data-ref="6762pointerList">pointerList</dfn>;</td></tr>
+<tr><th id="187">187</th><td></td></tr>
+<tr><th id="188">188</th><td>	<a class="local col2 ref" href="#6762pointerList" title='pointerList' data-ref="6762pointerList">pointerList</a>.<a class="ref" href="List.h.html#_ZN6idList6SetNumEib" title='idList::SetNum' data-ref="_ZN6idList6SetNumEib">SetNum</a>( <a class="local col9 ref" href="#6759list" title='list' data-ref="6759list">list</a>.<a class="ref" href="List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>() );</td></tr>
+<tr><th id="189">189</th><td>	<b>for</b>( <a class="local col0 ref" href="#6760i" title='i' data-ref="6760i">i</a> = <var>0</var>; <a class="local col0 ref" href="#6760i" title='i' data-ref="6760i">i</a> &lt; <a class="local col9 ref" href="#6759list" title='list' data-ref="6759list">list</a>.<a class="ref" href="List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>(); <a class="local col0 ref" href="#6760i" title='i' data-ref="6760i">i</a>++ ) {</td></tr>
+<tr><th id="190">190</th><td>		<a class="local col2 ref" href="#6762pointerList" title='pointerList' data-ref="6762pointerList">pointerList</a><a class="ref" href="List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[ <a class="local col0 ref" href="#6760i" title='i' data-ref="6760i">i</a> ]</a> = &amp;<a class="local col9 ref" href="#6759list" title='list' data-ref="6759list">list</a><a class="ref" href="List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[ <a class="local col0 ref" href="#6760i" title='i' data-ref="6760i">i</a> ]</a>;</td></tr>
+<tr><th id="191">191</th><td>	}</td></tr>
+<tr><th id="192">192</th><td></td></tr>
+<tr><th id="193">193</th><td>	<a class="local col2 ref" href="#6762pointerList" title='pointerList' data-ref="6762pointerList">pointerList</a>.<a class="ref" href="List.h.html#_ZN6idList4SortEPFiPKT_S2_E" title='idList::Sort' data-ref="_ZN6idList4SortEPFiPKT_S2_E">Sort</a>( <a class="ref" href="#_Z22idListSortComparePathsPKT_S1_" title='idListSortComparePaths' data-ref="_Z22idListSortComparePathsPKT_S1_">idListSortComparePaths</a>&lt;<a class="typedef" href="#idStrPtr" title='idStrPtr' data-type='idStr *' data-ref="idStrPtr">idStrPtr</a>&gt; );</td></tr>
+<tr><th id="194">194</th><td></td></tr>
+<tr><th id="195">195</th><td>	<a class="local col1 ref" href="#6761other" title='other' data-ref="6761other">other</a>.<a class="ref" href="List.h.html#_ZN6idList6SetNumEib" title='idList::SetNum' data-ref="_ZN6idList6SetNumEib">SetNum</a>( <a class="local col9 ref" href="#6759list" title='list' data-ref="6759list">list</a>.<a class="ref" href="List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>() );</td></tr>
+<tr><th id="196">196</th><td>	<a class="local col1 ref" href="#6761other" title='other' data-ref="6761other">other</a>.<a class="ref" href="List.h.html#_ZN6idList14SetGranularityEi" title='idList::SetGranularity' data-ref="_ZN6idList14SetGranularityEi">SetGranularity</a>( <a class="local col9 ref" href="#6759list" title='list' data-ref="6759list">list</a>.<a class="ref" href="List.h.html#_ZNK6idList14GetGranularityEv" title='idList::GetGranularity' data-ref="_ZNK6idList14GetGranularityEv">GetGranularity</a>() );</td></tr>
+<tr><th id="197">197</th><td>	<b>for</b>( <a class="local col0 ref" href="#6760i" title='i' data-ref="6760i">i</a> = <var>0</var>; <a class="local col0 ref" href="#6760i" title='i' data-ref="6760i">i</a> &lt; <a class="local col1 ref" href="#6761other" title='other' data-ref="6761other">other</a>.<a class="ref" href="List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>(); <a class="local col0 ref" href="#6760i" title='i' data-ref="6760i">i</a>++ ) {</td></tr>
+<tr><th id="198">198</th><td>		<a class="local col1 ref" href="#6761other" title='other' data-ref="6761other">other</a><a class="ref" href="List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[ <a class="local col0 ref" href="#6760i" title='i' data-ref="6760i">i</a> ]</a> <a class="ref" href="../Str.h.html#_ZN5idStraSERKS_" title='idStr::operator=' data-ref="_ZN5idStraSERKS_">=</a> *<a class="local col2 ref" href="#6762pointerList" title='pointerList' data-ref="6762pointerList">pointerList</a><a class="ref" href="List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[ <a class="local col0 ref" href="#6760i" title='i' data-ref="6760i">i</a> ]</a>;</td></tr>
+<tr><th id="199">199</th><td>	}</td></tr>
+<tr><th id="200">200</th><td></td></tr>
+<tr><th id="201">201</th><td>	<a class="local col9 ref" href="#6759list" title='list' data-ref="6759list">list</a>.<a class="ref" href="List.h.html#_ZN6idList4SwapER6idListIT_E" title='idList::Swap' data-ref="_ZN6idList4SwapER6idListIT_E">Swap</a>( <span class='refarg'><a class="local col1 ref" href="#6761other" title='other' data-ref="6761other">other</a></span> );</td></tr>
+<tr><th id="202">202</th><td>}</td></tr>
+<tr><th id="203">203</th><td></td></tr>
+<tr><th id="204">204</th><td><u>#<span data-ppcond="29">endif</span> /* !__STRLIST_H__ */</u></td></tr>
+<tr><th id="205">205</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../TypeInfo/TypeInfoGen.cpp.html'>codebrowser/TypeInfo/TypeInfoGen.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

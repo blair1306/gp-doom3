@@ -1,0 +1,11 @@
+<dec f='codebrowser/renderer/RenderWorld.h' l='305' type='void idRenderWorld::ProjectDecalOntoWorld(const idFixedWinding &amp; winding, const idVec3 &amp; projectionOrigin, const bool parallel, const float fadeDepth, const idMaterial * material, const int startTime)'/>
+<doc f='codebrowser/renderer/RenderWorld.h' l='298'>//-------------- Decals and Overlays  -----------------
+
+	// Creates decals on all world surfaces that the winding projects onto.
+	// The projection origin should be infront of the winding plane.
+	// The decals are projected onto world geometry between the winding plane and the projection origin.
+	// The decals are depth faded from the winding plane to a certain distance infront of the
+	// winding plane and the same distance from the projection origin towards the winding.</doc>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4119' u='c' c='_ZN11idGameLocal12ProjectDecalERK6idVec3S2_fbfPKcf'/>
+<use f='codebrowser/game/Game_local.cpp' l='3821' u='c' c='_ZN11idGameLocal12ProjectDecalERK6idVec3S2_fbfPKcf'/>
+<ovr f='codebrowser/renderer/RenderWorld.cpp' l='502' c='_ZN18idRenderWorldLocal21ProjectDecalOntoWorldERK14idFixedWindingRK6idVec3bfPK10idMateriali'/>

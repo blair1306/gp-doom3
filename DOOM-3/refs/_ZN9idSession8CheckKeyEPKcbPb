@@ -1,0 +1,5 @@
+<dec f='codebrowser/framework/Session.h' l='132' type='bool idSession::CheckKey(const char * key, bool netConnect, bool * offline_valid)'/>
+<doc f='codebrowser/framework/Session.h' l='130'>// check keys for validity when typed in by the user ( with checksum verification )
+	// store the new set of keys if they are found valid</doc>
+<ovr f='codebrowser/framework/Session.cpp' l='3123' c='_ZN14idSessionLocal8CheckKeyEPKcbPb'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1326' u='c' c='_ZN13idAsyncClient21ProcessAuthKeyMessageE8netadr_tRK8idBitMsg'/>

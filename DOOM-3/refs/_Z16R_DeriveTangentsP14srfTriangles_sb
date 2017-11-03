@@ -1,0 +1,18 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1510' type='void R_DeriveTangents(srfTriangles_t * tri, bool allocFacePlanes = true)'/>
+<doc f='codebrowser/renderer/tr_local.h' l='1508'>// if the deformed verts have significant enough texture coordinate changes to reverse the texture
+// polarity of a triangle, the tangents will be incorrect</doc>
+<use f='codebrowser/renderer/Model_liquid.cpp' l='117' u='c' c='_ZN19idRenderModelLiquid15GenerateSurfaceEf'/>
+<use f='codebrowser/renderer/Model_md5.cpp' l='345' u='c' c='_ZN9idMD5Mesh13UpdateSurfaceEPK14renderEntity_sPK10idJointMatP14modelSurface_s'/>
+<use f='codebrowser/renderer/tr_deform.cpp' l='56' u='c' c='_ZL14R_FinishDeformP10drawSurf_sP14srfTriangles_sP10idDrawVert'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='58' u='c' c='_Z20R_CreateAmbientCacheP14srfTriangles_sb'/>
+<def f='codebrowser/renderer/tr_trisurf.cpp' l='1647' ll='1830' type='void R_DeriveTangents(srfTriangles_t * tri, bool allocFacePlanes = true)'/>
+<use f='codebrowser/renderer/tr_trisurf.cpp' l='2130' u='c' c='_Z18R_CleanupTrianglesP14srfTriangles_sbbb'/>
+<doc f='codebrowser/renderer/tr_trisurf.cpp' l='1638'>/*
+==================
+R_DeriveTangents
+
+This is called once for static surfaces, and every frame for deforming surfaces
+
+Builds tangents, normals, and face planes
+==================
+*/</doc>

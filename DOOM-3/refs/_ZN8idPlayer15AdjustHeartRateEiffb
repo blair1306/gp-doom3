@@ -1,0 +1,68 @@
+<dec f='codebrowser/d3xp/Player.h' l='512' type='void idPlayer::AdjustHeartRate(int target, float timeInSecs, float delay, bool force)'/>
+<use f='codebrowser/d3xp/Player.cpp' l='1570' u='c' c='_ZN8idPlayer4InitEv'/>
+<def f='codebrowser/d3xp/Player.cpp' l='5956' ll='5969' type='void idPlayer::AdjustHeartRate(int target, float timeInSecs, float delay, bool force)'/>
+<use f='codebrowser/d3xp/Player.cpp' l='5999' u='c' c='_ZN8idPlayer19SetCurrentHeartRateEv'/>
+<use f='codebrowser/d3xp/Player.cpp' l='7790' u='c' c='_ZN8idPlayer6KilledEP8idEntityS1_iRK6idVec3i'/>
+<doc f='codebrowser/d3xp/Player.cpp' l='5927'>/*
+==============
+idPlayer::AdjustHeartRate
+
+Player heartrate works as follows
+
+DEF_HEARTRATE is resting heartrate
+
+Taking damage when health is above 75 adjusts heart rate by 1 beat per second
+Taking damage when health is below 75 adjusts heart rate by 5 beats per second
+Maximum heartrate from damage is MAX_HEARTRATE
+
+Firing a weapon adds 1 beat per second up to a maximum of COMBAT_HEARTRATE
+
+Being at less than 25% stamina adds 5 beats per second up to ZEROSTAMINA_HEARTRATE
+
+All heartrates are target rates.. the heart rate will start falling as soon as there have been no adjustments for 5 seconds
+Once it starts falling it always tries to get to DEF_HEARTRATE
+
+The exception to the above rule is upon death at which point the rate is set to DYING_HEARTRATE and starts falling 
+immediately to zero
+
+Heart rate volumes go from zero ( -40 db for DEF_HEARTRATE to 5 db for MAX_HEARTRATE ) the volume is 
+scaled linearly based on the actual rate
+
+Exception to the above rule is once the player is dead, the dying heart rate starts at either the current volume if
+it is audible or -10db and scales to 8db on the last few beats
+==============
+*/</doc>
+<dec f='codebrowser/game/Player.h' l='440' type='void idPlayer::AdjustHeartRate(int target, float timeInSecs, float delay, bool force)'/>
+<use f='codebrowser/game/Player.cpp' l='1264' u='c' c='_ZN8idPlayer4InitEv'/>
+<def f='codebrowser/game/Player.cpp' l='4950' ll='4963' type='void idPlayer::AdjustHeartRate(int target, float timeInSecs, float delay, bool force)'/>
+<use f='codebrowser/game/Player.cpp' l='4993' u='c' c='_ZN8idPlayer19SetCurrentHeartRateEv'/>
+<use f='codebrowser/game/Player.cpp' l='6480' u='c' c='_ZN8idPlayer6KilledEP8idEntityS1_iRK6idVec3i'/>
+<doc f='codebrowser/game/Player.cpp' l='4921'>/*
+==============
+idPlayer::AdjustHeartRate
+
+Player heartrate works as follows
+
+DEF_HEARTRATE is resting heartrate
+
+Taking damage when health is above 75 adjusts heart rate by 1 beat per second
+Taking damage when health is below 75 adjusts heart rate by 5 beats per second
+Maximum heartrate from damage is MAX_HEARTRATE
+
+Firing a weapon adds 1 beat per second up to a maximum of COMBAT_HEARTRATE
+
+Being at less than 25% stamina adds 5 beats per second up to ZEROSTAMINA_HEARTRATE
+
+All heartrates are target rates.. the heart rate will start falling as soon as there have been no adjustments for 5 seconds
+Once it starts falling it always tries to get to DEF_HEARTRATE
+
+The exception to the above rule is upon death at which point the rate is set to DYING_HEARTRATE and starts falling 
+immediately to zero
+
+Heart rate volumes go from zero ( -40 db for DEF_HEARTRATE to 5 db for MAX_HEARTRATE ) the volume is 
+scaled linearly based on the actual rate
+
+Exception to the above rule is once the player is dead, the dying heart rate starts at either the current volume if
+it is audible or -10db and scales to 8db on the last few beats
+==============
+*/</doc>

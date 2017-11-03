@@ -1,0 +1,377 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AASBuild_gravity.cpp source code [codebrowser/tools/compilers/aas/AASBuild_gravity.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/tools/compilers/aas/AASBuild_gravity.cpp'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>tools</a>/<a href='..'>compilers</a>/<a href='./'>aas</a>/<a href='AASBuild_gravity.cpp.html'>AASBuild_gravity.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="../../../idlib/precompiled.h.html">"../../../idlib/precompiled.h"</a></u></td></tr>
+<tr><th id="30">30</th><td><u>#pragma hdrstop</u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="AASBuild_local.h.html">"AASBuild_local.h"</a></u></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><i>/*</i></td></tr>
+<tr><th id="36">36</th><td><i>============</i></td></tr>
+<tr><th id="37">37</th><td><i>idAASBuild::SetPortalFlags_r</i></td></tr>
+<tr><th id="38">38</th><td><i>============</i></td></tr>
+<tr><th id="39">39</th><td><i>*/</i></td></tr>
+<tr><th id="40">40</th><td><em>void</em> <a class="type" href="AASBuild_local.h.html#idAASBuild" title='idAASBuild' data-ref="idAASBuild">idAASBuild</a>::<dfn class="decl def" id="_ZN10idAASBuild16SetPortalFlags_rEP14idBrushBSPNode" title='idAASBuild::SetPortalFlags_r' data-ref="_ZN10idAASBuild16SetPortalFlags_rEP14idBrushBSPNode">SetPortalFlags_r</dfn>( <a class="type" href="BrushBSP.h.html#idBrushBSPNode" title='idBrushBSPNode' data-ref="idBrushBSPNode">idBrushBSPNode</a> *<dfn class="local col1 decl" id="1node" title='node' data-type='idBrushBSPNode *' data-ref="1node">node</dfn> ) {</td></tr>
+<tr><th id="41">41</th><td>	<em>int</em> <dfn class="local col2 decl" id="2s" title='s' data-type='int' data-ref="2s">s</dfn>;</td></tr>
+<tr><th id="42">42</th><td>	<a class="type" href="BrushBSP.h.html#idBrushBSPPortal" title='idBrushBSPPortal' data-ref="idBrushBSPPortal">idBrushBSPPortal</a> *<dfn class="local col3 decl" id="3p" title='p' data-type='idBrushBSPPortal *' data-ref="3p">p</dfn>;</td></tr>
+<tr><th id="43">43</th><td>	<a class="type" href="../../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> <a class="ref fake" href="../../../idlib/math/Vector.h.html#_ZN6idVec3C1Ev" title='idVec3::idVec3' data-ref="_ZN6idVec3C1Ev"></a><dfn class="local col4 decl" id="4normal" title='normal' data-type='idVec3' data-ref="4normal">normal</dfn>;</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td>	<b>if</b> ( !<a class="local col1 ref" href="#1node" title='node' data-ref="1node">node</a> ) {</td></tr>
+<tr><th id="46">46</th><td>		<b>return</b>;</td></tr>
+<tr><th id="47">47</th><td>	}</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td>	<b>if</b> ( <a class="local col1 ref" href="#1node" title='node' data-ref="1node">node</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK14idBrushBSPNode11GetContentsEv" title='idBrushBSPNode::GetContents' data-ref="_ZNK14idBrushBSPNode11GetContentsEv">GetContents</a>() &amp; <a class="macro" href="AASFile.h.html#78" title="( 1 &lt;&lt; ( 0 ) )" data-ref="_M/AREACONTENTS_SOLID">AREACONTENTS_SOLID</a> ) {</td></tr>
+<tr><th id="50">50</th><td>		<b>return</b>;</td></tr>
+<tr><th id="51">51</th><td>	}</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td>	<b>if</b> ( !<a class="local col1 ref" href="#1node" title='node' data-ref="1node">node</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK14idBrushBSPNode8GetChildEi" title='idBrushBSPNode::GetChild' data-ref="_ZNK14idBrushBSPNode8GetChildEi">GetChild</a>(<var>0</var>) &amp;&amp; !<a class="local col1 ref" href="#1node" title='node' data-ref="1node">node</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK14idBrushBSPNode8GetChildEi" title='idBrushBSPNode::GetChild' data-ref="_ZNK14idBrushBSPNode8GetChildEi">GetChild</a>(<var>1</var>) ) {</td></tr>
+<tr><th id="54">54</th><td>		<b>for</b> ( <a class="local col3 ref" href="#3p" title='p' data-ref="3p">p</a> = <a class="local col1 ref" href="#1node" title='node' data-ref="1node">node</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK14idBrushBSPNode10GetPortalsEv" title='idBrushBSPNode::GetPortals' data-ref="_ZNK14idBrushBSPNode10GetPortalsEv">GetPortals</a>(); <a class="local col3 ref" href="#3p" title='p' data-ref="3p">p</a>; <a class="local col3 ref" href="#3p" title='p' data-ref="3p">p</a> = <a class="local col3 ref" href="#3p" title='p' data-ref="3p">p</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK16idBrushBSPPortal4NextEi" title='idBrushBSPPortal::Next' data-ref="_ZNK16idBrushBSPPortal4NextEi">Next</a>(<a class="local col2 ref" href="#2s" title='s' data-ref="2s">s</a>) ) {</td></tr>
+<tr><th id="55">55</th><td>			<a class="local col2 ref" href="#2s" title='s' data-ref="2s">s</a> = (<a class="local col3 ref" href="#3p" title='p' data-ref="3p">p</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK16idBrushBSPPortal7GetNodeEi" title='idBrushBSPPortal::GetNode' data-ref="_ZNK16idBrushBSPPortal7GetNodeEi">GetNode</a>(<var>1</var>) == <a class="local col1 ref" href="#1node" title='node' data-ref="1node">node</a>);</td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td>			<i>// if solid at the other side of the portal</i></td></tr>
+<tr><th id="58">58</th><td>			<b>if</b> ( <a class="local col3 ref" href="#3p" title='p' data-ref="3p">p</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK16idBrushBSPPortal7GetNodeEi" title='idBrushBSPPortal::GetNode' data-ref="_ZNK16idBrushBSPPortal7GetNodeEi">GetNode</a>(!<a class="local col2 ref" href="#2s" title='s' data-ref="2s">s</a>)-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK14idBrushBSPNode11GetContentsEv" title='idBrushBSPNode::GetContents' data-ref="_ZNK14idBrushBSPNode11GetContentsEv">GetContents</a>() &amp; <a class="macro" href="AASFile.h.html#78" title="( 1 &lt;&lt; ( 0 ) )" data-ref="_M/AREACONTENTS_SOLID">AREACONTENTS_SOLID</a> ) {</td></tr>
+<tr><th id="59">59</th><td>				<b>if</b> ( <a class="local col2 ref" href="#2s" title='s' data-ref="2s">s</a> ) {</td></tr>
+<tr><th id="60">60</th><td>					<a class="local col4 ref" href="#4normal" title='normal' data-ref="4normal">normal</a> <a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec3aSERKS_" title='idVec3::operator=' data-ref="_ZN6idVec3aSERKS_">=</a> <a class="ref" href="../../../idlib/math/Vector.h.html#_ZNK6idVec3ngEv" title='idVec3::operator-' data-ref="_ZNK6idVec3ngEv">-</a><a class="local col3 ref" href="#3p" title='p' data-ref="3p">p</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK16idBrushBSPPortal8GetPlaneEv" title='idBrushBSPPortal::GetPlane' data-ref="_ZNK16idBrushBSPPortal8GetPlaneEv">GetPlane</a>().<a class="ref" href="../../../idlib/math/Plane.h.html#_ZNK7idPlane6NormalEv" title='idPlane::Normal' data-ref="_ZNK7idPlane6NormalEv">Normal</a>();</td></tr>
+<tr><th id="61">61</th><td>				}</td></tr>
+<tr><th id="62">62</th><td>				<b>else</b> {</td></tr>
+<tr><th id="63">63</th><td>					<a class="local col4 ref" href="#4normal" title='normal' data-ref="4normal">normal</a> <a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec3aSERKS_" title='idVec3::operator=' data-ref="_ZN6idVec3aSERKS_">=</a> <a class="local col3 ref" href="#3p" title='p' data-ref="3p">p</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK16idBrushBSPPortal8GetPlaneEv" title='idBrushBSPPortal::GetPlane' data-ref="_ZNK16idBrushBSPPortal8GetPlaneEv">GetPlane</a>().<a class="ref" href="../../../idlib/math/Plane.h.html#_ZNK7idPlane6NormalEv" title='idPlane::Normal' data-ref="_ZNK7idPlane6NormalEv">Normal</a>();</td></tr>
+<tr><th id="64">64</th><td>				}</td></tr>
+<tr><th id="65">65</th><td>				<b>if</b> ( <a class="local col4 ref" href="#4normal" title='normal' data-ref="4normal">normal</a> <a class="ref" href="../../../idlib/math/Vector.h.html#_ZNK6idVec3mlERKS_" title='idVec3::operator*' data-ref="_ZNK6idVec3mlERKS_">*</a> <a class="member" href="AASBuild_local.h.html#idAASBuild::aasSettings" title='idAASBuild::aasSettings' data-ref="idAASBuild::aasSettings">aasSettings</a>-&gt;<a class="ref" href="AASFile.h.html#idAASSettings::invGravityDir" title='idAASSettings::invGravityDir' data-ref="idAASSettings::invGravityDir">invGravityDir</a> &gt; <a class="member" href="AASBuild_local.h.html#idAASBuild::aasSettings" title='idAASBuild::aasSettings' data-ref="idAASBuild::aasSettings">aasSettings</a>-&gt;<a class="ref" href="AASFile.h.html#idAASSettings::minFloorCos" title='idAASSettings::minFloorCos' data-ref="idAASSettings::minFloorCos">minFloorCos</a> ) {</td></tr>
+<tr><th id="66">66</th><td>					<a class="local col3 ref" href="#3p" title='p' data-ref="3p">p</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZN16idBrushBSPPortal7SetFlagEi" title='idBrushBSPPortal::SetFlag' data-ref="_ZN16idBrushBSPPortal7SetFlagEi">SetFlag</a>( <a class="macro" href="AASFile.h.html#63" title="( 1 &lt;&lt; ( 2 ) )" data-ref="_M/FACE_FLOOR">FACE_FLOOR</a> );</td></tr>
+<tr><th id="67">67</th><td>				}</td></tr>
+<tr><th id="68">68</th><td>				<b>else</b> {</td></tr>
+<tr><th id="69">69</th><td>					<a class="local col3 ref" href="#3p" title='p' data-ref="3p">p</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZN16idBrushBSPPortal7SetFlagEi" title='idBrushBSPPortal::SetFlag' data-ref="_ZN16idBrushBSPPortal7SetFlagEi">SetFlag</a>( <a class="macro" href="AASFile.h.html#61" title="( 1 &lt;&lt; ( 0 ) )" data-ref="_M/FACE_SOLID">FACE_SOLID</a> );</td></tr>
+<tr><th id="70">70</th><td>				}</td></tr>
+<tr><th id="71">71</th><td>			}</td></tr>
+<tr><th id="72">72</th><td>		}</td></tr>
+<tr><th id="73">73</th><td>		<b>return</b>;</td></tr>
+<tr><th id="74">74</th><td>	}</td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td>	<a class="member" href="#_ZN10idAASBuild16SetPortalFlags_rEP14idBrushBSPNode" title='idAASBuild::SetPortalFlags_r' data-ref="_ZN10idAASBuild16SetPortalFlags_rEP14idBrushBSPNode">SetPortalFlags_r</a>( <a class="local col1 ref" href="#1node" title='node' data-ref="1node">node</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK14idBrushBSPNode8GetChildEi" title='idBrushBSPNode::GetChild' data-ref="_ZNK14idBrushBSPNode8GetChildEi">GetChild</a>(<var>0</var>) );</td></tr>
+<tr><th id="77">77</th><td>	<a class="member" href="#_ZN10idAASBuild16SetPortalFlags_rEP14idBrushBSPNode" title='idAASBuild::SetPortalFlags_r' data-ref="_ZN10idAASBuild16SetPortalFlags_rEP14idBrushBSPNode">SetPortalFlags_r</a>( <a class="local col1 ref" href="#1node" title='node' data-ref="1node">node</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK14idBrushBSPNode8GetChildEi" title='idBrushBSPNode::GetChild' data-ref="_ZNK14idBrushBSPNode8GetChildEi">GetChild</a>(<var>1</var>) );</td></tr>
+<tr><th id="78">78</th><td>}</td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td><i>/*</i></td></tr>
+<tr><th id="81">81</th><td><i>============</i></td></tr>
+<tr><th id="82">82</th><td><i>idAASBuild::PortalIsGap</i></td></tr>
+<tr><th id="83">83</th><td><i>============</i></td></tr>
+<tr><th id="84">84</th><td><i>*/</i></td></tr>
+<tr><th id="85">85</th><td><em>bool</em> <a class="type" href="AASBuild_local.h.html#idAASBuild" title='idAASBuild' data-ref="idAASBuild">idAASBuild</a>::<dfn class="decl def" id="_ZN10idAASBuild11PortalIsGapEP16idBrushBSPPortali" title='idAASBuild::PortalIsGap' data-ref="_ZN10idAASBuild11PortalIsGapEP16idBrushBSPPortali">PortalIsGap</dfn>( <a class="type" href="BrushBSP.h.html#idBrushBSPPortal" title='idBrushBSPPortal' data-ref="idBrushBSPPortal">idBrushBSPPortal</a> *<dfn class="local col5 decl" id="5portal" title='portal' data-type='idBrushBSPPortal *' data-ref="5portal">portal</dfn>, <em>int</em> <dfn class="local col6 decl" id="6side" title='side' data-type='int' data-ref="6side">side</dfn> ) {</td></tr>
+<tr><th id="86">86</th><td>	<a class="type" href="../../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> <a class="ref fake" href="../../../idlib/math/Vector.h.html#_ZN6idVec3C1Ev" title='idVec3::idVec3' data-ref="_ZN6idVec3C1Ev"></a><dfn class="local col7 decl" id="7normal" title='normal' data-type='idVec3' data-ref="7normal">normal</dfn>;</td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td>	<i>// if solid at the other side of the portal</i></td></tr>
+<tr><th id="89">89</th><td>	<b>if</b> ( <a class="local col5 ref" href="#5portal" title='portal' data-ref="5portal">portal</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK16idBrushBSPPortal7GetNodeEi" title='idBrushBSPPortal::GetNode' data-ref="_ZNK16idBrushBSPPortal7GetNodeEi">GetNode</a>(!<a class="local col6 ref" href="#6side" title='side' data-ref="6side">side</a>)-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK14idBrushBSPNode11GetContentsEv" title='idBrushBSPNode::GetContents' data-ref="_ZNK14idBrushBSPNode11GetContentsEv">GetContents</a>() &amp; <a class="macro" href="AASFile.h.html#78" title="( 1 &lt;&lt; ( 0 ) )" data-ref="_M/AREACONTENTS_SOLID">AREACONTENTS_SOLID</a> ) {</td></tr>
+<tr><th id="90">90</th><td>		<b>return</b> <b>false</b>;</td></tr>
+<tr><th id="91">91</th><td>	}</td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td>	<b>if</b> ( <a class="local col6 ref" href="#6side" title='side' data-ref="6side">side</a> ) {</td></tr>
+<tr><th id="94">94</th><td>		<a class="local col7 ref" href="#7normal" title='normal' data-ref="7normal">normal</a> <a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec3aSERKS_" title='idVec3::operator=' data-ref="_ZN6idVec3aSERKS_">=</a> <a class="ref" href="../../../idlib/math/Vector.h.html#_ZNK6idVec3ngEv" title='idVec3::operator-' data-ref="_ZNK6idVec3ngEv">-</a>(<a class="local col5 ref" href="#5portal" title='portal' data-ref="5portal">portal</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK16idBrushBSPPortal8GetPlaneEv" title='idBrushBSPPortal::GetPlane' data-ref="_ZNK16idBrushBSPPortal8GetPlaneEv">GetPlane</a>().<a class="ref" href="../../../idlib/math/Plane.h.html#_ZNK7idPlane6NormalEv" title='idPlane::Normal' data-ref="_ZNK7idPlane6NormalEv">Normal</a>());</td></tr>
+<tr><th id="95">95</th><td>	}</td></tr>
+<tr><th id="96">96</th><td>	<b>else</b> {</td></tr>
+<tr><th id="97">97</th><td>		<a class="local col7 ref" href="#7normal" title='normal' data-ref="7normal">normal</a> <a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec3aSERKS_" title='idVec3::operator=' data-ref="_ZN6idVec3aSERKS_">=</a> <a class="local col5 ref" href="#5portal" title='portal' data-ref="5portal">portal</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK16idBrushBSPPortal8GetPlaneEv" title='idBrushBSPPortal::GetPlane' data-ref="_ZNK16idBrushBSPPortal8GetPlaneEv">GetPlane</a>().<a class="ref" href="../../../idlib/math/Plane.h.html#_ZNK7idPlane6NormalEv" title='idPlane::Normal' data-ref="_ZNK7idPlane6NormalEv">Normal</a>();</td></tr>
+<tr><th id="98">98</th><td>	}</td></tr>
+<tr><th id="99">99</th><td>	<b>if</b> ( <a class="local col7 ref" href="#7normal" title='normal' data-ref="7normal">normal</a> <a class="ref" href="../../../idlib/math/Vector.h.html#_ZNK6idVec3mlERKS_" title='idVec3::operator*' data-ref="_ZNK6idVec3mlERKS_">*</a> <a class="member" href="AASBuild_local.h.html#idAASBuild::aasSettings" title='idAASBuild::aasSettings' data-ref="idAASBuild::aasSettings">aasSettings</a>-&gt;<a class="ref" href="AASFile.h.html#idAASSettings::invGravityDir" title='idAASSettings::invGravityDir' data-ref="idAASSettings::invGravityDir">invGravityDir</a> &gt; <a class="member" href="AASBuild_local.h.html#idAASBuild::aasSettings" title='idAASBuild::aasSettings' data-ref="idAASBuild::aasSettings">aasSettings</a>-&gt;<a class="ref" href="AASFile.h.html#idAASSettings::minFloorCos" title='idAASSettings::minFloorCos' data-ref="idAASSettings::minFloorCos">minFloorCos</a> ) {</td></tr>
+<tr><th id="100">100</th><td>		<b>return</b> <b>true</b>;</td></tr>
+<tr><th id="101">101</th><td>	}</td></tr>
+<tr><th id="102">102</th><td>	<b>return</b> <b>false</b>;</td></tr>
+<tr><th id="103">103</th><td>}</td></tr>
+<tr><th id="104">104</th><td></td></tr>
+<tr><th id="105">105</th><td><i>/*</i></td></tr>
+<tr><th id="106">106</th><td><i>============</i></td></tr>
+<tr><th id="107">107</th><td><i>idAASBuild::GravSubdivLeafNode</i></td></tr>
+<tr><th id="108">108</th><td><i>============</i></td></tr>
+<tr><th id="109">109</th><td><i>*/</i></td></tr>
+<tr><th id="110">110</th><td><u>#define <dfn class="macro" id="_M/FACE_CHECKED" data-ref="_M/FACE_CHECKED">FACE_CHECKED</dfn>			BIT(31)</u></td></tr>
+<tr><th id="111">111</th><td><u>#define <dfn class="macro" id="_M/GRAVSUBDIV_EPSILON" data-ref="_M/GRAVSUBDIV_EPSILON">GRAVSUBDIV_EPSILON</dfn>		0.1f</u></td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td><em>void</em> <a class="type" href="AASBuild_local.h.html#idAASBuild" title='idAASBuild' data-ref="idAASBuild">idAASBuild</a>::<dfn class="decl def" id="_ZN10idAASBuild18GravSubdivLeafNodeEP14idBrushBSPNode" title='idAASBuild::GravSubdivLeafNode' data-ref="_ZN10idAASBuild18GravSubdivLeafNodeEP14idBrushBSPNode">GravSubdivLeafNode</dfn>( <a class="type" href="BrushBSP.h.html#idBrushBSPNode" title='idBrushBSPNode' data-ref="idBrushBSPNode">idBrushBSPNode</a> *<dfn class="local col8 decl" id="8node" title='node' data-type='idBrushBSPNode *' data-ref="8node">node</dfn> ) {</td></tr>
+<tr><th id="114">114</th><td>	<em>int</em> <dfn class="local col9 decl" id="9s1" title='s1' data-type='int' data-ref="9s1">s1</dfn>, <dfn class="local col0 decl" id="10s2" title='s2' data-type='int' data-ref="10s2">s2</dfn>, <dfn class="local col1 decl" id="11i" title='i' data-type='int' data-ref="11i">i</dfn>, <dfn class="local col2 decl" id="12j" title='j' data-type='int' data-ref="12j">j</dfn>, <dfn class="local col3 decl" id="13k" title='k' data-type='int' data-ref="13k">k</dfn>, <dfn class="local col4 decl" id="14side1" title='side1' data-type='int' data-ref="14side1">side1</dfn>;</td></tr>
+<tr><th id="115">115</th><td>	<em>int</em> <dfn class="local col5 decl" id="15numSplits" title='numSplits' data-type='int' data-ref="15numSplits">numSplits</dfn>, <dfn class="local col6 decl" id="16numSplitters" title='numSplitters' data-type='int' data-ref="16numSplitters">numSplitters</dfn>;</td></tr>
+<tr><th id="116">116</th><td>	<a class="type" href="BrushBSP.h.html#idBrushBSPPortal" title='idBrushBSPPortal' data-ref="idBrushBSPPortal">idBrushBSPPortal</a> *<dfn class="local col7 decl" id="17p1" title='p1' data-type='idBrushBSPPortal *' data-ref="17p1">p1</dfn>, *<dfn class="local col8 decl" id="18p2" title='p2' data-type='idBrushBSPPortal *' data-ref="18p2">p2</dfn>;</td></tr>
+<tr><th id="117">117</th><td>	<a class="type" href="../../../idlib/geometry/Winding.h.html#idWinding" title='idWinding' data-ref="idWinding">idWinding</a> *<dfn class="local col9 decl" id="19w1" title='w1' data-type='idWinding *' data-ref="19w1">w1</dfn>, *<dfn class="local col0 decl" id="20w2" title='w2' data-type='idWinding *' data-ref="20w2">w2</dfn>;</td></tr>
+<tr><th id="118">118</th><td>	<a class="type" href="../../../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> <a class="ref fake" href="../../../idlib/math/Vector.h.html#_ZN6idVec3C1Ev" title='idVec3::idVec3' data-ref="_ZN6idVec3C1Ev"></a><dfn class="local col1 decl" id="21normal" title='normal' data-type='idVec3' data-ref="21normal">normal</dfn>;</td></tr>
+<tr><th id="119">119</th><td>	<a class="type" href="../../../idlib/math/Plane.h.html#idPlane" title='idPlane' data-ref="idPlane">idPlane</a> <a class="ref fake" href="../../../idlib/math/Plane.h.html#_ZN7idPlaneC1Ev" title='idPlane::idPlane' data-ref="_ZN7idPlaneC1Ev"></a><dfn class="local col2 decl" id="22plane" title='plane' data-type='idPlane' data-ref="22plane">plane</dfn>;</td></tr>
+<tr><th id="120">120</th><td>	<a class="type" href="../../../idlib/containers/PlaneSet.h.html#idPlaneSet" title='idPlaneSet' data-ref="idPlaneSet">idPlaneSet</a> <a class="ref fake" href="../../../idlib/containers/PlaneSet.h.html#40" title='idPlaneSet::idPlaneSet' data-ref="_ZN10idPlaneSetC1Ev"></a><dfn class="local col3 decl" id="23planeList" title='planeList' data-type='idPlaneSet' data-ref="23planeList">planeList</dfn>;</td></tr>
+<tr><th id="121">121</th><td>	<em>float</em> <dfn class="local col4 decl" id="24d" title='d' data-type='float' data-ref="24d">d</dfn>, <dfn class="local col5 decl" id="25min" title='min' data-type='float' data-ref="25min">min</dfn>, <dfn class="local col6 decl" id="26max" title='max' data-type='float' data-ref="26max">max</dfn>;</td></tr>
+<tr><th id="122">122</th><td>	<em>int</em> *<dfn class="local col7 decl" id="27splitterOrder" title='splitterOrder' data-type='int *' data-ref="27splitterOrder">splitterOrder</dfn>;</td></tr>
+<tr><th id="123">123</th><td>	<em>int</em> *<dfn class="local col8 decl" id="28bestNumSplits" title='bestNumSplits' data-type='int *' data-ref="28bestNumSplits">bestNumSplits</dfn>;</td></tr>
+<tr><th id="124">124</th><td>	<em>int</em> <dfn class="local col9 decl" id="29floor" title='floor' data-type='int' data-ref="29floor">floor</dfn>, <dfn class="local col0 decl" id="30gap" title='gap' data-type='int' data-ref="30gap">gap</dfn>, <dfn class="local col1 decl" id="31numFloorChecked" title='numFloorChecked' data-type='int' data-ref="31numFloorChecked">numFloorChecked</dfn>;</td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td>	<i>// if this leaf node is already classified it cannot have a combination of floor and gap portals</i></td></tr>
+<tr><th id="127">127</th><td>	<b>if</b> ( <a class="local col8 ref" href="#8node" title='node' data-ref="8node">node</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK14idBrushBSPNode8GetFlagsEv" title='idBrushBSPNode::GetFlags' data-ref="_ZNK14idBrushBSPNode8GetFlagsEv">GetFlags</a>() &amp; (<a class="macro" href="AASFile.h.html#68" title="( 1 &lt;&lt; ( 0 ) )" data-ref="_M/AREA_FLOOR">AREA_FLOOR</a>|<a class="macro" href="AASFile.h.html#69" title="( 1 &lt;&lt; ( 1 ) )" data-ref="_M/AREA_GAP">AREA_GAP</a>) ) {</td></tr>
+<tr><th id="128">128</th><td>		<b>return</b>;</td></tr>
+<tr><th id="129">129</th><td>	}</td></tr>
+<tr><th id="130">130</th><td></td></tr>
+<tr><th id="131">131</th><td>	<a class="local col9 ref" href="#29floor" title='floor' data-ref="29floor">floor</a> = <a class="local col0 ref" href="#30gap" title='gap' data-ref="30gap">gap</a> = <var>0</var>;</td></tr>
+<tr><th id="132">132</th><td></td></tr>
+<tr><th id="133">133</th><td>	<i>// check if the area has a floor</i></td></tr>
+<tr><th id="134">134</th><td>	<b>for</b> ( <a class="local col7 ref" href="#17p1" title='p1' data-ref="17p1">p1</a> = <a class="local col8 ref" href="#8node" title='node' data-ref="8node">node</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK14idBrushBSPNode10GetPortalsEv" title='idBrushBSPNode::GetPortals' data-ref="_ZNK14idBrushBSPNode10GetPortalsEv">GetPortals</a>(); <a class="local col7 ref" href="#17p1" title='p1' data-ref="17p1">p1</a>; <a class="local col7 ref" href="#17p1" title='p1' data-ref="17p1">p1</a> = <a class="local col7 ref" href="#17p1" title='p1' data-ref="17p1">p1</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK16idBrushBSPPortal4NextEi" title='idBrushBSPPortal::Next' data-ref="_ZNK16idBrushBSPPortal4NextEi">Next</a>(<a class="local col9 ref" href="#9s1" title='s1' data-ref="9s1">s1</a>) ) {</td></tr>
+<tr><th id="135">135</th><td>		<a class="local col9 ref" href="#9s1" title='s1' data-ref="9s1">s1</a> = (<a class="local col7 ref" href="#17p1" title='p1' data-ref="17p1">p1</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK16idBrushBSPPortal7GetNodeEi" title='idBrushBSPPortal::GetNode' data-ref="_ZNK16idBrushBSPPortal7GetNodeEi">GetNode</a>(<var>1</var>) == <a class="local col8 ref" href="#8node" title='node' data-ref="8node">node</a>);</td></tr>
+<tr><th id="136">136</th><td></td></tr>
+<tr><th id="137">137</th><td>		<b>if</b> ( <a class="local col7 ref" href="#17p1" title='p1' data-ref="17p1">p1</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK16idBrushBSPPortal8GetFlagsEv" title='idBrushBSPPortal::GetFlags' data-ref="_ZNK16idBrushBSPPortal8GetFlagsEv">GetFlags</a>() &amp; <a class="macro" href="AASFile.h.html#63" title="( 1 &lt;&lt; ( 2 ) )" data-ref="_M/FACE_FLOOR">FACE_FLOOR</a> ) {</td></tr>
+<tr><th id="138">138</th><td>			<a class="local col9 ref" href="#29floor" title='floor' data-ref="29floor">floor</a>++;</td></tr>
+<tr><th id="139">139</th><td>		}</td></tr>
+<tr><th id="140">140</th><td>	}</td></tr>
+<tr><th id="141">141</th><td></td></tr>
+<tr><th id="142">142</th><td>	<i>// find seperating planes between gap and floor portals</i></td></tr>
+<tr><th id="143">143</th><td>	<b>for</b> ( <a class="local col7 ref" href="#17p1" title='p1' data-ref="17p1">p1</a> = <a class="local col8 ref" href="#8node" title='node' data-ref="8node">node</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK14idBrushBSPNode10GetPortalsEv" title='idBrushBSPNode::GetPortals' data-ref="_ZNK14idBrushBSPNode10GetPortalsEv">GetPortals</a>(); <a class="local col7 ref" href="#17p1" title='p1' data-ref="17p1">p1</a>; <a class="local col7 ref" href="#17p1" title='p1' data-ref="17p1">p1</a> = <a class="local col7 ref" href="#17p1" title='p1' data-ref="17p1">p1</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK16idBrushBSPPortal4NextEi" title='idBrushBSPPortal::Next' data-ref="_ZNK16idBrushBSPPortal4NextEi">Next</a>(<a class="local col9 ref" href="#9s1" title='s1' data-ref="9s1">s1</a>) ) {</td></tr>
+<tr><th id="144">144</th><td>		<a class="local col9 ref" href="#9s1" title='s1' data-ref="9s1">s1</a> = (<a class="local col7 ref" href="#17p1" title='p1' data-ref="17p1">p1</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK16idBrushBSPPortal7GetNodeEi" title='idBrushBSPPortal::GetNode' data-ref="_ZNK16idBrushBSPPortal7GetNodeEi">GetNode</a>(<var>1</var>) == <a class="local col8 ref" href="#8node" title='node' data-ref="8node">node</a>);</td></tr>
+<tr><th id="145">145</th><td></td></tr>
+<tr><th id="146">146</th><td>		<i>// if the portal is a gap seen from this side</i></td></tr>
+<tr><th id="147">147</th><td>		<b>if</b> ( <a class="member" href="#_ZN10idAASBuild11PortalIsGapEP16idBrushBSPPortali" title='idAASBuild::PortalIsGap' data-ref="_ZN10idAASBuild11PortalIsGapEP16idBrushBSPPortali">PortalIsGap</a>( <a class="local col7 ref" href="#17p1" title='p1' data-ref="17p1">p1</a>, <a class="local col9 ref" href="#9s1" title='s1' data-ref="9s1">s1</a> ) ) {</td></tr>
+<tr><th id="148">148</th><td>			<a class="local col0 ref" href="#30gap" title='gap' data-ref="30gap">gap</a>++;</td></tr>
+<tr><th id="149">149</th><td>			<i>// if the area doesn't have a floor</i></td></tr>
+<tr><th id="150">150</th><td>			<b>if</b> ( !<a class="local col9 ref" href="#29floor" title='floor' data-ref="29floor">floor</a> ) {</td></tr>
+<tr><th id="151">151</th><td>				<b>break</b>;</td></tr>
+<tr><th id="152">152</th><td>			}</td></tr>
+<tr><th id="153">153</th><td>		}</td></tr>
+<tr><th id="154">154</th><td>		<b>else</b> {</td></tr>
+<tr><th id="155">155</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="156">156</th><td>		}</td></tr>
+<tr><th id="157">157</th><td></td></tr>
+<tr><th id="158">158</th><td>		<a class="local col1 ref" href="#31numFloorChecked" title='numFloorChecked' data-ref="31numFloorChecked">numFloorChecked</a> = <var>0</var>;</td></tr>
+<tr><th id="159">159</th><td></td></tr>
+<tr><th id="160">160</th><td>		<a class="local col9 ref" href="#19w1" title='w1' data-ref="19w1">w1</a> = <a class="local col7 ref" href="#17p1" title='p1' data-ref="17p1">p1</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK16idBrushBSPPortal10GetWindingEv" title='idBrushBSPPortal::GetWinding' data-ref="_ZNK16idBrushBSPPortal10GetWindingEv">GetWinding</a>();</td></tr>
+<tr><th id="161">161</th><td></td></tr>
+<tr><th id="162">162</th><td>		<i>// test all edges of the gap</i></td></tr>
+<tr><th id="163">163</th><td>		<b>for</b> ( <a class="local col1 ref" href="#11i" title='i' data-ref="11i">i</a> = <var>0</var>; <a class="local col1 ref" href="#11i" title='i' data-ref="11i">i</a> &lt; <a class="local col9 ref" href="#19w1" title='w1' data-ref="19w1">w1</a>-&gt;<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZNK9idWinding12GetNumPointsEv" title='idWinding::GetNumPoints' data-ref="_ZNK9idWinding12GetNumPointsEv">GetNumPoints</a>(); <a class="local col1 ref" href="#11i" title='i' data-ref="11i">i</a>++ ) {</td></tr>
+<tr><th id="164">164</th><td></td></tr>
+<tr><th id="165">165</th><td>			<i>// create a plane through the edge of the gap parallel to the direction of gravity</i></td></tr>
+<tr><th id="166">166</th><td>			<a class="local col1 ref" href="#21normal" title='normal' data-ref="21normal">normal</a> <a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec3aSERKS_" title='idVec3::operator=' data-ref="_ZN6idVec3aSERKS_">=</a> (*<a class="local col9 ref" href="#19w1" title='w1' data-ref="19w1">w1</a>)<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZN9idWindingixEi" title='idWinding::operator[]' data-ref="_ZN9idWindingixEi">[(<a class="local col1 ref" href="#11i" title='i' data-ref="11i">i</a>+<var>1</var>)%<a class="local col9 ref" href="#19w1" title='w1' data-ref="19w1">w1</a>-&gt;<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZNK9idWinding12GetNumPointsEv" title='idWinding::GetNumPoints' data-ref="_ZNK9idWinding12GetNumPointsEv">GetNumPoints</a>()]</a>.<a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec56ToVec3Ev" title='idVec5::ToVec3' data-ref="_ZN6idVec56ToVec3Ev">ToVec3</a>() <a class="ref" href="../../../idlib/math/Vector.h.html#_ZNK6idVec3miERKS_" title='idVec3::operator-' data-ref="_ZNK6idVec3miERKS_">-</a> (*<a class="local col9 ref" href="#19w1" title='w1' data-ref="19w1">w1</a>)<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZN9idWindingixEi" title='idWinding::operator[]' data-ref="_ZN9idWindingixEi">[<a class="local col1 ref" href="#11i" title='i' data-ref="11i">i</a>]</a>.<a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec56ToVec3Ev" title='idVec5::ToVec3' data-ref="_ZN6idVec56ToVec3Ev">ToVec3</a>();</td></tr>
+<tr><th id="167">167</th><td>			<a class="local col1 ref" href="#21normal" title='normal' data-ref="21normal">normal</a> <a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec3aSERKS_" title='idVec3::operator=' data-ref="_ZN6idVec3aSERKS_">=</a> <a class="local col1 ref" href="#21normal" title='normal' data-ref="21normal">normal</a>.<a class="ref" href="../../../idlib/math/Vector.h.html#_ZNK6idVec35CrossERKS_" title='idVec3::Cross' data-ref="_ZNK6idVec35CrossERKS_">Cross</a>( <a class="member" href="AASBuild_local.h.html#idAASBuild::aasSettings" title='idAASBuild::aasSettings' data-ref="idAASBuild::aasSettings">aasSettings</a>-&gt;<a class="ref" href="AASFile.h.html#idAASSettings::invGravityDir" title='idAASSettings::invGravityDir' data-ref="idAASSettings::invGravityDir">invGravityDir</a> );</td></tr>
+<tr><th id="168">168</th><td>			<b>if</b> ( <a class="local col1 ref" href="#21normal" title='normal' data-ref="21normal">normal</a>.<a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec39NormalizeEv" title='idVec3::Normalize' data-ref="_ZN6idVec39NormalizeEv">Normalize</a>() &lt; <var>0.2f</var> ) {</td></tr>
+<tr><th id="169">169</th><td>				<b>continue</b>;</td></tr>
+<tr><th id="170">170</th><td>			}</td></tr>
+<tr><th id="171">171</th><td>			<a class="local col2 ref" href="#22plane" title='plane' data-ref="22plane">plane</a>.<a class="ref" href="../../../idlib/math/Plane.h.html#_ZN7idPlane9SetNormalERK6idVec3" title='idPlane::SetNormal' data-ref="_ZN7idPlane9SetNormalERK6idVec3">SetNormal</a>( <a class="local col1 ref" href="#21normal" title='normal' data-ref="21normal">normal</a> );</td></tr>
+<tr><th id="172">172</th><td>			<a class="local col2 ref" href="#22plane" title='plane' data-ref="22plane">plane</a>.<a class="ref" href="../../../idlib/math/Plane.h.html#_ZN7idPlane15FitThroughPointERK6idVec3" title='idPlane::FitThroughPoint' data-ref="_ZN7idPlane15FitThroughPointERK6idVec3">FitThroughPoint</a>( (*<a class="local col9 ref" href="#19w1" title='w1' data-ref="19w1">w1</a>)<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZN9idWindingixEi" title='idWinding::operator[]' data-ref="_ZN9idWindingixEi">[<a class="local col1 ref" href="#11i" title='i' data-ref="11i">i</a>]</a>.<a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec56ToVec3Ev" title='idVec5::ToVec3' data-ref="_ZN6idVec56ToVec3Ev">ToVec3</a>() );</td></tr>
+<tr><th id="173">173</th><td></td></tr>
+<tr><th id="174">174</th><td>			<i>// get the side of the plane the gap is on</i></td></tr>
+<tr><th id="175">175</th><td>			<a class="local col4 ref" href="#14side1" title='side1' data-ref="14side1">side1</a> = <a class="local col9 ref" href="#19w1" title='w1' data-ref="19w1">w1</a>-&gt;<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZNK9idWinding9PlaneSideERK7idPlanef" title='idWinding::PlaneSide' data-ref="_ZNK9idWinding9PlaneSideERK7idPlanef">PlaneSide</a>( <a class="local col2 ref" href="#22plane" title='plane' data-ref="22plane">plane</a>, <a class="macro" href="#111" title="0.1f" data-ref="_M/GRAVSUBDIV_EPSILON">GRAVSUBDIV_EPSILON</a> );</td></tr>
+<tr><th id="176">176</th><td>			<b>if</b> ( <a class="local col4 ref" href="#14side1" title='side1' data-ref="14side1">side1</a> == <a class="macro" href="../../../idlib/math/Plane.h.html#49" title="2" data-ref="_M/SIDE_ON">SIDE_ON</a> ) {</td></tr>
+<tr><th id="177">177</th><td>				<b>break</b>;</td></tr>
+<tr><th id="178">178</th><td>			}</td></tr>
+<tr><th id="179">179</th><td></td></tr>
+<tr><th id="180">180</th><td>			<i>// test if the plane through the edge of the gap seperates the gap from a floor portal</i></td></tr>
+<tr><th id="181">181</th><td>			<b>for</b> ( <a class="local col8 ref" href="#18p2" title='p2' data-ref="18p2">p2</a> = <a class="local col8 ref" href="#8node" title='node' data-ref="8node">node</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK14idBrushBSPNode10GetPortalsEv" title='idBrushBSPNode::GetPortals' data-ref="_ZNK14idBrushBSPNode10GetPortalsEv">GetPortals</a>(); <a class="local col8 ref" href="#18p2" title='p2' data-ref="18p2">p2</a>; <a class="local col8 ref" href="#18p2" title='p2' data-ref="18p2">p2</a> = <a class="local col8 ref" href="#18p2" title='p2' data-ref="18p2">p2</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK16idBrushBSPPortal4NextEi" title='idBrushBSPPortal::Next' data-ref="_ZNK16idBrushBSPPortal4NextEi">Next</a>(<a class="local col0 ref" href="#10s2" title='s2' data-ref="10s2">s2</a>) ) {</td></tr>
+<tr><th id="182">182</th><td>				<a class="local col0 ref" href="#10s2" title='s2' data-ref="10s2">s2</a> = (<a class="local col8 ref" href="#18p2" title='p2' data-ref="18p2">p2</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK16idBrushBSPPortal7GetNodeEi" title='idBrushBSPPortal::GetNode' data-ref="_ZNK16idBrushBSPPortal7GetNodeEi">GetNode</a>(<var>1</var>) == <a class="local col8 ref" href="#8node" title='node' data-ref="8node">node</a>);</td></tr>
+<tr><th id="183">183</th><td></td></tr>
+<tr><th id="184">184</th><td>				<b>if</b> ( !( <a class="local col8 ref" href="#18p2" title='p2' data-ref="18p2">p2</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK16idBrushBSPPortal8GetFlagsEv" title='idBrushBSPPortal::GetFlags' data-ref="_ZNK16idBrushBSPPortal8GetFlagsEv">GetFlags</a>() &amp; <a class="macro" href="AASFile.h.html#63" title="( 1 &lt;&lt; ( 2 ) )" data-ref="_M/FACE_FLOOR">FACE_FLOOR</a> ) ) {</td></tr>
+<tr><th id="185">185</th><td>					<b>continue</b>;</td></tr>
+<tr><th id="186">186</th><td>				}</td></tr>
+<tr><th id="187">187</th><td></td></tr>
+<tr><th id="188">188</th><td>				<b>if</b> ( <a class="local col8 ref" href="#18p2" title='p2' data-ref="18p2">p2</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK16idBrushBSPPortal8GetFlagsEv" title='idBrushBSPPortal::GetFlags' data-ref="_ZNK16idBrushBSPPortal8GetFlagsEv">GetFlags</a>() &amp; <a class="macro" href="#110" title="( 1 &lt;&lt; ( 31 ) )" data-ref="_M/FACE_CHECKED">FACE_CHECKED</a> ) {</td></tr>
+<tr><th id="189">189</th><td>					<b>continue</b>;</td></tr>
+<tr><th id="190">190</th><td>				}</td></tr>
+<tr><th id="191">191</th><td></td></tr>
+<tr><th id="192">192</th><td>				<a class="local col0 ref" href="#20w2" title='w2' data-ref="20w2">w2</a> = <a class="local col8 ref" href="#18p2" title='p2' data-ref="18p2">p2</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK16idBrushBSPPortal10GetWindingEv" title='idBrushBSPPortal::GetWinding' data-ref="_ZNK16idBrushBSPPortal10GetWindingEv">GetWinding</a>();</td></tr>
+<tr><th id="193">193</th><td></td></tr>
+<tr><th id="194">194</th><td>				<a class="local col5 ref" href="#25min" title='min' data-ref="25min">min</a> = <var>2.0f</var> * <a class="macro" href="#111" title="0.1f" data-ref="_M/GRAVSUBDIV_EPSILON">GRAVSUBDIV_EPSILON</a>;</td></tr>
+<tr><th id="195">195</th><td>				<a class="local col6 ref" href="#26max" title='max' data-ref="26max">max</a> = <a class="macro" href="#111" title="0.1f" data-ref="_M/GRAVSUBDIV_EPSILON">GRAVSUBDIV_EPSILON</a>;</td></tr>
+<tr><th id="196">196</th><td>				<b>if</b> ( <a class="local col4 ref" href="#14side1" title='side1' data-ref="14side1">side1</a> == <a class="macro" href="../../../idlib/math/Plane.h.html#47" title="0" data-ref="_M/SIDE_FRONT">SIDE_FRONT</a> ) {</td></tr>
+<tr><th id="197">197</th><td>					<b>for</b> ( <a class="local col2 ref" href="#12j" title='j' data-ref="12j">j</a> = <var>0</var>; <a class="local col2 ref" href="#12j" title='j' data-ref="12j">j</a> &lt; <a class="local col0 ref" href="#20w2" title='w2' data-ref="20w2">w2</a>-&gt;<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZNK9idWinding12GetNumPointsEv" title='idWinding::GetNumPoints' data-ref="_ZNK9idWinding12GetNumPointsEv">GetNumPoints</a>(); <a class="local col2 ref" href="#12j" title='j' data-ref="12j">j</a>++ ) {</td></tr>
+<tr><th id="198">198</th><td>						<a class="local col4 ref" href="#24d" title='d' data-ref="24d">d</a> = <a class="local col2 ref" href="#22plane" title='plane' data-ref="22plane">plane</a>.<a class="ref" href="../../../idlib/math/Plane.h.html#_ZNK7idPlane8DistanceERK6idVec3" title='idPlane::Distance' data-ref="_ZNK7idPlane8DistanceERK6idVec3">Distance</a>( (*<a class="local col0 ref" href="#20w2" title='w2' data-ref="20w2">w2</a>)<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZN9idWindingixEi" title='idWinding::operator[]' data-ref="_ZN9idWindingixEi">[<a class="local col2 ref" href="#12j" title='j' data-ref="12j">j</a>]</a>.<a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec56ToVec3Ev" title='idVec5::ToVec3' data-ref="_ZN6idVec56ToVec3Ev">ToVec3</a>() );</td></tr>
+<tr><th id="199">199</th><td>						<b>if</b> ( <a class="local col4 ref" href="#24d" title='d' data-ref="24d">d</a> &gt;= <a class="macro" href="#111" title="0.1f" data-ref="_M/GRAVSUBDIV_EPSILON">GRAVSUBDIV_EPSILON</a> ) {</td></tr>
+<tr><th id="200">200</th><td>							<b>break</b>;	<i>// point at the same side of the plane as the gap</i></td></tr>
+<tr><th id="201">201</th><td>						}</td></tr>
+<tr><th id="202">202</th><td>						<a class="local col4 ref" href="#24d" title='d' data-ref="24d">d</a> = <a class="type" href="../../../idlib/math/Math.h.html#idMath" title='idMath' data-ref="idMath">idMath</a>::<a class="ref" href="../../../idlib/math/Math.h.html#_ZN6idMath4FabsEf" title='idMath::Fabs' data-ref="_ZN6idMath4FabsEf">Fabs</a>( <a class="local col4 ref" href="#24d" title='d' data-ref="24d">d</a> );</td></tr>
+<tr><th id="203">203</th><td>						<b>if</b> ( <a class="local col4 ref" href="#24d" title='d' data-ref="24d">d</a> &lt; <a class="local col5 ref" href="#25min" title='min' data-ref="25min">min</a> ) {</td></tr>
+<tr><th id="204">204</th><td>							<a class="local col5 ref" href="#25min" title='min' data-ref="25min">min</a> = <a class="local col4 ref" href="#24d" title='d' data-ref="24d">d</a>;</td></tr>
+<tr><th id="205">205</th><td>						}</td></tr>
+<tr><th id="206">206</th><td>						<b>if</b> ( <a class="local col4 ref" href="#24d" title='d' data-ref="24d">d</a> &gt; <a class="local col6 ref" href="#26max" title='max' data-ref="26max">max</a> ) {</td></tr>
+<tr><th id="207">207</th><td>							<a class="local col6 ref" href="#26max" title='max' data-ref="26max">max</a> = <a class="local col4 ref" href="#24d" title='d' data-ref="24d">d</a>;</td></tr>
+<tr><th id="208">208</th><td>						}</td></tr>
+<tr><th id="209">209</th><td>					}</td></tr>
+<tr><th id="210">210</th><td>				}</td></tr>
+<tr><th id="211">211</th><td>				<b>else</b> {</td></tr>
+<tr><th id="212">212</th><td>					<b>for</b> ( <a class="local col2 ref" href="#12j" title='j' data-ref="12j">j</a> = <var>0</var>; <a class="local col2 ref" href="#12j" title='j' data-ref="12j">j</a> &lt; <a class="local col0 ref" href="#20w2" title='w2' data-ref="20w2">w2</a>-&gt;<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZNK9idWinding12GetNumPointsEv" title='idWinding::GetNumPoints' data-ref="_ZNK9idWinding12GetNumPointsEv">GetNumPoints</a>(); <a class="local col2 ref" href="#12j" title='j' data-ref="12j">j</a>++ ) {</td></tr>
+<tr><th id="213">213</th><td>						<a class="local col4 ref" href="#24d" title='d' data-ref="24d">d</a> = <a class="local col2 ref" href="#22plane" title='plane' data-ref="22plane">plane</a>.<a class="ref" href="../../../idlib/math/Plane.h.html#_ZNK7idPlane8DistanceERK6idVec3" title='idPlane::Distance' data-ref="_ZNK7idPlane8DistanceERK6idVec3">Distance</a>( (*<a class="local col0 ref" href="#20w2" title='w2' data-ref="20w2">w2</a>)<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZN9idWindingixEi" title='idWinding::operator[]' data-ref="_ZN9idWindingixEi">[<a class="local col2 ref" href="#12j" title='j' data-ref="12j">j</a>]</a>.<a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec56ToVec3Ev" title='idVec5::ToVec3' data-ref="_ZN6idVec56ToVec3Ev">ToVec3</a>() );</td></tr>
+<tr><th id="214">214</th><td>						<b>if</b> ( <a class="local col4 ref" href="#24d" title='d' data-ref="24d">d</a> &lt;= -<a class="macro" href="#111" title="0.1f" data-ref="_M/GRAVSUBDIV_EPSILON">GRAVSUBDIV_EPSILON</a> ) {</td></tr>
+<tr><th id="215">215</th><td>							<b>break</b>;	<i>// point at the same side of the plane as the gap</i></td></tr>
+<tr><th id="216">216</th><td>						}</td></tr>
+<tr><th id="217">217</th><td>						<a class="local col4 ref" href="#24d" title='d' data-ref="24d">d</a> = <a class="type" href="../../../idlib/math/Math.h.html#idMath" title='idMath' data-ref="idMath">idMath</a>::<a class="ref" href="../../../idlib/math/Math.h.html#_ZN6idMath4FabsEf" title='idMath::Fabs' data-ref="_ZN6idMath4FabsEf">Fabs</a>( <a class="local col4 ref" href="#24d" title='d' data-ref="24d">d</a> );</td></tr>
+<tr><th id="218">218</th><td>						<b>if</b> ( <a class="local col4 ref" href="#24d" title='d' data-ref="24d">d</a> &lt; <a class="local col5 ref" href="#25min" title='min' data-ref="25min">min</a> ) {</td></tr>
+<tr><th id="219">219</th><td>							<a class="local col5 ref" href="#25min" title='min' data-ref="25min">min</a> = <a class="local col4 ref" href="#24d" title='d' data-ref="24d">d</a>;</td></tr>
+<tr><th id="220">220</th><td>						}</td></tr>
+<tr><th id="221">221</th><td>						<b>if</b> ( <a class="local col4 ref" href="#24d" title='d' data-ref="24d">d</a> &gt; <a class="local col6 ref" href="#26max" title='max' data-ref="26max">max</a> ) {</td></tr>
+<tr><th id="222">222</th><td>							<a class="local col6 ref" href="#26max" title='max' data-ref="26max">max</a> = <a class="local col4 ref" href="#24d" title='d' data-ref="24d">d</a>;</td></tr>
+<tr><th id="223">223</th><td>						}</td></tr>
+<tr><th id="224">224</th><td>					}</td></tr>
+<tr><th id="225">225</th><td>				}</td></tr>
+<tr><th id="226">226</th><td></td></tr>
+<tr><th id="227">227</th><td>				<i>// a point of the floor portal was found to be at the same side of the plane as the gap</i></td></tr>
+<tr><th id="228">228</th><td>				<b>if</b> ( <a class="local col2 ref" href="#12j" title='j' data-ref="12j">j</a> &lt; <a class="local col0 ref" href="#20w2" title='w2' data-ref="20w2">w2</a>-&gt;<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZNK9idWinding12GetNumPointsEv" title='idWinding::GetNumPoints' data-ref="_ZNK9idWinding12GetNumPointsEv">GetNumPoints</a>() ) {</td></tr>
+<tr><th id="229">229</th><td>					<b>continue</b>;</td></tr>
+<tr><th id="230">230</th><td>				}</td></tr>
+<tr><th id="231">231</th><td></td></tr>
+<tr><th id="232">232</th><td>				<i>// if the floor portal touches the plane</i></td></tr>
+<tr><th id="233">233</th><td>				<b>if</b> ( <a class="local col5 ref" href="#25min" title='min' data-ref="25min">min</a> &lt; <a class="macro" href="#111" title="0.1f" data-ref="_M/GRAVSUBDIV_EPSILON">GRAVSUBDIV_EPSILON</a> &amp;&amp; <a class="local col6 ref" href="#26max" title='max' data-ref="26max">max</a> &gt; <a class="macro" href="#111" title="0.1f" data-ref="_M/GRAVSUBDIV_EPSILON">GRAVSUBDIV_EPSILON</a> ) {</td></tr>
+<tr><th id="234">234</th><td>					<a class="local col3 ref" href="#23planeList" title='planeList' data-ref="23planeList">planeList</a>.<a class="ref" href="../../../idlib/containers/PlaneSet.h.html#_ZN10idPlaneSet9FindPlaneERK7idPlaneff" title='idPlaneSet::FindPlane' data-ref="_ZN10idPlaneSet9FindPlaneERK7idPlaneff">FindPlane</a>( <a class="local col2 ref" href="#22plane" title='plane' data-ref="22plane">plane</a>, <var>0.00001f</var>, <var>0.1f</var> );</td></tr>
+<tr><th id="235">235</th><td>				}</td></tr>
+<tr><th id="236">236</th><td></td></tr>
+<tr><th id="237">237</th><td>				<a class="local col8 ref" href="#18p2" title='p2' data-ref="18p2">p2</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZN16idBrushBSPPortal7SetFlagEi" title='idBrushBSPPortal::SetFlag' data-ref="_ZN16idBrushBSPPortal7SetFlagEi">SetFlag</a>( <a class="macro" href="#110" title="( 1 &lt;&lt; ( 31 ) )" data-ref="_M/FACE_CHECKED">FACE_CHECKED</a> );</td></tr>
+<tr><th id="238">238</th><td>				<a class="local col1 ref" href="#31numFloorChecked" title='numFloorChecked' data-ref="31numFloorChecked">numFloorChecked</a>++;</td></tr>
+<tr><th id="239">239</th><td></td></tr>
+<tr><th id="240">240</th><td>			}</td></tr>
+<tr><th id="241">241</th><td>			<b>if</b> ( <a class="local col1 ref" href="#31numFloorChecked" title='numFloorChecked' data-ref="31numFloorChecked">numFloorChecked</a> == <a class="local col9 ref" href="#29floor" title='floor' data-ref="29floor">floor</a> ) {</td></tr>
+<tr><th id="242">242</th><td>				<b>break</b>;</td></tr>
+<tr><th id="243">243</th><td>			}</td></tr>
+<tr><th id="244">244</th><td>		}</td></tr>
+<tr><th id="245">245</th><td></td></tr>
+<tr><th id="246">246</th><td>		<b>for</b> ( <a class="local col8 ref" href="#18p2" title='p2' data-ref="18p2">p2</a> = <a class="local col8 ref" href="#8node" title='node' data-ref="8node">node</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK14idBrushBSPNode10GetPortalsEv" title='idBrushBSPNode::GetPortals' data-ref="_ZNK14idBrushBSPNode10GetPortalsEv">GetPortals</a>(); <a class="local col8 ref" href="#18p2" title='p2' data-ref="18p2">p2</a>; <a class="local col8 ref" href="#18p2" title='p2' data-ref="18p2">p2</a> = <a class="local col8 ref" href="#18p2" title='p2' data-ref="18p2">p2</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK16idBrushBSPPortal4NextEi" title='idBrushBSPPortal::Next' data-ref="_ZNK16idBrushBSPPortal4NextEi">Next</a>(<a class="local col0 ref" href="#10s2" title='s2' data-ref="10s2">s2</a>) ) {</td></tr>
+<tr><th id="247">247</th><td>			<a class="local col0 ref" href="#10s2" title='s2' data-ref="10s2">s2</a> = (<a class="local col8 ref" href="#18p2" title='p2' data-ref="18p2">p2</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK16idBrushBSPPortal7GetNodeEi" title='idBrushBSPPortal::GetNode' data-ref="_ZNK16idBrushBSPPortal7GetNodeEi">GetNode</a>(<var>1</var>) == <a class="local col8 ref" href="#8node" title='node' data-ref="8node">node</a>);</td></tr>
+<tr><th id="248">248</th><td>			<a class="local col8 ref" href="#18p2" title='p2' data-ref="18p2">p2</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZN16idBrushBSPPortal10RemoveFlagEi" title='idBrushBSPPortal::RemoveFlag' data-ref="_ZN16idBrushBSPPortal10RemoveFlagEi">RemoveFlag</a>( <a class="macro" href="#110" title="( 1 &lt;&lt; ( 31 ) )" data-ref="_M/FACE_CHECKED">FACE_CHECKED</a> );</td></tr>
+<tr><th id="249">249</th><td>		}</td></tr>
+<tr><th id="250">250</th><td>	}</td></tr>
+<tr><th id="251">251</th><td></td></tr>
+<tr><th id="252">252</th><td>	<i>// if the leaf node does not have both floor and gap portals</i></td></tr>
+<tr><th id="253">253</th><td>	<b>if</b> ( !( <a class="local col0 ref" href="#30gap" title='gap' data-ref="30gap">gap</a> &amp;&amp; <a class="local col9 ref" href="#29floor" title='floor' data-ref="29floor">floor</a>) ) {</td></tr>
+<tr><th id="254">254</th><td>		<b>if</b> ( <a class="local col9 ref" href="#29floor" title='floor' data-ref="29floor">floor</a> ) {</td></tr>
+<tr><th id="255">255</th><td>			<a class="local col8 ref" href="#8node" title='node' data-ref="8node">node</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZN14idBrushBSPNode7SetFlagEi" title='idBrushBSPNode::SetFlag' data-ref="_ZN14idBrushBSPNode7SetFlagEi">SetFlag</a>( <a class="macro" href="AASFile.h.html#68" title="( 1 &lt;&lt; ( 0 ) )" data-ref="_M/AREA_FLOOR">AREA_FLOOR</a> );</td></tr>
+<tr><th id="256">256</th><td>		}</td></tr>
+<tr><th id="257">257</th><td>		<b>else</b> <b>if</b> ( <a class="local col0 ref" href="#30gap" title='gap' data-ref="30gap">gap</a> ) {</td></tr>
+<tr><th id="258">258</th><td>			<a class="local col8 ref" href="#8node" title='node' data-ref="8node">node</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZN14idBrushBSPNode7SetFlagEi" title='idBrushBSPNode::SetFlag' data-ref="_ZN14idBrushBSPNode7SetFlagEi">SetFlag</a>( <a class="macro" href="AASFile.h.html#69" title="( 1 &lt;&lt; ( 1 ) )" data-ref="_M/AREA_GAP">AREA_GAP</a> );</td></tr>
+<tr><th id="259">259</th><td>		}</td></tr>
+<tr><th id="260">260</th><td>		<b>return</b>;</td></tr>
+<tr><th id="261">261</th><td>	}</td></tr>
+<tr><th id="262">262</th><td></td></tr>
+<tr><th id="263">263</th><td>	<i>// if no valid seperators found</i></td></tr>
+<tr><th id="264">264</th><td>	<b>if</b> ( <a class="local col3 ref" href="#23planeList" title='planeList' data-ref="23planeList">planeList</a>.<a class="ref" href="../../../idlib/containers/List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>() == <var>0</var> ) {</td></tr>
+<tr><th id="265">265</th><td>		<i>// NOTE: this should never happend, if it does the leaf node has degenerate portals</i></td></tr>
+<tr><th id="266">266</th><td>		<b>return</b>;</td></tr>
+<tr><th id="267">267</th><td>	}</td></tr>
+<tr><th id="268">268</th><td></td></tr>
+<tr><th id="269">269</th><td>	<a class="local col7 ref" href="#27splitterOrder" title='splitterOrder' data-ref="27splitterOrder">splitterOrder</a> = (<em>int</em> *) <a class="macro" href="../../../sys/sys_public.h.html#117" title="alloca" data-ref="_M/_alloca">_alloca</a>( <a class="local col3 ref" href="#23planeList" title='planeList' data-ref="23planeList">planeList</a>.<a class="ref" href="../../../idlib/containers/List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>() * <b>sizeof</b>( <em>int</em> ) );</td></tr>
+<tr><th id="270">270</th><td>	<a class="local col8 ref" href="#28bestNumSplits" title='bestNumSplits' data-ref="28bestNumSplits">bestNumSplits</a> = (<em>int</em> *) <a class="macro" href="../../../sys/sys_public.h.html#117" title="alloca" data-ref="_M/_alloca">_alloca</a>( <a class="local col3 ref" href="#23planeList" title='planeList' data-ref="23planeList">planeList</a>.<a class="ref" href="../../../idlib/containers/List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>() * <b>sizeof</b>( <em>int</em> ) );</td></tr>
+<tr><th id="271">271</th><td>	<a class="local col6 ref" href="#16numSplitters" title='numSplitters' data-ref="16numSplitters">numSplitters</a> = <var>0</var>;</td></tr>
+<tr><th id="272">272</th><td></td></tr>
+<tr><th id="273">273</th><td>	<i>// test all possible seperators and sort them from best to worst</i></td></tr>
+<tr><th id="274">274</th><td>	<b>for</b> ( <a class="local col1 ref" href="#11i" title='i' data-ref="11i">i</a> = <var>0</var>; <a class="local col1 ref" href="#11i" title='i' data-ref="11i">i</a> &lt; <a class="local col3 ref" href="#23planeList" title='planeList' data-ref="23planeList">planeList</a>.<a class="ref" href="../../../idlib/containers/List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>(); <a class="local col1 ref" href="#11i" title='i' data-ref="11i">i</a> += <var>2</var> ) {</td></tr>
+<tr><th id="275">275</th><td>		<a class="local col5 ref" href="#15numSplits" title='numSplits' data-ref="15numSplits">numSplits</a> = <var>0</var>;</td></tr>
+<tr><th id="276">276</th><td></td></tr>
+<tr><th id="277">277</th><td>		<b>for</b> ( <a class="local col7 ref" href="#17p1" title='p1' data-ref="17p1">p1</a> = <a class="local col8 ref" href="#8node" title='node' data-ref="8node">node</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK14idBrushBSPNode10GetPortalsEv" title='idBrushBSPNode::GetPortals' data-ref="_ZNK14idBrushBSPNode10GetPortalsEv">GetPortals</a>(); <a class="local col7 ref" href="#17p1" title='p1' data-ref="17p1">p1</a>; <a class="local col7 ref" href="#17p1" title='p1' data-ref="17p1">p1</a> = <a class="local col7 ref" href="#17p1" title='p1' data-ref="17p1">p1</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK16idBrushBSPPortal4NextEi" title='idBrushBSPPortal::Next' data-ref="_ZNK16idBrushBSPPortal4NextEi">Next</a>(<a class="local col9 ref" href="#9s1" title='s1' data-ref="9s1">s1</a>) ) {</td></tr>
+<tr><th id="278">278</th><td>			<a class="local col9 ref" href="#9s1" title='s1' data-ref="9s1">s1</a> = (<a class="local col7 ref" href="#17p1" title='p1' data-ref="17p1">p1</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK16idBrushBSPPortal7GetNodeEi" title='idBrushBSPPortal::GetNode' data-ref="_ZNK16idBrushBSPPortal7GetNodeEi">GetNode</a>(<var>1</var>) == <a class="local col8 ref" href="#8node" title='node' data-ref="8node">node</a>);</td></tr>
+<tr><th id="279">279</th><td>			<b>if</b> ( <a class="local col7 ref" href="#17p1" title='p1' data-ref="17p1">p1</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK16idBrushBSPPortal10GetWindingEv" title='idBrushBSPPortal::GetWinding' data-ref="_ZNK16idBrushBSPPortal10GetWindingEv">GetWinding</a>()-&gt;<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZNK9idWinding9PlaneSideERK7idPlanef" title='idWinding::PlaneSide' data-ref="_ZNK9idWinding9PlaneSideERK7idPlanef">PlaneSide</a>( <a class="local col3 ref" href="#23planeList" title='planeList' data-ref="23planeList">planeList</a><a class="ref" href="../../../idlib/containers/List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[<a class="local col1 ref" href="#11i" title='i' data-ref="11i">i</a>]</a>, <var>0.1f</var> ) == <a class="macro" href="../../../idlib/math/Plane.h.html#50" title="3" data-ref="_M/SIDE_CROSS">SIDE_CROSS</a> ) {</td></tr>
+<tr><th id="280">280</th><td>				<a class="local col5 ref" href="#15numSplits" title='numSplits' data-ref="15numSplits">numSplits</a>++;</td></tr>
+<tr><th id="281">281</th><td>			}</td></tr>
+<tr><th id="282">282</th><td>		}</td></tr>
+<tr><th id="283">283</th><td></td></tr>
+<tr><th id="284">284</th><td>		<b>for</b> ( <a class="local col2 ref" href="#12j" title='j' data-ref="12j">j</a> = <var>0</var>; <a class="local col2 ref" href="#12j" title='j' data-ref="12j">j</a> &lt; <a class="local col6 ref" href="#16numSplitters" title='numSplitters' data-ref="16numSplitters">numSplitters</a>; <a class="local col2 ref" href="#12j" title='j' data-ref="12j">j</a>++ ) {</td></tr>
+<tr><th id="285">285</th><td>			<b>if</b> ( <a class="local col5 ref" href="#15numSplits" title='numSplits' data-ref="15numSplits">numSplits</a> &lt; <a class="local col8 ref" href="#28bestNumSplits" title='bestNumSplits' data-ref="28bestNumSplits">bestNumSplits</a>[<a class="local col2 ref" href="#12j" title='j' data-ref="12j">j</a>] ) {</td></tr>
+<tr><th id="286">286</th><td>				<b>for</b> ( <a class="local col3 ref" href="#13k" title='k' data-ref="13k">k</a> = <a class="local col6 ref" href="#16numSplitters" title='numSplitters' data-ref="16numSplitters">numSplitters</a>; <a class="local col3 ref" href="#13k" title='k' data-ref="13k">k</a> &gt; <a class="local col2 ref" href="#12j" title='j' data-ref="12j">j</a>; <a class="local col3 ref" href="#13k" title='k' data-ref="13k">k</a>-- ) {</td></tr>
+<tr><th id="287">287</th><td>					<a class="local col8 ref" href="#28bestNumSplits" title='bestNumSplits' data-ref="28bestNumSplits">bestNumSplits</a>[<a class="local col3 ref" href="#13k" title='k' data-ref="13k">k</a>] = <a class="local col8 ref" href="#28bestNumSplits" title='bestNumSplits' data-ref="28bestNumSplits">bestNumSplits</a>[<a class="local col3 ref" href="#13k" title='k' data-ref="13k">k</a>-<var>1</var>];</td></tr>
+<tr><th id="288">288</th><td>					<a class="local col7 ref" href="#27splitterOrder" title='splitterOrder' data-ref="27splitterOrder">splitterOrder</a>[<a class="local col3 ref" href="#13k" title='k' data-ref="13k">k</a>] = <a class="local col7 ref" href="#27splitterOrder" title='splitterOrder' data-ref="27splitterOrder">splitterOrder</a>[<a class="local col3 ref" href="#13k" title='k' data-ref="13k">k</a>-<var>1</var>];</td></tr>
+<tr><th id="289">289</th><td>				}</td></tr>
+<tr><th id="290">290</th><td>				<a class="local col8 ref" href="#28bestNumSplits" title='bestNumSplits' data-ref="28bestNumSplits">bestNumSplits</a>[<a class="local col2 ref" href="#12j" title='j' data-ref="12j">j</a>] = <a class="local col5 ref" href="#15numSplits" title='numSplits' data-ref="15numSplits">numSplits</a>;</td></tr>
+<tr><th id="291">291</th><td>				<a class="local col7 ref" href="#27splitterOrder" title='splitterOrder' data-ref="27splitterOrder">splitterOrder</a>[<a class="local col2 ref" href="#12j" title='j' data-ref="12j">j</a>] = <a class="local col1 ref" href="#11i" title='i' data-ref="11i">i</a>;</td></tr>
+<tr><th id="292">292</th><td>				<a class="local col6 ref" href="#16numSplitters" title='numSplitters' data-ref="16numSplitters">numSplitters</a>++;</td></tr>
+<tr><th id="293">293</th><td>				<b>break</b>;</td></tr>
+<tr><th id="294">294</th><td>			}</td></tr>
+<tr><th id="295">295</th><td>		}</td></tr>
+<tr><th id="296">296</th><td>		<b>if</b> ( <a class="local col2 ref" href="#12j" title='j' data-ref="12j">j</a> &gt;= <a class="local col6 ref" href="#16numSplitters" title='numSplitters' data-ref="16numSplitters">numSplitters</a> ) {</td></tr>
+<tr><th id="297">297</th><td>			<a class="local col8 ref" href="#28bestNumSplits" title='bestNumSplits' data-ref="28bestNumSplits">bestNumSplits</a>[<a class="local col2 ref" href="#12j" title='j' data-ref="12j">j</a>] = <a class="local col5 ref" href="#15numSplits" title='numSplits' data-ref="15numSplits">numSplits</a>;</td></tr>
+<tr><th id="298">298</th><td>			<a class="local col7 ref" href="#27splitterOrder" title='splitterOrder' data-ref="27splitterOrder">splitterOrder</a>[<a class="local col2 ref" href="#12j" title='j' data-ref="12j">j</a>] = <a class="local col1 ref" href="#11i" title='i' data-ref="11i">i</a>;</td></tr>
+<tr><th id="299">299</th><td>			<a class="local col6 ref" href="#16numSplitters" title='numSplitters' data-ref="16numSplitters">numSplitters</a>++;</td></tr>
+<tr><th id="300">300</th><td>		}</td></tr>
+<tr><th id="301">301</th><td>	}</td></tr>
+<tr><th id="302">302</th><td></td></tr>
+<tr><th id="303">303</th><td>	<i>// try all seperators in order from best to worst</i></td></tr>
+<tr><th id="304">304</th><td>	<b>for</b> ( <a class="local col1 ref" href="#11i" title='i' data-ref="11i">i</a> = <var>0</var>; <a class="local col1 ref" href="#11i" title='i' data-ref="11i">i</a> &lt; <a class="local col6 ref" href="#16numSplitters" title='numSplitters' data-ref="16numSplitters">numSplitters</a>; <a class="local col1 ref" href="#11i" title='i' data-ref="11i">i</a>++ ) {</td></tr>
+<tr><th id="305">305</th><td>		<b>if</b> ( <a class="local col8 ref" href="#8node" title='node' data-ref="8node">node</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZN14idBrushBSPNode5SplitERK7idPlanei" title='idBrushBSPNode::Split' data-ref="_ZN14idBrushBSPNode5SplitERK7idPlanei">Split</a>( <a class="local col3 ref" href="#23planeList" title='planeList' data-ref="23planeList">planeList</a><a class="ref" href="../../../idlib/containers/List.h.html#_ZN6idListixEi" title='idList::operator[]' data-ref="_ZN6idListixEi">[<a class="local col7 ref" href="#27splitterOrder" title='splitterOrder' data-ref="27splitterOrder">splitterOrder</a>[<a class="local col1 ref" href="#11i" title='i' data-ref="11i">i</a>]]</a>, -<var>1</var> ) ) {</td></tr>
+<tr><th id="306">306</th><td>			<i>// we found a seperator that works</i></td></tr>
+<tr><th id="307">307</th><td>			<b>break</b>;</td></tr>
+<tr><th id="308">308</th><td>		}</td></tr>
+<tr><th id="309">309</th><td>	}</td></tr>
+<tr><th id="310">310</th><td>	<b>if</b> ( <a class="local col1 ref" href="#11i" title='i' data-ref="11i">i</a> &gt;= <a class="local col6 ref" href="#16numSplitters" title='numSplitters' data-ref="16numSplitters">numSplitters</a>) {</td></tr>
+<tr><th id="311">311</th><td>		<b>return</b>;</td></tr>
+<tr><th id="312">312</th><td>	}</td></tr>
+<tr><th id="313">313</th><td></td></tr>
+<tr><th id="314">314</th><td>	<a class="ref" href="Brush.h.html#_Z21DisplayRealTimeStringPcz" title='DisplayRealTimeString' data-ref="_Z21DisplayRealTimeStringPcz">DisplayRealTimeString</a>( <span class='warning' title="conversion from string literal to &apos;char *&apos; is deprecated"><q>"\r%6d"</q></span>, ++<a class="member" href="AASBuild_local.h.html#idAASBuild::numGravitationalSubdivisions" title='idAASBuild::numGravitationalSubdivisions' data-ref="idAASBuild::numGravitationalSubdivisions">numGravitationalSubdivisions</a> );</td></tr>
+<tr><th id="315">315</th><td></td></tr>
+<tr><th id="316">316</th><td>	<i>// test children for further splits</i></td></tr>
+<tr><th id="317">317</th><td>	<a class="member" href="#_ZN10idAASBuild18GravSubdivLeafNodeEP14idBrushBSPNode" title='idAASBuild::GravSubdivLeafNode' data-ref="_ZN10idAASBuild18GravSubdivLeafNodeEP14idBrushBSPNode">GravSubdivLeafNode</a>( <a class="local col8 ref" href="#8node" title='node' data-ref="8node">node</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK14idBrushBSPNode8GetChildEi" title='idBrushBSPNode::GetChild' data-ref="_ZNK14idBrushBSPNode8GetChildEi">GetChild</a>(<var>0</var>) );</td></tr>
+<tr><th id="318">318</th><td>	<a class="member" href="#_ZN10idAASBuild18GravSubdivLeafNodeEP14idBrushBSPNode" title='idAASBuild::GravSubdivLeafNode' data-ref="_ZN10idAASBuild18GravSubdivLeafNodeEP14idBrushBSPNode">GravSubdivLeafNode</a>( <a class="local col8 ref" href="#8node" title='node' data-ref="8node">node</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK14idBrushBSPNode8GetChildEi" title='idBrushBSPNode::GetChild' data-ref="_ZNK14idBrushBSPNode8GetChildEi">GetChild</a>(<var>1</var>) );</td></tr>
+<tr><th id="319">319</th><td>}</td></tr>
+<tr><th id="320">320</th><td></td></tr>
+<tr><th id="321">321</th><td><i>/*</i></td></tr>
+<tr><th id="322">322</th><td><i>============</i></td></tr>
+<tr><th id="323">323</th><td><i>idAASBuild::GravSubdiv_r</i></td></tr>
+<tr><th id="324">324</th><td><i>============</i></td></tr>
+<tr><th id="325">325</th><td><i>*/</i></td></tr>
+<tr><th id="326">326</th><td><em>void</em> <a class="type" href="AASBuild_local.h.html#idAASBuild" title='idAASBuild' data-ref="idAASBuild">idAASBuild</a>::<dfn class="decl def" id="_ZN10idAASBuild12GravSubdiv_rEP14idBrushBSPNode" title='idAASBuild::GravSubdiv_r' data-ref="_ZN10idAASBuild12GravSubdiv_rEP14idBrushBSPNode">GravSubdiv_r</dfn>( <a class="type" href="BrushBSP.h.html#idBrushBSPNode" title='idBrushBSPNode' data-ref="idBrushBSPNode">idBrushBSPNode</a> *<dfn class="local col2 decl" id="32node" title='node' data-type='idBrushBSPNode *' data-ref="32node">node</dfn> ) {</td></tr>
+<tr><th id="327">327</th><td></td></tr>
+<tr><th id="328">328</th><td>	<b>if</b> ( !<a class="local col2 ref" href="#32node" title='node' data-ref="32node">node</a> ) {</td></tr>
+<tr><th id="329">329</th><td>		<b>return</b>;</td></tr>
+<tr><th id="330">330</th><td>	}</td></tr>
+<tr><th id="331">331</th><td></td></tr>
+<tr><th id="332">332</th><td>	<b>if</b> ( <a class="local col2 ref" href="#32node" title='node' data-ref="32node">node</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK14idBrushBSPNode11GetContentsEv" title='idBrushBSPNode::GetContents' data-ref="_ZNK14idBrushBSPNode11GetContentsEv">GetContents</a>() &amp; <a class="macro" href="AASFile.h.html#78" title="( 1 &lt;&lt; ( 0 ) )" data-ref="_M/AREACONTENTS_SOLID">AREACONTENTS_SOLID</a> ) {</td></tr>
+<tr><th id="333">333</th><td>		<b>return</b>;</td></tr>
+<tr><th id="334">334</th><td>	}</td></tr>
+<tr><th id="335">335</th><td></td></tr>
+<tr><th id="336">336</th><td>	<b>if</b> ( !<a class="local col2 ref" href="#32node" title='node' data-ref="32node">node</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK14idBrushBSPNode8GetChildEi" title='idBrushBSPNode::GetChild' data-ref="_ZNK14idBrushBSPNode8GetChildEi">GetChild</a>(<var>0</var>) &amp;&amp; !<a class="local col2 ref" href="#32node" title='node' data-ref="32node">node</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK14idBrushBSPNode8GetChildEi" title='idBrushBSPNode::GetChild' data-ref="_ZNK14idBrushBSPNode8GetChildEi">GetChild</a>(<var>1</var>) ) {</td></tr>
+<tr><th id="337">337</th><td>		<a class="member" href="#_ZN10idAASBuild18GravSubdivLeafNodeEP14idBrushBSPNode" title='idAASBuild::GravSubdivLeafNode' data-ref="_ZN10idAASBuild18GravSubdivLeafNodeEP14idBrushBSPNode">GravSubdivLeafNode</a>( <a class="local col2 ref" href="#32node" title='node' data-ref="32node">node</a> );</td></tr>
+<tr><th id="338">338</th><td>		<b>return</b>;</td></tr>
+<tr><th id="339">339</th><td>	}</td></tr>
+<tr><th id="340">340</th><td></td></tr>
+<tr><th id="341">341</th><td>	<a class="member" href="#_ZN10idAASBuild12GravSubdiv_rEP14idBrushBSPNode" title='idAASBuild::GravSubdiv_r' data-ref="_ZN10idAASBuild12GravSubdiv_rEP14idBrushBSPNode">GravSubdiv_r</a>( <a class="local col2 ref" href="#32node" title='node' data-ref="32node">node</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK14idBrushBSPNode8GetChildEi" title='idBrushBSPNode::GetChild' data-ref="_ZNK14idBrushBSPNode8GetChildEi">GetChild</a>(<var>0</var>) );</td></tr>
+<tr><th id="342">342</th><td>	<a class="member" href="#_ZN10idAASBuild12GravSubdiv_rEP14idBrushBSPNode" title='idAASBuild::GravSubdiv_r' data-ref="_ZN10idAASBuild12GravSubdiv_rEP14idBrushBSPNode">GravSubdiv_r</a>( <a class="local col2 ref" href="#32node" title='node' data-ref="32node">node</a>-&gt;<a class="ref" href="BrushBSP.h.html#_ZNK14idBrushBSPNode8GetChildEi" title='idBrushBSPNode::GetChild' data-ref="_ZNK14idBrushBSPNode8GetChildEi">GetChild</a>(<var>1</var>) );</td></tr>
+<tr><th id="343">343</th><td>}</td></tr>
+<tr><th id="344">344</th><td></td></tr>
+<tr><th id="345">345</th><td><i>/*</i></td></tr>
+<tr><th id="346">346</th><td><i>============</i></td></tr>
+<tr><th id="347">347</th><td><i>idAASBuild::GravitationalSubdivision</i></td></tr>
+<tr><th id="348">348</th><td><i>============</i></td></tr>
+<tr><th id="349">349</th><td><i>*/</i></td></tr>
+<tr><th id="350">350</th><td><em>void</em> <a class="type" href="AASBuild_local.h.html#idAASBuild" title='idAASBuild' data-ref="idAASBuild">idAASBuild</a>::<dfn class="decl def" id="_ZN10idAASBuild24GravitationalSubdivisionER10idBrushBSP" title='idAASBuild::GravitationalSubdivision' data-ref="_ZN10idAASBuild24GravitationalSubdivisionER10idBrushBSP">GravitationalSubdivision</dfn>( <a class="type" href="BrushBSP.h.html#idBrushBSP" title='idBrushBSP' data-ref="idBrushBSP">idBrushBSP</a> &amp;<dfn class="local col3 decl" id="33bsp" title='bsp' data-type='idBrushBSP &amp;' data-ref="33bsp">bsp</dfn> ) {</td></tr>
+<tr><th id="351">351</th><td>	<a class="member" href="AASBuild_local.h.html#idAASBuild::numGravitationalSubdivisions" title='idAASBuild::numGravitationalSubdivisions' data-ref="idAASBuild::numGravitationalSubdivisions">numGravitationalSubdivisions</a> = <var>0</var>;</td></tr>
+<tr><th id="352">352</th><td></td></tr>
+<tr><th id="353">353</th><td>	<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"[Gravitational Subdivision]\n"</q> );</td></tr>
+<tr><th id="354">354</th><td></td></tr>
+<tr><th id="355">355</th><td>	<a class="member" href="#_ZN10idAASBuild16SetPortalFlags_rEP14idBrushBSPNode" title='idAASBuild::SetPortalFlags_r' data-ref="_ZN10idAASBuild16SetPortalFlags_rEP14idBrushBSPNode">SetPortalFlags_r</a>( <a class="local col3 ref" href="#33bsp" title='bsp' data-ref="33bsp">bsp</a>.<a class="ref" href="BrushBSP.h.html#_ZNK10idBrushBSP11GetRootNodeEv" title='idBrushBSP::GetRootNode' data-ref="_ZNK10idBrushBSP11GetRootNodeEv">GetRootNode</a>() );</td></tr>
+<tr><th id="356">356</th><td>	<a class="member" href="#_ZN10idAASBuild12GravSubdiv_rEP14idBrushBSPNode" title='idAASBuild::GravSubdiv_r' data-ref="_ZN10idAASBuild12GravSubdiv_rEP14idBrushBSPNode">GravSubdiv_r</a>( <a class="local col3 ref" href="#33bsp" title='bsp' data-ref="33bsp">bsp</a>.<a class="ref" href="BrushBSP.h.html#_ZNK10idBrushBSP11GetRootNodeEv" title='idBrushBSP::GetRootNode' data-ref="_ZNK10idBrushBSP11GetRootNodeEv">GetRootNode</a>() );</td></tr>
+<tr><th id="357">357</th><td></td></tr>
+<tr><th id="358">358</th><td>	<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"\r%6d subdivisions\n"</q>, <a class="member" href="AASBuild_local.h.html#idAASBuild::numGravitationalSubdivisions" title='idAASBuild::numGravitationalSubdivisions' data-ref="idAASBuild::numGravitationalSubdivisions">numGravitationalSubdivisions</a> );</td></tr>
+<tr><th id="359">359</th><td>}</td></tr>
+<tr><th id="360">360</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

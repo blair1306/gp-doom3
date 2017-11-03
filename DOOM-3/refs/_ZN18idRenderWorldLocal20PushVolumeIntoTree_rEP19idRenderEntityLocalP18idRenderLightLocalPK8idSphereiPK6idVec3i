@@ -1,0 +1,22 @@
+<dec f='codebrowser/renderer/RenderWorld_local.h' l='253' type='void idRenderWorldLocal::PushVolumeIntoTree_r(idRenderEntityLocal * def, idRenderLightLocal * light, const idSphere * sphere, int numPoints, const idVec3 (*) points, int nodeNum)'/>
+<def f='codebrowser/renderer/RenderWorld.cpp' l='1542' ll='1679' type='void idRenderWorldLocal::PushVolumeIntoTree_r(idRenderEntityLocal * def, idRenderLightLocal * light, const idSphere * sphere, int numPoints, const idVec3 (*) points, int nodeNum)'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1589' u='c' c='_ZN18idRenderWorldLocal20PushVolumeIntoTree_rEP19idRenderEntityLocalP18idRenderLightLocalPK8idSphereiPK6idVec3i'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1596' u='c' c='_ZN18idRenderWorldLocal20PushVolumeIntoTree_rEP19idRenderEntityLocalP18idRenderLightLocalPK8idSphereiPK6idVec3i'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1670' u='c' c='_ZN18idRenderWorldLocal20PushVolumeIntoTree_rEP19idRenderEntityLocalP18idRenderLightLocalPK8idSphereiPK6idVec3i'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1676' u='c' c='_ZN18idRenderWorldLocal20PushVolumeIntoTree_rEP19idRenderEntityLocalP18idRenderLightLocalPK8idSphereiPK6idVec3i'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1714' u='c' c='_ZN18idRenderWorldLocal18PushVolumeIntoTreeEP19idRenderEntityLocalP18idRenderLightLocaliPK6idVec3'/>
+<doc f='codebrowser/renderer/RenderWorld.cpp' l='1527'>/*
+==================
+PushVolumeIntoTree
+
+Used for both light volumes and model volumes.
+
+This does not clip the points by the planes, so some slop
+occurs.
+
+tr.viewCount should be bumped before calling, allowing it
+to prevent double checking areas.
+
+We might alternatively choose to do this with an area flow.
+==================
+*/</doc>

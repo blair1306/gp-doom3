@@ -1,0 +1,14 @@
+<dec f='codebrowser/sys/sys_public.h' l='305' type='int Sys_GetVideoRam()'/>
+<doc f='codebrowser/sys/sys_public.h' l='304'>// returns amount of video ram</doc>
+<use f='codebrowser/framework/Common.cpp' l='1493' u='c' c='_Z21Com_ExecMachineSpec_fRK9idCmdArgs'/>
+<use f='codebrowser/framework/Common.cpp' l='2734' u='c' c='_ZN13idCommonLocal14SetMachineSpecEv'/>
+<def f='codebrowser/sys/linux/glimp.cpp' l='597' ll='668' type='int Sys_GetVideoRam()'/>
+<doc f='codebrowser/sys/linux/glimp.cpp' l='589'>/*
+================
+Sys_GetVideoRam
+returns in megabytes
+open your own display connection for the query and close it
+using the one shared with GLimp_Init is not stable
+================
+*/</doc>
+<use f='codebrowser/sys/posix/posix_main.cpp' l='558' u='c' c='_Z14Posix_LateInitv'/>

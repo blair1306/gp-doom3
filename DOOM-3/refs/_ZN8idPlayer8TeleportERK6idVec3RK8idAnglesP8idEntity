@@ -1,0 +1,30 @@
+<dec f='codebrowser/d3xp/Player.h' l='447' type='void idPlayer::Teleport(const idVec3 &amp; origin, const idAngles &amp; angles, idEntity * destination)'/>
+<doc f='codebrowser/d3xp/Player.h' l='446'>// use exitEntityNum to specify a teleport with private camera view and delayed exit</doc>
+<use f='codebrowser/d3xp/Misc.cpp' l='198' u='c' c='_ZN13idPlayerStart14TeleportPlayerEP8idPlayer'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='207' u='c' c='_ZN13idPlayerStart14TeleportPlayerEP8idPlayer'/>
+<inh f='codebrowser/d3xp/Actor.h' l='197' c='_ZN7idActor8TeleportERK6idVec3RK8idAnglesP8idEntity'/>
+<def f='codebrowser/d3xp/Player.cpp' l='8229' ll='8275' type='void idPlayer::Teleport(const idVec3 &amp; origin, const idAngles &amp; angles, idEntity * destination)'/>
+<doc f='codebrowser/d3xp/Player.cpp' l='8224'>/*
+===========
+idPlayer::Teleport
+============
+*/</doc>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='768' u='c' c='_Z16Cmd_SetViewpos_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='802' u='c' c='_Z14Cmd_Teleport_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='2166' u='c' c='_ZL19Cmd_ShowViewNotes_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='2331' u='c' c='_Z13Cmd_NextGUI_fRK9idCmdArgs'/>
+<dec f='codebrowser/game/Player.h' l='375' type='void idPlayer::Teleport(const idVec3 &amp; origin, const idAngles &amp; angles, idEntity * destination)'/>
+<doc f='codebrowser/game/Player.h' l='374'>// use exitEntityNum to specify a teleport with private camera view and delayed exit</doc>
+<use f='codebrowser/game/Misc.cpp' l='194' u='c' c='_ZN13idPlayerStart14TeleportPlayerEP8idPlayer'/>
+<use f='codebrowser/game/Misc.cpp' l='203' u='c' c='_ZN13idPlayerStart14TeleportPlayerEP8idPlayer'/>
+<inh f='codebrowser/game/Actor.h' l='193' c='_ZN7idActor8TeleportERK6idVec3RK8idAnglesP8idEntity'/>
+<def f='codebrowser/game/Player.cpp' l='6864' ll='6904' type='void idPlayer::Teleport(const idVec3 &amp; origin, const idAngles &amp; angles, idEntity * destination)'/>
+<doc f='codebrowser/game/Player.cpp' l='6859'>/*
+===========
+idPlayer::Teleport
+============
+*/</doc>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='699' u='c' c='_Z16Cmd_SetViewpos_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='733' u='c' c='_Z14Cmd_Teleport_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='2091' u='c' c='_ZL19Cmd_ShowViewNotes_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='2256' u='c' c='_Z13Cmd_NextGUI_fRK9idCmdArgs'/>

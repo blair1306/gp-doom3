@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>strtoofft.c source code [codebrowser/curl/lib/strtoofft.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/curl/lib/strtoofft.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>curl</a>/<a href='./'>lib</a>/<a href='strtoofft.c.html'>strtoofft.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/***************************************************************************</i></td></tr>
+<tr><th id="2">2</th><td><i> *                                  _   _ ____  _     </i></td></tr>
+<tr><th id="3">3</th><td><i> *  Project                     ___| | | |  _ \| |    </i></td></tr>
+<tr><th id="4">4</th><td><i> *                             / __| | | | |_) | |    </i></td></tr>
+<tr><th id="5">5</th><td><i> *                            | (__| |_| |  _ &lt;| |___ </i></td></tr>
+<tr><th id="6">6</th><td><i> *                             \___|\___/|_| \_\_____|</i></td></tr>
+<tr><th id="7">7</th><td><i> *</i></td></tr>
+<tr><th id="8">8</th><td><i> * Copyright (C) 1998 - 2004, Daniel Stenberg, &lt;daniel@haxx.se&gt;, et al.</i></td></tr>
+<tr><th id="9">9</th><td><i> *</i></td></tr>
+<tr><th id="10">10</th><td><i> * This software is licensed as described in the file COPYING, which</i></td></tr>
+<tr><th id="11">11</th><td><i> * you should have received as part of this distribution. The terms</i></td></tr>
+<tr><th id="12">12</th><td><i> * are also available at <a href="http://curl.haxx.se/docs/copyright.html">http://curl.haxx.se/docs/copyright.html</a>.</i></td></tr>
+<tr><th id="13">13</th><td><i> * </i></td></tr>
+<tr><th id="14">14</th><td><i> * You may opt to use, copy, modify, merge, publish, distribute and/or sell</i></td></tr>
+<tr><th id="15">15</th><td><i> * copies of the Software, and permit persons to whom the Software is</i></td></tr>
+<tr><th id="16">16</th><td><i> * furnished to do so, under the terms of the COPYING file.</i></td></tr>
+<tr><th id="17">17</th><td><i> *</i></td></tr>
+<tr><th id="18">18</th><td><i> * This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY</i></td></tr>
+<tr><th id="19">19</th><td><i> * KIND, either express or implied.</i></td></tr>
+<tr><th id="20">20</th><td><i> *</i></td></tr>
+<tr><th id="21">21</th><td><i> * $Id: strtoofft.c,v 1.5 2004/02/19 08:12:13 bagder Exp $</i></td></tr>
+<tr><th id="22">22</th><td><i> ***************************************************************************/</i></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="setup.h.html">"setup.h"</a></u></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="strtoofft.h.html">"strtoofft.h"</a></u></td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><u>#<span data-ppcond="27">ifdef</span> <span class="macro" data-ref="_M/NEED_CURL_STRTOLL">NEED_CURL_STRTOLL</span></u></td></tr>
+<tr><th id="28">28</th><td><u>#include &lt;stdlib.h&gt;</u></td></tr>
+<tr><th id="29">29</th><td><u>#include &lt;ctype.h&gt;</u></td></tr>
+<tr><th id="30">30</th><td><u>#include &lt;errno.h&gt;</u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><em>static</em> <em>int</em> get_char(<em>char</em> c, <em>int</em> base);</td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><i class="doc">/**</i></td></tr>
+<tr><th id="35">35</th><td><i class="doc"> * Emulated version of the strtoll function.  This extracts a long long</i></td></tr>
+<tr><th id="36">36</th><td><i class="doc"> * value from the given input string and returns it.</i></td></tr>
+<tr><th id="37">37</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="38">38</th><td>curl_off_t</td></tr>
+<tr><th id="39">39</th><td>curlx_strtoll(<em>const</em> <em>char</em> *nptr, <em>char</em> **endptr, <em>int</em> base)</td></tr>
+<tr><th id="40">40</th><td>{</td></tr>
+<tr><th id="41">41</th><td>  <em>char</em> *end;</td></tr>
+<tr><th id="42">42</th><td>  <em>int</em> is_negative = <var>0</var>;</td></tr>
+<tr><th id="43">43</th><td>  <em>int</em> overflow;</td></tr>
+<tr><th id="44">44</th><td>  <em>int</em> i;</td></tr>
+<tr><th id="45">45</th><td>  curl_off_t value = <var>0</var>;</td></tr>
+<tr><th id="46">46</th><td>  curl_off_t newval;</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td>  <i>/* Skip leading whitespace. */</i></td></tr>
+<tr><th id="49">49</th><td>  end = (<em>char</em> *)nptr;</td></tr>
+<tr><th id="50">50</th><td>  <b>while</b> (isspace((<em>int</em>)end[<var>0</var>])) {</td></tr>
+<tr><th id="51">51</th><td>    end++;</td></tr>
+<tr><th id="52">52</th><td>  }</td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td>  <i>/* Handle the sign, if any. */</i></td></tr>
+<tr><th id="55">55</th><td>  <b>if</b> (end[<var>0</var>] == <kbd>'-'</kbd>) {</td></tr>
+<tr><th id="56">56</th><td>    is_negative = <var>1</var>;</td></tr>
+<tr><th id="57">57</th><td>    end++;</td></tr>
+<tr><th id="58">58</th><td>  }</td></tr>
+<tr><th id="59">59</th><td>  <b>else</b> <b>if</b> (end[<var>0</var>] == <kbd>'+'</kbd>) {</td></tr>
+<tr><th id="60">60</th><td>    end++;</td></tr>
+<tr><th id="61">61</th><td>  }</td></tr>
+<tr><th id="62">62</th><td>  <b>else</b> <b>if</b> (end[<var>0</var>] == <kbd>'\0'</kbd>) {</td></tr>
+<tr><th id="63">63</th><td>    <i>/* We had nothing but perhaps some whitespace -- there was no number. */</i></td></tr>
+<tr><th id="64">64</th><td>    <b>if</b> (endptr) {</td></tr>
+<tr><th id="65">65</th><td>      *endptr = end;</td></tr>
+<tr><th id="66">66</th><td>    }</td></tr>
+<tr><th id="67">67</th><td>    <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="68">68</th><td>  }</td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td>  <i>/* Handle special beginnings, if present and allowed. */</i></td></tr>
+<tr><th id="71">71</th><td>  <b>if</b> (end[<var>0</var>] == <kbd>'0'</kbd> &amp;&amp; end[<var>1</var>] == <kbd>'x'</kbd>) {</td></tr>
+<tr><th id="72">72</th><td>    <b>if</b> (base == <var>16</var> || base == <var>0</var>) {</td></tr>
+<tr><th id="73">73</th><td>      end += <var>2</var>;</td></tr>
+<tr><th id="74">74</th><td>      base = <var>16</var>;</td></tr>
+<tr><th id="75">75</th><td>    }</td></tr>
+<tr><th id="76">76</th><td>  }</td></tr>
+<tr><th id="77">77</th><td>  <b>else</b> <b>if</b> (end[<var>0</var>] == <kbd>'0'</kbd>) {</td></tr>
+<tr><th id="78">78</th><td>    <b>if</b> (base == <var>8</var> || base == <var>0</var>) {</td></tr>
+<tr><th id="79">79</th><td>      end++;</td></tr>
+<tr><th id="80">80</th><td>      base = <var>8</var>;</td></tr>
+<tr><th id="81">81</th><td>    }</td></tr>
+<tr><th id="82">82</th><td>  }</td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td>  <i>/* Matching strtol, if the base is 0 and it doesn't look like</i></td></tr>
+<tr><th id="85">85</th><td><i>   * the number is octal or hex, we assume it's base 10.</i></td></tr>
+<tr><th id="86">86</th><td><i>   */</i></td></tr>
+<tr><th id="87">87</th><td>  <b>if</b> (base == <var>0</var>) {</td></tr>
+<tr><th id="88">88</th><td>    base = <var>10</var>;</td></tr>
+<tr><th id="89">89</th><td>  }</td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td>  <i>/* Loop handling digits. */</i></td></tr>
+<tr><th id="92">92</th><td>  value = <var>0</var>;</td></tr>
+<tr><th id="93">93</th><td>  overflow = <var>0</var>;</td></tr>
+<tr><th id="94">94</th><td>  <b>for</b> (i = get_char(end[<var>0</var>], base);</td></tr>
+<tr><th id="95">95</th><td>       i != -<var>1</var>;</td></tr>
+<tr><th id="96">96</th><td>       end++, i = get_char(end[<var>0</var>], base)) {</td></tr>
+<tr><th id="97">97</th><td>    newval = base * value + i;</td></tr>
+<tr><th id="98">98</th><td>    <b>if</b> (newval &lt; value) {</td></tr>
+<tr><th id="99">99</th><td>      <i>/* We've overflowed. */</i></td></tr>
+<tr><th id="100">100</th><td>      overflow = <var>1</var>;</td></tr>
+<tr><th id="101">101</th><td>      <b>break</b>;</td></tr>
+<tr><th id="102">102</th><td>    }</td></tr>
+<tr><th id="103">103</th><td>    <b>else</b></td></tr>
+<tr><th id="104">104</th><td>      value = newval;</td></tr>
+<tr><th id="105">105</th><td>  }</td></tr>
+<tr><th id="106">106</th><td></td></tr>
+<tr><th id="107">107</th><td>  <b>if</b> (!overflow) {</td></tr>
+<tr><th id="108">108</th><td>    <b>if</b> (is_negative) {</td></tr>
+<tr><th id="109">109</th><td>      <i>/* Fix the sign. */</i></td></tr>
+<tr><th id="110">110</th><td>      value *= -<var>1</var>;</td></tr>
+<tr><th id="111">111</th><td>    }</td></tr>
+<tr><th id="112">112</th><td>  }</td></tr>
+<tr><th id="113">113</th><td>  <b>else</b> {</td></tr>
+<tr><th id="114">114</th><td>    <b>if</b> (is_negative)</td></tr>
+<tr><th id="115">115</th><td>      value = <var>0x8000000000000000L</var>;</td></tr>
+<tr><th id="116">116</th><td>    <b>else</b></td></tr>
+<tr><th id="117">117</th><td>      value = <var>0x7FFFFFFFFFFFFFFFL</var>;</td></tr>
+<tr><th id="118">118</th><td></td></tr>
+<tr><th id="119">119</th><td>    errno = ERANGE;</td></tr>
+<tr><th id="120">120</th><td>  }</td></tr>
+<tr><th id="121">121</th><td></td></tr>
+<tr><th id="122">122</th><td>  <b>if</b> (endptr)</td></tr>
+<tr><th id="123">123</th><td>    *endptr = end;</td></tr>
+<tr><th id="124">124</th><td></td></tr>
+<tr><th id="125">125</th><td>  <b>return</b> value;</td></tr>
+<tr><th id="126">126</th><td>}</td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td><i class="doc">/**</i></td></tr>
+<tr><th id="129">129</th><td><i class="doc"> * Returns the value of c in the given base, or -1 if c cannot</i></td></tr>
+<tr><th id="130">130</th><td><i class="doc"> * be interpreted properly in that base (i.e., is out of range,</i></td></tr>
+<tr><th id="131">131</th><td><i class="doc"> * is a null, etc.).</i></td></tr>
+<tr><th id="132">132</th><td><i class="doc"> *</i></td></tr>
+<tr><th id="133">133</th><td><i class="doc"> * <span class="command">@param</span> <span class="arg">c</span>     the character to interpret according to base</i></td></tr>
+<tr><th id="134">134</th><td><i class="doc"> * <span class="command">@param</span> <span class="arg">base</span>  the base in which to interpret c</i></td></tr>
+<tr><th id="135">135</th><td><i class="doc"> *</i></td></tr>
+<tr><th id="136">136</th><td><i class="doc"> * <span class="command">@return</span>  the value of c in base, or -1 if c isn't in range</i></td></tr>
+<tr><th id="137">137</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="138">138</th><td><em>static</em> <em>int</em> get_char(<em>char</em> c, <em>int</em> base)</td></tr>
+<tr><th id="139">139</th><td>{</td></tr>
+<tr><th id="140">140</th><td>  <em>int</em> value = -<var>1</var>;</td></tr>
+<tr><th id="141">141</th><td>  <b>if</b> (c &lt;= <kbd>'9'</kbd> &amp;&amp; c &gt;= <kbd>'0'</kbd>) {</td></tr>
+<tr><th id="142">142</th><td>    value = c - <kbd>'0'</kbd>;</td></tr>
+<tr><th id="143">143</th><td>  }</td></tr>
+<tr><th id="144">144</th><td>  <b>else</b> <b>if</b> (c &lt;= <kbd>'Z'</kbd> &amp;&amp; c &gt;= <kbd>'A'</kbd>) {</td></tr>
+<tr><th id="145">145</th><td>    value = c - <kbd>'A'</kbd> + <var>10</var>;</td></tr>
+<tr><th id="146">146</th><td>  }</td></tr>
+<tr><th id="147">147</th><td>  <b>else</b> <b>if</b> (c &lt;= <kbd>'z'</kbd> &amp;&amp; c &gt;= <kbd>'a'</kbd>) {</td></tr>
+<tr><th id="148">148</th><td>    value = c - <kbd>'a'</kbd> + <var>10</var>;</td></tr>
+<tr><th id="149">149</th><td>  }</td></tr>
+<tr><th id="150">150</th><td></td></tr>
+<tr><th id="151">151</th><td>  <b>if</b> (value &gt;= base) {</td></tr>
+<tr><th id="152">152</th><td>    value = -<var>1</var>;</td></tr>
+<tr><th id="153">153</th><td>  }</td></tr>
+<tr><th id="154">154</th><td></td></tr>
+<tr><th id="155">155</th><td>  <b>return</b> value;</td></tr>
+<tr><th id="156">156</th><td>}</td></tr>
+<tr><th id="157">157</th><td><u>#<span data-ppcond="27">endif</span>  /* Only present if we need strtoll, but don't have it. */</u></td></tr>
+<tr><th id="158">158</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

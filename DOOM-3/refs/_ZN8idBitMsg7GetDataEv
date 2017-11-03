@@ -1,0 +1,40 @@
+<dec f='codebrowser/idlib/BitMsg.h' l='51' type='byte * idBitMsg::GetData()'/>
+<def f='codebrowser/idlib/BitMsg.h' l='167' ll='169' macro='1' type='byte * idBitMsg::GetData()'/>
+<doc f='codebrowser/idlib/BitMsg.h' l='51'>// get data for writing</doc>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='311' u='c' c='_ZN13idAsyncClient13GetServerInfoE8netadr_t'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='373' u='c' c='_ZN13idAsyncClient13GetLANServersEv'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='404' u='c' c='_ZN13idAsyncClient13GetNETServersEv'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='463' u='c' c='_ZN13idAsyncClient13RemoteConsoleEPKc'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1469' u='c' c='_ZN13idAsyncClient27ValidatePureServerChecksumsE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1517' u='c' c='_ZN13idAsyncClient18ProcessPureMessageE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1666' u='c' c='_ZN13idAsyncClient15SetupConnectionEv'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1687' u='c' c='_ZN13idAsyncClient15SetupConnectionEv'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1708' u='c' c='_ZN13idAsyncClient15SetupConnectionEv'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1928' u='c' c='_ZN13idAsyncClient16SendVersionCheckEb'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1955' u='c' c='_ZN13idAsyncClient19SendVersionDLUpdateEi'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='2169' u='c' c='_ZN13idAsyncClient13SendAuthCheckEPKcS1_'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1531' u='c' c='_ZN13idAsyncServer23ProcessChallengeMessageE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1550' u='c' c='_ZN13idAsyncServer23ProcessChallengeMessageE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1589' u='c' c='_ZN13idAsyncServer21SendPureServerMessageE8netadr_ti'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1740' u='c' c='_ZN13idAsyncServer21ProcessConnectMessageE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1760' u='c' c='_ZN13idAsyncServer21ProcessConnectMessageE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1791' u='c' c='_ZN13idAsyncServer21ProcessConnectMessageE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1869' u='c' c='_ZN13idAsyncServer21ProcessConnectMessageE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='2097' u='c' c='_ZN13idAsyncServer21ProcessGetInfoMessageE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='2253' u='c' c='_ZN13idAsyncServer14ProcessMessageE8netadr_tR8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='2583' u='c' c='_ZN13idAsyncServer8PrintOOBE8netadr_tiPKc'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='2615' u='c' c='_ZN13idAsyncServer15MasterHeartbeatEb'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='2748' u='c' c='_ZN13idAsyncServer29ProcessDownloadRequestMessageE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='2768' u='c' c='_ZN13idAsyncServer29ProcessDownloadRequestMessageE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='2811' u='c' c='_ZN13idAsyncServer29ProcessDownloadRequestMessageE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='2823' u='c' c='_ZN13idAsyncServer29ProcessDownloadRequestMessageE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/MsgChannel.cpp' l='343' u='c' c='_ZN12idMsgChannel16WriteMessageDataER8idBitMsgRKS0_'/>
+<use f='codebrowser/framework/async/MsgChannel.cpp' l='356' u='c' c='_ZN12idMsgChannel16WriteMessageDataER8idBitMsgRKS0_'/>
+<use f='codebrowser/framework/async/MsgChannel.cpp' l='375' u='c' c='_ZN12idMsgChannel15ReadMessageDataER8idBitMsgRKS0_'/>
+<use f='codebrowser/framework/async/MsgChannel.cpp' l='398' u='c' c='_ZN12idMsgChannel15ReadMessageDataER8idBitMsgRKS0_'/>
+<use f='codebrowser/framework/async/MsgChannel.cpp' l='439' u='c' c='_ZN12idMsgChannel16SendNextFragmentER6idPorti'/>
+<use f='codebrowser/framework/async/MsgChannel.cpp' l='442' u='c' c='_ZN12idMsgChannel16SendNextFragmentER6idPorti'/>
+<use f='codebrowser/framework/async/MsgChannel.cpp' l='515' u='c' c='_ZN12idMsgChannel11SendMessageER6idPortiRK8idBitMsg'/>
+<use f='codebrowser/framework/async/MsgChannel.cpp' l='634' u='c' c='_ZN12idMsgChannel7ProcessE8netadr_tiR8idBitMsgRi'/>
+<use f='codebrowser/framework/async/MsgChannel.cpp' l='646' u='c' c='_ZN12idMsgChannel7ProcessE8netadr_tiR8idBitMsgRi'/>
+<use f='codebrowser/framework/async/MsgChannel.cpp' l='694' u='c' c='_ZN12idMsgChannel18GetReliableMessageER8idBitMsg'/>

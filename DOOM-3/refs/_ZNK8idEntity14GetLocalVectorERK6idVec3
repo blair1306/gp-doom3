@@ -1,0 +1,27 @@
+<dec f='codebrowser/d3xp/Entity.h' l='260' type='idVec3 idEntity::GetLocalVector(const idVec3 &amp; vec) const'/>
+<def f='codebrowser/d3xp/Entity.cpp' l='2216' ll='2230' type='idVec3 idEntity::GetLocalVector(const idVec3 &amp; vec) const'/>
+<doc f='codebrowser/d3xp/Entity.cpp' l='2205'>/*
+================
+idEntity::GetLocalVector
+
+Takes a vector in worldspace and transforms it into the parent
+object&apos;s localspace.
+
+Note: Does not take origin into acount.  Use getLocalCoordinate to
+convert coordinates.
+================
+*/</doc>
+<use f='codebrowser/d3xp/Misc.cpp' l='3634' u='c' c='_ZN19idFuncMountedWeapon5ThinkEv'/>
+<dec f='codebrowser/game/Entity.h' l='244' type='idVec3 idEntity::GetLocalVector(const idVec3 &amp; vec) const'/>
+<def f='codebrowser/game/Entity.cpp' l='2124' ll='2138' type='idVec3 idEntity::GetLocalVector(const idVec3 &amp; vec) const'/>
+<doc f='codebrowser/game/Entity.cpp' l='2113'>/*
+================
+idEntity::GetLocalVector
+
+Takes a vector in worldspace and transforms it into the parent
+object&apos;s localspace.
+
+Note: Does not take origin into acount.  Use getLocalCoordinate to
+convert coordinates.
+================
+*/</doc>

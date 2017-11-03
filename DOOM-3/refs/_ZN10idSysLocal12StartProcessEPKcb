@@ -1,0 +1,12 @@
+<dec f='codebrowser/sys/sys_local.h' l='73' type='void idSysLocal::StartProcess(const char * exeName, bool quit)'/>
+<inh f='codebrowser/sys/sys_public.h' l='570' c='_ZN5idSys12StartProcessEPKcb'/>
+<def f='codebrowser/sys/posix/posix_main.cpp' l='132' ll='142' type='void idSysLocal::StartProcess(const char * exeName, bool quit)'/>
+<doc f='codebrowser/sys/posix/posix_main.cpp' l='123'>/*
+==================
+idSysLocal::StartProcess
+if !quit, start the process asap
+otherwise, push it for execution at exit
+(i.e. let complete shutdown of the game and freeing of resources happen)
+NOTE: might even want to add a small delay?
+==================
+*/</doc>

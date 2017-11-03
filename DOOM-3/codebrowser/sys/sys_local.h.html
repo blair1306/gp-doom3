@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>sys_local.h source code [codebrowser/sys/sys_local.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idSysLocal "/>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/sys/sys_local.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>sys</a>/<a href='sys_local.h.html'>sys_local.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__SYS_LOCAL__">__SYS_LOCAL__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__SYS_LOCAL__" data-ref="_M/__SYS_LOCAL__">__SYS_LOCAL__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>==============================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>	idSysLocal</i></td></tr>
+<tr><th id="36">36</th><td><i></i></td></tr>
+<tr><th id="37">37</th><td><i>==============================================================</i></td></tr>
+<tr><th id="38">38</th><td><i>*/</i></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><b>class</b> <dfn class="type def" id="idSysLocal" title='idSysLocal' data-ref="idSysLocal">idSysLocal</dfn> : <b>public</b> <a class="type" href="sys_public.h.html#idSys" title='idSys' data-ref="idSys">idSys</a> {</td></tr>
+<tr><th id="41">41</th><td><b>public</b>:</td></tr>
+<tr><th id="42">42</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN10idSysLocal11DebugPrintfEPKcz" title='idSysLocal::DebugPrintf' data-ref="_ZN10idSysLocal11DebugPrintfEPKcz">DebugPrintf</dfn>( <em>const</em> <em>char</em> *<dfn class="local col1 decl" id="1fmt" title='fmt' data-type='const char *' data-ref="1fmt">fmt</dfn>, ... )<a class="macro" href="sys_public.h.html#137" title="__attribute__((format(printf,2,3)))" data-ref="_M/id_attribute">id_attribute</a>((format(printf,<var>2</var>,<var>3</var>)));</td></tr>
+<tr><th id="43">43</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN10idSysLocal12DebugVPrintfEPKcPc" title='idSysLocal::DebugVPrintf' data-ref="_ZN10idSysLocal12DebugVPrintfEPKcPc">DebugVPrintf</dfn>( <em>const</em> <em>char</em> *<dfn class="local col2 decl" id="2fmt" title='fmt' data-type='const char *' data-ref="2fmt">fmt</dfn>, <span class='typedef' title='va_list' data-type='__gnuc_va_list' data-ref="va_list">va_list</span> <dfn class="local col3 decl" id="3arg" title='arg' data-type='va_list' data-ref="3arg">arg</dfn> );</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td>	<b>virtual</b> <em>double</em>			<dfn class="virtual decl" id="_ZN10idSysLocal13GetClockTicksEv" title='idSysLocal::GetClockTicks' data-ref="_ZN10idSysLocal13GetClockTicksEv">GetClockTicks</dfn>( <em>void</em> );</td></tr>
+<tr><th id="46">46</th><td>	<b>virtual</b> <em>double</em>			<dfn class="virtual decl" id="_ZN10idSysLocal19ClockTicksPerSecondEv" title='idSysLocal::ClockTicksPerSecond' data-ref="_ZN10idSysLocal19ClockTicksPerSecondEv">ClockTicksPerSecond</dfn>( <em>void</em> );</td></tr>
+<tr><th id="47">47</th><td>	<b>virtual</b> <a class="typedef" href="sys_public.h.html#cpuid_t" title='cpuid_t' data-type='enum cpuid_t' data-ref="cpuid_t">cpuid_t</a>			<dfn class="virtual decl" id="_ZN10idSysLocal14GetProcessorIdEv" title='idSysLocal::GetProcessorId' data-ref="_ZN10idSysLocal14GetProcessorIdEv">GetProcessorId</dfn>( <em>void</em> );</td></tr>
+<tr><th id="48">48</th><td>	<b>virtual</b> <em>const</em> <em>char</em> *	<dfn class="virtual decl" id="_ZN10idSysLocal18GetProcessorStringEv" title='idSysLocal::GetProcessorString' data-ref="_ZN10idSysLocal18GetProcessorStringEv">GetProcessorString</dfn>( <em>void</em> );</td></tr>
+<tr><th id="49">49</th><td>	<b>virtual</b> <em>const</em> <em>char</em> *	<dfn class="virtual decl" id="_ZN10idSysLocal12FPU_GetStateEv" title='idSysLocal::FPU_GetState' data-ref="_ZN10idSysLocal12FPU_GetStateEv">FPU_GetState</dfn>( <em>void</em> );</td></tr>
+<tr><th id="50">50</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN10idSysLocal16FPU_StackIsEmptyEv" title='idSysLocal::FPU_StackIsEmpty' data-ref="_ZN10idSysLocal16FPU_StackIsEmptyEv">FPU_StackIsEmpty</dfn>( <em>void</em> );</td></tr>
+<tr><th id="51">51</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN10idSysLocal10FPU_SetFTZEb" title='idSysLocal::FPU_SetFTZ' data-ref="_ZN10idSysLocal10FPU_SetFTZEb">FPU_SetFTZ</dfn>( <em>bool</em> <dfn class="local col4 decl" id="4enable" title='enable' data-type='bool' data-ref="4enable">enable</dfn> );</td></tr>
+<tr><th id="52">52</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN10idSysLocal10FPU_SetDAZEb" title='idSysLocal::FPU_SetDAZ' data-ref="_ZN10idSysLocal10FPU_SetDAZEb">FPU_SetDAZ</dfn>( <em>bool</em> <dfn class="local col5 decl" id="5enable" title='enable' data-type='bool' data-ref="5enable">enable</dfn> );</td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN10idSysLocal20FPU_EnableExceptionsEi" title='idSysLocal::FPU_EnableExceptions' data-ref="_ZN10idSysLocal20FPU_EnableExceptionsEi">FPU_EnableExceptions</dfn>( <em>int</em> <dfn class="local col6 decl" id="6exceptions" title='exceptions' data-type='int' data-ref="6exceptions">exceptions</dfn> );</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN10idSysLocal12GetCallStackEPmi" title='idSysLocal::GetCallStack' data-ref="_ZN10idSysLocal12GetCallStackEPmi">GetCallStack</dfn>( <a class="typedef" href="sys_public.h.html#address_t" title='address_t' data-type='unsigned long' data-ref="address_t">address_t</a> *<dfn class="local col7 decl" id="7callStack" title='callStack' data-type='address_t *' data-ref="7callStack">callStack</dfn>, <em>const</em> <em>int</em> <dfn class="local col8 decl" id="8callStackSize" title='callStackSize' data-type='const int' data-ref="8callStackSize">callStackSize</dfn> );</td></tr>
+<tr><th id="57">57</th><td>	<b>virtual</b> <em>const</em> <em>char</em> *	<dfn class="virtual decl" id="_ZN10idSysLocal15GetCallStackStrEPKmi" title='idSysLocal::GetCallStackStr' data-ref="_ZN10idSysLocal15GetCallStackStrEPKmi">GetCallStackStr</dfn>( <em>const</em> <a class="typedef" href="sys_public.h.html#address_t" title='address_t' data-type='unsigned long' data-ref="address_t">address_t</a> *<dfn class="local col9 decl" id="9callStack" title='callStack' data-type='const address_t *' data-ref="9callStack">callStack</dfn>, <em>const</em> <em>int</em> <dfn class="local col0 decl" id="10callStackSize" title='callStackSize' data-type='const int' data-ref="10callStackSize">callStackSize</dfn> );</td></tr>
+<tr><th id="58">58</th><td>	<b>virtual</b> <em>const</em> <em>char</em> *	<dfn class="virtual decl" id="_ZN10idSysLocal18GetCallStackCurStrEi" title='idSysLocal::GetCallStackCurStr' data-ref="_ZN10idSysLocal18GetCallStackCurStrEi">GetCallStackCurStr</dfn>( <em>int</em> <dfn class="local col1 decl" id="11depth" title='depth' data-type='int' data-ref="11depth">depth</dfn> );</td></tr>
+<tr><th id="59">59</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN10idSysLocal15ShutdownSymbolsEv" title='idSysLocal::ShutdownSymbols' data-ref="_ZN10idSysLocal15ShutdownSymbolsEv">ShutdownSymbols</dfn>( <em>void</em> );</td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN10idSysLocal10LockMemoryEPvi" title='idSysLocal::LockMemory' data-ref="_ZN10idSysLocal10LockMemoryEPvi">LockMemory</dfn>( <em>void</em> *<dfn class="local col2 decl" id="12ptr" title='ptr' data-type='void *' data-ref="12ptr">ptr</dfn>, <em>int</em> <dfn class="local col3 decl" id="13bytes" title='bytes' data-type='int' data-ref="13bytes">bytes</dfn> );</td></tr>
+<tr><th id="62">62</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN10idSysLocal12UnlockMemoryEPvi" title='idSysLocal::UnlockMemory' data-ref="_ZN10idSysLocal12UnlockMemoryEPvi">UnlockMemory</dfn>( <em>void</em> *<dfn class="local col4 decl" id="14ptr" title='ptr' data-type='void *' data-ref="14ptr">ptr</dfn>, <em>int</em> <dfn class="local col5 decl" id="15bytes" title='bytes' data-type='int' data-ref="15bytes">bytes</dfn> );</td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td>	<b>virtual</b> <em>int</em>				<dfn class="virtual decl" id="_ZN10idSysLocal8DLL_LoadEPKc" title='idSysLocal::DLL_Load' data-ref="_ZN10idSysLocal8DLL_LoadEPKc">DLL_Load</dfn>( <em>const</em> <em>char</em> *<dfn class="local col6 decl" id="16dllName" title='dllName' data-type='const char *' data-ref="16dllName">dllName</dfn> );</td></tr>
+<tr><th id="65">65</th><td>	<b>virtual</b> <em>void</em> *			<dfn class="virtual decl" id="_ZN10idSysLocal18DLL_GetProcAddressEiPKc" title='idSysLocal::DLL_GetProcAddress' data-ref="_ZN10idSysLocal18DLL_GetProcAddressEiPKc">DLL_GetProcAddress</dfn>( <em>int</em> <dfn class="local col7 decl" id="17dllHandle" title='dllHandle' data-type='int' data-ref="17dllHandle">dllHandle</dfn>, <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="18procName" title='procName' data-type='const char *' data-ref="18procName">procName</dfn> );</td></tr>
+<tr><th id="66">66</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN10idSysLocal10DLL_UnloadEi" title='idSysLocal::DLL_Unload' data-ref="_ZN10idSysLocal10DLL_UnloadEi">DLL_Unload</dfn>( <em>int</em> <dfn class="local col9 decl" id="19dllHandle" title='dllHandle' data-type='int' data-ref="19dllHandle">dllHandle</dfn> );</td></tr>
+<tr><th id="67">67</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN10idSysLocal15DLL_GetFileNameEPKcPci" title='idSysLocal::DLL_GetFileName' data-ref="_ZN10idSysLocal15DLL_GetFileNameEPKcPci">DLL_GetFileName</dfn>( <em>const</em> <em>char</em> *<dfn class="local col0 decl" id="20baseName" title='baseName' data-type='const char *' data-ref="20baseName">baseName</dfn>, <em>char</em> *<dfn class="local col1 decl" id="21dllName" title='dllName' data-type='char *' data-ref="21dllName">dllName</dfn>, <em>int</em> <dfn class="local col2 decl" id="22maxLength" title='maxLength' data-type='int' data-ref="22maxLength">maxLength</dfn> );</td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td>	<b>virtual</b> <a class="typedef" href="sys_public.h.html#sysEvent_t" title='sysEvent_t' data-type='struct sysEvent_s' data-ref="sysEvent_t">sysEvent_t</a>		<dfn class="virtual decl" id="_ZN10idSysLocal24GenerateMouseButtonEventEib" title='idSysLocal::GenerateMouseButtonEvent' data-ref="_ZN10idSysLocal24GenerateMouseButtonEventEib">GenerateMouseButtonEvent</dfn>( <em>int</em> <dfn class="local col3 decl" id="23button" title='button' data-type='int' data-ref="23button">button</dfn>, <em>bool</em> <dfn class="local col4 decl" id="24down" title='down' data-type='bool' data-ref="24down">down</dfn> );</td></tr>
+<tr><th id="70">70</th><td>	<b>virtual</b> <a class="typedef" href="sys_public.h.html#sysEvent_t" title='sysEvent_t' data-type='struct sysEvent_s' data-ref="sysEvent_t">sysEvent_t</a>		<dfn class="virtual decl" id="_ZN10idSysLocal22GenerateMouseMoveEventEii" title='idSysLocal::GenerateMouseMoveEvent' data-ref="_ZN10idSysLocal22GenerateMouseMoveEventEii">GenerateMouseMoveEvent</dfn>( <em>int</em> <dfn class="local col5 decl" id="25deltax" title='deltax' data-type='int' data-ref="25deltax">deltax</dfn>, <em>int</em> <dfn class="local col6 decl" id="26deltay" title='deltay' data-type='int' data-ref="26deltay">deltay</dfn> );</td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td>	<b>virtual</b> <em>void</em>			<a class="virtual decl" href="linux/main.cpp.html#_ZN10idSysLocal7OpenURLEPKcb" title='idSysLocal::OpenURL' data-ref="_ZN10idSysLocal7OpenURLEPKcb" id="_ZN10idSysLocal7OpenURLEPKcb">OpenURL</a>( <em>const</em> <em>char</em> *<dfn class="local col7 decl" id="27url" title='url' data-type='const char *' data-ref="27url">url</dfn>, <em>bool</em> <dfn class="local col8 decl" id="28quit" title='quit' data-type='bool' data-ref="28quit">quit</dfn> );</td></tr>
+<tr><th id="73">73</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN10idSysLocal12StartProcessEPKcb" title='idSysLocal::StartProcess' data-ref="_ZN10idSysLocal12StartProcessEPKcb">StartProcess</dfn>( <em>const</em> <em>char</em> *<dfn class="local col9 decl" id="29exeName" title='exeName' data-type='const char *' data-ref="29exeName">exeName</dfn>, <em>bool</em> <dfn class="local col0 decl" id="30quit" title='quit' data-type='bool' data-ref="30quit">quit</dfn> );</td></tr>
+<tr><th id="74">74</th><td>};</td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td><u>#<span data-ppcond="29">endif</span> /* !__SYS_LOCAL__ */</u></td></tr>
+<tr><th id="77">77</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='linux/main.cpp.html'>codebrowser/sys/linux/main.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

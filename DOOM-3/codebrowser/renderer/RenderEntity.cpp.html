@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>RenderEntity.cpp source code [codebrowser/renderer/RenderEntity.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/renderer/RenderEntity.cpp'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>renderer</a>/<a href='RenderEntity.cpp.html'>RenderEntity.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="../idlib/precompiled.h.html">"../idlib/precompiled.h"</a></u></td></tr>
+<tr><th id="30">30</th><td><u>#pragma hdrstop</u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="tr_local.h.html">"tr_local.h"</a></u></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><a class="type" href="tr_local.h.html#idRenderEntityLocal" title='idRenderEntityLocal' data-ref="idRenderEntityLocal">idRenderEntityLocal</a>::<dfn class="decl def" id="_ZN19idRenderEntityLocalC1Ev" title='idRenderEntityLocal::idRenderEntityLocal' data-ref="_ZN19idRenderEntityLocalC1Ev">idRenderEntityLocal</dfn>() {</td></tr>
+<tr><th id="35">35</th><td>	<a class="ref" href="../../include/string.h.html#memset" title='memset' data-ref="memset">memset</a>( &amp;<a class="member" href="tr_local.h.html#idRenderEntityLocal::parms" title='idRenderEntityLocal::parms' data-ref="idRenderEntityLocal::parms">parms</a>, <var>0</var>, <b>sizeof</b>( <a class="member" href="tr_local.h.html#idRenderEntityLocal::parms" title='idRenderEntityLocal::parms' data-ref="idRenderEntityLocal::parms">parms</a> ) );</td></tr>
+<tr><th id="36">36</th><td>	<a class="ref" href="../../include/string.h.html#memset" title='memset' data-ref="memset">memset</a>( <a class="member" href="tr_local.h.html#idRenderEntityLocal::modelMatrix" title='idRenderEntityLocal::modelMatrix' data-ref="idRenderEntityLocal::modelMatrix">modelMatrix</a>, <var>0</var>, <b>sizeof</b>( <a class="member" href="tr_local.h.html#idRenderEntityLocal::modelMatrix" title='idRenderEntityLocal::modelMatrix' data-ref="idRenderEntityLocal::modelMatrix">modelMatrix</a> ) );</td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td>	<a class="member" href="tr_local.h.html#idRenderEntityLocal::world" title='idRenderEntityLocal::world' data-ref="idRenderEntityLocal::world">world</a>					= <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="39">39</th><td>	<a class="member" href="tr_local.h.html#idRenderEntityLocal::index" title='idRenderEntityLocal::index' data-ref="idRenderEntityLocal::index">index</a>					= <var>0</var>;</td></tr>
+<tr><th id="40">40</th><td>	<a class="member" href="tr_local.h.html#idRenderEntityLocal::lastModifiedFrameNum" title='idRenderEntityLocal::lastModifiedFrameNum' data-ref="idRenderEntityLocal::lastModifiedFrameNum">lastModifiedFrameNum</a>	= <var>0</var>;</td></tr>
+<tr><th id="41">41</th><td>	<a class="member" href="tr_local.h.html#idRenderEntityLocal::archived" title='idRenderEntityLocal::archived' data-ref="idRenderEntityLocal::archived">archived</a>				= <b>false</b>;</td></tr>
+<tr><th id="42">42</th><td>	<a class="member" href="tr_local.h.html#idRenderEntityLocal::dynamicModel" title='idRenderEntityLocal::dynamicModel' data-ref="idRenderEntityLocal::dynamicModel">dynamicModel</a>			= <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="43">43</th><td>	<a class="member" href="tr_local.h.html#idRenderEntityLocal::dynamicModelFrameCount" title='idRenderEntityLocal::dynamicModelFrameCount' data-ref="idRenderEntityLocal::dynamicModelFrameCount">dynamicModelFrameCount</a>	= <var>0</var>;</td></tr>
+<tr><th id="44">44</th><td>	<a class="member" href="tr_local.h.html#idRenderEntityLocal::cachedDynamicModel" title='idRenderEntityLocal::cachedDynamicModel' data-ref="idRenderEntityLocal::cachedDynamicModel">cachedDynamicModel</a>		= <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="45">45</th><td>	<a class="member" href="tr_local.h.html#idRenderEntityLocal::referenceBounds" title='idRenderEntityLocal::referenceBounds' data-ref="idRenderEntityLocal::referenceBounds">referenceBounds</a>			<a class="ref" href="../idlib/bv/Bounds.h.html#40" title='idBounds::operator=' data-ref="_ZN8idBoundsaSERKS_">=</a> <a class="ref" href="../idlib/bv/Bounds.h.html#bounds_zero" title='bounds_zero' data-ref="bounds_zero">bounds_zero</a>;</td></tr>
+<tr><th id="46">46</th><td>	<a class="member" href="tr_local.h.html#idRenderEntityLocal::viewCount" title='idRenderEntityLocal::viewCount' data-ref="idRenderEntityLocal::viewCount">viewCount</a>				= <var>0</var>;</td></tr>
+<tr><th id="47">47</th><td>	<a class="member" href="tr_local.h.html#idRenderEntityLocal::viewEntity" title='idRenderEntityLocal::viewEntity' data-ref="idRenderEntityLocal::viewEntity">viewEntity</a>				= <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="48">48</th><td>	<a class="member" href="tr_local.h.html#idRenderEntityLocal::visibleCount" title='idRenderEntityLocal::visibleCount' data-ref="idRenderEntityLocal::visibleCount">visibleCount</a>			= <var>0</var>;</td></tr>
+<tr><th id="49">49</th><td>	<a class="member" href="tr_local.h.html#idRenderEntityLocal::decals" title='idRenderEntityLocal::decals' data-ref="idRenderEntityLocal::decals">decals</a>					= <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="50">50</th><td>	<a class="member" href="tr_local.h.html#idRenderEntityLocal::overlay" title='idRenderEntityLocal::overlay' data-ref="idRenderEntityLocal::overlay">overlay</a>					= <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="51">51</th><td>	<a class="member" href="tr_local.h.html#idRenderEntityLocal::entityRefs" title='idRenderEntityLocal::entityRefs' data-ref="idRenderEntityLocal::entityRefs">entityRefs</a>				= <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="52">52</th><td>	<a class="member" href="tr_local.h.html#idRenderEntityLocal::firstInteraction" title='idRenderEntityLocal::firstInteraction' data-ref="idRenderEntityLocal::firstInteraction">firstInteraction</a>		= <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="53">53</th><td>	<a class="member" href="tr_local.h.html#idRenderEntityLocal::lastInteraction" title='idRenderEntityLocal::lastInteraction' data-ref="idRenderEntityLocal::lastInteraction">lastInteraction</a>			= <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="54">54</th><td>	<a class="member" href="tr_local.h.html#idRenderEntityLocal::needsPortalSky" title='idRenderEntityLocal::needsPortalSky' data-ref="idRenderEntityLocal::needsPortalSky">needsPortalSky</a>			= <b>false</b>;</td></tr>
+<tr><th id="55">55</th><td>}</td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td><em>void</em> <a class="type" href="tr_local.h.html#idRenderEntityLocal" title='idRenderEntityLocal' data-ref="idRenderEntityLocal">idRenderEntityLocal</a>::<dfn class="virtual decl def" id="_ZN19idRenderEntityLocal16FreeRenderEntityEv" title='idRenderEntityLocal::FreeRenderEntity' data-ref="_ZN19idRenderEntityLocal16FreeRenderEntityEv">FreeRenderEntity</dfn>() {</td></tr>
+<tr><th id="58">58</th><td>}</td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td><em>void</em> <a class="type" href="tr_local.h.html#idRenderEntityLocal" title='idRenderEntityLocal' data-ref="idRenderEntityLocal">idRenderEntityLocal</a>::<dfn class="virtual decl def" id="_ZN19idRenderEntityLocal18UpdateRenderEntityEPK14renderEntity_sb" title='idRenderEntityLocal::UpdateRenderEntity' data-ref="_ZN19idRenderEntityLocal18UpdateRenderEntityEPK14renderEntity_sb">UpdateRenderEntity</dfn>( <em>const</em> <a class="typedef" href="../framework/DeclParticle.h.html#renderEntity_t" title='renderEntity_t' data-type='struct renderEntity_s' data-ref="renderEntity_t">renderEntity_t</a> *<dfn class="local col1 decl" id="1re" title='re' data-type='const renderEntity_t *' data-ref="1re">re</dfn>, <em>bool</em> <dfn class="local col2 decl" id="2forceUpdate" title='forceUpdate' data-type='bool' data-ref="2forceUpdate">forceUpdate</dfn> ) {</td></tr>
+<tr><th id="61">61</th><td>}</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td><em>void</em> <a class="type" href="tr_local.h.html#idRenderEntityLocal" title='idRenderEntityLocal' data-ref="idRenderEntityLocal">idRenderEntityLocal</a>::<dfn class="virtual decl def" id="_ZN19idRenderEntityLocal15GetRenderEntityEP14renderEntity_s" title='idRenderEntityLocal::GetRenderEntity' data-ref="_ZN19idRenderEntityLocal15GetRenderEntityEP14renderEntity_s">GetRenderEntity</dfn>( <a class="typedef" href="../framework/DeclParticle.h.html#renderEntity_t" title='renderEntity_t' data-type='struct renderEntity_s' data-ref="renderEntity_t">renderEntity_t</a> *<dfn class="local col3 decl" id="3re" title='re' data-type='renderEntity_t *' data-ref="3re">re</dfn> ) {</td></tr>
+<tr><th id="64">64</th><td>}</td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td><em>void</em> <a class="type" href="tr_local.h.html#idRenderEntityLocal" title='idRenderEntityLocal' data-ref="idRenderEntityLocal">idRenderEntityLocal</a>::<dfn class="virtual decl def" id="_ZN19idRenderEntityLocal11ForceUpdateEv" title='idRenderEntityLocal::ForceUpdate' data-ref="_ZN19idRenderEntityLocal11ForceUpdateEv">ForceUpdate</dfn>() {</td></tr>
+<tr><th id="67">67</th><td>}</td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td><em>int</em> <a class="type" href="tr_local.h.html#idRenderEntityLocal" title='idRenderEntityLocal' data-ref="idRenderEntityLocal">idRenderEntityLocal</a>::<dfn class="virtual decl def" id="_ZN19idRenderEntityLocal8GetIndexEv" title='idRenderEntityLocal::GetIndex' data-ref="_ZN19idRenderEntityLocal8GetIndexEv">GetIndex</dfn>() {</td></tr>
+<tr><th id="70">70</th><td>	<b>return</b> <a class="member" href="tr_local.h.html#idRenderEntityLocal::index" title='idRenderEntityLocal::index' data-ref="idRenderEntityLocal::index">index</a>;</td></tr>
+<tr><th id="71">71</th><td>}</td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td><em>void</em> <a class="type" href="tr_local.h.html#idRenderEntityLocal" title='idRenderEntityLocal' data-ref="idRenderEntityLocal">idRenderEntityLocal</a>::<dfn class="virtual decl def" id="_ZN19idRenderEntityLocal14ProjectOverlayEPK7idPlanePK10idMaterial" title='idRenderEntityLocal::ProjectOverlay' data-ref="_ZN19idRenderEntityLocal14ProjectOverlayEPK7idPlanePK10idMaterial">ProjectOverlay</dfn>( <em>const</em> <a class="type" href="../idlib/math/Plane.h.html#idPlane" title='idPlane' data-ref="idPlane">idPlane</a> <dfn class="local col4 decl" id="4localTextureAxis" title='localTextureAxis' data-type='const idPlane *' data-ref="4localTextureAxis">localTextureAxis</dfn>[<var>2</var>], <em>const</em> <a class="type" href="Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *<dfn class="local col5 decl" id="5material" title='material' data-type='const idMaterial *' data-ref="5material">material</dfn> ) {</td></tr>
+<tr><th id="74">74</th><td>}</td></tr>
+<tr><th id="75">75</th><td><em>void</em> <a class="type" href="tr_local.h.html#idRenderEntityLocal" title='idRenderEntityLocal' data-ref="idRenderEntityLocal">idRenderEntityLocal</a>::<dfn class="virtual decl def" id="_ZN19idRenderEntityLocal12RemoveDecalsEv" title='idRenderEntityLocal::RemoveDecals' data-ref="_ZN19idRenderEntityLocal12RemoveDecalsEv">RemoveDecals</dfn>() {</td></tr>
+<tr><th id="76">76</th><td>}</td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td><i>//======================================================================</i></td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td><a class="type" href="tr_local.h.html#idRenderLightLocal" title='idRenderLightLocal' data-ref="idRenderLightLocal">idRenderLightLocal</a>::<dfn class="decl def" id="_ZN18idRenderLightLocalC1Ev" title='idRenderLightLocal::idRenderLightLocal' data-ref="_ZN18idRenderLightLocalC1Ev">idRenderLightLocal</dfn>() {</td></tr>
+<tr><th id="81">81</th><td>	<a class="ref" href="../../include/string.h.html#memset" title='memset' data-ref="memset">memset</a>( &amp;<a class="member" href="tr_local.h.html#idRenderLightLocal::parms" title='idRenderLightLocal::parms' data-ref="idRenderLightLocal::parms">parms</a>, <var>0</var>, <b>sizeof</b>( <a class="member" href="tr_local.h.html#idRenderLightLocal::parms" title='idRenderLightLocal::parms' data-ref="idRenderLightLocal::parms">parms</a> ) );</td></tr>
+<tr><th id="82">82</th><td>	<a class="ref" href="../../include/string.h.html#memset" title='memset' data-ref="memset">memset</a>( <a class="member" href="tr_local.h.html#idRenderLightLocal::modelMatrix" title='idRenderLightLocal::modelMatrix' data-ref="idRenderLightLocal::modelMatrix">modelMatrix</a>, <var>0</var>, <b>sizeof</b>( <a class="member" href="tr_local.h.html#idRenderLightLocal::modelMatrix" title='idRenderLightLocal::modelMatrix' data-ref="idRenderLightLocal::modelMatrix">modelMatrix</a> ) );</td></tr>
+<tr><th id="83">83</th><td>	<a class="ref" href="../../include/string.h.html#memset" title='memset' data-ref="memset">memset</a>( <a class="member" href="tr_local.h.html#idRenderLightLocal::shadowFrustums" title='idRenderLightLocal::shadowFrustums' data-ref="idRenderLightLocal::shadowFrustums">shadowFrustums</a>, <var>0</var>, <b>sizeof</b>( <a class="member" href="tr_local.h.html#idRenderLightLocal::shadowFrustums" title='idRenderLightLocal::shadowFrustums' data-ref="idRenderLightLocal::shadowFrustums">shadowFrustums</a> ) );</td></tr>
+<tr><th id="84">84</th><td>	<a class="ref" href="../../include/string.h.html#memset" title='memset' data-ref="memset">memset</a>( <a class="member" href="tr_local.h.html#idRenderLightLocal::lightProject" title='idRenderLightLocal::lightProject' data-ref="idRenderLightLocal::lightProject">lightProject</a>, <var>0</var>, <b>sizeof</b>( <a class="member" href="tr_local.h.html#idRenderLightLocal::lightProject" title='idRenderLightLocal::lightProject' data-ref="idRenderLightLocal::lightProject">lightProject</a> ) );</td></tr>
+<tr><th id="85">85</th><td>	<a class="ref" href="../../include/string.h.html#memset" title='memset' data-ref="memset">memset</a>( <a class="member" href="tr_local.h.html#idRenderLightLocal::frustum" title='idRenderLightLocal::frustum' data-ref="idRenderLightLocal::frustum">frustum</a>, <var>0</var>, <b>sizeof</b>( <a class="member" href="tr_local.h.html#idRenderLightLocal::frustum" title='idRenderLightLocal::frustum' data-ref="idRenderLightLocal::frustum">frustum</a> ) );</td></tr>
+<tr><th id="86">86</th><td>	<a class="ref" href="../../include/string.h.html#memset" title='memset' data-ref="memset">memset</a>( <a class="member" href="tr_local.h.html#idRenderLightLocal::frustumWindings" title='idRenderLightLocal::frustumWindings' data-ref="idRenderLightLocal::frustumWindings">frustumWindings</a>, <var>0</var>, <b>sizeof</b>( <a class="member" href="tr_local.h.html#idRenderLightLocal::frustumWindings" title='idRenderLightLocal::frustumWindings' data-ref="idRenderLightLocal::frustumWindings">frustumWindings</a> ) );</td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td>	<a class="member" href="tr_local.h.html#idRenderLightLocal::lightHasMoved" title='idRenderLightLocal::lightHasMoved' data-ref="idRenderLightLocal::lightHasMoved">lightHasMoved</a>			= <b>false</b>;</td></tr>
+<tr><th id="89">89</th><td>	<a class="member" href="tr_local.h.html#idRenderLightLocal::world" title='idRenderLightLocal::world' data-ref="idRenderLightLocal::world">world</a>					= <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="90">90</th><td>	<a class="member" href="tr_local.h.html#idRenderLightLocal::index" title='idRenderLightLocal::index' data-ref="idRenderLightLocal::index">index</a>					= <var>0</var>;</td></tr>
+<tr><th id="91">91</th><td>	<a class="member" href="tr_local.h.html#idRenderLightLocal::areaNum" title='idRenderLightLocal::areaNum' data-ref="idRenderLightLocal::areaNum">areaNum</a>					= <var>0</var>;</td></tr>
+<tr><th id="92">92</th><td>	<a class="member" href="tr_local.h.html#idRenderLightLocal::lastModifiedFrameNum" title='idRenderLightLocal::lastModifiedFrameNum' data-ref="idRenderLightLocal::lastModifiedFrameNum">lastModifiedFrameNum</a>	= <var>0</var>;</td></tr>
+<tr><th id="93">93</th><td>	<a class="member" href="tr_local.h.html#idRenderLightLocal::archived" title='idRenderLightLocal::archived' data-ref="idRenderLightLocal::archived">archived</a>				= <b>false</b>;</td></tr>
+<tr><th id="94">94</th><td>	<a class="member" href="tr_local.h.html#idRenderLightLocal::lightShader" title='idRenderLightLocal::lightShader' data-ref="idRenderLightLocal::lightShader">lightShader</a>				= <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="95">95</th><td>	<a class="member" href="tr_local.h.html#idRenderLightLocal::falloffImage" title='idRenderLightLocal::falloffImage' data-ref="idRenderLightLocal::falloffImage">falloffImage</a>			= <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="96">96</th><td>	<a class="member" href="tr_local.h.html#idRenderLightLocal::globalLightOrigin" title='idRenderLightLocal::globalLightOrigin' data-ref="idRenderLightLocal::globalLightOrigin">globalLightOrigin</a>		<a class="ref" href="../idlib/math/Vector.h.html#_ZN6idVec3aSERKS_" title='idVec3::operator=' data-ref="_ZN6idVec3aSERKS_">=</a> <a class="macro" href="../idlib/math/Vector.h.html#390" title="vec3_origin" data-ref="_M/vec3_zero">vec3_zero</a>;</td></tr>
+<tr><th id="97">97</th><td>	<a class="member" href="tr_local.h.html#idRenderLightLocal::frustumTris" title='idRenderLightLocal::frustumTris' data-ref="idRenderLightLocal::frustumTris">frustumTris</a>				= <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="98">98</th><td>	<a class="member" href="tr_local.h.html#idRenderLightLocal::numShadowFrustums" title='idRenderLightLocal::numShadowFrustums' data-ref="idRenderLightLocal::numShadowFrustums">numShadowFrustums</a>		= <var>0</var>;</td></tr>
+<tr><th id="99">99</th><td>	<a class="member" href="tr_local.h.html#idRenderLightLocal::viewCount" title='idRenderLightLocal::viewCount' data-ref="idRenderLightLocal::viewCount">viewCount</a>				= <var>0</var>;</td></tr>
+<tr><th id="100">100</th><td>	<a class="member" href="tr_local.h.html#idRenderLightLocal::viewLight" title='idRenderLightLocal::viewLight' data-ref="idRenderLightLocal::viewLight">viewLight</a>				= <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="101">101</th><td>	<a class="member" href="tr_local.h.html#idRenderLightLocal::references" title='idRenderLightLocal::references' data-ref="idRenderLightLocal::references">references</a>				= <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="102">102</th><td>	<a class="member" href="tr_local.h.html#idRenderLightLocal::foggedPortals" title='idRenderLightLocal::foggedPortals' data-ref="idRenderLightLocal::foggedPortals">foggedPortals</a>			= <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="103">103</th><td>	<a class="member" href="tr_local.h.html#idRenderLightLocal::firstInteraction" title='idRenderLightLocal::firstInteraction' data-ref="idRenderLightLocal::firstInteraction">firstInteraction</a>		= <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="104">104</th><td>	<a class="member" href="tr_local.h.html#idRenderLightLocal::lastInteraction" title='idRenderLightLocal::lastInteraction' data-ref="idRenderLightLocal::lastInteraction">lastInteraction</a>			= <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="105">105</th><td>}</td></tr>
+<tr><th id="106">106</th><td></td></tr>
+<tr><th id="107">107</th><td><em>void</em> <a class="type" href="tr_local.h.html#idRenderLightLocal" title='idRenderLightLocal' data-ref="idRenderLightLocal">idRenderLightLocal</a>::<dfn class="virtual decl def" id="_ZN18idRenderLightLocal15FreeRenderLightEv" title='idRenderLightLocal::FreeRenderLight' data-ref="_ZN18idRenderLightLocal15FreeRenderLightEv">FreeRenderLight</dfn>() {</td></tr>
+<tr><th id="108">108</th><td>}</td></tr>
+<tr><th id="109">109</th><td><em>void</em> <a class="type" href="tr_local.h.html#idRenderLightLocal" title='idRenderLightLocal' data-ref="idRenderLightLocal">idRenderLightLocal</a>::<dfn class="virtual decl def" id="_ZN18idRenderLightLocal17UpdateRenderLightEPK13renderLight_sb" title='idRenderLightLocal::UpdateRenderLight' data-ref="_ZN18idRenderLightLocal17UpdateRenderLightEPK13renderLight_sb">UpdateRenderLight</dfn>( <em>const</em> <a class="typedef" href="RenderWorld.h.html#renderLight_t" title='renderLight_t' data-type='struct renderLight_s' data-ref="renderLight_t">renderLight_t</a> *<dfn class="local col6 decl" id="6re" title='re' data-type='const renderLight_t *' data-ref="6re">re</dfn>, <em>bool</em> <dfn class="local col7 decl" id="7forceUpdate" title='forceUpdate' data-type='bool' data-ref="7forceUpdate">forceUpdate</dfn> ) {</td></tr>
+<tr><th id="110">110</th><td>}</td></tr>
+<tr><th id="111">111</th><td><em>void</em> <a class="type" href="tr_local.h.html#idRenderLightLocal" title='idRenderLightLocal' data-ref="idRenderLightLocal">idRenderLightLocal</a>::<dfn class="virtual decl def" id="_ZN18idRenderLightLocal14GetRenderLightEP13renderLight_s" title='idRenderLightLocal::GetRenderLight' data-ref="_ZN18idRenderLightLocal14GetRenderLightEP13renderLight_s">GetRenderLight</dfn>( <a class="typedef" href="RenderWorld.h.html#renderLight_t" title='renderLight_t' data-type='struct renderLight_s' data-ref="renderLight_t">renderLight_t</a> *<dfn class="local col8 decl" id="8re" title='re' data-type='renderLight_t *' data-ref="8re">re</dfn> ) {</td></tr>
+<tr><th id="112">112</th><td>}</td></tr>
+<tr><th id="113">113</th><td><em>void</em> <a class="type" href="tr_local.h.html#idRenderLightLocal" title='idRenderLightLocal' data-ref="idRenderLightLocal">idRenderLightLocal</a>::<dfn class="virtual decl def" id="_ZN18idRenderLightLocal11ForceUpdateEv" title='idRenderLightLocal::ForceUpdate' data-ref="_ZN18idRenderLightLocal11ForceUpdateEv">ForceUpdate</dfn>() {</td></tr>
+<tr><th id="114">114</th><td>}</td></tr>
+<tr><th id="115">115</th><td><em>int</em> <a class="type" href="tr_local.h.html#idRenderLightLocal" title='idRenderLightLocal' data-ref="idRenderLightLocal">idRenderLightLocal</a>::<dfn class="virtual decl def" id="_ZN18idRenderLightLocal8GetIndexEv" title='idRenderLightLocal::GetIndex' data-ref="_ZN18idRenderLightLocal8GetIndexEv">GetIndex</dfn>() {</td></tr>
+<tr><th id="116">116</th><td>	<b>return</b> <a class="member" href="tr_local.h.html#idRenderLightLocal::index" title='idRenderLightLocal::index' data-ref="idRenderLightLocal::index">index</a>;</td></tr>
+<tr><th id="117">117</th><td>}</td></tr>
+<tr><th id="118">118</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

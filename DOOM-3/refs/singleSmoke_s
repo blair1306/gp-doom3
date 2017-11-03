@@ -1,0 +1,59 @@
+<def f='codebrowser/d3xp/SmokeParticles.h' l='54' ll='64'/>
+<size>68</size>
+<doc f='codebrowser/d3xp/SmokeParticles.h' l='32'>/*
+===============================================================================
+
+	Smoke systems are for particles that are emitted off of things that are
+	constantly changing position and orientation, like muzzle smoke coming
+	from a bone on a weapon, blood spurting from a wound, or particles
+	trailing from a monster limb.
+
+	The smoke particles are always evaluated and rendered each tic, so there
+	is a performance cost with using them for continuous effects. The general
+	particle systems are completely parametric, and have no performance
+	overhead when not in view.
+
+	All smoke systems share the same shaderparms, so any coloration must be
+	done in the particle definition.
+
+	Each particle model has its own shaderparms, which can be used by the
+	particle materials.
+
+===============================================================================
+*/</doc>
+<mbr r='singleSmoke_s::next' o='0' t='struct singleSmoke_s *'/>
+<mbr r='singleSmoke_s::privateStartTime' o='32' t='int'/>
+<mbr r='singleSmoke_s::index' o='64' t='int'/>
+<mbr r='singleSmoke_s::random' o='96' t='idRandom'/>
+<mbr r='singleSmoke_s::origin' o='128' t='idVec3'/>
+<mbr r='singleSmoke_s::axis' o='224' t='idMat3'/>
+<mbr r='singleSmoke_s::timeGroup' o='512' t='int'/>
+<def f='codebrowser/game/SmokeParticles.h' l='54' ll='61'/>
+<size>64</size>
+<doc f='codebrowser/game/SmokeParticles.h' l='32'>/*
+===============================================================================
+
+	Smoke systems are for particles that are emitted off of things that are
+	constantly changing position and orientation, like muzzle smoke coming
+	from a bone on a weapon, blood spurting from a wound, or particles
+	trailing from a monster limb.
+
+	The smoke particles are always evaluated and rendered each tic, so there
+	is a performance cost with using them for continuous effects. The general
+	particle systems are completely parametric, and have no performance
+	overhead when not in view.
+
+	All smoke systems share the same shaderparms, so any coloration must be
+	done in the particle definition.
+
+	Each particle model has its own shaderparms, which can be used by the
+	particle materials.
+
+===============================================================================
+*/</doc>
+<mbr r='singleSmoke_s::next' o='0' t='struct singleSmoke_s *'/>
+<mbr r='singleSmoke_s::privateStartTime' o='32' t='int'/>
+<mbr r='singleSmoke_s::index' o='64' t='int'/>
+<mbr r='singleSmoke_s::random' o='96' t='idRandom'/>
+<mbr r='singleSmoke_s::origin' o='128' t='idVec3'/>
+<mbr r='singleSmoke_s::axis' o='224' t='idMat3'/>

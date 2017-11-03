@@ -1,0 +1,53 @@
+<dec f='codebrowser/idlib/containers/List.h' l='116' type='type * idList::Ptr()'/>
+<def f='codebrowser/idlib/containers/List.h' l='595' ll='598' type='type * idList::Ptr()'/>
+<use f='codebrowser/idlib/geometry/Surface.h' l='122' u='c' c='_ZN9idSurfaceC1EPK10idDrawVertiPKii'/>
+<use f='codebrowser/idlib/geometry/Surface.h' l='124' u='c' c='_ZN9idSurfaceC1EPK10idDrawVertiPKii'/>
+<doc f='codebrowser/idlib/containers/List.h' l='116'>// returns a pointer to the list</doc>
+<doc f='codebrowser/idlib/containers/List.h' l='584'>/*
+================
+idList&lt;type&gt;::Ptr
+
+Returns a pointer to the begining of the array.  Useful for iterating through the list in loops.
+
+Note: may return NULL if the list is empty.
+
+FIXME: Create an iterator template for this kind of thing.
+================
+*/</doc>
+<use f='codebrowser/d3xp/anim/Anim.cpp' l='273' u='c' c='_ZN9idMD5Anim8LoadAnimEPKc'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='77' u='c' c='_ZN6idAnimC1EPK14idDeclModelDefPKS_'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='2218' u='c' c='_ZN14idDeclModelDef8CopyDeclEPKS_'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='2220' u='c' c='_ZN14idDeclModelDef8CopyDeclEPKS_'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='3968' u='c' c='_ZN10idAnimator17SetAFPoseJointModE13jointHandle_t16AFJointModType_tRK6idMat3RK6idVec3'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='4086' u='c' c='_ZN10idAnimator12FinishAFPoseEiRK8idBoundsi'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='4301' u='c' c='_ZN10idAnimator11CreateFrameEib'/>
+<use f='codebrowser/d3xp/gamesys/DebugGraph.cpp' l='51' u='c' c='_ZN12idDebugGraph13SetNumSamplesEi'/>
+<use f='codebrowser/d3xp/gamesys/SaveGame.cpp' l='808' u='c' c='_ZN13idRestoreGame13CreateObjectsEv'/>
+<use f='codebrowser/d3xp/gamesys/TypeInfo.cpp' l='808' u='c' c='_ZN15idTypeInfoTools15WriteVariable_rEPKvPKcS3_S3_S3_i'/>
+<use f='codebrowser/game/anim/Anim.cpp' l='273' u='c' c='_ZN9idMD5Anim8LoadAnimEPKc'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='77' u='c' c='_ZN6idAnimC1EPK14idDeclModelDefPKS_'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='2132' u='c' c='_ZN14idDeclModelDef8CopyDeclEPKS_'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='2134' u='c' c='_ZN14idDeclModelDef8CopyDeclEPKS_'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='3882' u='c' c='_ZN10idAnimator17SetAFPoseJointModE13jointHandle_t16AFJointModType_tRK6idMat3RK6idVec3'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='4000' u='c' c='_ZN10idAnimator12FinishAFPoseEiRK8idBoundsi'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='4215' u='c' c='_ZN10idAnimator11CreateFrameEib'/>
+<use f='codebrowser/game/gamesys/DebugGraph.cpp' l='51' u='c' c='_ZN12idDebugGraph13SetNumSamplesEi'/>
+<use f='codebrowser/game/gamesys/SaveGame.cpp' l='803' u='c' c='_ZN13idRestoreGame13CreateObjectsEv'/>
+<use f='codebrowser/game/gamesys/TypeInfo.cpp' l='808' u='c' c='_ZN15idTypeInfoTools15WriteVariable_rEPKvPKcS3_S3_S3_i'/>
+<use f='codebrowser/idlib/geometry/Surface.cpp' l='161' u='c' c='_ZNK9idSurface5SplitERK7idPlanefPPS_S4_PiS5_'/>
+<use f='codebrowser/idlib/geometry/Surface.cpp' l='162' u='c' c='_ZNK9idSurface5SplitERK7idPlanefPPS_S4_PiS5_'/>
+<use f='codebrowser/idlib/geometry/Surface.cpp' l='461' u='c' c='_ZN9idSurface11ClipInPlaceERK7idPlanefb'/>
+<use f='codebrowser/idlib/geometry/Surface.cpp' l='859' u='c' c='_ZN9idSurface19GenerateEdgeIndexesEv'/>
+<use f='codebrowser/renderer/Model_liquid.cpp' l='74' u='c' c='_ZN19idRenderModelLiquid15GenerateSurfaceEf'/>
+<use f='codebrowser/renderer/Model_liquid.cpp' l='101' u='c' c='_ZN19idRenderModelLiquid15GenerateSurfaceEf'/>
+<use f='codebrowser/renderer/Model_liquid.cpp' l='328' u='c' c='_ZN19idRenderModelLiquid5ResetEv'/>
+<use f='codebrowser/renderer/Model_liquid.cpp' l='423' u='c' c='_ZN19idRenderModelLiquid12InitFromFileEPKc'/>
+<use f='codebrowser/renderer/Model_liquid.cpp' l='452' u='c' c='_ZN19idRenderModelLiquid12InitFromFileEPKc'/>
+<use f='codebrowser/renderer/Model_liquid.cpp' l='452' u='c' c='_ZN19idRenderModelLiquid12InitFromFileEPKc'/>
+<use f='codebrowser/renderer/Model_md5.cpp' l='245' u='c' c='_ZN9idMD5Mesh9ParseMeshER7idLexeriPK10idJointMat'/>
+<use f='codebrowser/renderer/Model_md5.cpp' l='548' u='c' c='_ZN16idRenderModelMD59LoadModelEv'/>
+<use f='codebrowser/renderer/Model_md5.cpp' l='549' u='c' c='_ZN16idRenderModelMD59LoadModelEv'/>
+<use f='codebrowser/renderer/Model_md5.cpp' l='555' u='c' c='_ZN16idRenderModelMD59LoadModelEv'/>
+<use f='codebrowser/renderer/Model_md5.cpp' l='639' u='c' c='_ZN16idRenderModelMD515CalculateBoundsEPK10idJointMat'/>
+<use f='codebrowser/renderer/Model_md5.cpp' l='774' u='c' c='_ZN16idRenderModelMD523InstantiateDynamicModelEPK14renderEntity_sPK9viewDef_sP13idRenderModel'/>
+<use f='codebrowser/renderer/Model_md5.cpp' l='915' u='c' c='_ZN16idRenderModelMD59TouchDataEv'/>

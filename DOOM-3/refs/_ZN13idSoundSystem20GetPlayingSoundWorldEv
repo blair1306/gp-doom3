@@ -1,0 +1,7 @@
+<dec f='codebrowser/sound/sound.h' l='327' type='idSoundWorld * idSoundSystem::GetPlayingSoundWorld()'/>
+<doc f='codebrowser/sound/sound.h' l='325'>// some tools, like the sound dialog, may be used in both the game and the editor
+	// This can return NULL, so check!</doc>
+<use f='codebrowser/framework/Common.cpp' l='3054' u='c' c='_ZN13idCommonLocal12ShutdownGameEb'/>
+<use f='codebrowser/framework/Session.cpp' l='1838' u='c' c='_Z15Session_Hitch_fRK9idCmdArgs'/>
+<use f='codebrowser/framework/Session.cpp' l='1924' u='c' c='_ZN14idSessionLocal8SaveGameEPKcb'/>
+<ovr f='codebrowser/sound/snd_system.cpp' l='1103' c='_ZN18idSoundSystemLocal20GetPlayingSoundWorldEv'/>

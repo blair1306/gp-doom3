@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AASReach.h source code [codebrowser/tools/compilers/aas/AASReach.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idAASReach "/>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/tools/compilers/aas/AASReach.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>tools</a>/<a href='..'>compilers</a>/<a href='./'>aas</a>/<a href='AASReach.h.html'>AASReach.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__AASREACH_H__">__AASREACH_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__AASREACH_H__" data-ref="_M/__AASREACH_H__">__AASREACH_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>	Reachabilities</i></td></tr>
+<tr><th id="36">36</th><td><i></i></td></tr>
+<tr><th id="37">37</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="38">38</th><td><i>*/</i></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><b>class</b> <dfn class="type def" id="idAASReach" title='idAASReach' data-ref="idAASReach">idAASReach</dfn> {</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><b>public</b>:</td></tr>
+<tr><th id="43">43</th><td>	<em>bool</em>					<dfn class="decl" id="_ZN10idAASReach5BuildEPK9idMapFileP14idAASFileLocal" title='idAASReach::Build' data-ref="_ZN10idAASReach5BuildEPK9idMapFileP14idAASFileLocal">Build</dfn>( <em>const</em> <a class="type" href="../../../idlib/MapFile.h.html#idMapFile" title='idMapFile' data-ref="idMapFile">idMapFile</a> *<dfn class="local col3 decl" id="213mapFile" title='mapFile' data-type='const idMapFile *' data-ref="213mapFile">mapFile</dfn>, <a class="type" href="AASFile_local.h.html#idAASFileLocal" title='idAASFileLocal' data-ref="idAASFileLocal">idAASFileLocal</a> *<dfn class="local col4 decl" id="214file" title='file' data-type='idAASFileLocal *' data-ref="214file">file</dfn> );</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td><b>private</b>:</td></tr>
+<tr><th id="46">46</th><td>	<em>const</em> <a class="type" href="../../../idlib/MapFile.h.html#idMapFile" title='idMapFile' data-ref="idMapFile">idMapFile</a> *		<dfn class="decl" id="idAASReach::mapFile" title='idAASReach::mapFile' data-ref="idAASReach::mapFile">mapFile</dfn>;</td></tr>
+<tr><th id="47">47</th><td>	<a class="type" href="AASFile_local.h.html#idAASFileLocal" title='idAASFileLocal' data-ref="idAASFileLocal">idAASFileLocal</a> *		<dfn class="decl" id="idAASReach::file" title='idAASReach::file' data-ref="idAASReach::file">file</dfn>;</td></tr>
+<tr><th id="48">48</th><td>	<em>int</em>						<dfn class="decl" id="idAASReach::numReachabilities" title='idAASReach::numReachabilities' data-ref="idAASReach::numReachabilities">numReachabilities</dfn>;</td></tr>
+<tr><th id="49">49</th><td>	<em>bool</em>					<dfn class="decl" id="idAASReach::allowSwimReachabilities" title='idAASReach::allowSwimReachabilities' data-ref="idAASReach::allowSwimReachabilities">allowSwimReachabilities</dfn>;</td></tr>
+<tr><th id="50">50</th><td>	<em>bool</em>					<dfn class="decl" id="idAASReach::allowFlyReachabilities" title='idAASReach::allowFlyReachabilities' data-ref="idAASReach::allowFlyReachabilities">allowFlyReachabilities</dfn>;</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td><b>private</b>:	<i>// reachability</i></td></tr>
+<tr><th id="53">53</th><td>	<em>void</em>					<dfn class="decl" id="_ZN10idAASReach18FlagReachableAreasEP14idAASFileLocal" title='idAASReach::FlagReachableAreas' data-ref="_ZN10idAASReach18FlagReachableAreasEP14idAASFileLocal">FlagReachableAreas</dfn>( <a class="type" href="AASFile_local.h.html#idAASFileLocal" title='idAASFileLocal' data-ref="idAASFileLocal">idAASFileLocal</a> *<dfn class="local col5 decl" id="215file" title='file' data-type='idAASFileLocal *' data-ref="215file">file</dfn> );</td></tr>
+<tr><th id="54">54</th><td>	<em>bool</em>					<dfn class="decl" id="_ZN10idAASReach18ReachabilityExistsEii" title='idAASReach::ReachabilityExists' data-ref="_ZN10idAASReach18ReachabilityExistsEii">ReachabilityExists</dfn>( <em>int</em> <dfn class="local col6 decl" id="216fromAreaNum" title='fromAreaNum' data-type='int' data-ref="216fromAreaNum">fromAreaNum</dfn>, <em>int</em> <dfn class="local col7 decl" id="217toAreaNum" title='toAreaNum' data-type='int' data-ref="217toAreaNum">toAreaNum</dfn> );</td></tr>
+<tr><th id="55">55</th><td>	<em>bool</em>					<dfn class="decl" id="_ZN10idAASReach13CanSwimInAreaEi" title='idAASReach::CanSwimInArea' data-ref="_ZN10idAASReach13CanSwimInAreaEi">CanSwimInArea</dfn>( <em>int</em> <dfn class="local col8 decl" id="218areaNum" title='areaNum' data-type='int' data-ref="218areaNum">areaNum</dfn> );</td></tr>
+<tr><th id="56">56</th><td>	<em>bool</em>					<dfn class="decl" id="_ZN10idAASReach12AreaHasFloorEi" title='idAASReach::AreaHasFloor' data-ref="_ZN10idAASReach12AreaHasFloorEi">AreaHasFloor</dfn>( <em>int</em> <dfn class="local col9 decl" id="219areaNum" title='areaNum' data-type='int' data-ref="219areaNum">areaNum</dfn> );</td></tr>
+<tr><th id="57">57</th><td>	<em>bool</em>					<dfn class="decl" id="_ZN10idAASReach19AreaIsClusterPortalEi" title='idAASReach::AreaIsClusterPortal' data-ref="_ZN10idAASReach19AreaIsClusterPortalEi">AreaIsClusterPortal</dfn>( <em>int</em> <dfn class="local col0 decl" id="220areaNum" title='areaNum' data-type='int' data-ref="220areaNum">areaNum</dfn> );</td></tr>
+<tr><th id="58">58</th><td>	<em>void</em>					<dfn class="decl" id="_ZN10idAASReach21AddReachabilityToAreaEP14idReachabilityi" title='idAASReach::AddReachabilityToArea' data-ref="_ZN10idAASReach21AddReachabilityToAreaEP14idReachabilityi">AddReachabilityToArea</dfn>( <a class="type" href="AASFile.h.html#idReachability" title='idReachability' data-ref="idReachability">idReachability</a> *<dfn class="local col1 decl" id="221reach" title='reach' data-type='idReachability *' data-ref="221reach">reach</dfn>, <em>int</em> <dfn class="local col2 decl" id="222areaNum" title='areaNum' data-type='int' data-ref="222areaNum">areaNum</dfn> );</td></tr>
+<tr><th id="59">59</th><td>	<em>void</em>					<dfn class="decl" id="_ZN10idAASReach16Reachability_FlyEi" title='idAASReach::Reachability_Fly' data-ref="_ZN10idAASReach16Reachability_FlyEi">Reachability_Fly</dfn>( <em>int</em> <dfn class="local col3 decl" id="223areaNum" title='areaNum' data-type='int' data-ref="223areaNum">areaNum</dfn> );</td></tr>
+<tr><th id="60">60</th><td>	<em>void</em>					<dfn class="decl" id="_ZN10idAASReach17Reachability_SwimEi" title='idAASReach::Reachability_Swim' data-ref="_ZN10idAASReach17Reachability_SwimEi">Reachability_Swim</dfn>( <em>int</em> <dfn class="local col4 decl" id="224areaNum" title='areaNum' data-type='int' data-ref="224areaNum">areaNum</dfn> );</td></tr>
+<tr><th id="61">61</th><td>	<em>void</em>					<dfn class="decl" id="_ZN10idAASReach29Reachability_EqualFloorHeightEi" title='idAASReach::Reachability_EqualFloorHeight' data-ref="_ZN10idAASReach29Reachability_EqualFloorHeightEi">Reachability_EqualFloorHeight</dfn>( <em>int</em> <dfn class="local col5 decl" id="225areaNum" title='areaNum' data-type='int' data-ref="225areaNum">areaNum</dfn> );</td></tr>
+<tr><th id="62">62</th><td>	<em>bool</em>					<dfn class="decl" id="_ZN10idAASReach48Reachability_Step_Barrier_WaterJump_WalkOffLedgeEii" title='idAASReach::Reachability_Step_Barrier_WaterJump_WalkOffLedge' data-ref="_ZN10idAASReach48Reachability_Step_Barrier_WaterJump_WalkOffLedgeEii">Reachability_Step_Barrier_WaterJump_WalkOffLedge</dfn>( <em>int</em> <dfn class="local col6 decl" id="226fromAreaNum" title='fromAreaNum' data-type='int' data-ref="226fromAreaNum">fromAreaNum</dfn>, <em>int</em> <dfn class="local col7 decl" id="227toAreaNum" title='toAreaNum' data-type='int' data-ref="227toAreaNum">toAreaNum</dfn> );</td></tr>
+<tr><th id="63">63</th><td>	<em>void</em>					<dfn class="decl" id="_ZN10idAASReach25Reachability_WalkOffLedgeEi" title='idAASReach::Reachability_WalkOffLedge' data-ref="_ZN10idAASReach25Reachability_WalkOffLedgeEi">Reachability_WalkOffLedge</dfn>( <em>int</em> <dfn class="local col8 decl" id="228areaNum" title='areaNum' data-type='int' data-ref="228areaNum">areaNum</dfn> );</td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td>};</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td><u>#<span data-ppcond="29">endif</span> /* !__AASREACH_H__ */</u></td></tr>
+<tr><th id="68">68</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='AASBuild.cpp.html'>codebrowser/tools/compilers/aas/AASBuild.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

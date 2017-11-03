@@ -1,0 +1,37 @@
+<def f='codebrowser/tools/compilers/aas/AASFile.h' l='211' ll='255'/>
+<size>216</size>
+<doc f='codebrowser/tools/compilers/aas/AASFile.h' l='210'>// settings</doc>
+<mbr r='idAASSettings::numBoundingBoxes' o='0' t='int'/>
+<mbr r='idAASSettings::boundingBoxes' o='32' t='idBounds [4]'/>
+<mbr r='idAASSettings::usePatches' o='800' t='bool'/>
+<mbr r='idAASSettings::writeBrushMap' o='808' t='bool'/>
+<mbr r='idAASSettings::playerFlood' o='816' t='bool'/>
+<mbr r='idAASSettings::noOptimize' o='824' t='bool'/>
+<mbr r='idAASSettings::allowSwimReachabilities' o='832' t='bool'/>
+<mbr r='idAASSettings::allowFlyReachabilities' o='840' t='bool'/>
+<mbr r='idAASSettings::fileExtension' o='864' t='idStr'/>
+<mbr r='idAASSettings::gravity' o='1120' t='idVec3'/>
+<mbr r='idAASSettings::gravityDir' o='1216' t='idVec3'/>
+<mbr r='idAASSettings::invGravityDir' o='1312' t='idVec3'/>
+<mbr r='idAASSettings::gravityValue' o='1408' t='float'/>
+<mbr r='idAASSettings::maxStepHeight' o='1440' t='float'/>
+<mbr r='idAASSettings::maxBarrierHeight' o='1472' t='float'/>
+<mbr r='idAASSettings::maxWaterJumpHeight' o='1504' t='float'/>
+<mbr r='idAASSettings::maxFallHeight' o='1536' t='float'/>
+<mbr r='idAASSettings::minFloorCos' o='1568' t='float'/>
+<mbr r='idAASSettings::tt_barrierJump' o='1600' t='int'/>
+<mbr r='idAASSettings::tt_startCrouching' o='1632' t='int'/>
+<mbr r='idAASSettings::tt_waterJump' o='1664' t='int'/>
+<mbr r='idAASSettings::tt_startWalkOffLedge' o='1696' t='int'/>
+<fun r='_ZN13idAASSettingsC1Ev'/>
+<fun r='_ZN13idAASSettings8FromFileERK5idStr'/>
+<fun r='_ZN13idAASSettings10FromParserER7idLexer'/>
+<fun r='_ZN13idAASSettings8FromDictEPKcPK6idDict'/>
+<fun r='_ZNK13idAASSettings11WriteToFileEP6idFile'/>
+<fun r='_ZNK13idAASSettings14ValidForBoundsERK8idBounds'/>
+<fun r='_ZNK13idAASSettings11ValidEntityEPKc'/>
+<fun r='_ZN13idAASSettings9ParseBoolER7idLexerRb'/>
+<fun r='_ZN13idAASSettings8ParseIntER7idLexerRi'/>
+<fun r='_ZN13idAASSettings10ParseFloatER7idLexerRf'/>
+<fun r='_ZN13idAASSettings11ParseVectorER7idLexerR6idVec3'/>
+<fun r='_ZN13idAASSettings11ParseBBoxesER7idLexer'/>

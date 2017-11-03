@@ -1,0 +1,30 @@
+<inh f='codebrowser/renderer/tr_local.h' l='165' c='idRenderEntity'/>
+<def f='codebrowser/renderer/tr_local.h' l='237' ll='290'/>
+<size>372</size>
+<fun r='_ZN19idRenderEntityLocalC1Ev'/>
+<fun r='_ZN19idRenderEntityLocal16FreeRenderEntityEv'/>
+<fun r='_ZN19idRenderEntityLocal18UpdateRenderEntityEPK14renderEntity_sb'/>
+<fun r='_ZN19idRenderEntityLocal15GetRenderEntityEP14renderEntity_s'/>
+<fun r='_ZN19idRenderEntityLocal11ForceUpdateEv'/>
+<fun r='_ZN19idRenderEntityLocal8GetIndexEv'/>
+<fun r='_ZN19idRenderEntityLocal14ProjectOverlayEPK7idPlanePK10idMaterial'/>
+<fun r='_ZN19idRenderEntityLocal12RemoveDecalsEv'/>
+<mbr r='idRenderEntityLocal::parms' o='32' t='renderEntity_t'/>
+<mbr r='idRenderEntityLocal::modelMatrix' o='1760' t='float [16]'/>
+<mbr r='idRenderEntityLocal::world' o='2272' t='idRenderWorldLocal *'/>
+<mbr r='idRenderEntityLocal::index' o='2304' t='int'/>
+<mbr r='idRenderEntityLocal::lastModifiedFrameNum' o='2336' t='int'/>
+<mbr r='idRenderEntityLocal::archived' o='2368' t='bool'/>
+<mbr r='idRenderEntityLocal::dynamicModel' o='2400' t='idRenderModel *'/>
+<mbr r='idRenderEntityLocal::dynamicModelFrameCount' o='2432' t='int'/>
+<mbr r='idRenderEntityLocal::cachedDynamicModel' o='2464' t='idRenderModel *'/>
+<mbr r='idRenderEntityLocal::referenceBounds' o='2496' t='idBounds'/>
+<mbr r='idRenderEntityLocal::viewCount' o='2688' t='int'/>
+<mbr r='idRenderEntityLocal::viewEntity' o='2720' t='struct viewEntity_s *'/>
+<mbr r='idRenderEntityLocal::visibleCount' o='2752' t='int'/>
+<mbr r='idRenderEntityLocal::decals' o='2784' t='idRenderModelDecal *'/>
+<mbr r='idRenderEntityLocal::overlay' o='2816' t='idRenderModelOverlay *'/>
+<mbr r='idRenderEntityLocal::entityRefs' o='2848' t='areaReference_t *'/>
+<mbr r='idRenderEntityLocal::firstInteraction' o='2880' t='idInteraction *'/>
+<mbr r='idRenderEntityLocal::lastInteraction' o='2912' t='idInteraction *'/>
+<mbr r='idRenderEntityLocal::needsPortalSky' o='2944' t='bool'/>

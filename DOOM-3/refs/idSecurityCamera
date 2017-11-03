@@ -1,0 +1,100 @@
+<inh f='codebrowser/d3xp/Entity.h' l='107' c='idEntity'/>
+<def f='codebrowser/d3xp/SecurityCamera.h' l='41' ll='95'/>
+<size>4304</size>
+<doc f='codebrowser/d3xp/SecurityCamera.h' l='32'>/*
+===================================================================================
+
+	Security camera
+
+===================================================================================
+*/</doc>
+<smbr r='idSecurityCamera::Type' t='idTypeInfo'/>
+<fun r='_ZN16idSecurityCamera14CreateInstanceEv'/>
+<fun r='_ZNK16idSecurityCamera7GetTypeEv'/>
+<smbr r='idSecurityCamera::eventCallbacks' t='idEventFunc&lt;idSecurityCamera&gt; []'/>
+<fun r='_ZN16idSecurityCamera5SpawnEv'/>
+<fun r='_ZNK16idSecurityCamera4SaveEP10idSaveGame'/>
+<fun r='_ZN16idSecurityCamera7RestoreEP13idRestoreGame'/>
+<fun r='_ZN16idSecurityCamera5ThinkEv'/>
+<fun r='_ZN16idSecurityCamera13GetRenderViewEv'/>
+<fun r='_ZN16idSecurityCamera6KilledEP8idEntityS1_iRK6idVec3i'/>
+<fun r='_ZN16idSecurityCamera4PainEP8idEntityS1_iRK6idVec3i'/>
+<fun r='_ZN16idSecurityCamera7PresentEv'/>
+<mbr r='idSecurityCamera::angle' o='6944' t='float'/>
+<mbr r='idSecurityCamera::sweepAngle' o='6976' t='float'/>
+<mbr r='idSecurityCamera::modelAxis' o='7008' t='int'/>
+<mbr r='idSecurityCamera::flipAxis' o='7040' t='bool'/>
+<mbr r='idSecurityCamera::scanDist' o='7072' t='float'/>
+<mbr r='idSecurityCamera::scanFov' o='7104' t='float'/>
+<mbr r='idSecurityCamera::sweepStart' o='7136' t='float'/>
+<mbr r='idSecurityCamera::sweepEnd' o='7168' t='float'/>
+<mbr r='idSecurityCamera::negativeSweep' o='7200' t='bool'/>
+<mbr r='idSecurityCamera::sweeping' o='7208' t='bool'/>
+<mbr r='idSecurityCamera::alertMode' o='7232' t='int'/>
+<mbr r='idSecurityCamera::stopSweeping' o='7264' t='float'/>
+<mbr r='idSecurityCamera::scanFovCos' o='7296' t='float'/>
+<mbr r='idSecurityCamera::viewOffset' o='7328' t='idVec3'/>
+<mbr r='idSecurityCamera::pvsArea' o='7424' t='int'/>
+<mbr r='idSecurityCamera::physicsObj' o='7456' t='idPhysics_RigidBody'/>
+<mbr r='idSecurityCamera::trm' o='11808' t='idTraceModel'/>
+<fun r='_ZN16idSecurityCamera10StartSweepEv'/>
+<fun r='_ZN16idSecurityCamera12CanSeePlayerEv'/>
+<fun r='_ZN16idSecurityCamera12SetAlertModeEi'/>
+<fun r='_ZN16idSecurityCamera7DrawFovEv'/>
+<fun r='_ZNK16idSecurityCamera7GetAxisEv'/>
+<fun r='_ZNK16idSecurityCamera10SweepSpeedEv'/>
+<fun r='_ZN16idSecurityCamera18Event_ReverseSweepEv'/>
+<fun r='_ZN16idSecurityCamera19Event_ContinueSweepEv'/>
+<fun r='_ZN16idSecurityCamera11Event_PauseEv'/>
+<fun r='_ZN16idSecurityCamera11Event_AlertEv'/>
+<fun r='_ZN16idSecurityCamera14Event_AddLightEv'/>
+<inh f='codebrowser/game/Entity.h' l='107' c='idEntity'/>
+<def f='codebrowser/game/SecurityCamera.h' l='41' ll='95'/>
+<size>4072</size>
+<doc f='codebrowser/game/SecurityCamera.h' l='32'>/*
+===================================================================================
+
+	Security camera
+
+===================================================================================
+*/</doc>
+<smbr r='idSecurityCamera::Type' t='idTypeInfo'/>
+<fun r='_ZN16idSecurityCamera14CreateInstanceEv'/>
+<fun r='_ZNK16idSecurityCamera7GetTypeEv'/>
+<smbr r='idSecurityCamera::eventCallbacks' t='idEventFunc&lt;idSecurityCamera&gt; []'/>
+<fun r='_ZN16idSecurityCamera5SpawnEv'/>
+<fun r='_ZNK16idSecurityCamera4SaveEP10idSaveGame'/>
+<fun r='_ZN16idSecurityCamera7RestoreEP13idRestoreGame'/>
+<fun r='_ZN16idSecurityCamera5ThinkEv'/>
+<fun r='_ZN16idSecurityCamera13GetRenderViewEv'/>
+<fun r='_ZN16idSecurityCamera6KilledEP8idEntityS1_iRK6idVec3i'/>
+<fun r='_ZN16idSecurityCamera4PainEP8idEntityS1_iRK6idVec3i'/>
+<fun r='_ZN16idSecurityCamera7PresentEv'/>
+<mbr r='idSecurityCamera::angle' o='5088' t='float'/>
+<mbr r='idSecurityCamera::sweepAngle' o='5120' t='float'/>
+<mbr r='idSecurityCamera::modelAxis' o='5152' t='int'/>
+<mbr r='idSecurityCamera::flipAxis' o='5184' t='bool'/>
+<mbr r='idSecurityCamera::scanDist' o='5216' t='float'/>
+<mbr r='idSecurityCamera::scanFov' o='5248' t='float'/>
+<mbr r='idSecurityCamera::sweepStart' o='5280' t='float'/>
+<mbr r='idSecurityCamera::sweepEnd' o='5312' t='float'/>
+<mbr r='idSecurityCamera::negativeSweep' o='5344' t='bool'/>
+<mbr r='idSecurityCamera::sweeping' o='5352' t='bool'/>
+<mbr r='idSecurityCamera::alertMode' o='5376' t='int'/>
+<mbr r='idSecurityCamera::stopSweeping' o='5408' t='float'/>
+<mbr r='idSecurityCamera::scanFovCos' o='5440' t='float'/>
+<mbr r='idSecurityCamera::viewOffset' o='5472' t='idVec3'/>
+<mbr r='idSecurityCamera::pvsArea' o='5568' t='int'/>
+<mbr r='idSecurityCamera::physicsObj' o='5600' t='idPhysics_RigidBody'/>
+<mbr r='idSecurityCamera::trm' o='9952' t='idTraceModel'/>
+<fun r='_ZN16idSecurityCamera10StartSweepEv'/>
+<fun r='_ZN16idSecurityCamera12CanSeePlayerEv'/>
+<fun r='_ZN16idSecurityCamera12SetAlertModeEi'/>
+<fun r='_ZN16idSecurityCamera7DrawFovEv'/>
+<fun r='_ZNK16idSecurityCamera7GetAxisEv'/>
+<fun r='_ZNK16idSecurityCamera10SweepSpeedEv'/>
+<fun r='_ZN16idSecurityCamera18Event_ReverseSweepEv'/>
+<fun r='_ZN16idSecurityCamera19Event_ContinueSweepEv'/>
+<fun r='_ZN16idSecurityCamera11Event_PauseEv'/>
+<fun r='_ZN16idSecurityCamera11Event_AlertEv'/>
+<fun r='_ZN16idSecurityCamera14Event_AddLightEv'/>

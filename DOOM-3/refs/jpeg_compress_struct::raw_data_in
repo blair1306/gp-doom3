@@ -1,0 +1,13 @@
+<dec f='codebrowser/renderer/jpeg-6/jpeglib.h' l='319' type='boolean'/>
+<offset>1344</offset>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='314'>/* The default value of scan_info is NULL, which causes a single-scan
+   * sequential JPEG file to be emitted.  To create a multi-scan file,
+   * set num_scans and scan_info to point to an array of scan definitions.
+   */</doc>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='319'>/* TRUE=caller supplies downsampled data */</doc>
+<use f='codebrowser/renderer/jpeg-6/jcinit.c' l='36' u='r' c='jinit_compress_master'/>
+<use f='codebrowser/renderer/jpeg-6/jcmainct.c' l='74' u='r' c='start_pass_main'/>
+<use f='codebrowser/renderer/jpeg-6/jcmainct.c' l='258' u='r' c='jinit_c_main_controller'/>
+<use f='codebrowser/renderer/jpeg-6/jcmaster.c' l='400' u='r' c='prepare_for_pass'/>
+<use f='codebrowser/renderer/jpeg-6/jcparam.c' l='287' u='w' c='jpeg_set_defaults'/>
+<use f='codebrowser/tools/compilers/roqvq/roq.cpp' l='296' u='r' c='_ZN3roq17JPEGStartCompressEP20jpeg_compress_structb'/>

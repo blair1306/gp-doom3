@@ -1,0 +1,355 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>DeclManager.h source code [codebrowser/framework/DeclManager.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idDecl,idDeclBase,idDeclManager "/>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/framework/DeclManager.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>framework</a>/<a href='DeclManager.h.html'>DeclManager.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__DECLMANAGER_H__">__DECLMANAGER_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__DECLMANAGER_H__" data-ref="_M/__DECLMANAGER_H__">__DECLMANAGER_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>	Declaration Manager</i></td></tr>
+<tr><th id="36">36</th><td><i></i></td></tr>
+<tr><th id="37">37</th><td><i>	All "small text" data types, like materials, sound shaders, fx files,</i></td></tr>
+<tr><th id="38">38</th><td><i>	entity defs, etc. are managed uniformly, allowing reloading, purging,</i></td></tr>
+<tr><th id="39">39</th><td><i>	listing, printing, etc. All "large text" data types that never have more</i></td></tr>
+<tr><th id="40">40</th><td><i>	than one declaration in a given file, like maps, models, AAS files, etc.</i></td></tr>
+<tr><th id="41">41</th><td><i>	are not handled here.</i></td></tr>
+<tr><th id="42">42</th><td><i></i></td></tr>
+<tr><th id="43">43</th><td><i>	A decl will never, ever go away once it is created. The manager is</i></td></tr>
+<tr><th id="44">44</th><td><i>	garranteed to always return the same decl pointer for a decl type/name</i></td></tr>
+<tr><th id="45">45</th><td><i>	combination. The index of a decl in the per type list also stays the</i></td></tr>
+<tr><th id="46">46</th><td><i>	same throughout the lifetime of the engine. Although the pointer to</i></td></tr>
+<tr><th id="47">47</th><td><i>	a decl always stays the same, one should never maintain pointers to</i></td></tr>
+<tr><th id="48">48</th><td><i>	data inside decls. The data stored in a decl is not garranteed to stay</i></td></tr>
+<tr><th id="49">49</th><td><i>	the same for more than one engine frame.</i></td></tr>
+<tr><th id="50">50</th><td><i></i></td></tr>
+<tr><th id="51">51</th><td><i>	The decl indexes of explicitely defined decls are garrenteed to be</i></td></tr>
+<tr><th id="52">52</th><td><i>	consistent based on the parsed decl files. However, the indexes of</i></td></tr>
+<tr><th id="53">53</th><td><i>	implicit decls may be different based on the order in which levels</i></td></tr>
+<tr><th id="54">54</th><td><i>	are loaded.</i></td></tr>
+<tr><th id="55">55</th><td><i></i></td></tr>
+<tr><th id="56">56</th><td><i>	The decl namespaces are separate for each type. Comments for decls go</i></td></tr>
+<tr><th id="57">57</th><td><i>	above the text definition to keep them associated with the proper decl.</i></td></tr>
+<tr><th id="58">58</th><td><i></i></td></tr>
+<tr><th id="59">59</th><td><i>	During decl parsing, errors should never be issued, only warnings</i></td></tr>
+<tr><th id="60">60</th><td><i>	followed by a call to MakeDefault().</i></td></tr>
+<tr><th id="61">61</th><td><i></i></td></tr>
+<tr><th id="62">62</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="63">63</th><td><i>*/</i></td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="66">66</th><td>	<dfn class="enum" id="DECL_TABLE" title='DECL_TABLE' data-ref="DECL_TABLE">DECL_TABLE</dfn>				= <var>0</var>,</td></tr>
+<tr><th id="67">67</th><td>	<dfn class="enum" id="DECL_MATERIAL" title='DECL_MATERIAL' data-ref="DECL_MATERIAL">DECL_MATERIAL</dfn>,</td></tr>
+<tr><th id="68">68</th><td>	<dfn class="enum" id="DECL_SKIN" title='DECL_SKIN' data-ref="DECL_SKIN">DECL_SKIN</dfn>,</td></tr>
+<tr><th id="69">69</th><td>	<dfn class="enum" id="DECL_SOUND" title='DECL_SOUND' data-ref="DECL_SOUND">DECL_SOUND</dfn>,</td></tr>
+<tr><th id="70">70</th><td>	<dfn class="enum" id="DECL_ENTITYDEF" title='DECL_ENTITYDEF' data-ref="DECL_ENTITYDEF">DECL_ENTITYDEF</dfn>,</td></tr>
+<tr><th id="71">71</th><td>	<dfn class="enum" id="DECL_MODELDEF" title='DECL_MODELDEF' data-ref="DECL_MODELDEF">DECL_MODELDEF</dfn>,</td></tr>
+<tr><th id="72">72</th><td>	<dfn class="enum" id="DECL_FX" title='DECL_FX' data-ref="DECL_FX">DECL_FX</dfn>,</td></tr>
+<tr><th id="73">73</th><td>	<dfn class="enum" id="DECL_PARTICLE" title='DECL_PARTICLE' data-ref="DECL_PARTICLE">DECL_PARTICLE</dfn>,</td></tr>
+<tr><th id="74">74</th><td>	<dfn class="enum" id="DECL_AF" title='DECL_AF' data-ref="DECL_AF">DECL_AF</dfn>,</td></tr>
+<tr><th id="75">75</th><td>	<dfn class="enum" id="DECL_PDA" title='DECL_PDA' data-ref="DECL_PDA">DECL_PDA</dfn>,</td></tr>
+<tr><th id="76">76</th><td>	<dfn class="enum" id="DECL_VIDEO" title='DECL_VIDEO' data-ref="DECL_VIDEO">DECL_VIDEO</dfn>,</td></tr>
+<tr><th id="77">77</th><td>	<dfn class="enum" id="DECL_AUDIO" title='DECL_AUDIO' data-ref="DECL_AUDIO">DECL_AUDIO</dfn>,</td></tr>
+<tr><th id="78">78</th><td>	<dfn class="enum" id="DECL_EMAIL" title='DECL_EMAIL' data-ref="DECL_EMAIL">DECL_EMAIL</dfn>,</td></tr>
+<tr><th id="79">79</th><td>	<dfn class="enum" id="DECL_MODELEXPORT" title='DECL_MODELEXPORT' data-ref="DECL_MODELEXPORT">DECL_MODELEXPORT</dfn>,</td></tr>
+<tr><th id="80">80</th><td>	<dfn class="enum" id="DECL_MAPDEF" title='DECL_MAPDEF' data-ref="DECL_MAPDEF">DECL_MAPDEF</dfn>,</td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td>	<i>// new decl types can be added here</i></td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td>	<dfn class="enum" id="DECL_MAX_TYPES" title='DECL_MAX_TYPES' data-ref="DECL_MAX_TYPES">DECL_MAX_TYPES</dfn>			= <var>32</var></td></tr>
+<tr><th id="85">85</th><td>} <dfn class="typedef" id="declType_t" title='declType_t' data-type='enum declType_t' data-ref="declType_t">declType_t</dfn>;</td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="88">88</th><td>	<dfn class="enum" id="DS_UNPARSED" title='DS_UNPARSED' data-ref="DS_UNPARSED">DS_UNPARSED</dfn>,</td></tr>
+<tr><th id="89">89</th><td>	<dfn class="enum" id="DS_DEFAULTED" title='DS_DEFAULTED' data-ref="DS_DEFAULTED">DS_DEFAULTED</dfn>,			<i>// set if a parse failed due to an error, or the lack of any source</i></td></tr>
+<tr><th id="90">90</th><td>	<dfn class="enum" id="DS_PARSED" title='DS_PARSED' data-ref="DS_PARSED">DS_PARSED</dfn></td></tr>
+<tr><th id="91">91</th><td>} <dfn class="typedef" id="declState_t" title='declState_t' data-type='enum declState_t' data-ref="declState_t">declState_t</dfn>;</td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="DECL_LEXER_FLAGS" title='DECL_LEXER_FLAGS' data-ref="DECL_LEXER_FLAGS">DECL_LEXER_FLAGS</dfn>	=	<a class="enum" href="../idlib/Lexer.h.html#LEXFL_NOSTRINGCONCAT" title='LEXFL_NOSTRINGCONCAT' data-ref="LEXFL_NOSTRINGCONCAT">LEXFL_NOSTRINGCONCAT</a> |				<i>// multiple strings seperated by whitespaces are not concatenated</i></td></tr>
+<tr><th id="94">94</th><td>								<a class="enum" href="../idlib/Lexer.h.html#LEXFL_NOSTRINGESCAPECHARS" title='LEXFL_NOSTRINGESCAPECHARS' data-ref="LEXFL_NOSTRINGESCAPECHARS">LEXFL_NOSTRINGESCAPECHARS</a> |			<i>// no escape characters inside strings</i></td></tr>
+<tr><th id="95">95</th><td>								<a class="enum" href="../idlib/Lexer.h.html#LEXFL_ALLOWPATHNAMES" title='LEXFL_ALLOWPATHNAMES' data-ref="LEXFL_ALLOWPATHNAMES">LEXFL_ALLOWPATHNAMES</a> |				<i>// allow path seperators in names</i></td></tr>
+<tr><th id="96">96</th><td>								<a class="enum" href="../idlib/Lexer.h.html#LEXFL_ALLOWMULTICHARLITERALS" title='LEXFL_ALLOWMULTICHARLITERALS' data-ref="LEXFL_ALLOWMULTICHARLITERALS">LEXFL_ALLOWMULTICHARLITERALS</a> |		<i>// allow multi character literals</i></td></tr>
+<tr><th id="97">97</th><td>								<a class="enum" href="../idlib/Lexer.h.html#LEXFL_ALLOWBACKSLASHSTRINGCONCAT" title='LEXFL_ALLOWBACKSLASHSTRINGCONCAT' data-ref="LEXFL_ALLOWBACKSLASHSTRINGCONCAT">LEXFL_ALLOWBACKSLASHSTRINGCONCAT</a> |	<i>// allow multiple strings seperated by '\' to be concatenated</i></td></tr>
+<tr><th id="98">98</th><td>								<a class="enum" href="../idlib/Lexer.h.html#LEXFL_NOFATALERRORS" title='LEXFL_NOFATALERRORS' data-ref="LEXFL_NOFATALERRORS">LEXFL_NOFATALERRORS</a>;				<i>// just set a flag instead of fatal erroring</i></td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td></td></tr>
+<tr><th id="101">101</th><td><b>class</b> <dfn class="type def" id="idDeclBase" title='idDeclBase' data-ref="idDeclBase">idDeclBase</dfn> {</td></tr>
+<tr><th id="102">102</th><td><b>public</b>:</td></tr>
+<tr><th id="103">103</th><td>	<b>virtual</b> 				<dfn class="virtual decl def" id="_ZN10idDeclBaseD1Ev" title='idDeclBase::~idDeclBase' data-ref="_ZN10idDeclBaseD1Ev">~idDeclBase</dfn>() {};</td></tr>
+<tr><th id="104">104</th><td>	<b>virtual</b> <em>const</em> <em>char</em> *	<dfn class="virtual decl" id="_ZNK10idDeclBase7GetNameEv" title='idDeclBase::GetName' data-ref="_ZNK10idDeclBase7GetNameEv">GetName</dfn>( <em>void</em> ) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="105">105</th><td>	<b>virtual</b> <a class="typedef" href="#declType_t" title='declType_t' data-type='enum declType_t' data-ref="declType_t">declType_t</a>		<dfn class="virtual decl" id="_ZNK10idDeclBase7GetTypeEv" title='idDeclBase::GetType' data-ref="_ZNK10idDeclBase7GetTypeEv">GetType</dfn>( <em>void</em> ) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="106">106</th><td>	<b>virtual</b> <a class="typedef" href="#declState_t" title='declState_t' data-type='enum declState_t' data-ref="declState_t">declState_t</a>		<dfn class="virtual decl" id="_ZNK10idDeclBase8GetStateEv" title='idDeclBase::GetState' data-ref="_ZNK10idDeclBase8GetStateEv">GetState</dfn>( <em>void</em> ) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="107">107</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZNK10idDeclBase10IsImplicitEv" title='idDeclBase::IsImplicit' data-ref="_ZNK10idDeclBase10IsImplicitEv">IsImplicit</dfn>( <em>void</em> ) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="108">108</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZNK10idDeclBase7IsValidEv" title='idDeclBase::IsValid' data-ref="_ZNK10idDeclBase7IsValidEv">IsValid</dfn>( <em>void</em> ) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="109">109</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN10idDeclBase10InvalidateEv" title='idDeclBase::Invalidate' data-ref="_ZN10idDeclBase10InvalidateEv">Invalidate</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="110">110</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN10idDeclBase6ReloadEv" title='idDeclBase::Reload' data-ref="_ZN10idDeclBase6ReloadEv">Reload</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="111">111</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN10idDeclBase15EnsureNotPurgedEv" title='idDeclBase::EnsureNotPurged' data-ref="_ZN10idDeclBase15EnsureNotPurgedEv">EnsureNotPurged</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="112">112</th><td>	<b>virtual</b> <em>int</em>				<dfn class="virtual decl" id="_ZNK10idDeclBase5IndexEv" title='idDeclBase::Index' data-ref="_ZNK10idDeclBase5IndexEv">Index</dfn>( <em>void</em> ) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="113">113</th><td>	<b>virtual</b> <em>int</em>				<dfn class="virtual decl" id="_ZNK10idDeclBase10GetLineNumEv" title='idDeclBase::GetLineNum' data-ref="_ZNK10idDeclBase10GetLineNumEv">GetLineNum</dfn>( <em>void</em> ) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="114">114</th><td>	<b>virtual</b> <em>const</em> <em>char</em> *	<dfn class="virtual decl" id="_ZNK10idDeclBase11GetFileNameEv" title='idDeclBase::GetFileName' data-ref="_ZNK10idDeclBase11GetFileNameEv">GetFileName</dfn>( <em>void</em> ) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="115">115</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZNK10idDeclBase7GetTextEPc" title='idDeclBase::GetText' data-ref="_ZNK10idDeclBase7GetTextEPc">GetText</dfn>( <em>char</em> *<dfn class="local col3 decl" id="7753text" title='text' data-type='char *' data-ref="7753text">text</dfn> ) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="116">116</th><td>	<b>virtual</b> <em>int</em>				<dfn class="virtual decl" id="_ZNK10idDeclBase13GetTextLengthEv" title='idDeclBase::GetTextLength' data-ref="_ZNK10idDeclBase13GetTextLengthEv">GetTextLength</dfn>( <em>void</em> ) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="117">117</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN10idDeclBase7SetTextEPKc" title='idDeclBase::SetText' data-ref="_ZN10idDeclBase7SetTextEPKc">SetText</dfn>( <em>const</em> <em>char</em> *<dfn class="local col4 decl" id="7754text" title='text' data-type='const char *' data-ref="7754text">text</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="118">118</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN10idDeclBase21ReplaceSourceFileTextEv" title='idDeclBase::ReplaceSourceFileText' data-ref="_ZN10idDeclBase21ReplaceSourceFileTextEv">ReplaceSourceFileText</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="119">119</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZNK10idDeclBase17SourceFileChangedEv" title='idDeclBase::SourceFileChanged' data-ref="_ZNK10idDeclBase17SourceFileChangedEv">SourceFileChanged</dfn>( <em>void</em> ) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="120">120</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN10idDeclBase11MakeDefaultEv" title='idDeclBase::MakeDefault' data-ref="_ZN10idDeclBase11MakeDefaultEv">MakeDefault</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="121">121</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZNK10idDeclBase14EverReferencedEv" title='idDeclBase::EverReferenced' data-ref="_ZNK10idDeclBase14EverReferencedEv">EverReferenced</dfn>( <em>void</em> ) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="122">122</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN10idDeclBase14SetDefaultTextEv" title='idDeclBase::SetDefaultText' data-ref="_ZN10idDeclBase14SetDefaultTextEv">SetDefaultText</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="123">123</th><td>	<b>virtual</b> <em>const</em> <em>char</em> *	<dfn class="virtual decl" id="_ZNK10idDeclBase17DefaultDefinitionEv" title='idDeclBase::DefaultDefinition' data-ref="_ZNK10idDeclBase17DefaultDefinitionEv">DefaultDefinition</dfn>( <em>void</em> ) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="124">124</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN10idDeclBase5ParseEPKci" title='idDeclBase::Parse' data-ref="_ZN10idDeclBase5ParseEPKci">Parse</dfn>( <em>const</em> <em>char</em> *<dfn class="local col5 decl" id="7755text" title='text' data-type='const char *' data-ref="7755text">text</dfn>, <em>const</em> <em>int</em> <dfn class="local col6 decl" id="7756textLength" title='textLength' data-type='const int' data-ref="7756textLength">textLength</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="125">125</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN10idDeclBase8FreeDataEv" title='idDeclBase::FreeData' data-ref="_ZN10idDeclBase8FreeDataEv">FreeData</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="126">126</th><td>	<b>virtual</b> <span class='typedef' title='size_t' data-type='unsigned int' data-ref="size_t">size_t</span>			<dfn class="virtual decl" id="_ZNK10idDeclBase4SizeEv" title='idDeclBase::Size' data-ref="_ZNK10idDeclBase4SizeEv">Size</dfn>( <em>void</em> ) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="127">127</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZNK10idDeclBase4ListEv" title='idDeclBase::List' data-ref="_ZNK10idDeclBase4ListEv">List</dfn>( <em>void</em> ) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="128">128</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZNK10idDeclBase5PrintEv" title='idDeclBase::Print' data-ref="_ZNK10idDeclBase5PrintEv">Print</dfn>( <em>void</em> ) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="129">129</th><td>};</td></tr>
+<tr><th id="130">130</th><td></td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td><b>class</b> <dfn class="type def" id="idDecl" title='idDecl' data-ref="idDecl">idDecl</dfn> {</td></tr>
+<tr><th id="133">133</th><td><b>public</b>:</td></tr>
+<tr><th id="134">134</th><td>							<i>// The constructor should initialize variables such that</i></td></tr>
+<tr><th id="135">135</th><td><i>							// an immediate call to FreeData() does no harm.</i></td></tr>
+<tr><th id="136">136</th><td>							<dfn class="decl def" id="_ZN6idDeclC1Ev" title='idDecl::idDecl' data-ref="_ZN6idDeclC1Ev">idDecl</dfn>( <em>void</em> ) { <a class="member" href="#idDecl::base" title='idDecl::base' data-ref="idDecl::base">base</a> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>; }</td></tr>
+<tr><th id="137">137</th><td>	<b>virtual</b> 				<dfn class="virtual decl def" id="_ZN6idDeclD1Ev" title='idDecl::~idDecl' data-ref="_ZN6idDeclD1Ev">~idDecl</dfn>( <em>void</em> ) {};</td></tr>
+<tr><th id="138">138</th><td></td></tr>
+<tr><th id="139">139</th><td>							<i>// Returns the name of the decl.</i></td></tr>
+<tr><th id="140">140</th><td>	<em>const</em> <em>char</em> *			<dfn class="decl def" id="_ZNK6idDecl7GetNameEv" title='idDecl::GetName' data-ref="_ZNK6idDecl7GetNameEv">GetName</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idDecl::base" title='idDecl::base' data-ref="idDecl::base">base</a>-&gt;<a class="virtual ref" href="#_ZNK10idDeclBase7GetNameEv" title='idDeclBase::GetName' data-ref="_ZNK10idDeclBase7GetNameEv">GetName</a>(); }</td></tr>
+<tr><th id="141">141</th><td></td></tr>
+<tr><th id="142">142</th><td>							<i>// Returns the decl type.</i></td></tr>
+<tr><th id="143">143</th><td>	<a class="typedef" href="#declType_t" title='declType_t' data-type='enum declType_t' data-ref="declType_t">declType_t</a>				<dfn class="decl def" id="_ZNK6idDecl7GetTypeEv" title='idDecl::GetType' data-ref="_ZNK6idDecl7GetTypeEv">GetType</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idDecl::base" title='idDecl::base' data-ref="idDecl::base">base</a>-&gt;<a class="virtual ref" href="#_ZNK10idDeclBase7GetTypeEv" title='idDeclBase::GetType' data-ref="_ZNK10idDeclBase7GetTypeEv">GetType</a>(); }</td></tr>
+<tr><th id="144">144</th><td></td></tr>
+<tr><th id="145">145</th><td>							<i>// Returns the decl state which is usefull for finding out if a decl defaulted.</i></td></tr>
+<tr><th id="146">146</th><td>	<a class="typedef" href="#declState_t" title='declState_t' data-type='enum declState_t' data-ref="declState_t">declState_t</a>				<dfn class="decl def" id="_ZNK6idDecl8GetStateEv" title='idDecl::GetState' data-ref="_ZNK6idDecl8GetStateEv">GetState</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idDecl::base" title='idDecl::base' data-ref="idDecl::base">base</a>-&gt;<a class="virtual ref" href="#_ZNK10idDeclBase8GetStateEv" title='idDeclBase::GetState' data-ref="_ZNK10idDeclBase8GetStateEv">GetState</a>(); }</td></tr>
+<tr><th id="147">147</th><td></td></tr>
+<tr><th id="148">148</th><td>							<i>// Returns true if the decl was defaulted or the text was created with a call to SetDefaultText.</i></td></tr>
+<tr><th id="149">149</th><td>	<em>bool</em>					<dfn class="decl def" id="_ZNK6idDecl10IsImplicitEv" title='idDecl::IsImplicit' data-ref="_ZNK6idDecl10IsImplicitEv">IsImplicit</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idDecl::base" title='idDecl::base' data-ref="idDecl::base">base</a>-&gt;<a class="virtual ref" href="#_ZNK10idDeclBase10IsImplicitEv" title='idDeclBase::IsImplicit' data-ref="_ZNK10idDeclBase10IsImplicitEv">IsImplicit</a>(); }</td></tr>
+<tr><th id="150">150</th><td></td></tr>
+<tr><th id="151">151</th><td>							<i>// The only way non-manager code can have an invalid decl is if the *ByIndex()</i></td></tr>
+<tr><th id="152">152</th><td><i>							// call was used with forceParse = false to walk the lists to look at names</i></td></tr>
+<tr><th id="153">153</th><td><i>							// without touching the media.</i></td></tr>
+<tr><th id="154">154</th><td>	<em>bool</em>					<dfn class="decl def" id="_ZNK6idDecl7IsValidEv" title='idDecl::IsValid' data-ref="_ZNK6idDecl7IsValidEv">IsValid</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idDecl::base" title='idDecl::base' data-ref="idDecl::base">base</a>-&gt;<a class="virtual ref" href="#_ZNK10idDeclBase7IsValidEv" title='idDeclBase::IsValid' data-ref="_ZNK10idDeclBase7IsValidEv">IsValid</a>(); }</td></tr>
+<tr><th id="155">155</th><td></td></tr>
+<tr><th id="156">156</th><td>							<i>// Sets state back to unparsed.</i></td></tr>
+<tr><th id="157">157</th><td><i>							// Used by decl editors to undo any changes to the decl.</i></td></tr>
+<tr><th id="158">158</th><td>	<em>void</em>					<dfn class="decl def" id="_ZN6idDecl10InvalidateEv" title='idDecl::Invalidate' data-ref="_ZN6idDecl10InvalidateEv">Invalidate</dfn>( <em>void</em> ) { <a class="member" href="#idDecl::base" title='idDecl::base' data-ref="idDecl::base">base</a>-&gt;<a class="virtual ref" href="#_ZN10idDeclBase10InvalidateEv" title='idDeclBase::Invalidate' data-ref="_ZN10idDeclBase10InvalidateEv">Invalidate</a>(); }</td></tr>
+<tr><th id="159">159</th><td></td></tr>
+<tr><th id="160">160</th><td>							<i>// if a pointer might possible be stale from a previous level,</i></td></tr>
+<tr><th id="161">161</th><td><i>							// call this to have it re-parsed</i></td></tr>
+<tr><th id="162">162</th><td>	<em>void</em>					<dfn class="decl def" id="_ZN6idDecl15EnsureNotPurgedEv" title='idDecl::EnsureNotPurged' data-ref="_ZN6idDecl15EnsureNotPurgedEv">EnsureNotPurged</dfn>( <em>void</em> ) { <a class="member" href="#idDecl::base" title='idDecl::base' data-ref="idDecl::base">base</a>-&gt;<a class="virtual ref" href="#_ZN10idDeclBase15EnsureNotPurgedEv" title='idDeclBase::EnsureNotPurged' data-ref="_ZN10idDeclBase15EnsureNotPurgedEv">EnsureNotPurged</a>(); }</td></tr>
+<tr><th id="163">163</th><td></td></tr>
+<tr><th id="164">164</th><td>							<i>// Returns the index in the per-type list.</i></td></tr>
+<tr><th id="165">165</th><td>	<em>int</em>						<dfn class="decl def" id="_ZNK6idDecl5IndexEv" title='idDecl::Index' data-ref="_ZNK6idDecl5IndexEv">Index</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idDecl::base" title='idDecl::base' data-ref="idDecl::base">base</a>-&gt;<a class="virtual ref" href="#_ZNK10idDeclBase5IndexEv" title='idDeclBase::Index' data-ref="_ZNK10idDeclBase5IndexEv">Index</a>(); }</td></tr>
+<tr><th id="166">166</th><td></td></tr>
+<tr><th id="167">167</th><td>							<i>// Returns the line number the decl starts.</i></td></tr>
+<tr><th id="168">168</th><td>	<em>int</em>						<dfn class="decl def" id="_ZNK6idDecl10GetLineNumEv" title='idDecl::GetLineNum' data-ref="_ZNK6idDecl10GetLineNumEv">GetLineNum</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idDecl::base" title='idDecl::base' data-ref="idDecl::base">base</a>-&gt;<a class="virtual ref" href="#_ZNK10idDeclBase10GetLineNumEv" title='idDeclBase::GetLineNum' data-ref="_ZNK10idDeclBase10GetLineNumEv">GetLineNum</a>(); }</td></tr>
+<tr><th id="169">169</th><td></td></tr>
+<tr><th id="170">170</th><td>							<i>// Returns the name of the file in which the decl is defined.</i></td></tr>
+<tr><th id="171">171</th><td>	<em>const</em> <em>char</em> *			<dfn class="decl def" id="_ZNK6idDecl11GetFileNameEv" title='idDecl::GetFileName' data-ref="_ZNK6idDecl11GetFileNameEv">GetFileName</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idDecl::base" title='idDecl::base' data-ref="idDecl::base">base</a>-&gt;<a class="virtual ref" href="#_ZNK10idDeclBase11GetFileNameEv" title='idDeclBase::GetFileName' data-ref="_ZNK10idDeclBase11GetFileNameEv">GetFileName</a>(); }</td></tr>
+<tr><th id="172">172</th><td></td></tr>
+<tr><th id="173">173</th><td>							<i>// Returns the decl text.</i></td></tr>
+<tr><th id="174">174</th><td>	<em>void</em>					<dfn class="decl def" id="_ZNK6idDecl7GetTextEPc" title='idDecl::GetText' data-ref="_ZNK6idDecl7GetTextEPc">GetText</dfn>( <em>char</em> *<dfn class="local col7 decl" id="7757text" title='text' data-type='char *' data-ref="7757text">text</dfn> ) <em>const</em> { <a class="member" href="#idDecl::base" title='idDecl::base' data-ref="idDecl::base">base</a>-&gt;<a class="virtual ref" href="#_ZNK10idDeclBase7GetTextEPc" title='idDeclBase::GetText' data-ref="_ZNK10idDeclBase7GetTextEPc">GetText</a>( <a class="local col7 ref" href="#7757text" title='text' data-ref="7757text">text</a> ); }</td></tr>
+<tr><th id="175">175</th><td></td></tr>
+<tr><th id="176">176</th><td>							<i>// Returns the length of the decl text.</i></td></tr>
+<tr><th id="177">177</th><td>	<em>int</em>						<dfn class="decl def" id="_ZNK6idDecl13GetTextLengthEv" title='idDecl::GetTextLength' data-ref="_ZNK6idDecl13GetTextLengthEv">GetTextLength</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idDecl::base" title='idDecl::base' data-ref="idDecl::base">base</a>-&gt;<a class="virtual ref" href="#_ZNK10idDeclBase13GetTextLengthEv" title='idDeclBase::GetTextLength' data-ref="_ZNK10idDeclBase13GetTextLengthEv">GetTextLength</a>(); }</td></tr>
+<tr><th id="178">178</th><td></td></tr>
+<tr><th id="179">179</th><td>							<i>// Sets new decl text.</i></td></tr>
+<tr><th id="180">180</th><td>	<em>void</em>					<dfn class="decl def" id="_ZN6idDecl7SetTextEPKc" title='idDecl::SetText' data-ref="_ZN6idDecl7SetTextEPKc">SetText</dfn>( <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="7758text" title='text' data-type='const char *' data-ref="7758text">text</dfn> ) { <a class="member" href="#idDecl::base" title='idDecl::base' data-ref="idDecl::base">base</a>-&gt;<a class="virtual ref" href="#_ZN10idDeclBase7SetTextEPKc" title='idDeclBase::SetText' data-ref="_ZN10idDeclBase7SetTextEPKc">SetText</a>( <a class="local col8 ref" href="#7758text" title='text' data-ref="7758text">text</a> ); }</td></tr>
+<tr><th id="181">181</th><td></td></tr>
+<tr><th id="182">182</th><td>							<i>// Saves out new text for the decl.</i></td></tr>
+<tr><th id="183">183</th><td><i>							// Used by decl editors to replace the decl text in the source file.</i></td></tr>
+<tr><th id="184">184</th><td>	<em>bool</em>					<dfn class="decl def" id="_ZN6idDecl21ReplaceSourceFileTextEv" title='idDecl::ReplaceSourceFileText' data-ref="_ZN6idDecl21ReplaceSourceFileTextEv">ReplaceSourceFileText</dfn>( <em>void</em> ) { <b>return</b> <a class="member" href="#idDecl::base" title='idDecl::base' data-ref="idDecl::base">base</a>-&gt;<a class="virtual ref" href="#_ZN10idDeclBase21ReplaceSourceFileTextEv" title='idDeclBase::ReplaceSourceFileText' data-ref="_ZN10idDeclBase21ReplaceSourceFileTextEv">ReplaceSourceFileText</a>(); }</td></tr>
+<tr><th id="185">185</th><td></td></tr>
+<tr><th id="186">186</th><td>							<i>// Returns true if the source file changed since it was loaded and parsed.</i></td></tr>
+<tr><th id="187">187</th><td>	<em>bool</em>					<dfn class="decl def" id="_ZNK6idDecl17SourceFileChangedEv" title='idDecl::SourceFileChanged' data-ref="_ZNK6idDecl17SourceFileChangedEv">SourceFileChanged</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idDecl::base" title='idDecl::base' data-ref="idDecl::base">base</a>-&gt;<a class="virtual ref" href="#_ZNK10idDeclBase17SourceFileChangedEv" title='idDeclBase::SourceFileChanged' data-ref="_ZNK10idDeclBase17SourceFileChangedEv">SourceFileChanged</a>(); }</td></tr>
+<tr><th id="188">188</th><td></td></tr>
+<tr><th id="189">189</th><td>							<i>// Frees data and makes the decl a default.</i></td></tr>
+<tr><th id="190">190</th><td>	<em>void</em>					<dfn class="decl def" id="_ZN6idDecl11MakeDefaultEv" title='idDecl::MakeDefault' data-ref="_ZN6idDecl11MakeDefaultEv">MakeDefault</dfn>( <em>void</em> ) { <a class="member" href="#idDecl::base" title='idDecl::base' data-ref="idDecl::base">base</a>-&gt;<a class="virtual ref" href="#_ZN10idDeclBase11MakeDefaultEv" title='idDeclBase::MakeDefault' data-ref="_ZN10idDeclBase11MakeDefaultEv">MakeDefault</a>(); }</td></tr>
+<tr><th id="191">191</th><td></td></tr>
+<tr><th id="192">192</th><td>							<i>// Returns true if the decl was ever referenced.</i></td></tr>
+<tr><th id="193">193</th><td>	<em>bool</em>					<dfn class="decl def" id="_ZNK6idDecl14EverReferencedEv" title='idDecl::EverReferenced' data-ref="_ZNK6idDecl14EverReferencedEv">EverReferenced</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idDecl::base" title='idDecl::base' data-ref="idDecl::base">base</a>-&gt;<a class="virtual ref" href="#_ZNK10idDeclBase14EverReferencedEv" title='idDeclBase::EverReferenced' data-ref="_ZNK10idDeclBase14EverReferencedEv">EverReferenced</a>(); }</td></tr>
+<tr><th id="194">194</th><td></td></tr>
+<tr><th id="195">195</th><td><b>public</b>:</td></tr>
+<tr><th id="196">196</th><td>							<i>// Sets textSource to a default text if necessary.</i></td></tr>
+<tr><th id="197">197</th><td><i>							// This may be overridden to provide a default definition based on the</i></td></tr>
+<tr><th id="198">198</th><td><i>							// decl name. For instance materials may default to an implicit definition</i></td></tr>
+<tr><th id="199">199</th><td><i>							// using a texture with the same name as the decl.</i></td></tr>
+<tr><th id="200">200</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl def" id="_ZN6idDecl14SetDefaultTextEv" title='idDecl::SetDefaultText' data-ref="_ZN6idDecl14SetDefaultTextEv">SetDefaultText</dfn>( <em>void</em> ) { <b>return</b> <a class="member" href="#idDecl::base" title='idDecl::base' data-ref="idDecl::base">base</a>-&gt;<a class="virtual ref" href="#_ZN10idDeclBase14SetDefaultTextEv" title='idDeclBase::SetDefaultText' data-ref="_ZN10idDeclBase14SetDefaultTextEv">SetDefaultText</a>(); }</td></tr>
+<tr><th id="201">201</th><td></td></tr>
+<tr><th id="202">202</th><td>							<i>// Each declaration type must have a default string that it is guaranteed</i></td></tr>
+<tr><th id="203">203</th><td><i>							// to parse acceptably. When a decl is not explicitly found, is purged, or</i></td></tr>
+<tr><th id="204">204</th><td><i>							// has an error while parsing, MakeDefault() will do a FreeData(), then a</i></td></tr>
+<tr><th id="205">205</th><td><i>							// Parse() with DefaultDefinition(). The defaultDefintion should start with</i></td></tr>
+<tr><th id="206">206</th><td><i>							// an open brace and end with a close brace.</i></td></tr>
+<tr><th id="207">207</th><td>	<b>virtual</b> <em>const</em> <em>char</em> *	<dfn class="virtual decl def" id="_ZNK6idDecl17DefaultDefinitionEv" title='idDecl::DefaultDefinition' data-ref="_ZNK6idDecl17DefaultDefinitionEv">DefaultDefinition</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idDecl::base" title='idDecl::base' data-ref="idDecl::base">base</a>-&gt;<a class="virtual ref" href="#_ZNK10idDeclBase17DefaultDefinitionEv" title='idDeclBase::DefaultDefinition' data-ref="_ZNK10idDeclBase17DefaultDefinitionEv">DefaultDefinition</a>(); }</td></tr>
+<tr><th id="208">208</th><td></td></tr>
+<tr><th id="209">209</th><td>							<i>// The manager will have already parsed past the type, name and opening brace.</i></td></tr>
+<tr><th id="210">210</th><td><i>							// All necessary media will be touched before return.</i></td></tr>
+<tr><th id="211">211</th><td><i>							// The manager will have called FreeData() before issuing a Parse().</i></td></tr>
+<tr><th id="212">212</th><td><i>							// The subclass can call MakeDefault() internally at any point if</i></td></tr>
+<tr><th id="213">213</th><td><i>							// there are parse errors.</i></td></tr>
+<tr><th id="214">214</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl def" id="_ZN6idDecl5ParseEPKci" title='idDecl::Parse' data-ref="_ZN6idDecl5ParseEPKci">Parse</dfn>( <em>const</em> <em>char</em> *<dfn class="local col9 decl" id="7759text" title='text' data-type='const char *' data-ref="7759text">text</dfn>, <em>const</em> <em>int</em> <dfn class="local col0 decl" id="7760textLength" title='textLength' data-type='const int' data-ref="7760textLength">textLength</dfn> ) { <b>return</b> <a class="member" href="#idDecl::base" title='idDecl::base' data-ref="idDecl::base">base</a>-&gt;<a class="virtual ref" href="#_ZN10idDeclBase5ParseEPKci" title='idDeclBase::Parse' data-ref="_ZN10idDeclBase5ParseEPKci">Parse</a>( <a class="local col9 ref" href="#7759text" title='text' data-ref="7759text">text</a>, <a class="local col0 ref" href="#7760textLength" title='textLength' data-ref="7760textLength">textLength</a> ); }</td></tr>
+<tr><th id="215">215</th><td></td></tr>
+<tr><th id="216">216</th><td>							<i>// Frees any pointers held by the subclass. This may be called before</i></td></tr>
+<tr><th id="217">217</th><td><i>							// any Parse(), so the constructor must have set sane values. The decl will be</i></td></tr>
+<tr><th id="218">218</th><td><i>							// invalid after issuing this call, but it will always be immediately followed</i></td></tr>
+<tr><th id="219">219</th><td><i>							// by a Parse()</i></td></tr>
+<tr><th id="220">220</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl def" id="_ZN6idDecl8FreeDataEv" title='idDecl::FreeData' data-ref="_ZN6idDecl8FreeDataEv">FreeData</dfn>( <em>void</em> ) { <a class="member" href="#idDecl::base" title='idDecl::base' data-ref="idDecl::base">base</a>-&gt;<a class="virtual ref" href="#_ZN10idDeclBase8FreeDataEv" title='idDeclBase::FreeData' data-ref="_ZN10idDeclBase8FreeDataEv">FreeData</a>(); }</td></tr>
+<tr><th id="221">221</th><td></td></tr>
+<tr><th id="222">222</th><td>							<i>// Returns the size of the decl in memory.</i></td></tr>
+<tr><th id="223">223</th><td>	<b>virtual</b> <span class='typedef' title='size_t' data-type='unsigned int' data-ref="size_t">size_t</span>			<dfn class="virtual decl def" id="_ZNK6idDecl4SizeEv" title='idDecl::Size' data-ref="_ZNK6idDecl4SizeEv">Size</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idDecl::base" title='idDecl::base' data-ref="idDecl::base">base</a>-&gt;<a class="virtual ref" href="#_ZNK10idDeclBase4SizeEv" title='idDeclBase::Size' data-ref="_ZNK10idDeclBase4SizeEv">Size</a>(); }</td></tr>
+<tr><th id="224">224</th><td></td></tr>
+<tr><th id="225">225</th><td>							<i>// If this isn't overridden, it will just print the decl name.</i></td></tr>
+<tr><th id="226">226</th><td><i>							// The manager will have printed 7 characters on the line already,</i></td></tr>
+<tr><th id="227">227</th><td><i>							// containing the reference state and index number.</i></td></tr>
+<tr><th id="228">228</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl def" id="_ZNK6idDecl4ListEv" title='idDecl::List' data-ref="_ZNK6idDecl4ListEv">List</dfn>( <em>void</em> ) <em>const</em> { <a class="member" href="#idDecl::base" title='idDecl::base' data-ref="idDecl::base">base</a>-&gt;<a class="virtual ref" href="#_ZNK10idDeclBase4ListEv" title='idDeclBase::List' data-ref="_ZNK10idDeclBase4ListEv">List</a>(); }</td></tr>
+<tr><th id="229">229</th><td></td></tr>
+<tr><th id="230">230</th><td>							<i>// The print function will already have dumped the text source</i></td></tr>
+<tr><th id="231">231</th><td><i>							// and common data, subclasses can override this to dump more</i></td></tr>
+<tr><th id="232">232</th><td><i>							// explicit data.</i></td></tr>
+<tr><th id="233">233</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl def" id="_ZNK6idDecl5PrintEv" title='idDecl::Print' data-ref="_ZNK6idDecl5PrintEv">Print</dfn>( <em>void</em> ) <em>const</em> { <a class="member" href="#idDecl::base" title='idDecl::base' data-ref="idDecl::base">base</a>-&gt;<a class="virtual ref" href="#_ZNK10idDeclBase5PrintEv" title='idDeclBase::Print' data-ref="_ZNK10idDeclBase5PrintEv">Print</a>(); }</td></tr>
+<tr><th id="234">234</th><td></td></tr>
+<tr><th id="235">235</th><td><b>public</b>:</td></tr>
+<tr><th id="236">236</th><td>	<a class="type" href="#idDeclBase" title='idDeclBase' data-ref="idDeclBase">idDeclBase</a> *			<dfn class="decl" id="idDecl::base" title='idDecl::base' data-ref="idDecl::base">base</dfn>;</td></tr>
+<tr><th id="237">237</th><td>};</td></tr>
+<tr><th id="238">238</th><td></td></tr>
+<tr><th id="239">239</th><td></td></tr>
+<tr><th id="240">240</th><td><b>template</b>&lt; <b>class</b> type &gt;</td></tr>
+<tr><th id="241">241</th><td><a class="macro" href="../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <a class="type" href="#idDecl" title='idDecl' data-ref="idDecl">idDecl</a> *<dfn class="decl def" id="_Z15idDeclAllocatorv" title='idDeclAllocator' data-ref="_Z15idDeclAllocatorv">idDeclAllocator</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="242">242</th><td>	<b>return</b> <b>new</b> type;</td></tr>
+<tr><th id="243">243</th><td>}</td></tr>
+<tr><th id="244">244</th><td></td></tr>
+<tr><th id="245">245</th><td></td></tr>
+<tr><th id="246">246</th><td><b>class</b> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial" id="idMaterial">idMaterial</a>;</td></tr>
+<tr><th id="247">247</th><td><b>class</b> <a class="type" href="DeclSkin.h.html#idDeclSkin" title='idDeclSkin' data-ref="idDeclSkin" id="idDeclSkin">idDeclSkin</a>;</td></tr>
+<tr><th id="248">248</th><td><b>class</b> <a class="type" href="../sound/sound.h.html#idSoundShader" title='idSoundShader' data-ref="idSoundShader" id="idSoundShader">idSoundShader</a>;</td></tr>
+<tr><th id="249">249</th><td></td></tr>
+<tr><th id="250">250</th><td><b>class</b> <dfn class="type def" id="idDeclManager" title='idDeclManager' data-ref="idDeclManager">idDeclManager</dfn> {</td></tr>
+<tr><th id="251">251</th><td><b>public</b>:</td></tr>
+<tr><th id="252">252</th><td>	<b>virtual</b>					<dfn class="virtual decl def" id="_ZN13idDeclManagerD1Ev" title='idDeclManager::~idDeclManager' data-ref="_ZN13idDeclManagerD1Ev">~idDeclManager</dfn>( <em>void</em> ) {}</td></tr>
+<tr><th id="253">253</th><td></td></tr>
+<tr><th id="254">254</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN13idDeclManager4InitEv" title='idDeclManager::Init' data-ref="_ZN13idDeclManager4InitEv">Init</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="255">255</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN13idDeclManager8ShutdownEv" title='idDeclManager::Shutdown' data-ref="_ZN13idDeclManager8ShutdownEv">Shutdown</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="256">256</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN13idDeclManager6ReloadEb" title='idDeclManager::Reload' data-ref="_ZN13idDeclManager6ReloadEb">Reload</dfn>( <em>bool</em> <dfn class="local col1 decl" id="7761force" title='force' data-type='bool' data-ref="7761force">force</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="257">257</th><td></td></tr>
+<tr><th id="258">258</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN13idDeclManager14BeginLevelLoadEv" title='idDeclManager::BeginLevelLoad' data-ref="_ZN13idDeclManager14BeginLevelLoadEv">BeginLevelLoad</dfn>() = <var>0</var>;</td></tr>
+<tr><th id="259">259</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN13idDeclManager12EndLevelLoadEv" title='idDeclManager::EndLevelLoad' data-ref="_ZN13idDeclManager12EndLevelLoadEv">EndLevelLoad</dfn>() = <var>0</var>;</td></tr>
+<tr><th id="260">260</th><td></td></tr>
+<tr><th id="261">261</th><td>							<i>// Registers a new decl type.</i></td></tr>
+<tr><th id="262">262</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN13idDeclManager16RegisterDeclTypeEPKc10declType_tPFP6idDeclvE" title='idDeclManager::RegisterDeclType' data-ref="_ZN13idDeclManager16RegisterDeclTypeEPKc10declType_tPFP6idDeclvE">RegisterDeclType</dfn>( <em>const</em> <em>char</em> *<dfn class="local col2 decl" id="7762typeName" title='typeName' data-type='const char *' data-ref="7762typeName">typeName</dfn>, <a class="typedef" href="#declType_t" title='declType_t' data-type='enum declType_t' data-ref="declType_t">declType_t</a> <dfn class="local col3 decl" id="7763type" title='type' data-type='declType_t' data-ref="7763type">type</dfn>, <a class="type" href="#idDecl" title='idDecl' data-ref="idDecl">idDecl</a> *(*<dfn class="local col4 decl" id="7764allocator" title='allocator' data-type='idDecl *(*)()' data-ref="7764allocator">allocator</dfn>)( <em>void</em> ) ) = <var>0</var>;</td></tr>
+<tr><th id="263">263</th><td></td></tr>
+<tr><th id="264">264</th><td>							<i>// Registers a new folder with decl files.</i></td></tr>
+<tr><th id="265">265</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN13idDeclManager18RegisterDeclFolderEPKcS1_10declType_t" title='idDeclManager::RegisterDeclFolder' data-ref="_ZN13idDeclManager18RegisterDeclFolderEPKcS1_10declType_t">RegisterDeclFolder</dfn>( <em>const</em> <em>char</em> *<dfn class="local col5 decl" id="7765folder" title='folder' data-type='const char *' data-ref="7765folder">folder</dfn>, <em>const</em> <em>char</em> *<dfn class="local col6 decl" id="7766extension" title='extension' data-type='const char *' data-ref="7766extension">extension</dfn>, <a class="typedef" href="#declType_t" title='declType_t' data-type='enum declType_t' data-ref="declType_t">declType_t</a> <dfn class="local col7 decl" id="7767defaultType" title='defaultType' data-type='declType_t' data-ref="7767defaultType">defaultType</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="266">266</th><td></td></tr>
+<tr><th id="267">267</th><td>							<i>// Returns a checksum for all loaded decl text.</i></td></tr>
+<tr><th id="268">268</th><td>	<b>virtual</b> <em>int</em>				<dfn class="virtual decl" id="_ZNK13idDeclManager11GetChecksumEv" title='idDeclManager::GetChecksum' data-ref="_ZNK13idDeclManager11GetChecksumEv">GetChecksum</dfn>( <em>void</em> ) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="269">269</th><td></td></tr>
+<tr><th id="270">270</th><td>							<i>// Returns the number of decl types.</i></td></tr>
+<tr><th id="271">271</th><td>	<b>virtual</b> <em>int</em>				<dfn class="virtual decl" id="_ZNK13idDeclManager15GetNumDeclTypesEv" title='idDeclManager::GetNumDeclTypes' data-ref="_ZNK13idDeclManager15GetNumDeclTypesEv">GetNumDeclTypes</dfn>( <em>void</em> ) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="272">272</th><td></td></tr>
+<tr><th id="273">273</th><td>							<i>// Returns the type name for a decl type.</i></td></tr>
+<tr><th id="274">274</th><td>	<b>virtual</b> <em>const</em> <em>char</em> *	<dfn class="virtual decl" id="_ZNK13idDeclManager19GetDeclNameFromTypeE10declType_t" title='idDeclManager::GetDeclNameFromType' data-ref="_ZNK13idDeclManager19GetDeclNameFromTypeE10declType_t">GetDeclNameFromType</dfn>( <a class="typedef" href="#declType_t" title='declType_t' data-type='enum declType_t' data-ref="declType_t">declType_t</a> <dfn class="local col8 decl" id="7768type" title='type' data-type='declType_t' data-ref="7768type">type</dfn> ) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="275">275</th><td></td></tr>
+<tr><th id="276">276</th><td>							<i>// Returns the decl type for a type name.</i></td></tr>
+<tr><th id="277">277</th><td>	<b>virtual</b> <a class="typedef" href="#declType_t" title='declType_t' data-type='enum declType_t' data-ref="declType_t">declType_t</a>		<dfn class="virtual decl" id="_ZNK13idDeclManager19GetDeclTypeFromNameEPKc" title='idDeclManager::GetDeclTypeFromName' data-ref="_ZNK13idDeclManager19GetDeclTypeFromNameEPKc">GetDeclTypeFromName</dfn>( <em>const</em> <em>char</em> *<dfn class="local col9 decl" id="7769typeName" title='typeName' data-type='const char *' data-ref="7769typeName">typeName</dfn> ) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="278">278</th><td></td></tr>
+<tr><th id="279">279</th><td>							<i>// If makeDefault is true, a default decl of appropriate type will be created</i></td></tr>
+<tr><th id="280">280</th><td><i>							// if an explicit one isn't found. If makeDefault is false, NULL will be returned</i></td></tr>
+<tr><th id="281">281</th><td><i>							// if the decl wasn't explcitly defined.</i></td></tr>
+<tr><th id="282">282</th><td>	<b>virtual</b> <em>const</em> <a class="type" href="#idDecl" title='idDecl' data-ref="idDecl">idDecl</a> *	<dfn class="virtual decl" id="_ZN13idDeclManager8FindTypeE10declType_tPKcb" title='idDeclManager::FindType' data-ref="_ZN13idDeclManager8FindTypeE10declType_tPKcb">FindType</dfn>( <a class="typedef" href="#declType_t" title='declType_t' data-type='enum declType_t' data-ref="declType_t">declType_t</a> <dfn class="local col0 decl" id="7770type" title='type' data-type='declType_t' data-ref="7770type">type</dfn>, <em>const</em> <em>char</em> *<dfn class="local col1 decl" id="7771name" title='name' data-type='const char *' data-ref="7771name">name</dfn>, <em>bool</em> <dfn class="local col2 decl" id="7772makeDefault" title='makeDefault' data-type='bool' data-ref="7772makeDefault">makeDefault</dfn> = <b>true</b> ) = <var>0</var>;</td></tr>
+<tr><th id="283">283</th><td></td></tr>
+<tr><th id="284">284</th><td>	<b>virtual</b> <em>const</em> <a class="type" href="#idDecl" title='idDecl' data-ref="idDecl">idDecl</a>*	<dfn class="virtual decl" id="_ZN13idDeclManager22FindDeclWithoutParsingE10declType_tPKcb" title='idDeclManager::FindDeclWithoutParsing' data-ref="_ZN13idDeclManager22FindDeclWithoutParsingE10declType_tPKcb">FindDeclWithoutParsing</dfn>( <a class="typedef" href="#declType_t" title='declType_t' data-type='enum declType_t' data-ref="declType_t">declType_t</a> <dfn class="local col3 decl" id="7773type" title='type' data-type='declType_t' data-ref="7773type">type</dfn>, <em>const</em> <em>char</em> *<dfn class="local col4 decl" id="7774name" title='name' data-type='const char *' data-ref="7774name">name</dfn>, <em>bool</em> <dfn class="local col5 decl" id="7775makeDefault" title='makeDefault' data-type='bool' data-ref="7775makeDefault">makeDefault</dfn> = <b>true</b> ) = <var>0</var>;</td></tr>
+<tr><th id="285">285</th><td></td></tr>
+<tr><th id="286">286</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN13idDeclManager10ReloadFileEPKcb" title='idDeclManager::ReloadFile' data-ref="_ZN13idDeclManager10ReloadFileEPKcb">ReloadFile</dfn>( <em>const</em> <em>char</em>* <dfn class="local col6 decl" id="7776filename" title='filename' data-type='const char *' data-ref="7776filename">filename</dfn>, <em>bool</em> <dfn class="local col7 decl" id="7777force" title='force' data-type='bool' data-ref="7777force">force</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="287">287</th><td></td></tr>
+<tr><th id="288">288</th><td>							<i>// Returns the number of decls of the given type.</i></td></tr>
+<tr><th id="289">289</th><td>	<b>virtual</b> <em>int</em>				<dfn class="virtual decl" id="_ZN13idDeclManager11GetNumDeclsE10declType_t" title='idDeclManager::GetNumDecls' data-ref="_ZN13idDeclManager11GetNumDeclsE10declType_t">GetNumDecls</dfn>( <a class="typedef" href="#declType_t" title='declType_t' data-type='enum declType_t' data-ref="declType_t">declType_t</a> <dfn class="local col8 decl" id="7778type" title='type' data-type='declType_t' data-ref="7778type">type</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="290">290</th><td></td></tr>
+<tr><th id="291">291</th><td>							<i>// The complete lists of decls can be walked to populate editor browsers.</i></td></tr>
+<tr><th id="292">292</th><td><i>							// If forceParse is set false, you can get the decl to check name / filename / etc.</i></td></tr>
+<tr><th id="293">293</th><td><i>							// without causing it to parse the source and load media.</i></td></tr>
+<tr><th id="294">294</th><td>	<b>virtual</b> <em>const</em> <a class="type" href="#idDecl" title='idDecl' data-ref="idDecl">idDecl</a> *	<dfn class="virtual decl" id="_ZN13idDeclManager11DeclByIndexE10declType_tib" title='idDeclManager::DeclByIndex' data-ref="_ZN13idDeclManager11DeclByIndexE10declType_tib">DeclByIndex</dfn>( <a class="typedef" href="#declType_t" title='declType_t' data-type='enum declType_t' data-ref="declType_t">declType_t</a> <dfn class="local col9 decl" id="7779type" title='type' data-type='declType_t' data-ref="7779type">type</dfn>, <em>int</em> <dfn class="local col0 decl" id="7780index" title='index' data-type='int' data-ref="7780index">index</dfn>, <em>bool</em> <dfn class="local col1 decl" id="7781forceParse" title='forceParse' data-type='bool' data-ref="7781forceParse">forceParse</dfn> = <b>true</b> ) = <var>0</var>;</td></tr>
+<tr><th id="295">295</th><td></td></tr>
+<tr><th id="296">296</th><td>							<i>// List and print decls.</i></td></tr>
+<tr><th id="297">297</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN13idDeclManager8ListTypeERK9idCmdArgs10declType_t" title='idDeclManager::ListType' data-ref="_ZN13idDeclManager8ListTypeERK9idCmdArgs10declType_t">ListType</dfn>( <em>const</em> <a class="type" href="../idlib/CmdArgs.h.html#idCmdArgs" title='idCmdArgs' data-ref="idCmdArgs">idCmdArgs</a> &amp;<dfn class="local col2 decl" id="7782args" title='args' data-type='const idCmdArgs &amp;' data-ref="7782args">args</dfn>, <a class="typedef" href="#declType_t" title='declType_t' data-type='enum declType_t' data-ref="declType_t">declType_t</a> <dfn class="local col3 decl" id="7783type" title='type' data-type='declType_t' data-ref="7783type">type</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="298">298</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN13idDeclManager9PrintTypeERK9idCmdArgs10declType_t" title='idDeclManager::PrintType' data-ref="_ZN13idDeclManager9PrintTypeERK9idCmdArgs10declType_t">PrintType</dfn>( <em>const</em> <a class="type" href="../idlib/CmdArgs.h.html#idCmdArgs" title='idCmdArgs' data-ref="idCmdArgs">idCmdArgs</a> &amp;<dfn class="local col4 decl" id="7784args" title='args' data-type='const idCmdArgs &amp;' data-ref="7784args">args</dfn>, <a class="typedef" href="#declType_t" title='declType_t' data-type='enum declType_t' data-ref="declType_t">declType_t</a> <dfn class="local col5 decl" id="7785type" title='type' data-type='declType_t' data-ref="7785type">type</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="299">299</th><td></td></tr>
+<tr><th id="300">300</th><td>							<i>// Creates a new default decl of the given type with the given name in</i></td></tr>
+<tr><th id="301">301</th><td><i>							// the given file used by editors to create a new decls.</i></td></tr>
+<tr><th id="302">302</th><td>	<b>virtual</b> <a class="type" href="#idDecl" title='idDecl' data-ref="idDecl">idDecl</a> *		<dfn class="virtual decl" id="_ZN13idDeclManager13CreateNewDeclE10declType_tPKcS2_" title='idDeclManager::CreateNewDecl' data-ref="_ZN13idDeclManager13CreateNewDeclE10declType_tPKcS2_">CreateNewDecl</dfn>( <a class="typedef" href="#declType_t" title='declType_t' data-type='enum declType_t' data-ref="declType_t">declType_t</a> <dfn class="local col6 decl" id="7786type" title='type' data-type='declType_t' data-ref="7786type">type</dfn>, <em>const</em> <em>char</em> *<dfn class="local col7 decl" id="7787name" title='name' data-type='const char *' data-ref="7787name">name</dfn>, <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="7788fileName" title='fileName' data-type='const char *' data-ref="7788fileName">fileName</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="303">303</th><td></td></tr>
+<tr><th id="304">304</th><td>							<i>// BSM - Added for the material editors rename capabilities</i></td></tr>
+<tr><th id="305">305</th><td>	<b>virtual</b> <em>bool</em>			<dfn class="virtual decl" id="_ZN13idDeclManager10RenameDeclE10declType_tPKcS2_" title='idDeclManager::RenameDecl' data-ref="_ZN13idDeclManager10RenameDeclE10declType_tPKcS2_">RenameDecl</dfn>( <a class="typedef" href="#declType_t" title='declType_t' data-type='enum declType_t' data-ref="declType_t">declType_t</a> <dfn class="local col9 decl" id="7789type" title='type' data-type='declType_t' data-ref="7789type">type</dfn>, <em>const</em> <em>char</em>* <dfn class="local col0 decl" id="7790oldName" title='oldName' data-type='const char *' data-ref="7790oldName">oldName</dfn>, <em>const</em> <em>char</em>* <dfn class="local col1 decl" id="7791newName" title='newName' data-type='const char *' data-ref="7791newName">newName</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="306">306</th><td></td></tr>
+<tr><th id="307">307</th><td>							<i>// When media files are loaded, a reference line can be printed at a</i></td></tr>
+<tr><th id="308">308</th><td><i>							// proper indentation if decl_show is set</i></td></tr>
+<tr><th id="309">309</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN13idDeclManager10MediaPrintEPKcz" title='idDeclManager::MediaPrint' data-ref="_ZN13idDeclManager10MediaPrintEPKcz">MediaPrint</dfn>( <em>const</em> <em>char</em> *<dfn class="local col2 decl" id="7792fmt" title='fmt' data-type='const char *' data-ref="7792fmt">fmt</dfn>, ... ) <a class="macro" href="../sys/sys_public.h.html#137" title="__attribute__((format(printf,2,3)))" data-ref="_M/id_attribute">id_attribute</a>((format(printf,<var>2</var>,<var>3</var>))) = <var>0</var>;</td></tr>
+<tr><th id="310">310</th><td></td></tr>
+<tr><th id="311">311</th><td>	<b>virtual</b> <em>void</em>			<dfn class="virtual decl" id="_ZN13idDeclManager21WritePrecacheCommandsEP6idFile" title='idDeclManager::WritePrecacheCommands' data-ref="_ZN13idDeclManager21WritePrecacheCommandsEP6idFile">WritePrecacheCommands</dfn>( <a class="type" href="File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col3 decl" id="7793f" title='f' data-type='idFile *' data-ref="7793f">f</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="312">312</th><td></td></tr>
+<tr><th id="313">313</th><td>									<i>// Convenience functions for specific types.</i></td></tr>
+<tr><th id="314">314</th><td>	<b>virtual</b>	<em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *		<dfn class="virtual decl" id="_ZN13idDeclManager12FindMaterialEPKcb" title='idDeclManager::FindMaterial' data-ref="_ZN13idDeclManager12FindMaterialEPKcb">FindMaterial</dfn>( <em>const</em> <em>char</em> *<dfn class="local col4 decl" id="7794name" title='name' data-type='const char *' data-ref="7794name">name</dfn>, <em>bool</em> <dfn class="local col5 decl" id="7795makeDefault" title='makeDefault' data-type='bool' data-ref="7795makeDefault">makeDefault</dfn> = <b>true</b> ) = <var>0</var>;</td></tr>
+<tr><th id="315">315</th><td>	<b>virtual</b> <em>const</em> <a class="type" href="DeclSkin.h.html#idDeclSkin" title='idDeclSkin' data-ref="idDeclSkin">idDeclSkin</a> *		<dfn class="virtual decl" id="_ZN13idDeclManager8FindSkinEPKcb" title='idDeclManager::FindSkin' data-ref="_ZN13idDeclManager8FindSkinEPKcb">FindSkin</dfn>( <em>const</em> <em>char</em> *<dfn class="local col6 decl" id="7796name" title='name' data-type='const char *' data-ref="7796name">name</dfn>, <em>bool</em> <dfn class="local col7 decl" id="7797makeDefault" title='makeDefault' data-type='bool' data-ref="7797makeDefault">makeDefault</dfn> = <b>true</b> ) = <var>0</var>;</td></tr>
+<tr><th id="316">316</th><td>	<b>virtual</b> <em>const</em> <a class="type" href="../sound/sound.h.html#idSoundShader" title='idSoundShader' data-ref="idSoundShader">idSoundShader</a> *	<dfn class="virtual decl" id="_ZN13idDeclManager9FindSoundEPKcb" title='idDeclManager::FindSound' data-ref="_ZN13idDeclManager9FindSoundEPKcb">FindSound</dfn>( <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="7798name" title='name' data-type='const char *' data-ref="7798name">name</dfn>, <em>bool</em> <dfn class="local col9 decl" id="7799makeDefault" title='makeDefault' data-type='bool' data-ref="7799makeDefault">makeDefault</dfn> = <b>true</b> ) = <var>0</var>;</td></tr>
+<tr><th id="317">317</th><td></td></tr>
+<tr><th id="318">318</th><td>	<b>virtual</b> <em>const</em> <a class="type" href="../renderer/Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *		<dfn class="virtual decl" id="_ZN13idDeclManager15MaterialByIndexEib" title='idDeclManager::MaterialByIndex' data-ref="_ZN13idDeclManager15MaterialByIndexEib">MaterialByIndex</dfn>( <em>int</em> <dfn class="local col0 decl" id="7800index" title='index' data-type='int' data-ref="7800index">index</dfn>, <em>bool</em> <dfn class="local col1 decl" id="7801forceParse" title='forceParse' data-type='bool' data-ref="7801forceParse">forceParse</dfn> = <b>true</b> ) = <var>0</var>;</td></tr>
+<tr><th id="319">319</th><td>	<b>virtual</b> <em>const</em> <a class="type" href="DeclSkin.h.html#idDeclSkin" title='idDeclSkin' data-ref="idDeclSkin">idDeclSkin</a> *		<dfn class="virtual decl" id="_ZN13idDeclManager11SkinByIndexEib" title='idDeclManager::SkinByIndex' data-ref="_ZN13idDeclManager11SkinByIndexEib">SkinByIndex</dfn>( <em>int</em> <dfn class="local col2 decl" id="7802index" title='index' data-type='int' data-ref="7802index">index</dfn>, <em>bool</em> <dfn class="local col3 decl" id="7803forceParse" title='forceParse' data-type='bool' data-ref="7803forceParse">forceParse</dfn> = <b>true</b> ) = <var>0</var>;</td></tr>
+<tr><th id="320">320</th><td>	<b>virtual</b> <em>const</em> <a class="type" href="../sound/sound.h.html#idSoundShader" title='idSoundShader' data-ref="idSoundShader">idSoundShader</a> *	<dfn class="virtual decl" id="_ZN13idDeclManager12SoundByIndexEib" title='idDeclManager::SoundByIndex' data-ref="_ZN13idDeclManager12SoundByIndexEib">SoundByIndex</dfn>( <em>int</em> <dfn class="local col4 decl" id="7804index" title='index' data-type='int' data-ref="7804index">index</dfn>, <em>bool</em> <dfn class="local col5 decl" id="7805forceParse" title='forceParse' data-type='bool' data-ref="7805forceParse">forceParse</dfn> = <b>true</b> ) = <var>0</var>;</td></tr>
+<tr><th id="321">321</th><td>};</td></tr>
+<tr><th id="322">322</th><td></td></tr>
+<tr><th id="323">323</th><td><b>extern</b> <a class="type" href="#idDeclManager" title='idDeclManager' data-ref="idDeclManager">idDeclManager</a> *		<dfn class="decl" id="declManager" title='declManager' data-ref="declManager">declManager</dfn>;</td></tr>
+<tr><th id="324">324</th><td></td></tr>
+<tr><th id="325">325</th><td></td></tr>
+<tr><th id="326">326</th><td><b>template</b>&lt; <a class="typedef" href="#declType_t" title='declType_t' data-type='enum declType_t' data-ref="declType_t">declType_t</a> type &gt;</td></tr>
+<tr><th id="327">327</th><td><a class="macro" href="../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>void</em> <dfn class="decl def" id="_Z13idListDecls_fRK9idCmdArgs" title='idListDecls_f' data-ref="_Z13idListDecls_fRK9idCmdArgs">idListDecls_f</dfn>( <em>const</em> <a class="type" href="../idlib/CmdArgs.h.html#idCmdArgs" title='idCmdArgs' data-ref="idCmdArgs">idCmdArgs</a> &amp;<dfn class="local col6 decl" id="7806args" title='args' data-type='const idCmdArgs &amp;' data-ref="7806args">args</dfn> ) {</td></tr>
+<tr><th id="328">328</th><td>	<a class="ref" href="#declManager" title='declManager' data-ref="declManager">declManager</a>-&gt;<a class="virtual ref" href="#_ZN13idDeclManager8ListTypeERK9idCmdArgs10declType_t" title='idDeclManager::ListType' data-ref="_ZN13idDeclManager8ListTypeERK9idCmdArgs10declType_t">ListType</a>( <a class="local col6 ref" href="#7806args" title='args' data-ref="7806args">args</a>, <a class="tu ref" href="#type" title='type' data-use='r' data-ref="type">type</a> );</td></tr>
+<tr><th id="329">329</th><td>}</td></tr>
+<tr><th id="330">330</th><td></td></tr>
+<tr><th id="331">331</th><td><b>template</b>&lt; <a class="typedef" href="#declType_t" title='declType_t' data-type='enum declType_t' data-ref="declType_t">declType_t</a> type &gt;</td></tr>
+<tr><th id="332">332</th><td><a class="macro" href="../sys/sys_public.h.html#129" title="inline" data-ref="_M/ID_INLINE">ID_INLINE</a> <em>void</em> <dfn class="decl def" id="_Z14idPrintDecls_fRK9idCmdArgs" title='idPrintDecls_f' data-ref="_Z14idPrintDecls_fRK9idCmdArgs">idPrintDecls_f</dfn>( <em>const</em> <a class="type" href="../idlib/CmdArgs.h.html#idCmdArgs" title='idCmdArgs' data-ref="idCmdArgs">idCmdArgs</a> &amp;<dfn class="local col7 decl" id="7807args" title='args' data-type='const idCmdArgs &amp;' data-ref="7807args">args</dfn> ) {</td></tr>
+<tr><th id="333">333</th><td>	<a class="ref" href="#declManager" title='declManager' data-ref="declManager">declManager</a>-&gt;<a class="virtual ref" href="#_ZN13idDeclManager9PrintTypeERK9idCmdArgs10declType_t" title='idDeclManager::PrintType' data-ref="_ZN13idDeclManager9PrintTypeERK9idCmdArgs10declType_t">PrintType</a>( <a class="local col7 ref" href="#7807args" title='args' data-ref="7807args">args</a>, <a class="tu ref" href="#type" title='type' data-use='r' data-ref="type">type</a> );</td></tr>
+<tr><th id="334">334</th><td>}</td></tr>
+<tr><th id="335">335</th><td></td></tr>
+<tr><th id="336">336</th><td><u>#<span data-ppcond="29">endif</span> /* !__DECLMANAGER_H__ */</u></td></tr>
+<tr><th id="337">337</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../TypeInfo/TypeInfoGen.cpp.html'>codebrowser/TypeInfo/TypeInfoGen.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

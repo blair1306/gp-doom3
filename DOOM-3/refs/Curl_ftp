@@ -1,0 +1,15 @@
+<dec f='codebrowser/curl/lib/ftp.h' l='27' type='CURLcode Curl_ftp(struct connectdata * conn)'/>
+<def f='codebrowser/curl/lib/ftp.c' l='2306' ll='2405' type='CURLcode Curl_ftp(struct connectdata * conn)'/>
+<doc f='codebrowser/curl/lib/ftp.c' l='2294'>/***********************************************************************
+ *
+ * Curl_ftp()
+ *
+ * This function is registered as &apos;curl_do&apos; function. It decodes the path
+ * parts etc as a wrapper to the actual DO function (ftp_perform).
+ *
+ * The input argument is already checked for validity.
+ *
+ * ftp-&gt;ctl_valid starts out as FALSE, and gets set to TRUE if we reach the
+ * end of the function.
+ */</doc>
+<use f='codebrowser/curl/lib/url.c' l='2533' u='r' c='CreateConnection'/>

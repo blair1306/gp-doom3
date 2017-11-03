@@ -1,0 +1,65 @@
+<def f='codebrowser/renderer/Image.h' l='146' ll='257'/>
+<size>1236</size>
+<fun r='_ZN7idImageC1Ev'/>
+<fun r='_ZN7idImage4BindEv'/>
+<fun r='_ZN7idImage12BindFragmentEv'/>
+<fun r='_ZN7idImage10PurgeImageEv'/>
+<fun r='_ZN7idImage13GenerateImageEPKhii15textureFilter_tb15textureRepeat_t14textureDepth_t'/>
+<fun r='_ZN7idImage15Generate3DImageEPKhiii15textureFilter_tb15textureRepeat_t14textureDepth_t'/>
+<fun r='_ZN7idImage17GenerateCubeImageEPPKhi15textureFilter_tb14textureDepth_t'/>
+<fun r='_ZN7idImage15CopyFramebufferEiiiib'/>
+<fun r='_ZN7idImage15CopyDepthbufferEiiii'/>
+<fun r='_ZN7idImage13UploadScratchEPKhii'/>
+<fun r='_ZN7idImage17SetClassificationEi'/>
+<fun r='_ZNK7idImage11StorageSizeEv'/>
+<fun r='_ZNK7idImage5PrintEv'/>
+<fun r='_ZN7idImage6ReloadEbb'/>
+<fun r='_ZN7idImage12AddReferenceEv'/>
+<fun r='_ZNK7idImage11GetDownsizeERiS0_'/>
+<fun r='_ZN7idImage11MakeDefaultEv'/>
+<fun r='_ZNK7idImage23SetImageFilterAndRepeatEv'/>
+<fun r='_ZN7idImage26ShouldImageBePartialCachedEv'/>
+<fun r='_ZN7idImage23WritePrecompressedImageEv'/>
+<fun r='_ZN7idImage23CheckPrecompressedImageEb'/>
+<fun r='_ZN7idImage24UploadPrecompressedImageEPhi'/>
+<fun r='_ZN7idImage17ActuallyLoadImageEbb'/>
+<fun r='_ZN7idImage24StartBackgroundImageLoadEv'/>
+<fun r='_ZNK7idImage21BitsForInternalFormatEi'/>
+<fun r='_ZN7idImage25UploadCompressedNormalMapEiiPKhi'/>
+<fun r='_ZNK7idImage20SelectInternalFormatEPPKhiii14textureDepth_tPb'/>
+<fun r='_ZNK7idImage38ImageProgramStringToCompressedFileNameEPKcPc'/>
+<fun r='_ZNK7idImage21NumLevelsForImageSizeEii'/>
+<smbr r='idImage::TEXTURE_NOT_LOADED' t='const int'/>
+<mbr r='idImage::texnum' o='0' t='GLuint'/>
+<mbr r='idImage::type' o='32' t='textureType_t'/>
+<mbr r='idImage::frameUsed' o='64' t='int'/>
+<mbr r='idImage::bindCount' o='96' t='int'/>
+<mbr r='idImage::partialImage' o='128' t='idImage *'/>
+<mbr r='idImage::isPartialImage' o='160' t='bool'/>
+<mbr r='idImage::backgroundLoadInProgress' o='168' t='bool'/>
+<mbr r='idImage::bgl' o='192' t='backgroundDownload_t'/>
+<mbr r='idImage::bglNext' o='8992' t='idImage *'/>
+<mbr r='idImage::imgName' o='9024' t='idStr'/>
+<mbr r='idImage::generatorFunction' o='9280' t='void (*)(idImage *)'/>
+<mbr r='idImage::allowDownSize' o='9312' t='bool'/>
+<mbr r='idImage::filter' o='9344' t='textureFilter_t'/>
+<mbr r='idImage::repeat' o='9376' t='textureRepeat_t'/>
+<mbr r='idImage::depth' o='9408' t='textureDepth_t'/>
+<mbr r='idImage::cubeFiles' o='9440' t='cubeFiles_t'/>
+<mbr r='idImage::referencedOutsideLevelLoad' o='9472' t='bool'/>
+<mbr r='idImage::levelLoadReferenced' o='9480' t='bool'/>
+<mbr r='idImage::precompressedFile' o='9488' t='bool'/>
+<mbr r='idImage::defaulted' o='9496' t='bool'/>
+<mbr r='idImage::isMonochrome' o='9504' t='bool'/>
+<mbr r='idImage::timestamp' o='9536' t='time_t'/>
+<mbr r='idImage::imageHash' o='9568' t='int'/>
+<mbr r='idImage::classification' o='9600' t='int'/>
+<mbr r='idImage::uploadWidth' o='9632' t='int'/>
+<mbr r='idImage::uploadHeight' o='9664' t='int'/>
+<mbr r='idImage::uploadDepth' o='9696' t='int'/>
+<mbr r='idImage::internalFormat' o='9728' t='int'/>
+<mbr r='idImage::cacheUsagePrev' o='9760' t='idImage *'/>
+<mbr r='idImage::cacheUsageNext' o='9792' t='idImage *'/>
+<mbr r='idImage::hashNext' o='9824' t='idImage *'/>
+<mbr r='idImage::refCount' o='9856' t='int'/>
+<fun r='_ZN7idImageC1Ev'/>

@@ -1,0 +1,1286 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ssluse.c source code [codebrowser/curl/lib/ssluse.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/curl/lib/ssluse.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>curl</a>/<a href='./'>lib</a>/<a href='ssluse.c.html'>ssluse.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/***************************************************************************</i></td></tr>
+<tr><th id="2">2</th><td><i> *                                  _   _ ____  _     </i></td></tr>
+<tr><th id="3">3</th><td><i> *  Project                     ___| | | |  _ \| |    </i></td></tr>
+<tr><th id="4">4</th><td><i> *                             / __| | | | |_) | |    </i></td></tr>
+<tr><th id="5">5</th><td><i> *                            | (__| |_| |  _ &lt;| |___ </i></td></tr>
+<tr><th id="6">6</th><td><i> *                             \___|\___/|_| \_\_____|</i></td></tr>
+<tr><th id="7">7</th><td><i> *</i></td></tr>
+<tr><th id="8">8</th><td><i> * Copyright (C) 1998 - 2004, Daniel Stenberg, &lt;daniel@haxx.se&gt;, et al.</i></td></tr>
+<tr><th id="9">9</th><td><i> *</i></td></tr>
+<tr><th id="10">10</th><td><i> * This software is licensed as described in the file COPYING, which</i></td></tr>
+<tr><th id="11">11</th><td><i> * you should have received as part of this distribution. The terms</i></td></tr>
+<tr><th id="12">12</th><td><i> * are also available at <a href="http://curl.haxx.se/docs/copyright.html">http://curl.haxx.se/docs/copyright.html</a>.</i></td></tr>
+<tr><th id="13">13</th><td><i> * </i></td></tr>
+<tr><th id="14">14</th><td><i> * You may opt to use, copy, modify, merge, publish, distribute and/or sell</i></td></tr>
+<tr><th id="15">15</th><td><i> * copies of the Software, and permit persons to whom the Software is</i></td></tr>
+<tr><th id="16">16</th><td><i> * furnished to do so, under the terms of the COPYING file.</i></td></tr>
+<tr><th id="17">17</th><td><i> *</i></td></tr>
+<tr><th id="18">18</th><td><i> * This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY</i></td></tr>
+<tr><th id="19">19</th><td><i> * KIND, either express or implied.</i></td></tr>
+<tr><th id="20">20</th><td><i> *</i></td></tr>
+<tr><th id="21">21</th><td><i> * $Id: ssluse.c,v 1.93 2004/03/11 12:57:04 bagder Exp $</i></td></tr>
+<tr><th id="22">22</th><td><i> ***************************************************************************/</i></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><i>/*</i></td></tr>
+<tr><th id="25">25</th><td><i> * The original SSL code for curl was written by</i></td></tr>
+<tr><th id="26">26</th><td><i> * Linas Vepstas &lt;linas@linas.org&gt; and Sampo Kellomaki &lt;sampo@iki.fi&gt;</i></td></tr>
+<tr><th id="27">27</th><td><i> */</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="setup.h.html">"setup.h"</a></u></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><u>#include <a href="../../../include/string.h.html">&lt;string.h&gt;</a></u></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="../../../include/stdlib.h.html">&lt;stdlib.h&gt;</a></u></td></tr>
+<tr><th id="33">33</th><td><u>#include <a href="../../../include/ctype.h.html">&lt;ctype.h&gt;</a></u></td></tr>
+<tr><th id="34">34</th><td><u>#<span data-ppcond="34">ifdef</span> <a class="macro" href="config.h.html#359" data-ref="_M/HAVE_SYS_TYPES_H">HAVE_SYS_TYPES_H</a></u></td></tr>
+<tr><th id="35">35</th><td><u>#include <a href="../../../include/x86_64-linux-gnu/sys/types.h.html">&lt;sys/types.h&gt;</a></u></td></tr>
+<tr><th id="36">36</th><td><u>#<span data-ppcond="34">endif</span></u></td></tr>
+<tr><th id="37">37</th><td><u>#<span data-ppcond="37">ifdef</span> <a class="macro" href="config.h.html#347" data-ref="_M/HAVE_SYS_SOCKET_H">HAVE_SYS_SOCKET_H</a></u></td></tr>
+<tr><th id="38">38</th><td><u>#include <a href="../../../include/x86_64-linux-gnu/sys/socket.h.html">&lt;sys/socket.h&gt;</a></u></td></tr>
+<tr><th id="39">39</th><td><u>#<span data-ppcond="37">endif</span></u></td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><u>#include <a href="urldata.h.html">"urldata.h"</a></u></td></tr>
+<tr><th id="42">42</th><td><u>#include <a href="sendf.h.html">"sendf.h"</a></u></td></tr>
+<tr><th id="43">43</th><td><u>#include <a href="formdata.h.html">"formdata.h"</a> /* for the boundary function */</u></td></tr>
+<tr><th id="44">44</th><td><u>#include <a href="url.h.html">"url.h"</a> /* for the ssl config check function */</u></td></tr>
+<tr><th id="45">45</th><td><u>#include <a href="inet_pton.h.html">"inet_pton.h"</a></u></td></tr>
+<tr><th id="46">46</th><td><u>#include <a href="ssluse.h.html">"ssluse.h"</a></u></td></tr>
+<tr><th id="47">47</th><td><u>#include <a href="connect.h.html">"connect.h"</a> /* Curl_ourerrno() proto */</u></td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td><u>#<span data-ppcond="49">ifdef</span> <span class="macro" data-ref="_M/USE_SSLEAY">USE_SSLEAY</span></u></td></tr>
+<tr><th id="50">50</th><td><u>#include &lt;openssl/rand.h&gt;</u></td></tr>
+<tr><th id="51">51</th><td><u>#include &lt;openssl/x509v3.h&gt;</u></td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td><i>/* The last #include file should be: */</i></td></tr>
+<tr><th id="54">54</th><td><u>#ifdef CURLDEBUG</u></td></tr>
+<tr><th id="55">55</th><td><u>#include "memdebug.h"</u></td></tr>
+<tr><th id="56">56</th><td><u>#endif</u></td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td><u>#if OPENSSL_VERSION_NUMBER &gt;= 0x0090581fL</u></td></tr>
+<tr><th id="59">59</th><td><u>#define HAVE_SSL_GET1_SESSION 1</u></td></tr>
+<tr><th id="60">60</th><td><u>#else</u></td></tr>
+<tr><th id="61">61</th><td><u>#undef HAVE_SSL_GET1_SESSION</u></td></tr>
+<tr><th id="62">62</th><td><u>#endif</u></td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td><u>#if OPENSSL_VERSION_NUMBER &gt;= 0x00904100L</u></td></tr>
+<tr><th id="65">65</th><td><u>#define HAVE_USERDATA_IN_PWD_CALLBACK 1</u></td></tr>
+<tr><th id="66">66</th><td><u>#else</u></td></tr>
+<tr><th id="67">67</th><td><u>#undef HAVE_USERDATA_IN_PWD_CALLBACK</u></td></tr>
+<tr><th id="68">68</th><td><u>#endif</u></td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td><u>#if OPENSSL_VERSION_NUMBER &gt;= 0x00907001L</u></td></tr>
+<tr><th id="71">71</th><td><i>/* ENGINE_load_private_key() takes four arguments */</i></td></tr>
+<tr><th id="72">72</th><td><u>#define HAVE_ENGINE_LOAD_FOUR_ARGS</u></td></tr>
+<tr><th id="73">73</th><td><u>#else</u></td></tr>
+<tr><th id="74">74</th><td><i>/* ENGINE_load_private_key() takes three arguments */</i></td></tr>
+<tr><th id="75">75</th><td><u>#undef HAVE_ENGINE_LOAD_FOUR_ARGS</u></td></tr>
+<tr><th id="76">76</th><td><u>#endif</u></td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td></td></tr>
+<tr><th id="79">79</th><td><u>#ifndef HAVE_USERDATA_IN_PWD_CALLBACK</u></td></tr>
+<tr><th id="80">80</th><td><em>static</em> <em>char</em> global_passwd[<var>64</var>];</td></tr>
+<tr><th id="81">81</th><td><u>#endif</u></td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td><em>static</em> <em>int</em> passwd_callback(<em>char</em> *buf, <em>int</em> num, <em>int</em> verify</td></tr>
+<tr><th id="84">84</th><td><u>#if HAVE_USERDATA_IN_PWD_CALLBACK</u></td></tr>
+<tr><th id="85">85</th><td>                           <i>/* This was introduced in 0.9.4, we can set this</i></td></tr>
+<tr><th id="86">86</th><td><i>                              using SSL_CTX_set_default_passwd_cb_userdata()</i></td></tr>
+<tr><th id="87">87</th><td><i>                              */</i></td></tr>
+<tr><th id="88">88</th><td>                           , <em>void</em> *global_passwd</td></tr>
+<tr><th id="89">89</th><td><u>#endif</u></td></tr>
+<tr><th id="90">90</th><td>                           )</td></tr>
+<tr><th id="91">91</th><td>{</td></tr>
+<tr><th id="92">92</th><td>  <b>if</b>(verify)</td></tr>
+<tr><th id="93">93</th><td>    fprintf(stderr, <q>"%s\n"</q>, buf);</td></tr>
+<tr><th id="94">94</th><td>  <b>else</b> {</td></tr>
+<tr><th id="95">95</th><td>    <b>if</b>(num &gt; (<em>int</em>)strlen((<em>char</em> *)global_passwd)) {</td></tr>
+<tr><th id="96">96</th><td>      strcpy(buf, global_passwd);</td></tr>
+<tr><th id="97">97</th><td>      <b>return</b> strlen(buf);</td></tr>
+<tr><th id="98">98</th><td>    }</td></tr>
+<tr><th id="99">99</th><td>  }  </td></tr>
+<tr><th id="100">100</th><td>  <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="101">101</th><td>}</td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td><em>static</em></td></tr>
+<tr><th id="104">104</th><td>bool seed_enough(<em>int</em> nread)</td></tr>
+<tr><th id="105">105</th><td>{</td></tr>
+<tr><th id="106">106</th><td><u>#ifdef HAVE_RAND_STATUS</u></td></tr>
+<tr><th id="107">107</th><td>  nread = <var>0</var>; <i>/* to prevent compiler warnings */</i></td></tr>
+<tr><th id="108">108</th><td></td></tr>
+<tr><th id="109">109</th><td>  <i>/* only available in OpenSSL 0.9.5a and later */</i></td></tr>
+<tr><th id="110">110</th><td>  <b>if</b>(RAND_status())</td></tr>
+<tr><th id="111">111</th><td>    <b>return</b> TRUE;</td></tr>
+<tr><th id="112">112</th><td><u>#else</u></td></tr>
+<tr><th id="113">113</th><td>  <b>if</b>(nread &gt; <var>500</var>)</td></tr>
+<tr><th id="114">114</th><td>    <i>/* this is a very silly decision to make */</i></td></tr>
+<tr><th id="115">115</th><td>    <b>return</b> TRUE;</td></tr>
+<tr><th id="116">116</th><td><u>#endif</u></td></tr>
+<tr><th id="117">117</th><td>  <b>return</b> FALSE; <i>/* not enough */</i></td></tr>
+<tr><th id="118">118</th><td>}</td></tr>
+<tr><th id="119">119</th><td></td></tr>
+<tr><th id="120">120</th><td><em>static</em></td></tr>
+<tr><th id="121">121</th><td><em>int</em> random_the_seed(<b>struct</b> SessionHandle *data)</td></tr>
+<tr><th id="122">122</th><td>{</td></tr>
+<tr><th id="123">123</th><td>  <em>char</em> *buf = data-&gt;state.buffer; <i>/* point to the big buffer */</i></td></tr>
+<tr><th id="124">124</th><td>  <em>int</em> nread=<var>0</var>;</td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td>  <i>/* Q: should we add support for a random file name as a libcurl option?</i></td></tr>
+<tr><th id="127">127</th><td><i>     A: Yes, it is here */</i></td></tr>
+<tr><th id="128">128</th><td></td></tr>
+<tr><th id="129">129</th><td><u>#ifndef RANDOM_FILE</u></td></tr>
+<tr><th id="130">130</th><td>  <i>/* if RANDOM_FILE isn't defined, we only perform this if an option tells</i></td></tr>
+<tr><th id="131">131</th><td><i>     us to! */</i></td></tr>
+<tr><th id="132">132</th><td>  <b>if</b>(data-&gt;set.ssl.random_file)</td></tr>
+<tr><th id="133">133</th><td><u>#define RANDOM_FILE "" /* doesn't matter won't be used */</u></td></tr>
+<tr><th id="134">134</th><td><u>#endif</u></td></tr>
+<tr><th id="135">135</th><td>  {</td></tr>
+<tr><th id="136">136</th><td>    <i>/* let the option override the define */</i></td></tr>
+<tr><th id="137">137</th><td>    nread += RAND_load_file((data-&gt;set.ssl.random_file?</td></tr>
+<tr><th id="138">138</th><td>                             data-&gt;set.ssl.random_file:RANDOM_FILE),</td></tr>
+<tr><th id="139">139</th><td>                            <var>16384</var>);</td></tr>
+<tr><th id="140">140</th><td>    <b>if</b>(seed_enough(nread))</td></tr>
+<tr><th id="141">141</th><td>      <b>return</b> nread;</td></tr>
+<tr><th id="142">142</th><td>  }</td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td><u>#if defined(HAVE_RAND_EGD)</u></td></tr>
+<tr><th id="145">145</th><td>  <i>/* only available in OpenSSL 0.9.5 and later */</i></td></tr>
+<tr><th id="146">146</th><td>  <i>/* EGD_SOCKET is set at configure time or not at all */</i></td></tr>
+<tr><th id="147">147</th><td><u>#ifndef EGD_SOCKET</u></td></tr>
+<tr><th id="148">148</th><td>  <i>/* If we don't have the define set, we only do this if the egd-option</i></td></tr>
+<tr><th id="149">149</th><td><i>     is set */</i></td></tr>
+<tr><th id="150">150</th><td>  <b>if</b>(data-&gt;set.ssl.egdsocket)</td></tr>
+<tr><th id="151">151</th><td><u>#define EGD_SOCKET "" /* doesn't matter won't be used */</u></td></tr>
+<tr><th id="152">152</th><td><u>#endif</u></td></tr>
+<tr><th id="153">153</th><td>  {</td></tr>
+<tr><th id="154">154</th><td>    <i>/* If there's an option and a define, the option overrides the</i></td></tr>
+<tr><th id="155">155</th><td><i>       define */</i></td></tr>
+<tr><th id="156">156</th><td>    <em>int</em> ret = RAND_egd(data-&gt;set.ssl.egdsocket?</td></tr>
+<tr><th id="157">157</th><td>                       data-&gt;set.ssl.egdsocket:EGD_SOCKET);</td></tr>
+<tr><th id="158">158</th><td>    <b>if</b>(-<var>1</var> != ret) {</td></tr>
+<tr><th id="159">159</th><td>      nread += ret;</td></tr>
+<tr><th id="160">160</th><td>      <b>if</b>(seed_enough(nread))</td></tr>
+<tr><th id="161">161</th><td>        <b>return</b> nread;</td></tr>
+<tr><th id="162">162</th><td>    }</td></tr>
+<tr><th id="163">163</th><td>  }</td></tr>
+<tr><th id="164">164</th><td><u>#endif</u></td></tr>
+<tr><th id="165">165</th><td></td></tr>
+<tr><th id="166">166</th><td>  <i>/* If we get here, it means we need to seed the PRNG using a "silly"</i></td></tr>
+<tr><th id="167">167</th><td><i>     approach! */</i></td></tr>
+<tr><th id="168">168</th><td><u>#ifdef HAVE_RAND_SCREEN</u></td></tr>
+<tr><th id="169">169</th><td>  <i>/* This one gets a random value by reading the currently shown screen */</i></td></tr>
+<tr><th id="170">170</th><td>  RAND_screen();</td></tr>
+<tr><th id="171">171</th><td>  nread = <var>100</var>; <i>/* just a value */</i></td></tr>
+<tr><th id="172">172</th><td><u>#else</u></td></tr>
+<tr><th id="173">173</th><td>  {</td></tr>
+<tr><th id="174">174</th><td>    <em>int</em> len;</td></tr>
+<tr><th id="175">175</th><td>    <em>char</em> *area;</td></tr>
+<tr><th id="176">176</th><td></td></tr>
+<tr><th id="177">177</th><td>    <i>/* Changed call to RAND_seed to use the underlying RAND_add implementation</i></td></tr>
+<tr><th id="178">178</th><td><i>     * directly.  Do this in a loop, with the amount of additional entropy</i></td></tr>
+<tr><th id="179">179</th><td><i>     * being dependent upon the algorithm used by Curl_FormBoundary(): N bytes</i></td></tr>
+<tr><th id="180">180</th><td><i>     * of a 7-bit ascii set. -- Richard Gorton, March 11 2003.</i></td></tr>
+<tr><th id="181">181</th><td><i>     */</i></td></tr>
+<tr><th id="182">182</th><td>	</td></tr>
+<tr><th id="183">183</th><td>    <b>do</b> {</td></tr>
+<tr><th id="184">184</th><td>      area = Curl_FormBoundary();</td></tr>
+<tr><th id="185">185</th><td>      <b>if</b>(!area)</td></tr>
+<tr><th id="186">186</th><td>        <b>return</b> <var>3</var>; <i>/* out of memory */</i></td></tr>
+<tr><th id="187">187</th><td>	</td></tr>
+<tr><th id="188">188</th><td>      len = strlen(area);</td></tr>
+<tr><th id="189">189</th><td>      RAND_add(area, len, (len &gt;&gt; <var>1</var>));</td></tr>
+<tr><th id="190">190</th><td></td></tr>
+<tr><th id="191">191</th><td>      free(area); <i>/* now remove the random junk */</i></td></tr>
+<tr><th id="192">192</th><td>    } <b>while</b> (!RAND_status());</td></tr>
+<tr><th id="193">193</th><td>  }</td></tr>
+<tr><th id="194">194</th><td><u>#endif</u></td></tr>
+<tr><th id="195">195</th><td></td></tr>
+<tr><th id="196">196</th><td>  <i>/* generates a default path for the random seed file */</i></td></tr>
+<tr><th id="197">197</th><td>  buf[<var>0</var>]=<var>0</var>; <i>/* blank it first */</i></td></tr>
+<tr><th id="198">198</th><td>  RAND_file_name(buf, BUFSIZE);</td></tr>
+<tr><th id="199">199</th><td>  <b>if</b>(buf[<var>0</var>]) {</td></tr>
+<tr><th id="200">200</th><td>    <i>/* we got a file name to try */</i></td></tr>
+<tr><th id="201">201</th><td>    nread += RAND_load_file(buf, <var>16384</var>);</td></tr>
+<tr><th id="202">202</th><td>    <b>if</b>(seed_enough(nread))</td></tr>
+<tr><th id="203">203</th><td>      <b>return</b> nread;</td></tr>
+<tr><th id="204">204</th><td>  }</td></tr>
+<tr><th id="205">205</th><td></td></tr>
+<tr><th id="206">206</th><td>  infof(data, <q>"libcurl is now using a weak random seed!\n"</q>);</td></tr>
+<tr><th id="207">207</th><td>  <b>return</b> nread;</td></tr>
+<tr><th id="208">208</th><td>}</td></tr>
+<tr><th id="209">209</th><td></td></tr>
+<tr><th id="210">210</th><td><u>#ifndef SSL_FILETYPE_ENGINE</u></td></tr>
+<tr><th id="211">211</th><td><u>#define SSL_FILETYPE_ENGINE 42</u></td></tr>
+<tr><th id="212">212</th><td><u>#endif</u></td></tr>
+<tr><th id="213">213</th><td><em>static</em> <em>int</em> do_file_type(<em>const</em> <em>char</em> *type)</td></tr>
+<tr><th id="214">214</th><td>{</td></tr>
+<tr><th id="215">215</th><td>  <b>if</b>(!type || !type[<var>0</var>])</td></tr>
+<tr><th id="216">216</th><td>    <b>return</b> SSL_FILETYPE_PEM;</td></tr>
+<tr><th id="217">217</th><td>  <b>if</b>(curl_strequal(type, <q>"PEM"</q>))</td></tr>
+<tr><th id="218">218</th><td>    <b>return</b> SSL_FILETYPE_PEM;</td></tr>
+<tr><th id="219">219</th><td>  <b>if</b>(curl_strequal(type, <q>"DER"</q>))</td></tr>
+<tr><th id="220">220</th><td>    <b>return</b> SSL_FILETYPE_ASN1;</td></tr>
+<tr><th id="221">221</th><td>  <b>if</b>(curl_strequal(type, <q>"ENG"</q>))</td></tr>
+<tr><th id="222">222</th><td>    <b>return</b> SSL_FILETYPE_ENGINE;</td></tr>
+<tr><th id="223">223</th><td>  <b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="224">224</th><td>}</td></tr>
+<tr><th id="225">225</th><td></td></tr>
+<tr><th id="226">226</th><td><em>static</em></td></tr>
+<tr><th id="227">227</th><td><em>int</em> cert_stuff(<b>struct</b> connectdata *conn,</td></tr>
+<tr><th id="228">228</th><td>               SSL_CTX* ctx,</td></tr>
+<tr><th id="229">229</th><td>               <em>char</em> *cert_file,</td></tr>
+<tr><th id="230">230</th><td>               <em>const</em> <em>char</em> *cert_type,</td></tr>
+<tr><th id="231">231</th><td>               <em>char</em> *key_file,</td></tr>
+<tr><th id="232">232</th><td>               <em>const</em> <em>char</em> *key_type)</td></tr>
+<tr><th id="233">233</th><td>{</td></tr>
+<tr><th id="234">234</th><td>  <b>struct</b> SessionHandle *data = conn-&gt;data;</td></tr>
+<tr><th id="235">235</th><td>  <em>int</em> file_type;</td></tr>
+<tr><th id="236">236</th><td></td></tr>
+<tr><th id="237">237</th><td>  <b>if</b>(cert_file != NULL) {</td></tr>
+<tr><th id="238">238</th><td>    SSL *ssl;</td></tr>
+<tr><th id="239">239</th><td>    X509 *x509;</td></tr>
+<tr><th id="240">240</th><td></td></tr>
+<tr><th id="241">241</th><td>    <b>if</b>(data-&gt;set.key_passwd) {</td></tr>
+<tr><th id="242">242</th><td><u>#ifndef HAVE_USERDATA_IN_PWD_CALLBACK</u></td></tr>
+<tr><th id="243">243</th><td>      <i>/*</i></td></tr>
+<tr><th id="244">244</th><td><i>       * If password has been given, we store that in the global</i></td></tr>
+<tr><th id="245">245</th><td><i>       * area (*shudder*) for a while:</i></td></tr>
+<tr><th id="246">246</th><td><i>       */</i></td></tr>
+<tr><th id="247">247</th><td>      strcpy(global_passwd, data-&gt;set.key_passwd);</td></tr>
+<tr><th id="248">248</th><td><u>#else</u></td></tr>
+<tr><th id="249">249</th><td>      <i>/*</i></td></tr>
+<tr><th id="250">250</th><td><i>       * We set the password in the callback userdata</i></td></tr>
+<tr><th id="251">251</th><td><i>       */</i></td></tr>
+<tr><th id="252">252</th><td>      SSL_CTX_set_default_passwd_cb_userdata(ctx,</td></tr>
+<tr><th id="253">253</th><td>                                             data-&gt;set.key_passwd);</td></tr>
+<tr><th id="254">254</th><td><u>#endif</u></td></tr>
+<tr><th id="255">255</th><td>      <i>/* Set passwd callback: */</i></td></tr>
+<tr><th id="256">256</th><td>      SSL_CTX_set_default_passwd_cb(ctx, passwd_callback);</td></tr>
+<tr><th id="257">257</th><td>    }</td></tr>
+<tr><th id="258">258</th><td></td></tr>
+<tr><th id="259">259</th><td>    file_type = do_file_type(cert_type);</td></tr>
+<tr><th id="260">260</th><td></td></tr>
+<tr><th id="261">261</th><td>    <b>switch</b>(file_type) {</td></tr>
+<tr><th id="262">262</th><td>    <b>case</b> SSL_FILETYPE_PEM:</td></tr>
+<tr><th id="263">263</th><td>      <i>/* SSL_CTX_use_certificate_chain_file() only works on PEM files */</i></td></tr>
+<tr><th id="264">264</th><td>      <b>if</b>(SSL_CTX_use_certificate_chain_file(ctx,</td></tr>
+<tr><th id="265">265</th><td>                                            cert_file) != <var>1</var>) {</td></tr>
+<tr><th id="266">266</th><td>        failf(data, <q>"unable to set certificate file (wrong password?)"</q>);</td></tr>
+<tr><th id="267">267</th><td>        <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="268">268</th><td>      }</td></tr>
+<tr><th id="269">269</th><td>      <b>break</b>;</td></tr>
+<tr><th id="270">270</th><td></td></tr>
+<tr><th id="271">271</th><td>    <b>case</b> SSL_FILETYPE_ASN1:</td></tr>
+<tr><th id="272">272</th><td>      <i>/* SSL_CTX_use_certificate_file() works with either PEM or ASN1, but</i></td></tr>
+<tr><th id="273">273</th><td><i>         we use the case above for PEM so this can only be performed with</i></td></tr>
+<tr><th id="274">274</th><td><i>         ASN1 files. */</i></td></tr>
+<tr><th id="275">275</th><td>      <b>if</b>(SSL_CTX_use_certificate_file(ctx,</td></tr>
+<tr><th id="276">276</th><td>                                      cert_file,</td></tr>
+<tr><th id="277">277</th><td>                                      file_type) != <var>1</var>) {</td></tr>
+<tr><th id="278">278</th><td>        failf(data, <q>"unable to set certificate file (wrong password?)"</q>);</td></tr>
+<tr><th id="279">279</th><td>        <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="280">280</th><td>      }</td></tr>
+<tr><th id="281">281</th><td>      <b>break</b>;</td></tr>
+<tr><th id="282">282</th><td>    <b>case</b> SSL_FILETYPE_ENGINE:</td></tr>
+<tr><th id="283">283</th><td>      failf(data, <q>"file type ENG for certificate not implemented"</q>);</td></tr>
+<tr><th id="284">284</th><td>      <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="285">285</th><td></td></tr>
+<tr><th id="286">286</th><td>    <b>default</b>:</td></tr>
+<tr><th id="287">287</th><td>      failf(data, <q>"not supported file type '%s' for certificate"</q>, cert_type);</td></tr>
+<tr><th id="288">288</th><td>      <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="289">289</th><td>    }</td></tr>
+<tr><th id="290">290</th><td></td></tr>
+<tr><th id="291">291</th><td>    file_type = do_file_type(key_type);</td></tr>
+<tr><th id="292">292</th><td></td></tr>
+<tr><th id="293">293</th><td>    <b>switch</b>(file_type) {</td></tr>
+<tr><th id="294">294</th><td>    <b>case</b> SSL_FILETYPE_PEM:</td></tr>
+<tr><th id="295">295</th><td>      <b>if</b>(key_file == NULL)</td></tr>
+<tr><th id="296">296</th><td>        <i>/* cert &amp; key can only be in PEM case in the same file */</i></td></tr>
+<tr><th id="297">297</th><td>        key_file=cert_file;</td></tr>
+<tr><th id="298">298</th><td>    <b>case</b> SSL_FILETYPE_ASN1:</td></tr>
+<tr><th id="299">299</th><td>      <b>if</b>(SSL_CTX_use_PrivateKey_file(ctx, key_file, file_type) != <var>1</var>) {</td></tr>
+<tr><th id="300">300</th><td>        failf(data, <q>"unable to set private key file: '%s' type %s\n"</q>,</td></tr>
+<tr><th id="301">301</th><td>              key_file, key_type?key_type:<q>"PEM"</q>);</td></tr>
+<tr><th id="302">302</th><td>        <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="303">303</th><td>      }</td></tr>
+<tr><th id="304">304</th><td>      <b>break</b>;</td></tr>
+<tr><th id="305">305</th><td>    <b>case</b> SSL_FILETYPE_ENGINE:</td></tr>
+<tr><th id="306">306</th><td><u>#ifdef HAVE_OPENSSL_ENGINE_H</u></td></tr>
+<tr><th id="307">307</th><td>      {                         <i>/* XXXX still needs some work */</i></td></tr>
+<tr><th id="308">308</th><td>        EVP_PKEY *priv_key = NULL;</td></tr>
+<tr><th id="309">309</th><td>        <b>if</b>(conn &amp;&amp; conn-&gt;data &amp;&amp; conn-&gt;data-&gt;engine) {</td></tr>
+<tr><th id="310">310</th><td><u>#ifdef HAVE_ENGINE_LOAD_FOUR_ARGS</u></td></tr>
+<tr><th id="311">311</th><td>          UI_METHOD *ui_method = UI_OpenSSL();</td></tr>
+<tr><th id="312">312</th><td><u>#endif</u></td></tr>
+<tr><th id="313">313</th><td>          <b>if</b>(!key_file || !key_file[<var>0</var>]) {</td></tr>
+<tr><th id="314">314</th><td>            failf(data, <q>"no key set to load from crypto engine\n"</q>);</td></tr>
+<tr><th id="315">315</th><td>            <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="316">316</th><td>          }</td></tr>
+<tr><th id="317">317</th><td>          priv_key = ENGINE_load_private_key(conn-&gt;data-&gt;engine,key_file,</td></tr>
+<tr><th id="318">318</th><td><u>#ifdef HAVE_ENGINE_LOAD_FOUR_ARGS</u></td></tr>
+<tr><th id="319">319</th><td>                                             ui_method,</td></tr>
+<tr><th id="320">320</th><td><u>#endif</u></td></tr>
+<tr><th id="321">321</th><td>                                             data-&gt;set.key_passwd);</td></tr>
+<tr><th id="322">322</th><td>          <b>if</b>(!priv_key) {</td></tr>
+<tr><th id="323">323</th><td>            failf(data, <q>"failed to load private key from crypto engine\n"</q>);</td></tr>
+<tr><th id="324">324</th><td>            <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="325">325</th><td>          }</td></tr>
+<tr><th id="326">326</th><td>          <b>if</b>(SSL_CTX_use_PrivateKey(ctx, priv_key) != <var>1</var>) {</td></tr>
+<tr><th id="327">327</th><td>            failf(data, <q>"unable to set private key\n"</q>);</td></tr>
+<tr><th id="328">328</th><td>            EVP_PKEY_free(priv_key);</td></tr>
+<tr><th id="329">329</th><td>            <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="330">330</th><td>          }</td></tr>
+<tr><th id="331">331</th><td>          EVP_PKEY_free(priv_key);  <i>/* we don't need the handle any more... */</i></td></tr>
+<tr><th id="332">332</th><td>        }</td></tr>
+<tr><th id="333">333</th><td>        <b>else</b> {</td></tr>
+<tr><th id="334">334</th><td>          failf(data, <q>"crypto engine not set, can't load private key\n"</q>);</td></tr>
+<tr><th id="335">335</th><td>          <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="336">336</th><td>        }</td></tr>
+<tr><th id="337">337</th><td>      }</td></tr>
+<tr><th id="338">338</th><td><u>#else</u></td></tr>
+<tr><th id="339">339</th><td>      failf(data, <q>"file type ENG for private key not supported\n"</q>);</td></tr>
+<tr><th id="340">340</th><td>      <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="341">341</th><td><u>#endif</u></td></tr>
+<tr><th id="342">342</th><td>      <b>break</b>;</td></tr>
+<tr><th id="343">343</th><td>    <b>default</b>:</td></tr>
+<tr><th id="344">344</th><td>      failf(data, <q>"not supported file type for private key\n"</q>);</td></tr>
+<tr><th id="345">345</th><td>      <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="346">346</th><td>    }</td></tr>
+<tr><th id="347">347</th><td></td></tr>
+<tr><th id="348">348</th><td>    ssl=SSL_new(ctx);</td></tr>
+<tr><th id="349">349</th><td>    x509=SSL_get_certificate(ssl);</td></tr>
+<tr><th id="350">350</th><td></td></tr>
+<tr><th id="351">351</th><td>    <i>/* This version was provided by Evan Jordan and is supposed to not</i></td></tr>
+<tr><th id="352">352</th><td><i>       leak memory as the previous version: */</i></td></tr>
+<tr><th id="353">353</th><td>    <b>if</b>(x509 != NULL) {</td></tr>
+<tr><th id="354">354</th><td>      EVP_PKEY *pktmp = X509_get_pubkey(x509);</td></tr>
+<tr><th id="355">355</th><td>      EVP_PKEY_copy_parameters(pktmp,SSL_get_privatekey(ssl));</td></tr>
+<tr><th id="356">356</th><td>      EVP_PKEY_free(pktmp);</td></tr>
+<tr><th id="357">357</th><td>    }</td></tr>
+<tr><th id="358">358</th><td></td></tr>
+<tr><th id="359">359</th><td>    SSL_free(ssl);</td></tr>
+<tr><th id="360">360</th><td></td></tr>
+<tr><th id="361">361</th><td>    <i>/* If we are using DSA, we can copy the parameters from</i></td></tr>
+<tr><th id="362">362</th><td><i>     * the private key */</i></td></tr>
+<tr><th id="363">363</th><td>		</td></tr>
+<tr><th id="364">364</th><td>    </td></tr>
+<tr><th id="365">365</th><td>    <i>/* Now we know that a key and cert have been set against</i></td></tr>
+<tr><th id="366">366</th><td><i>     * the SSL context */</i></td></tr>
+<tr><th id="367">367</th><td>    <b>if</b>(!SSL_CTX_check_private_key(ctx)) {</td></tr>
+<tr><th id="368">368</th><td>      failf(data, <q>"Private key does not match the certificate public key"</q>);</td></tr>
+<tr><th id="369">369</th><td>      <b>return</b>(<var>0</var>);</td></tr>
+<tr><th id="370">370</th><td>    }</td></tr>
+<tr><th id="371">371</th><td><u>#ifndef HAVE_USERDATA_IN_PWD_CALLBACK</u>    </td></tr>
+<tr><th id="372">372</th><td>    <i>/* erase it now */</i></td></tr>
+<tr><th id="373">373</th><td>    memset(global_passwd, <var>0</var>, <b>sizeof</b>(global_passwd));</td></tr>
+<tr><th id="374">374</th><td><u>#endif</u></td></tr>
+<tr><th id="375">375</th><td>  }</td></tr>
+<tr><th id="376">376</th><td>  <b>return</b>(<var>1</var>);</td></tr>
+<tr><th id="377">377</th><td>}</td></tr>
+<tr><th id="378">378</th><td></td></tr>
+<tr><th id="379">379</th><td><em>static</em></td></tr>
+<tr><th id="380">380</th><td><em>int</em> cert_verify_callback(<em>int</em> ok, X509_STORE_CTX *ctx)</td></tr>
+<tr><th id="381">381</th><td>{</td></tr>
+<tr><th id="382">382</th><td>  X509 *err_cert;</td></tr>
+<tr><th id="383">383</th><td>  <em>char</em> buf[<var>256</var>];</td></tr>
+<tr><th id="384">384</th><td></td></tr>
+<tr><th id="385">385</th><td>  err_cert=X509_STORE_CTX_get_current_cert(ctx);</td></tr>
+<tr><th id="386">386</th><td>  X509_NAME_oneline(X509_get_subject_name(err_cert),buf,<var>256</var>);</td></tr>
+<tr><th id="387">387</th><td></td></tr>
+<tr><th id="388">388</th><td>  <b>return</b> ok;</td></tr>
+<tr><th id="389">389</th><td>}</td></tr>
+<tr><th id="390">390</th><td></td></tr>
+<tr><th id="391">391</th><td><u>#<span data-ppcond="49">endif</span></u></td></tr>
+<tr><th id="392">392</th><td></td></tr>
+<tr><th id="393">393</th><td><u>#<span data-ppcond="393">ifdef</span> <span class="macro" data-ref="_M/USE_SSLEAY">USE_SSLEAY</span></u></td></tr>
+<tr><th id="394">394</th><td><i>/* "global" init done? */</i></td></tr>
+<tr><th id="395">395</th><td><em>static</em> <em>int</em> init_ssl=<var>0</var>;</td></tr>
+<tr><th id="396">396</th><td></td></tr>
+<tr><th id="397">397</th><td><i>/* we have the "SSL is seeded" boolean global for the application to</i></td></tr>
+<tr><th id="398">398</th><td><i>   prevent multiple time-consuming seedings in vain */</i></td></tr>
+<tr><th id="399">399</th><td><em>static</em> bool ssl_seeded = FALSE;</td></tr>
+<tr><th id="400">400</th><td><u>#<span data-ppcond="393">endif</span></u></td></tr>
+<tr><th id="401">401</th><td></td></tr>
+<tr><th id="402">402</th><td><i>/* Global init */</i></td></tr>
+<tr><th id="403">403</th><td><em>void</em> <dfn class="decl def" id="Curl_SSL_init" title='Curl_SSL_init' data-ref="Curl_SSL_init">Curl_SSL_init</dfn>(<em>void</em>)</td></tr>
+<tr><th id="404">404</th><td>{</td></tr>
+<tr><th id="405">405</th><td><u>#<span data-ppcond="405">ifdef</span> <span class="macro" data-ref="_M/USE_SSLEAY">USE_SSLEAY</span></u></td></tr>
+<tr><th id="406">406</th><td>  <i>/* make sure this is only done once */</i></td></tr>
+<tr><th id="407">407</th><td>  <b>if</b>(<var>0</var> != init_ssl)</td></tr>
+<tr><th id="408">408</th><td>    <b>return</b>;</td></tr>
+<tr><th id="409">409</th><td></td></tr>
+<tr><th id="410">410</th><td>  init_ssl++; <i>/* never again */</i></td></tr>
+<tr><th id="411">411</th><td></td></tr>
+<tr><th id="412">412</th><td><u>#ifdef HAVE_ENGINE_LOAD_BUILTIN_ENGINES</u></td></tr>
+<tr><th id="413">413</th><td>  ENGINE_load_builtin_engines();</td></tr>
+<tr><th id="414">414</th><td><u>#endif</u></td></tr>
+<tr><th id="415">415</th><td></td></tr>
+<tr><th id="416">416</th><td>  <i>/* Lets get nice error messages */</i></td></tr>
+<tr><th id="417">417</th><td>  SSL_load_error_strings();</td></tr>
+<tr><th id="418">418</th><td></td></tr>
+<tr><th id="419">419</th><td>  <i>/* Setup all the global SSL stuff */</i></td></tr>
+<tr><th id="420">420</th><td>  SSLeay_add_ssl_algorithms();</td></tr>
+<tr><th id="421">421</th><td><u>#<span data-ppcond="405">else</span></u></td></tr>
+<tr><th id="422">422</th><td>  <i>/* SSL disabled, do nothing */</i></td></tr>
+<tr><th id="423">423</th><td><u>#<span data-ppcond="405">endif</span></u></td></tr>
+<tr><th id="424">424</th><td>}</td></tr>
+<tr><th id="425">425</th><td></td></tr>
+<tr><th id="426">426</th><td><i>/* Global cleanup */</i></td></tr>
+<tr><th id="427">427</th><td><em>void</em> <dfn class="decl def" id="Curl_SSL_cleanup" title='Curl_SSL_cleanup' data-ref="Curl_SSL_cleanup">Curl_SSL_cleanup</dfn>(<em>void</em>)</td></tr>
+<tr><th id="428">428</th><td>{</td></tr>
+<tr><th id="429">429</th><td><u>#<span data-ppcond="429">ifdef</span> <span class="macro" data-ref="_M/USE_SSLEAY">USE_SSLEAY</span></u></td></tr>
+<tr><th id="430">430</th><td>  <b>if</b>(init_ssl) {</td></tr>
+<tr><th id="431">431</th><td>    <i>/* only cleanup if we did a previous init */</i></td></tr>
+<tr><th id="432">432</th><td></td></tr>
+<tr><th id="433">433</th><td>    <i>/* Free the SSL error strings */</i></td></tr>
+<tr><th id="434">434</th><td>    ERR_free_strings();</td></tr>
+<tr><th id="435">435</th><td>  </td></tr>
+<tr><th id="436">436</th><td>    <i>/* EVP_cleanup() removes all ciphers and digests from the</i></td></tr>
+<tr><th id="437">437</th><td><i>       table. */</i></td></tr>
+<tr><th id="438">438</th><td>    EVP_cleanup();</td></tr>
+<tr><th id="439">439</th><td></td></tr>
+<tr><th id="440">440</th><td><u>#ifdef HAVE_ENGINE_cleanup</u></td></tr>
+<tr><th id="441">441</th><td>    ENGINE_cleanup();</td></tr>
+<tr><th id="442">442</th><td><u>#endif</u></td></tr>
+<tr><th id="443">443</th><td></td></tr>
+<tr><th id="444">444</th><td><u>#ifdef HAVE_CRYPTO_CLEANUP_ALL_EX_DATA</u></td></tr>
+<tr><th id="445">445</th><td>    <i>/* this function was not present in 0.9.6b, but was added sometimes</i></td></tr>
+<tr><th id="446">446</th><td><i>       later */</i></td></tr>
+<tr><th id="447">447</th><td>    CRYPTO_cleanup_all_ex_data();</td></tr>
+<tr><th id="448">448</th><td><u>#endif</u></td></tr>
+<tr><th id="449">449</th><td></td></tr>
+<tr><th id="450">450</th><td>    init_ssl=<var>0</var>; <i>/* not inited any more */</i></td></tr>
+<tr><th id="451">451</th><td>  }</td></tr>
+<tr><th id="452">452</th><td><u>#<span data-ppcond="429">else</span></u></td></tr>
+<tr><th id="453">453</th><td>  <i>/* SSL disabled, do nothing */</i></td></tr>
+<tr><th id="454">454</th><td><u>#<span data-ppcond="429">endif</span></u></td></tr>
+<tr><th id="455">455</th><td>}</td></tr>
+<tr><th id="456">456</th><td></td></tr>
+<tr><th id="457">457</th><td><u>#<span data-ppcond="457">ifndef</span> <span class="macro" data-ref="_M/USE_SSLEAY">USE_SSLEAY</span></u></td></tr>
+<tr><th id="458">458</th><td><em>void</em> <dfn class="decl def" id="Curl_SSL_Close" title='Curl_SSL_Close' data-ref="Curl_SSL_Close">Curl_SSL_Close</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#connectdata" title='connectdata' data-ref="connectdata">connectdata</a> *<dfn class="local col1 decl" id="1conn" title='conn' data-type='struct connectdata *' data-ref="1conn">conn</dfn>)</td></tr>
+<tr><th id="459">459</th><td>{</td></tr>
+<tr><th id="460">460</th><td>  (<em>void</em>)<a class="local col1 ref" href="#1conn" title='conn' data-ref="1conn">conn</a>;</td></tr>
+<tr><th id="461">461</th><td>}</td></tr>
+<tr><th id="462">462</th><td><u>#<span data-ppcond="457">endif</span></u></td></tr>
+<tr><th id="463">463</th><td></td></tr>
+<tr><th id="464">464</th><td><u>#<span data-ppcond="464">ifdef</span> <span class="macro" data-ref="_M/USE_SSLEAY">USE_SSLEAY</span></u></td></tr>
+<tr><th id="465">465</th><td></td></tr>
+<tr><th id="466">466</th><td><i>/*</i></td></tr>
+<tr><th id="467">467</th><td><i> * This function is called when an SSL connection is closed.</i></td></tr>
+<tr><th id="468">468</th><td><i> */</i></td></tr>
+<tr><th id="469">469</th><td><em>void</em> Curl_SSL_Close(<b>struct</b> connectdata *conn)</td></tr>
+<tr><th id="470">470</th><td>{</td></tr>
+<tr><th id="471">471</th><td>  <b>if</b>(conn-&gt;ssl[FIRSTSOCKET].use) {</td></tr>
+<tr><th id="472">472</th><td>    <em>int</em> i;</td></tr>
+<tr><th id="473">473</th><td>    <i>/*</i></td></tr>
+<tr><th id="474">474</th><td><i>      ERR_remove_state() frees the error queue associated with</i></td></tr>
+<tr><th id="475">475</th><td><i>      thread pid.  If pid == 0, the current thread will have its</i></td></tr>
+<tr><th id="476">476</th><td><i>      error queue removed.</i></td></tr>
+<tr><th id="477">477</th><td><i></i></td></tr>
+<tr><th id="478">478</th><td><i>      Since error queue data structures are allocated</i></td></tr>
+<tr><th id="479">479</th><td><i>      automatically for new threads, they must be freed when</i></td></tr>
+<tr><th id="480">480</th><td><i>      threads are terminated in oder to avoid memory leaks.</i></td></tr>
+<tr><th id="481">481</th><td><i>    */</i></td></tr>
+<tr><th id="482">482</th><td>    ERR_remove_state(<var>0</var>);</td></tr>
+<tr><th id="483">483</th><td></td></tr>
+<tr><th id="484">484</th><td>    <b>for</b>(i=<var>0</var>; i&lt;<var>2</var>; i++) {</td></tr>
+<tr><th id="485">485</th><td>      <b>struct</b> ssl_connect_data *connssl = &amp;conn-&gt;ssl[i];</td></tr>
+<tr><th id="486">486</th><td>      </td></tr>
+<tr><th id="487">487</th><td>      <b>if</b>(connssl-&gt;handle) {</td></tr>
+<tr><th id="488">488</th><td>        (<em>void</em>)SSL_shutdown(connssl-&gt;handle);</td></tr>
+<tr><th id="489">489</th><td>        SSL_set_connect_state(connssl-&gt;handle);</td></tr>
+<tr><th id="490">490</th><td>        </td></tr>
+<tr><th id="491">491</th><td>        SSL_free (connssl-&gt;handle);</td></tr>
+<tr><th id="492">492</th><td>        connssl-&gt;handle = NULL;</td></tr>
+<tr><th id="493">493</th><td>      }</td></tr>
+<tr><th id="494">494</th><td>      <b>if</b>(connssl-&gt;ctx) {</td></tr>
+<tr><th id="495">495</th><td>        SSL_CTX_free (connssl-&gt;ctx);</td></tr>
+<tr><th id="496">496</th><td>        connssl-&gt;ctx = NULL;</td></tr>
+<tr><th id="497">497</th><td>      }</td></tr>
+<tr><th id="498">498</th><td>      connssl-&gt;use = FALSE; <i>/* get back to ordinary socket usage */</i></td></tr>
+<tr><th id="499">499</th><td>    }</td></tr>
+<tr><th id="500">500</th><td>  }</td></tr>
+<tr><th id="501">501</th><td>}</td></tr>
+<tr><th id="502">502</th><td></td></tr>
+<tr><th id="503">503</th><td></td></tr>
+<tr><th id="504">504</th><td><i>/*</i></td></tr>
+<tr><th id="505">505</th><td><i> * This sets up a session cache to the specified size.</i></td></tr>
+<tr><th id="506">506</th><td><i> */</i></td></tr>
+<tr><th id="507">507</th><td>CURLcode Curl_SSL_InitSessions(<b>struct</b> SessionHandle *data, <em>long</em> amount)</td></tr>
+<tr><th id="508">508</th><td>{</td></tr>
+<tr><th id="509">509</th><td>  <b>struct</b> curl_ssl_session *session;</td></tr>
+<tr><th id="510">510</th><td></td></tr>
+<tr><th id="511">511</th><td>  <b>if</b>(data-&gt;state.session)</td></tr>
+<tr><th id="512">512</th><td>    <i>/* this is just a precaution to prevent multiple inits */</i></td></tr>
+<tr><th id="513">513</th><td>    <b>return</b> CURLE_OK;</td></tr>
+<tr><th id="514">514</th><td></td></tr>
+<tr><th id="515">515</th><td>  session = (<b>struct</b> curl_ssl_session *)</td></tr>
+<tr><th id="516">516</th><td>    malloc(amount * <b>sizeof</b>(<b>struct</b> curl_ssl_session));</td></tr>
+<tr><th id="517">517</th><td>  <b>if</b>(!session)</td></tr>
+<tr><th id="518">518</th><td>    <b>return</b> CURLE_OUT_OF_MEMORY;</td></tr>
+<tr><th id="519">519</th><td></td></tr>
+<tr><th id="520">520</th><td>  <i>/* "blank out" the newly allocated memory */</i></td></tr>
+<tr><th id="521">521</th><td>  memset(session, <var>0</var>, amount * <b>sizeof</b>(<b>struct</b> curl_ssl_session));</td></tr>
+<tr><th id="522">522</th><td></td></tr>
+<tr><th id="523">523</th><td>  <i>/* store the info in the SSL section */</i></td></tr>
+<tr><th id="524">524</th><td>  data-&gt;set.ssl.numsessions = amount;</td></tr>
+<tr><th id="525">525</th><td>  data-&gt;state.session = session;</td></tr>
+<tr><th id="526">526</th><td>  data-&gt;state.sessionage = <var>1</var>; <i>/* this is brand new */</i></td></tr>
+<tr><th id="527">527</th><td></td></tr>
+<tr><th id="528">528</th><td>  <b>return</b> CURLE_OK;</td></tr>
+<tr><th id="529">529</th><td>}</td></tr>
+<tr><th id="530">530</th><td></td></tr>
+<tr><th id="531">531</th><td><i>/*</i></td></tr>
+<tr><th id="532">532</th><td><i> * Check if there's a session ID for the given connection in the cache,</i></td></tr>
+<tr><th id="533">533</th><td><i> * and if there's one suitable, it is returned.</i></td></tr>
+<tr><th id="534">534</th><td><i> */</i></td></tr>
+<tr><th id="535">535</th><td><em>static</em> <em>int</em> Get_SSL_Session(<b>struct</b> connectdata *conn,</td></tr>
+<tr><th id="536">536</th><td>                           SSL_SESSION **ssl_sessionid)</td></tr>
+<tr><th id="537">537</th><td>{</td></tr>
+<tr><th id="538">538</th><td>  <b>struct</b> curl_ssl_session *check;</td></tr>
+<tr><th id="539">539</th><td>  <b>struct</b> SessionHandle *data = conn-&gt;data;</td></tr>
+<tr><th id="540">540</th><td>  <em>long</em> i;</td></tr>
+<tr><th id="541">541</th><td></td></tr>
+<tr><th id="542">542</th><td>  <b>for</b>(i=<var>0</var>; i&lt; data-&gt;set.ssl.numsessions; i++) {</td></tr>
+<tr><th id="543">543</th><td>    check = &amp;data-&gt;state.session[i];</td></tr>
+<tr><th id="544">544</th><td>    <b>if</b>(!check-&gt;sessionid)</td></tr>
+<tr><th id="545">545</th><td>      <i>/* not session ID means blank entry */</i></td></tr>
+<tr><th id="546">546</th><td>      <b>continue</b>;</td></tr>
+<tr><th id="547">547</th><td>    <b>if</b>(curl_strequal(conn-&gt;name, check-&gt;name) &amp;&amp;</td></tr>
+<tr><th id="548">548</th><td>       (conn-&gt;remote_port == check-&gt;remote_port) &amp;&amp;</td></tr>
+<tr><th id="549">549</th><td>       Curl_ssl_config_matches(&amp;conn-&gt;ssl_config, &amp;check-&gt;ssl_config)) {</td></tr>
+<tr><th id="550">550</th><td>      <i>/* yes, we have a session ID! */</i></td></tr>
+<tr><th id="551">551</th><td>      data-&gt;state.sessionage++;            <i>/* increase general age */</i></td></tr>
+<tr><th id="552">552</th><td>      check-&gt;age = data-&gt;state.sessionage; <i>/* set this as used in this age */</i></td></tr>
+<tr><th id="553">553</th><td>      *ssl_sessionid = check-&gt;sessionid;</td></tr>
+<tr><th id="554">554</th><td>      <b>return</b> FALSE;</td></tr>
+<tr><th id="555">555</th><td>    }</td></tr>
+<tr><th id="556">556</th><td>  }</td></tr>
+<tr><th id="557">557</th><td>  *ssl_sessionid = (SSL_SESSION *)NULL;</td></tr>
+<tr><th id="558">558</th><td>  <b>return</b> TRUE;</td></tr>
+<tr><th id="559">559</th><td>}</td></tr>
+<tr><th id="560">560</th><td></td></tr>
+<tr><th id="561">561</th><td><i>/*</i></td></tr>
+<tr><th id="562">562</th><td><i> * Kill a single session ID entry in the cache.</i></td></tr>
+<tr><th id="563">563</th><td><i> */</i></td></tr>
+<tr><th id="564">564</th><td><em>static</em> <em>int</em> Kill_Single_Session(<b>struct</b> curl_ssl_session *session)</td></tr>
+<tr><th id="565">565</th><td>{</td></tr>
+<tr><th id="566">566</th><td>  <b>if</b>(session-&gt;sessionid) {</td></tr>
+<tr><th id="567">567</th><td>    <i>/* defensive check */</i></td></tr>
+<tr><th id="568">568</th><td></td></tr>
+<tr><th id="569">569</th><td>    <i>/* free the ID */</i></td></tr>
+<tr><th id="570">570</th><td>    SSL_SESSION_free(session-&gt;sessionid);</td></tr>
+<tr><th id="571">571</th><td>    session-&gt;sessionid=NULL;</td></tr>
+<tr><th id="572">572</th><td>    session-&gt;age = <var>0</var>; <i>/* fresh */</i></td></tr>
+<tr><th id="573">573</th><td></td></tr>
+<tr><th id="574">574</th><td>    Curl_free_ssl_config(&amp;session-&gt;ssl_config);</td></tr>
+<tr><th id="575">575</th><td></td></tr>
+<tr><th id="576">576</th><td>    free(session-&gt;name);</td></tr>
+<tr><th id="577">577</th><td>    session-&gt;name = NULL; <i>/* no name */</i></td></tr>
+<tr><th id="578">578</th><td></td></tr>
+<tr><th id="579">579</th><td>    <b>return</b> <var>0</var>; <i>/* ok */</i></td></tr>
+<tr><th id="580">580</th><td>  }</td></tr>
+<tr><th id="581">581</th><td>  <b>else</b></td></tr>
+<tr><th id="582">582</th><td>    <b>return</b> <var>1</var>;</td></tr>
+<tr><th id="583">583</th><td>}</td></tr>
+<tr><th id="584">584</th><td></td></tr>
+<tr><th id="585">585</th><td><i>/*</i></td></tr>
+<tr><th id="586">586</th><td><i> * This function is called when the 'data' struct is going away. Close</i></td></tr>
+<tr><th id="587">587</th><td><i> * down everything and free all resources!</i></td></tr>
+<tr><th id="588">588</th><td><i> */</i></td></tr>
+<tr><th id="589">589</th><td><em>int</em> Curl_SSL_Close_All(<b>struct</b> SessionHandle *data)</td></tr>
+<tr><th id="590">590</th><td>{</td></tr>
+<tr><th id="591">591</th><td>  <em>int</em> i;</td></tr>
+<tr><th id="592">592</th><td></td></tr>
+<tr><th id="593">593</th><td>  <b>if</b>(data-&gt;state.session) {    </td></tr>
+<tr><th id="594">594</th><td>    <b>for</b>(i=<var>0</var>; i&lt; data-&gt;set.ssl.numsessions; i++)</td></tr>
+<tr><th id="595">595</th><td>      <i>/* the single-killer function handles empty table slots */</i></td></tr>
+<tr><th id="596">596</th><td>      Kill_Single_Session(&amp;data-&gt;state.session[i]);</td></tr>
+<tr><th id="597">597</th><td>    </td></tr>
+<tr><th id="598">598</th><td>    <i>/* free the cache data */</i></td></tr>
+<tr><th id="599">599</th><td>    free(data-&gt;state.session);</td></tr>
+<tr><th id="600">600</th><td>  }</td></tr>
+<tr><th id="601">601</th><td><u>#ifdef HAVE_OPENSSL_ENGINE_H</u></td></tr>
+<tr><th id="602">602</th><td>  <b>if</b>(data-&gt;engine)</td></tr>
+<tr><th id="603">603</th><td>  {</td></tr>
+<tr><th id="604">604</th><td>    ENGINE_free(data-&gt;engine);</td></tr>
+<tr><th id="605">605</th><td>    data-&gt;engine = NULL;</td></tr>
+<tr><th id="606">606</th><td>  }</td></tr>
+<tr><th id="607">607</th><td><u>#endif</u></td></tr>
+<tr><th id="608">608</th><td>  <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="609">609</th><td>}</td></tr>
+<tr><th id="610">610</th><td></td></tr>
+<tr><th id="611">611</th><td><i>/*</i></td></tr>
+<tr><th id="612">612</th><td><i> * Extract the session id and store it in the session cache.</i></td></tr>
+<tr><th id="613">613</th><td><i> */</i></td></tr>
+<tr><th id="614">614</th><td><em>static</em> <em>int</em> Store_SSL_Session(<b>struct</b> connectdata *conn,</td></tr>
+<tr><th id="615">615</th><td>                             <b>struct</b> ssl_connect_data *ssl)</td></tr>
+<tr><th id="616">616</th><td>{</td></tr>
+<tr><th id="617">617</th><td>  SSL_SESSION *ssl_sessionid;</td></tr>
+<tr><th id="618">618</th><td>  <em>int</em> i;</td></tr>
+<tr><th id="619">619</th><td>  <b>struct</b> SessionHandle *data=conn-&gt;data; <i>/* the mother of all structs */</i></td></tr>
+<tr><th id="620">620</th><td>  <b>struct</b> curl_ssl_session *store = &amp;data-&gt;state.session[<var>0</var>];</td></tr>
+<tr><th id="621">621</th><td>  <em>int</em> oldest_age=data-&gt;state.session[<var>0</var>].age; <i>/* zero if unused */</i></td></tr>
+<tr><th id="622">622</th><td></td></tr>
+<tr><th id="623">623</th><td>  <i>/* ask OpenSSL, say please */</i></td></tr>
+<tr><th id="624">624</th><td></td></tr>
+<tr><th id="625">625</th><td><u>#ifdef HAVE_SSL_GET1_SESSION</u></td></tr>
+<tr><th id="626">626</th><td>  ssl_sessionid = SSL_get1_session(ssl-&gt;handle);</td></tr>
+<tr><th id="627">627</th><td></td></tr>
+<tr><th id="628">628</th><td>  <i>/* SSL_get1_session() will increment the reference</i></td></tr>
+<tr><th id="629">629</th><td><i>     count and the session will stay in memory until explicitly freed with</i></td></tr>
+<tr><th id="630">630</th><td><i>     SSL_SESSION_free(3), regardless of its state. </i></td></tr>
+<tr><th id="631">631</th><td><i>     This function was introduced in openssl 0.9.5a. */</i></td></tr>
+<tr><th id="632">632</th><td><u>#else</u></td></tr>
+<tr><th id="633">633</th><td>  ssl_sessionid = SSL_get_session(ssl-&gt;handle);</td></tr>
+<tr><th id="634">634</th><td></td></tr>
+<tr><th id="635">635</th><td>  <i>/* if SSL_get1_session() is unavailable, use SSL_get_session().</i></td></tr>
+<tr><th id="636">636</th><td><i>     This is an inferior option because the session can be flushed</i></td></tr>
+<tr><th id="637">637</th><td><i>     at any time by openssl. It is included only so curl compiles</i></td></tr>
+<tr><th id="638">638</th><td><i>     under versions of openssl &lt; 0.9.5a.</i></td></tr>
+<tr><th id="639">639</th><td><i>     </i></td></tr>
+<tr><th id="640">640</th><td><i>     WARNING: How curl behaves if it's session is flushed is</i></td></tr>
+<tr><th id="641">641</th><td><i>     untested. </i></td></tr>
+<tr><th id="642">642</th><td><i>  */</i></td></tr>
+<tr><th id="643">643</th><td><u>#endif</u></td></tr>
+<tr><th id="644">644</th><td></td></tr>
+<tr><th id="645">645</th><td>  <i>/* Now we should add the session ID and the host name to the cache, (remove</i></td></tr>
+<tr><th id="646">646</th><td><i>     the oldest if necessary) */</i></td></tr>
+<tr><th id="647">647</th><td></td></tr>
+<tr><th id="648">648</th><td>  <i>/* find an empty slot for us, or find the oldest */</i></td></tr>
+<tr><th id="649">649</th><td>  <b>for</b>(i=<var>1</var>; (i&lt;data-&gt;set.ssl.numsessions) &amp;&amp;</td></tr>
+<tr><th id="650">650</th><td>        data-&gt;state.session[i].sessionid; i++) {</td></tr>
+<tr><th id="651">651</th><td>    <b>if</b>(data-&gt;state.session[i].age &lt; oldest_age) {</td></tr>
+<tr><th id="652">652</th><td>      oldest_age = data-&gt;state.session[i].age;</td></tr>
+<tr><th id="653">653</th><td>      store = &amp;data-&gt;state.session[i];</td></tr>
+<tr><th id="654">654</th><td>    }</td></tr>
+<tr><th id="655">655</th><td>  }</td></tr>
+<tr><th id="656">656</th><td>  <b>if</b>(i == data-&gt;set.ssl.numsessions)</td></tr>
+<tr><th id="657">657</th><td>    <i>/* cache is full, we must "kill" the oldest entry! */</i></td></tr>
+<tr><th id="658">658</th><td>    Kill_Single_Session(store);</td></tr>
+<tr><th id="659">659</th><td>  <b>else</b></td></tr>
+<tr><th id="660">660</th><td>    store = &amp;data-&gt;state.session[i]; <i>/* use this slot */</i></td></tr>
+<tr><th id="661">661</th><td>  </td></tr>
+<tr><th id="662">662</th><td>  <i>/* now init the session struct wisely */</i></td></tr>
+<tr><th id="663">663</th><td>  store-&gt;sessionid = ssl_sessionid;</td></tr>
+<tr><th id="664">664</th><td>  store-&gt;age = data-&gt;state.sessionage;    <i>/* set current age */</i></td></tr>
+<tr><th id="665">665</th><td>  store-&gt;name = strdup(conn-&gt;name);       <i>/* clone host name */</i></td></tr>
+<tr><th id="666">666</th><td>  store-&gt;remote_port = conn-&gt;remote_port; <i>/* port number */</i></td></tr>
+<tr><th id="667">667</th><td></td></tr>
+<tr><th id="668">668</th><td>  Curl_clone_ssl_config(&amp;conn-&gt;ssl_config, &amp;store-&gt;ssl_config);</td></tr>
+<tr><th id="669">669</th><td></td></tr>
+<tr><th id="670">670</th><td>  <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="671">671</th><td>}</td></tr>
+<tr><th id="672">672</th><td></td></tr>
+<tr><th id="673">673</th><td><em>static</em> <em>int</em> Curl_ASN1_UTCTIME_output(<b>struct</b> connectdata *conn,</td></tr>
+<tr><th id="674">674</th><td>                                    <em>const</em> <em>char</em> *prefix,</td></tr>
+<tr><th id="675">675</th><td>                                    ASN1_UTCTIME *tm)</td></tr>
+<tr><th id="676">676</th><td>{</td></tr>
+<tr><th id="677">677</th><td>  <em>char</em> *asn1_string;</td></tr>
+<tr><th id="678">678</th><td>  <em>int</em> gmt=FALSE;</td></tr>
+<tr><th id="679">679</th><td>  <em>int</em> i;</td></tr>
+<tr><th id="680">680</th><td>  <em>int</em> year=<var>0</var>,month=<var>0</var>,day=<var>0</var>,hour=<var>0</var>,minute=<var>0</var>,second=<var>0</var>;</td></tr>
+<tr><th id="681">681</th><td>  <b>struct</b> SessionHandle *data = conn-&gt;data;</td></tr>
+<tr><th id="682">682</th><td></td></tr>
+<tr><th id="683">683</th><td>  <b>if</b>(!data-&gt;set.verbose)</td></tr>
+<tr><th id="684">684</th><td>    <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="685">685</th><td></td></tr>
+<tr><th id="686">686</th><td>  i=tm-&gt;length;</td></tr>
+<tr><th id="687">687</th><td>  asn1_string=(<em>char</em> *)tm-&gt;data;</td></tr>
+<tr><th id="688">688</th><td></td></tr>
+<tr><th id="689">689</th><td>  <b>if</b>(i &lt; <var>10</var>)</td></tr>
+<tr><th id="690">690</th><td>    <b>return</b> <var>1</var>;</td></tr>
+<tr><th id="691">691</th><td>  <b>if</b>(asn1_string[i-<var>1</var>] == <kbd>'Z'</kbd>)</td></tr>
+<tr><th id="692">692</th><td>    gmt=TRUE;</td></tr>
+<tr><th id="693">693</th><td>  <b>for</b> (i=<var>0</var>; i&lt;<var>10</var>; i++)</td></tr>
+<tr><th id="694">694</th><td>    <b>if</b>((asn1_string[i] &gt; <kbd>'9'</kbd>) || (asn1_string[i] &lt; <kbd>'0'</kbd>))</td></tr>
+<tr><th id="695">695</th><td>      <b>return</b> <var>2</var>;</td></tr>
+<tr><th id="696">696</th><td></td></tr>
+<tr><th id="697">697</th><td>  year= (asn1_string[<var>0</var>]-<kbd>'0'</kbd>)*<var>10</var>+(asn1_string[<var>1</var>]-<kbd>'0'</kbd>);</td></tr>
+<tr><th id="698">698</th><td>  <b>if</b>(year &lt; <var>50</var>)</td></tr>
+<tr><th id="699">699</th><td>    year+=<var>100</var>;</td></tr>
+<tr><th id="700">700</th><td></td></tr>
+<tr><th id="701">701</th><td>  month= (asn1_string[<var>2</var>]-<kbd>'0'</kbd>)*<var>10</var>+(asn1_string[<var>3</var>]-<kbd>'0'</kbd>);</td></tr>
+<tr><th id="702">702</th><td>  <b>if</b>((month &gt; <var>12</var>) || (month &lt; <var>1</var>))</td></tr>
+<tr><th id="703">703</th><td>    <b>return</b> <var>3</var>;</td></tr>
+<tr><th id="704">704</th><td></td></tr>
+<tr><th id="705">705</th><td>  day= (asn1_string[<var>4</var>]-<kbd>'0'</kbd>)*<var>10</var>+(asn1_string[<var>5</var>]-<kbd>'0'</kbd>);</td></tr>
+<tr><th id="706">706</th><td>  hour= (asn1_string[<var>6</var>]-<kbd>'0'</kbd>)*<var>10</var>+(asn1_string[<var>7</var>]-<kbd>'0'</kbd>);</td></tr>
+<tr><th id="707">707</th><td>  minute=  (asn1_string[<var>8</var>]-<kbd>'0'</kbd>)*<var>10</var>+(asn1_string[<var>9</var>]-<kbd>'0'</kbd>);</td></tr>
+<tr><th id="708">708</th><td></td></tr>
+<tr><th id="709">709</th><td>  <b>if</b>((asn1_string[<var>10</var>] &gt;= <kbd>'0'</kbd>) &amp;&amp; (asn1_string[<var>10</var>] &lt;= <kbd>'9'</kbd>) &amp;&amp;</td></tr>
+<tr><th id="710">710</th><td>     (asn1_string[<var>11</var>] &gt;= <kbd>'0'</kbd>) &amp;&amp; (asn1_string[<var>11</var>] &lt;= <kbd>'9'</kbd>))</td></tr>
+<tr><th id="711">711</th><td>    second= (asn1_string[<var>10</var>]-<kbd>'0'</kbd>)*<var>10</var>+(asn1_string[<var>11</var>]-<kbd>'0'</kbd>);</td></tr>
+<tr><th id="712">712</th><td>  </td></tr>
+<tr><th id="713">713</th><td>  infof(data,</td></tr>
+<tr><th id="714">714</th><td>        <q>"%s%04d-%02d-%02d %02d:%02d:%02d %s\n"</q>,</td></tr>
+<tr><th id="715">715</th><td>        prefix, year+<var>1900</var>, month, day, hour, minute, second, (gmt?<q>"GMT"</q>:<q>""</q>));</td></tr>
+<tr><th id="716">716</th><td></td></tr>
+<tr><th id="717">717</th><td>  <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="718">718</th><td>}</td></tr>
+<tr><th id="719">719</th><td></td></tr>
+<tr><th id="720">720</th><td><u>#<span data-ppcond="464">endif</span></u>  </td></tr>
+<tr><th id="721">721</th><td></td></tr>
+<tr><th id="722">722</th><td><i>/* ====================================================== */</i></td></tr>
+<tr><th id="723">723</th><td><u>#<span data-ppcond="723">ifdef</span> <span class="macro" data-ref="_M/USE_SSLEAY">USE_SSLEAY</span></u></td></tr>
+<tr><th id="724">724</th><td><em>static</em> <em>int</em></td></tr>
+<tr><th id="725">725</th><td>cert_hostcheck(<em>const</em> <em>char</em> *certname, <em>const</em> <em>char</em> *hostname)</td></tr>
+<tr><th id="726">726</th><td>{</td></tr>
+<tr><th id="727">727</th><td>  <em>char</em> *tmp;</td></tr>
+<tr><th id="728">728</th><td>  <em>const</em> <em>char</em> *certdomain;</td></tr>
+<tr><th id="729">729</th><td>  </td></tr>
+<tr><th id="730">730</th><td>  <b>if</b>(!certname ||</td></tr>
+<tr><th id="731">731</th><td>     strlen(certname)&lt;<var>3</var> ||</td></tr>
+<tr><th id="732">732</th><td>     !hostname ||</td></tr>
+<tr><th id="733">733</th><td>     !strlen(hostname)) <i>/* sanity check */</i></td></tr>
+<tr><th id="734">734</th><td>    <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="735">735</th><td></td></tr>
+<tr><th id="736">736</th><td>  <b>if</b>(curl_strequal(certname, hostname)) <i>/* trivial case */</i></td></tr>
+<tr><th id="737">737</th><td>    <b>return</b> <var>1</var>;</td></tr>
+<tr><th id="738">738</th><td></td></tr>
+<tr><th id="739">739</th><td>  certdomain = certname + <var>1</var>;</td></tr>
+<tr><th id="740">740</th><td></td></tr>
+<tr><th id="741">741</th><td>  <b>if</b>((certname[<var>0</var>] != <kbd>'*'</kbd>) || (certdomain[<var>0</var>] != <kbd>'.'</kbd>))</td></tr>
+<tr><th id="742">742</th><td>    <b>return</b> <var>0</var>; <i>/* not a wildcard certificate, check failed */</i></td></tr>
+<tr><th id="743">743</th><td>  </td></tr>
+<tr><th id="744">744</th><td>  <b>if</b>(!strchr(certdomain+<var>1</var>, <kbd>'.'</kbd>))</td></tr>
+<tr><th id="745">745</th><td>    <b>return</b> <var>0</var>; <i>/* the certificate must have at least another dot in its name */</i></td></tr>
+<tr><th id="746">746</th><td></td></tr>
+<tr><th id="747">747</th><td>  <i>/* find 'certdomain' within 'hostname' */</i></td></tr>
+<tr><th id="748">748</th><td>  tmp = strstr(hostname, certdomain);</td></tr>
+<tr><th id="749">749</th><td>  <b>if</b>(tmp) {</td></tr>
+<tr><th id="750">750</th><td>    <i>/* ok the certname's domain matches the hostname, let's check that it's a</i></td></tr>
+<tr><th id="751">751</th><td><i>       tail-match */</i></td></tr>
+<tr><th id="752">752</th><td>    <b>if</b>(curl_strequal(tmp, certdomain))</td></tr>
+<tr><th id="753">753</th><td>      <i>/* looks like a match. Just check we havent swallowed a '.' */</i></td></tr>
+<tr><th id="754">754</th><td>      <b>return</b> tmp == strchr(hostname, <kbd>'.'</kbd>);</td></tr>
+<tr><th id="755">755</th><td>    <b>else</b></td></tr>
+<tr><th id="756">756</th><td>      <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="757">757</th><td>  }</td></tr>
+<tr><th id="758">758</th><td>  <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="759">759</th><td>}</td></tr>
+<tr><th id="760">760</th><td></td></tr>
+<tr><th id="761">761</th><td><i>/* Quote from RFC2818 section 3.1 "Server Identity"</i></td></tr>
+<tr><th id="762">762</th><td><i></i></td></tr>
+<tr><th id="763">763</th><td><i>   If a subjectAltName extension of type dNSName is present, that MUST</i></td></tr>
+<tr><th id="764">764</th><td><i>   be used as the identity. Otherwise, the (most specific) Common Name</i></td></tr>
+<tr><th id="765">765</th><td><i>   field in the Subject field of the certificate MUST be used. Although</i></td></tr>
+<tr><th id="766">766</th><td><i>   the use of the Common Name is existing practice, it is deprecated and</i></td></tr>
+<tr><th id="767">767</th><td><i>   Certification Authorities are encouraged to use the dNSName instead.</i></td></tr>
+<tr><th id="768">768</th><td><i></i></td></tr>
+<tr><th id="769">769</th><td><i>   Matching is performed using the matching rules specified by</i></td></tr>
+<tr><th id="770">770</th><td><i>   [RFC2459].  If more than one identity of a given type is present in</i></td></tr>
+<tr><th id="771">771</th><td><i>   the certificate (e.g., more than one dNSName name, a match in any one</i></td></tr>
+<tr><th id="772">772</th><td><i>   of the set is considered acceptable.) Names may contain the wildcard</i></td></tr>
+<tr><th id="773">773</th><td><i>   character * which is considered to match any single domain name</i></td></tr>
+<tr><th id="774">774</th><td><i>   component or component fragment. E.g., *.a.com matches foo.a.com but</i></td></tr>
+<tr><th id="775">775</th><td><i>   not bar.foo.a.com. f*.com matches foo.com but not bar.com.</i></td></tr>
+<tr><th id="776">776</th><td><i></i></td></tr>
+<tr><th id="777">777</th><td><i>   In some cases, the URI is specified as an IP address rather than a</i></td></tr>
+<tr><th id="778">778</th><td><i>   hostname. In this case, the iPAddress subjectAltName must be present</i></td></tr>
+<tr><th id="779">779</th><td><i>   in the certificate and must exactly match the IP in the URI.</i></td></tr>
+<tr><th id="780">780</th><td><i></i></td></tr>
+<tr><th id="781">781</th><td><i>*/</i></td></tr>
+<tr><th id="782">782</th><td><em>static</em> CURLcode verifyhost(<b>struct</b> connectdata *conn,</td></tr>
+<tr><th id="783">783</th><td>                           X509 *server_cert)</td></tr>
+<tr><th id="784">784</th><td>{</td></tr>
+<tr><th id="785">785</th><td>  <em>char</em> peer_CN[<var>257</var>];</td></tr>
+<tr><th id="786">786</th><td>  bool matched = FALSE; <i>/* no alternative match yet */</i></td></tr>
+<tr><th id="787">787</th><td>  <em>int</em> target = GEN_DNS; <i>/* target type, GEN_DNS or GEN_IPADD */</i></td></tr>
+<tr><th id="788">788</th><td>  <em>int</em> addrlen = <var>0</var>;</td></tr>
+<tr><th id="789">789</th><td>  <b>struct</b> SessionHandle *data = conn-&gt;data;</td></tr>
+<tr><th id="790">790</th><td>  STACK_OF(GENERAL_NAME) *altnames;</td></tr>
+<tr><th id="791">791</th><td><u>#ifdef ENABLE_IPV6</u></td></tr>
+<tr><th id="792">792</th><td>  <b>struct</b> in6_addr addr;</td></tr>
+<tr><th id="793">793</th><td><u>#else</u></td></tr>
+<tr><th id="794">794</th><td>  <b>struct</b> in_addr addr;</td></tr>
+<tr><th id="795">795</th><td><u>#endif</u></td></tr>
+<tr><th id="796">796</th><td> </td></tr>
+<tr><th id="797">797</th><td><u>#ifdef ENABLE_IPV6</u></td></tr>
+<tr><th id="798">798</th><td>  <b>if</b>(conn-&gt;bits.ipv6_ip &amp;&amp; </td></tr>
+<tr><th id="799">799</th><td>     Curl_inet_pton(AF_INET6, conn-&gt;hostname, &amp;addr)) {</td></tr>
+<tr><th id="800">800</th><td>    target = GEN_IPADD;</td></tr>
+<tr><th id="801">801</th><td>    addrlen = <b>sizeof</b>(<b>struct</b> in6_addr);</td></tr>
+<tr><th id="802">802</th><td>  }</td></tr>
+<tr><th id="803">803</th><td>  <b>else</b></td></tr>
+<tr><th id="804">804</th><td><u>#endif</u></td></tr>
+<tr><th id="805">805</th><td>    <b>if</b>(Curl_inet_pton(AF_INET, conn-&gt;hostname, &amp;addr)) {</td></tr>
+<tr><th id="806">806</th><td>      target = GEN_IPADD;</td></tr>
+<tr><th id="807">807</th><td>      addrlen = <b>sizeof</b>(<b>struct</b> in_addr);</td></tr>
+<tr><th id="808">808</th><td>    }</td></tr>
+<tr><th id="809">809</th><td>  </td></tr>
+<tr><th id="810">810</th><td>  <i>/* get a "list" of alternative names */</i></td></tr>
+<tr><th id="811">811</th><td>  altnames = X509_get_ext_d2i(server_cert, NID_subject_alt_name, NULL, NULL);</td></tr>
+<tr><th id="812">812</th><td>  </td></tr>
+<tr><th id="813">813</th><td>  <b>if</b>(altnames) {</td></tr>
+<tr><th id="814">814</th><td>    <em>int</em> hostlen = <var>0</var>;</td></tr>
+<tr><th id="815">815</th><td>    <em>int</em> domainlen = <var>0</var>;</td></tr>
+<tr><th id="816">816</th><td>    <em>char</em> *domain = NULL;</td></tr>
+<tr><th id="817">817</th><td>    <em>int</em> numalts;</td></tr>
+<tr><th id="818">818</th><td>    <em>int</em> i;</td></tr>
+<tr><th id="819">819</th><td>        </td></tr>
+<tr><th id="820">820</th><td>    <b>if</b>(GEN_DNS == target) {</td></tr>
+<tr><th id="821">821</th><td>      hostlen = strlen(conn-&gt;hostname);</td></tr>
+<tr><th id="822">822</th><td>      domain = strchr(conn-&gt;hostname, <kbd>'.'</kbd>);</td></tr>
+<tr><th id="823">823</th><td>      <b>if</b>(domain)</td></tr>
+<tr><th id="824">824</th><td>        domainlen = strlen(domain);</td></tr>
+<tr><th id="825">825</th><td>    }</td></tr>
+<tr><th id="826">826</th><td></td></tr>
+<tr><th id="827">827</th><td>    <i>/* get amount of alternatives, RFC2459 claims there MUST be at least</i></td></tr>
+<tr><th id="828">828</th><td><i>       one, but we don't depend on it... */</i></td></tr>
+<tr><th id="829">829</th><td>    numalts = sk_GENERAL_NAME_num(altnames);</td></tr>
+<tr><th id="830">830</th><td></td></tr>
+<tr><th id="831">831</th><td>    <i>/* loop through all alternatives while none has matched */</i></td></tr>
+<tr><th id="832">832</th><td>    <b>for</b> (i=<var>0</var>; (i&lt;numalts) &amp;&amp; !matched; i++) {</td></tr>
+<tr><th id="833">833</th><td>      <i>/* get a handle to alternative name number i */</i></td></tr>
+<tr><th id="834">834</th><td>      <em>const</em> GENERAL_NAME *check = sk_GENERAL_NAME_value(altnames, i);</td></tr>
+<tr><th id="835">835</th><td></td></tr>
+<tr><th id="836">836</th><td>      <i>/* only check alternatives of the same type the target is */</i></td></tr>
+<tr><th id="837">837</th><td>      <b>if</b>(check-&gt;type == target) {</td></tr>
+<tr><th id="838">838</th><td>        <i>/* get data and length */</i></td></tr>
+<tr><th id="839">839</th><td>        <em>const</em> <em>char</em> *altptr = (<em>char</em> *)ASN1_STRING_data(check-&gt;d.ia5);</td></tr>
+<tr><th id="840">840</th><td>        <em>const</em> <em>int</em> altlen = ASN1_STRING_length(check-&gt;d.ia5);</td></tr>
+<tr><th id="841">841</th><td></td></tr>
+<tr><th id="842">842</th><td>        <b>switch</b>(target) {</td></tr>
+<tr><th id="843">843</th><td>        <b>case</b> GEN_DNS: <i>/* name comparison */</i></td></tr>
+<tr><th id="844">844</th><td>          <i>/* Is this an exact match? */</i></td></tr>
+<tr><th id="845">845</th><td>          <b>if</b>((hostlen == altlen) &amp;&amp;</td></tr>
+<tr><th id="846">846</th><td>             curl_strnequal(conn-&gt;hostname, altptr, hostlen))</td></tr>
+<tr><th id="847">847</th><td>            matched = TRUE;</td></tr>
+<tr><th id="848">848</th><td>        </td></tr>
+<tr><th id="849">849</th><td>          <i>/* Is this a wildcard match? */</i></td></tr>
+<tr><th id="850">850</th><td>          <b>else</b> <b>if</b>((altptr[<var>0</var>] == <kbd>'*'</kbd>) &amp;&amp;</td></tr>
+<tr><th id="851">851</th><td>                  (domainlen == altlen-<var>1</var>) &amp;&amp;</td></tr>
+<tr><th id="852">852</th><td>                  curl_strnequal(domain, altptr+<var>1</var>, domainlen))</td></tr>
+<tr><th id="853">853</th><td>            matched = TRUE;</td></tr>
+<tr><th id="854">854</th><td>          <b>break</b>;</td></tr>
+<tr><th id="855">855</th><td>          </td></tr>
+<tr><th id="856">856</th><td>        <b>case</b> GEN_IPADD: <i>/* IP address comparison */</i>          </td></tr>
+<tr><th id="857">857</th><td>          <i>/* compare alternative IP address if the data chunk is the same size</i></td></tr>
+<tr><th id="858">858</th><td><i>             our server IP address is */</i></td></tr>
+<tr><th id="859">859</th><td>          <b>if</b>((altlen == addrlen) &amp;&amp; !memcmp(altptr, &amp;addr, altlen))</td></tr>
+<tr><th id="860">860</th><td>            matched = TRUE;</td></tr>
+<tr><th id="861">861</th><td>          <b>break</b>;</td></tr>
+<tr><th id="862">862</th><td>        }</td></tr>
+<tr><th id="863">863</th><td>      }</td></tr>
+<tr><th id="864">864</th><td>    }</td></tr>
+<tr><th id="865">865</th><td>    GENERAL_NAMES_free(altnames);</td></tr>
+<tr><th id="866">866</th><td>  }</td></tr>
+<tr><th id="867">867</th><td> </td></tr>
+<tr><th id="868">868</th><td>  <b>if</b>(matched)</td></tr>
+<tr><th id="869">869</th><td>    <i>/* an alternative name matched the server hostname */</i></td></tr>
+<tr><th id="870">870</th><td>    infof(data, <q>"\t subjectAltName: %s matched\n"</q>, conn-&gt;hostname);</td></tr>
+<tr><th id="871">871</th><td>  <b>else</b> {</td></tr>
+<tr><th id="872">872</th><td>    bool obtain=FALSE;</td></tr>
+<tr><th id="873">873</th><td>    <b>if</b>(X509_NAME_get_text_by_NID(X509_get_subject_name(server_cert),</td></tr>
+<tr><th id="874">874</th><td>                                 NID_commonName,</td></tr>
+<tr><th id="875">875</th><td>                                 peer_CN,</td></tr>
+<tr><th id="876">876</th><td>                                 <b>sizeof</b>(peer_CN)) &lt; <var>0</var>) {</td></tr>
+<tr><th id="877">877</th><td>      <b>if</b>(data-&gt;set.ssl.verifyhost &gt; <var>1</var>) {</td></tr>
+<tr><th id="878">878</th><td>        failf(data,</td></tr>
+<tr><th id="879">879</th><td>              <q>"SSL: unable to obtain common name from peer certificate"</q>);</td></tr>
+<tr><th id="880">880</th><td>        <b>return</b> CURLE_SSL_PEER_CERTIFICATE;</td></tr>
+<tr><th id="881">881</th><td>      }</td></tr>
+<tr><th id="882">882</th><td>      <b>else</b> {</td></tr>
+<tr><th id="883">883</th><td>        <i>/* Consider verifyhost == 1 as an "OK" for a missing CN field, but we</i></td></tr>
+<tr><th id="884">884</th><td><i>           output a note about the situation */</i></td></tr>
+<tr><th id="885">885</th><td>        infof(data, <q>"\t common name: WARNING couldn't obtain\n"</q>);</td></tr>
+<tr><th id="886">886</th><td>      }</td></tr>
+<tr><th id="887">887</th><td>    }</td></tr>
+<tr><th id="888">888</th><td>    <b>else</b></td></tr>
+<tr><th id="889">889</th><td>      obtain = TRUE;</td></tr>
+<tr><th id="890">890</th><td>         </td></tr>
+<tr><th id="891">891</th><td>    <b>if</b>(obtain) {</td></tr>
+<tr><th id="892">892</th><td>      <b>if</b>(!cert_hostcheck(peer_CN, conn-&gt;hostname)) {</td></tr>
+<tr><th id="893">893</th><td>        <b>if</b>(data-&gt;set.ssl.verifyhost &gt; <var>1</var>) {</td></tr>
+<tr><th id="894">894</th><td>          failf(data, <q>"SSL: certificate subject name '%s' does not match "</q></td></tr>
+<tr><th id="895">895</th><td>                <q>"target host name '%s'"</q>, peer_CN, conn-&gt;hostname);</td></tr>
+<tr><th id="896">896</th><td>          <b>return</b> CURLE_SSL_PEER_CERTIFICATE;</td></tr>
+<tr><th id="897">897</th><td>        }</td></tr>
+<tr><th id="898">898</th><td>        <b>else</b></td></tr>
+<tr><th id="899">899</th><td>          infof(data, <q>"\t common name: %s (does not match '%s')\n"</q>,</td></tr>
+<tr><th id="900">900</th><td>                peer_CN, conn-&gt;hostname);</td></tr>
+<tr><th id="901">901</th><td>      }</td></tr>
+<tr><th id="902">902</th><td>      <b>else</b></td></tr>
+<tr><th id="903">903</th><td>        infof(data, <q>"\t common name: %s (matched)\n"</q>, peer_CN);</td></tr>
+<tr><th id="904">904</th><td>    }</td></tr>
+<tr><th id="905">905</th><td>  }</td></tr>
+<tr><th id="906">906</th><td></td></tr>
+<tr><th id="907">907</th><td>  <b>return</b> CURLE_OK;</td></tr>
+<tr><th id="908">908</th><td>}</td></tr>
+<tr><th id="909">909</th><td><u>#<span data-ppcond="723">endif</span></u></td></tr>
+<tr><th id="910">910</th><td></td></tr>
+<tr><th id="911">911</th><td><i>/* ====================================================== */</i></td></tr>
+<tr><th id="912">912</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a></td></tr>
+<tr><th id="913">913</th><td><dfn class="decl def" id="Curl_SSLConnect" title='Curl_SSLConnect' data-ref="Curl_SSLConnect">Curl_SSLConnect</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#connectdata" title='connectdata' data-ref="connectdata">connectdata</a> *<dfn class="local col2 decl" id="2conn" title='conn' data-type='struct connectdata *' data-ref="2conn">conn</dfn>,</td></tr>
+<tr><th id="914">914</th><td>                <em>int</em> <dfn class="local col3 decl" id="3sockindex" title='sockindex' data-type='int' data-ref="3sockindex">sockindex</dfn>)</td></tr>
+<tr><th id="915">915</th><td>{</td></tr>
+<tr><th id="916">916</th><td>  <a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <dfn class="local col4 decl" id="4retcode" title='retcode' data-type='CURLcode' data-ref="4retcode">retcode</dfn> = <a class="enum" href="../include/curl/curl.h.html#CURLE_OK" title='CURLE_OK' data-ref="CURLE_OK">CURLE_OK</a>;</td></tr>
+<tr><th id="917">917</th><td></td></tr>
+<tr><th id="918">918</th><td><u>#<span data-ppcond="918">ifdef</span> <span class="macro" data-ref="_M/USE_SSLEAY">USE_SSLEAY</span></u></td></tr>
+<tr><th id="919">919</th><td>  <b>struct</b> SessionHandle *data = conn-&gt;data;</td></tr>
+<tr><th id="920">920</th><td>  <em>int</em> err;</td></tr>
+<tr><th id="921">921</th><td>  <em>int</em> what;</td></tr>
+<tr><th id="922">922</th><td>  <em>char</em> * str;</td></tr>
+<tr><th id="923">923</th><td>  SSL_METHOD *req_method;</td></tr>
+<tr><th id="924">924</th><td>  SSL_SESSION *ssl_sessionid=NULL;</td></tr>
+<tr><th id="925">925</th><td>  ASN1_TIME *certdate;</td></tr>
+<tr><th id="926">926</th><td>  curl_socket_t sockfd = conn-&gt;sock[sockindex];</td></tr>
+<tr><th id="927">927</th><td>  <b>struct</b> ssl_connect_data *connssl = &amp;conn-&gt;ssl[sockindex];</td></tr>
+<tr><th id="928">928</th><td></td></tr>
+<tr><th id="929">929</th><td>  <i>/* mark this is being ssl enabled from here on out. */</i></td></tr>
+<tr><th id="930">930</th><td>  connssl-&gt;use = TRUE;</td></tr>
+<tr><th id="931">931</th><td></td></tr>
+<tr><th id="932">932</th><td>  <b>if</b>(!ssl_seeded || data-&gt;set.ssl.random_file || data-&gt;set.ssl.egdsocket) {</td></tr>
+<tr><th id="933">933</th><td>    <i>/* Make funny stuff to get random input */</i></td></tr>
+<tr><th id="934">934</th><td>    random_the_seed(data);</td></tr>
+<tr><th id="935">935</th><td></td></tr>
+<tr><th id="936">936</th><td>    ssl_seeded = TRUE;</td></tr>
+<tr><th id="937">937</th><td>  }</td></tr>
+<tr><th id="938">938</th><td></td></tr>
+<tr><th id="939">939</th><td>  <i>/* check to see if we've been told to use an explicit SSL/TLS version */</i></td></tr>
+<tr><th id="940">940</th><td>  <b>switch</b>(data-&gt;set.ssl.version) {</td></tr>
+<tr><th id="941">941</th><td>  <b>default</b>:</td></tr>
+<tr><th id="942">942</th><td>  <b>case</b> CURL_SSLVERSION_DEFAULT:</td></tr>
+<tr><th id="943">943</th><td>    <i>/* we try to figure out version */</i></td></tr>
+<tr><th id="944">944</th><td>    req_method = SSLv23_client_method();</td></tr>
+<tr><th id="945">945</th><td>    <b>break</b>;</td></tr>
+<tr><th id="946">946</th><td>  <b>case</b> CURL_SSLVERSION_TLSv1:</td></tr>
+<tr><th id="947">947</th><td>    req_method = TLSv1_client_method();</td></tr>
+<tr><th id="948">948</th><td>    <b>break</b>;</td></tr>
+<tr><th id="949">949</th><td>  <b>case</b> CURL_SSLVERSION_SSLv2:</td></tr>
+<tr><th id="950">950</th><td>    req_method = SSLv2_client_method();</td></tr>
+<tr><th id="951">951</th><td>    <b>break</b>;</td></tr>
+<tr><th id="952">952</th><td>  <b>case</b> CURL_SSLVERSION_SSLv3:</td></tr>
+<tr><th id="953">953</th><td>    req_method = SSLv3_client_method();</td></tr>
+<tr><th id="954">954</th><td>    <b>break</b>;</td></tr>
+<tr><th id="955">955</th><td>  }</td></tr>
+<tr><th id="956">956</th><td>    </td></tr>
+<tr><th id="957">957</th><td>  connssl-&gt;ctx = SSL_CTX_new(req_method);</td></tr>
+<tr><th id="958">958</th><td></td></tr>
+<tr><th id="959">959</th><td>  <b>if</b>(!connssl-&gt;ctx) {</td></tr>
+<tr><th id="960">960</th><td>    failf(data, <q>"SSL: couldn't create a context!"</q>);</td></tr>
+<tr><th id="961">961</th><td>    <b>return</b> CURLE_OUT_OF_MEMORY;</td></tr>
+<tr><th id="962">962</th><td>  }</td></tr>
+<tr><th id="963">963</th><td></td></tr>
+<tr><th id="964">964</th><td>  <i>/* OpenSSL contains code to work-around lots of bugs and flaws in various</i></td></tr>
+<tr><th id="965">965</th><td><i>     SSL-implementations. SSL_CTX_set_options() is used to enabled those</i></td></tr>
+<tr><th id="966">966</th><td><i>     work-arounds. The man page for this option states that SSL_OP_ALL enables</i></td></tr>
+<tr><th id="967">967</th><td><i>     ll the work-arounds and that "It is usually safe to use SSL_OP_ALL to</i></td></tr>
+<tr><th id="968">968</th><td><i>     enable the bug workaround options if compatibility with somewhat broken</i></td></tr>
+<tr><th id="969">969</th><td><i>     implementations is desired."</i></td></tr>
+<tr><th id="970">970</th><td><i></i></td></tr>
+<tr><th id="971">971</th><td><i>  */</i></td></tr>
+<tr><th id="972">972</th><td>  SSL_CTX_set_options(connssl-&gt;ctx, SSL_OP_ALL);</td></tr>
+<tr><th id="973">973</th><td>    </td></tr>
+<tr><th id="974">974</th><td>  <b>if</b>(data-&gt;set.cert) {</td></tr>
+<tr><th id="975">975</th><td>    <b>if</b>(!cert_stuff(conn,</td></tr>
+<tr><th id="976">976</th><td>                   connssl-&gt;ctx,</td></tr>
+<tr><th id="977">977</th><td>                   data-&gt;set.cert,</td></tr>
+<tr><th id="978">978</th><td>                   data-&gt;set.cert_type,</td></tr>
+<tr><th id="979">979</th><td>                   data-&gt;set.key,</td></tr>
+<tr><th id="980">980</th><td>                   data-&gt;set.key_type)) {</td></tr>
+<tr><th id="981">981</th><td>      <i>/* failf() is already done in cert_stuff() */</i></td></tr>
+<tr><th id="982">982</th><td>      <b>return</b> CURLE_SSL_CERTPROBLEM;</td></tr>
+<tr><th id="983">983</th><td>    }</td></tr>
+<tr><th id="984">984</th><td>  }</td></tr>
+<tr><th id="985">985</th><td></td></tr>
+<tr><th id="986">986</th><td>  <b>if</b>(data-&gt;set.ssl.cipher_list) {</td></tr>
+<tr><th id="987">987</th><td>    <b>if</b>(!SSL_CTX_set_cipher_list(connssl-&gt;ctx,</td></tr>
+<tr><th id="988">988</th><td>                                data-&gt;set.ssl.cipher_list)) {</td></tr>
+<tr><th id="989">989</th><td>      failf(data, <q>"failed setting cipher list"</q>);</td></tr>
+<tr><th id="990">990</th><td>      <b>return</b> CURLE_SSL_CIPHER;</td></tr>
+<tr><th id="991">991</th><td>    }</td></tr>
+<tr><th id="992">992</th><td>  }</td></tr>
+<tr><th id="993">993</th><td></td></tr>
+<tr><th id="994">994</th><td>  <b>if</b> (data-&gt;set.ssl.CAfile || data-&gt;set.ssl.CApath) {</td></tr>
+<tr><th id="995">995</th><td>    <i>/* tell SSL where to find CA certificates that are used to verify</i></td></tr>
+<tr><th id="996">996</th><td><i>       the servers certificate. */</i></td></tr>
+<tr><th id="997">997</th><td>    <b>if</b> (!SSL_CTX_load_verify_locations(connssl-&gt;ctx, data-&gt;set.ssl.CAfile,</td></tr>
+<tr><th id="998">998</th><td>                                       data-&gt;set.ssl.CApath)) {</td></tr>
+<tr><th id="999">999</th><td>      <b>if</b> (data-&gt;set.ssl.verifypeer) {</td></tr>
+<tr><th id="1000">1000</th><td> 	<i>/* Fail if we insist on successfully verifying the server. */</i></td></tr>
+<tr><th id="1001">1001</th><td>        failf(data,<q>"error setting certificate verify locations:\n"</q></td></tr>
+<tr><th id="1002">1002</th><td>              <q>"  CAfile: %s\n  CApath: %s\n"</q>,</td></tr>
+<tr><th id="1003">1003</th><td>              data-&gt;set.ssl.CAfile ? data-&gt;set.ssl.CAfile : <q>"none"</q>,</td></tr>
+<tr><th id="1004">1004</th><td>              data-&gt;set.ssl.CApath ? data-&gt;set.ssl.CApath : <q>"none"</q>);</td></tr>
+<tr><th id="1005">1005</th><td>        <b>return</b> CURLE_SSL_CACERT;</td></tr>
+<tr><th id="1006">1006</th><td>      }</td></tr>
+<tr><th id="1007">1007</th><td>      <b>else</b> {</td></tr>
+<tr><th id="1008">1008</th><td>        <i>/* Just continue with a warning if no strict  certificate verification</i></td></tr>
+<tr><th id="1009">1009</th><td><i>           is required. */</i></td></tr>
+<tr><th id="1010">1010</th><td>        infof(data, <q>"error setting certificate verify locations,"</q></td></tr>
+<tr><th id="1011">1011</th><td>              <q>" continuing anyway:\n"</q>);</td></tr>
+<tr><th id="1012">1012</th><td>      }</td></tr>
+<tr><th id="1013">1013</th><td>    }</td></tr>
+<tr><th id="1014">1014</th><td>    <b>else</b> {</td></tr>
+<tr><th id="1015">1015</th><td>      <i>/* Everything is fine. */</i></td></tr>
+<tr><th id="1016">1016</th><td>      infof(data, <q>"successfully set certificate verify locations:\n"</q>);</td></tr>
+<tr><th id="1017">1017</th><td>    }</td></tr>
+<tr><th id="1018">1018</th><td>    infof(data,</td></tr>
+<tr><th id="1019">1019</th><td>          <q>"  CAfile: %s\n"</q></td></tr>
+<tr><th id="1020">1020</th><td>          <q>"  CApath: %s\n"</q>,</td></tr>
+<tr><th id="1021">1021</th><td>          data-&gt;set.ssl.CAfile ? data-&gt;set.ssl.CAfile : <q>"none"</q>,</td></tr>
+<tr><th id="1022">1022</th><td>          data-&gt;set.ssl.CApath ? data-&gt;set.ssl.CApath : <q>"none"</q>);</td></tr>
+<tr><th id="1023">1023</th><td>  }</td></tr>
+<tr><th id="1024">1024</th><td>  <i>/* SSL always tries to verify the peer, this only says whether it should</i></td></tr>
+<tr><th id="1025">1025</th><td><i>   * fail to connect if the verification fails, or if it should continue</i></td></tr>
+<tr><th id="1026">1026</th><td><i>   * anyway. In the latter case the result of the verification is checked with</i></td></tr>
+<tr><th id="1027">1027</th><td><i>   * SSL_get_verify_result() below. */</i></td></tr>
+<tr><th id="1028">1028</th><td>  SSL_CTX_set_verify(connssl-&gt;ctx,</td></tr>
+<tr><th id="1029">1029</th><td>                     data-&gt;set.ssl.verifypeer?SSL_VERIFY_PEER:SSL_VERIFY_NONE,</td></tr>
+<tr><th id="1030">1030</th><td>                     cert_verify_callback);</td></tr>
+<tr><th id="1031">1031</th><td></td></tr>
+<tr><th id="1032">1032</th><td>  <i>/* give application a chance to interfere with SSL set up. */</i></td></tr>
+<tr><th id="1033">1033</th><td>  <b>if</b>(data-&gt;set.ssl.fsslctx) {</td></tr>
+<tr><th id="1034">1034</th><td>    retcode = (*data-&gt;set.ssl.fsslctx)(data, connssl-&gt;ctx,</td></tr>
+<tr><th id="1035">1035</th><td>                                       data-&gt;set.ssl.fsslctxp);</td></tr>
+<tr><th id="1036">1036</th><td>    <b>if</b>(retcode) {</td></tr>
+<tr><th id="1037">1037</th><td>      failf(data,<q>"error signaled by ssl ctx callback"</q>);</td></tr>
+<tr><th id="1038">1038</th><td>      <b>return</b> retcode;</td></tr>
+<tr><th id="1039">1039</th><td>    }</td></tr>
+<tr><th id="1040">1040</th><td>  }</td></tr>
+<tr><th id="1041">1041</th><td></td></tr>
+<tr><th id="1042">1042</th><td>  <i>/* Lets make an SSL structure */</i></td></tr>
+<tr><th id="1043">1043</th><td>  connssl-&gt;handle = SSL_new(connssl-&gt;ctx);</td></tr>
+<tr><th id="1044">1044</th><td>  SSL_set_connect_state(connssl-&gt;handle);</td></tr>
+<tr><th id="1045">1045</th><td></td></tr>
+<tr><th id="1046">1046</th><td>  connssl-&gt;server_cert = <var>0x0</var>;</td></tr>
+<tr><th id="1047">1047</th><td></td></tr>
+<tr><th id="1048">1048</th><td>  <b>if</b>(!conn-&gt;bits.reuse) {</td></tr>
+<tr><th id="1049">1049</th><td>    <i>/* We're not re-using a connection, check if there's a cached ID we</i></td></tr>
+<tr><th id="1050">1050</th><td><i>       can/should use here! */</i></td></tr>
+<tr><th id="1051">1051</th><td>    <b>if</b>(!Get_SSL_Session(conn, &amp;ssl_sessionid)) {</td></tr>
+<tr><th id="1052">1052</th><td>      <i>/* we got a session id, use it! */</i></td></tr>
+<tr><th id="1053">1053</th><td>      SSL_set_session(connssl-&gt;handle, ssl_sessionid);</td></tr>
+<tr><th id="1054">1054</th><td>      <i>/* Informational message */</i></td></tr>
+<tr><th id="1055">1055</th><td>      infof (data, <q>"SSL re-using session ID\n"</q>);</td></tr>
+<tr><th id="1056">1056</th><td>    }</td></tr>
+<tr><th id="1057">1057</th><td>  }</td></tr>
+<tr><th id="1058">1058</th><td></td></tr>
+<tr><th id="1059">1059</th><td>  <i>/* pass the raw socket into the SSL layers */</i></td></tr>
+<tr><th id="1060">1060</th><td>  SSL_set_fd(connssl-&gt;handle, sockfd);</td></tr>
+<tr><th id="1061">1061</th><td></td></tr>
+<tr><th id="1062">1062</th><td>  <b>while</b>(<var>1</var>) {</td></tr>
+<tr><th id="1063">1063</th><td>    fd_set writefd;</td></tr>
+<tr><th id="1064">1064</th><td>    fd_set readfd;</td></tr>
+<tr><th id="1065">1065</th><td>    <b>struct</b> timeval interval;</td></tr>
+<tr><th id="1066">1066</th><td>    <em>long</em> timeout_ms;</td></tr>
+<tr><th id="1067">1067</th><td></td></tr>
+<tr><th id="1068">1068</th><td>    <i>/* Find out if any timeout is set. If not, use 300 seconds.</i></td></tr>
+<tr><th id="1069">1069</th><td><i>       Otherwise, figure out the most strict timeout of the two possible one</i></td></tr>
+<tr><th id="1070">1070</th><td><i>       and then how much time that has elapsed to know how much time we</i></td></tr>
+<tr><th id="1071">1071</th><td><i>       allow for the connect call */</i></td></tr>
+<tr><th id="1072">1072</th><td>    <b>if</b>(data-&gt;set.timeout || data-&gt;set.connecttimeout) {</td></tr>
+<tr><th id="1073">1073</th><td>      <em>double</em> has_passed;</td></tr>
+<tr><th id="1074">1074</th><td></td></tr>
+<tr><th id="1075">1075</th><td>      <i>/* Evaluate in milliseconds how much time that has passed */</i></td></tr>
+<tr><th id="1076">1076</th><td>      has_passed = Curl_tvdiff(Curl_tvnow(), data-&gt;progress.start);</td></tr>
+<tr><th id="1077">1077</th><td></td></tr>
+<tr><th id="1078">1078</th><td><u>#ifndef min</u></td></tr>
+<tr><th id="1079">1079</th><td><u>#define min(a, b)   ((a) &lt; (b) ? (a) : (b))</u></td></tr>
+<tr><th id="1080">1080</th><td><u>#endif</u></td></tr>
+<tr><th id="1081">1081</th><td></td></tr>
+<tr><th id="1082">1082</th><td>      <i>/* get the most strict timeout of the ones converted to milliseconds */</i></td></tr>
+<tr><th id="1083">1083</th><td>      <b>if</b>(data-&gt;set.timeout &amp;&amp;</td></tr>
+<tr><th id="1084">1084</th><td>         (data-&gt;set.timeout&gt;data-&gt;set.connecttimeout))</td></tr>
+<tr><th id="1085">1085</th><td>        timeout_ms = data-&gt;set.timeout*<var>1000</var>;</td></tr>
+<tr><th id="1086">1086</th><td>      <b>else</b></td></tr>
+<tr><th id="1087">1087</th><td>        timeout_ms = data-&gt;set.connecttimeout*<var>1000</var>;</td></tr>
+<tr><th id="1088">1088</th><td>      </td></tr>
+<tr><th id="1089">1089</th><td>      <i>/* subtract the passed time */</i></td></tr>
+<tr><th id="1090">1090</th><td>      timeout_ms -= (<em>long</em>)has_passed;</td></tr>
+<tr><th id="1091">1091</th><td>      </td></tr>
+<tr><th id="1092">1092</th><td>      <b>if</b>(timeout_ms &lt; <var>0</var>) {</td></tr>
+<tr><th id="1093">1093</th><td>        <i>/* a precaution, no need to continue if time already is up */</i></td></tr>
+<tr><th id="1094">1094</th><td>        failf(data, <q>"SSL connection timeout"</q>);</td></tr>
+<tr><th id="1095">1095</th><td>        <b>return</b> CURLE_OPERATION_TIMEOUTED;</td></tr>
+<tr><th id="1096">1096</th><td>      }</td></tr>
+<tr><th id="1097">1097</th><td>    }</td></tr>
+<tr><th id="1098">1098</th><td>    <b>else</b></td></tr>
+<tr><th id="1099">1099</th><td>      <i>/* no particular time-out has been set */</i></td></tr>
+<tr><th id="1100">1100</th><td>      timeout_ms=<var>300000</var>; <i>/* milliseconds, default to five minutes */</i></td></tr>
+<tr><th id="1101">1101</th><td></td></tr>
+<tr><th id="1102">1102</th><td></td></tr>
+<tr><th id="1103">1103</th><td>    FD_ZERO(&amp;writefd);</td></tr>
+<tr><th id="1104">1104</th><td>    FD_ZERO(&amp;readfd);</td></tr>
+<tr><th id="1105">1105</th><td></td></tr>
+<tr><th id="1106">1106</th><td>    err = SSL_connect(connssl-&gt;handle);</td></tr>
+<tr><th id="1107">1107</th><td></td></tr>
+<tr><th id="1108">1108</th><td>    <i>/* 1  is fine</i></td></tr>
+<tr><th id="1109">1109</th><td><i>       0  is "not successful but was shut down controlled"</i></td></tr>
+<tr><th id="1110">1110</th><td><i>       &lt;0 is "handshake was not successful, because a fatal error occurred" */</i></td></tr>
+<tr><th id="1111">1111</th><td>    <b>if</b>(<var>1</var> != err) {</td></tr>
+<tr><th id="1112">1112</th><td>      <em>int</em> detail = SSL_get_error(connssl-&gt;handle, err);</td></tr>
+<tr><th id="1113">1113</th><td></td></tr>
+<tr><th id="1114">1114</th><td>      <b>if</b>(SSL_ERROR_WANT_READ == detail)</td></tr>
+<tr><th id="1115">1115</th><td>        FD_SET(sockfd, &amp;readfd);</td></tr>
+<tr><th id="1116">1116</th><td>      <b>else</b> <b>if</b>(SSL_ERROR_WANT_WRITE == detail)</td></tr>
+<tr><th id="1117">1117</th><td>        FD_SET(sockfd, &amp;writefd);</td></tr>
+<tr><th id="1118">1118</th><td>      <b>else</b> {</td></tr>
+<tr><th id="1119">1119</th><td>        <i>/* untreated error */</i></td></tr>
+<tr><th id="1120">1120</th><td>        <em>char</em> error_buffer[<var>120</var>]; <i>/* OpenSSL documents that this must be at least</i></td></tr>
+<tr><th id="1121">1121</th><td><i>                                   120 bytes long. */</i></td></tr>
+<tr><th id="1122">1122</th><td></td></tr>
+<tr><th id="1123">1123</th><td>        detail = ERR_get_error(); <i>/* Gets the earliest error code from the</i></td></tr>
+<tr><th id="1124">1124</th><td><i>                                     thread's error queue and removes the</i></td></tr>
+<tr><th id="1125">1125</th><td><i>                                     entry. */</i></td></tr>
+<tr><th id="1126">1126</th><td></td></tr>
+<tr><th id="1127">1127</th><td>        <b>switch</b>(detail) {</td></tr>
+<tr><th id="1128">1128</th><td>        <b>case</b> <var>0x1407E086</var>:</td></tr>
+<tr><th id="1129">1129</th><td>          <i>/* 1407E086:</i></td></tr>
+<tr><th id="1130">1130</th><td><i>             SSL routines:</i></td></tr>
+<tr><th id="1131">1131</th><td><i>             SSL2_SET_CERTIFICATE:</i></td></tr>
+<tr><th id="1132">1132</th><td><i>             certificate verify failed */</i></td></tr>
+<tr><th id="1133">1133</th><td>        <b>case</b> <var>0x14090086</var>:</td></tr>
+<tr><th id="1134">1134</th><td>          <i>/* 14090086:</i></td></tr>
+<tr><th id="1135">1135</th><td><i>             SSL routines:</i></td></tr>
+<tr><th id="1136">1136</th><td><i>             SSL3_GET_SERVER_CERTIFICATE:</i></td></tr>
+<tr><th id="1137">1137</th><td><i>             certificate verify failed */</i></td></tr>
+<tr><th id="1138">1138</th><td>          failf(data,</td></tr>
+<tr><th id="1139">1139</th><td>                <q>"SSL certificate problem, verify that the CA cert is OK"</q>);</td></tr>
+<tr><th id="1140">1140</th><td>          <b>return</b> CURLE_SSL_CACERT;</td></tr>
+<tr><th id="1141">1141</th><td>        <b>default</b>:</td></tr>
+<tr><th id="1142">1142</th><td>          <i>/* detail is already set to the SSL error above */</i></td></tr>
+<tr><th id="1143">1143</th><td>          failf(data, <q>"SSL: %s"</q>, ERR_error_string(detail, error_buffer));</td></tr>
+<tr><th id="1144">1144</th><td>          <i>/* OpenSSL 0.9.6 and later has a function named</i></td></tr>
+<tr><th id="1145">1145</th><td><i>             ERRO_error_string_n() that takes the size of the buffer as a third</i></td></tr>
+<tr><th id="1146">1146</th><td><i>             argument, and we should possibly switch to using that one in the</i></td></tr>
+<tr><th id="1147">1147</th><td><i>             future. */</i></td></tr>
+<tr><th id="1148">1148</th><td>          <b>return</b> CURLE_SSL_CONNECT_ERROR;</td></tr>
+<tr><th id="1149">1149</th><td>        }</td></tr>
+<tr><th id="1150">1150</th><td>      }</td></tr>
+<tr><th id="1151">1151</th><td>    }</td></tr>
+<tr><th id="1152">1152</th><td>    <b>else</b></td></tr>
+<tr><th id="1153">1153</th><td>      <i>/* we have been connected fine, get out of the connect loop */</i></td></tr>
+<tr><th id="1154">1154</th><td>      <b>break</b>;</td></tr>
+<tr><th id="1155">1155</th><td></td></tr>
+<tr><th id="1156">1156</th><td>    interval.tv_sec = timeout_ms/<var>1000</var>;</td></tr>
+<tr><th id="1157">1157</th><td>    timeout_ms -= interval.tv_sec*<var>1000</var>;</td></tr>
+<tr><th id="1158">1158</th><td></td></tr>
+<tr><th id="1159">1159</th><td>    interval.tv_usec = timeout_ms*<var>1000</var>;</td></tr>
+<tr><th id="1160">1160</th><td></td></tr>
+<tr><th id="1161">1161</th><td>    <b>while</b>(<var>1</var>) {</td></tr>
+<tr><th id="1162">1162</th><td>      what = select(sockfd+<var>1</var>, &amp;readfd, &amp;writefd, NULL, &amp;interval);</td></tr>
+<tr><th id="1163">1163</th><td>      <b>if</b>(what &gt; <var>0</var>)</td></tr>
+<tr><th id="1164">1164</th><td>        <i>/* reabable or writable, go loop in the outer loop */</i></td></tr>
+<tr><th id="1165">1165</th><td>        <b>break</b>;</td></tr>
+<tr><th id="1166">1166</th><td>      <b>else</b> <b>if</b>(<var>0</var> == what) {</td></tr>
+<tr><th id="1167">1167</th><td>        <i>/* timeout */</i></td></tr>
+<tr><th id="1168">1168</th><td>        failf(data, <q>"SSL connection timeout"</q>);</td></tr>
+<tr><th id="1169">1169</th><td>        <b>return</b> CURLE_OPERATION_TIMEDOUT;</td></tr>
+<tr><th id="1170">1170</th><td>      }</td></tr>
+<tr><th id="1171">1171</th><td>      <b>else</b> {</td></tr>
+<tr><th id="1172">1172</th><td><u>#if !defined(WIN32) &amp;&amp; defined(EINTR)</u></td></tr>
+<tr><th id="1173">1173</th><td>        <i>/* For platforms without EINTR all errnos are bad */</i></td></tr>
+<tr><th id="1174">1174</th><td>        <b>if</b> (errno == EINTR)</td></tr>
+<tr><th id="1175">1175</th><td>          <b>continue</b>; <i>/* retry the select() */</i></td></tr>
+<tr><th id="1176">1176</th><td><u>#endif</u></td></tr>
+<tr><th id="1177">1177</th><td>        <i>/* anything other than the unimportant EINTR is fatally bad */</i></td></tr>
+<tr><th id="1178">1178</th><td>        failf(data, <q>"select on SSL socket, errno: %d"</q>, Curl_ourerrno());</td></tr>
+<tr><th id="1179">1179</th><td>        <b>return</b> CURLE_SSL_CONNECT_ERROR;</td></tr>
+<tr><th id="1180">1180</th><td>      }</td></tr>
+<tr><th id="1181">1181</th><td>    } <i>/* while()-loop for the select() */</i></td></tr>
+<tr><th id="1182">1182</th><td>  } <i>/* while()-loop for the SSL_connect() */</i></td></tr>
+<tr><th id="1183">1183</th><td></td></tr>
+<tr><th id="1184">1184</th><td>  <i>/* Informational message */</i></td></tr>
+<tr><th id="1185">1185</th><td>  infof (data, <q>"SSL connection using %s\n"</q>,</td></tr>
+<tr><th id="1186">1186</th><td>         SSL_get_cipher(connssl-&gt;handle));</td></tr>
+<tr><th id="1187">1187</th><td></td></tr>
+<tr><th id="1188">1188</th><td>  <b>if</b>(!ssl_sessionid) {</td></tr>
+<tr><th id="1189">1189</th><td>    <i>/* Since this is not a cached session ID, then we want to stach this one</i></td></tr>
+<tr><th id="1190">1190</th><td><i>       in the cache! */</i></td></tr>
+<tr><th id="1191">1191</th><td>    Store_SSL_Session(conn, connssl);</td></tr>
+<tr><th id="1192">1192</th><td>  }</td></tr>
+<tr><th id="1193">1193</th><td></td></tr>
+<tr><th id="1194">1194</th><td>  </td></tr>
+<tr><th id="1195">1195</th><td>  <i>/* Get server's certificate (note: beware of dynamic allocation) - opt */</i></td></tr>
+<tr><th id="1196">1196</th><td>  <i>/* major serious hack alert -- we should check certificates</i></td></tr>
+<tr><th id="1197">1197</th><td><i>   * to authenticate the server; otherwise we risk man-in-the-middle</i></td></tr>
+<tr><th id="1198">1198</th><td><i>   * attack</i></td></tr>
+<tr><th id="1199">1199</th><td><i>   */</i></td></tr>
+<tr><th id="1200">1200</th><td></td></tr>
+<tr><th id="1201">1201</th><td>  connssl-&gt;server_cert = SSL_get_peer_certificate(connssl-&gt;handle);</td></tr>
+<tr><th id="1202">1202</th><td>  <b>if</b>(!connssl-&gt;server_cert) {</td></tr>
+<tr><th id="1203">1203</th><td>    failf(data, <q>"SSL: couldn't get peer certificate!"</q>);</td></tr>
+<tr><th id="1204">1204</th><td>    <b>return</b> CURLE_SSL_PEER_CERTIFICATE;</td></tr>
+<tr><th id="1205">1205</th><td>  }</td></tr>
+<tr><th id="1206">1206</th><td>  infof (data, <q>"Server certificate:\n"</q>);</td></tr>
+<tr><th id="1207">1207</th><td>  </td></tr>
+<tr><th id="1208">1208</th><td>  str = X509_NAME_oneline(X509_get_subject_name(connssl-&gt;server_cert),</td></tr>
+<tr><th id="1209">1209</th><td>                          NULL, <var>0</var>);</td></tr>
+<tr><th id="1210">1210</th><td>  <b>if</b>(!str) {</td></tr>
+<tr><th id="1211">1211</th><td>    failf(data, <q>"SSL: couldn't get X509-subject!"</q>);</td></tr>
+<tr><th id="1212">1212</th><td>    X509_free(connssl-&gt;server_cert);</td></tr>
+<tr><th id="1213">1213</th><td>    <b>return</b> CURLE_SSL_CONNECT_ERROR;</td></tr>
+<tr><th id="1214">1214</th><td>  }</td></tr>
+<tr><th id="1215">1215</th><td>  infof(data, <q>"\t subject: %s\n"</q>, str);</td></tr>
+<tr><th id="1216">1216</th><td>  CRYPTO_free(str);</td></tr>
+<tr><th id="1217">1217</th><td></td></tr>
+<tr><th id="1218">1218</th><td>  certdate = X509_get_notBefore(connssl-&gt;server_cert);</td></tr>
+<tr><th id="1219">1219</th><td>  Curl_ASN1_UTCTIME_output(conn, <q>"\t start date: "</q>, certdate);</td></tr>
+<tr><th id="1220">1220</th><td></td></tr>
+<tr><th id="1221">1221</th><td>  certdate = X509_get_notAfter(connssl-&gt;server_cert);</td></tr>
+<tr><th id="1222">1222</th><td>  Curl_ASN1_UTCTIME_output(conn, <q>"\t expire date: "</q>, certdate);</td></tr>
+<tr><th id="1223">1223</th><td></td></tr>
+<tr><th id="1224">1224</th><td>  <b>if</b>(data-&gt;set.ssl.verifyhost) {</td></tr>
+<tr><th id="1225">1225</th><td>    retcode = verifyhost(conn, connssl-&gt;server_cert);</td></tr>
+<tr><th id="1226">1226</th><td>    <b>if</b>(retcode) {</td></tr>
+<tr><th id="1227">1227</th><td>      X509_free(connssl-&gt;server_cert);</td></tr>
+<tr><th id="1228">1228</th><td>      <b>return</b> retcode;</td></tr>
+<tr><th id="1229">1229</th><td>    }</td></tr>
+<tr><th id="1230">1230</th><td>  }</td></tr>
+<tr><th id="1231">1231</th><td></td></tr>
+<tr><th id="1232">1232</th><td>  str = X509_NAME_oneline(X509_get_issuer_name(connssl-&gt;server_cert),</td></tr>
+<tr><th id="1233">1233</th><td>                          NULL, <var>0</var>);</td></tr>
+<tr><th id="1234">1234</th><td>  <b>if</b>(!str) {</td></tr>
+<tr><th id="1235">1235</th><td>    failf(data, <q>"SSL: couldn't get X509-issuer name!"</q>);</td></tr>
+<tr><th id="1236">1236</th><td>    retcode = CURLE_SSL_CONNECT_ERROR;</td></tr>
+<tr><th id="1237">1237</th><td>  }</td></tr>
+<tr><th id="1238">1238</th><td>  <b>else</b> {</td></tr>
+<tr><th id="1239">1239</th><td>    infof(data, <q>"\t issuer: %s\n"</q>, str);</td></tr>
+<tr><th id="1240">1240</th><td>    CRYPTO_free(str);</td></tr>
+<tr><th id="1241">1241</th><td></td></tr>
+<tr><th id="1242">1242</th><td>    <i>/* We could do all sorts of certificate verification stuff here before</i></td></tr>
+<tr><th id="1243">1243</th><td><i>       deallocating the certificate. */</i></td></tr>
+<tr><th id="1244">1244</th><td>    </td></tr>
+<tr><th id="1245">1245</th><td>    data-&gt;set.ssl.certverifyresult=SSL_get_verify_result(connssl-&gt;handle);</td></tr>
+<tr><th id="1246">1246</th><td>    <b>if</b>(data-&gt;set.ssl.certverifyresult != X509_V_OK) {</td></tr>
+<tr><th id="1247">1247</th><td>      <b>if</b>(data-&gt;set.ssl.verifypeer) {</td></tr>
+<tr><th id="1248">1248</th><td>        <i>/* We probably never reach this, because SSL_connect() will fail</i></td></tr>
+<tr><th id="1249">1249</th><td><i>           and we return earlyer if verifypeer is set? */</i></td></tr>
+<tr><th id="1250">1250</th><td>        failf(data, <q>"SSL certificate verify result: %d"</q>,</td></tr>
+<tr><th id="1251">1251</th><td>              data-&gt;set.ssl.certverifyresult);</td></tr>
+<tr><th id="1252">1252</th><td>        retcode = CURLE_SSL_PEER_CERTIFICATE;</td></tr>
+<tr><th id="1253">1253</th><td>      }</td></tr>
+<tr><th id="1254">1254</th><td>      <b>else</b></td></tr>
+<tr><th id="1255">1255</th><td>        infof(data, <q>"SSL certificate verify result: %d, continuing anyway.\n"</q>,</td></tr>
+<tr><th id="1256">1256</th><td>              data-&gt;set.ssl.certverifyresult);</td></tr>
+<tr><th id="1257">1257</th><td>    }</td></tr>
+<tr><th id="1258">1258</th><td>    <b>else</b></td></tr>
+<tr><th id="1259">1259</th><td>      infof(data, <q>"SSL certificate verify ok.\n"</q>);</td></tr>
+<tr><th id="1260">1260</th><td>  }</td></tr>
+<tr><th id="1261">1261</th><td></td></tr>
+<tr><th id="1262">1262</th><td>  X509_free(connssl-&gt;server_cert);</td></tr>
+<tr><th id="1263">1263</th><td><u>#<span data-ppcond="918">else</span> /* USE_SSLEAY */</u></td></tr>
+<tr><th id="1264">1264</th><td>  (<em>void</em>)<a class="local col2 ref" href="#2conn" title='conn' data-ref="2conn">conn</a>;</td></tr>
+<tr><th id="1265">1265</th><td>  (<em>void</em>)<a class="local col3 ref" href="#3sockindex" title='sockindex' data-ref="3sockindex">sockindex</a>;</td></tr>
+<tr><th id="1266">1266</th><td><u>#<span data-ppcond="918">endif</span></u></td></tr>
+<tr><th id="1267">1267</th><td>  <b>return</b> <a class="local col4 ref" href="#4retcode" title='retcode' data-ref="4retcode">retcode</a>;</td></tr>
+<tr><th id="1268">1268</th><td>}</td></tr>
+<tr><th id="1269">1269</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

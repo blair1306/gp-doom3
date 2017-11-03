@@ -1,0 +1,11 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1179' type='viewLight_t * R_SetLightDefViewLight(idRenderLightLocal * def)'/>
+<use f='codebrowser/renderer/RenderWorld_portals.cpp' l='754' u='c' c='_ZN18idRenderWorldLocal16AddAreaLightRefsEiPK13portalStack_s'/>
+<def f='codebrowser/renderer/tr_light.cpp' l='458' ll='510' type='viewLight_t * R_SetLightDefViewLight(idRenderLightLocal * light)'/>
+<doc f='codebrowser/renderer/tr_light.cpp' l='450'>/*
+=============
+R_SetLightDefViewLight
+
+If the lightDef isn&apos;t already on the viewLight list, create
+a viewLight and add it to the list with an empty scissor rect.
+=============
+*/</doc>

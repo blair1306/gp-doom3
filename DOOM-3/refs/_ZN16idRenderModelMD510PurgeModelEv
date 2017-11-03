@@ -1,0 +1,12 @@
+<dec f='codebrowser/renderer/Model_local.h' l='175' type='void idRenderModelMD5::PurgeModel()'/>
+<use f='codebrowser/renderer/Model_md5.cpp' l='503' u='c' c='_ZN16idRenderModelMD59LoadModelEv'/>
+<inh f='codebrowser/renderer/Model_local.h' l='50' c='_ZN19idRenderModelStatic10PurgeModelEv'/>
+<def f='codebrowser/renderer/Model_md5.cpp' l='928' ll='933' type='void idRenderModelMD5::PurgeModel()'/>
+<doc f='codebrowser/renderer/Model_md5.cpp' l='920'>/*
+===================
+idRenderModelMD5::PurgeModel
+
+frees all the data, but leaves the class around for dangling references,
+which can regenerate the data with LoadModel()
+===================
+*/</doc>

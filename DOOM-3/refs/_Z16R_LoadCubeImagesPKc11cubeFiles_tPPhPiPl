@@ -1,0 +1,12 @@
+<dec f='codebrowser/renderer/Image.h' l='484' type='bool R_LoadCubeImages(const char * cname, cubeFiles_t extensions, byte ** pic, int * size, time_t * timestamp)'/>
+<doc f='codebrowser/renderer/Image.h' l='483'>// pic is in top to bottom raster format</doc>
+<def f='codebrowser/renderer/Image_files.cpp' l='1087' ll='1181' type='bool R_LoadCubeImages(const char * imgName, cubeFiles_t extensions, byte ** pics, int * outSize, time_t * timestamp)'/>
+<doc f='codebrowser/renderer/Image_files.cpp' l='1080'>/*
+=======================
+R_LoadCubeImages
+
+Loads six files with proper extensions
+=======================
+*/</doc>
+<use f='codebrowser/renderer/Image_init.cpp' l='1025' u='c' c='_ZN7idImage6ReloadEbb'/>
+<use f='codebrowser/renderer/Image_load.cpp' l='1603' u='c' c='_ZN7idImage17ActuallyLoadImageEbb'/>

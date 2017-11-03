@@ -1,0 +1,41 @@
+<dec f='codebrowser/curl/lib/urldata.h' l='454' type='curl_socket_t [2]'/>
+<offset>6272</offset>
+<doc f='codebrowser/curl/lib/urldata.h' l='454'>/* two sockets, the second is used for the data
+                            transfer when doing FTP */</doc>
+<use f='codebrowser/curl/lib/dict.c' l='92' u='r' c='Curl_dict'/>
+<use f='codebrowser/curl/lib/ftp.c' l='140' u='r' c='AllowServerConnect'/>
+<use f='codebrowser/curl/lib/ftp.c' l='190' u='w' c='AllowServerConnect'/>
+<use f='codebrowser/curl/lib/ftp.c' l='219' u='r' c='Curl_GetFTPResponse'/>
+<use f='codebrowser/curl/lib/ftp.c' l='773' u='r' c='Curl_ftp_done'/>
+<use f='codebrowser/curl/lib/ftp.c' l='774' u='w' c='Curl_ftp_done'/>
+<use f='codebrowser/curl/lib/ftp.c' l='1373' u='r' c='ftp_use_port'/>
+<use f='codebrowser/curl/lib/ftp.c' l='1393' u='w' c='ftp_use_port'/>
+<use f='codebrowser/curl/lib/ftp.c' l='1651' u='a' c='ftp_use_pasv'/>
+<use f='codebrowser/curl/lib/ftp.c' l='2387' u='r' c='Curl_ftp'/>
+<use f='codebrowser/curl/lib/ftp.c' l='2389' u='r' c='Curl_ftp'/>
+<use f='codebrowser/curl/lib/ftp.c' l='2390' u='w' c='Curl_ftp'/>
+<use f='codebrowser/curl/lib/ftp.c' l='2436' u='r' c='Curl_ftpsendf'/>
+<use f='codebrowser/curl/lib/http.c' l='534' u='r' c='add_buffer_send'/>
+<use f='codebrowser/curl/lib/http.c' l='753' u='r' c='Curl_ConnectHTTPProxyTunnel'/>
+<use f='codebrowser/curl/lib/multi.c' l='269' u='r' c='curl_multi_fdset'/>
+<use f='codebrowser/curl/lib/multi.c' l='278' u='r' c='curl_multi_fdset'/>
+<use f='codebrowser/curl/lib/multi.c' l='413' u='r' c='curl_multi_perform'/>
+<use f='codebrowser/curl/lib/multi.c' l='461' u='r' c='curl_multi_perform'/>
+<use f='codebrowser/curl/lib/multi.c' l='489' u='r' c='curl_multi_perform'/>
+<use f='codebrowser/curl/lib/multi.c' l='492' u='r' c='curl_multi_perform'/>
+<use f='codebrowser/curl/lib/multi.c' l='493' u='w' c='curl_multi_perform'/>
+<use f='codebrowser/curl/lib/transfer.c' l='1952' u='r' c='Curl_perform'/>
+<use f='codebrowser/curl/lib/transfer.c' l='1955' u='r' c='Curl_perform'/>
+<use f='codebrowser/curl/lib/transfer.c' l='1956' u='w' c='Curl_perform'/>
+<use f='codebrowser/curl/lib/transfer.c' l='2018' u='r' c='Curl_Transfer'/>
+<use f='codebrowser/curl/lib/transfer.c' l='2023' u='r' c='Curl_Transfer'/>
+<use f='codebrowser/curl/lib/url.c' l='1351' u='r' c='Curl_disconnect'/>
+<use f='codebrowser/curl/lib/url.c' l='1352' u='r' c='Curl_disconnect'/>
+<use f='codebrowser/curl/lib/url.c' l='1353' u='r' c='Curl_disconnect'/>
+<use f='codebrowser/curl/lib/url.c' l='1354' u='r' c='Curl_disconnect'/>
+<use f='codebrowser/curl/lib/url.c' l='1482' u='r' c='ConnectionExists'/>
+<use f='codebrowser/curl/lib/url.c' l='1627' u='r' c='handleSock5Proxy'/>
+<use f='codebrowser/curl/lib/url.c' l='1823' u='a' c='ConnectPlease'/>
+<use f='codebrowser/curl/lib/url.c' l='2032' u='w' c='CreateConnection'/>
+<use f='codebrowser/curl/lib/url.c' l='2033' u='w' c='CreateConnection'/>
+<use f='codebrowser/curl/lib/url.c' l='3174' u='r' c='SetupConnection'/>

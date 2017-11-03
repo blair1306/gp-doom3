@@ -1,0 +1,12 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1457' type='void CleanupOptimizedShadowTris(srfTriangles_t * tri)'/>
+<use f='codebrowser/renderer/tr_stencilshadow.cpp' l='1391' u='c' c='_Z20R_CreateShadowVolumePK19idRenderEntityLocalPK14srfTriangles_sPK18idRenderLightLocal11shadowGen_tR13srfCullInfo_t'/>
+<def f='codebrowser/tools/compilers/dmap/shadowopt3.cpp' l='1137' ll='1208' type='void CleanupOptimizedShadowTris(srfTriangles_t * tri)'/>
+<doc f='codebrowser/tools/compilers/dmap/shadowopt3.cpp' l='1128'>/*
+====================
+CleanupOptimizedShadowTris
+
+Uniques all verts across the frustums
+removes matched sil quads at frustum seams
+removes degenerate tris
+====================
+*/</doc>

@@ -1,0 +1,196 @@
+<def f='codebrowser/d3xp/physics/Clip.h' l='54' ll='136'/>
+<size>140</size>
+<doc f='codebrowser/d3xp/physics/Clip.h' l='48'>//===============================================================
+//
+//	idClipModel
+//
+//===============================================================</doc>
+<fun r='_ZN11idClipModelC1Ev'/>
+<fun r='_ZN11idClipModelC1EPKc'/>
+<fun r='_ZN11idClipModelC1ERK12idTraceModel'/>
+<fun r='_ZN11idClipModelC1Ei'/>
+<fun r='_ZN11idClipModelC1EPKS_'/>
+<fun r='_ZN11idClipModelD1Ev'/>
+<fun r='_ZN11idClipModel9LoadModelEPKc'/>
+<fun r='_ZN11idClipModel9LoadModelERK12idTraceModel'/>
+<fun r='_ZN11idClipModel9LoadModelEi'/>
+<fun r='_ZNK11idClipModel4SaveEP10idSaveGame'/>
+<fun r='_ZN11idClipModel7RestoreEP13idRestoreGame'/>
+<fun r='_ZN11idClipModel4LinkER6idClip'/>
+<fun r='_ZN11idClipModel4LinkER6idClipP8idEntityiRK6idVec3RK6idMat3i'/>
+<fun r='_ZN11idClipModel6UnlinkEv'/>
+<fun r='_ZN11idClipModel11SetPositionERK6idVec3RK6idMat3'/>
+<fun r='_ZN11idClipModel9TranslateERK6idVec3'/>
+<fun r='_ZN11idClipModel6RotateERK10idRotation'/>
+<fun r='_ZN11idClipModel6EnableEv'/>
+<fun r='_ZN11idClipModel7DisableEv'/>
+<fun r='_ZN11idClipModel11SetMaterialEPK10idMaterial'/>
+<fun r='_ZNK11idClipModel11GetMaterialEv'/>
+<fun r='_ZN11idClipModel11SetContentsEi'/>
+<fun r='_ZNK11idClipModel11GetContentsEv'/>
+<fun r='_ZN11idClipModel9SetEntityEP8idEntity'/>
+<fun r='_ZNK11idClipModel9GetEntityEv'/>
+<fun r='_ZN11idClipModel5SetIdEi'/>
+<fun r='_ZNK11idClipModel5GetIdEv'/>
+<fun r='_ZN11idClipModel8SetOwnerEP8idEntity'/>
+<fun r='_ZNK11idClipModel8GetOwnerEv'/>
+<fun r='_ZNK11idClipModel9GetBoundsEv'/>
+<fun r='_ZNK11idClipModel12GetAbsBoundsEv'/>
+<fun r='_ZNK11idClipModel9GetOriginEv'/>
+<fun r='_ZNK11idClipModel7GetAxisEv'/>
+<fun r='_ZNK11idClipModel12IsTraceModelEv'/>
+<fun r='_ZNK11idClipModel13IsRenderModelEv'/>
+<fun r='_ZNK11idClipModel8IsLinkedEv'/>
+<fun r='_ZNK11idClipModel9IsEnabledEv'/>
+<fun r='_ZNK11idClipModel7IsEqualERK12idTraceModel'/>
+<fun r='_ZNK11idClipModel6HandleEv'/>
+<fun r='_ZNK11idClipModel13GetTraceModelEv'/>
+<fun r='_ZNK11idClipModel17GetMassPropertiesEfRfR6idVec3R6idMat3'/>
+<fun r='_ZN11idClipModel10CheckModelEPKc'/>
+<fun r='_ZN11idClipModel20ClearTraceModelCacheEv'/>
+<fun r='_ZN11idClipModel19TraceModelCacheSizeEv'/>
+<fun r='_ZN11idClipModel15SaveTraceModelsEP10idSaveGame'/>
+<fun r='_ZN11idClipModel18RestoreTraceModelsEP13idRestoreGame'/>
+<mbr r='idClipModel::enabled' o='0' t='bool'/>
+<mbr r='idClipModel::entity' o='32' t='idEntity *'/>
+<mbr r='idClipModel::id' o='64' t='int'/>
+<mbr r='idClipModel::owner' o='96' t='idEntity *'/>
+<mbr r='idClipModel::origin' o='128' t='idVec3'/>
+<mbr r='idClipModel::axis' o='224' t='idMat3'/>
+<mbr r='idClipModel::bounds' o='512' t='idBounds'/>
+<mbr r='idClipModel::absBounds' o='704' t='idBounds'/>
+<mbr r='idClipModel::material' o='896' t='const idMaterial *'/>
+<mbr r='idClipModel::contents' o='928' t='int'/>
+<mbr r='idClipModel::collisionModelHandle' o='960' t='cmHandle_t'/>
+<mbr r='idClipModel::traceModelIndex' o='992' t='int'/>
+<mbr r='idClipModel::renderModelHandle' o='1024' t='int'/>
+<mbr r='idClipModel::clipLinks' o='1056' t='struct clipLink_s *'/>
+<mbr r='idClipModel::touchCount' o='1088' t='int'/>
+<fun r='_ZN11idClipModel4InitEv'/>
+<fun r='_ZN11idClipModel6Link_rEP12clipSector_s'/>
+<fun r='_ZN11idClipModel15AllocTraceModelERK12idTraceModel'/>
+<fun r='_ZN11idClipModel14FreeTraceModelEi'/>
+<fun r='_ZN11idClipModel19GetCachedTraceModelEi'/>
+<fun r='_ZN11idClipModel20GetTraceModelHashKeyERK12idTraceModel'/>
+<fun r='_ZN11idClipModel9TranslateERK6idVec3'/>
+<fun r='_ZN11idClipModel6RotateERK10idRotation'/>
+<fun r='_ZN11idClipModel6EnableEv'/>
+<fun r='_ZN11idClipModel7DisableEv'/>
+<fun r='_ZN11idClipModel11SetMaterialEPK10idMaterial'/>
+<fun r='_ZNK11idClipModel11GetMaterialEv'/>
+<fun r='_ZN11idClipModel11SetContentsEi'/>
+<fun r='_ZNK11idClipModel11GetContentsEv'/>
+<fun r='_ZN11idClipModel9SetEntityEP8idEntity'/>
+<fun r='_ZNK11idClipModel9GetEntityEv'/>
+<fun r='_ZN11idClipModel5SetIdEi'/>
+<fun r='_ZNK11idClipModel5GetIdEv'/>
+<fun r='_ZN11idClipModel8SetOwnerEP8idEntity'/>
+<fun r='_ZNK11idClipModel8GetOwnerEv'/>
+<fun r='_ZNK11idClipModel9GetBoundsEv'/>
+<fun r='_ZNK11idClipModel12GetAbsBoundsEv'/>
+<fun r='_ZNK11idClipModel9GetOriginEv'/>
+<fun r='_ZNK11idClipModel7GetAxisEv'/>
+<fun r='_ZNK11idClipModel13IsRenderModelEv'/>
+<fun r='_ZNK11idClipModel12IsTraceModelEv'/>
+<fun r='_ZNK11idClipModel8IsLinkedEv'/>
+<fun r='_ZNK11idClipModel9IsEnabledEv'/>
+<fun r='_ZNK11idClipModel7IsEqualERK12idTraceModel'/>
+<fun r='_ZNK11idClipModel13GetTraceModelEv'/>
+<def f='codebrowser/game/physics/Clip.h' l='54' ll='136'/>
+<size>140</size>
+<doc f='codebrowser/game/physics/Clip.h' l='48'>//===============================================================
+//
+//	idClipModel
+//
+//===============================================================</doc>
+<fun r='_ZN11idClipModelC1Ev'/>
+<fun r='_ZN11idClipModelC1EPKc'/>
+<fun r='_ZN11idClipModelC1ERK12idTraceModel'/>
+<fun r='_ZN11idClipModelC1Ei'/>
+<fun r='_ZN11idClipModelC1EPKS_'/>
+<fun r='_ZN11idClipModelD1Ev'/>
+<fun r='_ZN11idClipModel9LoadModelEPKc'/>
+<fun r='_ZN11idClipModel9LoadModelERK12idTraceModel'/>
+<fun r='_ZN11idClipModel9LoadModelEi'/>
+<fun r='_ZNK11idClipModel4SaveEP10idSaveGame'/>
+<fun r='_ZN11idClipModel7RestoreEP13idRestoreGame'/>
+<fun r='_ZN11idClipModel4LinkER6idClip'/>
+<fun r='_ZN11idClipModel4LinkER6idClipP8idEntityiRK6idVec3RK6idMat3i'/>
+<fun r='_ZN11idClipModel6UnlinkEv'/>
+<fun r='_ZN11idClipModel11SetPositionERK6idVec3RK6idMat3'/>
+<fun r='_ZN11idClipModel9TranslateERK6idVec3'/>
+<fun r='_ZN11idClipModel6RotateERK10idRotation'/>
+<fun r='_ZN11idClipModel6EnableEv'/>
+<fun r='_ZN11idClipModel7DisableEv'/>
+<fun r='_ZN11idClipModel11SetMaterialEPK10idMaterial'/>
+<fun r='_ZNK11idClipModel11GetMaterialEv'/>
+<fun r='_ZN11idClipModel11SetContentsEi'/>
+<fun r='_ZNK11idClipModel11GetContentsEv'/>
+<fun r='_ZN11idClipModel9SetEntityEP8idEntity'/>
+<fun r='_ZNK11idClipModel9GetEntityEv'/>
+<fun r='_ZN11idClipModel5SetIdEi'/>
+<fun r='_ZNK11idClipModel5GetIdEv'/>
+<fun r='_ZN11idClipModel8SetOwnerEP8idEntity'/>
+<fun r='_ZNK11idClipModel8GetOwnerEv'/>
+<fun r='_ZNK11idClipModel9GetBoundsEv'/>
+<fun r='_ZNK11idClipModel12GetAbsBoundsEv'/>
+<fun r='_ZNK11idClipModel9GetOriginEv'/>
+<fun r='_ZNK11idClipModel7GetAxisEv'/>
+<fun r='_ZNK11idClipModel12IsTraceModelEv'/>
+<fun r='_ZNK11idClipModel13IsRenderModelEv'/>
+<fun r='_ZNK11idClipModel8IsLinkedEv'/>
+<fun r='_ZNK11idClipModel9IsEnabledEv'/>
+<fun r='_ZNK11idClipModel7IsEqualERK12idTraceModel'/>
+<fun r='_ZNK11idClipModel6HandleEv'/>
+<fun r='_ZNK11idClipModel13GetTraceModelEv'/>
+<fun r='_ZNK11idClipModel17GetMassPropertiesEfRfR6idVec3R6idMat3'/>
+<fun r='_ZN11idClipModel10CheckModelEPKc'/>
+<fun r='_ZN11idClipModel20ClearTraceModelCacheEv'/>
+<fun r='_ZN11idClipModel19TraceModelCacheSizeEv'/>
+<fun r='_ZN11idClipModel15SaveTraceModelsEP10idSaveGame'/>
+<fun r='_ZN11idClipModel18RestoreTraceModelsEP13idRestoreGame'/>
+<mbr r='idClipModel::enabled' o='0' t='bool'/>
+<mbr r='idClipModel::entity' o='32' t='idEntity *'/>
+<mbr r='idClipModel::id' o='64' t='int'/>
+<mbr r='idClipModel::owner' o='96' t='idEntity *'/>
+<mbr r='idClipModel::origin' o='128' t='idVec3'/>
+<mbr r='idClipModel::axis' o='224' t='idMat3'/>
+<mbr r='idClipModel::bounds' o='512' t='idBounds'/>
+<mbr r='idClipModel::absBounds' o='704' t='idBounds'/>
+<mbr r='idClipModel::material' o='896' t='const idMaterial *'/>
+<mbr r='idClipModel::contents' o='928' t='int'/>
+<mbr r='idClipModel::collisionModelHandle' o='960' t='cmHandle_t'/>
+<mbr r='idClipModel::traceModelIndex' o='992' t='int'/>
+<mbr r='idClipModel::renderModelHandle' o='1024' t='int'/>
+<mbr r='idClipModel::clipLinks' o='1056' t='struct clipLink_s *'/>
+<mbr r='idClipModel::touchCount' o='1088' t='int'/>
+<fun r='_ZN11idClipModel4InitEv'/>
+<fun r='_ZN11idClipModel6Link_rEP12clipSector_s'/>
+<fun r='_ZN11idClipModel15AllocTraceModelERK12idTraceModel'/>
+<fun r='_ZN11idClipModel14FreeTraceModelEi'/>
+<fun r='_ZN11idClipModel19GetCachedTraceModelEi'/>
+<fun r='_ZN11idClipModel20GetTraceModelHashKeyERK12idTraceModel'/>
+<fun r='_ZN11idClipModel9TranslateERK6idVec3'/>
+<fun r='_ZN11idClipModel6RotateERK10idRotation'/>
+<fun r='_ZN11idClipModel6EnableEv'/>
+<fun r='_ZN11idClipModel7DisableEv'/>
+<fun r='_ZN11idClipModel11SetMaterialEPK10idMaterial'/>
+<fun r='_ZNK11idClipModel11GetMaterialEv'/>
+<fun r='_ZN11idClipModel11SetContentsEi'/>
+<fun r='_ZNK11idClipModel11GetContentsEv'/>
+<fun r='_ZN11idClipModel9SetEntityEP8idEntity'/>
+<fun r='_ZNK11idClipModel9GetEntityEv'/>
+<fun r='_ZN11idClipModel5SetIdEi'/>
+<fun r='_ZNK11idClipModel5GetIdEv'/>
+<fun r='_ZN11idClipModel8SetOwnerEP8idEntity'/>
+<fun r='_ZNK11idClipModel8GetOwnerEv'/>
+<fun r='_ZNK11idClipModel9GetBoundsEv'/>
+<fun r='_ZNK11idClipModel12GetAbsBoundsEv'/>
+<fun r='_ZNK11idClipModel9GetOriginEv'/>
+<fun r='_ZNK11idClipModel7GetAxisEv'/>
+<fun r='_ZNK11idClipModel13IsRenderModelEv'/>
+<fun r='_ZNK11idClipModel12IsTraceModelEv'/>
+<fun r='_ZNK11idClipModel8IsLinkedEv'/>
+<fun r='_ZNK11idClipModel9IsEnabledEv'/>
+<fun r='_ZNK11idClipModel7IsEqualERK12idTraceModel'/>
+<fun r='_ZNK11idClipModel13GetTraceModelEv'/>

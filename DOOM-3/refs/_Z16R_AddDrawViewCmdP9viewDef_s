@@ -1,0 +1,12 @@
+<dec f='codebrowser/renderer/tr_local.h' l='551' type='void R_AddDrawViewCmd(viewDef_t * parms)'/>
+<use f='codebrowser/renderer/GuiModel.cpp' l='296' u='c' c='_ZN10idGuiModel14EmitFullScreenEv'/>
+<def f='codebrowser/renderer/RenderSystem.cpp' l='208' ll='224' type='void R_AddDrawViewCmd(viewDef_t * parms)'/>
+<doc f='codebrowser/renderer/RenderSystem.cpp' l='200'>/*
+=============
+R_AddDrawViewCmd
+
+This is the main 3D rendering command.  A single scene may
+have multiple views if a mirror, portal, or dynamic texture is present.
+=============
+*/</doc>
+<use f='codebrowser/renderer/tr_main.cpp' l='1159' u='c' c='_Z12R_RenderViewP9viewDef_s'/>

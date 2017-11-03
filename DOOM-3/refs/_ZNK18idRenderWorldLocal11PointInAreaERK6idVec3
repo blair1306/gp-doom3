@@ -1,0 +1,14 @@
+<dec f='codebrowser/renderer/RenderWorld_local.h' l='107' type='int idRenderWorldLocal::PointInArea(const idVec3 &amp; point) const'/>
+<inh f='codebrowser/renderer/RenderWorld.h' l='353' c='_ZNK13idRenderWorld11PointInAreaERK6idVec3'/>
+<def f='codebrowser/renderer/RenderWorld.cpp' l='860' ll='890' type='int idRenderWorldLocal::PointInArea(const idVec3 &amp; point) const'/>
+<doc f='codebrowser/renderer/RenderWorld.cpp' l='852'>/*
+===============
+PointInAreaNum
+
+Will return -1 if the point is not in an area, otherwise
+it will return 0 &lt;= value &lt; tr.world-&gt;numPortalAreas
+===============
+*/</doc>
+<use f='codebrowser/renderer/RenderWorld_portals.cpp' l='850' u='c' c='_ZN18idRenderWorldLocal25FindViewLightsAndEntitiesEv'/>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='473' u='c' c='_Z17R_CreateLightRefsP18idRenderLightLocal'/>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='475' u='c' c='_Z17R_CreateLightRefsP18idRenderLightLocal'/>

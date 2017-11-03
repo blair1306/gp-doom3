@@ -1,0 +1,92 @@
+<dec f='codebrowser/d3xp/script/Script_Compiler.h' l='229' type='void idCompiler::ExpectToken(const char * string)'/>
+<def f='codebrowser/d3xp/script/Script_Compiler.cpp' l='771' ll='777' type='void idCompiler::ExpectToken(const char * string)'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='972' u='c' c='_ZN10idCompiler17EmitFunctionParmsEiP8idVarDefiiS1_'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='1232' u='c' c='_ZN10idCompiler9LookupDefEPKcPK8idVarDef'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='1285' u='c' c='_ZN10idCompiler10ParseValueEv'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='1404' u='c' c='_ZN10idCompiler7GetTermEv'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='1411' u='c' c='_ZN10idCompiler7GetTermEv'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='1431' u='c' c='_ZN10idCompiler7GetTermEv'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='1573' u='c' c='_ZN10idCompiler13GetExpressionEi'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='1578' u='c' c='_ZN10idCompiler13GetExpressionEi'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='1587' u='c' c='_ZN10idCompiler13GetExpressionEi'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='1692' u='c' c='_ZN10idCompiler20ParseReturnStatementEv'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='1739' u='c' c='_ZN10idCompiler19ParseWhileStatementEv'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='1743' u='c' c='_ZN10idCompiler19ParseWhileStatementEv'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='1814' u='c' c='_ZN10idCompiler17ParseForStatementEv'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='1822' u='c' c='_ZN10idCompiler17ParseForStatementEv'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='1829' u='c' c='_ZN10idCompiler17ParseForStatementEv'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='1846' u='c' c='_ZN10idCompiler17ParseForStatementEv'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='1882' u='c' c='_ZN10idCompiler21ParseDoWhileStatementEv'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='1883' u='c' c='_ZN10idCompiler21ParseDoWhileStatementEv'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='1885' u='c' c='_ZN10idCompiler21ParseDoWhileStatementEv'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='1886' u='c' c='_ZN10idCompiler21ParseDoWhileStatementEv'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='1906' u='c' c='_ZN10idCompiler16ParseIfStatementEv'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='1908' u='c' c='_ZN10idCompiler16ParseIfStatementEv'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='1967' u='c' c='_ZN10idCompiler14ParseStatementEv'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='1976' u='c' c='_ZN10idCompiler14ParseStatementEv'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='1995' u='c' c='_ZN10idCompiler14ParseStatementEv'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='2046' u='c' c='_ZN10idCompiler14ParseObjectDefEPKc'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='2070' u='c' c='_ZN10idCompiler14ParseObjectDefEPKc'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='2076' u='c' c='_ZN10idCompiler14ParseObjectDefEPKc'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='2103' u='c' c='_ZN10idCompiler13ParseFunctionEP9idTypeDefPKc'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='2150' u='c' c='_ZN10idCompiler16ParseFunctionDefEP9idTypeDefPKc'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='2424' u='c' c='_ZN10idCompiler13ParseEventDefEP9idTypeDefPKc'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='2447' u='c' c='_ZN10idCompiler13ParseEventDefEP9idTypeDefPKc'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='2453' u='c' c='_ZN10idCompiler13ParseEventDefEP9idTypeDefPKc'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='2521' u='c' c='_ZN10idCompiler9ParseDefsEv'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='2534' u='c' c='_ZN10idCompiler9ParseDefsEv'/>
+<use f='codebrowser/d3xp/script/Script_Compiler.cpp' l='2550' u='c' c='_ZN10idCompiler14ParseNamespaceEP8idVarDef'/>
+<doc f='codebrowser/d3xp/script/Script_Compiler.cpp' l='763'>/*
+=============
+idCompiler::ExpectToken
+
+Issues an Error if the current token isn&apos;t equal to string
+Gets the next token
+=============
+*/</doc>
+<dec f='codebrowser/game/script/Script_Compiler.h' l='229' type='void idCompiler::ExpectToken(const char * string)'/>
+<def f='codebrowser/game/script/Script_Compiler.cpp' l='771' ll='777' type='void idCompiler::ExpectToken(const char * string)'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='972' u='c' c='_ZN10idCompiler17EmitFunctionParmsEiP8idVarDefiiS1_'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='1232' u='c' c='_ZN10idCompiler9LookupDefEPKcPK8idVarDef'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='1285' u='c' c='_ZN10idCompiler10ParseValueEv'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='1404' u='c' c='_ZN10idCompiler7GetTermEv'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='1411' u='c' c='_ZN10idCompiler7GetTermEv'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='1431' u='c' c='_ZN10idCompiler7GetTermEv'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='1573' u='c' c='_ZN10idCompiler13GetExpressionEi'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='1578' u='c' c='_ZN10idCompiler13GetExpressionEi'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='1587' u='c' c='_ZN10idCompiler13GetExpressionEi'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='1692' u='c' c='_ZN10idCompiler20ParseReturnStatementEv'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='1739' u='c' c='_ZN10idCompiler19ParseWhileStatementEv'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='1743' u='c' c='_ZN10idCompiler19ParseWhileStatementEv'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='1814' u='c' c='_ZN10idCompiler17ParseForStatementEv'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='1822' u='c' c='_ZN10idCompiler17ParseForStatementEv'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='1829' u='c' c='_ZN10idCompiler17ParseForStatementEv'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='1846' u='c' c='_ZN10idCompiler17ParseForStatementEv'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='1882' u='c' c='_ZN10idCompiler21ParseDoWhileStatementEv'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='1883' u='c' c='_ZN10idCompiler21ParseDoWhileStatementEv'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='1885' u='c' c='_ZN10idCompiler21ParseDoWhileStatementEv'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='1886' u='c' c='_ZN10idCompiler21ParseDoWhileStatementEv'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='1906' u='c' c='_ZN10idCompiler16ParseIfStatementEv'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='1908' u='c' c='_ZN10idCompiler16ParseIfStatementEv'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='1967' u='c' c='_ZN10idCompiler14ParseStatementEv'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='1976' u='c' c='_ZN10idCompiler14ParseStatementEv'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='1995' u='c' c='_ZN10idCompiler14ParseStatementEv'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='2046' u='c' c='_ZN10idCompiler14ParseObjectDefEPKc'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='2070' u='c' c='_ZN10idCompiler14ParseObjectDefEPKc'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='2076' u='c' c='_ZN10idCompiler14ParseObjectDefEPKc'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='2103' u='c' c='_ZN10idCompiler13ParseFunctionEP9idTypeDefPKc'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='2150' u='c' c='_ZN10idCompiler16ParseFunctionDefEP9idTypeDefPKc'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='2424' u='c' c='_ZN10idCompiler13ParseEventDefEP9idTypeDefPKc'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='2447' u='c' c='_ZN10idCompiler13ParseEventDefEP9idTypeDefPKc'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='2453' u='c' c='_ZN10idCompiler13ParseEventDefEP9idTypeDefPKc'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='2521' u='c' c='_ZN10idCompiler9ParseDefsEv'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='2534' u='c' c='_ZN10idCompiler9ParseDefsEv'/>
+<use f='codebrowser/game/script/Script_Compiler.cpp' l='2550' u='c' c='_ZN10idCompiler14ParseNamespaceEP8idVarDef'/>
+<doc f='codebrowser/game/script/Script_Compiler.cpp' l='763'>/*
+=============
+idCompiler::ExpectToken
+
+Issues an Error if the current token isn&apos;t equal to string
+Gets the next token
+=============
+*/</doc>

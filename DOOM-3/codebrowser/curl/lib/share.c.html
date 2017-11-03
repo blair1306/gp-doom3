@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>share.c source code [codebrowser/curl/lib/share.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/curl/lib/share.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>curl</a>/<a href='./'>lib</a>/<a href='share.c.html'>share.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/***************************************************************************</i></td></tr>
+<tr><th id="2">2</th><td><i> *                                  _   _ ____  _     </i></td></tr>
+<tr><th id="3">3</th><td><i> *  Project                     ___| | | |  _ \| |    </i></td></tr>
+<tr><th id="4">4</th><td><i> *                             / __| | | | |_) | |    </i></td></tr>
+<tr><th id="5">5</th><td><i> *                            | (__| |_| |  _ &lt;| |___ </i></td></tr>
+<tr><th id="6">6</th><td><i> *                             \___|\___/|_| \_\_____|</i></td></tr>
+<tr><th id="7">7</th><td><i> *</i></td></tr>
+<tr><th id="8">8</th><td><i> * Copyright (C) 1998 - 2004, Daniel Stenberg, &lt;daniel@haxx.se&gt;, et al.</i></td></tr>
+<tr><th id="9">9</th><td><i> *</i></td></tr>
+<tr><th id="10">10</th><td><i> * This software is licensed as described in the file COPYING, which</i></td></tr>
+<tr><th id="11">11</th><td><i> * you should have received as part of this distribution. The terms</i></td></tr>
+<tr><th id="12">12</th><td><i> * are also available at <a href="http://curl.haxx.se/docs/copyright.html">http://curl.haxx.se/docs/copyright.html</a>.</i></td></tr>
+<tr><th id="13">13</th><td><i> * </i></td></tr>
+<tr><th id="14">14</th><td><i> * You may opt to use, copy, modify, merge, publish, distribute and/or sell</i></td></tr>
+<tr><th id="15">15</th><td><i> * copies of the Software, and permit persons to whom the Software is</i></td></tr>
+<tr><th id="16">16</th><td><i> * furnished to do so, under the terms of the COPYING file.</i></td></tr>
+<tr><th id="17">17</th><td><i> *</i></td></tr>
+<tr><th id="18">18</th><td><i> * This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY</i></td></tr>
+<tr><th id="19">19</th><td><i> * KIND, either express or implied.</i></td></tr>
+<tr><th id="20">20</th><td><i> *</i></td></tr>
+<tr><th id="21">21</th><td><i> * $Id: share.c,v 1.16 2004/02/26 11:39:38 bagder Exp $</i></td></tr>
+<tr><th id="22">22</th><td><i> ***************************************************************************/</i></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="setup.h.html">"setup.h"</a></u></td></tr>
+<tr><th id="25">25</th><td><u>#include &lt;stdarg.h&gt;</u></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="../../../include/stdlib.h.html">&lt;stdlib.h&gt;</a></u></td></tr>
+<tr><th id="27">27</th><td><u>#include <a href="../../../include/string.h.html">&lt;string.h&gt;</a></u></td></tr>
+<tr><th id="28">28</th><td><u>#include <a href="../include/curl/curl.h.html">&lt;curl/curl.h&gt;</a></u></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="urldata.h.html">"urldata.h"</a></u></td></tr>
+<tr><th id="30">30</th><td><u>#include <a href="share.h.html">"share.h"</a></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/* The last #include file should be: */</i></td></tr>
+<tr><th id="33">33</th><td><u>#<span data-ppcond="33">ifdef</span> <span class="macro" data-ref="_M/CURLDEBUG">CURLDEBUG</span></u></td></tr>
+<tr><th id="34">34</th><td><u>#include <a href="memdebug.h.html">"memdebug.h"</a></u></td></tr>
+<tr><th id="35">35</th><td><u>#<span data-ppcond="33">endif</span></u></td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLSH" title='CURLSH' data-type='void' data-ref="CURLSH">CURLSH</a> *</td></tr>
+<tr><th id="38">38</th><td><dfn class="decl def" id="curl_share_init" title='curl_share_init' data-ref="curl_share_init">curl_share_init</dfn>(<em>void</em>)</td></tr>
+<tr><th id="39">39</th><td>{</td></tr>
+<tr><th id="40">40</th><td>  <b>struct</b> <a class="type" href="share.h.html#Curl_share" title='Curl_share' data-ref="Curl_share">Curl_share</a> *<dfn class="local col1 decl" id="1share" title='share' data-type='struct Curl_share *' data-ref="1share">share</dfn> =</td></tr>
+<tr><th id="41">41</th><td>    (<b>struct</b> <a class="type" href="share.h.html#Curl_share" title='Curl_share' data-ref="Curl_share">Curl_share</a> *)<a class="macro" href="memdebug.h.html#75" title="curl_domalloc(sizeof(struct Curl_share), 41, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/share.c&quot;)" data-ref="_M/malloc">malloc</a>(<b>sizeof</b>(<b>struct</b> <a class="type" href="share.h.html#Curl_share" title='Curl_share' data-ref="Curl_share">Curl_share</a>));</td></tr>
+<tr><th id="42">42</th><td>  <b>if</b> (<a class="local col1 ref" href="#1share" title='share' data-ref="1share">share</a>) {</td></tr>
+<tr><th id="43">43</th><td>    <a class="ref" href="../../../include/string.h.html#memset" title='memset' data-ref="memset">memset</a> (<a class="local col1 ref" href="#1share" title='share' data-ref="1share">share</a>, <var>0</var>, <b>sizeof</b>(<b>struct</b> <a class="type" href="share.h.html#Curl_share" title='Curl_share' data-ref="Curl_share">Curl_share</a>));</td></tr>
+<tr><th id="44">44</th><td>    <a class="local col1 ref" href="#1share" title='share' data-ref="1share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::specifier" title='Curl_share::specifier' data-ref="Curl_share::specifier">specifier</a> |= (<var>1</var>&lt;&lt;<a class="enum" href="../include/curl/curl.h.html#CURL_LOCK_DATA_SHARE" title='CURL_LOCK_DATA_SHARE' data-ref="CURL_LOCK_DATA_SHARE">CURL_LOCK_DATA_SHARE</a>);</td></tr>
+<tr><th id="45">45</th><td>  }</td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td>  <b>return</b> <a class="local col1 ref" href="#1share" title='share' data-ref="1share">share</a>;</td></tr>
+<tr><th id="48">48</th><td>}</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLSHcode" title='CURLSHcode' data-type='enum CURLSHcode' data-ref="CURLSHcode">CURLSHcode</a></td></tr>
+<tr><th id="51">51</th><td><dfn class="decl def" id="curl_share_setopt" title='curl_share_setopt' data-ref="curl_share_setopt">curl_share_setopt</dfn>(<a class="typedef" href="../include/curl/curl.h.html#CURLSH" title='CURLSH' data-type='void' data-ref="CURLSH">CURLSH</a> *<dfn class="local col2 decl" id="2sh" title='sh' data-type='CURLSH *' data-ref="2sh">sh</dfn>, <a class="typedef" href="../include/curl/curl.h.html#CURLSHoption" title='CURLSHoption' data-type='enum CURLSHoption' data-ref="CURLSHoption">CURLSHoption</a> <dfn class="local col3 decl" id="3option" title='option' data-type='CURLSHoption' data-ref="3option">option</dfn>, ...)</td></tr>
+<tr><th id="52">52</th><td>{</td></tr>
+<tr><th id="53">53</th><td>  <b>struct</b> <a class="type" href="share.h.html#Curl_share" title='Curl_share' data-ref="Curl_share">Curl_share</a> *<dfn class="local col4 decl" id="4share" title='share' data-type='struct Curl_share *' data-ref="4share">share</dfn> = (<b>struct</b> <a class="type" href="share.h.html#Curl_share" title='Curl_share' data-ref="Curl_share">Curl_share</a> *)<a class="local col2 ref" href="#2sh" title='sh' data-ref="2sh">sh</a>;</td></tr>
+<tr><th id="54">54</th><td>  <span class='typedef' title='va_list' data-type='__gnuc_va_list' data-ref="va_list">va_list</span> <dfn class="local col5 decl" id="5param" title='param' data-type='va_list' data-ref="5param">param</dfn>;</td></tr>
+<tr><th id="55">55</th><td>  <em>int</em> <dfn class="local col6 decl" id="6type" title='type' data-type='int' data-ref="6type">type</dfn>;</td></tr>
+<tr><th id="56">56</th><td>  <a class="typedef" href="../include/curl/curl.h.html#curl_lock_function" title='curl_lock_function' data-type='void (*)(CURL *, curl_lock_data, curl_lock_access, void *)' data-ref="curl_lock_function">curl_lock_function</a> <dfn class="local col7 decl" id="7lockfunc" title='lockfunc' data-type='curl_lock_function' data-ref="7lockfunc">lockfunc</dfn>;</td></tr>
+<tr><th id="57">57</th><td>  <a class="typedef" href="../include/curl/curl.h.html#curl_unlock_function" title='curl_unlock_function' data-type='void (*)(CURL *, curl_lock_data, void *)' data-ref="curl_unlock_function">curl_unlock_function</a> <dfn class="local col8 decl" id="8unlockfunc" title='unlockfunc' data-type='curl_unlock_function' data-ref="8unlockfunc">unlockfunc</dfn>;</td></tr>
+<tr><th id="58">58</th><td>  <em>void</em> *<dfn class="local col9 decl" id="9ptr" title='ptr' data-type='void *' data-ref="9ptr">ptr</dfn>;</td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td>  <b>if</b> (<a class="local col4 ref" href="#4share" title='share' data-ref="4share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::dirty" title='Curl_share::dirty' data-ref="Curl_share::dirty">dirty</a>)</td></tr>
+<tr><th id="61">61</th><td>    <i>/* don't allow setting options while one or more handles are already</i></td></tr>
+<tr><th id="62">62</th><td><i>       using this share */</i></td></tr>
+<tr><th id="63">63</th><td>    <b>return</b> <a class="enum" href="../include/curl/curl.h.html#CURLSHE_IN_USE" title='CURLSHE_IN_USE' data-ref="CURLSHE_IN_USE">CURLSHE_IN_USE</a>;</td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td>  <span class="macro" title="__builtin_va_start(param, option)" data-ref="_M/va_start">va_start</span>(<a class="local col5 ref" href="#5param" title='param' data-ref="5param">param</a>, <a class="local col3 ref" href="#3option" title='option' data-ref="3option">option</a>);</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td>  <b>switch</b>(<a class="local col3 ref" href="#3option" title='option' data-ref="3option">option</a>) {</td></tr>
+<tr><th id="68">68</th><td>  <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURLSHOPT_SHARE" title='CURLSHOPT_SHARE' data-ref="CURLSHOPT_SHARE">CURLSHOPT_SHARE</a>:</td></tr>
+<tr><th id="69">69</th><td>    <i>/* this is a type this share will share */</i></td></tr>
+<tr><th id="70">70</th><td>    <a class="local col6 ref" href="#6type" title='type' data-ref="6type">type</a> = <span class="macro" title="__builtin_va_arg(param, int)" data-ref="_M/va_arg">va_arg</span>(<a class="local col5 ref" href="#5param" title='param' data-ref="5param">param</a>, <em>int</em>);</td></tr>
+<tr><th id="71">71</th><td>    <a class="local col4 ref" href="#4share" title='share' data-ref="4share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::specifier" title='Curl_share::specifier' data-ref="Curl_share::specifier">specifier</a> |= (<var>1</var>&lt;&lt;<a class="local col6 ref" href="#6type" title='type' data-ref="6type">type</a>);</td></tr>
+<tr><th id="72">72</th><td>    <b>switch</b>( <a class="local col6 ref" href="#6type" title='type' data-ref="6type">type</a> )</td></tr>
+<tr><th id="73">73</th><td>    {</td></tr>
+<tr><th id="74">74</th><td>      <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURL_LOCK_DATA_DNS" title='CURL_LOCK_DATA_DNS' data-ref="CURL_LOCK_DATA_DNS">CURL_LOCK_DATA_DNS</a>:</td></tr>
+<tr><th id="75">75</th><td>        <b>if</b> (!<a class="local col4 ref" href="#4share" title='share' data-ref="4share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::hostcache" title='Curl_share::hostcache' data-ref="Curl_share::hostcache">hostcache</a>) {</td></tr>
+<tr><th id="76">76</th><td>          <a class="local col4 ref" href="#4share" title='share' data-ref="4share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::hostcache" title='Curl_share::hostcache' data-ref="Curl_share::hostcache">hostcache</a> = <a class="ref" href="hash.h.html#Curl_hash_alloc" title='Curl_hash_alloc' data-ref="Curl_hash_alloc">Curl_hash_alloc</a>(<var>7</var>, <a class="ref" href="hostip.h.html#Curl_freednsinfo" title='Curl_freednsinfo' data-ref="Curl_freednsinfo">Curl_freednsinfo</a>);</td></tr>
+<tr><th id="77">77</th><td>        }</td></tr>
+<tr><th id="78">78</th><td>        <b>break</b>;</td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td>      <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURL_LOCK_DATA_COOKIE" title='CURL_LOCK_DATA_COOKIE' data-ref="CURL_LOCK_DATA_COOKIE">CURL_LOCK_DATA_COOKIE</a>:</td></tr>
+<tr><th id="81">81</th><td>        <b>if</b> (!<a class="local col4 ref" href="#4share" title='share' data-ref="4share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::cookies" title='Curl_share::cookies' data-ref="Curl_share::cookies">cookies</a>) {</td></tr>
+<tr><th id="82">82</th><td>          <a class="local col4 ref" href="#4share" title='share' data-ref="4share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::cookies" title='Curl_share::cookies' data-ref="Curl_share::cookies">cookies</a> = <a class="ref" href="cookie.h.html#Curl_cookie_init" title='Curl_cookie_init' data-ref="Curl_cookie_init">Curl_cookie_init</a>(<span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>, <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>, <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>, <a class="macro" href="setup.h.html#67" title="1" data-ref="_M/TRUE">TRUE</a> );</td></tr>
+<tr><th id="83">83</th><td>        }</td></tr>
+<tr><th id="84">84</th><td>        <b>break</b>;</td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td>      <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURL_LOCK_DATA_SSL_SESSION" title='CURL_LOCK_DATA_SSL_SESSION' data-ref="CURL_LOCK_DATA_SSL_SESSION">CURL_LOCK_DATA_SSL_SESSION</a>:</td></tr>
+<tr><th id="87">87</th><td>        <b>break</b>;</td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td>      <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURL_LOCK_DATA_CONNECT" title='CURL_LOCK_DATA_CONNECT' data-ref="CURL_LOCK_DATA_CONNECT">CURL_LOCK_DATA_CONNECT</a>:</td></tr>
+<tr><th id="90">90</th><td>        <b>break</b>;</td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td>      <b>default</b>:</td></tr>
+<tr><th id="93">93</th><td>        <b>return</b> <a class="enum" href="../include/curl/curl.h.html#CURLSHE_BAD_OPTION" title='CURLSHE_BAD_OPTION' data-ref="CURLSHE_BAD_OPTION">CURLSHE_BAD_OPTION</a>;</td></tr>
+<tr><th id="94">94</th><td>    }</td></tr>
+<tr><th id="95">95</th><td>    <b>break</b>;</td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td>  <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURLSHOPT_UNSHARE" title='CURLSHOPT_UNSHARE' data-ref="CURLSHOPT_UNSHARE">CURLSHOPT_UNSHARE</a>:</td></tr>
+<tr><th id="98">98</th><td>    <i>/* this is a type this share will no longer share */</i></td></tr>
+<tr><th id="99">99</th><td>    <a class="local col6 ref" href="#6type" title='type' data-ref="6type">type</a> = <span class="macro" title="__builtin_va_arg(param, int)" data-ref="_M/va_arg">va_arg</span>(<a class="local col5 ref" href="#5param" title='param' data-ref="5param">param</a>, <em>int</em>);</td></tr>
+<tr><th id="100">100</th><td>    <a class="local col4 ref" href="#4share" title='share' data-ref="4share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::specifier" title='Curl_share::specifier' data-ref="Curl_share::specifier">specifier</a> &amp;= ~(<var>1</var>&lt;&lt;<a class="local col6 ref" href="#6type" title='type' data-ref="6type">type</a>);</td></tr>
+<tr><th id="101">101</th><td>    <b>switch</b>( <a class="local col6 ref" href="#6type" title='type' data-ref="6type">type</a> )</td></tr>
+<tr><th id="102">102</th><td>    {</td></tr>
+<tr><th id="103">103</th><td>      <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURL_LOCK_DATA_DNS" title='CURL_LOCK_DATA_DNS' data-ref="CURL_LOCK_DATA_DNS">CURL_LOCK_DATA_DNS</a>:</td></tr>
+<tr><th id="104">104</th><td>        <b>if</b> (<a class="local col4 ref" href="#4share" title='share' data-ref="4share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::hostcache" title='Curl_share::hostcache' data-ref="Curl_share::hostcache">hostcache</a>) {</td></tr>
+<tr><th id="105">105</th><td>          <a class="ref" href="hash.h.html#Curl_hash_destroy" title='Curl_hash_destroy' data-ref="Curl_hash_destroy">Curl_hash_destroy</a>(<a class="local col4 ref" href="#4share" title='share' data-ref="4share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::hostcache" title='Curl_share::hostcache' data-ref="Curl_share::hostcache">hostcache</a>);</td></tr>
+<tr><th id="106">106</th><td>          <a class="local col4 ref" href="#4share" title='share' data-ref="4share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::hostcache" title='Curl_share::hostcache' data-ref="Curl_share::hostcache">hostcache</a> = <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="107">107</th><td>        }</td></tr>
+<tr><th id="108">108</th><td>        <b>break</b>;</td></tr>
+<tr><th id="109">109</th><td></td></tr>
+<tr><th id="110">110</th><td>      <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURL_LOCK_DATA_COOKIE" title='CURL_LOCK_DATA_COOKIE' data-ref="CURL_LOCK_DATA_COOKIE">CURL_LOCK_DATA_COOKIE</a>:</td></tr>
+<tr><th id="111">111</th><td>        <b>if</b> (<a class="local col4 ref" href="#4share" title='share' data-ref="4share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::cookies" title='Curl_share::cookies' data-ref="Curl_share::cookies">cookies</a>) {</td></tr>
+<tr><th id="112">112</th><td>          <a class="ref" href="cookie.h.html#Curl_cookie_cleanup" title='Curl_cookie_cleanup' data-ref="Curl_cookie_cleanup">Curl_cookie_cleanup</a>(<a class="local col4 ref" href="#4share" title='share' data-ref="4share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::cookies" title='Curl_share::cookies' data-ref="Curl_share::cookies">cookies</a>);</td></tr>
+<tr><th id="113">113</th><td>          <a class="local col4 ref" href="#4share" title='share' data-ref="4share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::cookies" title='Curl_share::cookies' data-ref="Curl_share::cookies">cookies</a> = <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="114">114</th><td>        }</td></tr>
+<tr><th id="115">115</th><td>        <b>break</b>;</td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td>      <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURL_LOCK_DATA_SSL_SESSION" title='CURL_LOCK_DATA_SSL_SESSION' data-ref="CURL_LOCK_DATA_SSL_SESSION">CURL_LOCK_DATA_SSL_SESSION</a>:</td></tr>
+<tr><th id="118">118</th><td>        <b>break</b>;</td></tr>
+<tr><th id="119">119</th><td></td></tr>
+<tr><th id="120">120</th><td>      <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURL_LOCK_DATA_CONNECT" title='CURL_LOCK_DATA_CONNECT' data-ref="CURL_LOCK_DATA_CONNECT">CURL_LOCK_DATA_CONNECT</a>:</td></tr>
+<tr><th id="121">121</th><td>        <b>break</b>;</td></tr>
+<tr><th id="122">122</th><td></td></tr>
+<tr><th id="123">123</th><td>      <b>default</b>:</td></tr>
+<tr><th id="124">124</th><td>        <b>return</b> <a class="enum" href="../include/curl/curl.h.html#CURLSHE_BAD_OPTION" title='CURLSHE_BAD_OPTION' data-ref="CURLSHE_BAD_OPTION">CURLSHE_BAD_OPTION</a>;</td></tr>
+<tr><th id="125">125</th><td>    }</td></tr>
+<tr><th id="126">126</th><td>    <b>break</b>;</td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td>  <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURLSHOPT_LOCKFUNC" title='CURLSHOPT_LOCKFUNC' data-ref="CURLSHOPT_LOCKFUNC">CURLSHOPT_LOCKFUNC</a>:</td></tr>
+<tr><th id="129">129</th><td>    <a class="local col7 ref" href="#7lockfunc" title='lockfunc' data-ref="7lockfunc">lockfunc</a> = <span class="macro" title="__builtin_va_arg(param, curl_lock_function)" data-ref="_M/va_arg">va_arg</span>(<a class="local col5 ref" href="#5param" title='param' data-ref="5param">param</a>, <a class="typedef" href="../include/curl/curl.h.html#curl_lock_function" title='curl_lock_function' data-type='void (*)(CURL *, curl_lock_data, curl_lock_access, void *)' data-ref="curl_lock_function">curl_lock_function</a>);</td></tr>
+<tr><th id="130">130</th><td>    <a class="local col4 ref" href="#4share" title='share' data-ref="4share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::lockfunc" title='Curl_share::lockfunc' data-ref="Curl_share::lockfunc">lockfunc</a> = <a class="local col7 ref" href="#7lockfunc" title='lockfunc' data-ref="7lockfunc">lockfunc</a>;</td></tr>
+<tr><th id="131">131</th><td>    <b>break</b>;</td></tr>
+<tr><th id="132">132</th><td></td></tr>
+<tr><th id="133">133</th><td>  <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURLSHOPT_UNLOCKFUNC" title='CURLSHOPT_UNLOCKFUNC' data-ref="CURLSHOPT_UNLOCKFUNC">CURLSHOPT_UNLOCKFUNC</a>:</td></tr>
+<tr><th id="134">134</th><td>    <a class="local col8 ref" href="#8unlockfunc" title='unlockfunc' data-ref="8unlockfunc">unlockfunc</a> = <span class="macro" title="__builtin_va_arg(param, curl_unlock_function)" data-ref="_M/va_arg">va_arg</span>(<a class="local col5 ref" href="#5param" title='param' data-ref="5param">param</a>, <a class="typedef" href="../include/curl/curl.h.html#curl_unlock_function" title='curl_unlock_function' data-type='void (*)(CURL *, curl_lock_data, void *)' data-ref="curl_unlock_function">curl_unlock_function</a>);</td></tr>
+<tr><th id="135">135</th><td>    <a class="local col4 ref" href="#4share" title='share' data-ref="4share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::unlockfunc" title='Curl_share::unlockfunc' data-ref="Curl_share::unlockfunc">unlockfunc</a> = <a class="local col8 ref" href="#8unlockfunc" title='unlockfunc' data-ref="8unlockfunc">unlockfunc</a>;    </td></tr>
+<tr><th id="136">136</th><td>    <b>break</b>;</td></tr>
+<tr><th id="137">137</th><td></td></tr>
+<tr><th id="138">138</th><td>  <b>case</b> <a class="enum" href="../include/curl/curl.h.html#CURLSHOPT_USERDATA" title='CURLSHOPT_USERDATA' data-ref="CURLSHOPT_USERDATA">CURLSHOPT_USERDATA</a>:</td></tr>
+<tr><th id="139">139</th><td>    <a class="local col9 ref" href="#9ptr" title='ptr' data-ref="9ptr">ptr</a> = <span class="macro" title="__builtin_va_arg(param, void *)" data-ref="_M/va_arg">va_arg</span>(<a class="local col5 ref" href="#5param" title='param' data-ref="5param">param</a>, <em>void</em> *);</td></tr>
+<tr><th id="140">140</th><td>    <a class="local col4 ref" href="#4share" title='share' data-ref="4share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::clientdata" title='Curl_share::clientdata' data-ref="Curl_share::clientdata">clientdata</a> = <a class="local col9 ref" href="#9ptr" title='ptr' data-ref="9ptr">ptr</a>;</td></tr>
+<tr><th id="141">141</th><td>    <b>break</b>;</td></tr>
+<tr><th id="142">142</th><td></td></tr>
+<tr><th id="143">143</th><td>  <b>default</b>:</td></tr>
+<tr><th id="144">144</th><td>    <b>return</b> <a class="enum" href="../include/curl/curl.h.html#CURLSHE_BAD_OPTION" title='CURLSHE_BAD_OPTION' data-ref="CURLSHE_BAD_OPTION">CURLSHE_BAD_OPTION</a>;</td></tr>
+<tr><th id="145">145</th><td>  }</td></tr>
+<tr><th id="146">146</th><td></td></tr>
+<tr><th id="147">147</th><td>  <b>return</b> <a class="enum" href="../include/curl/curl.h.html#CURLSHE_OK" title='CURLSHE_OK' data-ref="CURLSHE_OK">CURLSHE_OK</a>;</td></tr>
+<tr><th id="148">148</th><td>}</td></tr>
+<tr><th id="149">149</th><td></td></tr>
+<tr><th id="150">150</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLSHcode" title='CURLSHcode' data-type='enum CURLSHcode' data-ref="CURLSHcode">CURLSHcode</a></td></tr>
+<tr><th id="151">151</th><td><dfn class="decl def" id="curl_share_cleanup" title='curl_share_cleanup' data-ref="curl_share_cleanup">curl_share_cleanup</dfn>(<a class="typedef" href="../include/curl/curl.h.html#CURLSH" title='CURLSH' data-type='void' data-ref="CURLSH">CURLSH</a> *<dfn class="local col0 decl" id="10sh" title='sh' data-type='CURLSH *' data-ref="10sh">sh</dfn>)</td></tr>
+<tr><th id="152">152</th><td>{</td></tr>
+<tr><th id="153">153</th><td>  <b>struct</b> <a class="type" href="share.h.html#Curl_share" title='Curl_share' data-ref="Curl_share">Curl_share</a> *<dfn class="local col1 decl" id="11share" title='share' data-type='struct Curl_share *' data-ref="11share">share</dfn> = (<b>struct</b> <a class="type" href="share.h.html#Curl_share" title='Curl_share' data-ref="Curl_share">Curl_share</a> *)<a class="local col0 ref" href="#10sh" title='sh' data-ref="10sh">sh</a>;</td></tr>
+<tr><th id="154">154</th><td>  </td></tr>
+<tr><th id="155">155</th><td>  <b>if</b> (<a class="local col1 ref" href="#11share" title='share' data-ref="11share">share</a> == <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>)</td></tr>
+<tr><th id="156">156</th><td>    <b>return</b> <a class="enum" href="../include/curl/curl.h.html#CURLSHE_INVALID" title='CURLSHE_INVALID' data-ref="CURLSHE_INVALID">CURLSHE_INVALID</a>;</td></tr>
+<tr><th id="157">157</th><td>  </td></tr>
+<tr><th id="158">158</th><td>  <a class="local col1 ref" href="#11share" title='share' data-ref="11share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::lockfunc" title='Curl_share::lockfunc' data-ref="Curl_share::lockfunc">lockfunc</a>(<span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>, <a class="enum" href="../include/curl/curl.h.html#CURL_LOCK_DATA_SHARE" title='CURL_LOCK_DATA_SHARE' data-ref="CURL_LOCK_DATA_SHARE">CURL_LOCK_DATA_SHARE</a>, <a class="enum" href="../include/curl/curl.h.html#CURL_LOCK_ACCESS_SINGLE" title='CURL_LOCK_ACCESS_SINGLE' data-ref="CURL_LOCK_ACCESS_SINGLE">CURL_LOCK_ACCESS_SINGLE</a>,</td></tr>
+<tr><th id="159">159</th><td>                  <a class="local col1 ref" href="#11share" title='share' data-ref="11share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::clientdata" title='Curl_share::clientdata' data-ref="Curl_share::clientdata">clientdata</a>);</td></tr>
+<tr><th id="160">160</th><td>  </td></tr>
+<tr><th id="161">161</th><td>  <b>if</b> (<a class="local col1 ref" href="#11share" title='share' data-ref="11share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::dirty" title='Curl_share::dirty' data-ref="Curl_share::dirty">dirty</a>) {</td></tr>
+<tr><th id="162">162</th><td>    <a class="local col1 ref" href="#11share" title='share' data-ref="11share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::unlockfunc" title='Curl_share::unlockfunc' data-ref="Curl_share::unlockfunc">unlockfunc</a>(<span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>, <a class="enum" href="../include/curl/curl.h.html#CURL_LOCK_DATA_SHARE" title='CURL_LOCK_DATA_SHARE' data-ref="CURL_LOCK_DATA_SHARE">CURL_LOCK_DATA_SHARE</a>, <a class="local col1 ref" href="#11share" title='share' data-ref="11share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::clientdata" title='Curl_share::clientdata' data-ref="Curl_share::clientdata">clientdata</a>);</td></tr>
+<tr><th id="163">163</th><td>    <b>return</b> <a class="enum" href="../include/curl/curl.h.html#CURLSHE_IN_USE" title='CURLSHE_IN_USE' data-ref="CURLSHE_IN_USE">CURLSHE_IN_USE</a>;</td></tr>
+<tr><th id="164">164</th><td>  }</td></tr>
+<tr><th id="165">165</th><td></td></tr>
+<tr><th id="166">166</th><td>  <b>if</b>(<a class="local col1 ref" href="#11share" title='share' data-ref="11share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::hostcache" title='Curl_share::hostcache' data-ref="Curl_share::hostcache">hostcache</a>)</td></tr>
+<tr><th id="167">167</th><td>    <a class="ref" href="hash.h.html#Curl_hash_destroy" title='Curl_hash_destroy' data-ref="Curl_hash_destroy">Curl_hash_destroy</a>(<a class="local col1 ref" href="#11share" title='share' data-ref="11share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::hostcache" title='Curl_share::hostcache' data-ref="Curl_share::hostcache">hostcache</a>);</td></tr>
+<tr><th id="168">168</th><td></td></tr>
+<tr><th id="169">169</th><td>  <b>if</b>(<a class="local col1 ref" href="#11share" title='share' data-ref="11share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::cookies" title='Curl_share::cookies' data-ref="Curl_share::cookies">cookies</a>)</td></tr>
+<tr><th id="170">170</th><td>    <a class="ref" href="cookie.h.html#Curl_cookie_cleanup" title='Curl_cookie_cleanup' data-ref="Curl_cookie_cleanup">Curl_cookie_cleanup</a>(<a class="local col1 ref" href="#11share" title='share' data-ref="11share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::cookies" title='Curl_share::cookies' data-ref="Curl_share::cookies">cookies</a>);</td></tr>
+<tr><th id="171">171</th><td></td></tr>
+<tr><th id="172">172</th><td>  <a class="local col1 ref" href="#11share" title='share' data-ref="11share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::unlockfunc" title='Curl_share::unlockfunc' data-ref="Curl_share::unlockfunc">unlockfunc</a>(<span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>, <a class="enum" href="../include/curl/curl.h.html#CURL_LOCK_DATA_SHARE" title='CURL_LOCK_DATA_SHARE' data-ref="CURL_LOCK_DATA_SHARE">CURL_LOCK_DATA_SHARE</a>, <a class="local col1 ref" href="#11share" title='share' data-ref="11share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::clientdata" title='Curl_share::clientdata' data-ref="Curl_share::clientdata">clientdata</a>);</td></tr>
+<tr><th id="173">173</th><td>  <a class="macro" href="memdebug.h.html#78" title="curl_dofree(share, 173, &quot;/home/jon/workspace/id-software/DOOM-3/neo/curl/lib/share.c&quot;)" data-ref="_M/free">free</a> (<a class="local col1 ref" href="#11share" title='share' data-ref="11share">share</a>);</td></tr>
+<tr><th id="174">174</th><td>  </td></tr>
+<tr><th id="175">175</th><td>  <b>return</b> <a class="enum" href="../include/curl/curl.h.html#CURLSHE_OK" title='CURLSHE_OK' data-ref="CURLSHE_OK">CURLSHE_OK</a>;</td></tr>
+<tr><th id="176">176</th><td>}</td></tr>
+<tr><th id="177">177</th><td></td></tr>
+<tr><th id="178">178</th><td></td></tr>
+<tr><th id="179">179</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLSHcode" title='CURLSHcode' data-type='enum CURLSHcode' data-ref="CURLSHcode">CURLSHcode</a></td></tr>
+<tr><th id="180">180</th><td><dfn class="decl def" id="Curl_share_lock" title='Curl_share_lock' data-ref="Curl_share_lock">Curl_share_lock</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *<dfn class="local col2 decl" id="12data" title='data' data-type='struct SessionHandle *' data-ref="12data">data</dfn>, <a class="typedef" href="../include/curl/curl.h.html#curl_lock_data" title='curl_lock_data' data-type='enum curl_lock_data' data-ref="curl_lock_data">curl_lock_data</a> <dfn class="local col3 decl" id="13type" title='type' data-type='curl_lock_data' data-ref="13type">type</dfn>,</td></tr>
+<tr><th id="181">181</th><td>                <a class="typedef" href="../include/curl/curl.h.html#curl_lock_access" title='curl_lock_access' data-type='enum curl_lock_access' data-ref="curl_lock_access">curl_lock_access</a> <dfn class="local col4 decl" id="14accesstype" title='accesstype' data-type='curl_lock_access' data-ref="14accesstype">accesstype</dfn>)</td></tr>
+<tr><th id="182">182</th><td>{</td></tr>
+<tr><th id="183">183</th><td>  <b>struct</b> <a class="type" href="share.h.html#Curl_share" title='Curl_share' data-ref="Curl_share">Curl_share</a> *<dfn class="local col5 decl" id="15share" title='share' data-type='struct Curl_share *' data-ref="15share">share</dfn> = <a class="local col2 ref" href="#12data" title='data' data-ref="12data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::share" title='SessionHandle::share' data-ref="SessionHandle::share">share</a>;</td></tr>
+<tr><th id="184">184</th><td></td></tr>
+<tr><th id="185">185</th><td>  <b>if</b> (<a class="local col5 ref" href="#15share" title='share' data-ref="15share">share</a> == <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>)</td></tr>
+<tr><th id="186">186</th><td>    <b>return</b> <a class="enum" href="../include/curl/curl.h.html#CURLSHE_INVALID" title='CURLSHE_INVALID' data-ref="CURLSHE_INVALID">CURLSHE_INVALID</a>;</td></tr>
+<tr><th id="187">187</th><td></td></tr>
+<tr><th id="188">188</th><td>  <b>if</b>(<a class="local col5 ref" href="#15share" title='share' data-ref="15share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::specifier" title='Curl_share::specifier' data-ref="Curl_share::specifier">specifier</a> &amp; (<var>1</var>&lt;&lt;<a class="local col3 ref" href="#13type" title='type' data-ref="13type">type</a>)) {</td></tr>
+<tr><th id="189">189</th><td>    <b>if</b>(<a class="local col5 ref" href="#15share" title='share' data-ref="15share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::lockfunc" title='Curl_share::lockfunc' data-ref="Curl_share::lockfunc">lockfunc</a>) <i>/* only call this if set! */</i></td></tr>
+<tr><th id="190">190</th><td>      <a class="local col5 ref" href="#15share" title='share' data-ref="15share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::lockfunc" title='Curl_share::lockfunc' data-ref="Curl_share::lockfunc">lockfunc</a>(<a class="local col2 ref" href="#12data" title='data' data-ref="12data">data</a>, <a class="local col3 ref" href="#13type" title='type' data-ref="13type">type</a>, <a class="local col4 ref" href="#14accesstype" title='accesstype' data-ref="14accesstype">accesstype</a>, <a class="local col5 ref" href="#15share" title='share' data-ref="15share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::clientdata" title='Curl_share::clientdata' data-ref="Curl_share::clientdata">clientdata</a>);</td></tr>
+<tr><th id="191">191</th><td>  }</td></tr>
+<tr><th id="192">192</th><td>  <i>/* else if we don't share this, pretend successful lock */</i></td></tr>
+<tr><th id="193">193</th><td></td></tr>
+<tr><th id="194">194</th><td>  <b>return</b> <a class="enum" href="../include/curl/curl.h.html#CURLSHE_OK" title='CURLSHE_OK' data-ref="CURLSHE_OK">CURLSHE_OK</a>;</td></tr>
+<tr><th id="195">195</th><td>}</td></tr>
+<tr><th id="196">196</th><td></td></tr>
+<tr><th id="197">197</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLSHcode" title='CURLSHcode' data-type='enum CURLSHcode' data-ref="CURLSHcode">CURLSHcode</a></td></tr>
+<tr><th id="198">198</th><td><dfn class="decl def" id="Curl_share_unlock" title='Curl_share_unlock' data-ref="Curl_share_unlock">Curl_share_unlock</dfn>(<b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *<dfn class="local col6 decl" id="16data" title='data' data-type='struct SessionHandle *' data-ref="16data">data</dfn>, <a class="typedef" href="../include/curl/curl.h.html#curl_lock_data" title='curl_lock_data' data-type='enum curl_lock_data' data-ref="curl_lock_data">curl_lock_data</a> <dfn class="local col7 decl" id="17type" title='type' data-type='curl_lock_data' data-ref="17type">type</dfn>)</td></tr>
+<tr><th id="199">199</th><td>{</td></tr>
+<tr><th id="200">200</th><td>  <b>struct</b> <a class="type" href="share.h.html#Curl_share" title='Curl_share' data-ref="Curl_share">Curl_share</a> *<dfn class="local col8 decl" id="18share" title='share' data-type='struct Curl_share *' data-ref="18share">share</dfn> = <a class="local col6 ref" href="#16data" title='data' data-ref="16data">data</a>-&gt;<a class="ref" href="urldata.h.html#SessionHandle::share" title='SessionHandle::share' data-ref="SessionHandle::share">share</a>;</td></tr>
+<tr><th id="201">201</th><td></td></tr>
+<tr><th id="202">202</th><td>  <b>if</b> (<a class="local col8 ref" href="#18share" title='share' data-ref="18share">share</a> == <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>)</td></tr>
+<tr><th id="203">203</th><td>    <b>return</b> <a class="enum" href="../include/curl/curl.h.html#CURLSHE_INVALID" title='CURLSHE_INVALID' data-ref="CURLSHE_INVALID">CURLSHE_INVALID</a>;</td></tr>
+<tr><th id="204">204</th><td></td></tr>
+<tr><th id="205">205</th><td>  <b>if</b>(<a class="local col8 ref" href="#18share" title='share' data-ref="18share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::specifier" title='Curl_share::specifier' data-ref="Curl_share::specifier">specifier</a> &amp; (<var>1</var>&lt;&lt;<a class="local col7 ref" href="#17type" title='type' data-ref="17type">type</a>)) {</td></tr>
+<tr><th id="206">206</th><td>    <b>if</b>(<a class="local col8 ref" href="#18share" title='share' data-ref="18share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::unlockfunc" title='Curl_share::unlockfunc' data-ref="Curl_share::unlockfunc">unlockfunc</a>) <i>/* only call this if set! */</i></td></tr>
+<tr><th id="207">207</th><td>      <a class="local col8 ref" href="#18share" title='share' data-ref="18share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::unlockfunc" title='Curl_share::unlockfunc' data-ref="Curl_share::unlockfunc">unlockfunc</a> (<a class="local col6 ref" href="#16data" title='data' data-ref="16data">data</a>, <a class="local col7 ref" href="#17type" title='type' data-ref="17type">type</a>, <a class="local col8 ref" href="#18share" title='share' data-ref="18share">share</a>-&gt;<a class="ref" href="share.h.html#Curl_share::clientdata" title='Curl_share::clientdata' data-ref="Curl_share::clientdata">clientdata</a>);</td></tr>
+<tr><th id="208">208</th><td>  }</td></tr>
+<tr><th id="209">209</th><td></td></tr>
+<tr><th id="210">210</th><td>  <b>return</b> <a class="enum" href="../include/curl/curl.h.html#CURLSHE_OK" title='CURLSHE_OK' data-ref="CURLSHE_OK">CURLSHE_OK</a>;</td></tr>
+<tr><th id="211">211</th><td>}</td></tr>
+<tr><th id="212">212</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

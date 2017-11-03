@@ -1,0 +1,32 @@
+<dec f='codebrowser/d3xp/Game_local.h' l='486' type='idEntity * idGameLocal::FindEntityUsingDef(idEntity * from, const char * match) const'/>
+<def f='codebrowser/d3xp/Game_local.cpp' l='3653' ll='3670' type='idEntity * idGameLocal::FindEntityUsingDef(idEntity * from, const char * match) const'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4419' u='c' c='_ZN11idGameLocal22RandomizeInitialSpawnsEv'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4444' u='c' c='_ZN11idGameLocal22RandomizeInitialSpawnsEv'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4544' u='c' c='_ZN11idGameLocal23SelectInitialSpawnPointEP8idPlayer'/>
+<doc f='codebrowser/d3xp/Game_local.cpp' l='3643'>/*
+=============
+idGameLocal::FindEntityUsingDef
+
+Searches all active entities for the next one using the specified entityDef.
+
+Searches beginning at the entity after from, or the beginning if NULL
+NULL will be returned if the end of the list is reached.
+=============
+*/</doc>
+<use f='codebrowser/d3xp/MultiplayerGame.cpp' l='4241' u='c' c='_ZN17idMultiplayerGame13FindTeamFlagsEv'/>
+<use f='codebrowser/d3xp/MultiplayerGame.cpp' l='4255' u='c' c='_ZN17idMultiplayerGame13FindTeamFlagsEv'/>
+<dec f='codebrowser/game/Game_local.h' l='424' type='idEntity * idGameLocal::FindEntityUsingDef(idEntity * from, const char * match) const'/>
+<def f='codebrowser/game/Game_local.cpp' l='3363' ll='3380' type='idEntity * idGameLocal::FindEntityUsingDef(idEntity * from, const char * match) const'/>
+<use f='codebrowser/game/Game_local.cpp' l='4110' u='c' c='_ZN11idGameLocal22RandomizeInitialSpawnsEv'/>
+<use f='codebrowser/game/Game_local.cpp' l='4116' u='c' c='_ZN11idGameLocal22RandomizeInitialSpawnsEv'/>
+<use f='codebrowser/game/Game_local.cpp' l='4157' u='c' c='_ZN11idGameLocal23SelectInitialSpawnPointEP8idPlayer'/>
+<doc f='codebrowser/game/Game_local.cpp' l='3353'>/*
+=============
+idGameLocal::FindEntityUsingDef
+
+Searches all active entities for the next one using the specified entityDef.
+
+Searches beginning at the entity after from, or the beginning if NULL
+NULL will be returned if the end of the list is reached.
+=============
+*/</doc>

@@ -1,0 +1,68 @@
+<dec f='include/ctype.h' l='79' type='const unsigned short ** __ctype_b_loc()'/>
+<use f='include/ctype.h' l='95' u='c' c='isalnum'/>
+<use f='include/ctype.h' l='95' u='c' c='isalpha'/>
+<use f='include/ctype.h' l='95' u='c' c='iscntrl'/>
+<use f='include/ctype.h' l='95' u='c' c='isdigit'/>
+<use f='include/ctype.h' l='95' u='c' c='islower'/>
+<use f='include/ctype.h' l='95' u='c' c='isgraph'/>
+<use f='include/ctype.h' l='95' u='c' c='isprint'/>
+<use f='include/ctype.h' l='95' u='c' c='ispunct'/>
+<use f='include/ctype.h' l='95' u='c' c='isspace'/>
+<use f='include/ctype.h' l='95' u='c' c='isupper'/>
+<use f='include/ctype.h' l='95' u='c' c='isxdigit'/>
+<use f='include/ctype.h' l='95' u='c' c='isblank'/>
+<doc f='include/ctype.h' l='63'>/* These are defined in ctype-info.c.
+   The declarations here must match those in localeinfo.h.
+
+   In the thread-specific locale model (see `uselocale&apos; in &lt;locale.h&gt;)
+   we cannot use global variables for these as was done in the past.
+   Instead, the following accessor functions return the address of
+   each variable, which is local to the current thread if multithreaded.
+
+   These point into arrays of 384, so they can be indexed by any `unsigned
+   char&apos; value [0,255]; by EOF (-1); or by any `signed char&apos; value
+   [-128,-1).  ISO C requires that the ctype functions work for `unsigned
+   char&apos; values and for EOF; we also support negative `signed char&apos; values
+   for broken old programs.  The case conversion arrays are of `int&apos;s
+   rather than `unsigned char&apos;s because tolower (EOF) must be EOF, which
+   doesn&apos;t fit into an `unsigned char&apos;.  But today more important is that
+   the arrays are also used for multi-byte character sets.  */</doc>
+<use f='codebrowser/curl/lib/cookie.c' l='170' macro='1' u='c'/>
+<use f='codebrowser/curl/lib/cookie.c' l='193' macro='1' u='c'/>
+<use f='codebrowser/curl/lib/cookie.c' l='200' macro='1' u='c'/>
+<use f='codebrowser/curl/lib/cookie.c' l='326' macro='1' u='c'/>
+<use f='codebrowser/curl/lib/cookie.c' l='636' macro='1' u='c'/>
+<use f='codebrowser/curl/lib/ftp.c' l='366' macro='1' u='c'/>
+<use f='codebrowser/curl/lib/ftp.c' l='366' macro='1' u='c'/>
+<use f='codebrowser/curl/lib/ftp.c' l='366' macro='1' u='c'/>
+<use f='codebrowser/curl/lib/ftp.c' l='1849' macro='1' u='c'/>
+<use f='codebrowser/curl/lib/ftp.c' l='2060' macro='1' u='c'/>
+<use f='codebrowser/curl/lib/getdate.c' l='753' macro='1' u='c'/>
+<use f='codebrowser/curl/lib/getdate.c' l='834' macro='1' u='c'/>
+<use f='codebrowser/curl/lib/getdate.c' l='873' macro='1' u='c'/>
+<use f='codebrowser/curl/lib/getdate.c' l='894' macro='1' u='c'/>
+<use f='codebrowser/curl/lib/getdate.c' l='896' macro='1' u='c'/>
+<use f='codebrowser/curl/lib/http.c' l='349' macro='1' u='c'/>
+<use f='codebrowser/curl/lib/http.c' l='699' macro='1' u='c'/>
+<use f='codebrowser/curl/lib/http.c' l='1157' macro='1' u='c'/>
+<use f='codebrowser/curl/lib/http.c' l='1162' macro='1' u='c'/>
+<use f='codebrowser/curl/lib/http.c' l='1454' macro='1' u='c'/>
+<use f='codebrowser/curl/lib/http_chunks.c' l='118' macro='1' u='c'/>
+<use f='codebrowser/curl/lib/http_digest.c' l='62' macro='1' u='c'/>
+<use f='codebrowser/curl/lib/http_digest.c' l='76' macro='1' u='c'/>
+<use f='codebrowser/curl/lib/mprintf.c' l='158' macro='1' u='c'/>
+<use f='codebrowser/curl/lib/transfer.c' l='644' macro='1' u='c'/>
+<use f='codebrowser/curl/lib/transfer.c' l='653' macro='1' u='c'/>
+<use f='codebrowser/curl/lib/transfer.c' l='731' macro='1' u='c'/>
+<use f='codebrowser/curl/lib/transfer.c' l='808' macro='1' u='c'/>
+<use f='codebrowser/curl/lib/transfer.c' l='817' macro='1' u='c'/>
+<use f='codebrowser/curl/src/main.c' l='812' macro='1' u='c'/>
+<use f='codebrowser/curl/src/main.c' l='1006' macro='1' u='c'/>
+<use f='codebrowser/curl/src/main.c' l='2074' macro='1' u='c'/>
+<use f='codebrowser/curl/src/main.c' l='2090' macro='1' u='c'/>
+<use f='codebrowser/curl/src/main.c' l='2102' macro='1' u='c'/>
+<use f='codebrowser/curl/src/main.c' l='2147' macro='1' u='c'/>
+<use f='codebrowser/curl/src/urlglob.c' l='157' macro='1' u='c'/>
+<use f='codebrowser/curl/src/urlglob.c' l='181' macro='1' u='c'/>
+<use f='codebrowser/curl/src/urlglob.c' l='197' macro='1' u='c'/>
+<use f='codebrowser/curl/src/urlglob.c' l='447' macro='1' u='c'/>

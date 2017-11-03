@@ -1,0 +1,17 @@
+<dec f='codebrowser/curl/lib/sendf.h' l='42' type='int Curl_read(struct connectdata * conn, curl_socket_t sockfd, char * buf, size_t buffersize, ssize_t * n)'/>
+<doc f='codebrowser/curl/lib/sendf.h' l='41'>/* internal read-function, does plain socket, SSL and krb4 */</doc>
+<use f='codebrowser/curl/lib/ftp.c' l='320' u='c' c='Curl_GetFTPResponse'/>
+<use f='codebrowser/curl/lib/http.c' l='844' u='c' c='Curl_ConnectHTTPProxyTunnel'/>
+<def f='codebrowser/curl/lib/sendf.c' l='362' ll='436' type='int Curl_read(struct connectdata * conn, curl_socket_t sockfd, char * buf, size_t buffersize, ssize_t * n)'/>
+<doc f='codebrowser/curl/lib/sendf.c' l='355'>/*
+ * Internal read-from-socket function. This is meant to deal with plain
+ * sockets, SSL sockets and kerberos sockets.
+ *
+ * If the read would block (EWOULDBLOCK) we return -1. Otherwise we return
+ * a regular CURLcode value.
+ */</doc>
+<doc f='codebrowser/curl/lib/sendf.c' l='362'>/* connection data */</doc>
+<use f='codebrowser/curl/lib/transfer.c' l='249' u='c' c='Curl_readwrite'/>
+<use f='codebrowser/curl/lib/url.c' l='1643' u='c' c='handleSock5Proxy'/>
+<use f='codebrowser/curl/lib/url.c' l='1686' u='c' c='handleSock5Proxy'/>
+<use f='codebrowser/curl/lib/url.c' l='1784' u='c' c='handleSock5Proxy'/>

@@ -1,0 +1,55 @@
+<dec f='codebrowser/d3xp/Player.h' l='444' type='void idPlayer::Damage(idEntity * inflictor, idEntity * attacker, const idVec3 &amp; dir, const char * damageDefName, const float damageScale, const int location)'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='3394' u='c' c='_ZN11idShockwave5ThinkEv'/>
+<use f='codebrowser/d3xp/Player.cpp' l='5656' u='c' c='_ZN8idPlayer9CrashLandERK6idVec3S2_'/>
+<use f='codebrowser/d3xp/Player.cpp' l='5664' u='c' c='_ZN8idPlayer9CrashLandERK6idVec3S2_'/>
+<use f='codebrowser/d3xp/Player.cpp' l='5672' u='c' c='_ZN8idPlayer9CrashLandERK6idVec3S2_'/>
+<use f='codebrowser/d3xp/Player.cpp' l='6088' u='c' c='_ZN8idPlayer9UpdateAirEv'/>
+<use f='codebrowser/d3xp/Player.cpp' l='7757' u='c' c='_ZN8idPlayer4KillEbb'/>
+<inh f='codebrowser/d3xp/Actor.h' l='168' c='_ZN7idActor6DamageEP8idEntityS1_RK6idVec3PKcfi'/>
+<def f='codebrowser/d3xp/Player.cpp' l='8033' ll='8222' type='void idPlayer::Damage(idEntity * inflictor, idEntity * attacker, const idVec3 &amp; dir, const char * damageDefName, const float damageScale, const int location)'/>
+<use f='codebrowser/d3xp/Player.cpp' l='9255' u='c' c='_ZN8idPlayer20Event_ExitTeleporterEv'/>
+<doc f='codebrowser/d3xp/Player.cpp' l='8017'>/*
+============
+Damage
+
+this		entity that is being damaged
+inflictor	entity that is causing the damage
+attacker	entity that caused the inflictor to damage targ
+	example: this=monster, inflictor=rocket, attacker=player
+
+dir			direction of the attack for knockback in global space
+
+damageDef	an idDict with all the options for damage effects
+
+inflictor, attacker, dir, and point can be NULL for environmental effects
+============
+*/</doc>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1569' u='c' c='_ZL16Cmd_TestDamage_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1616' u='c' c='_ZL15Cmd_TestDeath_fRK9idCmdArgs'/>
+<dec f='codebrowser/game/Player.h' l='372' type='void idPlayer::Damage(idEntity * inflictor, idEntity * attacker, const idVec3 &amp; dir, const char * damageDefName, const float damageScale, const int location)'/>
+<use f='codebrowser/game/Player.cpp' l='4667' u='c' c='_ZN8idPlayer9CrashLandERK6idVec3S2_'/>
+<use f='codebrowser/game/Player.cpp' l='4675' u='c' c='_ZN8idPlayer9CrashLandERK6idVec3S2_'/>
+<use f='codebrowser/game/Player.cpp' l='4683' u='c' c='_ZN8idPlayer9CrashLandERK6idVec3S2_'/>
+<use f='codebrowser/game/Player.cpp' l='5076' u='c' c='_ZN8idPlayer9UpdateAirEv'/>
+<use f='codebrowser/game/Player.cpp' l='6447' u='c' c='_ZN8idPlayer4KillEbb'/>
+<inh f='codebrowser/game/Actor.h' l='164' c='_ZN7idActor6DamageEP8idEntityS1_RK6idVec3PKcfi'/>
+<def f='codebrowser/game/Player.cpp' l='6695' ll='6857' type='void idPlayer::Damage(idEntity * inflictor, idEntity * attacker, const idVec3 &amp; dir, const char * damageDefName, const float damageScale, const int location)'/>
+<use f='codebrowser/game/Player.cpp' l='7772' u='c' c='_ZN8idPlayer20Event_ExitTeleporterEv'/>
+<doc f='codebrowser/game/Player.cpp' l='6679'>/*
+============
+Damage
+
+this		entity that is being damaged
+inflictor	entity that is causing the damage
+attacker	entity that caused the inflictor to damage targ
+	example: this=monster, inflictor=rocket, attacker=player
+
+dir			direction of the attack for knockback in global space
+
+damageDef	an idDict with all the options for damage effects
+
+inflictor, attacker, dir, and point can be NULL for environmental effects
+============
+*/</doc>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1500' u='c' c='_ZL16Cmd_TestDamage_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1547' u='c' c='_ZL15Cmd_TestDeath_fRK9idCmdArgs'/>

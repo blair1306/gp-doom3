@@ -1,0 +1,16 @@
+<dec f='codebrowser/framework/Unzip.h' l='319' type='long unztell(unzFile file)'/>
+<use f='codebrowser/framework/File.cpp' l='1302' u='c' c='_ZN12idFile_InZip4TellEv'/>
+<doc f='codebrowser/framework/Unzip.h' l='308'>/*
+  Read unsigned chars from the current file (opened by unzOpenCurrentFile)
+  buf contain buffer where data must be copied
+  len the size of buf.
+
+  return the number of unsigned char copied if somes unsigned chars are copied
+  return 0 if the end of file was reached
+  return &lt;0 with error code if there is an error
+    (UNZ_ERRNO for IO error, or zLib error for uncompress error)
+*/</doc>
+<def f='codebrowser/framework/Unzip.cpp' l='2077' ll='2090' type='long unztell(unzFile file)'/>
+<doc f='codebrowser/framework/Unzip.cpp' l='2074'>/*
+  Give the current position in uncompressed data
+*/</doc>

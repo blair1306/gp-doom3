@@ -1,0 +1,16 @@
+<dec f='codebrowser/curl/lib/sendf.h' l='52' type='int Curl_debug(struct SessionHandle * handle, curl_infotype type, char * data, size_t size)'/>
+<doc f='codebrowser/curl/lib/sendf.h' l='51'>/* the function used to output verbose information */</doc>
+<use f='codebrowser/curl/lib/ftp.c' l='351' u='c' c='Curl_GetFTPResponse'/>
+<use f='codebrowser/curl/lib/ftp.c' l='2443' u='c' c='Curl_ftpsendf'/>
+<use f='codebrowser/curl/lib/http.c' l='569' u='c' c='add_buffer_send'/>
+<use f='codebrowser/curl/lib/http.c' l='876' u='c' c='Curl_ConnectHTTPProxyTunnel'/>
+<use f='codebrowser/curl/lib/sendf.c' l='138' u='c' c='Curl_infof'/>
+<use f='codebrowser/curl/lib/sendf.c' l='162' u='c' c='Curl_failf'/>
+<use f='codebrowser/curl/lib/sendf.c' l='200' u='c' c='Curl_sendf'/>
+<def f='codebrowser/curl/lib/sendf.c' l='439' ll='460' type='int Curl_debug(struct SessionHandle * data, curl_infotype type, char * ptr, size_t size)'/>
+<doc f='codebrowser/curl/lib/sendf.c' l='438'>/* return 0 on success */</doc>
+<use f='codebrowser/curl/lib/transfer.c' l='846' u='c' c='Curl_readwrite'/>
+<use f='codebrowser/curl/lib/transfer.c' l='933' u='c' c='Curl_readwrite'/>
+<use f='codebrowser/curl/lib/transfer.c' l='936' u='c' c='Curl_readwrite'/>
+<use f='codebrowser/curl/lib/transfer.c' l='939' u='c' c='Curl_readwrite'/>
+<use f='codebrowser/curl/lib/transfer.c' l='1158' u='c' c='Curl_readwrite'/>

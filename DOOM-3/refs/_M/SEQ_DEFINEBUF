@@ -1,0 +1,19 @@
+<dec f='codebrowser/sys/linux/oss/include/sys/soundcard.h' l='1494'/>
+<doc f='codebrowser/sys/linux/oss/include/sys/soundcard.h' l='1475'>/* Sample seqbuf_dump() implementation:
+ *
+ *	SEQ_DEFINEBUF (2048);	-- Defines a buffer for 2048 bytes
+ *
+ *	int seqfd;		-- The file descriptor for /dev/sequencer.
+ *
+ *	void
+ *	seqbuf_dump ()
+ *	{
+ *	  if (_seqbufptr)
+ *	    if (write (seqfd, _seqbuf, _seqbufptr) == -1)
+ *	      {
+ *		perror (&quot;write /dev/sequencer&quot;);
+ *		exit (-1);
+ *	      }
+ *	  _seqbufptr = 0;
+ *	}
+ */</doc>

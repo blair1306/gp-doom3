@@ -1,0 +1,45 @@
+<inh f='codebrowser/ui/GameSSDWindow.h' l='138' c='SSDMover'/>
+<def f='codebrowser/ui/GameSSDWindow.h' l='351' ll='400'/>
+<size>192</size>
+<doc f='codebrowser/ui/GameSSDWindow.h' l='339'>/** 
+* Powerups work in two phases:
+*	1.) Closed container hurls at you
+*		If you shoot the container it open
+*	3.) If an opened powerup hits the player he aquires the powerup
+* Powerup Types:
+*	Health - Give a specific amount of health
+*	Super Blaster - Increases the power of the blaster (lasts a specific amount of time)
+*	Asteroid Nuke - Destroys all asteroids on screen as soon as it is aquired
+*	Rescue Powerup - Rescues all astronauts as soon as it is acquited
+*	Bonus Points - Gives some bonus points when acquired
+*/</doc>
+<mbr r='SSDPowerup::powerupState' o='1472' t='int'/>
+<mbr r='SSDPowerup::powerupType' o='1504' t='int'/>
+<fun r='_ZN10SSDPowerupC1Ev'/>
+<fun r='_ZN10SSDPowerupD1Ev'/>
+<fun r='_ZN10SSDPowerup15WriteToSaveGameEP6idFile'/>
+<fun r='_ZN10SSDPowerup16ReadFromSaveGameEP6idFileP15idGameSSDWindow'/>
+<fun r='_ZN10SSDPowerup5OnHitEi'/>
+<fun r='_ZN10SSDPowerup14OnStrikePlayerEv'/>
+<fun r='_ZN10SSDPowerup13OnOpenPowerupEv'/>
+<fun r='_ZN10SSDPowerup17OnActivatePowerupEv'/>
+<fun r='_ZN10SSDPowerup4InitEP15idGameSSDWindowff'/>
+<fun r='_ZN10SSDPowerup13GetNewPowerupEP15idGameSSDWindowff'/>
+<fun r='_ZN10SSDPowerup18GetSpecificPowerupEi'/>
+<fun r='_ZN10SSDPowerup13WritePowerupsEP6idFile'/>
+<fun r='_ZN10SSDPowerup12ReadPowerupsEP6idFileP15idGameSSDWindow'/>
+<smbr r='SSDPowerup::powerupPool' t='SSDPowerup [64]'/>
+<smbr r='SSDPowerup::powerupPool' t='SSDPowerup [64]'/>
+<fun r='_ZN10SSDPowerupC1Ev'/>
+<fun r='_ZN10SSDPowerupD1Ev'/>
+<fun r='_ZN10SSDPowerup15WriteToSaveGameEP6idFile'/>
+<fun r='_ZN10SSDPowerup16ReadFromSaveGameEP6idFileP15idGameSSDWindow'/>
+<fun r='_ZN10SSDPowerup5OnHitEi'/>
+<fun r='_ZN10SSDPowerup14OnStrikePlayerEv'/>
+<fun r='_ZN10SSDPowerup13OnOpenPowerupEv'/>
+<fun r='_ZN10SSDPowerup17OnActivatePowerupEv'/>
+<fun r='_ZN10SSDPowerup4InitEP15idGameSSDWindowff'/>
+<fun r='_ZN10SSDPowerup13GetNewPowerupEP15idGameSSDWindowff'/>
+<fun r='_ZN10SSDPowerup18GetSpecificPowerupEi'/>
+<fun r='_ZN10SSDPowerup13WritePowerupsEP6idFile'/>
+<fun r='_ZN10SSDPowerup12ReadPowerupsEP6idFileP15idGameSSDWindow'/>

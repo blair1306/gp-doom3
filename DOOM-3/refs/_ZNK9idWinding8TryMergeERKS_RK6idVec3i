@@ -1,0 +1,6 @@
+<dec f='codebrowser/idlib/geometry/Winding.h' l='95' type='idWinding * idWinding::TryMerge(const idWinding &amp; w, const idVec3 &amp; normal, int keep = false) const'/>
+<doc f='codebrowser/idlib/geometry/Winding.h' l='93'>// tries to merge &apos;this&apos; with the given winding, returns NULL if merge fails, both &apos;this&apos; and &apos;w&apos; stay intact
+					// &apos;keep&apos; tells if the contacting points should stay even if they create colinear edges</doc>
+<def f='codebrowser/idlib/geometry/Winding.cpp' l='998' ll='1099' type='idWinding * idWinding::TryMerge(const idWinding &amp; w, const idVec3 &amp; planenormal, int keep = false) const'/>
+<use f='codebrowser/tools/compilers/aas/BrushBSP.cpp' l='1755' u='c' c='_ZN10idBrushBSP20MergeLeafNodePortalsEP14idBrushBSPNodei'/>
+<use f='codebrowser/tools/compilers/aas/BrushBSP.cpp' l='1759' u='c' c='_ZN10idBrushBSP20MergeLeafNodePortalsEP14idBrushBSPNodei'/>

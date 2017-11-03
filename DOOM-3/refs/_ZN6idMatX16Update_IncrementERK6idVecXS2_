@@ -1,0 +1,17 @@
+<dec f='codebrowser/idlib/math/Matrix.h' l='1901' type='void idMatX::Update_Increment(const idVecX &amp; v, const idVecX &amp; w)'/>
+<def f='codebrowser/idlib/math/Matrix.cpp' l='3557' ll='3572' type='void idMatX::Update_Increment(const idVecX &amp; v, const idVecX &amp; w)'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7318' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7454' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7630' u='c' c='_ZN6idMatX4TestEv'/>
+<doc f='codebrowser/idlib/math/Matrix.cpp' l='3545'>/*
+============
+idMatX::Update_Increment
+
+  Updates the matrix to obtain the matrix:
+
+  [ A  a ]
+  [ c  b ]
+
+  where: a = v[0,numRows-1], b = v[numRows], c = w[0,numColumns-1]], w[numColumns] = 0
+============
+*/</doc>

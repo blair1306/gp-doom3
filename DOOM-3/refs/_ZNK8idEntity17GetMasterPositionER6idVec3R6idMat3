@@ -1,0 +1,96 @@
+<dec f='codebrowser/d3xp/Entity.h' l='264' type='bool idEntity::GetMasterPosition(idVec3 &amp; masterOrigin, idMat3 &amp; masterAxis) const'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='2226' u='c' c='_ZNK8idEntity14GetLocalVectorERK6idVec3'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='2250' u='c' c='_ZNK8idEntity19GetLocalCoordinatesERK6idVec3'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='2277' u='c' c='_ZNK8idEntity14GetWorldVectorERK6idVec3'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='2301' u='c' c='_ZNK8idEntity19GetWorldCoordinatesERK6idVec3'/>
+<def f='codebrowser/d3xp/Entity.cpp' l='2313' ll='2344' type='bool idEntity::GetMasterPosition(idVec3 &amp; masterOrigin, idMat3 &amp; masterAxis) const'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='2361' u='c' c='_ZNK8idEntity18GetWorldVelocitiesER6idVec3S1_'/>
+<doc f='codebrowser/d3xp/Entity.cpp' l='2308'>/*
+================
+idEntity::GetMasterPosition
+================
+*/</doc>
+<use f='codebrowser/d3xp/Mover.cpp' l='3384' u='c' c='_ZN6idDoor5ThinkEv'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='3515' u='c' c='_ZN6idDoor23GetLocalTriggerPositionEPK11idClipModel'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='4173' u='c' c='_ZN6idPlat5ThinkEv'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='4213' u='c' c='_ZN6idPlat23GetLocalTriggerPositionEPK11idClipModel'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='6241' u='c' c='_ZN12idPhysics_AF8EvaluateEii'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='7869' u='c' c='_ZN12idPhysics_AF9SetMasterEP8idEntityb'/>
+<use f='codebrowser/d3xp/physics/Physics_Monster.cpp' l='461' u='c' c='_ZN17idPhysics_Monster8EvaluateEii'/>
+<use f='codebrowser/d3xp/physics/Physics_Monster.cpp' l='638' u='c' c='_ZN17idPhysics_Monster9SetOriginERK6idVec3i'/>
+<use f='codebrowser/d3xp/physics/Physics_Monster.cpp' l='682' u='c' c='_ZN17idPhysics_Monster6RotateERK10idRotationi'/>
+<use f='codebrowser/d3xp/physics/Physics_Monster.cpp' l='744' u='c' c='_ZN17idPhysics_Monster9SetMasterEP8idEntityb'/>
+<use f='codebrowser/d3xp/physics/Physics_Parametric.cpp' l='614' u='c' c='_ZN20idPhysics_Parametric8EvaluateEii'/>
+<use f='codebrowser/d3xp/physics/Physics_Parametric.cpp' l='750' u='c' c='_ZN20idPhysics_Parametric9SetOriginERK6idVec3i'/>
+<use f='codebrowser/d3xp/physics/Physics_Parametric.cpp' l='778' u='c' c='_ZN20idPhysics_Parametric7SetAxisERK6idMat3i'/>
+<use f='codebrowser/d3xp/physics/Physics_Parametric.cpp' l='969' u='c' c='_ZN20idPhysics_Parametric9SetMasterEP8idEntityb'/>
+<use f='codebrowser/d3xp/physics/Physics_Player.cpp' l='1726' u='c' c='_ZN16idPhysics_Player8EvaluateEii'/>
+<use f='codebrowser/d3xp/physics/Physics_Player.cpp' l='1840' u='c' c='_ZN16idPhysics_Player9SetOriginERK6idVec3i'/>
+<use f='codebrowser/d3xp/physics/Physics_Player.cpp' l='1892' u='c' c='_ZN16idPhysics_Player6RotateERK10idRotationi'/>
+<use f='codebrowser/d3xp/physics/Physics_Player.cpp' l='1973' u='c' c='_ZN16idPhysics_Player9SetMasterEP8idEntityb'/>
+<use f='codebrowser/d3xp/physics/Physics_RigidBody.cpp' l='849' u='c' c='_ZN19idPhysics_RigidBody8EvaluateEii'/>
+<use f='codebrowser/d3xp/physics/Physics_RigidBody.cpp' l='1124' u='c' c='_ZN19idPhysics_RigidBody9SetOriginERK6idVec3i'/>
+<use f='codebrowser/d3xp/physics/Physics_RigidBody.cpp' l='1147' u='c' c='_ZN19idPhysics_RigidBody7SetAxisERK6idMat3i'/>
+<use f='codebrowser/d3xp/physics/Physics_RigidBody.cpp' l='1187' u='c' c='_ZN19idPhysics_RigidBody6RotateERK10idRotationi'/>
+<use f='codebrowser/d3xp/physics/Physics_RigidBody.cpp' l='1420' u='c' c='_ZN19idPhysics_RigidBody9SetMasterEP8idEntityb'/>
+<use f='codebrowser/d3xp/physics/Physics_Static.cpp' l='250' u='c' c='_ZN16idPhysics_Static8EvaluateEii'/>
+<use f='codebrowser/d3xp/physics/Physics_Static.cpp' l='379' u='c' c='_ZN16idPhysics_Static9SetOriginERK6idVec3i'/>
+<use f='codebrowser/d3xp/physics/Physics_Static.cpp' l='402' u='c' c='_ZN16idPhysics_Static7SetAxisERK6idMat3i'/>
+<use f='codebrowser/d3xp/physics/Physics_Static.cpp' l='440' u='c' c='_ZN16idPhysics_Static6RotateERK10idRotationi'/>
+<use f='codebrowser/d3xp/physics/Physics_Static.cpp' l='741' u='c' c='_ZN16idPhysics_Static9SetMasterEP8idEntityb'/>
+<use f='codebrowser/d3xp/physics/Physics_StaticMulti.cpp' l='359' u='c' c='_ZN21idPhysics_StaticMulti8EvaluateEii'/>
+<use f='codebrowser/d3xp/physics/Physics_StaticMulti.cpp' l='491' u='c' c='_ZN21idPhysics_StaticMulti9SetOriginERK6idVec3i'/>
+<use f='codebrowser/d3xp/physics/Physics_StaticMulti.cpp' l='501' u='c' c='_ZN21idPhysics_StaticMulti9SetOriginERK6idVec3i'/>
+<use f='codebrowser/d3xp/physics/Physics_StaticMulti.cpp' l='521' u='c' c='_ZN21idPhysics_StaticMulti7SetAxisERK6idMat3i'/>
+<use f='codebrowser/d3xp/physics/Physics_StaticMulti.cpp' l='534' u='c' c='_ZN21idPhysics_StaticMulti7SetAxisERK6idMat3i'/>
+<use f='codebrowser/d3xp/physics/Physics_StaticMulti.cpp' l='588' u='c' c='_ZN21idPhysics_StaticMulti6RotateERK10idRotationi'/>
+<use f='codebrowser/d3xp/physics/Physics_StaticMulti.cpp' l='605' u='c' c='_ZN21idPhysics_StaticMulti6RotateERK10idRotationi'/>
+<use f='codebrowser/d3xp/physics/Physics_StaticMulti.cpp' l='935' u='c' c='_ZN21idPhysics_StaticMulti9SetMasterEP8idEntityb'/>
+<dec f='codebrowser/game/Entity.h' l='248' type='bool idEntity::GetMasterPosition(idVec3 &amp; masterOrigin, idMat3 &amp; masterAxis) const'/>
+<use f='codebrowser/game/Entity.cpp' l='2134' u='c' c='_ZNK8idEntity14GetLocalVectorERK6idVec3'/>
+<use f='codebrowser/game/Entity.cpp' l='2158' u='c' c='_ZNK8idEntity19GetLocalCoordinatesERK6idVec3'/>
+<use f='codebrowser/game/Entity.cpp' l='2185' u='c' c='_ZNK8idEntity14GetWorldVectorERK6idVec3'/>
+<use f='codebrowser/game/Entity.cpp' l='2209' u='c' c='_ZNK8idEntity19GetWorldCoordinatesERK6idVec3'/>
+<def f='codebrowser/game/Entity.cpp' l='2221' ll='2252' type='bool idEntity::GetMasterPosition(idVec3 &amp; masterOrigin, idMat3 &amp; masterAxis) const'/>
+<use f='codebrowser/game/Entity.cpp' l='2269' u='c' c='_ZNK8idEntity18GetWorldVelocitiesER6idVec3S1_'/>
+<doc f='codebrowser/game/Entity.cpp' l='2216'>/*
+================
+idEntity::GetMasterPosition
+================
+*/</doc>
+<use f='codebrowser/game/Mover.cpp' l='3344' u='c' c='_ZN6idDoor5ThinkEv'/>
+<use f='codebrowser/game/Mover.cpp' l='3475' u='c' c='_ZN6idDoor23GetLocalTriggerPositionEPK11idClipModel'/>
+<use f='codebrowser/game/Mover.cpp' l='4112' u='c' c='_ZN6idPlat5ThinkEv'/>
+<use f='codebrowser/game/Mover.cpp' l='4152' u='c' c='_ZN6idPlat23GetLocalTriggerPositionEPK11idClipModel'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='6240' u='c' c='_ZN12idPhysics_AF8EvaluateEii'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='7868' u='c' c='_ZN12idPhysics_AF9SetMasterEP8idEntityb'/>
+<use f='codebrowser/game/physics/Physics_Monster.cpp' l='461' u='c' c='_ZN17idPhysics_Monster8EvaluateEii'/>
+<use f='codebrowser/game/physics/Physics_Monster.cpp' l='638' u='c' c='_ZN17idPhysics_Monster9SetOriginERK6idVec3i'/>
+<use f='codebrowser/game/physics/Physics_Monster.cpp' l='682' u='c' c='_ZN17idPhysics_Monster6RotateERK10idRotationi'/>
+<use f='codebrowser/game/physics/Physics_Monster.cpp' l='744' u='c' c='_ZN17idPhysics_Monster9SetMasterEP8idEntityb'/>
+<use f='codebrowser/game/physics/Physics_Parametric.cpp' l='614' u='c' c='_ZN20idPhysics_Parametric8EvaluateEii'/>
+<use f='codebrowser/game/physics/Physics_Parametric.cpp' l='750' u='c' c='_ZN20idPhysics_Parametric9SetOriginERK6idVec3i'/>
+<use f='codebrowser/game/physics/Physics_Parametric.cpp' l='778' u='c' c='_ZN20idPhysics_Parametric7SetAxisERK6idMat3i'/>
+<use f='codebrowser/game/physics/Physics_Parametric.cpp' l='969' u='c' c='_ZN20idPhysics_Parametric9SetMasterEP8idEntityb'/>
+<use f='codebrowser/game/physics/Physics_Player.cpp' l='1726' u='c' c='_ZN16idPhysics_Player8EvaluateEii'/>
+<use f='codebrowser/game/physics/Physics_Player.cpp' l='1840' u='c' c='_ZN16idPhysics_Player9SetOriginERK6idVec3i'/>
+<use f='codebrowser/game/physics/Physics_Player.cpp' l='1892' u='c' c='_ZN16idPhysics_Player6RotateERK10idRotationi'/>
+<use f='codebrowser/game/physics/Physics_Player.cpp' l='1973' u='c' c='_ZN16idPhysics_Player9SetMasterEP8idEntityb'/>
+<use f='codebrowser/game/physics/Physics_RigidBody.cpp' l='849' u='c' c='_ZN19idPhysics_RigidBody8EvaluateEii'/>
+<use f='codebrowser/game/physics/Physics_RigidBody.cpp' l='1124' u='c' c='_ZN19idPhysics_RigidBody9SetOriginERK6idVec3i'/>
+<use f='codebrowser/game/physics/Physics_RigidBody.cpp' l='1147' u='c' c='_ZN19idPhysics_RigidBody7SetAxisERK6idMat3i'/>
+<use f='codebrowser/game/physics/Physics_RigidBody.cpp' l='1187' u='c' c='_ZN19idPhysics_RigidBody6RotateERK10idRotationi'/>
+<use f='codebrowser/game/physics/Physics_RigidBody.cpp' l='1420' u='c' c='_ZN19idPhysics_RigidBody9SetMasterEP8idEntityb'/>
+<use f='codebrowser/game/physics/Physics_Static.cpp' l='250' u='c' c='_ZN16idPhysics_Static8EvaluateEii'/>
+<use f='codebrowser/game/physics/Physics_Static.cpp' l='379' u='c' c='_ZN16idPhysics_Static9SetOriginERK6idVec3i'/>
+<use f='codebrowser/game/physics/Physics_Static.cpp' l='402' u='c' c='_ZN16idPhysics_Static7SetAxisERK6idMat3i'/>
+<use f='codebrowser/game/physics/Physics_Static.cpp' l='440' u='c' c='_ZN16idPhysics_Static6RotateERK10idRotationi'/>
+<use f='codebrowser/game/physics/Physics_Static.cpp' l='741' u='c' c='_ZN16idPhysics_Static9SetMasterEP8idEntityb'/>
+<use f='codebrowser/game/physics/Physics_StaticMulti.cpp' l='359' u='c' c='_ZN21idPhysics_StaticMulti8EvaluateEii'/>
+<use f='codebrowser/game/physics/Physics_StaticMulti.cpp' l='491' u='c' c='_ZN21idPhysics_StaticMulti9SetOriginERK6idVec3i'/>
+<use f='codebrowser/game/physics/Physics_StaticMulti.cpp' l='501' u='c' c='_ZN21idPhysics_StaticMulti9SetOriginERK6idVec3i'/>
+<use f='codebrowser/game/physics/Physics_StaticMulti.cpp' l='521' u='c' c='_ZN21idPhysics_StaticMulti7SetAxisERK6idMat3i'/>
+<use f='codebrowser/game/physics/Physics_StaticMulti.cpp' l='534' u='c' c='_ZN21idPhysics_StaticMulti7SetAxisERK6idMat3i'/>
+<use f='codebrowser/game/physics/Physics_StaticMulti.cpp' l='588' u='c' c='_ZN21idPhysics_StaticMulti6RotateERK10idRotationi'/>
+<use f='codebrowser/game/physics/Physics_StaticMulti.cpp' l='605' u='c' c='_ZN21idPhysics_StaticMulti6RotateERK10idRotationi'/>
+<use f='codebrowser/game/physics/Physics_StaticMulti.cpp' l='935' u='c' c='_ZN21idPhysics_StaticMulti9SetMasterEP8idEntityb'/>

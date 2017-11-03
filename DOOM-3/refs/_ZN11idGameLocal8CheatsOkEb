@@ -1,0 +1,106 @@
+<dec f='codebrowser/d3xp/Game_local.h' l='447' type='bool idGameLocal::CheatsOk(bool requirePlayer = true)'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='2815' u='c' c='_ZN10idGameEdit14AF_SpawnEntityEPKc'/>
+<def f='codebrowser/d3xp/Game_local.cpp' l='3153' ll='3173' type='bool idGameLocal::CheatsOk(bool requirePlayer = true)'/>
+<doc f='codebrowser/d3xp/Game_local.cpp' l='3148'>/*
+==================
+idGameLocal::CheatsOk
+==================
+*/</doc>
+<use f='codebrowser/d3xp/anim/Anim_Testmodel.cpp' l='661' u='c' c='_ZN11idTestModel10TestSkin_fERK9idCmdArgs'/>
+<use f='codebrowser/d3xp/anim/Anim_Testmodel.cpp' l='695' u='c' c='_ZN11idTestModel16TestShaderParm_fERK9idCmdArgs'/>
+<use f='codebrowser/d3xp/anim/Anim_Testmodel.cpp' l='742' u='c' c='_ZN11idTestModel11TestModel_fERK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='186' u='c' c='_Z12Cmd_Script_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='221' u='c' c='_Z12KillEntitiesRK9idCmdArgsRK10idTypeInfo'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='267' u='c' c='_Z18Cmd_KillMovables_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='281' u='c' c='_Z18Cmd_KillRagdolls_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='302' u='c' c='_Z10Cmd_Give_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='453' u='c' c='_Z9Cmd_God_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='482' u='c' c='_Z14Cmd_Notarget_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='509' u='c' c='_Z12Cmd_Noclip_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='568' u='c' c='_Z17Cmd_PlayerModel_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='749' u='c' c='_Z16Cmd_SetViewpos_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='783' u='c' c='_Z14Cmd_Teleport_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='817' u='c' c='_Z13Cmd_Trigger_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='851' u='c' c='_Z11Cmd_Spawn_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='888' u='c' c='_Z12Cmd_Damage_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='914' u='c' c='_Z12Cmd_Remove_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='944' u='c' c='_Z15Cmd_TestLight_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1002' u='c' c='_Z20Cmd_TestPointLight_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1049' u='c' c='_Z14Cmd_PopLight_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1127' u='c' c='_Z12Cmd_TestFx_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1172' u='c' c='_ZL18Cmd_AddDebugLine_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1216' u='c' c='_ZL21Cmd_RemoveDebugLine_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1249' u='c' c='_ZL20Cmd_BlinkDebugLine_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1296' u='c' c='_ZL20Cmd_ListDebugLines_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1363' u='c' c='_ZL25Cmd_ListCollisionModels_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1378' u='c' c='_ZL24Cmd_CollisionModelInfo_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1407' u='c' c='_ZL18Cmd_ExportModels_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1432' u='c' c='_ZL20Cmd_ReexportModels_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1456' u='c' c='_ZL17Cmd_ReloadAnims_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1522' u='c' c='_ZL14Cmd_AASStats_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1545' u='c' c='_ZL16Cmd_TestDamage_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1583' u='c' c='_ZL16Cmd_TestBoneFx_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1607' u='c' c='_ZL15Cmd_TestDeath_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1632' u='c' c='_ZL17Cmd_WeaponSplat_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1655' u='c' c='_ZL18Cmd_SaveSelected_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1715' u='c' c='_ZL20Cmd_DeleteSelected_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1737' u='c' c='_ZL19Cmd_SaveMoveables_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1820' u='c' c='_ZL18Cmd_SaveRagdolls_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1887' u='c' c='_ZL17Cmd_BindRagdoll_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1905' u='c' c='_ZL19Cmd_UnbindRagdoll_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1937' u='c' c='_ZL16Cmd_SaveLights_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1997' u='c' c='_ZL19Cmd_SaveParticles_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='2239' u='c' c='_Z13Cmd_NextGUI_fRK9idCmdArgs'/>
+<dec f='codebrowser/game/Game_local.h' l='388' type='bool idGameLocal::CheatsOk(bool requirePlayer = true)'/>
+<use f='codebrowser/game/AFEntity.cpp' l='2537' u='c' c='_ZN10idGameEdit14AF_SpawnEntityEPKc'/>
+<def f='codebrowser/game/Game_local.cpp' l='2889' ll='2909' type='bool idGameLocal::CheatsOk(bool requirePlayer = true)'/>
+<doc f='codebrowser/game/Game_local.cpp' l='2884'>/*
+==================
+idGameLocal::CheatsOk
+==================
+*/</doc>
+<use f='codebrowser/game/anim/Anim_Testmodel.cpp' l='661' u='c' c='_ZN11idTestModel10TestSkin_fERK9idCmdArgs'/>
+<use f='codebrowser/game/anim/Anim_Testmodel.cpp' l='695' u='c' c='_ZN11idTestModel16TestShaderParm_fERK9idCmdArgs'/>
+<use f='codebrowser/game/anim/Anim_Testmodel.cpp' l='742' u='c' c='_ZN11idTestModel11TestModel_fERK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='166' u='c' c='_Z12Cmd_Script_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='201' u='c' c='_Z12KillEntitiesRK9idCmdArgsRK10idTypeInfo'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='247' u='c' c='_Z18Cmd_KillMovables_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='261' u='c' c='_Z18Cmd_KillRagdolls_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='282' u='c' c='_Z10Cmd_Give_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='402' u='c' c='_Z9Cmd_God_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='431' u='c' c='_Z14Cmd_Notarget_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='458' u='c' c='_Z12Cmd_Noclip_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='517' u='c' c='_Z17Cmd_PlayerModel_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='680' u='c' c='_Z16Cmd_SetViewpos_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='714' u='c' c='_Z14Cmd_Teleport_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='748' u='c' c='_Z13Cmd_Trigger_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='782' u='c' c='_Z11Cmd_Spawn_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='819' u='c' c='_Z12Cmd_Damage_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='845' u='c' c='_Z12Cmd_Remove_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='875' u='c' c='_Z15Cmd_TestLight_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='933' u='c' c='_Z20Cmd_TestPointLight_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='980' u='c' c='_Z14Cmd_PopLight_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1058' u='c' c='_Z12Cmd_TestFx_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1103' u='c' c='_ZL18Cmd_AddDebugLine_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1147' u='c' c='_ZL21Cmd_RemoveDebugLine_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1180' u='c' c='_ZL20Cmd_BlinkDebugLine_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1227' u='c' c='_ZL20Cmd_ListDebugLines_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1294' u='c' c='_ZL25Cmd_ListCollisionModels_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1309' u='c' c='_ZL24Cmd_CollisionModelInfo_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1338' u='c' c='_ZL18Cmd_ExportModels_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1363' u='c' c='_ZL20Cmd_ReexportModels_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1387' u='c' c='_ZL17Cmd_ReloadAnims_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1453' u='c' c='_ZL14Cmd_AASStats_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1476' u='c' c='_ZL16Cmd_TestDamage_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1514' u='c' c='_ZL16Cmd_TestBoneFx_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1538' u='c' c='_ZL15Cmd_TestDeath_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1563' u='c' c='_ZL17Cmd_WeaponSplat_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1586' u='c' c='_ZL18Cmd_SaveSelected_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1646' u='c' c='_ZL20Cmd_DeleteSelected_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1668' u='c' c='_ZL19Cmd_SaveMoveables_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1751' u='c' c='_ZL18Cmd_SaveRagdolls_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1818' u='c' c='_ZL17Cmd_BindRagdoll_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1836' u='c' c='_ZL19Cmd_UnbindRagdoll_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1868' u='c' c='_ZL16Cmd_SaveLights_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1928' u='c' c='_ZL19Cmd_SaveParticles_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='2164' u='c' c='_Z13Cmd_NextGUI_fRK9idCmdArgs'/>

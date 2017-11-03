@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ModelDecal.h source code [codebrowser/renderer/ModelDecal.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="decalProjectionInfo_s,idRenderModelDecal "/>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/renderer/ModelDecal.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>renderer</a>/<a href='ModelDecal.h.html'>ModelDecal.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__MODELDECAL_H__">__MODELDECAL_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__MODELDECAL_H__" data-ref="_M/__MODELDECAL_H__">__MODELDECAL_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>	Decals are lightweight primitives for bullet / blood marks.</i></td></tr>
+<tr><th id="36">36</th><td><i>	Decals with common materials will be merged together, but additional</i></td></tr>
+<tr><th id="37">37</th><td><i>	decals will be allocated as needed. The material should not be</i></td></tr>
+<tr><th id="38">38</th><td><i>	one that receives lighting, because no interactions are generated</i></td></tr>
+<tr><th id="39">39</th><td><i>	for these lightweight surfaces.</i></td></tr>
+<tr><th id="40">40</th><td><i></i></td></tr>
+<tr><th id="41">41</th><td><i>	FIXME:	Decals on models in portalled off areas do not get freed</i></td></tr>
+<tr><th id="42">42</th><td><i>			until the area becomes visible again.</i></td></tr>
+<tr><th id="43">43</th><td><i></i></td></tr>
+<tr><th id="44">44</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="45">45</th><td><i>*/</i></td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="NUM_DECAL_BOUNDING_PLANES" title='NUM_DECAL_BOUNDING_PLANES' data-ref="NUM_DECAL_BOUNDING_PLANES">NUM_DECAL_BOUNDING_PLANES</dfn> = <var>6</var>;</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="decalProjectionInfo_s" title='decalProjectionInfo_s' data-ref="decalProjectionInfo_s"><a class="type" href="#decalProjectionInfo_s" title='decalProjectionInfo_s' data-ref="decalProjectionInfo_s">decalProjectionInfo_s</a></dfn> {</td></tr>
+<tr><th id="50">50</th><td>	<a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a>						<dfn class="decl" id="decalProjectionInfo_s::projectionOrigin" title='decalProjectionInfo_s::projectionOrigin' data-ref="decalProjectionInfo_s::projectionOrigin">projectionOrigin</dfn>;</td></tr>
+<tr><th id="51">51</th><td>	<a class="type" href="../idlib/bv/Bounds.h.html#idBounds" title='idBounds' data-ref="idBounds">idBounds</a>					<dfn class="decl" id="decalProjectionInfo_s::projectionBounds" title='decalProjectionInfo_s::projectionBounds' data-ref="decalProjectionInfo_s::projectionBounds">projectionBounds</dfn>;</td></tr>
+<tr><th id="52">52</th><td>	<a class="type" href="../idlib/math/Plane.h.html#idPlane" title='idPlane' data-ref="idPlane">idPlane</a>						<dfn class="decl" id="decalProjectionInfo_s::boundingPlanes" title='decalProjectionInfo_s::boundingPlanes' data-ref="decalProjectionInfo_s::boundingPlanes">boundingPlanes</dfn>[<var>6</var>];</td></tr>
+<tr><th id="53">53</th><td>	<a class="type" href="../idlib/math/Plane.h.html#idPlane" title='idPlane' data-ref="idPlane">idPlane</a>						<dfn class="decl" id="decalProjectionInfo_s::fadePlanes" title='decalProjectionInfo_s::fadePlanes' data-ref="decalProjectionInfo_s::fadePlanes">fadePlanes</dfn>[<var>2</var>];</td></tr>
+<tr><th id="54">54</th><td>	<a class="type" href="../idlib/math/Plane.h.html#idPlane" title='idPlane' data-ref="idPlane">idPlane</a>						<dfn class="decl" id="decalProjectionInfo_s::textureAxis" title='decalProjectionInfo_s::textureAxis' data-ref="decalProjectionInfo_s::textureAxis">textureAxis</dfn>[<var>2</var>];</td></tr>
+<tr><th id="55">55</th><td>	<em>const</em> <a class="type" href="Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *			<dfn class="decl" id="decalProjectionInfo_s::material" title='decalProjectionInfo_s::material' data-ref="decalProjectionInfo_s::material">material</dfn>;</td></tr>
+<tr><th id="56">56</th><td>	<em>bool</em>						<dfn class="decl" id="decalProjectionInfo_s::parallel" title='decalProjectionInfo_s::parallel' data-ref="decalProjectionInfo_s::parallel">parallel</dfn>;</td></tr>
+<tr><th id="57">57</th><td>	<em>float</em>						<dfn class="decl" id="decalProjectionInfo_s::fadeDepth" title='decalProjectionInfo_s::fadeDepth' data-ref="decalProjectionInfo_s::fadeDepth">fadeDepth</dfn>;</td></tr>
+<tr><th id="58">58</th><td>	<em>int</em>							<dfn class="decl" id="decalProjectionInfo_s::startTime" title='decalProjectionInfo_s::startTime' data-ref="decalProjectionInfo_s::startTime">startTime</dfn>;</td></tr>
+<tr><th id="59">59</th><td>	<em>bool</em>						<dfn class="decl" id="decalProjectionInfo_s::force" title='decalProjectionInfo_s::force' data-ref="decalProjectionInfo_s::force">force</dfn>;</td></tr>
+<tr><th id="60">60</th><td>} <dfn class="typedef" id="decalProjectionInfo_t" title='decalProjectionInfo_t' data-type='struct decalProjectionInfo_s' data-ref="decalProjectionInfo_t">decalProjectionInfo_t</dfn>;</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td><b>class</b> <dfn class="type def" id="idRenderModelDecal" title='idRenderModelDecal' data-ref="idRenderModelDecal">idRenderModelDecal</dfn> {</td></tr>
+<tr><th id="64">64</th><td><b>public</b>:</td></tr>
+<tr><th id="65">65</th><td>								<dfn class="decl" id="_ZN18idRenderModelDecalC1Ev" title='idRenderModelDecal::idRenderModelDecal' data-ref="_ZN18idRenderModelDecalC1Ev">idRenderModelDecal</dfn>( <em>void</em> );</td></tr>
+<tr><th id="66">66</th><td>								<dfn class="decl" id="_ZN18idRenderModelDecalD1Ev" title='idRenderModelDecal::~idRenderModelDecal' data-ref="_ZN18idRenderModelDecalD1Ev">~idRenderModelDecal</dfn>( <em>void</em> );</td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td>	<em>static</em> <a class="type" href="#idRenderModelDecal" title='idRenderModelDecal' data-ref="idRenderModelDecal">idRenderModelDecal</a> *	<dfn class="decl" id="_ZN18idRenderModelDecal5AllocEv" title='idRenderModelDecal::Alloc' data-ref="_ZN18idRenderModelDecal5AllocEv">Alloc</dfn>( <em>void</em> );</td></tr>
+<tr><th id="69">69</th><td>	<em>static</em> <em>void</em>					<dfn class="decl" id="_ZN18idRenderModelDecal4FreeEPS_" title='idRenderModelDecal::Free' data-ref="_ZN18idRenderModelDecal4FreeEPS_">Free</dfn>( <a class="type" href="#idRenderModelDecal" title='idRenderModelDecal' data-ref="idRenderModelDecal">idRenderModelDecal</a> *<dfn class="local col6 decl" id="166decal" title='decal' data-type='idRenderModelDecal *' data-ref="166decal">decal</dfn> );</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td>								<i>// Creates decal projection info.</i></td></tr>
+<tr><th id="72">72</th><td>	<em>static</em> <em>bool</em>					<dfn class="decl" id="_ZN18idRenderModelDecal20CreateProjectionInfoER21decalProjectionInfo_sRK14idFixedWindingRK6idVec3bfPK10idMateriali" title='idRenderModelDecal::CreateProjectionInfo' data-ref="_ZN18idRenderModelDecal20CreateProjectionInfoER21decalProjectionInfo_sRK14idFixedWindingRK6idVec3bfPK10idMateriali">CreateProjectionInfo</dfn>( <a class="typedef" href="#decalProjectionInfo_t" title='decalProjectionInfo_t' data-type='struct decalProjectionInfo_s' data-ref="decalProjectionInfo_t">decalProjectionInfo_t</a> &amp;<dfn class="local col7 decl" id="167info" title='info' data-type='decalProjectionInfo_t &amp;' data-ref="167info">info</dfn>, <em>const</em> <a class="type" href="../idlib/geometry/Winding.h.html#idFixedWinding" title='idFixedWinding' data-ref="idFixedWinding">idFixedWinding</a> &amp;<dfn class="local col8 decl" id="168winding" title='winding' data-type='const idFixedWinding &amp;' data-ref="168winding">winding</dfn>, <em>const</em> <a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col9 decl" id="169projectionOrigin" title='projectionOrigin' data-type='const idVec3 &amp;' data-ref="169projectionOrigin">projectionOrigin</dfn>, <em>const</em> <em>bool</em> <dfn class="local col0 decl" id="170parallel" title='parallel' data-type='const bool' data-ref="170parallel">parallel</dfn>, <em>const</em> <em>float</em> <dfn class="local col1 decl" id="171fadeDepth" title='fadeDepth' data-type='const float' data-ref="171fadeDepth">fadeDepth</dfn>, <em>const</em> <a class="type" href="Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *<dfn class="local col2 decl" id="172material" title='material' data-type='const idMaterial *' data-ref="172material">material</dfn>, <em>const</em> <em>int</em> <dfn class="local col3 decl" id="173startTime" title='startTime' data-type='const int' data-ref="173startTime">startTime</dfn> );</td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td>								<i>// Transform the projection info from global space to local.</i></td></tr>
+<tr><th id="75">75</th><td>	<em>static</em> <em>void</em>					<dfn class="decl" id="_ZN18idRenderModelDecal27GlobalProjectionInfoToLocalER21decalProjectionInfo_sRKS0_RK6idVec3RK6idMat3" title='idRenderModelDecal::GlobalProjectionInfoToLocal' data-ref="_ZN18idRenderModelDecal27GlobalProjectionInfoToLocalER21decalProjectionInfo_sRKS0_RK6idVec3RK6idMat3">GlobalProjectionInfoToLocal</dfn>( <a class="typedef" href="#decalProjectionInfo_t" title='decalProjectionInfo_t' data-type='struct decalProjectionInfo_s' data-ref="decalProjectionInfo_t">decalProjectionInfo_t</a> &amp;<dfn class="local col4 decl" id="174localInfo" title='localInfo' data-type='decalProjectionInfo_t &amp;' data-ref="174localInfo">localInfo</dfn>, <em>const</em> <a class="typedef" href="#decalProjectionInfo_t" title='decalProjectionInfo_t' data-type='struct decalProjectionInfo_s' data-ref="decalProjectionInfo_t">decalProjectionInfo_t</a> &amp;<dfn class="local col5 decl" id="175info" title='info' data-type='const decalProjectionInfo_t &amp;' data-ref="175info">info</dfn>, <em>const</em> <a class="type" href="../idlib/math/Vector.h.html#idVec3" title='idVec3' data-ref="idVec3">idVec3</a> &amp;<dfn class="local col6 decl" id="176origin" title='origin' data-type='const idVec3 &amp;' data-ref="176origin">origin</dfn>, <em>const</em> <a class="type" href="../idlib/math/Matrix.h.html#idMat3" title='idMat3' data-ref="idMat3">idMat3</a> &amp;<dfn class="local col7 decl" id="177axis" title='axis' data-type='const idMat3 &amp;' data-ref="177axis">axis</dfn> );</td></tr>
+<tr><th id="76">76</th><td></td></tr>
+<tr><th id="77">77</th><td>								<i>// Creates a deal on the given model.</i></td></tr>
+<tr><th id="78">78</th><td>	<em>void</em>						<dfn class="decl" id="_ZN18idRenderModelDecal11CreateDecalEPK13idRenderModelRK21decalProjectionInfo_s" title='idRenderModelDecal::CreateDecal' data-ref="_ZN18idRenderModelDecal11CreateDecalEPK13idRenderModelRK21decalProjectionInfo_s">CreateDecal</dfn>( <em>const</em> <a class="type" href="Model.h.html#idRenderModel" title='idRenderModel' data-ref="idRenderModel">idRenderModel</a> *<dfn class="local col8 decl" id="178model" title='model' data-type='const idRenderModel *' data-ref="178model">model</dfn>, <em>const</em> <a class="typedef" href="#decalProjectionInfo_t" title='decalProjectionInfo_t' data-type='struct decalProjectionInfo_s' data-ref="decalProjectionInfo_t">decalProjectionInfo_t</a> &amp;<dfn class="local col9 decl" id="179localInfo" title='localInfo' data-type='const decalProjectionInfo_t &amp;' data-ref="179localInfo">localInfo</dfn> );</td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td>								<i>// Remove decals that are completely faded away.</i></td></tr>
+<tr><th id="81">81</th><td>	<em>static</em> <a class="type" href="#idRenderModelDecal" title='idRenderModelDecal' data-ref="idRenderModelDecal">idRenderModelDecal</a> *	<dfn class="decl" id="_ZN18idRenderModelDecal17RemoveFadedDecalsEPS_i" title='idRenderModelDecal::RemoveFadedDecals' data-ref="_ZN18idRenderModelDecal17RemoveFadedDecalsEPS_i">RemoveFadedDecals</dfn>( <a class="type" href="#idRenderModelDecal" title='idRenderModelDecal' data-ref="idRenderModelDecal">idRenderModelDecal</a> *<dfn class="local col0 decl" id="180decals" title='decals' data-type='idRenderModelDecal *' data-ref="180decals">decals</dfn>, <em>int</em> <dfn class="local col1 decl" id="181time" title='time' data-type='int' data-ref="181time">time</dfn> );</td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td>								<i>// Updates the vertex colors, removing any faded indexes,</i></td></tr>
+<tr><th id="84">84</th><td><i>								// then copy the verts to temporary vertex cache and adds a drawSurf.</i></td></tr>
+<tr><th id="85">85</th><td>	<em>void</em>						<dfn class="decl" id="_ZN18idRenderModelDecal16AddDecalDrawSurfEP12viewEntity_s" title='idRenderModelDecal::AddDecalDrawSurf' data-ref="_ZN18idRenderModelDecal16AddDecalDrawSurfEP12viewEntity_s">AddDecalDrawSurf</dfn>( <b>struct</b> <a class="type" href="tr_local.h.html#viewEntity_s" title='viewEntity_s' data-ref="viewEntity_s" id="viewEntity_s"><a class="type" href="tr_local.h.html#viewEntity_s" title='viewEntity_s' data-ref="viewEntity_s">viewEntity_s</a></a> *<dfn class="local col2 decl" id="182space" title='space' data-type='struct viewEntity_s *' data-ref="182space">space</dfn> );</td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td>								<i>// Returns the next decal in the chain.</i></td></tr>
+<tr><th id="88">88</th><td>	<a class="type" href="#idRenderModelDecal" title='idRenderModelDecal' data-ref="idRenderModelDecal">idRenderModelDecal</a> *		<dfn class="decl def" id="_ZNK18idRenderModelDecal4NextEv" title='idRenderModelDecal::Next' data-ref="_ZNK18idRenderModelDecal4NextEv">Next</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idRenderModelDecal::nextDecal" title='idRenderModelDecal::nextDecal' data-ref="idRenderModelDecal::nextDecal">nextDecal</a>; }</td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td>	<em>void</em>						<dfn class="decl" id="_ZN18idRenderModelDecal16ReadFromDemoFileEP10idDemoFile" title='idRenderModelDecal::ReadFromDemoFile' data-ref="_ZN18idRenderModelDecal16ReadFromDemoFileEP10idDemoFile">ReadFromDemoFile</dfn>( <b>class</b> <a class="type" href="../framework/DemoFile.h.html#idDemoFile" title='idDemoFile' data-ref="idDemoFile">idDemoFile</a> *<dfn class="local col3 decl" id="183f" title='f' data-type='class idDemoFile *' data-ref="183f">f</dfn> );</td></tr>
+<tr><th id="91">91</th><td>	<em>void</em>						<dfn class="decl" id="_ZNK18idRenderModelDecal15WriteToDemoFileEP10idDemoFile" title='idRenderModelDecal::WriteToDemoFile' data-ref="_ZNK18idRenderModelDecal15WriteToDemoFileEP10idDemoFile">WriteToDemoFile</dfn>( <b>class</b> <a class="type" href="../framework/DemoFile.h.html#idDemoFile" title='idDemoFile' data-ref="idDemoFile">idDemoFile</a> *<dfn class="local col4 decl" id="184f" title='f' data-type='class idDemoFile *' data-ref="184f">f</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td><b>private</b>:</td></tr>
+<tr><th id="94">94</th><td>	<em>static</em> <em>const</em> <em>int</em>			<dfn class="decl" id="idRenderModelDecal::MAX_DECAL_VERTS" title='idRenderModelDecal::MAX_DECAL_VERTS' data-ref="idRenderModelDecal::MAX_DECAL_VERTS">MAX_DECAL_VERTS</dfn> = <var>40</var>;</td></tr>
+<tr><th id="95">95</th><td>	<em>static</em> <em>const</em> <em>int</em>			<dfn class="decl" id="idRenderModelDecal::MAX_DECAL_INDEXES" title='idRenderModelDecal::MAX_DECAL_INDEXES' data-ref="idRenderModelDecal::MAX_DECAL_INDEXES">MAX_DECAL_INDEXES</dfn> = <var>60</var>;</td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td>	<em>const</em> <a class="type" href="Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *			<dfn class="decl" id="idRenderModelDecal::material" title='idRenderModelDecal::material' data-ref="idRenderModelDecal::material">material</dfn>;</td></tr>
+<tr><th id="98">98</th><td>	<a class="typedef" href="Model.h.html#srfTriangles_t" title='srfTriangles_t' data-type='struct srfTriangles_s' data-ref="srfTriangles_t">srfTriangles_t</a>				<dfn class="decl" id="idRenderModelDecal::tri" title='idRenderModelDecal::tri' data-ref="idRenderModelDecal::tri">tri</dfn>;</td></tr>
+<tr><th id="99">99</th><td>	<a class="type" href="../idlib/geometry/DrawVert.h.html#idDrawVert" title='idDrawVert' data-ref="idDrawVert">idDrawVert</a>					<dfn class="decl" id="idRenderModelDecal::verts" title='idRenderModelDecal::verts' data-ref="idRenderModelDecal::verts">verts</dfn>[<a class="ref" href="#idRenderModelDecal::MAX_DECAL_VERTS" title='idRenderModelDecal::MAX_DECAL_VERTS' data-ref="idRenderModelDecal::MAX_DECAL_VERTS">MAX_DECAL_VERTS</a>];</td></tr>
+<tr><th id="100">100</th><td>	<em>float</em>						<dfn class="decl" id="idRenderModelDecal::vertDepthFade" title='idRenderModelDecal::vertDepthFade' data-ref="idRenderModelDecal::vertDepthFade">vertDepthFade</dfn>[<a class="ref" href="#idRenderModelDecal::MAX_DECAL_VERTS" title='idRenderModelDecal::MAX_DECAL_VERTS' data-ref="idRenderModelDecal::MAX_DECAL_VERTS">MAX_DECAL_VERTS</a>];</td></tr>
+<tr><th id="101">101</th><td>	<a class="typedef" href="Model.h.html#glIndex_t" title='glIndex_t' data-type='int' data-ref="glIndex_t">glIndex_t</a>					<dfn class="decl" id="idRenderModelDecal::indexes" title='idRenderModelDecal::indexes' data-ref="idRenderModelDecal::indexes">indexes</dfn>[<a class="ref" href="#idRenderModelDecal::MAX_DECAL_INDEXES" title='idRenderModelDecal::MAX_DECAL_INDEXES' data-ref="idRenderModelDecal::MAX_DECAL_INDEXES">MAX_DECAL_INDEXES</a>];</td></tr>
+<tr><th id="102">102</th><td>	<em>int</em>							<dfn class="decl" id="idRenderModelDecal::indexStartTime" title='idRenderModelDecal::indexStartTime' data-ref="idRenderModelDecal::indexStartTime">indexStartTime</dfn>[<a class="ref" href="#idRenderModelDecal::MAX_DECAL_INDEXES" title='idRenderModelDecal::MAX_DECAL_INDEXES' data-ref="idRenderModelDecal::MAX_DECAL_INDEXES">MAX_DECAL_INDEXES</a>];</td></tr>
+<tr><th id="103">103</th><td>	<a class="type" href="#idRenderModelDecal" title='idRenderModelDecal' data-ref="idRenderModelDecal">idRenderModelDecal</a> *		<dfn class="decl" id="idRenderModelDecal::nextDecal" title='idRenderModelDecal::nextDecal' data-ref="idRenderModelDecal::nextDecal">nextDecal</dfn>;</td></tr>
+<tr><th id="104">104</th><td></td></tr>
+<tr><th id="105">105</th><td>								<i>// Adds the winding triangles to the appropriate decal in the</i></td></tr>
+<tr><th id="106">106</th><td><i>								// chain, creating a new one if necessary.</i></td></tr>
+<tr><th id="107">107</th><td>	<em>void</em>						<dfn class="decl" id="_ZN18idRenderModelDecal10AddWindingERK9idWindingPK10idMaterialPK7idPlanefi" title='idRenderModelDecal::AddWinding' data-ref="_ZN18idRenderModelDecal10AddWindingERK9idWindingPK10idMaterialPK7idPlanefi">AddWinding</dfn>( <em>const</em> <a class="type" href="../idlib/geometry/Winding.h.html#idWinding" title='idWinding' data-ref="idWinding">idWinding</a> &amp;<dfn class="local col5 decl" id="185w" title='w' data-type='const idWinding &amp;' data-ref="185w">w</dfn>, <em>const</em> <a class="type" href="Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *<dfn class="local col6 decl" id="186decalMaterial" title='decalMaterial' data-type='const idMaterial *' data-ref="186decalMaterial">decalMaterial</dfn>, <em>const</em> <a class="type" href="../idlib/math/Plane.h.html#idPlane" title='idPlane' data-ref="idPlane">idPlane</a> <dfn class="local col7 decl" id="187fadePlanes" title='fadePlanes' data-type='const idPlane *' data-ref="187fadePlanes">fadePlanes</dfn>[<var>2</var>], <em>float</em> <dfn class="local col8 decl" id="188fadeDepth" title='fadeDepth' data-type='float' data-ref="188fadeDepth">fadeDepth</dfn>, <em>int</em> <dfn class="local col9 decl" id="189startTime" title='startTime' data-type='int' data-ref="189startTime">startTime</dfn> );</td></tr>
+<tr><th id="108">108</th><td></td></tr>
+<tr><th id="109">109</th><td>								<i>// Adds depth faded triangles for the winding to the appropriate</i></td></tr>
+<tr><th id="110">110</th><td><i>								// decal in the chain, creating a new one if necessary.</i></td></tr>
+<tr><th id="111">111</th><td><i>								// The part of the winding at the front side of both fade planes is not faded.</i></td></tr>
+<tr><th id="112">112</th><td><i>								// The parts at the back sides of the fade planes are faded with the given depth.</i></td></tr>
+<tr><th id="113">113</th><td>	<em>void</em>						<dfn class="decl" id="_ZN18idRenderModelDecal20AddDepthFadedWindingERK9idWindingPK10idMaterialPK7idPlanefi" title='idRenderModelDecal::AddDepthFadedWinding' data-ref="_ZN18idRenderModelDecal20AddDepthFadedWindingERK9idWindingPK10idMaterialPK7idPlanefi">AddDepthFadedWinding</dfn>( <em>const</em> <a class="type" href="../idlib/geometry/Winding.h.html#idWinding" title='idWinding' data-ref="idWinding">idWinding</a> &amp;<dfn class="local col0 decl" id="190w" title='w' data-type='const idWinding &amp;' data-ref="190w">w</dfn>, <em>const</em> <a class="type" href="Material.h.html#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *<dfn class="local col1 decl" id="191decalMaterial" title='decalMaterial' data-type='const idMaterial *' data-ref="191decalMaterial">decalMaterial</dfn>, <em>const</em> <a class="type" href="../idlib/math/Plane.h.html#idPlane" title='idPlane' data-ref="idPlane">idPlane</a> <dfn class="local col2 decl" id="192fadePlanes" title='fadePlanes' data-type='const idPlane *' data-ref="192fadePlanes">fadePlanes</dfn>[<var>2</var>], <em>float</em> <dfn class="local col3 decl" id="193fadeDepth" title='fadeDepth' data-type='float' data-ref="193fadeDepth">fadeDepth</dfn>, <em>int</em> <dfn class="local col4 decl" id="194startTime" title='startTime' data-type='int' data-ref="194startTime">startTime</dfn> );</td></tr>
+<tr><th id="114">114</th><td>};</td></tr>
+<tr><th id="115">115</th><td></td></tr>
+<tr><th id="116">116</th><td><u>#<span data-ppcond="29">endif</span> /* !__MODELDECAL_H__ */</u></td></tr>
+<tr><th id="117">117</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../build/debug/core/glimp/sys/linux/glimp_dlopen.cpp.html'>codebrowser/build/debug/core/glimp/sys/linux/glimp_dlopen.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

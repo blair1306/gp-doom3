@@ -1,0 +1,8 @@
+<dec f='codebrowser/sound/sound.h' l='218' type='void idSoundWorld::PlaceListener(const idVec3 &amp; origin, const idMat3 &amp; axis, const int listenerId, const int gameTime, const idStr &amp; areaName)'/>
+<doc f='codebrowser/sound/sound.h' l='214'>// where is the camera/microphone
+	// listenerId allows listener-private and antiPrivate sounds to be filtered
+	// gameTime is in msec, and is used to time sound queries and removals so that they are independent
+	// of any race conditions with the async update</doc>
+<use f='codebrowser/d3xp/PlayerView.cpp' l='469' u='c' c='_ZN12idPlayerView10SingleViewEP15idUserInterfacePK12renderView_s'/>
+<use f='codebrowser/game/PlayerView.cpp' l='438' u='c' c='_ZN12idPlayerView10SingleViewEP15idUserInterfacePK12renderView_s'/>
+<ovr f='codebrowser/sound/snd_world.cpp' l='891' c='_ZN17idSoundWorldLocal13PlaceListenerERK6idVec3RK6idMat3iiRK5idStr'/>

@@ -1,0 +1,24 @@
+<dec f='codebrowser/renderer/Image.h' l='311' type='idImage * idImageManager::ImageFromFile(const char * name, textureFilter_t filter, bool allowDownSize, textureRepeat_t repeat, textureDepth_t depth, cubeFiles_t cubeMap = CF_2D)'/>
+<doc f='codebrowser/renderer/Image.h' l='304'>// If the exact combination of parameters has been asked for already, an existing
+	// image will be returned, otherwise a new image will be created.
+	// Be careful not to use the same image file with different filter / repeat / etc parameters
+	// if possible, because it will cause a second copy to be loaded.
+	// If the load fails for any reason, the image will be filled in with the default
+	// grid pattern.
+	// Will automatically resample non-power-of-two images and execute image programs if needed.</doc>
+<def f='codebrowser/renderer/Image_init.cpp' l='1481' ll='1621' type='idImage * idImageManager::ImageFromFile(const char * _name, textureFilter_t filter, bool allowDownSize, textureRepeat_t repeat, textureDepth_t depth, cubeFiles_t cubeMap = CF_2D)'/>
+<doc f='codebrowser/renderer/Image_init.cpp' l='1473'>/*
+===============
+ImageFromFile
+
+Finds or loads the given image, always returning a valid image pointer.
+Loading of the image may be deferred for dynamic loading.
+==============
+*/</doc>
+<use f='codebrowser/renderer/Material.cpp' l='214' u='c' c='_ZNK10idMaterial14GetEditorImageEv'/>
+<use f='codebrowser/renderer/Material.cpp' l='1014' u='c' c='_ZN10idMaterial16ParseFragmentMapER7idLexerP16newShaderStage_t'/>
+<use f='codebrowser/renderer/Material.cpp' l='1569' u='c' c='_ZN10idMaterial10ParseStageER7idLexer15textureRepeat_t'/>
+<use f='codebrowser/renderer/Material.cpp' l='1963' u='c' c='_ZN10idMaterial13ParseMaterialER7idLexer'/>
+<use f='codebrowser/renderer/RenderSystem.cpp' l='931' u='c' c='_ZN19idRenderSystemLocal20CaptureRenderToImageEPKc'/>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='854' u='c' c='_Z13R_TestImage_fRK9idCmdArgs'/>
+<use f='codebrowser/renderer/RenderSystem_init.cpp' l='876' u='c' c='_Z13R_TestVideo_fRK9idCmdArgs'/>

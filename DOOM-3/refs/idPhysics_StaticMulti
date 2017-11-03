@@ -1,0 +1,176 @@
+<inh f='codebrowser/d3xp/physics/Physics.h' l='76' c='idPhysics'/>
+<def f='codebrowser/d3xp/physics/Physics_StaticMulti.h' l='40' ll='152'/>
+<size>44</size>
+<doc f='codebrowser/d3xp/physics/Physics_StaticMulti.h' l='32'>/*
+===============================================================================
+
+	Physics for a non moving object using no or multiple collision models.
+
+===============================================================================
+*/</doc>
+<smbr r='idPhysics_StaticMulti::Type' t='idTypeInfo'/>
+<fun r='_ZN21idPhysics_StaticMulti14CreateInstanceEv'/>
+<fun r='_ZNK21idPhysics_StaticMulti7GetTypeEv'/>
+<smbr r='idPhysics_StaticMulti::eventCallbacks' t='idEventFunc&lt;idPhysics_StaticMulti&gt; []'/>
+<fun r='_ZN21idPhysics_StaticMultiC1Ev'/>
+<fun r='_ZN21idPhysics_StaticMultiD1Ev'/>
+<fun r='_ZNK21idPhysics_StaticMulti4SaveEP10idSaveGame'/>
+<fun r='_ZN21idPhysics_StaticMulti7RestoreEP13idRestoreGame'/>
+<fun r='_ZN21idPhysics_StaticMulti11RemoveIndexEib'/>
+<fun r='_ZN21idPhysics_StaticMulti7SetSelfEP8idEntity'/>
+<fun r='_ZN21idPhysics_StaticMulti12SetClipModelEP11idClipModelfib'/>
+<fun r='_ZNK21idPhysics_StaticMulti12GetClipModelEi'/>
+<fun r='_ZNK21idPhysics_StaticMulti16GetNumClipModelsEv'/>
+<fun r='_ZN21idPhysics_StaticMulti7SetMassEfi'/>
+<fun r='_ZNK21idPhysics_StaticMulti7GetMassEi'/>
+<fun r='_ZN21idPhysics_StaticMulti11SetContentsEii'/>
+<fun r='_ZNK21idPhysics_StaticMulti11GetContentsEi'/>
+<fun r='_ZN21idPhysics_StaticMulti11SetClipMaskEii'/>
+<fun r='_ZNK21idPhysics_StaticMulti11GetClipMaskEi'/>
+<fun r='_ZNK21idPhysics_StaticMulti9GetBoundsEi'/>
+<fun r='_ZNK21idPhysics_StaticMulti12GetAbsBoundsEi'/>
+<fun r='_ZN21idPhysics_StaticMulti8EvaluateEii'/>
+<fun r='_ZN21idPhysics_StaticMulti10UpdateTimeEi'/>
+<fun r='_ZNK21idPhysics_StaticMulti7GetTimeEv'/>
+<fun r='_ZNK21idPhysics_StaticMulti13GetImpactInfoEiRK6idVec3P12impactInfo_s'/>
+<fun r='_ZN21idPhysics_StaticMulti12ApplyImpulseEiRK6idVec3S2_'/>
+<fun r='_ZN21idPhysics_StaticMulti8AddForceEiRK6idVec3S2_'/>
+<fun r='_ZN21idPhysics_StaticMulti8ActivateEv'/>
+<fun r='_ZN21idPhysics_StaticMulti9PutToRestEv'/>
+<fun r='_ZNK21idPhysics_StaticMulti8IsAtRestEv'/>
+<fun r='_ZNK21idPhysics_StaticMulti16GetRestStartTimeEv'/>
+<fun r='_ZNK21idPhysics_StaticMulti10IsPushableEv'/>
+<fun r='_ZN21idPhysics_StaticMulti9SaveStateEv'/>
+<fun r='_ZN21idPhysics_StaticMulti12RestoreStateEv'/>
+<fun r='_ZN21idPhysics_StaticMulti9SetOriginERK6idVec3i'/>
+<fun r='_ZN21idPhysics_StaticMulti7SetAxisERK6idMat3i'/>
+<fun r='_ZN21idPhysics_StaticMulti9TranslateERK6idVec3i'/>
+<fun r='_ZN21idPhysics_StaticMulti6RotateERK10idRotationi'/>
+<fun r='_ZNK21idPhysics_StaticMulti9GetOriginEi'/>
+<fun r='_ZNK21idPhysics_StaticMulti7GetAxisEi'/>
+<fun r='_ZN21idPhysics_StaticMulti17SetLinearVelocityERK6idVec3i'/>
+<fun r='_ZN21idPhysics_StaticMulti18SetAngularVelocityERK6idVec3i'/>
+<fun r='_ZNK21idPhysics_StaticMulti17GetLinearVelocityEi'/>
+<fun r='_ZNK21idPhysics_StaticMulti18GetAngularVelocityEi'/>
+<fun r='_ZN21idPhysics_StaticMulti10SetGravityERK6idVec3'/>
+<fun r='_ZNK21idPhysics_StaticMulti10GetGravityEv'/>
+<fun r='_ZNK21idPhysics_StaticMulti16GetGravityNormalEv'/>
+<fun r='_ZNK21idPhysics_StaticMulti15ClipTranslationER7trace_sRK6idVec3PK11idClipModel'/>
+<fun r='_ZNK21idPhysics_StaticMulti12ClipRotationER7trace_sRK10idRotationPK11idClipModel'/>
+<fun r='_ZNK21idPhysics_StaticMulti12ClipContentsEPK11idClipModel'/>
+<fun r='_ZN21idPhysics_StaticMulti11DisableClipEv'/>
+<fun r='_ZN21idPhysics_StaticMulti10EnableClipEv'/>
+<fun r='_ZN21idPhysics_StaticMulti10UnlinkClipEv'/>
+<fun r='_ZN21idPhysics_StaticMulti8LinkClipEv'/>
+<fun r='_ZN21idPhysics_StaticMulti16EvaluateContactsEv'/>
+<fun r='_ZNK21idPhysics_StaticMulti14GetNumContactsEv'/>
+<fun r='_ZNK21idPhysics_StaticMulti10GetContactEi'/>
+<fun r='_ZN21idPhysics_StaticMulti13ClearContactsEv'/>
+<fun r='_ZN21idPhysics_StaticMulti16AddContactEntityEP8idEntity'/>
+<fun r='_ZN21idPhysics_StaticMulti19RemoveContactEntityEP8idEntity'/>
+<fun r='_ZNK21idPhysics_StaticMulti17HasGroundContactsEv'/>
+<fun r='_ZNK21idPhysics_StaticMulti14IsGroundEntityEi'/>
+<fun r='_ZNK21idPhysics_StaticMulti17IsGroundClipModelEii'/>
+<fun r='_ZN21idPhysics_StaticMulti9SetPushedEi'/>
+<fun r='_ZNK21idPhysics_StaticMulti23GetPushedLinearVelocityEi'/>
+<fun r='_ZNK21idPhysics_StaticMulti24GetPushedAngularVelocityEi'/>
+<fun r='_ZN21idPhysics_StaticMulti9SetMasterEP8idEntityb'/>
+<fun r='_ZNK21idPhysics_StaticMulti15GetBlockingInfoEv'/>
+<fun r='_ZNK21idPhysics_StaticMulti17GetBlockingEntityEv'/>
+<fun r='_ZNK21idPhysics_StaticMulti16GetLinearEndTimeEv'/>
+<fun r='_ZNK21idPhysics_StaticMulti17GetAngularEndTimeEv'/>
+<fun r='_ZNK21idPhysics_StaticMulti15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN21idPhysics_StaticMulti16ReadFromSnapshotERK13idBitMsgDelta'/>
+<mbr r='idPhysics_StaticMulti::self' o='32' t='idEntity *'/>
+<mbr r='idPhysics_StaticMulti::current' o='64' t='idList&lt;staticPState_t&gt;'/>
+<mbr r='idPhysics_StaticMulti::clipModels' o='192' t='idList&lt;idClipModel *&gt;'/>
+<mbr r='idPhysics_StaticMulti::hasMaster' o='320' t='bool'/>
+<mbr r='idPhysics_StaticMulti::isOrientated' o='328' t='bool'/>
+<inh f='codebrowser/game/physics/Physics.h' l='76' c='idPhysics'/>
+<def f='codebrowser/game/physics/Physics_StaticMulti.h' l='40' ll='152'/>
+<size>44</size>
+<doc f='codebrowser/game/physics/Physics_StaticMulti.h' l='32'>/*
+===============================================================================
+
+	Physics for a non moving object using no or multiple collision models.
+
+===============================================================================
+*/</doc>
+<smbr r='idPhysics_StaticMulti::Type' t='idTypeInfo'/>
+<fun r='_ZN21idPhysics_StaticMulti14CreateInstanceEv'/>
+<fun r='_ZNK21idPhysics_StaticMulti7GetTypeEv'/>
+<smbr r='idPhysics_StaticMulti::eventCallbacks' t='idEventFunc&lt;idPhysics_StaticMulti&gt; []'/>
+<fun r='_ZN21idPhysics_StaticMultiC1Ev'/>
+<fun r='_ZN21idPhysics_StaticMultiD1Ev'/>
+<fun r='_ZNK21idPhysics_StaticMulti4SaveEP10idSaveGame'/>
+<fun r='_ZN21idPhysics_StaticMulti7RestoreEP13idRestoreGame'/>
+<fun r='_ZN21idPhysics_StaticMulti11RemoveIndexEib'/>
+<fun r='_ZN21idPhysics_StaticMulti7SetSelfEP8idEntity'/>
+<fun r='_ZN21idPhysics_StaticMulti12SetClipModelEP11idClipModelfib'/>
+<fun r='_ZNK21idPhysics_StaticMulti12GetClipModelEi'/>
+<fun r='_ZNK21idPhysics_StaticMulti16GetNumClipModelsEv'/>
+<fun r='_ZN21idPhysics_StaticMulti7SetMassEfi'/>
+<fun r='_ZNK21idPhysics_StaticMulti7GetMassEi'/>
+<fun r='_ZN21idPhysics_StaticMulti11SetContentsEii'/>
+<fun r='_ZNK21idPhysics_StaticMulti11GetContentsEi'/>
+<fun r='_ZN21idPhysics_StaticMulti11SetClipMaskEii'/>
+<fun r='_ZNK21idPhysics_StaticMulti11GetClipMaskEi'/>
+<fun r='_ZNK21idPhysics_StaticMulti9GetBoundsEi'/>
+<fun r='_ZNK21idPhysics_StaticMulti12GetAbsBoundsEi'/>
+<fun r='_ZN21idPhysics_StaticMulti8EvaluateEii'/>
+<fun r='_ZN21idPhysics_StaticMulti10UpdateTimeEi'/>
+<fun r='_ZNK21idPhysics_StaticMulti7GetTimeEv'/>
+<fun r='_ZNK21idPhysics_StaticMulti13GetImpactInfoEiRK6idVec3P12impactInfo_s'/>
+<fun r='_ZN21idPhysics_StaticMulti12ApplyImpulseEiRK6idVec3S2_'/>
+<fun r='_ZN21idPhysics_StaticMulti8AddForceEiRK6idVec3S2_'/>
+<fun r='_ZN21idPhysics_StaticMulti8ActivateEv'/>
+<fun r='_ZN21idPhysics_StaticMulti9PutToRestEv'/>
+<fun r='_ZNK21idPhysics_StaticMulti8IsAtRestEv'/>
+<fun r='_ZNK21idPhysics_StaticMulti16GetRestStartTimeEv'/>
+<fun r='_ZNK21idPhysics_StaticMulti10IsPushableEv'/>
+<fun r='_ZN21idPhysics_StaticMulti9SaveStateEv'/>
+<fun r='_ZN21idPhysics_StaticMulti12RestoreStateEv'/>
+<fun r='_ZN21idPhysics_StaticMulti9SetOriginERK6idVec3i'/>
+<fun r='_ZN21idPhysics_StaticMulti7SetAxisERK6idMat3i'/>
+<fun r='_ZN21idPhysics_StaticMulti9TranslateERK6idVec3i'/>
+<fun r='_ZN21idPhysics_StaticMulti6RotateERK10idRotationi'/>
+<fun r='_ZNK21idPhysics_StaticMulti9GetOriginEi'/>
+<fun r='_ZNK21idPhysics_StaticMulti7GetAxisEi'/>
+<fun r='_ZN21idPhysics_StaticMulti17SetLinearVelocityERK6idVec3i'/>
+<fun r='_ZN21idPhysics_StaticMulti18SetAngularVelocityERK6idVec3i'/>
+<fun r='_ZNK21idPhysics_StaticMulti17GetLinearVelocityEi'/>
+<fun r='_ZNK21idPhysics_StaticMulti18GetAngularVelocityEi'/>
+<fun r='_ZN21idPhysics_StaticMulti10SetGravityERK6idVec3'/>
+<fun r='_ZNK21idPhysics_StaticMulti10GetGravityEv'/>
+<fun r='_ZNK21idPhysics_StaticMulti16GetGravityNormalEv'/>
+<fun r='_ZNK21idPhysics_StaticMulti15ClipTranslationER7trace_sRK6idVec3PK11idClipModel'/>
+<fun r='_ZNK21idPhysics_StaticMulti12ClipRotationER7trace_sRK10idRotationPK11idClipModel'/>
+<fun r='_ZNK21idPhysics_StaticMulti12ClipContentsEPK11idClipModel'/>
+<fun r='_ZN21idPhysics_StaticMulti11DisableClipEv'/>
+<fun r='_ZN21idPhysics_StaticMulti10EnableClipEv'/>
+<fun r='_ZN21idPhysics_StaticMulti10UnlinkClipEv'/>
+<fun r='_ZN21idPhysics_StaticMulti8LinkClipEv'/>
+<fun r='_ZN21idPhysics_StaticMulti16EvaluateContactsEv'/>
+<fun r='_ZNK21idPhysics_StaticMulti14GetNumContactsEv'/>
+<fun r='_ZNK21idPhysics_StaticMulti10GetContactEi'/>
+<fun r='_ZN21idPhysics_StaticMulti13ClearContactsEv'/>
+<fun r='_ZN21idPhysics_StaticMulti16AddContactEntityEP8idEntity'/>
+<fun r='_ZN21idPhysics_StaticMulti19RemoveContactEntityEP8idEntity'/>
+<fun r='_ZNK21idPhysics_StaticMulti17HasGroundContactsEv'/>
+<fun r='_ZNK21idPhysics_StaticMulti14IsGroundEntityEi'/>
+<fun r='_ZNK21idPhysics_StaticMulti17IsGroundClipModelEii'/>
+<fun r='_ZN21idPhysics_StaticMulti9SetPushedEi'/>
+<fun r='_ZNK21idPhysics_StaticMulti23GetPushedLinearVelocityEi'/>
+<fun r='_ZNK21idPhysics_StaticMulti24GetPushedAngularVelocityEi'/>
+<fun r='_ZN21idPhysics_StaticMulti9SetMasterEP8idEntityb'/>
+<fun r='_ZNK21idPhysics_StaticMulti15GetBlockingInfoEv'/>
+<fun r='_ZNK21idPhysics_StaticMulti17GetBlockingEntityEv'/>
+<fun r='_ZNK21idPhysics_StaticMulti16GetLinearEndTimeEv'/>
+<fun r='_ZNK21idPhysics_StaticMulti17GetAngularEndTimeEv'/>
+<fun r='_ZNK21idPhysics_StaticMulti15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN21idPhysics_StaticMulti16ReadFromSnapshotERK13idBitMsgDelta'/>
+<mbr r='idPhysics_StaticMulti::self' o='32' t='idEntity *'/>
+<mbr r='idPhysics_StaticMulti::current' o='64' t='idList&lt;staticPState_t&gt;'/>
+<mbr r='idPhysics_StaticMulti::clipModels' o='192' t='idList&lt;idClipModel *&gt;'/>
+<mbr r='idPhysics_StaticMulti::hasMaster' o='320' t='bool'/>
+<mbr r='idPhysics_StaticMulti::isOrientated' o='328' t='bool'/>

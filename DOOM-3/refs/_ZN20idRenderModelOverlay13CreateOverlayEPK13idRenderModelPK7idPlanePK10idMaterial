@@ -1,0 +1,18 @@
+<dec f='codebrowser/renderer/ModelOverlay.h' l='76' type='void idRenderModelOverlay::CreateOverlay(const idRenderModel * model, const idPlane * localTextureAxis, const idMaterial * material)'/>
+<doc f='codebrowser/renderer/ModelOverlay.h' l='70'>// Projects an overlay onto deformable geometry and can be added to
+	// a render entity to allow decals on top of dynamic models.
+	// This does not generate tangent vectors, so it can&apos;t be used with
+	// light interaction shaders. Materials for overlays should always
+	// be clamped, because the projected texcoords can run well off the
+	// texture since no new clip vertexes are generated.</doc>
+<def f='codebrowser/renderer/ModelOverlay.cpp' l='104' ll='229' type='void idRenderModelOverlay::CreateOverlay(const idRenderModel * model, const idPlane * localTextureAxis, const idMaterial * mtr)'/>
+<doc f='codebrowser/renderer/ModelOverlay.cpp' l='95'>/*
+=====================
+idRenderModelOverlay::CreateOverlay
+
+This projects on both front and back sides to avoid seams
+The material should be clamped, because entire triangles are added, some of which
+may extend well past the 0.0 to 1.0 texture range
+=====================
+*/</doc>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='630' u='c' c='_ZN18idRenderWorldLocal14ProjectOverlayEiPK7idPlanePK10idMaterial'/>

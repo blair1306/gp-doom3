@@ -1,0 +1,12 @@
+<dec f='codebrowser/idlib/bv/Box.h' l='87' type='bool idBox::RayIntersection(const idVec3 &amp; start, const idVec3 &amp; dir, float &amp; scale1, float &amp; scale2) const'/>
+<doc f='codebrowser/idlib/bv/Box.h' l='86'>// intersection points are (start + dir * scale1) and (start + dir * scale2)</doc>
+<def f='codebrowser/idlib/bv/Box.cpp' l='614' ll='628' type='bool idBox::RayIntersection(const idVec3 &amp; start, const idVec3 &amp; dir, float &amp; scale1, float &amp; scale2) const'/>
+<doc f='codebrowser/idlib/bv/Box.cpp' l='605'>/*
+============
+idBox::RayIntersection
+
+  Returns true if the ray intersects the box.
+  The ray can intersect the box in both directions from the start point.
+  If start is inside the box then scale1 &lt; 0 and scale2 &gt; 0.
+============
+*/</doc>

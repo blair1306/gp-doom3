@@ -1,0 +1,38 @@
+<inh f='codebrowser/d3xp/Entity.h' l='107' c='idEntity'/>
+<def f='codebrowser/d3xp/Grabber.h' l='41' ll='84'/>
+<size>984</size>
+<smbr r='idGrabber::Type' t='idTypeInfo'/>
+<fun r='_ZN9idGrabber14CreateInstanceEv'/>
+<fun r='_ZNK9idGrabber7GetTypeEv'/>
+<smbr r='idGrabber::eventCallbacks' t='idEventFunc&lt;idGrabber&gt; []'/>
+<fun r='_ZN9idGrabberC1Ev'/>
+<fun r='_ZN9idGrabberD1Ev'/>
+<fun r='_ZNK9idGrabber4SaveEP10idSaveGame'/>
+<fun r='_ZN9idGrabber7RestoreEP13idRestoreGame'/>
+<fun r='_ZN9idGrabber10InitializeEv'/>
+<fun r='_ZN9idGrabber15SetDragDistanceEf'/>
+<fun r='_ZN9idGrabber6UpdateEP8idPlayerb'/>
+<mbr r='idGrabber::dragEnt' o='6944' t='idEntityPtr&lt;idEntity&gt;'/>
+<mbr r='idGrabber::drag' o='6976' t='idForce_Grab'/>
+<mbr r='idGrabber::saveGravity' o='7232' t='idVec3'/>
+<mbr r='idGrabber::id' o='7328' t='int'/>
+<mbr r='idGrabber::localPlayerPoint' o='7360' t='idVec3'/>
+<mbr r='idGrabber::owner' o='7456' t='idEntityPtr&lt;idPlayer&gt;'/>
+<mbr r='idGrabber::oldUcmdFlags' o='7488' t='int'/>
+<mbr r='idGrabber::holdingAF' o='7520' t='bool'/>
+<mbr r='idGrabber::shakeForceFlip' o='7528' t='bool'/>
+<mbr r='idGrabber::endTime' o='7552' t='int'/>
+<mbr r='idGrabber::lastFiredTime' o='7584' t='int'/>
+<mbr r='idGrabber::dragFailTime' o='7616' t='int'/>
+<mbr r='idGrabber::startDragTime' o='7648' t='int'/>
+<mbr r='idGrabber::dragTraceDist' o='7680' t='float'/>
+<mbr r='idGrabber::savedContents' o='7712' t='int'/>
+<mbr r='idGrabber::savedClipmask' o='7744' t='int'/>
+<mbr r='idGrabber::beam' o='7776' t='idBeam *'/>
+<mbr r='idGrabber::beamTarget' o='7808' t='idBeam *'/>
+<mbr r='idGrabber::warpId' o='7840' t='int'/>
+<fun r='_ZN9idGrabber11grabbableAIEPKc'/>
+<fun r='_ZN9idGrabber9StartDragEP8idEntityi'/>
+<fun r='_ZN9idGrabber8StopDragEb'/>
+<fun r='_ZN9idGrabber11UpdateBeamsEv'/>
+<fun r='_ZN9idGrabber10ApplyShakeEv'/>

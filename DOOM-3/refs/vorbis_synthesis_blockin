@@ -1,0 +1,7 @@
+<dec f='codebrowser/sound/OggVorbis/vorbis/codec.h' l='208' type='int vorbis_synthesis_blockin(vorbis_dsp_state * v, vorbis_block * vb)'/>
+<def f='codebrowser/sound/OggVorbis/vorbissrc/block.c' l='674' ll='858' type='int vorbis_synthesis_blockin(vorbis_dsp_state * v, vorbis_block * vb)'/>
+<doc f='codebrowser/sound/OggVorbis/vorbissrc/block.c' l='670'>/* Unlike in analysis, the window is only partially applied for each
+   block.  The time domain envelope is not yet handled at the point of
+   calling (as it relies on the previous block). */</doc>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='499' u='c' c='_fetch_and_process_packet'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1295' u='c' c='ov_pcm_seek'/>

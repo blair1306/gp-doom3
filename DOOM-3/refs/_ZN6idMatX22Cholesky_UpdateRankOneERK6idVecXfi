@@ -1,0 +1,11 @@
+<dec f='codebrowser/idlib/math/Matrix.h' l='1939' type='bool idMatX::Cholesky_UpdateRankOne(const idVecX &amp; v, float alpha, int offset = 0)'/>
+<def f='codebrowser/idlib/math/Matrix.cpp' l='5337' ll='5377' type='bool idMatX::Cholesky_UpdateRankOne(const idVecX &amp; v, float alpha, int offset = 0)'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7763' u='c' c='_ZN6idMatX4TestEv'/>
+<doc f='codebrowser/idlib/math/Matrix.cpp' l='5329'>/*
+============
+idMatX::Cholesky_UpdateRankOne
+
+  Updates the in-place Cholesky factorization to obtain the factors for the matrix: LL&apos; + alpha * v * v&apos;
+  If offset &gt; 0 only the lower right corner starting at (offset, offset) is updated.
+============
+*/</doc>

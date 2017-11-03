@@ -1,0 +1,7 @@
+<dec f='codebrowser/game/Game.h' l='158' type='void idGame::ServerWriteSnapshot(int clientNum, int sequence, idBitMsg &amp; msg, byte * clientInPVS, int numPVSClients)'/>
+<doc f='codebrowser/game/Game.h' l='157'>// Writes a snapshot of the server game state for the given client.</doc>
+<dec f='codebrowser/d3xp/Game.h' l='160' type='void idGame::ServerWriteSnapshot(int clientNum, int sequence, idBitMsg &amp; msg, byte * clientInPVS, int numPVSClients)'/>
+<doc f='codebrowser/d3xp/Game.h' l='159'>// Writes a snapshot of the server game state for the given client.</doc>
+<ovr f='codebrowser/d3xp/Game_network.cpp' l='550' c='_ZN11idGameLocal19ServerWriteSnapshotEiiR8idBitMsgPhi'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1181' u='c' c='_ZN13idAsyncServer20SendSnapshotToClientEi'/>
+<ovr f='codebrowser/game/Game_network.cpp' l='550' c='_ZN11idGameLocal19ServerWriteSnapshotEiiR8idBitMsgPhi'/>

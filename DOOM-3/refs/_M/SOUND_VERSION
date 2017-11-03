@@ -1,0 +1,10 @@
+<dec f='codebrowser/sys/linux/oss/include/sys/soundcard.h' l='49'/>
+<use f='codebrowser/sys/linux/sound.cpp' l='209' u='c'/>
+<doc f='codebrowser/sys/linux/oss/include/sys/soundcard.h' l='41'>/*
+ * OSS interface version. With versions earlier than 3.6 this value is
+ * an integer with value less than 361. In versions 3.6 and later
+ * it&apos;s a six digit hexadecimal value. For example value
+ * of 0x030600 represents OSS version 3.6.0.
+ * Use ioctl(fd, OSS_GETVERSION, &amp;int) to get the version number of
+ * the currently active driver.
+ */</doc>

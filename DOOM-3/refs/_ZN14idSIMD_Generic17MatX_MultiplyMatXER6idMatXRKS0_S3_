@@ -1,0 +1,17 @@
+<dec f='codebrowser/idlib/math/Simd_Generic.h' l='104' type='void idSIMD_Generic::MatX_MultiplyMatX(idMatX &amp; dst, const idMatX &amp; m1, const idMatX &amp; m2)'/>
+<inh f='codebrowser/idlib/math/Simd.h' l='166' c='_ZN15idSIMDProcessor17MatX_MultiplyMatXER6idMatXRKS0_S3_'/>
+<def f='codebrowser/idlib/math/Simd_Generic.cpp' l='1146' ll='1477' type='void idSIMD_Generic::MatX_MultiplyMatX(idMatX &amp; dst, const idMatX &amp; m1, const idMatX &amp; m2)'/>
+<doc f='codebrowser/idlib/math/Simd_Generic.cpp' l='1132'>/*
+============
+idSIMD_Generic::MatX_MultiplyMatX
+
+	optimizes the following matrix multiplications:
+
+	NxN * Nx6
+	6xN * Nx6
+	Nx6 * 6xN
+	6x6 * 6xN
+
+	with N in the range [1-6].
+============
+*/</doc>

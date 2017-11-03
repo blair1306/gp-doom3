@@ -1,0 +1,11 @@
+<dec f='codebrowser/sound/OggVorbis/vorbis/codec.h' l='210' type='int vorbis_synthesis_lapout(vorbis_dsp_state * v, float *** pcm)'/>
+<def f='codebrowser/sound/OggVorbis/vorbissrc/block.c' l='887' ll='960' type='int vorbis_synthesis_lapout(vorbis_dsp_state * v, float *** pcm)'/>
+<doc f='codebrowser/sound/OggVorbis/vorbissrc/block.c' l='882'>/* intended for use with a specific vorbisfile feature; we want access
+   to the [usually synthetic/postextrapolated] buffer and lapping at
+   the end of a decode cycle, specifically, a half-short-block worth.
+   This funtion works like pcmout above, except it will also expose
+   this implicit buffer data not normally decoded. */</doc>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1799' u='c' c='_ov_getlap'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1854' u='c' c='ov_crosslap'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1905' u='c' c='_ov_64_seek_lap'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1966' u='c' c='_ov_d_seek_lap'/>

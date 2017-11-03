@@ -1,0 +1,422 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>dmap.cpp source code [codebrowser/tools/compilers/dmap/dmap.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/tools/compilers/dmap/dmap.cpp'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>tools</a>/<a href='..'>compilers</a>/<a href='./'>dmap</a>/<a href='dmap.cpp.html'>dmap.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="../../../idlib/precompiled.h.html">"../../../idlib/precompiled.h"</a></u></td></tr>
+<tr><th id="30">30</th><td><u>#pragma hdrstop</u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="dmap.h.html">"dmap.h"</a></u></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><a class="typedef" href="dmap.h.html#dmapGlobals_t" title='dmapGlobals_t' data-type='struct dmapGlobals_t' data-ref="dmapGlobals_t">dmapGlobals_t</a>	<a class="ref fake" href="dmap.h.html#233" title='(anonymous struct)::' data-ref="_ZN13dmapGlobals_tC1Ev"></a><dfn class="decl def" id="dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</dfn>;</td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><i>/*</i></td></tr>
+<tr><th id="37">37</th><td><i>============</i></td></tr>
+<tr><th id="38">38</th><td><i>ProcessModel</i></td></tr>
+<tr><th id="39">39</th><td><i>============</i></td></tr>
+<tr><th id="40">40</th><td><i>*/</i></td></tr>
+<tr><th id="41">41</th><td><em>bool</em> <dfn class="decl def" id="_Z12ProcessModelP9uEntity_tb" title='ProcessModel' data-ref="_Z12ProcessModelP9uEntity_tb">ProcessModel</dfn>( <a class="typedef" href="dmap.h.html#uEntity_t" title='uEntity_t' data-type='struct uEntity_t' data-ref="uEntity_t">uEntity_t</a> *<dfn class="local col6 decl" id="96e" title='e' data-type='uEntity_t *' data-ref="96e">e</dfn>, <em>bool</em> <dfn class="local col7 decl" id="97floodFill" title='floodFill' data-type='bool' data-ref="97floodFill">floodFill</dfn> ) {</td></tr>
+<tr><th id="42">42</th><td>	<a class="typedef" href="dmap.h.html#bspface_t" title='bspface_t' data-type='struct bspface_s' data-ref="bspface_t">bspface_t</a>	*<dfn class="local col8 decl" id="98faces" title='faces' data-type='bspface_t *' data-ref="98faces">faces</dfn>;</td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td>	<i>// build a bsp tree using all of the sides</i></td></tr>
+<tr><th id="45">45</th><td><i>	// of all of the structural brushes</i></td></tr>
+<tr><th id="46">46</th><td>	<a class="local col8 ref" href="#98faces" title='faces' data-ref="98faces">faces</a> = <a class="ref" href="dmap.h.html#_Z25MakeStructuralBspFaceListP11primitive_s" title='MakeStructuralBspFaceList' data-ref="_Z25MakeStructuralBspFaceListP11primitive_s">MakeStructuralBspFaceList</a> ( <a class="local col6 ref" href="#96e" title='e' data-ref="96e">e</a>-&gt;<a class="ref" href="dmap.h.html#(anonymous)::primitives" title='(anonymous struct)::primitives' data-ref="(anonymous)::primitives">primitives</a> );</td></tr>
+<tr><th id="47">47</th><td>	<a class="local col6 ref" href="#96e" title='e' data-ref="96e">e</a>-&gt;<a class="ref" href="dmap.h.html#(anonymous)::tree" title='(anonymous struct)::tree' data-ref="(anonymous)::tree">tree</a> = <a class="ref" href="dmap.h.html#_Z7FaceBSPP9bspface_s" title='FaceBSP' data-ref="_Z7FaceBSPP9bspface_s">FaceBSP</a>( <a class="local col8 ref" href="#98faces" title='faces' data-ref="98faces">faces</a> );</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td>	<i>// create portals at every leaf intersection</i></td></tr>
+<tr><th id="50">50</th><td><i>	// to allow flood filling</i></td></tr>
+<tr><th id="51">51</th><td>	<a class="ref" href="dmap.h.html#_Z15MakeTreePortalsP6tree_s" title='MakeTreePortals' data-ref="_Z15MakeTreePortalsP6tree_s">MakeTreePortals</a>( <a class="local col6 ref" href="#96e" title='e' data-ref="96e">e</a>-&gt;<a class="ref" href="dmap.h.html#(anonymous)::tree" title='(anonymous struct)::tree' data-ref="(anonymous)::tree">tree</a> );</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td>	<i>// classify the leafs as opaque or areaportal</i></td></tr>
+<tr><th id="54">54</th><td>	<a class="ref" href="dmap.h.html#_Z21FilterBrushesIntoTreeP9uEntity_t" title='FilterBrushesIntoTree' data-ref="_Z21FilterBrushesIntoTreeP9uEntity_t">FilterBrushesIntoTree</a>( <a class="local col6 ref" href="#96e" title='e' data-ref="96e">e</a> );</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td>	<i>// see if the bsp is completely enclosed</i></td></tr>
+<tr><th id="57">57</th><td>	<b>if</b> ( <a class="local col7 ref" href="#97floodFill" title='floodFill' data-ref="97floodFill">floodFill</a> &amp;&amp; !<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::noFlood" title='(anonymous struct)::noFlood' data-ref="(anonymous)::noFlood">noFlood</a> ) {</td></tr>
+<tr><th id="58">58</th><td>		<b>if</b> ( <a class="ref" href="dmap.h.html#_Z13FloodEntitiesP6tree_s" title='FloodEntities' data-ref="_Z13FloodEntitiesP6tree_s">FloodEntities</a>( <a class="local col6 ref" href="#96e" title='e' data-ref="96e">e</a>-&gt;<a class="ref" href="dmap.h.html#(anonymous)::tree" title='(anonymous struct)::tree' data-ref="(anonymous)::tree">tree</a> ) ) {</td></tr>
+<tr><th id="59">59</th><td>			<i>// set the outside leafs to opaque</i></td></tr>
+<tr><th id="60">60</th><td>			<a class="ref" href="dmap.h.html#_Z11FillOutsideP9uEntity_t" title='FillOutside' data-ref="_Z11FillOutsideP9uEntity_t">FillOutside</a>( <a class="local col6 ref" href="#96e" title='e' data-ref="96e">e</a> );</td></tr>
+<tr><th id="61">61</th><td>		} <b>else</b> {</td></tr>
+<tr><th id="62">62</th><td>			<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a> ( <q>"**********************\n"</q> );</td></tr>
+<tr><th id="63">63</th><td>			<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon7WarningEPKcz" title='idCommon::Warning' data-ref="_ZN8idCommon7WarningEPKcz">Warning</a>( <q>"******* leaked *******"</q> );</td></tr>
+<tr><th id="64">64</th><td>			<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a> ( <q>"**********************\n"</q> );</td></tr>
+<tr><th id="65">65</th><td>			<a class="ref" href="dmap.h.html#_Z8LeakFileP6tree_s" title='LeakFile' data-ref="_Z8LeakFileP6tree_s">LeakFile</a>( <a class="local col6 ref" href="#96e" title='e' data-ref="96e">e</a>-&gt;<a class="ref" href="dmap.h.html#(anonymous)::tree" title='(anonymous struct)::tree' data-ref="(anonymous)::tree">tree</a> );</td></tr>
+<tr><th id="66">66</th><td>			<i>// bail out here.  If someone really wants to</i></td></tr>
+<tr><th id="67">67</th><td><i>			// process a map that leaks, they should use</i></td></tr>
+<tr><th id="68">68</th><td><i>			// -noFlood</i></td></tr>
+<tr><th id="69">69</th><td>			<b>return</b> <b>false</b>;</td></tr>
+<tr><th id="70">70</th><td>		}</td></tr>
+<tr><th id="71">71</th><td>	}</td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td>	<i>// get minimum convex hulls for each visible side</i></td></tr>
+<tr><th id="74">74</th><td><i>	// this must be done before creating area portals,</i></td></tr>
+<tr><th id="75">75</th><td><i>	// because the visible hull is used as the portal</i></td></tr>
+<tr><th id="76">76</th><td>	<a class="ref" href="dmap.h.html#_Z15ClipSidesByTreeP9uEntity_t" title='ClipSidesByTree' data-ref="_Z15ClipSidesByTreeP9uEntity_t">ClipSidesByTree</a>( <a class="local col6 ref" href="#96e" title='e' data-ref="96e">e</a> );</td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td>	<i>// determine areas before clipping tris into the</i></td></tr>
+<tr><th id="79">79</th><td><i>	// tree, so tris will never cross area boundaries</i></td></tr>
+<tr><th id="80">80</th><td>	<a class="ref" href="dmap.h.html#_Z10FloodAreasP9uEntity_t" title='FloodAreas' data-ref="_Z10FloodAreasP9uEntity_t">FloodAreas</a>( <a class="local col6 ref" href="#96e" title='e' data-ref="96e">e</a> );</td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td>	<i>// we now have a BSP tree with solid and non-solid leafs marked with areas</i></td></tr>
+<tr><th id="83">83</th><td><i>	// all primitives will now be clipped into this, throwing away</i></td></tr>
+<tr><th id="84">84</th><td><i>	// fragments in the solid areas</i></td></tr>
+<tr><th id="85">85</th><td>	<a class="ref" href="dmap.h.html#_Z20PutPrimitivesInAreasP9uEntity_t" title='PutPrimitivesInAreas' data-ref="_Z20PutPrimitivesInAreasP9uEntity_t">PutPrimitivesInAreas</a>( <a class="local col6 ref" href="#96e" title='e' data-ref="96e">e</a> );</td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td>	<i>// now build shadow volumes for the lights and split</i></td></tr>
+<tr><th id="88">88</th><td><i>	// the optimize lists by the light beam trees</i></td></tr>
+<tr><th id="89">89</th><td><i>	// so there won't be unneeded overdraw in the static</i></td></tr>
+<tr><th id="90">90</th><td><i>	// case</i></td></tr>
+<tr><th id="91">91</th><td>	<a class="ref" href="dmap.h.html#_Z8PrelightP9uEntity_t" title='Prelight' data-ref="_Z8PrelightP9uEntity_t">Prelight</a>( <a class="local col6 ref" href="#96e" title='e' data-ref="96e">e</a> );</td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td>	<i>// optimizing is a superset of fixing tjunctions</i></td></tr>
+<tr><th id="94">94</th><td>	<b>if</b> ( !<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::noOptimize" title='(anonymous struct)::noOptimize' data-ref="(anonymous)::noOptimize">noOptimize</a> ) {</td></tr>
+<tr><th id="95">95</th><td>		<a class="ref" href="dmap.h.html#_Z14OptimizeEntityP9uEntity_t" title='OptimizeEntity' data-ref="_Z14OptimizeEntityP9uEntity_t">OptimizeEntity</a>( <a class="local col6 ref" href="#96e" title='e' data-ref="96e">e</a> );</td></tr>
+<tr><th id="96">96</th><td>	} <b>else</b>  <b>if</b> ( !<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::noTJunc" title='(anonymous struct)::noTJunc' data-ref="(anonymous)::noTJunc">noTJunc</a> ) {</td></tr>
+<tr><th id="97">97</th><td>		<a class="ref" href="dmap.h.html#_Z19FixEntityTjunctionsP9uEntity_t" title='FixEntityTjunctions' data-ref="_Z19FixEntityTjunctionsP9uEntity_t">FixEntityTjunctions</a>( <a class="local col6 ref" href="#96e" title='e' data-ref="96e">e</a> );</td></tr>
+<tr><th id="98">98</th><td>	}</td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td>	<i>// now fix t junctions across areas</i></td></tr>
+<tr><th id="101">101</th><td>	<a class="ref" href="dmap.h.html#_Z19FixGlobalTjunctionsP9uEntity_t" title='FixGlobalTjunctions' data-ref="_Z19FixGlobalTjunctionsP9uEntity_t">FixGlobalTjunctions</a>( <a class="local col6 ref" href="#96e" title='e' data-ref="96e">e</a> );</td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td>	<b>return</b> <b>true</b>;</td></tr>
+<tr><th id="104">104</th><td>}</td></tr>
+<tr><th id="105">105</th><td></td></tr>
+<tr><th id="106">106</th><td><i>/*</i></td></tr>
+<tr><th id="107">107</th><td><i>============</i></td></tr>
+<tr><th id="108">108</th><td><i>ProcessModels</i></td></tr>
+<tr><th id="109">109</th><td><i>============</i></td></tr>
+<tr><th id="110">110</th><td><i>*/</i></td></tr>
+<tr><th id="111">111</th><td><em>bool</em> <dfn class="decl def" id="_Z13ProcessModelsv" title='ProcessModels' data-ref="_Z13ProcessModelsv">ProcessModels</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="112">112</th><td>	<em>bool</em>	<dfn class="local col9 decl" id="99oldVerbose" title='oldVerbose' data-type='bool' data-ref="99oldVerbose">oldVerbose</dfn>;</td></tr>
+<tr><th id="113">113</th><td>	<a class="typedef" href="dmap.h.html#uEntity_t" title='uEntity_t' data-type='struct uEntity_t' data-ref="uEntity_t">uEntity_t</a>	*<dfn class="local col0 decl" id="100entity" title='entity' data-type='uEntity_t *' data-ref="100entity">entity</dfn>;</td></tr>
+<tr><th id="114">114</th><td></td></tr>
+<tr><th id="115">115</th><td>	<a class="local col9 ref" href="#99oldVerbose" title='oldVerbose' data-ref="99oldVerbose">oldVerbose</a> = <a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::verbose" title='(anonymous struct)::verbose' data-ref="(anonymous)::verbose">verbose</a>;</td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td>	<b>for</b> ( <a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::entityNum" title='(anonymous struct)::entityNum' data-ref="(anonymous)::entityNum">entityNum</a> = <var>0</var> ; <a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::entityNum" title='(anonymous struct)::entityNum' data-ref="(anonymous)::entityNum">entityNum</a> &lt; <a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::num_entities" title='(anonymous struct)::num_entities' data-ref="(anonymous)::num_entities">num_entities</a> ; <a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::entityNum" title='(anonymous struct)::entityNum' data-ref="(anonymous)::entityNum">entityNum</a>++ ) {</td></tr>
+<tr><th id="118">118</th><td></td></tr>
+<tr><th id="119">119</th><td>		<a class="local col0 ref" href="#100entity" title='entity' data-ref="100entity">entity</a> = &amp;<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::uEntities" title='(anonymous struct)::uEntities' data-ref="(anonymous)::uEntities">uEntities</a>[<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::entityNum" title='(anonymous struct)::entityNum' data-ref="(anonymous)::entityNum">entityNum</a>];</td></tr>
+<tr><th id="120">120</th><td>		<b>if</b> ( !<a class="local col0 ref" href="#100entity" title='entity' data-ref="100entity">entity</a>-&gt;<a class="ref" href="dmap.h.html#(anonymous)::primitives" title='(anonymous struct)::primitives' data-ref="(anonymous)::primitives">primitives</a> ) {</td></tr>
+<tr><th id="121">121</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="122">122</th><td>		}</td></tr>
+<tr><th id="123">123</th><td></td></tr>
+<tr><th id="124">124</th><td>		<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"############### entity %i ###############\n"</q>, <a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::entityNum" title='(anonymous struct)::entityNum' data-ref="(anonymous)::entityNum">entityNum</a> );</td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td>		<i>// if we leaked, stop without any more processing</i></td></tr>
+<tr><th id="127">127</th><td>		<b>if</b> ( !<a class="ref" href="#_Z12ProcessModelP9uEntity_tb" title='ProcessModel' data-ref="_Z12ProcessModelP9uEntity_tb">ProcessModel</a>( <a class="local col0 ref" href="#100entity" title='entity' data-ref="100entity">entity</a>, (<em>bool</em>)(<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::entityNum" title='(anonymous struct)::entityNum' data-ref="(anonymous)::entityNum">entityNum</a> == <var>0</var> ) ) ) {</td></tr>
+<tr><th id="128">128</th><td>			<b>return</b> <b>false</b>;</td></tr>
+<tr><th id="129">129</th><td>		}</td></tr>
+<tr><th id="130">130</th><td></td></tr>
+<tr><th id="131">131</th><td>		<i>// we usually don't want to see output for submodels unless</i></td></tr>
+<tr><th id="132">132</th><td><i>		// something strange is going on</i></td></tr>
+<tr><th id="133">133</th><td>		<b>if</b> ( !<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::verboseentities" title='(anonymous struct)::verboseentities' data-ref="(anonymous)::verboseentities">verboseentities</a> ) {</td></tr>
+<tr><th id="134">134</th><td>			<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::verbose" title='(anonymous struct)::verbose' data-ref="(anonymous)::verbose">verbose</a> = <b>false</b>;</td></tr>
+<tr><th id="135">135</th><td>		}</td></tr>
+<tr><th id="136">136</th><td>	}</td></tr>
+<tr><th id="137">137</th><td></td></tr>
+<tr><th id="138">138</th><td>	<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::verbose" title='(anonymous struct)::verbose' data-ref="(anonymous)::verbose">verbose</a> = <a class="local col9 ref" href="#99oldVerbose" title='oldVerbose' data-ref="99oldVerbose">oldVerbose</a>;</td></tr>
+<tr><th id="139">139</th><td></td></tr>
+<tr><th id="140">140</th><td>	<b>return</b> <b>true</b>;</td></tr>
+<tr><th id="141">141</th><td>}</td></tr>
+<tr><th id="142">142</th><td></td></tr>
+<tr><th id="143">143</th><td><i>/*</i></td></tr>
+<tr><th id="144">144</th><td><i>============</i></td></tr>
+<tr><th id="145">145</th><td><i>DmapHelp</i></td></tr>
+<tr><th id="146">146</th><td><i>============</i></td></tr>
+<tr><th id="147">147</th><td><i>*/</i></td></tr>
+<tr><th id="148">148</th><td><em>void</em> <dfn class="decl def" id="_Z8DmapHelpv" title='DmapHelp' data-ref="_Z8DmapHelpv">DmapHelp</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="149">149</th><td>	<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>(</td></tr>
+<tr><th id="150">150</th><td>		</td></tr>
+<tr><th id="151">151</th><td>	<q>"Usage: dmap [options] mapfile\n"</q></td></tr>
+<tr><th id="152">152</th><td>	<q>"Options:\n"</q></td></tr>
+<tr><th id="153">153</th><td>	<q>"noCurves          = don't process curves\n"</q></td></tr>
+<tr><th id="154">154</th><td>	<q>"noCM              = don't create collision map\n"</q></td></tr>
+<tr><th id="155">155</th><td>	<q>"noAAS             = don't create AAS files\n"</q></td></tr>
+<tr><th id="156">156</th><td>	</td></tr>
+<tr><th id="157">157</th><td>	);</td></tr>
+<tr><th id="158">158</th><td>}</td></tr>
+<tr><th id="159">159</th><td></td></tr>
+<tr><th id="160">160</th><td><i>/*</i></td></tr>
+<tr><th id="161">161</th><td><i>============</i></td></tr>
+<tr><th id="162">162</th><td><i>ResetDmapGlobals</i></td></tr>
+<tr><th id="163">163</th><td><i>============</i></td></tr>
+<tr><th id="164">164</th><td><i>*/</i></td></tr>
+<tr><th id="165">165</th><td><em>void</em> <dfn class="decl def" id="_Z16ResetDmapGlobalsv" title='ResetDmapGlobals' data-ref="_Z16ResetDmapGlobalsv">ResetDmapGlobals</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="166">166</th><td>	<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::mapFileBase" title='(anonymous struct)::mapFileBase' data-ref="(anonymous)::mapFileBase">mapFileBase</a>[<var>0</var>] = <kbd>'\0'</kbd>;</td></tr>
+<tr><th id="167">167</th><td>	<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::dmapFile" title='(anonymous struct)::dmapFile' data-ref="(anonymous)::dmapFile">dmapFile</a> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="168">168</th><td>	<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::mapPlanes" title='(anonymous struct)::mapPlanes' data-ref="(anonymous)::mapPlanes">mapPlanes</a>.<a class="ref" href="../../../idlib/containers/PlaneSet.h.html#_ZN10idPlaneSet5ClearEv" title='idPlaneSet::Clear' data-ref="_ZN10idPlaneSet5ClearEv">Clear</a>();</td></tr>
+<tr><th id="169">169</th><td>	<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::num_entities" title='(anonymous struct)::num_entities' data-ref="(anonymous)::num_entities">num_entities</a> = <var>0</var>;</td></tr>
+<tr><th id="170">170</th><td>	<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::uEntities" title='(anonymous struct)::uEntities' data-ref="(anonymous)::uEntities">uEntities</a> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="171">171</th><td>	<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::entityNum" title='(anonymous struct)::entityNum' data-ref="(anonymous)::entityNum">entityNum</a> = <var>0</var>;</td></tr>
+<tr><th id="172">172</th><td>	<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::mapLights" title='(anonymous struct)::mapLights' data-ref="(anonymous)::mapLights">mapLights</a>.<a class="ref" href="../../../idlib/containers/List.h.html#_ZN6idList5ClearEv" title='idList::Clear' data-ref="_ZN6idList5ClearEv">Clear</a>();</td></tr>
+<tr><th id="173">173</th><td>	<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::verbose" title='(anonymous struct)::verbose' data-ref="(anonymous)::verbose">verbose</a> = <b>false</b>;</td></tr>
+<tr><th id="174">174</th><td>	<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::glview" title='(anonymous struct)::glview' data-ref="(anonymous)::glview">glview</a> = <b>false</b>;</td></tr>
+<tr><th id="175">175</th><td>	<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::noOptimize" title='(anonymous struct)::noOptimize' data-ref="(anonymous)::noOptimize">noOptimize</a> = <b>false</b>;</td></tr>
+<tr><th id="176">176</th><td>	<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::verboseentities" title='(anonymous struct)::verboseentities' data-ref="(anonymous)::verboseentities">verboseentities</a> = <b>false</b>;</td></tr>
+<tr><th id="177">177</th><td>	<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::noCurves" title='(anonymous struct)::noCurves' data-ref="(anonymous)::noCurves">noCurves</a> = <b>false</b>;</td></tr>
+<tr><th id="178">178</th><td>	<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::fullCarve" title='(anonymous struct)::fullCarve' data-ref="(anonymous)::fullCarve">fullCarve</a> = <b>false</b>;</td></tr>
+<tr><th id="179">179</th><td>	<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::noModelBrushes" title='(anonymous struct)::noModelBrushes' data-ref="(anonymous)::noModelBrushes">noModelBrushes</a> = <b>false</b>;</td></tr>
+<tr><th id="180">180</th><td>	<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::noTJunc" title='(anonymous struct)::noTJunc' data-ref="(anonymous)::noTJunc">noTJunc</a> = <b>false</b>;</td></tr>
+<tr><th id="181">181</th><td>	<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::nomerge" title='(anonymous struct)::nomerge' data-ref="(anonymous)::nomerge">nomerge</a> = <b>false</b>;</td></tr>
+<tr><th id="182">182</th><td>	<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::noFlood" title='(anonymous struct)::noFlood' data-ref="(anonymous)::noFlood">noFlood</a> = <b>false</b>;</td></tr>
+<tr><th id="183">183</th><td>	<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::noClipSides" title='(anonymous struct)::noClipSides' data-ref="(anonymous)::noClipSides">noClipSides</a> = <b>false</b>;</td></tr>
+<tr><th id="184">184</th><td>	<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::noLightCarve" title='(anonymous struct)::noLightCarve' data-ref="(anonymous)::noLightCarve">noLightCarve</a> = <b>false</b>;</td></tr>
+<tr><th id="185">185</th><td>	<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::noShadow" title='(anonymous struct)::noShadow' data-ref="(anonymous)::noShadow">noShadow</a> = <b>false</b>;</td></tr>
+<tr><th id="186">186</th><td>	<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::shadowOptLevel" title='(anonymous struct)::shadowOptLevel' data-ref="(anonymous)::shadowOptLevel">shadowOptLevel</a> = <a class="enum" href="dmap.h.html#SO_NONE" title='SO_NONE' data-ref="SO_NONE">SO_NONE</a>;</td></tr>
+<tr><th id="187">187</th><td>	<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::drawBounds" title='(anonymous struct)::drawBounds' data-ref="(anonymous)::drawBounds">drawBounds</a>.<a class="ref" href="../../../idlib/bv/Bounds.h.html#_ZN8idBounds5ClearEv" title='idBounds::Clear' data-ref="_ZN8idBounds5ClearEv">Clear</a>();</td></tr>
+<tr><th id="188">188</th><td>	<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::drawflag" title='(anonymous struct)::drawflag' data-ref="(anonymous)::drawflag">drawflag</a> = <b>false</b>;</td></tr>
+<tr><th id="189">189</th><td>	<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::totalShadowTriangles" title='(anonymous struct)::totalShadowTriangles' data-ref="(anonymous)::totalShadowTriangles">totalShadowTriangles</a> = <var>0</var>;</td></tr>
+<tr><th id="190">190</th><td>	<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::totalShadowVerts" title='(anonymous struct)::totalShadowVerts' data-ref="(anonymous)::totalShadowVerts">totalShadowVerts</a> = <var>0</var>;</td></tr>
+<tr><th id="191">191</th><td>}</td></tr>
+<tr><th id="192">192</th><td></td></tr>
+<tr><th id="193">193</th><td><i>/*</i></td></tr>
+<tr><th id="194">194</th><td><i>============</i></td></tr>
+<tr><th id="195">195</th><td><i>Dmap</i></td></tr>
+<tr><th id="196">196</th><td><i>============</i></td></tr>
+<tr><th id="197">197</th><td><i>*/</i></td></tr>
+<tr><th id="198">198</th><td><em>void</em> <dfn class="decl def" id="_Z4DmapRK9idCmdArgs" title='Dmap' data-ref="_Z4DmapRK9idCmdArgs">Dmap</dfn>( <em>const</em> <a class="type" href="../../../idlib/CmdArgs.h.html#idCmdArgs" title='idCmdArgs' data-ref="idCmdArgs">idCmdArgs</a> &amp;<dfn class="local col1 decl" id="101args" title='args' data-type='const idCmdArgs &amp;' data-ref="101args">args</dfn> ) {</td></tr>
+<tr><th id="199">199</th><td>	<em>int</em>			<dfn class="local col2 decl" id="102i" title='i' data-type='int' data-ref="102i">i</dfn>;</td></tr>
+<tr><th id="200">200</th><td>	<em>int</em>			<dfn class="local col3 decl" id="103start" title='start' data-type='int' data-ref="103start">start</dfn>, <dfn class="local col4 decl" id="104end" title='end' data-type='int' data-ref="104end">end</dfn>;</td></tr>
+<tr><th id="201">201</th><td>	<em>char</em>		<dfn class="local col5 decl" id="105path" title='path' data-type='char [1024]' data-ref="105path">path</dfn>[<var>1024</var>];</td></tr>
+<tr><th id="202">202</th><td>	<a class="type" href="../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>		<a class="ref fake" href="../../../idlib/Str.h.html#_ZN5idStrC1Ev" title='idStr::idStr' data-ref="_ZN5idStrC1Ev"></a><dfn class="local col6 decl" id="106passedName" title='passedName' data-type='idStr' data-ref="106passedName">passedName</dfn>;</td></tr>
+<tr><th id="203">203</th><td>	<em>bool</em>		<dfn class="local col7 decl" id="107leaked" title='leaked' data-type='bool' data-ref="107leaked">leaked</dfn> = <b>false</b>;</td></tr>
+<tr><th id="204">204</th><td>	<em>bool</em>		<dfn class="local col8 decl" id="108noCM" title='noCM' data-type='bool' data-ref="108noCM">noCM</dfn> = <b>false</b>;</td></tr>
+<tr><th id="205">205</th><td>	<em>bool</em>		<dfn class="local col9 decl" id="109noAAS" title='noAAS' data-type='bool' data-ref="109noAAS">noAAS</dfn> = <b>false</b>;</td></tr>
+<tr><th id="206">206</th><td></td></tr>
+<tr><th id="207">207</th><td>	<a class="ref" href="#_Z16ResetDmapGlobalsv" title='ResetDmapGlobals' data-ref="_Z16ResetDmapGlobalsv">ResetDmapGlobals</a>();</td></tr>
+<tr><th id="208">208</th><td></td></tr>
+<tr><th id="209">209</th><td>	<b>if</b> ( <a class="local col1 ref" href="#101args" title='args' data-ref="101args">args</a>.<a class="ref" href="../../../idlib/CmdArgs.h.html#_ZNK9idCmdArgs4ArgcEv" title='idCmdArgs::Argc' data-ref="_ZNK9idCmdArgs4ArgcEv">Argc</a>() &lt; <var>2</var> ) {</td></tr>
+<tr><th id="210">210</th><td>		<a class="ref" href="#_Z8DmapHelpv" title='DmapHelp' data-ref="_Z8DmapHelpv">DmapHelp</a>();</td></tr>
+<tr><th id="211">211</th><td>		<b>return</b>;</td></tr>
+<tr><th id="212">212</th><td>	}</td></tr>
+<tr><th id="213">213</th><td></td></tr>
+<tr><th id="214">214</th><td>	<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>(<q>"---- dmap ----\n"</q>);</td></tr>
+<tr><th id="215">215</th><td></td></tr>
+<tr><th id="216">216</th><td>	<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::fullCarve" title='(anonymous struct)::fullCarve' data-ref="(anonymous)::fullCarve">fullCarve</a> = <b>true</b>;</td></tr>
+<tr><th id="217">217</th><td>	<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::shadowOptLevel" title='(anonymous struct)::shadowOptLevel' data-ref="(anonymous)::shadowOptLevel">shadowOptLevel</a> = <a class="enum" href="dmap.h.html#SO_MERGE_SURFACES" title='SO_MERGE_SURFACES' data-ref="SO_MERGE_SURFACES">SO_MERGE_SURFACES</a>;		<i>// create shadows by merging all surfaces, but no super optimization</i></td></tr>
+<tr><th id="218">218</th><td><i>//	dmapGlobals.shadowOptLevel = SO_CLIP_OCCLUDERS;		// remove occluders that are completely covered</i></td></tr>
+<tr><th id="219">219</th><td><i>//	dmapGlobals.shadowOptLevel = SO_SIL_OPTIMIZE;</i></td></tr>
+<tr><th id="220">220</th><td><i>//	dmapGlobals.shadowOptLevel = SO_CULL_OCCLUDED;</i></td></tr>
+<tr><th id="221">221</th><td></td></tr>
+<tr><th id="222">222</th><td>	<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::noLightCarve" title='(anonymous struct)::noLightCarve' data-ref="(anonymous)::noLightCarve">noLightCarve</a> = <b>true</b>;</td></tr>
+<tr><th id="223">223</th><td></td></tr>
+<tr><th id="224">224</th><td>	<b>for</b> ( <a class="local col2 ref" href="#102i" title='i' data-ref="102i">i</a> = <var>1</var> ; <a class="local col2 ref" href="#102i" title='i' data-ref="102i">i</a> &lt; <a class="local col1 ref" href="#101args" title='args' data-ref="101args">args</a>.<a class="ref" href="../../../idlib/CmdArgs.h.html#_ZNK9idCmdArgs4ArgcEv" title='idCmdArgs::Argc' data-ref="_ZNK9idCmdArgs4ArgcEv">Argc</a>() ; <a class="local col2 ref" href="#102i" title='i' data-ref="102i">i</a>++ ) {</td></tr>
+<tr><th id="225">225</th><td>		<em>const</em> <em>char</em> *<dfn class="local col0 decl" id="110s" title='s' data-type='const char *' data-ref="110s">s</dfn>;</td></tr>
+<tr><th id="226">226</th><td></td></tr>
+<tr><th id="227">227</th><td>		<a class="local col0 ref" href="#110s" title='s' data-ref="110s">s</a> = <a class="local col1 ref" href="#101args" title='args' data-ref="101args">args</a>.<a class="ref" href="../../../idlib/CmdArgs.h.html#_ZNK9idCmdArgs4ArgvEi" title='idCmdArgs::Argv' data-ref="_ZNK9idCmdArgs4ArgvEi">Argv</a>(<a class="local col2 ref" href="#102i" title='i' data-ref="102i">i</a>);</td></tr>
+<tr><th id="228">228</th><td>		<b>if</b> ( <a class="local col0 ref" href="#110s" title='s' data-ref="110s">s</a>[<var>0</var>] == <kbd>'-'</kbd> ) {</td></tr>
+<tr><th id="229">229</th><td>			<a class="local col0 ref" href="#110s" title='s' data-ref="110s">s</a>++;</td></tr>
+<tr><th id="230">230</th><td>			<b>if</b> ( <a class="local col0 ref" href="#110s" title='s' data-ref="110s">s</a>[<var>0</var>] == <kbd>'\0'</kbd> ) {</td></tr>
+<tr><th id="231">231</th><td>				<b>continue</b>;</td></tr>
+<tr><th id="232">232</th><td>			}</td></tr>
+<tr><th id="233">233</th><td>		}</td></tr>
+<tr><th id="234">234</th><td></td></tr>
+<tr><th id="235">235</th><td>		<b>if</b> ( !<a class="type" href="../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>::<a class="ref" href="../../../idlib/Str.h.html#_ZN5idStr4IcmpEPKcS1_" title='idStr::Icmp' data-ref="_ZN5idStr4IcmpEPKcS1_">Icmp</a>( <a class="local col0 ref" href="#110s" title='s' data-ref="110s">s</a>,<q>"glview"</q> ) ) {</td></tr>
+<tr><th id="236">236</th><td>			<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::glview" title='(anonymous struct)::glview' data-ref="(anonymous)::glview">glview</a> = <b>true</b>;</td></tr>
+<tr><th id="237">237</th><td>		} <b>else</b> <b>if</b> ( !<a class="type" href="../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>::<a class="ref" href="../../../idlib/Str.h.html#_ZN5idStr4IcmpEPKcS1_" title='idStr::Icmp' data-ref="_ZN5idStr4IcmpEPKcS1_">Icmp</a>( <a class="local col0 ref" href="#110s" title='s' data-ref="110s">s</a>, <q>"v"</q> ) ) {</td></tr>
+<tr><th id="238">238</th><td>			<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"verbose = true\n"</q> );</td></tr>
+<tr><th id="239">239</th><td>			<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::verbose" title='(anonymous struct)::verbose' data-ref="(anonymous)::verbose">verbose</a> = <b>true</b>;</td></tr>
+<tr><th id="240">240</th><td>		} <b>else</b> <b>if</b> ( !<a class="type" href="../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>::<a class="ref" href="../../../idlib/Str.h.html#_ZN5idStr4IcmpEPKcS1_" title='idStr::Icmp' data-ref="_ZN5idStr4IcmpEPKcS1_">Icmp</a>( <a class="local col0 ref" href="#110s" title='s' data-ref="110s">s</a>, <q>"draw"</q> ) ) {</td></tr>
+<tr><th id="241">241</th><td>			<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"drawflag = true\n"</q> );</td></tr>
+<tr><th id="242">242</th><td>			<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::drawflag" title='(anonymous struct)::drawflag' data-ref="(anonymous)::drawflag">drawflag</a> = <b>true</b>;</td></tr>
+<tr><th id="243">243</th><td>		} <b>else</b> <b>if</b> ( !<a class="type" href="../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>::<a class="ref" href="../../../idlib/Str.h.html#_ZN5idStr4IcmpEPKcS1_" title='idStr::Icmp' data-ref="_ZN5idStr4IcmpEPKcS1_">Icmp</a>( <a class="local col0 ref" href="#110s" title='s' data-ref="110s">s</a>, <q>"noFlood"</q> ) ) {</td></tr>
+<tr><th id="244">244</th><td>			<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"noFlood = true\n"</q> );</td></tr>
+<tr><th id="245">245</th><td>			<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::noFlood" title='(anonymous struct)::noFlood' data-ref="(anonymous)::noFlood">noFlood</a> = <b>true</b>;</td></tr>
+<tr><th id="246">246</th><td>		} <b>else</b> <b>if</b> ( !<a class="type" href="../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>::<a class="ref" href="../../../idlib/Str.h.html#_ZN5idStr4IcmpEPKcS1_" title='idStr::Icmp' data-ref="_ZN5idStr4IcmpEPKcS1_">Icmp</a>( <a class="local col0 ref" href="#110s" title='s' data-ref="110s">s</a>, <q>"noLightCarve"</q> ) ) {</td></tr>
+<tr><th id="247">247</th><td>			<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"noLightCarve = true\n"</q> );</td></tr>
+<tr><th id="248">248</th><td>			<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::noLightCarve" title='(anonymous struct)::noLightCarve' data-ref="(anonymous)::noLightCarve">noLightCarve</a> = <b>true</b>;</td></tr>
+<tr><th id="249">249</th><td>		} <b>else</b> <b>if</b> ( !<a class="type" href="../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>::<a class="ref" href="../../../idlib/Str.h.html#_ZN5idStr4IcmpEPKcS1_" title='idStr::Icmp' data-ref="_ZN5idStr4IcmpEPKcS1_">Icmp</a>( <a class="local col0 ref" href="#110s" title='s' data-ref="110s">s</a>, <q>"lightCarve"</q> ) ) {</td></tr>
+<tr><th id="250">250</th><td>			<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"noLightCarve = false\n"</q> );</td></tr>
+<tr><th id="251">251</th><td>			<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::noLightCarve" title='(anonymous struct)::noLightCarve' data-ref="(anonymous)::noLightCarve">noLightCarve</a> = <b>false</b>;</td></tr>
+<tr><th id="252">252</th><td>		} <b>else</b> <b>if</b> ( !<a class="type" href="../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>::<a class="ref" href="../../../idlib/Str.h.html#_ZN5idStr4IcmpEPKcS1_" title='idStr::Icmp' data-ref="_ZN5idStr4IcmpEPKcS1_">Icmp</a>( <a class="local col0 ref" href="#110s" title='s' data-ref="110s">s</a>, <q>"noOpt"</q> ) ) {</td></tr>
+<tr><th id="253">253</th><td>			<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"noOptimize = true\n"</q> );</td></tr>
+<tr><th id="254">254</th><td>			<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::noOptimize" title='(anonymous struct)::noOptimize' data-ref="(anonymous)::noOptimize">noOptimize</a> = <b>true</b>;</td></tr>
+<tr><th id="255">255</th><td>		} <b>else</b> <b>if</b> ( !<a class="type" href="../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>::<a class="ref" href="../../../idlib/Str.h.html#_ZN5idStr4IcmpEPKcS1_" title='idStr::Icmp' data-ref="_ZN5idStr4IcmpEPKcS1_">Icmp</a>( <a class="local col0 ref" href="#110s" title='s' data-ref="110s">s</a>, <q>"verboseentities"</q> ) ) {</td></tr>
+<tr><th id="256">256</th><td>			<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"verboseentities = true\n"</q>);</td></tr>
+<tr><th id="257">257</th><td>			<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::verboseentities" title='(anonymous struct)::verboseentities' data-ref="(anonymous)::verboseentities">verboseentities</a> = <b>true</b>;</td></tr>
+<tr><th id="258">258</th><td>		} <b>else</b> <b>if</b> ( !<a class="type" href="../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>::<a class="ref" href="../../../idlib/Str.h.html#_ZN5idStr4IcmpEPKcS1_" title='idStr::Icmp' data-ref="_ZN5idStr4IcmpEPKcS1_">Icmp</a>( <a class="local col0 ref" href="#110s" title='s' data-ref="110s">s</a>, <q>"noCurves"</q> ) ) {</td></tr>
+<tr><th id="259">259</th><td>			<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"noCurves = true\n"</q>);</td></tr>
+<tr><th id="260">260</th><td>			<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::noCurves" title='(anonymous struct)::noCurves' data-ref="(anonymous)::noCurves">noCurves</a> = <b>true</b>;</td></tr>
+<tr><th id="261">261</th><td>		} <b>else</b> <b>if</b> ( !<a class="type" href="../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>::<a class="ref" href="../../../idlib/Str.h.html#_ZN5idStr4IcmpEPKcS1_" title='idStr::Icmp' data-ref="_ZN5idStr4IcmpEPKcS1_">Icmp</a>( <a class="local col0 ref" href="#110s" title='s' data-ref="110s">s</a>, <q>"noModels"</q> ) ) {</td></tr>
+<tr><th id="262">262</th><td>			<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"noModels = true\n"</q> );</td></tr>
+<tr><th id="263">263</th><td>			<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::noModelBrushes" title='(anonymous struct)::noModelBrushes' data-ref="(anonymous)::noModelBrushes">noModelBrushes</a> = <b>true</b>;</td></tr>
+<tr><th id="264">264</th><td>		} <b>else</b> <b>if</b> ( !<a class="type" href="../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>::<a class="ref" href="../../../idlib/Str.h.html#_ZN5idStr4IcmpEPKcS1_" title='idStr::Icmp' data-ref="_ZN5idStr4IcmpEPKcS1_">Icmp</a>( <a class="local col0 ref" href="#110s" title='s' data-ref="110s">s</a>, <q>"noClipSides"</q> ) ) {</td></tr>
+<tr><th id="265">265</th><td>			<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"noClipSides = true\n"</q> );</td></tr>
+<tr><th id="266">266</th><td>			<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::noClipSides" title='(anonymous struct)::noClipSides' data-ref="(anonymous)::noClipSides">noClipSides</a> = <b>true</b>;</td></tr>
+<tr><th id="267">267</th><td>		} <b>else</b> <b>if</b> ( !<a class="type" href="../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>::<a class="ref" href="../../../idlib/Str.h.html#_ZN5idStr4IcmpEPKcS1_" title='idStr::Icmp' data-ref="_ZN5idStr4IcmpEPKcS1_">Icmp</a>( <a class="local col0 ref" href="#110s" title='s' data-ref="110s">s</a>, <q>"noCarve"</q> ) ) {</td></tr>
+<tr><th id="268">268</th><td>			<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"noCarve = true\n"</q> );</td></tr>
+<tr><th id="269">269</th><td>			<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::fullCarve" title='(anonymous struct)::fullCarve' data-ref="(anonymous)::fullCarve">fullCarve</a> = <b>false</b>;</td></tr>
+<tr><th id="270">270</th><td>		} <b>else</b> <b>if</b> ( !<a class="type" href="../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>::<a class="ref" href="../../../idlib/Str.h.html#_ZN5idStr4IcmpEPKcS1_" title='idStr::Icmp' data-ref="_ZN5idStr4IcmpEPKcS1_">Icmp</a>( <a class="local col0 ref" href="#110s" title='s' data-ref="110s">s</a>, <q>"shadowOpt"</q> ) ) {</td></tr>
+<tr><th id="271">271</th><td>			<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::shadowOptLevel" title='(anonymous struct)::shadowOptLevel' data-ref="(anonymous)::shadowOptLevel">shadowOptLevel</a> = (<a class="typedef" href="dmap.h.html#shadowOptLevel_t" title='shadowOptLevel_t' data-type='enum shadowOptLevel_t' data-ref="shadowOptLevel_t">shadowOptLevel_t</a>)<a class="ref" href="../../../../include/stdlib.h.html#atoi" title='atoi' data-ref="atoi">atoi</a>( <a class="local col1 ref" href="#101args" title='args' data-ref="101args">args</a>.<a class="ref" href="../../../idlib/CmdArgs.h.html#_ZNK9idCmdArgs4ArgvEi" title='idCmdArgs::Argv' data-ref="_ZNK9idCmdArgs4ArgvEi">Argv</a>( <a class="local col2 ref" href="#102i" title='i' data-ref="102i">i</a>+<var>1</var> ) );</td></tr>
+<tr><th id="272">272</th><td>			<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"shadowOpt = %i\n"</q>,<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::shadowOptLevel" title='(anonymous struct)::shadowOptLevel' data-ref="(anonymous)::shadowOptLevel">shadowOptLevel</a> );</td></tr>
+<tr><th id="273">273</th><td>			<a class="local col2 ref" href="#102i" title='i' data-ref="102i">i</a> += <var>1</var>;</td></tr>
+<tr><th id="274">274</th><td>		} <b>else</b> <b>if</b> ( !<a class="type" href="../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>::<a class="ref" href="../../../idlib/Str.h.html#_ZN5idStr4IcmpEPKcS1_" title='idStr::Icmp' data-ref="_ZN5idStr4IcmpEPKcS1_">Icmp</a>( <a class="local col0 ref" href="#110s" title='s' data-ref="110s">s</a>, <q>"noTjunc"</q> ) ) {</td></tr>
+<tr><th id="275">275</th><td>			<i>// triangle optimization won't work properly without tjunction fixing</i></td></tr>
+<tr><th id="276">276</th><td>			<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a> (<q>"noTJunc = true\n"</q> );</td></tr>
+<tr><th id="277">277</th><td>			<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::noTJunc" title='(anonymous struct)::noTJunc' data-ref="(anonymous)::noTJunc">noTJunc</a> = <b>true</b>;</td></tr>
+<tr><th id="278">278</th><td>			<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::noOptimize" title='(anonymous struct)::noOptimize' data-ref="(anonymous)::noOptimize">noOptimize</a> = <b>true</b>;</td></tr>
+<tr><th id="279">279</th><td>			<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a> (<q>"forcing noOptimize = true\n"</q> );</td></tr>
+<tr><th id="280">280</th><td>		} <b>else</b> <b>if</b> ( !<a class="type" href="../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>::<a class="ref" href="../../../idlib/Str.h.html#_ZN5idStr4IcmpEPKcS1_" title='idStr::Icmp' data-ref="_ZN5idStr4IcmpEPKcS1_">Icmp</a>( <a class="local col0 ref" href="#110s" title='s' data-ref="110s">s</a>, <q>"noCM"</q> ) ) {</td></tr>
+<tr><th id="281">281</th><td>			<a class="local col8 ref" href="#108noCM" title='noCM' data-ref="108noCM">noCM</a> = <b>true</b>;</td></tr>
+<tr><th id="282">282</th><td>			<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"noCM = true\n"</q> );</td></tr>
+<tr><th id="283">283</th><td>		} <b>else</b> <b>if</b> ( !<a class="type" href="../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>::<a class="ref" href="../../../idlib/Str.h.html#_ZN5idStr4IcmpEPKcS1_" title='idStr::Icmp' data-ref="_ZN5idStr4IcmpEPKcS1_">Icmp</a>( <a class="local col0 ref" href="#110s" title='s' data-ref="110s">s</a>, <q>"noAAS"</q> ) ) {</td></tr>
+<tr><th id="284">284</th><td>			<a class="local col9 ref" href="#109noAAS" title='noAAS' data-ref="109noAAS">noAAS</a> = <b>true</b>;</td></tr>
+<tr><th id="285">285</th><td>			<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"noAAS = true\n"</q> );</td></tr>
+<tr><th id="286">286</th><td>		} <b>else</b> <b>if</b> ( !<a class="type" href="../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>::<a class="ref" href="../../../idlib/Str.h.html#_ZN5idStr4IcmpEPKcS1_" title='idStr::Icmp' data-ref="_ZN5idStr4IcmpEPKcS1_">Icmp</a>( <a class="local col0 ref" href="#110s" title='s' data-ref="110s">s</a>, <q>"editorOutput"</q> ) ) {</td></tr>
+<tr><th id="287">287</th><td><u>#<span data-ppcond="287">ifdef</span> <span class="macro" data-ref="_M/_WIN32">_WIN32</span></u></td></tr>
+<tr><th id="288">288</th><td>			com_outputMsg = <b>true</b>;</td></tr>
+<tr><th id="289">289</th><td><u>#<span data-ppcond="287">endif</span></u></td></tr>
+<tr><th id="290">290</th><td>		} <b>else</b> {</td></tr>
+<tr><th id="291">291</th><td>			<b>break</b>;</td></tr>
+<tr><th id="292">292</th><td>		}</td></tr>
+<tr><th id="293">293</th><td>	}</td></tr>
+<tr><th id="294">294</th><td></td></tr>
+<tr><th id="295">295</th><td>	<b>if</b> ( <a class="local col2 ref" href="#102i" title='i' data-ref="102i">i</a> &gt;= <a class="local col1 ref" href="#101args" title='args' data-ref="101args">args</a>.<a class="ref" href="../../../idlib/CmdArgs.h.html#_ZNK9idCmdArgs4ArgcEv" title='idCmdArgs::Argc' data-ref="_ZNK9idCmdArgs4ArgcEv">Argc</a>() ) {</td></tr>
+<tr><th id="296">296</th><td>		<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon5ErrorEPKcz" title='idCommon::Error' data-ref="_ZN8idCommon5ErrorEPKcz">Error</a>( <q>"usage: dmap [options] mapfile"</q> );</td></tr>
+<tr><th id="297">297</th><td>	}</td></tr>
+<tr><th id="298">298</th><td></td></tr>
+<tr><th id="299">299</th><td>	<a class="local col6 ref" href="#106passedName" title='passedName' data-ref="106passedName">passedName</a> <a class="ref" href="../../../idlib/Str.h.html#_ZN5idStraSEPKc" title='idStr::operator=' data-ref="_ZN5idStraSEPKc">=</a> <a class="local col1 ref" href="#101args" title='args' data-ref="101args">args</a>.<a class="ref" href="../../../idlib/CmdArgs.h.html#_ZNK9idCmdArgs4ArgvEi" title='idCmdArgs::Argv' data-ref="_ZNK9idCmdArgs4ArgvEi">Argv</a>(<a class="local col2 ref" href="#102i" title='i' data-ref="102i">i</a>);		<i>// may have an extension</i></td></tr>
+<tr><th id="300">300</th><td>	<a class="local col6 ref" href="#106passedName" title='passedName' data-ref="106passedName">passedName</a>.<a class="ref" href="../../../idlib/Str.h.html#_ZN5idStr20BackSlashesToSlashesEv" title='idStr::BackSlashesToSlashes' data-ref="_ZN5idStr20BackSlashesToSlashesEv">BackSlashesToSlashes</a>();</td></tr>
+<tr><th id="301">301</th><td>	<b>if</b> ( <a class="local col6 ref" href="#106passedName" title='passedName' data-ref="106passedName">passedName</a>.<a class="ref" href="../../../idlib/Str.h.html#_ZNK5idStr5IcmpnEPKci" title='idStr::Icmpn' data-ref="_ZNK5idStr5IcmpnEPKci">Icmpn</a>( <q>"maps/"</q>, <var>4</var> ) != <var>0</var> ) {</td></tr>
+<tr><th id="302">302</th><td>		<a class="local col6 ref" href="#106passedName" title='passedName' data-ref="106passedName">passedName</a> <a class="ref" href="../../../idlib/Str.h.html#_ZN5idStraSERKS_" title='idStr::operator=' data-ref="_ZN5idStraSERKS_">=</a> <q>"maps/"</q> <a class="ref" href="../../../idlib/Str.h.html#_ZplPKcRK5idStr" title='operator+' data-ref="_ZplPKcRK5idStr">+</a> <a class="local col6 ref" href="#106passedName" title='passedName' data-ref="106passedName">passedName</a>;</td></tr>
+<tr><th id="303">303</th><td>	}</td></tr>
+<tr><th id="304">304</th><td></td></tr>
+<tr><th id="305">305</th><td>	<a class="type" href="../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a> <dfn class="local col1 decl" id="111stripped" title='stripped' data-type='idStr' data-ref="111stripped">stripped</dfn> = <a class="ref fake" href="../../../idlib/Str.h.html#_ZN5idStrC1ERKS_" title='idStr::idStr' data-ref="_ZN5idStrC1ERKS_"></a><a class="local col6 ref" href="#106passedName" title='passedName' data-ref="106passedName">passedName</a>;</td></tr>
+<tr><th id="306">306</th><td>	<a class="local col1 ref" href="#111stripped" title='stripped' data-ref="111stripped">stripped</a>.<a class="ref" href="../../../idlib/Str.h.html#_ZN5idStr18StripFileExtensionEv" title='idStr::StripFileExtension' data-ref="_ZN5idStr18StripFileExtensionEv">StripFileExtension</a>();</td></tr>
+<tr><th id="307">307</th><td>	<a class="type" href="../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>::<a class="ref" href="../../../idlib/Str.h.html#_ZN5idStr6CopynzEPcPKci" title='idStr::Copynz' data-ref="_ZN5idStr6CopynzEPcPKci">Copynz</a>( <a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::mapFileBase" title='(anonymous struct)::mapFileBase' data-ref="(anonymous)::mapFileBase">mapFileBase</a>, <a class="ref fake" href="../../../idlib/Str.h.html#_ZN5idStrcvPKcEv" title='idStr::operator const char *' data-ref="_ZN5idStrcvPKcEv"></a><a class="local col1 ref" href="#111stripped" title='stripped' data-ref="111stripped">stripped</a>, <b>sizeof</b>(<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::mapFileBase" title='(anonymous struct)::mapFileBase' data-ref="(anonymous)::mapFileBase">mapFileBase</a>) );</td></tr>
+<tr><th id="308">308</th><td></td></tr>
+<tr><th id="309">309</th><td>	<em>bool</em> <dfn class="local col2 decl" id="112region" title='region' data-type='bool' data-ref="112region">region</dfn> = <b>false</b>;</td></tr>
+<tr><th id="310">310</th><td>	<i>// if this isn't a regioned map, delete the last saved region map</i></td></tr>
+<tr><th id="311">311</th><td>	<b>if</b> ( <a class="local col6 ref" href="#106passedName" title='passedName' data-ref="106passedName">passedName</a>.<a class="ref" href="../../../idlib/Str.h.html#_ZNK5idStr5RightEi" title='idStr::Right' data-ref="_ZNK5idStr5RightEi">Right</a>( <var>4</var> ) <a class="ref" href="../../../idlib/Str.h.html#_ZneRK5idStrPKc" title='operator!=' data-ref="_ZneRK5idStrPKc">!=</a> <q>".reg"</q> ) {</td></tr>
+<tr><th id="312">312</th><td>		<a class="ref" href="../../../../include/stdio.h.html#sprintf" title='sprintf' data-ref="sprintf">sprintf</a>( <a class="local col5 ref" href="#105path" title='path' data-ref="105path">path</a>, <q>"%s.reg"</q>, <a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::mapFileBase" title='(anonymous struct)::mapFileBase' data-ref="(anonymous)::mapFileBase">mapFileBase</a> );</td></tr>
+<tr><th id="313">313</th><td>		<a class="ref" href="../../../framework/FileSystem.h.html#fileSystem" title='fileSystem' data-ref="fileSystem">fileSystem</a>-&gt;<a class="virtual ref" href="../../../framework/FileSystem.h.html#_ZN12idFileSystem10RemoveFileEPKc" title='idFileSystem::RemoveFile' data-ref="_ZN12idFileSystem10RemoveFileEPKc">RemoveFile</a>( <a class="local col5 ref" href="#105path" title='path' data-ref="105path">path</a> );</td></tr>
+<tr><th id="314">314</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="315">315</th><td>		<a class="local col2 ref" href="#112region" title='region' data-ref="112region">region</a> = <b>true</b>;</td></tr>
+<tr><th id="316">316</th><td>	}</td></tr>
+<tr><th id="317">317</th><td></td></tr>
+<tr><th id="318">318</th><td></td></tr>
+<tr><th id="319">319</th><td>	<a class="local col6 ref" href="#106passedName" title='passedName' data-ref="106passedName">passedName</a> <a class="ref" href="../../../idlib/Str.h.html#_ZN5idStraSERKS_" title='idStr::operator=' data-ref="_ZN5idStraSERKS_">=</a> <a class="local col1 ref" href="#111stripped" title='stripped' data-ref="111stripped">stripped</a>;</td></tr>
+<tr><th id="320">320</th><td></td></tr>
+<tr><th id="321">321</th><td>	<i>// delete any old line leak files</i></td></tr>
+<tr><th id="322">322</th><td>	<a class="ref" href="../../../../include/stdio.h.html#sprintf" title='sprintf' data-ref="sprintf">sprintf</a>( <a class="local col5 ref" href="#105path" title='path' data-ref="105path">path</a>, <q>"%s.lin"</q>, <a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::mapFileBase" title='(anonymous struct)::mapFileBase' data-ref="(anonymous)::mapFileBase">mapFileBase</a> );</td></tr>
+<tr><th id="323">323</th><td>	<a class="ref" href="../../../framework/FileSystem.h.html#fileSystem" title='fileSystem' data-ref="fileSystem">fileSystem</a>-&gt;<a class="virtual ref" href="../../../framework/FileSystem.h.html#_ZN12idFileSystem10RemoveFileEPKc" title='idFileSystem::RemoveFile' data-ref="_ZN12idFileSystem10RemoveFileEPKc">RemoveFile</a>( <a class="local col5 ref" href="#105path" title='path' data-ref="105path">path</a> );</td></tr>
+<tr><th id="324">324</th><td></td></tr>
+<tr><th id="325">325</th><td></td></tr>
+<tr><th id="326">326</th><td>	<i>//</i></td></tr>
+<tr><th id="327">327</th><td><i>	// start from scratch</i></td></tr>
+<tr><th id="328">328</th><td><i>	//</i></td></tr>
+<tr><th id="329">329</th><td>	<a class="local col3 ref" href="#103start" title='start' data-ref="103start">start</a> = <a class="ref" href="../../../sys/sys_public.h.html#_Z16Sys_Millisecondsv" title='Sys_Milliseconds' data-ref="_Z16Sys_Millisecondsv">Sys_Milliseconds</a>();</td></tr>
+<tr><th id="330">330</th><td></td></tr>
+<tr><th id="331">331</th><td>	<b>if</b> ( !<a class="ref" href="dmap.h.html#_Z12LoadDMapFilePKc" title='LoadDMapFile' data-ref="_Z12LoadDMapFilePKc">LoadDMapFile</a>( <a class="ref fake" href="../../../idlib/Str.h.html#_ZN5idStrcvPKcEv" title='idStr::operator const char *' data-ref="_ZN5idStrcvPKcEv"></a><a class="local col6 ref" href="#106passedName" title='passedName' data-ref="106passedName">passedName</a> ) ) {</td></tr>
+<tr><th id="332">332</th><td>		<b>return</b>;</td></tr>
+<tr><th id="333">333</th><td>	}</td></tr>
+<tr><th id="334">334</th><td></td></tr>
+<tr><th id="335">335</th><td>	<b>if</b> ( <a class="ref" href="#_Z13ProcessModelsv" title='ProcessModels' data-ref="_Z13ProcessModelsv">ProcessModels</a>() ) {</td></tr>
+<tr><th id="336">336</th><td>		<a class="ref" href="dmap.h.html#_Z15WriteOutputFilev" title='WriteOutputFile' data-ref="_Z15WriteOutputFilev">WriteOutputFile</a>();</td></tr>
+<tr><th id="337">337</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="338">338</th><td>		<a class="local col7 ref" href="#107leaked" title='leaked' data-ref="107leaked">leaked</a> = <b>true</b>;</td></tr>
+<tr><th id="339">339</th><td>	}</td></tr>
+<tr><th id="340">340</th><td></td></tr>
+<tr><th id="341">341</th><td>	<a class="ref" href="dmap.h.html#_Z12FreeDMapFilev" title='FreeDMapFile' data-ref="_Z12FreeDMapFilev">FreeDMapFile</a>();</td></tr>
+<tr><th id="342">342</th><td></td></tr>
+<tr><th id="343">343</th><td>	<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"%i total shadow triangles\n"</q>, <a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::totalShadowTriangles" title='(anonymous struct)::totalShadowTriangles' data-ref="(anonymous)::totalShadowTriangles">totalShadowTriangles</a> );</td></tr>
+<tr><th id="344">344</th><td>	<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"%i total shadow verts\n"</q>, <a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::totalShadowVerts" title='(anonymous struct)::totalShadowVerts' data-ref="(anonymous)::totalShadowVerts">totalShadowVerts</a> );</td></tr>
+<tr><th id="345">345</th><td></td></tr>
+<tr><th id="346">346</th><td>	<a class="local col4 ref" href="#104end" title='end' data-ref="104end">end</a> = <a class="ref" href="../../../sys/sys_public.h.html#_Z16Sys_Millisecondsv" title='Sys_Milliseconds' data-ref="_Z16Sys_Millisecondsv">Sys_Milliseconds</a>();</td></tr>
+<tr><th id="347">347</th><td>	<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"-----------------------\n"</q> );</td></tr>
+<tr><th id="348">348</th><td>	<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"%5.0f seconds for dmap\n"</q>, ( <a class="local col4 ref" href="#104end" title='end' data-ref="104end">end</a> - <a class="local col3 ref" href="#103start" title='start' data-ref="103start">start</a> ) * <var>0.001f</var> );</td></tr>
+<tr><th id="349">349</th><td></td></tr>
+<tr><th id="350">350</th><td>	<b>if</b> ( !<a class="local col7 ref" href="#107leaked" title='leaked' data-ref="107leaked">leaked</a> ) {</td></tr>
+<tr><th id="351">351</th><td></td></tr>
+<tr><th id="352">352</th><td>		<b>if</b> ( !<a class="local col8 ref" href="#108noCM" title='noCM' data-ref="108noCM">noCM</a> ) {</td></tr>
+<tr><th id="353">353</th><td></td></tr>
+<tr><th id="354">354</th><td>			<i>// make sure the collision model manager is not used by the game</i></td></tr>
+<tr><th id="355">355</th><td>			<a class="ref" href="../../../framework/CmdSystem.h.html#cmdSystem" title='cmdSystem' data-ref="cmdSystem">cmdSystem</a>-&gt;<a class="virtual ref" href="../../../framework/CmdSystem.h.html#_ZN11idCmdSystem17BufferCommandTextE14cmdExecution_tPKc" title='idCmdSystem::BufferCommandText' data-ref="_ZN11idCmdSystem17BufferCommandTextE14cmdExecution_tPKc">BufferCommandText</a>( <a class="enum" href="../../../framework/CmdSystem.h.html#CMD_EXEC_NOW" title='CMD_EXEC_NOW' data-ref="CMD_EXEC_NOW">CMD_EXEC_NOW</a>, <q>"disconnect"</q> );</td></tr>
+<tr><th id="356">356</th><td></td></tr>
+<tr><th id="357">357</th><td>			<i>// create the collision map</i></td></tr>
+<tr><th id="358">358</th><td>			<a class="local col3 ref" href="#103start" title='start' data-ref="103start">start</a> = <a class="ref" href="../../../sys/sys_public.h.html#_Z16Sys_Millisecondsv" title='Sys_Milliseconds' data-ref="_Z16Sys_Millisecondsv">Sys_Milliseconds</a>();</td></tr>
+<tr><th id="359">359</th><td></td></tr>
+<tr><th id="360">360</th><td>			<a class="ref" href="../../../cm/CollisionModel.h.html#collisionModelManager" title='collisionModelManager' data-ref="collisionModelManager">collisionModelManager</a>-&gt;<a class="virtual ref" href="../../../cm/CollisionModel.h.html#_ZN23idCollisionModelManager7LoadMapEPK9idMapFile" title='idCollisionModelManager::LoadMap' data-ref="_ZN23idCollisionModelManager7LoadMapEPK9idMapFile">LoadMap</a>( <a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::dmapFile" title='(anonymous struct)::dmapFile' data-ref="(anonymous)::dmapFile">dmapFile</a> );</td></tr>
+<tr><th id="361">361</th><td>			<a class="ref" href="../../../cm/CollisionModel.h.html#collisionModelManager" title='collisionModelManager' data-ref="collisionModelManager">collisionModelManager</a>-&gt;<a class="virtual ref" href="../../../cm/CollisionModel.h.html#_ZN23idCollisionModelManager7FreeMapEv" title='idCollisionModelManager::FreeMap' data-ref="_ZN23idCollisionModelManager7FreeMapEv">FreeMap</a>();</td></tr>
+<tr><th id="362">362</th><td></td></tr>
+<tr><th id="363">363</th><td>			<a class="local col4 ref" href="#104end" title='end' data-ref="104end">end</a> = <a class="ref" href="../../../sys/sys_public.h.html#_Z16Sys_Millisecondsv" title='Sys_Milliseconds' data-ref="_Z16Sys_Millisecondsv">Sys_Milliseconds</a>();</td></tr>
+<tr><th id="364">364</th><td>			<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"-------------------------------------\n"</q> );</td></tr>
+<tr><th id="365">365</th><td>			<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"%5.0f seconds to create collision map\n"</q>, ( <a class="local col4 ref" href="#104end" title='end' data-ref="104end">end</a> - <a class="local col3 ref" href="#103start" title='start' data-ref="103start">start</a> ) * <var>0.001f</var> );</td></tr>
+<tr><th id="366">366</th><td>		}</td></tr>
+<tr><th id="367">367</th><td></td></tr>
+<tr><th id="368">368</th><td>		<b>if</b> ( !<a class="local col9 ref" href="#109noAAS" title='noAAS' data-ref="109noAAS">noAAS</a> &amp;&amp; !<a class="local col2 ref" href="#112region" title='region' data-ref="112region">region</a> ) {</td></tr>
+<tr><th id="369">369</th><td>			<i>// create AAS files</i></td></tr>
+<tr><th id="370">370</th><td>			<a class="ref" href="../compiler_public.h.html#_Z8RunAAS_fRK9idCmdArgs" title='RunAAS_f' data-ref="_Z8RunAAS_fRK9idCmdArgs">RunAAS_f</a>( <a class="local col1 ref" href="#101args" title='args' data-ref="101args">args</a> );</td></tr>
+<tr><th id="371">371</th><td>		}</td></tr>
+<tr><th id="372">372</th><td>	}</td></tr>
+<tr><th id="373">373</th><td></td></tr>
+<tr><th id="374">374</th><td>	<i>// free the common .map representation</i></td></tr>
+<tr><th id="375">375</th><td>	<b>delete</b> <a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::dmapFile" title='(anonymous struct)::dmapFile' data-ref="(anonymous)::dmapFile">dmapFile</a>;</td></tr>
+<tr><th id="376">376</th><td></td></tr>
+<tr><th id="377">377</th><td>	<i>// clear the map plane list</i></td></tr>
+<tr><th id="378">378</th><td>	<a class="ref" href="dmap.h.html#dmapGlobals" title='dmapGlobals' data-ref="dmapGlobals">dmapGlobals</a>.<a class="ref" href="dmap.h.html#(anonymous)::mapPlanes" title='(anonymous struct)::mapPlanes' data-ref="(anonymous)::mapPlanes">mapPlanes</a>.<a class="ref" href="../../../idlib/containers/PlaneSet.h.html#_ZN10idPlaneSet5ClearEv" title='idPlaneSet::Clear' data-ref="_ZN10idPlaneSet5ClearEv">Clear</a>();</td></tr>
+<tr><th id="379">379</th><td></td></tr>
+<tr><th id="380">380</th><td><u>#<span data-ppcond="380">ifdef</span> <span class="macro" data-ref="_M/_WIN32">_WIN32</span></u></td></tr>
+<tr><th id="381">381</th><td>	<b>if</b> ( com_outputMsg &amp;&amp; com_hwndMsg != NULL ) {</td></tr>
+<tr><th id="382">382</th><td>		<em>unsigned</em> <em>int</em> msg = ::RegisterWindowMessage( DMAP_DONE );</td></tr>
+<tr><th id="383">383</th><td>		::PostMessage( com_hwndMsg, msg, <var>0</var>, <var>0</var> );</td></tr>
+<tr><th id="384">384</th><td>	}</td></tr>
+<tr><th id="385">385</th><td><u>#<span data-ppcond="380">endif</span></u></td></tr>
+<tr><th id="386">386</th><td>}</td></tr>
+<tr><th id="387">387</th><td></td></tr>
+<tr><th id="388">388</th><td><i>/*</i></td></tr>
+<tr><th id="389">389</th><td><i>============</i></td></tr>
+<tr><th id="390">390</th><td><i>Dmap_f</i></td></tr>
+<tr><th id="391">391</th><td><i>============</i></td></tr>
+<tr><th id="392">392</th><td><i>*/</i></td></tr>
+<tr><th id="393">393</th><td><em>void</em> <dfn class="decl def" id="_Z6Dmap_fRK9idCmdArgs" title='Dmap_f' data-ref="_Z6Dmap_fRK9idCmdArgs">Dmap_f</dfn>( <em>const</em> <a class="type" href="../../../idlib/CmdArgs.h.html#idCmdArgs" title='idCmdArgs' data-ref="idCmdArgs">idCmdArgs</a> &amp;<dfn class="local col3 decl" id="113args" title='args' data-type='const idCmdArgs &amp;' data-ref="113args">args</dfn> ) {</td></tr>
+<tr><th id="394">394</th><td></td></tr>
+<tr><th id="395">395</th><td>	<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon13ClearWarningsEPKc" title='idCommon::ClearWarnings' data-ref="_ZN8idCommon13ClearWarningsEPKc">ClearWarnings</a>( <q>"running dmap"</q> );</td></tr>
+<tr><th id="396">396</th><td></td></tr>
+<tr><th id="397">397</th><td>	<i>// refresh the screen each time we print so it doesn't look</i></td></tr>
+<tr><th id="398">398</th><td><i>	// like it is hung</i></td></tr>
+<tr><th id="399">399</th><td>	<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon17SetRefreshOnPrintEb" title='idCommon::SetRefreshOnPrint' data-ref="_ZN8idCommon17SetRefreshOnPrintEb">SetRefreshOnPrint</a>( <b>true</b> );</td></tr>
+<tr><th id="400">400</th><td>	<a class="ref" href="#_Z4DmapRK9idCmdArgs" title='Dmap' data-ref="_Z4DmapRK9idCmdArgs">Dmap</a>( <a class="local col3 ref" href="#113args" title='args' data-ref="113args">args</a> );</td></tr>
+<tr><th id="401">401</th><td>	<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon17SetRefreshOnPrintEb" title='idCommon::SetRefreshOnPrint' data-ref="_ZN8idCommon17SetRefreshOnPrintEb">SetRefreshOnPrint</a>( <b>false</b> );</td></tr>
+<tr><th id="402">402</th><td></td></tr>
+<tr><th id="403">403</th><td>	<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon13PrintWarningsEv" title='idCommon::PrintWarnings' data-ref="_ZN8idCommon13PrintWarningsEv">PrintWarnings</a>();</td></tr>
+<tr><th id="404">404</th><td>}</td></tr>
+<tr><th id="405">405</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

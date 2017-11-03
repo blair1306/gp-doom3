@@ -1,0 +1,12 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1493' type='void R_RemoveDuplicatedTriangles(srfTriangles_t * tri)'/>
+<def f='codebrowser/renderer/tr_trisurf.cpp' l='1842' ll='1873' type='void R_RemoveDuplicatedTriangles(srfTriangles_t * tri)'/>
+<doc f='codebrowser/renderer/tr_trisurf.cpp' l='1832'>/*
+=================
+R_RemoveDuplicatedTriangles
+
+silIndexes must have already been calculated
+
+silIndexes are used instead of indexes, because duplicated
+triangles could have different texture coordinates.
+=================
+*/</doc>

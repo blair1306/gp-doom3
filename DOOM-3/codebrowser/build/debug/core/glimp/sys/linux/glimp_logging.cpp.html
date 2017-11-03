@@ -1,0 +1,1624 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>glimp_logging.cpp source code [codebrowser/build/debug/core/glimp/sys/linux/glimp_logging.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/build/debug/core/glimp/sys/linux/glimp_logging.cpp'; var root_path = '../../../../../../..'; var data_path = '../../../../../../../../data';</script>
+<script src='../../../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../../../..'>codebrowser</a>/<a href='../../../../..'>build</a>/<a href='../../../..'>debug</a>/<a href='../../..'>core</a>/<a href='../..'>glimp</a>/<a href='..'>sys</a>/<a href='./'>linux</a>/<a href='glimp_logging.cpp.html'>glimp_logging.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><u>#include <a href="../../../../../../idlib/precompiled.h.html">"idlib/precompiled.h"</a></u></td></tr>
+<tr><th id="2">2</th><td><u>#include <a href="../../../../../../renderer/tr_local.h.html">"renderer/tr_local.h"</a></u></td></tr>
+<tr><th id="3">3</th><td><u>#include <a href="../../../../../../sys/linux/local.h.html">"sys/linux/local.h"</a></u></td></tr>
+<tr><th id="4">4</th><td><u>#include <a href="glimp_local.h.html">"glimp_local.h"</a></u></td></tr>
+<tr><th id="5">5</th><td><u>#pragma hdrstop</u></td></tr>
+<tr><th id="6">6</th><td></td></tr>
+<tr><th id="7">7</th><td><u>#include <a href="../../../../../../../include/unistd.h.html">&lt;unistd.h&gt;</a></u></td></tr>
+<tr><th id="8">8</th><td><u>#define <dfn class="macro" id="_M/ID_LOG_TO_STDOUT" data-ref="_M/ID_LOG_TO_STDOUT">ID_LOG_TO_STDOUT</dfn> 0</u></td></tr>
+<tr><th id="9">9</th><td></td></tr>
+<tr><th id="10">10</th><td></td></tr>
+<tr><th id="11">11</th><td></td></tr>
+<tr><th id="12">12</th><td></td></tr>
+<tr><th id="13">13</th><td>	</td></tr>
+<tr><th id="14">14</th><td></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td></td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td></td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td></td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td></td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td></td></tr>
+<tr><th id="94">94</th><td></td></tr>
+<tr><th id="95">95</th><td></td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td></td></tr>
+<tr><th id="98">98</th><td></td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td></td></tr>
+<tr><th id="101">101</th><td></td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td></td></tr>
+<tr><th id="104">104</th><td></td></tr>
+<tr><th id="105">105</th><td></td></tr>
+<tr><th id="106">106</th><td></td></tr>
+<tr><th id="107">107</th><td></td></tr>
+<tr><th id="108">108</th><td></td></tr>
+<tr><th id="109">109</th><td></td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td></td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td></td></tr>
+<tr><th id="115">115</th><td></td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td></td></tr>
+<tr><th id="118">118</th><td></td></tr>
+<tr><th id="119">119</th><td></td></tr>
+<tr><th id="120">120</th><td></td></tr>
+<tr><th id="121">121</th><td></td></tr>
+<tr><th id="122">122</th><td></td></tr>
+<tr><th id="123">123</th><td></td></tr>
+<tr><th id="124">124</th><td></td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td></td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td></td></tr>
+<tr><th id="129">129</th><td></td></tr>
+<tr><th id="130">130</th><td></td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td></td></tr>
+<tr><th id="133">133</th><td></td></tr>
+<tr><th id="134">134</th><td></td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td></td></tr>
+<tr><th id="137">137</th><td></td></tr>
+<tr><th id="138">138</th><td></td></tr>
+<tr><th id="139">139</th><td></td></tr>
+<tr><th id="140">140</th><td></td></tr>
+<tr><th id="141">141</th><td></td></tr>
+<tr><th id="142">142</th><td></td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td></td></tr>
+<tr><th id="145">145</th><td></td></tr>
+<tr><th id="146">146</th><td></td></tr>
+<tr><th id="147">147</th><td></td></tr>
+<tr><th id="148">148</th><td></td></tr>
+<tr><th id="149">149</th><td></td></tr>
+<tr><th id="150">150</th><td></td></tr>
+<tr><th id="151">151</th><td></td></tr>
+<tr><th id="152">152</th><td></td></tr>
+<tr><th id="153">153</th><td></td></tr>
+<tr><th id="154">154</th><td></td></tr>
+<tr><th id="155">155</th><td></td></tr>
+<tr><th id="156">156</th><td></td></tr>
+<tr><th id="157">157</th><td></td></tr>
+<tr><th id="158">158</th><td></td></tr>
+<tr><th id="159">159</th><td></td></tr>
+<tr><th id="160">160</th><td></td></tr>
+<tr><th id="161">161</th><td></td></tr>
+<tr><th id="162">162</th><td></td></tr>
+<tr><th id="163">163</th><td></td></tr>
+<tr><th id="164">164</th><td></td></tr>
+<tr><th id="165">165</th><td></td></tr>
+<tr><th id="166">166</th><td></td></tr>
+<tr><th id="167">167</th><td></td></tr>
+<tr><th id="168">168</th><td></td></tr>
+<tr><th id="169">169</th><td></td></tr>
+<tr><th id="170">170</th><td></td></tr>
+<tr><th id="171">171</th><td></td></tr>
+<tr><th id="172">172</th><td></td></tr>
+<tr><th id="173">173</th><td></td></tr>
+<tr><th id="174">174</th><td></td></tr>
+<tr><th id="175">175</th><td></td></tr>
+<tr><th id="176">176</th><td></td></tr>
+<tr><th id="177">177</th><td></td></tr>
+<tr><th id="178">178</th><td></td></tr>
+<tr><th id="179">179</th><td></td></tr>
+<tr><th id="180">180</th><td></td></tr>
+<tr><th id="181">181</th><td></td></tr>
+<tr><th id="182">182</th><td></td></tr>
+<tr><th id="183">183</th><td></td></tr>
+<tr><th id="184">184</th><td></td></tr>
+<tr><th id="185">185</th><td></td></tr>
+<tr><th id="186">186</th><td></td></tr>
+<tr><th id="187">187</th><td></td></tr>
+<tr><th id="188">188</th><td></td></tr>
+<tr><th id="189">189</th><td></td></tr>
+<tr><th id="190">190</th><td></td></tr>
+<tr><th id="191">191</th><td></td></tr>
+<tr><th id="192">192</th><td></td></tr>
+<tr><th id="193">193</th><td></td></tr>
+<tr><th id="194">194</th><td></td></tr>
+<tr><th id="195">195</th><td></td></tr>
+<tr><th id="196">196</th><td></td></tr>
+<tr><th id="197">197</th><td></td></tr>
+<tr><th id="198">198</th><td></td></tr>
+<tr><th id="199">199</th><td></td></tr>
+<tr><th id="200">200</th><td></td></tr>
+<tr><th id="201">201</th><td></td></tr>
+<tr><th id="202">202</th><td></td></tr>
+<tr><th id="203">203</th><td></td></tr>
+<tr><th id="204">204</th><td></td></tr>
+<tr><th id="205">205</th><td></td></tr>
+<tr><th id="206">206</th><td></td></tr>
+<tr><th id="207">207</th><td></td></tr>
+<tr><th id="208">208</th><td></td></tr>
+<tr><th id="209">209</th><td></td></tr>
+<tr><th id="210">210</th><td></td></tr>
+<tr><th id="211">211</th><td></td></tr>
+<tr><th id="212">212</th><td></td></tr>
+<tr><th id="213">213</th><td></td></tr>
+<tr><th id="214">214</th><td></td></tr>
+<tr><th id="215">215</th><td></td></tr>
+<tr><th id="216">216</th><td></td></tr>
+<tr><th id="217">217</th><td></td></tr>
+<tr><th id="218">218</th><td></td></tr>
+<tr><th id="219">219</th><td></td></tr>
+<tr><th id="220">220</th><td></td></tr>
+<tr><th id="221">221</th><td></td></tr>
+<tr><th id="222">222</th><td></td></tr>
+<tr><th id="223">223</th><td></td></tr>
+<tr><th id="224">224</th><td></td></tr>
+<tr><th id="225">225</th><td></td></tr>
+<tr><th id="226">226</th><td></td></tr>
+<tr><th id="227">227</th><td></td></tr>
+<tr><th id="228">228</th><td></td></tr>
+<tr><th id="229">229</th><td></td></tr>
+<tr><th id="230">230</th><td></td></tr>
+<tr><th id="231">231</th><td></td></tr>
+<tr><th id="232">232</th><td></td></tr>
+<tr><th id="233">233</th><td></td></tr>
+<tr><th id="234">234</th><td></td></tr>
+<tr><th id="235">235</th><td></td></tr>
+<tr><th id="236">236</th><td></td></tr>
+<tr><th id="237">237</th><td></td></tr>
+<tr><th id="238">238</th><td></td></tr>
+<tr><th id="239">239</th><td></td></tr>
+<tr><th id="240">240</th><td></td></tr>
+<tr><th id="241">241</th><td></td></tr>
+<tr><th id="242">242</th><td></td></tr>
+<tr><th id="243">243</th><td></td></tr>
+<tr><th id="244">244</th><td></td></tr>
+<tr><th id="245">245</th><td></td></tr>
+<tr><th id="246">246</th><td></td></tr>
+<tr><th id="247">247</th><td></td></tr>
+<tr><th id="248">248</th><td></td></tr>
+<tr><th id="249">249</th><td></td></tr>
+<tr><th id="250">250</th><td></td></tr>
+<tr><th id="251">251</th><td></td></tr>
+<tr><th id="252">252</th><td></td></tr>
+<tr><th id="253">253</th><td></td></tr>
+<tr><th id="254">254</th><td></td></tr>
+<tr><th id="255">255</th><td></td></tr>
+<tr><th id="256">256</th><td></td></tr>
+<tr><th id="257">257</th><td></td></tr>
+<tr><th id="258">258</th><td></td></tr>
+<tr><th id="259">259</th><td></td></tr>
+<tr><th id="260">260</th><td></td></tr>
+<tr><th id="261">261</th><td></td></tr>
+<tr><th id="262">262</th><td></td></tr>
+<tr><th id="263">263</th><td></td></tr>
+<tr><th id="264">264</th><td></td></tr>
+<tr><th id="265">265</th><td></td></tr>
+<tr><th id="266">266</th><td></td></tr>
+<tr><th id="267">267</th><td></td></tr>
+<tr><th id="268">268</th><td></td></tr>
+<tr><th id="269">269</th><td></td></tr>
+<tr><th id="270">270</th><td></td></tr>
+<tr><th id="271">271</th><td></td></tr>
+<tr><th id="272">272</th><td></td></tr>
+<tr><th id="273">273</th><td></td></tr>
+<tr><th id="274">274</th><td></td></tr>
+<tr><th id="275">275</th><td></td></tr>
+<tr><th id="276">276</th><td></td></tr>
+<tr><th id="277">277</th><td></td></tr>
+<tr><th id="278">278</th><td></td></tr>
+<tr><th id="279">279</th><td></td></tr>
+<tr><th id="280">280</th><td></td></tr>
+<tr><th id="281">281</th><td></td></tr>
+<tr><th id="282">282</th><td></td></tr>
+<tr><th id="283">283</th><td></td></tr>
+<tr><th id="284">284</th><td></td></tr>
+<tr><th id="285">285</th><td></td></tr>
+<tr><th id="286">286</th><td></td></tr>
+<tr><th id="287">287</th><td></td></tr>
+<tr><th id="288">288</th><td></td></tr>
+<tr><th id="289">289</th><td></td></tr>
+<tr><th id="290">290</th><td></td></tr>
+<tr><th id="291">291</th><td></td></tr>
+<tr><th id="292">292</th><td></td></tr>
+<tr><th id="293">293</th><td></td></tr>
+<tr><th id="294">294</th><td></td></tr>
+<tr><th id="295">295</th><td></td></tr>
+<tr><th id="296">296</th><td></td></tr>
+<tr><th id="297">297</th><td></td></tr>
+<tr><th id="298">298</th><td></td></tr>
+<tr><th id="299">299</th><td></td></tr>
+<tr><th id="300">300</th><td></td></tr>
+<tr><th id="301">301</th><td></td></tr>
+<tr><th id="302">302</th><td></td></tr>
+<tr><th id="303">303</th><td></td></tr>
+<tr><th id="304">304</th><td></td></tr>
+<tr><th id="305">305</th><td></td></tr>
+<tr><th id="306">306</th><td></td></tr>
+<tr><th id="307">307</th><td></td></tr>
+<tr><th id="308">308</th><td></td></tr>
+<tr><th id="309">309</th><td></td></tr>
+<tr><th id="310">310</th><td></td></tr>
+<tr><th id="311">311</th><td></td></tr>
+<tr><th id="312">312</th><td></td></tr>
+<tr><th id="313">313</th><td></td></tr>
+<tr><th id="314">314</th><td></td></tr>
+<tr><th id="315">315</th><td></td></tr>
+<tr><th id="316">316</th><td></td></tr>
+<tr><th id="317">317</th><td></td></tr>
+<tr><th id="318">318</th><td></td></tr>
+<tr><th id="319">319</th><td></td></tr>
+<tr><th id="320">320</th><td></td></tr>
+<tr><th id="321">321</th><td></td></tr>
+<tr><th id="322">322</th><td></td></tr>
+<tr><th id="323">323</th><td></td></tr>
+<tr><th id="324">324</th><td></td></tr>
+<tr><th id="325">325</th><td></td></tr>
+<tr><th id="326">326</th><td></td></tr>
+<tr><th id="327">327</th><td></td></tr>
+<tr><th id="328">328</th><td></td></tr>
+<tr><th id="329">329</th><td></td></tr>
+<tr><th id="330">330</th><td></td></tr>
+<tr><th id="331">331</th><td></td></tr>
+<tr><th id="332">332</th><td></td></tr>
+<tr><th id="333">333</th><td></td></tr>
+<tr><th id="334">334</th><td></td></tr>
+<tr><th id="335">335</th><td></td></tr>
+<tr><th id="336">336</th><td></td></tr>
+<tr><th id="337">337</th><td></td></tr>
+<tr><th id="338">338</th><td></td></tr>
+<tr><th id="339">339</th><td></td></tr>
+<tr><th id="340">340</th><td></td></tr>
+<tr><th id="341">341</th><td></td></tr>
+<tr><th id="342">342</th><td></td></tr>
+<tr><th id="343">343</th><td></td></tr>
+<tr><th id="344">344</th><td></td></tr>
+<tr><th id="345">345</th><td></td></tr>
+<tr><th id="346">346</th><td></td></tr>
+<tr><th id="347">347</th><td></td></tr>
+<tr><th id="348">348</th><td></td></tr>
+<tr><th id="349">349</th><td></td></tr>
+<tr><th id="350">350</th><td></td></tr>
+<tr><th id="351">351</th><td></td></tr>
+<tr><th id="352">352</th><td></td></tr>
+<tr><th id="353">353</th><td></td></tr>
+<tr><th id="354">354</th><td></td></tr>
+<tr><th id="355">355</th><td></td></tr>
+<tr><th id="356">356</th><td></td></tr>
+<tr><th id="357">357</th><td></td></tr>
+<tr><th id="358">358</th><td></td></tr>
+<tr><th id="359">359</th><td></td></tr>
+<tr><th id="360">360</th><td></td></tr>
+<tr><th id="361">361</th><td></td></tr>
+<tr><th id="362">362</th><td></td></tr>
+<tr><th id="363">363</th><td></td></tr>
+<tr><th id="364">364</th><td></td></tr>
+<tr><th id="365">365</th><td></td></tr>
+<tr><th id="366">366</th><td></td></tr>
+<tr><th id="367">367</th><td></td></tr>
+<tr><th id="368">368</th><td></td></tr>
+<tr><th id="369">369</th><td></td></tr>
+<tr><th id="370">370</th><td></td></tr>
+<tr><th id="371">371</th><td></td></tr>
+<tr><th id="372">372</th><td></td></tr>
+<tr><th id="373">373</th><td></td></tr>
+<tr><th id="374">374</th><td></td></tr>
+<tr><th id="375">375</th><td></td></tr>
+<tr><th id="376">376</th><td></td></tr>
+<tr><th id="377">377</th><td></td></tr>
+<tr><th id="378">378</th><td></td></tr>
+<tr><th id="379">379</th><td></td></tr>
+<tr><th id="380">380</th><td></td></tr>
+<tr><th id="381">381</th><td></td></tr>
+<tr><th id="382">382</th><td></td></tr>
+<tr><th id="383">383</th><td></td></tr>
+<tr><th id="384">384</th><td></td></tr>
+<tr><th id="385">385</th><td></td></tr>
+<tr><th id="386">386</th><td></td></tr>
+<tr><th id="387">387</th><td></td></tr>
+<tr><th id="388">388</th><td></td></tr>
+<tr><th id="389">389</th><td></td></tr>
+<tr><th id="390">390</th><td></td></tr>
+<tr><th id="391">391</th><td></td></tr>
+<tr><th id="392">392</th><td></td></tr>
+<tr><th id="393">393</th><td></td></tr>
+<tr><th id="394">394</th><td></td></tr>
+<tr><th id="395">395</th><td></td></tr>
+<tr><th id="396">396</th><td></td></tr>
+<tr><th id="397">397</th><td></td></tr>
+<tr><th id="398">398</th><td></td></tr>
+<tr><th id="399">399</th><td></td></tr>
+<tr><th id="400">400</th><td></td></tr>
+<tr><th id="401">401</th><td></td></tr>
+<tr><th id="402">402</th><td></td></tr>
+<tr><th id="403">403</th><td></td></tr>
+<tr><th id="404">404</th><td></td></tr>
+<tr><th id="405">405</th><td></td></tr>
+<tr><th id="406">406</th><td></td></tr>
+<tr><th id="407">407</th><td></td></tr>
+<tr><th id="408">408</th><td></td></tr>
+<tr><th id="409">409</th><td></td></tr>
+<tr><th id="410">410</th><td></td></tr>
+<tr><th id="411">411</th><td></td></tr>
+<tr><th id="412">412</th><td></td></tr>
+<tr><th id="413">413</th><td></td></tr>
+<tr><th id="414">414</th><td></td></tr>
+<tr><th id="415">415</th><td></td></tr>
+<tr><th id="416">416</th><td></td></tr>
+<tr><th id="417">417</th><td></td></tr>
+<tr><th id="418">418</th><td></td></tr>
+<tr><th id="419">419</th><td></td></tr>
+<tr><th id="420">420</th><td></td></tr>
+<tr><th id="421">421</th><td></td></tr>
+<tr><th id="422">422</th><td></td></tr>
+<tr><th id="423">423</th><td></td></tr>
+<tr><th id="424">424</th><td></td></tr>
+<tr><th id="425">425</th><td></td></tr>
+<tr><th id="426">426</th><td></td></tr>
+<tr><th id="427">427</th><td></td></tr>
+<tr><th id="428">428</th><td></td></tr>
+<tr><th id="429">429</th><td></td></tr>
+<tr><th id="430">430</th><td></td></tr>
+<tr><th id="431">431</th><td></td></tr>
+<tr><th id="432">432</th><td></td></tr>
+<tr><th id="433">433</th><td></td></tr>
+<tr><th id="434">434</th><td></td></tr>
+<tr><th id="435">435</th><td></td></tr>
+<tr><th id="436">436</th><td></td></tr>
+<tr><th id="437">437</th><td></td></tr>
+<tr><th id="438">438</th><td></td></tr>
+<tr><th id="439">439</th><td></td></tr>
+<tr><th id="440">440</th><td></td></tr>
+<tr><th id="441">441</th><td></td></tr>
+<tr><th id="442">442</th><td></td></tr>
+<tr><th id="443">443</th><td></td></tr>
+<tr><th id="444">444</th><td></td></tr>
+<tr><th id="445">445</th><td></td></tr>
+<tr><th id="446">446</th><td></td></tr>
+<tr><th id="447">447</th><td></td></tr>
+<tr><th id="448">448</th><td></td></tr>
+<tr><th id="449">449</th><td></td></tr>
+<tr><th id="450">450</th><td></td></tr>
+<tr><th id="451">451</th><td></td></tr>
+<tr><th id="452">452</th><td></td></tr>
+<tr><th id="453">453</th><td></td></tr>
+<tr><th id="454">454</th><td></td></tr>
+<tr><th id="455">455</th><td></td></tr>
+<tr><th id="456">456</th><td></td></tr>
+<tr><th id="457">457</th><td></td></tr>
+<tr><th id="458">458</th><td></td></tr>
+<tr><th id="459">459</th><td></td></tr>
+<tr><th id="460">460</th><td></td></tr>
+<tr><th id="461">461</th><td></td></tr>
+<tr><th id="462">462</th><td></td></tr>
+<tr><th id="463">463</th><td></td></tr>
+<tr><th id="464">464</th><td></td></tr>
+<tr><th id="465">465</th><td></td></tr>
+<tr><th id="466">466</th><td></td></tr>
+<tr><th id="467">467</th><td></td></tr>
+<tr><th id="468">468</th><td></td></tr>
+<tr><th id="469">469</th><td></td></tr>
+<tr><th id="470">470</th><td></td></tr>
+<tr><th id="471">471</th><td></td></tr>
+<tr><th id="472">472</th><td></td></tr>
+<tr><th id="473">473</th><td></td></tr>
+<tr><th id="474">474</th><td></td></tr>
+<tr><th id="475">475</th><td></td></tr>
+<tr><th id="476">476</th><td></td></tr>
+<tr><th id="477">477</th><td></td></tr>
+<tr><th id="478">478</th><td></td></tr>
+<tr><th id="479">479</th><td></td></tr>
+<tr><th id="480">480</th><td></td></tr>
+<tr><th id="481">481</th><td></td></tr>
+<tr><th id="482">482</th><td></td></tr>
+<tr><th id="483">483</th><td></td></tr>
+<tr><th id="484">484</th><td></td></tr>
+<tr><th id="485">485</th><td></td></tr>
+<tr><th id="486">486</th><td></td></tr>
+<tr><th id="487">487</th><td></td></tr>
+<tr><th id="488">488</th><td></td></tr>
+<tr><th id="489">489</th><td></td></tr>
+<tr><th id="490">490</th><td></td></tr>
+<tr><th id="491">491</th><td></td></tr>
+<tr><th id="492">492</th><td></td></tr>
+<tr><th id="493">493</th><td></td></tr>
+<tr><th id="494">494</th><td></td></tr>
+<tr><th id="495">495</th><td></td></tr>
+<tr><th id="496">496</th><td></td></tr>
+<tr><th id="497">497</th><td></td></tr>
+<tr><th id="498">498</th><td></td></tr>
+<tr><th id="499">499</th><td></td></tr>
+<tr><th id="500">500</th><td></td></tr>
+<tr><th id="501">501</th><td></td></tr>
+<tr><th id="502">502</th><td></td></tr>
+<tr><th id="503">503</th><td></td></tr>
+<tr><th id="504">504</th><td></td></tr>
+<tr><th id="505">505</th><td></td></tr>
+<tr><th id="506">506</th><td></td></tr>
+<tr><th id="507">507</th><td></td></tr>
+<tr><th id="508">508</th><td></td></tr>
+<tr><th id="509">509</th><td></td></tr>
+<tr><th id="510">510</th><td></td></tr>
+<tr><th id="511">511</th><td></td></tr>
+<tr><th id="512">512</th><td></td></tr>
+<tr><th id="513">513</th><td></td></tr>
+<tr><th id="514">514</th><td></td></tr>
+<tr><th id="515">515</th><td></td></tr>
+<tr><th id="516">516</th><td></td></tr>
+<tr><th id="517">517</th><td></td></tr>
+<tr><th id="518">518</th><td></td></tr>
+<tr><th id="519">519</th><td></td></tr>
+<tr><th id="520">520</th><td></td></tr>
+<tr><th id="521">521</th><td></td></tr>
+<tr><th id="522">522</th><td></td></tr>
+<tr><th id="523">523</th><td></td></tr>
+<tr><th id="524">524</th><td></td></tr>
+<tr><th id="525">525</th><td></td></tr>
+<tr><th id="526">526</th><td></td></tr>
+<tr><th id="527">527</th><td></td></tr>
+<tr><th id="528">528</th><td></td></tr>
+<tr><th id="529">529</th><td></td></tr>
+<tr><th id="530">530</th><td></td></tr>
+<tr><th id="531">531</th><td></td></tr>
+<tr><th id="532">532</th><td></td></tr>
+<tr><th id="533">533</th><td></td></tr>
+<tr><th id="534">534</th><td></td></tr>
+<tr><th id="535">535</th><td></td></tr>
+<tr><th id="536">536</th><td></td></tr>
+<tr><th id="537">537</th><td></td></tr>
+<tr><th id="538">538</th><td></td></tr>
+<tr><th id="539">539</th><td></td></tr>
+<tr><th id="540">540</th><td></td></tr>
+<tr><th id="541">541</th><td></td></tr>
+<tr><th id="542">542</th><td></td></tr>
+<tr><th id="543">543</th><td></td></tr>
+<tr><th id="544">544</th><td></td></tr>
+<tr><th id="545">545</th><td></td></tr>
+<tr><th id="546">546</th><td></td></tr>
+<tr><th id="547">547</th><td></td></tr>
+<tr><th id="548">548</th><td></td></tr>
+<tr><th id="549">549</th><td></td></tr>
+<tr><th id="550">550</th><td></td></tr>
+<tr><th id="551">551</th><td></td></tr>
+<tr><th id="552">552</th><td></td></tr>
+<tr><th id="553">553</th><td></td></tr>
+<tr><th id="554">554</th><td></td></tr>
+<tr><th id="555">555</th><td></td></tr>
+<tr><th id="556">556</th><td></td></tr>
+<tr><th id="557">557</th><td></td></tr>
+<tr><th id="558">558</th><td></td></tr>
+<tr><th id="559">559</th><td></td></tr>
+<tr><th id="560">560</th><td></td></tr>
+<tr><th id="561">561</th><td></td></tr>
+<tr><th id="562">562</th><td></td></tr>
+<tr><th id="563">563</th><td></td></tr>
+<tr><th id="564">564</th><td></td></tr>
+<tr><th id="565">565</th><td></td></tr>
+<tr><th id="566">566</th><td></td></tr>
+<tr><th id="567">567</th><td></td></tr>
+<tr><th id="568">568</th><td></td></tr>
+<tr><th id="569">569</th><td></td></tr>
+<tr><th id="570">570</th><td></td></tr>
+<tr><th id="571">571</th><td></td></tr>
+<tr><th id="572">572</th><td></td></tr>
+<tr><th id="573">573</th><td></td></tr>
+<tr><th id="574">574</th><td></td></tr>
+<tr><th id="575">575</th><td></td></tr>
+<tr><th id="576">576</th><td></td></tr>
+<tr><th id="577">577</th><td></td></tr>
+<tr><th id="578">578</th><td></td></tr>
+<tr><th id="579">579</th><td></td></tr>
+<tr><th id="580">580</th><td></td></tr>
+<tr><th id="581">581</th><td></td></tr>
+<tr><th id="582">582</th><td></td></tr>
+<tr><th id="583">583</th><td></td></tr>
+<tr><th id="584">584</th><td></td></tr>
+<tr><th id="585">585</th><td></td></tr>
+<tr><th id="586">586</th><td></td></tr>
+<tr><th id="587">587</th><td></td></tr>
+<tr><th id="588">588</th><td></td></tr>
+<tr><th id="589">589</th><td></td></tr>
+<tr><th id="590">590</th><td></td></tr>
+<tr><th id="591">591</th><td></td></tr>
+<tr><th id="592">592</th><td></td></tr>
+<tr><th id="593">593</th><td></td></tr>
+<tr><th id="594">594</th><td></td></tr>
+<tr><th id="595">595</th><td></td></tr>
+<tr><th id="596">596</th><td></td></tr>
+<tr><th id="597">597</th><td></td></tr>
+<tr><th id="598">598</th><td></td></tr>
+<tr><th id="599">599</th><td></td></tr>
+<tr><th id="600">600</th><td></td></tr>
+<tr><th id="601">601</th><td></td></tr>
+<tr><th id="602">602</th><td></td></tr>
+<tr><th id="603">603</th><td></td></tr>
+<tr><th id="604">604</th><td></td></tr>
+<tr><th id="605">605</th><td></td></tr>
+<tr><th id="606">606</th><td></td></tr>
+<tr><th id="607">607</th><td></td></tr>
+<tr><th id="608">608</th><td></td></tr>
+<tr><th id="609">609</th><td></td></tr>
+<tr><th id="610">610</th><td></td></tr>
+<tr><th id="611">611</th><td></td></tr>
+<tr><th id="612">612</th><td></td></tr>
+<tr><th id="613">613</th><td></td></tr>
+<tr><th id="614">614</th><td></td></tr>
+<tr><th id="615">615</th><td></td></tr>
+<tr><th id="616">616</th><td></td></tr>
+<tr><th id="617">617</th><td></td></tr>
+<tr><th id="618">618</th><td></td></tr>
+<tr><th id="619">619</th><td></td></tr>
+<tr><th id="620">620</th><td></td></tr>
+<tr><th id="621">621</th><td></td></tr>
+<tr><th id="622">622</th><td></td></tr>
+<tr><th id="623">623</th><td></td></tr>
+<tr><th id="624">624</th><td></td></tr>
+<tr><th id="625">625</th><td></td></tr>
+<tr><th id="626">626</th><td></td></tr>
+<tr><th id="627">627</th><td></td></tr>
+<tr><th id="628">628</th><td></td></tr>
+<tr><th id="629">629</th><td></td></tr>
+<tr><th id="630">630</th><td></td></tr>
+<tr><th id="631">631</th><td></td></tr>
+<tr><th id="632">632</th><td></td></tr>
+<tr><th id="633">633</th><td></td></tr>
+<tr><th id="634">634</th><td></td></tr>
+<tr><th id="635">635</th><td></td></tr>
+<tr><th id="636">636</th><td></td></tr>
+<tr><th id="637">637</th><td></td></tr>
+<tr><th id="638">638</th><td></td></tr>
+<tr><th id="639">639</th><td></td></tr>
+<tr><th id="640">640</th><td></td></tr>
+<tr><th id="641">641</th><td></td></tr>
+<tr><th id="642">642</th><td></td></tr>
+<tr><th id="643">643</th><td></td></tr>
+<tr><th id="644">644</th><td></td></tr>
+<tr><th id="645">645</th><td></td></tr>
+<tr><th id="646">646</th><td></td></tr>
+<tr><th id="647">647</th><td></td></tr>
+<tr><th id="648">648</th><td></td></tr>
+<tr><th id="649">649</th><td></td></tr>
+<tr><th id="650">650</th><td></td></tr>
+<tr><th id="651">651</th><td></td></tr>
+<tr><th id="652">652</th><td></td></tr>
+<tr><th id="653">653</th><td></td></tr>
+<tr><th id="654">654</th><td></td></tr>
+<tr><th id="655">655</th><td></td></tr>
+<tr><th id="656">656</th><td></td></tr>
+<tr><th id="657">657</th><td></td></tr>
+<tr><th id="658">658</th><td></td></tr>
+<tr><th id="659">659</th><td></td></tr>
+<tr><th id="660">660</th><td></td></tr>
+<tr><th id="661">661</th><td></td></tr>
+<tr><th id="662">662</th><td></td></tr>
+<tr><th id="663">663</th><td></td></tr>
+<tr><th id="664">664</th><td></td></tr>
+<tr><th id="665">665</th><td></td></tr>
+<tr><th id="666">666</th><td></td></tr>
+<tr><th id="667">667</th><td></td></tr>
+<tr><th id="668">668</th><td></td></tr>
+<tr><th id="669">669</th><td></td></tr>
+<tr><th id="670">670</th><td></td></tr>
+<tr><th id="671">671</th><td></td></tr>
+<tr><th id="672">672</th><td></td></tr>
+<tr><th id="673">673</th><td></td></tr>
+<tr><th id="674">674</th><td></td></tr>
+<tr><th id="675">675</th><td></td></tr>
+<tr><th id="676">676</th><td></td></tr>
+<tr><th id="677">677</th><td></td></tr>
+<tr><th id="678">678</th><td></td></tr>
+<tr><th id="679">679</th><td></td></tr>
+<tr><th id="680">680</th><td></td></tr>
+<tr><th id="681">681</th><td></td></tr>
+<tr><th id="682">682</th><td></td></tr>
+<tr><th id="683">683</th><td></td></tr>
+<tr><th id="684">684</th><td></td></tr>
+<tr><th id="685">685</th><td></td></tr>
+<tr><th id="686">686</th><td></td></tr>
+<tr><th id="687">687</th><td></td></tr>
+<tr><th id="688">688</th><td></td></tr>
+<tr><th id="689">689</th><td></td></tr>
+<tr><th id="690">690</th><td></td></tr>
+<tr><th id="691">691</th><td></td></tr>
+<tr><th id="692">692</th><td></td></tr>
+<tr><th id="693">693</th><td></td></tr>
+<tr><th id="694">694</th><td></td></tr>
+<tr><th id="695">695</th><td></td></tr>
+<tr><th id="696">696</th><td></td></tr>
+<tr><th id="697">697</th><td></td></tr>
+<tr><th id="698">698</th><td></td></tr>
+<tr><th id="699">699</th><td></td></tr>
+<tr><th id="700">700</th><td></td></tr>
+<tr><th id="701">701</th><td></td></tr>
+<tr><th id="702">702</th><td></td></tr>
+<tr><th id="703">703</th><td></td></tr>
+<tr><th id="704">704</th><td></td></tr>
+<tr><th id="705">705</th><td></td></tr>
+<tr><th id="706">706</th><td></td></tr>
+<tr><th id="707">707</th><td></td></tr>
+<tr><th id="708">708</th><td></td></tr>
+<tr><th id="709">709</th><td></td></tr>
+<tr><th id="710">710</th><td></td></tr>
+<tr><th id="711">711</th><td></td></tr>
+<tr><th id="712">712</th><td></td></tr>
+<tr><th id="713">713</th><td></td></tr>
+<tr><th id="714">714</th><td></td></tr>
+<tr><th id="715">715</th><td></td></tr>
+<tr><th id="716">716</th><td></td></tr>
+<tr><th id="717">717</th><td></td></tr>
+<tr><th id="718">718</th><td></td></tr>
+<tr><th id="719">719</th><td></td></tr>
+<tr><th id="720">720</th><td></td></tr>
+<tr><th id="721">721</th><td></td></tr>
+<tr><th id="722">722</th><td></td></tr>
+<tr><th id="723">723</th><td></td></tr>
+<tr><th id="724">724</th><td></td></tr>
+<tr><th id="725">725</th><td></td></tr>
+<tr><th id="726">726</th><td></td></tr>
+<tr><th id="727">727</th><td></td></tr>
+<tr><th id="728">728</th><td></td></tr>
+<tr><th id="729">729</th><td></td></tr>
+<tr><th id="730">730</th><td></td></tr>
+<tr><th id="731">731</th><td></td></tr>
+<tr><th id="732">732</th><td></td></tr>
+<tr><th id="733">733</th><td></td></tr>
+<tr><th id="734">734</th><td></td></tr>
+<tr><th id="735">735</th><td></td></tr>
+<tr><th id="736">736</th><td></td></tr>
+<tr><th id="737">737</th><td></td></tr>
+<tr><th id="738">738</th><td></td></tr>
+<tr><th id="739">739</th><td></td></tr>
+<tr><th id="740">740</th><td></td></tr>
+<tr><th id="741">741</th><td></td></tr>
+<tr><th id="742">742</th><td></td></tr>
+<tr><th id="743">743</th><td></td></tr>
+<tr><th id="744">744</th><td></td></tr>
+<tr><th id="745">745</th><td></td></tr>
+<tr><th id="746">746</th><td></td></tr>
+<tr><th id="747">747</th><td></td></tr>
+<tr><th id="748">748</th><td></td></tr>
+<tr><th id="749">749</th><td></td></tr>
+<tr><th id="750">750</th><td></td></tr>
+<tr><th id="751">751</th><td></td></tr>
+<tr><th id="752">752</th><td></td></tr>
+<tr><th id="753">753</th><td></td></tr>
+<tr><th id="754">754</th><td></td></tr>
+<tr><th id="755">755</th><td></td></tr>
+<tr><th id="756">756</th><td></td></tr>
+<tr><th id="757">757</th><td></td></tr>
+<tr><th id="758">758</th><td></td></tr>
+<tr><th id="759">759</th><td></td></tr>
+<tr><th id="760">760</th><td></td></tr>
+<tr><th id="761">761</th><td></td></tr>
+<tr><th id="762">762</th><td></td></tr>
+<tr><th id="763">763</th><td></td></tr>
+<tr><th id="764">764</th><td></td></tr>
+<tr><th id="765">765</th><td></td></tr>
+<tr><th id="766">766</th><td></td></tr>
+<tr><th id="767">767</th><td></td></tr>
+<tr><th id="768">768</th><td></td></tr>
+<tr><th id="769">769</th><td></td></tr>
+<tr><th id="770">770</th><td></td></tr>
+<tr><th id="771">771</th><td></td></tr>
+<tr><th id="772">772</th><td></td></tr>
+<tr><th id="773">773</th><td></td></tr>
+<tr><th id="774">774</th><td></td></tr>
+<tr><th id="775">775</th><td></td></tr>
+<tr><th id="776">776</th><td></td></tr>
+<tr><th id="777">777</th><td></td></tr>
+<tr><th id="778">778</th><td></td></tr>
+<tr><th id="779">779</th><td></td></tr>
+<tr><th id="780">780</th><td></td></tr>
+<tr><th id="781">781</th><td></td></tr>
+<tr><th id="782">782</th><td></td></tr>
+<tr><th id="783">783</th><td></td></tr>
+<tr><th id="784">784</th><td></td></tr>
+<tr><th id="785">785</th><td></td></tr>
+<tr><th id="786">786</th><td></td></tr>
+<tr><th id="787">787</th><td></td></tr>
+<tr><th id="788">788</th><td></td></tr>
+<tr><th id="789">789</th><td></td></tr>
+<tr><th id="790">790</th><td></td></tr>
+<tr><th id="791">791</th><td></td></tr>
+<tr><th id="792">792</th><td></td></tr>
+<tr><th id="793">793</th><td></td></tr>
+<tr><th id="794">794</th><td></td></tr>
+<tr><th id="795">795</th><td></td></tr>
+<tr><th id="796">796</th><td></td></tr>
+<tr><th id="797">797</th><td></td></tr>
+<tr><th id="798">798</th><td></td></tr>
+<tr><th id="799">799</th><td></td></tr>
+<tr><th id="800">800</th><td></td></tr>
+<tr><th id="801">801</th><td></td></tr>
+<tr><th id="802">802</th><td></td></tr>
+<tr><th id="803">803</th><td></td></tr>
+<tr><th id="804">804</th><td></td></tr>
+<tr><th id="805">805</th><td></td></tr>
+<tr><th id="806">806</th><td></td></tr>
+<tr><th id="807">807</th><td></td></tr>
+<tr><th id="808">808</th><td></td></tr>
+<tr><th id="809">809</th><td></td></tr>
+<tr><th id="810">810</th><td></td></tr>
+<tr><th id="811">811</th><td></td></tr>
+<tr><th id="812">812</th><td></td></tr>
+<tr><th id="813">813</th><td></td></tr>
+<tr><th id="814">814</th><td></td></tr>
+<tr><th id="815">815</th><td></td></tr>
+<tr><th id="816">816</th><td></td></tr>
+<tr><th id="817">817</th><td></td></tr>
+<tr><th id="818">818</th><td></td></tr>
+<tr><th id="819">819</th><td></td></tr>
+<tr><th id="820">820</th><td></td></tr>
+<tr><th id="821">821</th><td></td></tr>
+<tr><th id="822">822</th><td></td></tr>
+<tr><th id="823">823</th><td></td></tr>
+<tr><th id="824">824</th><td></td></tr>
+<tr><th id="825">825</th><td></td></tr>
+<tr><th id="826">826</th><td></td></tr>
+<tr><th id="827">827</th><td></td></tr>
+<tr><th id="828">828</th><td></td></tr>
+<tr><th id="829">829</th><td></td></tr>
+<tr><th id="830">830</th><td></td></tr>
+<tr><th id="831">831</th><td></td></tr>
+<tr><th id="832">832</th><td></td></tr>
+<tr><th id="833">833</th><td></td></tr>
+<tr><th id="834">834</th><td></td></tr>
+<tr><th id="835">835</th><td></td></tr>
+<tr><th id="836">836</th><td></td></tr>
+<tr><th id="837">837</th><td></td></tr>
+<tr><th id="838">838</th><td></td></tr>
+<tr><th id="839">839</th><td></td></tr>
+<tr><th id="840">840</th><td></td></tr>
+<tr><th id="841">841</th><td></td></tr>
+<tr><th id="842">842</th><td></td></tr>
+<tr><th id="843">843</th><td></td></tr>
+<tr><th id="844">844</th><td></td></tr>
+<tr><th id="845">845</th><td></td></tr>
+<tr><th id="846">846</th><td></td></tr>
+<tr><th id="847">847</th><td></td></tr>
+<tr><th id="848">848</th><td></td></tr>
+<tr><th id="849">849</th><td></td></tr>
+<tr><th id="850">850</th><td></td></tr>
+<tr><th id="851">851</th><td></td></tr>
+<tr><th id="852">852</th><td></td></tr>
+<tr><th id="853">853</th><td></td></tr>
+<tr><th id="854">854</th><td></td></tr>
+<tr><th id="855">855</th><td></td></tr>
+<tr><th id="856">856</th><td></td></tr>
+<tr><th id="857">857</th><td></td></tr>
+<tr><th id="858">858</th><td></td></tr>
+<tr><th id="859">859</th><td></td></tr>
+<tr><th id="860">860</th><td></td></tr>
+<tr><th id="861">861</th><td></td></tr>
+<tr><th id="862">862</th><td></td></tr>
+<tr><th id="863">863</th><td></td></tr>
+<tr><th id="864">864</th><td></td></tr>
+<tr><th id="865">865</th><td></td></tr>
+<tr><th id="866">866</th><td></td></tr>
+<tr><th id="867">867</th><td></td></tr>
+<tr><th id="868">868</th><td></td></tr>
+<tr><th id="869">869</th><td></td></tr>
+<tr><th id="870">870</th><td></td></tr>
+<tr><th id="871">871</th><td></td></tr>
+<tr><th id="872">872</th><td></td></tr>
+<tr><th id="873">873</th><td></td></tr>
+<tr><th id="874">874</th><td></td></tr>
+<tr><th id="875">875</th><td></td></tr>
+<tr><th id="876">876</th><td></td></tr>
+<tr><th id="877">877</th><td></td></tr>
+<tr><th id="878">878</th><td></td></tr>
+<tr><th id="879">879</th><td></td></tr>
+<tr><th id="880">880</th><td></td></tr>
+<tr><th id="881">881</th><td></td></tr>
+<tr><th id="882">882</th><td></td></tr>
+<tr><th id="883">883</th><td></td></tr>
+<tr><th id="884">884</th><td></td></tr>
+<tr><th id="885">885</th><td></td></tr>
+<tr><th id="886">886</th><td></td></tr>
+<tr><th id="887">887</th><td></td></tr>
+<tr><th id="888">888</th><td></td></tr>
+<tr><th id="889">889</th><td></td></tr>
+<tr><th id="890">890</th><td></td></tr>
+<tr><th id="891">891</th><td></td></tr>
+<tr><th id="892">892</th><td></td></tr>
+<tr><th id="893">893</th><td></td></tr>
+<tr><th id="894">894</th><td></td></tr>
+<tr><th id="895">895</th><td></td></tr>
+<tr><th id="896">896</th><td></td></tr>
+<tr><th id="897">897</th><td></td></tr>
+<tr><th id="898">898</th><td></td></tr>
+<tr><th id="899">899</th><td></td></tr>
+<tr><th id="900">900</th><td></td></tr>
+<tr><th id="901">901</th><td></td></tr>
+<tr><th id="902">902</th><td></td></tr>
+<tr><th id="903">903</th><td></td></tr>
+<tr><th id="904">904</th><td></td></tr>
+<tr><th id="905">905</th><td></td></tr>
+<tr><th id="906">906</th><td></td></tr>
+<tr><th id="907">907</th><td></td></tr>
+<tr><th id="908">908</th><td></td></tr>
+<tr><th id="909">909</th><td></td></tr>
+<tr><th id="910">910</th><td></td></tr>
+<tr><th id="911">911</th><td></td></tr>
+<tr><th id="912">912</th><td></td></tr>
+<tr><th id="913">913</th><td></td></tr>
+<tr><th id="914">914</th><td></td></tr>
+<tr><th id="915">915</th><td></td></tr>
+<tr><th id="916">916</th><td></td></tr>
+<tr><th id="917">917</th><td></td></tr>
+<tr><th id="918">918</th><td></td></tr>
+<tr><th id="919">919</th><td></td></tr>
+<tr><th id="920">920</th><td></td></tr>
+<tr><th id="921">921</th><td></td></tr>
+<tr><th id="922">922</th><td></td></tr>
+<tr><th id="923">923</th><td></td></tr>
+<tr><th id="924">924</th><td></td></tr>
+<tr><th id="925">925</th><td></td></tr>
+<tr><th id="926">926</th><td></td></tr>
+<tr><th id="927">927</th><td></td></tr>
+<tr><th id="928">928</th><td></td></tr>
+<tr><th id="929">929</th><td></td></tr>
+<tr><th id="930">930</th><td></td></tr>
+<tr><th id="931">931</th><td></td></tr>
+<tr><th id="932">932</th><td></td></tr>
+<tr><th id="933">933</th><td></td></tr>
+<tr><th id="934">934</th><td></td></tr>
+<tr><th id="935">935</th><td></td></tr>
+<tr><th id="936">936</th><td></td></tr>
+<tr><th id="937">937</th><td></td></tr>
+<tr><th id="938">938</th><td></td></tr>
+<tr><th id="939">939</th><td></td></tr>
+<tr><th id="940">940</th><td></td></tr>
+<tr><th id="941">941</th><td></td></tr>
+<tr><th id="942">942</th><td></td></tr>
+<tr><th id="943">943</th><td></td></tr>
+<tr><th id="944">944</th><td></td></tr>
+<tr><th id="945">945</th><td></td></tr>
+<tr><th id="946">946</th><td></td></tr>
+<tr><th id="947">947</th><td></td></tr>
+<tr><th id="948">948</th><td></td></tr>
+<tr><th id="949">949</th><td></td></tr>
+<tr><th id="950">950</th><td></td></tr>
+<tr><th id="951">951</th><td></td></tr>
+<tr><th id="952">952</th><td></td></tr>
+<tr><th id="953">953</th><td></td></tr>
+<tr><th id="954">954</th><td></td></tr>
+<tr><th id="955">955</th><td></td></tr>
+<tr><th id="956">956</th><td></td></tr>
+<tr><th id="957">957</th><td></td></tr>
+<tr><th id="958">958</th><td></td></tr>
+<tr><th id="959">959</th><td></td></tr>
+<tr><th id="960">960</th><td></td></tr>
+<tr><th id="961">961</th><td></td></tr>
+<tr><th id="962">962</th><td></td></tr>
+<tr><th id="963">963</th><td></td></tr>
+<tr><th id="964">964</th><td></td></tr>
+<tr><th id="965">965</th><td></td></tr>
+<tr><th id="966">966</th><td></td></tr>
+<tr><th id="967">967</th><td></td></tr>
+<tr><th id="968">968</th><td></td></tr>
+<tr><th id="969">969</th><td></td></tr>
+<tr><th id="970">970</th><td></td></tr>
+<tr><th id="971">971</th><td></td></tr>
+<tr><th id="972">972</th><td></td></tr>
+<tr><th id="973">973</th><td></td></tr>
+<tr><th id="974">974</th><td></td></tr>
+<tr><th id="975">975</th><td></td></tr>
+<tr><th id="976">976</th><td></td></tr>
+<tr><th id="977">977</th><td></td></tr>
+<tr><th id="978">978</th><td></td></tr>
+<tr><th id="979">979</th><td></td></tr>
+<tr><th id="980">980</th><td></td></tr>
+<tr><th id="981">981</th><td></td></tr>
+<tr><th id="982">982</th><td></td></tr>
+<tr><th id="983">983</th><td></td></tr>
+<tr><th id="984">984</th><td></td></tr>
+<tr><th id="985">985</th><td></td></tr>
+<tr><th id="986">986</th><td></td></tr>
+<tr><th id="987">987</th><td></td></tr>
+<tr><th id="988">988</th><td></td></tr>
+<tr><th id="989">989</th><td></td></tr>
+<tr><th id="990">990</th><td></td></tr>
+<tr><th id="991">991</th><td></td></tr>
+<tr><th id="992">992</th><td></td></tr>
+<tr><th id="993">993</th><td></td></tr>
+<tr><th id="994">994</th><td></td></tr>
+<tr><th id="995">995</th><td></td></tr>
+<tr><th id="996">996</th><td></td></tr>
+<tr><th id="997">997</th><td></td></tr>
+<tr><th id="998">998</th><td></td></tr>
+<tr><th id="999">999</th><td></td></tr>
+<tr><th id="1000">1000</th><td></td></tr>
+<tr><th id="1001">1001</th><td></td></tr>
+<tr><th id="1002">1002</th><td></td></tr>
+<tr><th id="1003">1003</th><td></td></tr>
+<tr><th id="1004">1004</th><td></td></tr>
+<tr><th id="1005">1005</th><td></td></tr>
+<tr><th id="1006">1006</th><td></td></tr>
+<tr><th id="1007">1007</th><td></td></tr>
+<tr><th id="1008">1008</th><td></td></tr>
+<tr><th id="1009">1009</th><td></td></tr>
+<tr><th id="1010">1010</th><td></td></tr>
+<tr><th id="1011">1011</th><td></td></tr>
+<tr><th id="1012">1012</th><td></td></tr>
+<tr><th id="1013">1013</th><td></td></tr>
+<tr><th id="1014">1014</th><td></td></tr>
+<tr><th id="1015">1015</th><td></td></tr>
+<tr><th id="1016">1016</th><td></td></tr>
+<tr><th id="1017">1017</th><td></td></tr>
+<tr><th id="1018">1018</th><td></td></tr>
+<tr><th id="1019">1019</th><td></td></tr>
+<tr><th id="1020">1020</th><td></td></tr>
+<tr><th id="1021">1021</th><td></td></tr>
+<tr><th id="1022">1022</th><td></td></tr>
+<tr><th id="1023">1023</th><td></td></tr>
+<tr><th id="1024">1024</th><td></td></tr>
+<tr><th id="1025">1025</th><td></td></tr>
+<tr><th id="1026">1026</th><td></td></tr>
+<tr><th id="1027">1027</th><td></td></tr>
+<tr><th id="1028">1028</th><td></td></tr>
+<tr><th id="1029">1029</th><td></td></tr>
+<tr><th id="1030">1030</th><td></td></tr>
+<tr><th id="1031">1031</th><td></td></tr>
+<tr><th id="1032">1032</th><td></td></tr>
+<tr><th id="1033">1033</th><td></td></tr>
+<tr><th id="1034">1034</th><td></td></tr>
+<tr><th id="1035">1035</th><td></td></tr>
+<tr><th id="1036">1036</th><td></td></tr>
+<tr><th id="1037">1037</th><td></td></tr>
+<tr><th id="1038">1038</th><td></td></tr>
+<tr><th id="1039">1039</th><td></td></tr>
+<tr><th id="1040">1040</th><td></td></tr>
+<tr><th id="1041">1041</th><td></td></tr>
+<tr><th id="1042">1042</th><td></td></tr>
+<tr><th id="1043">1043</th><td></td></tr>
+<tr><th id="1044">1044</th><td></td></tr>
+<tr><th id="1045">1045</th><td></td></tr>
+<tr><th id="1046">1046</th><td></td></tr>
+<tr><th id="1047">1047</th><td></td></tr>
+<tr><th id="1048">1048</th><td></td></tr>
+<tr><th id="1049">1049</th><td></td></tr>
+<tr><th id="1050">1050</th><td></td></tr>
+<tr><th id="1051">1051</th><td></td></tr>
+<tr><th id="1052">1052</th><td></td></tr>
+<tr><th id="1053">1053</th><td></td></tr>
+<tr><th id="1054">1054</th><td></td></tr>
+<tr><th id="1055">1055</th><td></td></tr>
+<tr><th id="1056">1056</th><td></td></tr>
+<tr><th id="1057">1057</th><td></td></tr>
+<tr><th id="1058">1058</th><td></td></tr>
+<tr><th id="1059">1059</th><td></td></tr>
+<tr><th id="1060">1060</th><td></td></tr>
+<tr><th id="1061">1061</th><td></td></tr>
+<tr><th id="1062">1062</th><td></td></tr>
+<tr><th id="1063">1063</th><td></td></tr>
+<tr><th id="1064">1064</th><td></td></tr>
+<tr><th id="1065">1065</th><td></td></tr>
+<tr><th id="1066">1066</th><td></td></tr>
+<tr><th id="1067">1067</th><td></td></tr>
+<tr><th id="1068">1068</th><td></td></tr>
+<tr><th id="1069">1069</th><td></td></tr>
+<tr><th id="1070">1070</th><td></td></tr>
+<tr><th id="1071">1071</th><td></td></tr>
+<tr><th id="1072">1072</th><td></td></tr>
+<tr><th id="1073">1073</th><td></td></tr>
+<tr><th id="1074">1074</th><td></td></tr>
+<tr><th id="1075">1075</th><td></td></tr>
+<tr><th id="1076">1076</th><td></td></tr>
+<tr><th id="1077">1077</th><td></td></tr>
+<tr><th id="1078">1078</th><td></td></tr>
+<tr><th id="1079">1079</th><td></td></tr>
+<tr><th id="1080">1080</th><td></td></tr>
+<tr><th id="1081">1081</th><td></td></tr>
+<tr><th id="1082">1082</th><td></td></tr>
+<tr><th id="1083">1083</th><td></td></tr>
+<tr><th id="1084">1084</th><td></td></tr>
+<tr><th id="1085">1085</th><td></td></tr>
+<tr><th id="1086">1086</th><td></td></tr>
+<tr><th id="1087">1087</th><td></td></tr>
+<tr><th id="1088">1088</th><td></td></tr>
+<tr><th id="1089">1089</th><td></td></tr>
+<tr><th id="1090">1090</th><td></td></tr>
+<tr><th id="1091">1091</th><td></td></tr>
+<tr><th id="1092">1092</th><td></td></tr>
+<tr><th id="1093">1093</th><td></td></tr>
+<tr><th id="1094">1094</th><td></td></tr>
+<tr><th id="1095">1095</th><td></td></tr>
+<tr><th id="1096">1096</th><td></td></tr>
+<tr><th id="1097">1097</th><td></td></tr>
+<tr><th id="1098">1098</th><td></td></tr>
+<tr><th id="1099">1099</th><td></td></tr>
+<tr><th id="1100">1100</th><td></td></tr>
+<tr><th id="1101">1101</th><td></td></tr>
+<tr><th id="1102">1102</th><td></td></tr>
+<tr><th id="1103">1103</th><td></td></tr>
+<tr><th id="1104">1104</th><td></td></tr>
+<tr><th id="1105">1105</th><td></td></tr>
+<tr><th id="1106">1106</th><td></td></tr>
+<tr><th id="1107">1107</th><td></td></tr>
+<tr><th id="1108">1108</th><td></td></tr>
+<tr><th id="1109">1109</th><td></td></tr>
+<tr><th id="1110">1110</th><td></td></tr>
+<tr><th id="1111">1111</th><td></td></tr>
+<tr><th id="1112">1112</th><td></td></tr>
+<tr><th id="1113">1113</th><td></td></tr>
+<tr><th id="1114">1114</th><td></td></tr>
+<tr><th id="1115">1115</th><td></td></tr>
+<tr><th id="1116">1116</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="1117">1117</th><td>	<a class="typedef" href="../../../../../../../include/GL/gl.h.html#GLenum" title='GLenum' data-type='unsigned int' data-ref="GLenum">GLenum</a>	<dfn class="tu decl" id="(anonymous)::e" title='(anonymous struct)::e' data-type='GLenum' data-ref="(anonymous)::e">e</dfn>;</td></tr>
+<tr><th id="1118">1118</th><td>	<em>const</em> <em>char</em> *<dfn class="tu decl" id="(anonymous)::name" title='(anonymous struct)::name' data-type='const char *' data-ref="(anonymous)::name">name</dfn>;</td></tr>
+<tr><th id="1119">1119</th><td>} <dfn class="typedef" id="glEnumName_t" title='glEnumName_t' data-type='struct glEnumName_t' data-ref="glEnumName_t">glEnumName_t</dfn>;</td></tr>
+<tr><th id="1120">1120</th><td></td></tr>
+<tr><th id="1121">1121</th><td><u>#define	<dfn class="macro" id="_M/DEF" data-ref="_M/DEF">DEF</dfn>(x) { x, #x },</u></td></tr>
+<tr><th id="1122">1122</th><td></td></tr>
+<tr><th id="1123">1123</th><td><a class="typedef" href="#glEnumName_t" title='glEnumName_t' data-type='struct glEnumName_t' data-ref="glEnumName_t">glEnumName_t</a>	<dfn class="decl def" id="glEnumNames" title='glEnumNames' data-ref="glEnumNames">glEnumNames</dfn>[] = {</td></tr>
+<tr><th id="1124">1124</th><td><u>#include <a href="../../../../../../sys/linux/glimp_glenum.h.html">"sys/linux/glimp_glenum.h"</a></u></td></tr>
+<tr><th id="1125">1125</th><td>	{ <var>0</var>, <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> }</td></tr>
+<tr><th id="1126">1126</th><td>};</td></tr>
+<tr><th id="1127">1127</th><td></td></tr>
+<tr><th id="1128">1128</th><td><i  data-doc="_ZL10EnumStringj">/*</i></td></tr>
+<tr><th id="1129">1129</th><td><i  data-doc="_ZL10EnumStringj">======================</i></td></tr>
+<tr><th id="1130">1130</th><td><i  data-doc="_ZL10EnumStringj">EnumString</i></td></tr>
+<tr><th id="1131">1131</th><td><i  data-doc="_ZL10EnumStringj">======================</i></td></tr>
+<tr><th id="1132">1132</th><td><i  data-doc="_ZL10EnumStringj">*/</i></td></tr>
+<tr><th id="1133">1133</th><td><em>static</em> <em>const</em> <em>char</em> *<dfn class="tu decl def" id="_ZL10EnumStringj" title='EnumString' data-type='const char * EnumString(GLenum t)' data-ref="_ZL10EnumStringj">EnumString</dfn>( <a class="typedef" href="../../../../../../../include/GL/gl.h.html#GLenum" title='GLenum' data-type='unsigned int' data-ref="GLenum">GLenum</a> <dfn class="local col4 decl" id="214t" title='t' data-type='GLenum' data-ref="214t">t</dfn> )</td></tr>
+<tr><th id="1134">1134</th><td>{</td></tr>
+<tr><th id="1135">1135</th><td>	<em>static</em> <em>char</em> <dfn class="local col5 decl" id="215buffer" title='buffer' data-type='char [8][1024]' data-ref="215buffer">buffer</dfn>[<var>8</var>][<var>1024</var>];</td></tr>
+<tr><th id="1136">1136</th><td>	<em>static</em> <em>int</em> <dfn class="local col6 decl" id="216index" title='index' data-type='int' data-ref="216index">index</dfn> = <var>0</var>;</td></tr>
+<tr><th id="1137">1137</th><td></td></tr>
+<tr><th id="1138">1138</th><td>	<b>for</b> ( <a class="typedef" href="#glEnumName_t" title='glEnumName_t' data-type='struct glEnumName_t' data-ref="glEnumName_t">glEnumName_t</a> *<dfn class="local col7 decl" id="217n" title='n' data-type='glEnumName_t *' data-ref="217n">n</dfn> = <a class="ref" href="#glEnumNames" title='glEnumNames' data-ref="glEnumNames">glEnumNames</a> ; <a class="local col7 ref" href="#217n" title='n' data-ref="217n">n</a>-&gt;<a class="tu ref" href="#(anonymous)::name" title='(anonymous struct)::name' data-use='r' data-ref="(anonymous)::name">name</a> ; <a class="local col7 ref" href="#217n" title='n' data-ref="217n">n</a>++ ) {</td></tr>
+<tr><th id="1139">1139</th><td>		<b>if</b> ( <a class="local col4 ref" href="#214t" title='t' data-ref="214t">t</a> == <a class="local col7 ref" href="#217n" title='n' data-ref="217n">n</a>-&gt;<a class="tu ref" href="#(anonymous)::e" title='(anonymous struct)::e' data-use='r' data-ref="(anonymous)::e">e</a> ) {</td></tr>
+<tr><th id="1140">1140</th><td>			<b>return</b> <a class="local col7 ref" href="#217n" title='n' data-ref="217n">n</a>-&gt;<a class="tu ref" href="#(anonymous)::name" title='(anonymous struct)::name' data-use='r' data-ref="(anonymous)::name">name</a>;</td></tr>
+<tr><th id="1141">1141</th><td>		}</td></tr>
+<tr><th id="1142">1142</th><td>	}</td></tr>
+<tr><th id="1143">1143</th><td></td></tr>
+<tr><th id="1144">1144</th><td>	<em>int</em> <dfn class="local col8 decl" id="218oldIndex" title='oldIndex' data-type='int' data-ref="218oldIndex">oldIndex</dfn> = <a class="local col6 ref" href="#216index" title='index' data-ref="216index">index</a>;</td></tr>
+<tr><th id="1145">1145</th><td>	<a class="local col6 ref" href="#216index" title='index' data-ref="216index">index</a> = ( <a class="local col6 ref" href="#216index" title='index' data-ref="216index">index</a> + <var>1</var> ) &amp; <var>7</var>;</td></tr>
+<tr><th id="1146">1146</th><td>	<a class="ref" href="../../../../../../../include/stdio.h.html#sprintf" title='sprintf' data-ref="sprintf">sprintf</a>( <a class="local col5 ref" href="#215buffer" title='buffer' data-ref="215buffer">buffer</a>[<a class="local col8 ref" href="#218oldIndex" title='oldIndex' data-ref="218oldIndex">oldIndex</a>], <q>"0x%x"</q>, <a class="local col4 ref" href="#214t" title='t' data-ref="214t">t</a> );</td></tr>
+<tr><th id="1147">1147</th><td></td></tr>
+<tr><th id="1148">1148</th><td>	<b>return</b> <a class="local col5 ref" href="#215buffer" title='buffer' data-ref="215buffer">buffer</a>[<a class="local col8 ref" href="#218oldIndex" title='oldIndex' data-ref="218oldIndex">oldIndex</a>];</td></tr>
+<tr><th id="1149">1149</th><td>}</td></tr>
+<tr><th id="1150">1150</th><td></td></tr>
+<tr><th id="1151">1151</th><td><i  data-doc="_ZL9FloatDataPKfi">/*</i></td></tr>
+<tr><th id="1152">1152</th><td><i  data-doc="_ZL9FloatDataPKfi">======================</i></td></tr>
+<tr><th id="1153">1153</th><td><i  data-doc="_ZL9FloatDataPKfi">FloatData</i></td></tr>
+<tr><th id="1154">1154</th><td><i  data-doc="_ZL9FloatDataPKfi">======================</i></td></tr>
+<tr><th id="1155">1155</th><td><i  data-doc="_ZL9FloatDataPKfi">*/</i></td></tr>
+<tr><th id="1156">1156</th><td><em>static</em> <em>const</em> <em>char</em> *<dfn class="tu decl def" id="_ZL9FloatDataPKfi" title='FloatData' data-type='const char * FloatData(const GLfloat * v, int count)' data-ref="_ZL9FloatDataPKfi">FloatData</dfn>( <em>const</em> <a class="typedef" href="../../../../../../../include/GL/gl.h.html#GLfloat" title='GLfloat' data-type='float' data-ref="GLfloat">GLfloat</a> *<dfn class="local col9 decl" id="219v" title='v' data-type='const GLfloat *' data-ref="219v">v</dfn>, <em>int</em> <dfn class="local col0 decl" id="220count" title='count' data-type='int' data-ref="220count">count</dfn> ) {</td></tr>
+<tr><th id="1157">1157</th><td>	<em>static</em> <em>char</em> <dfn class="local col1 decl" id="221buffer" title='buffer' data-type='char [8][1024]' data-ref="221buffer">buffer</dfn>[<var>8</var>][<var>1024</var>];</td></tr>
+<tr><th id="1158">1158</th><td>	<em>static</em> <em>int</em> <dfn class="local col2 decl" id="222index" title='index' data-type='int' data-ref="222index">index</dfn> = <var>0</var>;</td></tr>
+<tr><th id="1159">1159</th><td>	<em>char</em> *<dfn class="local col3 decl" id="223name" title='name' data-type='char *' data-ref="223name">name</dfn>;</td></tr>
+<tr><th id="1160">1160</th><td></td></tr>
+<tr><th id="1161">1161</th><td>	<a class="local col3 ref" href="#223name" title='name' data-ref="223name">name</a> = <a class="local col1 ref" href="#221buffer" title='buffer' data-ref="221buffer">buffer</a>[<a class="local col2 ref" href="#222index" title='index' data-ref="222index">index</a>&amp;<var>7</var>];</td></tr>
+<tr><th id="1162">1162</th><td>	<a class="ref" href="../../../../../../../include/stdio.h.html#sprintf" title='sprintf' data-ref="sprintf">sprintf</a>( <a class="local col3 ref" href="#223name" title='name' data-ref="223name">name</a>, <q>"f%i"</q>, <a class="local col2 ref" href="#222index" title='index' data-ref="222index">index</a> );</td></tr>
+<tr><th id="1163">1163</th><td>	<a class="local col2 ref" href="#222index" title='index' data-ref="222index">index</a>++;</td></tr>
+<tr><th id="1164">1164</th><td></td></tr>
+<tr><th id="1165">1165</th><td>	<a class="ref" href="../../../../../../../include/stdio.h.html#fprintf" title='fprintf' data-ref="fprintf">fprintf</a>( <a class="ref" href="../../../../../../renderer/tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="../../../../../../renderer/tr_local.h.html#idRenderSystemLocal::logFile" title='idRenderSystemLocal::logFile' data-ref="idRenderSystemLocal::logFile">logFile</a>, <q>"static float %s[%i] = {"</q>, <a class="local col3 ref" href="#223name" title='name' data-ref="223name">name</a>, <a class="local col0 ref" href="#220count" title='count' data-ref="220count">count</a> );</td></tr>
+<tr><th id="1166">1166</th><td>	<b>for</b>( <em>int</em> <dfn class="local col4 decl" id="224i" title='i' data-type='int' data-ref="224i">i</dfn> = <var>0</var> ; <a class="local col4 ref" href="#224i" title='i' data-ref="224i">i</a> &lt; <a class="local col0 ref" href="#220count" title='count' data-ref="220count">count</a> ; <a class="local col4 ref" href="#224i" title='i' data-ref="224i">i</a>++ ) {</td></tr>
+<tr><th id="1167">1167</th><td>		<b>if</b> ( <a class="local col4 ref" href="#224i" title='i' data-ref="224i">i</a> &lt; <a class="local col0 ref" href="#220count" title='count' data-ref="220count">count</a> - <var>1</var> ) {</td></tr>
+<tr><th id="1168">1168</th><td>			<a class="ref" href="../../../../../../../include/stdio.h.html#fprintf" title='fprintf' data-ref="fprintf">fprintf</a>( <a class="ref" href="../../../../../../renderer/tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="../../../../../../renderer/tr_local.h.html#idRenderSystemLocal::logFile" title='idRenderSystemLocal::logFile' data-ref="idRenderSystemLocal::logFile">logFile</a>, <q>"%f,"</q>, <a class="local col9 ref" href="#219v" title='v' data-ref="219v">v</a>[<a class="local col4 ref" href="#224i" title='i' data-ref="224i">i</a>] );</td></tr>
+<tr><th id="1169">1169</th><td>		} <b>else</b> {</td></tr>
+<tr><th id="1170">1170</th><td>			<a class="ref" href="../../../../../../../include/stdio.h.html#fprintf" title='fprintf' data-ref="fprintf">fprintf</a>( <a class="ref" href="../../../../../../renderer/tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="../../../../../../renderer/tr_local.h.html#idRenderSystemLocal::logFile" title='idRenderSystemLocal::logFile' data-ref="idRenderSystemLocal::logFile">logFile</a>, <q>"%f};\n"</q>, <a class="local col9 ref" href="#219v" title='v' data-ref="219v">v</a>[<a class="local col4 ref" href="#224i" title='i' data-ref="224i">i</a>] );</td></tr>
+<tr><th id="1171">1171</th><td>		}</td></tr>
+<tr><th id="1172">1172</th><td>	}</td></tr>
+<tr><th id="1173">1173</th><td></td></tr>
+<tr><th id="1174">1174</th><td>	<b>return</b> <a class="local col3 ref" href="#223name" title='name' data-ref="223name">name</a>;</td></tr>
+<tr><th id="1175">1175</th><td>}</td></tr>
+<tr><th id="1176">1176</th><td></td></tr>
+<tr><th id="1177">1177</th><td><u>#include <a href="glimp_logfuncs.cpp.html">"glimp_logfuncs.cpp"</a></u></td></tr>
+<tr><th id="1178">1178</th><td></td></tr>
+<tr><th id="1179">1179</th><td></td></tr>
+<tr><th id="1180">1180</th><td><i>/*</i></td></tr>
+<tr><th id="1181">1181</th><td><i>======================</i></td></tr>
+<tr><th id="1182">1182</th><td><i>GLimp_BindLogging</i></td></tr>
+<tr><th id="1183">1183</th><td><i>======================</i></td></tr>
+<tr><th id="1184">1184</th><td><i>*/</i></td></tr>
+<tr><th id="1185">1185</th><td><em>void</em> <dfn class="decl def" id="_Z17GLimp_BindLoggingv" title='GLimp_BindLogging' data-ref="_Z17GLimp_BindLoggingv">GLimp_BindLogging</dfn>() {</td></tr>
+<tr><th id="1186">1186</th><td></td></tr>
+<tr><th id="1187">1187</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglAccum" title='qglAccum' data-ref="qglAccum">qglAccum</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL8logAccumjf" title='logAccum' data-ref="_ZL8logAccumjf">logAccum</a>;</td></tr>
+<tr><th id="1188">1188</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglAlphaFunc" title='qglAlphaFunc' data-ref="qglAlphaFunc">qglAlphaFunc</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logAlphaFuncjf" title='logAlphaFunc' data-ref="_ZL12logAlphaFuncjf">logAlphaFunc</a>;</td></tr>
+<tr><th id="1189">1189</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglAreTexturesResident" title='qglAreTexturesResident' data-ref="qglAreTexturesResident">qglAreTexturesResident</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL22logAreTexturesResidentiPKjPh" title='logAreTexturesResident' data-ref="_ZL22logAreTexturesResidentiPKjPh">logAreTexturesResident</a>;</td></tr>
+<tr><th id="1190">1190</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglArrayElement" title='qglArrayElement' data-ref="qglArrayElement">qglArrayElement</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL15logArrayElementi" title='logArrayElement' data-ref="_ZL15logArrayElementi">logArrayElement</a>;</td></tr>
+<tr><th id="1191">1191</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglBegin" title='qglBegin' data-ref="qglBegin">qglBegin</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL8logBeginj" title='logBegin' data-ref="_ZL8logBeginj">logBegin</a>;</td></tr>
+<tr><th id="1192">1192</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglBindTexture" title='qglBindTexture' data-ref="qglBindTexture">qglBindTexture</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logBindTexturejj" title='logBindTexture' data-ref="_ZL14logBindTexturejj">logBindTexture</a>;</td></tr>
+<tr><th id="1193">1193</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglBitmap" title='qglBitmap' data-ref="qglBitmap">qglBitmap</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL9logBitmapiiffffPKh" title='logBitmap' data-ref="_ZL9logBitmapiiffffPKh">logBitmap</a>;</td></tr>
+<tr><th id="1194">1194</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglBlendFunc" title='qglBlendFunc' data-ref="qglBlendFunc">qglBlendFunc</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logBlendFuncjj" title='logBlendFunc' data-ref="_ZL12logBlendFuncjj">logBlendFunc</a>;</td></tr>
+<tr><th id="1195">1195</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglCallList" title='qglCallList' data-ref="qglCallList">qglCallList</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logCallListj" title='logCallList' data-ref="_ZL11logCallListj">logCallList</a>;</td></tr>
+<tr><th id="1196">1196</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglCallLists" title='qglCallLists' data-ref="qglCallLists">qglCallLists</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logCallListsijPKv" title='logCallLists' data-ref="_ZL12logCallListsijPKv">logCallLists</a>;</td></tr>
+<tr><th id="1197">1197</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglClear" title='qglClear' data-ref="qglClear">qglClear</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL8logClearj" title='logClear' data-ref="_ZL8logClearj">logClear</a>;</td></tr>
+<tr><th id="1198">1198</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglClearAccum" title='qglClearAccum' data-ref="qglClearAccum">qglClearAccum</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logClearAccumffff" title='logClearAccum' data-ref="_ZL13logClearAccumffff">logClearAccum</a>;</td></tr>
+<tr><th id="1199">1199</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglClearColor" title='qglClearColor' data-ref="qglClearColor">qglClearColor</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logClearColorffff" title='logClearColor' data-ref="_ZL13logClearColorffff">logClearColor</a>;</td></tr>
+<tr><th id="1200">1200</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglClearDepth" title='qglClearDepth' data-ref="qglClearDepth">qglClearDepth</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logClearDepthd" title='logClearDepth' data-ref="_ZL13logClearDepthd">logClearDepth</a>;</td></tr>
+<tr><th id="1201">1201</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglClearIndex" title='qglClearIndex' data-ref="qglClearIndex">qglClearIndex</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logClearIndexf" title='logClearIndex' data-ref="_ZL13logClearIndexf">logClearIndex</a>;</td></tr>
+<tr><th id="1202">1202</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglClearStencil" title='qglClearStencil' data-ref="qglClearStencil">qglClearStencil</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL15logClearStencili" title='logClearStencil' data-ref="_ZL15logClearStencili">logClearStencil</a>;</td></tr>
+<tr><th id="1203">1203</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglClipPlane" title='qglClipPlane' data-ref="qglClipPlane">qglClipPlane</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logClipPlanejPKd" title='logClipPlane' data-ref="_ZL12logClipPlanejPKd">logClipPlane</a>;</td></tr>
+<tr><th id="1204">1204</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor3b" title='qglColor3b' data-ref="qglColor3b">qglColor3b</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL10logColor3baaa" title='logColor3b' data-ref="_ZL10logColor3baaa">logColor3b</a>;</td></tr>
+<tr><th id="1205">1205</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor3bv" title='qglColor3bv' data-ref="qglColor3bv">qglColor3bv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logColor3bvPKa" title='logColor3bv' data-ref="_ZL11logColor3bvPKa">logColor3bv</a>;</td></tr>
+<tr><th id="1206">1206</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor3d" title='qglColor3d' data-ref="qglColor3d">qglColor3d</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL10logColor3dddd" title='logColor3d' data-ref="_ZL10logColor3dddd">logColor3d</a>;</td></tr>
+<tr><th id="1207">1207</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor3dv" title='qglColor3dv' data-ref="qglColor3dv">qglColor3dv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logColor3dvPKd" title='logColor3dv' data-ref="_ZL11logColor3dvPKd">logColor3dv</a>;</td></tr>
+<tr><th id="1208">1208</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor3f" title='qglColor3f' data-ref="qglColor3f">qglColor3f</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL10logColor3ffff" title='logColor3f' data-ref="_ZL10logColor3ffff">logColor3f</a>;</td></tr>
+<tr><th id="1209">1209</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor3fv" title='qglColor3fv' data-ref="qglColor3fv">qglColor3fv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logColor3fvPKf" title='logColor3fv' data-ref="_ZL11logColor3fvPKf">logColor3fv</a>;</td></tr>
+<tr><th id="1210">1210</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor3i" title='qglColor3i' data-ref="qglColor3i">qglColor3i</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL10logColor3iiii" title='logColor3i' data-ref="_ZL10logColor3iiii">logColor3i</a>;</td></tr>
+<tr><th id="1211">1211</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor3iv" title='qglColor3iv' data-ref="qglColor3iv">qglColor3iv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logColor3ivPKi" title='logColor3iv' data-ref="_ZL11logColor3ivPKi">logColor3iv</a>;</td></tr>
+<tr><th id="1212">1212</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor3s" title='qglColor3s' data-ref="qglColor3s">qglColor3s</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL10logColor3ssss" title='logColor3s' data-ref="_ZL10logColor3ssss">logColor3s</a>;</td></tr>
+<tr><th id="1213">1213</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor3sv" title='qglColor3sv' data-ref="qglColor3sv">qglColor3sv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logColor3svPKs" title='logColor3sv' data-ref="_ZL11logColor3svPKs">logColor3sv</a>;</td></tr>
+<tr><th id="1214">1214</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor3ub" title='qglColor3ub' data-ref="qglColor3ub">qglColor3ub</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logColor3ubhhh" title='logColor3ub' data-ref="_ZL11logColor3ubhhh">logColor3ub</a>;</td></tr>
+<tr><th id="1215">1215</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor3ubv" title='qglColor3ubv' data-ref="qglColor3ubv">qglColor3ubv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logColor3ubvPKh" title='logColor3ubv' data-ref="_ZL12logColor3ubvPKh">logColor3ubv</a>;</td></tr>
+<tr><th id="1216">1216</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor3ui" title='qglColor3ui' data-ref="qglColor3ui">qglColor3ui</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logColor3uijjj" title='logColor3ui' data-ref="_ZL11logColor3uijjj">logColor3ui</a>;</td></tr>
+<tr><th id="1217">1217</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor3uiv" title='qglColor3uiv' data-ref="qglColor3uiv">qglColor3uiv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logColor3uivPKj" title='logColor3uiv' data-ref="_ZL12logColor3uivPKj">logColor3uiv</a>;</td></tr>
+<tr><th id="1218">1218</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor3us" title='qglColor3us' data-ref="qglColor3us">qglColor3us</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logColor3usttt" title='logColor3us' data-ref="_ZL11logColor3usttt">logColor3us</a>;</td></tr>
+<tr><th id="1219">1219</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor3usv" title='qglColor3usv' data-ref="qglColor3usv">qglColor3usv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logColor3usvPKt" title='logColor3usv' data-ref="_ZL12logColor3usvPKt">logColor3usv</a>;</td></tr>
+<tr><th id="1220">1220</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor4b" title='qglColor4b' data-ref="qglColor4b">qglColor4b</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL10logColor4baaaa" title='logColor4b' data-ref="_ZL10logColor4baaaa">logColor4b</a>;</td></tr>
+<tr><th id="1221">1221</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor4bv" title='qglColor4bv' data-ref="qglColor4bv">qglColor4bv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logColor4bvPKa" title='logColor4bv' data-ref="_ZL11logColor4bvPKa">logColor4bv</a>;</td></tr>
+<tr><th id="1222">1222</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor4d" title='qglColor4d' data-ref="qglColor4d">qglColor4d</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL10logColor4ddddd" title='logColor4d' data-ref="_ZL10logColor4ddddd">logColor4d</a>;</td></tr>
+<tr><th id="1223">1223</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor4dv" title='qglColor4dv' data-ref="qglColor4dv">qglColor4dv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logColor4dvPKd" title='logColor4dv' data-ref="_ZL11logColor4dvPKd">logColor4dv</a>;</td></tr>
+<tr><th id="1224">1224</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor4f" title='qglColor4f' data-ref="qglColor4f">qglColor4f</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL10logColor4fffff" title='logColor4f' data-ref="_ZL10logColor4fffff">logColor4f</a>;</td></tr>
+<tr><th id="1225">1225</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor4fv" title='qglColor4fv' data-ref="qglColor4fv">qglColor4fv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logColor4fvPKf" title='logColor4fv' data-ref="_ZL11logColor4fvPKf">logColor4fv</a>;</td></tr>
+<tr><th id="1226">1226</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor4i" title='qglColor4i' data-ref="qglColor4i">qglColor4i</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL10logColor4iiiii" title='logColor4i' data-ref="_ZL10logColor4iiiii">logColor4i</a>;</td></tr>
+<tr><th id="1227">1227</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor4iv" title='qglColor4iv' data-ref="qglColor4iv">qglColor4iv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logColor4ivPKi" title='logColor4iv' data-ref="_ZL11logColor4ivPKi">logColor4iv</a>;</td></tr>
+<tr><th id="1228">1228</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor4s" title='qglColor4s' data-ref="qglColor4s">qglColor4s</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL10logColor4sssss" title='logColor4s' data-ref="_ZL10logColor4sssss">logColor4s</a>;</td></tr>
+<tr><th id="1229">1229</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor4sv" title='qglColor4sv' data-ref="qglColor4sv">qglColor4sv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logColor4svPKs" title='logColor4sv' data-ref="_ZL11logColor4svPKs">logColor4sv</a>;</td></tr>
+<tr><th id="1230">1230</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor4ub" title='qglColor4ub' data-ref="qglColor4ub">qglColor4ub</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logColor4ubhhhh" title='logColor4ub' data-ref="_ZL11logColor4ubhhhh">logColor4ub</a>;</td></tr>
+<tr><th id="1231">1231</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor4ubv" title='qglColor4ubv' data-ref="qglColor4ubv">qglColor4ubv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logColor4ubvPKh" title='logColor4ubv' data-ref="_ZL12logColor4ubvPKh">logColor4ubv</a>;</td></tr>
+<tr><th id="1232">1232</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor4ui" title='qglColor4ui' data-ref="qglColor4ui">qglColor4ui</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logColor4uijjjj" title='logColor4ui' data-ref="_ZL11logColor4uijjjj">logColor4ui</a>;</td></tr>
+<tr><th id="1233">1233</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor4uiv" title='qglColor4uiv' data-ref="qglColor4uiv">qglColor4uiv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logColor4uivPKj" title='logColor4uiv' data-ref="_ZL12logColor4uivPKj">logColor4uiv</a>;</td></tr>
+<tr><th id="1234">1234</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor4us" title='qglColor4us' data-ref="qglColor4us">qglColor4us</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logColor4ustttt" title='logColor4us' data-ref="_ZL11logColor4ustttt">logColor4us</a>;</td></tr>
+<tr><th id="1235">1235</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColor4usv" title='qglColor4usv' data-ref="qglColor4usv">qglColor4usv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logColor4usvPKt" title='logColor4usv' data-ref="_ZL12logColor4usvPKt">logColor4usv</a>;</td></tr>
+<tr><th id="1236">1236</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColorMask" title='qglColorMask' data-ref="qglColorMask">qglColorMask</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logColorMaskhhhh" title='logColorMask' data-ref="_ZL12logColorMaskhhhh">logColorMask</a>;</td></tr>
+<tr><th id="1237">1237</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColorMaterial" title='qglColorMaterial' data-ref="qglColorMaterial">qglColorMaterial</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL16logColorMaterialjj" title='logColorMaterial' data-ref="_ZL16logColorMaterialjj">logColorMaterial</a>;</td></tr>
+<tr><th id="1238">1238</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglColorPointer" title='qglColorPointer' data-ref="qglColorPointer">qglColorPointer</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL15logColorPointerijiPKv" title='logColorPointer' data-ref="_ZL15logColorPointerijiPKv">logColorPointer</a>;</td></tr>
+<tr><th id="1239">1239</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglCopyPixels" title='qglCopyPixels' data-ref="qglCopyPixels">qglCopyPixels</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logCopyPixelsiiiij" title='logCopyPixels' data-ref="_ZL13logCopyPixelsiiiij">logCopyPixels</a>;</td></tr>
+<tr><th id="1240">1240</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglCopyTexImage1D" title='qglCopyTexImage1D' data-ref="qglCopyTexImage1D">qglCopyTexImage1D</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL17logCopyTexImage1Djijiiii" title='logCopyTexImage1D' data-ref="_ZL17logCopyTexImage1Djijiiii">logCopyTexImage1D</a>;</td></tr>
+<tr><th id="1241">1241</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglCopyTexImage2D" title='qglCopyTexImage2D' data-ref="qglCopyTexImage2D">qglCopyTexImage2D</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL17logCopyTexImage2Djijiiiii" title='logCopyTexImage2D' data-ref="_ZL17logCopyTexImage2Djijiiiii">logCopyTexImage2D</a>;</td></tr>
+<tr><th id="1242">1242</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglCopyTexSubImage1D" title='qglCopyTexSubImage1D' data-ref="qglCopyTexSubImage1D">qglCopyTexSubImage1D</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL20logCopyTexSubImage1Djiiiii" title='logCopyTexSubImage1D' data-ref="_ZL20logCopyTexSubImage1Djiiiii">logCopyTexSubImage1D</a>;</td></tr>
+<tr><th id="1243">1243</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglCopyTexSubImage2D" title='qglCopyTexSubImage2D' data-ref="qglCopyTexSubImage2D">qglCopyTexSubImage2D</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL20logCopyTexSubImage2Djiiiiiii" title='logCopyTexSubImage2D' data-ref="_ZL20logCopyTexSubImage2Djiiiiiii">logCopyTexSubImage2D</a>;</td></tr>
+<tr><th id="1244">1244</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglCullFace" title='qglCullFace' data-ref="qglCullFace">qglCullFace</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logCullFacej" title='logCullFace' data-ref="_ZL11logCullFacej">logCullFace</a>;</td></tr>
+<tr><th id="1245">1245</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglDeleteLists" title='qglDeleteLists' data-ref="qglDeleteLists">qglDeleteLists</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logDeleteListsji" title='logDeleteLists' data-ref="_ZL14logDeleteListsji">logDeleteLists</a>;</td></tr>
+<tr><th id="1246">1246</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglDeleteTextures" title='qglDeleteTextures' data-ref="qglDeleteTextures">qglDeleteTextures</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL17logDeleteTexturesiPKj" title='logDeleteTextures' data-ref="_ZL17logDeleteTexturesiPKj">logDeleteTextures</a>;</td></tr>
+<tr><th id="1247">1247</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglDepthFunc" title='qglDepthFunc' data-ref="qglDepthFunc">qglDepthFunc</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logDepthFuncj" title='logDepthFunc' data-ref="_ZL12logDepthFuncj">logDepthFunc</a>;</td></tr>
+<tr><th id="1248">1248</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglDepthMask" title='qglDepthMask' data-ref="qglDepthMask">qglDepthMask</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logDepthMaskh" title='logDepthMask' data-ref="_ZL12logDepthMaskh">logDepthMask</a>;</td></tr>
+<tr><th id="1249">1249</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglDepthRange" title='qglDepthRange' data-ref="qglDepthRange">qglDepthRange</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logDepthRangedd" title='logDepthRange' data-ref="_ZL13logDepthRangedd">logDepthRange</a>;</td></tr>
+<tr><th id="1250">1250</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglDisable" title='qglDisable' data-ref="qglDisable">qglDisable</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL10logDisablej" title='logDisable' data-ref="_ZL10logDisablej">logDisable</a>;</td></tr>
+<tr><th id="1251">1251</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglDisableClientState" title='qglDisableClientState' data-ref="qglDisableClientState">qglDisableClientState</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL21logDisableClientStatej" title='logDisableClientState' data-ref="_ZL21logDisableClientStatej">logDisableClientState</a>;</td></tr>
+<tr><th id="1252">1252</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglDrawArrays" title='qglDrawArrays' data-ref="qglDrawArrays">qglDrawArrays</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logDrawArraysjii" title='logDrawArrays' data-ref="_ZL13logDrawArraysjii">logDrawArrays</a>;</td></tr>
+<tr><th id="1253">1253</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglDrawBuffer" title='qglDrawBuffer' data-ref="qglDrawBuffer">qglDrawBuffer</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logDrawBufferj" title='logDrawBuffer' data-ref="_ZL13logDrawBufferj">logDrawBuffer</a>;</td></tr>
+<tr><th id="1254">1254</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglDrawElements" title='qglDrawElements' data-ref="qglDrawElements">qglDrawElements</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL15logDrawElementsjijPKv" title='logDrawElements' data-ref="_ZL15logDrawElementsjijPKv">logDrawElements</a>;</td></tr>
+<tr><th id="1255">1255</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglDrawPixels" title='qglDrawPixels' data-ref="qglDrawPixels">qglDrawPixels</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logDrawPixelsiijjPKv" title='logDrawPixels' data-ref="_ZL13logDrawPixelsiijjPKv">logDrawPixels</a>;</td></tr>
+<tr><th id="1256">1256</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglEdgeFlag" title='qglEdgeFlag' data-ref="qglEdgeFlag">qglEdgeFlag</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logEdgeFlagh" title='logEdgeFlag' data-ref="_ZL11logEdgeFlagh">logEdgeFlag</a>;</td></tr>
+<tr><th id="1257">1257</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglEdgeFlagPointer" title='qglEdgeFlagPointer' data-ref="qglEdgeFlagPointer">qglEdgeFlagPointer</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL18logEdgeFlagPointeriPKv" title='logEdgeFlagPointer' data-ref="_ZL18logEdgeFlagPointeriPKv">logEdgeFlagPointer</a>;</td></tr>
+<tr><th id="1258">1258</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglEdgeFlagv" title='qglEdgeFlagv' data-ref="qglEdgeFlagv">qglEdgeFlagv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logEdgeFlagvPKh" title='logEdgeFlagv' data-ref="_ZL12logEdgeFlagvPKh">logEdgeFlagv</a>;</td></tr>
+<tr><th id="1259">1259</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglEnable" title='qglEnable' data-ref="qglEnable">qglEnable</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL9logEnablej" title='logEnable' data-ref="_ZL9logEnablej">logEnable</a>;</td></tr>
+<tr><th id="1260">1260</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglEnableClientState" title='qglEnableClientState' data-ref="qglEnableClientState">qglEnableClientState</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL20logEnableClientStatej" title='logEnableClientState' data-ref="_ZL20logEnableClientStatej">logEnableClientState</a>;</td></tr>
+<tr><th id="1261">1261</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglEnd" title='qglEnd' data-ref="qglEnd">qglEnd</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL6logEndv" title='logEnd' data-ref="_ZL6logEndv">logEnd</a>;</td></tr>
+<tr><th id="1262">1262</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglEndList" title='qglEndList' data-ref="qglEndList">qglEndList</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL10logEndListv" title='logEndList' data-ref="_ZL10logEndListv">logEndList</a>;</td></tr>
+<tr><th id="1263">1263</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglEvalCoord1d" title='qglEvalCoord1d' data-ref="qglEvalCoord1d">qglEvalCoord1d</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logEvalCoord1dd" title='logEvalCoord1d' data-ref="_ZL14logEvalCoord1dd">logEvalCoord1d</a>;</td></tr>
+<tr><th id="1264">1264</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglEvalCoord1dv" title='qglEvalCoord1dv' data-ref="qglEvalCoord1dv">qglEvalCoord1dv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL15logEvalCoord1dvPKd" title='logEvalCoord1dv' data-ref="_ZL15logEvalCoord1dvPKd">logEvalCoord1dv</a>;</td></tr>
+<tr><th id="1265">1265</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglEvalCoord1f" title='qglEvalCoord1f' data-ref="qglEvalCoord1f">qglEvalCoord1f</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logEvalCoord1ff" title='logEvalCoord1f' data-ref="_ZL14logEvalCoord1ff">logEvalCoord1f</a>;</td></tr>
+<tr><th id="1266">1266</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglEvalCoord1fv" title='qglEvalCoord1fv' data-ref="qglEvalCoord1fv">qglEvalCoord1fv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL15logEvalCoord1fvPKf" title='logEvalCoord1fv' data-ref="_ZL15logEvalCoord1fvPKf">logEvalCoord1fv</a>;</td></tr>
+<tr><th id="1267">1267</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglEvalCoord2d" title='qglEvalCoord2d' data-ref="qglEvalCoord2d">qglEvalCoord2d</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logEvalCoord2ddd" title='logEvalCoord2d' data-ref="_ZL14logEvalCoord2ddd">logEvalCoord2d</a>;</td></tr>
+<tr><th id="1268">1268</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglEvalCoord2dv" title='qglEvalCoord2dv' data-ref="qglEvalCoord2dv">qglEvalCoord2dv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL15logEvalCoord2dvPKd" title='logEvalCoord2dv' data-ref="_ZL15logEvalCoord2dvPKd">logEvalCoord2dv</a>;</td></tr>
+<tr><th id="1269">1269</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglEvalCoord2f" title='qglEvalCoord2f' data-ref="qglEvalCoord2f">qglEvalCoord2f</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logEvalCoord2fff" title='logEvalCoord2f' data-ref="_ZL14logEvalCoord2fff">logEvalCoord2f</a>;</td></tr>
+<tr><th id="1270">1270</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglEvalCoord2fv" title='qglEvalCoord2fv' data-ref="qglEvalCoord2fv">qglEvalCoord2fv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL15logEvalCoord2fvPKf" title='logEvalCoord2fv' data-ref="_ZL15logEvalCoord2fvPKf">logEvalCoord2fv</a>;</td></tr>
+<tr><th id="1271">1271</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglEvalMesh1" title='qglEvalMesh1' data-ref="qglEvalMesh1">qglEvalMesh1</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logEvalMesh1jii" title='logEvalMesh1' data-ref="_ZL12logEvalMesh1jii">logEvalMesh1</a>;</td></tr>
+<tr><th id="1272">1272</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglEvalMesh2" title='qglEvalMesh2' data-ref="qglEvalMesh2">qglEvalMesh2</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logEvalMesh2jiiii" title='logEvalMesh2' data-ref="_ZL12logEvalMesh2jiiii">logEvalMesh2</a>;</td></tr>
+<tr><th id="1273">1273</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglEvalPoint1" title='qglEvalPoint1' data-ref="qglEvalPoint1">qglEvalPoint1</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logEvalPoint1i" title='logEvalPoint1' data-ref="_ZL13logEvalPoint1i">logEvalPoint1</a>;</td></tr>
+<tr><th id="1274">1274</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglEvalPoint2" title='qglEvalPoint2' data-ref="qglEvalPoint2">qglEvalPoint2</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logEvalPoint2ii" title='logEvalPoint2' data-ref="_ZL13logEvalPoint2ii">logEvalPoint2</a>;</td></tr>
+<tr><th id="1275">1275</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglFeedbackBuffer" title='qglFeedbackBuffer' data-ref="qglFeedbackBuffer">qglFeedbackBuffer</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL17logFeedbackBufferijPf" title='logFeedbackBuffer' data-ref="_ZL17logFeedbackBufferijPf">logFeedbackBuffer</a>;</td></tr>
+<tr><th id="1276">1276</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglFinish" title='qglFinish' data-ref="qglFinish">qglFinish</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL9logFinishv" title='logFinish' data-ref="_ZL9logFinishv">logFinish</a>;</td></tr>
+<tr><th id="1277">1277</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglFlush" title='qglFlush' data-ref="qglFlush">qglFlush</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL8logFlushv" title='logFlush' data-ref="_ZL8logFlushv">logFlush</a>;</td></tr>
+<tr><th id="1278">1278</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglFogf" title='qglFogf' data-ref="qglFogf">qglFogf</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL7logFogfjf" title='logFogf' data-ref="_ZL7logFogfjf">logFogf</a>;</td></tr>
+<tr><th id="1279">1279</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglFogfv" title='qglFogfv' data-ref="qglFogfv">qglFogfv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL8logFogfvjPKf" title='logFogfv' data-ref="_ZL8logFogfvjPKf">logFogfv</a>;</td></tr>
+<tr><th id="1280">1280</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglFogi" title='qglFogi' data-ref="qglFogi">qglFogi</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL7logFogiji" title='logFogi' data-ref="_ZL7logFogiji">logFogi</a>;</td></tr>
+<tr><th id="1281">1281</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglFogiv" title='qglFogiv' data-ref="qglFogiv">qglFogiv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL8logFogivjPKi" title='logFogiv' data-ref="_ZL8logFogivjPKi">logFogiv</a>;</td></tr>
+<tr><th id="1282">1282</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglFrontFace" title='qglFrontFace' data-ref="qglFrontFace">qglFrontFace</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logFrontFacej" title='logFrontFace' data-ref="_ZL12logFrontFacej">logFrontFace</a>;</td></tr>
+<tr><th id="1283">1283</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglFrustum" title='qglFrustum' data-ref="qglFrustum">qglFrustum</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL10logFrustumdddddd" title='logFrustum' data-ref="_ZL10logFrustumdddddd">logFrustum</a>;</td></tr>
+<tr><th id="1284">1284</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglGenLists" title='qglGenLists' data-ref="qglGenLists">qglGenLists</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logGenListsi" title='logGenLists' data-ref="_ZL11logGenListsi">logGenLists</a>;</td></tr>
+<tr><th id="1285">1285</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglGenTextures" title='qglGenTextures' data-ref="qglGenTextures">qglGenTextures</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logGenTexturesiPj" title='logGenTextures' data-ref="_ZL14logGenTexturesiPj">logGenTextures</a>;</td></tr>
+<tr><th id="1286">1286</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglGetBooleanv" title='qglGetBooleanv' data-ref="qglGetBooleanv">qglGetBooleanv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logGetBooleanvjPh" title='logGetBooleanv' data-ref="_ZL14logGetBooleanvjPh">logGetBooleanv</a>;</td></tr>
+<tr><th id="1287">1287</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglGetClipPlane" title='qglGetClipPlane' data-ref="qglGetClipPlane">qglGetClipPlane</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL15logGetClipPlanejPd" title='logGetClipPlane' data-ref="_ZL15logGetClipPlanejPd">logGetClipPlane</a>;</td></tr>
+<tr><th id="1288">1288</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglGetDoublev" title='qglGetDoublev' data-ref="qglGetDoublev">qglGetDoublev</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logGetDoublevjPd" title='logGetDoublev' data-ref="_ZL13logGetDoublevjPd">logGetDoublev</a>;</td></tr>
+<tr><th id="1289">1289</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglGetError" title='qglGetError' data-ref="qglGetError">qglGetError</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logGetErrorv" title='logGetError' data-ref="_ZL11logGetErrorv">logGetError</a>;</td></tr>
+<tr><th id="1290">1290</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglGetFloatv" title='qglGetFloatv' data-ref="qglGetFloatv">qglGetFloatv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logGetFloatvjPf" title='logGetFloatv' data-ref="_ZL12logGetFloatvjPf">logGetFloatv</a>;</td></tr>
+<tr><th id="1291">1291</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglGetIntegerv" title='qglGetIntegerv' data-ref="qglGetIntegerv">qglGetIntegerv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logGetIntegervjPi" title='logGetIntegerv' data-ref="_ZL14logGetIntegervjPi">logGetIntegerv</a>;</td></tr>
+<tr><th id="1292">1292</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglGetLightfv" title='qglGetLightfv' data-ref="qglGetLightfv">qglGetLightfv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logGetLightfvjjPf" title='logGetLightfv' data-ref="_ZL13logGetLightfvjjPf">logGetLightfv</a>;</td></tr>
+<tr><th id="1293">1293</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglGetLightiv" title='qglGetLightiv' data-ref="qglGetLightiv">qglGetLightiv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logGetLightivjjPi" title='logGetLightiv' data-ref="_ZL13logGetLightivjjPi">logGetLightiv</a>;</td></tr>
+<tr><th id="1294">1294</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglGetMapdv" title='qglGetMapdv' data-ref="qglGetMapdv">qglGetMapdv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logGetMapdvjjPd" title='logGetMapdv' data-ref="_ZL11logGetMapdvjjPd">logGetMapdv</a>;</td></tr>
+<tr><th id="1295">1295</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglGetMapfv" title='qglGetMapfv' data-ref="qglGetMapfv">qglGetMapfv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logGetMapfvjjPf" title='logGetMapfv' data-ref="_ZL11logGetMapfvjjPf">logGetMapfv</a>;</td></tr>
+<tr><th id="1296">1296</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglGetMapiv" title='qglGetMapiv' data-ref="qglGetMapiv">qglGetMapiv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logGetMapivjjPi" title='logGetMapiv' data-ref="_ZL11logGetMapivjjPi">logGetMapiv</a>;</td></tr>
+<tr><th id="1297">1297</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglGetMaterialfv" title='qglGetMaterialfv' data-ref="qglGetMaterialfv">qglGetMaterialfv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL16logGetMaterialfvjjPf" title='logGetMaterialfv' data-ref="_ZL16logGetMaterialfvjjPf">logGetMaterialfv</a>;</td></tr>
+<tr><th id="1298">1298</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglGetMaterialiv" title='qglGetMaterialiv' data-ref="qglGetMaterialiv">qglGetMaterialiv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL16logGetMaterialivjjPi" title='logGetMaterialiv' data-ref="_ZL16logGetMaterialivjjPi">logGetMaterialiv</a>;</td></tr>
+<tr><th id="1299">1299</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglGetPixelMapfv" title='qglGetPixelMapfv' data-ref="qglGetPixelMapfv">qglGetPixelMapfv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL16logGetPixelMapfvjPf" title='logGetPixelMapfv' data-ref="_ZL16logGetPixelMapfvjPf">logGetPixelMapfv</a>;</td></tr>
+<tr><th id="1300">1300</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglGetPixelMapuiv" title='qglGetPixelMapuiv' data-ref="qglGetPixelMapuiv">qglGetPixelMapuiv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL17logGetPixelMapuivjPj" title='logGetPixelMapuiv' data-ref="_ZL17logGetPixelMapuivjPj">logGetPixelMapuiv</a>;</td></tr>
+<tr><th id="1301">1301</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglGetPixelMapusv" title='qglGetPixelMapusv' data-ref="qglGetPixelMapusv">qglGetPixelMapusv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL17logGetPixelMapusvjPt" title='logGetPixelMapusv' data-ref="_ZL17logGetPixelMapusvjPt">logGetPixelMapusv</a>;</td></tr>
+<tr><th id="1302">1302</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglGetPointerv" title='qglGetPointerv' data-ref="qglGetPointerv">qglGetPointerv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logGetPointervjPPv" title='logGetPointerv' data-ref="_ZL14logGetPointervjPPv">logGetPointerv</a>;</td></tr>
+<tr><th id="1303">1303</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglGetPolygonStipple" title='qglGetPolygonStipple' data-ref="qglGetPolygonStipple">qglGetPolygonStipple</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL20logGetPolygonStipplePh" title='logGetPolygonStipple' data-ref="_ZL20logGetPolygonStipplePh">logGetPolygonStipple</a>;</td></tr>
+<tr><th id="1304">1304</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglGetString" title='qglGetString' data-ref="qglGetString">qglGetString</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logGetStringj" title='logGetString' data-ref="_ZL12logGetStringj">logGetString</a>;</td></tr>
+<tr><th id="1305">1305</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglGetTexEnvfv" title='qglGetTexEnvfv' data-ref="qglGetTexEnvfv">qglGetTexEnvfv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logGetTexEnvfvjjPf" title='logGetTexEnvfv' data-ref="_ZL14logGetTexEnvfvjjPf">logGetTexEnvfv</a>;</td></tr>
+<tr><th id="1306">1306</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglGetTexEnviv" title='qglGetTexEnviv' data-ref="qglGetTexEnviv">qglGetTexEnviv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logGetTexEnvivjjPi" title='logGetTexEnviv' data-ref="_ZL14logGetTexEnvivjjPi">logGetTexEnviv</a>;</td></tr>
+<tr><th id="1307">1307</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglGetTexGendv" title='qglGetTexGendv' data-ref="qglGetTexGendv">qglGetTexGendv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logGetTexGendvjjPd" title='logGetTexGendv' data-ref="_ZL14logGetTexGendvjjPd">logGetTexGendv</a>;</td></tr>
+<tr><th id="1308">1308</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglGetTexGenfv" title='qglGetTexGenfv' data-ref="qglGetTexGenfv">qglGetTexGenfv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logGetTexGenfvjjPf" title='logGetTexGenfv' data-ref="_ZL14logGetTexGenfvjjPf">logGetTexGenfv</a>;</td></tr>
+<tr><th id="1309">1309</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglGetTexGeniv" title='qglGetTexGeniv' data-ref="qglGetTexGeniv">qglGetTexGeniv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logGetTexGenivjjPi" title='logGetTexGeniv' data-ref="_ZL14logGetTexGenivjjPi">logGetTexGeniv</a>;</td></tr>
+<tr><th id="1310">1310</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglGetTexImage" title='qglGetTexImage' data-ref="qglGetTexImage">qglGetTexImage</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logGetTexImagejijjPv" title='logGetTexImage' data-ref="_ZL14logGetTexImagejijjPv">logGetTexImage</a>;</td></tr>
+<tr><th id="1311">1311</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglGetTexLevelParameterfv" title='qglGetTexLevelParameterfv' data-ref="qglGetTexLevelParameterfv">qglGetTexLevelParameterfv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL25logGetTexLevelParameterfvjijPf" title='logGetTexLevelParameterfv' data-ref="_ZL25logGetTexLevelParameterfvjijPf">logGetTexLevelParameterfv</a>;</td></tr>
+<tr><th id="1312">1312</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglGetTexLevelParameteriv" title='qglGetTexLevelParameteriv' data-ref="qglGetTexLevelParameteriv">qglGetTexLevelParameteriv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL25logGetTexLevelParameterivjijPi" title='logGetTexLevelParameteriv' data-ref="_ZL25logGetTexLevelParameterivjijPi">logGetTexLevelParameteriv</a>;</td></tr>
+<tr><th id="1313">1313</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglGetTexParameterfv" title='qglGetTexParameterfv' data-ref="qglGetTexParameterfv">qglGetTexParameterfv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL20logGetTexParameterfvjjPf" title='logGetTexParameterfv' data-ref="_ZL20logGetTexParameterfvjjPf">logGetTexParameterfv</a>;</td></tr>
+<tr><th id="1314">1314</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglGetTexParameteriv" title='qglGetTexParameteriv' data-ref="qglGetTexParameteriv">qglGetTexParameteriv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL20logGetTexParameterivjjPi" title='logGetTexParameteriv' data-ref="_ZL20logGetTexParameterivjjPi">logGetTexParameteriv</a>;</td></tr>
+<tr><th id="1315">1315</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglHint" title='qglHint' data-ref="qglHint">qglHint</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL7logHintjj" title='logHint' data-ref="_ZL7logHintjj">logHint</a>;</td></tr>
+<tr><th id="1316">1316</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglIndexMask" title='qglIndexMask' data-ref="qglIndexMask">qglIndexMask</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logIndexMaskj" title='logIndexMask' data-ref="_ZL12logIndexMaskj">logIndexMask</a>;</td></tr>
+<tr><th id="1317">1317</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglIndexPointer" title='qglIndexPointer' data-ref="qglIndexPointer">qglIndexPointer</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL15logIndexPointerjiPKv" title='logIndexPointer' data-ref="_ZL15logIndexPointerjiPKv">logIndexPointer</a>;</td></tr>
+<tr><th id="1318">1318</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglIndexd" title='qglIndexd' data-ref="qglIndexd">qglIndexd</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL9logIndexdd" title='logIndexd' data-ref="_ZL9logIndexdd">logIndexd</a>;</td></tr>
+<tr><th id="1319">1319</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglIndexdv" title='qglIndexdv' data-ref="qglIndexdv">qglIndexdv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL10logIndexdvPKd" title='logIndexdv' data-ref="_ZL10logIndexdvPKd">logIndexdv</a>;</td></tr>
+<tr><th id="1320">1320</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglIndexf" title='qglIndexf' data-ref="qglIndexf">qglIndexf</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL9logIndexff" title='logIndexf' data-ref="_ZL9logIndexff">logIndexf</a>;</td></tr>
+<tr><th id="1321">1321</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglIndexfv" title='qglIndexfv' data-ref="qglIndexfv">qglIndexfv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL10logIndexfvPKf" title='logIndexfv' data-ref="_ZL10logIndexfvPKf">logIndexfv</a>;</td></tr>
+<tr><th id="1322">1322</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglIndexi" title='qglIndexi' data-ref="qglIndexi">qglIndexi</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL9logIndexii" title='logIndexi' data-ref="_ZL9logIndexii">logIndexi</a>;</td></tr>
+<tr><th id="1323">1323</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglIndexiv" title='qglIndexiv' data-ref="qglIndexiv">qglIndexiv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL10logIndexivPKi" title='logIndexiv' data-ref="_ZL10logIndexivPKi">logIndexiv</a>;</td></tr>
+<tr><th id="1324">1324</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglIndexs" title='qglIndexs' data-ref="qglIndexs">qglIndexs</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL9logIndexss" title='logIndexs' data-ref="_ZL9logIndexss">logIndexs</a>;</td></tr>
+<tr><th id="1325">1325</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglIndexsv" title='qglIndexsv' data-ref="qglIndexsv">qglIndexsv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL10logIndexsvPKs" title='logIndexsv' data-ref="_ZL10logIndexsvPKs">logIndexsv</a>;</td></tr>
+<tr><th id="1326">1326</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglIndexub" title='qglIndexub' data-ref="qglIndexub">qglIndexub</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL10logIndexubh" title='logIndexub' data-ref="_ZL10logIndexubh">logIndexub</a>;</td></tr>
+<tr><th id="1327">1327</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglIndexubv" title='qglIndexubv' data-ref="qglIndexubv">qglIndexubv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logIndexubvPKh" title='logIndexubv' data-ref="_ZL11logIndexubvPKh">logIndexubv</a>;</td></tr>
+<tr><th id="1328">1328</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglInitNames" title='qglInitNames' data-ref="qglInitNames">qglInitNames</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logInitNamesv" title='logInitNames' data-ref="_ZL12logInitNamesv">logInitNames</a>;</td></tr>
+<tr><th id="1329">1329</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglInterleavedArrays" title='qglInterleavedArrays' data-ref="qglInterleavedArrays">qglInterleavedArrays</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL20logInterleavedArraysjiPKv" title='logInterleavedArrays' data-ref="_ZL20logInterleavedArraysjiPKv">logInterleavedArrays</a>;</td></tr>
+<tr><th id="1330">1330</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglIsEnabled" title='qglIsEnabled' data-ref="qglIsEnabled">qglIsEnabled</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logIsEnabledj" title='logIsEnabled' data-ref="_ZL12logIsEnabledj">logIsEnabled</a>;</td></tr>
+<tr><th id="1331">1331</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglIsList" title='qglIsList' data-ref="qglIsList">qglIsList</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL9logIsListj" title='logIsList' data-ref="_ZL9logIsListj">logIsList</a>;</td></tr>
+<tr><th id="1332">1332</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglIsTexture" title='qglIsTexture' data-ref="qglIsTexture">qglIsTexture</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logIsTexturej" title='logIsTexture' data-ref="_ZL12logIsTexturej">logIsTexture</a>;</td></tr>
+<tr><th id="1333">1333</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglLightModelf" title='qglLightModelf' data-ref="qglLightModelf">qglLightModelf</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logLightModelfjf" title='logLightModelf' data-ref="_ZL14logLightModelfjf">logLightModelf</a>;</td></tr>
+<tr><th id="1334">1334</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglLightModelfv" title='qglLightModelfv' data-ref="qglLightModelfv">qglLightModelfv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL15logLightModelfvjPKf" title='logLightModelfv' data-ref="_ZL15logLightModelfvjPKf">logLightModelfv</a>;</td></tr>
+<tr><th id="1335">1335</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglLightModeli" title='qglLightModeli' data-ref="qglLightModeli">qglLightModeli</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logLightModeliji" title='logLightModeli' data-ref="_ZL14logLightModeliji">logLightModeli</a>;</td></tr>
+<tr><th id="1336">1336</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglLightModeliv" title='qglLightModeliv' data-ref="qglLightModeliv">qglLightModeliv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL15logLightModelivjPKi" title='logLightModeliv' data-ref="_ZL15logLightModelivjPKi">logLightModeliv</a>;</td></tr>
+<tr><th id="1337">1337</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglLightf" title='qglLightf' data-ref="qglLightf">qglLightf</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL9logLightfjjf" title='logLightf' data-ref="_ZL9logLightfjjf">logLightf</a>;</td></tr>
+<tr><th id="1338">1338</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglLightfv" title='qglLightfv' data-ref="qglLightfv">qglLightfv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL10logLightfvjjPKf" title='logLightfv' data-ref="_ZL10logLightfvjjPKf">logLightfv</a>;</td></tr>
+<tr><th id="1339">1339</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglLighti" title='qglLighti' data-ref="qglLighti">qglLighti</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL9logLightijji" title='logLighti' data-ref="_ZL9logLightijji">logLighti</a>;</td></tr>
+<tr><th id="1340">1340</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglLightiv" title='qglLightiv' data-ref="qglLightiv">qglLightiv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL10logLightivjjPKi" title='logLightiv' data-ref="_ZL10logLightivjjPKi">logLightiv</a>;</td></tr>
+<tr><th id="1341">1341</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglLineStipple" title='qglLineStipple' data-ref="qglLineStipple">qglLineStipple</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logLineStippleit" title='logLineStipple' data-ref="_ZL14logLineStippleit">logLineStipple</a>;</td></tr>
+<tr><th id="1342">1342</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglLineWidth" title='qglLineWidth' data-ref="qglLineWidth">qglLineWidth</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logLineWidthf" title='logLineWidth' data-ref="_ZL12logLineWidthf">logLineWidth</a>;</td></tr>
+<tr><th id="1343">1343</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglListBase" title='qglListBase' data-ref="qglListBase">qglListBase</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logListBasej" title='logListBase' data-ref="_ZL11logListBasej">logListBase</a>;</td></tr>
+<tr><th id="1344">1344</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglLoadIdentity" title='qglLoadIdentity' data-ref="qglLoadIdentity">qglLoadIdentity</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL15logLoadIdentityv" title='logLoadIdentity' data-ref="_ZL15logLoadIdentityv">logLoadIdentity</a>;</td></tr>
+<tr><th id="1345">1345</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglLoadMatrixd" title='qglLoadMatrixd' data-ref="qglLoadMatrixd">qglLoadMatrixd</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logLoadMatrixdPKd" title='logLoadMatrixd' data-ref="_ZL14logLoadMatrixdPKd">logLoadMatrixd</a>;</td></tr>
+<tr><th id="1346">1346</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglLoadMatrixf" title='qglLoadMatrixf' data-ref="qglLoadMatrixf">qglLoadMatrixf</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logLoadMatrixfPKf" title='logLoadMatrixf' data-ref="_ZL14logLoadMatrixfPKf">logLoadMatrixf</a>;</td></tr>
+<tr><th id="1347">1347</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglLoadName" title='qglLoadName' data-ref="qglLoadName">qglLoadName</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logLoadNamej" title='logLoadName' data-ref="_ZL11logLoadNamej">logLoadName</a>;</td></tr>
+<tr><th id="1348">1348</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglLogicOp" title='qglLogicOp' data-ref="qglLogicOp">qglLogicOp</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL10logLogicOpj" title='logLogicOp' data-ref="_ZL10logLogicOpj">logLogicOp</a>;</td></tr>
+<tr><th id="1349">1349</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglMap1d" title='qglMap1d' data-ref="qglMap1d">qglMap1d</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL8logMap1djddiiPKd" title='logMap1d' data-ref="_ZL8logMap1djddiiPKd">logMap1d</a>;</td></tr>
+<tr><th id="1350">1350</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglMap1f" title='qglMap1f' data-ref="qglMap1f">qglMap1f</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL8logMap1fjffiiPKf" title='logMap1f' data-ref="_ZL8logMap1fjffiiPKf">logMap1f</a>;</td></tr>
+<tr><th id="1351">1351</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglMap2d" title='qglMap2d' data-ref="qglMap2d">qglMap2d</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL8logMap2djddiiddiiPKd" title='logMap2d' data-ref="_ZL8logMap2djddiiddiiPKd">logMap2d</a>;</td></tr>
+<tr><th id="1352">1352</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglMap2f" title='qglMap2f' data-ref="qglMap2f">qglMap2f</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL8logMap2fjffiiffiiPKf" title='logMap2f' data-ref="_ZL8logMap2fjffiiffiiPKf">logMap2f</a>;</td></tr>
+<tr><th id="1353">1353</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglMapGrid1d" title='qglMapGrid1d' data-ref="qglMapGrid1d">qglMapGrid1d</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logMapGrid1didd" title='logMapGrid1d' data-ref="_ZL12logMapGrid1didd">logMapGrid1d</a>;</td></tr>
+<tr><th id="1354">1354</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglMapGrid1f" title='qglMapGrid1f' data-ref="qglMapGrid1f">qglMapGrid1f</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logMapGrid1fiff" title='logMapGrid1f' data-ref="_ZL12logMapGrid1fiff">logMapGrid1f</a>;</td></tr>
+<tr><th id="1355">1355</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglMapGrid2d" title='qglMapGrid2d' data-ref="qglMapGrid2d">qglMapGrid2d</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logMapGrid2diddidd" title='logMapGrid2d' data-ref="_ZL12logMapGrid2diddidd">logMapGrid2d</a>;</td></tr>
+<tr><th id="1356">1356</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglMapGrid2f" title='qglMapGrid2f' data-ref="qglMapGrid2f">qglMapGrid2f</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logMapGrid2fiffiff" title='logMapGrid2f' data-ref="_ZL12logMapGrid2fiffiff">logMapGrid2f</a>;</td></tr>
+<tr><th id="1357">1357</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglMaterialf" title='qglMaterialf' data-ref="qglMaterialf">qglMaterialf</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logMaterialfjjf" title='logMaterialf' data-ref="_ZL12logMaterialfjjf">logMaterialf</a>;</td></tr>
+<tr><th id="1358">1358</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglMaterialfv" title='qglMaterialfv' data-ref="qglMaterialfv">qglMaterialfv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logMaterialfvjjPKf" title='logMaterialfv' data-ref="_ZL13logMaterialfvjjPKf">logMaterialfv</a>;</td></tr>
+<tr><th id="1359">1359</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglMateriali" title='qglMateriali' data-ref="qglMateriali">qglMateriali</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logMaterialijji" title='logMateriali' data-ref="_ZL12logMaterialijji">logMateriali</a>;</td></tr>
+<tr><th id="1360">1360</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglMaterialiv" title='qglMaterialiv' data-ref="qglMaterialiv">qglMaterialiv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logMaterialivjjPKi" title='logMaterialiv' data-ref="_ZL13logMaterialivjjPKi">logMaterialiv</a>;</td></tr>
+<tr><th id="1361">1361</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglMatrixMode" title='qglMatrixMode' data-ref="qglMatrixMode">qglMatrixMode</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logMatrixModej" title='logMatrixMode' data-ref="_ZL13logMatrixModej">logMatrixMode</a>;</td></tr>
+<tr><th id="1362">1362</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglMultMatrixd" title='qglMultMatrixd' data-ref="qglMultMatrixd">qglMultMatrixd</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logMultMatrixdPKd" title='logMultMatrixd' data-ref="_ZL14logMultMatrixdPKd">logMultMatrixd</a>;</td></tr>
+<tr><th id="1363">1363</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglMultMatrixf" title='qglMultMatrixf' data-ref="qglMultMatrixf">qglMultMatrixf</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logMultMatrixfPKf" title='logMultMatrixf' data-ref="_ZL14logMultMatrixfPKf">logMultMatrixf</a>;</td></tr>
+<tr><th id="1364">1364</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglNewList" title='qglNewList' data-ref="qglNewList">qglNewList</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL10logNewListjj" title='logNewList' data-ref="_ZL10logNewListjj">logNewList</a>;</td></tr>
+<tr><th id="1365">1365</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglNormal3b" title='qglNormal3b' data-ref="qglNormal3b">qglNormal3b</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logNormal3baaa" title='logNormal3b' data-ref="_ZL11logNormal3baaa">logNormal3b</a>;</td></tr>
+<tr><th id="1366">1366</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglNormal3bv" title='qglNormal3bv' data-ref="qglNormal3bv">qglNormal3bv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logNormal3bvPKa" title='logNormal3bv' data-ref="_ZL12logNormal3bvPKa">logNormal3bv</a>;</td></tr>
+<tr><th id="1367">1367</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglNormal3d" title='qglNormal3d' data-ref="qglNormal3d">qglNormal3d</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logNormal3dddd" title='logNormal3d' data-ref="_ZL11logNormal3dddd">logNormal3d</a>;</td></tr>
+<tr><th id="1368">1368</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglNormal3dv" title='qglNormal3dv' data-ref="qglNormal3dv">qglNormal3dv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logNormal3dvPKd" title='logNormal3dv' data-ref="_ZL12logNormal3dvPKd">logNormal3dv</a>;</td></tr>
+<tr><th id="1369">1369</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglNormal3f" title='qglNormal3f' data-ref="qglNormal3f">qglNormal3f</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logNormal3ffff" title='logNormal3f' data-ref="_ZL11logNormal3ffff">logNormal3f</a>;</td></tr>
+<tr><th id="1370">1370</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglNormal3fv" title='qglNormal3fv' data-ref="qglNormal3fv">qglNormal3fv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logNormal3fvPKf" title='logNormal3fv' data-ref="_ZL12logNormal3fvPKf">logNormal3fv</a>;</td></tr>
+<tr><th id="1371">1371</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglNormal3i" title='qglNormal3i' data-ref="qglNormal3i">qglNormal3i</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logNormal3iiii" title='logNormal3i' data-ref="_ZL11logNormal3iiii">logNormal3i</a>;</td></tr>
+<tr><th id="1372">1372</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglNormal3iv" title='qglNormal3iv' data-ref="qglNormal3iv">qglNormal3iv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logNormal3ivPKi" title='logNormal3iv' data-ref="_ZL12logNormal3ivPKi">logNormal3iv</a>;</td></tr>
+<tr><th id="1373">1373</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglNormal3s" title='qglNormal3s' data-ref="qglNormal3s">qglNormal3s</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logNormal3ssss" title='logNormal3s' data-ref="_ZL11logNormal3ssss">logNormal3s</a>;</td></tr>
+<tr><th id="1374">1374</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglNormal3sv" title='qglNormal3sv' data-ref="qglNormal3sv">qglNormal3sv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logNormal3svPKs" title='logNormal3sv' data-ref="_ZL12logNormal3svPKs">logNormal3sv</a>;</td></tr>
+<tr><th id="1375">1375</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglNormalPointer" title='qglNormalPointer' data-ref="qglNormalPointer">qglNormalPointer</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL16logNormalPointerjiPKv" title='logNormalPointer' data-ref="_ZL16logNormalPointerjiPKv">logNormalPointer</a>;</td></tr>
+<tr><th id="1376">1376</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglOrtho" title='qglOrtho' data-ref="qglOrtho">qglOrtho</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL8logOrthodddddd" title='logOrtho' data-ref="_ZL8logOrthodddddd">logOrtho</a>;</td></tr>
+<tr><th id="1377">1377</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglPassThrough" title='qglPassThrough' data-ref="qglPassThrough">qglPassThrough</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logPassThroughf" title='logPassThrough' data-ref="_ZL14logPassThroughf">logPassThrough</a>;</td></tr>
+<tr><th id="1378">1378</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglPixelMapfv" title='qglPixelMapfv' data-ref="qglPixelMapfv">qglPixelMapfv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logPixelMapfvjiPKf" title='logPixelMapfv' data-ref="_ZL13logPixelMapfvjiPKf">logPixelMapfv</a>;</td></tr>
+<tr><th id="1379">1379</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglPixelMapuiv" title='qglPixelMapuiv' data-ref="qglPixelMapuiv">qglPixelMapuiv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logPixelMapuivjiPKj" title='logPixelMapuiv' data-ref="_ZL14logPixelMapuivjiPKj">logPixelMapuiv</a>;</td></tr>
+<tr><th id="1380">1380</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglPixelMapusv" title='qglPixelMapusv' data-ref="qglPixelMapusv">qglPixelMapusv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logPixelMapusvjiPKt" title='logPixelMapusv' data-ref="_ZL14logPixelMapusvjiPKt">logPixelMapusv</a>;</td></tr>
+<tr><th id="1381">1381</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglPixelStoref" title='qglPixelStoref' data-ref="qglPixelStoref">qglPixelStoref</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logPixelStorefjf" title='logPixelStoref' data-ref="_ZL14logPixelStorefjf">logPixelStoref</a>;</td></tr>
+<tr><th id="1382">1382</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglPixelStorei" title='qglPixelStorei' data-ref="qglPixelStorei">qglPixelStorei</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logPixelStoreiji" title='logPixelStorei' data-ref="_ZL14logPixelStoreiji">logPixelStorei</a>;</td></tr>
+<tr><th id="1383">1383</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglPixelTransferf" title='qglPixelTransferf' data-ref="qglPixelTransferf">qglPixelTransferf</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL17logPixelTransferfjf" title='logPixelTransferf' data-ref="_ZL17logPixelTransferfjf">logPixelTransferf</a>;</td></tr>
+<tr><th id="1384">1384</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglPixelTransferi" title='qglPixelTransferi' data-ref="qglPixelTransferi">qglPixelTransferi</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL17logPixelTransferiji" title='logPixelTransferi' data-ref="_ZL17logPixelTransferiji">logPixelTransferi</a>;</td></tr>
+<tr><th id="1385">1385</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglPixelZoom" title='qglPixelZoom' data-ref="qglPixelZoom">qglPixelZoom</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logPixelZoomff" title='logPixelZoom' data-ref="_ZL12logPixelZoomff">logPixelZoom</a>;</td></tr>
+<tr><th id="1386">1386</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglPointSize" title='qglPointSize' data-ref="qglPointSize">qglPointSize</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logPointSizef" title='logPointSize' data-ref="_ZL12logPointSizef">logPointSize</a>;</td></tr>
+<tr><th id="1387">1387</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglPolygonMode" title='qglPolygonMode' data-ref="qglPolygonMode">qglPolygonMode</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logPolygonModejj" title='logPolygonMode' data-ref="_ZL14logPolygonModejj">logPolygonMode</a>;</td></tr>
+<tr><th id="1388">1388</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglPolygonOffset" title='qglPolygonOffset' data-ref="qglPolygonOffset">qglPolygonOffset</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL16logPolygonOffsetff" title='logPolygonOffset' data-ref="_ZL16logPolygonOffsetff">logPolygonOffset</a>;</td></tr>
+<tr><th id="1389">1389</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglPolygonStipple" title='qglPolygonStipple' data-ref="qglPolygonStipple">qglPolygonStipple</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL17logPolygonStipplePKh" title='logPolygonStipple' data-ref="_ZL17logPolygonStipplePKh">logPolygonStipple</a>;</td></tr>
+<tr><th id="1390">1390</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglPopAttrib" title='qglPopAttrib' data-ref="qglPopAttrib">qglPopAttrib</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logPopAttribv" title='logPopAttrib' data-ref="_ZL12logPopAttribv">logPopAttrib</a>;</td></tr>
+<tr><th id="1391">1391</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglPopClientAttrib" title='qglPopClientAttrib' data-ref="qglPopClientAttrib">qglPopClientAttrib</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL18logPopClientAttribv" title='logPopClientAttrib' data-ref="_ZL18logPopClientAttribv">logPopClientAttrib</a>;</td></tr>
+<tr><th id="1392">1392</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglPopMatrix" title='qglPopMatrix' data-ref="qglPopMatrix">qglPopMatrix</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logPopMatrixv" title='logPopMatrix' data-ref="_ZL12logPopMatrixv">logPopMatrix</a>;</td></tr>
+<tr><th id="1393">1393</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglPopName" title='qglPopName' data-ref="qglPopName">qglPopName</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL10logPopNamev" title='logPopName' data-ref="_ZL10logPopNamev">logPopName</a>;</td></tr>
+<tr><th id="1394">1394</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglPrioritizeTextures" title='qglPrioritizeTextures' data-ref="qglPrioritizeTextures">qglPrioritizeTextures</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL21logPrioritizeTexturesiPKjPKf" title='logPrioritizeTextures' data-ref="_ZL21logPrioritizeTexturesiPKjPKf">logPrioritizeTextures</a>;</td></tr>
+<tr><th id="1395">1395</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglPushAttrib" title='qglPushAttrib' data-ref="qglPushAttrib">qglPushAttrib</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logPushAttribj" title='logPushAttrib' data-ref="_ZL13logPushAttribj">logPushAttrib</a>;</td></tr>
+<tr><th id="1396">1396</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglPushClientAttrib" title='qglPushClientAttrib' data-ref="qglPushClientAttrib">qglPushClientAttrib</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL19logPushClientAttribj" title='logPushClientAttrib' data-ref="_ZL19logPushClientAttribj">logPushClientAttrib</a>;</td></tr>
+<tr><th id="1397">1397</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglPushMatrix" title='qglPushMatrix' data-ref="qglPushMatrix">qglPushMatrix</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logPushMatrixv" title='logPushMatrix' data-ref="_ZL13logPushMatrixv">logPushMatrix</a>;</td></tr>
+<tr><th id="1398">1398</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglPushName" title='qglPushName' data-ref="qglPushName">qglPushName</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logPushNamej" title='logPushName' data-ref="_ZL11logPushNamej">logPushName</a>;</td></tr>
+<tr><th id="1399">1399</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRasterPos2d" title='qglRasterPos2d' data-ref="qglRasterPos2d">qglRasterPos2d</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logRasterPos2ddd" title='logRasterPos2d' data-ref="_ZL14logRasterPos2ddd">logRasterPos2d</a>;</td></tr>
+<tr><th id="1400">1400</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRasterPos2dv" title='qglRasterPos2dv' data-ref="qglRasterPos2dv">qglRasterPos2dv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL15logRasterPos2dvPKd" title='logRasterPos2dv' data-ref="_ZL15logRasterPos2dvPKd">logRasterPos2dv</a>;</td></tr>
+<tr><th id="1401">1401</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRasterPos2f" title='qglRasterPos2f' data-ref="qglRasterPos2f">qglRasterPos2f</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logRasterPos2fff" title='logRasterPos2f' data-ref="_ZL14logRasterPos2fff">logRasterPos2f</a>;</td></tr>
+<tr><th id="1402">1402</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRasterPos2fv" title='qglRasterPos2fv' data-ref="qglRasterPos2fv">qglRasterPos2fv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL15logRasterPos2fvPKf" title='logRasterPos2fv' data-ref="_ZL15logRasterPos2fvPKf">logRasterPos2fv</a>;</td></tr>
+<tr><th id="1403">1403</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRasterPos2i" title='qglRasterPos2i' data-ref="qglRasterPos2i">qglRasterPos2i</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logRasterPos2iii" title='logRasterPos2i' data-ref="_ZL14logRasterPos2iii">logRasterPos2i</a>;</td></tr>
+<tr><th id="1404">1404</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRasterPos2iv" title='qglRasterPos2iv' data-ref="qglRasterPos2iv">qglRasterPos2iv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL15logRasterPos2ivPKi" title='logRasterPos2iv' data-ref="_ZL15logRasterPos2ivPKi">logRasterPos2iv</a>;</td></tr>
+<tr><th id="1405">1405</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRasterPos2s" title='qglRasterPos2s' data-ref="qglRasterPos2s">qglRasterPos2s</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logRasterPos2sss" title='logRasterPos2s' data-ref="_ZL14logRasterPos2sss">logRasterPos2s</a>;</td></tr>
+<tr><th id="1406">1406</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRasterPos2sv" title='qglRasterPos2sv' data-ref="qglRasterPos2sv">qglRasterPos2sv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL15logRasterPos2svPKs" title='logRasterPos2sv' data-ref="_ZL15logRasterPos2svPKs">logRasterPos2sv</a>;</td></tr>
+<tr><th id="1407">1407</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRasterPos3d" title='qglRasterPos3d' data-ref="qglRasterPos3d">qglRasterPos3d</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logRasterPos3dddd" title='logRasterPos3d' data-ref="_ZL14logRasterPos3dddd">logRasterPos3d</a>;</td></tr>
+<tr><th id="1408">1408</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRasterPos3dv" title='qglRasterPos3dv' data-ref="qglRasterPos3dv">qglRasterPos3dv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL15logRasterPos3dvPKd" title='logRasterPos3dv' data-ref="_ZL15logRasterPos3dvPKd">logRasterPos3dv</a>;</td></tr>
+<tr><th id="1409">1409</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRasterPos3f" title='qglRasterPos3f' data-ref="qglRasterPos3f">qglRasterPos3f</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logRasterPos3ffff" title='logRasterPos3f' data-ref="_ZL14logRasterPos3ffff">logRasterPos3f</a>;</td></tr>
+<tr><th id="1410">1410</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRasterPos3fv" title='qglRasterPos3fv' data-ref="qglRasterPos3fv">qglRasterPos3fv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL15logRasterPos3fvPKf" title='logRasterPos3fv' data-ref="_ZL15logRasterPos3fvPKf">logRasterPos3fv</a>;</td></tr>
+<tr><th id="1411">1411</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRasterPos3i" title='qglRasterPos3i' data-ref="qglRasterPos3i">qglRasterPos3i</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logRasterPos3iiii" title='logRasterPos3i' data-ref="_ZL14logRasterPos3iiii">logRasterPos3i</a>;</td></tr>
+<tr><th id="1412">1412</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRasterPos3iv" title='qglRasterPos3iv' data-ref="qglRasterPos3iv">qglRasterPos3iv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL15logRasterPos3ivPKi" title='logRasterPos3iv' data-ref="_ZL15logRasterPos3ivPKi">logRasterPos3iv</a>;</td></tr>
+<tr><th id="1413">1413</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRasterPos3s" title='qglRasterPos3s' data-ref="qglRasterPos3s">qglRasterPos3s</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logRasterPos3ssss" title='logRasterPos3s' data-ref="_ZL14logRasterPos3ssss">logRasterPos3s</a>;</td></tr>
+<tr><th id="1414">1414</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRasterPos3sv" title='qglRasterPos3sv' data-ref="qglRasterPos3sv">qglRasterPos3sv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL15logRasterPos3svPKs" title='logRasterPos3sv' data-ref="_ZL15logRasterPos3svPKs">logRasterPos3sv</a>;</td></tr>
+<tr><th id="1415">1415</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRasterPos4d" title='qglRasterPos4d' data-ref="qglRasterPos4d">qglRasterPos4d</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logRasterPos4ddddd" title='logRasterPos4d' data-ref="_ZL14logRasterPos4ddddd">logRasterPos4d</a>;</td></tr>
+<tr><th id="1416">1416</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRasterPos4dv" title='qglRasterPos4dv' data-ref="qglRasterPos4dv">qglRasterPos4dv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL15logRasterPos4dvPKd" title='logRasterPos4dv' data-ref="_ZL15logRasterPos4dvPKd">logRasterPos4dv</a>;</td></tr>
+<tr><th id="1417">1417</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRasterPos4f" title='qglRasterPos4f' data-ref="qglRasterPos4f">qglRasterPos4f</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logRasterPos4fffff" title='logRasterPos4f' data-ref="_ZL14logRasterPos4fffff">logRasterPos4f</a>;</td></tr>
+<tr><th id="1418">1418</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRasterPos4fv" title='qglRasterPos4fv' data-ref="qglRasterPos4fv">qglRasterPos4fv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL15logRasterPos4fvPKf" title='logRasterPos4fv' data-ref="_ZL15logRasterPos4fvPKf">logRasterPos4fv</a>;</td></tr>
+<tr><th id="1419">1419</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRasterPos4i" title='qglRasterPos4i' data-ref="qglRasterPos4i">qglRasterPos4i</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logRasterPos4iiiii" title='logRasterPos4i' data-ref="_ZL14logRasterPos4iiiii">logRasterPos4i</a>;</td></tr>
+<tr><th id="1420">1420</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRasterPos4iv" title='qglRasterPos4iv' data-ref="qglRasterPos4iv">qglRasterPos4iv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL15logRasterPos4ivPKi" title='logRasterPos4iv' data-ref="_ZL15logRasterPos4ivPKi">logRasterPos4iv</a>;</td></tr>
+<tr><th id="1421">1421</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRasterPos4s" title='qglRasterPos4s' data-ref="qglRasterPos4s">qglRasterPos4s</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logRasterPos4sssss" title='logRasterPos4s' data-ref="_ZL14logRasterPos4sssss">logRasterPos4s</a>;</td></tr>
+<tr><th id="1422">1422</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRasterPos4sv" title='qglRasterPos4sv' data-ref="qglRasterPos4sv">qglRasterPos4sv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL15logRasterPos4svPKs" title='logRasterPos4sv' data-ref="_ZL15logRasterPos4svPKs">logRasterPos4sv</a>;</td></tr>
+<tr><th id="1423">1423</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglReadBuffer" title='qglReadBuffer' data-ref="qglReadBuffer">qglReadBuffer</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logReadBufferj" title='logReadBuffer' data-ref="_ZL13logReadBufferj">logReadBuffer</a>;</td></tr>
+<tr><th id="1424">1424</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglReadPixels" title='qglReadPixels' data-ref="qglReadPixels">qglReadPixels</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logReadPixelsiiiijjPv" title='logReadPixels' data-ref="_ZL13logReadPixelsiiiijjPv">logReadPixels</a>;</td></tr>
+<tr><th id="1425">1425</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRectd" title='qglRectd' data-ref="qglRectd">qglRectd</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL8logRectddddd" title='logRectd' data-ref="_ZL8logRectddddd">logRectd</a>;</td></tr>
+<tr><th id="1426">1426</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRectdv" title='qglRectdv' data-ref="qglRectdv">qglRectdv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL9logRectdvPKdS0_" title='logRectdv' data-ref="_ZL9logRectdvPKdS0_">logRectdv</a>;</td></tr>
+<tr><th id="1427">1427</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRectf" title='qglRectf' data-ref="qglRectf">qglRectf</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL8logRectfffff" title='logRectf' data-ref="_ZL8logRectfffff">logRectf</a>;</td></tr>
+<tr><th id="1428">1428</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRectfv" title='qglRectfv' data-ref="qglRectfv">qglRectfv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL9logRectfvPKfS0_" title='logRectfv' data-ref="_ZL9logRectfvPKfS0_">logRectfv</a>;</td></tr>
+<tr><th id="1429">1429</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRecti" title='qglRecti' data-ref="qglRecti">qglRecti</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL8logRectiiiii" title='logRecti' data-ref="_ZL8logRectiiiii">logRecti</a>;</td></tr>
+<tr><th id="1430">1430</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRectiv" title='qglRectiv' data-ref="qglRectiv">qglRectiv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL9logRectivPKiS0_" title='logRectiv' data-ref="_ZL9logRectivPKiS0_">logRectiv</a>;</td></tr>
+<tr><th id="1431">1431</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRects" title='qglRects' data-ref="qglRects">qglRects</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL8logRectsssss" title='logRects' data-ref="_ZL8logRectsssss">logRects</a>;</td></tr>
+<tr><th id="1432">1432</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRectsv" title='qglRectsv' data-ref="qglRectsv">qglRectsv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL9logRectsvPKsS0_" title='logRectsv' data-ref="_ZL9logRectsvPKsS0_">logRectsv</a>;</td></tr>
+<tr><th id="1433">1433</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRenderMode" title='qglRenderMode' data-ref="qglRenderMode">qglRenderMode</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logRenderModej" title='logRenderMode' data-ref="_ZL13logRenderModej">logRenderMode</a>;</td></tr>
+<tr><th id="1434">1434</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRotated" title='qglRotated' data-ref="qglRotated">qglRotated</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL10logRotateddddd" title='logRotated' data-ref="_ZL10logRotateddddd">logRotated</a>;</td></tr>
+<tr><th id="1435">1435</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglRotatef" title='qglRotatef' data-ref="qglRotatef">qglRotatef</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL10logRotatefffff" title='logRotatef' data-ref="_ZL10logRotatefffff">logRotatef</a>;</td></tr>
+<tr><th id="1436">1436</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglScaled" title='qglScaled' data-ref="qglScaled">qglScaled</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL9logScaledddd" title='logScaled' data-ref="_ZL9logScaledddd">logScaled</a>;</td></tr>
+<tr><th id="1437">1437</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglScalef" title='qglScalef' data-ref="qglScalef">qglScalef</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL9logScaleffff" title='logScalef' data-ref="_ZL9logScaleffff">logScalef</a>;</td></tr>
+<tr><th id="1438">1438</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglScissor" title='qglScissor' data-ref="qglScissor">qglScissor</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL10logScissoriiii" title='logScissor' data-ref="_ZL10logScissoriiii">logScissor</a>;</td></tr>
+<tr><th id="1439">1439</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglSelectBuffer" title='qglSelectBuffer' data-ref="qglSelectBuffer">qglSelectBuffer</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL15logSelectBufferiPj" title='logSelectBuffer' data-ref="_ZL15logSelectBufferiPj">logSelectBuffer</a>;</td></tr>
+<tr><th id="1440">1440</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglShadeModel" title='qglShadeModel' data-ref="qglShadeModel">qglShadeModel</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logShadeModelj" title='logShadeModel' data-ref="_ZL13logShadeModelj">logShadeModel</a>;</td></tr>
+<tr><th id="1441">1441</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglStencilFunc" title='qglStencilFunc' data-ref="qglStencilFunc">qglStencilFunc</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logStencilFuncjij" title='logStencilFunc' data-ref="_ZL14logStencilFuncjij">logStencilFunc</a>;</td></tr>
+<tr><th id="1442">1442</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglStencilMask" title='qglStencilMask' data-ref="qglStencilMask">qglStencilMask</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logStencilMaskj" title='logStencilMask' data-ref="_ZL14logStencilMaskj">logStencilMask</a>;</td></tr>
+<tr><th id="1443">1443</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglStencilOp" title='qglStencilOp' data-ref="qglStencilOp">qglStencilOp</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logStencilOpjjj" title='logStencilOp' data-ref="_ZL12logStencilOpjjj">logStencilOp</a>;</td></tr>
+<tr><th id="1444">1444</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord1d" title='qglTexCoord1d' data-ref="qglTexCoord1d">qglTexCoord1d</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logTexCoord1dd" title='logTexCoord1d' data-ref="_ZL13logTexCoord1dd">logTexCoord1d</a>;</td></tr>
+<tr><th id="1445">1445</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord1dv" title='qglTexCoord1dv' data-ref="qglTexCoord1dv">qglTexCoord1dv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logTexCoord1dvPKd" title='logTexCoord1dv' data-ref="_ZL14logTexCoord1dvPKd">logTexCoord1dv</a>;</td></tr>
+<tr><th id="1446">1446</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord1f" title='qglTexCoord1f' data-ref="qglTexCoord1f">qglTexCoord1f</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logTexCoord1ff" title='logTexCoord1f' data-ref="_ZL13logTexCoord1ff">logTexCoord1f</a>;</td></tr>
+<tr><th id="1447">1447</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord1fv" title='qglTexCoord1fv' data-ref="qglTexCoord1fv">qglTexCoord1fv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logTexCoord1fvPKf" title='logTexCoord1fv' data-ref="_ZL14logTexCoord1fvPKf">logTexCoord1fv</a>;</td></tr>
+<tr><th id="1448">1448</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord1i" title='qglTexCoord1i' data-ref="qglTexCoord1i">qglTexCoord1i</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logTexCoord1ii" title='logTexCoord1i' data-ref="_ZL13logTexCoord1ii">logTexCoord1i</a>;</td></tr>
+<tr><th id="1449">1449</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord1iv" title='qglTexCoord1iv' data-ref="qglTexCoord1iv">qglTexCoord1iv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logTexCoord1ivPKi" title='logTexCoord1iv' data-ref="_ZL14logTexCoord1ivPKi">logTexCoord1iv</a>;</td></tr>
+<tr><th id="1450">1450</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord1s" title='qglTexCoord1s' data-ref="qglTexCoord1s">qglTexCoord1s</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logTexCoord1ss" title='logTexCoord1s' data-ref="_ZL13logTexCoord1ss">logTexCoord1s</a>;</td></tr>
+<tr><th id="1451">1451</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord1sv" title='qglTexCoord1sv' data-ref="qglTexCoord1sv">qglTexCoord1sv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logTexCoord1svPKs" title='logTexCoord1sv' data-ref="_ZL14logTexCoord1svPKs">logTexCoord1sv</a>;</td></tr>
+<tr><th id="1452">1452</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord2d" title='qglTexCoord2d' data-ref="qglTexCoord2d">qglTexCoord2d</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logTexCoord2ddd" title='logTexCoord2d' data-ref="_ZL13logTexCoord2ddd">logTexCoord2d</a>;</td></tr>
+<tr><th id="1453">1453</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord2dv" title='qglTexCoord2dv' data-ref="qglTexCoord2dv">qglTexCoord2dv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logTexCoord2dvPKd" title='logTexCoord2dv' data-ref="_ZL14logTexCoord2dvPKd">logTexCoord2dv</a>;</td></tr>
+<tr><th id="1454">1454</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord2f" title='qglTexCoord2f' data-ref="qglTexCoord2f">qglTexCoord2f</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logTexCoord2fff" title='logTexCoord2f' data-ref="_ZL13logTexCoord2fff">logTexCoord2f</a>;</td></tr>
+<tr><th id="1455">1455</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord2fv" title='qglTexCoord2fv' data-ref="qglTexCoord2fv">qglTexCoord2fv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logTexCoord2fvPKf" title='logTexCoord2fv' data-ref="_ZL14logTexCoord2fvPKf">logTexCoord2fv</a>;</td></tr>
+<tr><th id="1456">1456</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord2i" title='qglTexCoord2i' data-ref="qglTexCoord2i">qglTexCoord2i</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logTexCoord2iii" title='logTexCoord2i' data-ref="_ZL13logTexCoord2iii">logTexCoord2i</a>;</td></tr>
+<tr><th id="1457">1457</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord2iv" title='qglTexCoord2iv' data-ref="qglTexCoord2iv">qglTexCoord2iv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logTexCoord2ivPKi" title='logTexCoord2iv' data-ref="_ZL14logTexCoord2ivPKi">logTexCoord2iv</a>;</td></tr>
+<tr><th id="1458">1458</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord2s" title='qglTexCoord2s' data-ref="qglTexCoord2s">qglTexCoord2s</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logTexCoord2sss" title='logTexCoord2s' data-ref="_ZL13logTexCoord2sss">logTexCoord2s</a>;</td></tr>
+<tr><th id="1459">1459</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord2sv" title='qglTexCoord2sv' data-ref="qglTexCoord2sv">qglTexCoord2sv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logTexCoord2svPKs" title='logTexCoord2sv' data-ref="_ZL14logTexCoord2svPKs">logTexCoord2sv</a>;</td></tr>
+<tr><th id="1460">1460</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord3d" title='qglTexCoord3d' data-ref="qglTexCoord3d">qglTexCoord3d</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logTexCoord3dddd" title='logTexCoord3d' data-ref="_ZL13logTexCoord3dddd">logTexCoord3d</a>;</td></tr>
+<tr><th id="1461">1461</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord3dv" title='qglTexCoord3dv' data-ref="qglTexCoord3dv">qglTexCoord3dv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logTexCoord3dvPKd" title='logTexCoord3dv' data-ref="_ZL14logTexCoord3dvPKd">logTexCoord3dv</a>;</td></tr>
+<tr><th id="1462">1462</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord3f" title='qglTexCoord3f' data-ref="qglTexCoord3f">qglTexCoord3f</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logTexCoord3ffff" title='logTexCoord3f' data-ref="_ZL13logTexCoord3ffff">logTexCoord3f</a>;</td></tr>
+<tr><th id="1463">1463</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord3fv" title='qglTexCoord3fv' data-ref="qglTexCoord3fv">qglTexCoord3fv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logTexCoord3fvPKf" title='logTexCoord3fv' data-ref="_ZL14logTexCoord3fvPKf">logTexCoord3fv</a>;</td></tr>
+<tr><th id="1464">1464</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord3i" title='qglTexCoord3i' data-ref="qglTexCoord3i">qglTexCoord3i</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logTexCoord3iiii" title='logTexCoord3i' data-ref="_ZL13logTexCoord3iiii">logTexCoord3i</a>;</td></tr>
+<tr><th id="1465">1465</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord3iv" title='qglTexCoord3iv' data-ref="qglTexCoord3iv">qglTexCoord3iv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logTexCoord3ivPKi" title='logTexCoord3iv' data-ref="_ZL14logTexCoord3ivPKi">logTexCoord3iv</a>;</td></tr>
+<tr><th id="1466">1466</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord3s" title='qglTexCoord3s' data-ref="qglTexCoord3s">qglTexCoord3s</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logTexCoord3ssss" title='logTexCoord3s' data-ref="_ZL13logTexCoord3ssss">logTexCoord3s</a>;</td></tr>
+<tr><th id="1467">1467</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord3sv" title='qglTexCoord3sv' data-ref="qglTexCoord3sv">qglTexCoord3sv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logTexCoord3svPKs" title='logTexCoord3sv' data-ref="_ZL14logTexCoord3svPKs">logTexCoord3sv</a>;</td></tr>
+<tr><th id="1468">1468</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord4d" title='qglTexCoord4d' data-ref="qglTexCoord4d">qglTexCoord4d</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logTexCoord4ddddd" title='logTexCoord4d' data-ref="_ZL13logTexCoord4ddddd">logTexCoord4d</a>;</td></tr>
+<tr><th id="1469">1469</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord4dv" title='qglTexCoord4dv' data-ref="qglTexCoord4dv">qglTexCoord4dv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logTexCoord4dvPKd" title='logTexCoord4dv' data-ref="_ZL14logTexCoord4dvPKd">logTexCoord4dv</a>;</td></tr>
+<tr><th id="1470">1470</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord4f" title='qglTexCoord4f' data-ref="qglTexCoord4f">qglTexCoord4f</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logTexCoord4fffff" title='logTexCoord4f' data-ref="_ZL13logTexCoord4fffff">logTexCoord4f</a>;</td></tr>
+<tr><th id="1471">1471</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord4fv" title='qglTexCoord4fv' data-ref="qglTexCoord4fv">qglTexCoord4fv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logTexCoord4fvPKf" title='logTexCoord4fv' data-ref="_ZL14logTexCoord4fvPKf">logTexCoord4fv</a>;</td></tr>
+<tr><th id="1472">1472</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord4i" title='qglTexCoord4i' data-ref="qglTexCoord4i">qglTexCoord4i</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logTexCoord4iiiii" title='logTexCoord4i' data-ref="_ZL13logTexCoord4iiiii">logTexCoord4i</a>;</td></tr>
+<tr><th id="1473">1473</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord4iv" title='qglTexCoord4iv' data-ref="qglTexCoord4iv">qglTexCoord4iv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logTexCoord4ivPKi" title='logTexCoord4iv' data-ref="_ZL14logTexCoord4ivPKi">logTexCoord4iv</a>;</td></tr>
+<tr><th id="1474">1474</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord4s" title='qglTexCoord4s' data-ref="qglTexCoord4s">qglTexCoord4s</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logTexCoord4sssss" title='logTexCoord4s' data-ref="_ZL13logTexCoord4sssss">logTexCoord4s</a>;</td></tr>
+<tr><th id="1475">1475</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoord4sv" title='qglTexCoord4sv' data-ref="qglTexCoord4sv">qglTexCoord4sv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logTexCoord4svPKs" title='logTexCoord4sv' data-ref="_ZL14logTexCoord4svPKs">logTexCoord4sv</a>;</td></tr>
+<tr><th id="1476">1476</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexCoordPointer" title='qglTexCoordPointer' data-ref="qglTexCoordPointer">qglTexCoordPointer</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL18logTexCoordPointerijiPKv" title='logTexCoordPointer' data-ref="_ZL18logTexCoordPointerijiPKv">logTexCoordPointer</a>;</td></tr>
+<tr><th id="1477">1477</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexEnvf" title='qglTexEnvf' data-ref="qglTexEnvf">qglTexEnvf</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL10logTexEnvfjjf" title='logTexEnvf' data-ref="_ZL10logTexEnvfjjf">logTexEnvf</a>;</td></tr>
+<tr><th id="1478">1478</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexEnvfv" title='qglTexEnvfv' data-ref="qglTexEnvfv">qglTexEnvfv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logTexEnvfvjjPKf" title='logTexEnvfv' data-ref="_ZL11logTexEnvfvjjPKf">logTexEnvfv</a>;</td></tr>
+<tr><th id="1479">1479</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexEnvi" title='qglTexEnvi' data-ref="qglTexEnvi">qglTexEnvi</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL10logTexEnvijji" title='logTexEnvi' data-ref="_ZL10logTexEnvijji">logTexEnvi</a>;</td></tr>
+<tr><th id="1480">1480</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexEnviv" title='qglTexEnviv' data-ref="qglTexEnviv">qglTexEnviv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logTexEnvivjjPKi" title='logTexEnviv' data-ref="_ZL11logTexEnvivjjPKi">logTexEnviv</a>;</td></tr>
+<tr><th id="1481">1481</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexGend" title='qglTexGend' data-ref="qglTexGend">qglTexGend</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL10logTexGendjjd" title='logTexGend' data-ref="_ZL10logTexGendjjd">logTexGend</a>;</td></tr>
+<tr><th id="1482">1482</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexGendv" title='qglTexGendv' data-ref="qglTexGendv">qglTexGendv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logTexGendvjjPKd" title='logTexGendv' data-ref="_ZL11logTexGendvjjPKd">logTexGendv</a>;</td></tr>
+<tr><th id="1483">1483</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexGenf" title='qglTexGenf' data-ref="qglTexGenf">qglTexGenf</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL10logTexGenfjjf" title='logTexGenf' data-ref="_ZL10logTexGenfjjf">logTexGenf</a>;</td></tr>
+<tr><th id="1484">1484</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexGenfv" title='qglTexGenfv' data-ref="qglTexGenfv">qglTexGenfv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logTexGenfvjjPKf" title='logTexGenfv' data-ref="_ZL11logTexGenfvjjPKf">logTexGenfv</a>;</td></tr>
+<tr><th id="1485">1485</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexGeni" title='qglTexGeni' data-ref="qglTexGeni">qglTexGeni</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL10logTexGenijji" title='logTexGeni' data-ref="_ZL10logTexGenijji">logTexGeni</a>;</td></tr>
+<tr><th id="1486">1486</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexGeniv" title='qglTexGeniv' data-ref="qglTexGeniv">qglTexGeniv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logTexGenivjjPKi" title='logTexGeniv' data-ref="_ZL11logTexGenivjjPKi">logTexGeniv</a>;</td></tr>
+<tr><th id="1487">1487</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexImage1D" title='qglTexImage1D' data-ref="qglTexImage1D">qglTexImage1D</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logTexImage1DjiiiijjPKv" title='logTexImage1D' data-ref="_ZL13logTexImage1DjiiiijjPKv">logTexImage1D</a>;</td></tr>
+<tr><th id="1488">1488</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexImage2D" title='qglTexImage2D' data-ref="qglTexImage2D">qglTexImage2D</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logTexImage2DjiiiiijjPKv" title='logTexImage2D' data-ref="_ZL13logTexImage2DjiiiiijjPKv">logTexImage2D</a>;</td></tr>
+<tr><th id="1489">1489</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexParameterf" title='qglTexParameterf' data-ref="qglTexParameterf">qglTexParameterf</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL16logTexParameterfjjf" title='logTexParameterf' data-ref="_ZL16logTexParameterfjjf">logTexParameterf</a>;</td></tr>
+<tr><th id="1490">1490</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexParameterfv" title='qglTexParameterfv' data-ref="qglTexParameterfv">qglTexParameterfv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL17logTexParameterfvjjPKf" title='logTexParameterfv' data-ref="_ZL17logTexParameterfvjjPKf">logTexParameterfv</a>;</td></tr>
+<tr><th id="1491">1491</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexParameteri" title='qglTexParameteri' data-ref="qglTexParameteri">qglTexParameteri</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL16logTexParameterijji" title='logTexParameteri' data-ref="_ZL16logTexParameterijji">logTexParameteri</a>;</td></tr>
+<tr><th id="1492">1492</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexParameteriv" title='qglTexParameteriv' data-ref="qglTexParameteriv">qglTexParameteriv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL17logTexParameterivjjPKi" title='logTexParameteriv' data-ref="_ZL17logTexParameterivjjPKi">logTexParameteriv</a>;</td></tr>
+<tr><th id="1493">1493</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexSubImage1D" title='qglTexSubImage1D' data-ref="qglTexSubImage1D">qglTexSubImage1D</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL16logTexSubImage1DjiiijjPKv" title='logTexSubImage1D' data-ref="_ZL16logTexSubImage1DjiiijjPKv">logTexSubImage1D</a>;</td></tr>
+<tr><th id="1494">1494</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTexSubImage2D" title='qglTexSubImage2D' data-ref="qglTexSubImage2D">qglTexSubImage2D</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL16logTexSubImage2DjiiiiijjPKv" title='logTexSubImage2D' data-ref="_ZL16logTexSubImage2DjiiiiijjPKv">logTexSubImage2D</a>;</td></tr>
+<tr><th id="1495">1495</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTranslated" title='qglTranslated' data-ref="qglTranslated">qglTranslated</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logTranslatedddd" title='logTranslated' data-ref="_ZL13logTranslatedddd">logTranslated</a>;</td></tr>
+<tr><th id="1496">1496</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglTranslatef" title='qglTranslatef' data-ref="qglTranslatef">qglTranslatef</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL13logTranslateffff" title='logTranslatef' data-ref="_ZL13logTranslateffff">logTranslatef</a>;</td></tr>
+<tr><th id="1497">1497</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglVertex2d" title='qglVertex2d' data-ref="qglVertex2d">qglVertex2d</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logVertex2ddd" title='logVertex2d' data-ref="_ZL11logVertex2ddd">logVertex2d</a>;</td></tr>
+<tr><th id="1498">1498</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglVertex2dv" title='qglVertex2dv' data-ref="qglVertex2dv">qglVertex2dv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logVertex2dvPKd" title='logVertex2dv' data-ref="_ZL12logVertex2dvPKd">logVertex2dv</a>;</td></tr>
+<tr><th id="1499">1499</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglVertex2f" title='qglVertex2f' data-ref="qglVertex2f">qglVertex2f</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logVertex2fff" title='logVertex2f' data-ref="_ZL11logVertex2fff">logVertex2f</a>;</td></tr>
+<tr><th id="1500">1500</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglVertex2fv" title='qglVertex2fv' data-ref="qglVertex2fv">qglVertex2fv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logVertex2fvPKf" title='logVertex2fv' data-ref="_ZL12logVertex2fvPKf">logVertex2fv</a>;</td></tr>
+<tr><th id="1501">1501</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglVertex2i" title='qglVertex2i' data-ref="qglVertex2i">qglVertex2i</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logVertex2iii" title='logVertex2i' data-ref="_ZL11logVertex2iii">logVertex2i</a>;</td></tr>
+<tr><th id="1502">1502</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglVertex2iv" title='qglVertex2iv' data-ref="qglVertex2iv">qglVertex2iv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logVertex2ivPKi" title='logVertex2iv' data-ref="_ZL12logVertex2ivPKi">logVertex2iv</a>;</td></tr>
+<tr><th id="1503">1503</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglVertex2s" title='qglVertex2s' data-ref="qglVertex2s">qglVertex2s</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logVertex2sss" title='logVertex2s' data-ref="_ZL11logVertex2sss">logVertex2s</a>;</td></tr>
+<tr><th id="1504">1504</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglVertex2sv" title='qglVertex2sv' data-ref="qglVertex2sv">qglVertex2sv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logVertex2svPKs" title='logVertex2sv' data-ref="_ZL12logVertex2svPKs">logVertex2sv</a>;</td></tr>
+<tr><th id="1505">1505</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglVertex3d" title='qglVertex3d' data-ref="qglVertex3d">qglVertex3d</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logVertex3dddd" title='logVertex3d' data-ref="_ZL11logVertex3dddd">logVertex3d</a>;</td></tr>
+<tr><th id="1506">1506</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglVertex3dv" title='qglVertex3dv' data-ref="qglVertex3dv">qglVertex3dv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logVertex3dvPKd" title='logVertex3dv' data-ref="_ZL12logVertex3dvPKd">logVertex3dv</a>;</td></tr>
+<tr><th id="1507">1507</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglVertex3f" title='qglVertex3f' data-ref="qglVertex3f">qglVertex3f</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logVertex3ffff" title='logVertex3f' data-ref="_ZL11logVertex3ffff">logVertex3f</a>;</td></tr>
+<tr><th id="1508">1508</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglVertex3fv" title='qglVertex3fv' data-ref="qglVertex3fv">qglVertex3fv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logVertex3fvPKf" title='logVertex3fv' data-ref="_ZL12logVertex3fvPKf">logVertex3fv</a>;</td></tr>
+<tr><th id="1509">1509</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglVertex3i" title='qglVertex3i' data-ref="qglVertex3i">qglVertex3i</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logVertex3iiii" title='logVertex3i' data-ref="_ZL11logVertex3iiii">logVertex3i</a>;</td></tr>
+<tr><th id="1510">1510</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglVertex3iv" title='qglVertex3iv' data-ref="qglVertex3iv">qglVertex3iv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logVertex3ivPKi" title='logVertex3iv' data-ref="_ZL12logVertex3ivPKi">logVertex3iv</a>;</td></tr>
+<tr><th id="1511">1511</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglVertex3s" title='qglVertex3s' data-ref="qglVertex3s">qglVertex3s</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logVertex3ssss" title='logVertex3s' data-ref="_ZL11logVertex3ssss">logVertex3s</a>;</td></tr>
+<tr><th id="1512">1512</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglVertex3sv" title='qglVertex3sv' data-ref="qglVertex3sv">qglVertex3sv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logVertex3svPKs" title='logVertex3sv' data-ref="_ZL12logVertex3svPKs">logVertex3sv</a>;</td></tr>
+<tr><th id="1513">1513</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglVertex4d" title='qglVertex4d' data-ref="qglVertex4d">qglVertex4d</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logVertex4ddddd" title='logVertex4d' data-ref="_ZL11logVertex4ddddd">logVertex4d</a>;</td></tr>
+<tr><th id="1514">1514</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglVertex4dv" title='qglVertex4dv' data-ref="qglVertex4dv">qglVertex4dv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logVertex4dvPKd" title='logVertex4dv' data-ref="_ZL12logVertex4dvPKd">logVertex4dv</a>;</td></tr>
+<tr><th id="1515">1515</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglVertex4f" title='qglVertex4f' data-ref="qglVertex4f">qglVertex4f</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logVertex4fffff" title='logVertex4f' data-ref="_ZL11logVertex4fffff">logVertex4f</a>;</td></tr>
+<tr><th id="1516">1516</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglVertex4fv" title='qglVertex4fv' data-ref="qglVertex4fv">qglVertex4fv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logVertex4fvPKf" title='logVertex4fv' data-ref="_ZL12logVertex4fvPKf">logVertex4fv</a>;</td></tr>
+<tr><th id="1517">1517</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglVertex4i" title='qglVertex4i' data-ref="qglVertex4i">qglVertex4i</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logVertex4iiiii" title='logVertex4i' data-ref="_ZL11logVertex4iiiii">logVertex4i</a>;</td></tr>
+<tr><th id="1518">1518</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglVertex4iv" title='qglVertex4iv' data-ref="qglVertex4iv">qglVertex4iv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logVertex4ivPKi" title='logVertex4iv' data-ref="_ZL12logVertex4ivPKi">logVertex4iv</a>;</td></tr>
+<tr><th id="1519">1519</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglVertex4s" title='qglVertex4s' data-ref="qglVertex4s">qglVertex4s</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logVertex4sssss" title='logVertex4s' data-ref="_ZL11logVertex4sssss">logVertex4s</a>;</td></tr>
+<tr><th id="1520">1520</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglVertex4sv" title='qglVertex4sv' data-ref="qglVertex4sv">qglVertex4sv</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL12logVertex4svPKs" title='logVertex4sv' data-ref="_ZL12logVertex4svPKs">logVertex4sv</a>;</td></tr>
+<tr><th id="1521">1521</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglVertexPointer" title='qglVertexPointer' data-ref="qglVertexPointer">qglVertexPointer</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL16logVertexPointerijiPKv" title='logVertexPointer' data-ref="_ZL16logVertexPointerijiPKv">logVertexPointer</a>;</td></tr>
+<tr><th id="1522">1522</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglViewport" title='qglViewport' data-ref="qglViewport">qglViewport</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL11logViewportiiii" title='logViewport' data-ref="_ZL11logViewportiiii">logViewport</a>;</td></tr>
+<tr><th id="1523">1523</th><td></td></tr>
+<tr><th id="1524">1524</th><td></td></tr>
+<tr><th id="1525">1525</th><td></td></tr>
+<tr><th id="1526">1526</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglXChooseVisual" title='qglXChooseVisual' data-ref="qglXChooseVisual">qglXChooseVisual</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL15logChooseVisualP9_XDisplayiPi" title='logChooseVisual' data-ref="_ZL15logChooseVisualP9_XDisplayiPi">logChooseVisual</a>;</td></tr>
+<tr><th id="1527">1527</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglXCreateContext" title='qglXCreateContext' data-ref="qglXCreateContext">qglXCreateContext</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL16logCreateContextP9_XDisplayP11XVisualInfoP15__GLXcontextReci" title='logCreateContext' data-ref="_ZL16logCreateContextP9_XDisplayP11XVisualInfoP15__GLXcontextReci">logCreateContext</a>;</td></tr>
+<tr><th id="1528">1528</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglXDestroyContext" title='qglXDestroyContext' data-ref="qglXDestroyContext">qglXDestroyContext</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL17logDestroyContextP9_XDisplayP15__GLXcontextRec" title='logDestroyContext' data-ref="_ZL17logDestroyContextP9_XDisplayP15__GLXcontextRec">logDestroyContext</a>;</td></tr>
+<tr><th id="1529">1529</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglXMakeCurrent" title='qglXMakeCurrent' data-ref="qglXMakeCurrent">qglXMakeCurrent</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logMakeCurrentP9_XDisplaymP15__GLXcontextRec" title='logMakeCurrent' data-ref="_ZL14logMakeCurrentP9_XDisplaymP15__GLXcontextRec">logMakeCurrent</a>;</td></tr>
+<tr><th id="1530">1530</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglXSwapBuffers" title='qglXSwapBuffers' data-ref="qglXSwapBuffers">qglXSwapBuffers</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL14logSwapBuffersP9_XDisplaym" title='logSwapBuffers' data-ref="_ZL14logSwapBuffersP9_XDisplaym">logSwapBuffers</a>;</td></tr>
+<tr><th id="1531">1531</th><td><a class="ref" href="../../../../../../renderer/qgl.h.html#qglXGetProcAddressARB" title='qglXGetProcAddressARB' data-ref="qglXGetProcAddressARB">qglXGetProcAddressARB</a> = <a class="ref" href="glimp_logfuncs.cpp.html#_ZL20logGetProcAddressARBPKh" title='logGetProcAddressARB' data-ref="_ZL20logGetProcAddressARBPKh">logGetProcAddressARB</a>;</td></tr>
+<tr><th id="1532">1532</th><td></td></tr>
+<tr><th id="1533">1533</th><td>}</td></tr>
+<tr><th id="1534">1534</th><td></td></tr>
+<tr><th id="1535">1535</th><td><i>/*</i></td></tr>
+<tr><th id="1536">1536</th><td><i>======================</i></td></tr>
+<tr><th id="1537">1537</th><td><i>GLimp_EnableLogging</i></td></tr>
+<tr><th id="1538">1538</th><td><i>======================</i></td></tr>
+<tr><th id="1539">1539</th><td><i>*/</i></td></tr>
+<tr><th id="1540">1540</th><td><em>void</em> <dfn class="decl def" id="_Z19GLimp_EnableLoggingb" title='GLimp_EnableLogging' data-ref="_Z19GLimp_EnableLoggingb">GLimp_EnableLogging</dfn>(<em>bool</em> <dfn class="local col5 decl" id="1025enable" title='enable' data-type='bool' data-ref="1025enable">enable</dfn>) {</td></tr>
+<tr><th id="1541">1541</th><td>	<em>static</em> <em>bool</em>		<dfn class="local col6 decl" id="1026isEnabled" title='isEnabled' data-type='bool' data-ref="1026isEnabled">isEnabled</dfn> = <b>false</b>;</td></tr>
+<tr><th id="1542">1542</th><td>	<em>static</em> <a class="type" href="../../../../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>	<a class="ref fake" href="../../../../../../idlib/Str.h.html#_ZN5idStrC1Ev" title='idStr::idStr' data-ref="_ZN5idStrC1Ev"></a><dfn class="local col7 decl" id="1027ospath" title='ospath' data-type='idStr' data-ref="1027ospath">ospath</dfn>;</td></tr>
+<tr><th id="1543">1543</th><td>	<em>static</em> <em>int</em>		<dfn class="local col8 decl" id="1028initialFrames" title='initialFrames' data-type='int' data-ref="1028initialFrames">initialFrames</dfn>;</td></tr>
+<tr><th id="1544">1544</th><td></td></tr>
+<tr><th id="1545">1545</th><td>	<i>// return if we're already active</i></td></tr>
+<tr><th id="1546">1546</th><td>	<b>if</b> ( <a class="local col6 ref" href="#1026isEnabled" title='isEnabled' data-ref="1026isEnabled">isEnabled</a> &amp;&amp; <a class="local col5 ref" href="#1025enable" title='enable' data-ref="1025enable">enable</a> ) {</td></tr>
+<tr><th id="1547">1547</th><td>		<i>// decrement log counter and stop if it has reached 0</i></td></tr>
+<tr><th id="1548">1548</th><td>		<a class="ref" href="../../../../../../renderer/tr_local.h.html#r_logFile" title='r_logFile' data-ref="r_logFile">r_logFile</a>.<a class="ref" href="../../../../../../framework/CVarSystem.h.html#_ZN6idCVar10SetIntegerEi" title='idCVar::SetInteger' data-ref="_ZN6idCVar10SetIntegerEi">SetInteger</a>( <a class="ref" href="../../../../../../renderer/tr_local.h.html#r_logFile" title='r_logFile' data-ref="r_logFile">r_logFile</a>.<a class="ref" href="../../../../../../framework/CVarSystem.h.html#_ZNK6idCVar10GetIntegerEv" title='idCVar::GetInteger' data-ref="_ZNK6idCVar10GetIntegerEv">GetInteger</a>() - <var>1</var> );</td></tr>
+<tr><th id="1549">1549</th><td>		<b>if</b> ( <a class="ref" href="../../../../../../renderer/tr_local.h.html#r_logFile" title='r_logFile' data-ref="r_logFile">r_logFile</a>.<a class="ref" href="../../../../../../framework/CVarSystem.h.html#_ZNK6idCVar10GetIntegerEv" title='idCVar::GetInteger' data-ref="_ZNK6idCVar10GetIntegerEv">GetInteger</a>() ) {</td></tr>
+<tr><th id="1550">1550</th><td>			<b>return</b>;</td></tr>
+<tr><th id="1551">1551</th><td>		}</td></tr>
+<tr><th id="1552">1552</th><td><u>#<span data-ppcond="1552">if</span> <a class="macro" href="#8" title="0" data-ref="_M/ID_LOG_TO_STDOUT">ID_LOG_TO_STDOUT</a></u></td></tr>
+<tr><th id="1553">1553</th><td>		common-&gt;Printf( <q>"end stdout GL loggging after %i frames.\n"</q>, initialFrames );</td></tr>
+<tr><th id="1554">1554</th><td><u>#<span data-ppcond="1552">else</span></u></td></tr>
+<tr><th id="1555">1555</th><td>		<a class="ref" href="../../../../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"closing GL logfile '%s' after %i frames.\n"</q>, <a class="local col7 ref" href="#1027ospath" title='ospath' data-ref="1027ospath">ospath</a>.<a class="ref" href="../../../../../../idlib/Str.h.html#_ZNK5idStr5c_strEv" title='idStr::c_str' data-ref="_ZNK5idStr5c_strEv">c_str</a>(), <a class="local col8 ref" href="#1028initialFrames" title='initialFrames' data-ref="1028initialFrames">initialFrames</a> );</td></tr>
+<tr><th id="1556">1556</th><td></td></tr>
+<tr><th id="1557">1557</th><td>		<a class="ref" href="../../../../../../../include/stdio.h.html#fclose" title='fclose' data-ref="fclose">fclose</a>( <a class="ref" href="../../../../../../renderer/tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="../../../../../../renderer/tr_local.h.html#idRenderSystemLocal::logFile" title='idRenderSystemLocal::logFile' data-ref="idRenderSystemLocal::logFile">logFile</a> );</td></tr>
+<tr><th id="1558">1558</th><td><u>#<span data-ppcond="1552">endif</span></u></td></tr>
+<tr><th id="1559">1559</th><td>		<a class="local col5 ref" href="#1025enable" title='enable' data-ref="1025enable">enable</a> = <b>false</b>;</td></tr>
+<tr><th id="1560">1560</th><td>		<a class="ref" href="../../../../../../renderer/tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="../../../../../../renderer/tr_local.h.html#idRenderSystemLocal::logFile" title='idRenderSystemLocal::logFile' data-ref="idRenderSystemLocal::logFile">logFile</a> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="1561">1561</th><td>	}</td></tr>
+<tr><th id="1562">1562</th><td></td></tr>
+<tr><th id="1563">1563</th><td>	<i>// return if we're already disabled</i></td></tr>
+<tr><th id="1564">1564</th><td>	<b>if</b> ( !<a class="local col5 ref" href="#1025enable" title='enable' data-ref="1025enable">enable</a> &amp;&amp; !<a class="local col6 ref" href="#1026isEnabled" title='isEnabled' data-ref="1026isEnabled">isEnabled</a> ) {</td></tr>
+<tr><th id="1565">1565</th><td>		<b>return</b>;</td></tr>
+<tr><th id="1566">1566</th><td>	}</td></tr>
+<tr><th id="1567">1567</th><td></td></tr>
+<tr><th id="1568">1568</th><td>	<a class="local col6 ref" href="#1026isEnabled" title='isEnabled' data-ref="1026isEnabled">isEnabled</a> = <a class="local col5 ref" href="#1025enable" title='enable' data-ref="1025enable">enable</a>;</td></tr>
+<tr><th id="1569">1569</th><td></td></tr>
+<tr><th id="1570">1570</th><td>	<b>if</b> ( <a class="local col5 ref" href="#1025enable" title='enable' data-ref="1025enable">enable</a> ) {</td></tr>
+<tr><th id="1571">1571</th><td>		<b>if</b> ( !<a class="ref" href="../../../../../../renderer/tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="../../../../../../renderer/tr_local.h.html#idRenderSystemLocal::logFile" title='idRenderSystemLocal::logFile' data-ref="idRenderSystemLocal::logFile">logFile</a> ) {</td></tr>
+<tr><th id="1572">1572</th><td>			<b>struct</b> <a class="type" href="../../../../../../../include/time.h.html#tm" title='tm' data-ref="tm">tm</a>		*<dfn class="local col9 decl" id="1029newtime" title='newtime' data-type='struct tm *' data-ref="1029newtime">newtime</dfn>;</td></tr>
+<tr><th id="1573">1573</th><td>			<a class="typedef" href="../../../../../../../include/time.h.html#time_t" title='time_t' data-type='__time_t' data-ref="time_t">time_t</a>			<dfn class="local col0 decl" id="1030aclock" title='aclock' data-type='time_t' data-ref="1030aclock">aclock</dfn>;</td></tr>
+<tr><th id="1574">1574</th><td>			<a class="type" href="../../../../../../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>			<a class="ref fake" href="../../../../../../idlib/Str.h.html#_ZN5idStrC1Ev" title='idStr::idStr' data-ref="_ZN5idStrC1Ev"></a><dfn class="local col1 decl" id="1031qpath" title='qpath' data-type='idStr' data-ref="1031qpath">qpath</dfn>;</td></tr>
+<tr><th id="1575">1575</th><td>			<em>int</em>				<dfn class="local col2 decl" id="1032i" title='i' data-type='int' data-ref="1032i">i</dfn>;</td></tr>
+<tr><th id="1576">1576</th><td></td></tr>
+<tr><th id="1577">1577</th><td>			<a class="local col8 ref" href="#1028initialFrames" title='initialFrames' data-ref="1028initialFrames">initialFrames</a> = <a class="ref" href="../../../../../../renderer/tr_local.h.html#r_logFile" title='r_logFile' data-ref="r_logFile">r_logFile</a>.<a class="ref" href="../../../../../../framework/CVarSystem.h.html#_ZNK6idCVar10GetIntegerEv" title='idCVar::GetInteger' data-ref="_ZNK6idCVar10GetIntegerEv">GetInteger</a>();</td></tr>
+<tr><th id="1578">1578</th><td></td></tr>
+<tr><th id="1579">1579</th><td><u>#<span data-ppcond="1579">if</span> <a class="macro" href="#8" title="0" data-ref="_M/ID_LOG_TO_STDOUT">ID_LOG_TO_STDOUT</a></u></td></tr>
+<tr><th id="1580">1580</th><td>			tr.logFile = fdopen( STDOUT_FILENO, <q>"w"</q> );</td></tr>
+<tr><th id="1581">1581</th><td><u>#<span data-ppcond="1579">else</span></u></td></tr>
+<tr><th id="1582">1582</th><td>			<i>// scan for an unused filename</i></td></tr>
+<tr><th id="1583">1583</th><td>			<b>for</b> ( <a class="local col2 ref" href="#1032i" title='i' data-ref="1032i">i</a> = <var>0</var> ; <a class="local col2 ref" href="#1032i" title='i' data-ref="1032i">i</a> &lt; <var>9999</var> ; <a class="local col2 ref" href="#1032i" title='i' data-ref="1032i">i</a>++ ) {</td></tr>
+<tr><th id="1584">1584</th><td>				<a class="ref" href="../../../../../../idlib/Str.h.html#_Z7sprintfR5idStrPKcz" title='sprintf' data-ref="_Z7sprintfR5idStrPKcz">sprintf</a>( <span class='refarg'><a class="local col1 ref" href="#1031qpath" title='qpath' data-ref="1031qpath">qpath</a></span>, <q>"renderlog_%i.txt"</q>, <a class="local col2 ref" href="#1032i" title='i' data-ref="1032i">i</a> ); </td></tr>
+<tr><th id="1585">1585</th><td>				<b>if</b> ( <a class="ref" href="../../../../../../framework/FileSystem.h.html#fileSystem" title='fileSystem' data-ref="fileSystem">fileSystem</a>-&gt;<a class="virtual ref" href="../../../../../../framework/FileSystem.h.html#_ZN12idFileSystem8ReadFileEPKcPPvPl" title='idFileSystem::ReadFile' data-ref="_ZN12idFileSystem8ReadFileEPKcPPvPl">ReadFile</a>( <a class="ref fake" href="../../../../../../idlib/Str.h.html#_ZN5idStrcvPKcEv" title='idStr::operator const char *' data-ref="_ZN5idStrcvPKcEv"></a><a class="local col1 ref" href="#1031qpath" title='qpath' data-ref="1031qpath">qpath</a>, <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>, <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> ) == -<var>1</var> ) {</td></tr>
+<tr><th id="1586">1586</th><td>					<b>break</b>;		<i>// use this name</i></td></tr>
+<tr><th id="1587">1587</th><td>				}</td></tr>
+<tr><th id="1588">1588</th><td>			}</td></tr>
+<tr><th id="1589">1589</th><td></td></tr>
+<tr><th id="1590">1590</th><td>			<a class="local col7 ref" href="#1027ospath" title='ospath' data-ref="1027ospath">ospath</a> <a class="ref" href="../../../../../../idlib/Str.h.html#_ZN5idStraSEPKc" title='idStr::operator=' data-ref="_ZN5idStraSEPKc">=</a> <a class="ref" href="../../../../../../framework/FileSystem.h.html#fileSystem" title='fileSystem' data-ref="fileSystem">fileSystem</a>-&gt;<a class="virtual ref" href="../../../../../../framework/FileSystem.h.html#_ZN12idFileSystem20RelativePathToOSPathEPKcS1_" title='idFileSystem::RelativePathToOSPath' data-ref="_ZN12idFileSystem20RelativePathToOSPathEPKcS1_">RelativePathToOSPath</a>( <a class="ref fake" href="../../../../../../idlib/Str.h.html#_ZN5idStrcvPKcEv" title='idStr::operator const char *' data-ref="_ZN5idStrcvPKcEv"></a><a class="local col1 ref" href="#1031qpath" title='qpath' data-ref="1031qpath">qpath</a> );</td></tr>
+<tr><th id="1591">1591</th><td>			<a class="ref" href="../../../../../../renderer/tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="../../../../../../renderer/tr_local.h.html#idRenderSystemLocal::logFile" title='idRenderSystemLocal::logFile' data-ref="idRenderSystemLocal::logFile">logFile</a> = <a class="ref" href="../../../../../../../include/stdio.h.html#fopen" title='fopen' data-ref="fopen">fopen</a>( <a class="ref fake" href="../../../../../../idlib/Str.h.html#_ZN5idStrcvPKcEv" title='idStr::operator const char *' data-ref="_ZN5idStrcvPKcEv"></a><a class="local col7 ref" href="#1027ospath" title='ospath' data-ref="1027ospath">ospath</a>, <q>"wt"</q> );</td></tr>
+<tr><th id="1592">1592</th><td><u>#<span data-ppcond="1579">endif</span></u></td></tr>
+<tr><th id="1593">1593</th><td></td></tr>
+<tr><th id="1594">1594</th><td>			<i>// write the time out to the top of the file</i></td></tr>
+<tr><th id="1595">1595</th><td>			<a class="ref" href="../../../../../../../include/time.h.html#time" title='time' data-ref="time">time</a>( &amp;<a class="local col0 ref" href="#1030aclock" title='aclock' data-ref="1030aclock">aclock</a> );</td></tr>
+<tr><th id="1596">1596</th><td>			<a class="local col9 ref" href="#1029newtime" title='newtime' data-ref="1029newtime">newtime</a> = <a class="ref" href="../../../../../../../include/time.h.html#localtime" title='localtime' data-ref="localtime">localtime</a>( &amp;<a class="local col0 ref" href="#1030aclock" title='aclock' data-ref="1030aclock">aclock</a> );</td></tr>
+<tr><th id="1597">1597</th><td>			<a class="ref" href="../../../../../../../include/stdio.h.html#fprintf" title='fprintf' data-ref="fprintf">fprintf</a>( <a class="ref" href="../../../../../../renderer/tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="../../../../../../renderer/tr_local.h.html#idRenderSystemLocal::logFile" title='idRenderSystemLocal::logFile' data-ref="idRenderSystemLocal::logFile">logFile</a>, <q>"// %s"</q>, <a class="ref" href="../../../../../../../include/time.h.html#asctime" title='asctime' data-ref="asctime">asctime</a>( <a class="local col9 ref" href="#1029newtime" title='newtime' data-ref="1029newtime">newtime</a> ) );</td></tr>
+<tr><th id="1598">1598</th><td>			<a class="ref" href="../../../../../../../include/stdio.h.html#fprintf" title='fprintf' data-ref="fprintf">fprintf</a>( <a class="ref" href="../../../../../../renderer/tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="../../../../../../renderer/tr_local.h.html#idRenderSystemLocal::logFile" title='idRenderSystemLocal::logFile' data-ref="idRenderSystemLocal::logFile">logFile</a>, <q>"// %s\n\n"</q>, <a class="ref" href="../../../../../../framework/Common.h.html#com_version" title='com_version' data-ref="com_version">com_version</a>.<a class="ref" href="../../../../../../framework/CVarSystem.h.html#_ZNK6idCVar9GetStringEv" title='idCVar::GetString' data-ref="_ZNK6idCVar9GetStringEv">GetString</a>() );</td></tr>
+<tr><th id="1599">1599</th><td>		}</td></tr>
+<tr><th id="1600">1600</th><td></td></tr>
+<tr><th id="1601">1601</th><td>		<a class="ref" href="#_Z17GLimp_BindLoggingv" title='GLimp_BindLogging' data-ref="_Z17GLimp_BindLoggingv">GLimp_BindLogging</a>();</td></tr>
+<tr><th id="1602">1602</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="1603">1603</th><td></td></tr>
+<tr><th id="1604">1604</th><td>		<a class="ref" href="../../../../../../sys/linux/local.h.html#_Z16GLimp_BindNativev" title='GLimp_BindNative' data-ref="_Z16GLimp_BindNativev">GLimp_BindNative</a>();</td></tr>
+<tr><th id="1605">1605</th><td>	}</td></tr>
+<tr><th id="1606">1606</th><td>}</td></tr>
+<tr><th id="1607">1607</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

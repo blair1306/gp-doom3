@@ -1,0 +1,15 @@
+<dec f='codebrowser/cm/CollisionModel_local.h' l='329' type='int idCollisionModelManagerLocal::Contents(const idVec3 &amp; start, const idTraceModel * trm, const idMat3 &amp; trmAxis, int contentMask, cmHandle_t model, const idVec3 &amp; modelOrigin, const idMat3 &amp; modelAxis)'/>
+<doc f='codebrowser/cm/CollisionModel_local.h' l='328'>// returns the contents the trm is stuck in or 0 if the trm is in free space</doc>
+<inh f='codebrowser/cm/CollisionModel.h' l='125' c='_ZN23idCollisionModelManager8ContentsERK6idVec3PK12idTraceModelRK6idMat3iiS2_S8_'/>
+<def f='codebrowser/cm/CollisionModel_contents.cpp' l='626' ll='641' type='int idCollisionModelManagerLocal::Contents(const idVec3 &amp; start, const idTraceModel * trm, const idMat3 &amp; trmAxis, int contentMask, cmHandle_t model, const idVec3 &amp; modelOrigin, const idMat3 &amp; modelAxis)'/>
+<doc f='codebrowser/cm/CollisionModel_contents.cpp' l='621'>/*
+==================
+idCollisionModelManagerLocal::Contents
+==================
+*/</doc>
+<use f='codebrowser/cm/CollisionModel_rotate.cpp' l='1641' u='c' c='_ZN28idCollisionModelManagerLocal8RotationEP7trace_sRK6idVec3RK10idRotationPK12idTraceModelRK6idMat3iiS4_SD_'/>
+<use f='codebrowser/cm/CollisionModel_rotate.cpp' l='1682' u='c' c='_ZN28idCollisionModelManagerLocal8RotationEP7trace_sRK6idVec3RK10idRotationPK12idTraceModelRK6idMat3iiS4_SD_'/>
+<use f='codebrowser/cm/CollisionModel_rotate.cpp' l='1686' u='c' c='_ZN28idCollisionModelManagerLocal8RotationEP7trace_sRK6idVec3RK10idRotationPK12idTraceModelRK6idMat3iiS4_SD_'/>
+<use f='codebrowser/cm/CollisionModel_translate.cpp' l='808' u='c' c='_ZN28idCollisionModelManagerLocal11TranslationEP7trace_sRK6idVec3S4_PK12idTraceModelRK6idMat3iiS4_SA_'/>
+<use f='codebrowser/cm/CollisionModel_translate.cpp' l='1108' u='c' c='_ZN28idCollisionModelManagerLocal11TranslationEP7trace_sRK6idVec3S4_PK12idTraceModelRK6idMat3iiS4_SA_'/>
+<use f='codebrowser/cm/CollisionModel_translate.cpp' l='1112' u='c' c='_ZN28idCollisionModelManagerLocal11TranslationEP7trace_sRK6idVec3S4_PK12idTraceModelRK6idMat3iiS4_SA_'/>

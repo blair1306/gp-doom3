@@ -1,0 +1,19 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1397' type='void R_MakeShadowFrustums(idRenderLightLocal * def)'/>
+<doc f='codebrowser/renderer/tr_local.h' l='1387'>/*
+============================================================
+
+TR_STENCILSHADOWS
+
+&quot;facing&quot; should have one more element than tri-&gt;numIndexes / 3, which should be set to 1
+
+============================================================
+*/</doc>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='438' u='c' c='_Z17R_DeriveLightDataP18idRenderLightLocal'/>
+<def f='codebrowser/renderer/tr_stencilshadow.cpp' l='1032' ll='1189' type='void R_MakeShadowFrustums(idRenderLightLocal * light)'/>
+<doc f='codebrowser/renderer/tr_stencilshadow.cpp' l='1025'>/*
+===================
+R_MakeShadowFrustums
+
+Called at definition derivation time
+===================
+*/</doc>

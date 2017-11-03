@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>content_encoding.h source code [codebrowser/curl/lib/content_encoding.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/curl/lib/content_encoding.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>curl</a>/<a href='./'>lib</a>/<a href='content_encoding.h.html'>content_encoding.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/***************************************************************************</i></td></tr>
+<tr><th id="2">2</th><td><i> *                                  _   _ ____  _     </i></td></tr>
+<tr><th id="3">3</th><td><i> *  Project                     ___| | | |  _ \| |    </i></td></tr>
+<tr><th id="4">4</th><td><i> *                             / __| | | | |_) | |    </i></td></tr>
+<tr><th id="5">5</th><td><i> *                            | (__| |_| |  _ &lt;| |___ </i></td></tr>
+<tr><th id="6">6</th><td><i> *                             \___|\___/|_| \_\_____|</i></td></tr>
+<tr><th id="7">7</th><td><i> *</i></td></tr>
+<tr><th id="8">8</th><td><i> * Copyright (C) 1998 - 2004, Daniel Stenberg, &lt;daniel@haxx.se&gt;, et al.</i></td></tr>
+<tr><th id="9">9</th><td><i> *</i></td></tr>
+<tr><th id="10">10</th><td><i> * This software is licensed as described in the file COPYING, which</i></td></tr>
+<tr><th id="11">11</th><td><i> * you should have received as part of this distribution. The terms</i></td></tr>
+<tr><th id="12">12</th><td><i> * are also available at <a href="http://curl.haxx.se/docs/copyright.html">http://curl.haxx.se/docs/copyright.html</a>.</i></td></tr>
+<tr><th id="13">13</th><td><i> * </i></td></tr>
+<tr><th id="14">14</th><td><i> * You may opt to use, copy, modify, merge, publish, distribute and/or sell</i></td></tr>
+<tr><th id="15">15</th><td><i> * copies of the Software, and permit persons to whom the Software is</i></td></tr>
+<tr><th id="16">16</th><td><i> * furnished to do so, under the terms of the COPYING file.</i></td></tr>
+<tr><th id="17">17</th><td><i> *</i></td></tr>
+<tr><th id="18">18</th><td><i> * This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY</i></td></tr>
+<tr><th id="19">19</th><td><i> * KIND, either express or implied.</i></td></tr>
+<tr><th id="20">20</th><td><i> *</i></td></tr>
+<tr><th id="21">21</th><td><i> * $Id: content_encoding.h,v 1.7 2004/01/07 09:19:35 bagder Exp $</i></td></tr>
+<tr><th id="22">22</th><td><i> ***************************************************************************/</i></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="setup.h.html">"setup.h"</a></u></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><i>/*</i></td></tr>
+<tr><th id="26">26</th><td><i> * Comma-separated list all supported Content-Encodings ('identity' is implied)</i></td></tr>
+<tr><th id="27">27</th><td><i> */</i></td></tr>
+<tr><th id="28">28</th><td><u>#<span data-ppcond="28">ifdef</span> <a class="macro" href="config.h.html#185" data-ref="_M/HAVE_LIBZ">HAVE_LIBZ</a></u></td></tr>
+<tr><th id="29">29</th><td><u>#define <dfn class="macro" id="_M/ALL_CONTENT_ENCODINGS" data-ref="_M/ALL_CONTENT_ENCODINGS">ALL_CONTENT_ENCODINGS</dfn> "deflate, gzip"</u></td></tr>
+<tr><th id="30">30</th><td><u>#<span data-ppcond="28">else</span></u></td></tr>
+<tr><th id="31">31</th><td><u>#define ALL_CONTENT_ENCODINGS "identity"</u></td></tr>
+<tr><th id="32">32</th><td><u>#<span data-ppcond="28">endif</span></u></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a> <a class="decl" href="content_encoding.c.html#Curl_unencode_deflate_write" title='Curl_unencode_deflate_write' data-ref="Curl_unencode_deflate_write" id="Curl_unencode_deflate_write">Curl_unencode_deflate_write</a>(<b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *<dfn class="local col1 decl" id="1data" title='data' data-type='struct SessionHandle *' data-ref="1data">data</dfn>, </td></tr>
+<tr><th id="35">35</th><td>                                     <b>struct</b> <a class="type" href="urldata.h.html#Curl_transfer_keeper" title='Curl_transfer_keeper' data-ref="Curl_transfer_keeper">Curl_transfer_keeper</a> *<dfn class="local col2 decl" id="2k" title='k' data-type='struct Curl_transfer_keeper *' data-ref="2k">k</dfn>, </td></tr>
+<tr><th id="36">36</th><td>                                     <a class="typedef" href="../../../include/stdio.h.html#ssize_t" title='ssize_t' data-type='__ssize_t' data-ref="ssize_t">ssize_t</a> <dfn class="local col3 decl" id="3nread" title='nread' data-type='ssize_t' data-ref="3nread">nread</dfn>);</td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td><a class="typedef" href="../include/curl/curl.h.html#CURLcode" title='CURLcode' data-type='enum CURLcode' data-ref="CURLcode">CURLcode</a></td></tr>
+<tr><th id="39">39</th><td><a class="decl" href="content_encoding.c.html#Curl_unencode_gzip_write" title='Curl_unencode_gzip_write' data-ref="Curl_unencode_gzip_write" id="Curl_unencode_gzip_write">Curl_unencode_gzip_write</a>(<b>struct</b> <a class="type" href="urldata.h.html#SessionHandle" title='SessionHandle' data-ref="SessionHandle">SessionHandle</a> *<dfn class="local col4 decl" id="4data" title='data' data-type='struct SessionHandle *' data-ref="4data">data</dfn>, </td></tr>
+<tr><th id="40">40</th><td>                         <b>struct</b> <a class="type" href="urldata.h.html#Curl_transfer_keeper" title='Curl_transfer_keeper' data-ref="Curl_transfer_keeper">Curl_transfer_keeper</a> *<dfn class="local col5 decl" id="5k" title='k' data-type='struct Curl_transfer_keeper *' data-ref="5k">k</dfn>,</td></tr>
+<tr><th id="41">41</th><td>                         <a class="typedef" href="../../../include/stdio.h.html#ssize_t" title='ssize_t' data-type='__ssize_t' data-ref="ssize_t">ssize_t</a> <dfn class="local col6 decl" id="6nread" title='nread' data-type='ssize_t' data-ref="6nread">nread</dfn>);</td></tr>
+<tr><th id="42">42</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='content_encoding.c.html'>codebrowser/curl/lib/content_encoding.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

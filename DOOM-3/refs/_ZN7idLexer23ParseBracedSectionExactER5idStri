@@ -1,0 +1,15 @@
+<dec f='codebrowser/idlib/Lexer.h' l='203' type='const char * idLexer::ParseBracedSectionExact(idStr &amp; out, int tabs = -1)'/>
+<doc f='codebrowser/idlib/Lexer.h' l='202'>// parse a braced section into a string, maintaining indents and newlines</doc>
+<def f='codebrowser/idlib/Lexer.cpp' l='1376' ll='1436' type='const char * idLexer::ParseBracedSectionExact(idStr &amp; out, int tabs = -1)'/>
+<doc f='codebrowser/idlib/Lexer.cpp' l='1365'>/*
+=================
+idParser::ParseBracedSection
+
+The next token should be an open brace.
+Parses until a matching close brace is found.
+Maintains exact characters between braces.
+
+  FIXME: this should use ReadToken and replace the token white space with correct indents and newlines
+=================
+*/</doc>
+<use f='codebrowser/idlib/Parser.cpp' l='2643' u='c' c='_ZN8idParser23ParseBracedSectionExactER5idStri'/>

@@ -1,0 +1,16 @@
+<dec f='codebrowser/idlib/math/Matrix.h' l='1933' type='bool idMatX::SVD_Factor(idVecX &amp; w, idMatX &amp; V)'/>
+<doc f='codebrowser/idlib/math/Matrix.h' l='1933'>// factor in-place: U * Diag(w) * V.Transpose()</doc>
+<def f='codebrowser/idlib/math/Matrix.cpp' l='5057' ll='5176' type='bool idMatX::SVD_Factor(idVecX &amp; w, idMatX &amp; V)'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7706' u='c' c='_ZN6idMatX4TestEv'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='7721' u='c' c='_ZN6idMatX4TestEv'/>
+<doc f='codebrowser/idlib/math/Matrix.cpp' l='5046'>/*
+============
+idMatX::SVD_Factor
+
+  in-place factorization: U * Diag(w) * V.Transpose()
+  known as the Singular Value Decomposition.
+  U is a column-orthogonal matrix which overwrites the original matrix.
+  w is a diagonal matrix with all elements &gt;= 0 which are the singular values.
+  V is the transpose of an orthogonal matrix.
+============
+*/</doc>

@@ -1,0 +1,11 @@
+<dec f='codebrowser/renderer/Material.h' l='372' type='const shaderStage_t * idMaterial::GetBumpStage() const'/>
+<doc f='codebrowser/renderer/Material.h' l='370'>// get the first bump map stage, or NULL if not present.
+						// used for bumpy-specular</doc>
+<def f='codebrowser/renderer/Material.cpp' l='2709' ll='2716' type='const shaderStage_t * idMaterial::GetBumpStage() const'/>
+<doc f='codebrowser/renderer/Material.cpp' l='2704'>/*
+===================
+idMaterial::GetBumpStage
+===================
+*/</doc>
+<use f='codebrowser/renderer/draw_common.cpp' l='196' u='c' c='_Z24RB_PrepareStageTexturingPK13shaderStage_tPK10drawSurf_sP10idDrawVert'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='296' u='c' c='_Z23RB_FinishStageTexturingPK13shaderStage_tPK10drawSurf_sP10idDrawVert'/>

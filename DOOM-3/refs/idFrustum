@@ -1,0 +1,109 @@
+<def f='codebrowser/idlib/bv/Frustum.h' l='40' ll='145'/>
+<size>68</size>
+<doc f='codebrowser/idlib/bv/Frustum.h' l='32'>/*
+===============================================================================
+
+	Orthogonal Frustum
+
+===============================================================================
+*/</doc>
+<fun r='_ZN9idFrustumC1Ev'/>
+<fun r='_ZN9idFrustum9SetOriginERK6idVec3'/>
+<fun r='_ZN9idFrustum7SetAxisERK6idMat3'/>
+<fun r='_ZN9idFrustum7SetSizeEffff'/>
+<fun r='_ZN9idFrustum10SetPyramidEff'/>
+<fun r='_ZN9idFrustum16MoveNearDistanceEf'/>
+<fun r='_ZN9idFrustum15MoveFarDistanceEf'/>
+<fun r='_ZNK9idFrustum9GetOriginEv'/>
+<fun r='_ZNK9idFrustum7GetAxisEv'/>
+<fun r='_ZNK9idFrustum9GetCenterEv'/>
+<fun r='_ZNK9idFrustum7IsValidEv'/>
+<fun r='_ZNK9idFrustum15GetNearDistanceEv'/>
+<fun r='_ZNK9idFrustum14GetFarDistanceEv'/>
+<fun r='_ZNK9idFrustum7GetLeftEv'/>
+<fun r='_ZNK9idFrustum5GetUpEv'/>
+<fun r='_ZNK9idFrustum6ExpandEf'/>
+<fun r='_ZN9idFrustum10ExpandSelfEf'/>
+<fun r='_ZNK9idFrustum9TranslateERK6idVec3'/>
+<fun r='_ZN9idFrustum13TranslateSelfERK6idVec3'/>
+<fun r='_ZNK9idFrustum6RotateERK6idMat3'/>
+<fun r='_ZN9idFrustum10RotateSelfERK6idMat3'/>
+<fun r='_ZNK9idFrustum13PlaneDistanceERK7idPlane'/>
+<fun r='_ZNK9idFrustum9PlaneSideERK7idPlanef'/>
+<fun r='_ZNK9idFrustum9CullPointERK6idVec3'/>
+<fun r='_ZNK9idFrustum10CullBoundsERK8idBounds'/>
+<fun r='_ZNK9idFrustum7CullBoxERK5idBox'/>
+<fun r='_ZNK9idFrustum10CullSphereERK8idSphere'/>
+<fun r='_ZNK9idFrustum11CullFrustumERKS_'/>
+<fun r='_ZNK9idFrustum11CullWindingERK9idWinding'/>
+<fun r='_ZNK9idFrustum13ContainsPointERK6idVec3'/>
+<fun r='_ZNK9idFrustum16IntersectsBoundsERK8idBounds'/>
+<fun r='_ZNK9idFrustum13IntersectsBoxERK5idBox'/>
+<fun r='_ZNK9idFrustum16IntersectsSphereERK8idSphere'/>
+<fun r='_ZNK9idFrustum17IntersectsFrustumERKS_'/>
+<fun r='_ZNK9idFrustum17IntersectsWindingERK9idWinding'/>
+<fun r='_ZNK9idFrustum16LineIntersectionERK6idVec3S2_'/>
+<fun r='_ZNK9idFrustum15RayIntersectionERK6idVec3S2_RfS3_'/>
+<fun r='_ZN9idFrustum14FromProjectionERK8idBoundsRK6idVec3f'/>
+<fun r='_ZN9idFrustum14FromProjectionERK5idBoxRK6idVec3f'/>
+<fun r='_ZN9idFrustum14FromProjectionERK8idSphereRK6idVec3f'/>
+<fun r='_ZN9idFrustum17ConstrainToBoundsERK8idBounds'/>
+<fun r='_ZN9idFrustum14ConstrainToBoxERK5idBox'/>
+<fun r='_ZN9idFrustum17ConstrainToSphereERK8idSphere'/>
+<fun r='_ZN9idFrustum18ConstrainToFrustumERKS_'/>
+<fun r='_ZNK9idFrustum8ToPlanesEP7idPlane'/>
+<fun r='_ZNK9idFrustum8ToPointsEP6idVec3'/>
+<fun r='_ZNK9idFrustum14AxisProjectionERK6idVec3RfS3_'/>
+<fun r='_ZNK9idFrustum14AxisProjectionERK6idMat3R8idBounds'/>
+<fun r='_ZNK9idFrustum16ProjectionBoundsERK8idBoundsRS0_'/>
+<fun r='_ZNK9idFrustum16ProjectionBoundsERK5idBoxR8idBounds'/>
+<fun r='_ZNK9idFrustum16ProjectionBoundsERK8idSphereR8idBounds'/>
+<fun r='_ZNK9idFrustum16ProjectionBoundsERKS_R8idBounds'/>
+<fun r='_ZNK9idFrustum16ProjectionBoundsERK9idWindingR8idBounds'/>
+<fun r='_ZNK9idFrustum23ClippedProjectionBoundsERKS_RK5idBoxR8idBounds'/>
+<mbr r='idFrustum::origin' o='0' t='idVec3'/>
+<mbr r='idFrustum::axis' o='96' t='idMat3'/>
+<mbr r='idFrustum::dNear' o='384' t='float'/>
+<mbr r='idFrustum::dFar' o='416' t='float'/>
+<mbr r='idFrustum::dLeft' o='448' t='float'/>
+<mbr r='idFrustum::dUp' o='480' t='float'/>
+<mbr r='idFrustum::invFar' o='512' t='float'/>
+<fun r='_ZNK9idFrustum12CullLocalBoxERK6idVec3S2_RK6idMat3'/>
+<fun r='_ZNK9idFrustum16CullLocalFrustumERKS_PK6idVec3S4_'/>
+<fun r='_ZNK9idFrustum16CullLocalWindingEPK6idVec3iPi'/>
+<fun r='_ZNK9idFrustum22BoundsCullLocalFrustumERK8idBoundsRKS_PK6idVec3S7_'/>
+<fun r='_ZNK9idFrustum21LocalLineIntersectionERK6idVec3S2_'/>
+<fun r='_ZNK9idFrustum20LocalRayIntersectionERK6idVec3S2_RfS3_'/>
+<fun r='_ZNK9idFrustum29LocalFrustumIntersectsFrustumEPK6idVec3b'/>
+<fun r='_ZNK9idFrustum28LocalFrustumIntersectsBoundsEPK6idVec3RK8idBounds'/>
+<fun r='_ZNK9idFrustum15ToClippedPointsEPKfP6idVec3'/>
+<fun r='_ZNK9idFrustum13ToIndexPointsEP6idVec3'/>
+<fun r='_ZNK9idFrustum26ToIndexPointsAndCornerVecsEP6idVec3S1_'/>
+<fun r='_ZNK9idFrustum14AxisProjectionEPK6idVec3S2_RS1_RfS4_'/>
+<fun r='_ZNK9idFrustum37AddLocalLineToProjectionBoundsSetCullERK6idVec3S2_RiS3_R8idBounds'/>
+<fun r='_ZNK9idFrustum37AddLocalLineToProjectionBoundsUseCullERK6idVec3S2_iiR8idBounds'/>
+<fun r='_ZNK9idFrustum30AddLocalCapsToProjectionBoundsEPK6idVec3PKiRS1_iiR8idBounds'/>
+<fun r='_ZNK9idFrustum21BoundsRayIntersectionERK8idBoundsRK6idVec3S5_RfS6_'/>
+<fun r='_ZNK9idFrustum16ClipFrustumToBoxERK5idBoxPfPi'/>
+<fun r='_ZNK9idFrustum8ClipLineEPK6idVec3S2_iiRS0_S3_RiS4_'/>
+<fun r='_ZN9idFrustumC1Ev'/>
+<fun r='_ZN9idFrustum9SetOriginERK6idVec3'/>
+<fun r='_ZN9idFrustum7SetAxisERK6idMat3'/>
+<fun r='_ZN9idFrustum7SetSizeEffff'/>
+<fun r='_ZN9idFrustum10SetPyramidEff'/>
+<fun r='_ZN9idFrustum16MoveNearDistanceEf'/>
+<fun r='_ZN9idFrustum15MoveFarDistanceEf'/>
+<fun r='_ZNK9idFrustum9GetOriginEv'/>
+<fun r='_ZNK9idFrustum7GetAxisEv'/>
+<fun r='_ZNK9idFrustum9GetCenterEv'/>
+<fun r='_ZNK9idFrustum7IsValidEv'/>
+<fun r='_ZNK9idFrustum15GetNearDistanceEv'/>
+<fun r='_ZNK9idFrustum14GetFarDistanceEv'/>
+<fun r='_ZNK9idFrustum7GetLeftEv'/>
+<fun r='_ZNK9idFrustum5GetUpEv'/>
+<fun r='_ZNK9idFrustum6ExpandEf'/>
+<fun r='_ZN9idFrustum10ExpandSelfEf'/>
+<fun r='_ZNK9idFrustum9TranslateERK6idVec3'/>
+<fun r='_ZN9idFrustum13TranslateSelfERK6idVec3'/>
+<fun r='_ZNK9idFrustum6RotateERK6idMat3'/>
+<fun r='_ZN9idFrustum10RotateSelfERK6idMat3'/>

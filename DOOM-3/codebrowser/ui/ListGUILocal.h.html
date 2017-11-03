@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ListGUILocal.h source code [codebrowser/ui/ListGUILocal.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idListGUILocal "/>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/ui/ListGUILocal.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>ui</a>/<a href='ListGUILocal.h.html'>ListGUILocal.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__LISTGUILOCAL_H__">__LISTGUILOCAL_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__LISTGUILOCAL_H__" data-ref="_M/__LISTGUILOCAL_H__">__LISTGUILOCAL_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>	feed data to a listDef</i></td></tr>
+<tr><th id="36">36</th><td><i>	each item has an id and a display string</i></td></tr>
+<tr><th id="37">37</th><td><i></i></td></tr>
+<tr><th id="38">38</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="39">39</th><td><i>*/</i></td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><b>class</b> <dfn class="type def" id="idListGUILocal" title='idListGUILocal' data-ref="idListGUILocal">idListGUILocal</dfn> : <b>protected</b> <a class="type" href="../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>&gt;, <b>public</b> <a class="type" href="ListGUI.h.html#idListGUI" title='idListGUI' data-ref="idListGUI">idListGUI</a> {</td></tr>
+<tr><th id="42">42</th><td><b>public</b>:</td></tr>
+<tr><th id="43">43</th><td>						<dfn class="decl def" id="_ZN14idListGUILocalC1Ev" title='idListGUILocal::idListGUILocal' data-ref="_ZN14idListGUILocalC1Ev">idListGUILocal</dfn>() { <a class="member" href="#idListGUILocal::m_pGUI" title='idListGUILocal::m_pGUI' data-ref="idListGUILocal::m_pGUI">m_pGUI</a> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>; <a class="member" href="#idListGUILocal::m_water" title='idListGUILocal::m_water' data-ref="idListGUILocal::m_water">m_water</a> = <var>0</var>; <a class="member" href="#idListGUILocal::m_stateUpdates" title='idListGUILocal::m_stateUpdates' data-ref="idListGUILocal::m_stateUpdates">m_stateUpdates</a> = <b>true</b>; }</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td>	<i>// idListGUI interface</i></td></tr>
+<tr><th id="46">46</th><td>	<em>void</em>				<dfn class="virtual decl def" id="_ZN14idListGUILocal6ConfigEP15idUserInterfacePKc" title='idListGUILocal::Config' data-ref="_ZN14idListGUILocal6ConfigEP15idUserInterfacePKc">Config</dfn>( <a class="type" href="UserInterface.h.html#idUserInterface" title='idUserInterface' data-ref="idUserInterface">idUserInterface</a> *<dfn class="local col1 decl" id="1pGUI" title='pGUI' data-type='idUserInterface *' data-ref="1pGUI">pGUI</dfn>, <em>const</em> <em>char</em> *<dfn class="local col2 decl" id="2name" title='name' data-type='const char *' data-ref="2name">name</dfn> ) { <a class="member" href="#idListGUILocal::m_pGUI" title='idListGUILocal::m_pGUI' data-ref="idListGUILocal::m_pGUI">m_pGUI</a> = <a class="local col1 ref" href="#1pGUI" title='pGUI' data-ref="1pGUI">pGUI</a>; <a class="member" href="#idListGUILocal::m_name" title='idListGUILocal::m_name' data-ref="idListGUILocal::m_name">m_name</a> <a class="ref" href="../idlib/Str.h.html#_ZN5idStraSEPKc" title='idStr::operator=' data-ref="_ZN5idStraSEPKc">=</a> <a class="local col2 ref" href="#2name" title='name' data-ref="2name">name</a>; }</td></tr>
+<tr><th id="47">47</th><td>	<em>void</em>				<a class="virtual decl" href="ListGUI.cpp.html#_ZN14idListGUILocal3AddEiRK5idStr" title='idListGUILocal::Add' data-ref="_ZN14idListGUILocal3AddEiRK5idStr" id="_ZN14idListGUILocal3AddEiRK5idStr">Add</a>( <em>int</em> <dfn class="local col3 decl" id="3id" title='id' data-type='int' data-ref="3id">id</dfn>, <em>const</em> <a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>&amp; <dfn class="local col4 decl" id="4s" title='s' data-type='const idStr &amp;' data-ref="4s">s</dfn> );</td></tr>
+<tr><th id="48">48</th><td>						<i>// use the element count as index for the ids</i></td></tr>
+<tr><th id="49">49</th><td>	<em>void</em>				<a class="virtual decl" href="ListGUI.cpp.html#_ZN14idListGUILocal4PushERK5idStr" title='idListGUILocal::Push' data-ref="_ZN14idListGUILocal4PushERK5idStr" id="_ZN14idListGUILocal4PushERK5idStr">Push</a>( <em>const</em> <a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>&amp; <dfn class="local col5 decl" id="5s" title='s' data-type='const idStr &amp;' data-ref="5s">s</dfn> );</td></tr>
+<tr><th id="50">50</th><td>	<em>bool</em>				<a class="virtual decl" href="ListGUI.cpp.html#_ZN14idListGUILocal3DelEi" title='idListGUILocal::Del' data-ref="_ZN14idListGUILocal3DelEi" id="_ZN14idListGUILocal3DelEi">Del</a>( <em>int</em> <dfn class="local col6 decl" id="6id" title='id' data-type='int' data-ref="6id">id</dfn> );</td></tr>
+<tr><th id="51">51</th><td>	<em>void</em>				<a class="virtual decl" href="ListGUI.cpp.html#_ZN14idListGUILocal5ClearEv" title='idListGUILocal::Clear' data-ref="_ZN14idListGUILocal5ClearEv" id="_ZN14idListGUILocal5ClearEv">Clear</a>( <em>void</em> );</td></tr>
+<tr><th id="52">52</th><td>	<em>int</em>					<dfn class="virtual decl def" id="_ZN14idListGUILocal3NumEv" title='idListGUILocal::Num' data-ref="_ZN14idListGUILocal3NumEv">Num</dfn>( <em>void</em> ) { <b>return</b> <a class="type" href="../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>&gt;::<a class="member" href="../idlib/containers/List.h.html#_ZNK6idList3NumEv" title='idList::Num' data-ref="_ZNK6idList3NumEv">Num</a>(); }</td></tr>
+<tr><th id="53">53</th><td>	<em>int</em>					<a class="virtual decl" href="ListGUI.cpp.html#_ZNK14idListGUILocal12GetSelectionEPcii" title='idListGUILocal::GetSelection' data-ref="_ZNK14idListGUILocal12GetSelectionEPcii" id="_ZNK14idListGUILocal12GetSelectionEPcii">GetSelection</a>( <em>char</em> *<dfn class="local col7 decl" id="7s" title='s' data-type='char *' data-ref="7s">s</dfn>, <em>int</em> <dfn class="local col8 decl" id="8size" title='size' data-type='int' data-ref="8size">size</dfn>, <em>int</em> <dfn class="local col9 decl" id="9sel" title='sel' data-type='int' data-ref="9sel">sel</dfn> = <var>0</var> ) <em>const</em>; <i>// returns the id, not the list index (or -1)</i></td></tr>
+<tr><th id="54">54</th><td>	<em>void</em>				<a class="virtual decl" href="ListGUI.cpp.html#_ZN14idListGUILocal12SetSelectionEi" title='idListGUILocal::SetSelection' data-ref="_ZN14idListGUILocal12SetSelectionEi" id="_ZN14idListGUILocal12SetSelectionEi">SetSelection</a>( <em>int</em> <dfn class="local col0 decl" id="10sel" title='sel' data-type='int' data-ref="10sel">sel</dfn> );</td></tr>
+<tr><th id="55">55</th><td>	<em>int</em>					<a class="virtual decl" href="ListGUI.cpp.html#_ZN14idListGUILocal16GetNumSelectionsEv" title='idListGUILocal::GetNumSelections' data-ref="_ZN14idListGUILocal16GetNumSelectionsEv" id="_ZN14idListGUILocal16GetNumSelectionsEv">GetNumSelections</a>();</td></tr>
+<tr><th id="56">56</th><td>	<em>bool</em>				<a class="virtual decl" href="ListGUI.cpp.html#_ZNK14idListGUILocal12IsConfiguredEv" title='idListGUILocal::IsConfigured' data-ref="_ZNK14idListGUILocal12IsConfiguredEv" id="_ZNK14idListGUILocal12IsConfiguredEv">IsConfigured</a>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="57">57</th><td>	<em>void</em>				<a class="virtual decl" href="ListGUI.cpp.html#_ZN14idListGUILocal15SetStateChangesEb" title='idListGUILocal::SetStateChanges' data-ref="_ZN14idListGUILocal15SetStateChangesEb" id="_ZN14idListGUILocal15SetStateChangesEb">SetStateChanges</a>( <em>bool</em> <dfn class="local col1 decl" id="11enable" title='enable' data-type='bool' data-ref="11enable">enable</dfn> );</td></tr>
+<tr><th id="58">58</th><td>	<em>void</em>				<a class="virtual decl" href="ListGUI.cpp.html#_ZN14idListGUILocal8ShutdownEv" title='idListGUILocal::Shutdown' data-ref="_ZN14idListGUILocal8ShutdownEv" id="_ZN14idListGUILocal8ShutdownEv">Shutdown</a>( <em>void</em> );</td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td><b>private</b>:</td></tr>
+<tr><th id="61">61</th><td>	<a class="type" href="UserInterface.h.html#idUserInterface" title='idUserInterface' data-ref="idUserInterface">idUserInterface</a> *	<dfn class="decl" id="idListGUILocal::m_pGUI" title='idListGUILocal::m_pGUI' data-ref="idListGUILocal::m_pGUI">m_pGUI</dfn>;</td></tr>
+<tr><th id="62">62</th><td>	<a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>				<dfn class="decl" id="idListGUILocal::m_name" title='idListGUILocal::m_name' data-ref="idListGUILocal::m_name">m_name</dfn>;</td></tr>
+<tr><th id="63">63</th><td>	<em>int</em>					<dfn class="decl" id="idListGUILocal::m_water" title='idListGUILocal::m_water' data-ref="idListGUILocal::m_water">m_water</dfn>;</td></tr>
+<tr><th id="64">64</th><td>	<a class="type" href="../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<em>int</em>&gt;			<dfn class="decl" id="idListGUILocal::m_ids" title='idListGUILocal::m_ids' data-ref="idListGUILocal::m_ids">m_ids</dfn>;</td></tr>
+<tr><th id="65">65</th><td>	<em>bool</em>				<dfn class="decl" id="idListGUILocal::m_stateUpdates" title='idListGUILocal::m_stateUpdates' data-ref="idListGUILocal::m_stateUpdates">m_stateUpdates</dfn>;</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td>	<em>void</em>				<a class="decl" href="ListGUI.cpp.html#_ZN14idListGUILocal12StateChangedEv" title='idListGUILocal::StateChanged' data-ref="_ZN14idListGUILocal12StateChangedEv" id="_ZN14idListGUILocal12StateChangedEv">StateChanged</a>();</td></tr>
+<tr><th id="68">68</th><td>};</td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td><u>#<span data-ppcond="29">endif</span> /* !__LISTGUILOCAL_H__ */</u></td></tr>
+<tr><th id="71">71</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='ListGUI.cpp.html'>codebrowser/ui/ListGUI.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

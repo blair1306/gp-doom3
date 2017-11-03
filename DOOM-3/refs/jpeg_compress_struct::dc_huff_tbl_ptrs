@@ -1,0 +1,15 @@
+<dec f='codebrowser/renderer/jpeg-6/jpeglib.h' l='304' type='JHUFF_TBL *[4]'/>
+<offset>640</offset>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='302'>/* ptrs to coefficient quantization tables, or NULL if not defined */</doc>
+<use f='codebrowser/renderer/jpeg-6/jcapimin.c' l='57' u='w' c='jpeg_create_compress'/>
+<use f='codebrowser/renderer/jpeg-6/jcapimin.c' l='116' u='r' c='jpeg_suppress_tables'/>
+<use f='codebrowser/renderer/jpeg-6/jchuff.c' l='131' u='r' c='start_pass_huff'/>
+<use f='codebrowser/renderer/jpeg-6/jchuff.c' l='154' u='r' c='start_pass_huff'/>
+<use f='codebrowser/renderer/jpeg-6/jchuff.c' l='803' u='a' c='finish_pass_gather'/>
+<use f='codebrowser/renderer/jpeg-6/jcmarker.c' l='181' u='r' c='emit_dht'/>
+<use f='codebrowser/renderer/jpeg-6/jcmarker.c' l='610' u='r' c='write_tables_only'/>
+<use f='codebrowser/renderer/jpeg-6/jcparam.c' l='228' u='a' c='std_huff_tables'/>
+<use f='codebrowser/renderer/jpeg-6/jcparam.c' l='232' u='a' c='std_huff_tables'/>
+<use f='codebrowser/renderer/jpeg-6/jcphuff.c' l='157' u='r' c='start_pass_phuff'/>
+<use f='codebrowser/renderer/jpeg-6/jcphuff.c' l='177' u='r' c='start_pass_phuff'/>
+<use f='codebrowser/renderer/jpeg-6/jcphuff.c' l='793' u='a' c='finish_pass_gather_phuff'/>

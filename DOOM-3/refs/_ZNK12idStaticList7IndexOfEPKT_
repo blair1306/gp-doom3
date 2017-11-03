@@ -1,0 +1,13 @@
+<dec f='codebrowser/idlib/containers/StaticList.h' l='71' type='int idStaticList::IndexOf(const type * obj) const'/>
+<def f='codebrowser/idlib/containers/StaticList.h' l='473' ll='483' type='int idStaticList::IndexOf(const type * objptr) const'/>
+<doc f='codebrowser/idlib/containers/StaticList.h' l='71'>// returns the index for the pointer to an element in the list</doc>
+<doc f='codebrowser/idlib/containers/StaticList.h' l='463'>/*
+================
+idStaticList&lt;type,size&gt;::IndexOf
+
+Takes a pointer to an element in the list and returns the index of the element.
+This is NOT a guarantee that the object is really in the list. 
+Function will assert in debug builds if pointer is outside the bounds of the list,
+but remains silent in release builds.
+================
+*/</doc>

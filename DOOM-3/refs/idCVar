@@ -1,0 +1,59 @@
+<def f='codebrowser/framework/CVarSystem.h' l='114' ll='179'/>
+<size>52</size>
+<doc f='codebrowser/framework/CVarSystem.h' l='106'>/*
+===============================================================================
+
+	idCVar
+
+===============================================================================
+*/</doc>
+<fun r='_ZN6idCVarC1Ev'/>
+<fun r='_ZN6idCVarC1EPKcS1_iS1_PFvRK9idCmdArgsPFvS1_EE'/>
+<fun r='_ZN6idCVarC1EPKcS1_iS1_ffPFvRK9idCmdArgsPFvS1_EE'/>
+<fun r='_ZN6idCVarC1EPKcS1_iS1_PS1_PFvRK9idCmdArgsPFvS1_EE'/>
+<fun r='_ZN6idCVarD1Ev'/>
+<fun r='_ZNK6idCVar7GetNameEv'/>
+<fun r='_ZNK6idCVar8GetFlagsEv'/>
+<fun r='_ZNK6idCVar14GetDescriptionEv'/>
+<fun r='_ZNK6idCVar11GetMinValueEv'/>
+<fun r='_ZNK6idCVar11GetMaxValueEv'/>
+<fun r='_ZNK6idCVar15GetValueStringsEv'/>
+<fun r='_ZNK6idCVar18GetValueCompletionEv'/>
+<fun r='_ZNK6idCVar10IsModifiedEv'/>
+<fun r='_ZN6idCVar11SetModifiedEv'/>
+<fun r='_ZN6idCVar13ClearModifiedEv'/>
+<fun r='_ZNK6idCVar9GetStringEv'/>
+<fun r='_ZNK6idCVar7GetBoolEv'/>
+<fun r='_ZNK6idCVar10GetIntegerEv'/>
+<fun r='_ZNK6idCVar8GetFloatEv'/>
+<fun r='_ZN6idCVar9SetStringEPKc'/>
+<fun r='_ZN6idCVar7SetBoolEb'/>
+<fun r='_ZN6idCVar10SetIntegerEi'/>
+<fun r='_ZN6idCVar8SetFloatEf'/>
+<fun r='_ZN6idCVar14SetInternalVarEPS_'/>
+<fun r='_ZN6idCVar18RegisterStaticVarsEv'/>
+<mbr r='idCVar::name' o='32' t='const char *'/>
+<mbr r='idCVar::value' o='64' t='const char *'/>
+<mbr r='idCVar::description' o='96' t='const char *'/>
+<mbr r='idCVar::flags' o='128' t='int'/>
+<mbr r='idCVar::valueMin' o='160' t='float'/>
+<mbr r='idCVar::valueMax' o='192' t='float'/>
+<mbr r='idCVar::valueStrings' o='224' t='const char **'/>
+<mbr r='idCVar::valueCompletion' o='256' t='argCompletion_t'/>
+<mbr r='idCVar::integerValue' o='288' t='int'/>
+<mbr r='idCVar::floatValue' o='320' t='float'/>
+<mbr r='idCVar::internalVar' o='352' t='idCVar *'/>
+<mbr r='idCVar::next' o='384' t='idCVar *'/>
+<fun r='_ZN6idCVar4InitEPKcS1_iS1_ffPS1_PFvRK9idCmdArgsPFvS1_EE'/>
+<fun r='_ZN6idCVar17InternalSetStringEPKc'/>
+<fun r='_ZN6idCVar15InternalSetBoolEb'/>
+<fun r='_ZN6idCVar18InternalSetIntegerEi'/>
+<fun r='_ZN6idCVar16InternalSetFloatEf'/>
+<smbr r='idCVar::staticVars' t='idCVar *'/>
+<fun r='_ZN6idCVarC1EPKcS1_iS1_PFvRK9idCmdArgsPFvS1_EE'/>
+<fun r='_ZN6idCVarC1EPKcS1_iS1_ffPFvRK9idCmdArgsPFvS1_EE'/>
+<fun r='_ZN6idCVarC1EPKcS1_iS1_PS1_PFvRK9idCmdArgsPFvS1_EE'/>
+<fun r='_ZN6idCVar4InitEPKcS1_iS1_ffPS1_PFvRK9idCmdArgsPFvS1_EE'/>
+<fun r='_ZN6idCVar18RegisterStaticVarsEv'/>
+<ovr f='codebrowser/framework/CVarSystem.cpp' l='42' c='idInternalCVar'/>
+<smbr r='idCVar::staticVars' t='idCVar *'/>

@@ -1,0 +1,12 @@
+<dec f='codebrowser/renderer/RenderWorld_local.h' l='198' type='void idRenderWorldLocal::FlowLightThroughPortals(idRenderLightLocal * light)'/>
+<def f='codebrowser/renderer/RenderWorld_portals.cpp' l='444' ll='463' type='void idRenderWorldLocal::FlowLightThroughPortals(idRenderLightLocal * light)'/>
+<doc f='codebrowser/renderer/RenderWorld_portals.cpp' l='435'>/*
+=======================
+FlowLightThroughPortals
+
+Adds an arearef in each area that the light center flows into.
+This can only be used for shadow casting lights that have a generated
+prelight, because shadows are cast from back side which may not be in visible areas.
+=======================
+*/</doc>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='487' u='c' c='_Z17R_CreateLightRefsP18idRenderLightLocal'/>

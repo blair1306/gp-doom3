@@ -1,0 +1,53 @@
+<def f='codebrowser/d3xp/gamesys/Event.h' l='88' ll='128'/>
+<size>36</size>
+<mbr r='idEvent::eventdef' o='0' t='const idEventDef *'/>
+<mbr r='idEvent::data' o='32' t='byte *'/>
+<mbr r='idEvent::time' o='64' t='int'/>
+<mbr r='idEvent::object' o='96' t='idClass *'/>
+<mbr r='idEvent::typeinfo' o='128' t='const idTypeInfo *'/>
+<mbr r='idEvent::eventNode' o='160' t='idLinkList&lt;idEvent&gt;'/>
+<smbr r='idEvent::eventDataAllocator' t='idDynamicBlockAlloc&lt;byte, 16 * 1024, 256&gt;'/>
+<smbr r='idEvent::initialized' t='bool'/>
+<fun r='_ZN7idEventD1Ev'/>
+<fun r='_ZN7idEvent5AllocEPK10idEventDefiPc'/>
+<fun r='_ZN7idEvent8CopyArgsEPK10idEventDefiPcPi'/>
+<fun r='_ZN7idEvent4FreeEv'/>
+<fun r='_ZN7idEvent8ScheduleEP7idClassPK10idTypeInfoi'/>
+<fun r='_ZN7idEvent7GetDataEv'/>
+<fun r='_ZN7idEvent12CancelEventsEPK7idClassPK10idEventDef'/>
+<fun r='_ZN7idEvent14ClearEventListEv'/>
+<fun r='_ZN7idEvent13ServiceEventsEv'/>
+<fun r='_ZN7idEvent17ServiceFastEventsEv'/>
+<fun r='_ZN7idEvent4InitEv'/>
+<fun r='_ZN7idEvent8ShutdownEv'/>
+<fun r='_ZN7idEvent4SaveEP10idSaveGame'/>
+<fun r='_ZN7idEvent7RestoreEP13idRestoreGame'/>
+<fun r='_ZN7idEvent9SaveTraceEP10idSaveGameRK7trace_s'/>
+<fun r='_ZN7idEvent12RestoreTraceEP13idRestoreGameR7trace_s'/>
+<fun r='_ZN7idEvent7GetDataEv'/>
+<def f='codebrowser/game/gamesys/Event.h' l='88' ll='125'/>
+<size>36</size>
+<mbr r='idEvent::eventdef' o='0' t='const idEventDef *'/>
+<mbr r='idEvent::data' o='32' t='byte *'/>
+<mbr r='idEvent::time' o='64' t='int'/>
+<mbr r='idEvent::object' o='96' t='idClass *'/>
+<mbr r='idEvent::typeinfo' o='128' t='const idTypeInfo *'/>
+<mbr r='idEvent::eventNode' o='160' t='idLinkList&lt;idEvent&gt;'/>
+<smbr r='idEvent::eventDataAllocator' t='idDynamicBlockAlloc&lt;byte, 16 * 1024, 256&gt;'/>
+<smbr r='idEvent::initialized' t='bool'/>
+<fun r='_ZN7idEventD1Ev'/>
+<fun r='_ZN7idEvent5AllocEPK10idEventDefiPc'/>
+<fun r='_ZN7idEvent8CopyArgsEPK10idEventDefiPcPi'/>
+<fun r='_ZN7idEvent4FreeEv'/>
+<fun r='_ZN7idEvent8ScheduleEP7idClassPK10idTypeInfoi'/>
+<fun r='_ZN7idEvent7GetDataEv'/>
+<fun r='_ZN7idEvent12CancelEventsEPK7idClassPK10idEventDef'/>
+<fun r='_ZN7idEvent14ClearEventListEv'/>
+<fun r='_ZN7idEvent13ServiceEventsEv'/>
+<fun r='_ZN7idEvent4InitEv'/>
+<fun r='_ZN7idEvent8ShutdownEv'/>
+<fun r='_ZN7idEvent4SaveEP10idSaveGame'/>
+<fun r='_ZN7idEvent7RestoreEP13idRestoreGame'/>
+<fun r='_ZN7idEvent9SaveTraceEP10idSaveGameRK7trace_s'/>
+<fun r='_ZN7idEvent12RestoreTraceEP13idRestoreGameR7trace_s'/>
+<fun r='_ZN7idEvent7GetDataEv'/>

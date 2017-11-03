@@ -1,0 +1,63 @@
+<def f='codebrowser/renderer/jpeg-6/jpeglib.h' l='267' ll='401'/>
+<size>340</size>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='265'>/* Master record for a compression instance */</doc>
+<mbr r='jpeg_compress_struct::err' o='0' t='struct jpeg_error_mgr *'/>
+<mbr r='jpeg_compress_struct::mem' o='32' t='struct jpeg_memory_mgr *'/>
+<mbr r='jpeg_compress_struct::progress' o='64' t='struct jpeg_progress_mgr *'/>
+<mbr r='jpeg_compress_struct::is_decompressor' o='96' t='boolean'/>
+<mbr r='jpeg_compress_struct::global_state' o='128' t='int'/>
+<mbr r='jpeg_compress_struct::dest' o='160' t='struct jpeg_destination_mgr *'/>
+<mbr r='jpeg_compress_struct::image_width' o='192' t='JDIMENSION'/>
+<mbr r='jpeg_compress_struct::image_height' o='224' t='JDIMENSION'/>
+<mbr r='jpeg_compress_struct::input_components' o='256' t='int'/>
+<mbr r='jpeg_compress_struct::in_color_space' o='288' t='J_COLOR_SPACE'/>
+<mbr r='jpeg_compress_struct::input_gamma' o='320' t='double'/>
+<mbr r='jpeg_compress_struct::data_precision' o='384' t='int'/>
+<mbr r='jpeg_compress_struct::num_components' o='416' t='int'/>
+<mbr r='jpeg_compress_struct::jpeg_color_space' o='448' t='J_COLOR_SPACE'/>
+<mbr r='jpeg_compress_struct::comp_info' o='480' t='jpeg_component_info *'/>
+<mbr r='jpeg_compress_struct::quant_tbl_ptrs' o='512' t='JQUANT_TBL *[4]'/>
+<mbr r='jpeg_compress_struct::dc_huff_tbl_ptrs' o='640' t='JHUFF_TBL *[4]'/>
+<mbr r='jpeg_compress_struct::ac_huff_tbl_ptrs' o='768' t='JHUFF_TBL *[4]'/>
+<mbr r='jpeg_compress_struct::arith_dc_L' o='896' t='UINT8 [16]'/>
+<mbr r='jpeg_compress_struct::arith_dc_U' o='1024' t='UINT8 [16]'/>
+<mbr r='jpeg_compress_struct::arith_ac_K' o='1152' t='UINT8 [16]'/>
+<mbr r='jpeg_compress_struct::num_scans' o='1280' t='int'/>
+<mbr r='jpeg_compress_struct::scan_info' o='1312' t='const jpeg_scan_info *'/>
+<mbr r='jpeg_compress_struct::raw_data_in' o='1344' t='boolean'/>
+<mbr r='jpeg_compress_struct::arith_code' o='1352' t='boolean'/>
+<mbr r='jpeg_compress_struct::optimize_coding' o='1360' t='boolean'/>
+<mbr r='jpeg_compress_struct::CCIR601_sampling' o='1368' t='boolean'/>
+<mbr r='jpeg_compress_struct::smoothing_factor' o='1376' t='int'/>
+<mbr r='jpeg_compress_struct::dct_method' o='1408' t='J_DCT_METHOD'/>
+<mbr r='jpeg_compress_struct::restart_interval' o='1440' t='unsigned int'/>
+<mbr r='jpeg_compress_struct::restart_in_rows' o='1472' t='int'/>
+<mbr r='jpeg_compress_struct::write_JFIF_header' o='1504' t='boolean'/>
+<mbr r='jpeg_compress_struct::density_unit' o='1512' t='UINT8'/>
+<mbr r='jpeg_compress_struct::X_density' o='1520' t='UINT16'/>
+<mbr r='jpeg_compress_struct::Y_density' o='1536' t='UINT16'/>
+<mbr r='jpeg_compress_struct::write_Adobe_marker' o='1552' t='boolean'/>
+<mbr r='jpeg_compress_struct::next_scanline' o='1568' t='JDIMENSION'/>
+<mbr r='jpeg_compress_struct::progressive_mode' o='1600' t='boolean'/>
+<mbr r='jpeg_compress_struct::max_h_samp_factor' o='1632' t='int'/>
+<mbr r='jpeg_compress_struct::max_v_samp_factor' o='1664' t='int'/>
+<mbr r='jpeg_compress_struct::total_iMCU_rows' o='1696' t='JDIMENSION'/>
+<mbr r='jpeg_compress_struct::comps_in_scan' o='1728' t='int'/>
+<mbr r='jpeg_compress_struct::cur_comp_info' o='1760' t='jpeg_component_info *[4]'/>
+<mbr r='jpeg_compress_struct::MCUs_per_row' o='1888' t='JDIMENSION'/>
+<mbr r='jpeg_compress_struct::MCU_rows_in_scan' o='1920' t='JDIMENSION'/>
+<mbr r='jpeg_compress_struct::blocks_in_MCU' o='1952' t='int'/>
+<mbr r='jpeg_compress_struct::MCU_membership' o='1984' t='int [10]'/>
+<mbr r='jpeg_compress_struct::Ss' o='2304' t='int'/>
+<mbr r='jpeg_compress_struct::Se' o='2336' t='int'/>
+<mbr r='jpeg_compress_struct::Ah' o='2368' t='int'/>
+<mbr r='jpeg_compress_struct::Al' o='2400' t='int'/>
+<mbr r='jpeg_compress_struct::master' o='2432' t='struct jpeg_comp_master *'/>
+<mbr r='jpeg_compress_struct::main' o='2464' t='struct jpeg_c_main_controller *'/>
+<mbr r='jpeg_compress_struct::prep' o='2496' t='struct jpeg_c_prep_controller *'/>
+<mbr r='jpeg_compress_struct::coef' o='2528' t='struct jpeg_c_coef_controller *'/>
+<mbr r='jpeg_compress_struct::marker' o='2560' t='struct jpeg_marker_writer *'/>
+<mbr r='jpeg_compress_struct::cconvert' o='2592' t='struct jpeg_color_converter *'/>
+<mbr r='jpeg_compress_struct::downsample' o='2624' t='struct jpeg_downsampler *'/>
+<mbr r='jpeg_compress_struct::fdct' o='2656' t='struct jpeg_forward_dct *'/>
+<mbr r='jpeg_compress_struct::entropy' o='2688' t='struct jpeg_entropy_encoder *'/>

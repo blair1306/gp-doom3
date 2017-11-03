@@ -1,0 +1,18 @@
+<def f='codebrowser/renderer/Material.h' l='378' type='bool idMaterial::IsDrawn() const'/>
+<use f='codebrowser/renderer/Material.h' l='396' u='c' c='_ZNK10idMaterial11ReceivesFogEv'/>
+<use f='codebrowser/renderer/Material.h' l='431' u='c' c='_ZNK10idMaterial21HasHigherDmapPriorityERKS_'/>
+<use f='codebrowser/renderer/Material.h' l='431' u='c' c='_ZNK10idMaterial21HasHigherDmapPriorityERKS_'/>
+<doc f='codebrowser/renderer/Material.h' l='374'>// returns true if the material will draw anything at all.  Triggers, portals,
+						// etc, will not have anything to draw.  A not drawn surface can still castShadow,
+						// which can be used to make a simplified shadow hull for a complex object set
+						// as noShadow</doc>
+<use f='codebrowser/framework/DeclSkin.cpp' l='170' u='c' c='_ZNK10idDeclSkin17RemapShaderBySkinEPK10idMaterial'/>
+<use f='codebrowser/renderer/Material.cpp' l='2267' u='c' c='_ZN10idMaterial5ParseEPKci'/>
+<use f='codebrowser/renderer/Model_md5.cpp' l='781' u='c' c='_ZN16idRenderModelMD523InstantiateDynamicModelEPK14renderEntity_sPK9viewDef_sP13idRenderModel'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1117' u='c' c='_ZNK18idRenderWorldLocal10ModelTraceER12modelTrace_siRK6idVec3S4_f'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='2095' u='c' c='_Z22R_GlobalShaderOverridePPK10idMaterial'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='2124' u='c' c='_Z19R_RemapShaderBySkinPK10idMaterialPK10idDeclSkinS1_'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='373' u='c' c='_Z20RB_T_FillDepthBufferPK10drawSurf_s'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1375' u='c' c='_ZL21R_AddAmbientDrawsurfsP12viewEntity_s'/>
+<use f='codebrowser/tools/compilers/dmap/optimize.cpp' l='1860' u='c' c='_ZL17PointInSourceTrisfffP15optimizeGroup_s'/>
+<use f='codebrowser/tools/compilers/dmap/usurface.cpp' l='168' u='c' c='_Z14TriListForSidePK6side_sPK9idWinding'/>

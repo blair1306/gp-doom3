@@ -1,0 +1,102 @@
+<def f='codebrowser/d3xp/physics/Clip.h' l='248' ll='330'/>
+<size>340</size>
+<doc f='codebrowser/d3xp/physics/Clip.h' l='242'>//===============================================================
+//
+//	idClip
+//
+//===============================================================</doc>
+<fun r='_ZN6idClipC1Ev'/>
+<fun r='_ZN6idClip4InitEv'/>
+<fun r='_ZN6idClip8ShutdownEv'/>
+<fun r='_ZN6idClip11TranslationER7trace_sRK6idVec3S4_PK11idClipModelRK6idMat3iPK8idEntity'/>
+<fun r='_ZN6idClip8RotationER7trace_sRK6idVec3RK10idRotationPK11idClipModelRK6idMat3iPK8idEntity'/>
+<fun r='_ZN6idClip6MotionER7trace_sRK6idVec3S4_RK10idRotationPK11idClipModelRK6idMat3iPK8idEntity'/>
+<fun r='_ZN6idClip8ContactsEP13contactInfo_tiRK6idVec3RK6idVec6fPK11idClipModelRK6idMat3iPK8idEntity'/>
+<fun r='_ZN6idClip8ContentsERK6idVec3PK11idClipModelRK6idMat3iPK8idEntity'/>
+<fun r='_ZN6idClip10TracePointER7trace_sRK6idVec3S4_iPK8idEntity'/>
+<fun r='_ZN6idClip11TraceBoundsER7trace_sRK6idVec3S4_RK8idBoundsiPK8idEntity'/>
+<fun r='_ZN6idClip16TranslationModelER7trace_sRK6idVec3S4_PK11idClipModelRK6idMat3iiS4_SA_'/>
+<fun r='_ZN6idClip13RotationModelER7trace_sRK6idVec3RK10idRotationPK11idClipModelRK6idMat3iiS4_SD_'/>
+<fun r='_ZN6idClip13ContactsModelEP13contactInfo_tiRK6idVec3RK6idVec6fPK11idClipModelRK6idMat3iiS4_SD_'/>
+<fun r='_ZN6idClip13ContentsModelERK6idVec3PK11idClipModelRK6idMat3iiS2_S8_'/>
+<fun r='_ZN6idClip19TranslationEntitiesER7trace_sRK6idVec3S4_PK11idClipModelRK6idMat3iPK8idEntity'/>
+<fun r='_ZNK6idClip22GetModelContactFeatureERK13contactInfo_tPK11idClipModelR14idFixedWinding'/>
+<fun r='_ZNK6idClip22EntitiesTouchingBoundsERK8idBoundsiPP8idEntityi'/>
+<fun r='_ZNK6idClip24ClipModelsTouchingBoundsERK8idBoundsiPP11idClipModeli'/>
+<fun r='_ZNK6idClip14GetWorldBoundsEv'/>
+<fun r='_ZN6idClip16DefaultClipModelEv'/>
+<fun r='_ZN6idClip15PrintStatisticsEv'/>
+<fun r='_ZN6idClip14DrawClipModelsERK6idVec3fPK8idEntity'/>
+<fun r='_ZNK6idClip23DrawModelContactFeatureERK13contactInfo_tPK11idClipModeli'/>
+<mbr r='idClip::numClipSectors' o='0' t='int'/>
+<mbr r='idClip::clipSectors' o='32' t='struct clipSector_s *'/>
+<mbr r='idClip::worldBounds' o='64' t='idBounds'/>
+<mbr r='idClip::temporaryClipModel' o='256' t='idClipModel'/>
+<mbr r='idClip::defaultClipModel' o='1376' t='idClipModel'/>
+<mbr r='idClip::touchCount' o='2496' t='int'/>
+<mbr r='idClip::numTranslations' o='2528' t='int'/>
+<mbr r='idClip::numRotations' o='2560' t='int'/>
+<mbr r='idClip::numMotions' o='2592' t='int'/>
+<mbr r='idClip::numRenderModelTraces' o='2624' t='int'/>
+<mbr r='idClip::numContents' o='2656' t='int'/>
+<mbr r='idClip::numContacts' o='2688' t='int'/>
+<fun r='_ZN6idClip19CreateClipSectors_rEiRK8idBoundsR6idVec3'/>
+<fun r='_ZNK6idClip26ClipModelsTouchingBounds_rEPK12clipSector_sR11listParms_s'/>
+<fun r='_ZNK6idClip22TraceModelForClipModelEPK11idClipModel'/>
+<fun r='_ZNK6idClip18GetTraceClipModelsERK8idBoundsiPK8idEntityPP11idClipModel'/>
+<fun r='_ZNK6idClip16TraceRenderModelER7trace_sRK6idVec3S4_fRK6idMat3P11idClipModel'/>
+<fun r='_ZN6idClip10TracePointER7trace_sRK6idVec3S4_iPK8idEntity'/>
+<fun r='_ZN6idClip11TraceBoundsER7trace_sRK6idVec3S4_RK8idBoundsiPK8idEntity'/>
+<fun r='_ZNK6idClip14GetWorldBoundsEv'/>
+<fun r='_ZN6idClip16DefaultClipModelEv'/>
+<def f='codebrowser/game/physics/Clip.h' l='248' ll='330'/>
+<size>340</size>
+<doc f='codebrowser/game/physics/Clip.h' l='242'>//===============================================================
+//
+//	idClip
+//
+//===============================================================</doc>
+<fun r='_ZN6idClipC1Ev'/>
+<fun r='_ZN6idClip4InitEv'/>
+<fun r='_ZN6idClip8ShutdownEv'/>
+<fun r='_ZN6idClip11TranslationER7trace_sRK6idVec3S4_PK11idClipModelRK6idMat3iPK8idEntity'/>
+<fun r='_ZN6idClip8RotationER7trace_sRK6idVec3RK10idRotationPK11idClipModelRK6idMat3iPK8idEntity'/>
+<fun r='_ZN6idClip6MotionER7trace_sRK6idVec3S4_RK10idRotationPK11idClipModelRK6idMat3iPK8idEntity'/>
+<fun r='_ZN6idClip8ContactsEP13contactInfo_tiRK6idVec3RK6idVec6fPK11idClipModelRK6idMat3iPK8idEntity'/>
+<fun r='_ZN6idClip8ContentsERK6idVec3PK11idClipModelRK6idMat3iPK8idEntity'/>
+<fun r='_ZN6idClip10TracePointER7trace_sRK6idVec3S4_iPK8idEntity'/>
+<fun r='_ZN6idClip11TraceBoundsER7trace_sRK6idVec3S4_RK8idBoundsiPK8idEntity'/>
+<fun r='_ZN6idClip16TranslationModelER7trace_sRK6idVec3S4_PK11idClipModelRK6idMat3iiS4_SA_'/>
+<fun r='_ZN6idClip13RotationModelER7trace_sRK6idVec3RK10idRotationPK11idClipModelRK6idMat3iiS4_SD_'/>
+<fun r='_ZN6idClip13ContactsModelEP13contactInfo_tiRK6idVec3RK6idVec6fPK11idClipModelRK6idMat3iiS4_SD_'/>
+<fun r='_ZN6idClip13ContentsModelERK6idVec3PK11idClipModelRK6idMat3iiS2_S8_'/>
+<fun r='_ZN6idClip19TranslationEntitiesER7trace_sRK6idVec3S4_PK11idClipModelRK6idMat3iPK8idEntity'/>
+<fun r='_ZNK6idClip22GetModelContactFeatureERK13contactInfo_tPK11idClipModelR14idFixedWinding'/>
+<fun r='_ZNK6idClip22EntitiesTouchingBoundsERK8idBoundsiPP8idEntityi'/>
+<fun r='_ZNK6idClip24ClipModelsTouchingBoundsERK8idBoundsiPP11idClipModeli'/>
+<fun r='_ZNK6idClip14GetWorldBoundsEv'/>
+<fun r='_ZN6idClip16DefaultClipModelEv'/>
+<fun r='_ZN6idClip15PrintStatisticsEv'/>
+<fun r='_ZN6idClip14DrawClipModelsERK6idVec3fPK8idEntity'/>
+<fun r='_ZNK6idClip23DrawModelContactFeatureERK13contactInfo_tPK11idClipModeli'/>
+<mbr r='idClip::numClipSectors' o='0' t='int'/>
+<mbr r='idClip::clipSectors' o='32' t='struct clipSector_s *'/>
+<mbr r='idClip::worldBounds' o='64' t='idBounds'/>
+<mbr r='idClip::temporaryClipModel' o='256' t='idClipModel'/>
+<mbr r='idClip::defaultClipModel' o='1376' t='idClipModel'/>
+<mbr r='idClip::touchCount' o='2496' t='int'/>
+<mbr r='idClip::numTranslations' o='2528' t='int'/>
+<mbr r='idClip::numRotations' o='2560' t='int'/>
+<mbr r='idClip::numMotions' o='2592' t='int'/>
+<mbr r='idClip::numRenderModelTraces' o='2624' t='int'/>
+<mbr r='idClip::numContents' o='2656' t='int'/>
+<mbr r='idClip::numContacts' o='2688' t='int'/>
+<fun r='_ZN6idClip19CreateClipSectors_rEiRK8idBoundsR6idVec3'/>
+<fun r='_ZNK6idClip26ClipModelsTouchingBounds_rEPK12clipSector_sR11listParms_s'/>
+<fun r='_ZNK6idClip22TraceModelForClipModelEPK11idClipModel'/>
+<fun r='_ZNK6idClip18GetTraceClipModelsERK8idBoundsiPK8idEntityPP11idClipModel'/>
+<fun r='_ZNK6idClip16TraceRenderModelER7trace_sRK6idVec3S4_fRK6idMat3P11idClipModel'/>
+<fun r='_ZN6idClip10TracePointER7trace_sRK6idVec3S4_iPK8idEntity'/>
+<fun r='_ZN6idClip11TraceBoundsER7trace_sRK6idVec3S4_RK8idBoundsiPK8idEntity'/>
+<fun r='_ZNK6idClip14GetWorldBoundsEv'/>
+<fun r='_ZN6idClip16DefaultClipModelEv'/>

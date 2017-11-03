@@ -1,0 +1,84 @@
+<dec f='codebrowser/d3xp/Entity.h' l='228' type='idAnimator * idEntity::GetAnimator()'/>
+<use f='codebrowser/d3xp/AF.cpp' l='109' u='c' c='_ZN4idAF7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/d3xp/AF.cpp' l='243' u='c' c='_ZN4idAF9SetupPoseEP8idEntityi'/>
+<use f='codebrowser/d3xp/AF.cpp' l='297' u='c' c='_ZN4idAF10ChangePoseEP8idEntityi'/>
+<doc f='codebrowser/d3xp/Entity.h' l='228'>// returns animator object used by this entity</doc>
+<use f='codebrowser/d3xp/Actor.cpp' l='100' u='c' c='_ZN11idAnimState7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='582' u='c' c='_ZN7idActor5SpawnEv'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='760' u='c' c='_ZN7idActor24CopyJointsFromBodyToHeadEv'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='1135' u='c' c='_ZN7idActor9SetupBodyEv'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='1138' u='c' c='_ZN7idActor9SetupBodyEv'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='1143' u='c' c='_ZN7idActor9SetupBodyEv'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='1147' u='c' c='_ZN7idActor9SetupBodyEv'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='1148' u='c' c='_ZN7idActor9SetupBodyEv'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='1149' u='c' c='_ZN7idActor9SetupBodyEv'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='1150' u='c' c='_ZN7idActor9SetupBodyEv'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='1158' u='c' c='_ZN7idActor9SetupBodyEv'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='1205' u='c' c='_ZN7idActor10CheckBlinkEv'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='2510' u='c' c='_ZN7idActor21Event_DisableEyeFocusEv'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='1277' u='c' c='_ZN8idEntity11UpdateModelEv'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='1529' u='c' c='_ZN8idEntity18UpdateRenderEntityEP14renderEntity_sPK12renderView_s'/>
+<def f='codebrowser/d3xp/Entity.cpp' l='1566' ll='1568' type='idAnimator * idEntity::GetAnimator()'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='1929' u='c' c='_ZN8idEntity11BindToJointEPS_PKcb'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='2321' u='c' c='_ZNK8idEntity17GetMasterPositionER6idVec3R6idMat3'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='3985' u='c' c='_ZN8idEntity15Event_SpawnBindEv'/>
+<ovr f='codebrowser/d3xp/Entity.cpp' l='5213' c='_ZN16idAnimatedEntity11GetAnimatorEv'/>
+<doc f='codebrowser/d3xp/Entity.cpp' l='1559'>/*
+================
+idEntity::GetAnimator
+
+Subclasses will be responsible for allocating animator.
+================
+*/</doc>
+<use f='codebrowser/d3xp/GameEdit.cpp' l='269' u='c' c='_ZN12idDragEntity6UpdateEP8idPlayer'/>
+<use f='codebrowser/d3xp/IK.cpp' l='92' u='c' c='_ZN4idIK7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/d3xp/IK.cpp' l='131' u='c' c='_ZN4idIK4InitEP8idEntityPKcRK6idVec3'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='894' u='c' c='_ZN8idWeapon14InitWorldModelEPK15idDeclEntityDef'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='895' u='c' c='_ZN8idWeapon14InitWorldModelEPK15idDeclEntityDef'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='915' u='c' c='_ZN8idWeapon14InitWorldModelEPK15idDeclEntityDef'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='916' u='c' c='_ZN8idWeapon14InitWorldModelEPK15idDeclEntityDef'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='917' u='c' c='_ZN8idWeapon14InitWorldModelEPK15idDeclEntityDef'/>
+<use f='codebrowser/d3xp/anim/Anim_Testmodel.cpp' l='161' u='c' c='_ZN11idTestModel5SpawnEv'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1502' u='c' c='_ZL15Cmd_ListAnims_fRK9idCmdArgs'/>
+<dec f='codebrowser/game/Entity.h' l='212' type='idAnimator * idEntity::GetAnimator()'/>
+<use f='codebrowser/game/AF.cpp' l='109' u='c' c='_ZN4idAF7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/game/AF.cpp' l='243' u='c' c='_ZN4idAF9SetupPoseEP8idEntityi'/>
+<use f='codebrowser/game/AF.cpp' l='297' u='c' c='_ZN4idAF10ChangePoseEP8idEntityi'/>
+<doc f='codebrowser/game/Entity.h' l='212'>// returns animator object used by this entity</doc>
+<use f='codebrowser/game/Actor.cpp' l='100' u='c' c='_ZN11idAnimState7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/game/Actor.cpp' l='562' u='c' c='_ZN7idActor5SpawnEv'/>
+<use f='codebrowser/game/Actor.cpp' l='726' u='c' c='_ZN7idActor24CopyJointsFromBodyToHeadEv'/>
+<use f='codebrowser/game/Actor.cpp' l='1087' u='c' c='_ZN7idActor9SetupBodyEv'/>
+<use f='codebrowser/game/Actor.cpp' l='1090' u='c' c='_ZN7idActor9SetupBodyEv'/>
+<use f='codebrowser/game/Actor.cpp' l='1095' u='c' c='_ZN7idActor9SetupBodyEv'/>
+<use f='codebrowser/game/Actor.cpp' l='1099' u='c' c='_ZN7idActor9SetupBodyEv'/>
+<use f='codebrowser/game/Actor.cpp' l='1100' u='c' c='_ZN7idActor9SetupBodyEv'/>
+<use f='codebrowser/game/Actor.cpp' l='1101' u='c' c='_ZN7idActor9SetupBodyEv'/>
+<use f='codebrowser/game/Actor.cpp' l='1102' u='c' c='_ZN7idActor9SetupBodyEv'/>
+<use f='codebrowser/game/Actor.cpp' l='1110' u='c' c='_ZN7idActor9SetupBodyEv'/>
+<use f='codebrowser/game/Actor.cpp' l='1157' u='c' c='_ZN7idActor10CheckBlinkEv'/>
+<use f='codebrowser/game/Actor.cpp' l='2439' u='c' c='_ZN7idActor21Event_DisableEyeFocusEv'/>
+<use f='codebrowser/game/Entity.cpp' l='1204' u='c' c='_ZN8idEntity11UpdateModelEv'/>
+<use f='codebrowser/game/Entity.cpp' l='1441' u='c' c='_ZN8idEntity18UpdateRenderEntityEP14renderEntity_sPK12renderView_s'/>
+<def f='codebrowser/game/Entity.cpp' l='1474' ll='1476' type='idAnimator * idEntity::GetAnimator()'/>
+<use f='codebrowser/game/Entity.cpp' l='1837' u='c' c='_ZN8idEntity11BindToJointEPS_PKcb'/>
+<use f='codebrowser/game/Entity.cpp' l='2229' u='c' c='_ZNK8idEntity17GetMasterPositionER6idVec3R6idMat3'/>
+<use f='codebrowser/game/Entity.cpp' l='3876' u='c' c='_ZN8idEntity15Event_SpawnBindEv'/>
+<ovr f='codebrowser/game/Entity.cpp' l='5005' c='_ZN16idAnimatedEntity11GetAnimatorEv'/>
+<doc f='codebrowser/game/Entity.cpp' l='1467'>/*
+================
+idEntity::GetAnimator
+
+Subclasses will be responsible for allocating animator.
+================
+*/</doc>
+<use f='codebrowser/game/GameEdit.cpp' l='269' u='c' c='_ZN12idDragEntity6UpdateEP8idPlayer'/>
+<use f='codebrowser/game/IK.cpp' l='92' u='c' c='_ZN4idIK7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/game/IK.cpp' l='131' u='c' c='_ZN4idIK4InitEP8idEntityPKcRK6idVec3'/>
+<use f='codebrowser/game/Weapon.cpp' l='726' u='c' c='_ZN8idWeapon14InitWorldModelEPK15idDeclEntityDef'/>
+<use f='codebrowser/game/Weapon.cpp' l='727' u='c' c='_ZN8idWeapon14InitWorldModelEPK15idDeclEntityDef'/>
+<use f='codebrowser/game/Weapon.cpp' l='747' u='c' c='_ZN8idWeapon14InitWorldModelEPK15idDeclEntityDef'/>
+<use f='codebrowser/game/Weapon.cpp' l='748' u='c' c='_ZN8idWeapon14InitWorldModelEPK15idDeclEntityDef'/>
+<use f='codebrowser/game/Weapon.cpp' l='749' u='c' c='_ZN8idWeapon14InitWorldModelEPK15idDeclEntityDef'/>
+<use f='codebrowser/game/anim/Anim_Testmodel.cpp' l='161' u='c' c='_ZN11idTestModel5SpawnEv'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1433' u='c' c='_ZL15Cmd_ListAnims_fRK9idCmdArgs'/>

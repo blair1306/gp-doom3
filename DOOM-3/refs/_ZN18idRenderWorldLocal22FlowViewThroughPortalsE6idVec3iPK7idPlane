@@ -1,0 +1,13 @@
+<dec f='codebrowser/renderer/RenderWorld_local.h' l='196' type='void idRenderWorldLocal::FlowViewThroughPortals(const idVec3 origin, int numPlanes, const idPlane * planes)'/>
+<def f='codebrowser/renderer/RenderWorld_portals.cpp' l='285' ll='318' type='void idRenderWorldLocal::FlowViewThroughPortals(const idVec3 origin, int numPlanes, const idPlane * planes)'/>
+<use f='codebrowser/renderer/RenderWorld_portals.cpp' l='887' u='c' c='_ZN18idRenderWorldLocal25FindViewLightsAndEntitiesEv'/>
+<doc f='codebrowser/renderer/RenderWorld_portals.cpp' l='275'>/*
+=======================
+FlowViewThroughPortals
+
+Finds viewLights and viewEntities by flowing from an origin through the visible portals.
+origin point can see into.  The planes array defines a volume (positive
+sides facing in) that should contain the origin, such as a view frustum or a point light box.
+Zero planes assumes an unbounded volume.
+=======================
+*/</doc>

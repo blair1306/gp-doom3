@@ -1,0 +1,19 @@
+<dec f='codebrowser/sound/OggVorbis/vorbissrc/codec_internal.h' l='75' type='unsigned char *'/>
+<offset>512</offset>
+<doc f='codebrowser/sound/OggVorbis/vorbissrc/codec_internal.h' l='71'>/* local storage, only used on the encoding side.  This way the
+     application does not need to worry about freeing some packets&apos;
+     memory and not others&apos;; packet storage is always tracked.
+     Cleared next call to a _dsp_ function */</doc>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/block.c' l='345' u='r' c='vorbis_dsp_clear'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/block.c' l='345' u='r' c='vorbis_dsp_clear'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/block.c' l='361' u='r' c='vorbis_analysis_buffer'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/block.c' l='361' u='r' c='vorbis_analysis_buffer'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/block.c' l='361' u='w' c='vorbis_analysis_buffer'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/info.c' l='545' u='r' c='vorbis_analysis_headerout'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/info.c' l='545' u='r' c='vorbis_analysis_headerout'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/info.c' l='546' u='w' c='vorbis_analysis_headerout'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/info.c' l='547' u='r' c='vorbis_analysis_headerout'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/info.c' l='548' u='r' c='vorbis_analysis_headerout'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/info.c' l='590' u='r' c='vorbis_analysis_headerout'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/info.c' l='590' u='r' c='vorbis_analysis_headerout'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/info.c' l='593' u='w' c='vorbis_analysis_headerout'/>

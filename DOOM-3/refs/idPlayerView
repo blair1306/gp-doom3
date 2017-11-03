@@ -1,0 +1,90 @@
+<def f='codebrowser/d3xp/PlayerView.h' l='349' ll='427'/>
+<size>656</size>
+<fun r='_ZN12idPlayerViewC1Ev'/>
+<fun r='_ZNK12idPlayerView4SaveEP10idSaveGame'/>
+<fun r='_ZN12idPlayerView7RestoreEP13idRestoreGame'/>
+<fun r='_ZN12idPlayerView15SetPlayerEntityEP8idPlayer'/>
+<fun r='_ZN12idPlayerView12ClearEffectsEv'/>
+<fun r='_ZN12idPlayerView13DamageImpulseE6idVec3PK6idDict'/>
+<fun r='_ZN12idPlayerView18WeaponFireFeedbackEPK6idDict'/>
+<fun r='_ZNK12idPlayerView11AngleOffsetEv'/>
+<fun r='_ZNK12idPlayerView9ShakeAxisEv'/>
+<fun r='_ZN12idPlayerView14CalculateShakeEv'/>
+<fun r='_ZN12idPlayerView16RenderPlayerViewEP15idUserInterface'/>
+<fun r='_ZN12idPlayerView4FadeE6idVec4i'/>
+<fun r='_ZN12idPlayerView5FlashE6idVec4i'/>
+<fun r='_ZN12idPlayerView13AddBloodSprayEf'/>
+<fun r='_ZN12idPlayerView15EnableBFGVisionEb'/>
+<fun r='_ZN12idPlayerView10SingleViewEP15idUserInterfacePK12renderView_s'/>
+<fun r='_ZN12idPlayerView10ScreenFadeEv'/>
+<fun r='_ZN12idPlayerView13GetScreenBlobEv'/>
+<mbr r='idPlayerView::screenBlobs' o='0' t='screenBlob_t [8]'/>
+<mbr r='idPlayerView::dvFinishTime' o='3072' t='int'/>
+<mbr r='idPlayerView::dvMaterial' o='3104' t='const idMaterial *'/>
+<mbr r='idPlayerView::kickFinishTime' o='3136' t='int'/>
+<mbr r='idPlayerView::kickAngles' o='3168' t='idAngles'/>
+<mbr r='idPlayerView::bfgVision' o='3264' t='bool'/>
+<mbr r='idPlayerView::tunnelMaterial' o='3296' t='const idMaterial *'/>
+<mbr r='idPlayerView::armorMaterial' o='3328' t='const idMaterial *'/>
+<mbr r='idPlayerView::berserkMaterial' o='3360' t='const idMaterial *'/>
+<mbr r='idPlayerView::irGogglesMaterial' o='3392' t='const idMaterial *'/>
+<mbr r='idPlayerView::bloodSprayMaterial' o='3424' t='const idMaterial *'/>
+<mbr r='idPlayerView::bfgMaterial' o='3456' t='const idMaterial *'/>
+<mbr r='idPlayerView::lagoMaterial' o='3488' t='const idMaterial *'/>
+<mbr r='idPlayerView::lastDamageTime' o='3520' t='float'/>
+<mbr r='idPlayerView::fadeColor' o='3552' t='idVec4'/>
+<mbr r='idPlayerView::fadeToColor' o='3680' t='idVec4'/>
+<mbr r='idPlayerView::fadeFromColor' o='3808' t='idVec4'/>
+<mbr r='idPlayerView::fadeRate' o='3936' t='float'/>
+<mbr r='idPlayerView::fadeTime' o='3968' t='int'/>
+<mbr r='idPlayerView::shakeAng' o='4000' t='idAngles'/>
+<mbr r='idPlayerView::player' o='4096' t='idPlayer *'/>
+<mbr r='idPlayerView::view' o='4128' t='renderView_t'/>
+<mbr r='idPlayerView::fxManager' o='5216' t='FullscreenFXManager *'/>
+<fun r='_ZN12idPlayerView7AddWarpE6idVec3ffff'/>
+<fun r='_ZN12idPlayerView8FreeWarpEi'/>
+<def f='codebrowser/game/PlayerView.h' l='52' ll='124'/>
+<size>652</size>
+<fun r='_ZN12idPlayerViewC1Ev'/>
+<fun r='_ZNK12idPlayerView4SaveEP10idSaveGame'/>
+<fun r='_ZN12idPlayerView7RestoreEP13idRestoreGame'/>
+<fun r='_ZN12idPlayerView15SetPlayerEntityEP8idPlayer'/>
+<fun r='_ZN12idPlayerView12ClearEffectsEv'/>
+<fun r='_ZN12idPlayerView13DamageImpulseE6idVec3PK6idDict'/>
+<fun r='_ZN12idPlayerView18WeaponFireFeedbackEPK6idDict'/>
+<fun r='_ZNK12idPlayerView11AngleOffsetEv'/>
+<fun r='_ZNK12idPlayerView9ShakeAxisEv'/>
+<fun r='_ZN12idPlayerView14CalculateShakeEv'/>
+<fun r='_ZN12idPlayerView16RenderPlayerViewEP15idUserInterface'/>
+<fun r='_ZN12idPlayerView4FadeE6idVec4i'/>
+<fun r='_ZN12idPlayerView5FlashE6idVec4i'/>
+<fun r='_ZN12idPlayerView13AddBloodSprayEf'/>
+<fun r='_ZN12idPlayerView15EnableBFGVisionEb'/>
+<fun r='_ZN12idPlayerView10SingleViewEP15idUserInterfacePK12renderView_s'/>
+<fun r='_ZN12idPlayerView12DoubleVisionEP15idUserInterfacePK12renderView_si'/>
+<fun r='_ZN12idPlayerView13BerserkVisionEP15idUserInterfacePK12renderView_s'/>
+<fun r='_ZN12idPlayerView15InfluenceVisionEP15idUserInterfacePK12renderView_s'/>
+<fun r='_ZN12idPlayerView10ScreenFadeEv'/>
+<fun r='_ZN12idPlayerView13GetScreenBlobEv'/>
+<mbr r='idPlayerView::screenBlobs' o='0' t='screenBlob_t [8]'/>
+<mbr r='idPlayerView::dvFinishTime' o='3072' t='int'/>
+<mbr r='idPlayerView::dvMaterial' o='3104' t='const idMaterial *'/>
+<mbr r='idPlayerView::kickFinishTime' o='3136' t='int'/>
+<mbr r='idPlayerView::kickAngles' o='3168' t='idAngles'/>
+<mbr r='idPlayerView::bfgVision' o='3264' t='bool'/>
+<mbr r='idPlayerView::tunnelMaterial' o='3296' t='const idMaterial *'/>
+<mbr r='idPlayerView::armorMaterial' o='3328' t='const idMaterial *'/>
+<mbr r='idPlayerView::berserkMaterial' o='3360' t='const idMaterial *'/>
+<mbr r='idPlayerView::irGogglesMaterial' o='3392' t='const idMaterial *'/>
+<mbr r='idPlayerView::bloodSprayMaterial' o='3424' t='const idMaterial *'/>
+<mbr r='idPlayerView::bfgMaterial' o='3456' t='const idMaterial *'/>
+<mbr r='idPlayerView::lagoMaterial' o='3488' t='const idMaterial *'/>
+<mbr r='idPlayerView::lastDamageTime' o='3520' t='float'/>
+<mbr r='idPlayerView::fadeColor' o='3552' t='idVec4'/>
+<mbr r='idPlayerView::fadeToColor' o='3680' t='idVec4'/>
+<mbr r='idPlayerView::fadeFromColor' o='3808' t='idVec4'/>
+<mbr r='idPlayerView::fadeRate' o='3936' t='float'/>
+<mbr r='idPlayerView::fadeTime' o='3968' t='int'/>
+<mbr r='idPlayerView::shakeAng' o='4000' t='idAngles'/>
+<mbr r='idPlayerView::player' o='4096' t='idPlayer *'/>
+<mbr r='idPlayerView::view' o='4128' t='renderView_t'/>

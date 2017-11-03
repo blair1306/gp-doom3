@@ -1,0 +1,14 @@
+<dec f='codebrowser/sys/posix/posix_public.h' l='61' type='void Sys_DoStartProcess(const char * exeName, bool dofork = true)'/>
+<doc f='codebrowser/sys/posix/posix_public.h' l='61'>// if not forking, current process gets replaced</doc>
+<def f='codebrowser/sys/linux/main.cpp' l='368' ll='414' type='void Sys_DoStartProcess(const char * exeName, bool dofork = true)'/>
+<doc f='codebrowser/sys/linux/main.cpp' l='359'>/*
+==================
+Sys_DoStartProcess
+if we don&apos;t fork, this function never returns
+the no-fork lets you keep the terminal when you&apos;re about to spawn an installer
+
+if the command contains spaces, system() is used. Otherwise the more straightforward execl ( system() blows though )
+==================
+*/</doc>
+<use f='codebrowser/sys/posix/posix_main.cpp' l='94' u='c' c='_Z10Posix_Exiti'/>
+<use f='codebrowser/sys/posix/posix_main.cpp' l='141' u='c' c='_ZN10idSysLocal12StartProcessEPKcb'/>

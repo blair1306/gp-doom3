@@ -1,0 +1,36 @@
+<def f='codebrowser/renderer/tr_trisurf.cpp' l='1375' ll='1437' type='void R_DeriveTangentsWithoutNormals(srfTriangles_t * tri)'/>
+<use f='codebrowser/renderer/tr_trisurf.cpp' l='2128' u='c' c='_Z18R_CleanupTrianglesP14srfTriangles_sbbb'/>
+<doc f='codebrowser/renderer/tr_trisurf.cpp' l='1341'>/*
+=================
+R_DeriveTangentsWithoutNormals
+
+Build texture space tangents for bump mapping
+If a surface is deformed, this must be recalculated
+
+This assumes that any mirrored vertexes have already been duplicated, so
+any shared vertexes will have the tangent spaces smoothed across.
+
+Texture wrapping slightly complicates this, but as long as the normals
+are shared, and the tangent vectors are projected onto the normals, the
+separate vertexes should wind up with identical tangent spaces.
+
+mirroring a normalmap WILL cause a slightly visible seam unless the normals
+are completely flat around the edge&apos;s full bilerp support.
+
+Vertexes which are smooth shaded must have their tangent vectors
+in the same plane, which will allow a seamless
+rendering as long as the normal map is even on both sides of the
+seam.
+
+A smooth shaded surface may have multiple tangent vectors at a vertex
+due to texture seams or mirroring, but it should only have a single
+normal vector.
+
+Each triangle has a pair of tangent vectors in it&apos;s plane
+
+Should we consider having vertexes point at shared tangent spaces
+to save space or speed transforms?
+
+this version only handles bilateral symetry
+=================
+*/</doc>

@@ -1,0 +1,22 @@
+<def f='codebrowser/framework/DeclManager.h' l='220' type='void idDecl::FreeData()'/>
+<doc f='codebrowser/framework/DeclManager.h' l='216'>// Frees any pointers held by the subclass. This may be called before
+							// any Parse(), so the constructor must have set sane values. The decl will be
+							// invalid after issuing this call, but it will always be immediately followed
+							// by a Parse()</doc>
+<ovr f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='2231' c='_ZN14idDeclModelDef8FreeDataEv'/>
+<ovr f='codebrowser/framework/DeclAF.cpp' l='1564' c='_ZN8idDeclAF8FreeDataEv'/>
+<ovr f='codebrowser/framework/DeclEntityDef.cpp' l='47' c='_ZN15idDeclEntityDef8FreeDataEv'/>
+<ovr f='codebrowser/framework/DeclFX.cpp' l='471' c='_ZN8idDeclFX8FreeDataEv'/>
+<use f='codebrowser/framework/DeclManager.cpp' l='880' u='c' c='_ZN18idDeclManagerLocal8ShutdownEv'/>
+<use f='codebrowser/framework/DeclManager.cpp' l='2069' u='c' c='_ZN11idDeclLocal11MakeDefaultEv'/>
+<use f='codebrowser/framework/DeclManager.cpp' l='2168' u='c' c='_ZN11idDeclLocal10ParseLocalEv'/>
+<ovr f='codebrowser/framework/DeclPDA.cpp' l='175' c='_ZN9idDeclPDA8FreeDataEv'/>
+<ovr f='codebrowser/framework/DeclPDA.cpp' l='446' c='_ZN11idDeclEmail8FreeDataEv'/>
+<ovr f='codebrowser/framework/DeclPDA.cpp' l='560' c='_ZN11idDeclVideo8FreeDataEv'/>
+<ovr f='codebrowser/framework/DeclPDA.cpp' l='667' c='_ZN11idDeclAudio8FreeDataEv'/>
+<ovr f='codebrowser/framework/DeclParticle.cpp' l='484' c='_ZN14idDeclParticle8FreeDataEv'/>
+<ovr f='codebrowser/framework/DeclSkin.cpp' l='47' c='_ZN10idDeclSkin8FreeDataEv'/>
+<ovr f='codebrowser/framework/DeclTable.cpp' l='92' c='_ZN11idDeclTable8FreeDataEv'/>
+<ovr f='codebrowser/game/anim/Anim_Blend.cpp' l='2145' c='_ZN14idDeclModelDef8FreeDataEv'/>
+<ovr f='codebrowser/renderer/Material.cpp' l='153' c='_ZN10idMaterial8FreeDataEv'/>
+<ovr f='codebrowser/sound/snd_shader.cpp' l='81' c='_ZN13idSoundShader8FreeDataEv'/>

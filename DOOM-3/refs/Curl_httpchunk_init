@@ -1,0 +1,41 @@
+<dec f='codebrowser/curl/lib/http.h' l='42' type='void Curl_httpchunk_init(struct connectdata * conn)'/>
+<doc f='codebrowser/curl/lib/http.h' l='41'>/* The following functions are defined in http_chunks.c */</doc>
+<def f='codebrowser/curl/lib/http_chunks.c' l='85' ll='91' type='void Curl_httpchunk_init(struct connectdata * conn)'/>
+<use f='codebrowser/curl/lib/http_chunks.c' l='246' u='c' c='Curl_httpchunk_read'/>
+<doc f='codebrowser/curl/lib/http_chunks.c' l='47'>/* 
+ * Chunk format (simplified):
+ *
+ * &lt;HEX SIZE&gt;[ chunk extension ] CRLF
+ * &lt;DATA&gt; CRLF
+ *
+ * Highlights from RFC2616 section 3.6 say:
+
+   The chunked encoding modifies the body of a message in order to
+   transfer it as a series of chunks, each with its own size indicator,
+   followed by an OPTIONAL trailer containing entity-header fields. This
+   allows dynamically produced content to be transferred along with the
+   information necessary for the recipient to verify that it has
+   received the full message.
+
+       Chunked-Body   = *chunk
+                        last-chunk
+                        trailer
+                        CRLF
+
+       chunk          = chunk-size [ chunk-extension ] CRLF
+                        chunk-data CRLF
+       chunk-size     = 1*HEX
+       last-chunk     = 1*(&quot;0&quot;) [ chunk-extension ] CRLF
+
+       chunk-extension= *( &quot;;&quot; chunk-ext-name [ &quot;=&quot; chunk-ext-val ] )
+       chunk-ext-name = token
+       chunk-ext-val  = token | quoted-string
+       chunk-data     = chunk-size(OCTET)
+       trailer        = *(entity-header CRLF)
+
+   The chunk-size field is a string of hex digits indicating the size of
+   the chunk. The chunked encoding is ended by any chunk whose size is
+   zero, followed by the trailer, which is terminated by an empty line.
+
+ */</doc>
+<use f='codebrowser/curl/lib/transfer.c' l='716' u='c' c='Curl_readwrite'/>

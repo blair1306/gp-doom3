@@ -1,0 +1,212 @@
+<inh f='codebrowser/framework/FileSystem.h' l='148' c='idFileSystem'/>
+<def f='codebrowser/framework/FileSystem.cpp' l='340' ll='481'/>
+<size>1820</size>
+<fun r='_ZN17idFileSystemLocalC1Ev'/>
+<fun r='_ZN17idFileSystemLocal4InitEv'/>
+<fun r='_ZN17idFileSystemLocal29StartBackgroundDownloadThreadEv'/>
+<fun r='_ZN17idFileSystemLocal7RestartEv'/>
+<fun r='_ZN17idFileSystemLocal8ShutdownEb'/>
+<fun r='_ZNK17idFileSystemLocal13IsInitializedEv'/>
+<fun r='_ZNK17idFileSystemLocal19PerformingCopyFilesEv'/>
+<fun r='_ZN17idFileSystemLocal8ListModsEv'/>
+<fun r='_ZN17idFileSystemLocal11FreeModListEP9idModList'/>
+<fun r='_ZN17idFileSystemLocal9ListFilesEPKcS1_bbS1_'/>
+<fun r='_ZN17idFileSystemLocal13ListFilesTreeEPKcS1_bS1_'/>
+<fun r='_ZN17idFileSystemLocal12FreeFileListEP10idFileList'/>
+<fun r='_ZN17idFileSystemLocal20OSPathToRelativePathEPKc'/>
+<fun r='_ZN17idFileSystemLocal20RelativePathToOSPathEPKcS1_'/>
+<fun r='_ZN17idFileSystemLocal11BuildOSPathEPKcS1_S1_'/>
+<fun r='_ZN17idFileSystemLocal12CreateOSPathEPKc'/>
+<fun r='_ZN17idFileSystemLocal11FileIsInPAKEPKc'/>
+<fun r='_ZN17idFileSystemLocal25UpdatePureServerChecksumsEv'/>
+<fun r='_ZN17idFileSystemLocal22UpdateGamePakChecksumsEv'/>
+<fun r='_ZN17idFileSystemLocal22SetPureServerChecksumsEPKiiPiS2_'/>
+<fun r='_ZN17idFileSystemLocal22GetPureServerChecksumsEPiiS0_'/>
+<fun r='_ZN17idFileSystemLocal19SetRestartChecksumsEPKii'/>
+<fun r='_ZN17idFileSystemLocal18ClearPureChecksumsEv'/>
+<fun r='_ZN17idFileSystemLocal9GetOSMaskEv'/>
+<fun r='_ZN17idFileSystemLocal8ReadFileEPKcPPvPl'/>
+<fun r='_ZN17idFileSystemLocal8FreeFileEPv'/>
+<fun r='_ZN17idFileSystemLocal9WriteFileEPKcPKviS1_'/>
+<fun r='_ZN17idFileSystemLocal10RemoveFileEPKc'/>
+<fun r='_ZN17idFileSystemLocal17OpenFileReadFlagsEPKciPP6pack_tbS1_'/>
+<fun r='_ZN17idFileSystemLocal12OpenFileReadEPKcbS1_'/>
+<fun r='_ZN17idFileSystemLocal13OpenFileWriteEPKcS1_'/>
+<fun r='_ZN17idFileSystemLocal14OpenFileAppendEPKcbS1_'/>
+<fun r='_ZN17idFileSystemLocal14OpenFileByModeEPKc8fsMode_t'/>
+<fun r='_ZN17idFileSystemLocal20OpenExplicitFileReadEPKc'/>
+<fun r='_ZN17idFileSystemLocal21OpenExplicitFileWriteEPKc'/>
+<fun r='_ZN17idFileSystemLocal9CloseFileEP6idFile'/>
+<fun r='_ZN17idFileSystemLocal18BackgroundDownloadEP20backgroundDownload_s'/>
+<fun r='_ZN17idFileSystemLocal14ResetReadCountEv'/>
+<fun r='_ZN17idFileSystemLocal14AddToReadCountEi'/>
+<fun r='_ZN17idFileSystemLocal12GetReadCountEv'/>
+<fun r='_ZN17idFileSystemLocal7FindDLLEPKcPcb'/>
+<fun r='_ZN17idFileSystemLocal13ClearDirCacheEv'/>
+<fun r='_ZN17idFileSystemLocal7HasD3XPEv'/>
+<fun r='_ZN17idFileSystemLocal11RunningD3XPEv'/>
+<fun r='_ZN17idFileSystemLocal8CopyFileEPKcS1_'/>
+<fun r='_ZN17idFileSystemLocal30ValidateDownloadPakForChecksumEiPcb'/>
+<fun r='_ZN17idFileSystemLocal17MakeTemporaryFileEv'/>
+<fun r='_ZN17idFileSystemLocal10AddZipFileEPKc'/>
+<fun r='_ZN17idFileSystemLocal8FindFileEPKcb'/>
+<fun r='_ZN17idFileSystemLocal10GetNumMapsEv'/>
+<fun r='_ZN17idFileSystemLocal10GetMapDeclEi'/>
+<fun r='_ZN17idFileSystemLocal17FindMapScreenshotEPKcPci'/>
+<fun r='_ZNK17idFileSystemLocal15FilenameCompareEPKcS1_'/>
+<fun r='_ZN17idFileSystemLocal5Dir_fERK9idCmdArgs'/>
+<fun r='_ZN17idFileSystemLocal9DirTree_fERK9idCmdArgs'/>
+<fun r='_ZN17idFileSystemLocal6Path_fERK9idCmdArgs'/>
+<fun r='_ZN17idFileSystemLocal11TouchFile_fERK9idCmdArgs'/>
+<fun r='_ZN17idFileSystemLocal15TouchFileList_fERK9idCmdArgs'/>
+<mbr r='idFileSystemLocal::searchPaths' o='32' t='searchpath_t *'/>
+<mbr r='idFileSystemLocal::readCount' o='64' t='int'/>
+<mbr r='idFileSystemLocal::loadCount' o='96' t='int'/>
+<mbr r='idFileSystemLocal::loadStack' o='128' t='int'/>
+<mbr r='idFileSystemLocal::gameFolder' o='160' t='idStr'/>
+<mbr r='idFileSystemLocal::addonPaks' o='416' t='searchpath_t *'/>
+<mbr r='idFileSystemLocal::mapDict' o='448' t='idDict'/>
+<smbr r='idFileSystemLocal::fs_debug' t='idCVar'/>
+<smbr r='idFileSystemLocal::fs_restrict' t='idCVar'/>
+<smbr r='idFileSystemLocal::fs_copyfiles' t='idCVar'/>
+<smbr r='idFileSystemLocal::fs_basepath' t='idCVar'/>
+<smbr r='idFileSystemLocal::fs_savepath' t='idCVar'/>
+<smbr r='idFileSystemLocal::fs_cdpath' t='idCVar'/>
+<smbr r='idFileSystemLocal::fs_devpath' t='idCVar'/>
+<smbr r='idFileSystemLocal::fs_game' t='idCVar'/>
+<smbr r='idFileSystemLocal::fs_game_base' t='idCVar'/>
+<smbr r='idFileSystemLocal::fs_caseSensitiveOS' t='idCVar'/>
+<smbr r='idFileSystemLocal::fs_searchAddons' t='idCVar'/>
+<mbr r='idFileSystemLocal::backgroundDownloads' o='800' t='backgroundDownload_t *'/>
+<mbr r='idFileSystemLocal::defaultBackgroundDownload' o='832' t='backgroundDownload_t'/>
+<mbr r='idFileSystemLocal::backgroundThread' o='9632' t='xthreadInfo'/>
+<mbr r='idFileSystemLocal::serverPaks' o='9728' t='idList&lt;pack_t *&gt;'/>
+<mbr r='idFileSystemLocal::loadedFileFromDir' o='9856' t='bool'/>
+<mbr r='idFileSystemLocal::restartChecksums' o='9888' t='idList&lt;int&gt;'/>
+<mbr r='idFileSystemLocal::addonChecksums' o='10016' t='idList&lt;int&gt;'/>
+<mbr r='idFileSystemLocal::restartGamePakChecksum' o='10144' t='int'/>
+<mbr r='idFileSystemLocal::gameDLLChecksum' o='10176' t='int'/>
+<mbr r='idFileSystemLocal::gamePakChecksum' o='10208' t='int'/>
+<mbr r='idFileSystemLocal::gamePakForOS' o='10240' t='int [6]'/>
+<mbr r='idFileSystemLocal::dir_cache' o='10432' t='idDEntry [6]'/>
+<mbr r='idFileSystemLocal::dir_cache_index' o='14464' t='int'/>
+<mbr r='idFileSystemLocal::dir_cache_count' o='14496' t='int'/>
+<mbr r='idFileSystemLocal::d3xp' o='14528' t='int'/>
+<fun r='_ZN17idFileSystemLocal17ReplaceSeparatorsER5idStrc'/>
+<fun r='_ZNK17idFileSystemLocal12HashFileNameEPKc'/>
+<fun r='_ZN17idFileSystemLocal11ListOSFilesEPKcS1_R6idListI5idStrE'/>
+<fun r='_ZN17idFileSystemLocal10OpenOSFileEPKcS1_P5idStr'/>
+<fun r='_ZN17idFileSystemLocal21OpenOSFileCorrectNameER5idStrPKc'/>
+<fun r='_ZN17idFileSystemLocal16DirectFileLengthEP8_IO_FILE'/>
+<fun r='_ZN17idFileSystemLocal8CopyFileEP6idFilePKc'/>
+<fun r='_ZNK17idFileSystemLocal9AddUniqueEPKcR6idListI5idStrER11idHashIndex'/>
+<fun r='_ZNK17idFileSystemLocal16GetExtensionListEPKcR6idListI5idStrE'/>
+<fun r='_ZN17idFileSystemLocal11GetFileListEPKcRK6idListI5idStrERS4_R11idHashIndexbS1_'/>
+<fun r='_ZN17idFileSystemLocal15GetFileListTreeEPKcRK6idListI5idStrERS4_R11idHashIndexS1_'/>
+<fun r='_ZN17idFileSystemLocal11LoadZipFileEPKc'/>
+<fun r='_ZN17idFileSystemLocal16AddGameDirectoryEPKcS1_'/>
+<fun r='_ZN17idFileSystemLocal20SetupGameDirectoriesEPKc'/>
+<fun r='_ZN17idFileSystemLocal7StartupEv'/>
+<fun r='_ZN17idFileSystemLocal15SetRestrictionsEv'/>
+<fun r='_ZN17idFileSystemLocal18FileAllowedFromDirEPKc'/>
+<fun r='_ZN17idFileSystemLocal18GetPackForChecksumEib'/>
+<fun r='_ZN17idFileSystemLocal22FindPakForFileChecksumEPKcib'/>
+<fun r='_ZN17idFileSystemLocal15ReadFileFromZipEP6pack_tP12fileInPack_sPKc'/>
+<fun r='_ZN17idFileSystemLocal15GetFileChecksumEP6idFile'/>
+<fun r='_ZN17idFileSystemLocal13GetPackStatusEP6pack_t'/>
+<fun r='_ZN17idFileSystemLocal13ParseAddonDefEPKci'/>
+<fun r='_ZN17idFileSystemLocal23FollowAddonDependenciesEP6pack_t'/>
+<fun r='_ZN17idFileSystemLocal17CurlWriteFunctionEPvjjS0_'/>
+<fun r='_ZN17idFileSystemLocal20CurlProgressFunctionEPvdddd'/>
+<smbr r='idFileSystemLocal::fs_restrict' t='idCVar'/>
+<smbr r='idFileSystemLocal::fs_debug' t='idCVar'/>
+<smbr r='idFileSystemLocal::fs_copyfiles' t='idCVar'/>
+<smbr r='idFileSystemLocal::fs_basepath' t='idCVar'/>
+<smbr r='idFileSystemLocal::fs_savepath' t='idCVar'/>
+<smbr r='idFileSystemLocal::fs_cdpath' t='idCVar'/>
+<smbr r='idFileSystemLocal::fs_devpath' t='idCVar'/>
+<smbr r='idFileSystemLocal::fs_game' t='idCVar'/>
+<smbr r='idFileSystemLocal::fs_game_base' t='idCVar'/>
+<smbr r='idFileSystemLocal::fs_caseSensitiveOS' t='idCVar'/>
+<smbr r='idFileSystemLocal::fs_searchAddons' t='idCVar'/>
+<fun r='_ZN17idFileSystemLocalC1Ev'/>
+<fun r='_ZNK17idFileSystemLocal12HashFileNameEPKc'/>
+<fun r='_ZNK17idFileSystemLocal15FilenameCompareEPKcS1_'/>
+<fun r='_ZN17idFileSystemLocal10OpenOSFileEPKcS1_P5idStr'/>
+<fun r='_ZN17idFileSystemLocal21OpenOSFileCorrectNameER5idStrPKc'/>
+<fun r='_ZN17idFileSystemLocal16DirectFileLengthEP8_IO_FILE'/>
+<fun r='_ZN17idFileSystemLocal12CreateOSPathEPKc'/>
+<fun r='_ZN17idFileSystemLocal8CopyFileEPKcS1_'/>
+<fun r='_ZN17idFileSystemLocal8CopyFileEP6idFilePKc'/>
+<fun r='_ZN17idFileSystemLocal17ReplaceSeparatorsER5idStrc'/>
+<fun r='_ZN17idFileSystemLocal11BuildOSPathEPKcS1_S1_'/>
+<fun r='_ZN17idFileSystemLocal20OSPathToRelativePathEPKc'/>
+<fun r='_ZN17idFileSystemLocal20RelativePathToOSPathEPKcS1_'/>
+<fun r='_ZN17idFileSystemLocal10RemoveFileEPKc'/>
+<fun r='_ZN17idFileSystemLocal11FileIsInPAKEPKc'/>
+<fun r='_ZN17idFileSystemLocal8ReadFileEPKcPPvPl'/>
+<fun r='_ZN17idFileSystemLocal8FreeFileEPv'/>
+<fun r='_ZN17idFileSystemLocal9WriteFileEPKcPKviS1_'/>
+<fun r='_ZN17idFileSystemLocal13ParseAddonDefEPKci'/>
+<fun r='_ZN17idFileSystemLocal11LoadZipFileEPKc'/>
+<fun r='_ZN17idFileSystemLocal10AddZipFileEPKc'/>
+<fun r='_ZNK17idFileSystemLocal9AddUniqueEPKcR6idListI5idStrER11idHashIndex'/>
+<fun r='_ZNK17idFileSystemLocal16GetExtensionListEPKcR6idListI5idStrE'/>
+<fun r='_ZN17idFileSystemLocal11GetFileListEPKcRK6idListI5idStrERS4_R11idHashIndexbS1_'/>
+<fun r='_ZN17idFileSystemLocal9ListFilesEPKcS1_bbS1_'/>
+<fun r='_ZN17idFileSystemLocal15GetFileListTreeEPKcRK6idListI5idStrERS4_R11idHashIndexS1_'/>
+<fun r='_ZN17idFileSystemLocal13ListFilesTreeEPKcS1_bS1_'/>
+<fun r='_ZN17idFileSystemLocal12FreeFileListEP10idFileList'/>
+<fun r='_ZN17idFileSystemLocal8ListModsEv'/>
+<fun r='_ZN17idFileSystemLocal11FreeModListEP9idModList'/>
+<fun r='_ZN17idFileSystemLocal11ListOSFilesEPKcS1_R6idListI5idStrE'/>
+<fun r='_ZN17idFileSystemLocal5Dir_fERK9idCmdArgs'/>
+<fun r='_ZN17idFileSystemLocal9DirTree_fERK9idCmdArgs'/>
+<fun r='_ZN17idFileSystemLocal6Path_fERK9idCmdArgs'/>
+<fun r='_ZN17idFileSystemLocal9GetOSMaskEv'/>
+<fun r='_ZN17idFileSystemLocal11TouchFile_fERK9idCmdArgs'/>
+<fun r='_ZN17idFileSystemLocal15TouchFileList_fERK9idCmdArgs'/>
+<fun r='_ZN17idFileSystemLocal16AddGameDirectoryEPKcS1_'/>
+<fun r='_ZN17idFileSystemLocal20SetupGameDirectoriesEPKc'/>
+<fun r='_ZN17idFileSystemLocal23FollowAddonDependenciesEP6pack_t'/>
+<fun r='_ZN17idFileSystemLocal7StartupEv'/>
+<fun r='_ZN17idFileSystemLocal15SetRestrictionsEv'/>
+<fun r='_ZN17idFileSystemLocal25UpdatePureServerChecksumsEv'/>
+<fun r='_ZN17idFileSystemLocal22UpdateGamePakChecksumsEv'/>
+<fun r='_ZN17idFileSystemLocal18GetPackForChecksumEib'/>
+<fun r='_ZN17idFileSystemLocal30ValidateDownloadPakForChecksumEiPcb'/>
+<fun r='_ZN17idFileSystemLocal18ClearPureChecksumsEv'/>
+<fun r='_ZN17idFileSystemLocal22SetPureServerChecksumsEPKiiPiS2_'/>
+<fun r='_ZN17idFileSystemLocal22GetPureServerChecksumsEPiiS0_'/>
+<fun r='_ZN17idFileSystemLocal19SetRestartChecksumsEPKii'/>
+<fun r='_ZN17idFileSystemLocal4InitEv'/>
+<fun r='_ZN17idFileSystemLocal7RestartEv'/>
+<fun r='_ZN17idFileSystemLocal8ShutdownEb'/>
+<fun r='_ZNK17idFileSystemLocal13IsInitializedEv'/>
+<fun r='_ZN17idFileSystemLocal18FileAllowedFromDirEPKc'/>
+<fun r='_ZN17idFileSystemLocal13GetPackStatusEP6pack_t'/>
+<fun r='_ZN17idFileSystemLocal15ReadFileFromZipEP6pack_tP12fileInPack_sPKc'/>
+<fun r='_ZN17idFileSystemLocal17OpenFileReadFlagsEPKciPP6pack_tbS1_'/>
+<fun r='_ZN17idFileSystemLocal12OpenFileReadEPKcbS1_'/>
+<fun r='_ZN17idFileSystemLocal13OpenFileWriteEPKcS1_'/>
+<fun r='_ZN17idFileSystemLocal20OpenExplicitFileReadEPKc'/>
+<fun r='_ZN17idFileSystemLocal21OpenExplicitFileWriteEPKc'/>
+<fun r='_ZN17idFileSystemLocal14OpenFileAppendEPKcbS1_'/>
+<fun r='_ZN17idFileSystemLocal14OpenFileByModeEPKc8fsMode_t'/>
+<fun r='_ZN17idFileSystemLocal9CloseFileEP6idFile'/>
+<fun r='_ZN17idFileSystemLocal17CurlWriteFunctionEPvjjS0_'/>
+<fun r='_ZN17idFileSystemLocal20CurlProgressFunctionEPvdddd'/>
+<fun r='_ZN17idFileSystemLocal29StartBackgroundDownloadThreadEv'/>
+<fun r='_ZN17idFileSystemLocal18BackgroundDownloadEP20backgroundDownload_s'/>
+<fun r='_ZNK17idFileSystemLocal19PerformingCopyFilesEv'/>
+<fun r='_ZN17idFileSystemLocal22FindPakForFileChecksumEPKcib'/>
+<fun r='_ZN17idFileSystemLocal15GetFileChecksumEP6idFile'/>
+<fun r='_ZN17idFileSystemLocal7FindDLLEPKcPcb'/>
+<fun r='_ZN17idFileSystemLocal13ClearDirCacheEv'/>
+<fun r='_ZN17idFileSystemLocal7HasD3XPEv'/>
+<fun r='_ZN17idFileSystemLocal11RunningD3XPEv'/>
+<fun r='_ZN17idFileSystemLocal17MakeTemporaryFileEv'/>
+<fun r='_ZN17idFileSystemLocal8FindFileEPKcb'/>
+<fun r='_ZN17idFileSystemLocal10GetNumMapsEv'/>
+<fun r='_ZN17idFileSystemLocal10GetMapDeclEi'/>
+<fun r='_ZN17idFileSystemLocal17FindMapScreenshotEPKcPci'/>

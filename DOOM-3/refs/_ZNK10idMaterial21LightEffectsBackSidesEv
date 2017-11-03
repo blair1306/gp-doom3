@@ -1,0 +1,9 @@
+<def f='codebrowser/renderer/Material.h' l='477' type='bool idMaterial::LightEffectsBackSides() const'/>
+<doc f='codebrowser/renderer/Material.h' l='471'>// fog lights, blend lights, ambient lights, etc will all have to have interaction
+						// triangles generated for sides facing away from the light as well as those
+						// facing towards the light.  It is debatable if noshadow lights should effect back
+						// sides, making everything &quot;noSelfShadow&quot;, but that would make noshadow lights
+						// potentially slower than normal lights, which detracts from their optimization
+						// ability, so they currently do not.</doc>
+<use f='codebrowser/renderer/Interaction.cpp' l='301' u='c' c='_ZL17R_CreateLightTrisPK19idRenderEntityLocalPK14srfTriangles_sPK18idRenderLightLocalPK10idMaterialR13srfCullInfo_t'/>
+<use f='codebrowser/tools/compilers/dmap/usurface.cpp' l='939' u='c' c='_ZL18CarveGroupsByLightP9uEntity_tP10mapLight_t'/>

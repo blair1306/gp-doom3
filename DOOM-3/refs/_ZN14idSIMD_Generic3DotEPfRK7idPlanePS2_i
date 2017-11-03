@@ -1,0 +1,10 @@
+<dec f='codebrowser/idlib/math/Simd_Generic.h' l='61' type='void idSIMD_Generic::Dot(float * dst, const idPlane &amp; constant, const idPlane * src, const int count)'/>
+<inh f='codebrowser/idlib/math/Simd.h' l='121' c='_ZN15idSIMDProcessor3DotEPfRK7idPlanePS2_i'/>
+<def f='codebrowser/idlib/math/Simd_Generic.cpp' l='284' ll='288' type='void idSIMD_Generic::Dot(float * dst, const idPlane &amp; constant, const idPlane * src, const int count)'/>
+<doc f='codebrowser/idlib/math/Simd_Generic.cpp' l='277'>/*
+============
+idSIMD_Generic::Dot
+
+  dst[i] = constant.Normal() * src[i].Normal() + constant[3] * src[i][3];
+============
+*/</doc>

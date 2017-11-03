@@ -1,0 +1,15 @@
+<dec f='codebrowser/idlib/bv/Frustum.h' l='104' type='void idFrustum::AxisProjection(const idVec3 &amp; dir, float &amp; min, float &amp; max) const'/>
+<doc f='codebrowser/idlib/bv/Frustum.h' l='103'>// calculates the projection of this frustum onto the given axis</doc>
+<use f='codebrowser/idlib/bv/Frustum.cpp' l='87' u='c' c='_ZNK9idFrustum13PlaneDistanceERK7idPlane'/>
+<use f='codebrowser/idlib/bv/Frustum.cpp' l='105' u='c' c='_ZNK9idFrustum9PlaneSideERK7idPlanef'/>
+<use f='codebrowser/idlib/bv/Frustum.cpp' l='1477' u='c' c='_ZN9idFrustum18ConstrainToFrustumERKS_'/>
+<def f='codebrowser/idlib/bv/Frustum.cpp' l='1684' ll='1689' type='void idFrustum::AxisProjection(const idVec3 &amp; dir, float &amp; min, float &amp; max) const'/>
+<use f='codebrowser/idlib/bv/Frustum.cpp' l='2218' u='c' c='_ZNK9idFrustum16ProjectionBoundsERKS_R8idBounds'/>
+<use f='codebrowser/idlib/bv/Frustum.cpp' l='2639' u='c' c='_ZNK9idFrustum23ClippedProjectionBoundsERKS_RK5idBoxR8idBounds'/>
+<doc f='codebrowser/idlib/bv/Frustum.cpp' l='1677'>/*
+============
+idFrustum::AxisProjection
+
+  40 muls
+============
+*/</doc>

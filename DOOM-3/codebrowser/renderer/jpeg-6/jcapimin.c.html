@@ -1,0 +1,246 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>jcapimin.c source code [codebrowser/renderer/jpeg-6/jcapimin.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/renderer/jpeg-6/jcapimin.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>renderer</a>/<a href='./'>jpeg-6</a>/<a href='jcapimin.c.html'>jcapimin.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i> * jcapimin.c</i></td></tr>
+<tr><th id="3">3</th><td><i> *</i></td></tr>
+<tr><th id="4">4</th><td><i> * Copyright (C) 1994-1995, Thomas G. Lane.</i></td></tr>
+<tr><th id="5">5</th><td><i> * This file is part of the Independent JPEG Group's software.</i></td></tr>
+<tr><th id="6">6</th><td><i> * For conditions of distribution and use, see the accompanying README file.</i></td></tr>
+<tr><th id="7">7</th><td><i> *</i></td></tr>
+<tr><th id="8">8</th><td><i> * This file contains application interface code for the compression half</i></td></tr>
+<tr><th id="9">9</th><td><i> * of the JPEG library.  These are the "minimum" API routines that may be</i></td></tr>
+<tr><th id="10">10</th><td><i> * needed in either the normal full-compression case or the transcoding-only</i></td></tr>
+<tr><th id="11">11</th><td><i> * case.</i></td></tr>
+<tr><th id="12">12</th><td><i> *</i></td></tr>
+<tr><th id="13">13</th><td><i> * Most of the routines intended to be called directly by an application</i></td></tr>
+<tr><th id="14">14</th><td><i> * are in this file or in jcapistd.c.  But also see jcparam.c for</i></td></tr>
+<tr><th id="15">15</th><td><i> * parameter-setup helper routines, jcomapi.c for routines shared by</i></td></tr>
+<tr><th id="16">16</th><td><i> * compression and decompression, and jctrans.c for the transcoding case.</i></td></tr>
+<tr><th id="17">17</th><td><i> */</i></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#define <dfn class="macro" id="_M/JPEG_INTERNALS" data-ref="_M/JPEG_INTERNALS">JPEG_INTERNALS</dfn></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="jinclude.h.html">"jinclude.h"</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="jpeglib.h.html">"jpeglib.h"</a></u></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><i>/*</i></td></tr>
+<tr><th id="25">25</th><td><i> * Initialization of a JPEG compression object.</i></td></tr>
+<tr><th id="26">26</th><td><i> * The error manager must already be set up (in case memory manager fails).</i></td></tr>
+<tr><th id="27">27</th><td><i> */</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><a class="macro" href="jmorecfg.h.html#190" title="" data-ref="_M/GLOBAL">GLOBAL</a> <em>void</em></td></tr>
+<tr><th id="30">30</th><td><dfn class="decl def" id="jpeg_create_compress" title='jpeg_create_compress' data-ref="jpeg_create_compress">jpeg_create_compress</dfn> (<a class="typedef" href="jpeglib.h.html#j_compress_ptr" title='j_compress_ptr' data-type='struct jpeg_compress_struct *' data-ref="j_compress_ptr">j_compress_ptr</a> <dfn class="local col4 decl" id="94cinfo" title='cinfo' data-type='j_compress_ptr' data-ref="94cinfo">cinfo</dfn>)</td></tr>
+<tr><th id="31">31</th><td>{</td></tr>
+<tr><th id="32">32</th><td>  <em>int</em> <dfn class="local col5 decl" id="95i" title='i' data-type='int' data-ref="95i">i</dfn>;</td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td>  <i>/* For debugging purposes, zero the whole master structure.</i></td></tr>
+<tr><th id="35">35</th><td><i>   * But error manager pointer is already there, so save and restore it.</i></td></tr>
+<tr><th id="36">36</th><td><i>   */</i></td></tr>
+<tr><th id="37">37</th><td>  {</td></tr>
+<tr><th id="38">38</th><td>    <b>struct</b> <a class="type" href="jpeglib.h.html#jpeg_error_mgr" title='jpeg_error_mgr' data-ref="jpeg_error_mgr">jpeg_error_mgr</a> * <dfn class="local col6 decl" id="96err" title='err' data-type='struct jpeg_error_mgr *' data-ref="96err">err</dfn> = <a class="local col4 ref" href="#94cinfo" title='cinfo' data-ref="94cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#268" title='jpeg_compress_struct::err' data-ref="jpeg_compress_struct::err">err</a>;</td></tr>
+<tr><th id="39">39</th><td>    <a class="macro" href="jinclude.h.html#67" title="memset((void *)(cinfo), 0, (size_t)(((size_t) sizeof(struct jpeg_compress_struct))))" data-ref="_M/MEMZERO">MEMZERO</a>(<a class="local col4 ref" href="#94cinfo" title='cinfo' data-ref="94cinfo">cinfo</a>, <a class="macro" href="jinclude.h.html#80" title="((size_t) sizeof(struct jpeg_compress_struct))" data-ref="_M/SIZEOF">SIZEOF</a>(<b>struct</b> <a class="type" href="jpeglib.h.html#jpeg_compress_struct" title='jpeg_compress_struct' data-ref="jpeg_compress_struct">jpeg_compress_struct</a>));</td></tr>
+<tr><th id="40">40</th><td>    <a class="local col4 ref" href="#94cinfo" title='cinfo' data-ref="94cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#268" title='jpeg_compress_struct::err' data-ref="jpeg_compress_struct::err">err</a> = <a class="local col6 ref" href="#96err" title='err' data-ref="96err">err</a>;</td></tr>
+<tr><th id="41">41</th><td>  }</td></tr>
+<tr><th id="42">42</th><td>  <a class="local col4 ref" href="#94cinfo" title='cinfo' data-ref="94cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#268" title='jpeg_compress_struct::is_decompressor' data-ref="jpeg_compress_struct::is_decompressor">is_decompressor</a> = <a class="macro" href="jmorecfg.h.html#220" title="0" data-ref="_M/FALSE">FALSE</a>;</td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td>  <i>/* Initialize a memory manager instance for this object */</i></td></tr>
+<tr><th id="45">45</th><td>  <a class="ref" href="jpegint.h.html#jinit_memory_mgr" title='jinit_memory_mgr' data-ref="jinit_memory_mgr">jinit_memory_mgr</a>((<a class="typedef" href="jpeglib.h.html#j_common_ptr" title='j_common_ptr' data-type='struct jpeg_common_struct *' data-ref="j_common_ptr">j_common_ptr</a>) <a class="local col4 ref" href="#94cinfo" title='cinfo' data-ref="94cinfo">cinfo</a>);</td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td>  <i>/* Zero out pointers to permanent structures. */</i></td></tr>
+<tr><th id="48">48</th><td>  <a class="local col4 ref" href="#94cinfo" title='cinfo' data-ref="94cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#268" title='jpeg_compress_struct::progress' data-ref="jpeg_compress_struct::progress">progress</a> = <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="49">49</th><td>  <a class="local col4 ref" href="#94cinfo" title='cinfo' data-ref="94cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::dest" title='jpeg_compress_struct::dest' data-ref="jpeg_compress_struct::dest">dest</a> = <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td>  <a class="local col4 ref" href="#94cinfo" title='cinfo' data-ref="94cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::comp_info" title='jpeg_compress_struct::comp_info' data-ref="jpeg_compress_struct::comp_info">comp_info</a> = <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td>  <b>for</b> (<a class="local col5 ref" href="#95i" title='i' data-ref="95i">i</a> = <var>0</var>; <a class="local col5 ref" href="#95i" title='i' data-ref="95i">i</a> &lt; <a class="macro" href="jpeglib.h.html#44" title="4" data-ref="_M/NUM_QUANT_TBLS">NUM_QUANT_TBLS</a>; <a class="local col5 ref" href="#95i" title='i' data-ref="95i">i</a>++)</td></tr>
+<tr><th id="54">54</th><td>    <a class="local col4 ref" href="#94cinfo" title='cinfo' data-ref="94cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::quant_tbl_ptrs" title='jpeg_compress_struct::quant_tbl_ptrs' data-ref="jpeg_compress_struct::quant_tbl_ptrs">quant_tbl_ptrs</a>[<a class="local col5 ref" href="#95i" title='i' data-ref="95i">i</a>] = <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td>  <b>for</b> (<a class="local col5 ref" href="#95i" title='i' data-ref="95i">i</a> = <var>0</var>; <a class="local col5 ref" href="#95i" title='i' data-ref="95i">i</a> &lt; <a class="macro" href="jpeglib.h.html#45" title="4" data-ref="_M/NUM_HUFF_TBLS">NUM_HUFF_TBLS</a>; <a class="local col5 ref" href="#95i" title='i' data-ref="95i">i</a>++) {</td></tr>
+<tr><th id="57">57</th><td>    <a class="local col4 ref" href="#94cinfo" title='cinfo' data-ref="94cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::dc_huff_tbl_ptrs" title='jpeg_compress_struct::dc_huff_tbl_ptrs' data-ref="jpeg_compress_struct::dc_huff_tbl_ptrs">dc_huff_tbl_ptrs</a>[<a class="local col5 ref" href="#95i" title='i' data-ref="95i">i</a>] = <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="58">58</th><td>    <a class="local col4 ref" href="#94cinfo" title='cinfo' data-ref="94cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::ac_huff_tbl_ptrs" title='jpeg_compress_struct::ac_huff_tbl_ptrs' data-ref="jpeg_compress_struct::ac_huff_tbl_ptrs">ac_huff_tbl_ptrs</a>[<a class="local col5 ref" href="#95i" title='i' data-ref="95i">i</a>] = <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="59">59</th><td>  }</td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td>  <a class="local col4 ref" href="#94cinfo" title='cinfo' data-ref="94cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::input_gamma" title='jpeg_compress_struct::input_gamma' data-ref="jpeg_compress_struct::input_gamma">input_gamma</a> = <var>1.0</var>;	<i>/* in case application forgets */</i></td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td>  <i>/* OK, I'm ready */</i></td></tr>
+<tr><th id="64">64</th><td>  <a class="local col4 ref" href="#94cinfo" title='cinfo' data-ref="94cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#268" title='jpeg_compress_struct::global_state' data-ref="jpeg_compress_struct::global_state">global_state</a> = <a class="macro" href="jpegint.h.html#25" title="100" data-ref="_M/CSTATE_START">CSTATE_START</a>;</td></tr>
+<tr><th id="65">65</th><td>}</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td><i>/*</i></td></tr>
+<tr><th id="69">69</th><td><i> * Destruction of a JPEG compression object</i></td></tr>
+<tr><th id="70">70</th><td><i> */</i></td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td><a class="macro" href="jmorecfg.h.html#190" title="" data-ref="_M/GLOBAL">GLOBAL</a> <em>void</em></td></tr>
+<tr><th id="73">73</th><td><dfn class="decl def" id="jpeg_destroy_compress" title='jpeg_destroy_compress' data-ref="jpeg_destroy_compress">jpeg_destroy_compress</dfn> (<a class="typedef" href="jpeglib.h.html#j_compress_ptr" title='j_compress_ptr' data-type='struct jpeg_compress_struct *' data-ref="j_compress_ptr">j_compress_ptr</a> <dfn class="local col7 decl" id="97cinfo" title='cinfo' data-type='j_compress_ptr' data-ref="97cinfo">cinfo</dfn>)</td></tr>
+<tr><th id="74">74</th><td>{</td></tr>
+<tr><th id="75">75</th><td>  <a class="ref" href="jpeglib.h.html#jpeg_destroy" title='jpeg_destroy' data-ref="jpeg_destroy">jpeg_destroy</a>((<a class="typedef" href="jpeglib.h.html#j_common_ptr" title='j_common_ptr' data-type='struct jpeg_common_struct *' data-ref="j_common_ptr">j_common_ptr</a>) <a class="local col7 ref" href="#97cinfo" title='cinfo' data-ref="97cinfo">cinfo</a>); <i>/* use common routine */</i></td></tr>
+<tr><th id="76">76</th><td>}</td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td></td></tr>
+<tr><th id="79">79</th><td><i>/*</i></td></tr>
+<tr><th id="80">80</th><td><i> * Abort processing of a JPEG compression operation,</i></td></tr>
+<tr><th id="81">81</th><td><i> * but don't destroy the object itself.</i></td></tr>
+<tr><th id="82">82</th><td><i> */</i></td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td><a class="macro" href="jmorecfg.h.html#190" title="" data-ref="_M/GLOBAL">GLOBAL</a> <em>void</em></td></tr>
+<tr><th id="85">85</th><td><dfn class="decl def" id="jpeg_abort_compress" title='jpeg_abort_compress' data-ref="jpeg_abort_compress">jpeg_abort_compress</dfn> (<a class="typedef" href="jpeglib.h.html#j_compress_ptr" title='j_compress_ptr' data-type='struct jpeg_compress_struct *' data-ref="j_compress_ptr">j_compress_ptr</a> <dfn class="local col8 decl" id="98cinfo" title='cinfo' data-type='j_compress_ptr' data-ref="98cinfo">cinfo</dfn>)</td></tr>
+<tr><th id="86">86</th><td>{</td></tr>
+<tr><th id="87">87</th><td>  <a class="ref" href="jpeglib.h.html#jpeg_abort" title='jpeg_abort' data-ref="jpeg_abort">jpeg_abort</a>((<a class="typedef" href="jpeglib.h.html#j_common_ptr" title='j_common_ptr' data-type='struct jpeg_common_struct *' data-ref="j_common_ptr">j_common_ptr</a>) <a class="local col8 ref" href="#98cinfo" title='cinfo' data-ref="98cinfo">cinfo</a>); <i>/* use common routine */</i></td></tr>
+<tr><th id="88">88</th><td>}</td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td><i>/*</i></td></tr>
+<tr><th id="92">92</th><td><i> * Forcibly suppress or un-suppress all quantization and Huffman tables.</i></td></tr>
+<tr><th id="93">93</th><td><i> * Marks all currently defined tables as already written (if suppress)</i></td></tr>
+<tr><th id="94">94</th><td><i> * or not written (if !suppress).  This will control whether they get emitted</i></td></tr>
+<tr><th id="95">95</th><td><i> * by a subsequent jpeg_start_compress call.</i></td></tr>
+<tr><th id="96">96</th><td><i> *</i></td></tr>
+<tr><th id="97">97</th><td><i> * This routine is exported for use by applications that want to produce</i></td></tr>
+<tr><th id="98">98</th><td><i> * abbreviated JPEG datastreams.  It logically belongs in jcparam.c, but</i></td></tr>
+<tr><th id="99">99</th><td><i> * since it is called by jpeg_start_compress, we put it here --- otherwise</i></td></tr>
+<tr><th id="100">100</th><td><i> * jcparam.o would be linked whether the application used it or not.</i></td></tr>
+<tr><th id="101">101</th><td><i> */</i></td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td><a class="macro" href="jmorecfg.h.html#190" title="" data-ref="_M/GLOBAL">GLOBAL</a> <em>void</em></td></tr>
+<tr><th id="104">104</th><td><dfn class="decl def" id="jpeg_suppress_tables" title='jpeg_suppress_tables' data-ref="jpeg_suppress_tables">jpeg_suppress_tables</dfn> (<a class="typedef" href="jpeglib.h.html#j_compress_ptr" title='j_compress_ptr' data-type='struct jpeg_compress_struct *' data-ref="j_compress_ptr">j_compress_ptr</a> <dfn class="local col9 decl" id="99cinfo" title='cinfo' data-type='j_compress_ptr' data-ref="99cinfo">cinfo</dfn>, <a class="typedef" href="jpeglib.h.html#boolean" title='boolean' data-type='unsigned char' data-ref="boolean">boolean</a> <dfn class="local col0 decl" id="100suppress" title='suppress' data-type='boolean' data-ref="100suppress">suppress</dfn>)</td></tr>
+<tr><th id="105">105</th><td>{</td></tr>
+<tr><th id="106">106</th><td>  <em>int</em> <dfn class="local col1 decl" id="101i" title='i' data-type='int' data-ref="101i">i</dfn>;</td></tr>
+<tr><th id="107">107</th><td>  <a class="typedef" href="jpeglib.h.html#JQUANT_TBL" title='JQUANT_TBL' data-type='struct JQUANT_TBL' data-ref="JQUANT_TBL">JQUANT_TBL</a> * <dfn class="local col2 decl" id="102qtbl" title='qtbl' data-type='JQUANT_TBL *' data-ref="102qtbl">qtbl</dfn>;</td></tr>
+<tr><th id="108">108</th><td>  <a class="typedef" href="jpeglib.h.html#JHUFF_TBL" title='JHUFF_TBL' data-type='struct JHUFF_TBL' data-ref="JHUFF_TBL">JHUFF_TBL</a> * <dfn class="local col3 decl" id="103htbl" title='htbl' data-type='JHUFF_TBL *' data-ref="103htbl">htbl</dfn>;</td></tr>
+<tr><th id="109">109</th><td></td></tr>
+<tr><th id="110">110</th><td>  <b>for</b> (<a class="local col1 ref" href="#101i" title='i' data-ref="101i">i</a> = <var>0</var>; <a class="local col1 ref" href="#101i" title='i' data-ref="101i">i</a> &lt; <a class="macro" href="jpeglib.h.html#44" title="4" data-ref="_M/NUM_QUANT_TBLS">NUM_QUANT_TBLS</a>; <a class="local col1 ref" href="#101i" title='i' data-ref="101i">i</a>++) {</td></tr>
+<tr><th id="111">111</th><td>    <b>if</b> ((<a class="local col2 ref" href="#102qtbl" title='qtbl' data-ref="102qtbl">qtbl</a> = <a class="local col9 ref" href="#99cinfo" title='cinfo' data-ref="99cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::quant_tbl_ptrs" title='jpeg_compress_struct::quant_tbl_ptrs' data-ref="jpeg_compress_struct::quant_tbl_ptrs">quant_tbl_ptrs</a>[<a class="local col1 ref" href="#101i" title='i' data-ref="101i">i</a>]) != <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>)</td></tr>
+<tr><th id="112">112</th><td>      <a class="local col2 ref" href="#102qtbl" title='qtbl' data-ref="102qtbl">qtbl</a>-&gt;<a class="ref" href="jpeglib.h.html#(anonymous)::sent_table" title='(anonymous struct)::sent_table' data-ref="(anonymous)::sent_table">sent_table</a> = <a class="local col0 ref" href="#100suppress" title='suppress' data-ref="100suppress">suppress</a>;</td></tr>
+<tr><th id="113">113</th><td>  }</td></tr>
+<tr><th id="114">114</th><td></td></tr>
+<tr><th id="115">115</th><td>  <b>for</b> (<a class="local col1 ref" href="#101i" title='i' data-ref="101i">i</a> = <var>0</var>; <a class="local col1 ref" href="#101i" title='i' data-ref="101i">i</a> &lt; <a class="macro" href="jpeglib.h.html#45" title="4" data-ref="_M/NUM_HUFF_TBLS">NUM_HUFF_TBLS</a>; <a class="local col1 ref" href="#101i" title='i' data-ref="101i">i</a>++) {</td></tr>
+<tr><th id="116">116</th><td>    <b>if</b> ((<a class="local col3 ref" href="#103htbl" title='htbl' data-ref="103htbl">htbl</a> = <a class="local col9 ref" href="#99cinfo" title='cinfo' data-ref="99cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::dc_huff_tbl_ptrs" title='jpeg_compress_struct::dc_huff_tbl_ptrs' data-ref="jpeg_compress_struct::dc_huff_tbl_ptrs">dc_huff_tbl_ptrs</a>[<a class="local col1 ref" href="#101i" title='i' data-ref="101i">i</a>]) != <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>)</td></tr>
+<tr><th id="117">117</th><td>      <a class="local col3 ref" href="#103htbl" title='htbl' data-ref="103htbl">htbl</a>-&gt;<a class="ref" href="jpeglib.h.html#(anonymous)::sent_table" title='(anonymous struct)::sent_table' data-ref="(anonymous)::sent_table">sent_table</a> = <a class="local col0 ref" href="#100suppress" title='suppress' data-ref="100suppress">suppress</a>;</td></tr>
+<tr><th id="118">118</th><td>    <b>if</b> ((<a class="local col3 ref" href="#103htbl" title='htbl' data-ref="103htbl">htbl</a> = <a class="local col9 ref" href="#99cinfo" title='cinfo' data-ref="99cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::ac_huff_tbl_ptrs" title='jpeg_compress_struct::ac_huff_tbl_ptrs' data-ref="jpeg_compress_struct::ac_huff_tbl_ptrs">ac_huff_tbl_ptrs</a>[<a class="local col1 ref" href="#101i" title='i' data-ref="101i">i</a>]) != <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>)</td></tr>
+<tr><th id="119">119</th><td>      <a class="local col3 ref" href="#103htbl" title='htbl' data-ref="103htbl">htbl</a>-&gt;<a class="ref" href="jpeglib.h.html#(anonymous)::sent_table" title='(anonymous struct)::sent_table' data-ref="(anonymous)::sent_table">sent_table</a> = <a class="local col0 ref" href="#100suppress" title='suppress' data-ref="100suppress">suppress</a>;</td></tr>
+<tr><th id="120">120</th><td>  }</td></tr>
+<tr><th id="121">121</th><td>}</td></tr>
+<tr><th id="122">122</th><td></td></tr>
+<tr><th id="123">123</th><td></td></tr>
+<tr><th id="124">124</th><td><i>/*</i></td></tr>
+<tr><th id="125">125</th><td><i> * Finish JPEG compression.</i></td></tr>
+<tr><th id="126">126</th><td><i> *</i></td></tr>
+<tr><th id="127">127</th><td><i> * If a multipass operating mode was selected, this may do a great deal of</i></td></tr>
+<tr><th id="128">128</th><td><i> * work including most of the actual output.</i></td></tr>
+<tr><th id="129">129</th><td><i> */</i></td></tr>
+<tr><th id="130">130</th><td></td></tr>
+<tr><th id="131">131</th><td><a class="macro" href="jmorecfg.h.html#190" title="" data-ref="_M/GLOBAL">GLOBAL</a> <em>void</em></td></tr>
+<tr><th id="132">132</th><td><dfn class="decl def" id="jpeg_finish_compress" title='jpeg_finish_compress' data-ref="jpeg_finish_compress">jpeg_finish_compress</dfn> (<a class="typedef" href="jpeglib.h.html#j_compress_ptr" title='j_compress_ptr' data-type='struct jpeg_compress_struct *' data-ref="j_compress_ptr">j_compress_ptr</a> <dfn class="local col4 decl" id="104cinfo" title='cinfo' data-type='j_compress_ptr' data-ref="104cinfo">cinfo</dfn>)</td></tr>
+<tr><th id="133">133</th><td>{</td></tr>
+<tr><th id="134">134</th><td>  <a class="typedef" href="jmorecfg.h.html#JDIMENSION" title='JDIMENSION' data-type='unsigned int' data-ref="JDIMENSION">JDIMENSION</a> <dfn class="local col5 decl" id="105iMCU_row" title='iMCU_row' data-type='JDIMENSION' data-ref="105iMCU_row">iMCU_row</dfn>;</td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td>  <b>if</b> (<a class="local col4 ref" href="#104cinfo" title='cinfo' data-ref="104cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#268" title='jpeg_compress_struct::global_state' data-ref="jpeg_compress_struct::global_state">global_state</a> == <a class="macro" href="jpegint.h.html#26" title="101" data-ref="_M/CSTATE_SCANNING">CSTATE_SCANNING</a> ||</td></tr>
+<tr><th id="137">137</th><td>      <a class="local col4 ref" href="#104cinfo" title='cinfo' data-ref="104cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#268" title='jpeg_compress_struct::global_state' data-ref="jpeg_compress_struct::global_state">global_state</a> == <a class="macro" href="jpegint.h.html#27" title="102" data-ref="_M/CSTATE_RAW_OK">CSTATE_RAW_OK</a>) {</td></tr>
+<tr><th id="138">138</th><td>    <i>/* Terminate first pass */</i></td></tr>
+<tr><th id="139">139</th><td>    <b>if</b> (<a class="local col4 ref" href="#104cinfo" title='cinfo' data-ref="104cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::next_scanline" title='jpeg_compress_struct::next_scanline' data-ref="jpeg_compress_struct::next_scanline">next_scanline</a> &lt; <a class="local col4 ref" href="#104cinfo" title='cinfo' data-ref="104cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::image_height" title='jpeg_compress_struct::image_height' data-ref="jpeg_compress_struct::image_height">image_height</a>)</td></tr>
+<tr><th id="140">140</th><td>      <a class="macro" href="jerror.h.html#193" title="((cinfo)-&gt;err-&gt;msg_code = (JERR_TOO_LITTLE_DATA), (*(cinfo)-&gt;err-&gt;error_exit) ((j_common_ptr) (cinfo)))" data-ref="_M/ERREXIT">ERREXIT</a>(<a class="local col4 ref" href="#104cinfo" title='cinfo' data-ref="104cinfo">cinfo</a>, <a class="enum" href="jerror.h.html#111" title='JERR_TOO_LITTLE_DATA' data-ref="JERR_TOO_LITTLE_DATA">JERR_TOO_LITTLE_DATA</a>);</td></tr>
+<tr><th id="141">141</th><td>    (*<a class="local col4 ref" href="#104cinfo" title='cinfo' data-ref="104cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::master" title='jpeg_compress_struct::master' data-ref="jpeg_compress_struct::master">master</a>-&gt;<a class="ref" href="jpegint.h.html#48" title='jpeg_comp_master::finish_pass' data-ref="jpeg_comp_master::finish_pass">finish_pass</a>) (<a class="local col4 ref" href="#104cinfo" title='cinfo' data-ref="104cinfo">cinfo</a>);</td></tr>
+<tr><th id="142">142</th><td>  } <b>else</b> <b>if</b> (<a class="local col4 ref" href="#104cinfo" title='cinfo' data-ref="104cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#268" title='jpeg_compress_struct::global_state' data-ref="jpeg_compress_struct::global_state">global_state</a> != <a class="macro" href="jpegint.h.html#28" title="103" data-ref="_M/CSTATE_WRCOEFS">CSTATE_WRCOEFS</a>)</td></tr>
+<tr><th id="143">143</th><td>    <a class="macro" href="jerror.h.html#196" title="((cinfo)-&gt;err-&gt;msg_code = (JERR_BAD_STATE), (cinfo)-&gt;err-&gt;msg_parm.i[0] = (cinfo-&gt;global_state), (*(cinfo)-&gt;err-&gt;error_exit) ((j_common_ptr) (cinfo)))" data-ref="_M/ERREXIT1">ERREXIT1</a>(<a class="local col4 ref" href="#104cinfo" title='cinfo' data-ref="104cinfo">cinfo</a>, <a class="enum" href="jerror.h.html#61" title='JERR_BAD_STATE' data-ref="JERR_BAD_STATE">JERR_BAD_STATE</a>, <a class="local col4 ref" href="#104cinfo" title='cinfo' data-ref="104cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#268" title='jpeg_compress_struct::global_state' data-ref="jpeg_compress_struct::global_state">global_state</a>);</td></tr>
+<tr><th id="144">144</th><td>  <i>/* Perform any remaining passes */</i></td></tr>
+<tr><th id="145">145</th><td>  <b>while</b> (! <a class="local col4 ref" href="#104cinfo" title='cinfo' data-ref="104cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::master" title='jpeg_compress_struct::master' data-ref="jpeg_compress_struct::master">master</a>-&gt;<a class="ref" href="jpegint.h.html#jpeg_comp_master::is_last_pass" title='jpeg_comp_master::is_last_pass' data-ref="jpeg_comp_master::is_last_pass">is_last_pass</a>) {</td></tr>
+<tr><th id="146">146</th><td>    (*<a class="local col4 ref" href="#104cinfo" title='cinfo' data-ref="104cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::master" title='jpeg_compress_struct::master' data-ref="jpeg_compress_struct::master">master</a>-&gt;<a class="ref" href="jpegint.h.html#46" title='jpeg_comp_master::prepare_for_pass' data-ref="jpeg_comp_master::prepare_for_pass">prepare_for_pass</a>) (<a class="local col4 ref" href="#104cinfo" title='cinfo' data-ref="104cinfo">cinfo</a>);</td></tr>
+<tr><th id="147">147</th><td>    <b>for</b> (<a class="local col5 ref" href="#105iMCU_row" title='iMCU_row' data-ref="105iMCU_row">iMCU_row</a> = <var>0</var>; <a class="local col5 ref" href="#105iMCU_row" title='iMCU_row' data-ref="105iMCU_row">iMCU_row</a> &lt; <a class="local col4 ref" href="#104cinfo" title='cinfo' data-ref="104cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::total_iMCU_rows" title='jpeg_compress_struct::total_iMCU_rows' data-ref="jpeg_compress_struct::total_iMCU_rows">total_iMCU_rows</a>; <a class="local col5 ref" href="#105iMCU_row" title='iMCU_row' data-ref="105iMCU_row">iMCU_row</a>++) {</td></tr>
+<tr><th id="148">148</th><td>      <b>if</b> (<a class="local col4 ref" href="#104cinfo" title='cinfo' data-ref="104cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#268" title='jpeg_compress_struct::progress' data-ref="jpeg_compress_struct::progress">progress</a> != <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>) {</td></tr>
+<tr><th id="149">149</th><td>	<a class="local col4 ref" href="#104cinfo" title='cinfo' data-ref="104cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#268" title='jpeg_compress_struct::progress' data-ref="jpeg_compress_struct::progress">progress</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_progress_mgr::pass_counter" title='jpeg_progress_mgr::pass_counter' data-ref="jpeg_progress_mgr::pass_counter">pass_counter</a> = (<em>long</em>) <a class="local col5 ref" href="#105iMCU_row" title='iMCU_row' data-ref="105iMCU_row">iMCU_row</a>;</td></tr>
+<tr><th id="150">150</th><td>	<a class="local col4 ref" href="#104cinfo" title='cinfo' data-ref="104cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#268" title='jpeg_compress_struct::progress' data-ref="jpeg_compress_struct::progress">progress</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_progress_mgr::pass_limit" title='jpeg_progress_mgr::pass_limit' data-ref="jpeg_progress_mgr::pass_limit">pass_limit</a> = (<em>long</em>) <a class="local col4 ref" href="#104cinfo" title='cinfo' data-ref="104cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::total_iMCU_rows" title='jpeg_compress_struct::total_iMCU_rows' data-ref="jpeg_compress_struct::total_iMCU_rows">total_iMCU_rows</a>;</td></tr>
+<tr><th id="151">151</th><td>	(*<a class="local col4 ref" href="#104cinfo" title='cinfo' data-ref="104cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#268" title='jpeg_compress_struct::progress' data-ref="jpeg_compress_struct::progress">progress</a>-&gt;<a class="ref" href="jpeglib.h.html#689" title='jpeg_progress_mgr::progress_monitor' data-ref="jpeg_progress_mgr::progress_monitor">progress_monitor</a>) ((<a class="typedef" href="jpeglib.h.html#j_common_ptr" title='j_common_ptr' data-type='struct jpeg_common_struct *' data-ref="j_common_ptr">j_common_ptr</a>) <a class="local col4 ref" href="#104cinfo" title='cinfo' data-ref="104cinfo">cinfo</a>);</td></tr>
+<tr><th id="152">152</th><td>      }</td></tr>
+<tr><th id="153">153</th><td>      <i>/* We bypass the main controller and invoke coef controller directly;</i></td></tr>
+<tr><th id="154">154</th><td><i>       * all work is being done from the coefficient buffer.</i></td></tr>
+<tr><th id="155">155</th><td><i>       */</i></td></tr>
+<tr><th id="156">156</th><td>      <b>if</b> (! (*<a class="local col4 ref" href="#104cinfo" title='cinfo' data-ref="104cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::coef" title='jpeg_compress_struct::coef' data-ref="jpeg_compress_struct::coef">coef</a>-&gt;<a class="ref" href="jpegint.h.html#78" title='jpeg_c_coef_controller::compress_data' data-ref="jpeg_c_coef_controller::compress_data">compress_data</a>) (<a class="local col4 ref" href="#104cinfo" title='cinfo' data-ref="104cinfo">cinfo</a>, (<a class="typedef" href="jpeglib.h.html#JSAMPIMAGE" title='JSAMPIMAGE' data-type='JSAMPARRAY *' data-ref="JSAMPIMAGE">JSAMPIMAGE</a>) <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>))</td></tr>
+<tr><th id="157">157</th><td>	<a class="macro" href="jerror.h.html#193" title="((cinfo)-&gt;err-&gt;msg_code = (JERR_CANT_SUSPEND), (*(cinfo)-&gt;err-&gt;error_exit) ((j_common_ptr) (cinfo)))" data-ref="_M/ERREXIT">ERREXIT</a>(<a class="local col4 ref" href="#104cinfo" title='cinfo' data-ref="104cinfo">cinfo</a>, <a class="enum" href="jerror.h.html#64" title='JERR_CANT_SUSPEND' data-ref="JERR_CANT_SUSPEND">JERR_CANT_SUSPEND</a>);</td></tr>
+<tr><th id="158">158</th><td>    }</td></tr>
+<tr><th id="159">159</th><td>    (*<a class="local col4 ref" href="#104cinfo" title='cinfo' data-ref="104cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::master" title='jpeg_compress_struct::master' data-ref="jpeg_compress_struct::master">master</a>-&gt;<a class="ref" href="jpegint.h.html#48" title='jpeg_comp_master::finish_pass' data-ref="jpeg_comp_master::finish_pass">finish_pass</a>) (<a class="local col4 ref" href="#104cinfo" title='cinfo' data-ref="104cinfo">cinfo</a>);</td></tr>
+<tr><th id="160">160</th><td>  }</td></tr>
+<tr><th id="161">161</th><td>  <i>/* Write EOI, do final cleanup */</i></td></tr>
+<tr><th id="162">162</th><td>  (*<a class="local col4 ref" href="#104cinfo" title='cinfo' data-ref="104cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::marker" title='jpeg_compress_struct::marker' data-ref="jpeg_compress_struct::marker">marker</a>-&gt;<a class="ref" href="jpegint.h.html#128" title='jpeg_marker_writer::write_file_trailer' data-ref="jpeg_marker_writer::write_file_trailer">write_file_trailer</a>) (<a class="local col4 ref" href="#104cinfo" title='cinfo' data-ref="104cinfo">cinfo</a>);</td></tr>
+<tr><th id="163">163</th><td>  (*<a class="local col4 ref" href="#104cinfo" title='cinfo' data-ref="104cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::dest" title='jpeg_compress_struct::dest' data-ref="jpeg_compress_struct::dest">dest</a>-&gt;<a class="ref" href="jpeglib.h.html#706" title='jpeg_destination_mgr::term_destination' data-ref="jpeg_destination_mgr::term_destination">term_destination</a>) (<a class="local col4 ref" href="#104cinfo" title='cinfo' data-ref="104cinfo">cinfo</a>);</td></tr>
+<tr><th id="164">164</th><td>  <i>/* We can use jpeg_abort to release memory and reset global_state */</i></td></tr>
+<tr><th id="165">165</th><td>  <a class="ref" href="jpeglib.h.html#jpeg_abort" title='jpeg_abort' data-ref="jpeg_abort">jpeg_abort</a>((<a class="typedef" href="jpeglib.h.html#j_common_ptr" title='j_common_ptr' data-type='struct jpeg_common_struct *' data-ref="j_common_ptr">j_common_ptr</a>) <a class="local col4 ref" href="#104cinfo" title='cinfo' data-ref="104cinfo">cinfo</a>);</td></tr>
+<tr><th id="166">166</th><td>}</td></tr>
+<tr><th id="167">167</th><td></td></tr>
+<tr><th id="168">168</th><td></td></tr>
+<tr><th id="169">169</th><td><i>/*</i></td></tr>
+<tr><th id="170">170</th><td><i> * Write a special marker.</i></td></tr>
+<tr><th id="171">171</th><td><i> * This is only recommended for writing COM or APPn markers.</i></td></tr>
+<tr><th id="172">172</th><td><i> * Must be called after jpeg_start_compress() and before</i></td></tr>
+<tr><th id="173">173</th><td><i> * first call to jpeg_write_scanlines() or jpeg_write_raw_data().</i></td></tr>
+<tr><th id="174">174</th><td><i> */</i></td></tr>
+<tr><th id="175">175</th><td></td></tr>
+<tr><th id="176">176</th><td><a class="macro" href="jmorecfg.h.html#190" title="" data-ref="_M/GLOBAL">GLOBAL</a> <em>void</em></td></tr>
+<tr><th id="177">177</th><td><dfn class="decl def" id="jpeg_write_marker" title='jpeg_write_marker' data-ref="jpeg_write_marker">jpeg_write_marker</dfn> (<a class="typedef" href="jpeglib.h.html#j_compress_ptr" title='j_compress_ptr' data-type='struct jpeg_compress_struct *' data-ref="j_compress_ptr">j_compress_ptr</a> <dfn class="local col6 decl" id="106cinfo" title='cinfo' data-type='j_compress_ptr' data-ref="106cinfo">cinfo</dfn>, <em>int</em> <dfn class="local col7 decl" id="107marker" title='marker' data-type='int' data-ref="107marker">marker</dfn>,</td></tr>
+<tr><th id="178">178</th><td>		   <em>const</em> <a class="typedef" href="jmorecfg.h.html#JOCTET" title='JOCTET' data-type='unsigned char' data-ref="JOCTET">JOCTET</a> *<dfn class="local col8 decl" id="108dataptr" title='dataptr' data-type='const JOCTET *' data-ref="108dataptr">dataptr</dfn>, <em>unsigned</em> <em>int</em> <dfn class="local col9 decl" id="109datalen" title='datalen' data-type='unsigned int' data-ref="109datalen">datalen</dfn>)</td></tr>
+<tr><th id="179">179</th><td>{</td></tr>
+<tr><th id="180">180</th><td>  <b>if</b> (<a class="local col6 ref" href="#106cinfo" title='cinfo' data-ref="106cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::next_scanline" title='jpeg_compress_struct::next_scanline' data-ref="jpeg_compress_struct::next_scanline">next_scanline</a> != <var>0</var> ||</td></tr>
+<tr><th id="181">181</th><td>      (<a class="local col6 ref" href="#106cinfo" title='cinfo' data-ref="106cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#268" title='jpeg_compress_struct::global_state' data-ref="jpeg_compress_struct::global_state">global_state</a> != <a class="macro" href="jpegint.h.html#26" title="101" data-ref="_M/CSTATE_SCANNING">CSTATE_SCANNING</a> &amp;&amp;</td></tr>
+<tr><th id="182">182</th><td>       <a class="local col6 ref" href="#106cinfo" title='cinfo' data-ref="106cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#268" title='jpeg_compress_struct::global_state' data-ref="jpeg_compress_struct::global_state">global_state</a> != <a class="macro" href="jpegint.h.html#27" title="102" data-ref="_M/CSTATE_RAW_OK">CSTATE_RAW_OK</a> &amp;&amp;</td></tr>
+<tr><th id="183">183</th><td>       <a class="local col6 ref" href="#106cinfo" title='cinfo' data-ref="106cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#268" title='jpeg_compress_struct::global_state' data-ref="jpeg_compress_struct::global_state">global_state</a> != <a class="macro" href="jpegint.h.html#28" title="103" data-ref="_M/CSTATE_WRCOEFS">CSTATE_WRCOEFS</a>))</td></tr>
+<tr><th id="184">184</th><td>    <a class="macro" href="jerror.h.html#196" title="((cinfo)-&gt;err-&gt;msg_code = (JERR_BAD_STATE), (cinfo)-&gt;err-&gt;msg_parm.i[0] = (cinfo-&gt;global_state), (*(cinfo)-&gt;err-&gt;error_exit) ((j_common_ptr) (cinfo)))" data-ref="_M/ERREXIT1">ERREXIT1</a>(<a class="local col6 ref" href="#106cinfo" title='cinfo' data-ref="106cinfo">cinfo</a>, <a class="enum" href="jerror.h.html#61" title='JERR_BAD_STATE' data-ref="JERR_BAD_STATE">JERR_BAD_STATE</a>, <a class="local col6 ref" href="#106cinfo" title='cinfo' data-ref="106cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#268" title='jpeg_compress_struct::global_state' data-ref="jpeg_compress_struct::global_state">global_state</a>);</td></tr>
+<tr><th id="185">185</th><td></td></tr>
+<tr><th id="186">186</th><td>  (*<a class="local col6 ref" href="#106cinfo" title='cinfo' data-ref="106cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::marker" title='jpeg_compress_struct::marker' data-ref="jpeg_compress_struct::marker">marker</a>-&gt;<a class="ref" href="jpegint.h.html#123" title='jpeg_marker_writer::write_any_marker' data-ref="jpeg_marker_writer::write_any_marker">write_any_marker</a>) (<a class="local col6 ref" href="#106cinfo" title='cinfo' data-ref="106cinfo">cinfo</a>, <a class="local col7 ref" href="#107marker" title='marker' data-ref="107marker">marker</a>, <a class="local col8 ref" href="#108dataptr" title='dataptr' data-ref="108dataptr">dataptr</a>, <a class="local col9 ref" href="#109datalen" title='datalen' data-ref="109datalen">datalen</a>);</td></tr>
+<tr><th id="187">187</th><td>}</td></tr>
+<tr><th id="188">188</th><td></td></tr>
+<tr><th id="189">189</th><td></td></tr>
+<tr><th id="190">190</th><td><i>/*</i></td></tr>
+<tr><th id="191">191</th><td><i> * Alternate compression function: just write an abbreviated table file.</i></td></tr>
+<tr><th id="192">192</th><td><i> * Before calling this, all parameters and a data destination must be set up.</i></td></tr>
+<tr><th id="193">193</th><td><i> *</i></td></tr>
+<tr><th id="194">194</th><td><i> * To produce a pair of files containing abbreviated tables and abbreviated</i></td></tr>
+<tr><th id="195">195</th><td><i> * image data, one would proceed as follows:</i></td></tr>
+<tr><th id="196">196</th><td><i> *</i></td></tr>
+<tr><th id="197">197</th><td><i> *		initialize JPEG object</i></td></tr>
+<tr><th id="198">198</th><td><i> *		set JPEG parameters</i></td></tr>
+<tr><th id="199">199</th><td><i> *		set destination to table file</i></td></tr>
+<tr><th id="200">200</th><td><i> *		jpeg_write_tables(cinfo);</i></td></tr>
+<tr><th id="201">201</th><td><i> *		set destination to image file</i></td></tr>
+<tr><th id="202">202</th><td><i> *		jpeg_start_compress(cinfo, FALSE);</i></td></tr>
+<tr><th id="203">203</th><td><i> *		write data...</i></td></tr>
+<tr><th id="204">204</th><td><i> *		jpeg_finish_compress(cinfo);</i></td></tr>
+<tr><th id="205">205</th><td><i> *</i></td></tr>
+<tr><th id="206">206</th><td><i> * jpeg_write_tables has the side effect of marking all tables written</i></td></tr>
+<tr><th id="207">207</th><td><i> * (same as jpeg_suppress_tables(..., TRUE)).  Thus a subsequent start_compress</i></td></tr>
+<tr><th id="208">208</th><td><i> * will not re-emit the tables unless it is passed write_all_tables=TRUE.</i></td></tr>
+<tr><th id="209">209</th><td><i> */</i></td></tr>
+<tr><th id="210">210</th><td></td></tr>
+<tr><th id="211">211</th><td><a class="macro" href="jmorecfg.h.html#190" title="" data-ref="_M/GLOBAL">GLOBAL</a> <em>void</em></td></tr>
+<tr><th id="212">212</th><td><dfn class="decl def" id="jpeg_write_tables" title='jpeg_write_tables' data-ref="jpeg_write_tables">jpeg_write_tables</dfn> (<a class="typedef" href="jpeglib.h.html#j_compress_ptr" title='j_compress_ptr' data-type='struct jpeg_compress_struct *' data-ref="j_compress_ptr">j_compress_ptr</a> <dfn class="local col0 decl" id="110cinfo" title='cinfo' data-type='j_compress_ptr' data-ref="110cinfo">cinfo</dfn>)</td></tr>
+<tr><th id="213">213</th><td>{</td></tr>
+<tr><th id="214">214</th><td>  <b>if</b> (<a class="local col0 ref" href="#110cinfo" title='cinfo' data-ref="110cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#268" title='jpeg_compress_struct::global_state' data-ref="jpeg_compress_struct::global_state">global_state</a> != <a class="macro" href="jpegint.h.html#25" title="100" data-ref="_M/CSTATE_START">CSTATE_START</a>)</td></tr>
+<tr><th id="215">215</th><td>    <a class="macro" href="jerror.h.html#196" title="((cinfo)-&gt;err-&gt;msg_code = (JERR_BAD_STATE), (cinfo)-&gt;err-&gt;msg_parm.i[0] = (cinfo-&gt;global_state), (*(cinfo)-&gt;err-&gt;error_exit) ((j_common_ptr) (cinfo)))" data-ref="_M/ERREXIT1">ERREXIT1</a>(<a class="local col0 ref" href="#110cinfo" title='cinfo' data-ref="110cinfo">cinfo</a>, <a class="enum" href="jerror.h.html#61" title='JERR_BAD_STATE' data-ref="JERR_BAD_STATE">JERR_BAD_STATE</a>, <a class="local col0 ref" href="#110cinfo" title='cinfo' data-ref="110cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#268" title='jpeg_compress_struct::global_state' data-ref="jpeg_compress_struct::global_state">global_state</a>);</td></tr>
+<tr><th id="216">216</th><td></td></tr>
+<tr><th id="217">217</th><td>  <i>/* (Re)initialize error mgr and destination modules */</i></td></tr>
+<tr><th id="218">218</th><td>  (*<a class="local col0 ref" href="#110cinfo" title='cinfo' data-ref="110cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#268" title='jpeg_compress_struct::err' data-ref="jpeg_compress_struct::err">err</a>-&gt;<a class="ref" href="jpeglib.h.html#641" title='jpeg_error_mgr::reset_error_mgr' data-ref="jpeg_error_mgr::reset_error_mgr">reset_error_mgr</a>) ((<a class="typedef" href="jpeglib.h.html#j_common_ptr" title='j_common_ptr' data-type='struct jpeg_common_struct *' data-ref="j_common_ptr">j_common_ptr</a>) <a class="local col0 ref" href="#110cinfo" title='cinfo' data-ref="110cinfo">cinfo</a>);</td></tr>
+<tr><th id="219">219</th><td>  (*<a class="local col0 ref" href="#110cinfo" title='cinfo' data-ref="110cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::dest" title='jpeg_compress_struct::dest' data-ref="jpeg_compress_struct::dest">dest</a>-&gt;<a class="ref" href="jpeglib.h.html#704" title='jpeg_destination_mgr::init_destination' data-ref="jpeg_destination_mgr::init_destination">init_destination</a>) (<a class="local col0 ref" href="#110cinfo" title='cinfo' data-ref="110cinfo">cinfo</a>);</td></tr>
+<tr><th id="220">220</th><td>  <i>/* Initialize the marker writer ... bit of a crock to do it here. */</i></td></tr>
+<tr><th id="221">221</th><td>  <a class="ref" href="jpegint.h.html#jinit_marker_writer" title='jinit_marker_writer' data-ref="jinit_marker_writer">jinit_marker_writer</a>(<a class="local col0 ref" href="#110cinfo" title='cinfo' data-ref="110cinfo">cinfo</a>);</td></tr>
+<tr><th id="222">222</th><td>  <i>/* Write them tables! */</i></td></tr>
+<tr><th id="223">223</th><td>  (*<a class="local col0 ref" href="#110cinfo" title='cinfo' data-ref="110cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::marker" title='jpeg_compress_struct::marker' data-ref="jpeg_compress_struct::marker">marker</a>-&gt;<a class="ref" href="jpegint.h.html#129" title='jpeg_marker_writer::write_tables_only' data-ref="jpeg_marker_writer::write_tables_only">write_tables_only</a>) (<a class="local col0 ref" href="#110cinfo" title='cinfo' data-ref="110cinfo">cinfo</a>);</td></tr>
+<tr><th id="224">224</th><td>  <i>/* And clean up. */</i></td></tr>
+<tr><th id="225">225</th><td>  (*<a class="local col0 ref" href="#110cinfo" title='cinfo' data-ref="110cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::dest" title='jpeg_compress_struct::dest' data-ref="jpeg_compress_struct::dest">dest</a>-&gt;<a class="ref" href="jpeglib.h.html#706" title='jpeg_destination_mgr::term_destination' data-ref="jpeg_destination_mgr::term_destination">term_destination</a>) (<a class="local col0 ref" href="#110cinfo" title='cinfo' data-ref="110cinfo">cinfo</a>);</td></tr>
+<tr><th id="226">226</th><td>  <i>/* We can use jpeg_abort to release memory. */</i></td></tr>
+<tr><th id="227">227</th><td>  <a class="ref" href="jpeglib.h.html#jpeg_abort" title='jpeg_abort' data-ref="jpeg_abort">jpeg_abort</a>((<a class="typedef" href="jpeglib.h.html#j_common_ptr" title='j_common_ptr' data-type='struct jpeg_common_struct *' data-ref="j_common_ptr">j_common_ptr</a>) <a class="local col0 ref" href="#110cinfo" title='cinfo' data-ref="110cinfo">cinfo</a>);</td></tr>
+<tr><th id="228">228</th><td>}</td></tr>
+<tr><th id="229">229</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

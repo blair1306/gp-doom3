@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>scales.h source code [codebrowser/sound/OggVorbis/vorbissrc/scales.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/sound/OggVorbis/vorbissrc/scales.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>sound</a>/<a href='..'>OggVorbis</a>/<a href='./'>vorbissrc</a>/<a href='scales.h.html'>scales.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/********************************************************************</i></td></tr>
+<tr><th id="2">2</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="3">3</th><td><i> * THIS FILE IS PART OF THE OggVorbis SOFTWARE CODEC SOURCE CODE.   *</i></td></tr>
+<tr><th id="4">4</th><td><i> * USE, DISTRIBUTION AND REPRODUCTION OF THIS LIBRARY SOURCE IS     *</i></td></tr>
+<tr><th id="5">5</th><td><i> * GOVERNED BY A BSD-STYLE SOURCE LICENSE INCLUDED WITH THIS SOURCE *</i></td></tr>
+<tr><th id="6">6</th><td><i> * IN 'COPYING'. PLEASE READ THESE TERMS BEFORE DISTRIBUTING.       *</i></td></tr>
+<tr><th id="7">7</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="8">8</th><td><i> * THE OggVorbis SOURCE CODE IS (C) COPYRIGHT 1994-2002             *</i></td></tr>
+<tr><th id="9">9</th><td><i> * by the XIPHOPHORUS Company <a href="http://www.xiph.org/">http://www.xiph.org/</a>                  *</i></td></tr>
+<tr><th id="10">10</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="11">11</th><td><i> ********************************************************************</i></td></tr>
+<tr><th id="12">12</th><td><i></i></td></tr>
+<tr><th id="13">13</th><td><i> function: linear scale -&gt; dB, Bark and Mel scales</i></td></tr>
+<tr><th id="14">14</th><td><i> last mod: $Id: scales.h,v 1.26 2002/07/11 06:40:50 xiphmont Exp $</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i> ********************************************************************/</i></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><u>#<span data-ppcond="18">ifndef</span> <span class="macro" data-ref="_M/_V_SCALES_H_">_V_SCALES_H_</span></u></td></tr>
+<tr><th id="19">19</th><td><u>#define <dfn class="macro" id="_M/_V_SCALES_H_" data-ref="_M/_V_SCALES_H_">_V_SCALES_H_</dfn></u></td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../../../../include/math.h.html">&lt;math.h&gt;</a></u></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="os.h.html">"os.h"</a></u></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><i>/* 20log10(x) */</i></td></tr>
+<tr><th id="25">25</th><td><u>#define <dfn class="macro" id="_M/VORBIS_IEEE_FLOAT32" data-ref="_M/VORBIS_IEEE_FLOAT32">VORBIS_IEEE_FLOAT32</dfn> 1</u></td></tr>
+<tr><th id="26">26</th><td><u>#<span data-ppcond="26">ifdef</span> <a class="macro" href="#25" data-ref="_M/VORBIS_IEEE_FLOAT32">VORBIS_IEEE_FLOAT32</a></u></td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><em>static</em> <em>float</em> <dfn class="decl def" id="unitnorm" title='unitnorm' data-ref="unitnorm">unitnorm</dfn>(<em>float</em> <dfn class="local col2 decl" id="232x" title='x' data-type='float' data-ref="232x">x</dfn>){</td></tr>
+<tr><th id="29">29</th><td>  <a class="typedef" href="../ogg/os_types.h.html#ogg_uint32_t" title='ogg_uint32_t' data-type='u_int32_t' data-ref="ogg_uint32_t">ogg_uint32_t</a> *<dfn class="local col3 decl" id="233ix" title='ix' data-type='ogg_uint32_t *' data-ref="233ix">ix</dfn>=(<a class="typedef" href="../ogg/os_types.h.html#ogg_uint32_t" title='ogg_uint32_t' data-type='u_int32_t' data-ref="ogg_uint32_t">ogg_uint32_t</a> *)&amp;<a class="local col2 ref" href="#232x" title='x' data-ref="232x">x</a>;</td></tr>
+<tr><th id="30">30</th><td>  *<a class="local col3 ref" href="#233ix" title='ix' data-ref="233ix">ix</a>=(*<a class="local col3 ref" href="#233ix" title='ix' data-ref="233ix">ix</a>&amp;<var>0x80000000UL</var>)|(<var>0x3f800000UL</var>);</td></tr>
+<tr><th id="31">31</th><td>  <b>return</b>(<a class="local col2 ref" href="#232x" title='x' data-ref="232x">x</a>);</td></tr>
+<tr><th id="32">32</th><td>}</td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><em>static</em> <em>float</em> <dfn class="decl def" id="FABS" title='FABS' data-ref="FABS">FABS</dfn>(<em>float</em> *<dfn class="local col4 decl" id="234x" title='x' data-type='float *' data-ref="234x">x</dfn>){</td></tr>
+<tr><th id="35">35</th><td>  <a class="typedef" href="../ogg/os_types.h.html#ogg_uint32_t" title='ogg_uint32_t' data-type='u_int32_t' data-ref="ogg_uint32_t">ogg_uint32_t</a> *<dfn class="local col5 decl" id="235ix" title='ix' data-type='ogg_uint32_t *' data-ref="235ix">ix</dfn>=(<a class="typedef" href="../ogg/os_types.h.html#ogg_uint32_t" title='ogg_uint32_t' data-type='u_int32_t' data-ref="ogg_uint32_t">ogg_uint32_t</a> *)<a class="local col4 ref" href="#234x" title='x' data-ref="234x">x</a>;</td></tr>
+<tr><th id="36">36</th><td>  *<a class="local col5 ref" href="#235ix" title='ix' data-ref="235ix">ix</a>&amp;=<var>0x7fffffffUL</var>;</td></tr>
+<tr><th id="37">37</th><td>  <b>return</b>(*<a class="local col4 ref" href="#234x" title='x' data-ref="234x">x</a>);</td></tr>
+<tr><th id="38">38</th><td>}</td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><em>static</em> <em>float</em> <dfn class="decl def" id="todB" title='todB' data-ref="todB">todB</dfn>(<em>const</em> <em>float</em> *<dfn class="local col6 decl" id="236x" title='x' data-type='const float *' data-ref="236x">x</dfn>){</td></tr>
+<tr><th id="41">41</th><td>  <em>float</em> <dfn class="local col7 decl" id="237calc" title='calc' data-type='float' data-ref="237calc">calc</dfn>;</td></tr>
+<tr><th id="42">42</th><td>  <a class="typedef" href="../ogg/os_types.h.html#ogg_int32_t" title='ogg_int32_t' data-type='int32_t' data-ref="ogg_int32_t">ogg_int32_t</a> *<dfn class="local col8 decl" id="238i" title='i' data-type='ogg_int32_t *' data-ref="238i">i</dfn>=(<a class="typedef" href="../ogg/os_types.h.html#ogg_int32_t" title='ogg_int32_t' data-type='int32_t' data-ref="ogg_int32_t">ogg_int32_t</a> *)<a class="local col6 ref" href="#236x" title='x' data-ref="236x">x</a>;</td></tr>
+<tr><th id="43">43</th><td>  <a class="local col7 ref" href="#237calc" title='calc' data-ref="237calc">calc</a> = ((*<a class="local col8 ref" href="#238i" title='i' data-ref="238i">i</a>) &amp; <var>0x7fffffff</var>);</td></tr>
+<tr><th id="44">44</th><td>  <a class="local col7 ref" href="#237calc" title='calc' data-ref="237calc">calc</a> *= <var>7.1771144e-7f</var>;</td></tr>
+<tr><th id="45">45</th><td>  <a class="local col7 ref" href="#237calc" title='calc' data-ref="237calc">calc</a> += -<var>764.27118f</var>;</td></tr>
+<tr><th id="46">46</th><td>  <b>return</b> <a class="local col7 ref" href="#237calc" title='calc' data-ref="237calc">calc</a>;</td></tr>
+<tr><th id="47">47</th><td>}</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td><u>#define <dfn class="macro" id="_M/todB_nn" data-ref="_M/todB_nn">todB_nn</dfn>(x) todB(x)</u></td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td><u>#<span data-ppcond="26">else</span></u></td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td><em>static</em> <em>float</em> unitnorm(<em>float</em> x){</td></tr>
+<tr><th id="54">54</th><td>  <b>if</b>(x&lt;<var>0</var>)<b>return</b>(-<var>1.f</var>);</td></tr>
+<tr><th id="55">55</th><td>  <b>return</b>(<var>1.f</var>);</td></tr>
+<tr><th id="56">56</th><td>}</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td><u>#define FABS(x) fabs(*(x))</u></td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td><u>#define todB(x)   (*(x)==0?-400.f:log(*(x)**(x))*4.34294480f)</u></td></tr>
+<tr><th id="61">61</th><td><u>#define todB_nn(x)   (*(x)==0.f?-400.f:log(*(x))*8.6858896f)</u></td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td><u>#<span data-ppcond="26">endif</span></u> </td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td><u>#define <dfn class="macro" id="_M/fromdB" data-ref="_M/fromdB">fromdB</dfn>(x) (exp((x)*.11512925f))</u>  </td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td><i>/* The bark scale equations are approximations, since the original</i></td></tr>
+<tr><th id="68">68</th><td><i>   table was somewhat hand rolled.  The below are chosen to have the</i></td></tr>
+<tr><th id="69">69</th><td><i>   best possible fit to the rolled tables, thus their somewhat odd</i></td></tr>
+<tr><th id="70">70</th><td><i>   appearance (these are more accurate and over a longer range than</i></td></tr>
+<tr><th id="71">71</th><td><i>   the oft-quoted bark equations found in the texts I have).  The</i></td></tr>
+<tr><th id="72">72</th><td><i>   approximations are valid from 0 - 30kHz (nyquist) or so.</i></td></tr>
+<tr><th id="73">73</th><td><i></i></td></tr>
+<tr><th id="74">74</th><td><i>   all f in Hz, z in Bark */</i></td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td><u>#define <dfn class="macro" id="_M/toBARK" data-ref="_M/toBARK">toBARK</dfn>(n)   (13.1f*atan(.00074f*(n))+2.24f*atan((n)*(n)*1.85e-8f)+1e-4f*(n))</u></td></tr>
+<tr><th id="77">77</th><td><u>#define <dfn class="macro" id="_M/fromBARK" data-ref="_M/fromBARK">fromBARK</dfn>(z) (102.f*(z)-2.f*pow(z,2.f)+.4f*pow(z,3.f)+pow(1.46f,z)-1.f)</u></td></tr>
+<tr><th id="78">78</th><td><u>#define <dfn class="macro" id="_M/toMEL" data-ref="_M/toMEL">toMEL</dfn>(n)    (log(1.f+(n)*.001f)*1442.695f)</u></td></tr>
+<tr><th id="79">79</th><td><u>#define <dfn class="macro" id="_M/fromMEL" data-ref="_M/fromMEL">fromMEL</dfn>(m)  (1000.f*exp((m)/1442.695f)-1000.f)</u></td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td><i>/* Frequency to octave.  We arbitrarily declare 63.5 Hz to be octave</i></td></tr>
+<tr><th id="82">82</th><td><i>   0.0 */</i></td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td><u>#define <dfn class="macro" id="_M/toOC" data-ref="_M/toOC">toOC</dfn>(n)     (log(n)*1.442695f-5.965784f)</u></td></tr>
+<tr><th id="85">85</th><td><u>#define <dfn class="macro" id="_M/fromOC" data-ref="_M/fromOC">fromOC</dfn>(o)   (exp(((o)+5.965784f)*.693147f))</u></td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td><u>#<span data-ppcond="18">endif</span></u></td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='analysis.c.html'>codebrowser/sound/OggVorbis/vorbissrc/analysis.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

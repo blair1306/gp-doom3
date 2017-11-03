@@ -1,0 +1,18 @@
+<dec f='codebrowser/framework/Common.h' l='144' type='void idCommon::StartupVariable(const char * match, bool once)'/>
+<doc f='codebrowser/framework/Common.h' l='140'>// Checks for and removes command line &quot;+set var arg&quot; constructs.
+								// If match is NULL, all set commands will be executed, otherwise
+								// only a set with the exact name.  Only used during startup.
+								// set once to clear the cvar from +set for early init code</doc>
+<ovr f='codebrowser/framework/Common.cpp' l='918' c='_ZN13idCommonLocal15StartupVariableEPKcb'/>
+<use f='codebrowser/framework/EventLoop.cpp' l='205' u='c' c='_ZN11idEventLoop4InitEv'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='2844' u='c' c='_ZN17idFileSystemLocal4InitEv'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='2845' u='c' c='_ZN17idFileSystemLocal4InitEv'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='2846' u='c' c='_ZN17idFileSystemLocal4InitEv'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='2847' u='c' c='_ZN17idFileSystemLocal4InitEv'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='2848' u='c' c='_ZN17idFileSystemLocal4InitEv'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='2849' u='c' c='_ZN17idFileSystemLocal4InitEv'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='2850' u='c' c='_ZN17idFileSystemLocal4InitEv'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='2851' u='c' c='_ZN17idFileSystemLocal4InitEv'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='2852' u='c' c='_ZN17idFileSystemLocal4InitEv'/>
+<use f='codebrowser/sound/snd_system.cpp' l='334' u='c' c='_ZN18idSoundSystemLocal4InitEv'/>
+<use f='codebrowser/sound/snd_system.cpp' l='335' u='c' c='_ZN18idSoundSystemLocal4InitEv'/>

@@ -1,0 +1,17 @@
+<dec f='codebrowser/renderer/Interaction.h' l='178' type='void R_CalcInteractionFacing(const idRenderEntityLocal * ent, const srfTriangles_t * tri, const idRenderLightLocal * light, srfCullInfo_t &amp; cullInfo)'/>
+<def f='codebrowser/renderer/Interaction.cpp' l='55' ll='80' type='void R_CalcInteractionFacing(const idRenderEntityLocal * ent, const srfTriangles_t * tri, const idRenderLightLocal * light, srfCullInfo_t &amp; cullInfo)'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='321' u='c' c='_ZL17R_CreateLightTrisPK19idRenderEntityLocalPK14srfTriangles_sPK18idRenderLightLocalPK10idMaterialR13srfCullInfo_t'/>
+<doc f='codebrowser/renderer/Interaction.cpp' l='44'>/*
+================
+R_CalcInteractionFacing
+
+Determines which triangles of the surface are facing towards the light origin.
+
+The facing array should be allocated with one extra index than
+the number of surface triangles, which will be used to handle dangling
+edge silhouettes.
+================
+*/</doc>
+<use f='codebrowser/renderer/tr_stencilshadow.cpp' l='1254' u='c' c='_Z20R_CreateShadowVolumePK19idRenderEntityLocalPK14srfTriangles_sPK18idRenderLightLocal11shadowGen_tR13srfCullInfo_t'/>
+<use f='codebrowser/renderer/tr_turboshadow.cpp' l='54' u='c' c='_Z38R_CreateVertexProgramTurboShadowVolumePK19idRenderEntityLocalPK14srfTriangles_sPK18idRenderLightLocalR13srfCullInfo_t'/>
+<use f='codebrowser/renderer/tr_turboshadow.cpp' l='197' u='c' c='_Z25R_CreateTurboShadowVolumePK19idRenderEntityLocalPK14srfTriangles_sPK18idRenderLightLocalR13srfCullInfo_t'/>

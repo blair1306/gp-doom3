@@ -1,0 +1,34 @@
+<dec f='codebrowser/sound/snd_local.h' l='499' type='idSoundChannel [8]'/>
+<offset>704</offset>
+<doc f='codebrowser/sound/snd_local.h' l='495'>// it may go through a chain of portals.  If there
+													// is not an open-portal path, distance will be &gt; maxDistance
+
+	// a single soundEmitter can have many channels playing from the same point</doc>
+<use f='codebrowser/sound/snd_emitter.cpp' l='366' u='m' c='_ZN19idSoundEmitterLocal5ClearEv'/>
+<use f='codebrowser/sound/snd_emitter.cpp' l='367' u='m' c='_ZN19idSoundEmitterLocal5ClearEv'/>
+<use f='codebrowser/sound/snd_emitter.cpp' l='441' u='a' c='_ZN19idSoundEmitterLocal18CheckForCompletionEi'/>
+<use f='codebrowser/sound/snd_emitter.cpp' l='523' u='a' c='_ZN19idSoundEmitterLocal10SpatializeE6idVec3iP13idRenderWorld'/>
+<use f='codebrowser/sound/snd_emitter.cpp' l='724' u='a' c='_ZN19idSoundEmitterLocal10StartSoundEPK13idSoundShaderifib'/>
+<use f='codebrowser/sound/snd_emitter.cpp' l='735' u='a' c='_ZN19idSoundEmitterLocal10StartSoundEPK13idSoundShaderifib'/>
+<use f='codebrowser/sound/snd_emitter.cpp' l='748' u='a' c='_ZN19idSoundEmitterLocal10StartSoundEPK13idSoundShaderifib'/>
+<use f='codebrowser/sound/snd_emitter.cpp' l='762' u='a' c='_ZN19idSoundEmitterLocal10StartSoundEPK13idSoundShaderifib'/>
+<use f='codebrowser/sound/snd_emitter.cpp' l='783' u='a' c='_ZN19idSoundEmitterLocal10StartSoundEPK13idSoundShaderifib'/>
+<use f='codebrowser/sound/snd_emitter.cpp' l='798' u='a' c='_ZN19idSoundEmitterLocal10StartSoundEPK13idSoundShaderifib'/>
+<use f='codebrowser/sound/snd_emitter.cpp' l='897' u='a' c='_ZN19idSoundEmitterLocal11ModifySoundEiPK18soundShaderParms_t'/>
+<use f='codebrowser/sound/snd_emitter.cpp' l='938' u='a' c='_ZN19idSoundEmitterLocal9StopSoundEi'/>
+<use f='codebrowser/sound/snd_emitter.cpp' l='1000' u='a' c='_ZN19idSoundEmitterLocal9FadeSoundEiff'/>
+<use f='codebrowser/sound/snd_emitter.cpp' l='1078' u='r' c='_ZN19idSoundEmitterLocal14GetSlowChannelEPK14idSoundChannel'/>
+<use f='codebrowser/sound/snd_emitter.cpp' l='1087' u='r' c='_ZN19idSoundEmitterLocal14SetSlowChannelEPK14idSoundChannel13idSlowChannel'/>
+<use f='codebrowser/sound/snd_emitter.cpp' l='1096' u='r' c='_ZN19idSoundEmitterLocal16ResetSlowChannelEPK14idSoundChannel'/>
+<use f='codebrowser/sound/snd_system.cpp' l='191' u='a' c='_Z19ListSoundDecoders_fRK9idCmdArgs'/>
+<use f='codebrowser/sound/snd_system.cpp' l='219' u='a' c='_Z19ListSoundDecoders_fRK9idCmdArgs'/>
+<use f='codebrowser/sound/snd_system.cpp' l='1016' u='a' c='_ZN18idSoundSystemLocal19GetSoundDecoderInfoEiR18soundDecoderInfo_t'/>
+<use f='codebrowser/sound/snd_world.cpp' l='495' u='a' c='_ZN17idSoundWorldLocal7MixLoopEiiPf'/>
+<use f='codebrowser/sound/snd_world.cpp' l='521' u='a' c='_ZN17idSoundWorldLocal7MixLoopEiiPf'/>
+<use f='codebrowser/sound/snd_world.cpp' l='1022' u='a' c='_ZN17idSoundWorldLocal16ForegroundUpdateEi'/>
+<use f='codebrowser/sound/snd_world.cpp' l='1078' u='a' c='_ZN17idSoundWorldLocal15OffsetSoundTimeEi'/>
+<use f='codebrowser/sound/snd_world.cpp' l='1134' u='a' c='_ZN17idSoundWorldLocal15WriteToSaveGameEP6idFile'/>
+<use f='codebrowser/sound/snd_world.cpp' l='1146' u='a' c='_ZN17idSoundWorldLocal15WriteToSaveGameEP6idFile'/>
+<use f='codebrowser/sound/snd_world.cpp' l='1278' u='a' c='_ZN17idSoundWorldLocal16ReadFromSaveGameEP6idFile'/>
+<use f='codebrowser/sound/snd_world.cpp' l='1296' u='a' c='_ZN17idSoundWorldLocal16ReadFromSaveGameEP6idFile'/>
+<use f='codebrowser/sound/snd_world.cpp' l='1954' u='a' c='_ZN17idSoundWorldLocal13FindAmplitudeEP19idSoundEmitterLocaliPK6idVec3ib'/>

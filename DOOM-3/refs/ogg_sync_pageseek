@@ -1,0 +1,13 @@
+<dec f='codebrowser/sound/OggVorbis/ogg/ogg.h' l='163' type='long ogg_sync_pageseek(ogg_sync_state * oy, ogg_page * og)'/>
+<def f='codebrowser/sound/OggVorbis/oggsrc/framing.c' l='547' ll='630' type='long ogg_sync_pageseek(ogg_sync_state * oy, ogg_page * og)'/>
+<use f='codebrowser/sound/OggVorbis/oggsrc/framing.c' l='650' u='c' c='ogg_sync_pageout'/>
+<doc f='codebrowser/sound/OggVorbis/oggsrc/framing.c' l='537'>/* sync the stream.  This is meant to be useful for finding page
+   boundaries.
+
+   return values for this:
+  -n) skipped n bytes
+   0) page not ready; more data (no bytes skipped)
+   n) page synced at current location; page length n bytes
+   
+*/</doc>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='107' u='c' c='_get_next_page'/>

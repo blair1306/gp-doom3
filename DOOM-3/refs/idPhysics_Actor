@@ -1,0 +1,114 @@
+<inh f='codebrowser/d3xp/physics/Physics_Base.h' l='42' c='idPhysics_Base'/>
+<def f='codebrowser/d3xp/physics/Physics_Actor.h' l='44' ll='111'/>
+<ovr f='codebrowser/d3xp/physics/Physics_Monster.h' l='60' c='idPhysics_Monster'/>
+<ovr f='codebrowser/d3xp/physics/Physics_Player.h' l='72' c='idPhysics_Player'/>
+<size>132</size>
+<doc f='codebrowser/d3xp/physics/Physics_Actor.h' l='32'>/*
+===================================================================================
+
+	Actor physics base class
+
+	An actor typically uses one collision model which is aligned with the gravity
+	direction. The collision model is usually a simple box with the origin at the
+	bottom center.
+
+===================================================================================
+*/</doc>
+<smbr r='idPhysics_Actor::Type' t='idTypeInfo'/>
+<fun r='_ZN15idPhysics_Actor14CreateInstanceEv'/>
+<fun r='_ZNK15idPhysics_Actor7GetTypeEv'/>
+<smbr r='idPhysics_Actor::eventCallbacks' t='idEventFunc&lt;idPhysics_Actor&gt; []'/>
+<fun r='_ZN15idPhysics_ActorC1Ev'/>
+<fun r='_ZN15idPhysics_ActorD1Ev'/>
+<fun r='_ZNK15idPhysics_Actor4SaveEP10idSaveGame'/>
+<fun r='_ZN15idPhysics_Actor7RestoreEP13idRestoreGame'/>
+<fun r='_ZNK15idPhysics_Actor17GetMasterDeltaYawEv'/>
+<fun r='_ZNK15idPhysics_Actor15GetGroundEntityEv'/>
+<fun r='_ZN15idPhysics_Actor16SetClipModelAxisEv'/>
+<fun r='_ZN15idPhysics_Actor12SetClipModelEP11idClipModelfib'/>
+<fun r='_ZNK15idPhysics_Actor12GetClipModelEi'/>
+<fun r='_ZNK15idPhysics_Actor16GetNumClipModelsEv'/>
+<fun r='_ZN15idPhysics_Actor7SetMassEfi'/>
+<fun r='_ZNK15idPhysics_Actor7GetMassEi'/>
+<fun r='_ZN15idPhysics_Actor11SetContentsEii'/>
+<fun r='_ZNK15idPhysics_Actor11GetContentsEi'/>
+<fun r='_ZNK15idPhysics_Actor9GetBoundsEi'/>
+<fun r='_ZNK15idPhysics_Actor12GetAbsBoundsEi'/>
+<fun r='_ZNK15idPhysics_Actor10IsPushableEv'/>
+<fun r='_ZNK15idPhysics_Actor9GetOriginEi'/>
+<fun r='_ZNK15idPhysics_Actor7GetAxisEi'/>
+<fun r='_ZN15idPhysics_Actor10SetGravityERK6idVec3'/>
+<fun r='_ZNK15idPhysics_Actor14GetGravityAxisEv'/>
+<fun r='_ZNK15idPhysics_Actor15ClipTranslationER7trace_sRK6idVec3PK11idClipModel'/>
+<fun r='_ZNK15idPhysics_Actor12ClipRotationER7trace_sRK10idRotationPK11idClipModel'/>
+<fun r='_ZNK15idPhysics_Actor12ClipContentsEPK11idClipModel'/>
+<fun r='_ZN15idPhysics_Actor11DisableClipEv'/>
+<fun r='_ZN15idPhysics_Actor10EnableClipEv'/>
+<fun r='_ZN15idPhysics_Actor10UnlinkClipEv'/>
+<fun r='_ZN15idPhysics_Actor8LinkClipEv'/>
+<fun r='_ZN15idPhysics_Actor16EvaluateContactsEv'/>
+<mbr r='idPhysics_Actor::clipModel' o='544' t='idClipModel *'/>
+<mbr r='idPhysics_Actor::clipModelAxis' o='576' t='idMat3'/>
+<mbr r='idPhysics_Actor::mass' o='864' t='float'/>
+<mbr r='idPhysics_Actor::invMass' o='896' t='float'/>
+<mbr r='idPhysics_Actor::masterEntity' o='928' t='idEntity *'/>
+<mbr r='idPhysics_Actor::masterYaw' o='960' t='float'/>
+<mbr r='idPhysics_Actor::masterDeltaYaw' o='992' t='float'/>
+<mbr r='idPhysics_Actor::groundEntityPtr' o='1024' t='idEntityPtr&lt;idEntity&gt;'/>
+<inh f='codebrowser/game/physics/Physics_Base.h' l='42' c='idPhysics_Base'/>
+<def f='codebrowser/game/physics/Physics_Actor.h' l='44' ll='111'/>
+<ovr f='codebrowser/game/physics/Physics_Monster.h' l='60' c='idPhysics_Monster'/>
+<ovr f='codebrowser/game/physics/Physics_Player.h' l='72' c='idPhysics_Player'/>
+<size>132</size>
+<doc f='codebrowser/game/physics/Physics_Actor.h' l='32'>/*
+===================================================================================
+
+	Actor physics base class
+
+	An actor typically uses one collision model which is aligned with the gravity
+	direction. The collision model is usually a simple box with the origin at the
+	bottom center.
+
+===================================================================================
+*/</doc>
+<smbr r='idPhysics_Actor::Type' t='idTypeInfo'/>
+<fun r='_ZN15idPhysics_Actor14CreateInstanceEv'/>
+<fun r='_ZNK15idPhysics_Actor7GetTypeEv'/>
+<smbr r='idPhysics_Actor::eventCallbacks' t='idEventFunc&lt;idPhysics_Actor&gt; []'/>
+<fun r='_ZN15idPhysics_ActorC1Ev'/>
+<fun r='_ZN15idPhysics_ActorD1Ev'/>
+<fun r='_ZNK15idPhysics_Actor4SaveEP10idSaveGame'/>
+<fun r='_ZN15idPhysics_Actor7RestoreEP13idRestoreGame'/>
+<fun r='_ZNK15idPhysics_Actor17GetMasterDeltaYawEv'/>
+<fun r='_ZNK15idPhysics_Actor15GetGroundEntityEv'/>
+<fun r='_ZN15idPhysics_Actor16SetClipModelAxisEv'/>
+<fun r='_ZN15idPhysics_Actor12SetClipModelEP11idClipModelfib'/>
+<fun r='_ZNK15idPhysics_Actor12GetClipModelEi'/>
+<fun r='_ZNK15idPhysics_Actor16GetNumClipModelsEv'/>
+<fun r='_ZN15idPhysics_Actor7SetMassEfi'/>
+<fun r='_ZNK15idPhysics_Actor7GetMassEi'/>
+<fun r='_ZN15idPhysics_Actor11SetContentsEii'/>
+<fun r='_ZNK15idPhysics_Actor11GetContentsEi'/>
+<fun r='_ZNK15idPhysics_Actor9GetBoundsEi'/>
+<fun r='_ZNK15idPhysics_Actor12GetAbsBoundsEi'/>
+<fun r='_ZNK15idPhysics_Actor10IsPushableEv'/>
+<fun r='_ZNK15idPhysics_Actor9GetOriginEi'/>
+<fun r='_ZNK15idPhysics_Actor7GetAxisEi'/>
+<fun r='_ZN15idPhysics_Actor10SetGravityERK6idVec3'/>
+<fun r='_ZNK15idPhysics_Actor14GetGravityAxisEv'/>
+<fun r='_ZNK15idPhysics_Actor15ClipTranslationER7trace_sRK6idVec3PK11idClipModel'/>
+<fun r='_ZNK15idPhysics_Actor12ClipRotationER7trace_sRK10idRotationPK11idClipModel'/>
+<fun r='_ZNK15idPhysics_Actor12ClipContentsEPK11idClipModel'/>
+<fun r='_ZN15idPhysics_Actor11DisableClipEv'/>
+<fun r='_ZN15idPhysics_Actor10EnableClipEv'/>
+<fun r='_ZN15idPhysics_Actor10UnlinkClipEv'/>
+<fun r='_ZN15idPhysics_Actor8LinkClipEv'/>
+<fun r='_ZN15idPhysics_Actor16EvaluateContactsEv'/>
+<mbr r='idPhysics_Actor::clipModel' o='544' t='idClipModel *'/>
+<mbr r='idPhysics_Actor::clipModelAxis' o='576' t='idMat3'/>
+<mbr r='idPhysics_Actor::mass' o='864' t='float'/>
+<mbr r='idPhysics_Actor::invMass' o='896' t='float'/>
+<mbr r='idPhysics_Actor::masterEntity' o='928' t='idEntity *'/>
+<mbr r='idPhysics_Actor::masterYaw' o='960' t='float'/>
+<mbr r='idPhysics_Actor::masterDeltaYaw' o='992' t='float'/>
+<mbr r='idPhysics_Actor::groundEntityPtr' o='1024' t='idEntityPtr&lt;idEntity&gt;'/>

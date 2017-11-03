@@ -1,0 +1,7 @@
+<def f='codebrowser/renderer/Material.h' l='422' type='bool idMaterial::AllowOverlays() const'/>
+<doc f='codebrowser/renderer/Material.h' l='419'>// by default, monsters can have blood overlays placed on them, but this can
+						// be overrided on a per-material basis with the &quot;noOverlays&quot; material command.
+						// This will always return false for translucent surfaces</doc>
+<use f='codebrowser/renderer/ModelDecal.cpp' l='307' u='c' c='_ZN18idRenderModelDecal11CreateDecalEPK13idRenderModelRK21decalProjectionInfo_s'/>
+<use f='codebrowser/renderer/ModelOverlay.cpp' l='135' u='c' c='_ZN20idRenderModelOverlay13CreateOverlayEPK13idRenderModelPK7idPlanePK10idMaterial'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='532' u='c' c='_ZN18idRenderWorldLocal21ProjectDecalOntoWorldERK14idFixedWindingRK6idVec3bfPK10idMateriali'/>

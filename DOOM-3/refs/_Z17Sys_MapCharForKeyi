@@ -1,0 +1,11 @@
+<dec f='codebrowser/sys/sys_public.h' l='348' type='unsigned char Sys_MapCharForKey(int key)'/>
+<doc f='codebrowser/sys/sys_public.h' l='345'>// map a scancode key to a char
+// does nothing on win32, as SE_KEY == SE_CHAR there
+// on other OSes, consider the keyboard mapping</doc>
+<use f='codebrowser/framework/KeyInput.cpp' l='359' u='c' c='_ZN10idKeyInput14KeyNumToStringEib'/>
+<def f='codebrowser/sys/linux/input.cpp' l='517' ll='562' type='unsigned char Sys_MapCharForKey(int _key)'/>
+<doc f='codebrowser/sys/linux/input.cpp' l='512'>/*
+===============
+Sys_MapCharForKey
+===============
+*/</doc>

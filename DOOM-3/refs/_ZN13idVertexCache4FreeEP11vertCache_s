@@ -1,0 +1,17 @@
+<dec f='codebrowser/renderer/VertexCache.h' l='96' type='void idVertexCache::Free(vertCache_t * buffer)'/>
+<doc f='codebrowser/renderer/VertexCache.h' l='93'>// this block won&apos;t have to zero a buffer pointer when it is purged,
+	// but it must still wait for the frames to pass, in case the GPU
+	// is still referencing it</doc>
+<use f='codebrowser/renderer/Model.cpp' l='2137' u='c' c='_ZN19idRenderModelStatic15FreeVertexCacheEv'/>
+<use f='codebrowser/renderer/Model.cpp' l='2142' u='c' c='_ZN19idRenderModelStatic15FreeVertexCacheEv'/>
+<def f='codebrowser/renderer/VertexCache.cpp' l='336' ll='359' type='void idVertexCache::Free(vertCache_t * block)'/>
+<use f='codebrowser/renderer/VertexCache.cpp' l='382' u='c' c='_ZN13idVertexCache14AllocFrameTempEPvi'/>
+<doc f='codebrowser/renderer/VertexCache.cpp' l='331'>/*
+===========
+idVertexCache::Free
+===========
+*/</doc>
+<use f='codebrowser/renderer/tr_trisurf.cpp' l='346' u='c' c='_Z31R_FreeStaticTriSurfVertexCachesP14srfTriangles_s'/>
+<use f='codebrowser/renderer/tr_trisurf.cpp' l='351' u='c' c='_Z31R_FreeStaticTriSurfVertexCachesP14srfTriangles_s'/>
+<use f='codebrowser/renderer/tr_trisurf.cpp' l='355' u='c' c='_Z31R_FreeStaticTriSurfVertexCachesP14srfTriangles_s'/>
+<use f='codebrowser/renderer/tr_trisurf.cpp' l='362' u='c' c='_Z31R_FreeStaticTriSurfVertexCachesP14srfTriangles_s'/>

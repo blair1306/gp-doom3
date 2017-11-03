@@ -1,0 +1,38 @@
+<inh f='codebrowser/d3xp/Entity.h' l='107' c='idEntity'/>
+<def f='codebrowser/d3xp/AFEntity.h' l='534' ll='575'/>
+<size>940</size>
+<doc f='codebrowser/d3xp/AFEntity.h' l='529'>/** 
+* idHarvestable contains all of the code required to turn an entity into a harvestable
+* entity. The entity must create an instance of this class and call the appropriate
+* interface methods at the correct time.
+*/</doc>
+<smbr r='idHarvestable::Type' t='idTypeInfo'/>
+<fun r='_ZN13idHarvestable14CreateInstanceEv'/>
+<fun r='_ZNK13idHarvestable7GetTypeEv'/>
+<smbr r='idHarvestable::eventCallbacks' t='idEventFunc&lt;idHarvestable&gt; []'/>
+<fun r='_ZN13idHarvestableC1Ev'/>
+<fun r='_ZN13idHarvestableD1Ev'/>
+<fun r='_ZN13idHarvestable5SpawnEv'/>
+<fun r='_ZN13idHarvestable4InitEP8idEntity'/>
+<fun r='_ZNK13idHarvestable4SaveEP10idSaveGame'/>
+<fun r='_ZN13idHarvestable7RestoreEP13idRestoreGame'/>
+<fun r='_ZN13idHarvestable9SetParentEP8idEntity'/>
+<fun r='_ZN13idHarvestable5ThinkEv'/>
+<fun r='_ZN13idHarvestable3GibEv'/>
+<mbr r='idHarvestable::parentEnt' o='6944' t='idEntityPtr&lt;idEntity&gt;'/>
+<mbr r='idHarvestable::triggersize' o='6976' t='float'/>
+<mbr r='idHarvestable::trigger' o='7008' t='idClipModel *'/>
+<mbr r='idHarvestable::giveDelay' o='7040' t='float'/>
+<mbr r='idHarvestable::removeDelay' o='7072' t='float'/>
+<mbr r='idHarvestable::given' o='7104' t='bool'/>
+<mbr r='idHarvestable::player' o='7136' t='idEntityPtr&lt;idPlayer&gt;'/>
+<mbr r='idHarvestable::startTime' o='7168' t='int'/>
+<mbr r='idHarvestable::fxFollowPlayer' o='7200' t='bool'/>
+<mbr r='idHarvestable::fx' o='7232' t='idEntityPtr&lt;idEntityFx&gt;'/>
+<mbr r='idHarvestable::fxOrient' o='7264' t='idStr'/>
+<fun r='_ZN13idHarvestable9BeginBurnEv'/>
+<fun r='_ZN13idHarvestable7BeginFXEv'/>
+<fun r='_ZN13idHarvestable17CalcTriggerBoundsEfR8idBounds'/>
+<fun r='_ZN13idHarvestable20GetFxOrientationAxisER6idMat3'/>
+<fun r='_ZN13idHarvestable25Event_SpawnHarvestTriggerEv'/>
+<fun r='_ZN13idHarvestable11Event_TouchEP8idEntityP7trace_s'/>

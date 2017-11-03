@@ -1,0 +1,108 @@
+<inh f='codebrowser/d3xp/IK.h' l='42' c='idIK'/>
+<def f='codebrowser/d3xp/IK.h' l='77' ll='137'/>
+<size>1148</size>
+<doc f='codebrowser/d3xp/IK.h' l='69'>/*
+===============================================================================
+
+  IK controller for a walking character with an arbitrary number of legs.	
+
+===============================================================================
+*/</doc>
+<fun r='_ZN9idIK_WalkC1Ev'/>
+<fun r='_ZN9idIK_WalkD1Ev'/>
+<fun r='_ZNK9idIK_Walk4SaveEP10idSaveGame'/>
+<fun r='_ZN9idIK_Walk7RestoreEP13idRestoreGame'/>
+<fun r='_ZN9idIK_Walk4InitEP8idEntityPKcRK6idVec3'/>
+<fun r='_ZN9idIK_Walk8EvaluateEv'/>
+<fun r='_ZN9idIK_Walk14ClearJointModsEv'/>
+<fun r='_ZN9idIK_Walk9EnableAllEv'/>
+<fun r='_ZN9idIK_Walk10DisableAllEv'/>
+<fun r='_ZN9idIK_Walk9EnableLegEi'/>
+<fun r='_ZN9idIK_Walk10DisableLegEi'/>
+<smbr r='idIK_Walk::MAX_LEGS' t='const int'/>
+<mbr r='idIK_Walk::footModel' o='256' t='idClipModel *'/>
+<mbr r='idIK_Walk::numLegs' o='288' t='int'/>
+<mbr r='idIK_Walk::enabledLegs' o='320' t='int'/>
+<mbr r='idIK_Walk::footJoints' o='352' t='jointHandle_t [8]'/>
+<mbr r='idIK_Walk::ankleJoints' o='608' t='jointHandle_t [8]'/>
+<mbr r='idIK_Walk::kneeJoints' o='864' t='jointHandle_t [8]'/>
+<mbr r='idIK_Walk::hipJoints' o='1120' t='jointHandle_t [8]'/>
+<mbr r='idIK_Walk::dirJoints' o='1376' t='jointHandle_t [8]'/>
+<mbr r='idIK_Walk::waistJoint' o='1632' t='jointHandle_t'/>
+<mbr r='idIK_Walk::hipForward' o='1664' t='idVec3 [8]'/>
+<mbr r='idIK_Walk::kneeForward' o='2432' t='idVec3 [8]'/>
+<mbr r='idIK_Walk::upperLegLength' o='3200' t='float [8]'/>
+<mbr r='idIK_Walk::lowerLegLength' o='3456' t='float [8]'/>
+<mbr r='idIK_Walk::upperLegToHipJoint' o='3712' t='idMat3 [8]'/>
+<mbr r='idIK_Walk::lowerLegToKneeJoint' o='6016' t='idMat3 [8]'/>
+<mbr r='idIK_Walk::smoothing' o='8320' t='float'/>
+<mbr r='idIK_Walk::waistSmoothing' o='8352' t='float'/>
+<mbr r='idIK_Walk::footShift' o='8384' t='float'/>
+<mbr r='idIK_Walk::waistShift' o='8416' t='float'/>
+<mbr r='idIK_Walk::minWaistFloorDist' o='8448' t='float'/>
+<mbr r='idIK_Walk::minWaistAnkleDist' o='8480' t='float'/>
+<mbr r='idIK_Walk::footUpTrace' o='8512' t='float'/>
+<mbr r='idIK_Walk::footDownTrace' o='8544' t='float'/>
+<mbr r='idIK_Walk::tiltWaist' o='8576' t='bool'/>
+<mbr r='idIK_Walk::usePivot' o='8584' t='bool'/>
+<mbr r='idIK_Walk::pivotFoot' o='8608' t='int'/>
+<mbr r='idIK_Walk::pivotYaw' o='8640' t='float'/>
+<mbr r='idIK_Walk::pivotPos' o='8672' t='idVec3'/>
+<mbr r='idIK_Walk::oldHeightsValid' o='8768' t='bool'/>
+<mbr r='idIK_Walk::oldWaistHeight' o='8800' t='float'/>
+<mbr r='idIK_Walk::oldAnkleHeights' o='8832' t='float [8]'/>
+<mbr r='idIK_Walk::waistOffset' o='9088' t='idVec3'/>
+<inh f='codebrowser/game/IK.h' l='42' c='idIK'/>
+<def f='codebrowser/game/IK.h' l='77' ll='137'/>
+<size>1148</size>
+<doc f='codebrowser/game/IK.h' l='69'>/*
+===============================================================================
+
+  IK controller for a walking character with an arbitrary number of legs.	
+
+===============================================================================
+*/</doc>
+<fun r='_ZN9idIK_WalkC1Ev'/>
+<fun r='_ZN9idIK_WalkD1Ev'/>
+<fun r='_ZNK9idIK_Walk4SaveEP10idSaveGame'/>
+<fun r='_ZN9idIK_Walk7RestoreEP13idRestoreGame'/>
+<fun r='_ZN9idIK_Walk4InitEP8idEntityPKcRK6idVec3'/>
+<fun r='_ZN9idIK_Walk8EvaluateEv'/>
+<fun r='_ZN9idIK_Walk14ClearJointModsEv'/>
+<fun r='_ZN9idIK_Walk9EnableAllEv'/>
+<fun r='_ZN9idIK_Walk10DisableAllEv'/>
+<fun r='_ZN9idIK_Walk9EnableLegEi'/>
+<fun r='_ZN9idIK_Walk10DisableLegEi'/>
+<smbr r='idIK_Walk::MAX_LEGS' t='const int'/>
+<mbr r='idIK_Walk::footModel' o='256' t='idClipModel *'/>
+<mbr r='idIK_Walk::numLegs' o='288' t='int'/>
+<mbr r='idIK_Walk::enabledLegs' o='320' t='int'/>
+<mbr r='idIK_Walk::footJoints' o='352' t='jointHandle_t [8]'/>
+<mbr r='idIK_Walk::ankleJoints' o='608' t='jointHandle_t [8]'/>
+<mbr r='idIK_Walk::kneeJoints' o='864' t='jointHandle_t [8]'/>
+<mbr r='idIK_Walk::hipJoints' o='1120' t='jointHandle_t [8]'/>
+<mbr r='idIK_Walk::dirJoints' o='1376' t='jointHandle_t [8]'/>
+<mbr r='idIK_Walk::waistJoint' o='1632' t='jointHandle_t'/>
+<mbr r='idIK_Walk::hipForward' o='1664' t='idVec3 [8]'/>
+<mbr r='idIK_Walk::kneeForward' o='2432' t='idVec3 [8]'/>
+<mbr r='idIK_Walk::upperLegLength' o='3200' t='float [8]'/>
+<mbr r='idIK_Walk::lowerLegLength' o='3456' t='float [8]'/>
+<mbr r='idIK_Walk::upperLegToHipJoint' o='3712' t='idMat3 [8]'/>
+<mbr r='idIK_Walk::lowerLegToKneeJoint' o='6016' t='idMat3 [8]'/>
+<mbr r='idIK_Walk::smoothing' o='8320' t='float'/>
+<mbr r='idIK_Walk::waistSmoothing' o='8352' t='float'/>
+<mbr r='idIK_Walk::footShift' o='8384' t='float'/>
+<mbr r='idIK_Walk::waistShift' o='8416' t='float'/>
+<mbr r='idIK_Walk::minWaistFloorDist' o='8448' t='float'/>
+<mbr r='idIK_Walk::minWaistAnkleDist' o='8480' t='float'/>
+<mbr r='idIK_Walk::footUpTrace' o='8512' t='float'/>
+<mbr r='idIK_Walk::footDownTrace' o='8544' t='float'/>
+<mbr r='idIK_Walk::tiltWaist' o='8576' t='bool'/>
+<mbr r='idIK_Walk::usePivot' o='8584' t='bool'/>
+<mbr r='idIK_Walk::pivotFoot' o='8608' t='int'/>
+<mbr r='idIK_Walk::pivotYaw' o='8640' t='float'/>
+<mbr r='idIK_Walk::pivotPos' o='8672' t='idVec3'/>
+<mbr r='idIK_Walk::oldHeightsValid' o='8768' t='bool'/>
+<mbr r='idIK_Walk::oldWaistHeight' o='8800' t='float'/>
+<mbr r='idIK_Walk::oldAnkleHeights' o='8832' t='float [8]'/>
+<mbr r='idIK_Walk::waistOffset' o='9088' t='idVec3'/>

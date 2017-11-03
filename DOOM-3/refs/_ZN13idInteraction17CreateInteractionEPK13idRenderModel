@@ -1,0 +1,18 @@
+<dec f='codebrowser/renderer/Interaction.h' l='163' type='void idInteraction::CreateInteraction(const idRenderModel * model)'/>
+<doc f='codebrowser/renderer/Interaction.h' l='162'>// actually create the interaction</doc>
+<def f='codebrowser/renderer/Interaction.cpp' l='823' ll='938' type='void idInteraction::CreateInteraction(const idRenderModel * model)'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='1081' u='c' c='_ZN13idInteraction20AddActiveInteractionEv'/>
+<doc f='codebrowser/renderer/Interaction.cpp' l='809'>/*
+====================
+idInteraction::CreateInteraction
+
+Called when a entityDef and a lightDef are both present in a
+portalArea, and might be visible.  Performs cull checking before doing the expensive
+computations.
+
+References tr.viewCount so lighting surfaces will only be created if the ambient surface is visible,
+otherwise it will be marked as deferred.
+
+The results of this are cached and valid until the light or entity change.
+====================
+*/</doc>

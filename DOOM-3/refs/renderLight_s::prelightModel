@@ -1,0 +1,33 @@
+<dec f='codebrowser/renderer/RenderWorld.h' l='194' type='idRenderModel *'/>
+<offset>1152</offset>
+<doc f='codebrowser/renderer/RenderWorld.h' l='191'>// Dmap will generate an optimized shadow volume named _prelight_&lt;lightName&gt;
+	// for the light against all the _area* models in the map.  The renderer will
+	// ignore this value if the light has been moved after initial creation</doc>
+<use f='codebrowser/d3xp/Light.cpp' l='232' u='r' c='_ZNK7idLight4SaveEP10idSaveGame'/>
+<use f='codebrowser/d3xp/Light.cpp' l='267' u='w' c='_ZN7idLight7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/d3xp/Light.cpp' l='268' u='r' c='_ZN7idLight7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/d3xp/Light.cpp' l='348' u='w' c='_ZN7idLight5SpawnEv'/>
+<use f='codebrowser/d3xp/Light.cpp' l='351' u='w' c='_ZN7idLight5SpawnEv'/>
+<use f='codebrowser/d3xp/gamesys/SaveGame.cpp' l='1358' u='w' c='_ZN13idRestoreGame15ReadRenderLightER13renderLight_s'/>
+<use f='codebrowser/game/Light.cpp' l='232' u='r' c='_ZNK7idLight4SaveEP10idSaveGame'/>
+<use f='codebrowser/game/Light.cpp' l='267' u='w' c='_ZN7idLight7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/game/Light.cpp' l='268' u='r' c='_ZN7idLight7RestoreEP13idRestoreGame'/>
+<use f='codebrowser/game/Light.cpp' l='348' u='w' c='_ZN7idLight5SpawnEv'/>
+<use f='codebrowser/game/Light.cpp' l='351' u='w' c='_ZN7idLight5SpawnEv'/>
+<use f='codebrowser/game/gamesys/SaveGame.cpp' l='1348' u='w' c='_ZN13idRestoreGame15ReadRenderLightER13renderLight_s'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='911' u='r' c='_ZN13idInteraction17CreateInteractionEPK13idRenderModel'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='409' u='r' c='_ZN18idRenderWorldLocal14UpdateLightDefEiPK13renderLight_s'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='409' u='r' c='_ZN18idRenderWorldLocal14UpdateLightDefEiPK13renderLight_s'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='433' u='w' c='_ZN18idRenderWorldLocal14UpdateLightDefEiPK13renderLight_s'/>
+<use f='codebrowser/renderer/RenderWorld_demo.cpp' l='441' u='r' c='_ZN18idRenderWorldLocal16WriteRenderLightEiPK13renderLight_s'/>
+<use f='codebrowser/renderer/RenderWorld_demo.cpp' l='448' u='r' c='_ZN18idRenderWorldLocal16WriteRenderLightEiPK13renderLight_s'/>
+<use f='codebrowser/renderer/RenderWorld_demo.cpp' l='449' u='r' c='_ZN18idRenderWorldLocal16WriteRenderLightEiPK13renderLight_s'/>
+<use f='codebrowser/renderer/RenderWorld_demo.cpp' l='493' u='a' c='_ZN18idRenderWorldLocal15ReadRenderLightEv'/>
+<use f='codebrowser/renderer/RenderWorld_demo.cpp' l='499' u='r' c='_ZN18idRenderWorldLocal15ReadRenderLightEv'/>
+<use f='codebrowser/renderer/RenderWorld_demo.cpp' l='500' u='w' c='_ZN18idRenderWorldLocal15ReadRenderLightEv'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1012' u='r' c='_Z18R_AddLightSurfacesv'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1014' u='r' c='_Z18R_AddLightSurfacesv'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1015' u='r' c='_Z18R_AddLightSurfacesv'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1018' u='r' c='_Z18R_AddLightSurfacesv'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1020' u='r' c='_Z18R_AddLightSurfacesv'/>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='486' u='r' c='_Z17R_CreateLightRefsP18idRenderLightLocal'/>

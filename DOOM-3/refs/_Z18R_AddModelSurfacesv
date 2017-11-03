@@ -1,0 +1,14 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1208' type='void R_AddModelSurfaces()'/>
+<def f='codebrowser/renderer/tr_light.cpp' l='1460' ll='1563' type='void R_AddModelSurfaces()'/>
+<doc f='codebrowser/renderer/tr_light.cpp' l='1449'>/*
+===================
+R_AddModelSurfaces
+
+Here is where dynamic models actually get instantiated, and necessary
+interactions get created.  This is all done on a sort-by-model basis
+to keep source data in cache (most likely L2) as any interactions and
+shadows are generated, since dynamic models will typically be lit by
+two or more lights.
+===================
+*/</doc>
+<use f='codebrowser/renderer/tr_main.cpp' l='1136' u='c' c='_Z12R_RenderViewP9viewDef_s'/>

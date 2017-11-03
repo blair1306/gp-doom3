@@ -1,0 +1,710 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Material.h source code [codebrowser/renderer/Material.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idMaterial "/>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/renderer/Material.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>renderer</a>/<a href='Material.h.html'>Material.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__MATERIAL_H__">__MATERIAL_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__MATERIAL_H__" data-ref="_M/__MATERIAL_H__">__MATERIAL_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>	Material</i></td></tr>
+<tr><th id="36">36</th><td><i></i></td></tr>
+<tr><th id="37">37</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="38">38</th><td><i>*/</i></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><b>class</b> <dfn class="type" id="idImage" title='idImage' data-ref="idImage">idImage</dfn>;</td></tr>
+<tr><th id="41">41</th><td><b>class</b> <a class="type" href="Cinematic.h.html#idCinematic" title='idCinematic' data-ref="idCinematic" id="idCinematic">idCinematic</a>;</td></tr>
+<tr><th id="42">42</th><td><b>class</b> <a class="type" href="../ui/UserInterface.h.html#idUserInterface" title='idUserInterface' data-ref="idUserInterface" id="idUserInterface">idUserInterface</a>;</td></tr>
+<tr><th id="43">43</th><td><b>class</b> <dfn class="type" id="idMegaTexture" title='idMegaTexture' data-ref="idMegaTexture">idMegaTexture</dfn>;</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td><i>// moved from image.h for default parm</i></td></tr>
+<tr><th id="46">46</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="47">47</th><td>	<dfn class="enum" id="TF_LINEAR" title='TF_LINEAR' data-ref="TF_LINEAR">TF_LINEAR</dfn>,</td></tr>
+<tr><th id="48">48</th><td>	<dfn class="enum" id="TF_NEAREST" title='TF_NEAREST' data-ref="TF_NEAREST">TF_NEAREST</dfn>,</td></tr>
+<tr><th id="49">49</th><td>	<dfn class="enum" id="TF_DEFAULT" title='TF_DEFAULT' data-ref="TF_DEFAULT">TF_DEFAULT</dfn>				<i>// use the user-specified r_textureFilter</i></td></tr>
+<tr><th id="50">50</th><td>} <dfn class="typedef" id="textureFilter_t" title='textureFilter_t' data-type='enum textureFilter_t' data-ref="textureFilter_t">textureFilter_t</dfn>;</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="53">53</th><td>	<dfn class="enum" id="TR_REPEAT" title='TR_REPEAT' data-ref="TR_REPEAT">TR_REPEAT</dfn>,</td></tr>
+<tr><th id="54">54</th><td>	<dfn class="enum" id="TR_CLAMP" title='TR_CLAMP' data-ref="TR_CLAMP">TR_CLAMP</dfn>,</td></tr>
+<tr><th id="55">55</th><td>	<dfn class="enum" id="TR_CLAMP_TO_BORDER" title='TR_CLAMP_TO_BORDER' data-ref="TR_CLAMP_TO_BORDER">TR_CLAMP_TO_BORDER</dfn>,		<i>// this should replace TR_CLAMP_TO_ZERO and TR_CLAMP_TO_ZERO_ALPHA,</i></td></tr>
+<tr><th id="56">56</th><td>							<i>// but I don't want to risk changing it right now</i></td></tr>
+<tr><th id="57">57</th><td>	<dfn class="enum" id="TR_CLAMP_TO_ZERO" title='TR_CLAMP_TO_ZERO' data-ref="TR_CLAMP_TO_ZERO">TR_CLAMP_TO_ZERO</dfn>,		<i>// guarantee 0,0,0,255 edge for projected textures,</i></td></tr>
+<tr><th id="58">58</th><td>	<i>// set AFTER image format selection</i></td></tr>
+<tr><th id="59">59</th><td>	<dfn class="enum" id="TR_CLAMP_TO_ZERO_ALPHA" title='TR_CLAMP_TO_ZERO_ALPHA' data-ref="TR_CLAMP_TO_ZERO_ALPHA">TR_CLAMP_TO_ZERO_ALPHA</dfn>	<i>// guarantee 0 alpha edge for projected textures,</i></td></tr>
+<tr><th id="60">60</th><td>	<i>// set AFTER image format selection</i></td></tr>
+<tr><th id="61">61</th><td>} <dfn class="typedef" id="textureRepeat_t" title='textureRepeat_t' data-type='enum textureRepeat_t' data-ref="textureRepeat_t">textureRepeat_t</dfn>;</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="64">64</th><td>	<em>int</em>		<dfn class="decl" id="(anonymous)::stayTime" title='(anonymous struct)::stayTime' data-ref="(anonymous)::stayTime">stayTime</dfn>;		<i>// msec for no change</i></td></tr>
+<tr><th id="65">65</th><td>	<em>int</em>		<dfn class="decl" id="(anonymous)::fadeTime" title='(anonymous struct)::fadeTime' data-ref="(anonymous)::fadeTime">fadeTime</dfn>;		<i>// msec to fade vertex colors over</i></td></tr>
+<tr><th id="66">66</th><td>	<em>float</em>	<dfn class="decl" id="(anonymous)::start" title='(anonymous struct)::start' data-ref="(anonymous)::start">start</dfn>[<var>4</var>];		<i>// vertex color at spawn (possibly out of 0.0 - 1.0 range, will clamp after calc)</i></td></tr>
+<tr><th id="67">67</th><td>	<em>float</em>	<dfn class="decl" id="(anonymous)::end" title='(anonymous struct)::end' data-ref="(anonymous)::end">end</dfn>[<var>4</var>];			<i>// vertex color at fade-out (possibly out of 0.0 - 1.0 range, will clamp after calc)</i></td></tr>
+<tr><th id="68">68</th><td>} <dfn class="typedef" id="decalInfo_t" title='decalInfo_t' data-type='struct decalInfo_t' data-ref="decalInfo_t">decalInfo_t</dfn>;</td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="71">71</th><td>	<dfn class="enum" id="DFRM_NONE" title='DFRM_NONE' data-ref="DFRM_NONE">DFRM_NONE</dfn>,</td></tr>
+<tr><th id="72">72</th><td>	<dfn class="enum" id="DFRM_SPRITE" title='DFRM_SPRITE' data-ref="DFRM_SPRITE">DFRM_SPRITE</dfn>,</td></tr>
+<tr><th id="73">73</th><td>	<dfn class="enum" id="DFRM_TUBE" title='DFRM_TUBE' data-ref="DFRM_TUBE">DFRM_TUBE</dfn>,</td></tr>
+<tr><th id="74">74</th><td>	<dfn class="enum" id="DFRM_FLARE" title='DFRM_FLARE' data-ref="DFRM_FLARE">DFRM_FLARE</dfn>,</td></tr>
+<tr><th id="75">75</th><td>	<dfn class="enum" id="DFRM_EXPAND" title='DFRM_EXPAND' data-ref="DFRM_EXPAND">DFRM_EXPAND</dfn>,</td></tr>
+<tr><th id="76">76</th><td>	<dfn class="enum" id="DFRM_MOVE" title='DFRM_MOVE' data-ref="DFRM_MOVE">DFRM_MOVE</dfn>,</td></tr>
+<tr><th id="77">77</th><td>	<dfn class="enum" id="DFRM_EYEBALL" title='DFRM_EYEBALL' data-ref="DFRM_EYEBALL">DFRM_EYEBALL</dfn>,</td></tr>
+<tr><th id="78">78</th><td>	<dfn class="enum" id="DFRM_PARTICLE" title='DFRM_PARTICLE' data-ref="DFRM_PARTICLE">DFRM_PARTICLE</dfn>,</td></tr>
+<tr><th id="79">79</th><td>	<dfn class="enum" id="DFRM_PARTICLE2" title='DFRM_PARTICLE2' data-ref="DFRM_PARTICLE2">DFRM_PARTICLE2</dfn>,</td></tr>
+<tr><th id="80">80</th><td>	<dfn class="enum" id="DFRM_TURB" title='DFRM_TURB' data-ref="DFRM_TURB">DFRM_TURB</dfn></td></tr>
+<tr><th id="81">81</th><td>} <dfn class="typedef" id="deform_t" title='deform_t' data-type='enum deform_t' data-ref="deform_t">deform_t</dfn>;</td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="84">84</th><td>	<dfn class="enum" id="DI_STATIC" title='DI_STATIC' data-ref="DI_STATIC">DI_STATIC</dfn>,</td></tr>
+<tr><th id="85">85</th><td>	<dfn class="enum" id="DI_SCRATCH" title='DI_SCRATCH' data-ref="DI_SCRATCH">DI_SCRATCH</dfn>,		<i>// video, screen wipe, etc</i></td></tr>
+<tr><th id="86">86</th><td>	<dfn class="enum" id="DI_CUBE_RENDER" title='DI_CUBE_RENDER' data-ref="DI_CUBE_RENDER">DI_CUBE_RENDER</dfn>,</td></tr>
+<tr><th id="87">87</th><td>	<dfn class="enum" id="DI_MIRROR_RENDER" title='DI_MIRROR_RENDER' data-ref="DI_MIRROR_RENDER">DI_MIRROR_RENDER</dfn>,</td></tr>
+<tr><th id="88">88</th><td>	<dfn class="enum" id="DI_XRAY_RENDER" title='DI_XRAY_RENDER' data-ref="DI_XRAY_RENDER">DI_XRAY_RENDER</dfn>,</td></tr>
+<tr><th id="89">89</th><td>	<dfn class="enum" id="DI_REMOTE_RENDER" title='DI_REMOTE_RENDER' data-ref="DI_REMOTE_RENDER">DI_REMOTE_RENDER</dfn></td></tr>
+<tr><th id="90">90</th><td>} <dfn class="typedef" id="dynamicidImage_t" title='dynamicidImage_t' data-type='enum dynamicidImage_t' data-ref="dynamicidImage_t">dynamicidImage_t</dfn>;</td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td><i>// note: keep opNames[] in sync with changes</i></td></tr>
+<tr><th id="93">93</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="94">94</th><td>	<dfn class="enum" id="OP_TYPE_ADD" title='OP_TYPE_ADD' data-ref="OP_TYPE_ADD">OP_TYPE_ADD</dfn>,</td></tr>
+<tr><th id="95">95</th><td>	<dfn class="enum" id="OP_TYPE_SUBTRACT" title='OP_TYPE_SUBTRACT' data-ref="OP_TYPE_SUBTRACT">OP_TYPE_SUBTRACT</dfn>,</td></tr>
+<tr><th id="96">96</th><td>	<dfn class="enum" id="OP_TYPE_MULTIPLY" title='OP_TYPE_MULTIPLY' data-ref="OP_TYPE_MULTIPLY">OP_TYPE_MULTIPLY</dfn>,</td></tr>
+<tr><th id="97">97</th><td>	<dfn class="enum" id="OP_TYPE_DIVIDE" title='OP_TYPE_DIVIDE' data-ref="OP_TYPE_DIVIDE">OP_TYPE_DIVIDE</dfn>,</td></tr>
+<tr><th id="98">98</th><td>	<dfn class="enum" id="OP_TYPE_MOD" title='OP_TYPE_MOD' data-ref="OP_TYPE_MOD">OP_TYPE_MOD</dfn>,</td></tr>
+<tr><th id="99">99</th><td>	<dfn class="enum" id="OP_TYPE_TABLE" title='OP_TYPE_TABLE' data-ref="OP_TYPE_TABLE">OP_TYPE_TABLE</dfn>,</td></tr>
+<tr><th id="100">100</th><td>	<dfn class="enum" id="OP_TYPE_GT" title='OP_TYPE_GT' data-ref="OP_TYPE_GT">OP_TYPE_GT</dfn>,</td></tr>
+<tr><th id="101">101</th><td>	<dfn class="enum" id="OP_TYPE_GE" title='OP_TYPE_GE' data-ref="OP_TYPE_GE">OP_TYPE_GE</dfn>,</td></tr>
+<tr><th id="102">102</th><td>	<dfn class="enum" id="OP_TYPE_LT" title='OP_TYPE_LT' data-ref="OP_TYPE_LT">OP_TYPE_LT</dfn>,</td></tr>
+<tr><th id="103">103</th><td>	<dfn class="enum" id="OP_TYPE_LE" title='OP_TYPE_LE' data-ref="OP_TYPE_LE">OP_TYPE_LE</dfn>,</td></tr>
+<tr><th id="104">104</th><td>	<dfn class="enum" id="OP_TYPE_EQ" title='OP_TYPE_EQ' data-ref="OP_TYPE_EQ">OP_TYPE_EQ</dfn>,</td></tr>
+<tr><th id="105">105</th><td>	<dfn class="enum" id="OP_TYPE_NE" title='OP_TYPE_NE' data-ref="OP_TYPE_NE">OP_TYPE_NE</dfn>,</td></tr>
+<tr><th id="106">106</th><td>	<dfn class="enum" id="OP_TYPE_AND" title='OP_TYPE_AND' data-ref="OP_TYPE_AND">OP_TYPE_AND</dfn>,</td></tr>
+<tr><th id="107">107</th><td>	<dfn class="enum" id="OP_TYPE_OR" title='OP_TYPE_OR' data-ref="OP_TYPE_OR">OP_TYPE_OR</dfn>,</td></tr>
+<tr><th id="108">108</th><td>	<dfn class="enum" id="OP_TYPE_SOUND" title='OP_TYPE_SOUND' data-ref="OP_TYPE_SOUND">OP_TYPE_SOUND</dfn></td></tr>
+<tr><th id="109">109</th><td>} <dfn class="typedef" id="expOpType_t" title='expOpType_t' data-type='enum expOpType_t' data-ref="expOpType_t">expOpType_t</dfn>;</td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="112">112</th><td>	<dfn class="enum" id="EXP_REG_TIME" title='EXP_REG_TIME' data-ref="EXP_REG_TIME">EXP_REG_TIME</dfn>,</td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td>	<dfn class="enum" id="EXP_REG_PARM0" title='EXP_REG_PARM0' data-ref="EXP_REG_PARM0">EXP_REG_PARM0</dfn>,</td></tr>
+<tr><th id="115">115</th><td>	<dfn class="enum" id="EXP_REG_PARM1" title='EXP_REG_PARM1' data-ref="EXP_REG_PARM1">EXP_REG_PARM1</dfn>,</td></tr>
+<tr><th id="116">116</th><td>	<dfn class="enum" id="EXP_REG_PARM2" title='EXP_REG_PARM2' data-ref="EXP_REG_PARM2">EXP_REG_PARM2</dfn>,</td></tr>
+<tr><th id="117">117</th><td>	<dfn class="enum" id="EXP_REG_PARM3" title='EXP_REG_PARM3' data-ref="EXP_REG_PARM3">EXP_REG_PARM3</dfn>,</td></tr>
+<tr><th id="118">118</th><td>	<dfn class="enum" id="EXP_REG_PARM4" title='EXP_REG_PARM4' data-ref="EXP_REG_PARM4">EXP_REG_PARM4</dfn>,</td></tr>
+<tr><th id="119">119</th><td>	<dfn class="enum" id="EXP_REG_PARM5" title='EXP_REG_PARM5' data-ref="EXP_REG_PARM5">EXP_REG_PARM5</dfn>,</td></tr>
+<tr><th id="120">120</th><td>	<dfn class="enum" id="EXP_REG_PARM6" title='EXP_REG_PARM6' data-ref="EXP_REG_PARM6">EXP_REG_PARM6</dfn>,</td></tr>
+<tr><th id="121">121</th><td>	<dfn class="enum" id="EXP_REG_PARM7" title='EXP_REG_PARM7' data-ref="EXP_REG_PARM7">EXP_REG_PARM7</dfn>,</td></tr>
+<tr><th id="122">122</th><td>	<dfn class="enum" id="EXP_REG_PARM8" title='EXP_REG_PARM8' data-ref="EXP_REG_PARM8">EXP_REG_PARM8</dfn>,</td></tr>
+<tr><th id="123">123</th><td>	<dfn class="enum" id="EXP_REG_PARM9" title='EXP_REG_PARM9' data-ref="EXP_REG_PARM9">EXP_REG_PARM9</dfn>,</td></tr>
+<tr><th id="124">124</th><td>	<dfn class="enum" id="EXP_REG_PARM10" title='EXP_REG_PARM10' data-ref="EXP_REG_PARM10">EXP_REG_PARM10</dfn>,</td></tr>
+<tr><th id="125">125</th><td>	<dfn class="enum" id="EXP_REG_PARM11" title='EXP_REG_PARM11' data-ref="EXP_REG_PARM11">EXP_REG_PARM11</dfn>,</td></tr>
+<tr><th id="126">126</th><td></td></tr>
+<tr><th id="127">127</th><td>	<dfn class="enum" id="EXP_REG_GLOBAL0" title='EXP_REG_GLOBAL0' data-ref="EXP_REG_GLOBAL0">EXP_REG_GLOBAL0</dfn>,</td></tr>
+<tr><th id="128">128</th><td>	<dfn class="enum" id="EXP_REG_GLOBAL1" title='EXP_REG_GLOBAL1' data-ref="EXP_REG_GLOBAL1">EXP_REG_GLOBAL1</dfn>,</td></tr>
+<tr><th id="129">129</th><td>	<dfn class="enum" id="EXP_REG_GLOBAL2" title='EXP_REG_GLOBAL2' data-ref="EXP_REG_GLOBAL2">EXP_REG_GLOBAL2</dfn>,</td></tr>
+<tr><th id="130">130</th><td>	<dfn class="enum" id="EXP_REG_GLOBAL3" title='EXP_REG_GLOBAL3' data-ref="EXP_REG_GLOBAL3">EXP_REG_GLOBAL3</dfn>,</td></tr>
+<tr><th id="131">131</th><td>	<dfn class="enum" id="EXP_REG_GLOBAL4" title='EXP_REG_GLOBAL4' data-ref="EXP_REG_GLOBAL4">EXP_REG_GLOBAL4</dfn>,</td></tr>
+<tr><th id="132">132</th><td>	<dfn class="enum" id="EXP_REG_GLOBAL5" title='EXP_REG_GLOBAL5' data-ref="EXP_REG_GLOBAL5">EXP_REG_GLOBAL5</dfn>,</td></tr>
+<tr><th id="133">133</th><td>	<dfn class="enum" id="EXP_REG_GLOBAL6" title='EXP_REG_GLOBAL6' data-ref="EXP_REG_GLOBAL6">EXP_REG_GLOBAL6</dfn>,</td></tr>
+<tr><th id="134">134</th><td>	<dfn class="enum" id="EXP_REG_GLOBAL7" title='EXP_REG_GLOBAL7' data-ref="EXP_REG_GLOBAL7">EXP_REG_GLOBAL7</dfn>,</td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td>	<dfn class="enum" id="EXP_REG_NUM_PREDEFINED" title='EXP_REG_NUM_PREDEFINED' data-ref="EXP_REG_NUM_PREDEFINED">EXP_REG_NUM_PREDEFINED</dfn></td></tr>
+<tr><th id="137">137</th><td>} <dfn class="typedef" id="expRegister_t" title='expRegister_t' data-type='enum expRegister_t' data-ref="expRegister_t">expRegister_t</dfn>;</td></tr>
+<tr><th id="138">138</th><td></td></tr>
+<tr><th id="139">139</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="140">140</th><td>	<a class="typedef" href="#expOpType_t" title='expOpType_t' data-type='enum expOpType_t' data-ref="expOpType_t">expOpType_t</a>		<dfn class="decl" id="(anonymous)::opType" title='(anonymous struct)::opType' data-ref="(anonymous)::opType">opType</dfn>;	</td></tr>
+<tr><th id="141">141</th><td>	<em>int</em>				<dfn class="decl" id="(anonymous)::a" title='(anonymous struct)::a' data-ref="(anonymous)::a">a</dfn>, <dfn class="decl" id="(anonymous)::b" title='(anonymous struct)::b' data-ref="(anonymous)::b">b</dfn>, <dfn class="decl" id="(anonymous)::c" title='(anonymous struct)::c' data-ref="(anonymous)::c">c</dfn>;</td></tr>
+<tr><th id="142">142</th><td>} <dfn class="typedef" id="expOp_t" title='expOp_t' data-type='struct expOp_t' data-ref="expOp_t">expOp_t</dfn>;</td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="145">145</th><td>	<em>int</em>				<dfn class="decl" id="(anonymous)::registers" title='(anonymous struct)::registers' data-ref="(anonymous)::registers">registers</dfn>[<var>4</var>];</td></tr>
+<tr><th id="146">146</th><td>} <dfn class="typedef" id="colorStage_t" title='colorStage_t' data-type='struct colorStage_t' data-ref="colorStage_t">colorStage_t</dfn>;</td></tr>
+<tr><th id="147">147</th><td></td></tr>
+<tr><th id="148">148</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="149">149</th><td>	<dfn class="enum" id="TG_EXPLICIT" title='TG_EXPLICIT' data-ref="TG_EXPLICIT">TG_EXPLICIT</dfn>,</td></tr>
+<tr><th id="150">150</th><td>	<dfn class="enum" id="TG_DIFFUSE_CUBE" title='TG_DIFFUSE_CUBE' data-ref="TG_DIFFUSE_CUBE">TG_DIFFUSE_CUBE</dfn>,</td></tr>
+<tr><th id="151">151</th><td>	<dfn class="enum" id="TG_REFLECT_CUBE" title='TG_REFLECT_CUBE' data-ref="TG_REFLECT_CUBE">TG_REFLECT_CUBE</dfn>,</td></tr>
+<tr><th id="152">152</th><td>	<dfn class="enum" id="TG_SKYBOX_CUBE" title='TG_SKYBOX_CUBE' data-ref="TG_SKYBOX_CUBE">TG_SKYBOX_CUBE</dfn>,</td></tr>
+<tr><th id="153">153</th><td>	<dfn class="enum" id="TG_WOBBLESKY_CUBE" title='TG_WOBBLESKY_CUBE' data-ref="TG_WOBBLESKY_CUBE">TG_WOBBLESKY_CUBE</dfn>,</td></tr>
+<tr><th id="154">154</th><td>	<dfn class="enum" id="TG_SCREEN" title='TG_SCREEN' data-ref="TG_SCREEN">TG_SCREEN</dfn>,			<i>// screen aligned, for mirrorRenders and screen space temporaries</i></td></tr>
+<tr><th id="155">155</th><td>	<dfn class="enum" id="TG_SCREEN2" title='TG_SCREEN2' data-ref="TG_SCREEN2">TG_SCREEN2</dfn>,</td></tr>
+<tr><th id="156">156</th><td>	<dfn class="enum" id="TG_GLASSWARP" title='TG_GLASSWARP' data-ref="TG_GLASSWARP">TG_GLASSWARP</dfn></td></tr>
+<tr><th id="157">157</th><td>} <dfn class="typedef" id="texgen_t" title='texgen_t' data-type='enum texgen_t' data-ref="texgen_t">texgen_t</dfn>;</td></tr>
+<tr><th id="158">158</th><td></td></tr>
+<tr><th id="159">159</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="160">160</th><td>	<a class="type" href="Cinematic.h.html#idCinematic" title='idCinematic' data-ref="idCinematic">idCinematic</a> *		<dfn class="decl" id="(anonymous)::cinematic" title='(anonymous struct)::cinematic' data-ref="(anonymous)::cinematic">cinematic</dfn>;</td></tr>
+<tr><th id="161">161</th><td>	<a class="type" href="#idImage" title='idImage' data-ref="idImage">idImage</a> *			<dfn class="decl" id="(anonymous)::image" title='(anonymous struct)::image' data-ref="(anonymous)::image">image</dfn>;</td></tr>
+<tr><th id="162">162</th><td>	<a class="typedef" href="#texgen_t" title='texgen_t' data-type='enum texgen_t' data-ref="texgen_t">texgen_t</a>			<dfn class="decl" id="(anonymous)::texgen" title='(anonymous struct)::texgen' data-ref="(anonymous)::texgen">texgen</dfn>;</td></tr>
+<tr><th id="163">163</th><td>	<em>bool</em>				<dfn class="decl" id="(anonymous)::hasMatrix" title='(anonymous struct)::hasMatrix' data-ref="(anonymous)::hasMatrix">hasMatrix</dfn>;</td></tr>
+<tr><th id="164">164</th><td>	<em>int</em>					<dfn class="decl" id="(anonymous)::matrix" title='(anonymous struct)::matrix' data-ref="(anonymous)::matrix">matrix</dfn>[<var>2</var>][<var>3</var>];	<i>// we only allow a subset of the full projection matrix</i></td></tr>
+<tr><th id="165">165</th><td></td></tr>
+<tr><th id="166">166</th><td>	<i>// dynamic image variables</i></td></tr>
+<tr><th id="167">167</th><td>	<a class="typedef" href="#dynamicidImage_t" title='dynamicidImage_t' data-type='enum dynamicidImage_t' data-ref="dynamicidImage_t">dynamicidImage_t</a>	<dfn class="decl" id="(anonymous)::dynamic" title='(anonymous struct)::dynamic' data-ref="(anonymous)::dynamic">dynamic</dfn>;</td></tr>
+<tr><th id="168">168</th><td>	<em>int</em>					<dfn class="decl" id="(anonymous)::width" title='(anonymous struct)::width' data-ref="(anonymous)::width">width</dfn>, <dfn class="decl" id="(anonymous)::height" title='(anonymous struct)::height' data-ref="(anonymous)::height">height</dfn>;</td></tr>
+<tr><th id="169">169</th><td>	<em>int</em>					<dfn class="decl" id="(anonymous)::dynamicFrameCount" title='(anonymous struct)::dynamicFrameCount' data-ref="(anonymous)::dynamicFrameCount">dynamicFrameCount</dfn>;</td></tr>
+<tr><th id="170">170</th><td>} <dfn class="typedef" id="textureStage_t" title='textureStage_t' data-type='struct textureStage_t' data-ref="textureStage_t">textureStage_t</dfn>;</td></tr>
+<tr><th id="171">171</th><td></td></tr>
+<tr><th id="172">172</th><td><i>// the order BUMP / DIFFUSE / SPECULAR is necessary for interactions to draw correctly on low end cards</i></td></tr>
+<tr><th id="173">173</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="174">174</th><td>	<dfn class="enum" id="SL_AMBIENT" title='SL_AMBIENT' data-ref="SL_AMBIENT">SL_AMBIENT</dfn>,						<i>// execute after lighting</i></td></tr>
+<tr><th id="175">175</th><td>	<dfn class="enum" id="SL_BUMP" title='SL_BUMP' data-ref="SL_BUMP">SL_BUMP</dfn>,</td></tr>
+<tr><th id="176">176</th><td>	<dfn class="enum" id="SL_DIFFUSE" title='SL_DIFFUSE' data-ref="SL_DIFFUSE">SL_DIFFUSE</dfn>,</td></tr>
+<tr><th id="177">177</th><td>	<dfn class="enum" id="SL_SPECULAR" title='SL_SPECULAR' data-ref="SL_SPECULAR">SL_SPECULAR</dfn></td></tr>
+<tr><th id="178">178</th><td>} <dfn class="typedef" id="stageLighting_t" title='stageLighting_t' data-type='enum stageLighting_t' data-ref="stageLighting_t">stageLighting_t</dfn>;</td></tr>
+<tr><th id="179">179</th><td></td></tr>
+<tr><th id="180">180</th><td><i>// cross-blended terrain textures need to modulate the color by</i></td></tr>
+<tr><th id="181">181</th><td><i>// the vertex color to smoothly blend between two textures</i></td></tr>
+<tr><th id="182">182</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="183">183</th><td>	<dfn class="enum" id="SVC_IGNORE" title='SVC_IGNORE' data-ref="SVC_IGNORE">SVC_IGNORE</dfn>,</td></tr>
+<tr><th id="184">184</th><td>	<dfn class="enum" id="SVC_MODULATE" title='SVC_MODULATE' data-ref="SVC_MODULATE">SVC_MODULATE</dfn>,</td></tr>
+<tr><th id="185">185</th><td>	<dfn class="enum" id="SVC_INVERSE_MODULATE" title='SVC_INVERSE_MODULATE' data-ref="SVC_INVERSE_MODULATE">SVC_INVERSE_MODULATE</dfn></td></tr>
+<tr><th id="186">186</th><td>} <dfn class="typedef" id="stageVertexColor_t" title='stageVertexColor_t' data-type='enum stageVertexColor_t' data-ref="stageVertexColor_t">stageVertexColor_t</dfn>;</td></tr>
+<tr><th id="187">187</th><td></td></tr>
+<tr><th id="188">188</th><td><em>static</em> <em>const</em> <em>int</em>	<dfn class="decl def" id="MAX_FRAGMENT_IMAGES" title='MAX_FRAGMENT_IMAGES' data-ref="MAX_FRAGMENT_IMAGES">MAX_FRAGMENT_IMAGES</dfn> = <var>8</var>;</td></tr>
+<tr><th id="189">189</th><td><em>static</em> <em>const</em> <em>int</em>	<dfn class="decl def" id="MAX_VERTEX_PARMS" title='MAX_VERTEX_PARMS' data-ref="MAX_VERTEX_PARMS">MAX_VERTEX_PARMS</dfn> = <var>4</var>;</td></tr>
+<tr><th id="190">190</th><td></td></tr>
+<tr><th id="191">191</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="192">192</th><td>	<em>int</em>					<dfn class="decl" id="(anonymous)::vertexProgram" title='(anonymous struct)::vertexProgram' data-ref="(anonymous)::vertexProgram">vertexProgram</dfn>;</td></tr>
+<tr><th id="193">193</th><td>	<em>int</em>					<dfn class="decl" id="(anonymous)::numVertexParms" title='(anonymous struct)::numVertexParms' data-ref="(anonymous)::numVertexParms">numVertexParms</dfn>;</td></tr>
+<tr><th id="194">194</th><td>	<em>int</em>					<dfn class="decl" id="(anonymous)::vertexParms" title='(anonymous struct)::vertexParms' data-ref="(anonymous)::vertexParms">vertexParms</dfn>[<a class="ref" href="#MAX_VERTEX_PARMS" title='MAX_VERTEX_PARMS' data-ref="MAX_VERTEX_PARMS">MAX_VERTEX_PARMS</a>][<var>4</var>];	<i>// evaluated register indexes</i></td></tr>
+<tr><th id="195">195</th><td></td></tr>
+<tr><th id="196">196</th><td>	<em>int</em>					<dfn class="decl" id="(anonymous)::fragmentProgram" title='(anonymous struct)::fragmentProgram' data-ref="(anonymous)::fragmentProgram">fragmentProgram</dfn>;</td></tr>
+<tr><th id="197">197</th><td>	<em>int</em>					<dfn class="decl" id="(anonymous)::numFragmentProgramImages" title='(anonymous struct)::numFragmentProgramImages' data-ref="(anonymous)::numFragmentProgramImages">numFragmentProgramImages</dfn>;</td></tr>
+<tr><th id="198">198</th><td>	<a class="type" href="#idImage" title='idImage' data-ref="idImage">idImage</a> *			<dfn class="decl" id="(anonymous)::fragmentProgramImages" title='(anonymous struct)::fragmentProgramImages' data-ref="(anonymous)::fragmentProgramImages">fragmentProgramImages</dfn>[<a class="ref" href="#MAX_FRAGMENT_IMAGES" title='MAX_FRAGMENT_IMAGES' data-ref="MAX_FRAGMENT_IMAGES">MAX_FRAGMENT_IMAGES</a>];</td></tr>
+<tr><th id="199">199</th><td></td></tr>
+<tr><th id="200">200</th><td>	<a class="type" href="#idMegaTexture" title='idMegaTexture' data-ref="idMegaTexture">idMegaTexture</a>		*<dfn class="decl" id="(anonymous)::megaTexture" title='(anonymous struct)::megaTexture' data-ref="(anonymous)::megaTexture">megaTexture</dfn>;		<i>// handles all the binding and parameter setting </i></td></tr>
+<tr><th id="201">201</th><td>} <dfn class="typedef" id="newShaderStage_t" title='newShaderStage_t' data-type='struct newShaderStage_t' data-ref="newShaderStage_t">newShaderStage_t</dfn>;</td></tr>
+<tr><th id="202">202</th><td></td></tr>
+<tr><th id="203">203</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="204">204</th><td>	<em>int</em>					<dfn class="decl" id="(anonymous)::conditionRegister" title='(anonymous struct)::conditionRegister' data-ref="(anonymous)::conditionRegister">conditionRegister</dfn>;	<i>// if registers[conditionRegister] == 0, skip stage</i></td></tr>
+<tr><th id="205">205</th><td>	<a class="typedef" href="#stageLighting_t" title='stageLighting_t' data-type='enum stageLighting_t' data-ref="stageLighting_t">stageLighting_t</a>		<dfn class="decl" id="(anonymous)::lighting" title='(anonymous struct)::lighting' data-ref="(anonymous)::lighting">lighting</dfn>;			<i>// determines which passes interact with lights</i></td></tr>
+<tr><th id="206">206</th><td>	<em>int</em>					<dfn class="decl" id="(anonymous)::drawStateBits" title='(anonymous struct)::drawStateBits' data-ref="(anonymous)::drawStateBits">drawStateBits</dfn>;</td></tr>
+<tr><th id="207">207</th><td>	<a class="typedef" href="#colorStage_t" title='colorStage_t' data-type='struct colorStage_t' data-ref="colorStage_t">colorStage_t</a>		<dfn class="decl" id="(anonymous)::color" title='(anonymous struct)::color' data-ref="(anonymous)::color">color</dfn>;</td></tr>
+<tr><th id="208">208</th><td>	<em>bool</em>				<dfn class="decl" id="(anonymous)::hasAlphaTest" title='(anonymous struct)::hasAlphaTest' data-ref="(anonymous)::hasAlphaTest">hasAlphaTest</dfn>;</td></tr>
+<tr><th id="209">209</th><td>	<em>int</em>					<dfn class="decl" id="(anonymous)::alphaTestRegister" title='(anonymous struct)::alphaTestRegister' data-ref="(anonymous)::alphaTestRegister">alphaTestRegister</dfn>;</td></tr>
+<tr><th id="210">210</th><td>	<a class="typedef" href="#textureStage_t" title='textureStage_t' data-type='struct textureStage_t' data-ref="textureStage_t">textureStage_t</a>		<dfn class="decl" id="(anonymous)::texture" title='(anonymous struct)::texture' data-ref="(anonymous)::texture">texture</dfn>;</td></tr>
+<tr><th id="211">211</th><td>	<a class="typedef" href="#stageVertexColor_t" title='stageVertexColor_t' data-type='enum stageVertexColor_t' data-ref="stageVertexColor_t">stageVertexColor_t</a>	<dfn class="decl" id="(anonymous)::vertexColor" title='(anonymous struct)::vertexColor' data-ref="(anonymous)::vertexColor">vertexColor</dfn>;</td></tr>
+<tr><th id="212">212</th><td>	<em>bool</em>				<dfn class="decl" id="(anonymous)::ignoreAlphaTest" title='(anonymous struct)::ignoreAlphaTest' data-ref="(anonymous)::ignoreAlphaTest">ignoreAlphaTest</dfn>;	<i>// this stage should act as translucent, even</i></td></tr>
+<tr><th id="213">213</th><td>											<i>// if the surface is alpha tested</i></td></tr>
+<tr><th id="214">214</th><td>	<em>float</em>				<dfn class="decl" id="(anonymous)::privatePolygonOffset" title='(anonymous struct)::privatePolygonOffset' data-ref="(anonymous)::privatePolygonOffset">privatePolygonOffset</dfn>;	<i>// a per-stage polygon offset</i></td></tr>
+<tr><th id="215">215</th><td></td></tr>
+<tr><th id="216">216</th><td>	<a class="typedef" href="#newShaderStage_t" title='newShaderStage_t' data-type='struct newShaderStage_t' data-ref="newShaderStage_t">newShaderStage_t</a>	*<dfn class="decl" id="(anonymous)::newStage" title='(anonymous struct)::newStage' data-ref="(anonymous)::newStage">newStage</dfn>;			<i>// vertex / fragment program based stage</i></td></tr>
+<tr><th id="217">217</th><td>} <dfn class="typedef" id="shaderStage_t" title='shaderStage_t' data-type='struct shaderStage_t' data-ref="shaderStage_t">shaderStage_t</dfn>;</td></tr>
+<tr><th id="218">218</th><td></td></tr>
+<tr><th id="219">219</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="220">220</th><td>	<dfn class="enum" id="MC_BAD" title='MC_BAD' data-ref="MC_BAD">MC_BAD</dfn>,</td></tr>
+<tr><th id="221">221</th><td>	<dfn class="enum" id="MC_OPAQUE" title='MC_OPAQUE' data-ref="MC_OPAQUE">MC_OPAQUE</dfn>,			<i>// completely fills the triangle, will have black drawn on fillDepthBuffer</i></td></tr>
+<tr><th id="222">222</th><td>	<dfn class="enum" id="MC_PERFORATED" title='MC_PERFORATED' data-ref="MC_PERFORATED">MC_PERFORATED</dfn>,		<i>// may have alpha tested holes</i></td></tr>
+<tr><th id="223">223</th><td>	<dfn class="enum" id="MC_TRANSLUCENT" title='MC_TRANSLUCENT' data-ref="MC_TRANSLUCENT">MC_TRANSLUCENT</dfn>		<i>// blended with background</i></td></tr>
+<tr><th id="224">224</th><td>} <dfn class="typedef" id="materialCoverage_t" title='materialCoverage_t' data-type='enum materialCoverage_t' data-ref="materialCoverage_t">materialCoverage_t</dfn>;</td></tr>
+<tr><th id="225">225</th><td></td></tr>
+<tr><th id="226">226</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="227">227</th><td>	<dfn class="enum" id="SS_SUBVIEW" title='SS_SUBVIEW' data-ref="SS_SUBVIEW">SS_SUBVIEW</dfn> = -<var>3</var>,	<i>// mirrors, viewscreens, etc</i></td></tr>
+<tr><th id="228">228</th><td>	<dfn class="enum" id="SS_GUI" title='SS_GUI' data-ref="SS_GUI">SS_GUI</dfn> = -<var>2</var>,		<i>// guis</i></td></tr>
+<tr><th id="229">229</th><td>	<dfn class="enum" id="SS_BAD" title='SS_BAD' data-ref="SS_BAD">SS_BAD</dfn> = -<var>1</var>,</td></tr>
+<tr><th id="230">230</th><td>	<dfn class="enum" id="SS_OPAQUE" title='SS_OPAQUE' data-ref="SS_OPAQUE">SS_OPAQUE</dfn>,			<i>// opaque</i></td></tr>
+<tr><th id="231">231</th><td></td></tr>
+<tr><th id="232">232</th><td>	<dfn class="enum" id="SS_PORTAL_SKY" title='SS_PORTAL_SKY' data-ref="SS_PORTAL_SKY">SS_PORTAL_SKY</dfn>,</td></tr>
+<tr><th id="233">233</th><td></td></tr>
+<tr><th id="234">234</th><td>	<dfn class="enum" id="SS_DECAL" title='SS_DECAL' data-ref="SS_DECAL">SS_DECAL</dfn>,			<i>// scorch marks, etc.</i></td></tr>
+<tr><th id="235">235</th><td></td></tr>
+<tr><th id="236">236</th><td>	<dfn class="enum" id="SS_FAR" title='SS_FAR' data-ref="SS_FAR">SS_FAR</dfn>,</td></tr>
+<tr><th id="237">237</th><td>	<dfn class="enum" id="SS_MEDIUM" title='SS_MEDIUM' data-ref="SS_MEDIUM">SS_MEDIUM</dfn>,			<i>// normal translucent</i></td></tr>
+<tr><th id="238">238</th><td>	<dfn class="enum" id="SS_CLOSE" title='SS_CLOSE' data-ref="SS_CLOSE">SS_CLOSE</dfn>,</td></tr>
+<tr><th id="239">239</th><td></td></tr>
+<tr><th id="240">240</th><td>	<dfn class="enum" id="SS_ALMOST_NEAREST" title='SS_ALMOST_NEAREST' data-ref="SS_ALMOST_NEAREST">SS_ALMOST_NEAREST</dfn>,	<i>// gun smoke puffs</i></td></tr>
+<tr><th id="241">241</th><td></td></tr>
+<tr><th id="242">242</th><td>	<dfn class="enum" id="SS_NEAREST" title='SS_NEAREST' data-ref="SS_NEAREST">SS_NEAREST</dfn>,			<i>// screen blood blobs</i></td></tr>
+<tr><th id="243">243</th><td></td></tr>
+<tr><th id="244">244</th><td>	<dfn class="enum" id="SS_POST_PROCESS" title='SS_POST_PROCESS' data-ref="SS_POST_PROCESS">SS_POST_PROCESS</dfn> = <var>100</var>	<i>// after a screen copy to texture</i></td></tr>
+<tr><th id="245">245</th><td>} <dfn class="typedef" id="materialSort_t" title='materialSort_t' data-type='enum materialSort_t' data-ref="materialSort_t">materialSort_t</dfn>;</td></tr>
+<tr><th id="246">246</th><td></td></tr>
+<tr><th id="247">247</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="248">248</th><td>	<dfn class="enum" id="CT_FRONT_SIDED" title='CT_FRONT_SIDED' data-ref="CT_FRONT_SIDED">CT_FRONT_SIDED</dfn>,</td></tr>
+<tr><th id="249">249</th><td>	<dfn class="enum" id="CT_BACK_SIDED" title='CT_BACK_SIDED' data-ref="CT_BACK_SIDED">CT_BACK_SIDED</dfn>,</td></tr>
+<tr><th id="250">250</th><td>	<dfn class="enum" id="CT_TWO_SIDED" title='CT_TWO_SIDED' data-ref="CT_TWO_SIDED">CT_TWO_SIDED</dfn></td></tr>
+<tr><th id="251">251</th><td>} <dfn class="typedef" id="cullType_t" title='cullType_t' data-type='enum cullType_t' data-ref="cullType_t">cullType_t</dfn>;</td></tr>
+<tr><th id="252">252</th><td></td></tr>
+<tr><th id="253">253</th><td><i>// these don't effect per-material storage, so they can be very large</i></td></tr>
+<tr><th id="254">254</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="MAX_SHADER_STAGES" title='MAX_SHADER_STAGES' data-ref="MAX_SHADER_STAGES">MAX_SHADER_STAGES</dfn>			= <var>256</var>;</td></tr>
+<tr><th id="255">255</th><td></td></tr>
+<tr><th id="256">256</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="MAX_TEXGEN_REGISTERS" title='MAX_TEXGEN_REGISTERS' data-ref="MAX_TEXGEN_REGISTERS">MAX_TEXGEN_REGISTERS</dfn>		= <var>4</var>;</td></tr>
+<tr><th id="257">257</th><td></td></tr>
+<tr><th id="258">258</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="MAX_ENTITY_SHADER_PARMS" title='MAX_ENTITY_SHADER_PARMS' data-ref="MAX_ENTITY_SHADER_PARMS">MAX_ENTITY_SHADER_PARMS</dfn>	= <var>12</var>;</td></tr>
+<tr><th id="259">259</th><td></td></tr>
+<tr><th id="260">260</th><td><i>// material flags</i></td></tr>
+<tr><th id="261">261</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="262">262</th><td>	<dfn class="enum" id="MF_DEFAULTED" title='MF_DEFAULTED' data-ref="MF_DEFAULTED">MF_DEFAULTED</dfn>				= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 0 ) )" data-ref="_M/BIT">BIT</a>(<var>0</var>),</td></tr>
+<tr><th id="263">263</th><td>	<dfn class="enum" id="MF_POLYGONOFFSET" title='MF_POLYGONOFFSET' data-ref="MF_POLYGONOFFSET">MF_POLYGONOFFSET</dfn>			= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 1 ) )" data-ref="_M/BIT">BIT</a>(<var>1</var>),</td></tr>
+<tr><th id="264">264</th><td>	<dfn class="enum" id="MF_NOSHADOWS" title='MF_NOSHADOWS' data-ref="MF_NOSHADOWS">MF_NOSHADOWS</dfn>				= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 2 ) )" data-ref="_M/BIT">BIT</a>(<var>2</var>),</td></tr>
+<tr><th id="265">265</th><td>	<dfn class="enum" id="MF_FORCESHADOWS" title='MF_FORCESHADOWS' data-ref="MF_FORCESHADOWS">MF_FORCESHADOWS</dfn>				= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 3 ) )" data-ref="_M/BIT">BIT</a>(<var>3</var>),</td></tr>
+<tr><th id="266">266</th><td>	<dfn class="enum" id="MF_NOSELFSHADOW" title='MF_NOSELFSHADOW' data-ref="MF_NOSELFSHADOW">MF_NOSELFSHADOW</dfn>				= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 4 ) )" data-ref="_M/BIT">BIT</a>(<var>4</var>),</td></tr>
+<tr><th id="267">267</th><td>	<dfn class="enum" id="MF_NOPORTALFOG" title='MF_NOPORTALFOG' data-ref="MF_NOPORTALFOG">MF_NOPORTALFOG</dfn>				= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 5 ) )" data-ref="_M/BIT">BIT</a>(<var>5</var>),	<i>// this fog volume won't ever consider a portal fogged out</i></td></tr>
+<tr><th id="268">268</th><td>	<dfn class="enum" id="MF_EDITOR_VISIBLE" title='MF_EDITOR_VISIBLE' data-ref="MF_EDITOR_VISIBLE">MF_EDITOR_VISIBLE</dfn>			= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 6 ) )" data-ref="_M/BIT">BIT</a>(<var>6</var>)	<i>// in use (visible) per editor</i></td></tr>
+<tr><th id="269">269</th><td>} <dfn class="typedef" id="materialFlags_t" title='materialFlags_t' data-type='enum materialFlags_t' data-ref="materialFlags_t">materialFlags_t</dfn>;</td></tr>
+<tr><th id="270">270</th><td></td></tr>
+<tr><th id="271">271</th><td><i>// contents flags, NOTE: make sure to keep the defines in doom_defs.script up to date with these!</i></td></tr>
+<tr><th id="272">272</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="273">273</th><td>	<dfn class="enum" id="CONTENTS_SOLID" title='CONTENTS_SOLID' data-ref="CONTENTS_SOLID">CONTENTS_SOLID</dfn>				= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 0 ) )" data-ref="_M/BIT">BIT</a>(<var>0</var>),	<i>// an eye is never valid in a solid</i></td></tr>
+<tr><th id="274">274</th><td>	<dfn class="enum" id="CONTENTS_OPAQUE" title='CONTENTS_OPAQUE' data-ref="CONTENTS_OPAQUE">CONTENTS_OPAQUE</dfn>				= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 1 ) )" data-ref="_M/BIT">BIT</a>(<var>1</var>),	<i>// blocks visibility (for ai)</i></td></tr>
+<tr><th id="275">275</th><td>	<dfn class="enum" id="CONTENTS_WATER" title='CONTENTS_WATER' data-ref="CONTENTS_WATER">CONTENTS_WATER</dfn>				= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 2 ) )" data-ref="_M/BIT">BIT</a>(<var>2</var>),	<i>// used for water</i></td></tr>
+<tr><th id="276">276</th><td>	<dfn class="enum" id="CONTENTS_PLAYERCLIP" title='CONTENTS_PLAYERCLIP' data-ref="CONTENTS_PLAYERCLIP">CONTENTS_PLAYERCLIP</dfn>			= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 3 ) )" data-ref="_M/BIT">BIT</a>(<var>3</var>),	<i>// solid to players</i></td></tr>
+<tr><th id="277">277</th><td>	<dfn class="enum" id="CONTENTS_MONSTERCLIP" title='CONTENTS_MONSTERCLIP' data-ref="CONTENTS_MONSTERCLIP">CONTENTS_MONSTERCLIP</dfn>		= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 4 ) )" data-ref="_M/BIT">BIT</a>(<var>4</var>),	<i>// solid to monsters</i></td></tr>
+<tr><th id="278">278</th><td>	<dfn class="enum" id="CONTENTS_MOVEABLECLIP" title='CONTENTS_MOVEABLECLIP' data-ref="CONTENTS_MOVEABLECLIP">CONTENTS_MOVEABLECLIP</dfn>		= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 5 ) )" data-ref="_M/BIT">BIT</a>(<var>5</var>),	<i>// solid to moveable entities</i></td></tr>
+<tr><th id="279">279</th><td>	<dfn class="enum" id="CONTENTS_IKCLIP" title='CONTENTS_IKCLIP' data-ref="CONTENTS_IKCLIP">CONTENTS_IKCLIP</dfn>				= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 6 ) )" data-ref="_M/BIT">BIT</a>(<var>6</var>),	<i>// solid to IK</i></td></tr>
+<tr><th id="280">280</th><td>	<dfn class="enum" id="CONTENTS_BLOOD" title='CONTENTS_BLOOD' data-ref="CONTENTS_BLOOD">CONTENTS_BLOOD</dfn>				= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 7 ) )" data-ref="_M/BIT">BIT</a>(<var>7</var>),	<i>// used to detect blood decals</i></td></tr>
+<tr><th id="281">281</th><td>	<dfn class="enum" id="CONTENTS_BODY" title='CONTENTS_BODY' data-ref="CONTENTS_BODY">CONTENTS_BODY</dfn>				= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 8 ) )" data-ref="_M/BIT">BIT</a>(<var>8</var>),	<i>// used for actors</i></td></tr>
+<tr><th id="282">282</th><td>	<dfn class="enum" id="CONTENTS_PROJECTILE" title='CONTENTS_PROJECTILE' data-ref="CONTENTS_PROJECTILE">CONTENTS_PROJECTILE</dfn>			= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 9 ) )" data-ref="_M/BIT">BIT</a>(<var>9</var>),	<i>// used for projectiles</i></td></tr>
+<tr><th id="283">283</th><td>	<dfn class="enum" id="CONTENTS_CORPSE" title='CONTENTS_CORPSE' data-ref="CONTENTS_CORPSE">CONTENTS_CORPSE</dfn>				= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 10 ) )" data-ref="_M/BIT">BIT</a>(<var>10</var>),	<i>// used for dead bodies</i></td></tr>
+<tr><th id="284">284</th><td>	<dfn class="enum" id="CONTENTS_RENDERMODEL" title='CONTENTS_RENDERMODEL' data-ref="CONTENTS_RENDERMODEL">CONTENTS_RENDERMODEL</dfn>		= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 11 ) )" data-ref="_M/BIT">BIT</a>(<var>11</var>),	<i>// used for render models for collision detection</i></td></tr>
+<tr><th id="285">285</th><td>	<dfn class="enum" id="CONTENTS_TRIGGER" title='CONTENTS_TRIGGER' data-ref="CONTENTS_TRIGGER">CONTENTS_TRIGGER</dfn>			= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 12 ) )" data-ref="_M/BIT">BIT</a>(<var>12</var>),	<i>// used for triggers</i></td></tr>
+<tr><th id="286">286</th><td>	<dfn class="enum" id="CONTENTS_AAS_SOLID" title='CONTENTS_AAS_SOLID' data-ref="CONTENTS_AAS_SOLID">CONTENTS_AAS_SOLID</dfn>			= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 13 ) )" data-ref="_M/BIT">BIT</a>(<var>13</var>),	<i>// solid for AAS</i></td></tr>
+<tr><th id="287">287</th><td>	<dfn class="enum" id="CONTENTS_AAS_OBSTACLE" title='CONTENTS_AAS_OBSTACLE' data-ref="CONTENTS_AAS_OBSTACLE">CONTENTS_AAS_OBSTACLE</dfn>		= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 14 ) )" data-ref="_M/BIT">BIT</a>(<var>14</var>),	<i>// used to compile an obstacle into AAS that can be enabled/disabled</i></td></tr>
+<tr><th id="288">288</th><td>	<dfn class="enum" id="CONTENTS_FLASHLIGHT_TRIGGER" title='CONTENTS_FLASHLIGHT_TRIGGER' data-ref="CONTENTS_FLASHLIGHT_TRIGGER">CONTENTS_FLASHLIGHT_TRIGGER</dfn>	= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 15 ) )" data-ref="_M/BIT">BIT</a>(<var>15</var>),	<i>// used for triggers that are activated by the flashlight</i></td></tr>
+<tr><th id="289">289</th><td></td></tr>
+<tr><th id="290">290</th><td>	<i>// contents used by utils</i></td></tr>
+<tr><th id="291">291</th><td>	<dfn class="enum" id="CONTENTS_AREAPORTAL" title='CONTENTS_AREAPORTAL' data-ref="CONTENTS_AREAPORTAL">CONTENTS_AREAPORTAL</dfn>			= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 20 ) )" data-ref="_M/BIT">BIT</a>(<var>20</var>),	<i>// portal separating renderer areas</i></td></tr>
+<tr><th id="292">292</th><td>	<dfn class="enum" id="CONTENTS_NOCSG" title='CONTENTS_NOCSG' data-ref="CONTENTS_NOCSG">CONTENTS_NOCSG</dfn>				= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 21 ) )" data-ref="_M/BIT">BIT</a>(<var>21</var>),	<i>// don't cut this brush with CSG operations in the editor</i></td></tr>
+<tr><th id="293">293</th><td></td></tr>
+<tr><th id="294">294</th><td>	<dfn class="enum" id="CONTENTS_REMOVE_UTIL" title='CONTENTS_REMOVE_UTIL' data-ref="CONTENTS_REMOVE_UTIL">CONTENTS_REMOVE_UTIL</dfn>		= ~(<a class="enum" href="#CONTENTS_AREAPORTAL" title='CONTENTS_AREAPORTAL' data-ref="CONTENTS_AREAPORTAL">CONTENTS_AREAPORTAL</a>|<a class="enum" href="#CONTENTS_NOCSG" title='CONTENTS_NOCSG' data-ref="CONTENTS_NOCSG">CONTENTS_NOCSG</a>)</td></tr>
+<tr><th id="295">295</th><td>} <dfn class="typedef" id="contentsFlags_t" title='contentsFlags_t' data-type='enum contentsFlags_t' data-ref="contentsFlags_t">contentsFlags_t</dfn>;</td></tr>
+<tr><th id="296">296</th><td></td></tr>
+<tr><th id="297">297</th><td><i>// surface types</i></td></tr>
+<tr><th id="298">298</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="NUM_SURFACE_BITS" title='NUM_SURFACE_BITS' data-ref="NUM_SURFACE_BITS">NUM_SURFACE_BITS</dfn>		= <var>4</var>;</td></tr>
+<tr><th id="299">299</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="MAX_SURFACE_TYPES" title='MAX_SURFACE_TYPES' data-ref="MAX_SURFACE_TYPES">MAX_SURFACE_TYPES</dfn>		= <var>1</var> &lt;&lt; <a class="ref" href="#NUM_SURFACE_BITS" title='NUM_SURFACE_BITS' data-ref="NUM_SURFACE_BITS">NUM_SURFACE_BITS</a>;</td></tr>
+<tr><th id="300">300</th><td></td></tr>
+<tr><th id="301">301</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="302">302</th><td>	<dfn class="enum" id="SURFTYPE_NONE" title='SURFTYPE_NONE' data-ref="SURFTYPE_NONE">SURFTYPE_NONE</dfn>,					<i>// default type</i></td></tr>
+<tr><th id="303">303</th><td>    <dfn class="enum" id="SURFTYPE_METAL" title='SURFTYPE_METAL' data-ref="SURFTYPE_METAL">SURFTYPE_METAL</dfn>,</td></tr>
+<tr><th id="304">304</th><td>	<dfn class="enum" id="SURFTYPE_STONE" title='SURFTYPE_STONE' data-ref="SURFTYPE_STONE">SURFTYPE_STONE</dfn>,</td></tr>
+<tr><th id="305">305</th><td>	<dfn class="enum" id="SURFTYPE_FLESH" title='SURFTYPE_FLESH' data-ref="SURFTYPE_FLESH">SURFTYPE_FLESH</dfn>,</td></tr>
+<tr><th id="306">306</th><td>	<dfn class="enum" id="SURFTYPE_WOOD" title='SURFTYPE_WOOD' data-ref="SURFTYPE_WOOD">SURFTYPE_WOOD</dfn>,</td></tr>
+<tr><th id="307">307</th><td>	<dfn class="enum" id="SURFTYPE_CARDBOARD" title='SURFTYPE_CARDBOARD' data-ref="SURFTYPE_CARDBOARD">SURFTYPE_CARDBOARD</dfn>,</td></tr>
+<tr><th id="308">308</th><td>	<dfn class="enum" id="SURFTYPE_LIQUID" title='SURFTYPE_LIQUID' data-ref="SURFTYPE_LIQUID">SURFTYPE_LIQUID</dfn>,</td></tr>
+<tr><th id="309">309</th><td>	<dfn class="enum" id="SURFTYPE_GLASS" title='SURFTYPE_GLASS' data-ref="SURFTYPE_GLASS">SURFTYPE_GLASS</dfn>,</td></tr>
+<tr><th id="310">310</th><td>	<dfn class="enum" id="SURFTYPE_PLASTIC" title='SURFTYPE_PLASTIC' data-ref="SURFTYPE_PLASTIC">SURFTYPE_PLASTIC</dfn>,</td></tr>
+<tr><th id="311">311</th><td>	<dfn class="enum" id="SURFTYPE_RICOCHET" title='SURFTYPE_RICOCHET' data-ref="SURFTYPE_RICOCHET">SURFTYPE_RICOCHET</dfn>,</td></tr>
+<tr><th id="312">312</th><td>	<dfn class="enum" id="SURFTYPE_10" title='SURFTYPE_10' data-ref="SURFTYPE_10">SURFTYPE_10</dfn>,</td></tr>
+<tr><th id="313">313</th><td>	<dfn class="enum" id="SURFTYPE_11" title='SURFTYPE_11' data-ref="SURFTYPE_11">SURFTYPE_11</dfn>,</td></tr>
+<tr><th id="314">314</th><td>	<dfn class="enum" id="SURFTYPE_12" title='SURFTYPE_12' data-ref="SURFTYPE_12">SURFTYPE_12</dfn>,</td></tr>
+<tr><th id="315">315</th><td>	<dfn class="enum" id="SURFTYPE_13" title='SURFTYPE_13' data-ref="SURFTYPE_13">SURFTYPE_13</dfn>,</td></tr>
+<tr><th id="316">316</th><td>	<dfn class="enum" id="SURFTYPE_14" title='SURFTYPE_14' data-ref="SURFTYPE_14">SURFTYPE_14</dfn>,</td></tr>
+<tr><th id="317">317</th><td>	<dfn class="enum" id="SURFTYPE_15" title='SURFTYPE_15' data-ref="SURFTYPE_15">SURFTYPE_15</dfn></td></tr>
+<tr><th id="318">318</th><td>} <dfn class="typedef" id="surfTypes_t" title='surfTypes_t' data-type='enum surfTypes_t' data-ref="surfTypes_t">surfTypes_t</dfn>;</td></tr>
+<tr><th id="319">319</th><td></td></tr>
+<tr><th id="320">320</th><td><i>// surface flags</i></td></tr>
+<tr><th id="321">321</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="322">322</th><td>	<dfn class="enum" id="SURF_TYPE_BIT0" title='SURF_TYPE_BIT0' data-ref="SURF_TYPE_BIT0">SURF_TYPE_BIT0</dfn>				= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 0 ) )" data-ref="_M/BIT">BIT</a>(<var>0</var>),	<i>// encodes the material type (metal, flesh, concrete, etc.)</i></td></tr>
+<tr><th id="323">323</th><td>	<dfn class="enum" id="SURF_TYPE_BIT1" title='SURF_TYPE_BIT1' data-ref="SURF_TYPE_BIT1">SURF_TYPE_BIT1</dfn>				= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 1 ) )" data-ref="_M/BIT">BIT</a>(<var>1</var>),	<i>// "</i></td></tr>
+<tr><th id="324">324</th><td>	<dfn class="enum" id="SURF_TYPE_BIT2" title='SURF_TYPE_BIT2' data-ref="SURF_TYPE_BIT2">SURF_TYPE_BIT2</dfn>				= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 2 ) )" data-ref="_M/BIT">BIT</a>(<var>2</var>),	<i>// "</i></td></tr>
+<tr><th id="325">325</th><td>	<dfn class="enum" id="SURF_TYPE_BIT3" title='SURF_TYPE_BIT3' data-ref="SURF_TYPE_BIT3">SURF_TYPE_BIT3</dfn>				= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 3 ) )" data-ref="_M/BIT">BIT</a>(<var>3</var>),	<i>// "</i></td></tr>
+<tr><th id="326">326</th><td>	<dfn class="enum" id="SURF_TYPE_MASK" title='SURF_TYPE_MASK' data-ref="SURF_TYPE_MASK">SURF_TYPE_MASK</dfn>				= ( <var>1</var> &lt;&lt; <a class="ref" href="#NUM_SURFACE_BITS" title='NUM_SURFACE_BITS' data-ref="NUM_SURFACE_BITS">NUM_SURFACE_BITS</a> ) - <var>1</var>,</td></tr>
+<tr><th id="327">327</th><td></td></tr>
+<tr><th id="328">328</th><td>	<dfn class="enum" id="SURF_NODAMAGE" title='SURF_NODAMAGE' data-ref="SURF_NODAMAGE">SURF_NODAMAGE</dfn>				= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 4 ) )" data-ref="_M/BIT">BIT</a>(<var>4</var>),	<i>// never give falling damage</i></td></tr>
+<tr><th id="329">329</th><td>	<dfn class="enum" id="SURF_SLICK" title='SURF_SLICK' data-ref="SURF_SLICK">SURF_SLICK</dfn>					= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 5 ) )" data-ref="_M/BIT">BIT</a>(<var>5</var>),	<i>// effects game physics</i></td></tr>
+<tr><th id="330">330</th><td>	<dfn class="enum" id="SURF_COLLISION" title='SURF_COLLISION' data-ref="SURF_COLLISION">SURF_COLLISION</dfn>				= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 6 ) )" data-ref="_M/BIT">BIT</a>(<var>6</var>),	<i>// collision surface</i></td></tr>
+<tr><th id="331">331</th><td>	<dfn class="enum" id="SURF_LADDER" title='SURF_LADDER' data-ref="SURF_LADDER">SURF_LADDER</dfn>					= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 7 ) )" data-ref="_M/BIT">BIT</a>(<var>7</var>),	<i>// player can climb up this surface</i></td></tr>
+<tr><th id="332">332</th><td>	<dfn class="enum" id="SURF_NOIMPACT" title='SURF_NOIMPACT' data-ref="SURF_NOIMPACT">SURF_NOIMPACT</dfn>				= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 8 ) )" data-ref="_M/BIT">BIT</a>(<var>8</var>),	<i>// don't make missile explosions</i></td></tr>
+<tr><th id="333">333</th><td>	<dfn class="enum" id="SURF_NOSTEPS" title='SURF_NOSTEPS' data-ref="SURF_NOSTEPS">SURF_NOSTEPS</dfn>				= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 9 ) )" data-ref="_M/BIT">BIT</a>(<var>9</var>),	<i>// no footstep sounds</i></td></tr>
+<tr><th id="334">334</th><td>	<dfn class="enum" id="SURF_DISCRETE" title='SURF_DISCRETE' data-ref="SURF_DISCRETE">SURF_DISCRETE</dfn>				= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 10 ) )" data-ref="_M/BIT">BIT</a>(<var>10</var>),	<i>// not clipped or merged by utilities</i></td></tr>
+<tr><th id="335">335</th><td>	<dfn class="enum" id="SURF_NOFRAGMENT" title='SURF_NOFRAGMENT' data-ref="SURF_NOFRAGMENT">SURF_NOFRAGMENT</dfn>				= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 11 ) )" data-ref="_M/BIT">BIT</a>(<var>11</var>),	<i>// dmap won't cut surface at each bsp boundary</i></td></tr>
+<tr><th id="336">336</th><td>	<dfn class="enum" id="SURF_NULLNORMAL" title='SURF_NULLNORMAL' data-ref="SURF_NULLNORMAL">SURF_NULLNORMAL</dfn>				= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 12 ) )" data-ref="_M/BIT">BIT</a>(<var>12</var>)	<i>// renderbump will draw this surface as 0x80 0x80 0x80, which</i></td></tr>
+<tr><th id="337">337</th><td>											<i>// won't collect light from any angle</i></td></tr>
+<tr><th id="338">338</th><td>} <dfn class="typedef" id="surfaceFlags_t" title='surfaceFlags_t' data-type='enum surfaceFlags_t' data-ref="surfaceFlags_t">surfaceFlags_t</dfn>;</td></tr>
+<tr><th id="339">339</th><td></td></tr>
+<tr><th id="340">340</th><td><b>class</b> <a class="type" href="../sound/sound.h.html#idSoundEmitter" title='idSoundEmitter' data-ref="idSoundEmitter" id="idSoundEmitter">idSoundEmitter</a>;</td></tr>
+<tr><th id="341">341</th><td></td></tr>
+<tr><th id="342">342</th><td><b>class</b> <dfn class="type def" id="idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</dfn> : <b>public</b> <a class="type" href="../framework/DeclManager.h.html#idDecl" title='idDecl' data-ref="idDecl">idDecl</a> {</td></tr>
+<tr><th id="343">343</th><td><b>public</b>:</td></tr>
+<tr><th id="344">344</th><td>						<dfn class="decl" id="_ZN10idMaterialC1Ev" title='idMaterial::idMaterial' data-ref="_ZN10idMaterialC1Ev">idMaterial</dfn>();</td></tr>
+<tr><th id="345">345</th><td>	<b>virtual</b>				<dfn class="virtual decl" id="_ZN10idMaterialD1Ev" title='idMaterial::~idMaterial' data-ref="_ZN10idMaterialD1Ev">~idMaterial</dfn>();</td></tr>
+<tr><th id="346">346</th><td></td></tr>
+<tr><th id="347">347</th><td>	<b>virtual</b> <span class='typedef' title='size_t' data-type='unsigned int' data-ref="size_t">size_t</span>		<dfn class="virtual decl" id="_ZNK10idMaterial4SizeEv" title='idMaterial::Size' data-ref="_ZNK10idMaterial4SizeEv">Size</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="348">348</th><td>	<b>virtual</b> <em>bool</em>		<dfn class="virtual decl" id="_ZN10idMaterial14SetDefaultTextEv" title='idMaterial::SetDefaultText' data-ref="_ZN10idMaterial14SetDefaultTextEv">SetDefaultText</dfn>( <em>void</em> );</td></tr>
+<tr><th id="349">349</th><td>	<b>virtual</b> <em>const</em> <em>char</em> *<dfn class="virtual decl" id="_ZNK10idMaterial17DefaultDefinitionEv" title='idMaterial::DefaultDefinition' data-ref="_ZNK10idMaterial17DefaultDefinitionEv">DefaultDefinition</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="350">350</th><td>	<b>virtual</b> <em>bool</em>		<dfn class="virtual decl" id="_ZN10idMaterial5ParseEPKci" title='idMaterial::Parse' data-ref="_ZN10idMaterial5ParseEPKci">Parse</dfn>( <em>const</em> <em>char</em> *<dfn class="local col6 decl" id="12916text" title='text' data-type='const char *' data-ref="12916text">text</dfn>, <em>const</em> <em>int</em> <dfn class="local col7 decl" id="12917textLength" title='textLength' data-type='const int' data-ref="12917textLength">textLength</dfn> );</td></tr>
+<tr><th id="351">351</th><td>	<b>virtual</b> <em>void</em>		<dfn class="virtual decl" id="_ZN10idMaterial8FreeDataEv" title='idMaterial::FreeData' data-ref="_ZN10idMaterial8FreeDataEv">FreeData</dfn>( <em>void</em> );</td></tr>
+<tr><th id="352">352</th><td>	<b>virtual</b> <em>void</em>		<dfn class="virtual decl" id="_ZNK10idMaterial5PrintEv" title='idMaterial::Print' data-ref="_ZNK10idMaterial5PrintEv">Print</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="353">353</th><td></td></tr>
+<tr><th id="354">354</th><td>	<i>//BSM Nerve: Added for material editor</i></td></tr>
+<tr><th id="355">355</th><td>	<em>bool</em>				<dfn class="decl" id="_ZN10idMaterial4SaveEPKc" title='idMaterial::Save' data-ref="_ZN10idMaterial4SaveEPKc">Save</dfn>( <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="12918fileName" title='fileName' data-type='const char *' data-ref="12918fileName">fileName</dfn> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> );</td></tr>
+<tr><th id="356">356</th><td></td></tr>
+<tr><th id="357">357</th><td>						<i>// returns the internal image name for stage 0, which can be used</i></td></tr>
+<tr><th id="358">358</th><td><i>						// for the renderer CaptureRenderToImage() call</i></td></tr>
+<tr><th id="359">359</th><td><i>						// I'm not really sure why this needs to be virtual...</i></td></tr>
+<tr><th id="360">360</th><td>	<b>virtual</b> <em>const</em> <em>char</em>	*<dfn class="virtual decl" id="_ZNK10idMaterial9ImageNameEv" title='idMaterial::ImageName' data-ref="_ZNK10idMaterial9ImageNameEv">ImageName</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="361">361</th><td></td></tr>
+<tr><th id="362">362</th><td>	<em>void</em>				<dfn class="decl" id="_ZNK10idMaterial12ReloadImagesEb" title='idMaterial::ReloadImages' data-ref="_ZNK10idMaterial12ReloadImagesEb">ReloadImages</dfn>( <em>bool</em> <dfn class="local col9 decl" id="12919force" title='force' data-type='bool' data-ref="12919force">force</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="363">363</th><td></td></tr>
+<tr><th id="364">364</th><td>						<i>// returns number of stages this material contains</i></td></tr>
+<tr><th id="365">365</th><td>	<em>const</em> <em>int</em>			<dfn class="decl def" id="_ZNK10idMaterial12GetNumStagesEv" title='idMaterial::GetNumStages' data-ref="_ZNK10idMaterial12GetNumStagesEv">GetNumStages</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idMaterial::numStages" title='idMaterial::numStages' data-ref="idMaterial::numStages">numStages</a>; }</td></tr>
+<tr><th id="366">366</th><td></td></tr>
+<tr><th id="367">367</th><td>						<i>// get a specific stage</i></td></tr>
+<tr><th id="368">368</th><td>	<em>const</em> <a class="typedef" href="#shaderStage_t" title='shaderStage_t' data-type='struct shaderStage_t' data-ref="shaderStage_t">shaderStage_t</a> *<dfn class="decl def" id="_ZNK10idMaterial8GetStageEi" title='idMaterial::GetStage' data-ref="_ZNK10idMaterial8GetStageEi">GetStage</dfn>( <em>const</em> <em>int</em> <dfn class="local col0 decl" id="12920index" title='index' data-type='const int' data-ref="12920index">index</dfn> ) <em>const</em> { <a class="macro" href="../idlib/Lib.h.html#147" title="if ( index &gt;= 0 &amp;&amp; index &lt; numStages ) { } else AssertFailed( &quot;/home/jon/workspace/id-software/DOOM-3/neo/TypeInfo/../idlib/../renderer/Material.h&quot;, 368, &quot;index &gt;= 0 &amp;&amp; index &lt; numStages&quot; )" data-ref="_M/assert">assert</a>(<a class="local col0 ref" href="#12920index" title='index' data-ref="12920index">index</a> &gt;= <var>0</var> &amp;&amp; <a class="local col0 ref" href="#12920index" title='index' data-ref="12920index">index</a> &lt; <a class="member" href="#idMaterial::numStages" title='idMaterial::numStages' data-ref="idMaterial::numStages">numStages</a>); <b>return</b> &amp;<a class="member" href="#idMaterial::stages" title='idMaterial::stages' data-ref="idMaterial::stages">stages</a>[<a class="local col0 ref" href="#12920index" title='index' data-ref="12920index">index</a>]; }</td></tr>
+<tr><th id="369">369</th><td></td></tr>
+<tr><th id="370">370</th><td>						<i>// get the first bump map stage, or NULL if not present.</i></td></tr>
+<tr><th id="371">371</th><td><i>						// used for bumpy-specular</i></td></tr>
+<tr><th id="372">372</th><td>	<em>const</em> <a class="typedef" href="#shaderStage_t" title='shaderStage_t' data-type='struct shaderStage_t' data-ref="shaderStage_t">shaderStage_t</a> *<dfn class="decl" id="_ZNK10idMaterial12GetBumpStageEv" title='idMaterial::GetBumpStage' data-ref="_ZNK10idMaterial12GetBumpStageEv">GetBumpStage</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="373">373</th><td></td></tr>
+<tr><th id="374">374</th><td>						<i>// returns true if the material will draw anything at all.  Triggers, portals,</i></td></tr>
+<tr><th id="375">375</th><td><i>						// etc, will not have anything to draw.  A not drawn surface can still castShadow,</i></td></tr>
+<tr><th id="376">376</th><td><i>						// which can be used to make a simplified shadow hull for a complex object set</i></td></tr>
+<tr><th id="377">377</th><td><i>						// as noShadow</i></td></tr>
+<tr><th id="378">378</th><td>	<em>bool</em>				<dfn class="decl def" id="_ZNK10idMaterial7IsDrawnEv" title='idMaterial::IsDrawn' data-ref="_ZNK10idMaterial7IsDrawnEv">IsDrawn</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> ( <a class="member" href="#idMaterial::numStages" title='idMaterial::numStages' data-ref="idMaterial::numStages">numStages</a> &gt; <var>0</var> || <a class="member" href="#idMaterial::entityGui" title='idMaterial::entityGui' data-ref="idMaterial::entityGui">entityGui</a> != <var>0</var> || <a class="member" href="#idMaterial::gui" title='idMaterial::gui' data-ref="idMaterial::gui">gui</a> != <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> ); }</td></tr>
+<tr><th id="379">379</th><td></td></tr>
+<tr><th id="380">380</th><td>						<i>// returns true if the material will draw any non light interaction stages</i></td></tr>
+<tr><th id="381">381</th><td>	<em>bool</em>				<dfn class="decl def" id="_ZNK10idMaterial10HasAmbientEv" title='idMaterial::HasAmbient' data-ref="_ZNK10idMaterial10HasAmbientEv">HasAmbient</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> ( <a class="member" href="#idMaterial::numAmbientStages" title='idMaterial::numAmbientStages' data-ref="idMaterial::numAmbientStages">numAmbientStages</a> &gt; <var>0</var> ); }</td></tr>
+<tr><th id="382">382</th><td></td></tr>
+<tr><th id="383">383</th><td>						<i>// returns true if material has a gui</i></td></tr>
+<tr><th id="384">384</th><td>	<em>bool</em>				<dfn class="decl def" id="_ZNK10idMaterial6HasGuiEv" title='idMaterial::HasGui' data-ref="_ZNK10idMaterial6HasGuiEv">HasGui</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> ( <a class="member" href="#idMaterial::entityGui" title='idMaterial::entityGui' data-ref="idMaterial::entityGui">entityGui</a> != <var>0</var> || <a class="member" href="#idMaterial::gui" title='idMaterial::gui' data-ref="idMaterial::gui">gui</a> != <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> ); }</td></tr>
+<tr><th id="385">385</th><td></td></tr>
+<tr><th id="386">386</th><td>						<i>// returns true if the material will generate another view, either as</i></td></tr>
+<tr><th id="387">387</th><td><i>						// a mirror or dynamic rendered image</i></td></tr>
+<tr><th id="388">388</th><td>	<em>bool</em>				<dfn class="decl def" id="_ZNK10idMaterial10HasSubviewEv" title='idMaterial::HasSubview' data-ref="_ZNK10idMaterial10HasSubviewEv">HasSubview</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idMaterial::hasSubview" title='idMaterial::hasSubview' data-ref="idMaterial::hasSubview">hasSubview</a>; }</td></tr>
+<tr><th id="389">389</th><td></td></tr>
+<tr><th id="390">390</th><td>						<i>// returns true if the material will generate shadows, not making a</i></td></tr>
+<tr><th id="391">391</th><td><i>						// distinction between global and no-self shadows</i></td></tr>
+<tr><th id="392">392</th><td>	<em>bool</em>				<dfn class="decl def" id="_ZNK10idMaterial18SurfaceCastsShadowEv" title='idMaterial::SurfaceCastsShadow' data-ref="_ZNK10idMaterial18SurfaceCastsShadowEv">SurfaceCastsShadow</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#_ZNK10idMaterial16TestMaterialFlagEi" title='idMaterial::TestMaterialFlag' data-ref="_ZNK10idMaterial16TestMaterialFlagEi">TestMaterialFlag</a>( <a class="enum" href="#MF_FORCESHADOWS" title='MF_FORCESHADOWS' data-ref="MF_FORCESHADOWS">MF_FORCESHADOWS</a> ) || !<a class="member" href="#_ZNK10idMaterial16TestMaterialFlagEi" title='idMaterial::TestMaterialFlag' data-ref="_ZNK10idMaterial16TestMaterialFlagEi">TestMaterialFlag</a>( <a class="enum" href="#MF_NOSHADOWS" title='MF_NOSHADOWS' data-ref="MF_NOSHADOWS">MF_NOSHADOWS</a> ); }</td></tr>
+<tr><th id="393">393</th><td></td></tr>
+<tr><th id="394">394</th><td>						<i>// returns true if the material will generate interactions with fog/blend lights</i></td></tr>
+<tr><th id="395">395</th><td><i>						// All non-translucent surfaces receive fog unless they are explicitly noFog</i></td></tr>
+<tr><th id="396">396</th><td>	<em>bool</em>				<dfn class="decl def" id="_ZNK10idMaterial11ReceivesFogEv" title='idMaterial::ReceivesFog' data-ref="_ZNK10idMaterial11ReceivesFogEv">ReceivesFog</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> ( <a class="member" href="#_ZNK10idMaterial7IsDrawnEv" title='idMaterial::IsDrawn' data-ref="_ZNK10idMaterial7IsDrawnEv">IsDrawn</a>() &amp;&amp; !<a class="member" href="#idMaterial::noFog" title='idMaterial::noFog' data-ref="idMaterial::noFog">noFog</a> &amp;&amp; <a class="member" href="#idMaterial::coverage" title='idMaterial::coverage' data-ref="idMaterial::coverage">coverage</a> != <a class="enum" href="#MC_TRANSLUCENT" title='MC_TRANSLUCENT' data-ref="MC_TRANSLUCENT">MC_TRANSLUCENT</a> ); }</td></tr>
+<tr><th id="397">397</th><td></td></tr>
+<tr><th id="398">398</th><td>						<i>// returns true if the material will generate interactions with normal lights</i></td></tr>
+<tr><th id="399">399</th><td><i>						// Many special effect surfaces don't have any bump/diffuse/specular</i></td></tr>
+<tr><th id="400">400</th><td><i>						// stages, and don't interact with lights at all</i></td></tr>
+<tr><th id="401">401</th><td>	<em>bool</em>				<dfn class="decl def" id="_ZNK10idMaterial16ReceivesLightingEv" title='idMaterial::ReceivesLighting' data-ref="_ZNK10idMaterial16ReceivesLightingEv">ReceivesLighting</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idMaterial::numAmbientStages" title='idMaterial::numAmbientStages' data-ref="idMaterial::numAmbientStages">numAmbientStages</a> != <a class="member" href="#idMaterial::numStages" title='idMaterial::numStages' data-ref="idMaterial::numStages">numStages</a>; }</td></tr>
+<tr><th id="402">402</th><td></td></tr>
+<tr><th id="403">403</th><td>						<i>// returns true if the material should generate interactions on sides facing away</i></td></tr>
+<tr><th id="404">404</th><td><i>						// from light centers, as with noshadow and noselfshadow options</i></td></tr>
+<tr><th id="405">405</th><td>	<em>bool</em>				<dfn class="decl def" id="_ZNK10idMaterial27ReceivesLightingOnBackSidesEv" title='idMaterial::ReceivesLightingOnBackSides' data-ref="_ZNK10idMaterial27ReceivesLightingOnBackSidesEv">ReceivesLightingOnBackSides</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> ( <a class="member" href="#idMaterial::materialFlags" title='idMaterial::materialFlags' data-ref="idMaterial::materialFlags">materialFlags</a> &amp; (<a class="enum" href="#MF_NOSELFSHADOW" title='MF_NOSELFSHADOW' data-ref="MF_NOSELFSHADOW">MF_NOSELFSHADOW</a>|<a class="enum" href="#MF_NOSHADOWS" title='MF_NOSHADOWS' data-ref="MF_NOSHADOWS">MF_NOSHADOWS</a>) ) != <var>0</var>; }</td></tr>
+<tr><th id="406">406</th><td></td></tr>
+<tr><th id="407">407</th><td>						<i>// Standard two-sided triangle rendering won't work with bump map lighting, because</i></td></tr>
+<tr><th id="408">408</th><td><i>						// the normal and tangent vectors won't be correct for the back sides.  When two</i></td></tr>
+<tr><th id="409">409</th><td><i>						// sided lighting is desired. typically for alpha tested surfaces, this is</i></td></tr>
+<tr><th id="410">410</th><td><i>						// addressed by having CleanupModelSurfaces() create duplicates of all the triangles</i></td></tr>
+<tr><th id="411">411</th><td><i>						// with apropriate order reversal.</i></td></tr>
+<tr><th id="412">412</th><td>	<em>bool</em>				<dfn class="decl def" id="_ZNK10idMaterial21ShouldCreateBackSidesEv" title='idMaterial::ShouldCreateBackSides' data-ref="_ZNK10idMaterial21ShouldCreateBackSidesEv">ShouldCreateBackSides</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idMaterial::shouldCreateBackSides" title='idMaterial::shouldCreateBackSides' data-ref="idMaterial::shouldCreateBackSides">shouldCreateBackSides</a>; }</td></tr>
+<tr><th id="413">413</th><td></td></tr>
+<tr><th id="414">414</th><td>						<i>// characters and models that are created by a complete renderbump can use a faster</i></td></tr>
+<tr><th id="415">415</th><td><i>						// method of tangent and normal vector generation than surfaces which have a flat</i></td></tr>
+<tr><th id="416">416</th><td><i>						// renderbump wrapped over them.</i></td></tr>
+<tr><th id="417">417</th><td>	<em>bool</em>				<dfn class="decl def" id="_ZNK10idMaterial21UseUnsmoothedTangentsEv" title='idMaterial::UseUnsmoothedTangents' data-ref="_ZNK10idMaterial21UseUnsmoothedTangentsEv">UseUnsmoothedTangents</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idMaterial::unsmoothedTangents" title='idMaterial::unsmoothedTangents' data-ref="idMaterial::unsmoothedTangents">unsmoothedTangents</a>; }</td></tr>
+<tr><th id="418">418</th><td></td></tr>
+<tr><th id="419">419</th><td>						<i>// by default, monsters can have blood overlays placed on them, but this can</i></td></tr>
+<tr><th id="420">420</th><td><i>						// be overrided on a per-material basis with the "noOverlays" material command.</i></td></tr>
+<tr><th id="421">421</th><td><i>						// This will always return false for translucent surfaces</i></td></tr>
+<tr><th id="422">422</th><td>	<em>bool</em>				<dfn class="decl def" id="_ZNK10idMaterial13AllowOverlaysEv" title='idMaterial::AllowOverlays' data-ref="_ZNK10idMaterial13AllowOverlaysEv">AllowOverlays</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idMaterial::allowOverlays" title='idMaterial::allowOverlays' data-ref="idMaterial::allowOverlays">allowOverlays</a>; }</td></tr>
+<tr><th id="423">423</th><td></td></tr>
+<tr><th id="424">424</th><td>						<i>// MC_OPAQUE, MC_PERFORATED, or MC_TRANSLUCENT, for interaction list linking and</i></td></tr>
+<tr><th id="425">425</th><td><i>						// dmap flood filling</i></td></tr>
+<tr><th id="426">426</th><td><i>						// The depth buffer will not be filled for MC_TRANSLUCENT surfaces</i></td></tr>
+<tr><th id="427">427</th><td><i>						// FIXME: what do nodraw surfaces return?</i></td></tr>
+<tr><th id="428">428</th><td>	<a class="typedef" href="#materialCoverage_t" title='materialCoverage_t' data-type='enum materialCoverage_t' data-ref="materialCoverage_t">materialCoverage_t</a>	<dfn class="decl def" id="_ZNK10idMaterial8CoverageEv" title='idMaterial::Coverage' data-ref="_ZNK10idMaterial8CoverageEv">Coverage</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idMaterial::coverage" title='idMaterial::coverage' data-ref="idMaterial::coverage">coverage</a>; }</td></tr>
+<tr><th id="429">429</th><td></td></tr>
+<tr><th id="430">430</th><td>						<i>// returns true if this material takes precedence over other in coplanar cases</i></td></tr>
+<tr><th id="431">431</th><td>	<em>bool</em>				<dfn class="decl def" id="_ZNK10idMaterial21HasHigherDmapPriorityERKS_" title='idMaterial::HasHigherDmapPriority' data-ref="_ZNK10idMaterial21HasHigherDmapPriorityERKS_">HasHigherDmapPriority</dfn>( <em>const</em> <a class="type" href="#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> &amp;<dfn class="local col1 decl" id="12921other" title='other' data-type='const idMaterial &amp;' data-ref="12921other">other</dfn> ) <em>const</em> { <b>return</b> ( <a class="member" href="#_ZNK10idMaterial7IsDrawnEv" title='idMaterial::IsDrawn' data-ref="_ZNK10idMaterial7IsDrawnEv">IsDrawn</a>() &amp;&amp; !<a class="local col1 ref" href="#12921other" title='other' data-ref="12921other">other</a>.<a class="member" href="#_ZNK10idMaterial7IsDrawnEv" title='idMaterial::IsDrawn' data-ref="_ZNK10idMaterial7IsDrawnEv">IsDrawn</a>() ) ||</td></tr>
+<tr><th id="432">432</th><td>																						( <a class="member" href="#_ZNK10idMaterial8CoverageEv" title='idMaterial::Coverage' data-ref="_ZNK10idMaterial8CoverageEv">Coverage</a>() &lt; <a class="local col1 ref" href="#12921other" title='other' data-ref="12921other">other</a>.<a class="member" href="#_ZNK10idMaterial8CoverageEv" title='idMaterial::Coverage' data-ref="_ZNK10idMaterial8CoverageEv">Coverage</a>() ); }</td></tr>
+<tr><th id="433">433</th><td></td></tr>
+<tr><th id="434">434</th><td>						<i>// returns a idUserInterface if it has a global gui, or NULL if no gui</i></td></tr>
+<tr><th id="435">435</th><td>	<a class="type" href="../ui/UserInterface.h.html#idUserInterface" title='idUserInterface' data-ref="idUserInterface">idUserInterface</a>	*	<dfn class="decl def" id="_ZNK10idMaterial9GlobalGuiEv" title='idMaterial::GlobalGui' data-ref="_ZNK10idMaterial9GlobalGuiEv">GlobalGui</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idMaterial::gui" title='idMaterial::gui' data-ref="idMaterial::gui">gui</a>; }</td></tr>
+<tr><th id="436">436</th><td></td></tr>
+<tr><th id="437">437</th><td>						<i>// a discrete surface will never be merged with other surfaces by dmap, which is</i></td></tr>
+<tr><th id="438">438</th><td><i>						// necessary to prevent mutliple gui surfaces, mirrors, autosprites, and some other</i></td></tr>
+<tr><th id="439">439</th><td><i>						// special effects from being combined into a single surface</i></td></tr>
+<tr><th id="440">440</th><td><i>						// guis, merging sprites or other effects, mirrors and remote views are always discrete</i></td></tr>
+<tr><th id="441">441</th><td>	<em>bool</em>				<dfn class="decl def" id="_ZNK10idMaterial10IsDiscreteEv" title='idMaterial::IsDiscrete' data-ref="_ZNK10idMaterial10IsDiscreteEv">IsDiscrete</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> ( <a class="member" href="#idMaterial::entityGui" title='idMaterial::entityGui' data-ref="idMaterial::entityGui">entityGui</a> || <a class="member" href="#idMaterial::gui" title='idMaterial::gui' data-ref="idMaterial::gui">gui</a> || <a class="member" href="#idMaterial::deform" title='idMaterial::deform' data-ref="idMaterial::deform">deform</a> != <a class="enum" href="#DFRM_NONE" title='DFRM_NONE' data-ref="DFRM_NONE">DFRM_NONE</a> || <a class="member" href="#idMaterial::sort" title='idMaterial::sort' data-ref="idMaterial::sort">sort</a> == <a class="enum" href="#SS_SUBVIEW" title='SS_SUBVIEW' data-ref="SS_SUBVIEW">SS_SUBVIEW</a> ||</td></tr>
+<tr><th id="442">442</th><td>												( <a class="member" href="#idMaterial::surfaceFlags" title='idMaterial::surfaceFlags' data-ref="idMaterial::surfaceFlags">surfaceFlags</a> &amp; <a class="enum" href="#SURF_DISCRETE" title='SURF_DISCRETE' data-ref="SURF_DISCRETE">SURF_DISCRETE</a> ) != <var>0</var> ); }</td></tr>
+<tr><th id="443">443</th><td></td></tr>
+<tr><th id="444">444</th><td>						<i>// Normally, dmap chops each surface by every BSP boundary, then reoptimizes.</i></td></tr>
+<tr><th id="445">445</th><td><i>						// For gigantic polygons like sky boxes, this can cause a huge number of planar</i></td></tr>
+<tr><th id="446">446</th><td><i>						// triangles that make the optimizer take forever to turn back into a single</i></td></tr>
+<tr><th id="447">447</th><td><i>						// triangle.  The "noFragment" option causes dmap to only break the polygons at</i></td></tr>
+<tr><th id="448">448</th><td><i>						// area boundaries, instead of every BSP boundary.  This has the negative effect</i></td></tr>
+<tr><th id="449">449</th><td><i>						// of not automatically fixing up interpenetrations, so when this is used, you</i></td></tr>
+<tr><th id="450">450</th><td><i>						// should manually make the edges of your sky box exactly meet, instead of poking</i></td></tr>
+<tr><th id="451">451</th><td><i>						// into each other.</i></td></tr>
+<tr><th id="452">452</th><td>	<em>bool</em>				<dfn class="decl def" id="_ZNK10idMaterial10NoFragmentEv" title='idMaterial::NoFragment' data-ref="_ZNK10idMaterial10NoFragmentEv">NoFragment</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> ( <a class="member" href="#idMaterial::surfaceFlags" title='idMaterial::surfaceFlags' data-ref="idMaterial::surfaceFlags">surfaceFlags</a> &amp; <a class="enum" href="#SURF_NOFRAGMENT" title='SURF_NOFRAGMENT' data-ref="SURF_NOFRAGMENT">SURF_NOFRAGMENT</a> ) != <var>0</var>; }</td></tr>
+<tr><th id="453">453</th><td></td></tr>
+<tr><th id="454">454</th><td>	<i>//------------------------------------------------------------------</i></td></tr>
+<tr><th id="455">455</th><td><i>	// light shader specific functions, only called for light entities</i></td></tr>
+<tr><th id="456">456</th><td><i></i></td></tr>
+<tr><th id="457">457</th><td><i>						// lightshader option to fill with fog from viewer instead of light from center</i></td></tr>
+<tr><th id="458">458</th><td>	<em>bool</em>				<dfn class="decl def" id="_ZNK10idMaterial10IsFogLightEv" title='idMaterial::IsFogLight' data-ref="_ZNK10idMaterial10IsFogLightEv">IsFogLight</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#idMaterial::fogLight" title='idMaterial::fogLight' data-ref="idMaterial::fogLight">fogLight</a>; }</td></tr>
+<tr><th id="459">459</th><td></td></tr>
+<tr><th id="460">460</th><td>						<i>// perform simple blending of the projection, instead of interacting with bumps and textures</i></td></tr>
+<tr><th id="461">461</th><td>	<em>bool</em>				<dfn class="decl def" id="_ZNK10idMaterial12IsBlendLightEv" title='idMaterial::IsBlendLight' data-ref="_ZNK10idMaterial12IsBlendLightEv">IsBlendLight</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#idMaterial::blendLight" title='idMaterial::blendLight' data-ref="idMaterial::blendLight">blendLight</a>; }</td></tr>
+<tr><th id="462">462</th><td></td></tr>
+<tr><th id="463">463</th><td>						<i>// an ambient light has non-directional bump mapping and no specular</i></td></tr>
+<tr><th id="464">464</th><td>	<em>bool</em>				<dfn class="decl def" id="_ZNK10idMaterial14IsAmbientLightEv" title='idMaterial::IsAmbientLight' data-ref="_ZNK10idMaterial14IsAmbientLightEv">IsAmbientLight</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#idMaterial::ambientLight" title='idMaterial::ambientLight' data-ref="idMaterial::ambientLight">ambientLight</a>; }</td></tr>
+<tr><th id="465">465</th><td></td></tr>
+<tr><th id="466">466</th><td>						<i>// implicitly no-shadows lights (ambients, fogs, etc) will never cast shadows</i></td></tr>
+<tr><th id="467">467</th><td><i>						// but individual light entities can also override this value</i></td></tr>
+<tr><th id="468">468</th><td>	<em>bool</em>				<dfn class="decl def" id="_ZNK10idMaterial17LightCastsShadowsEv" title='idMaterial::LightCastsShadows' data-ref="_ZNK10idMaterial17LightCastsShadowsEv">LightCastsShadows</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#_ZNK10idMaterial16TestMaterialFlagEi" title='idMaterial::TestMaterialFlag' data-ref="_ZNK10idMaterial16TestMaterialFlagEi">TestMaterialFlag</a>( <a class="enum" href="#MF_FORCESHADOWS" title='MF_FORCESHADOWS' data-ref="MF_FORCESHADOWS">MF_FORCESHADOWS</a> ) ||</td></tr>
+<tr><th id="469">469</th><td>								( !<a class="member" href="#idMaterial::fogLight" title='idMaterial::fogLight' data-ref="idMaterial::fogLight">fogLight</a> &amp;&amp; !<a class="member" href="#idMaterial::ambientLight" title='idMaterial::ambientLight' data-ref="idMaterial::ambientLight">ambientLight</a> &amp;&amp; !<a class="member" href="#idMaterial::blendLight" title='idMaterial::blendLight' data-ref="idMaterial::blendLight">blendLight</a> &amp;&amp; !<a class="member" href="#_ZNK10idMaterial16TestMaterialFlagEi" title='idMaterial::TestMaterialFlag' data-ref="_ZNK10idMaterial16TestMaterialFlagEi">TestMaterialFlag</a>( <a class="enum" href="#MF_NOSHADOWS" title='MF_NOSHADOWS' data-ref="MF_NOSHADOWS">MF_NOSHADOWS</a> ) ); }</td></tr>
+<tr><th id="470">470</th><td></td></tr>
+<tr><th id="471">471</th><td>						<i>// fog lights, blend lights, ambient lights, etc will all have to have interaction</i></td></tr>
+<tr><th id="472">472</th><td><i>						// triangles generated for sides facing away from the light as well as those</i></td></tr>
+<tr><th id="473">473</th><td><i>						// facing towards the light.  It is debatable if noshadow lights should effect back</i></td></tr>
+<tr><th id="474">474</th><td><i>						// sides, making everything "noSelfShadow", but that would make noshadow lights</i></td></tr>
+<tr><th id="475">475</th><td><i>						// potentially slower than normal lights, which detracts from their optimization</i></td></tr>
+<tr><th id="476">476</th><td><i>						// ability, so they currently do not.</i></td></tr>
+<tr><th id="477">477</th><td>	<em>bool</em>				<dfn class="decl def" id="_ZNK10idMaterial21LightEffectsBackSidesEv" title='idMaterial::LightEffectsBackSides' data-ref="_ZNK10idMaterial21LightEffectsBackSidesEv">LightEffectsBackSides</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#idMaterial::fogLight" title='idMaterial::fogLight' data-ref="idMaterial::fogLight">fogLight</a> || <a class="member" href="#idMaterial::ambientLight" title='idMaterial::ambientLight' data-ref="idMaterial::ambientLight">ambientLight</a> || <a class="member" href="#idMaterial::blendLight" title='idMaterial::blendLight' data-ref="idMaterial::blendLight">blendLight</a>; }</td></tr>
+<tr><th id="478">478</th><td></td></tr>
+<tr><th id="479">479</th><td>						<i>// NULL unless an image is explicitly specified in the shader with "lightFalloffShader &lt;image&gt;"</i></td></tr>
+<tr><th id="480">480</th><td>	<a class="type" href="#idImage" title='idImage' data-ref="idImage">idImage</a>	*			<dfn class="decl def" id="_ZNK10idMaterial17LightFalloffImageEv" title='idMaterial::LightFalloffImage' data-ref="_ZNK10idMaterial17LightFalloffImageEv">LightFalloffImage</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#idMaterial::lightFalloffImage" title='idMaterial::lightFalloffImage' data-ref="idMaterial::lightFalloffImage">lightFalloffImage</a>; }</td></tr>
+<tr><th id="481">481</th><td></td></tr>
+<tr><th id="482">482</th><td>	<i>//------------------------------------------------------------------</i></td></tr>
+<tr><th id="483">483</th><td><i></i></td></tr>
+<tr><th id="484">484</th><td><i>						// returns the renderbump command line for this shader, or an empty string if not present</i></td></tr>
+<tr><th id="485">485</th><td>	<em>const</em> <em>char</em> *		<dfn class="decl def" id="_ZNK10idMaterial13GetRenderBumpEv" title='idMaterial::GetRenderBump' data-ref="_ZNK10idMaterial13GetRenderBumpEv">GetRenderBump</dfn>() <em>const</em> { <b>return</b> <a class="ref fake" href="../idlib/Str.h.html#_ZNK5idStrcvPKcEv" title='idStr::operator const char *' data-ref="_ZNK5idStrcvPKcEv"></a><a class="member" href="#idMaterial::renderBump" title='idMaterial::renderBump' data-ref="idMaterial::renderBump">renderBump</a>; };</td></tr>
+<tr><th id="486">486</th><td></td></tr>
+<tr><th id="487">487</th><td>						<i>// set specific material flag(s)</i></td></tr>
+<tr><th id="488">488</th><td>	<em>void</em>				<dfn class="decl def" id="_ZNK10idMaterial15SetMaterialFlagEi" title='idMaterial::SetMaterialFlag' data-ref="_ZNK10idMaterial15SetMaterialFlagEi">SetMaterialFlag</dfn>( <em>const</em> <em>int</em> <dfn class="local col2 decl" id="12922flag" title='flag' data-type='const int' data-ref="12922flag">flag</dfn> ) <em>const</em> { <a class="member" href="#idMaterial::materialFlags" title='idMaterial::materialFlags' data-ref="idMaterial::materialFlags">materialFlags</a> |= <a class="local col2 ref" href="#12922flag" title='flag' data-ref="12922flag">flag</a>; }</td></tr>
+<tr><th id="489">489</th><td></td></tr>
+<tr><th id="490">490</th><td>						<i>// clear specific material flag(s)</i></td></tr>
+<tr><th id="491">491</th><td>	<em>void</em>				<dfn class="decl def" id="_ZNK10idMaterial17ClearMaterialFlagEi" title='idMaterial::ClearMaterialFlag' data-ref="_ZNK10idMaterial17ClearMaterialFlagEi">ClearMaterialFlag</dfn>( <em>const</em> <em>int</em> <dfn class="local col3 decl" id="12923flag" title='flag' data-type='const int' data-ref="12923flag">flag</dfn> ) <em>const</em> { <a class="member" href="#idMaterial::materialFlags" title='idMaterial::materialFlags' data-ref="idMaterial::materialFlags">materialFlags</a> &amp;= ~<a class="local col3 ref" href="#12923flag" title='flag' data-ref="12923flag">flag</a>; }</td></tr>
+<tr><th id="492">492</th><td></td></tr>
+<tr><th id="493">493</th><td>						<i>// test for existance of specific material flag(s)</i></td></tr>
+<tr><th id="494">494</th><td>	<em>bool</em>				<dfn class="decl def" id="_ZNK10idMaterial16TestMaterialFlagEi" title='idMaterial::TestMaterialFlag' data-ref="_ZNK10idMaterial16TestMaterialFlagEi">TestMaterialFlag</dfn>( <em>const</em> <em>int</em> <dfn class="local col4 decl" id="12924flag" title='flag' data-type='const int' data-ref="12924flag">flag</dfn> ) <em>const</em> { <b>return</b> ( <a class="member" href="#idMaterial::materialFlags" title='idMaterial::materialFlags' data-ref="idMaterial::materialFlags">materialFlags</a> &amp; <a class="local col4 ref" href="#12924flag" title='flag' data-ref="12924flag">flag</a> ) != <var>0</var>; }</td></tr>
+<tr><th id="495">495</th><td></td></tr>
+<tr><th id="496">496</th><td>						<i>// get content flags</i></td></tr>
+<tr><th id="497">497</th><td>	<em>const</em> <em>int</em>			<dfn class="decl def" id="_ZNK10idMaterial15GetContentFlagsEv" title='idMaterial::GetContentFlags' data-ref="_ZNK10idMaterial15GetContentFlagsEv">GetContentFlags</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idMaterial::contentFlags" title='idMaterial::contentFlags' data-ref="idMaterial::contentFlags">contentFlags</a>; }</td></tr>
+<tr><th id="498">498</th><td></td></tr>
+<tr><th id="499">499</th><td>						<i>// get surface flags</i></td></tr>
+<tr><th id="500">500</th><td>	<em>const</em> <em>int</em>			<dfn class="decl def" id="_ZNK10idMaterial15GetSurfaceFlagsEv" title='idMaterial::GetSurfaceFlags' data-ref="_ZNK10idMaterial15GetSurfaceFlagsEv">GetSurfaceFlags</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idMaterial::surfaceFlags" title='idMaterial::surfaceFlags' data-ref="idMaterial::surfaceFlags">surfaceFlags</a>; }</td></tr>
+<tr><th id="501">501</th><td></td></tr>
+<tr><th id="502">502</th><td>						<i>// gets name for surface type (stone, metal, flesh, etc.)</i></td></tr>
+<tr><th id="503">503</th><td>	<em>const</em> <a class="typedef" href="#surfTypes_t" title='surfTypes_t' data-type='enum surfTypes_t' data-ref="surfTypes_t">surfTypes_t</a>	<dfn class="decl def" id="_ZNK10idMaterial14GetSurfaceTypeEv" title='idMaterial::GetSurfaceType' data-ref="_ZNK10idMaterial14GetSurfaceTypeEv">GetSurfaceType</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <b>static_cast</b>&lt;<a class="typedef" href="#surfTypes_t" title='surfTypes_t' data-type='enum surfTypes_t' data-ref="surfTypes_t">surfTypes_t</a>&gt;( <a class="member" href="#idMaterial::surfaceFlags" title='idMaterial::surfaceFlags' data-ref="idMaterial::surfaceFlags">surfaceFlags</a> &amp; <a class="enum" href="#SURF_TYPE_MASK" title='SURF_TYPE_MASK' data-ref="SURF_TYPE_MASK">SURF_TYPE_MASK</a> ); }</td></tr>
+<tr><th id="504">504</th><td></td></tr>
+<tr><th id="505">505</th><td>						<i>// get material description</i></td></tr>
+<tr><th id="506">506</th><td>	<em>const</em> <em>char</em> *		<dfn class="decl def" id="_ZNK10idMaterial14GetDescriptionEv" title='idMaterial::GetDescription' data-ref="_ZNK10idMaterial14GetDescriptionEv">GetDescription</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="ref fake" href="../idlib/Str.h.html#_ZNK5idStrcvPKcEv" title='idStr::operator const char *' data-ref="_ZNK5idStrcvPKcEv"></a><a class="member" href="#idMaterial::desc" title='idMaterial::desc' data-ref="idMaterial::desc">desc</a>; }</td></tr>
+<tr><th id="507">507</th><td></td></tr>
+<tr><th id="508">508</th><td>						<i>// get sort order</i></td></tr>
+<tr><th id="509">509</th><td>	<em>const</em> <em>float</em>			<dfn class="decl def" id="_ZNK10idMaterial7GetSortEv" title='idMaterial::GetSort' data-ref="_ZNK10idMaterial7GetSortEv">GetSort</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idMaterial::sort" title='idMaterial::sort' data-ref="idMaterial::sort">sort</a>; }</td></tr>
+<tr><th id="510">510</th><td>						<i>// this is only used by the gui system to force sorting order</i></td></tr>
+<tr><th id="511">511</th><td><i>						// on images referenced from tga's instead of materials. </i></td></tr>
+<tr><th id="512">512</th><td><i>						// this is done this way as there are 2000 tgas the guis use</i></td></tr>
+<tr><th id="513">513</th><td>	<em>void</em>				<dfn class="decl def" id="_ZNK10idMaterial7SetSortEf" title='idMaterial::SetSort' data-ref="_ZNK10idMaterial7SetSortEf">SetSort</dfn>( <em>float</em> <dfn class="local col5 decl" id="12925s" title='s' data-type='float' data-ref="12925s">s</dfn> ) <em>const</em> { <a class="member" href="#idMaterial::sort" title='idMaterial::sort' data-ref="idMaterial::sort">sort</a> = <a class="local col5 ref" href="#12925s" title='s' data-ref="12925s">s</a>; };</td></tr>
+<tr><th id="514">514</th><td></td></tr>
+<tr><th id="515">515</th><td>						<i>// DFRM_NONE, DFRM_SPRITE, etc</i></td></tr>
+<tr><th id="516">516</th><td>	<a class="typedef" href="#deform_t" title='deform_t' data-type='enum deform_t' data-ref="deform_t">deform_t</a>			<dfn class="decl def" id="_ZNK10idMaterial6DeformEv" title='idMaterial::Deform' data-ref="_ZNK10idMaterial6DeformEv">Deform</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idMaterial::deform" title='idMaterial::deform' data-ref="idMaterial::deform">deform</a>; }</td></tr>
+<tr><th id="517">517</th><td></td></tr>
+<tr><th id="518">518</th><td>						<i>// flare size, expansion size, etc</i></td></tr>
+<tr><th id="519">519</th><td>	<em>const</em> <em>int</em>			<dfn class="decl def" id="_ZNK10idMaterial17GetDeformRegisterEi" title='idMaterial::GetDeformRegister' data-ref="_ZNK10idMaterial17GetDeformRegisterEi">GetDeformRegister</dfn>( <em>int</em> <dfn class="local col6 decl" id="12926index" title='index' data-type='int' data-ref="12926index">index</dfn> ) <em>const</em> { <b>return</b> <a class="member" href="#idMaterial::deformRegisters" title='idMaterial::deformRegisters' data-ref="idMaterial::deformRegisters">deformRegisters</a>[<a class="local col6 ref" href="#12926index" title='index' data-ref="12926index">index</a>]; }</td></tr>
+<tr><th id="520">520</th><td></td></tr>
+<tr><th id="521">521</th><td>						<i>// particle system to emit from surface and table for turbulent</i></td></tr>
+<tr><th id="522">522</th><td>	<em>const</em> <a class="type" href="../framework/DeclManager.h.html#idDecl" title='idDecl' data-ref="idDecl">idDecl</a>		*<dfn class="decl def" id="_ZNK10idMaterial13GetDeformDeclEv" title='idMaterial::GetDeformDecl' data-ref="_ZNK10idMaterial13GetDeformDeclEv">GetDeformDecl</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idMaterial::deformDecl" title='idMaterial::deformDecl' data-ref="idMaterial::deformDecl">deformDecl</a>; }</td></tr>
+<tr><th id="523">523</th><td></td></tr>
+<tr><th id="524">524</th><td>						<i>// currently a surface can only have one unique texgen for all the stages</i></td></tr>
+<tr><th id="525">525</th><td>	<a class="typedef" href="#texgen_t" title='texgen_t' data-type='enum texgen_t' data-ref="texgen_t">texgen_t</a>			<dfn class="decl" id="_ZNK10idMaterial6TexgenEv" title='idMaterial::Texgen' data-ref="_ZNK10idMaterial6TexgenEv">Texgen</dfn>() <em>const</em>;</td></tr>
+<tr><th id="526">526</th><td></td></tr>
+<tr><th id="527">527</th><td>						<i>// wobble sky parms</i></td></tr>
+<tr><th id="528">528</th><td>	<em>const</em> <em>int</em> *			<dfn class="decl def" id="_ZNK10idMaterial18GetTexGenRegistersEv" title='idMaterial::GetTexGenRegisters' data-ref="_ZNK10idMaterial18GetTexGenRegistersEv">GetTexGenRegisters</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idMaterial::texGenRegisters" title='idMaterial::texGenRegisters' data-ref="idMaterial::texGenRegisters">texGenRegisters</a>; }</td></tr>
+<tr><th id="529">529</th><td></td></tr>
+<tr><th id="530">530</th><td>						<i>// get cull type</i></td></tr>
+<tr><th id="531">531</th><td>	<em>const</em> <a class="typedef" href="#cullType_t" title='cullType_t' data-type='enum cullType_t' data-ref="cullType_t">cullType_t</a>	<dfn class="decl def" id="_ZNK10idMaterial11GetCullTypeEv" title='idMaterial::GetCullType' data-ref="_ZNK10idMaterial11GetCullTypeEv">GetCullType</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idMaterial::cullType" title='idMaterial::cullType' data-ref="idMaterial::cullType">cullType</a>; }</td></tr>
+<tr><th id="532">532</th><td></td></tr>
+<tr><th id="533">533</th><td>	<em>float</em>				<dfn class="decl def" id="_ZNK10idMaterial14GetEditorAlphaEv" title='idMaterial::GetEditorAlpha' data-ref="_ZNK10idMaterial14GetEditorAlphaEv">GetEditorAlpha</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idMaterial::editorAlpha" title='idMaterial::editorAlpha' data-ref="idMaterial::editorAlpha">editorAlpha</a>; }</td></tr>
+<tr><th id="534">534</th><td></td></tr>
+<tr><th id="535">535</th><td>	<em>int</em>					<dfn class="decl def" id="_ZNK10idMaterial12GetEntityGuiEv" title='idMaterial::GetEntityGui' data-ref="_ZNK10idMaterial12GetEntityGuiEv">GetEntityGui</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idMaterial::entityGui" title='idMaterial::entityGui' data-ref="idMaterial::entityGui">entityGui</a>; }</td></tr>
+<tr><th id="536">536</th><td></td></tr>
+<tr><th id="537">537</th><td>	<a class="typedef" href="#decalInfo_t" title='decalInfo_t' data-type='struct decalInfo_t' data-ref="decalInfo_t">decalInfo_t</a>			<dfn class="decl def" id="_ZNK10idMaterial12GetDecalInfoEv" title='idMaterial::GetDecalInfo' data-ref="_ZNK10idMaterial12GetDecalInfoEv">GetDecalInfo</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="ref fake" href="#63" title='(anonymous struct)::' data-ref="_ZN11decalInfo_tC1ERKS_"></a><a class="member" href="#idMaterial::decalInfo" title='idMaterial::decalInfo' data-ref="idMaterial::decalInfo">decalInfo</a>; }</td></tr>
+<tr><th id="538">538</th><td></td></tr>
+<tr><th id="539">539</th><td>						<i>// spectrums are used for "invisible writing" that can only be</i></td></tr>
+<tr><th id="540">540</th><td><i>						// illuminated by a light of matching spectrum</i></td></tr>
+<tr><th id="541">541</th><td>	<em>int</em>					<dfn class="decl def" id="_ZNK10idMaterial8SpectrumEv" title='idMaterial::Spectrum' data-ref="_ZNK10idMaterial8SpectrumEv">Spectrum</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idMaterial::spectrum" title='idMaterial::spectrum' data-ref="idMaterial::spectrum">spectrum</a>; }</td></tr>
+<tr><th id="542">542</th><td></td></tr>
+<tr><th id="543">543</th><td>	<em>float</em>				<dfn class="decl def" id="_ZNK10idMaterial16GetPolygonOffsetEv" title='idMaterial::GetPolygonOffset' data-ref="_ZNK10idMaterial16GetPolygonOffsetEv">GetPolygonOffset</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idMaterial::polygonOffset" title='idMaterial::polygonOffset' data-ref="idMaterial::polygonOffset">polygonOffset</a>; }</td></tr>
+<tr><th id="544">544</th><td></td></tr>
+<tr><th id="545">545</th><td>	<em>float</em>				<dfn class="decl def" id="_ZNK10idMaterial14GetSurfaceAreaEv" title='idMaterial::GetSurfaceArea' data-ref="_ZNK10idMaterial14GetSurfaceAreaEv">GetSurfaceArea</dfn>( <em>void</em> ) <em>const</em> { <b>return</b> <a class="member" href="#idMaterial::surfaceArea" title='idMaterial::surfaceArea' data-ref="idMaterial::surfaceArea">surfaceArea</a>; }</td></tr>
+<tr><th id="546">546</th><td>	<em>void</em>				<dfn class="decl def" id="_ZN10idMaterial16AddToSurfaceAreaEf" title='idMaterial::AddToSurfaceArea' data-ref="_ZN10idMaterial16AddToSurfaceAreaEf">AddToSurfaceArea</dfn>( <em>float</em> <dfn class="local col7 decl" id="12927area" title='area' data-type='float' data-ref="12927area">area</dfn> ) { <a class="member" href="#idMaterial::surfaceArea" title='idMaterial::surfaceArea' data-ref="idMaterial::surfaceArea">surfaceArea</a> += <a class="local col7 ref" href="#12927area" title='area' data-ref="12927area">area</a>; }</td></tr>
+<tr><th id="547">547</th><td></td></tr>
+<tr><th id="548">548</th><td>	<i>//------------------------------------------------------------------</i></td></tr>
+<tr><th id="549">549</th><td><i></i></td></tr>
+<tr><th id="550">550</th><td><i>						// returns the length, in milliseconds, of the videoMap on this material,</i></td></tr>
+<tr><th id="551">551</th><td><i>						// or zero if it doesn't have one</i></td></tr>
+<tr><th id="552">552</th><td>	<em>int</em>					<dfn class="decl" id="_ZNK10idMaterial15CinematicLengthEv" title='idMaterial::CinematicLength' data-ref="_ZNK10idMaterial15CinematicLengthEv">CinematicLength</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="553">553</th><td></td></tr>
+<tr><th id="554">554</th><td>	<em>void</em>				<dfn class="decl" id="_ZNK10idMaterial14CloseCinematicEv" title='idMaterial::CloseCinematic' data-ref="_ZNK10idMaterial14CloseCinematicEv">CloseCinematic</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="555">555</th><td></td></tr>
+<tr><th id="556">556</th><td>	<em>void</em>				<dfn class="decl" id="_ZNK10idMaterial18ResetCinematicTimeEi" title='idMaterial::ResetCinematicTime' data-ref="_ZNK10idMaterial18ResetCinematicTimeEi">ResetCinematicTime</dfn>( <em>int</em> <dfn class="local col8 decl" id="12928time" title='time' data-type='int' data-ref="12928time">time</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="557">557</th><td></td></tr>
+<tr><th id="558">558</th><td>	<em>void</em>				<dfn class="decl" id="_ZNK10idMaterial15UpdateCinematicEi" title='idMaterial::UpdateCinematic' data-ref="_ZNK10idMaterial15UpdateCinematicEi">UpdateCinematic</dfn>( <em>int</em> <dfn class="local col9 decl" id="12929time" title='time' data-type='int' data-ref="12929time">time</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="559">559</th><td></td></tr>
+<tr><th id="560">560</th><td>	<i>//------------------------------------------------------------------</i></td></tr>
+<tr><th id="561">561</th><td><i></i></td></tr>
+<tr><th id="562">562</th><td><i>						// gets an image for the editor to use</i></td></tr>
+<tr><th id="563">563</th><td>	<a class="type" href="#idImage" title='idImage' data-ref="idImage">idImage</a> *			<dfn class="decl" id="_ZNK10idMaterial14GetEditorImageEv" title='idMaterial::GetEditorImage' data-ref="_ZNK10idMaterial14GetEditorImageEv">GetEditorImage</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="564">564</th><td>	<em>int</em>					<dfn class="decl" id="_ZNK10idMaterial13GetImageWidthEv" title='idMaterial::GetImageWidth' data-ref="_ZNK10idMaterial13GetImageWidthEv">GetImageWidth</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="565">565</th><td>	<em>int</em>					<dfn class="decl" id="_ZNK10idMaterial14GetImageHeightEv" title='idMaterial::GetImageHeight' data-ref="_ZNK10idMaterial14GetImageHeightEv">GetImageHeight</dfn>( <em>void</em> ) <em>const</em>;</td></tr>
+<tr><th id="566">566</th><td></td></tr>
+<tr><th id="567">567</th><td>	<em>void</em>				<dfn class="decl" id="_ZNK10idMaterial6SetGuiEPKc" title='idMaterial::SetGui' data-ref="_ZNK10idMaterial6SetGuiEPKc">SetGui</dfn>( <em>const</em> <em>char</em> *<dfn class="local col0 decl" id="12930_gui" title='_gui' data-type='const char *' data-ref="12930_gui">_gui</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="568">568</th><td></td></tr>
+<tr><th id="569">569</th><td>						<i>// just for resource tracking</i></td></tr>
+<tr><th id="570">570</th><td>	<em>void</em>				<dfn class="decl" id="_ZNK10idMaterial23SetImageClassificationsEi" title='idMaterial::SetImageClassifications' data-ref="_ZNK10idMaterial23SetImageClassificationsEi">SetImageClassifications</dfn>( <em>int</em> <dfn class="local col1 decl" id="12931tag" title='tag' data-type='int' data-ref="12931tag">tag</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="571">571</th><td></td></tr>
+<tr><th id="572">572</th><td>	<i>//------------------------------------------------------------------</i></td></tr>
+<tr><th id="573">573</th><td><i></i></td></tr>
+<tr><th id="574">574</th><td><i>						// returns number of registers this material contains</i></td></tr>
+<tr><th id="575">575</th><td>	<em>const</em> <em>int</em>			<dfn class="decl def" id="_ZNK10idMaterial15GetNumRegistersEv" title='idMaterial::GetNumRegisters' data-ref="_ZNK10idMaterial15GetNumRegistersEv">GetNumRegisters</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#idMaterial::numRegisters" title='idMaterial::numRegisters' data-ref="idMaterial::numRegisters">numRegisters</a>; }</td></tr>
+<tr><th id="576">576</th><td></td></tr>
+<tr><th id="577">577</th><td>						<i>// regs should point to a float array large enough to hold GetNumRegisters() floats</i></td></tr>
+<tr><th id="578">578</th><td>	<em>void</em>				<dfn class="decl" id="_ZNK10idMaterial17EvaluateRegistersEPfPKfPK9viewDef_sP14idSoundEmitter" title='idMaterial::EvaluateRegisters' data-ref="_ZNK10idMaterial17EvaluateRegistersEPfPKfPK9viewDef_sP14idSoundEmitter">EvaluateRegisters</dfn>( <em>float</em> *<dfn class="local col2 decl" id="12932regs" title='regs' data-type='float *' data-ref="12932regs">regs</dfn>, <em>const</em> <em>float</em> <dfn class="local col3 decl" id="12933entityParms" title='entityParms' data-type='const float *' data-ref="12933entityParms">entityParms</dfn>[<a class="ref" href="#MAX_ENTITY_SHADER_PARMS" title='MAX_ENTITY_SHADER_PARMS' data-ref="MAX_ENTITY_SHADER_PARMS">MAX_ENTITY_SHADER_PARMS</a>], </td></tr>
+<tr><th id="579">579</th><td>											<em>const</em> <b>struct</b> <dfn class="type" id="viewDef_s" title='viewDef_s' data-ref="viewDef_s"><a class="type" href="#viewDef_s" title='viewDef_s' data-ref="viewDef_s">viewDef_s</a></dfn> *<dfn class="local col4 decl" id="12934view" title='view' data-type='const struct viewDef_s *' data-ref="12934view">view</dfn>, <a class="type" href="../sound/sound.h.html#idSoundEmitter" title='idSoundEmitter' data-ref="idSoundEmitter">idSoundEmitter</a> *<dfn class="local col5 decl" id="12935soundEmitter" title='soundEmitter' data-type='idSoundEmitter *' data-ref="12935soundEmitter">soundEmitter</dfn> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> ) <em>const</em>;</td></tr>
+<tr><th id="580">580</th><td></td></tr>
+<tr><th id="581">581</th><td>						<i>// if a material only uses constants (no entityParm or globalparm references), this</i></td></tr>
+<tr><th id="582">582</th><td><i>						// will return a pointer to an internal table, and EvaluateRegisters will not need</i></td></tr>
+<tr><th id="583">583</th><td><i>						// to be called.  If NULL is returned, EvaluateRegisters must be used.</i></td></tr>
+<tr><th id="584">584</th><td>	<em>const</em> <em>float</em> *		<dfn class="decl" id="_ZNK10idMaterial17ConstantRegistersEv" title='idMaterial::ConstantRegisters' data-ref="_ZNK10idMaterial17ConstantRegistersEv">ConstantRegisters</dfn>() <em>const</em>;</td></tr>
+<tr><th id="585">585</th><td></td></tr>
+<tr><th id="586">586</th><td>	<em>bool</em>				<dfn class="decl def" id="_ZNK10idMaterial17SuppressInSubviewEv" title='idMaterial::SuppressInSubview' data-ref="_ZNK10idMaterial17SuppressInSubviewEv">SuppressInSubview</dfn>() <em>const</em>				{ <b>return</b> <a class="member" href="#idMaterial::suppressInSubview" title='idMaterial::suppressInSubview' data-ref="idMaterial::suppressInSubview">suppressInSubview</a>; };</td></tr>
+<tr><th id="587">587</th><td>	<em>bool</em>				<dfn class="decl def" id="_ZNK10idMaterial11IsPortalSkyEv" title='idMaterial::IsPortalSky' data-ref="_ZNK10idMaterial11IsPortalSkyEv">IsPortalSky</dfn>() <em>const</em>						{ <b>return</b> <a class="member" href="#idMaterial::portalSky" title='idMaterial::portalSky' data-ref="idMaterial::portalSky">portalSky</a>; };</td></tr>
+<tr><th id="588">588</th><td>	<em>void</em>				<dfn class="decl" id="_ZN10idMaterial12AddReferenceEv" title='idMaterial::AddReference' data-ref="_ZN10idMaterial12AddReferenceEv">AddReference</dfn>();</td></tr>
+<tr><th id="589">589</th><td></td></tr>
+<tr><th id="590">590</th><td><b>private</b>:</td></tr>
+<tr><th id="591">591</th><td>	<i>// parse the entire material</i></td></tr>
+<tr><th id="592">592</th><td>	<em>void</em>				<dfn class="decl" id="_ZN10idMaterial10CommonInitEv" title='idMaterial::CommonInit' data-ref="_ZN10idMaterial10CommonInitEv">CommonInit</dfn>();</td></tr>
+<tr><th id="593">593</th><td>	<em>void</em>				<dfn class="decl" id="_ZN10idMaterial13ParseMaterialER7idLexer" title='idMaterial::ParseMaterial' data-ref="_ZN10idMaterial13ParseMaterialER7idLexer">ParseMaterial</dfn>( <a class="type" href="../idlib/Lexer.h.html#idLexer" title='idLexer' data-ref="idLexer">idLexer</a> &amp;<dfn class="local col6 decl" id="12936src" title='src' data-type='idLexer &amp;' data-ref="12936src">src</dfn> );</td></tr>
+<tr><th id="594">594</th><td>	<em>bool</em>				<dfn class="decl" id="_ZN10idMaterial10MatchTokenER7idLexerPKc" title='idMaterial::MatchToken' data-ref="_ZN10idMaterial10MatchTokenER7idLexerPKc">MatchToken</dfn>( <a class="type" href="../idlib/Lexer.h.html#idLexer" title='idLexer' data-ref="idLexer">idLexer</a> &amp;<dfn class="local col7 decl" id="12937src" title='src' data-type='idLexer &amp;' data-ref="12937src">src</dfn>, <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="12938match" title='match' data-type='const char *' data-ref="12938match">match</dfn> );</td></tr>
+<tr><th id="595">595</th><td>	<em>void</em>				<dfn class="decl" id="_ZN10idMaterial9ParseSortER7idLexer" title='idMaterial::ParseSort' data-ref="_ZN10idMaterial9ParseSortER7idLexer">ParseSort</dfn>( <a class="type" href="../idlib/Lexer.h.html#idLexer" title='idLexer' data-ref="idLexer">idLexer</a> &amp;<dfn class="local col9 decl" id="12939src" title='src' data-type='idLexer &amp;' data-ref="12939src">src</dfn> );</td></tr>
+<tr><th id="596">596</th><td>	<em>void</em>				<dfn class="decl" id="_ZN10idMaterial10ParseBlendER7idLexerP13shaderStage_t" title='idMaterial::ParseBlend' data-ref="_ZN10idMaterial10ParseBlendER7idLexerP13shaderStage_t">ParseBlend</dfn>( <a class="type" href="../idlib/Lexer.h.html#idLexer" title='idLexer' data-ref="idLexer">idLexer</a> &amp;<dfn class="local col0 decl" id="12940src" title='src' data-type='idLexer &amp;' data-ref="12940src">src</dfn>, <a class="typedef" href="#shaderStage_t" title='shaderStage_t' data-type='struct shaderStage_t' data-ref="shaderStage_t">shaderStage_t</a> *<dfn class="local col1 decl" id="12941stage" title='stage' data-type='shaderStage_t *' data-ref="12941stage">stage</dfn> );</td></tr>
+<tr><th id="597">597</th><td>	<em>void</em>				<dfn class="decl" id="_ZN10idMaterial15ParseVertexParmER7idLexerP16newShaderStage_t" title='idMaterial::ParseVertexParm' data-ref="_ZN10idMaterial15ParseVertexParmER7idLexerP16newShaderStage_t">ParseVertexParm</dfn>( <a class="type" href="../idlib/Lexer.h.html#idLexer" title='idLexer' data-ref="idLexer">idLexer</a> &amp;<dfn class="local col2 decl" id="12942src" title='src' data-type='idLexer &amp;' data-ref="12942src">src</dfn>, <a class="typedef" href="#newShaderStage_t" title='newShaderStage_t' data-type='struct newShaderStage_t' data-ref="newShaderStage_t">newShaderStage_t</a> *<dfn class="local col3 decl" id="12943newStage" title='newStage' data-type='newShaderStage_t *' data-ref="12943newStage">newStage</dfn> );</td></tr>
+<tr><th id="598">598</th><td>	<em>void</em>				<dfn class="decl" id="_ZN10idMaterial16ParseFragmentMapER7idLexerP16newShaderStage_t" title='idMaterial::ParseFragmentMap' data-ref="_ZN10idMaterial16ParseFragmentMapER7idLexerP16newShaderStage_t">ParseFragmentMap</dfn>( <a class="type" href="../idlib/Lexer.h.html#idLexer" title='idLexer' data-ref="idLexer">idLexer</a> &amp;<dfn class="local col4 decl" id="12944src" title='src' data-type='idLexer &amp;' data-ref="12944src">src</dfn>, <a class="typedef" href="#newShaderStage_t" title='newShaderStage_t' data-type='struct newShaderStage_t' data-ref="newShaderStage_t">newShaderStage_t</a> *<dfn class="local col5 decl" id="12945newStage" title='newStage' data-type='newShaderStage_t *' data-ref="12945newStage">newStage</dfn> );</td></tr>
+<tr><th id="599">599</th><td>	<em>void</em>				<dfn class="decl" id="_ZN10idMaterial10ParseStageER7idLexer15textureRepeat_t" title='idMaterial::ParseStage' data-ref="_ZN10idMaterial10ParseStageER7idLexer15textureRepeat_t">ParseStage</dfn>( <a class="type" href="../idlib/Lexer.h.html#idLexer" title='idLexer' data-ref="idLexer">idLexer</a> &amp;<dfn class="local col6 decl" id="12946src" title='src' data-type='idLexer &amp;' data-ref="12946src">src</dfn>, <em>const</em> <a class="typedef" href="#textureRepeat_t" title='textureRepeat_t' data-type='enum textureRepeat_t' data-ref="textureRepeat_t">textureRepeat_t</a> <dfn class="local col7 decl" id="12947trpDefault" title='trpDefault' data-type='const textureRepeat_t' data-ref="12947trpDefault">trpDefault</dfn> = <a class="enum" href="#TR_REPEAT" title='TR_REPEAT' data-ref="TR_REPEAT">TR_REPEAT</a> );</td></tr>
+<tr><th id="600">600</th><td>	<em>void</em>				<dfn class="decl" id="_ZN10idMaterial11ParseDeformER7idLexer" title='idMaterial::ParseDeform' data-ref="_ZN10idMaterial11ParseDeformER7idLexer">ParseDeform</dfn>( <a class="type" href="../idlib/Lexer.h.html#idLexer" title='idLexer' data-ref="idLexer">idLexer</a> &amp;<dfn class="local col8 decl" id="12948src" title='src' data-type='idLexer &amp;' data-ref="12948src">src</dfn> );</td></tr>
+<tr><th id="601">601</th><td>	<em>void</em>				<dfn class="decl" id="_ZN10idMaterial14ParseDecalInfoER7idLexer" title='idMaterial::ParseDecalInfo' data-ref="_ZN10idMaterial14ParseDecalInfoER7idLexer">ParseDecalInfo</dfn>( <a class="type" href="../idlib/Lexer.h.html#idLexer" title='idLexer' data-ref="idLexer">idLexer</a> &amp;<dfn class="local col9 decl" id="12949src" title='src' data-type='idLexer &amp;' data-ref="12949src">src</dfn> );</td></tr>
+<tr><th id="602">602</th><td>	<em>bool</em>				<dfn class="decl" id="_ZN10idMaterial16CheckSurfaceParmEP7idToken" title='idMaterial::CheckSurfaceParm' data-ref="_ZN10idMaterial16CheckSurfaceParmEP7idToken">CheckSurfaceParm</dfn>( <a class="type" href="../idlib/Token.h.html#idToken" title='idToken' data-ref="idToken">idToken</a> *<dfn class="local col0 decl" id="12950token" title='token' data-type='idToken *' data-ref="12950token">token</dfn> );</td></tr>
+<tr><th id="603">603</th><td>	<em>int</em>					<dfn class="decl" id="_ZN10idMaterial21GetExpressionConstantEf" title='idMaterial::GetExpressionConstant' data-ref="_ZN10idMaterial21GetExpressionConstantEf">GetExpressionConstant</dfn>( <em>float</em> <dfn class="local col1 decl" id="12951f" title='f' data-type='float' data-ref="12951f">f</dfn> );</td></tr>
+<tr><th id="604">604</th><td>	<em>int</em>					<dfn class="decl" id="_ZN10idMaterial22GetExpressionTemporaryEv" title='idMaterial::GetExpressionTemporary' data-ref="_ZN10idMaterial22GetExpressionTemporaryEv">GetExpressionTemporary</dfn>( <em>void</em> );</td></tr>
+<tr><th id="605">605</th><td>	<a class="typedef" href="#expOp_t" title='expOp_t' data-type='struct expOp_t' data-ref="expOp_t">expOp_t</a>	*			<dfn class="decl" id="_ZN10idMaterial15GetExpressionOpEv" title='idMaterial::GetExpressionOp' data-ref="_ZN10idMaterial15GetExpressionOpEv">GetExpressionOp</dfn>( <em>void</em> );</td></tr>
+<tr><th id="606">606</th><td>	<em>int</em>					<dfn class="decl" id="_ZN10idMaterial6EmitOpEii11expOpType_t" title='idMaterial::EmitOp' data-ref="_ZN10idMaterial6EmitOpEii11expOpType_t">EmitOp</dfn>( <em>int</em> <dfn class="local col2 decl" id="12952a" title='a' data-type='int' data-ref="12952a">a</dfn>, <em>int</em> <dfn class="local col3 decl" id="12953b" title='b' data-type='int' data-ref="12953b">b</dfn>, <a class="typedef" href="#expOpType_t" title='expOpType_t' data-type='enum expOpType_t' data-ref="expOpType_t">expOpType_t</a> <dfn class="local col4 decl" id="12954opType" title='opType' data-type='expOpType_t' data-ref="12954opType">opType</dfn> );</td></tr>
+<tr><th id="607">607</th><td>	<em>int</em>					<dfn class="decl" id="_ZN10idMaterial11ParseEmitOpER7idLexeri11expOpType_ti" title='idMaterial::ParseEmitOp' data-ref="_ZN10idMaterial11ParseEmitOpER7idLexeri11expOpType_ti">ParseEmitOp</dfn>( <a class="type" href="../idlib/Lexer.h.html#idLexer" title='idLexer' data-ref="idLexer">idLexer</a> &amp;<dfn class="local col5 decl" id="12955src" title='src' data-type='idLexer &amp;' data-ref="12955src">src</dfn>, <em>int</em> <dfn class="local col6 decl" id="12956a" title='a' data-type='int' data-ref="12956a">a</dfn>, <a class="typedef" href="#expOpType_t" title='expOpType_t' data-type='enum expOpType_t' data-ref="expOpType_t">expOpType_t</a> <dfn class="local col7 decl" id="12957opType" title='opType' data-type='expOpType_t' data-ref="12957opType">opType</dfn>, <em>int</em> <dfn class="local col8 decl" id="12958priority" title='priority' data-type='int' data-ref="12958priority">priority</dfn> );</td></tr>
+<tr><th id="608">608</th><td>	<em>int</em>					<dfn class="decl" id="_ZN10idMaterial9ParseTermER7idLexer" title='idMaterial::ParseTerm' data-ref="_ZN10idMaterial9ParseTermER7idLexer">ParseTerm</dfn>( <a class="type" href="../idlib/Lexer.h.html#idLexer" title='idLexer' data-ref="idLexer">idLexer</a> &amp;<dfn class="local col9 decl" id="12959src" title='src' data-type='idLexer &amp;' data-ref="12959src">src</dfn> );</td></tr>
+<tr><th id="609">609</th><td>	<em>int</em>					<dfn class="decl" id="_ZN10idMaterial23ParseExpressionPriorityER7idLexeri" title='idMaterial::ParseExpressionPriority' data-ref="_ZN10idMaterial23ParseExpressionPriorityER7idLexeri">ParseExpressionPriority</dfn>( <a class="type" href="../idlib/Lexer.h.html#idLexer" title='idLexer' data-ref="idLexer">idLexer</a> &amp;<dfn class="local col0 decl" id="12960src" title='src' data-type='idLexer &amp;' data-ref="12960src">src</dfn>, <em>int</em> <dfn class="local col1 decl" id="12961priority" title='priority' data-type='int' data-ref="12961priority">priority</dfn> );</td></tr>
+<tr><th id="610">610</th><td>	<em>int</em>					<dfn class="decl" id="_ZN10idMaterial15ParseExpressionER7idLexer" title='idMaterial::ParseExpression' data-ref="_ZN10idMaterial15ParseExpressionER7idLexer">ParseExpression</dfn>( <a class="type" href="../idlib/Lexer.h.html#idLexer" title='idLexer' data-ref="idLexer">idLexer</a> &amp;<dfn class="local col2 decl" id="12962src" title='src' data-type='idLexer &amp;' data-ref="12962src">src</dfn> );</td></tr>
+<tr><th id="611">611</th><td>	<em>void</em>				<dfn class="decl" id="_ZN10idMaterial10ClearStageEP13shaderStage_t" title='idMaterial::ClearStage' data-ref="_ZN10idMaterial10ClearStageEP13shaderStage_t">ClearStage</dfn>( <a class="typedef" href="#shaderStage_t" title='shaderStage_t' data-type='struct shaderStage_t' data-ref="shaderStage_t">shaderStage_t</a> *<dfn class="local col3 decl" id="12963ss" title='ss' data-type='shaderStage_t *' data-ref="12963ss">ss</dfn> );</td></tr>
+<tr><th id="612">612</th><td>	<em>int</em>					<dfn class="decl" id="_ZN10idMaterial18NameToSrcBlendModeERK5idStr" title='idMaterial::NameToSrcBlendMode' data-ref="_ZN10idMaterial18NameToSrcBlendModeERK5idStr">NameToSrcBlendMode</dfn>( <em>const</em> <a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a> &amp;<dfn class="local col4 decl" id="12964name" title='name' data-type='const idStr &amp;' data-ref="12964name">name</dfn> );</td></tr>
+<tr><th id="613">613</th><td>	<em>int</em>					<dfn class="decl" id="_ZN10idMaterial18NameToDstBlendModeERK5idStr" title='idMaterial::NameToDstBlendMode' data-ref="_ZN10idMaterial18NameToDstBlendModeERK5idStr">NameToDstBlendMode</dfn>( <em>const</em> <a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a> &amp;<dfn class="local col5 decl" id="12965name" title='name' data-type='const idStr &amp;' data-ref="12965name">name</dfn> );</td></tr>
+<tr><th id="614">614</th><td>	<em>void</em>				<dfn class="decl" id="_ZN10idMaterial21MultiplyTextureMatrixEP14textureStage_tPA3_i" title='idMaterial::MultiplyTextureMatrix' data-ref="_ZN10idMaterial21MultiplyTextureMatrixEP14textureStage_tPA3_i">MultiplyTextureMatrix</dfn>( <a class="typedef" href="#textureStage_t" title='textureStage_t' data-type='struct textureStage_t' data-ref="textureStage_t">textureStage_t</a> *<dfn class="local col6 decl" id="12966ts" title='ts' data-type='textureStage_t *' data-ref="12966ts">ts</dfn>, <em>int</em> <dfn class="local col7 decl" id="12967registers" title='registers' data-type='int (*)[3]' data-ref="12967registers">registers</dfn>[<var>2</var>][<var>3</var>] );	<i>// FIXME: for some reason the const is bad for gcc and Mac</i></td></tr>
+<tr><th id="615">615</th><td>	<em>void</em>				<dfn class="decl" id="_ZN10idMaterial21SortInteractionStagesEv" title='idMaterial::SortInteractionStages' data-ref="_ZN10idMaterial21SortInteractionStagesEv">SortInteractionStages</dfn>();</td></tr>
+<tr><th id="616">616</th><td>	<em>void</em>				<dfn class="decl" id="_ZN10idMaterial17AddImplicitStagesE15textureRepeat_t" title='idMaterial::AddImplicitStages' data-ref="_ZN10idMaterial17AddImplicitStagesE15textureRepeat_t">AddImplicitStages</dfn>( <em>const</em> <a class="typedef" href="#textureRepeat_t" title='textureRepeat_t' data-type='enum textureRepeat_t' data-ref="textureRepeat_t">textureRepeat_t</a> <dfn class="local col8 decl" id="12968trpDefault" title='trpDefault' data-type='const textureRepeat_t' data-ref="12968trpDefault">trpDefault</dfn> = <a class="enum" href="#TR_REPEAT" title='TR_REPEAT' data-ref="TR_REPEAT">TR_REPEAT</a> );</td></tr>
+<tr><th id="617">617</th><td>	<em>void</em>				<dfn class="decl" id="_ZN10idMaterial25CheckForConstantRegistersEv" title='idMaterial::CheckForConstantRegisters' data-ref="_ZN10idMaterial25CheckForConstantRegistersEv">CheckForConstantRegisters</dfn>();</td></tr>
+<tr><th id="618">618</th><td></td></tr>
+<tr><th id="619">619</th><td><b>private</b>:</td></tr>
+<tr><th id="620">620</th><td>	<a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>				<dfn class="decl" id="idMaterial::desc" title='idMaterial::desc' data-ref="idMaterial::desc">desc</dfn>;				<i>// description</i></td></tr>
+<tr><th id="621">621</th><td>	<a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>				<dfn class="decl" id="idMaterial::renderBump" title='idMaterial::renderBump' data-ref="idMaterial::renderBump">renderBump</dfn>;			<i>// renderbump command options, without the "renderbump" at the start</i></td></tr>
+<tr><th id="622">622</th><td></td></tr>
+<tr><th id="623">623</th><td>	<a class="type" href="#idImage" title='idImage' data-ref="idImage">idImage</a>	*			<dfn class="decl" id="idMaterial::lightFalloffImage" title='idMaterial::lightFalloffImage' data-ref="idMaterial::lightFalloffImage">lightFalloffImage</dfn>;</td></tr>
+<tr><th id="624">624</th><td></td></tr>
+<tr><th id="625">625</th><td>	<em>int</em>					<dfn class="decl" id="idMaterial::entityGui" title='idMaterial::entityGui' data-ref="idMaterial::entityGui">entityGui</dfn>;			<i>// draw a gui with the idUserInterface from the renderEntity_t</i></td></tr>
+<tr><th id="626">626</th><td>											<i>// non zero will draw gui, gui2, or gui3 from renderEnitty_t</i></td></tr>
+<tr><th id="627">627</th><td>	<em>mutable</em> <a class="type" href="../ui/UserInterface.h.html#idUserInterface" title='idUserInterface' data-ref="idUserInterface">idUserInterface</a>	*<dfn class="decl" id="idMaterial::gui" title='idMaterial::gui' data-ref="idMaterial::gui">gui</dfn>;			<i>// non-custom guis are shared by all users of a material</i></td></tr>
+<tr><th id="628">628</th><td></td></tr>
+<tr><th id="629">629</th><td>	<em>bool</em>				<dfn class="decl" id="idMaterial::noFog" title='idMaterial::noFog' data-ref="idMaterial::noFog">noFog</dfn>;				<i>// surface does not create fog interactions</i></td></tr>
+<tr><th id="630">630</th><td></td></tr>
+<tr><th id="631">631</th><td>	<em>int</em>					<dfn class="decl" id="idMaterial::spectrum" title='idMaterial::spectrum' data-ref="idMaterial::spectrum">spectrum</dfn>;			<i>// for invisible writing, used for both lights and surfaces</i></td></tr>
+<tr><th id="632">632</th><td></td></tr>
+<tr><th id="633">633</th><td>	<em>float</em>				<dfn class="decl" id="idMaterial::polygonOffset" title='idMaterial::polygonOffset' data-ref="idMaterial::polygonOffset">polygonOffset</dfn>;</td></tr>
+<tr><th id="634">634</th><td></td></tr>
+<tr><th id="635">635</th><td>	<em>int</em>					<dfn class="decl" id="idMaterial::contentFlags" title='idMaterial::contentFlags' data-ref="idMaterial::contentFlags">contentFlags</dfn>;		<i>// content flags</i></td></tr>
+<tr><th id="636">636</th><td>	<em>int</em>					<dfn class="decl" id="idMaterial::surfaceFlags" title='idMaterial::surfaceFlags' data-ref="idMaterial::surfaceFlags">surfaceFlags</dfn>;		<i>// surface flags	</i></td></tr>
+<tr><th id="637">637</th><td>	<em>mutable</em> <em>int</em>			<dfn class="decl" id="idMaterial::materialFlags" title='idMaterial::materialFlags' data-ref="idMaterial::materialFlags">materialFlags</dfn>;		<i>// material flags</i></td></tr>
+<tr><th id="638">638</th><td>	</td></tr>
+<tr><th id="639">639</th><td>	<a class="typedef" href="#decalInfo_t" title='decalInfo_t' data-type='struct decalInfo_t' data-ref="decalInfo_t">decalInfo_t</a>			<dfn class="decl" id="idMaterial::decalInfo" title='idMaterial::decalInfo' data-ref="idMaterial::decalInfo">decalInfo</dfn>;</td></tr>
+<tr><th id="640">640</th><td></td></tr>
+<tr><th id="641">641</th><td></td></tr>
+<tr><th id="642">642</th><td>	<em>mutable</em>	<em>float</em>		<dfn class="decl" id="idMaterial::sort" title='idMaterial::sort' data-ref="idMaterial::sort">sort</dfn>;				<i>// lower numbered shaders draw before higher numbered</i></td></tr>
+<tr><th id="643">643</th><td>	<a class="typedef" href="#deform_t" title='deform_t' data-type='enum deform_t' data-ref="deform_t">deform_t</a>			<dfn class="decl" id="idMaterial::deform" title='idMaterial::deform' data-ref="idMaterial::deform">deform</dfn>;</td></tr>
+<tr><th id="644">644</th><td>	<em>int</em>					<dfn class="decl" id="idMaterial::deformRegisters" title='idMaterial::deformRegisters' data-ref="idMaterial::deformRegisters">deformRegisters</dfn>[<var>4</var>];		<i>// numeric parameter for deforms</i></td></tr>
+<tr><th id="645">645</th><td>	<em>const</em> <a class="type" href="../framework/DeclManager.h.html#idDecl" title='idDecl' data-ref="idDecl">idDecl</a>		*<dfn class="decl" id="idMaterial::deformDecl" title='idMaterial::deformDecl' data-ref="idMaterial::deformDecl">deformDecl</dfn>;			<i>// for surface emitted particle deforms and tables</i></td></tr>
+<tr><th id="646">646</th><td></td></tr>
+<tr><th id="647">647</th><td>	<em>int</em>					<dfn class="decl" id="idMaterial::texGenRegisters" title='idMaterial::texGenRegisters' data-ref="idMaterial::texGenRegisters">texGenRegisters</dfn>[<a class="ref" href="#MAX_TEXGEN_REGISTERS" title='MAX_TEXGEN_REGISTERS' data-ref="MAX_TEXGEN_REGISTERS">MAX_TEXGEN_REGISTERS</a>];	<i>// for wobbleSky</i></td></tr>
+<tr><th id="648">648</th><td></td></tr>
+<tr><th id="649">649</th><td>	<a class="typedef" href="#materialCoverage_t" title='materialCoverage_t' data-type='enum materialCoverage_t' data-ref="materialCoverage_t">materialCoverage_t</a>	<dfn class="decl" id="idMaterial::coverage" title='idMaterial::coverage' data-ref="idMaterial::coverage">coverage</dfn>;</td></tr>
+<tr><th id="650">650</th><td>	<a class="typedef" href="#cullType_t" title='cullType_t' data-type='enum cullType_t' data-ref="cullType_t">cullType_t</a>			<dfn class="decl" id="idMaterial::cullType" title='idMaterial::cullType' data-ref="idMaterial::cullType">cullType</dfn>;			<i>// CT_FRONT_SIDED, CT_BACK_SIDED, or CT_TWO_SIDED</i></td></tr>
+<tr><th id="651">651</th><td>	<em>bool</em>				<dfn class="decl" id="idMaterial::shouldCreateBackSides" title='idMaterial::shouldCreateBackSides' data-ref="idMaterial::shouldCreateBackSides">shouldCreateBackSides</dfn>;</td></tr>
+<tr><th id="652">652</th><td>	</td></tr>
+<tr><th id="653">653</th><td>	<em>bool</em>				<dfn class="decl" id="idMaterial::fogLight" title='idMaterial::fogLight' data-ref="idMaterial::fogLight">fogLight</dfn>;</td></tr>
+<tr><th id="654">654</th><td>	<em>bool</em>				<dfn class="decl" id="idMaterial::blendLight" title='idMaterial::blendLight' data-ref="idMaterial::blendLight">blendLight</dfn>;</td></tr>
+<tr><th id="655">655</th><td>	<em>bool</em>				<dfn class="decl" id="idMaterial::ambientLight" title='idMaterial::ambientLight' data-ref="idMaterial::ambientLight">ambientLight</dfn>;</td></tr>
+<tr><th id="656">656</th><td>	<em>bool</em>				<dfn class="decl" id="idMaterial::unsmoothedTangents" title='idMaterial::unsmoothedTangents' data-ref="idMaterial::unsmoothedTangents">unsmoothedTangents</dfn>;</td></tr>
+<tr><th id="657">657</th><td>	<em>bool</em>				<dfn class="decl" id="idMaterial::hasSubview" title='idMaterial::hasSubview' data-ref="idMaterial::hasSubview">hasSubview</dfn>;			<i>// mirror, remote render, etc</i></td></tr>
+<tr><th id="658">658</th><td>	<em>bool</em>				<dfn class="decl" id="idMaterial::allowOverlays" title='idMaterial::allowOverlays' data-ref="idMaterial::allowOverlays">allowOverlays</dfn>;</td></tr>
+<tr><th id="659">659</th><td></td></tr>
+<tr><th id="660">660</th><td>	<em>int</em>					<dfn class="decl" id="idMaterial::numOps" title='idMaterial::numOps' data-ref="idMaterial::numOps">numOps</dfn>;</td></tr>
+<tr><th id="661">661</th><td>	<a class="typedef" href="#expOp_t" title='expOp_t' data-type='struct expOp_t' data-ref="expOp_t">expOp_t</a> *			<dfn class="decl" id="idMaterial::ops" title='idMaterial::ops' data-ref="idMaterial::ops">ops</dfn>;				<i>// evaluate to make expressionRegisters</i></td></tr>
+<tr><th id="662">662</th><td>																										</td></tr>
+<tr><th id="663">663</th><td>	<em>int</em>					<dfn class="decl" id="idMaterial::numRegisters" title='idMaterial::numRegisters' data-ref="idMaterial::numRegisters">numRegisters</dfn>;																			<i>//</i></td></tr>
+<tr><th id="664">664</th><td>	<em>float</em> *				<dfn class="decl" id="idMaterial::expressionRegisters" title='idMaterial::expressionRegisters' data-ref="idMaterial::expressionRegisters">expressionRegisters</dfn>;</td></tr>
+<tr><th id="665">665</th><td></td></tr>
+<tr><th id="666">666</th><td>	<em>float</em> *				<dfn class="decl" id="idMaterial::constantRegisters" title='idMaterial::constantRegisters' data-ref="idMaterial::constantRegisters">constantRegisters</dfn>;	<i>// NULL if ops ever reference globalParms or entityParms</i></td></tr>
+<tr><th id="667">667</th><td></td></tr>
+<tr><th id="668">668</th><td>	<em>int</em>					<dfn class="decl" id="idMaterial::numStages" title='idMaterial::numStages' data-ref="idMaterial::numStages">numStages</dfn>;</td></tr>
+<tr><th id="669">669</th><td>	<em>int</em>					<dfn class="decl" id="idMaterial::numAmbientStages" title='idMaterial::numAmbientStages' data-ref="idMaterial::numAmbientStages">numAmbientStages</dfn>;</td></tr>
+<tr><th id="670">670</th><td>																										</td></tr>
+<tr><th id="671">671</th><td>	<a class="typedef" href="#shaderStage_t" title='shaderStage_t' data-type='struct shaderStage_t' data-ref="shaderStage_t">shaderStage_t</a> *		<dfn class="decl" id="idMaterial::stages" title='idMaterial::stages' data-ref="idMaterial::stages">stages</dfn>;</td></tr>
+<tr><th id="672">672</th><td></td></tr>
+<tr><th id="673">673</th><td>	<b>struct</b> <dfn class="type" id="mtrParsingData_s" title='mtrParsingData_s' data-ref="mtrParsingData_s"><a class="type" href="#mtrParsingData_s" title='mtrParsingData_s' data-ref="mtrParsingData_s">mtrParsingData_s</a></dfn>	*<dfn class="decl" id="idMaterial::pd" title='idMaterial::pd' data-ref="idMaterial::pd">pd</dfn>;			<i>// only used during parsing</i></td></tr>
+<tr><th id="674">674</th><td></td></tr>
+<tr><th id="675">675</th><td>	<em>float</em>				<dfn class="decl" id="idMaterial::surfaceArea" title='idMaterial::surfaceArea' data-ref="idMaterial::surfaceArea">surfaceArea</dfn>;		<i>// only for listSurfaceAreas</i></td></tr>
+<tr><th id="676">676</th><td></td></tr>
+<tr><th id="677">677</th><td>	<i>// we defer loading of the editor image until it is asked for, so the game doesn't load up</i></td></tr>
+<tr><th id="678">678</th><td><i>	// all the invisible and uncompressed images.</i></td></tr>
+<tr><th id="679">679</th><td><i>	// If editorImage is NULL, it will atempt to load editorImageName, and set editorImage to that or defaultImage</i></td></tr>
+<tr><th id="680">680</th><td>	<a class="type" href="../idlib/Str.h.html#idStr" title='idStr' data-ref="idStr">idStr</a>				<dfn class="decl" id="idMaterial::editorImageName" title='idMaterial::editorImageName' data-ref="idMaterial::editorImageName">editorImageName</dfn>;</td></tr>
+<tr><th id="681">681</th><td>	<em>mutable</em> <a class="type" href="#idImage" title='idImage' data-ref="idImage">idImage</a> *	<dfn class="decl" id="idMaterial::editorImage" title='idMaterial::editorImage' data-ref="idMaterial::editorImage">editorImage</dfn>;		<i>// image used for non-shaded preview</i></td></tr>
+<tr><th id="682">682</th><td>	<em>float</em>				<dfn class="decl" id="idMaterial::editorAlpha" title='idMaterial::editorAlpha' data-ref="idMaterial::editorAlpha">editorAlpha</dfn>;</td></tr>
+<tr><th id="683">683</th><td></td></tr>
+<tr><th id="684">684</th><td>	<em>bool</em>				<dfn class="decl" id="idMaterial::suppressInSubview" title='idMaterial::suppressInSubview' data-ref="idMaterial::suppressInSubview">suppressInSubview</dfn>;</td></tr>
+<tr><th id="685">685</th><td>	<em>bool</em>				<dfn class="decl" id="idMaterial::portalSky" title='idMaterial::portalSky' data-ref="idMaterial::portalSky">portalSky</dfn>;</td></tr>
+<tr><th id="686">686</th><td>	<em>int</em>					<dfn class="decl" id="idMaterial::refCount" title='idMaterial::refCount' data-ref="idMaterial::refCount">refCount</dfn>;</td></tr>
+<tr><th id="687">687</th><td>};</td></tr>
+<tr><th id="688">688</th><td></td></tr>
+<tr><th id="689">689</th><td><b>typedef</b> <a class="type" href="../sys/sys_public.h.html#idList" title='idList' data-ref="idList">idList</a>&lt;<em>const</em> <a class="type" href="#idMaterial" title='idMaterial' data-ref="idMaterial">idMaterial</a> *&gt; <dfn class="typedef" id="idMatList" title='idMatList' data-type='idList&lt;const idMaterial *&gt;' data-ref="idMatList">idMatList</dfn>;</td></tr>
+<tr><th id="690">690</th><td></td></tr>
+<tr><th id="691">691</th><td><u>#<span data-ppcond="29">endif</span> /* !__MATERIAL_H__ */</u></td></tr>
+<tr><th id="692">692</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../TypeInfo/TypeInfoGen.cpp.html'>codebrowser/TypeInfo/TypeInfoGen.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

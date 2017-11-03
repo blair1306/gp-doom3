@@ -1,0 +1,6 @@
+<dec f='codebrowser/sound/snd_local.h' l='248' type='bool idAudioHardware::Flush()'/>
+<doc f='codebrowser/sound/snd_local.h' l='246'>// try to write as many sound samples to the device as possible without blocking and prepare for a possible new mixing call
+	// returns wether there is *some* space for writing available</doc>
+<use f='codebrowser/sound/snd_system.cpp' l='755' u='c' c='_ZN18idSoundSystemLocal16AsyncUpdateWriteEi'/>
+<ovr f='codebrowser/sys/linux/sound.cpp' l='321' c='_ZN18idAudioHardwareOSS5FlushEv'/>
+<ovr f='codebrowser/sys/linux/sound_alsa.cpp' l='272' c='_ZN19idAudioHardwareALSA5FlushEv'/>

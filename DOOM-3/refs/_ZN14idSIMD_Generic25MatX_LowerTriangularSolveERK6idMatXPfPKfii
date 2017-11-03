@@ -1,0 +1,13 @@
+<dec f='codebrowser/idlib/math/Simd_Generic.h' l='106' type='void idSIMD_Generic::MatX_LowerTriangularSolve(const idMatX &amp; L, float * x, const float * b, const int n, int skip = 0)'/>
+<inh f='codebrowser/idlib/math/Simd.h' l='168' c='_ZN15idSIMDProcessor25MatX_LowerTriangularSolveERK6idMatXPfPKfii'/>
+<def f='codebrowser/idlib/math/Simd_Generic.cpp' l='1733' ll='1855' type='void idSIMD_Generic::MatX_LowerTriangularSolve(const idMatX &amp; L, float * x, const float * b, const int n, int skip = 0)'/>
+<doc f='codebrowser/idlib/math/Simd_Generic.cpp' l='1723'>/*
+============
+idSIMD_Generic::MatX_LowerTriangularSolve
+
+  solves x in Lx = b for the n * n sub-matrix of L
+  if skip &gt; 0 the first skip elements of x are assumed to be valid already
+  L has to be a lower triangular matrix with (implicit) ones on the diagonal
+  x == b is allowed
+============
+*/</doc>

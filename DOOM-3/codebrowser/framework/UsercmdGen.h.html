@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>UsercmdGen.h source code [codebrowser/framework/UsercmdGen.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idUsercmdGen,usercmd_t "/>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/framework/UsercmdGen.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>framework</a>/<a href='UsercmdGen.h.html'>UsercmdGen.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__USERCMDGEN_H__">__USERCMDGEN_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__USERCMDGEN_H__" data-ref="_M/__USERCMDGEN_H__">__USERCMDGEN_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>	Samples a set of user commands from player input.</i></td></tr>
+<tr><th id="36">36</th><td><i></i></td></tr>
+<tr><th id="37">37</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="38">38</th><td><i>*/</i></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="USERCMD_HZ" title='USERCMD_HZ' data-ref="USERCMD_HZ">USERCMD_HZ</dfn>			= <var>60</var>;			<i>// 60 frames per second</i></td></tr>
+<tr><th id="41">41</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="USERCMD_MSEC" title='USERCMD_MSEC' data-ref="USERCMD_MSEC">USERCMD_MSEC</dfn>			= <var>1000</var> / <a class="ref" href="#USERCMD_HZ" title='USERCMD_HZ' data-ref="USERCMD_HZ">USERCMD_HZ</a>;</td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td><i>// usercmd_t-&gt;button bits</i></td></tr>
+<tr><th id="44">44</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="BUTTON_ATTACK" title='BUTTON_ATTACK' data-ref="BUTTON_ATTACK">BUTTON_ATTACK</dfn>			= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 0 ) )" data-ref="_M/BIT">BIT</a>(<var>0</var>);</td></tr>
+<tr><th id="45">45</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="BUTTON_RUN" title='BUTTON_RUN' data-ref="BUTTON_RUN">BUTTON_RUN</dfn>			= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 1 ) )" data-ref="_M/BIT">BIT</a>(<var>1</var>);</td></tr>
+<tr><th id="46">46</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="BUTTON_ZOOM" title='BUTTON_ZOOM' data-ref="BUTTON_ZOOM">BUTTON_ZOOM</dfn>			= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 2 ) )" data-ref="_M/BIT">BIT</a>(<var>2</var>);</td></tr>
+<tr><th id="47">47</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="BUTTON_SCORES" title='BUTTON_SCORES' data-ref="BUTTON_SCORES">BUTTON_SCORES</dfn>			= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 3 ) )" data-ref="_M/BIT">BIT</a>(<var>3</var>);</td></tr>
+<tr><th id="48">48</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="BUTTON_MLOOK" title='BUTTON_MLOOK' data-ref="BUTTON_MLOOK">BUTTON_MLOOK</dfn>			= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 4 ) )" data-ref="_M/BIT">BIT</a>(<var>4</var>);</td></tr>
+<tr><th id="49">49</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="BUTTON_5" title='BUTTON_5' data-ref="BUTTON_5">BUTTON_5</dfn>				= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 5 ) )" data-ref="_M/BIT">BIT</a>(<var>5</var>);</td></tr>
+<tr><th id="50">50</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="BUTTON_6" title='BUTTON_6' data-ref="BUTTON_6">BUTTON_6</dfn>				= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 6 ) )" data-ref="_M/BIT">BIT</a>(<var>6</var>);</td></tr>
+<tr><th id="51">51</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="BUTTON_7" title='BUTTON_7' data-ref="BUTTON_7">BUTTON_7</dfn>				= <a class="macro" href="../idlib/Lib.h.html#92" title="( 1 &lt;&lt; ( 7 ) )" data-ref="_M/BIT">BIT</a>(<var>7</var>);</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td><i>// usercmd_t-&gt;impulse commands</i></td></tr>
+<tr><th id="54">54</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="IMPULSE_0" title='IMPULSE_0' data-ref="IMPULSE_0">IMPULSE_0</dfn>				= <var>0</var>;			<i>// weap 0</i></td></tr>
+<tr><th id="55">55</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="IMPULSE_1" title='IMPULSE_1' data-ref="IMPULSE_1">IMPULSE_1</dfn>				= <var>1</var>;			<i>// weap 1</i></td></tr>
+<tr><th id="56">56</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="IMPULSE_2" title='IMPULSE_2' data-ref="IMPULSE_2">IMPULSE_2</dfn>				= <var>2</var>;			<i>// weap 2</i></td></tr>
+<tr><th id="57">57</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="IMPULSE_3" title='IMPULSE_3' data-ref="IMPULSE_3">IMPULSE_3</dfn>				= <var>3</var>;			<i>// weap 3</i></td></tr>
+<tr><th id="58">58</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="IMPULSE_4" title='IMPULSE_4' data-ref="IMPULSE_4">IMPULSE_4</dfn>				= <var>4</var>;			<i>// weap 4</i></td></tr>
+<tr><th id="59">59</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="IMPULSE_5" title='IMPULSE_5' data-ref="IMPULSE_5">IMPULSE_5</dfn>				= <var>5</var>;			<i>// weap 5</i></td></tr>
+<tr><th id="60">60</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="IMPULSE_6" title='IMPULSE_6' data-ref="IMPULSE_6">IMPULSE_6</dfn>				= <var>6</var>;			<i>// weap 6</i></td></tr>
+<tr><th id="61">61</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="IMPULSE_7" title='IMPULSE_7' data-ref="IMPULSE_7">IMPULSE_7</dfn>				= <var>7</var>;			<i>// weap 7</i></td></tr>
+<tr><th id="62">62</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="IMPULSE_8" title='IMPULSE_8' data-ref="IMPULSE_8">IMPULSE_8</dfn>				= <var>8</var>;			<i>// weap 8</i></td></tr>
+<tr><th id="63">63</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="IMPULSE_9" title='IMPULSE_9' data-ref="IMPULSE_9">IMPULSE_9</dfn>				= <var>9</var>;			<i>// weap 9</i></td></tr>
+<tr><th id="64">64</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="IMPULSE_10" title='IMPULSE_10' data-ref="IMPULSE_10">IMPULSE_10</dfn>			= <var>10</var>;			<i>// weap 10</i></td></tr>
+<tr><th id="65">65</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="IMPULSE_11" title='IMPULSE_11' data-ref="IMPULSE_11">IMPULSE_11</dfn>			= <var>11</var>;			<i>// weap 11</i></td></tr>
+<tr><th id="66">66</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="IMPULSE_12" title='IMPULSE_12' data-ref="IMPULSE_12">IMPULSE_12</dfn>			= <var>12</var>;			<i>// weap 12</i></td></tr>
+<tr><th id="67">67</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="IMPULSE_13" title='IMPULSE_13' data-ref="IMPULSE_13">IMPULSE_13</dfn>			= <var>13</var>;			<i>// weap reload</i></td></tr>
+<tr><th id="68">68</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="IMPULSE_14" title='IMPULSE_14' data-ref="IMPULSE_14">IMPULSE_14</dfn>			= <var>14</var>;			<i>// weap next</i></td></tr>
+<tr><th id="69">69</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="IMPULSE_15" title='IMPULSE_15' data-ref="IMPULSE_15">IMPULSE_15</dfn>			= <var>15</var>;			<i>// weap prev</i></td></tr>
+<tr><th id="70">70</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="IMPULSE_16" title='IMPULSE_16' data-ref="IMPULSE_16">IMPULSE_16</dfn>			= <var>16</var>;			<i>// &lt;unused&gt;</i></td></tr>
+<tr><th id="71">71</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="IMPULSE_17" title='IMPULSE_17' data-ref="IMPULSE_17">IMPULSE_17</dfn>			= <var>17</var>;			<i>// ready to play ( toggles ui_ready )</i></td></tr>
+<tr><th id="72">72</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="IMPULSE_18" title='IMPULSE_18' data-ref="IMPULSE_18">IMPULSE_18</dfn>			= <var>18</var>;			<i>// center view</i></td></tr>
+<tr><th id="73">73</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="IMPULSE_19" title='IMPULSE_19' data-ref="IMPULSE_19">IMPULSE_19</dfn>			= <var>19</var>;			<i>// show PDA/INV/MAP</i></td></tr>
+<tr><th id="74">74</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="IMPULSE_20" title='IMPULSE_20' data-ref="IMPULSE_20">IMPULSE_20</dfn>			= <var>20</var>;			<i>// toggle team ( toggles ui_team )</i></td></tr>
+<tr><th id="75">75</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="IMPULSE_21" title='IMPULSE_21' data-ref="IMPULSE_21">IMPULSE_21</dfn>			= <var>21</var>;			<i>// &lt;unused&gt;</i></td></tr>
+<tr><th id="76">76</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="IMPULSE_22" title='IMPULSE_22' data-ref="IMPULSE_22">IMPULSE_22</dfn>			= <var>22</var>;			<i>// spectate</i></td></tr>
+<tr><th id="77">77</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="IMPULSE_23" title='IMPULSE_23' data-ref="IMPULSE_23">IMPULSE_23</dfn>			= <var>23</var>;			<i>// &lt;unused&gt;</i></td></tr>
+<tr><th id="78">78</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="IMPULSE_24" title='IMPULSE_24' data-ref="IMPULSE_24">IMPULSE_24</dfn>			= <var>24</var>;			<i>// &lt;unused&gt;</i></td></tr>
+<tr><th id="79">79</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="IMPULSE_25" title='IMPULSE_25' data-ref="IMPULSE_25">IMPULSE_25</dfn>			= <var>25</var>;			<i>// &lt;unused&gt;</i></td></tr>
+<tr><th id="80">80</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="IMPULSE_26" title='IMPULSE_26' data-ref="IMPULSE_26">IMPULSE_26</dfn>			= <var>26</var>;			<i>// &lt;unused&gt;</i></td></tr>
+<tr><th id="81">81</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="IMPULSE_27" title='IMPULSE_27' data-ref="IMPULSE_27">IMPULSE_27</dfn>			= <var>27</var>;			<i>// &lt;unused&gt;</i></td></tr>
+<tr><th id="82">82</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="IMPULSE_28" title='IMPULSE_28' data-ref="IMPULSE_28">IMPULSE_28</dfn>			= <var>28</var>;			<i>// vote yes</i></td></tr>
+<tr><th id="83">83</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="IMPULSE_29" title='IMPULSE_29' data-ref="IMPULSE_29">IMPULSE_29</dfn>			= <var>29</var>;			<i>// vote no</i></td></tr>
+<tr><th id="84">84</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="IMPULSE_40" title='IMPULSE_40' data-ref="IMPULSE_40">IMPULSE_40</dfn>			= <var>40</var>;			<i>// use vehicle</i></td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td><i>// usercmd_t-&gt;flags</i></td></tr>
+<tr><th id="87">87</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="UCF_IMPULSE_SEQUENCE" title='UCF_IMPULSE_SEQUENCE' data-ref="UCF_IMPULSE_SEQUENCE">UCF_IMPULSE_SEQUENCE</dfn>	= <var>0x0001</var>;		<i>// toggled every time an impulse command is sent</i></td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td><b>class</b> <dfn class="type def" id="usercmd_t" title='usercmd_t' data-ref="usercmd_t">usercmd_t</dfn> {</td></tr>
+<tr><th id="90">90</th><td><b>public</b>:</td></tr>
+<tr><th id="91">91</th><td>	<em>int</em>			<dfn class="decl" id="usercmd_t::gameFrame" title='usercmd_t::gameFrame' data-ref="usercmd_t::gameFrame">gameFrame</dfn>;						<i>// frame number</i></td></tr>
+<tr><th id="92">92</th><td>	<em>int</em>			<dfn class="decl" id="usercmd_t::gameTime" title='usercmd_t::gameTime' data-ref="usercmd_t::gameTime">gameTime</dfn>;						<i>// game time</i></td></tr>
+<tr><th id="93">93</th><td>	<em>int</em>			<dfn class="decl" id="usercmd_t::duplicateCount" title='usercmd_t::duplicateCount' data-ref="usercmd_t::duplicateCount">duplicateCount</dfn>;					<i>// duplication count for networking</i></td></tr>
+<tr><th id="94">94</th><td>	<a class="typedef" href="../idlib/Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>		<dfn class="decl" id="usercmd_t::buttons" title='usercmd_t::buttons' data-ref="usercmd_t::buttons">buttons</dfn>;						<i>// buttons</i></td></tr>
+<tr><th id="95">95</th><td>	<em>signed</em> <em>char</em>	<dfn class="decl" id="usercmd_t::forwardmove" title='usercmd_t::forwardmove' data-ref="usercmd_t::forwardmove">forwardmove</dfn>;					<i>// forward/backward movement</i></td></tr>
+<tr><th id="96">96</th><td>	<em>signed</em> <em>char</em>	<dfn class="decl" id="usercmd_t::rightmove" title='usercmd_t::rightmove' data-ref="usercmd_t::rightmove">rightmove</dfn>;						<i>// left/right movement</i></td></tr>
+<tr><th id="97">97</th><td>	<em>signed</em> <em>char</em>	<dfn class="decl" id="usercmd_t::upmove" title='usercmd_t::upmove' data-ref="usercmd_t::upmove">upmove</dfn>;							<i>// up/down movement</i></td></tr>
+<tr><th id="98">98</th><td>	<em>short</em>		<dfn class="decl" id="usercmd_t::angles" title='usercmd_t::angles' data-ref="usercmd_t::angles">angles</dfn>[<var>3</var>];						<i>// view angles</i></td></tr>
+<tr><th id="99">99</th><td>	<em>short</em>		<dfn class="decl" id="usercmd_t::mx" title='usercmd_t::mx' data-ref="usercmd_t::mx">mx</dfn>;								<i>// mouse delta x</i></td></tr>
+<tr><th id="100">100</th><td>	<em>short</em>		<dfn class="decl" id="usercmd_t::my" title='usercmd_t::my' data-ref="usercmd_t::my">my</dfn>;								<i>// mouse delta y</i></td></tr>
+<tr><th id="101">101</th><td>	<em>signed</em> <em>char</em> <dfn class="decl" id="usercmd_t::impulse" title='usercmd_t::impulse' data-ref="usercmd_t::impulse">impulse</dfn>;						<i>// impulse command</i></td></tr>
+<tr><th id="102">102</th><td>	<a class="typedef" href="../idlib/Lib.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>		<dfn class="decl" id="usercmd_t::flags" title='usercmd_t::flags' data-ref="usercmd_t::flags">flags</dfn>;							<i>// additional flags</i></td></tr>
+<tr><th id="103">103</th><td>	<em>int</em>			<dfn class="decl" id="usercmd_t::sequence" title='usercmd_t::sequence' data-ref="usercmd_t::sequence">sequence</dfn>;						<i>// just for debugging</i></td></tr>
+<tr><th id="104">104</th><td></td></tr>
+<tr><th id="105">105</th><td><b>public</b>:</td></tr>
+<tr><th id="106">106</th><td>	<em>void</em>		<dfn class="decl" id="_ZN9usercmd_t8ByteSwapEv" title='usercmd_t::ByteSwap' data-ref="_ZN9usercmd_t8ByteSwapEv">ByteSwap</dfn>();						<i>// on big endian systems, byte swap the shorts and ints</i></td></tr>
+<tr><th id="107">107</th><td>	<em>bool</em>		<dfn class="decl" id="_ZNK9usercmd_teqERKS_" title='usercmd_t::operator==' data-ref="_ZNK9usercmd_teqERKS_"><b>operator</b>==</dfn>( <em>const</em> <a class="type" href="#usercmd_t" title='usercmd_t' data-ref="usercmd_t">usercmd_t</a> &amp;<dfn class="local col1 decl" id="7741rhs" title='rhs' data-type='const usercmd_t &amp;' data-ref="7741rhs">rhs</dfn> ) <em>const</em>;</td></tr>
+<tr><th id="108">108</th><td>};</td></tr>
+<tr><th id="109">109</th><td></td></tr>
+<tr><th id="110">110</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="111">111</th><td>	<dfn class="enum" id="INHIBIT_SESSION" title='INHIBIT_SESSION' data-ref="INHIBIT_SESSION">INHIBIT_SESSION</dfn> = <var>0</var>,</td></tr>
+<tr><th id="112">112</th><td>	<dfn class="enum" id="INHIBIT_ASYNC" title='INHIBIT_ASYNC' data-ref="INHIBIT_ASYNC">INHIBIT_ASYNC</dfn></td></tr>
+<tr><th id="113">113</th><td>} <dfn class="typedef" id="inhibit_t" title='inhibit_t' data-type='enum inhibit_t' data-ref="inhibit_t">inhibit_t</dfn>;</td></tr>
+<tr><th id="114">114</th><td></td></tr>
+<tr><th id="115">115</th><td><em>const</em> <em>int</em> <dfn class="decl def" id="MAX_BUFFERED_USERCMD" title='MAX_BUFFERED_USERCMD' data-ref="MAX_BUFFERED_USERCMD">MAX_BUFFERED_USERCMD</dfn> = <var>64</var>;</td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td><b>class</b> <dfn class="type def" id="idUsercmdGen" title='idUsercmdGen' data-ref="idUsercmdGen">idUsercmdGen</dfn> {</td></tr>
+<tr><th id="118">118</th><td><b>public</b>:</td></tr>
+<tr><th id="119">119</th><td>	<b>virtual</b>				<dfn class="virtual decl def" id="_ZN12idUsercmdGenD1Ev" title='idUsercmdGen::~idUsercmdGen' data-ref="_ZN12idUsercmdGenD1Ev">~idUsercmdGen</dfn>( <em>void</em> ) {}</td></tr>
+<tr><th id="120">120</th><td></td></tr>
+<tr><th id="121">121</th><td>	<i>// Sets up all the cvars and console commands.</i></td></tr>
+<tr><th id="122">122</th><td>	<b>virtual</b>	<em>void</em>		<dfn class="virtual decl" id="_ZN12idUsercmdGen4InitEv" title='idUsercmdGen::Init' data-ref="_ZN12idUsercmdGen4InitEv">Init</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="123">123</th><td></td></tr>
+<tr><th id="124">124</th><td>	<i>// Prepares for a new map.</i></td></tr>
+<tr><th id="125">125</th><td>	<b>virtual</b> <em>void</em>		<dfn class="virtual decl" id="_ZN12idUsercmdGen13InitForNewMapEv" title='idUsercmdGen::InitForNewMap' data-ref="_ZN12idUsercmdGen13InitForNewMapEv">InitForNewMap</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="126">126</th><td></td></tr>
+<tr><th id="127">127</th><td>	<i>// Shut down.</i></td></tr>
+<tr><th id="128">128</th><td>	<b>virtual</b> <em>void</em>		<dfn class="virtual decl" id="_ZN12idUsercmdGen8ShutdownEv" title='idUsercmdGen::Shutdown' data-ref="_ZN12idUsercmdGen8ShutdownEv">Shutdown</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="129">129</th><td></td></tr>
+<tr><th id="130">130</th><td>	<i>// Clears all key states and face straight.</i></td></tr>
+<tr><th id="131">131</th><td>	<b>virtual</b>	<em>void</em>		<dfn class="virtual decl" id="_ZN12idUsercmdGen5ClearEv" title='idUsercmdGen::Clear' data-ref="_ZN12idUsercmdGen5ClearEv">Clear</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="132">132</th><td></td></tr>
+<tr><th id="133">133</th><td>	<i>// Clears view angles.</i></td></tr>
+<tr><th id="134">134</th><td>	<b>virtual</b> <em>void</em>		<dfn class="virtual decl" id="_ZN12idUsercmdGen11ClearAnglesEv" title='idUsercmdGen::ClearAngles' data-ref="_ZN12idUsercmdGen11ClearAnglesEv">ClearAngles</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td>	<i>// When the console is down or the menu is up, only emit default usercmd, so the player isn't moving around.</i></td></tr>
+<tr><th id="137">137</th><td><i>	// Each subsystem (session and game) may want an inhibit will OR the requests.</i></td></tr>
+<tr><th id="138">138</th><td>	<b>virtual</b> <em>void</em>		<dfn class="virtual decl" id="_ZN12idUsercmdGen14InhibitUsercmdE9inhibit_tb" title='idUsercmdGen::InhibitUsercmd' data-ref="_ZN12idUsercmdGen14InhibitUsercmdE9inhibit_tb">InhibitUsercmd</dfn>( <a class="typedef" href="#inhibit_t" title='inhibit_t' data-type='enum inhibit_t' data-ref="inhibit_t">inhibit_t</a> <dfn class="local col2 decl" id="7742subsystem" title='subsystem' data-type='inhibit_t' data-ref="7742subsystem">subsystem</dfn>, <em>bool</em> <dfn class="local col3 decl" id="7743inhibit" title='inhibit' data-type='bool' data-ref="7743inhibit">inhibit</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="139">139</th><td></td></tr>
+<tr><th id="140">140</th><td>	<i>// Returns a buffered command for the given game tic.</i></td></tr>
+<tr><th id="141">141</th><td>	<b>virtual</b> <a class="type" href="#usercmd_t" title='usercmd_t' data-ref="usercmd_t">usercmd_t</a>	<dfn class="virtual decl" id="_ZN12idUsercmdGen6TicCmdEi" title='idUsercmdGen::TicCmd' data-ref="_ZN12idUsercmdGen6TicCmdEi">TicCmd</dfn>( <em>int</em> <dfn class="local col4 decl" id="7744ticNumber" title='ticNumber' data-type='int' data-ref="7744ticNumber">ticNumber</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="142">142</th><td></td></tr>
+<tr><th id="143">143</th><td>	<i>// Called async at regular intervals.</i></td></tr>
+<tr><th id="144">144</th><td>	<b>virtual</b>	<em>void</em>		<dfn class="virtual decl" id="_ZN12idUsercmdGen16UsercmdInterruptEv" title='idUsercmdGen::UsercmdInterrupt' data-ref="_ZN12idUsercmdGen16UsercmdInterruptEv">UsercmdInterrupt</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="145">145</th><td></td></tr>
+<tr><th id="146">146</th><td>	<i>// Set a value that can safely be referenced by UsercmdInterrupt() for each key binding.</i></td></tr>
+<tr><th id="147">147</th><td>	<b>virtual</b>	<em>int</em>			<dfn class="virtual decl" id="_ZN12idUsercmdGen24CommandStringUsercmdDataEPKc" title='idUsercmdGen::CommandStringUsercmdData' data-ref="_ZN12idUsercmdGen24CommandStringUsercmdDataEPKc">CommandStringUsercmdData</dfn>( <em>const</em> <em>char</em> *<dfn class="local col5 decl" id="7745cmdString" title='cmdString' data-type='const char *' data-ref="7745cmdString">cmdString</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="148">148</th><td></td></tr>
+<tr><th id="149">149</th><td>	<i>// Returns the number of user commands.</i></td></tr>
+<tr><th id="150">150</th><td>	<b>virtual</b> <em>int</em>			<dfn class="virtual decl" id="_ZN12idUsercmdGen18GetNumUserCommandsEv" title='idUsercmdGen::GetNumUserCommands' data-ref="_ZN12idUsercmdGen18GetNumUserCommandsEv">GetNumUserCommands</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="151">151</th><td></td></tr>
+<tr><th id="152">152</th><td>	<i>// Returns the name of a user command via index.</i></td></tr>
+<tr><th id="153">153</th><td>	<b>virtual</b> <em>const</em> <em>char</em> *<dfn class="virtual decl" id="_ZN12idUsercmdGen18GetUserCommandNameEi" title='idUsercmdGen::GetUserCommandName' data-ref="_ZN12idUsercmdGen18GetUserCommandNameEi">GetUserCommandName</dfn>( <em>int</em> <dfn class="local col6 decl" id="7746index" title='index' data-type='int' data-ref="7746index">index</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="154">154</th><td></td></tr>
+<tr><th id="155">155</th><td>	<i>// Continuously modified, never reset. For full screen guis.</i></td></tr>
+<tr><th id="156">156</th><td>	<b>virtual</b> <em>void</em>		<dfn class="virtual decl" id="_ZN12idUsercmdGen10MouseStateEPiS0_S0_Pb" title='idUsercmdGen::MouseState' data-ref="_ZN12idUsercmdGen10MouseStateEPiS0_S0_Pb">MouseState</dfn>( <em>int</em> *<dfn class="local col7 decl" id="7747x" title='x' data-type='int *' data-ref="7747x">x</dfn>, <em>int</em> *<dfn class="local col8 decl" id="7748y" title='y' data-type='int *' data-ref="7748y">y</dfn>, <em>int</em> *<dfn class="local col9 decl" id="7749button" title='button' data-type='int *' data-ref="7749button">button</dfn>, <em>bool</em> *<dfn class="local col0 decl" id="7750down" title='down' data-type='bool *' data-ref="7750down">down</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="157">157</th><td></td></tr>
+<tr><th id="158">158</th><td>	<i>// Directly sample a button.</i></td></tr>
+<tr><th id="159">159</th><td>	<b>virtual</b> <em>int</em>			<dfn class="virtual decl" id="_ZN12idUsercmdGen11ButtonStateEi" title='idUsercmdGen::ButtonState' data-ref="_ZN12idUsercmdGen11ButtonStateEi">ButtonState</dfn>( <em>int</em> <dfn class="local col1 decl" id="7751key" title='key' data-type='int' data-ref="7751key">key</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="160">160</th><td></td></tr>
+<tr><th id="161">161</th><td>	<i>// Directly sample a keystate.</i></td></tr>
+<tr><th id="162">162</th><td>	<b>virtual</b> <em>int</em>			<dfn class="virtual decl" id="_ZN12idUsercmdGen8KeyStateEi" title='idUsercmdGen::KeyState' data-ref="_ZN12idUsercmdGen8KeyStateEi">KeyState</dfn>( <em>int</em> <dfn class="local col2 decl" id="7752key" title='key' data-type='int' data-ref="7752key">key</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="163">163</th><td></td></tr>
+<tr><th id="164">164</th><td>	<i>// Directly sample a usercmd.</i></td></tr>
+<tr><th id="165">165</th><td>	<b>virtual</b> <a class="type" href="#usercmd_t" title='usercmd_t' data-ref="usercmd_t">usercmd_t</a>	<dfn class="virtual decl" id="_ZN12idUsercmdGen16GetDirectUsercmdEv" title='idUsercmdGen::GetDirectUsercmd' data-ref="_ZN12idUsercmdGen16GetDirectUsercmdEv">GetDirectUsercmd</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="166">166</th><td>};</td></tr>
+<tr><th id="167">167</th><td></td></tr>
+<tr><th id="168">168</th><td><b>extern</b> <a class="type" href="#idUsercmdGen" title='idUsercmdGen' data-ref="idUsercmdGen">idUsercmdGen</a>	*<dfn class="decl" id="usercmdGen" title='usercmdGen' data-ref="usercmdGen">usercmdGen</dfn>;</td></tr>
+<tr><th id="169">169</th><td></td></tr>
+<tr><th id="170">170</th><td><u>#<span data-ppcond="29">endif</span> /* !__USERCMDGEN_H__ */</u></td></tr>
+<tr><th id="171">171</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../TypeInfo/TypeInfoGen.cpp.html'>codebrowser/TypeInfo/TypeInfoGen.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

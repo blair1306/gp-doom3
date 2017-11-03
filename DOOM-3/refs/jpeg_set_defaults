@@ -1,0 +1,12 @@
+<dec f='codebrowser/renderer/jpeg-6/jpeglib.h' l='880' type='void jpeg_set_defaults(j_compress_ptr cinfo)'/>
+<def f='codebrowser/renderer/jpeg-6/jcparam.c' l='249' ll='325' type='void jpeg_set_defaults(j_compress_ptr cinfo)'/>
+<doc f='codebrowser/renderer/jpeg-6/jcparam.c' l='239'>/*
+ * Default parameter setup for compression.
+ *
+ * Applications that don&apos;t choose to use this routine must do their
+ * own setup of all these parameters.  Alternately, you can call this
+ * to establish defaults and then alter parameters selectively.  This
+ * is the recommended approach since, if we add any new parameters,
+ * your code will still work (they&apos;ll be set to reasonable defaults).
+ */</doc>
+<use f='codebrowser/tools/compilers/roqvq/roq.cpp' l='464' u='c' c='_ZN3roq13WriteLosslessEv'/>

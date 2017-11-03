@@ -1,0 +1,27 @@
+<dec f='codebrowser/renderer/jpeg-6/jpeglib.h' l='106' type='boolean'/>
+<dec f='codebrowser/renderer/jpeg-6/jpeglib.h' l='122' type='boolean'/>
+<offset>2184</offset>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='101'>/* This field is used only during compression.  It&apos;s initialized FALSE when
+   * the table is created, and set TRUE when it&apos;s been output to the file.
+   * You could suppress output of a table by setting this to TRUE.
+   * (See jpeg_suppress_tables for an example.)
+   */</doc>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='106'>/* TRUE when table has been output */</doc>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='117'>/* This field is used only during compression.  It&apos;s initialized FALSE when
+   * the table is created, and set TRUE when it&apos;s been output to the file.
+   * You could suppress output of a table by setting this to TRUE.
+   * (See jpeg_suppress_tables for an example.)
+   */</doc>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='122'>/* TRUE when table has been output */</doc>
+<use f='codebrowser/renderer/jpeg-6/jcapimin.c' l='112' u='w' c='jpeg_suppress_tables'/>
+<use f='codebrowser/renderer/jpeg-6/jcapimin.c' l='117' u='w' c='jpeg_suppress_tables'/>
+<use f='codebrowser/renderer/jpeg-6/jcapimin.c' l='119' u='w' c='jpeg_suppress_tables'/>
+<use f='codebrowser/renderer/jpeg-6/jchuff.c' l='774' u='w' c='jpeg_gen_optimal_table'/>
+<use f='codebrowser/renderer/jpeg-6/jcmarker.c' l='150' u='r' c='emit_dqt'/>
+<use f='codebrowser/renderer/jpeg-6/jcmarker.c' l='163' u='w' c='emit_dqt'/>
+<use f='codebrowser/renderer/jpeg-6/jcmarker.c' l='187' u='r' c='emit_dht'/>
+<use f='codebrowser/renderer/jpeg-6/jcmarker.c' l='203' u='w' c='emit_dht'/>
+<use f='codebrowser/renderer/jpeg-6/jcomapi.c' l='80' u='w' c='jpeg_alloc_quant_table'/>
+<use f='codebrowser/renderer/jpeg-6/jcomapi.c' l='92' u='w' c='jpeg_alloc_huff_table'/>
+<use f='codebrowser/renderer/jpeg-6/jcparam.c' l='54' u='w' c='jpeg_add_quant_table'/>
+<use f='codebrowser/renderer/jpeg-6/jcparam.c' l='159' u='w' c='add_huff_table'/>

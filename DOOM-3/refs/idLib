@@ -1,0 +1,27 @@
+<def f='codebrowser/idlib/Lib.h' l='50' ll='64'/>
+<size>1</size>
+<doc f='codebrowser/idlib/Lib.h' l='33'>/*
+===============================================================================
+
+	idLib contains stateless support classes and concrete types. Some classes
+	do have static variables, but such variables are initialized once and
+	read-only after initialization (they do not maintain a modifiable state).
+
+	The interface pointers idSys, idCommon, idCVarSystem and idFileSystem
+	should be set before using idLib. The pointers stored here should not
+	be used by any part of the engine except for idLib.
+
+	The frameNumber should be continuously set to the number of the current
+	frame if frame base memory logging is required.
+
+===============================================================================
+*/</doc>
+<smbr r='idLib::sys' t='class idSys *'/>
+<smbr r='idLib::common' t='class idCommon *'/>
+<smbr r='idLib::cvarSystem' t='class idCVarSystem *'/>
+<smbr r='idLib::fileSystem' t='class idFileSystem *'/>
+<smbr r='idLib::frameNumber' t='int'/>
+<fun r='_ZN5idLib4InitEv'/>
+<fun r='_ZN5idLib8ShutDownEv'/>
+<fun r='_ZN5idLib5ErrorEPKcz'/>
+<fun r='_ZN5idLib7WarningEPKcz'/>

@@ -1,0 +1,46 @@
+<inh f='codebrowser/d3xp/Entity.h' l='107' c='idEntity'/>
+<def f='codebrowser/d3xp/Misc.h' l='104' ll='119'/>
+<size>872</size>
+<doc f='codebrowser/d3xp/Misc.h' l='93'>/*
+===============================================================================
+
+  Non-displayed entity used to activate triggers when it touches them.
+  Bind to a mover to have the mover activate a trigger as it moves.
+  When target by triggers, activating the trigger will toggle the
+  activator on and off. Check &quot;start_off&quot; to have it spawn disabled.
+	
+===============================================================================
+*/</doc>
+<smbr r='idActivator::Type' t='idTypeInfo'/>
+<fun r='_ZN11idActivator14CreateInstanceEv'/>
+<fun r='_ZNK11idActivator7GetTypeEv'/>
+<smbr r='idActivator::eventCallbacks' t='idEventFunc&lt;idActivator&gt; []'/>
+<fun r='_ZN11idActivator5SpawnEv'/>
+<fun r='_ZNK11idActivator4SaveEP10idSaveGame'/>
+<fun r='_ZN11idActivator7RestoreEP13idRestoreGame'/>
+<fun r='_ZN11idActivator5ThinkEv'/>
+<mbr r='idActivator::stay_on' o='6944' t='bool'/>
+<fun r='_ZN11idActivator14Event_ActivateEP8idEntity'/>
+<inh f='codebrowser/game/Entity.h' l='107' c='idEntity'/>
+<def f='codebrowser/game/Misc.h' l='104' ll='119'/>
+<size>640</size>
+<doc f='codebrowser/game/Misc.h' l='93'>/*
+===============================================================================
+
+  Non-displayed entity used to activate triggers when it touches them.
+  Bind to a mover to have the mover activate a trigger as it moves.
+  When target by triggers, activating the trigger will toggle the
+  activator on and off. Check &quot;start_off&quot; to have it spawn disabled.
+	
+===============================================================================
+*/</doc>
+<smbr r='idActivator::Type' t='idTypeInfo'/>
+<fun r='_ZN11idActivator14CreateInstanceEv'/>
+<fun r='_ZNK11idActivator7GetTypeEv'/>
+<smbr r='idActivator::eventCallbacks' t='idEventFunc&lt;idActivator&gt; []'/>
+<fun r='_ZN11idActivator5SpawnEv'/>
+<fun r='_ZNK11idActivator4SaveEP10idSaveGame'/>
+<fun r='_ZN11idActivator7RestoreEP13idRestoreGame'/>
+<fun r='_ZN11idActivator5ThinkEv'/>
+<mbr r='idActivator::stay_on' o='5088' t='bool'/>
+<fun r='_ZN11idActivator14Event_ActivateEP8idEntity'/>

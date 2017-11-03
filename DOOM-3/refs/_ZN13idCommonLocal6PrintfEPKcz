@@ -1,0 +1,40 @@
+<dec f='codebrowser/framework/Common.cpp' l='133' type='void idCommonLocal::Printf(const char * fmt)'/>
+<use f='codebrowser/framework/Common.cpp' l='412' u='c' c='_ZN13idCommonLocal7VPrintfEPKcPc'/>
+<inh f='codebrowser/framework/Common.h' l='168' c='_ZN8idCommon6PrintfEPKcz'/>
+<def f='codebrowser/framework/Common.cpp' l='460' ll='465' type='void idCommonLocal::Printf(const char * fmt)'/>
+<use f='codebrowser/framework/Common.cpp' l='491' u='c' c='_ZN13idCommonLocal7DPrintfEPKcz'/>
+<use f='codebrowser/framework/Common.cpp' l='516' u='c' c='_ZN13idCommonLocal8DWarningEPKcz'/>
+<use f='codebrowser/framework/Common.cpp' l='535' u='c' c='_ZN13idCommonLocal7WarningEPKcz'/>
+<use f='codebrowser/framework/Common.cpp' l='556' u='c' c='_ZN13idCommonLocal13PrintWarningsEv'/>
+<use f='codebrowser/framework/Common.cpp' l='557' u='c' c='_ZN13idCommonLocal13PrintWarningsEv'/>
+<use f='codebrowser/framework/Common.cpp' l='560' u='c' c='_ZN13idCommonLocal13PrintWarningsEv'/>
+<use f='codebrowser/framework/Common.cpp' l='564' u='c' c='_ZN13idCommonLocal13PrintWarningsEv'/>
+<use f='codebrowser/framework/Common.cpp' l='566' u='c' c='_ZN13idCommonLocal13PrintWarningsEv'/>
+<use f='codebrowser/framework/Common.cpp' l='706' u='c' c='_ZN13idCommonLocal5ErrorEPKcz'/>
+<use f='codebrowser/framework/Common.cpp' l='710' u='c' c='_ZN13idCommonLocal5ErrorEPKcz'/>
+<use f='codebrowser/framework/Common.cpp' l='1022' u='c' c='_ZN13idCommonLocal23WriteFlaggedCVarsToFileEPKciS1_'/>
+<use f='codebrowser/framework/Common.cpp' l='1046' u='c' c='_ZN13idCommonLocal17WriteConfigToFileEPKc'/>
+<use f='codebrowser/framework/Common.cpp' l='1302' u='c' c='_ZL11Com_Error_fRK9idCmdArgs'/>
+<use f='codebrowser/framework/Common.cpp' l='1325' u='c' c='_ZL12Com_Freeze_fRK9idCmdArgs'/>
+<use f='codebrowser/framework/Common.cpp' l='1330' u='c' c='_ZL12Com_Freeze_fRK9idCmdArgs'/>
+<use f='codebrowser/framework/Common.cpp' l='1355' u='c' c='_ZL11Com_Crash_fRK9idCmdArgs'/>
+<use f='codebrowser/framework/Common.cpp' l='1382' u='c' c='_Z17Com_WriteConfig_fRK9idCmdArgs'/>
+<use f='codebrowser/framework/Common.cpp' l='1388' u='c' c='_Z17Com_WriteConfig_fRK9idCmdArgs'/>
+<use f='codebrowser/framework/Common.cpp' l='2477' u='c' c='_ZN13idCommonLocal5FrameEv'/>
+<use f='codebrowser/framework/Common.cpp' l='2489' u='c' c='_ZN13idCommonLocal5FrameEv'/>
+<use f='codebrowser/framework/Common.cpp' l='2741' u='c' c='_ZN13idCommonLocal14SetMachineSpecEv'/>
+<use f='codebrowser/framework/Common.cpp' l='2744' u='c' c='_ZN13idCommonLocal14SetMachineSpecEv'/>
+<use f='codebrowser/framework/Common.cpp' l='2747' u='c' c='_ZN13idCommonLocal14SetMachineSpecEv'/>
+<use f='codebrowser/framework/Common.cpp' l='2750' u='c' c='_ZN13idCommonLocal14SetMachineSpecEv'/>
+<use f='codebrowser/framework/Common.cpp' l='2753' u='c' c='_ZN13idCommonLocal14SetMachineSpecEv'/>
+<use f='codebrowser/framework/Common.cpp' l='2801' u='c' c='_ZN13idCommonLocal4InitEiPPKcS1_'/>
+<use f='codebrowser/framework/Common.cpp' l='2845' u='c' c='_ZN13idCommonLocal4InitEiPPKcS1_'/>
+<doc f='codebrowser/framework/Common.cpp' l='451'>/*
+==================
+idCommonLocal::Printf
+
+Both client and server can use this, and it will output to the appropriate place.
+
+A raw string should NEVER be passed as fmt, because of &quot;%f&quot; type crashers.
+==================
+*/</doc>

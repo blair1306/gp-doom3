@@ -1,0 +1,25 @@
+<dec f='codebrowser/idlib/BitMsg.h' l='90' type='void idBitMsg::WriteData(const void * data, int length)'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='4918' u='c' c='_ZNK8idEntity15ServerSendEventEiPK8idBitMsgbi'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='4960' u='c' c='_ZNK8idEntity15ClientSendEventEiPK8idBitMsg'/>
+<use f='codebrowser/d3xp/Game_network.cpp' l='407' u='c' c='_ZN11idGameLocal34ServerWriteInitialReliableMessagesEi'/>
+<use f='codebrowser/framework/File.cpp' l='945' u='c' c='_ZN13idFile_BitMsg5WriteEPKvi'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='1732' u='c' c='_ZN13idAsyncClient23SendReliableGameMessageERK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='2270' u='c' c='_ZN13idAsyncServer23SendReliableGameMessageEiRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='2301' u='c' c='_ZN13idAsyncServer32SendReliableGameMessageExcludingEiRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='2811' u='c' c='_ZN13idAsyncServer29ProcessDownloadRequestMessageE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/MsgChannel.cpp' l='348' u='c' c='_ZN12idMsgChannel16WriteMessageDataER8idBitMsgRKS0_'/>
+<use f='codebrowser/framework/async/MsgChannel.cpp' l='439' u='c' c='_ZN12idMsgChannel16SendNextFragmentER6idPorti'/>
+<use f='codebrowser/game/Entity.cpp' l='4744' u='c' c='_ZNK8idEntity15ServerSendEventEiPK8idBitMsgbi'/>
+<use f='codebrowser/game/Entity.cpp' l='4786' u='c' c='_ZNK8idEntity15ClientSendEventEiPK8idBitMsg'/>
+<use f='codebrowser/game/Game_network.cpp' l='407' u='c' c='_ZN11idGameLocal34ServerWriteInitialReliableMessagesEi'/>
+<use f='codebrowser/idlib/BitMsg.cpp' l='176' u='c' c='_ZN8idBitMsg11WriteStringEPKcib'/>
+<def f='codebrowser/idlib/BitMsg.cpp' l='210' ll='212' type='void idBitMsg::WriteData(const void * data, int length)'/>
+<use f='codebrowser/idlib/BitMsg.cpp' l='798' u='c' c='_ZN13idBitMsgDelta9WriteDataEPKvi'/>
+<use f='codebrowser/idlib/BitMsg.cpp' l='802' u='c' c='_ZN13idBitMsgDelta9WriteDataEPKvi'/>
+<use f='codebrowser/idlib/BitMsg.cpp' l='812' u='c' c='_ZN13idBitMsgDelta9WriteDataEPKvi'/>
+<use f='codebrowser/idlib/BitMsg.cpp' l='960' u='c' c='_ZNK13idBitMsgDelta8ReadDataEPvi'/>
+<doc f='codebrowser/idlib/BitMsg.cpp' l='205'>/*
+================
+idBitMsg::WriteData
+================
+*/</doc>

@@ -1,0 +1,26 @@
+<dec f='codebrowser/renderer/jpeg-6/jpeglib.h' l='735'/>
+<use f='codebrowser/renderer/Cinematic.cpp' l='1445' u='c'/>
+<use f='codebrowser/renderer/Cinematic.cpp' l='1449' u='c'/>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='724'>/* Memory manager object.
+ * Allocates &quot;small&quot; objects (a few K total), &quot;large&quot; objects (tens of K),
+ * and &quot;really big&quot; objects (virtual arrays with backing store if needed).
+ * The memory manager does not allow individual objects to be freed; rather,
+ * each created object is assigned to a pool, and whole pools can be freed
+ * at once.  This is faster and more convenient than remembering exactly what
+ * to free, especially where malloc()/free() are not too speedy.
+ * NB: alloc routines never return NULL.  They exit to error_exit if not
+ * successful.
+ */</doc>
+<use f='codebrowser/renderer/jpeg-6/jcomapi.c' l='36' u='c'/>
+<use f='codebrowser/renderer/jpeg-6/jcomapi.c' l='79' u='c'/>
+<use f='codebrowser/renderer/jpeg-6/jcomapi.c' l='91' u='c'/>
+<use f='codebrowser/renderer/jpeg-6/jcparam.c' l='264' u='c'/>
+<use f='codebrowser/renderer/jpeg-6/jcparam.c' l='536' u='c'/>
+<use f='codebrowser/renderer/jpeg-6/jdatadst.c' l='142' u='c'/>
+<use f='codebrowser/renderer/jpeg-6/jdatasrc.c' l='187' u='c'/>
+<use f='codebrowser/renderer/jpeg-6/jdatasrc.c' l='191' u='c'/>
+<use f='codebrowser/renderer/jpeg-6/jdinput.c' l='367' u='c'/>
+<use f='codebrowser/renderer/jpeg-6/jdmarker.c' l='1039' u='c'/>
+<use f='codebrowser/renderer/jpeg-6/jmemmgr.c' l='1010' u='c'/>
+<use f='codebrowser/renderer/jpeg-6/jmemmgr.c' l='1082' u='c'/>
+<use f='codebrowser/tools/compilers/roqvq/roq.cpp' l='384' u='c'/>

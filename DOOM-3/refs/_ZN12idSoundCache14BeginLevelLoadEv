@@ -1,0 +1,13 @@
+<dec f='codebrowser/sound/snd_local.h' l='914' type='void idSoundCache::BeginLevelLoad()'/>
+<def f='codebrowser/sound/snd_cache.cpp' l='158' ll='175' type='void idSoundCache::BeginLevelLoad()'/>
+<doc f='codebrowser/sound/snd_cache.cpp' l='148'>/*
+====================
+BeginLevelLoad
+
+Mark all file based images as currently unused,
+but don&apos;t free anything.  Calls to ImageFromFile() will
+either mark the image as used, or create a new image without
+loading the actual data.
+====================
+*/</doc>
+<use f='codebrowser/sound/snd_system.cpp' l='1117' u='c' c='_ZN18idSoundSystemLocal14BeginLevelLoadEv'/>

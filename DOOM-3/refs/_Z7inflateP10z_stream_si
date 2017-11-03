@@ -1,0 +1,22 @@
+<dec f='codebrowser/framework/Unzip.cpp' l='382' type='int inflate(z_streamp strm, int flush)'/>
+<use f='codebrowser/framework/Unzip.cpp' l='2047' u='c' c='_Z18unzReadCurrentFilePvS_j'/>
+<def f='codebrowser/framework/Unzip.cpp' l='4249' ll='4372' type='int inflate(z_streamp z, int f)'/>
+<doc f='codebrowser/framework/Unzip.cpp' l='361'>/* 
+int inflateInit OF((z_streamp strm));
+
+     Initializes the internal stream state for decompression. The fields
+   next_in, avail_in, zalloc, zfree and opaque must be initialized before by
+   the caller. If next_in is not Z_NULL and avail_in is large enough (the exact
+   value depends on the compression method), inflateInit determines the
+   compression method from the zlib header and allocates all data structures
+   accordingly; otherwise the allocation will be deferred to the first call of
+   inflate.  If zalloc and zfree are set to Z_NULL, inflateInit updates them to
+   use default allocation functions.
+
+     inflateInit returns Z_OK if success, Z_MEM_ERROR if there was not enough
+   memory, Z_VERSION_ERROR if the zlib library version is incompatible with the
+   version assumed by the caller.  msg is set to null if there is no error
+   message. inflateInit does not perform any decompression apart from reading
+   the zlib header if present: this will be done by inflate().  (So next_in and
+   avail_in may be modified, but next_out and avail_out are unchanged.)
+*/</doc>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>smallft.h source code [codebrowser/sound/OggVorbis/vorbissrc/smallft.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/sound/OggVorbis/vorbissrc/smallft.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>sound</a>/<a href='..'>OggVorbis</a>/<a href='./'>vorbissrc</a>/<a href='smallft.h.html'>smallft.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/********************************************************************</i></td></tr>
+<tr><th id="2">2</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="3">3</th><td><i> * THIS FILE IS PART OF THE OggVorbis SOFTWARE CODEC SOURCE CODE.   *</i></td></tr>
+<tr><th id="4">4</th><td><i> * USE, DISTRIBUTION AND REPRODUCTION OF THIS LIBRARY SOURCE IS     *</i></td></tr>
+<tr><th id="5">5</th><td><i> * GOVERNED BY A BSD-STYLE SOURCE LICENSE INCLUDED WITH THIS SOURCE *</i></td></tr>
+<tr><th id="6">6</th><td><i> * IN 'COPYING'. PLEASE READ THESE TERMS BEFORE DISTRIBUTING.       *</i></td></tr>
+<tr><th id="7">7</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="8">8</th><td><i> * THE OggVorbis SOURCE CODE IS (C) COPYRIGHT 1994-2002             *</i></td></tr>
+<tr><th id="9">9</th><td><i> * by the XIPHOPHORUS Company <a href="http://www.xiph.org/">http://www.xiph.org/</a>                  *</i></td></tr>
+<tr><th id="10">10</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="11">11</th><td><i> ********************************************************************</i></td></tr>
+<tr><th id="12">12</th><td><i></i></td></tr>
+<tr><th id="13">13</th><td><i> function: fft transform</i></td></tr>
+<tr><th id="14">14</th><td><i> last mod: $Id: smallft.h,v 1.12 2002/07/11 06:40:50 xiphmont Exp $</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i> ********************************************************************/</i></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><u>#<span data-ppcond="18">ifndef</span> <span class="macro" data-ref="_M/_V_SMFT_H_">_V_SMFT_H_</span></u></td></tr>
+<tr><th id="19">19</th><td><u>#define <dfn class="macro" id="_M/_V_SMFT_H_" data-ref="_M/_V_SMFT_H_">_V_SMFT_H_</dfn></u></td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../vorbis/codec.h.html">"../vorbis/codec.h"</a></u></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="24">24</th><td>  <em>int</em> <dfn class="decl" id="(anonymous)::n" title='(anonymous struct)::n' data-ref="(anonymous)::n">n</dfn>;</td></tr>
+<tr><th id="25">25</th><td>  <em>float</em> *<dfn class="decl" id="(anonymous)::trigcache" title='(anonymous struct)::trigcache' data-ref="(anonymous)::trigcache">trigcache</dfn>;</td></tr>
+<tr><th id="26">26</th><td>  <em>int</em> *<dfn class="decl" id="(anonymous)::splitcache" title='(anonymous struct)::splitcache' data-ref="(anonymous)::splitcache">splitcache</dfn>;</td></tr>
+<tr><th id="27">27</th><td>} <dfn class="typedef" id="drft_lookup" title='drft_lookup' data-type='struct drft_lookup' data-ref="drft_lookup">drft_lookup</dfn>;</td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><b>extern</b> <em>void</em> <dfn class="decl" id="drft_forward" title='drft_forward' data-ref="drft_forward">drft_forward</dfn>(<a class="typedef" href="#drft_lookup" title='drft_lookup' data-type='struct drft_lookup' data-ref="drft_lookup">drft_lookup</a> *<dfn class="local col2 decl" id="142l" title='l' data-type='drft_lookup *' data-ref="142l">l</dfn>,<em>float</em> *<dfn class="local col3 decl" id="143data" title='data' data-type='float *' data-ref="143data">data</dfn>);</td></tr>
+<tr><th id="30">30</th><td><b>extern</b> <em>void</em> <dfn class="decl" id="drft_backward" title='drft_backward' data-ref="drft_backward">drft_backward</dfn>(<a class="typedef" href="#drft_lookup" title='drft_lookup' data-type='struct drft_lookup' data-ref="drft_lookup">drft_lookup</a> *<dfn class="local col4 decl" id="144l" title='l' data-type='drft_lookup *' data-ref="144l">l</dfn>,<em>float</em> *<dfn class="local col5 decl" id="145data" title='data' data-type='float *' data-ref="145data">data</dfn>);</td></tr>
+<tr><th id="31">31</th><td><b>extern</b> <em>void</em> <dfn class="decl" id="drft_init" title='drft_init' data-ref="drft_init">drft_init</dfn>(<a class="typedef" href="#drft_lookup" title='drft_lookup' data-type='struct drft_lookup' data-ref="drft_lookup">drft_lookup</a> *<dfn class="local col6 decl" id="146l" title='l' data-type='drft_lookup *' data-ref="146l">l</dfn>,<em>int</em> <dfn class="local col7 decl" id="147n" title='n' data-type='int' data-ref="147n">n</dfn>);</td></tr>
+<tr><th id="32">32</th><td><b>extern</b> <em>void</em> <dfn class="decl" id="drft_clear" title='drft_clear' data-ref="drft_clear">drft_clear</dfn>(<a class="typedef" href="#drft_lookup" title='drft_lookup' data-type='struct drft_lookup' data-ref="drft_lookup">drft_lookup</a> *<dfn class="local col8 decl" id="148l" title='l' data-type='drft_lookup *' data-ref="148l">l</dfn>);</td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><u>#<span data-ppcond="18">endif</span></u></td></tr>
+<tr><th id="35">35</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='analysis.c.html'>codebrowser/sound/OggVorbis/vorbissrc/analysis.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

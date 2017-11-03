@@ -1,0 +1,17 @@
+<dec f='codebrowser/ui/UserInterface.h' l='66' type='const char * idUserInterface::HandleEvent(const sysEvent_t * event, int time, bool * updateVisuals = __null)'/>
+<doc f='codebrowser/ui/UserInterface.h' l='64'>// handles an event, can return an action string, the caller interprets
+								// any return and acts accordingly</doc>
+<use f='codebrowser/d3xp/Player.cpp' l='4960' u='c' c='_ZN8idPlayer10Weapon_GUIEv'/>
+<use f='codebrowser/d3xp/Player.cpp' l='5506' u='c' c='_ZN8idPlayer11UpdateFocusEv'/>
+<use f='codebrowser/d3xp/Player.cpp' l='5511' u='c' c='_ZN8idPlayer11UpdateFocusEv'/>
+<use f='codebrowser/d3xp/Player.cpp' l='7717' u='c' c='_ZN8idPlayer13RouteGuiMouseEP15idUserInterface'/>
+<use f='codebrowser/framework/Session.cpp' l='2185' u='c' c='_ZN14idSessionLocal12ProcessEventEPK10sysEvent_s'/>
+<use f='codebrowser/framework/Session_menu.cpp' l='113' u='c' c='_ZN14idSessionLocal6SetGUIEP15idUserInterfacePFPKcS3_E'/>
+<use f='codebrowser/framework/Session_menu.cpp' l='1110' u='c' c='_ZN14idSessionLocal20HandleInGameCommandsEPKc'/>
+<use f='codebrowser/framework/Session_menu.cpp' l='1177' u='c' c='_ZN14idSessionLocal9MenuEventEPK10sysEvent_s'/>
+<use f='codebrowser/framework/Session_menu.cpp' l='1219' u='c' c='_ZN14idSessionLocal14GuiFrameEventsEv'/>
+<use f='codebrowser/game/Player.cpp' l='3989' u='c' c='_ZN8idPlayer10Weapon_GUIEv'/>
+<use f='codebrowser/game/Player.cpp' l='4524' u='c' c='_ZN8idPlayer11UpdateFocusEv'/>
+<use f='codebrowser/game/Player.cpp' l='4529' u='c' c='_ZN8idPlayer11UpdateFocusEv'/>
+<use f='codebrowser/game/Player.cpp' l='6407' u='c' c='_ZN8idPlayer13RouteGuiMouseEP15idUserInterface'/>
+<ovr f='codebrowser/ui/UserInterface.cpp' l='335' c='_ZN20idUserInterfaceLocal11HandleEventEPK10sysEvent_siPb'/>

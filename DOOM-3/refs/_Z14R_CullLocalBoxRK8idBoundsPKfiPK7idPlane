@@ -1,0 +1,19 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1136' type='bool R_CullLocalBox(const idBounds &amp; bounds, const float * modelMatrix, int numPlanes, const idPlane * planes)'/>
+<doc f='codebrowser/renderer/tr_local.h' l='1135'>// performs radius cull first, then corner cull</doc>
+<use f='codebrowser/renderer/Interaction.cpp' l='834' u='c' c='_ZN13idInteraction17CreateInteractionEPK13idRenderModel'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='878' u='c' c='_ZN13idInteraction17CreateInteractionEPK13idRenderModel'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='1115' u='c' c='_ZN13idInteraction20AddActiveInteractionEv'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='1195' u='c' c='_ZN13idInteraction20AddActiveInteractionEv'/>
+<use f='codebrowser/renderer/RenderWorld_portals.cpp' l='575' u='c' c='_ZN18idRenderWorldLocal19CullEntityByPortalsEPK19idRenderEntityLocalPK13portalStack_s'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='637' u='c' c='_ZN18idRenderWorldLocal26CreateLightDefInteractionsEP18idRenderLightLocal'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1025' u='c' c='_Z18R_AddLightSurfacesv'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1401' u='c' c='_ZL21R_AddAmbientDrawsurfsP12viewEntity_s'/>
+<def f='codebrowser/renderer/tr_main.cpp' l='675' ll='680' type='bool R_CullLocalBox(const idBounds &amp; bounds, const float * modelMatrix, int numPlanes, const idPlane * planes)'/>
+<doc f='codebrowser/renderer/tr_main.cpp' l='667'>/*
+=================
+R_CullLocalBox
+
+Performs quick test before expensive test
+Returns true if the box is outside the given global frustum, (positive sides are out)
+=================
+*/</doc>

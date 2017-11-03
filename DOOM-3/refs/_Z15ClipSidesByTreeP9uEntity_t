@@ -1,0 +1,14 @@
+<dec f='codebrowser/tools/compilers/dmap/dmap.h' l='387' type='void ClipSidesByTree(uEntity_t * e)'/>
+<use f='codebrowser/tools/compilers/dmap/dmap.cpp' l='76' u='c' c='_Z12ProcessModelP9uEntity_tb'/>
+<def f='codebrowser/tools/compilers/dmap/usurface.cpp' l='324' ll='355' type='void ClipSidesByTree(uEntity_t * e)'/>
+<doc f='codebrowser/tools/compilers/dmap/usurface.cpp' l='313'>/*
+=====================
+ClipSidesByTree
+
+Creates side-&gt;visibleHull for all visible sides
+
+The visible hull for a side will consist of the convex hull of
+all points in non-opaque clusters, which allows overlaps
+to be trimmed off automatically.
+=====================
+*/</doc>

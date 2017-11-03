@@ -1,0 +1,93 @@
+<dec f='codebrowser/d3xp/Entity.h' l='178' type='const char * idEntity::GetEntityDefName() const'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='1295' u='c' c='_ZN7idActor21ConstructScriptObjectEv'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='2220' u='c' c='_ZN7idActor6DamageEP8idEntityS1_RK6idVec3PKcfi'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='2225' u='c' c='_ZN7idActor6DamageEP8idEntityS1_RK6idVec3PKcfi'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='2650' u='c' c='_ZN7idActor14Event_PlayAnimEiPKc'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='2729' u='c' c='_ZN7idActor15Event_PlayCycleEiPKc'/>
+<use f='codebrowser/d3xp/Actor.cpp' l='2802' u='c' c='_ZN7idActor14Event_IdleAnimEiPKc'/>
+<def f='codebrowser/d3xp/Entity.cpp' l='842' ll='847' type='const char * idEntity::GetEntityDefName() const'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='4541' u='c' c='_ZN8idEntity24Event_UpdateCameraTargetEv'/>
+<doc f='codebrowser/d3xp/Entity.cpp' l='837'>/*
+================
+idEntity::GetEntityDefName
+================
+*/</doc>
+<use f='codebrowser/d3xp/Game_local.cpp' l='2889' u='c' c='_ZN11idGameLocal11ShowTargetsEv'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='3664' u='c' c='_ZNK11idGameLocal18FindEntityUsingDefEP8idEntityPKc'/>
+<use f='codebrowser/d3xp/Grabber.cpp' l='254' u='c' c='_ZN9idGrabber9StartDragEP8idEntityi'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='358' u='c' c='_ZN12idProjectile6LaunchERK6idVec3S2_S2_fff'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='394' u='c' c='_ZN12idProjectile6LaunchERK6idVec3S2_S2_fff'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='2001' u='c' c='_ZN15idBFGProjectile5ThinkEv'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='2430' u='c' c='_ZN8idDebris6LaunchEv'/>
+<use f='codebrowser/d3xp/Trigger.cpp' l='90' u='c' c='_ZN9idTrigger13DrawDebugInfoEv'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='3033' u='c' c='_ZN8idWeapon14Event_PlayAnimEiPKc'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='3063' u='c' c='_ZN8idWeapon15Event_PlayCycleEiPKc'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='3786' u='c' c='_ZN8idWeapon11Event_MeleeEv'/>
+<use f='codebrowser/d3xp/ai/AI.cpp' l='1065' u='c' c='_ZN4idAI6List_fERK9idCmdArgs'/>
+<use f='codebrowser/d3xp/ai/AI.cpp' l='4122' u='c' c='_ZNK4idAI9GetAimDirERK6idVec3P8idEntityPKS3_RS0_'/>
+<use f='codebrowser/d3xp/ai/AI.cpp' l='4234' u='c' c='_ZN4idAI16LaunchProjectileEPKcP8idEntityb'/>
+<use f='codebrowser/d3xp/ai/AI.cpp' l='4606' u='c' c='_ZN4idAI9GetMuzzleEPKcR6idVec3R6idMat3'/>
+<use f='codebrowser/d3xp/ai/AI_events.cpp' l='578' u='c' c='_ZN4idAI19Event_CreateMissileEPKc'/>
+<use f='codebrowser/d3xp/ai/AI_events.cpp' l='638' u='c' c='_ZN4idAI19Event_LaunchMissileERK6idVec3RK8idAngles'/>
+<use f='codebrowser/d3xp/ai/AI_events.cpp' l='773' u='c' c='_ZN4idAI27Event_RadiusDamageFromJointEPKcS1_'/>
+<use f='codebrowser/d3xp/ai/AI_events.cpp' l='826' u='c' c='_ZN4idAI24Event_MeleeAttackToJointEPKcS1_'/>
+<use f='codebrowser/d3xp/ai/AI_events.cpp' l='1713' u='c' c='_ZN4idAI26Event_CanHitEnemyFromJointEPKc'/>
+<use f='codebrowser/d3xp/ai/AI_events.cpp' l='1850' u='c' c='_ZN4idAI29Event_TestAnimMoveTowardEnemyEPKc'/>
+<use f='codebrowser/d3xp/ai/AI_events.cpp' l='1881' u='c' c='_ZN4idAI18Event_TestAnimMoveEPKc'/>
+<use f='codebrowser/d3xp/ai/AI_events.cpp' l='1939' u='c' c='_ZN4idAI20Event_TestAnimAttackEPKc'/>
+<use f='codebrowser/d3xp/ai/AI_events.cpp' l='2317' u='c' c='_ZN4idAI28Event_GetClosestHiddenTargetEPKc'/>
+<use f='codebrowser/d3xp/ai/AI_events.cpp' l='2331' u='c' c='_ZN4idAI28Event_GetClosestHiddenTargetEPKc'/>
+<use f='codebrowser/d3xp/ai/AI_events.cpp' l='2360' u='c' c='_ZN4idAI21Event_GetRandomTargetEPKc'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='84' u='c' c='_Z16Cmd_EntityList_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='108' u='c' c='_Z22Cmd_ActiveEntityList_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1680' u='c' c='_ZL18Cmd_SaveSelected_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1686' u='c' c='_ZL18Cmd_SaveSelected_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1788' u='c' c='_ZL19Cmd_SaveMoveables_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1794' u='c' c='_ZL19Cmd_SaveMoveables_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1861' u='c' c='_ZL18Cmd_SaveRagdolls_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1867' u='c' c='_ZL18Cmd_SaveRagdolls_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1966' u='c' c='_ZL16Cmd_SaveLights_fRK9idCmdArgs'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='1972' u='c' c='_ZL16Cmd_SaveLights_fRK9idCmdArgs'/>
+<dec f='codebrowser/game/Entity.h' l='162' type='const char * idEntity::GetEntityDefName() const'/>
+<use f='codebrowser/game/Actor.cpp' l='1247' u='c' c='_ZN7idActor21ConstructScriptObjectEv'/>
+<use f='codebrowser/game/Actor.cpp' l='2579' u='c' c='_ZN7idActor14Event_PlayAnimEiPKc'/>
+<use f='codebrowser/game/Actor.cpp' l='2658' u='c' c='_ZN7idActor15Event_PlayCycleEiPKc'/>
+<use f='codebrowser/game/Actor.cpp' l='2731' u='c' c='_ZN7idActor14Event_IdleAnimEiPKc'/>
+<def f='codebrowser/game/Entity.cpp' l='773' ll='778' type='const char * idEntity::GetEntityDefName() const'/>
+<use f='codebrowser/game/Entity.cpp' l='4429' u='c' c='_ZN8idEntity24Event_UpdateCameraTargetEv'/>
+<doc f='codebrowser/game/Entity.cpp' l='768'>/*
+================
+idEntity::GetEntityDefName
+================
+*/</doc>
+<use f='codebrowser/game/Game_local.cpp' l='2625' u='c' c='_ZN11idGameLocal11ShowTargetsEv'/>
+<use f='codebrowser/game/Game_local.cpp' l='3374' u='c' c='_ZNK11idGameLocal18FindEntityUsingDefEP8idEntityPKc'/>
+<use f='codebrowser/game/Projectile.cpp' l='327' u='c' c='_ZN12idProjectile6LaunchERK6idVec3S2_S2_fff'/>
+<use f='codebrowser/game/Projectile.cpp' l='2171' u='c' c='_ZN8idDebris6LaunchEv'/>
+<use f='codebrowser/game/Trigger.cpp' l='90' u='c' c='_ZN9idTrigger13DrawDebugInfoEv'/>
+<use f='codebrowser/game/Weapon.cpp' l='2585' u='c' c='_ZN8idWeapon14Event_PlayAnimEiPKc'/>
+<use f='codebrowser/game/Weapon.cpp' l='2615' u='c' c='_ZN8idWeapon15Event_PlayCycleEiPKc'/>
+<use f='codebrowser/game/ai/AI.cpp' l='990' u='c' c='_ZN4idAI6List_fERK9idCmdArgs'/>
+<use f='codebrowser/game/ai/AI.cpp' l='4107' u='c' c='_ZN4idAI16LaunchProjectileEPKcP8idEntityb'/>
+<use f='codebrowser/game/ai/AI.cpp' l='4470' u='c' c='_ZN4idAI9GetMuzzleEPKcR6idVec3R6idMat3'/>
+<use f='codebrowser/game/ai/AI_events.cpp' l='554' u='c' c='_ZN4idAI19Event_CreateMissileEPKc'/>
+<use f='codebrowser/game/ai/AI_events.cpp' l='614' u='c' c='_ZN4idAI19Event_LaunchMissileERK6idVec3RK8idAngles'/>
+<use f='codebrowser/game/ai/AI_events.cpp' l='691' u='c' c='_ZN4idAI27Event_RadiusDamageFromJointEPKcS1_'/>
+<use f='codebrowser/game/ai/AI_events.cpp' l='744' u='c' c='_ZN4idAI24Event_MeleeAttackToJointEPKcS1_'/>
+<use f='codebrowser/game/ai/AI_events.cpp' l='1564' u='c' c='_ZN4idAI26Event_CanHitEnemyFromJointEPKc'/>
+<use f='codebrowser/game/ai/AI_events.cpp' l='1701' u='c' c='_ZN4idAI29Event_TestAnimMoveTowardEnemyEPKc'/>
+<use f='codebrowser/game/ai/AI_events.cpp' l='1732' u='c' c='_ZN4idAI18Event_TestAnimMoveEPKc'/>
+<use f='codebrowser/game/ai/AI_events.cpp' l='1790' u='c' c='_ZN4idAI20Event_TestAnimAttackEPKc'/>
+<use f='codebrowser/game/ai/AI_events.cpp' l='2163' u='c' c='_ZN4idAI28Event_GetClosestHiddenTargetEPKc'/>
+<use f='codebrowser/game/ai/AI_events.cpp' l='2177' u='c' c='_ZN4idAI28Event_GetClosestHiddenTargetEPKc'/>
+<use f='codebrowser/game/ai/AI_events.cpp' l='2206' u='c' c='_ZN4idAI21Event_GetRandomTargetEPKc'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='84' u='c' c='_Z16Cmd_EntityList_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='108' u='c' c='_Z22Cmd_ActiveEntityList_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1611' u='c' c='_ZL18Cmd_SaveSelected_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1617' u='c' c='_ZL18Cmd_SaveSelected_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1719' u='c' c='_ZL19Cmd_SaveMoveables_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1725' u='c' c='_ZL19Cmd_SaveMoveables_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1792' u='c' c='_ZL18Cmd_SaveRagdolls_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1798' u='c' c='_ZL18Cmd_SaveRagdolls_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1897' u='c' c='_ZL16Cmd_SaveLights_fRK9idCmdArgs'/>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='1903' u='c' c='_ZL16Cmd_SaveLights_fRK9idCmdArgs'/>

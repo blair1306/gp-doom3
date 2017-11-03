@@ -1,0 +1,5 @@
+<dec f='codebrowser/framework/Common.h' l='138' type='void idCommon::Async()'/>
+<doc f='codebrowser/framework/Common.h' l='136'>// Called 60 times a second from a background thread for sound mixing,
+								// and input generation. Not called until idCommon::Init() has completed.</doc>
+<ovr f='codebrowser/framework/Common.cpp' l='2584' c='_ZN13idCommonLocal5AsyncEv'/>
+<use f='codebrowser/sys/linux/main.cpp' l='105' u='c' c='_Z15Sys_AsyncThreadv'/>

@@ -1,0 +1,16 @@
+<def f='codebrowser/curl/lib/urldata.h' l='733' ll='746'/>
+<size>56</size>
+<doc f='codebrowser/curl/lib/urldata.h' l='726'>/*
+ * This &apos;DynamicStatic&apos; struct defines dynamic states that actually change
+ * values in the &apos;UserDefined&apos; area, which MUST be taken into consideration
+ * if the UserDefined struct is cloned or similar. You can probably just
+ * copy these, but each one indicate a special action on other data.
+ */</doc>
+<mbr r='DynamicStatic::url' o='0' t='char *'/>
+<mbr r='DynamicStatic::url_alloc' o='64' t='bool'/>
+<mbr r='DynamicStatic::url_changed' o='72' t='bool'/>
+<mbr r='DynamicStatic::proxy' o='128' t='char *'/>
+<mbr r='DynamicStatic::proxy_alloc' o='192' t='bool'/>
+<mbr r='DynamicStatic::referer' o='256' t='char *'/>
+<mbr r='DynamicStatic::referer_alloc' o='320' t='bool'/>
+<mbr r='DynamicStatic::cookielist' o='384' t='struct curl_slist *'/>

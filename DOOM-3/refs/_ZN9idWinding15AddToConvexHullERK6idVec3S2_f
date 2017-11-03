@@ -1,0 +1,13 @@
+<dec f='codebrowser/idlib/geometry/Winding.h' l='92' type='void idWinding::AddToConvexHull(const idVec3 &amp; point, const idVec3 &amp; normal, const float epsilon = 0.100000001F)'/>
+<doc f='codebrowser/idlib/geometry/Winding.h' l='91'>// add a point to the convex hull</doc>
+<use f='codebrowser/d3xp/physics/Physics_RigidBody.cpp' l='308' u='c' c='_ZNK19idPhysics_RigidBody12TestIfAtRestEv'/>
+<use f='codebrowser/game/physics/Physics_RigidBody.cpp' l='308' u='c' c='_ZNK19idPhysics_RigidBody12TestIfAtRestEv'/>
+<def f='codebrowser/idlib/geometry/Winding.cpp' l='881' ll='989' type='void idWinding::AddToConvexHull(const idVec3 &amp; point, const idVec3 &amp; normal, const float epsilon = 0.100000001F)'/>
+<doc f='codebrowser/idlib/geometry/Winding.cpp' l='873'>/*
+=============
+idWinding::AddToConvexHull
+
+  Add a point to the convex hull.
+  The current winding must be convex but may be degenerate and can have less than three points.
+=============
+*/</doc>

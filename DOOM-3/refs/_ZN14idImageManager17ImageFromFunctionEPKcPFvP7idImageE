@@ -1,0 +1,36 @@
+<dec f='codebrowser/renderer/Image.h' l='320' type='idImage * idImageManager::ImageFromFunction(const char * name, void (*)(idImage *) generatorFunction)'/>
+<doc f='codebrowser/renderer/Image.h' l='318'>// The callback will be issued immediately, and later if images are reloaded or vid_restart
+	// The callback function should call one of the idImage::Generate* functions to fill in the data</doc>
+<def f='codebrowser/renderer/Image_init.cpp' l='1434' ll='1471' type='idImage * idImageManager::ImageFromFunction(const char * _name, void (*)(idImage *) generatorFunction)'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='1953' u='c' c='_ZN14idImageManager4InitEv'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='1954' u='c' c='_ZN14idImageManager4InitEv'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='1955' u='c' c='_ZN14idImageManager4InitEv'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='1956' u='c' c='_ZN14idImageManager4InitEv'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='1957' u='c' c='_ZN14idImageManager4InitEv'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='1958' u='c' c='_ZN14idImageManager4InitEv'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='1959' u='c' c='_ZN14idImageManager4InitEv'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='1960' u='c' c='_ZN14idImageManager4InitEv'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='1961' u='c' c='_ZN14idImageManager4InitEv'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='1962' u='c' c='_ZN14idImageManager4InitEv'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='1963' u='c' c='_ZN14idImageManager4InitEv'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='1964' u='c' c='_ZN14idImageManager4InitEv'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='1965' u='c' c='_ZN14idImageManager4InitEv'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='1966' u='c' c='_ZN14idImageManager4InitEv'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='1967' u='c' c='_ZN14idImageManager4InitEv'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='1968' u='c' c='_ZN14idImageManager4InitEv'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='1972' u='c' c='_ZN14idImageManager4InitEv'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='1973' u='c' c='_ZN14idImageManager4InitEv'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='1974' u='c' c='_ZN14idImageManager4InitEv'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='1975' u='c' c='_ZN14idImageManager4InitEv'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='1976' u='c' c='_ZN14idImageManager4InitEv'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='1977' u='c' c='_ZN14idImageManager4InitEv'/>
+<doc f='codebrowser/renderer/Image_init.cpp' l='1425'>/*
+==================
+ImageFromFunction
+
+Images that are procedurally generated are allways specified
+with a callback which must work at any time, allowing the OpenGL
+system to be completely regenerated if needed.
+==================
+*/</doc>
+<use f='codebrowser/renderer/MegaTexture.cpp' l='139' u='c' c='_ZN13idMegaTexture16InitFromMegaFileEPKc'/>

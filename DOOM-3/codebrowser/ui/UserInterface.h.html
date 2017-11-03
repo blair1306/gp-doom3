@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>UserInterface.h source code [codebrowser/ui/UserInterface.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="idUserInterface,idUserInterfaceManager "/>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/ui/UserInterface.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>ui</a>/<a href='UserInterface.h.html'>UserInterface.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__USERINTERFACE_H__">__USERINTERFACE_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__USERINTERFACE_H__" data-ref="_M/__USERINTERFACE_H__">__USERINTERFACE_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>	Draws an interactive 2D surface.</i></td></tr>
+<tr><th id="36">36</th><td><i>	Used for all user interaction with the game.</i></td></tr>
+<tr><th id="37">37</th><td><i></i></td></tr>
+<tr><th id="38">38</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="39">39</th><td><i>*/</i></td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><b>class</b> <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile" id="idFile">idFile</a>;</td></tr>
+<tr><th id="42">42</th><td><b>class</b> <a class="type" href="../framework/DemoFile.h.html#idDemoFile" title='idDemoFile' data-ref="idDemoFile" id="idDemoFile">idDemoFile</a>;</td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td><b>class</b> <dfn class="type def" id="idUserInterface" title='idUserInterface' data-ref="idUserInterface">idUserInterface</dfn> {</td></tr>
+<tr><th id="46">46</th><td><b>public</b>:</td></tr>
+<tr><th id="47">47</th><td>	<b>virtual</b>						<dfn class="virtual decl def" id="_ZN15idUserInterfaceD1Ev" title='idUserInterface::~idUserInterface' data-ref="_ZN15idUserInterfaceD1Ev">~idUserInterface</dfn>() {};</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td>								<i>// Returns the name of the gui.</i></td></tr>
+<tr><th id="50">50</th><td>	<b>virtual</b> <em>const</em> <em>char</em> *		<dfn class="virtual decl" id="_ZNK15idUserInterface4NameEv" title='idUserInterface::Name' data-ref="_ZNK15idUserInterface4NameEv">Name</dfn>() <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td>								<i>// Returns a comment on the gui.</i></td></tr>
+<tr><th id="53">53</th><td>	<b>virtual</b> <em>const</em> <em>char</em> *		<dfn class="virtual decl" id="_ZNK15idUserInterface7CommentEv" title='idUserInterface::Comment' data-ref="_ZNK15idUserInterface7CommentEv">Comment</dfn>() <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td>								<i>// Returns true if the gui is interactive.</i></td></tr>
+<tr><th id="56">56</th><td>	<b>virtual</b> <em>bool</em>				<dfn class="virtual decl" id="_ZNK15idUserInterface13IsInteractiveEv" title='idUserInterface::IsInteractive' data-ref="_ZNK15idUserInterface13IsInteractiveEv">IsInteractive</dfn>() <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td>	<b>virtual</b> <em>bool</em>				<dfn class="virtual decl" id="_ZNK15idUserInterface9IsUniquedEv" title='idUserInterface::IsUniqued' data-ref="_ZNK15idUserInterface9IsUniquedEv">IsUniqued</dfn>() <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td>	<b>virtual</b> <em>void</em>				<dfn class="virtual decl" id="_ZN15idUserInterface10SetUniquedEb" title='idUserInterface::SetUniqued' data-ref="_ZN15idUserInterface10SetUniquedEb">SetUniqued</dfn>( <em>bool</em> <dfn class="local col0 decl" id="13290b" title='b' data-type='bool' data-ref="13290b">b</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="61">61</th><td>								<i>// returns false if it failed to load</i></td></tr>
+<tr><th id="62">62</th><td>	<b>virtual</b> <em>bool</em>				<dfn class="virtual decl" id="_ZN15idUserInterface12InitFromFileEPKcbb" title='idUserInterface::InitFromFile' data-ref="_ZN15idUserInterface12InitFromFileEPKcbb">InitFromFile</dfn>( <em>const</em> <em>char</em> *<dfn class="local col1 decl" id="13291qpath" title='qpath' data-type='const char *' data-ref="13291qpath">qpath</dfn>, <em>bool</em> <dfn class="local col2 decl" id="13292rebuild" title='rebuild' data-type='bool' data-ref="13292rebuild">rebuild</dfn> = <b>true</b>, <em>bool</em> <dfn class="local col3 decl" id="13293cache" title='cache' data-type='bool' data-ref="13293cache">cache</dfn> = <b>true</b> ) = <var>0</var>;</td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td>								<i>// handles an event, can return an action string, the caller interprets</i></td></tr>
+<tr><th id="65">65</th><td><i>								// any return and acts accordingly</i></td></tr>
+<tr><th id="66">66</th><td>	<b>virtual</b> <em>const</em> <em>char</em> *		<dfn class="virtual decl" id="_ZN15idUserInterface11HandleEventEPK10sysEvent_siPb" title='idUserInterface::HandleEvent' data-ref="_ZN15idUserInterface11HandleEventEPK10sysEvent_siPb">HandleEvent</dfn>( <em>const</em> <a class="typedef" href="../sys/sys_public.h.html#sysEvent_t" title='sysEvent_t' data-type='struct sysEvent_s' data-ref="sysEvent_t">sysEvent_t</a> *<dfn class="local col4 decl" id="13294event" title='event' data-type='const sysEvent_t *' data-ref="13294event">event</dfn>, <em>int</em> <dfn class="local col5 decl" id="13295time" title='time' data-type='int' data-ref="13295time">time</dfn>, <em>bool</em> *<dfn class="local col6 decl" id="13296updateVisuals" title='updateVisuals' data-type='bool *' data-ref="13296updateVisuals">updateVisuals</dfn> = <span class="macro" title="__null" data-ref="_M/NULL">NULL</span> ) = <var>0</var>;</td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td>								<i>// handles a named event</i></td></tr>
+<tr><th id="69">69</th><td>	<b>virtual</b> <em>void</em>				<dfn class="virtual decl" id="_ZN15idUserInterface16HandleNamedEventEPKc" title='idUserInterface::HandleNamedEvent' data-ref="_ZN15idUserInterface16HandleNamedEventEPKc">HandleNamedEvent</dfn>( <em>const</em> <em>char</em> *<dfn class="local col7 decl" id="13297eventName" title='eventName' data-type='const char *' data-ref="13297eventName">eventName</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td>								<i>// repaints the ui</i></td></tr>
+<tr><th id="72">72</th><td>	<b>virtual</b> <em>void</em>				<dfn class="virtual decl" id="_ZN15idUserInterface6RedrawEi" title='idUserInterface::Redraw' data-ref="_ZN15idUserInterface6RedrawEi">Redraw</dfn>( <em>int</em> <dfn class="local col8 decl" id="13298time" title='time' data-type='int' data-ref="13298time">time</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td>								<i>// repaints the cursor</i></td></tr>
+<tr><th id="75">75</th><td>	<b>virtual</b> <em>void</em>				<dfn class="virtual decl" id="_ZN15idUserInterface10DrawCursorEv" title='idUserInterface::DrawCursor' data-ref="_ZN15idUserInterface10DrawCursorEv">DrawCursor</dfn>() = <var>0</var>;</td></tr>
+<tr><th id="76">76</th><td></td></tr>
+<tr><th id="77">77</th><td>								<i>// Provides read access to the idDict that holds this gui's state.</i></td></tr>
+<tr><th id="78">78</th><td>	<b>virtual</b> <em>const</em> <a class="type" href="../idlib/Dict.h.html#idDict" title='idDict' data-ref="idDict">idDict</a> &amp;		<dfn class="virtual decl" id="_ZNK15idUserInterface5StateEv" title='idUserInterface::State' data-ref="_ZNK15idUserInterface5StateEv">State</dfn>() <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td>								<i>// Removes a gui state variable</i></td></tr>
+<tr><th id="81">81</th><td>	<b>virtual</b> <em>void</em>				<dfn class="virtual decl" id="_ZN15idUserInterface14DeleteStateVarEPKc" title='idUserInterface::DeleteStateVar' data-ref="_ZN15idUserInterface14DeleteStateVarEPKc">DeleteStateVar</dfn>( <em>const</em> <em>char</em> *<dfn class="local col9 decl" id="13299varName" title='varName' data-type='const char *' data-ref="13299varName">varName</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td>								<i>// Sets a gui state variable.</i></td></tr>
+<tr><th id="84">84</th><td>	<b>virtual</b> <em>void</em>				<dfn class="virtual decl" id="_ZN15idUserInterface14SetStateStringEPKcS1_" title='idUserInterface::SetStateString' data-ref="_ZN15idUserInterface14SetStateStringEPKcS1_">SetStateString</dfn>( <em>const</em> <em>char</em> *<dfn class="local col0 decl" id="13300varName" title='varName' data-type='const char *' data-ref="13300varName">varName</dfn>, <em>const</em> <em>char</em> *<dfn class="local col1 decl" id="13301value" title='value' data-type='const char *' data-ref="13301value">value</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="85">85</th><td>	<b>virtual</b> <em>void</em>				<dfn class="virtual decl" id="_ZN15idUserInterface12SetStateBoolEPKcb" title='idUserInterface::SetStateBool' data-ref="_ZN15idUserInterface12SetStateBoolEPKcb">SetStateBool</dfn>( <em>const</em> <em>char</em> *<dfn class="local col2 decl" id="13302varName" title='varName' data-type='const char *' data-ref="13302varName">varName</dfn>, <em>const</em> <em>bool</em> <dfn class="local col3 decl" id="13303value" title='value' data-type='const bool' data-ref="13303value">value</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="86">86</th><td>	<b>virtual</b> <em>void</em>				<dfn class="virtual decl" id="_ZN15idUserInterface11SetStateIntEPKci" title='idUserInterface::SetStateInt' data-ref="_ZN15idUserInterface11SetStateIntEPKci">SetStateInt</dfn>( <em>const</em> <em>char</em> *<dfn class="local col4 decl" id="13304varName" title='varName' data-type='const char *' data-ref="13304varName">varName</dfn>, <em>const</em> <em>int</em> <dfn class="local col5 decl" id="13305value" title='value' data-type='const int' data-ref="13305value">value</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="87">87</th><td>	<b>virtual</b> <em>void</em>				<dfn class="virtual decl" id="_ZN15idUserInterface13SetStateFloatEPKcf" title='idUserInterface::SetStateFloat' data-ref="_ZN15idUserInterface13SetStateFloatEPKcf">SetStateFloat</dfn>( <em>const</em> <em>char</em> *<dfn class="local col6 decl" id="13306varName" title='varName' data-type='const char *' data-ref="13306varName">varName</dfn>, <em>const</em> <em>float</em> <dfn class="local col7 decl" id="13307value" title='value' data-type='const float' data-ref="13307value">value</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td>								<i>// Gets a gui state variable</i></td></tr>
+<tr><th id="90">90</th><td>	<b>virtual</b> <em>const</em> <em>char</em>*			<dfn class="virtual decl" id="_ZNK15idUserInterface14GetStateStringEPKcS1_" title='idUserInterface::GetStateString' data-ref="_ZNK15idUserInterface14GetStateStringEPKcS1_">GetStateString</dfn>( <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="13308varName" title='varName' data-type='const char *' data-ref="13308varName">varName</dfn>, <em>const</em> <em>char</em>* <dfn class="local col9 decl" id="13309defaultString" title='defaultString' data-type='const char *' data-ref="13309defaultString">defaultString</dfn> = <q>""</q> ) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="91">91</th><td>	<b>virtual</b> <em>bool</em>				<dfn class="virtual decl" id="_ZNK15idUserInterface12GetStateBoolEPKcS1_" title='idUserInterface::GetStateBool' data-ref="_ZNK15idUserInterface12GetStateBoolEPKcS1_">GetStateBool</dfn>( <em>const</em> <em>char</em> *<dfn class="local col0 decl" id="13310varName" title='varName' data-type='const char *' data-ref="13310varName">varName</dfn>, <em>const</em> <em>char</em>* <dfn class="local col1 decl" id="13311defaultString" title='defaultString' data-type='const char *' data-ref="13311defaultString">defaultString</dfn> = <q>"0"</q> ) <em>const</em>  = <var>0</var>;</td></tr>
+<tr><th id="92">92</th><td>	<b>virtual</b> <em>int</em>					<dfn class="virtual decl" id="_ZNK15idUserInterface11GetStateIntEPKcS1_" title='idUserInterface::GetStateInt' data-ref="_ZNK15idUserInterface11GetStateIntEPKcS1_">GetStateInt</dfn>( <em>const</em> <em>char</em> *<dfn class="local col2 decl" id="13312varName" title='varName' data-type='const char *' data-ref="13312varName">varName</dfn>, <em>const</em> <em>char</em>* <dfn class="local col3 decl" id="13313defaultString" title='defaultString' data-type='const char *' data-ref="13313defaultString">defaultString</dfn> = <q>"0"</q> ) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="93">93</th><td>	<b>virtual</b> <em>float</em>				<dfn class="virtual decl" id="_ZNK15idUserInterface13GetStateFloatEPKcS1_" title='idUserInterface::GetStateFloat' data-ref="_ZNK15idUserInterface13GetStateFloatEPKcS1_">GetStateFloat</dfn>( <em>const</em> <em>char</em> *<dfn class="local col4 decl" id="13314varName" title='varName' data-type='const char *' data-ref="13314varName">varName</dfn>, <em>const</em> <em>char</em>* <dfn class="local col5 decl" id="13315defaultString" title='defaultString' data-type='const char *' data-ref="13315defaultString">defaultString</dfn> = <q>"0"</q> ) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="94">94</th><td></td></tr>
+<tr><th id="95">95</th><td>								<i>// The state has changed and the gui needs to update from the state idDict.</i></td></tr>
+<tr><th id="96">96</th><td>	<b>virtual</b> <em>void</em>				<dfn class="virtual decl" id="_ZN15idUserInterface12StateChangedEib" title='idUserInterface::StateChanged' data-ref="_ZN15idUserInterface12StateChangedEib">StateChanged</dfn>( <em>int</em> <dfn class="local col6 decl" id="13316time" title='time' data-type='int' data-ref="13316time">time</dfn>, <em>bool</em> <dfn class="local col7 decl" id="13317redraw" title='redraw' data-type='bool' data-ref="13317redraw">redraw</dfn> = <b>false</b> ) = <var>0</var>;</td></tr>
+<tr><th id="97">97</th><td></td></tr>
+<tr><th id="98">98</th><td>								<i>// Activated the gui.</i></td></tr>
+<tr><th id="99">99</th><td>	<b>virtual</b> <em>const</em> <em>char</em> *		<dfn class="virtual decl" id="_ZN15idUserInterface8ActivateEbi" title='idUserInterface::Activate' data-ref="_ZN15idUserInterface8ActivateEbi">Activate</dfn>( <em>bool</em> <dfn class="local col8 decl" id="13318activate" title='activate' data-type='bool' data-ref="13318activate">activate</dfn>, <em>int</em> <dfn class="local col9 decl" id="13319time" title='time' data-type='int' data-ref="13319time">time</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="100">100</th><td></td></tr>
+<tr><th id="101">101</th><td>								<i>// Triggers the gui and runs the onTrigger scripts.</i></td></tr>
+<tr><th id="102">102</th><td>	<b>virtual</b> <em>void</em>				<dfn class="virtual decl" id="_ZN15idUserInterface7TriggerEi" title='idUserInterface::Trigger' data-ref="_ZN15idUserInterface7TriggerEi">Trigger</dfn>( <em>int</em> <dfn class="local col0 decl" id="13320time" title='time' data-type='int' data-ref="13320time">time</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="103">103</th><td></td></tr>
+<tr><th id="104">104</th><td>	<b>virtual</b>	<em>void</em>				<dfn class="virtual decl" id="_ZN15idUserInterface16ReadFromDemoFileEP10idDemoFile" title='idUserInterface::ReadFromDemoFile' data-ref="_ZN15idUserInterface16ReadFromDemoFileEP10idDemoFile">ReadFromDemoFile</dfn>( <b>class</b> <a class="type" href="../framework/DemoFile.h.html#idDemoFile" title='idDemoFile' data-ref="idDemoFile">idDemoFile</a> *<dfn class="local col1 decl" id="13321f" title='f' data-type='class idDemoFile *' data-ref="13321f">f</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="105">105</th><td>	<b>virtual</b>	<em>void</em>				<dfn class="virtual decl" id="_ZN15idUserInterface15WriteToDemoFileEP10idDemoFile" title='idUserInterface::WriteToDemoFile' data-ref="_ZN15idUserInterface15WriteToDemoFileEP10idDemoFile">WriteToDemoFile</dfn>( <b>class</b> <a class="type" href="../framework/DemoFile.h.html#idDemoFile" title='idDemoFile' data-ref="idDemoFile">idDemoFile</a> *<dfn class="local col2 decl" id="13322f" title='f' data-type='class idDemoFile *' data-ref="13322f">f</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="106">106</th><td></td></tr>
+<tr><th id="107">107</th><td>	<b>virtual</b> <em>bool</em>				<dfn class="virtual decl" id="_ZNK15idUserInterface15WriteToSaveGameEP6idFile" title='idUserInterface::WriteToSaveGame' data-ref="_ZNK15idUserInterface15WriteToSaveGameEP6idFile">WriteToSaveGame</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col3 decl" id="13323savefile" title='savefile' data-type='idFile *' data-ref="13323savefile">savefile</dfn> ) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="108">108</th><td>	<b>virtual</b> <em>bool</em>				<dfn class="virtual decl" id="_ZN15idUserInterface16ReadFromSaveGameEP6idFile" title='idUserInterface::ReadFromSaveGame' data-ref="_ZN15idUserInterface16ReadFromSaveGameEP6idFile">ReadFromSaveGame</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col4 decl" id="13324savefile" title='savefile' data-type='idFile *' data-ref="13324savefile">savefile</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="109">109</th><td>	<b>virtual</b> <em>void</em>				<dfn class="virtual decl" id="_ZN15idUserInterface18SetKeyBindingNamesEv" title='idUserInterface::SetKeyBindingNames' data-ref="_ZN15idUserInterface18SetKeyBindingNamesEv">SetKeyBindingNames</dfn>( <em>void</em> ) = <var>0</var>;</td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td>	<b>virtual</b> <em>void</em>				<dfn class="virtual decl" id="_ZN15idUserInterface9SetCursorEff" title='idUserInterface::SetCursor' data-ref="_ZN15idUserInterface9SetCursorEff">SetCursor</dfn>( <em>float</em> <dfn class="local col5 decl" id="13325x" title='x' data-type='float' data-ref="13325x">x</dfn>, <em>float</em> <dfn class="local col6 decl" id="13326y" title='y' data-type='float' data-ref="13326y">y</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="112">112</th><td>	<b>virtual</b> <em>float</em>				<dfn class="virtual decl" id="_ZN15idUserInterface7CursorXEv" title='idUserInterface::CursorX' data-ref="_ZN15idUserInterface7CursorXEv">CursorX</dfn>() = <var>0</var>;</td></tr>
+<tr><th id="113">113</th><td>	<b>virtual</b> <em>float</em>				<dfn class="virtual decl" id="_ZN15idUserInterface7CursorYEv" title='idUserInterface::CursorY' data-ref="_ZN15idUserInterface7CursorYEv">CursorY</dfn>() = <var>0</var>;</td></tr>
+<tr><th id="114">114</th><td>};</td></tr>
+<tr><th id="115">115</th><td></td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td><b>class</b> <dfn class="type def" id="idUserInterfaceManager" title='idUserInterfaceManager' data-ref="idUserInterfaceManager">idUserInterfaceManager</dfn> {</td></tr>
+<tr><th id="118">118</th><td><b>public</b>:</td></tr>
+<tr><th id="119">119</th><td>	<b>virtual</b>						<dfn class="virtual decl def" id="_ZN22idUserInterfaceManagerD1Ev" title='idUserInterfaceManager::~idUserInterfaceManager' data-ref="_ZN22idUserInterfaceManagerD1Ev">~idUserInterfaceManager</dfn>( <em>void</em> ) {};</td></tr>
+<tr><th id="120">120</th><td></td></tr>
+<tr><th id="121">121</th><td>	<b>virtual</b> <em>void</em>				<dfn class="virtual decl" id="_ZN22idUserInterfaceManager4InitEv" title='idUserInterfaceManager::Init' data-ref="_ZN22idUserInterfaceManager4InitEv">Init</dfn>() = <var>0</var>;</td></tr>
+<tr><th id="122">122</th><td>	<b>virtual</b> <em>void</em>				<dfn class="virtual decl" id="_ZN22idUserInterfaceManager8ShutdownEv" title='idUserInterfaceManager::Shutdown' data-ref="_ZN22idUserInterfaceManager8ShutdownEv">Shutdown</dfn>() = <var>0</var>;</td></tr>
+<tr><th id="123">123</th><td>	<b>virtual</b> <em>void</em>				<dfn class="virtual decl" id="_ZN22idUserInterfaceManager5TouchEPKc" title='idUserInterfaceManager::Touch' data-ref="_ZN22idUserInterfaceManager5TouchEPKc">Touch</dfn>( <em>const</em> <em>char</em> *<dfn class="local col7 decl" id="13327name" title='name' data-type='const char *' data-ref="13327name">name</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="124">124</th><td>	<b>virtual</b> <em>void</em>				<dfn class="virtual decl" id="_ZN22idUserInterfaceManager21WritePrecacheCommandsEP6idFile" title='idUserInterfaceManager::WritePrecacheCommands' data-ref="_ZN22idUserInterfaceManager21WritePrecacheCommandsEP6idFile">WritePrecacheCommands</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col8 decl" id="13328f" title='f' data-type='idFile *' data-ref="13328f">f</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td>								<i>// Sets the size for 640x480 adjustment.</i></td></tr>
+<tr><th id="127">127</th><td>	<b>virtual</b> <em>void</em>				<dfn class="virtual decl" id="_ZN22idUserInterfaceManager7SetSizeEff" title='idUserInterfaceManager::SetSize' data-ref="_ZN22idUserInterfaceManager7SetSizeEff">SetSize</dfn>( <em>float</em> <dfn class="local col9 decl" id="13329width" title='width' data-type='float' data-ref="13329width">width</dfn>, <em>float</em> <dfn class="local col0 decl" id="13330height" title='height' data-type='float' data-ref="13330height">height</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="128">128</th><td></td></tr>
+<tr><th id="129">129</th><td>	<b>virtual</b> <em>void</em>				<dfn class="virtual decl" id="_ZN22idUserInterfaceManager14BeginLevelLoadEv" title='idUserInterfaceManager::BeginLevelLoad' data-ref="_ZN22idUserInterfaceManager14BeginLevelLoadEv">BeginLevelLoad</dfn>() = <var>0</var>;</td></tr>
+<tr><th id="130">130</th><td>	<b>virtual</b> <em>void</em>				<dfn class="virtual decl" id="_ZN22idUserInterfaceManager12EndLevelLoadEv" title='idUserInterfaceManager::EndLevelLoad' data-ref="_ZN22idUserInterfaceManager12EndLevelLoadEv">EndLevelLoad</dfn>() = <var>0</var>;</td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td>								<i>// Reloads changed guis, or all guis.</i></td></tr>
+<tr><th id="133">133</th><td>	<b>virtual</b> <em>void</em>				<dfn class="virtual decl" id="_ZN22idUserInterfaceManager6ReloadEb" title='idUserInterfaceManager::Reload' data-ref="_ZN22idUserInterfaceManager6ReloadEb">Reload</dfn>( <em>bool</em> <dfn class="local col1 decl" id="13331all" title='all' data-type='bool' data-ref="13331all">all</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="134">134</th><td></td></tr>
+<tr><th id="135">135</th><td>								<i>// lists all guis</i></td></tr>
+<tr><th id="136">136</th><td>	<b>virtual</b> <em>void</em>				<dfn class="virtual decl" id="_ZNK22idUserInterfaceManager8ListGuisEv" title='idUserInterfaceManager::ListGuis' data-ref="_ZNK22idUserInterfaceManager8ListGuisEv">ListGuis</dfn>() <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="137">137</th><td></td></tr>
+<tr><th id="138">138</th><td>								<i>// Returns true if gui exists.</i></td></tr>
+<tr><th id="139">139</th><td>	<b>virtual</b> <em>bool</em>				<dfn class="virtual decl" id="_ZNK22idUserInterfaceManager8CheckGuiEPKc" title='idUserInterfaceManager::CheckGui' data-ref="_ZNK22idUserInterfaceManager8CheckGuiEPKc">CheckGui</dfn>( <em>const</em> <em>char</em> *<dfn class="local col2 decl" id="13332qpath" title='qpath' data-type='const char *' data-ref="13332qpath">qpath</dfn> ) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="140">140</th><td></td></tr>
+<tr><th id="141">141</th><td>								<i>// Allocates a new gui.</i></td></tr>
+<tr><th id="142">142</th><td>	<b>virtual</b> <a class="type" href="#idUserInterface" title='idUserInterface' data-ref="idUserInterface">idUserInterface</a> *	<dfn class="virtual decl" id="_ZNK22idUserInterfaceManager5AllocEv" title='idUserInterfaceManager::Alloc' data-ref="_ZNK22idUserInterfaceManager5AllocEv">Alloc</dfn>( <em>void</em> ) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td>								<i>// De-allocates a gui.. ONLY USE FOR PRECACHING</i></td></tr>
+<tr><th id="145">145</th><td>	<b>virtual</b> <em>void</em>				<dfn class="virtual decl" id="_ZN22idUserInterfaceManager7DeAllocEP15idUserInterface" title='idUserInterfaceManager::DeAlloc' data-ref="_ZN22idUserInterfaceManager7DeAllocEP15idUserInterface">DeAlloc</dfn>( <a class="type" href="#idUserInterface" title='idUserInterface' data-ref="idUserInterface">idUserInterface</a> *<dfn class="local col3 decl" id="13333gui" title='gui' data-type='idUserInterface *' data-ref="13333gui">gui</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="146">146</th><td></td></tr>
+<tr><th id="147">147</th><td>								<i>// Returns NULL if gui by that name does not exist.</i></td></tr>
+<tr><th id="148">148</th><td>	<b>virtual</b> <a class="type" href="#idUserInterface" title='idUserInterface' data-ref="idUserInterface">idUserInterface</a> *	<dfn class="virtual decl" id="_ZN22idUserInterfaceManager7FindGuiEPKcbbb" title='idUserInterfaceManager::FindGui' data-ref="_ZN22idUserInterfaceManager7FindGuiEPKcbbb">FindGui</dfn>( <em>const</em> <em>char</em> *<dfn class="local col4 decl" id="13334qpath" title='qpath' data-type='const char *' data-ref="13334qpath">qpath</dfn>, <em>bool</em> <dfn class="local col5 decl" id="13335autoLoad" title='autoLoad' data-type='bool' data-ref="13335autoLoad">autoLoad</dfn> = <b>false</b>, <em>bool</em> <dfn class="local col6 decl" id="13336needUnique" title='needUnique' data-type='bool' data-ref="13336needUnique">needUnique</dfn> = <b>false</b>, <em>bool</em> <dfn class="local col7 decl" id="13337forceUnique" title='forceUnique' data-type='bool' data-ref="13337forceUnique">forceUnique</dfn> = <b>false</b> ) = <var>0</var>;</td></tr>
+<tr><th id="149">149</th><td></td></tr>
+<tr><th id="150">150</th><td>								<i>// Returns NULL if gui by that name does not exist.</i></td></tr>
+<tr><th id="151">151</th><td>	<b>virtual</b> <a class="type" href="#idUserInterface" title='idUserInterface' data-ref="idUserInterface">idUserInterface</a> *	<dfn class="virtual decl" id="_ZN22idUserInterfaceManager11FindDemoGuiEPKc" title='idUserInterfaceManager::FindDemoGui' data-ref="_ZN22idUserInterfaceManager11FindDemoGuiEPKc">FindDemoGui</dfn>( <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="13338qpath" title='qpath' data-type='const char *' data-ref="13338qpath">qpath</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="152">152</th><td></td></tr>
+<tr><th id="153">153</th><td>								<i>// Allocates a new GUI list handler</i></td></tr>
+<tr><th id="154">154</th><td>	<b>virtual</b>	<a class="type" href="ListGUI.h.html#idListGUI" title='idListGUI' data-ref="idListGUI">idListGUI</a> *			<dfn class="virtual decl" id="_ZNK22idUserInterfaceManager12AllocListGUIEv" title='idUserInterfaceManager::AllocListGUI' data-ref="_ZNK22idUserInterfaceManager12AllocListGUIEv">AllocListGUI</dfn>( <em>void</em> ) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="155">155</th><td></td></tr>
+<tr><th id="156">156</th><td>								<i>// De-allocates a list gui</i></td></tr>
+<tr><th id="157">157</th><td>	<b>virtual</b> <em>void</em>				<dfn class="virtual decl" id="_ZN22idUserInterfaceManager11FreeListGUIEP9idListGUI" title='idUserInterfaceManager::FreeListGUI' data-ref="_ZN22idUserInterfaceManager11FreeListGUIEP9idListGUI">FreeListGUI</dfn>( <a class="type" href="ListGUI.h.html#idListGUI" title='idListGUI' data-ref="idListGUI">idListGUI</a> *<dfn class="local col9 decl" id="13339listgui" title='listgui' data-type='idListGUI *' data-ref="13339listgui">listgui</dfn> ) = <var>0</var>;</td></tr>
+<tr><th id="158">158</th><td>};</td></tr>
+<tr><th id="159">159</th><td></td></tr>
+<tr><th id="160">160</th><td><b>extern</b> <a class="type" href="#idUserInterfaceManager" title='idUserInterfaceManager' data-ref="idUserInterfaceManager">idUserInterfaceManager</a> *	<dfn class="decl" id="uiManager" title='uiManager' data-ref="uiManager">uiManager</dfn>;</td></tr>
+<tr><th id="161">161</th><td></td></tr>
+<tr><th id="162">162</th><td><u>#<span data-ppcond="29">endif</span> /* !__USERINTERFACE_H__ */</u></td></tr>
+<tr><th id="163">163</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../TypeInfo/TypeInfoGen.cpp.html'>codebrowser/TypeInfo/TypeInfoGen.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

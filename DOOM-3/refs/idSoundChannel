@@ -1,0 +1,27 @@
+<def f='codebrowser/sound/snd_local.h' l='401' ll='432'/>
+<size>140</size>
+<fun r='_ZN14idSoundChannelC1Ev'/>
+<fun r='_ZN14idSoundChannelD1Ev'/>
+<fun r='_ZN14idSoundChannel5ClearEv'/>
+<fun r='_ZN14idSoundChannel5StartEv'/>
+<fun r='_ZN14idSoundChannel4StopEv'/>
+<fun r='_ZNK14idSoundChannel20GatherChannelSamplesEiiPf'/>
+<fun r='_ZN14idSoundChannel6ALStopEv'/>
+<mbr r='idSoundChannel::triggerState' o='0' t='bool'/>
+<mbr r='idSoundChannel::trigger44kHzTime' o='32' t='int'/>
+<mbr r='idSoundChannel::triggerGame44kHzTime' o='64' t='int'/>
+<mbr r='idSoundChannel::parms' o='96' t='soundShaderParms_t'/>
+<mbr r='idSoundChannel::leadinSample' o='288' t='idSoundSample *'/>
+<mbr r='idSoundChannel::triggerChannel' o='320' t='s_channelType'/>
+<mbr r='idSoundChannel::soundShader' o='352' t='const idSoundShader *'/>
+<mbr r='idSoundChannel::decoder' o='384' t='idSampleDecoder *'/>
+<mbr r='idSoundChannel::diversity' o='416' t='float'/>
+<mbr r='idSoundChannel::lastVolume' o='448' t='float'/>
+<mbr r='idSoundChannel::lastV' o='480' t='float [6]'/>
+<mbr r='idSoundChannel::channelFade' o='672' t='idSoundFade'/>
+<mbr r='idSoundChannel::triggered' o='800' t='bool'/>
+<mbr r='idSoundChannel::openalSource' o='832' t='ALuint'/>
+<mbr r='idSoundChannel::openalStreamingOffset' o='864' t='ALuint'/>
+<mbr r='idSoundChannel::openalStreamingBuffer' o='896' t='ALuint [3]'/>
+<mbr r='idSoundChannel::lastopenalStreamingBuffer' o='992' t='ALuint [3]'/>
+<mbr r='idSoundChannel::disallowSlow' o='1088' t='bool'/>

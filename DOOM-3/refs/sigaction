@@ -1,0 +1,17 @@
+<def f='include/x86_64-linux-gnu/bits/sigaction.h' l='24' ll='50'/>
+<dec f='include/signal.h' l='257' type='int sigaction(int __sig, const struct sigaction *restrict __act, struct sigaction *restrict __oact)'/>
+<size>152</size>
+<doc f='include/signal.h' l='256'>/* Get and/or set the action for signal SIG.  */</doc>
+<doc f='include/x86_64-linux-gnu/bits/sigaction.h' l='23'>/* Structure describing the action to be taken when a signal arrives.  */</doc>
+<mbr r='sigaction::__sigaction_handler' o='0' t='union (anonymous union at /usr/include/x86_64-linux-gnu/bits/sigaction.h:28:5)'/>
+<mbr r='sigaction::sa_mask' o='64' t='__sigset_t'/>
+<mbr r='sigaction::sa_flags' o='1088' t='int'/>
+<mbr r='sigaction::sa_restorer' o='1152' t='void (*)(void)'/>
+<use f='codebrowser/curl/lib/url.c' l='3013' u='c' c='CreateConnection'/>
+<use f='codebrowser/curl/lib/url.c' l='3022' u='c' c='CreateConnection'/>
+<use f='codebrowser/curl/lib/url.c' l='3097' u='c' c='CreateConnection'/>
+<use f='codebrowser/sys/posix/posix_net.cpp' l='757' u='c' c='_ZN5idTCP5WriteEPvi'/>
+<use f='codebrowser/sys/posix/posix_net.cpp' l='777' u='c' c='_ZN5idTCP5WriteEPvi'/>
+<use f='codebrowser/sys/posix/posix_signal.cpp' l='83' u='c' c='_Z15Posix_ClearSigsv'/>
+<use f='codebrowser/sys/posix/posix_signal.cpp' l='143' u='c' c='_Z14Posix_InitSigsv'/>
+<use f='codebrowser/sys/posix/posix_signal.cpp' l='147' u='c' c='_Z14Posix_InitSigsv'/>

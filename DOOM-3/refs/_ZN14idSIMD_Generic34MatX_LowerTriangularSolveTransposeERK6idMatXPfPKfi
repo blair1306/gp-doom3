@@ -1,0 +1,12 @@
+<dec f='codebrowser/idlib/math/Simd_Generic.h' l='107' type='void idSIMD_Generic::MatX_LowerTriangularSolveTranspose(const idMatX &amp; L, float * x, const float * b, const int n)'/>
+<inh f='codebrowser/idlib/math/Simd.h' l='169' c='_ZN15idSIMDProcessor34MatX_LowerTriangularSolveTransposeERK6idMatXPfPKfi'/>
+<def f='codebrowser/idlib/math/Simd_Generic.cpp' l='1866' ll='2001' type='void idSIMD_Generic::MatX_LowerTriangularSolveTranspose(const idMatX &amp; L, float * x, const float * b, const int n)'/>
+<doc f='codebrowser/idlib/math/Simd_Generic.cpp' l='1857'>/*
+============
+idSIMD_Generic::MatX_LowerTriangularSolveTranspose
+
+  solves x in L&apos;x = b for the n * n sub-matrix of L
+  L has to be a lower triangular matrix with (implicit) ones on the diagonal
+  x == b is allowed
+============
+*/</doc>

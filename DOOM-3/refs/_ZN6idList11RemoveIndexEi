@@ -1,0 +1,103 @@
+<dec f='codebrowser/idlib/containers/List.h' l='127' type='bool idList::RemoveIndex(int index)'/>
+<def f='codebrowser/idlib/containers/List.h' l='848' ll='866' type='bool idList::RemoveIndex(int index)'/>
+<use f='codebrowser/idlib/containers/List.h' l='883' u='c' c='_ZN6idList6RemoveERKT_'/>
+<use f='codebrowser/idlib/math/Curve.h' l='47' u='c' c='_ZN7idCurve11RemoveIndexEi'/>
+<use f='codebrowser/idlib/math/Curve.h' l='1545' u='c' c='_ZN29idCurve_KochanekBartelsSpline11RemoveIndexEi'/>
+<use f='codebrowser/idlib/math/Curve.h' l='1545' u='c' c='_ZN29idCurve_KochanekBartelsSpline11RemoveIndexEi'/>
+<use f='codebrowser/idlib/math/Curve.h' l='1545' u='c' c='_ZN29idCurve_KochanekBartelsSpline11RemoveIndexEi'/>
+<use f='codebrowser/idlib/math/Curve.h' l='2337' u='c' c='_ZN13idCurve_NURBS11RemoveIndexEi'/>
+<use f='codebrowser/idlib/containers/StrPool.h' l='157' u='c' c='_ZN9idStrPool10FreeStringEPK9idPoolStr'/>
+<doc f='codebrowser/idlib/containers/List.h' l='127'>// remove the element at the given index</doc>
+<doc f='codebrowser/idlib/containers/List.h' l='839'>/*
+================
+idList&lt;type&gt;::RemoveIndex
+
+Removes the element at the specified index and moves all data following the element down to fill in the gap.
+The number of elements in the list is reduced by one.  Returns false if the index is outside the bounds of the list.
+Note that the element is not destroyed, so any memory used by it may not be freed until the destruction of the list.
+================
+*/</doc>
+<use f='codebrowser/d3xp/BrittleFracture.cpp' l='347' u='c' c='_ZN17idBrittleFracture11RemoveShardEi'/>
+<use f='codebrowser/d3xp/BrittleFracture.cpp' l='818' u='c' c='_ZN17idBrittleFracture9DropShardEP7shard_sRK6idVec3S4_fi'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='3341' u='c' c='_ZN8idEntity17ClearSignalThreadE11signalNum_tP8idThread'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='3638' u='c' c='_ZN8idEntity17RemoveNullTargetsEv'/>
+<use f='codebrowser/d3xp/Player.cpp' l='4125' u='c' c='_ZN8idPlayer17CompleteObjectiveEPKc'/>
+<use f='codebrowser/d3xp/Player.cpp' l='7171' u='c' c='_ZN8idPlayer9UpdateHudEv'/>
+<use f='codebrowser/d3xp/SmokeParticles.cpp' l='163' u='c' c='_ZN16idSmokeParticles10FreeSmokesEv'/>
+<use f='codebrowser/d3xp/SmokeParticles.cpp' l='407' u='c' c='_ZN16idSmokeParticles18UpdateRenderEntityEP14renderEntity_sPK12renderView_s'/>
+<use f='codebrowser/d3xp/ai/AAS_routing.cpp' l='567' u='c' c='_ZN10idAASLocal14RemoveObstacleEi'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='2755' u='c' c='_ZN14idDeclModelDef5ParseEPKci'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='3742' u='c' c='_ZN10idAnimator10ClearJointE13jointHandle_t'/>
+<use f='codebrowser/d3xp/gamesys/SaveGame.cpp' l='868' u='c' c='_ZN13idRestoreGame13DeleteObjectsEv'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='7282' u='c' c='_ZN12idPhysics_AF10DeleteBodyEi'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='7289' u='c' c='_ZN12idPhysics_AF10DeleteBodyEi'/>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='7337' u='c' c='_ZN12idPhysics_AF16DeleteConstraintEi'/>
+<use f='codebrowser/d3xp/physics/Physics_Base.cpp' l='558' u='c' c='_ZN14idPhysics_Base16AddContactEntityEP8idEntity'/>
+<use f='codebrowser/d3xp/physics/Physics_Base.cpp' l='581' u='c' c='_ZN14idPhysics_Base19RemoveContactEntityEP8idEntity'/>
+<use f='codebrowser/d3xp/physics/Physics_Base.cpp' l='585' u='c' c='_ZN14idPhysics_Base19RemoveContactEntityEP8idEntity'/>
+<use f='codebrowser/d3xp/physics/Physics_Base.cpp' l='759' u='c' c='_ZN14idPhysics_Base23ActivateContactEntitiesEv'/>
+<use f='codebrowser/d3xp/physics/Physics_StaticMulti.cpp' l='155' u='c' c='_ZN21idPhysics_StaticMulti11RemoveIndexEib'/>
+<use f='codebrowser/d3xp/physics/Physics_StaticMulti.cpp' l='156' u='c' c='_ZN21idPhysics_StaticMulti11RemoveIndexEib'/>
+<use f='codebrowser/d3xp/script/Script_Program.cpp' l='1406' u='c' c='_ZN9idProgram7FreeDefEP8idVarDefPKS0_'/>
+<use f='codebrowser/framework/CVarSystem.cpp' l='1249' u='c' c='_ZN17idCVarSystemLocal9Restart_fERK9idCmdArgs'/>
+<use f='codebrowser/framework/CmdSystem.cpp' l='656' u='c' c='_ZN16idCmdSystemLocal20ExecuteCommandBufferEv'/>
+<use f='codebrowser/framework/Common.cpp' l='1606' u='c' c='_ZN13idCommonLocal14FilterLangListEP6idListI5idStrES1_'/>
+<use f='codebrowser/framework/DeclAF.cpp' l='1667' u='c' c='_ZN8idDeclAF10DeleteBodyEPKc'/>
+<use f='codebrowser/framework/DeclAF.cpp' l='1675' u='c' c='_ZN8idDeclAF10DeleteBodyEPKc'/>
+<use f='codebrowser/framework/DeclAF.cpp' l='1722' u='c' c='_ZN8idDeclAF16DeleteConstraintEPKc'/>
+<use f='codebrowser/framework/DeclPDA.cpp' l='240' u='c' c='_ZNK9idDeclPDA26RemoveAddedEmailsAndVideosEv'/>
+<use f='codebrowser/framework/DeclPDA.cpp' l='246' u='c' c='_ZNK9idDeclPDA26RemoveAddedEmailsAndVideosEv'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='2213' u='c' c='_ZN17idFileSystemLocal23FollowAddonDependenciesEP6pack_t'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='2283' u='c' c='_ZN17idFileSystemLocal7StartupEv'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='2328' u='c' c='_ZN17idFileSystemLocal7StartupEv'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='2045' u='c' c='_ZN13idAsyncClient15HandleDownloadsEv'/>
+<use f='codebrowser/framework/async/AsyncClient.cpp' l='2142' u='c' c='_ZN13idAsyncClient15HandleDownloadsEv'/>
+<use f='codebrowser/game/BrittleFracture.cpp' l='317' u='c' c='_ZN17idBrittleFracture11RemoveShardEi'/>
+<use f='codebrowser/game/BrittleFracture.cpp' l='788' u='c' c='_ZN17idBrittleFracture9DropShardEP7shard_sRK6idVec3S4_fi'/>
+<use f='codebrowser/game/Entity.cpp' l='3245' u='c' c='_ZN8idEntity17ClearSignalThreadE11signalNum_tP8idThread'/>
+<use f='codebrowser/game/Entity.cpp' l='3533' u='c' c='_ZN8idEntity17RemoveNullTargetsEv'/>
+<use f='codebrowser/game/Player.cpp' l='3266' u='c' c='_ZN8idPlayer17CompleteObjectiveEPKc'/>
+<use f='codebrowser/game/Player.cpp' l='6065' u='c' c='_ZN8idPlayer9UpdateHudEv'/>
+<use f='codebrowser/game/SmokeParticles.cpp' l='152' u='c' c='_ZN16idSmokeParticles10FreeSmokesEv'/>
+<use f='codebrowser/game/SmokeParticles.cpp' l='381' u='c' c='_ZN16idSmokeParticles18UpdateRenderEntityEP14renderEntity_sPK12renderView_s'/>
+<use f='codebrowser/game/ai/AAS_routing.cpp' l='567' u='c' c='_ZN10idAASLocal14RemoveObstacleEi'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='2669' u='c' c='_ZN14idDeclModelDef5ParseEPKci'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='3656' u='c' c='_ZN10idAnimator10ClearJointE13jointHandle_t'/>
+<use f='codebrowser/game/gamesys/SaveGame.cpp' l='863' u='c' c='_ZN13idRestoreGame13DeleteObjectsEv'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='7281' u='c' c='_ZN12idPhysics_AF10DeleteBodyEi'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='7288' u='c' c='_ZN12idPhysics_AF10DeleteBodyEi'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='7336' u='c' c='_ZN12idPhysics_AF16DeleteConstraintEi'/>
+<use f='codebrowser/game/physics/Physics_Base.cpp' l='558' u='c' c='_ZN14idPhysics_Base16AddContactEntityEP8idEntity'/>
+<use f='codebrowser/game/physics/Physics_Base.cpp' l='581' u='c' c='_ZN14idPhysics_Base19RemoveContactEntityEP8idEntity'/>
+<use f='codebrowser/game/physics/Physics_Base.cpp' l='585' u='c' c='_ZN14idPhysics_Base19RemoveContactEntityEP8idEntity'/>
+<use f='codebrowser/game/physics/Physics_Base.cpp' l='759' u='c' c='_ZN14idPhysics_Base23ActivateContactEntitiesEv'/>
+<use f='codebrowser/game/physics/Physics_StaticMulti.cpp' l='155' u='c' c='_ZN21idPhysics_StaticMulti11RemoveIndexEib'/>
+<use f='codebrowser/game/physics/Physics_StaticMulti.cpp' l='156' u='c' c='_ZN21idPhysics_StaticMulti11RemoveIndexEib'/>
+<use f='codebrowser/game/script/Script_Program.cpp' l='1406' u='c' c='_ZN9idProgram7FreeDefEP8idVarDefPKS0_'/>
+<use f='codebrowser/idlib/Dict.cpp' l='504' u='c' c='_ZN6idDict6DeleteEPKc'/>
+<use f='codebrowser/idlib/MapFile.cpp' l='925' u='c' c='_ZN9idMapFile14RemoveEntitiesEPKc'/>
+<use f='codebrowser/renderer/Model.cpp' l='2289' u='c' c='_ZN19idRenderModelStatic19DeleteSurfaceWithIdEi'/>
+<use f='codebrowser/renderer/Model.cpp' l='2307' u='c' c='_ZN19idRenderModelStatic28DeleteSurfacesWithNegativeIdEv'/>
+<use f='codebrowser/renderer/ModelManager.cpp' l='425' u='c' c='_ZN25idRenderModelManagerLocal11RemoveModelEP13idRenderModel'/>
+<use f='codebrowser/renderer/ModelOverlay.cpp' l='226' u='c' c='_ZN20idRenderModelOverlay13CreateOverlayEPK13idRenderModelPK7idPlanePK10idMaterial'/>
+<use f='codebrowser/renderer/ModelOverlay.cpp' l='315' u='c' c='_ZN20idRenderModelOverlay25AddOverlaySurfacesToModelEP13idRenderModel'/>
+<use f='codebrowser/renderer/ModelOverlay.cpp' l='338' u='c' c='_ZN20idRenderModelOverlay25AddOverlaySurfacesToModelEP13idRenderModel'/>
+<use f='codebrowser/tools/compilers/aas/AASBuild_ledge.cpp' l='438' u='c' c='_ZN10idAASBuild8AddLedgeERK6idVec3S2_P14idBrushBSPNode'/>
+<use f='codebrowser/tools/compilers/aas/Brush.cpp' l='205' u='c' c='_ZN7idBrush25RemoveSidesWithoutWindingEv'/>
+<use f='codebrowser/tools/compilers/aas/Brush.cpp' l='599' u='c' c='_ZN7idBrush8TryMergeEPKS_RK10idPlaneSet'/>
+<use f='codebrowser/ui/DeviceContext.cpp' l='174' u='c' c='_ZN15idDeviceContext11PopClipRectEv'/>
+<use f='codebrowser/ui/GameBustOutWindow.cpp' l='851' u='c' c='_ZN19idGameBustOutWindow13ClearPowerupsEv'/>
+<use f='codebrowser/ui/GameBustOutWindow.cpp' l='863' u='c' c='_ZN19idGameBustOutWindow10ClearBallsEv'/>
+<use f='codebrowser/ui/GameBustOutWindow.cpp' l='1043' u='c' c='_ZN19idGameBustOutWindow14UpdatePowerupsEv'/>
+<use f='codebrowser/ui/GameBustOutWindow.cpp' l='1087' u='c' c='_ZN19idGameBustOutWindow14UpdatePowerupsEv'/>
+<use f='codebrowser/ui/GameBustOutWindow.cpp' l='1259' u='c' c='_ZN19idGameBustOutWindow10UpdateBallEv'/>
+<use f='codebrowser/ui/GameBustOutWindow.cpp' l='1333' u='c' c='_ZN19idGameBustOutWindow10UpdateGameEv'/>
+<use f='codebrowser/ui/GameSSDWindow.cpp' l='1807' u='c' c='_ZN15idGameSSDWindow10UpdateGameEv'/>
+<use f='codebrowser/ui/ListGUI.cpp' l='136' u='c' c='_ZN14idListGUILocal3DelEi'/>
+<use f='codebrowser/ui/ListGUI.cpp' l='137' u='c' c='_ZN14idListGUILocal3DelEi'/>
+<use f='codebrowser/ui/ListWindow.cpp' l='80' u='c' c='_ZN12idListWindow14ClearSelectionEi'/>
+<use f='codebrowser/ui/UserInterface.cpp' l='113' u='c' c='_ZN27idUserInterfaceManagerLocal12EndLevelLoadEv'/>
+<use f='codebrowser/ui/UserInterface.cpp' l='177' u='c' c='_ZN27idUserInterfaceManagerLocal7DeAllocEP15idUserInterface'/>
+<use f='codebrowser/ui/Window.cpp' l='2663' u='c' c='_ZN8idWindow9ResetTimeEi'/>
+<use f='codebrowser/ui/Window.cpp' l='3813' u='c' c='_ZN8idWindow16FixupTransitionsEv'/>
+<use f='codebrowser/ui/Window.cpp' l='4076' u='c' c='_ZN8idWindow11RemoveChildEPS_'/>

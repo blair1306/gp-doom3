@@ -1,0 +1,10 @@
+<dec f='codebrowser/renderer/RenderWorld.h' l='340' type='void idRenderWorld::SetPortalState(qhandle_t portal, int blockingBits)'/>
+<doc f='codebrowser/renderer/RenderWorld.h' l='338'>// doors explicitly close off portals when shut
+	// multiple bits can be set to block multiple things, ie: ( PS_VIEW | PS_LOCATION | PS_AIR )</doc>
+<use f='codebrowser/d3xp/Game_local.cpp' l='4367' u='c' c='_ZN11idGameLocal14SetPortalStateEii'/>
+<use f='codebrowser/d3xp/Game_network.cpp' l='1474' u='c' c='_ZN11idGameLocal28ClientProcessReliableMessageEiRK8idBitMsg'/>
+<use f='codebrowser/d3xp/Game_network.cpp' l='1482' u='c' c='_ZN11idGameLocal28ClientProcessReliableMessageEiRK8idBitMsg'/>
+<use f='codebrowser/game/Game_local.cpp' l='4069' u='c' c='_ZN11idGameLocal14SetPortalStateEii'/>
+<use f='codebrowser/game/Game_network.cpp' l='1434' u='c' c='_ZN11idGameLocal28ClientProcessReliableMessageEiRK8idBitMsg'/>
+<use f='codebrowser/game/Game_network.cpp' l='1442' u='c' c='_ZN11idGameLocal28ClientProcessReliableMessageEiRK8idBitMsg'/>
+<ovr f='codebrowser/renderer/RenderWorld_portals.cpp' l='985' c='_ZN18idRenderWorldLocal14SetPortalStateEii'/>

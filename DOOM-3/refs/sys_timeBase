@@ -1,0 +1,8 @@
+<def f='codebrowser/sys/posix/posix_main.cpp' l='162' type='unsigned long'/>
+<use f='codebrowser/sys/posix/posix_main.cpp' l='174' u='r' c='_Z16Sys_Millisecondsv'/>
+<use f='codebrowser/sys/posix/posix_main.cpp' l='175' u='w' c='_Z16Sys_Millisecondsv'/>
+<use f='codebrowser/sys/posix/posix_main.cpp' l='179' u='r' c='_Z16Sys_Millisecondsv'/>
+<doc f='codebrowser/sys/posix/posix_main.cpp' l='158'>/* base time in seconds, that&apos;s our origin
+   timeval:tv_sec is an int: 
+   assuming this wraps every 0x7fffffff - ~68 years since the Epoch (1970) - we&apos;re safe till 2038
+   using unsigned long data type to work right with Sys_XTimeToSysTime */</doc>

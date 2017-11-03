@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>mprintf.h source code [codebrowser/curl/include/curl/mprintf.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/curl/include/curl/mprintf.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>curl</a>/<a href='..'>include</a>/<a href='./'>curl</a>/<a href='mprintf.h.html'>mprintf.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/***************************************************************************</i></td></tr>
+<tr><th id="2">2</th><td><i> *                                  _   _ ____  _     </i></td></tr>
+<tr><th id="3">3</th><td><i> *  Project                     ___| | | |  _ \| |    </i></td></tr>
+<tr><th id="4">4</th><td><i> *                             / __| | | | |_) | |    </i></td></tr>
+<tr><th id="5">5</th><td><i> *                            | (__| |_| |  _ &lt;| |___ </i></td></tr>
+<tr><th id="6">6</th><td><i> *                             \___|\___/|_| \_\_____|</i></td></tr>
+<tr><th id="7">7</th><td><i> *</i></td></tr>
+<tr><th id="8">8</th><td><i> * Copyright (C) 1998 - 2004, Daniel Stenberg, &lt;daniel@haxx.se&gt;, et al.</i></td></tr>
+<tr><th id="9">9</th><td><i> *</i></td></tr>
+<tr><th id="10">10</th><td><i> * This software is licensed as described in the file COPYING, which</i></td></tr>
+<tr><th id="11">11</th><td><i> * you should have received as part of this distribution. The terms</i></td></tr>
+<tr><th id="12">12</th><td><i> * are also available at <a href="http://curl.haxx.se/docs/copyright.html">http://curl.haxx.se/docs/copyright.html</a>.</i></td></tr>
+<tr><th id="13">13</th><td><i> * </i></td></tr>
+<tr><th id="14">14</th><td><i> * You may opt to use, copy, modify, merge, publish, distribute and/or sell</i></td></tr>
+<tr><th id="15">15</th><td><i> * copies of the Software, and permit persons to whom the Software is</i></td></tr>
+<tr><th id="16">16</th><td><i> * furnished to do so, under the terms of the COPYING file.</i></td></tr>
+<tr><th id="17">17</th><td><i> *</i></td></tr>
+<tr><th id="18">18</th><td><i> * This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY</i></td></tr>
+<tr><th id="19">19</th><td><i> * KIND, either express or implied.</i></td></tr>
+<tr><th id="20">20</th><td><i> *</i></td></tr>
+<tr><th id="21">21</th><td><i> * $Id: mprintf.h,v 1.8 2004/01/07 09:19:34 bagder Exp $</i></td></tr>
+<tr><th id="22">22</th><td><i> ***************************************************************************/</i></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><u>#<span data-ppcond="24">ifndef</span> <span class="macro" data-ref="_M/H_MPRINTF">H_MPRINTF</span></u></td></tr>
+<tr><th id="25">25</th><td><u>#define <dfn class="macro" id="_M/H_MPRINTF" data-ref="_M/H_MPRINTF">H_MPRINTF</dfn></u></td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><u>#include &lt;stdarg.h&gt;</u></td></tr>
+<tr><th id="28">28</th><td><u>#include <a href="../../../../include/stdio.h.html">&lt;stdio.h&gt;</a> /* needed for FILE */</u></td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td><em>int</em> <dfn class="decl" id="curl_mprintf" title='curl_mprintf' data-ref="curl_mprintf">curl_mprintf</dfn>(<em>const</em> <em>char</em> *<dfn class="local col2 decl" id="2format" title='format' data-type='const char *' data-ref="2format">format</dfn>, ...);</td></tr>
+<tr><th id="31">31</th><td><em>int</em> <dfn class="decl" id="curl_mfprintf" title='curl_mfprintf' data-ref="curl_mfprintf">curl_mfprintf</dfn>(<a class="typedef" href="../../../../include/stdio.h.html#FILE" title='FILE' data-type='struct _IO_FILE' data-ref="FILE">FILE</a> *<dfn class="local col3 decl" id="3fd" title='fd' data-type='FILE *' data-ref="3fd">fd</dfn>, <em>const</em> <em>char</em> *<dfn class="local col4 decl" id="4format" title='format' data-type='const char *' data-ref="4format">format</dfn>, ...);</td></tr>
+<tr><th id="32">32</th><td><em>int</em> <dfn class="decl" id="curl_msprintf" title='curl_msprintf' data-ref="curl_msprintf">curl_msprintf</dfn>(<em>char</em> *<dfn class="local col5 decl" id="5buffer" title='buffer' data-type='char *' data-ref="5buffer">buffer</dfn>, <em>const</em> <em>char</em> *<dfn class="local col6 decl" id="6format" title='format' data-type='const char *' data-ref="6format">format</dfn>, ...);</td></tr>
+<tr><th id="33">33</th><td><em>int</em> <dfn class="decl" id="curl_msnprintf" title='curl_msnprintf' data-ref="curl_msnprintf">curl_msnprintf</dfn>(<em>char</em> *<dfn class="local col7 decl" id="7buffer" title='buffer' data-type='char *' data-ref="7buffer">buffer</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col8 decl" id="8maxlength" title='maxlength' data-type='size_t' data-ref="8maxlength">maxlength</dfn>, <em>const</em> <em>char</em> *<dfn class="local col9 decl" id="9format" title='format' data-type='const char *' data-ref="9format">format</dfn>, ...);</td></tr>
+<tr><th id="34">34</th><td><em>int</em> <dfn class="decl" id="curl_mvprintf" title='curl_mvprintf' data-ref="curl_mvprintf">curl_mvprintf</dfn>(<em>const</em> <em>char</em> *<dfn class="local col0 decl" id="10format" title='format' data-type='const char *' data-ref="10format">format</dfn>, <span class='typedef' title='va_list' data-type='__gnuc_va_list' data-ref="va_list">va_list</span> <dfn class="local col1 decl" id="11args" title='args' data-type='struct __va_list_tag *' data-ref="11args">args</dfn>);</td></tr>
+<tr><th id="35">35</th><td><em>int</em> <dfn class="decl" id="curl_mvfprintf" title='curl_mvfprintf' data-ref="curl_mvfprintf">curl_mvfprintf</dfn>(<a class="typedef" href="../../../../include/stdio.h.html#FILE" title='FILE' data-type='struct _IO_FILE' data-ref="FILE">FILE</a> *<dfn class="local col2 decl" id="12fd" title='fd' data-type='FILE *' data-ref="12fd">fd</dfn>, <em>const</em> <em>char</em> *<dfn class="local col3 decl" id="13format" title='format' data-type='const char *' data-ref="13format">format</dfn>, <span class='typedef' title='va_list' data-type='__gnuc_va_list' data-ref="va_list">va_list</span> <dfn class="local col4 decl" id="14args" title='args' data-type='struct __va_list_tag *' data-ref="14args">args</dfn>);</td></tr>
+<tr><th id="36">36</th><td><em>int</em> <dfn class="decl" id="curl_mvsprintf" title='curl_mvsprintf' data-ref="curl_mvsprintf">curl_mvsprintf</dfn>(<em>char</em> *<dfn class="local col5 decl" id="15buffer" title='buffer' data-type='char *' data-ref="15buffer">buffer</dfn>, <em>const</em> <em>char</em> *<dfn class="local col6 decl" id="16format" title='format' data-type='const char *' data-ref="16format">format</dfn>, <span class='typedef' title='va_list' data-type='__gnuc_va_list' data-ref="va_list">va_list</span> <dfn class="local col7 decl" id="17args" title='args' data-type='struct __va_list_tag *' data-ref="17args">args</dfn>);</td></tr>
+<tr><th id="37">37</th><td><em>int</em> <dfn class="decl" id="curl_mvsnprintf" title='curl_mvsnprintf' data-ref="curl_mvsnprintf">curl_mvsnprintf</dfn>(<em>char</em> *<dfn class="local col8 decl" id="18buffer" title='buffer' data-type='char *' data-ref="18buffer">buffer</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col9 decl" id="19maxlength" title='maxlength' data-type='size_t' data-ref="19maxlength">maxlength</dfn>, <em>const</em> <em>char</em> *<dfn class="local col0 decl" id="20format" title='format' data-type='const char *' data-ref="20format">format</dfn>, <span class='typedef' title='va_list' data-type='__gnuc_va_list' data-ref="va_list">va_list</span> <dfn class="local col1 decl" id="21args" title='args' data-type='struct __va_list_tag *' data-ref="21args">args</dfn>);</td></tr>
+<tr><th id="38">38</th><td><em>char</em> *<dfn class="decl" id="curl_maprintf" title='curl_maprintf' data-ref="curl_maprintf">curl_maprintf</dfn>(<em>const</em> <em>char</em> *<dfn class="local col2 decl" id="22format" title='format' data-type='const char *' data-ref="22format">format</dfn>, ...);</td></tr>
+<tr><th id="39">39</th><td><em>char</em> *<dfn class="decl" id="curl_mvaprintf" title='curl_mvaprintf' data-ref="curl_mvaprintf">curl_mvaprintf</dfn>(<em>const</em> <em>char</em> *<dfn class="local col3 decl" id="23format" title='format' data-type='const char *' data-ref="23format">format</dfn>, <span class='typedef' title='va_list' data-type='__gnuc_va_list' data-ref="va_list">va_list</span> <dfn class="local col4 decl" id="24args" title='args' data-type='struct __va_list_tag *' data-ref="24args">args</dfn>);</td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><u>#<span data-ppcond="41">ifdef</span> <a class="macro" href="../../lib/base64.c.html#40" data-ref="_M/_MPRINTF_REPLACE">_MPRINTF_REPLACE</a></u></td></tr>
+<tr><th id="42">42</th><td><u># define <dfn class="macro" id="_M/printf" data-ref="_M/printf">printf</dfn> curl_mprintf</u></td></tr>
+<tr><th id="43">43</th><td><u># define <dfn class="macro" id="_M/fprintf" data-ref="_M/fprintf">fprintf</dfn> curl_mfprintf</u></td></tr>
+<tr><th id="44">44</th><td><u># define <dfn class="macro" id="_M/sprintf" data-ref="_M/sprintf">sprintf</dfn> curl_msprintf</u></td></tr>
+<tr><th id="45">45</th><td><u># define <dfn class="macro" id="_M/snprintf" data-ref="_M/snprintf">snprintf</dfn> curl_msnprintf</u></td></tr>
+<tr><th id="46">46</th><td><u># define <dfn class="macro" id="_M/vprintf" data-ref="_M/vprintf">vprintf</dfn> curl_mvprintf</u></td></tr>
+<tr><th id="47">47</th><td><u># define <dfn class="macro" id="_M/vfprintf" data-ref="_M/vfprintf">vfprintf</dfn> curl_mvfprintf</u></td></tr>
+<tr><th id="48">48</th><td><u># define <dfn class="macro" id="_M/vsprintf" data-ref="_M/vsprintf">vsprintf</dfn> curl_mvsprintf</u></td></tr>
+<tr><th id="49">49</th><td><u># define <dfn class="macro" id="_M/vsnprintf" data-ref="_M/vsnprintf">vsnprintf</dfn> curl_mvsnprintf</u></td></tr>
+<tr><th id="50">50</th><td><u># define <dfn class="macro" id="_M/aprintf" data-ref="_M/aprintf">aprintf</dfn> curl_maprintf</u></td></tr>
+<tr><th id="51">51</th><td><u># define <dfn class="macro" id="_M/vaprintf" data-ref="_M/vaprintf">vaprintf</dfn> curl_mvaprintf</u></td></tr>
+<tr><th id="52">52</th><td><u>#<span data-ppcond="41">endif</span></u></td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td><u>#<span data-ppcond="24">endif</span> /* H_MPRINTF */</u></td></tr>
+<tr><th id="55">55</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../lib/base64.c.html'>codebrowser/curl/lib/base64.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

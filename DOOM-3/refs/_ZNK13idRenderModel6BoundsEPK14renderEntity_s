@@ -1,0 +1,29 @@
+<dec f='codebrowser/renderer/Model.h' l='277' type='idBounds idRenderModel::Bounds(const struct renderEntity_s * ent = __null) const'/>
+<doc f='codebrowser/renderer/Model.h' l='275'>// dynamic models should return a fast, conservative approximation
+	// static models should usually return the exact value</doc>
+<use f='codebrowser/cm/CollisionModel_load.cpp' l='3002' u='c' c='_ZN28idCollisionModelManagerLocal15LoadRenderModelEPKc'/>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='2638' u='c' c='_ZN20idAFEntity_SteamPipe21InitSteamRenderEntityEv'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='251' u='c' c='_ZN10idGameEdit28ParseSpawnArgsToRenderEntityEPK6idDictP14renderEntity_s'/>
+<use f='codebrowser/d3xp/Entity.cpp' l='1165' u='c' c='_ZN8idEntity8SetModelEPKc'/>
+<use f='codebrowser/d3xp/Fx.cpp' l='508' u='c' c='_ZN10idEntityFx3RunEi'/>
+<use f='codebrowser/d3xp/PlayerIcon.cpp' l='178' u='c' c='_ZN12idPlayerIcon10CreateIconEP8idPlayer16playerIconType_tPKcRK6idVec3RK6idMat3'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='1898' u='c' c='_ZN15idBFGProjectile5SpawnEv'/>
+<use f='codebrowser/d3xp/Projectile.cpp' l='2104' u='c' c='_ZN15idBFGProjectile6LaunchERK6idVec3S2_S2_fff'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='2454' u='c' c='_ZNK14idDeclModelDef11SetupJointsEPiPP10idJointMatR8idBoundsb'/>
+<use f='codebrowser/game/AFEntity.cpp' l='2360' u='c' c='_ZN20idAFEntity_SteamPipe21InitSteamRenderEntityEv'/>
+<use f='codebrowser/game/Entity.cpp' l='235' u='c' c='_ZN10idGameEdit28ParseSpawnArgsToRenderEntityEPK6idDictP14renderEntity_s'/>
+<use f='codebrowser/game/Entity.cpp' l='1096' u='c' c='_ZN8idEntity8SetModelEPKc'/>
+<use f='codebrowser/game/Fx.cpp' l='508' u='c' c='_ZN10idEntityFx3RunEi'/>
+<use f='codebrowser/game/PlayerIcon.cpp' l='163' u='c' c='_ZN12idPlayerIcon10CreateIconEP8idPlayer16playerIconType_tPKcRK6idVec3RK6idMat3'/>
+<use f='codebrowser/game/Projectile.cpp' l='1711' u='c' c='_ZN15idBFGProjectile5SpawnEv'/>
+<use f='codebrowser/game/Projectile.cpp' l='1892' u='c' c='_ZN15idBFGProjectile6LaunchERK6idVec3S2_S2_fff'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='2368' u='c' c='_ZNK14idDeclModelDef11SetupJointsEPiPP10idJointMatR8idBoundsb'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='831' u='c' c='_ZN13idInteraction17CreateInteractionEPK13idRenderModel'/>
+<ovr f='codebrowser/renderer/Model.cpp' l='470' c='_ZNK19idRenderModelStatic6BoundsEPK14renderEntity_s'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='537' u='c' c='_ZN18idRenderWorldLocal21ProjectDecalOntoWorldERK14idFixedWindingRK6idVec3bfPK10idMateriali'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='585' u='c' c='_ZN18idRenderWorldLocal12ProjectDecalEiRK14idFixedWindingRK6idVec3bfPK10idMateriali'/>
+<use f='codebrowser/renderer/RenderWorld.cpp' l='1225' u='c' c='_ZNK18idRenderWorldLocal5TraceER12modelTrace_sRK6idVec3S4_fbb'/>
+<use f='codebrowser/renderer/RenderWorld_load.cpp' l='662' u='c' c='_ZN18idRenderWorldLocal21AddWorldModelEntitiesEv'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1147' u='c' c='_Z23R_EntityDefDynamicModelP19idRenderEntityLocal'/>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='182' u='c' c='_Z18R_CreateEntityRefsP19idRenderEntityLocal'/>
+<use f='codebrowser/renderer/tr_rendertools.cpp' l='889' u='c' c='_ZL18RB_ShowViewEntitysP12viewEntity_s'/>

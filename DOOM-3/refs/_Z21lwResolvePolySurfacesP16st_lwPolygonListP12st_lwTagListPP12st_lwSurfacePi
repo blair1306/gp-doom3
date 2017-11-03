@@ -1,0 +1,12 @@
+<dec f='codebrowser/renderer/Model_lwo.h' l='587' type='int lwResolvePolySurfaces(lwPolygonList * polygon, lwTagList * tlist, lwSurface ** surf, int * nsurfs)'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='1630' u='c' c='_Z11lwGetObjectPKcPjPi'/>
+<use f='codebrowser/renderer/Model_lwo.cpp' l='2325' u='c' c='_Z12lwGetObject5PKcPjPi'/>
+<def f='codebrowser/renderer/Model_lwo.cpp' l='2676' ll='2715' type='int lwResolvePolySurfaces(lwPolygonList * polygon, lwTagList * tlist, lwSurface ** surf, int * nsurfs)'/>
+<doc f='codebrowser/renderer/Model_lwo.cpp' l='2667'>/*
+======================================================================
+lwResolvePolySurfaces()
+
+Convert tag indexes into actual lwSurface pointers.  If any polygons
+point to tags for which no corresponding surface can be found, a
+default surface is created.
+====================================================================== */</doc>

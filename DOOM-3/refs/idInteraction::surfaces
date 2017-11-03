@@ -1,0 +1,17 @@
+<dec f='codebrowser/renderer/Interaction.h' l='102' type='surfaceInteraction_t *'/>
+<offset>32</offset>
+<doc f='codebrowser/renderer/Interaction.h' l='99'>// if there is a whole-entity optimized shadow hull, it will
+	// be present as a surfaceInteraction_t with a NULL ambientTris, but
+	// possibly having a shader to specify the shadow sorting order</doc>
+<use f='codebrowser/renderer/Interaction.cpp' l='442' u='w' c='_ZN13idInteractionC1Ev'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='475' u='w' c='_ZN13idInteraction12AllocAndLinkEP19idRenderEntityLocalP18idRenderLightLocal'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='521' u='r' c='_ZN13idInteraction12FreeSurfacesEv'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='523' u='r' c='_ZN13idInteraction12FreeSurfacesEv'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='542' u='r' c='_ZN13idInteraction12FreeSurfacesEv'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='543' u='w' c='_ZN13idInteraction12FreeSurfacesEv'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='672' u='r' c='_ZN13idInteraction10MemoryUsedEv'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='853' u='w' c='_ZN13idInteraction17CreateInteractionEPK13idRenderModel'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='853' u='r' c='_ZN13idInteraction17CreateInteractionEPK13idRenderModel'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='882' u='r' c='_ZN13idInteraction17CreateInteractionEPK13idRenderModel'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='1096' u='r' c='_ZN13idInteraction20AddActiveInteractionEv'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='1288' u='r' c='_Z25R_ShowInteractionMemory_fRK9idCmdArgs'/>

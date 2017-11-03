@@ -1,0 +1,7 @@
+<dec f='codebrowser/curl/lib/urldata.h' l='296' type='bool'/>
+<offset>96</offset>
+<doc f='codebrowser/curl/lib/urldata.h' l='296'>/* used only to explicitly forbid chunk-upload for
+                         specific upload buffers. See readmoredata() in
+                         http.c for details. */</doc>
+<use f='codebrowser/curl/lib/http.c' l='457' u='w' c='readmoredata'/>
+<use f='codebrowser/curl/lib/transfer.c' l='145' u='r' c='fillbuffer'/>

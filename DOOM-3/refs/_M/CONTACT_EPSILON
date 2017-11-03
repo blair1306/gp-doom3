@@ -1,0 +1,70 @@
+<dec f='codebrowser/d3xp/physics/Physics.h' l='64'/>
+<doc f='codebrowser/d3xp/physics/Physics.h' l='32'>/*
+===============================================================================
+
+	Physics abstract class
+
+	A physics object is a tool to manipulate the position and orientation of
+	an entity. The physics object is a container for idClipModels used for
+	collision detection. The physics deals with moving these collision models
+	through the world according to the laws of physics or other rules.
+
+	The mass of a clip model is the volume of the clip model times the density.
+	An arbitrary mass can however be set for specific clip models or the
+	whole physics object. The contents of a clip model is a set of bit flags
+	that define the contents. The clip mask defines the contents a clip model
+	collides with.
+
+	The linear velocity of a physics object is a vector that defines the
+	translation of the center of mass in units per second. The angular velocity
+	of a physics object is a vector that passes through the center of mass. The
+	direction of this vector defines the axis of rotation and the magnitude
+	defines the rate of rotation about the axis in radians per second.
+	The gravity is the change in velocity per second due to gravitational force.
+
+	Entities update their visual position and orientation from the physics
+	using GetOrigin() and GetAxis(). Direct origin and axis changes of
+	entities should go through the physics. In other words the physics origin
+	and axis are updated first and the entity updates it&apos;s visual position
+	from the physics.
+
+===============================================================================
+*/</doc>
+<use f='codebrowser/d3xp/physics/Physics_Base.cpp' l='724' u='c'/>
+<use f='codebrowser/d3xp/physics/Physics_Monster.cpp' l='54' u='c'/>
+<use f='codebrowser/d3xp/physics/Physics_RigidBody.cpp' l='1367' u='c'/>
+<dec f='codebrowser/game/physics/Physics.h' l='64'/>
+<doc f='codebrowser/game/physics/Physics.h' l='32'>/*
+===============================================================================
+
+	Physics abstract class
+
+	A physics object is a tool to manipulate the position and orientation of
+	an entity. The physics object is a container for idClipModels used for
+	collision detection. The physics deals with moving these collision models
+	through the world according to the laws of physics or other rules.
+
+	The mass of a clip model is the volume of the clip model times the density.
+	An arbitrary mass can however be set for specific clip models or the
+	whole physics object. The contents of a clip model is a set of bit flags
+	that define the contents. The clip mask defines the contents a clip model
+	collides with.
+
+	The linear velocity of a physics object is a vector that defines the
+	translation of the center of mass in units per second. The angular velocity
+	of a physics object is a vector that passes through the center of mass. The
+	direction of this vector defines the axis of rotation and the magnitude
+	defines the rate of rotation about the axis in radians per second.
+	The gravity is the change in velocity per second due to gravitational force.
+
+	Entities update their visual position and orientation from the physics
+	using GetOrigin() and GetAxis(). Direct origin and axis changes of
+	entities should go through the physics. In other words the physics origin
+	and axis are updated first and the entity updates it&apos;s visual position
+	from the physics.
+
+===============================================================================
+*/</doc>
+<use f='codebrowser/game/physics/Physics_Base.cpp' l='724' u='c'/>
+<use f='codebrowser/game/physics/Physics_Monster.cpp' l='54' u='c'/>
+<use f='codebrowser/game/physics/Physics_RigidBody.cpp' l='1367' u='c'/>

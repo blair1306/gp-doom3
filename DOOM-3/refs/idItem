@@ -1,0 +1,100 @@
+<inh f='codebrowser/d3xp/Entity.h' l='107' c='idEntity'/>
+<def f='codebrowser/d3xp/Item.h' l='41' ll='102'/>
+<ovr f='codebrowser/d3xp/Item.h' l='104' c='idItemPowerup'/>
+<ovr f='codebrowser/d3xp/Item.h' l='121' c='idObjective'/>
+<ovr f='codebrowser/d3xp/Item.h' l='141' c='idVideoCDItem'/>
+<ovr f='codebrowser/d3xp/Item.h' l='149' c='idPDAItem'/>
+<ovr f='codebrowser/d3xp/Item.h' l='156' c='idMoveableItem'/>
+<size>908</size>
+<doc f='codebrowser/d3xp/Item.h' l='33'>/*
+===============================================================================
+
+  Items the player can pick up or use.
+
+===============================================================================
+*/</doc>
+<smbr r='idItem::Type' t='idTypeInfo'/>
+<fun r='_ZN6idItem14CreateInstanceEv'/>
+<fun r='_ZNK6idItem7GetTypeEv'/>
+<smbr r='idItem::eventCallbacks' t='idEventFunc&lt;idItem&gt; []'/>
+<fun r='_ZN6idItemC1Ev'/>
+<fun r='_ZN6idItemD1Ev'/>
+<fun r='_ZNK6idItem4SaveEP10idSaveGame'/>
+<fun r='_ZN6idItem7RestoreEP13idRestoreGame'/>
+<fun r='_ZN6idItem5SpawnEv'/>
+<fun r='_ZN6idItem13GetAttributesER6idDict'/>
+<fun r='_ZN6idItem12GiveToPlayerEP8idPlayer'/>
+<fun r='_ZN6idItem6PickupEP8idPlayer'/>
+<fun r='_ZN6idItem5ThinkEv'/>
+<fun r='_ZN6idItem7PresentEv'/>
+<fun r='_ZN6idItem21ClientPredictionThinkEv'/>
+<fun r='_ZN6idItem18ClientReceiveEventEiiRK8idBitMsg'/>
+<fun r='_ZNK6idItem15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN6idItem16ReadFromSnapshotERK13idBitMsgDelta'/>
+<mbr r='idItem::orgOrigin' o='6944' t='idVec3'/>
+<mbr r='idItem::spin' o='7040' t='bool'/>
+<mbr r='idItem::pulse' o='7048' t='bool'/>
+<mbr r='idItem::canPickUp' o='7056' t='bool'/>
+<mbr r='idItem::itemShellHandle' o='7072' t='int'/>
+<mbr r='idItem::shellMaterial' o='7104' t='const idMaterial *'/>
+<mbr r='idItem::inView' o='7136' t='bool'/>
+<mbr r='idItem::inViewTime' o='7168' t='int'/>
+<mbr r='idItem::lastCycle' o='7200' t='int'/>
+<mbr r='idItem::lastRenderViewTime' o='7232' t='int'/>
+<fun r='_ZNK6idItem18UpdateRenderEntityEP14renderEntity_sPK12renderView_s'/>
+<fun r='_ZN6idItem13ModelCallbackEP14renderEntity_sPK12renderView_s'/>
+<fun r='_ZN6idItem17Event_DropToFloorEv'/>
+<fun r='_ZN6idItem11Event_TouchEP8idEntityP7trace_s'/>
+<fun r='_ZN6idItem13Event_TriggerEP8idEntity'/>
+<fun r='_ZN6idItem13Event_RespawnEv'/>
+<fun r='_ZN6idItem15Event_RespawnFxEv'/>
+<inh f='codebrowser/game/Entity.h' l='107' c='idEntity'/>
+<def f='codebrowser/game/Item.h' l='41' ll='96'/>
+<ovr f='codebrowser/game/Item.h' l='98' c='idItemPowerup'/>
+<ovr f='codebrowser/game/Item.h' l='115' c='idObjective'/>
+<ovr f='codebrowser/game/Item.h' l='135' c='idVideoCDItem'/>
+<ovr f='codebrowser/game/Item.h' l='143' c='idPDAItem'/>
+<ovr f='codebrowser/game/Item.h' l='150' c='idMoveableItem'/>
+<size>676</size>
+<doc f='codebrowser/game/Item.h' l='33'>/*
+===============================================================================
+
+  Items the player can pick up or use.
+
+===============================================================================
+*/</doc>
+<smbr r='idItem::Type' t='idTypeInfo'/>
+<fun r='_ZN6idItem14CreateInstanceEv'/>
+<fun r='_ZNK6idItem7GetTypeEv'/>
+<smbr r='idItem::eventCallbacks' t='idEventFunc&lt;idItem&gt; []'/>
+<fun r='_ZN6idItemC1Ev'/>
+<fun r='_ZN6idItemD1Ev'/>
+<fun r='_ZNK6idItem4SaveEP10idSaveGame'/>
+<fun r='_ZN6idItem7RestoreEP13idRestoreGame'/>
+<fun r='_ZN6idItem5SpawnEv'/>
+<fun r='_ZN6idItem13GetAttributesER6idDict'/>
+<fun r='_ZN6idItem12GiveToPlayerEP8idPlayer'/>
+<fun r='_ZN6idItem6PickupEP8idPlayer'/>
+<fun r='_ZN6idItem5ThinkEv'/>
+<fun r='_ZN6idItem7PresentEv'/>
+<fun r='_ZN6idItem21ClientPredictionThinkEv'/>
+<fun r='_ZN6idItem18ClientReceiveEventEiiRK8idBitMsg'/>
+<fun r='_ZNK6idItem15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN6idItem16ReadFromSnapshotERK13idBitMsgDelta'/>
+<mbr r='idItem::orgOrigin' o='5088' t='idVec3'/>
+<mbr r='idItem::spin' o='5184' t='bool'/>
+<mbr r='idItem::pulse' o='5192' t='bool'/>
+<mbr r='idItem::canPickUp' o='5200' t='bool'/>
+<mbr r='idItem::itemShellHandle' o='5216' t='int'/>
+<mbr r='idItem::shellMaterial' o='5248' t='const idMaterial *'/>
+<mbr r='idItem::inView' o='5280' t='bool'/>
+<mbr r='idItem::inViewTime' o='5312' t='int'/>
+<mbr r='idItem::lastCycle' o='5344' t='int'/>
+<mbr r='idItem::lastRenderViewTime' o='5376' t='int'/>
+<fun r='_ZNK6idItem18UpdateRenderEntityEP14renderEntity_sPK12renderView_s'/>
+<fun r='_ZN6idItem13ModelCallbackEP14renderEntity_sPK12renderView_s'/>
+<fun r='_ZN6idItem17Event_DropToFloorEv'/>
+<fun r='_ZN6idItem11Event_TouchEP8idEntityP7trace_s'/>
+<fun r='_ZN6idItem13Event_TriggerEP8idEntity'/>
+<fun r='_ZN6idItem13Event_RespawnEv'/>
+<fun r='_ZN6idItem15Event_RespawnFxEv'/>

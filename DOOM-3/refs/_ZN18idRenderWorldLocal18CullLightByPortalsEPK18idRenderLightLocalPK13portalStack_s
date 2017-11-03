@@ -1,0 +1,11 @@
+<dec f='codebrowser/renderer/RenderWorld_local.h' l='203' type='bool idRenderWorldLocal::CullLightByPortals(const idRenderLightLocal * light, const struct portalStack_s * ps)'/>
+<def f='codebrowser/renderer/RenderWorld_portals.cpp' l='645' ll='714' type='bool idRenderWorldLocal::CullLightByPortals(const idRenderLightLocal * light, const portalStack_t * ps)'/>
+<use f='codebrowser/renderer/RenderWorld_portals.cpp' l='748' u='c' c='_ZN18idRenderWorldLocal16AddAreaLightRefsEiPK13portalStack_s'/>
+<doc f='codebrowser/renderer/RenderWorld_portals.cpp' l='637'>/*
+================
+CullLightByPortals
+
+Return true if the light frustum does not intersect the current portal chain.
+The last stack plane is not used because lights are not near clipped.
+================
+*/</doc>

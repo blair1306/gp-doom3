@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>getdate.h source code [codebrowser/curl/lib/getdate.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/curl/lib/getdate.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>curl</a>/<a href='./'>lib</a>/<a href='getdate.h.html'>getdate.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>**  Originally written by Steven M. Bellovin &lt;smb@research.att.com&gt; while</i></td></tr>
+<tr><th id="3">3</th><td><i>**  at the University of North Carolina at Chapel Hill.  Later tweaked by</i></td></tr>
+<tr><th id="4">4</th><td><i>**  a couple of people on Usenet.  Completely overhauled by Rich $alz</i></td></tr>
+<tr><th id="5">5</th><td><i>**  &lt;rsalz@bbn.com&gt; and Jim Berets &lt;jberets@bbn.com&gt; in August, 1990.</i></td></tr>
+<tr><th id="6">6</th><td><i>**</i></td></tr>
+<tr><th id="7">7</th><td><i>**  This code is in the public domain and has no copyright.</i></td></tr>
+<tr><th id="8">8</th><td><i>*/</i></td></tr>
+<tr><th id="9">9</th><td></td></tr>
+<tr><th id="10">10</th><td><u># include <a href="setup.h.html">"setup.h"</a></u></td></tr>
+<tr><th id="11">11</th><td></td></tr>
+<tr><th id="12">12</th><td><u>#<span data-ppcond="12">ifndef</span> <span class="macro" data-ref="_M/PARAMS">PARAMS</span></u></td></tr>
+<tr><th id="13">13</th><td><u># <span data-ppcond="13">if</span> defined <span class="macro" data-ref="_M/PROTOTYPES">PROTOTYPES</span> || (defined <span class="macro" data-ref="_M/__STDC__">__STDC__</span> &amp;&amp; <span class="macro" title="1" data-ref="_M/__STDC__">__STDC__</span>)</u></td></tr>
+<tr><th id="14">14</th><td><u>#  define <dfn class="macro" id="_M/PARAMS" data-ref="_M/PARAMS">PARAMS</dfn>(Args) Args</u></td></tr>
+<tr><th id="15">15</th><td><u># <span data-ppcond="13">else</span></u></td></tr>
+<tr><th id="16">16</th><td><u>#  define PARAMS(Args) ()</u></td></tr>
+<tr><th id="17">17</th><td><u># <span data-ppcond="13">endif</span></u></td></tr>
+<tr><th id="18">18</th><td><u>#<span data-ppcond="12">endif</span></u></td></tr>
+<tr><th id="19">19</th><td></td></tr>
+<tr><th id="20">20</th><td><u>#<span data-ppcond="20">ifdef</span> <span class="macro" data-ref="_M/vms">vms</span></u></td></tr>
+<tr><th id="21">21</th><td><u># include &lt;types.h&gt;</u></td></tr>
+<tr><th id="22">22</th><td><u># include &lt;time.h&gt;</u></td></tr>
+<tr><th id="23">23</th><td><u>#<span data-ppcond="20">else</span></u></td></tr>
+<tr><th id="24">24</th><td><u># include <a href="../../../include/x86_64-linux-gnu/sys/types.h.html">&lt;sys/types.h&gt;</a></u></td></tr>
+<tr><th id="25">25</th><td><u># <span data-ppcond="25">if</span> <a class="macro" href="config.h.html#449" title="1" data-ref="_M/TIME_WITH_SYS_TIME">TIME_WITH_SYS_TIME</a></u></td></tr>
+<tr><th id="26">26</th><td><u>#  include <a href="../../../include/x86_64-linux-gnu/sys/time.h.html">&lt;sys/time.h&gt;</a></u></td></tr>
+<tr><th id="27">27</th><td><u>#  include <a href="../../../include/time.h.html">&lt;time.h&gt;</a></u></td></tr>
+<tr><th id="28">28</th><td><u># <span data-ppcond="25">else</span></u></td></tr>
+<tr><th id="29">29</th><td><u>#  if HAVE_SYS_TIME_H</u></td></tr>
+<tr><th id="30">30</th><td><u>#   include &lt;sys/time.h&gt;</u></td></tr>
+<tr><th id="31">31</th><td><u>#  else</u></td></tr>
+<tr><th id="32">32</th><td><u>#   include &lt;time.h&gt;</u></td></tr>
+<tr><th id="33">33</th><td><u>#  endif</u></td></tr>
+<tr><th id="34">34</th><td><u># <span data-ppcond="25">endif</span></u></td></tr>
+<tr><th id="35">35</th><td><u>#<span data-ppcond="20">endif</span> /* defined (vms) */</u></td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><a class="typedef" href="../../../include/time.h.html#time_t" title='time_t' data-type='__time_t' data-ref="time_t">time_t</a> <a class="decl" href="../include/curl/curl.h.html#curl_getdate" title='curl_getdate' data-ref="curl_getdate" id="curl_getdate">curl_getdate</a> <a class="macro" href="#14" title="(const char *p, const time_t *now)" data-ref="_M/PARAMS">PARAMS</a> ((<em>const</em> <em>char</em> *<dfn class="local col1 decl" id="1p" title='p' data-type='const char *' data-ref="1p">p</dfn>, <em>const</em> <a class="typedef" href="../../../include/time.h.html#time_t" title='time_t' data-type='__time_t' data-ref="time_t">time_t</a> *<dfn class="local col2 decl" id="2now" title='now' data-type='const time_t *' data-ref="2now">now</dfn>));</td></tr>
+<tr><th id="38">38</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='cookie.c.html'>codebrowser/curl/lib/cookie.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

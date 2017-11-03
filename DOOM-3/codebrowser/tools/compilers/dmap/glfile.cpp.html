@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>glfile.cpp source code [codebrowser/tools/compilers/dmap/glfile.cpp] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/tools/compilers/dmap/glfile.cpp'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>tools</a>/<a href='..'>compilers</a>/<a href='./'>dmap</a>/<a href='glfile.cpp.html'>glfile.cpp</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="../../../idlib/precompiled.h.html">"../../../idlib/precompiled.h"</a></u></td></tr>
+<tr><th id="30">30</th><td><u>#pragma hdrstop</u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="dmap.h.html">"dmap.h"</a></u></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><em>int</em>		<dfn class="decl def" id="c_glfaces" title='c_glfaces' data-ref="c_glfaces">c_glfaces</dfn>;</td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><em>int</em> <dfn class="decl def" id="_Z18PortalVisibleSidesP9uPortal_s" title='PortalVisibleSides' data-ref="_Z18PortalVisibleSidesP9uPortal_s">PortalVisibleSides</dfn>( <a class="typedef" href="dmap.h.html#uPortal_t" title='uPortal_t' data-type='struct uPortal_s' data-ref="uPortal_t">uPortal_t</a> *<dfn class="local col1 decl" id="1p" title='p' data-type='uPortal_t *' data-ref="1p">p</dfn> )</td></tr>
+<tr><th id="37">37</th><td>{</td></tr>
+<tr><th id="38">38</th><td>	<em>int</em>		<dfn class="local col2 decl" id="2fcon" title='fcon' data-type='int' data-ref="2fcon">fcon</dfn>, <dfn class="local col3 decl" id="3bcon" title='bcon' data-type='int' data-ref="3bcon">bcon</dfn>;</td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td>	<b>if</b> (!<a class="local col1 ref" href="#1p" title='p' data-ref="1p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::onnode" title='uPortal_s::onnode' data-ref="uPortal_s::onnode">onnode</a>)</td></tr>
+<tr><th id="41">41</th><td>		<b>return</b> <var>0</var>;		<i>// outside</i></td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td>	<a class="local col2 ref" href="#2fcon" title='fcon' data-ref="2fcon">fcon</a> = <a class="local col1 ref" href="#1p" title='p' data-ref="1p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>0</var>]-&gt;<a class="ref" href="dmap.h.html#node_s::opaque" title='node_s::opaque' data-ref="node_s::opaque">opaque</a>;</td></tr>
+<tr><th id="44">44</th><td>	<a class="local col3 ref" href="#3bcon" title='bcon' data-ref="3bcon">bcon</a> = <a class="local col1 ref" href="#1p" title='p' data-ref="1p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>1</var>]-&gt;<a class="ref" href="dmap.h.html#node_s::opaque" title='node_s::opaque' data-ref="node_s::opaque">opaque</a>;</td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td>	<i>// same contents never create a face</i></td></tr>
+<tr><th id="47">47</th><td>	<b>if</b> (<a class="local col2 ref" href="#2fcon" title='fcon' data-ref="2fcon">fcon</a> == <a class="local col3 ref" href="#3bcon" title='bcon' data-ref="3bcon">bcon</a>)</td></tr>
+<tr><th id="48">48</th><td>		<b>return</b> <var>0</var>;</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td>	<b>if</b> (!<a class="local col2 ref" href="#2fcon" title='fcon' data-ref="2fcon">fcon</a>)</td></tr>
+<tr><th id="51">51</th><td>		<b>return</b> <var>1</var>;</td></tr>
+<tr><th id="52">52</th><td>	<b>if</b> (!<a class="local col3 ref" href="#3bcon" title='bcon' data-ref="3bcon">bcon</a>)</td></tr>
+<tr><th id="53">53</th><td>		<b>return</b> <var>2</var>;</td></tr>
+<tr><th id="54">54</th><td>	<b>return</b> <var>0</var>;</td></tr>
+<tr><th id="55">55</th><td>}</td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td><em>void</em> <dfn class="decl def" id="_Z13OutputWindingP9idWindingP6idFile" title='OutputWinding' data-ref="_Z13OutputWindingP9idWindingP6idFile">OutputWinding</dfn>( <a class="type" href="../../../idlib/geometry/Winding.h.html#idWinding" title='idWinding' data-ref="idWinding">idWinding</a> *<dfn class="local col4 decl" id="4w" title='w' data-type='idWinding *' data-ref="4w">w</dfn>, <a class="type" href="../../../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col5 decl" id="5glview" title='glview' data-type='idFile *' data-ref="5glview">glview</dfn> )</td></tr>
+<tr><th id="58">58</th><td>{</td></tr>
+<tr><th id="59">59</th><td>	<em>static</em>	<em>int</em>	<dfn class="local col6 decl" id="6level" title='level' data-type='int' data-ref="6level">level</dfn> = <var>128</var>;</td></tr>
+<tr><th id="60">60</th><td>	<em>float</em>		<dfn class="local col7 decl" id="7light" title='light' data-type='float' data-ref="7light">light</dfn>;</td></tr>
+<tr><th id="61">61</th><td>	<em>int</em>			<dfn class="local col8 decl" id="8i" title='i' data-type='int' data-ref="8i">i</dfn>;</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td>	<a class="local col5 ref" href="#5glview" title='glview' data-ref="5glview">glview</a>-&gt;<a class="virtual ref" href="../../../framework/File.h.html#_ZN6idFile16WriteFloatStringEPKcz" title='idFile::WriteFloatString' data-ref="_ZN6idFile16WriteFloatStringEPKcz">WriteFloatString</a>( <q>"%i\n"</q>, <a class="local col4 ref" href="#4w" title='w' data-ref="4w">w</a>-&gt;<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZNK9idWinding12GetNumPointsEv" title='idWinding::GetNumPoints' data-ref="_ZNK9idWinding12GetNumPointsEv">GetNumPoints</a>() );</td></tr>
+<tr><th id="64">64</th><td>	<a class="local col6 ref" href="#6level" title='level' data-ref="6level">level</a> += <var>28</var>;</td></tr>
+<tr><th id="65">65</th><td>	<a class="local col7 ref" href="#7light" title='light' data-ref="7light">light</a> = (<a class="local col6 ref" href="#6level" title='level' data-ref="6level">level</a>&amp;<var>255</var>)/<var>255.0</var>;</td></tr>
+<tr><th id="66">66</th><td>	<b>for</b> ( <a class="local col8 ref" href="#8i" title='i' data-ref="8i">i</a> = <var>0</var>; <a class="local col8 ref" href="#8i" title='i' data-ref="8i">i</a> &lt; <a class="local col4 ref" href="#4w" title='w' data-ref="4w">w</a>-&gt;<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZNK9idWinding12GetNumPointsEv" title='idWinding::GetNumPoints' data-ref="_ZNK9idWinding12GetNumPointsEv">GetNumPoints</a>(); <a class="local col8 ref" href="#8i" title='i' data-ref="8i">i</a>++ ) {</td></tr>
+<tr><th id="67">67</th><td>		<a class="local col5 ref" href="#5glview" title='glview' data-ref="5glview">glview</a>-&gt;<a class="virtual ref" href="../../../framework/File.h.html#_ZN6idFile16WriteFloatStringEPKcz" title='idFile::WriteFloatString' data-ref="_ZN6idFile16WriteFloatStringEPKcz">WriteFloatString</a>( <q>"%6.3f %6.3f %6.3f %6.3f %6.3f %6.3f\n"</q>,</td></tr>
+<tr><th id="68">68</th><td>			(*<a class="local col4 ref" href="#4w" title='w' data-ref="4w">w</a>)<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZN9idWindingixEi" title='idWinding::operator[]' data-ref="_ZN9idWindingixEi">[<a class="local col8 ref" href="#8i" title='i' data-ref="8i">i</a>]</a><a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec5ixEi" title='idVec5::operator[]' data-ref="_ZN6idVec5ixEi">[<var>0</var>]</a>,</td></tr>
+<tr><th id="69">69</th><td>			(*<a class="local col4 ref" href="#4w" title='w' data-ref="4w">w</a>)<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZN9idWindingixEi" title='idWinding::operator[]' data-ref="_ZN9idWindingixEi">[<a class="local col8 ref" href="#8i" title='i' data-ref="8i">i</a>]</a><a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec5ixEi" title='idVec5::operator[]' data-ref="_ZN6idVec5ixEi">[<var>1</var>]</a>,</td></tr>
+<tr><th id="70">70</th><td>			(*<a class="local col4 ref" href="#4w" title='w' data-ref="4w">w</a>)<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZN9idWindingixEi" title='idWinding::operator[]' data-ref="_ZN9idWindingixEi">[<a class="local col8 ref" href="#8i" title='i' data-ref="8i">i</a>]</a><a class="ref" href="../../../idlib/math/Vector.h.html#_ZN6idVec5ixEi" title='idVec5::operator[]' data-ref="_ZN6idVec5ixEi">[<var>2</var>]</a>,</td></tr>
+<tr><th id="71">71</th><td>			<a class="local col7 ref" href="#7light" title='light' data-ref="7light">light</a>,</td></tr>
+<tr><th id="72">72</th><td>			<a class="local col7 ref" href="#7light" title='light' data-ref="7light">light</a>,</td></tr>
+<tr><th id="73">73</th><td>			<a class="local col7 ref" href="#7light" title='light' data-ref="7light">light</a> );</td></tr>
+<tr><th id="74">74</th><td>	}</td></tr>
+<tr><th id="75">75</th><td>	<a class="local col5 ref" href="#5glview" title='glview' data-ref="5glview">glview</a>-&gt;<a class="virtual ref" href="../../../framework/File.h.html#_ZN6idFile16WriteFloatStringEPKcz" title='idFile::WriteFloatString' data-ref="_ZN6idFile16WriteFloatStringEPKcz">WriteFloatString</a>( <q>"\n"</q> );</td></tr>
+<tr><th id="76">76</th><td>}</td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td><i>/*</i></td></tr>
+<tr><th id="79">79</th><td><i>=============</i></td></tr>
+<tr><th id="80">80</th><td><i>OutputPortal</i></td></tr>
+<tr><th id="81">81</th><td><i>=============</i></td></tr>
+<tr><th id="82">82</th><td><i>*/</i></td></tr>
+<tr><th id="83">83</th><td><em>void</em> <dfn class="decl def" id="_Z12OutputPortalP9uPortal_sP6idFile" title='OutputPortal' data-ref="_Z12OutputPortalP9uPortal_sP6idFile">OutputPortal</dfn>( <a class="typedef" href="dmap.h.html#uPortal_t" title='uPortal_t' data-type='struct uPortal_s' data-ref="uPortal_t">uPortal_t</a> *<dfn class="local col9 decl" id="9p" title='p' data-type='uPortal_t *' data-ref="9p">p</dfn>, <a class="type" href="../../../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col0 decl" id="10glview" title='glview' data-type='idFile *' data-ref="10glview">glview</dfn> ) {</td></tr>
+<tr><th id="84">84</th><td>	<a class="type" href="../../../idlib/geometry/Winding.h.html#idWinding" title='idWinding' data-ref="idWinding">idWinding</a>	*<dfn class="local col1 decl" id="11w" title='w' data-type='idWinding *' data-ref="11w">w</dfn>;</td></tr>
+<tr><th id="85">85</th><td>	<em>int</em>		<dfn class="local col2 decl" id="12sides" title='sides' data-type='int' data-ref="12sides">sides</dfn>;</td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td>	<a class="local col2 ref" href="#12sides" title='sides' data-ref="12sides">sides</a> = <a class="ref" href="#_Z18PortalVisibleSidesP9uPortal_s" title='PortalVisibleSides' data-ref="_Z18PortalVisibleSidesP9uPortal_s">PortalVisibleSides</a>( <a class="local col9 ref" href="#9p" title='p' data-ref="9p">p</a> );</td></tr>
+<tr><th id="88">88</th><td>	<b>if</b> ( !<a class="local col2 ref" href="#12sides" title='sides' data-ref="12sides">sides</a> ) {</td></tr>
+<tr><th id="89">89</th><td>		<b>return</b>;</td></tr>
+<tr><th id="90">90</th><td>	}</td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td>	<a class="ref" href="#c_glfaces" title='c_glfaces' data-ref="c_glfaces">c_glfaces</a>++;</td></tr>
+<tr><th id="93">93</th><td></td></tr>
+<tr><th id="94">94</th><td>	<a class="local col1 ref" href="#11w" title='w' data-ref="11w">w</a> = <a class="local col9 ref" href="#9p" title='p' data-ref="9p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::winding" title='uPortal_s::winding' data-ref="uPortal_s::winding">winding</a>;</td></tr>
+<tr><th id="95">95</th><td></td></tr>
+<tr><th id="96">96</th><td>	<b>if</b> ( <a class="local col2 ref" href="#12sides" title='sides' data-ref="12sides">sides</a> == <var>2</var> ) {		<i>// back side</i></td></tr>
+<tr><th id="97">97</th><td>		<a class="local col1 ref" href="#11w" title='w' data-ref="11w">w</a> = <a class="local col1 ref" href="#11w" title='w' data-ref="11w">w</a>-&gt;<a class="ref" href="../../../idlib/geometry/Winding.h.html#_ZNK9idWinding7ReverseEv" title='idWinding::Reverse' data-ref="_ZNK9idWinding7ReverseEv">Reverse</a>();</td></tr>
+<tr><th id="98">98</th><td>	}</td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td>	<a class="ref" href="#_Z13OutputWindingP9idWindingP6idFile" title='OutputWinding' data-ref="_Z13OutputWindingP9idWindingP6idFile">OutputWinding</a>( <a class="local col1 ref" href="#11w" title='w' data-ref="11w">w</a>, <a class="local col0 ref" href="#10glview" title='glview' data-ref="10glview">glview</a> );</td></tr>
+<tr><th id="101">101</th><td></td></tr>
+<tr><th id="102">102</th><td>	<b>if</b> ( <a class="local col2 ref" href="#12sides" title='sides' data-ref="12sides">sides</a> == <var>2</var> ) {</td></tr>
+<tr><th id="103">103</th><td>		<b>delete</b> <a class="local col1 ref" href="#11w" title='w' data-ref="11w">w</a>;</td></tr>
+<tr><th id="104">104</th><td>	}</td></tr>
+<tr><th id="105">105</th><td>}</td></tr>
+<tr><th id="106">106</th><td></td></tr>
+<tr><th id="107">107</th><td><i>/*</i></td></tr>
+<tr><th id="108">108</th><td><i>=============</i></td></tr>
+<tr><th id="109">109</th><td><i>WriteGLView_r</i></td></tr>
+<tr><th id="110">110</th><td><i>=============</i></td></tr>
+<tr><th id="111">111</th><td><i>*/</i></td></tr>
+<tr><th id="112">112</th><td><em>void</em> <dfn class="decl def" id="_Z13WriteGLView_rP6node_sP6idFile" title='WriteGLView_r' data-ref="_Z13WriteGLView_rP6node_sP6idFile">WriteGLView_r</dfn>( <a class="typedef" href="dmap.h.html#node_t" title='node_t' data-type='struct node_s' data-ref="node_t">node_t</a> *<dfn class="local col3 decl" id="13node" title='node' data-type='node_t *' data-ref="13node">node</dfn>, <a class="type" href="../../../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col4 decl" id="14glview" title='glview' data-type='idFile *' data-ref="14glview">glview</dfn> )</td></tr>
+<tr><th id="113">113</th><td>{</td></tr>
+<tr><th id="114">114</th><td>	<a class="typedef" href="dmap.h.html#uPortal_t" title='uPortal_t' data-type='struct uPortal_s' data-ref="uPortal_t">uPortal_t</a>	*<dfn class="local col5 decl" id="15p" title='p' data-type='uPortal_t *' data-ref="15p">p</dfn>, *<dfn class="local col6 decl" id="16nextp" title='nextp' data-type='uPortal_t *' data-ref="16nextp">nextp</dfn>;</td></tr>
+<tr><th id="115">115</th><td></td></tr>
+<tr><th id="116">116</th><td>	<b>if</b> ( <a class="local col3 ref" href="#13node" title='node' data-ref="13node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::planenum" title='node_s::planenum' data-ref="node_s::planenum">planenum</a> != <a class="macro" href="dmap.h.html#81" title="-1" data-ref="_M/PLANENUM_LEAF">PLANENUM_LEAF</a> )</td></tr>
+<tr><th id="117">117</th><td>	{</td></tr>
+<tr><th id="118">118</th><td>		<a class="ref" href="#_Z13WriteGLView_rP6node_sP6idFile" title='WriteGLView_r' data-ref="_Z13WriteGLView_rP6node_sP6idFile">WriteGLView_r</a>( <a class="local col3 ref" href="#13node" title='node' data-ref="13node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::children" title='node_s::children' data-ref="node_s::children">children</a>[<var>0</var>], <a class="local col4 ref" href="#14glview" title='glview' data-ref="14glview">glview</a> );</td></tr>
+<tr><th id="119">119</th><td>		<a class="ref" href="#_Z13WriteGLView_rP6node_sP6idFile" title='WriteGLView_r' data-ref="_Z13WriteGLView_rP6node_sP6idFile">WriteGLView_r</a>( <a class="local col3 ref" href="#13node" title='node' data-ref="13node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::children" title='node_s::children' data-ref="node_s::children">children</a>[<var>1</var>], <a class="local col4 ref" href="#14glview" title='glview' data-ref="14glview">glview</a> );</td></tr>
+<tr><th id="120">120</th><td>		<b>return</b>;</td></tr>
+<tr><th id="121">121</th><td>	}</td></tr>
+<tr><th id="122">122</th><td></td></tr>
+<tr><th id="123">123</th><td>	<i>// write all the portals</i></td></tr>
+<tr><th id="124">124</th><td>	<b>for</b> ( <a class="local col5 ref" href="#15p" title='p' data-ref="15p">p</a> = <a class="local col3 ref" href="#13node" title='node' data-ref="13node">node</a>-&gt;<a class="ref" href="dmap.h.html#node_s::portals" title='node_s::portals' data-ref="node_s::portals">portals</a>; <a class="local col5 ref" href="#15p" title='p' data-ref="15p">p</a>; <a class="local col5 ref" href="#15p" title='p' data-ref="15p">p</a> = <a class="local col6 ref" href="#16nextp" title='nextp' data-ref="16nextp">nextp</a> )</td></tr>
+<tr><th id="125">125</th><td>	{</td></tr>
+<tr><th id="126">126</th><td>		<b>if</b> ( <a class="local col5 ref" href="#15p" title='p' data-ref="15p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::nodes" title='uPortal_s::nodes' data-ref="uPortal_s::nodes">nodes</a>[<var>0</var>] == <a class="local col3 ref" href="#13node" title='node' data-ref="13node">node</a> )</td></tr>
+<tr><th id="127">127</th><td>		{</td></tr>
+<tr><th id="128">128</th><td>			<a class="ref" href="#_Z12OutputPortalP9uPortal_sP6idFile" title='OutputPortal' data-ref="_Z12OutputPortalP9uPortal_sP6idFile">OutputPortal</a>( <a class="local col5 ref" href="#15p" title='p' data-ref="15p">p</a>, <a class="local col4 ref" href="#14glview" title='glview' data-ref="14glview">glview</a> );</td></tr>
+<tr><th id="129">129</th><td>			<a class="local col6 ref" href="#16nextp" title='nextp' data-ref="16nextp">nextp</a> = <a class="local col5 ref" href="#15p" title='p' data-ref="15p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::next" title='uPortal_s::next' data-ref="uPortal_s::next">next</a>[<var>0</var>];</td></tr>
+<tr><th id="130">130</th><td>		}</td></tr>
+<tr><th id="131">131</th><td>		<b>else</b> {</td></tr>
+<tr><th id="132">132</th><td>			<a class="local col6 ref" href="#16nextp" title='nextp' data-ref="16nextp">nextp</a> = <a class="local col5 ref" href="#15p" title='p' data-ref="15p">p</a>-&gt;<a class="ref" href="dmap.h.html#uPortal_s::next" title='uPortal_s::next' data-ref="uPortal_s::next">next</a>[<var>1</var>];</td></tr>
+<tr><th id="133">133</th><td>		}</td></tr>
+<tr><th id="134">134</th><td>	}</td></tr>
+<tr><th id="135">135</th><td>}</td></tr>
+<tr><th id="136">136</th><td></td></tr>
+<tr><th id="137">137</th><td><i>/*</i></td></tr>
+<tr><th id="138">138</th><td><i>=============</i></td></tr>
+<tr><th id="139">139</th><td><i>WriteGLView</i></td></tr>
+<tr><th id="140">140</th><td><i>=============</i></td></tr>
+<tr><th id="141">141</th><td><i>*/</i></td></tr>
+<tr><th id="142">142</th><td><em>void</em> <dfn class="decl def" id="_Z11WriteGLViewP6tree_sPc" title='WriteGLView' data-ref="_Z11WriteGLViewP6tree_sPc">WriteGLView</dfn>( <a class="typedef" href="dmap.h.html#tree_t" title='tree_t' data-type='struct tree_s' data-ref="tree_t">tree_t</a> *<dfn class="local col7 decl" id="17tree" title='tree' data-type='tree_t *' data-ref="17tree">tree</dfn>, <em>char</em> *<dfn class="local col8 decl" id="18source" title='source' data-type='char *' data-ref="18source">source</dfn> )</td></tr>
+<tr><th id="143">143</th><td>{</td></tr>
+<tr><th id="144">144</th><td>	<a class="type" href="../../../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col9 decl" id="19glview" title='glview' data-type='idFile *' data-ref="19glview">glview</dfn>;</td></tr>
+<tr><th id="145">145</th><td></td></tr>
+<tr><th id="146">146</th><td>	<a class="ref" href="#c_glfaces" title='c_glfaces' data-ref="c_glfaces">c_glfaces</a> = <var>0</var>;</td></tr>
+<tr><th id="147">147</th><td>	<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"Writing %s\n"</q>, <a class="local col8 ref" href="#18source" title='source' data-ref="18source">source</a> );</td></tr>
+<tr><th id="148">148</th><td></td></tr>
+<tr><th id="149">149</th><td>	<a class="local col9 ref" href="#19glview" title='glview' data-ref="19glview">glview</a> = <a class="ref" href="../../../framework/FileSystem.h.html#fileSystem" title='fileSystem' data-ref="fileSystem">fileSystem</a>-&gt;<a class="virtual ref" href="../../../framework/FileSystem.h.html#_ZN12idFileSystem21OpenExplicitFileWriteEPKc" title='idFileSystem::OpenExplicitFileWrite' data-ref="_ZN12idFileSystem21OpenExplicitFileWriteEPKc">OpenExplicitFileWrite</a>( <a class="local col8 ref" href="#18source" title='source' data-ref="18source">source</a> );</td></tr>
+<tr><th id="150">150</th><td>	<b>if</b> ( !<a class="local col9 ref" href="#19glview" title='glview' data-ref="19glview">glview</a> ) {</td></tr>
+<tr><th id="151">151</th><td>		<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon5ErrorEPKcz" title='idCommon::Error' data-ref="_ZN8idCommon5ErrorEPKcz">Error</a>( <q>"Couldn't open %s"</q>, <a class="local col8 ref" href="#18source" title='source' data-ref="18source">source</a> );</td></tr>
+<tr><th id="152">152</th><td>	}</td></tr>
+<tr><th id="153">153</th><td>	<a class="ref" href="#_Z13WriteGLView_rP6node_sP6idFile" title='WriteGLView_r' data-ref="_Z13WriteGLView_rP6node_sP6idFile">WriteGLView_r</a>( <a class="local col7 ref" href="#17tree" title='tree' data-ref="17tree">tree</a>-&gt;<a class="ref" href="dmap.h.html#tree_s::headnode" title='tree_s::headnode' data-ref="tree_s::headnode">headnode</a>, <a class="local col9 ref" href="#19glview" title='glview' data-ref="19glview">glview</a> );</td></tr>
+<tr><th id="154">154</th><td>	<a class="ref" href="../../../framework/FileSystem.h.html#fileSystem" title='fileSystem' data-ref="fileSystem">fileSystem</a>-&gt;<a class="virtual ref" href="../../../framework/FileSystem.h.html#_ZN12idFileSystem9CloseFileEP6idFile" title='idFileSystem::CloseFile' data-ref="_ZN12idFileSystem9CloseFileEP6idFile">CloseFile</a>( <a class="local col9 ref" href="#19glview" title='glview' data-ref="19glview">glview</a> );</td></tr>
+<tr><th id="155">155</th><td></td></tr>
+<tr><th id="156">156</th><td>	<a class="ref" href="../../../framework/Common.h.html#common" title='common' data-ref="common">common</a>-&gt;<a class="virtual ref" href="../../../framework/Common.h.html#_ZN8idCommon6PrintfEPKcz" title='idCommon::Printf' data-ref="_ZN8idCommon6PrintfEPKcz">Printf</a>( <q>"%5i c_glfaces\n"</q>, <a class="ref" href="#c_glfaces" title='c_glfaces' data-ref="c_glfaces">c_glfaces</a> );</td></tr>
+<tr><th id="157">157</th><td>}</td></tr>
+<tr><th id="158">158</th><td></td></tr>
+<tr><th id="159">159</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

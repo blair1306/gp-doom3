@@ -1,0 +1,14 @@
+<dec f='codebrowser/idlib/math/Matrix.h' l='1962' type='bool idMatX::Eigen_SolveSymmetric(idVecX &amp; eigenValues)'/>
+<use f='codebrowser/idlib/bv/Box.cpp' l='685' u='c' c='_ZN5idBox10FromPointsEPK6idVec3i'/>
+<def f='codebrowser/idlib/math/Matrix.cpp' l='6550' ll='6560' type='bool idMatX::Eigen_SolveSymmetric(idVecX &amp; eigenValues)'/>
+<use f='codebrowser/idlib/math/Matrix.cpp' l='8065' u='c' c='_ZN6idMatX4TestEv'/>
+<doc f='codebrowser/idlib/math/Matrix.cpp' l='6540'>/*
+============
+idMatX::Eigen_SolveSymmetric
+
+  Determine eigen values and eigen vectors for a symmetric matrix.
+  The eigen values are stored in &apos;eigenValues&apos;.
+  Column i of the original matrix will store the eigen vector corresponding to the eigenValues[i].
+  The initial matrix has to be symmetric.
+============
+*/</doc>

@@ -1,0 +1,56 @@
+<inh f='codebrowser/d3xp/Item.h' l='41' c='idItem'/>
+<def f='codebrowser/d3xp/Item.h' l='156' ll='200'/>
+<ovr f='codebrowser/d3xp/Item.h' l='204' c='idItemTeam'/>
+<ovr f='codebrowser/d3xp/Item.h' l='269' c='idMoveablePDAItem'/>
+<size>1472</size>
+<smbr r='idMoveableItem::Type' t='idTypeInfo'/>
+<fun r='_ZN14idMoveableItem14CreateInstanceEv'/>
+<fun r='_ZNK14idMoveableItem7GetTypeEv'/>
+<smbr r='idMoveableItem::eventCallbacks' t='idEventFunc&lt;idMoveableItem&gt; []'/>
+<fun r='_ZN14idMoveableItemC1Ev'/>
+<fun r='_ZN14idMoveableItemD1Ev'/>
+<fun r='_ZNK14idMoveableItem4SaveEP10idSaveGame'/>
+<fun r='_ZN14idMoveableItem7RestoreEP13idRestoreGame'/>
+<fun r='_ZN14idMoveableItem5SpawnEv'/>
+<fun r='_ZN14idMoveableItem5ThinkEv'/>
+<fun r='_ZN14idMoveableItem7CollideERK7trace_sRK6idVec3'/>
+<fun r='_ZN14idMoveableItem6PickupEP8idPlayer'/>
+<fun r='_ZN14idMoveableItem9DropItemsEP16idAnimatedEntityPKcP6idListIP8idEntityE'/>
+<fun r='_ZN14idMoveableItem8DropItemEPKcRK6idVec3RK6idMat3S4_ii'/>
+<fun r='_ZNK14idMoveableItem15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN14idMoveableItem16ReadFromSnapshotERK13idBitMsgDelta'/>
+<mbr r='idMoveableItem::physicsObj' o='7264' t='idPhysics_RigidBody'/>
+<mbr r='idMoveableItem::trigger' o='11616' t='idClipModel *'/>
+<mbr r='idMoveableItem::smoke' o='11648' t='const idDeclParticle *'/>
+<mbr r='idMoveableItem::smokeTime' o='11680' t='int'/>
+<mbr r='idMoveableItem::nextSoundTime' o='11712' t='int'/>
+<mbr r='idMoveableItem::repeatSmoke' o='11744' t='bool'/>
+<fun r='_ZN14idMoveableItem3GibERK6idVec3PKc'/>
+<fun r='_ZN14idMoveableItem17Event_DropToFloorEv'/>
+<fun r='_ZN14idMoveableItem9Event_GibEPKc'/>
+<inh f='codebrowser/game/Item.h' l='41' c='idItem'/>
+<def f='codebrowser/game/Item.h' l='150' ll='180'/>
+<ovr f='codebrowser/game/Item.h' l='182' c='idMoveablePDAItem'/>
+<size>1232</size>
+<smbr r='idMoveableItem::Type' t='idTypeInfo'/>
+<fun r='_ZN14idMoveableItem14CreateInstanceEv'/>
+<fun r='_ZNK14idMoveableItem7GetTypeEv'/>
+<smbr r='idMoveableItem::eventCallbacks' t='idEventFunc&lt;idMoveableItem&gt; []'/>
+<fun r='_ZN14idMoveableItemC1Ev'/>
+<fun r='_ZN14idMoveableItemD1Ev'/>
+<fun r='_ZNK14idMoveableItem4SaveEP10idSaveGame'/>
+<fun r='_ZN14idMoveableItem7RestoreEP13idRestoreGame'/>
+<fun r='_ZN14idMoveableItem5SpawnEv'/>
+<fun r='_ZN14idMoveableItem5ThinkEv'/>
+<fun r='_ZN14idMoveableItem6PickupEP8idPlayer'/>
+<fun r='_ZN14idMoveableItem9DropItemsEP16idAnimatedEntityPKcP6idListIP8idEntityE'/>
+<fun r='_ZN14idMoveableItem8DropItemEPKcRK6idVec3RK6idMat3S4_ii'/>
+<fun r='_ZNK14idMoveableItem15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN14idMoveableItem16ReadFromSnapshotERK13idBitMsgDelta'/>
+<mbr r='idMoveableItem::physicsObj' o='5408' t='idPhysics_RigidBody'/>
+<mbr r='idMoveableItem::trigger' o='9760' t='idClipModel *'/>
+<mbr r='idMoveableItem::smoke' o='9792' t='const idDeclParticle *'/>
+<mbr r='idMoveableItem::smokeTime' o='9824' t='int'/>
+<fun r='_ZN14idMoveableItem3GibERK6idVec3PKc'/>
+<fun r='_ZN14idMoveableItem17Event_DropToFloorEv'/>
+<fun r='_ZN14idMoveableItem9Event_GibEPKc'/>

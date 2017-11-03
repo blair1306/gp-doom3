@@ -1,0 +1,16 @@
+<dec f='codebrowser/renderer/Image.h' l='160' type='void idImage::PurgeImage()'/>
+<doc f='codebrowser/renderer/Image.h' l='159'>// deletes the texture object, but leaves the structure so it can be reloaded</doc>
+<use f='codebrowser/renderer/Image_init.cpp' l='1037' u='c' c='_ZN7idImage6ReloadEbb'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='1667' u='c' c='_ZN14idImageManager14PurgeAllImagesEv'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='1829' u='c' c='_ZN7idImage24StartBackgroundImageLoadEv'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='2017' u='c' c='_ZN14idImageManager14BeginLevelLoadEv'/>
+<use f='codebrowser/renderer/Image_init.cpp' l='2062' u='c' c='_ZN14idImageManager12EndLevelLoadEv'/>
+<use f='codebrowser/renderer/Image_load.cpp' l='517' u='c' c='_ZN7idImage13GenerateImageEPKhii15textureFilter_tb15textureRepeat_t14textureDepth_t'/>
+<use f='codebrowser/renderer/Image_load.cpp' l='735' u='c' c='_ZN7idImage15Generate3DImageEPKhiii15textureFilter_tb15textureRepeat_t14textureDepth_t'/>
+<use f='codebrowser/renderer/Image_load.cpp' l='873' u='c' c='_ZN7idImage17GenerateCubeImageEPPKhi15textureFilter_tb14textureDepth_t'/>
+<def f='codebrowser/renderer/Image_load.cpp' l='1673' ll='1688' type='void idImage::PurgeImage()'/>
+<doc f='codebrowser/renderer/Image_load.cpp' l='1668'>/*
+===============
+PurgeImage
+===============
+*/</doc>

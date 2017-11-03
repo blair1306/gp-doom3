@@ -1,0 +1,11 @@
+<dec f='codebrowser/sound/OggVorbis/vorbis/vorbisfile.h' l='112' type='int ov_pcm_seek_page(OggVorbis_File * vf, ogg_int64_t pos)'/>
+<def f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1094' ll='1260' type='int ov_pcm_seek_page(OggVorbis_File * vf, ogg_int64_t pos)'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1267' u='c' c='ov_pcm_seek'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1407' u='c' c='ov_time_seek_page'/>
+<use f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1923' u='r' c='ov_pcm_seek_page_lap'/>
+<doc f='codebrowser/sound/OggVorbis/vorbissrc/vorbisfile.c' l='1088'>/* Page granularity seek (faster than sample granularity because we
+   don&apos;t do the last bit of decode to find a specific sample).
+
+   Seek to the last [granule marked] page preceeding the specified pos
+   location, such that decoding past the returned point will quickly
+   arrive at the requested position. */</doc>

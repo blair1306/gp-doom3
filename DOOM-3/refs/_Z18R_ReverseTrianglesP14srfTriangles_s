@@ -1,0 +1,14 @@
+<dec f='codebrowser/renderer/tr_local.h' l='1501' type='void R_ReverseTriangles(srfTriangles_t * tri)'/>
+<use f='codebrowser/renderer/Model.cpp' l='640' u='c' c='_ZN19idRenderModelStatic14FinishSurfacesEv'/>
+<def f='codebrowser/renderer/tr_trisurf.cpp' l='2069' ll='2087' type='void R_ReverseTriangles(srfTriangles_t * tri)'/>
+<doc f='codebrowser/renderer/tr_trisurf.cpp' l='2058'>/*
+=================
+R_ReverseTriangles
+
+Lit two sided surfaces need to have the triangles actually duplicated,
+they can&apos;t just turn on two sided lighting, because the normal and tangents
+are wrong on the other sides.
+
+This should be called before R_CleanupTriangles
+=================
+*/</doc>

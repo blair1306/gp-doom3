@@ -1,0 +1,15 @@
+<dec f='codebrowser/idlib/containers/List.h' l='114' type='void idList::AssureSizeAlloc(int newSize, new_t * allocator)'/>
+<def f='codebrowser/idlib/containers/List.h' l='502' ll='523' type='void idList::AssureSizeAlloc(int newSize, new_t * allocator)'/>
+<doc f='codebrowser/idlib/containers/List.h' l='114'>// assure the pointer list has the given number of elements and allocate any new elements</doc>
+<doc f='codebrowser/idlib/containers/List.h' l='492'>/*
+================
+idList&lt;type&gt;::AssureSizeAlloc
+
+Makes sure the list has at least the given number of elements and allocates any elements using the allocator.
+
+NOTE: This function can only be called on lists containing pointers. Calling it
+on non-pointer lists will cause a compiler error.
+================
+*/</doc>
+<use f='codebrowser/d3xp/physics/Physics_AF.cpp' l='5695' u='c' c='_ZN12idPhysics_AF23SetupContactConstraintsEv'/>
+<use f='codebrowser/game/physics/Physics_AF.cpp' l='5694' u='c' c='_ZN12idPhysics_AF23SetupContactConstraintsEv'/>

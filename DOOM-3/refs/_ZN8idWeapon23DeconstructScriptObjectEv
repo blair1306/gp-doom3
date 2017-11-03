@@ -1,0 +1,26 @@
+<dec f='codebrowser/d3xp/Weapon.h' l='148' type='void idWeapon::DeconstructScriptObject()'/>
+<use f='codebrowser/d3xp/Weapon.cpp' l='680' u='c' c='_ZN8idWeapon5ClearEv'/>
+<inh f='codebrowser/d3xp/Entity.h' l='324' c='_ZN8idEntity23DeconstructScriptObjectEv'/>
+<def f='codebrowser/d3xp/Weapon.cpp' l='2039' ll='2064' type='void idWeapon::DeconstructScriptObject()'/>
+<doc f='codebrowser/d3xp/Weapon.cpp' l='2030'>/*
+================
+idWeapon::DeconstructScriptObject
+
+Called during idEntity::~idEntity.  Calls the destructor on the script object.
+Can be overridden by subclasses when a thread doesn&apos;t need to be allocated.
+Not called during idGameLocal::MapShutdown.
+================
+*/</doc>
+<dec f='codebrowser/game/Weapon.h' l='117' type='void idWeapon::DeconstructScriptObject()'/>
+<use f='codebrowser/game/Weapon.cpp' l='540' u='c' c='_ZN8idWeapon5ClearEv'/>
+<inh f='codebrowser/game/Entity.h' l='308' c='_ZN8idEntity23DeconstructScriptObjectEv'/>
+<def f='codebrowser/game/Weapon.cpp' l='1752' ll='1777' type='void idWeapon::DeconstructScriptObject()'/>
+<doc f='codebrowser/game/Weapon.cpp' l='1743'>/*
+================
+idWeapon::DeconstructScriptObject
+
+Called during idEntity::~idEntity.  Calls the destructor on the script object.
+Can be overridden by subclasses when a thread doesn&apos;t need to be allocated.
+Not called during idGameLocal::MapShutdown.
+================
+*/</doc>

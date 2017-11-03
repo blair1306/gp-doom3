@@ -1,0 +1,118 @@
+<inh f='codebrowser/d3xp/physics/Physics_Actor.h' l='44' c='idPhysics_Actor'/>
+<def f='codebrowser/d3xp/physics/Physics_Monster.h' l='60' ll='150'/>
+<size>276</size>
+<smbr r='idPhysics_Monster::Type' t='idTypeInfo'/>
+<fun r='_ZN17idPhysics_Monster14CreateInstanceEv'/>
+<fun r='_ZNK17idPhysics_Monster7GetTypeEv'/>
+<smbr r='idPhysics_Monster::eventCallbacks' t='idEventFunc&lt;idPhysics_Monster&gt; []'/>
+<fun r='_ZN17idPhysics_MonsterC1Ev'/>
+<fun r='_ZNK17idPhysics_Monster4SaveEP10idSaveGame'/>
+<fun r='_ZN17idPhysics_Monster7RestoreEP13idRestoreGame'/>
+<fun r='_ZN17idPhysics_Monster16SetMaxStepHeightEf'/>
+<fun r='_ZNK17idPhysics_Monster16GetMaxStepHeightEv'/>
+<fun r='_ZN17idPhysics_Monster17SetMinFloorCosineEf'/>
+<fun r='_ZN17idPhysics_Monster8SetDeltaERK6idVec3'/>
+<fun r='_ZNK17idPhysics_Monster8OnGroundEv'/>
+<fun r='_ZNK17idPhysics_Monster13GetMoveResultEv'/>
+<fun r='_ZN17idPhysics_Monster14ForceDeltaMoveEb'/>
+<fun r='_ZN17idPhysics_Monster10UseFlyMoveEb'/>
+<fun r='_ZN17idPhysics_Monster15UseVelocityMoveEb'/>
+<fun r='_ZNK17idPhysics_Monster18GetSlideMoveEntityEv'/>
+<fun r='_ZN17idPhysics_Monster12EnableImpactEv'/>
+<fun r='_ZN17idPhysics_Monster13DisableImpactEv'/>
+<fun r='_ZN17idPhysics_Monster8EvaluateEii'/>
+<fun r='_ZN17idPhysics_Monster10UpdateTimeEi'/>
+<fun r='_ZNK17idPhysics_Monster7GetTimeEv'/>
+<fun r='_ZNK17idPhysics_Monster13GetImpactInfoEiRK6idVec3P12impactInfo_s'/>
+<fun r='_ZN17idPhysics_Monster12ApplyImpulseEiRK6idVec3S2_'/>
+<fun r='_ZN17idPhysics_Monster8ActivateEv'/>
+<fun r='_ZN17idPhysics_Monster9PutToRestEv'/>
+<fun r='_ZNK17idPhysics_Monster8IsAtRestEv'/>
+<fun r='_ZNK17idPhysics_Monster16GetRestStartTimeEv'/>
+<fun r='_ZN17idPhysics_Monster9SaveStateEv'/>
+<fun r='_ZN17idPhysics_Monster12RestoreStateEv'/>
+<fun r='_ZN17idPhysics_Monster9SetOriginERK6idVec3i'/>
+<fun r='_ZN17idPhysics_Monster7SetAxisERK6idMat3i'/>
+<fun r='_ZN17idPhysics_Monster9TranslateERK6idVec3i'/>
+<fun r='_ZN17idPhysics_Monster6RotateERK10idRotationi'/>
+<fun r='_ZN17idPhysics_Monster17SetLinearVelocityERK6idVec3i'/>
+<fun r='_ZNK17idPhysics_Monster17GetLinearVelocityEi'/>
+<fun r='_ZN17idPhysics_Monster9SetPushedEi'/>
+<fun r='_ZNK17idPhysics_Monster23GetPushedLinearVelocityEi'/>
+<fun r='_ZN17idPhysics_Monster9SetMasterEP8idEntityb'/>
+<fun r='_ZNK17idPhysics_Monster15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN17idPhysics_Monster16ReadFromSnapshotERK13idBitMsgDelta'/>
+<mbr r='idPhysics_Monster::current' o='1056' t='monsterPState_t'/>
+<mbr r='idPhysics_Monster::saved' o='1504' t='monsterPState_t'/>
+<mbr r='idPhysics_Monster::maxStepHeight' o='1952' t='float'/>
+<mbr r='idPhysics_Monster::minFloorCosine' o='1984' t='float'/>
+<mbr r='idPhysics_Monster::delta' o='2016' t='idVec3'/>
+<mbr r='idPhysics_Monster::forceDeltaMove' o='2112' t='bool'/>
+<mbr r='idPhysics_Monster::fly' o='2120' t='bool'/>
+<mbr r='idPhysics_Monster::useVelocityMove' o='2128' t='bool'/>
+<mbr r='idPhysics_Monster::noImpact' o='2136' t='bool'/>
+<mbr r='idPhysics_Monster::moveResult' o='2144' t='monsterMoveResult_t'/>
+<mbr r='idPhysics_Monster::blockingEntity' o='2176' t='idEntity *'/>
+<fun r='_ZN17idPhysics_Monster11CheckGroundER15monsterPState_s'/>
+<fun r='_ZN17idPhysics_Monster9SlideMoveER6idVec3S1_RKS0_'/>
+<fun r='_ZN17idPhysics_Monster8StepMoveER6idVec3S1_RKS0_'/>
+<fun r='_ZN17idPhysics_Monster4RestEv'/>
+<inh f='codebrowser/game/physics/Physics_Actor.h' l='44' c='idPhysics_Actor'/>
+<def f='codebrowser/game/physics/Physics_Monster.h' l='60' ll='150'/>
+<size>276</size>
+<smbr r='idPhysics_Monster::Type' t='idTypeInfo'/>
+<fun r='_ZN17idPhysics_Monster14CreateInstanceEv'/>
+<fun r='_ZNK17idPhysics_Monster7GetTypeEv'/>
+<smbr r='idPhysics_Monster::eventCallbacks' t='idEventFunc&lt;idPhysics_Monster&gt; []'/>
+<fun r='_ZN17idPhysics_MonsterC1Ev'/>
+<fun r='_ZNK17idPhysics_Monster4SaveEP10idSaveGame'/>
+<fun r='_ZN17idPhysics_Monster7RestoreEP13idRestoreGame'/>
+<fun r='_ZN17idPhysics_Monster16SetMaxStepHeightEf'/>
+<fun r='_ZNK17idPhysics_Monster16GetMaxStepHeightEv'/>
+<fun r='_ZN17idPhysics_Monster17SetMinFloorCosineEf'/>
+<fun r='_ZN17idPhysics_Monster8SetDeltaERK6idVec3'/>
+<fun r='_ZNK17idPhysics_Monster8OnGroundEv'/>
+<fun r='_ZNK17idPhysics_Monster13GetMoveResultEv'/>
+<fun r='_ZN17idPhysics_Monster14ForceDeltaMoveEb'/>
+<fun r='_ZN17idPhysics_Monster10UseFlyMoveEb'/>
+<fun r='_ZN17idPhysics_Monster15UseVelocityMoveEb'/>
+<fun r='_ZNK17idPhysics_Monster18GetSlideMoveEntityEv'/>
+<fun r='_ZN17idPhysics_Monster12EnableImpactEv'/>
+<fun r='_ZN17idPhysics_Monster13DisableImpactEv'/>
+<fun r='_ZN17idPhysics_Monster8EvaluateEii'/>
+<fun r='_ZN17idPhysics_Monster10UpdateTimeEi'/>
+<fun r='_ZNK17idPhysics_Monster7GetTimeEv'/>
+<fun r='_ZNK17idPhysics_Monster13GetImpactInfoEiRK6idVec3P12impactInfo_s'/>
+<fun r='_ZN17idPhysics_Monster12ApplyImpulseEiRK6idVec3S2_'/>
+<fun r='_ZN17idPhysics_Monster8ActivateEv'/>
+<fun r='_ZN17idPhysics_Monster9PutToRestEv'/>
+<fun r='_ZNK17idPhysics_Monster8IsAtRestEv'/>
+<fun r='_ZNK17idPhysics_Monster16GetRestStartTimeEv'/>
+<fun r='_ZN17idPhysics_Monster9SaveStateEv'/>
+<fun r='_ZN17idPhysics_Monster12RestoreStateEv'/>
+<fun r='_ZN17idPhysics_Monster9SetOriginERK6idVec3i'/>
+<fun r='_ZN17idPhysics_Monster7SetAxisERK6idMat3i'/>
+<fun r='_ZN17idPhysics_Monster9TranslateERK6idVec3i'/>
+<fun r='_ZN17idPhysics_Monster6RotateERK10idRotationi'/>
+<fun r='_ZN17idPhysics_Monster17SetLinearVelocityERK6idVec3i'/>
+<fun r='_ZNK17idPhysics_Monster17GetLinearVelocityEi'/>
+<fun r='_ZN17idPhysics_Monster9SetPushedEi'/>
+<fun r='_ZNK17idPhysics_Monster23GetPushedLinearVelocityEi'/>
+<fun r='_ZN17idPhysics_Monster9SetMasterEP8idEntityb'/>
+<fun r='_ZNK17idPhysics_Monster15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN17idPhysics_Monster16ReadFromSnapshotERK13idBitMsgDelta'/>
+<mbr r='idPhysics_Monster::current' o='1056' t='monsterPState_t'/>
+<mbr r='idPhysics_Monster::saved' o='1504' t='monsterPState_t'/>
+<mbr r='idPhysics_Monster::maxStepHeight' o='1952' t='float'/>
+<mbr r='idPhysics_Monster::minFloorCosine' o='1984' t='float'/>
+<mbr r='idPhysics_Monster::delta' o='2016' t='idVec3'/>
+<mbr r='idPhysics_Monster::forceDeltaMove' o='2112' t='bool'/>
+<mbr r='idPhysics_Monster::fly' o='2120' t='bool'/>
+<mbr r='idPhysics_Monster::useVelocityMove' o='2128' t='bool'/>
+<mbr r='idPhysics_Monster::noImpact' o='2136' t='bool'/>
+<mbr r='idPhysics_Monster::moveResult' o='2144' t='monsterMoveResult_t'/>
+<mbr r='idPhysics_Monster::blockingEntity' o='2176' t='idEntity *'/>
+<fun r='_ZN17idPhysics_Monster11CheckGroundER15monsterPState_s'/>
+<fun r='_ZN17idPhysics_Monster9SlideMoveER6idVec3S1_RKS0_'/>
+<fun r='_ZN17idPhysics_Monster8StepMoveER6idVec3S1_RKS0_'/>
+<fun r='_ZN17idPhysics_Monster4RestEv'/>

@@ -1,0 +1,14 @@
+<dec f='codebrowser/renderer/Model.h' l='289' type='idRenderModel * idRenderModel::InstantiateDynamicModel(const struct renderEntity_s * ent, const struct viewDef_s * view, idRenderModel * cachedModel)'/>
+<doc f='codebrowser/renderer/Model.h' l='282'>// returns a static model based on the definition and view
+	// currently, this will be regenerated for every view, even though
+	// some models, like character meshes, could be used for multiple (mirror)
+	// views in a frame, or may stay static for multiple frames (corpses)
+	// The renderer will delete the returned dynamic model the next view
+	// This isn&apos;t const, because it may need to reload a purged model if it
+	// wasn&apos;t precached correctly.</doc>
+<use f='codebrowser/d3xp/AFEntity.cpp' l='3156' u='c' c='_ZN10idGameEdit13AF_CreateMeshERK6idDictR6idVec3R6idMat3Rb'/>
+<use f='codebrowser/d3xp/anim/Anim_Blend.cpp' l='5102' u='c' c='_ZN10idGameEdit22ANIM_CreateMeshForAnimEP13idRenderModelPKcS3_ib'/>
+<use f='codebrowser/game/AFEntity.cpp' l='2878' u='c' c='_ZN10idGameEdit13AF_CreateMeshERK6idDictR6idVec3R6idMat3Rb'/>
+<use f='codebrowser/game/anim/Anim_Blend.cpp' l='5016' u='c' c='_ZN10idGameEdit22ANIM_CreateMeshForAnimEP13idRenderModelPKcS3_ib'/>
+<ovr f='codebrowser/renderer/Model.cpp' l='488' c='_ZN19idRenderModelStatic23InstantiateDynamicModelEPK14renderEntity_sPK9viewDef_sP13idRenderModel'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1135' u='c' c='_Z23R_EntityDefDynamicModelP19idRenderEntityLocal'/>

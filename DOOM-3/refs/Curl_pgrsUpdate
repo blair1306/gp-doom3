@@ -1,0 +1,15 @@
+<dec f='codebrowser/curl/lib/progress.h' l='47' type='int Curl_pgrsUpdate(struct connectdata * )'/>
+<use f='codebrowser/curl/lib/file.c' l='273' u='c' c='Curl_file'/>
+<use f='codebrowser/curl/lib/file.c' l='278' u='c' c='Curl_file'/>
+<use f='codebrowser/curl/lib/ftp.c' l='289' u='c' c='Curl_GetFTPResponse'/>
+<use f='codebrowser/curl/lib/progress.c' l='110' u='c' c='Curl_pgrsDone'/>
+<def f='codebrowser/curl/lib/progress.c' l='206' ll='406' type='int Curl_pgrsUpdate(struct connectdata * conn)'/>
+<doc f='codebrowser/curl/lib/progress.c' l='198'>/* EXAMPLE OUTPUT to follow:
+
+  % Total    % Received % Xferd  Average Speed          Time             Curr.
+                                 Dload  Upload Total    Current  Left    Speed
+100 12345  100 12345  100 12345  12345  12345 12:12:12 12:12:12 12:12:12 12345
+
+ */</doc>
+<use f='codebrowser/curl/lib/transfer.c' l='1230' u='c' c='Curl_readwrite'/>
+<use f='codebrowser/curl/lib/transfer.c' l='1264' u='c' c='Curl_readwrite'/>

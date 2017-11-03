@@ -1,0 +1,109 @@
+<inh f='codebrowser/d3xp/Entity.h' l='107' c='idEntity'/>
+<def f='codebrowser/d3xp/BrittleFracture.h' l='55' ll='132'/>
+<size>1048</size>
+<smbr r='idBrittleFracture::Type' t='idTypeInfo'/>
+<fun r='_ZN17idBrittleFracture14CreateInstanceEv'/>
+<fun r='_ZNK17idBrittleFracture7GetTypeEv'/>
+<smbr r='idBrittleFracture::eventCallbacks' t='idEventFunc&lt;idBrittleFracture&gt; []'/>
+<fun r='_ZN17idBrittleFractureC1Ev'/>
+<fun r='_ZN17idBrittleFractureD1Ev'/>
+<fun r='_ZNK17idBrittleFracture4SaveEP10idSaveGame'/>
+<fun r='_ZN17idBrittleFracture7RestoreEP13idRestoreGame'/>
+<fun r='_ZN17idBrittleFracture5SpawnEv'/>
+<fun r='_ZN17idBrittleFracture7PresentEv'/>
+<fun r='_ZN17idBrittleFracture5ThinkEv'/>
+<fun r='_ZN17idBrittleFracture12ApplyImpulseEP8idEntityiRK6idVec3S4_'/>
+<fun r='_ZN17idBrittleFracture8AddForceEP8idEntityiRK6idVec3S4_'/>
+<fun r='_ZN17idBrittleFracture15AddDamageEffectERK7trace_sRK6idVec3PKc'/>
+<fun r='_ZN17idBrittleFracture6KilledEP8idEntityS1_iRK6idVec3i'/>
+<fun r='_ZN17idBrittleFracture12ProjectDecalERK6idVec3S2_iPKc'/>
+<fun r='_ZNK17idBrittleFracture8IsBrokenEv'/>
+<fun r='_ZN17idBrittleFracture21ClientPredictionThinkEv'/>
+<fun r='_ZN17idBrittleFracture18ClientReceiveEventEiiRK8idBitMsg'/>
+<mbr r='idBrittleFracture::material' o='6944' t='const idMaterial *'/>
+<mbr r='idBrittleFracture::decalMaterial' o='6976' t='const idMaterial *'/>
+<mbr r='idBrittleFracture::decalSize' o='7008' t='float'/>
+<mbr r='idBrittleFracture::maxShardArea' o='7040' t='float'/>
+<mbr r='idBrittleFracture::maxShatterRadius' o='7072' t='float'/>
+<mbr r='idBrittleFracture::minShatterRadius' o='7104' t='float'/>
+<mbr r='idBrittleFracture::linearVelocityScale' o='7136' t='float'/>
+<mbr r='idBrittleFracture::angularVelocityScale' o='7168' t='float'/>
+<mbr r='idBrittleFracture::shardMass' o='7200' t='float'/>
+<mbr r='idBrittleFracture::density' o='7232' t='float'/>
+<mbr r='idBrittleFracture::friction' o='7264' t='float'/>
+<mbr r='idBrittleFracture::bouncyness' o='7296' t='float'/>
+<mbr r='idBrittleFracture::fxFracture' o='7328' t='idStr'/>
+<mbr r='idBrittleFracture::isXraySurface' o='7584' t='bool'/>
+<mbr r='idBrittleFracture::physicsObj' o='7616' t='idPhysics_StaticMulti'/>
+<mbr r='idBrittleFracture::shards' o='7968' t='idList&lt;shard_t *&gt;'/>
+<mbr r='idBrittleFracture::bounds' o='8096' t='idBounds'/>
+<mbr r='idBrittleFracture::disableFracture' o='8288' t='bool'/>
+<mbr r='idBrittleFracture::lastRenderEntityUpdate' o='8320' t='int'/>
+<mbr r='idBrittleFracture::changed' o='8352' t='bool'/>
+<fun r='_ZNK17idBrittleFracture18UpdateRenderEntityEP14renderEntity_sPK12renderView_s'/>
+<fun r='_ZN17idBrittleFracture13ModelCallbackEP14renderEntity_sPK12renderView_s'/>
+<fun r='_ZN17idBrittleFracture8AddShardEP11idClipModelR14idFixedWinding'/>
+<fun r='_ZN17idBrittleFracture11RemoveShardEi'/>
+<fun r='_ZN17idBrittleFracture9DropShardEP7shard_sRK6idVec3S4_fi'/>
+<fun r='_ZN17idBrittleFracture7ShatterERK6idVec3S2_i'/>
+<fun r='_ZN17idBrittleFracture19DropFloatingIslandsERK6idVec3S2_i'/>
+<fun r='_ZN17idBrittleFracture5BreakEv'/>
+<fun r='_ZN17idBrittleFracture10Fracture_rER14idFixedWinding'/>
+<fun r='_ZN17idBrittleFracture15CreateFracturesEPK13idRenderModel'/>
+<fun r='_ZN17idBrittleFracture14FindNeighboursEv'/>
+<fun r='_ZN17idBrittleFracture14Event_ActivateEP8idEntity'/>
+<fun r='_ZN17idBrittleFracture11Event_TouchEP8idEntityP7trace_s'/>
+<inh f='codebrowser/game/Entity.h' l='107' c='idEntity'/>
+<def f='codebrowser/game/BrittleFracture.h' l='55' ll='128'/>
+<size>812</size>
+<smbr r='idBrittleFracture::Type' t='idTypeInfo'/>
+<fun r='_ZN17idBrittleFracture14CreateInstanceEv'/>
+<fun r='_ZNK17idBrittleFracture7GetTypeEv'/>
+<smbr r='idBrittleFracture::eventCallbacks' t='idEventFunc&lt;idBrittleFracture&gt; []'/>
+<fun r='_ZN17idBrittleFractureC1Ev'/>
+<fun r='_ZN17idBrittleFractureD1Ev'/>
+<fun r='_ZNK17idBrittleFracture4SaveEP10idSaveGame'/>
+<fun r='_ZN17idBrittleFracture7RestoreEP13idRestoreGame'/>
+<fun r='_ZN17idBrittleFracture5SpawnEv'/>
+<fun r='_ZN17idBrittleFracture7PresentEv'/>
+<fun r='_ZN17idBrittleFracture5ThinkEv'/>
+<fun r='_ZN17idBrittleFracture12ApplyImpulseEP8idEntityiRK6idVec3S4_'/>
+<fun r='_ZN17idBrittleFracture8AddForceEP8idEntityiRK6idVec3S4_'/>
+<fun r='_ZN17idBrittleFracture15AddDamageEffectERK7trace_sRK6idVec3PKc'/>
+<fun r='_ZN17idBrittleFracture6KilledEP8idEntityS1_iRK6idVec3i'/>
+<fun r='_ZN17idBrittleFracture12ProjectDecalERK6idVec3S2_iPKc'/>
+<fun r='_ZNK17idBrittleFracture8IsBrokenEv'/>
+<fun r='_ZN17idBrittleFracture21ClientPredictionThinkEv'/>
+<fun r='_ZN17idBrittleFracture18ClientReceiveEventEiiRK8idBitMsg'/>
+<mbr r='idBrittleFracture::material' o='5088' t='const idMaterial *'/>
+<mbr r='idBrittleFracture::decalMaterial' o='5120' t='const idMaterial *'/>
+<mbr r='idBrittleFracture::decalSize' o='5152' t='float'/>
+<mbr r='idBrittleFracture::maxShardArea' o='5184' t='float'/>
+<mbr r='idBrittleFracture::maxShatterRadius' o='5216' t='float'/>
+<mbr r='idBrittleFracture::minShatterRadius' o='5248' t='float'/>
+<mbr r='idBrittleFracture::linearVelocityScale' o='5280' t='float'/>
+<mbr r='idBrittleFracture::angularVelocityScale' o='5312' t='float'/>
+<mbr r='idBrittleFracture::shardMass' o='5344' t='float'/>
+<mbr r='idBrittleFracture::density' o='5376' t='float'/>
+<mbr r='idBrittleFracture::friction' o='5408' t='float'/>
+<mbr r='idBrittleFracture::bouncyness' o='5440' t='float'/>
+<mbr r='idBrittleFracture::fxFracture' o='5472' t='idStr'/>
+<mbr r='idBrittleFracture::physicsObj' o='5728' t='idPhysics_StaticMulti'/>
+<mbr r='idBrittleFracture::shards' o='6080' t='idList&lt;shard_t *&gt;'/>
+<mbr r='idBrittleFracture::bounds' o='6208' t='idBounds'/>
+<mbr r='idBrittleFracture::disableFracture' o='6400' t='bool'/>
+<mbr r='idBrittleFracture::lastRenderEntityUpdate' o='6432' t='int'/>
+<mbr r='idBrittleFracture::changed' o='6464' t='bool'/>
+<fun r='_ZNK17idBrittleFracture18UpdateRenderEntityEP14renderEntity_sPK12renderView_s'/>
+<fun r='_ZN17idBrittleFracture13ModelCallbackEP14renderEntity_sPK12renderView_s'/>
+<fun r='_ZN17idBrittleFracture8AddShardEP11idClipModelR14idFixedWinding'/>
+<fun r='_ZN17idBrittleFracture11RemoveShardEi'/>
+<fun r='_ZN17idBrittleFracture9DropShardEP7shard_sRK6idVec3S4_fi'/>
+<fun r='_ZN17idBrittleFracture7ShatterERK6idVec3S2_i'/>
+<fun r='_ZN17idBrittleFracture19DropFloatingIslandsERK6idVec3S2_i'/>
+<fun r='_ZN17idBrittleFracture5BreakEv'/>
+<fun r='_ZN17idBrittleFracture10Fracture_rER14idFixedWinding'/>
+<fun r='_ZN17idBrittleFracture15CreateFracturesEPK13idRenderModel'/>
+<fun r='_ZN17idBrittleFracture14FindNeighboursEv'/>
+<fun r='_ZN17idBrittleFracture14Event_ActivateEP8idEntity'/>
+<fun r='_ZN17idBrittleFracture11Event_TouchEP8idEntityP7trace_s'/>

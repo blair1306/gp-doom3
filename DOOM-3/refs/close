@@ -1,0 +1,15 @@
+<dec f='include/unistd.h' l='356' type='int close(int __fd)'/>
+<doc f='include/unistd.h' l='352'>/* Close the file descriptor FD.
+
+   This function is a cancellation point and therefore not marked with
+   __THROW.  */</doc>
+<use f='codebrowser/curl/lib/file.c' l='281' u='c' c='Curl_file'/>
+<use f='codebrowser/curl/lib/memdebug.c' l='252' macro='1' u='c'/>
+<use f='codebrowser/sys/linux/main.cpp' l='303' u='c' c='_Z23Sys_ClockTicksPerSecondv'/>
+<use f='codebrowser/sys/linux/sound.cpp' l='105' u='c' c='_ZN18idAudioHardwareOSS7ReleaseEb'/>
+<use f='codebrowser/sys/posix/posix_net.cpp' l='433' u='c' c='_ZL8IPSocketPKciP8netadr_t'/>
+<use f='codebrowser/sys/posix/posix_net.cpp' l='441' u='c' c='_ZL8IPSocketPKciP8netadr_t'/>
+<use f='codebrowser/sys/posix/posix_net.cpp' l='476' u='c' c='_ZN6idPort5CloseEv'/>
+<use f='codebrowser/sys/posix/posix_net.cpp' l='660' u='c' c='_ZN5idTCP4InitEPKcs'/>
+<use f='codebrowser/sys/posix/posix_net.cpp' l='672' u='c' c='_ZN5idTCP4InitEPKcs'/>
+<use f='codebrowser/sys/posix/posix_net.cpp' l='688' u='c' c='_ZN5idTCP5CloseEv'/>

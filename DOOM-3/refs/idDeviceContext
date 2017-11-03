@@ -1,0 +1,74 @@
+<def f='codebrowser/ui/DeviceContext.h' l='41' ll='166'/>
+<size>204</size>
+<fun r='_ZN15idDeviceContextC1Ev'/>
+<fun r='_ZN15idDeviceContextD1Ev'/>
+<fun r='_ZN15idDeviceContext4InitEv'/>
+<fun r='_ZN15idDeviceContext8ShutdownEv'/>
+<fun r='_ZN15idDeviceContext11InitializedEv'/>
+<fun r='_ZN15idDeviceContext18EnableLocalizationEv'/>
+<fun r='_ZN15idDeviceContext16GetTransformInfoER6idVec3R6idMat3'/>
+<fun r='_ZN15idDeviceContext16SetTransformInfoERK6idVec3RK6idMat3'/>
+<fun r='_ZN15idDeviceContext12DrawMaterialEffffPK10idMaterialRK6idVec4ff'/>
+<fun r='_ZN15idDeviceContext8DrawRectEfffffRK6idVec4'/>
+<fun r='_ZN15idDeviceContext14DrawFilledRectEffffRK6idVec4'/>
+<fun r='_ZN15idDeviceContext8DrawTextEPKcfi6idVec411idRectanglebibP6idListIiEi'/>
+<fun r='_ZN15idDeviceContext16DrawMaterialRectEfffffPK10idMaterialRK6idVec4'/>
+<fun r='_ZN15idDeviceContext14DrawStretchPicEffffffffPK10idMaterial'/>
+<fun r='_ZN15idDeviceContext19DrawMaterialRotatedEffffPK10idMaterialRK6idVec4fff'/>
+<fun r='_ZN15idDeviceContext21DrawStretchPicRotatedEffffffffPK10idMaterialf'/>
+<fun r='_ZN15idDeviceContext9CharWidthEcf'/>
+<fun r='_ZN15idDeviceContext9TextWidthEPKcfi'/>
+<fun r='_ZN15idDeviceContext10TextHeightEPKcfi'/>
+<fun r='_ZN15idDeviceContext13MaxCharHeightEf'/>
+<fun r='_ZN15idDeviceContext12MaxCharWidthEf'/>
+<fun r='_ZN15idDeviceContext8FindFontEPKc'/>
+<fun r='_ZN15idDeviceContext10SetupFontsEv'/>
+<fun r='_ZN15idDeviceContext13GetTextRegionEPKcf11idRectangleff'/>
+<fun r='_ZN15idDeviceContext7SetSizeEff'/>
+<fun r='_ZN15idDeviceContext17GetScrollBarImageEi'/>
+<fun r='_ZN15idDeviceContext10DrawCursorEPfS0_f'/>
+<fun r='_ZN15idDeviceContext9SetCursorEi'/>
+<fun r='_ZN15idDeviceContext12AdjustCoordsEPfS0_S0_S0_'/>
+<fun r='_ZN15idDeviceContext13ClippedCoordsEPfS0_S0_S0_'/>
+<fun r='_ZN15idDeviceContext13ClippedCoordsEPfS0_S0_S0_S0_S0_S0_S0_'/>
+<fun r='_ZN15idDeviceContext12PushClipRectEffff'/>
+<fun r='_ZN15idDeviceContext12PushClipRectE11idRectangle'/>
+<fun r='_ZN15idDeviceContext11PopClipRectEv'/>
+<fun r='_ZN15idDeviceContext14EnableClippingEb'/>
+<fun r='_ZN15idDeviceContext7SetFontEi'/>
+<fun r='_ZN15idDeviceContext13SetOverStrikeEb'/>
+<fun r='_ZN15idDeviceContext13GetOverStrikeEv'/>
+<fun r='_ZN15idDeviceContext14DrawEditCursorEfff'/>
+<smbr r='idDeviceContext::colorPurple' t='idVec4'/>
+<smbr r='idDeviceContext::colorOrange' t='idVec4'/>
+<smbr r='idDeviceContext::colorYellow' t='idVec4'/>
+<smbr r='idDeviceContext::colorGreen' t='idVec4'/>
+<smbr r='idDeviceContext::colorBlue' t='idVec4'/>
+<smbr r='idDeviceContext::colorRed' t='idVec4'/>
+<smbr r='idDeviceContext::colorWhite' t='idVec4'/>
+<smbr r='idDeviceContext::colorBlack' t='idVec4'/>
+<smbr r='idDeviceContext::colorNone' t='idVec4'/>
+<fun r='_ZN15idDeviceContext8DrawTextEfff6idVec4PKcfiii'/>
+<fun r='_ZN15idDeviceContext9PaintCharEfffffffffPK10idMaterial'/>
+<fun r='_ZN15idDeviceContext14SetFontByScaleEf'/>
+<fun r='_ZN15idDeviceContext5ClearEv'/>
+<mbr r='idDeviceContext::cursorImages' o='0' t='const idMaterial *[2]'/>
+<mbr r='idDeviceContext::scrollBarImages' o='64' t='const idMaterial *[7]'/>
+<mbr r='idDeviceContext::whiteImage' o='288' t='const idMaterial *'/>
+<mbr r='idDeviceContext::activeFont' o='320' t='fontInfoEx_t *'/>
+<mbr r='idDeviceContext::useFont' o='352' t='fontInfo_t *'/>
+<mbr r='idDeviceContext::fontName' o='384' t='idStr'/>
+<mbr r='idDeviceContext::xScale' o='640' t='float'/>
+<mbr r='idDeviceContext::yScale' o='672' t='float'/>
+<mbr r='idDeviceContext::vidHeight' o='704' t='float'/>
+<mbr r='idDeviceContext::vidWidth' o='736' t='float'/>
+<mbr r='idDeviceContext::cursor' o='768' t='int'/>
+<mbr r='idDeviceContext::clipRects' o='800' t='idList&lt;idRectangle&gt;'/>
+<smbr r='idDeviceContext::fonts' t='idList&lt;fontInfoEx_t&gt;'/>
+<mbr r='idDeviceContext::fontLang' o='928' t='idStr'/>
+<mbr r='idDeviceContext::enableClipping' o='1184' t='bool'/>
+<mbr r='idDeviceContext::overStrikeMode' o='1192' t='bool'/>
+<mbr r='idDeviceContext::mat' o='1216' t='idMat3'/>
+<mbr r='idDeviceContext::origin' o='1504' t='idVec3'/>
+<mbr r='idDeviceContext::initialized' o='1600' t='bool'/>
+<mbr r='idDeviceContext::mbcs' o='1608' t='bool'/>

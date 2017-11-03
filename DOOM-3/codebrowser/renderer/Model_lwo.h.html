@@ -1,0 +1,695 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Model_lwo.h source code [codebrowser/renderer/Model_lwo.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="st_lwCParam,st_lwClip,st_lwClipAnim,st_lwClipCycle,st_lwClipSeq,st_lwClipStill,st_lwClipXRef,st_lwEParam,st_lwEnvelope,st_lwGlow,st_lwGradKey,st_lwGradient,st_lwImageMap,st_lwKey,st_lwLayer,st_lwLine,st_lwNode,st_lwObject,st_lwPlugin,st_lwPoint,st_lwPointList,st_lwPolVert,st_lwPolygon,st_lwPolygonList,st_lwProcedural,st_lwRMap,st_lwSurface,st_lwTMap,st_lwTParam,st_lwTagList,st_lwTexture,st_lwVMap,st_lwVMapPt,st_lwVParam "/>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/renderer/Model_lwo.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>renderer</a>/<a href='Model_lwo.h.html'>Model_lwo.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__LWO2_H__">__LWO2_H__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__LWO2_H__" data-ref="_M/__LWO2_H__">__LWO2_H__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/*</i></td></tr>
+<tr><th id="33">33</th><td><i>======================================================================</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>	LWO2 loader. (LightWave Object)</i></td></tr>
+<tr><th id="36">36</th><td><i></i></td></tr>
+<tr><th id="37">37</th><td><i>	Ernie Wright  17 Sep 00</i></td></tr>
+<tr><th id="38">38</th><td><i></i></td></tr>
+<tr><th id="39">39</th><td><i>======================================================================</i></td></tr>
+<tr><th id="40">40</th><td><i>*/</i></td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><i>/* chunk and subchunk IDs */</i></td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td><u>#define <dfn class="macro" id="_M/LWID_" data-ref="_M/LWID_">LWID_</dfn>(a,b,c,d) (((a)&lt;&lt;24)|((b)&lt;&lt;16)|((c)&lt;&lt;8)|(d))</u></td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td><u>#define <dfn class="macro" id="_M/ID_FORM" data-ref="_M/ID_FORM">ID_FORM</dfn>  LWID_('F','O','R','M')</u></td></tr>
+<tr><th id="47">47</th><td><u>#define <dfn class="macro" id="_M/ID_LWO2" data-ref="_M/ID_LWO2">ID_LWO2</dfn>  LWID_('L','W','O','2')</u></td></tr>
+<tr><th id="48">48</th><td><u>#define <dfn class="macro" id="_M/ID_LWOB" data-ref="_M/ID_LWOB">ID_LWOB</dfn>  LWID_('L','W','O','B')</u></td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td><i>/* top-level chunks */</i></td></tr>
+<tr><th id="51">51</th><td><u>#define <dfn class="macro" id="_M/ID_LAYR" data-ref="_M/ID_LAYR">ID_LAYR</dfn>  LWID_('L','A','Y','R')</u></td></tr>
+<tr><th id="52">52</th><td><u>#define <dfn class="macro" id="_M/ID_TAGS" data-ref="_M/ID_TAGS">ID_TAGS</dfn>  LWID_('T','A','G','S')</u></td></tr>
+<tr><th id="53">53</th><td><u>#define <dfn class="macro" id="_M/ID_PNTS" data-ref="_M/ID_PNTS">ID_PNTS</dfn>  LWID_('P','N','T','S')</u></td></tr>
+<tr><th id="54">54</th><td><u>#define <dfn class="macro" id="_M/ID_BBOX" data-ref="_M/ID_BBOX">ID_BBOX</dfn>  LWID_('B','B','O','X')</u></td></tr>
+<tr><th id="55">55</th><td><u>#define <dfn class="macro" id="_M/ID_VMAP" data-ref="_M/ID_VMAP">ID_VMAP</dfn>  LWID_('V','M','A','P')</u></td></tr>
+<tr><th id="56">56</th><td><u>#define <dfn class="macro" id="_M/ID_VMAD" data-ref="_M/ID_VMAD">ID_VMAD</dfn>  LWID_('V','M','A','D')</u></td></tr>
+<tr><th id="57">57</th><td><u>#define <dfn class="macro" id="_M/ID_POLS" data-ref="_M/ID_POLS">ID_POLS</dfn>  LWID_('P','O','L','S')</u></td></tr>
+<tr><th id="58">58</th><td><u>#define <dfn class="macro" id="_M/ID_PTAG" data-ref="_M/ID_PTAG">ID_PTAG</dfn>  LWID_('P','T','A','G')</u></td></tr>
+<tr><th id="59">59</th><td><u>#define <dfn class="macro" id="_M/ID_ENVL" data-ref="_M/ID_ENVL">ID_ENVL</dfn>  LWID_('E','N','V','L')</u></td></tr>
+<tr><th id="60">60</th><td><u>#define <dfn class="macro" id="_M/ID_CLIP" data-ref="_M/ID_CLIP">ID_CLIP</dfn>  LWID_('C','L','I','P')</u></td></tr>
+<tr><th id="61">61</th><td><u>#define <dfn class="macro" id="_M/ID_SURF" data-ref="_M/ID_SURF">ID_SURF</dfn>  LWID_('S','U','R','F')</u></td></tr>
+<tr><th id="62">62</th><td><u>#define <dfn class="macro" id="_M/ID_DESC" data-ref="_M/ID_DESC">ID_DESC</dfn>  LWID_('D','E','S','C')</u></td></tr>
+<tr><th id="63">63</th><td><u>#define <dfn class="macro" id="_M/ID_TEXT" data-ref="_M/ID_TEXT">ID_TEXT</dfn>  LWID_('T','E','X','T')</u></td></tr>
+<tr><th id="64">64</th><td><u>#define <dfn class="macro" id="_M/ID_ICON" data-ref="_M/ID_ICON">ID_ICON</dfn>  LWID_('I','C','O','N')</u></td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td><i>/* polygon types */</i></td></tr>
+<tr><th id="67">67</th><td><u>#define <dfn class="macro" id="_M/ID_FACE" data-ref="_M/ID_FACE">ID_FACE</dfn>  LWID_('F','A','C','E')</u></td></tr>
+<tr><th id="68">68</th><td><u>#define <dfn class="macro" id="_M/ID_CURV" data-ref="_M/ID_CURV">ID_CURV</dfn>  LWID_('C','U','R','V')</u></td></tr>
+<tr><th id="69">69</th><td><u>#define <dfn class="macro" id="_M/ID_PTCH" data-ref="_M/ID_PTCH">ID_PTCH</dfn>  LWID_('P','T','C','H')</u></td></tr>
+<tr><th id="70">70</th><td><u>#define <dfn class="macro" id="_M/ID_MBAL" data-ref="_M/ID_MBAL">ID_MBAL</dfn>  LWID_('M','B','A','L')</u></td></tr>
+<tr><th id="71">71</th><td><u>#define <dfn class="macro" id="_M/ID_BONE" data-ref="_M/ID_BONE">ID_BONE</dfn>  LWID_('B','O','N','E')</u></td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td><i>/* polygon tags */</i></td></tr>
+<tr><th id="74">74</th><td><u>#define <dfn class="macro" id="_M/ID_SURF" data-ref="_M/ID_SURF">ID_SURF</dfn>  LWID_('S','U','R','F')</u></td></tr>
+<tr><th id="75">75</th><td><u>#define <dfn class="macro" id="_M/ID_PART" data-ref="_M/ID_PART">ID_PART</dfn>  LWID_('P','A','R','T')</u></td></tr>
+<tr><th id="76">76</th><td><u>#define <dfn class="macro" id="_M/ID_SMGP" data-ref="_M/ID_SMGP">ID_SMGP</dfn>  LWID_('S','M','G','P')</u></td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td><i>/* envelopes */</i></td></tr>
+<tr><th id="79">79</th><td><u>#define <dfn class="macro" id="_M/ID_PRE" data-ref="_M/ID_PRE">ID_PRE</dfn>   LWID_('P','R','E',' ')</u></td></tr>
+<tr><th id="80">80</th><td><u>#define <dfn class="macro" id="_M/ID_POST" data-ref="_M/ID_POST">ID_POST</dfn>  LWID_('P','O','S','T')</u></td></tr>
+<tr><th id="81">81</th><td><u>#define <dfn class="macro" id="_M/ID_KEY" data-ref="_M/ID_KEY">ID_KEY</dfn>   LWID_('K','E','Y',' ')</u></td></tr>
+<tr><th id="82">82</th><td><u>#define <dfn class="macro" id="_M/ID_SPAN" data-ref="_M/ID_SPAN">ID_SPAN</dfn>  LWID_('S','P','A','N')</u></td></tr>
+<tr><th id="83">83</th><td><u>#define <dfn class="macro" id="_M/ID_TCB" data-ref="_M/ID_TCB">ID_TCB</dfn>   LWID_('T','C','B',' ')</u></td></tr>
+<tr><th id="84">84</th><td><u>#define <dfn class="macro" id="_M/ID_HERM" data-ref="_M/ID_HERM">ID_HERM</dfn>  LWID_('H','E','R','M')</u></td></tr>
+<tr><th id="85">85</th><td><u>#define <dfn class="macro" id="_M/ID_BEZI" data-ref="_M/ID_BEZI">ID_BEZI</dfn>  LWID_('B','E','Z','I')</u></td></tr>
+<tr><th id="86">86</th><td><u>#define <dfn class="macro" id="_M/ID_BEZ2" data-ref="_M/ID_BEZ2">ID_BEZ2</dfn>  LWID_('B','E','Z','2')</u></td></tr>
+<tr><th id="87">87</th><td><u>#define <dfn class="macro" id="_M/ID_LINE" data-ref="_M/ID_LINE">ID_LINE</dfn>  LWID_('L','I','N','E')</u></td></tr>
+<tr><th id="88">88</th><td><u>#define <dfn class="macro" id="_M/ID_STEP" data-ref="_M/ID_STEP">ID_STEP</dfn>  LWID_('S','T','E','P')</u></td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td><i>/* clips */</i></td></tr>
+<tr><th id="91">91</th><td><u>#define <dfn class="macro" id="_M/ID_STIL" data-ref="_M/ID_STIL">ID_STIL</dfn>  LWID_('S','T','I','L')</u></td></tr>
+<tr><th id="92">92</th><td><u>#define <dfn class="macro" id="_M/ID_ISEQ" data-ref="_M/ID_ISEQ">ID_ISEQ</dfn>  LWID_('I','S','E','Q')</u></td></tr>
+<tr><th id="93">93</th><td><u>#define <dfn class="macro" id="_M/ID_ANIM" data-ref="_M/ID_ANIM">ID_ANIM</dfn>  LWID_('A','N','I','M')</u></td></tr>
+<tr><th id="94">94</th><td><u>#define <dfn class="macro" id="_M/ID_XREF" data-ref="_M/ID_XREF">ID_XREF</dfn>  LWID_('X','R','E','F')</u></td></tr>
+<tr><th id="95">95</th><td><u>#define <dfn class="macro" id="_M/ID_STCC" data-ref="_M/ID_STCC">ID_STCC</dfn>  LWID_('S','T','C','C')</u></td></tr>
+<tr><th id="96">96</th><td><u>#define <dfn class="macro" id="_M/ID_TIME" data-ref="_M/ID_TIME">ID_TIME</dfn>  LWID_('T','I','M','E')</u></td></tr>
+<tr><th id="97">97</th><td><u>#define <dfn class="macro" id="_M/ID_CONT" data-ref="_M/ID_CONT">ID_CONT</dfn>  LWID_('C','O','N','T')</u></td></tr>
+<tr><th id="98">98</th><td><u>#define <dfn class="macro" id="_M/ID_BRIT" data-ref="_M/ID_BRIT">ID_BRIT</dfn>  LWID_('B','R','I','T')</u></td></tr>
+<tr><th id="99">99</th><td><u>#define <dfn class="macro" id="_M/ID_SATR" data-ref="_M/ID_SATR">ID_SATR</dfn>  LWID_('S','A','T','R')</u></td></tr>
+<tr><th id="100">100</th><td><u>#define <dfn class="macro" id="_M/ID_HUE" data-ref="_M/ID_HUE">ID_HUE</dfn>   LWID_('H','U','E',' ')</u></td></tr>
+<tr><th id="101">101</th><td><u>#define <dfn class="macro" id="_M/ID_GAMM" data-ref="_M/ID_GAMM">ID_GAMM</dfn>  LWID_('G','A','M','M')</u></td></tr>
+<tr><th id="102">102</th><td><u>#define <dfn class="macro" id="_M/ID_NEGA" data-ref="_M/ID_NEGA">ID_NEGA</dfn>  LWID_('N','E','G','A')</u></td></tr>
+<tr><th id="103">103</th><td><u>#define <dfn class="macro" id="_M/ID_IFLT" data-ref="_M/ID_IFLT">ID_IFLT</dfn>  LWID_('I','F','L','T')</u></td></tr>
+<tr><th id="104">104</th><td><u>#define <dfn class="macro" id="_M/ID_PFLT" data-ref="_M/ID_PFLT">ID_PFLT</dfn>  LWID_('P','F','L','T')</u></td></tr>
+<tr><th id="105">105</th><td></td></tr>
+<tr><th id="106">106</th><td><i>/* surfaces */</i></td></tr>
+<tr><th id="107">107</th><td><u>#define <dfn class="macro" id="_M/ID_COLR" data-ref="_M/ID_COLR">ID_COLR</dfn>  LWID_('C','O','L','R')</u></td></tr>
+<tr><th id="108">108</th><td><u>#define <dfn class="macro" id="_M/ID_LUMI" data-ref="_M/ID_LUMI">ID_LUMI</dfn>  LWID_('L','U','M','I')</u></td></tr>
+<tr><th id="109">109</th><td><u>#define <dfn class="macro" id="_M/ID_DIFF" data-ref="_M/ID_DIFF">ID_DIFF</dfn>  LWID_('D','I','F','F')</u></td></tr>
+<tr><th id="110">110</th><td><u>#define <dfn class="macro" id="_M/ID_SPEC" data-ref="_M/ID_SPEC">ID_SPEC</dfn>  LWID_('S','P','E','C')</u></td></tr>
+<tr><th id="111">111</th><td><u>#define <dfn class="macro" id="_M/ID_GLOS" data-ref="_M/ID_GLOS">ID_GLOS</dfn>  LWID_('G','L','O','S')</u></td></tr>
+<tr><th id="112">112</th><td><u>#define <dfn class="macro" id="_M/ID_REFL" data-ref="_M/ID_REFL">ID_REFL</dfn>  LWID_('R','E','F','L')</u></td></tr>
+<tr><th id="113">113</th><td><u>#define <dfn class="macro" id="_M/ID_RFOP" data-ref="_M/ID_RFOP">ID_RFOP</dfn>  LWID_('R','F','O','P')</u></td></tr>
+<tr><th id="114">114</th><td><u>#define <dfn class="macro" id="_M/ID_RIMG" data-ref="_M/ID_RIMG">ID_RIMG</dfn>  LWID_('R','I','M','G')</u></td></tr>
+<tr><th id="115">115</th><td><u>#define <dfn class="macro" id="_M/ID_RSAN" data-ref="_M/ID_RSAN">ID_RSAN</dfn>  LWID_('R','S','A','N')</u></td></tr>
+<tr><th id="116">116</th><td><u>#define <dfn class="macro" id="_M/ID_TRAN" data-ref="_M/ID_TRAN">ID_TRAN</dfn>  LWID_('T','R','A','N')</u></td></tr>
+<tr><th id="117">117</th><td><u>#define <dfn class="macro" id="_M/ID_TROP" data-ref="_M/ID_TROP">ID_TROP</dfn>  LWID_('T','R','O','P')</u></td></tr>
+<tr><th id="118">118</th><td><u>#define <dfn class="macro" id="_M/ID_TIMG" data-ref="_M/ID_TIMG">ID_TIMG</dfn>  LWID_('T','I','M','G')</u></td></tr>
+<tr><th id="119">119</th><td><u>#define <dfn class="macro" id="_M/ID_RIND" data-ref="_M/ID_RIND">ID_RIND</dfn>  LWID_('R','I','N','D')</u></td></tr>
+<tr><th id="120">120</th><td><u>#define <dfn class="macro" id="_M/ID_TRNL" data-ref="_M/ID_TRNL">ID_TRNL</dfn>  LWID_('T','R','N','L')</u></td></tr>
+<tr><th id="121">121</th><td><u>#define <dfn class="macro" id="_M/ID_BUMP" data-ref="_M/ID_BUMP">ID_BUMP</dfn>  LWID_('B','U','M','P')</u></td></tr>
+<tr><th id="122">122</th><td><u>#define <dfn class="macro" id="_M/ID_SMAN" data-ref="_M/ID_SMAN">ID_SMAN</dfn>  LWID_('S','M','A','N')</u></td></tr>
+<tr><th id="123">123</th><td><u>#define <dfn class="macro" id="_M/ID_SIDE" data-ref="_M/ID_SIDE">ID_SIDE</dfn>  LWID_('S','I','D','E')</u></td></tr>
+<tr><th id="124">124</th><td><u>#define <dfn class="macro" id="_M/ID_CLRH" data-ref="_M/ID_CLRH">ID_CLRH</dfn>  LWID_('C','L','R','H')</u></td></tr>
+<tr><th id="125">125</th><td><u>#define <dfn class="macro" id="_M/ID_CLRF" data-ref="_M/ID_CLRF">ID_CLRF</dfn>  LWID_('C','L','R','F')</u></td></tr>
+<tr><th id="126">126</th><td><u>#define <dfn class="macro" id="_M/ID_ADTR" data-ref="_M/ID_ADTR">ID_ADTR</dfn>  LWID_('A','D','T','R')</u></td></tr>
+<tr><th id="127">127</th><td><u>#define <dfn class="macro" id="_M/ID_SHRP" data-ref="_M/ID_SHRP">ID_SHRP</dfn>  LWID_('S','H','R','P')</u></td></tr>
+<tr><th id="128">128</th><td><u>#define <dfn class="macro" id="_M/ID_LINE" data-ref="_M/ID_LINE">ID_LINE</dfn>  LWID_('L','I','N','E')</u></td></tr>
+<tr><th id="129">129</th><td><u>#define <dfn class="macro" id="_M/ID_LSIZ" data-ref="_M/ID_LSIZ">ID_LSIZ</dfn>  LWID_('L','S','I','Z')</u></td></tr>
+<tr><th id="130">130</th><td><u>#define <dfn class="macro" id="_M/ID_ALPH" data-ref="_M/ID_ALPH">ID_ALPH</dfn>  LWID_('A','L','P','H')</u></td></tr>
+<tr><th id="131">131</th><td><u>#define <dfn class="macro" id="_M/ID_AVAL" data-ref="_M/ID_AVAL">ID_AVAL</dfn>  LWID_('A','V','A','L')</u></td></tr>
+<tr><th id="132">132</th><td><u>#define <dfn class="macro" id="_M/ID_GVAL" data-ref="_M/ID_GVAL">ID_GVAL</dfn>  LWID_('G','V','A','L')</u></td></tr>
+<tr><th id="133">133</th><td><u>#define <dfn class="macro" id="_M/ID_BLOK" data-ref="_M/ID_BLOK">ID_BLOK</dfn>  LWID_('B','L','O','K')</u></td></tr>
+<tr><th id="134">134</th><td></td></tr>
+<tr><th id="135">135</th><td><i>/* texture layer */</i></td></tr>
+<tr><th id="136">136</th><td><u>#define <dfn class="macro" id="_M/ID_TYPE" data-ref="_M/ID_TYPE">ID_TYPE</dfn>  LWID_('T','Y','P','E')</u></td></tr>
+<tr><th id="137">137</th><td><u>#define <dfn class="macro" id="_M/ID_CHAN" data-ref="_M/ID_CHAN">ID_CHAN</dfn>  LWID_('C','H','A','N')</u></td></tr>
+<tr><th id="138">138</th><td><u>#define <dfn class="macro" id="_M/ID_NAME" data-ref="_M/ID_NAME">ID_NAME</dfn>  LWID_('N','A','M','E')</u></td></tr>
+<tr><th id="139">139</th><td><u>#define <dfn class="macro" id="_M/ID_ENAB" data-ref="_M/ID_ENAB">ID_ENAB</dfn>  LWID_('E','N','A','B')</u></td></tr>
+<tr><th id="140">140</th><td><u>#define <dfn class="macro" id="_M/ID_OPAC" data-ref="_M/ID_OPAC">ID_OPAC</dfn>  LWID_('O','P','A','C')</u></td></tr>
+<tr><th id="141">141</th><td><u>#define <dfn class="macro" id="_M/ID_FLAG" data-ref="_M/ID_FLAG">ID_FLAG</dfn>  LWID_('F','L','A','G')</u></td></tr>
+<tr><th id="142">142</th><td><u>#define <dfn class="macro" id="_M/ID_PROJ" data-ref="_M/ID_PROJ">ID_PROJ</dfn>  LWID_('P','R','O','J')</u></td></tr>
+<tr><th id="143">143</th><td><u>#define <dfn class="macro" id="_M/ID_STCK" data-ref="_M/ID_STCK">ID_STCK</dfn>  LWID_('S','T','C','K')</u></td></tr>
+<tr><th id="144">144</th><td><u>#define <dfn class="macro" id="_M/ID_TAMP" data-ref="_M/ID_TAMP">ID_TAMP</dfn>  LWID_('T','A','M','P')</u></td></tr>
+<tr><th id="145">145</th><td></td></tr>
+<tr><th id="146">146</th><td><i>/* texture coordinates */</i></td></tr>
+<tr><th id="147">147</th><td><u>#define <dfn class="macro" id="_M/ID_TMAP" data-ref="_M/ID_TMAP">ID_TMAP</dfn>  LWID_('T','M','A','P')</u></td></tr>
+<tr><th id="148">148</th><td><u>#define <dfn class="macro" id="_M/ID_AXIS" data-ref="_M/ID_AXIS">ID_AXIS</dfn>  LWID_('A','X','I','S')</u></td></tr>
+<tr><th id="149">149</th><td><u>#define <dfn class="macro" id="_M/ID_CNTR" data-ref="_M/ID_CNTR">ID_CNTR</dfn>  LWID_('C','N','T','R')</u></td></tr>
+<tr><th id="150">150</th><td><u>#define <dfn class="macro" id="_M/ID_SIZE" data-ref="_M/ID_SIZE">ID_SIZE</dfn>  LWID_('S','I','Z','E')</u></td></tr>
+<tr><th id="151">151</th><td><u>#define <dfn class="macro" id="_M/ID_ROTA" data-ref="_M/ID_ROTA">ID_ROTA</dfn>  LWID_('R','O','T','A')</u></td></tr>
+<tr><th id="152">152</th><td><u>#define <dfn class="macro" id="_M/ID_OREF" data-ref="_M/ID_OREF">ID_OREF</dfn>  LWID_('O','R','E','F')</u></td></tr>
+<tr><th id="153">153</th><td><u>#define <dfn class="macro" id="_M/ID_FALL" data-ref="_M/ID_FALL">ID_FALL</dfn>  LWID_('F','A','L','L')</u></td></tr>
+<tr><th id="154">154</th><td><u>#define <dfn class="macro" id="_M/ID_CSYS" data-ref="_M/ID_CSYS">ID_CSYS</dfn>  LWID_('C','S','Y','S')</u></td></tr>
+<tr><th id="155">155</th><td></td></tr>
+<tr><th id="156">156</th><td><i>/* image map */</i></td></tr>
+<tr><th id="157">157</th><td><u>#define <dfn class="macro" id="_M/ID_IMAP" data-ref="_M/ID_IMAP">ID_IMAP</dfn>  LWID_('I','M','A','P')</u></td></tr>
+<tr><th id="158">158</th><td><u>#define <dfn class="macro" id="_M/ID_IMAG" data-ref="_M/ID_IMAG">ID_IMAG</dfn>  LWID_('I','M','A','G')</u></td></tr>
+<tr><th id="159">159</th><td><u>#define <dfn class="macro" id="_M/ID_WRAP" data-ref="_M/ID_WRAP">ID_WRAP</dfn>  LWID_('W','R','A','P')</u></td></tr>
+<tr><th id="160">160</th><td><u>#define <dfn class="macro" id="_M/ID_WRPW" data-ref="_M/ID_WRPW">ID_WRPW</dfn>  LWID_('W','R','P','W')</u></td></tr>
+<tr><th id="161">161</th><td><u>#define <dfn class="macro" id="_M/ID_WRPH" data-ref="_M/ID_WRPH">ID_WRPH</dfn>  LWID_('W','R','P','H')</u></td></tr>
+<tr><th id="162">162</th><td><u>#define <dfn class="macro" id="_M/ID_VMAP" data-ref="_M/ID_VMAP">ID_VMAP</dfn>  LWID_('V','M','A','P')</u></td></tr>
+<tr><th id="163">163</th><td><u>#define <dfn class="macro" id="_M/ID_AAST" data-ref="_M/ID_AAST">ID_AAST</dfn>  LWID_('A','A','S','T')</u></td></tr>
+<tr><th id="164">164</th><td><u>#define <dfn class="macro" id="_M/ID_PIXB" data-ref="_M/ID_PIXB">ID_PIXB</dfn>  LWID_('P','I','X','B')</u></td></tr>
+<tr><th id="165">165</th><td></td></tr>
+<tr><th id="166">166</th><td><i>/* procedural */</i></td></tr>
+<tr><th id="167">167</th><td><u>#define <dfn class="macro" id="_M/ID_PROC" data-ref="_M/ID_PROC">ID_PROC</dfn>  LWID_('P','R','O','C')</u></td></tr>
+<tr><th id="168">168</th><td><u>#define <dfn class="macro" id="_M/ID_COLR" data-ref="_M/ID_COLR">ID_COLR</dfn>  LWID_('C','O','L','R')</u></td></tr>
+<tr><th id="169">169</th><td><u>#define <dfn class="macro" id="_M/ID_VALU" data-ref="_M/ID_VALU">ID_VALU</dfn>  LWID_('V','A','L','U')</u></td></tr>
+<tr><th id="170">170</th><td><u>#define <dfn class="macro" id="_M/ID_FUNC" data-ref="_M/ID_FUNC">ID_FUNC</dfn>  LWID_('F','U','N','C')</u></td></tr>
+<tr><th id="171">171</th><td><u>#define <dfn class="macro" id="_M/ID_FTPS" data-ref="_M/ID_FTPS">ID_FTPS</dfn>  LWID_('F','T','P','S')</u></td></tr>
+<tr><th id="172">172</th><td><u>#define <dfn class="macro" id="_M/ID_ITPS" data-ref="_M/ID_ITPS">ID_ITPS</dfn>  LWID_('I','T','P','S')</u></td></tr>
+<tr><th id="173">173</th><td><u>#define <dfn class="macro" id="_M/ID_ETPS" data-ref="_M/ID_ETPS">ID_ETPS</dfn>  LWID_('E','T','P','S')</u></td></tr>
+<tr><th id="174">174</th><td></td></tr>
+<tr><th id="175">175</th><td><i>/* gradient */</i></td></tr>
+<tr><th id="176">176</th><td><u>#define <dfn class="macro" id="_M/ID_GRAD" data-ref="_M/ID_GRAD">ID_GRAD</dfn>  LWID_('G','R','A','D')</u></td></tr>
+<tr><th id="177">177</th><td><u>#define <dfn class="macro" id="_M/ID_GRST" data-ref="_M/ID_GRST">ID_GRST</dfn>  LWID_('G','R','S','T')</u></td></tr>
+<tr><th id="178">178</th><td><u>#define <dfn class="macro" id="_M/ID_GREN" data-ref="_M/ID_GREN">ID_GREN</dfn>  LWID_('G','R','E','N')</u></td></tr>
+<tr><th id="179">179</th><td><u>#define <dfn class="macro" id="_M/ID_PNAM" data-ref="_M/ID_PNAM">ID_PNAM</dfn>  LWID_('P','N','A','M')</u></td></tr>
+<tr><th id="180">180</th><td><u>#define <dfn class="macro" id="_M/ID_INAM" data-ref="_M/ID_INAM">ID_INAM</dfn>  LWID_('I','N','A','M')</u></td></tr>
+<tr><th id="181">181</th><td><u>#define <dfn class="macro" id="_M/ID_GRPT" data-ref="_M/ID_GRPT">ID_GRPT</dfn>  LWID_('G','R','P','T')</u></td></tr>
+<tr><th id="182">182</th><td><u>#define <dfn class="macro" id="_M/ID_FKEY" data-ref="_M/ID_FKEY">ID_FKEY</dfn>  LWID_('F','K','E','Y')</u></td></tr>
+<tr><th id="183">183</th><td><u>#define <dfn class="macro" id="_M/ID_IKEY" data-ref="_M/ID_IKEY">ID_IKEY</dfn>  LWID_('I','K','E','Y')</u></td></tr>
+<tr><th id="184">184</th><td></td></tr>
+<tr><th id="185">185</th><td><i>/* shader */</i></td></tr>
+<tr><th id="186">186</th><td><u>#define <dfn class="macro" id="_M/ID_SHDR" data-ref="_M/ID_SHDR">ID_SHDR</dfn>  LWID_('S','H','D','R')</u></td></tr>
+<tr><th id="187">187</th><td><u>#define <dfn class="macro" id="_M/ID_DATA" data-ref="_M/ID_DATA">ID_DATA</dfn>  LWID_('D','A','T','A')</u></td></tr>
+<tr><th id="188">188</th><td></td></tr>
+<tr><th id="189">189</th><td></td></tr>
+<tr><th id="190">190</th><td><i>/* generic linked list */</i></td></tr>
+<tr><th id="191">191</th><td></td></tr>
+<tr><th id="192">192</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwNode" title='st_lwNode' data-ref="st_lwNode"><a class="type" href="#st_lwNode" title='st_lwNode' data-ref="st_lwNode">st_lwNode</a></dfn> {</td></tr>
+<tr><th id="193">193</th><td>   <b>struct</b> <a class="type" href="#st_lwNode" title='st_lwNode' data-ref="st_lwNode">st_lwNode</a> *<dfn class="decl" id="st_lwNode::next" title='st_lwNode::next' data-ref="st_lwNode::next">next</dfn>, *<dfn class="decl" id="st_lwNode::prev" title='st_lwNode::prev' data-ref="st_lwNode::prev">prev</dfn>;</td></tr>
+<tr><th id="194">194</th><td>   <em>void</em> *<dfn class="decl" id="st_lwNode::data" title='st_lwNode::data' data-ref="st_lwNode::data">data</dfn>;</td></tr>
+<tr><th id="195">195</th><td>} <dfn class="typedef" id="lwNode" title='lwNode' data-type='struct st_lwNode' data-ref="lwNode">lwNode</dfn>;</td></tr>
+<tr><th id="196">196</th><td></td></tr>
+<tr><th id="197">197</th><td></td></tr>
+<tr><th id="198">198</th><td><i>/* plug-in reference */</i></td></tr>
+<tr><th id="199">199</th><td></td></tr>
+<tr><th id="200">200</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwPlugin" title='st_lwPlugin' data-ref="st_lwPlugin"><a class="type" href="#st_lwPlugin" title='st_lwPlugin' data-ref="st_lwPlugin">st_lwPlugin</a></dfn> {</td></tr>
+<tr><th id="201">201</th><td>   <b>struct</b> <a class="type" href="#st_lwPlugin" title='st_lwPlugin' data-ref="st_lwPlugin">st_lwPlugin</a> *<dfn class="decl" id="st_lwPlugin::next" title='st_lwPlugin::next' data-ref="st_lwPlugin::next">next</dfn>, *<dfn class="decl" id="st_lwPlugin::prev" title='st_lwPlugin::prev' data-ref="st_lwPlugin::prev">prev</dfn>;</td></tr>
+<tr><th id="202">202</th><td>   <em>char</em>          *<dfn class="decl" id="st_lwPlugin::ord" title='st_lwPlugin::ord' data-ref="st_lwPlugin::ord">ord</dfn>;</td></tr>
+<tr><th id="203">203</th><td>   <em>char</em>          *<dfn class="decl" id="st_lwPlugin::name" title='st_lwPlugin::name' data-ref="st_lwPlugin::name">name</dfn>;</td></tr>
+<tr><th id="204">204</th><td>   <em>int</em>            <dfn class="decl" id="st_lwPlugin::flags" title='st_lwPlugin::flags' data-ref="st_lwPlugin::flags">flags</dfn>;</td></tr>
+<tr><th id="205">205</th><td>   <em>void</em>          *<dfn class="decl" id="st_lwPlugin::data" title='st_lwPlugin::data' data-ref="st_lwPlugin::data">data</dfn>;</td></tr>
+<tr><th id="206">206</th><td>} <dfn class="typedef" id="lwPlugin" title='lwPlugin' data-type='struct st_lwPlugin' data-ref="lwPlugin">lwPlugin</dfn>;</td></tr>
+<tr><th id="207">207</th><td></td></tr>
+<tr><th id="208">208</th><td></td></tr>
+<tr><th id="209">209</th><td><i>/* envelopes */</i></td></tr>
+<tr><th id="210">210</th><td></td></tr>
+<tr><th id="211">211</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwKey" title='st_lwKey' data-ref="st_lwKey"><a class="type" href="#st_lwKey" title='st_lwKey' data-ref="st_lwKey">st_lwKey</a></dfn> {</td></tr>
+<tr><th id="212">212</th><td>   <b>struct</b> <a class="type" href="#st_lwKey" title='st_lwKey' data-ref="st_lwKey">st_lwKey</a> *<dfn class="decl" id="st_lwKey::next" title='st_lwKey::next' data-ref="st_lwKey::next">next</dfn>, *<dfn class="decl" id="st_lwKey::prev" title='st_lwKey::prev' data-ref="st_lwKey::prev">prev</dfn>;</td></tr>
+<tr><th id="213">213</th><td>   <em>float</em>          <dfn class="decl" id="st_lwKey::value" title='st_lwKey::value' data-ref="st_lwKey::value">value</dfn>;</td></tr>
+<tr><th id="214">214</th><td>   <em>float</em>          <dfn class="decl" id="st_lwKey::time" title='st_lwKey::time' data-ref="st_lwKey::time">time</dfn>;</td></tr>
+<tr><th id="215">215</th><td>   <em>unsigned</em> <em>int</em>   <dfn class="decl" id="st_lwKey::shape" title='st_lwKey::shape' data-ref="st_lwKey::shape">shape</dfn>;               <i>/* ID_TCB, ID_BEZ2, etc. */</i></td></tr>
+<tr><th id="216">216</th><td>   <em>float</em>          <dfn class="decl" id="st_lwKey::tension" title='st_lwKey::tension' data-ref="st_lwKey::tension">tension</dfn>;</td></tr>
+<tr><th id="217">217</th><td>   <em>float</em>          <dfn class="decl" id="st_lwKey::continuity" title='st_lwKey::continuity' data-ref="st_lwKey::continuity">continuity</dfn>;</td></tr>
+<tr><th id="218">218</th><td>   <em>float</em>          <dfn class="decl" id="st_lwKey::bias" title='st_lwKey::bias' data-ref="st_lwKey::bias">bias</dfn>;</td></tr>
+<tr><th id="219">219</th><td>   <em>float</em>          <dfn class="decl" id="st_lwKey::param" title='st_lwKey::param' data-ref="st_lwKey::param">param</dfn>[ <var>4</var> ];</td></tr>
+<tr><th id="220">220</th><td>} <dfn class="typedef" id="lwKey" title='lwKey' data-type='struct st_lwKey' data-ref="lwKey">lwKey</dfn>;</td></tr>
+<tr><th id="221">221</th><td></td></tr>
+<tr><th id="222">222</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwEnvelope" title='st_lwEnvelope' data-ref="st_lwEnvelope"><a class="type" href="#st_lwEnvelope" title='st_lwEnvelope' data-ref="st_lwEnvelope">st_lwEnvelope</a></dfn> {</td></tr>
+<tr><th id="223">223</th><td>   <b>struct</b> <a class="type" href="#st_lwEnvelope" title='st_lwEnvelope' data-ref="st_lwEnvelope">st_lwEnvelope</a> *<dfn class="decl" id="st_lwEnvelope::next" title='st_lwEnvelope::next' data-ref="st_lwEnvelope::next">next</dfn>, *<dfn class="decl" id="st_lwEnvelope::prev" title='st_lwEnvelope::prev' data-ref="st_lwEnvelope::prev">prev</dfn>;</td></tr>
+<tr><th id="224">224</th><td>   <em>int</em>            <dfn class="decl" id="st_lwEnvelope::index" title='st_lwEnvelope::index' data-ref="st_lwEnvelope::index">index</dfn>;</td></tr>
+<tr><th id="225">225</th><td>   <em>int</em>            <dfn class="decl" id="st_lwEnvelope::type" title='st_lwEnvelope::type' data-ref="st_lwEnvelope::type">type</dfn>;</td></tr>
+<tr><th id="226">226</th><td>   <em>char</em>          *<dfn class="decl" id="st_lwEnvelope::name" title='st_lwEnvelope::name' data-ref="st_lwEnvelope::name">name</dfn>;</td></tr>
+<tr><th id="227">227</th><td>   <a class="typedef" href="#lwKey" title='lwKey' data-type='struct st_lwKey' data-ref="lwKey">lwKey</a>         *<dfn class="decl" id="st_lwEnvelope::key" title='st_lwEnvelope::key' data-ref="st_lwEnvelope::key">key</dfn>;                 <i>/* linked list of keys */</i></td></tr>
+<tr><th id="228">228</th><td>   <em>int</em>            <dfn class="decl" id="st_lwEnvelope::nkeys" title='st_lwEnvelope::nkeys' data-ref="st_lwEnvelope::nkeys">nkeys</dfn>;</td></tr>
+<tr><th id="229">229</th><td>   <em>int</em>            <dfn class="decl" id="st_lwEnvelope::behavior" title='st_lwEnvelope::behavior' data-ref="st_lwEnvelope::behavior">behavior</dfn>[ <var>2</var> ];       <i>/* pre and post (extrapolation) */</i></td></tr>
+<tr><th id="230">230</th><td>   <a class="typedef" href="#lwPlugin" title='lwPlugin' data-type='struct st_lwPlugin' data-ref="lwPlugin">lwPlugin</a>      *<dfn class="decl" id="st_lwEnvelope::cfilter" title='st_lwEnvelope::cfilter' data-ref="st_lwEnvelope::cfilter">cfilter</dfn>;             <i>/* linked list of channel filters */</i></td></tr>
+<tr><th id="231">231</th><td>   <em>int</em>            <dfn class="decl" id="st_lwEnvelope::ncfilters" title='st_lwEnvelope::ncfilters' data-ref="st_lwEnvelope::ncfilters">ncfilters</dfn>;</td></tr>
+<tr><th id="232">232</th><td>} <dfn class="typedef" id="lwEnvelope" title='lwEnvelope' data-type='struct st_lwEnvelope' data-ref="lwEnvelope">lwEnvelope</dfn>;</td></tr>
+<tr><th id="233">233</th><td></td></tr>
+<tr><th id="234">234</th><td><u>#define <dfn class="macro" id="_M/BEH_RESET" data-ref="_M/BEH_RESET">BEH_RESET</dfn>      0</u></td></tr>
+<tr><th id="235">235</th><td><u>#define <dfn class="macro" id="_M/BEH_CONSTANT" data-ref="_M/BEH_CONSTANT">BEH_CONSTANT</dfn>   1</u></td></tr>
+<tr><th id="236">236</th><td><u>#define <dfn class="macro" id="_M/BEH_REPEAT" data-ref="_M/BEH_REPEAT">BEH_REPEAT</dfn>     2</u></td></tr>
+<tr><th id="237">237</th><td><u>#define <dfn class="macro" id="_M/BEH_OSCILLATE" data-ref="_M/BEH_OSCILLATE">BEH_OSCILLATE</dfn>  3</u></td></tr>
+<tr><th id="238">238</th><td><u>#define <dfn class="macro" id="_M/BEH_OFFSET" data-ref="_M/BEH_OFFSET">BEH_OFFSET</dfn>     4</u></td></tr>
+<tr><th id="239">239</th><td><u>#define <dfn class="macro" id="_M/BEH_LINEAR" data-ref="_M/BEH_LINEAR">BEH_LINEAR</dfn>     5</u></td></tr>
+<tr><th id="240">240</th><td></td></tr>
+<tr><th id="241">241</th><td></td></tr>
+<tr><th id="242">242</th><td><i>/* values that can be enveloped */</i></td></tr>
+<tr><th id="243">243</th><td></td></tr>
+<tr><th id="244">244</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwEParam" title='st_lwEParam' data-ref="st_lwEParam"><a class="type" href="#st_lwEParam" title='st_lwEParam' data-ref="st_lwEParam">st_lwEParam</a></dfn> {</td></tr>
+<tr><th id="245">245</th><td>   <em>float</em>          <dfn class="decl" id="st_lwEParam::val" title='st_lwEParam::val' data-ref="st_lwEParam::val">val</dfn>;</td></tr>
+<tr><th id="246">246</th><td>   <em>int</em>            <dfn class="decl" id="st_lwEParam::eindex" title='st_lwEParam::eindex' data-ref="st_lwEParam::eindex">eindex</dfn>;</td></tr>
+<tr><th id="247">247</th><td>} <dfn class="typedef" id="lwEParam" title='lwEParam' data-type='struct st_lwEParam' data-ref="lwEParam">lwEParam</dfn>;</td></tr>
+<tr><th id="248">248</th><td></td></tr>
+<tr><th id="249">249</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwVParam" title='st_lwVParam' data-ref="st_lwVParam"><a class="type" href="#st_lwVParam" title='st_lwVParam' data-ref="st_lwVParam">st_lwVParam</a></dfn> {</td></tr>
+<tr><th id="250">250</th><td>   <em>float</em>          <dfn class="decl" id="st_lwVParam::val" title='st_lwVParam::val' data-ref="st_lwVParam::val">val</dfn>[ <var>3</var> ];</td></tr>
+<tr><th id="251">251</th><td>   <em>int</em>            <dfn class="decl" id="st_lwVParam::eindex" title='st_lwVParam::eindex' data-ref="st_lwVParam::eindex">eindex</dfn>;</td></tr>
+<tr><th id="252">252</th><td>} <dfn class="typedef" id="lwVParam" title='lwVParam' data-type='struct st_lwVParam' data-ref="lwVParam">lwVParam</dfn>;</td></tr>
+<tr><th id="253">253</th><td></td></tr>
+<tr><th id="254">254</th><td></td></tr>
+<tr><th id="255">255</th><td><i>/* clips */</i></td></tr>
+<tr><th id="256">256</th><td></td></tr>
+<tr><th id="257">257</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwClipStill" title='st_lwClipStill' data-ref="st_lwClipStill"><a class="type" href="#st_lwClipStill" title='st_lwClipStill' data-ref="st_lwClipStill">st_lwClipStill</a></dfn> {</td></tr>
+<tr><th id="258">258</th><td>   <em>char</em>          *<dfn class="decl" id="st_lwClipStill::name" title='st_lwClipStill::name' data-ref="st_lwClipStill::name">name</dfn>;</td></tr>
+<tr><th id="259">259</th><td>} <dfn class="typedef" id="lwClipStill" title='lwClipStill' data-type='struct st_lwClipStill' data-ref="lwClipStill">lwClipStill</dfn>;</td></tr>
+<tr><th id="260">260</th><td></td></tr>
+<tr><th id="261">261</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwClipSeq" title='st_lwClipSeq' data-ref="st_lwClipSeq"><a class="type" href="#st_lwClipSeq" title='st_lwClipSeq' data-ref="st_lwClipSeq">st_lwClipSeq</a></dfn> {</td></tr>
+<tr><th id="262">262</th><td>   <em>char</em>          *<dfn class="decl" id="st_lwClipSeq::prefix" title='st_lwClipSeq::prefix' data-ref="st_lwClipSeq::prefix">prefix</dfn>;              <i>/* filename before sequence digits */</i></td></tr>
+<tr><th id="263">263</th><td>   <em>char</em>          *<dfn class="decl" id="st_lwClipSeq::suffix" title='st_lwClipSeq::suffix' data-ref="st_lwClipSeq::suffix">suffix</dfn>;              <i>/* after digits, e.g. extensions */</i></td></tr>
+<tr><th id="264">264</th><td>   <em>int</em>            <dfn class="decl" id="st_lwClipSeq::digits" title='st_lwClipSeq::digits' data-ref="st_lwClipSeq::digits">digits</dfn>;</td></tr>
+<tr><th id="265">265</th><td>   <em>int</em>            <dfn class="decl" id="st_lwClipSeq::flags" title='st_lwClipSeq::flags' data-ref="st_lwClipSeq::flags">flags</dfn>;</td></tr>
+<tr><th id="266">266</th><td>   <em>int</em>            <dfn class="decl" id="st_lwClipSeq::offset" title='st_lwClipSeq::offset' data-ref="st_lwClipSeq::offset">offset</dfn>;</td></tr>
+<tr><th id="267">267</th><td>   <em>int</em>            <dfn class="decl" id="st_lwClipSeq::start" title='st_lwClipSeq::start' data-ref="st_lwClipSeq::start">start</dfn>;</td></tr>
+<tr><th id="268">268</th><td>   <em>int</em>            <dfn class="decl" id="st_lwClipSeq::end" title='st_lwClipSeq::end' data-ref="st_lwClipSeq::end">end</dfn>;</td></tr>
+<tr><th id="269">269</th><td>} <dfn class="typedef" id="lwClipSeq" title='lwClipSeq' data-type='struct st_lwClipSeq' data-ref="lwClipSeq">lwClipSeq</dfn>;</td></tr>
+<tr><th id="270">270</th><td></td></tr>
+<tr><th id="271">271</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwClipAnim" title='st_lwClipAnim' data-ref="st_lwClipAnim"><a class="type" href="#st_lwClipAnim" title='st_lwClipAnim' data-ref="st_lwClipAnim">st_lwClipAnim</a></dfn> {</td></tr>
+<tr><th id="272">272</th><td>   <em>char</em>          *<dfn class="decl" id="st_lwClipAnim::name" title='st_lwClipAnim::name' data-ref="st_lwClipAnim::name">name</dfn>;</td></tr>
+<tr><th id="273">273</th><td>   <em>char</em>          *<dfn class="decl" id="st_lwClipAnim::server" title='st_lwClipAnim::server' data-ref="st_lwClipAnim::server">server</dfn>;              <i>/* anim loader plug-in */</i></td></tr>
+<tr><th id="274">274</th><td>   <em>void</em>          *<dfn class="decl" id="st_lwClipAnim::data" title='st_lwClipAnim::data' data-ref="st_lwClipAnim::data">data</dfn>;</td></tr>
+<tr><th id="275">275</th><td>} <dfn class="typedef" id="lwClipAnim" title='lwClipAnim' data-type='struct st_lwClipAnim' data-ref="lwClipAnim">lwClipAnim</dfn>;</td></tr>
+<tr><th id="276">276</th><td></td></tr>
+<tr><th id="277">277</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwClipXRef" title='st_lwClipXRef' data-ref="st_lwClipXRef"><a class="type" href="#st_lwClipXRef" title='st_lwClipXRef' data-ref="st_lwClipXRef">st_lwClipXRef</a></dfn> {</td></tr>
+<tr><th id="278">278</th><td>   <em>char</em>          *<dfn class="decl" id="st_lwClipXRef::string" title='st_lwClipXRef::string' data-ref="st_lwClipXRef::string">string</dfn>;</td></tr>
+<tr><th id="279">279</th><td>   <em>int</em>            <dfn class="decl" id="st_lwClipXRef::index" title='st_lwClipXRef::index' data-ref="st_lwClipXRef::index">index</dfn>;</td></tr>
+<tr><th id="280">280</th><td>   <b>struct</b> <a class="type" href="#st_lwClip" title='st_lwClip' data-ref="st_lwClip">st_lwClip</a> *<dfn class="decl" id="st_lwClipXRef::clip" title='st_lwClipXRef::clip' data-ref="st_lwClipXRef::clip">clip</dfn>;</td></tr>
+<tr><th id="281">281</th><td>} <dfn class="typedef" id="lwClipXRef" title='lwClipXRef' data-type='struct st_lwClipXRef' data-ref="lwClipXRef">lwClipXRef</dfn>;</td></tr>
+<tr><th id="282">282</th><td></td></tr>
+<tr><th id="283">283</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwClipCycle" title='st_lwClipCycle' data-ref="st_lwClipCycle"><a class="type" href="#st_lwClipCycle" title='st_lwClipCycle' data-ref="st_lwClipCycle">st_lwClipCycle</a></dfn> {</td></tr>
+<tr><th id="284">284</th><td>   <em>char</em>          *<dfn class="decl" id="st_lwClipCycle::name" title='st_lwClipCycle::name' data-ref="st_lwClipCycle::name">name</dfn>;</td></tr>
+<tr><th id="285">285</th><td>   <em>int</em>            <dfn class="decl" id="st_lwClipCycle::lo" title='st_lwClipCycle::lo' data-ref="st_lwClipCycle::lo">lo</dfn>;</td></tr>
+<tr><th id="286">286</th><td>   <em>int</em>            <dfn class="decl" id="st_lwClipCycle::hi" title='st_lwClipCycle::hi' data-ref="st_lwClipCycle::hi">hi</dfn>;</td></tr>
+<tr><th id="287">287</th><td>} <dfn class="typedef" id="lwClipCycle" title='lwClipCycle' data-type='struct st_lwClipCycle' data-ref="lwClipCycle">lwClipCycle</dfn>;</td></tr>
+<tr><th id="288">288</th><td></td></tr>
+<tr><th id="289">289</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwClip" title='st_lwClip' data-ref="st_lwClip"><a class="type" href="#st_lwClip" title='st_lwClip' data-ref="st_lwClip">st_lwClip</a></dfn> {</td></tr>
+<tr><th id="290">290</th><td>   <b>struct</b> <a class="type" href="#st_lwClip" title='st_lwClip' data-ref="st_lwClip">st_lwClip</a> *<dfn class="decl" id="st_lwClip::next" title='st_lwClip::next' data-ref="st_lwClip::next">next</dfn>, *<dfn class="decl" id="st_lwClip::prev" title='st_lwClip::prev' data-ref="st_lwClip::prev">prev</dfn>;</td></tr>
+<tr><th id="291">291</th><td>   <em>int</em>            <dfn class="decl" id="st_lwClip::index" title='st_lwClip::index' data-ref="st_lwClip::index">index</dfn>;</td></tr>
+<tr><th id="292">292</th><td>   <em>unsigned</em> <em>int</em>   <dfn class="decl" id="st_lwClip::type" title='st_lwClip::type' data-ref="st_lwClip::type">type</dfn>;                <i>/* ID_STIL, ID_ISEQ, etc. */</i></td></tr>
+<tr><th id="293">293</th><td>   <b>union</b> {</td></tr>
+<tr><th id="294">294</th><td>      <a class="typedef" href="#lwClipStill" title='lwClipStill' data-type='struct st_lwClipStill' data-ref="lwClipStill">lwClipStill</a>    <dfn class="decl" id="st_lwClip::(anonymous)::still" title='st_lwClip::(anonymous union)::still' data-ref="st_lwClip::(anonymous)::still">still</dfn>;</td></tr>
+<tr><th id="295">295</th><td>      <a class="typedef" href="#lwClipSeq" title='lwClipSeq' data-type='struct st_lwClipSeq' data-ref="lwClipSeq">lwClipSeq</a>      <dfn class="decl" id="st_lwClip::(anonymous)::seq" title='st_lwClip::(anonymous union)::seq' data-ref="st_lwClip::(anonymous)::seq">seq</dfn>;</td></tr>
+<tr><th id="296">296</th><td>      <a class="typedef" href="#lwClipAnim" title='lwClipAnim' data-type='struct st_lwClipAnim' data-ref="lwClipAnim">lwClipAnim</a>     <dfn class="decl" id="st_lwClip::(anonymous)::anim" title='st_lwClip::(anonymous union)::anim' data-ref="st_lwClip::(anonymous)::anim">anim</dfn>;</td></tr>
+<tr><th id="297">297</th><td>      <a class="typedef" href="#lwClipXRef" title='lwClipXRef' data-type='struct st_lwClipXRef' data-ref="lwClipXRef">lwClipXRef</a>     <dfn class="decl" id="st_lwClip::(anonymous)::xref" title='st_lwClip::(anonymous union)::xref' data-ref="st_lwClip::(anonymous)::xref">xref</dfn>;</td></tr>
+<tr><th id="298">298</th><td>      <a class="typedef" href="#lwClipCycle" title='lwClipCycle' data-type='struct st_lwClipCycle' data-ref="lwClipCycle">lwClipCycle</a>    <dfn class="decl" id="st_lwClip::(anonymous)::cycle" title='st_lwClip::(anonymous union)::cycle' data-ref="st_lwClip::(anonymous)::cycle">cycle</dfn>;</td></tr>
+<tr><th id="299">299</th><td>   }              <dfn class="decl" id="st_lwClip::source" title='st_lwClip::source' data-ref="st_lwClip::source">source</dfn>;</td></tr>
+<tr><th id="300">300</th><td>   <em>float</em>          <dfn class="decl" id="st_lwClip::start_time" title='st_lwClip::start_time' data-ref="st_lwClip::start_time">start_time</dfn>;</td></tr>
+<tr><th id="301">301</th><td>   <em>float</em>          <dfn class="decl" id="st_lwClip::duration" title='st_lwClip::duration' data-ref="st_lwClip::duration">duration</dfn>;</td></tr>
+<tr><th id="302">302</th><td>   <em>float</em>          <dfn class="decl" id="st_lwClip::frame_rate" title='st_lwClip::frame_rate' data-ref="st_lwClip::frame_rate">frame_rate</dfn>;</td></tr>
+<tr><th id="303">303</th><td>   <a class="typedef" href="#lwEParam" title='lwEParam' data-type='struct st_lwEParam' data-ref="lwEParam">lwEParam</a>       <dfn class="decl" id="st_lwClip::contrast" title='st_lwClip::contrast' data-ref="st_lwClip::contrast">contrast</dfn>;</td></tr>
+<tr><th id="304">304</th><td>   <a class="typedef" href="#lwEParam" title='lwEParam' data-type='struct st_lwEParam' data-ref="lwEParam">lwEParam</a>       <dfn class="decl" id="st_lwClip::brightness" title='st_lwClip::brightness' data-ref="st_lwClip::brightness">brightness</dfn>;</td></tr>
+<tr><th id="305">305</th><td>   <a class="typedef" href="#lwEParam" title='lwEParam' data-type='struct st_lwEParam' data-ref="lwEParam">lwEParam</a>       <dfn class="decl" id="st_lwClip::saturation" title='st_lwClip::saturation' data-ref="st_lwClip::saturation">saturation</dfn>;</td></tr>
+<tr><th id="306">306</th><td>   <a class="typedef" href="#lwEParam" title='lwEParam' data-type='struct st_lwEParam' data-ref="lwEParam">lwEParam</a>       <dfn class="decl" id="st_lwClip::hue" title='st_lwClip::hue' data-ref="st_lwClip::hue">hue</dfn>;</td></tr>
+<tr><th id="307">307</th><td>   <a class="typedef" href="#lwEParam" title='lwEParam' data-type='struct st_lwEParam' data-ref="lwEParam">lwEParam</a>       <dfn class="decl" id="st_lwClip::gamma" title='st_lwClip::gamma' data-ref="st_lwClip::gamma">gamma</dfn>;</td></tr>
+<tr><th id="308">308</th><td>   <em>int</em>            <dfn class="decl" id="st_lwClip::negative" title='st_lwClip::negative' data-ref="st_lwClip::negative">negative</dfn>;</td></tr>
+<tr><th id="309">309</th><td>   <a class="typedef" href="#lwPlugin" title='lwPlugin' data-type='struct st_lwPlugin' data-ref="lwPlugin">lwPlugin</a>      *<dfn class="decl" id="st_lwClip::ifilter" title='st_lwClip::ifilter' data-ref="st_lwClip::ifilter">ifilter</dfn>;             <i>/* linked list of image filters */</i></td></tr>
+<tr><th id="310">310</th><td>   <em>int</em>            <dfn class="decl" id="st_lwClip::nifilters" title='st_lwClip::nifilters' data-ref="st_lwClip::nifilters">nifilters</dfn>;</td></tr>
+<tr><th id="311">311</th><td>   <a class="typedef" href="#lwPlugin" title='lwPlugin' data-type='struct st_lwPlugin' data-ref="lwPlugin">lwPlugin</a>      *<dfn class="decl" id="st_lwClip::pfilter" title='st_lwClip::pfilter' data-ref="st_lwClip::pfilter">pfilter</dfn>;             <i>/* linked list of pixel filters */</i></td></tr>
+<tr><th id="312">312</th><td>   <em>int</em>            <dfn class="decl" id="st_lwClip::npfilters" title='st_lwClip::npfilters' data-ref="st_lwClip::npfilters">npfilters</dfn>;</td></tr>
+<tr><th id="313">313</th><td>} <dfn class="typedef" id="lwClip" title='lwClip' data-type='struct st_lwClip' data-ref="lwClip">lwClip</dfn>;</td></tr>
+<tr><th id="314">314</th><td></td></tr>
+<tr><th id="315">315</th><td></td></tr>
+<tr><th id="316">316</th><td><i>/* textures */</i></td></tr>
+<tr><th id="317">317</th><td></td></tr>
+<tr><th id="318">318</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwTMap" title='st_lwTMap' data-ref="st_lwTMap"><a class="type" href="#st_lwTMap" title='st_lwTMap' data-ref="st_lwTMap">st_lwTMap</a></dfn> {</td></tr>
+<tr><th id="319">319</th><td>   <a class="typedef" href="#lwVParam" title='lwVParam' data-type='struct st_lwVParam' data-ref="lwVParam">lwVParam</a>       <dfn class="decl" id="st_lwTMap::size" title='st_lwTMap::size' data-ref="st_lwTMap::size">size</dfn>;</td></tr>
+<tr><th id="320">320</th><td>   <a class="typedef" href="#lwVParam" title='lwVParam' data-type='struct st_lwVParam' data-ref="lwVParam">lwVParam</a>       <dfn class="decl" id="st_lwTMap::center" title='st_lwTMap::center' data-ref="st_lwTMap::center">center</dfn>;</td></tr>
+<tr><th id="321">321</th><td>   <a class="typedef" href="#lwVParam" title='lwVParam' data-type='struct st_lwVParam' data-ref="lwVParam">lwVParam</a>       <dfn class="decl" id="st_lwTMap::rotate" title='st_lwTMap::rotate' data-ref="st_lwTMap::rotate">rotate</dfn>;</td></tr>
+<tr><th id="322">322</th><td>   <a class="typedef" href="#lwVParam" title='lwVParam' data-type='struct st_lwVParam' data-ref="lwVParam">lwVParam</a>       <dfn class="decl" id="st_lwTMap::falloff" title='st_lwTMap::falloff' data-ref="st_lwTMap::falloff">falloff</dfn>;</td></tr>
+<tr><th id="323">323</th><td>   <em>int</em>            <dfn class="decl" id="st_lwTMap::fall_type" title='st_lwTMap::fall_type' data-ref="st_lwTMap::fall_type">fall_type</dfn>;</td></tr>
+<tr><th id="324">324</th><td>   <em>char</em>          *<dfn class="decl" id="st_lwTMap::ref_object" title='st_lwTMap::ref_object' data-ref="st_lwTMap::ref_object">ref_object</dfn>;</td></tr>
+<tr><th id="325">325</th><td>   <em>int</em>            <dfn class="decl" id="st_lwTMap::coord_sys" title='st_lwTMap::coord_sys' data-ref="st_lwTMap::coord_sys">coord_sys</dfn>;</td></tr>
+<tr><th id="326">326</th><td>} <dfn class="typedef" id="lwTMap" title='lwTMap' data-type='struct st_lwTMap' data-ref="lwTMap">lwTMap</dfn>;</td></tr>
+<tr><th id="327">327</th><td></td></tr>
+<tr><th id="328">328</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwImageMap" title='st_lwImageMap' data-ref="st_lwImageMap"><a class="type" href="#st_lwImageMap" title='st_lwImageMap' data-ref="st_lwImageMap">st_lwImageMap</a></dfn> {</td></tr>
+<tr><th id="329">329</th><td>   <em>int</em>            <dfn class="decl" id="st_lwImageMap::cindex" title='st_lwImageMap::cindex' data-ref="st_lwImageMap::cindex">cindex</dfn>;</td></tr>
+<tr><th id="330">330</th><td>   <em>int</em>            <dfn class="decl" id="st_lwImageMap::projection" title='st_lwImageMap::projection' data-ref="st_lwImageMap::projection">projection</dfn>;</td></tr>
+<tr><th id="331">331</th><td>   <em>char</em>          *<dfn class="decl" id="st_lwImageMap::vmap_name" title='st_lwImageMap::vmap_name' data-ref="st_lwImageMap::vmap_name">vmap_name</dfn>;</td></tr>
+<tr><th id="332">332</th><td>   <em>int</em>            <dfn class="decl" id="st_lwImageMap::axis" title='st_lwImageMap::axis' data-ref="st_lwImageMap::axis">axis</dfn>;</td></tr>
+<tr><th id="333">333</th><td>   <em>int</em>            <dfn class="decl" id="st_lwImageMap::wrapw_type" title='st_lwImageMap::wrapw_type' data-ref="st_lwImageMap::wrapw_type">wrapw_type</dfn>;</td></tr>
+<tr><th id="334">334</th><td>   <em>int</em>            <dfn class="decl" id="st_lwImageMap::wraph_type" title='st_lwImageMap::wraph_type' data-ref="st_lwImageMap::wraph_type">wraph_type</dfn>;</td></tr>
+<tr><th id="335">335</th><td>   <a class="typedef" href="#lwEParam" title='lwEParam' data-type='struct st_lwEParam' data-ref="lwEParam">lwEParam</a>       <dfn class="decl" id="st_lwImageMap::wrapw" title='st_lwImageMap::wrapw' data-ref="st_lwImageMap::wrapw">wrapw</dfn>;</td></tr>
+<tr><th id="336">336</th><td>   <a class="typedef" href="#lwEParam" title='lwEParam' data-type='struct st_lwEParam' data-ref="lwEParam">lwEParam</a>       <dfn class="decl" id="st_lwImageMap::wraph" title='st_lwImageMap::wraph' data-ref="st_lwImageMap::wraph">wraph</dfn>;</td></tr>
+<tr><th id="337">337</th><td>   <em>float</em>          <dfn class="decl" id="st_lwImageMap::aa_strength" title='st_lwImageMap::aa_strength' data-ref="st_lwImageMap::aa_strength">aa_strength</dfn>;</td></tr>
+<tr><th id="338">338</th><td>   <em>int</em>            <dfn class="decl" id="st_lwImageMap::aas_flags" title='st_lwImageMap::aas_flags' data-ref="st_lwImageMap::aas_flags">aas_flags</dfn>;</td></tr>
+<tr><th id="339">339</th><td>   <em>int</em>            <dfn class="decl" id="st_lwImageMap::pblend" title='st_lwImageMap::pblend' data-ref="st_lwImageMap::pblend">pblend</dfn>;</td></tr>
+<tr><th id="340">340</th><td>   <a class="typedef" href="#lwEParam" title='lwEParam' data-type='struct st_lwEParam' data-ref="lwEParam">lwEParam</a>       <dfn class="decl" id="st_lwImageMap::stck" title='st_lwImageMap::stck' data-ref="st_lwImageMap::stck">stck</dfn>;</td></tr>
+<tr><th id="341">341</th><td>   <a class="typedef" href="#lwEParam" title='lwEParam' data-type='struct st_lwEParam' data-ref="lwEParam">lwEParam</a>       <dfn class="decl" id="st_lwImageMap::amplitude" title='st_lwImageMap::amplitude' data-ref="st_lwImageMap::amplitude">amplitude</dfn>;</td></tr>
+<tr><th id="342">342</th><td>} <dfn class="typedef" id="lwImageMap" title='lwImageMap' data-type='struct st_lwImageMap' data-ref="lwImageMap">lwImageMap</dfn>;</td></tr>
+<tr><th id="343">343</th><td></td></tr>
+<tr><th id="344">344</th><td><u>#define <dfn class="macro" id="_M/PROJ_PLANAR" data-ref="_M/PROJ_PLANAR">PROJ_PLANAR</dfn>       0</u></td></tr>
+<tr><th id="345">345</th><td><u>#define <dfn class="macro" id="_M/PROJ_CYLINDRICAL" data-ref="_M/PROJ_CYLINDRICAL">PROJ_CYLINDRICAL</dfn>  1</u></td></tr>
+<tr><th id="346">346</th><td><u>#define <dfn class="macro" id="_M/PROJ_SPHERICAL" data-ref="_M/PROJ_SPHERICAL">PROJ_SPHERICAL</dfn>    2</u></td></tr>
+<tr><th id="347">347</th><td><u>#define <dfn class="macro" id="_M/PROJ_CUBIC" data-ref="_M/PROJ_CUBIC">PROJ_CUBIC</dfn>        3</u></td></tr>
+<tr><th id="348">348</th><td><u>#define <dfn class="macro" id="_M/PROJ_FRONT" data-ref="_M/PROJ_FRONT">PROJ_FRONT</dfn>        4</u></td></tr>
+<tr><th id="349">349</th><td></td></tr>
+<tr><th id="350">350</th><td><u>#define <dfn class="macro" id="_M/WRAP_NONE" data-ref="_M/WRAP_NONE">WRAP_NONE</dfn>    0</u></td></tr>
+<tr><th id="351">351</th><td><u>#define <dfn class="macro" id="_M/WRAP_EDGE" data-ref="_M/WRAP_EDGE">WRAP_EDGE</dfn>    1</u></td></tr>
+<tr><th id="352">352</th><td><u>#define <dfn class="macro" id="_M/WRAP_REPEAT" data-ref="_M/WRAP_REPEAT">WRAP_REPEAT</dfn>  2</u></td></tr>
+<tr><th id="353">353</th><td><u>#define <dfn class="macro" id="_M/WRAP_MIRROR" data-ref="_M/WRAP_MIRROR">WRAP_MIRROR</dfn>  3</u></td></tr>
+<tr><th id="354">354</th><td></td></tr>
+<tr><th id="355">355</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwProcedural" title='st_lwProcedural' data-ref="st_lwProcedural"><a class="type" href="#st_lwProcedural" title='st_lwProcedural' data-ref="st_lwProcedural">st_lwProcedural</a></dfn> {</td></tr>
+<tr><th id="356">356</th><td>   <em>int</em>            <dfn class="decl" id="st_lwProcedural::axis" title='st_lwProcedural::axis' data-ref="st_lwProcedural::axis">axis</dfn>;</td></tr>
+<tr><th id="357">357</th><td>   <em>float</em>          <dfn class="decl" id="st_lwProcedural::value" title='st_lwProcedural::value' data-ref="st_lwProcedural::value">value</dfn>[ <var>3</var> ];</td></tr>
+<tr><th id="358">358</th><td>   <em>char</em>          *<dfn class="decl" id="st_lwProcedural::name" title='st_lwProcedural::name' data-ref="st_lwProcedural::name">name</dfn>;</td></tr>
+<tr><th id="359">359</th><td>   <em>void</em>          *<dfn class="decl" id="st_lwProcedural::data" title='st_lwProcedural::data' data-ref="st_lwProcedural::data">data</dfn>;</td></tr>
+<tr><th id="360">360</th><td>} <dfn class="typedef" id="lwProcedural" title='lwProcedural' data-type='struct st_lwProcedural' data-ref="lwProcedural">lwProcedural</dfn>;</td></tr>
+<tr><th id="361">361</th><td></td></tr>
+<tr><th id="362">362</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwGradKey" title='st_lwGradKey' data-ref="st_lwGradKey"><a class="type" href="#st_lwGradKey" title='st_lwGradKey' data-ref="st_lwGradKey">st_lwGradKey</a></dfn> {</td></tr>
+<tr><th id="363">363</th><td>   <b>struct</b> <a class="type" href="#st_lwGradKey" title='st_lwGradKey' data-ref="st_lwGradKey">st_lwGradKey</a> *<dfn class="decl" id="st_lwGradKey::next" title='st_lwGradKey::next' data-ref="st_lwGradKey::next">next</dfn>, *<dfn class="decl" id="st_lwGradKey::prev" title='st_lwGradKey::prev' data-ref="st_lwGradKey::prev">prev</dfn>;</td></tr>
+<tr><th id="364">364</th><td>   <em>float</em>          <dfn class="decl" id="st_lwGradKey::value" title='st_lwGradKey::value' data-ref="st_lwGradKey::value">value</dfn>;</td></tr>
+<tr><th id="365">365</th><td>   <em>float</em>          <dfn class="decl" id="st_lwGradKey::rgba" title='st_lwGradKey::rgba' data-ref="st_lwGradKey::rgba">rgba</dfn>[ <var>4</var> ];</td></tr>
+<tr><th id="366">366</th><td>} <dfn class="typedef" id="lwGradKey" title='lwGradKey' data-type='struct st_lwGradKey' data-ref="lwGradKey">lwGradKey</dfn>;</td></tr>
+<tr><th id="367">367</th><td></td></tr>
+<tr><th id="368">368</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwGradient" title='st_lwGradient' data-ref="st_lwGradient"><a class="type" href="#st_lwGradient" title='st_lwGradient' data-ref="st_lwGradient">st_lwGradient</a></dfn> {</td></tr>
+<tr><th id="369">369</th><td>   <em>char</em>          *<dfn class="decl" id="st_lwGradient::paramname" title='st_lwGradient::paramname' data-ref="st_lwGradient::paramname">paramname</dfn>;</td></tr>
+<tr><th id="370">370</th><td>   <em>char</em>          *<dfn class="decl" id="st_lwGradient::itemname" title='st_lwGradient::itemname' data-ref="st_lwGradient::itemname">itemname</dfn>;</td></tr>
+<tr><th id="371">371</th><td>   <em>float</em>          <dfn class="decl" id="st_lwGradient::start" title='st_lwGradient::start' data-ref="st_lwGradient::start">start</dfn>;</td></tr>
+<tr><th id="372">372</th><td>   <em>float</em>          <dfn class="decl" id="st_lwGradient::end" title='st_lwGradient::end' data-ref="st_lwGradient::end">end</dfn>;</td></tr>
+<tr><th id="373">373</th><td>   <em>int</em>            <dfn class="decl" id="st_lwGradient::repeat" title='st_lwGradient::repeat' data-ref="st_lwGradient::repeat">repeat</dfn>;</td></tr>
+<tr><th id="374">374</th><td>   <a class="typedef" href="#lwGradKey" title='lwGradKey' data-type='struct st_lwGradKey' data-ref="lwGradKey">lwGradKey</a>     *<dfn class="decl" id="st_lwGradient::key" title='st_lwGradient::key' data-ref="st_lwGradient::key">key</dfn>;                 <i>/* array of gradient keys */</i></td></tr>
+<tr><th id="375">375</th><td>   <em>short</em>         *<dfn class="decl" id="st_lwGradient::ikey" title='st_lwGradient::ikey' data-ref="st_lwGradient::ikey">ikey</dfn>;                <i>/* array of interpolation codes */</i></td></tr>
+<tr><th id="376">376</th><td>} <dfn class="typedef" id="lwGradient" title='lwGradient' data-type='struct st_lwGradient' data-ref="lwGradient">lwGradient</dfn>;</td></tr>
+<tr><th id="377">377</th><td></td></tr>
+<tr><th id="378">378</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwTexture" title='st_lwTexture' data-ref="st_lwTexture"><a class="type" href="#st_lwTexture" title='st_lwTexture' data-ref="st_lwTexture">st_lwTexture</a></dfn> {</td></tr>
+<tr><th id="379">379</th><td>   <b>struct</b> <a class="type" href="#st_lwTexture" title='st_lwTexture' data-ref="st_lwTexture">st_lwTexture</a> *<dfn class="decl" id="st_lwTexture::next" title='st_lwTexture::next' data-ref="st_lwTexture::next">next</dfn>, *<dfn class="decl" id="st_lwTexture::prev" title='st_lwTexture::prev' data-ref="st_lwTexture::prev">prev</dfn>;</td></tr>
+<tr><th id="380">380</th><td>   <em>char</em>          *<dfn class="decl" id="st_lwTexture::ord" title='st_lwTexture::ord' data-ref="st_lwTexture::ord">ord</dfn>;</td></tr>
+<tr><th id="381">381</th><td>   <em>unsigned</em> <em>int</em>   <dfn class="decl" id="st_lwTexture::type" title='st_lwTexture::type' data-ref="st_lwTexture::type">type</dfn>;</td></tr>
+<tr><th id="382">382</th><td>   <em>unsigned</em> <em>int</em>   <dfn class="decl" id="st_lwTexture::chan" title='st_lwTexture::chan' data-ref="st_lwTexture::chan">chan</dfn>;</td></tr>
+<tr><th id="383">383</th><td>   <a class="typedef" href="#lwEParam" title='lwEParam' data-type='struct st_lwEParam' data-ref="lwEParam">lwEParam</a>       <dfn class="decl" id="st_lwTexture::opacity" title='st_lwTexture::opacity' data-ref="st_lwTexture::opacity">opacity</dfn>;</td></tr>
+<tr><th id="384">384</th><td>   <em>short</em>          <dfn class="decl" id="st_lwTexture::opac_type" title='st_lwTexture::opac_type' data-ref="st_lwTexture::opac_type">opac_type</dfn>;</td></tr>
+<tr><th id="385">385</th><td>   <em>short</em>          <dfn class="decl" id="st_lwTexture::enabled" title='st_lwTexture::enabled' data-ref="st_lwTexture::enabled">enabled</dfn>;</td></tr>
+<tr><th id="386">386</th><td>   <em>short</em>          <dfn class="decl" id="st_lwTexture::negative" title='st_lwTexture::negative' data-ref="st_lwTexture::negative">negative</dfn>;</td></tr>
+<tr><th id="387">387</th><td>   <em>short</em>          <dfn class="decl" id="st_lwTexture::axis" title='st_lwTexture::axis' data-ref="st_lwTexture::axis">axis</dfn>;</td></tr>
+<tr><th id="388">388</th><td>   <b>union</b> {</td></tr>
+<tr><th id="389">389</th><td>      <a class="typedef" href="#lwImageMap" title='lwImageMap' data-type='struct st_lwImageMap' data-ref="lwImageMap">lwImageMap</a>     <dfn class="decl" id="st_lwTexture::(anonymous)::imap" title='st_lwTexture::(anonymous union)::imap' data-ref="st_lwTexture::(anonymous)::imap">imap</dfn>;</td></tr>
+<tr><th id="390">390</th><td>      <a class="typedef" href="#lwProcedural" title='lwProcedural' data-type='struct st_lwProcedural' data-ref="lwProcedural">lwProcedural</a>   <dfn class="decl" id="st_lwTexture::(anonymous)::proc" title='st_lwTexture::(anonymous union)::proc' data-ref="st_lwTexture::(anonymous)::proc">proc</dfn>;</td></tr>
+<tr><th id="391">391</th><td>      <a class="typedef" href="#lwGradient" title='lwGradient' data-type='struct st_lwGradient' data-ref="lwGradient">lwGradient</a>     <dfn class="decl" id="st_lwTexture::(anonymous)::grad" title='st_lwTexture::(anonymous union)::grad' data-ref="st_lwTexture::(anonymous)::grad">grad</dfn>;</td></tr>
+<tr><th id="392">392</th><td>   }              <dfn class="decl" id="st_lwTexture::param" title='st_lwTexture::param' data-ref="st_lwTexture::param">param</dfn>;</td></tr>
+<tr><th id="393">393</th><td>   <a class="typedef" href="#lwTMap" title='lwTMap' data-type='struct st_lwTMap' data-ref="lwTMap">lwTMap</a>         <dfn class="decl" id="st_lwTexture::tmap" title='st_lwTexture::tmap' data-ref="st_lwTexture::tmap">tmap</dfn>;</td></tr>
+<tr><th id="394">394</th><td>} <dfn class="typedef" id="lwTexture" title='lwTexture' data-type='struct st_lwTexture' data-ref="lwTexture">lwTexture</dfn>;</td></tr>
+<tr><th id="395">395</th><td></td></tr>
+<tr><th id="396">396</th><td></td></tr>
+<tr><th id="397">397</th><td><i>/* values that can be textured */</i></td></tr>
+<tr><th id="398">398</th><td></td></tr>
+<tr><th id="399">399</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwTParam" title='st_lwTParam' data-ref="st_lwTParam"><a class="type" href="#st_lwTParam" title='st_lwTParam' data-ref="st_lwTParam">st_lwTParam</a></dfn> {</td></tr>
+<tr><th id="400">400</th><td>   <em>float</em>          <dfn class="decl" id="st_lwTParam::val" title='st_lwTParam::val' data-ref="st_lwTParam::val">val</dfn>;</td></tr>
+<tr><th id="401">401</th><td>   <em>int</em>            <dfn class="decl" id="st_lwTParam::eindex" title='st_lwTParam::eindex' data-ref="st_lwTParam::eindex">eindex</dfn>;</td></tr>
+<tr><th id="402">402</th><td>   <a class="typedef" href="#lwTexture" title='lwTexture' data-type='struct st_lwTexture' data-ref="lwTexture">lwTexture</a>     *<dfn class="decl" id="st_lwTParam::tex" title='st_lwTParam::tex' data-ref="st_lwTParam::tex">tex</dfn>;                 <i>/* linked list of texture layers */</i></td></tr>
+<tr><th id="403">403</th><td>} <dfn class="typedef" id="lwTParam" title='lwTParam' data-type='struct st_lwTParam' data-ref="lwTParam">lwTParam</dfn>;</td></tr>
+<tr><th id="404">404</th><td></td></tr>
+<tr><th id="405">405</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwCParam" title='st_lwCParam' data-ref="st_lwCParam"><a class="type" href="#st_lwCParam" title='st_lwCParam' data-ref="st_lwCParam">st_lwCParam</a></dfn> {</td></tr>
+<tr><th id="406">406</th><td>   <em>float</em>          <dfn class="decl" id="st_lwCParam::rgb" title='st_lwCParam::rgb' data-ref="st_lwCParam::rgb">rgb</dfn>[ <var>3</var> ];</td></tr>
+<tr><th id="407">407</th><td>   <em>int</em>            <dfn class="decl" id="st_lwCParam::eindex" title='st_lwCParam::eindex' data-ref="st_lwCParam::eindex">eindex</dfn>;</td></tr>
+<tr><th id="408">408</th><td>   <a class="typedef" href="#lwTexture" title='lwTexture' data-type='struct st_lwTexture' data-ref="lwTexture">lwTexture</a>     *<dfn class="decl" id="st_lwCParam::tex" title='st_lwCParam::tex' data-ref="st_lwCParam::tex">tex</dfn>;                 <i>/* linked list of texture layers */</i></td></tr>
+<tr><th id="409">409</th><td>} <dfn class="typedef" id="lwCParam" title='lwCParam' data-type='struct st_lwCParam' data-ref="lwCParam">lwCParam</dfn>;</td></tr>
+<tr><th id="410">410</th><td></td></tr>
+<tr><th id="411">411</th><td></td></tr>
+<tr><th id="412">412</th><td><i>/* surfaces */</i></td></tr>
+<tr><th id="413">413</th><td></td></tr>
+<tr><th id="414">414</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwGlow" title='st_lwGlow' data-ref="st_lwGlow"><a class="type" href="#st_lwGlow" title='st_lwGlow' data-ref="st_lwGlow">st_lwGlow</a></dfn> {</td></tr>
+<tr><th id="415">415</th><td>   <em>short</em>          <dfn class="decl" id="st_lwGlow::enabled" title='st_lwGlow::enabled' data-ref="st_lwGlow::enabled">enabled</dfn>;</td></tr>
+<tr><th id="416">416</th><td>   <em>short</em>          <dfn class="decl" id="st_lwGlow::type" title='st_lwGlow::type' data-ref="st_lwGlow::type">type</dfn>;</td></tr>
+<tr><th id="417">417</th><td>   <a class="typedef" href="#lwEParam" title='lwEParam' data-type='struct st_lwEParam' data-ref="lwEParam">lwEParam</a>       <dfn class="decl" id="st_lwGlow::intensity" title='st_lwGlow::intensity' data-ref="st_lwGlow::intensity">intensity</dfn>;</td></tr>
+<tr><th id="418">418</th><td>   <a class="typedef" href="#lwEParam" title='lwEParam' data-type='struct st_lwEParam' data-ref="lwEParam">lwEParam</a>       <dfn class="decl" id="st_lwGlow::size" title='st_lwGlow::size' data-ref="st_lwGlow::size">size</dfn>;</td></tr>
+<tr><th id="419">419</th><td>} <dfn class="typedef" id="Glow" title='Glow' data-type='struct st_lwGlow' data-ref="Glow">Glow</dfn>;</td></tr>
+<tr><th id="420">420</th><td></td></tr>
+<tr><th id="421">421</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwRMap" title='st_lwRMap' data-ref="st_lwRMap"><a class="type" href="#st_lwRMap" title='st_lwRMap' data-ref="st_lwRMap">st_lwRMap</a></dfn> {</td></tr>
+<tr><th id="422">422</th><td>   <a class="typedef" href="#lwTParam" title='lwTParam' data-type='struct st_lwTParam' data-ref="lwTParam">lwTParam</a>       <dfn class="decl" id="st_lwRMap::val" title='st_lwRMap::val' data-ref="st_lwRMap::val">val</dfn>;</td></tr>
+<tr><th id="423">423</th><td>   <em>int</em>            <dfn class="decl" id="st_lwRMap::options" title='st_lwRMap::options' data-ref="st_lwRMap::options">options</dfn>;</td></tr>
+<tr><th id="424">424</th><td>   <em>int</em>            <dfn class="decl" id="st_lwRMap::cindex" title='st_lwRMap::cindex' data-ref="st_lwRMap::cindex">cindex</dfn>;</td></tr>
+<tr><th id="425">425</th><td>   <em>float</em>          <dfn class="decl" id="st_lwRMap::seam_angle" title='st_lwRMap::seam_angle' data-ref="st_lwRMap::seam_angle">seam_angle</dfn>;</td></tr>
+<tr><th id="426">426</th><td>} <dfn class="typedef" id="lwRMap" title='lwRMap' data-type='struct st_lwRMap' data-ref="lwRMap">lwRMap</dfn>;</td></tr>
+<tr><th id="427">427</th><td></td></tr>
+<tr><th id="428">428</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwLine" title='st_lwLine' data-ref="st_lwLine"><a class="type" href="#st_lwLine" title='st_lwLine' data-ref="st_lwLine">st_lwLine</a></dfn> {</td></tr>
+<tr><th id="429">429</th><td>   <em>short</em>          <dfn class="decl" id="st_lwLine::enabled" title='st_lwLine::enabled' data-ref="st_lwLine::enabled">enabled</dfn>;</td></tr>
+<tr><th id="430">430</th><td>   <em>unsigned</em> <em>short</em> <dfn class="decl" id="st_lwLine::flags" title='st_lwLine::flags' data-ref="st_lwLine::flags">flags</dfn>;</td></tr>
+<tr><th id="431">431</th><td>   <a class="typedef" href="#lwEParam" title='lwEParam' data-type='struct st_lwEParam' data-ref="lwEParam">lwEParam</a>       <dfn class="decl" id="st_lwLine::size" title='st_lwLine::size' data-ref="st_lwLine::size">size</dfn>;</td></tr>
+<tr><th id="432">432</th><td>} <dfn class="typedef" id="lwLine" title='lwLine' data-type='struct st_lwLine' data-ref="lwLine">lwLine</dfn>;</td></tr>
+<tr><th id="433">433</th><td></td></tr>
+<tr><th id="434">434</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwSurface" title='st_lwSurface' data-ref="st_lwSurface"><a class="type" href="#st_lwSurface" title='st_lwSurface' data-ref="st_lwSurface">st_lwSurface</a></dfn> {</td></tr>
+<tr><th id="435">435</th><td>   <b>struct</b> <a class="type" href="#st_lwSurface" title='st_lwSurface' data-ref="st_lwSurface">st_lwSurface</a> *<dfn class="decl" id="st_lwSurface::next" title='st_lwSurface::next' data-ref="st_lwSurface::next">next</dfn>, *<dfn class="decl" id="st_lwSurface::prev" title='st_lwSurface::prev' data-ref="st_lwSurface::prev">prev</dfn>;</td></tr>
+<tr><th id="436">436</th><td>   <em>char</em>          *<dfn class="decl" id="st_lwSurface::name" title='st_lwSurface::name' data-ref="st_lwSurface::name">name</dfn>;</td></tr>
+<tr><th id="437">437</th><td>   <em>char</em>          *<dfn class="decl" id="st_lwSurface::srcname" title='st_lwSurface::srcname' data-ref="st_lwSurface::srcname">srcname</dfn>;</td></tr>
+<tr><th id="438">438</th><td>   <a class="typedef" href="#lwCParam" title='lwCParam' data-type='struct st_lwCParam' data-ref="lwCParam">lwCParam</a>       <dfn class="decl" id="st_lwSurface::color" title='st_lwSurface::color' data-ref="st_lwSurface::color">color</dfn>;</td></tr>
+<tr><th id="439">439</th><td>   <a class="typedef" href="#lwTParam" title='lwTParam' data-type='struct st_lwTParam' data-ref="lwTParam">lwTParam</a>       <dfn class="decl" id="st_lwSurface::luminosity" title='st_lwSurface::luminosity' data-ref="st_lwSurface::luminosity">luminosity</dfn>;</td></tr>
+<tr><th id="440">440</th><td>   <a class="typedef" href="#lwTParam" title='lwTParam' data-type='struct st_lwTParam' data-ref="lwTParam">lwTParam</a>       <dfn class="decl" id="st_lwSurface::diffuse" title='st_lwSurface::diffuse' data-ref="st_lwSurface::diffuse">diffuse</dfn>;</td></tr>
+<tr><th id="441">441</th><td>   <a class="typedef" href="#lwTParam" title='lwTParam' data-type='struct st_lwTParam' data-ref="lwTParam">lwTParam</a>       <dfn class="decl" id="st_lwSurface::specularity" title='st_lwSurface::specularity' data-ref="st_lwSurface::specularity">specularity</dfn>;</td></tr>
+<tr><th id="442">442</th><td>   <a class="typedef" href="#lwTParam" title='lwTParam' data-type='struct st_lwTParam' data-ref="lwTParam">lwTParam</a>       <dfn class="decl" id="st_lwSurface::glossiness" title='st_lwSurface::glossiness' data-ref="st_lwSurface::glossiness">glossiness</dfn>;</td></tr>
+<tr><th id="443">443</th><td>   <a class="typedef" href="#lwRMap" title='lwRMap' data-type='struct st_lwRMap' data-ref="lwRMap">lwRMap</a>         <dfn class="decl" id="st_lwSurface::reflection" title='st_lwSurface::reflection' data-ref="st_lwSurface::reflection">reflection</dfn>;</td></tr>
+<tr><th id="444">444</th><td>   <a class="typedef" href="#lwRMap" title='lwRMap' data-type='struct st_lwRMap' data-ref="lwRMap">lwRMap</a>         <dfn class="decl" id="st_lwSurface::transparency" title='st_lwSurface::transparency' data-ref="st_lwSurface::transparency">transparency</dfn>;</td></tr>
+<tr><th id="445">445</th><td>   <a class="typedef" href="#lwTParam" title='lwTParam' data-type='struct st_lwTParam' data-ref="lwTParam">lwTParam</a>       <dfn class="decl" id="st_lwSurface::eta" title='st_lwSurface::eta' data-ref="st_lwSurface::eta">eta</dfn>;</td></tr>
+<tr><th id="446">446</th><td>   <a class="typedef" href="#lwTParam" title='lwTParam' data-type='struct st_lwTParam' data-ref="lwTParam">lwTParam</a>       <dfn class="decl" id="st_lwSurface::translucency" title='st_lwSurface::translucency' data-ref="st_lwSurface::translucency">translucency</dfn>;</td></tr>
+<tr><th id="447">447</th><td>   <a class="typedef" href="#lwTParam" title='lwTParam' data-type='struct st_lwTParam' data-ref="lwTParam">lwTParam</a>       <dfn class="decl" id="st_lwSurface::bump" title='st_lwSurface::bump' data-ref="st_lwSurface::bump">bump</dfn>;</td></tr>
+<tr><th id="448">448</th><td>   <em>float</em>          <dfn class="decl" id="st_lwSurface::smooth" title='st_lwSurface::smooth' data-ref="st_lwSurface::smooth">smooth</dfn>;</td></tr>
+<tr><th id="449">449</th><td>   <em>int</em>            <dfn class="decl" id="st_lwSurface::sideflags" title='st_lwSurface::sideflags' data-ref="st_lwSurface::sideflags">sideflags</dfn>;</td></tr>
+<tr><th id="450">450</th><td>   <em>float</em>          <dfn class="decl" id="st_lwSurface::alpha" title='st_lwSurface::alpha' data-ref="st_lwSurface::alpha">alpha</dfn>;</td></tr>
+<tr><th id="451">451</th><td>   <em>int</em>            <dfn class="decl" id="st_lwSurface::alpha_mode" title='st_lwSurface::alpha_mode' data-ref="st_lwSurface::alpha_mode">alpha_mode</dfn>;</td></tr>
+<tr><th id="452">452</th><td>   <a class="typedef" href="#lwEParam" title='lwEParam' data-type='struct st_lwEParam' data-ref="lwEParam">lwEParam</a>       <dfn class="decl" id="st_lwSurface::color_hilite" title='st_lwSurface::color_hilite' data-ref="st_lwSurface::color_hilite">color_hilite</dfn>;</td></tr>
+<tr><th id="453">453</th><td>   <a class="typedef" href="#lwEParam" title='lwEParam' data-type='struct st_lwEParam' data-ref="lwEParam">lwEParam</a>       <dfn class="decl" id="st_lwSurface::color_filter" title='st_lwSurface::color_filter' data-ref="st_lwSurface::color_filter">color_filter</dfn>;</td></tr>
+<tr><th id="454">454</th><td>   <a class="typedef" href="#lwEParam" title='lwEParam' data-type='struct st_lwEParam' data-ref="lwEParam">lwEParam</a>       <dfn class="decl" id="st_lwSurface::add_trans" title='st_lwSurface::add_trans' data-ref="st_lwSurface::add_trans">add_trans</dfn>;</td></tr>
+<tr><th id="455">455</th><td>   <a class="typedef" href="#lwEParam" title='lwEParam' data-type='struct st_lwEParam' data-ref="lwEParam">lwEParam</a>       <dfn class="decl" id="st_lwSurface::dif_sharp" title='st_lwSurface::dif_sharp' data-ref="st_lwSurface::dif_sharp">dif_sharp</dfn>;</td></tr>
+<tr><th id="456">456</th><td>   <a class="typedef" href="#lwEParam" title='lwEParam' data-type='struct st_lwEParam' data-ref="lwEParam">lwEParam</a>       <dfn class="decl" id="st_lwSurface::glow" title='st_lwSurface::glow' data-ref="st_lwSurface::glow">glow</dfn>;</td></tr>
+<tr><th id="457">457</th><td>   <a class="typedef" href="#lwLine" title='lwLine' data-type='struct st_lwLine' data-ref="lwLine">lwLine</a>         <dfn class="decl" id="st_lwSurface::line" title='st_lwSurface::line' data-ref="st_lwSurface::line">line</dfn>;</td></tr>
+<tr><th id="458">458</th><td>   <a class="typedef" href="#lwPlugin" title='lwPlugin' data-type='struct st_lwPlugin' data-ref="lwPlugin">lwPlugin</a>      *<dfn class="decl" id="st_lwSurface::shader" title='st_lwSurface::shader' data-ref="st_lwSurface::shader">shader</dfn>;              <i>/* linked list of shaders */</i></td></tr>
+<tr><th id="459">459</th><td>   <em>int</em>            <dfn class="decl" id="st_lwSurface::nshaders" title='st_lwSurface::nshaders' data-ref="st_lwSurface::nshaders">nshaders</dfn>;</td></tr>
+<tr><th id="460">460</th><td>} <dfn class="typedef" id="lwSurface" title='lwSurface' data-type='struct st_lwSurface' data-ref="lwSurface">lwSurface</dfn>;</td></tr>
+<tr><th id="461">461</th><td></td></tr>
+<tr><th id="462">462</th><td></td></tr>
+<tr><th id="463">463</th><td><i>/* vertex maps */</i></td></tr>
+<tr><th id="464">464</th><td></td></tr>
+<tr><th id="465">465</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwVMap" title='st_lwVMap' data-ref="st_lwVMap"><a class="type" href="#st_lwVMap" title='st_lwVMap' data-ref="st_lwVMap">st_lwVMap</a></dfn> {</td></tr>
+<tr><th id="466">466</th><td>   <b>struct</b> <a class="type" href="#st_lwVMap" title='st_lwVMap' data-ref="st_lwVMap">st_lwVMap</a> *<dfn class="decl" id="st_lwVMap::next" title='st_lwVMap::next' data-ref="st_lwVMap::next">next</dfn>, *<dfn class="decl" id="st_lwVMap::prev" title='st_lwVMap::prev' data-ref="st_lwVMap::prev">prev</dfn>;</td></tr>
+<tr><th id="467">467</th><td>   <em>char</em>          *<dfn class="decl" id="st_lwVMap::name" title='st_lwVMap::name' data-ref="st_lwVMap::name">name</dfn>;</td></tr>
+<tr><th id="468">468</th><td>   <em>unsigned</em> <em>int</em>   <dfn class="decl" id="st_lwVMap::type" title='st_lwVMap::type' data-ref="st_lwVMap::type">type</dfn>;</td></tr>
+<tr><th id="469">469</th><td>   <em>int</em>            <dfn class="decl" id="st_lwVMap::dim" title='st_lwVMap::dim' data-ref="st_lwVMap::dim">dim</dfn>;</td></tr>
+<tr><th id="470">470</th><td>   <em>int</em>            <dfn class="decl" id="st_lwVMap::nverts" title='st_lwVMap::nverts' data-ref="st_lwVMap::nverts">nverts</dfn>;</td></tr>
+<tr><th id="471">471</th><td>   <em>int</em>            <dfn class="decl" id="st_lwVMap::perpoly" title='st_lwVMap::perpoly' data-ref="st_lwVMap::perpoly">perpoly</dfn>;</td></tr>
+<tr><th id="472">472</th><td>   <em>int</em>           *<dfn class="decl" id="st_lwVMap::vindex" title='st_lwVMap::vindex' data-ref="st_lwVMap::vindex">vindex</dfn>;              <i>/* array of point indexes */</i></td></tr>
+<tr><th id="473">473</th><td>   <em>int</em>           *<dfn class="decl" id="st_lwVMap::pindex" title='st_lwVMap::pindex' data-ref="st_lwVMap::pindex">pindex</dfn>;              <i>/* array of polygon indexes */</i></td></tr>
+<tr><th id="474">474</th><td>   <em>float</em>        **<dfn class="decl" id="st_lwVMap::val" title='st_lwVMap::val' data-ref="st_lwVMap::val">val</dfn>;</td></tr>
+<tr><th id="475">475</th><td></td></tr>
+<tr><th id="476">476</th><td>   <i>// added by duffy</i></td></tr>
+<tr><th id="477">477</th><td>   <em>int</em>			<dfn class="decl" id="st_lwVMap::offset" title='st_lwVMap::offset' data-ref="st_lwVMap::offset">offset</dfn>;</td></tr>
+<tr><th id="478">478</th><td>} <dfn class="typedef" id="lwVMap" title='lwVMap' data-type='struct st_lwVMap' data-ref="lwVMap">lwVMap</dfn>;</td></tr>
+<tr><th id="479">479</th><td></td></tr>
+<tr><th id="480">480</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwVMapPt" title='st_lwVMapPt' data-ref="st_lwVMapPt"><a class="type" href="#st_lwVMapPt" title='st_lwVMapPt' data-ref="st_lwVMapPt">st_lwVMapPt</a></dfn> {</td></tr>
+<tr><th id="481">481</th><td>   <a class="typedef" href="#lwVMap" title='lwVMap' data-type='struct st_lwVMap' data-ref="lwVMap">lwVMap</a>        *<dfn class="decl" id="st_lwVMapPt::vmap" title='st_lwVMapPt::vmap' data-ref="st_lwVMapPt::vmap">vmap</dfn>;</td></tr>
+<tr><th id="482">482</th><td>   <em>int</em>            <dfn class="decl" id="st_lwVMapPt::index" title='st_lwVMapPt::index' data-ref="st_lwVMapPt::index">index</dfn>;               <i>/* vindex or pindex element */</i></td></tr>
+<tr><th id="483">483</th><td>} <dfn class="typedef" id="lwVMapPt" title='lwVMapPt' data-type='struct st_lwVMapPt' data-ref="lwVMapPt">lwVMapPt</dfn>;</td></tr>
+<tr><th id="484">484</th><td></td></tr>
+<tr><th id="485">485</th><td></td></tr>
+<tr><th id="486">486</th><td><i>/* points and polygons */</i></td></tr>
+<tr><th id="487">487</th><td></td></tr>
+<tr><th id="488">488</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwPoint" title='st_lwPoint' data-ref="st_lwPoint"><a class="type" href="#st_lwPoint" title='st_lwPoint' data-ref="st_lwPoint">st_lwPoint</a></dfn> {</td></tr>
+<tr><th id="489">489</th><td>   <em>float</em>          <dfn class="decl" id="st_lwPoint::pos" title='st_lwPoint::pos' data-ref="st_lwPoint::pos">pos</dfn>[ <var>3</var> ];</td></tr>
+<tr><th id="490">490</th><td>   <em>int</em>            <dfn class="decl" id="st_lwPoint::npols" title='st_lwPoint::npols' data-ref="st_lwPoint::npols">npols</dfn>;               <i>/* number of polygons sharing the point */</i></td></tr>
+<tr><th id="491">491</th><td>   <em>int</em>           *<dfn class="decl" id="st_lwPoint::pol" title='st_lwPoint::pol' data-ref="st_lwPoint::pol">pol</dfn>;                 <i>/* array of polygon indexes */</i></td></tr>
+<tr><th id="492">492</th><td>   <em>int</em>            <dfn class="decl" id="st_lwPoint::nvmaps" title='st_lwPoint::nvmaps' data-ref="st_lwPoint::nvmaps">nvmaps</dfn>;</td></tr>
+<tr><th id="493">493</th><td>   <a class="typedef" href="#lwVMapPt" title='lwVMapPt' data-type='struct st_lwVMapPt' data-ref="lwVMapPt">lwVMapPt</a>      *<dfn class="decl" id="st_lwPoint::vm" title='st_lwPoint::vm' data-ref="st_lwPoint::vm">vm</dfn>;                  <i>/* array of vmap references */</i></td></tr>
+<tr><th id="494">494</th><td>} <dfn class="typedef" id="lwPoint" title='lwPoint' data-type='struct st_lwPoint' data-ref="lwPoint">lwPoint</dfn>;</td></tr>
+<tr><th id="495">495</th><td></td></tr>
+<tr><th id="496">496</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwPolVert" title='st_lwPolVert' data-ref="st_lwPolVert"><a class="type" href="#st_lwPolVert" title='st_lwPolVert' data-ref="st_lwPolVert">st_lwPolVert</a></dfn> {</td></tr>
+<tr><th id="497">497</th><td>   <em>int</em>            <dfn class="decl" id="st_lwPolVert::index" title='st_lwPolVert::index' data-ref="st_lwPolVert::index">index</dfn>;               <i>/* index into the point array */</i></td></tr>
+<tr><th id="498">498</th><td>   <em>float</em>          <dfn class="decl" id="st_lwPolVert::norm" title='st_lwPolVert::norm' data-ref="st_lwPolVert::norm">norm</dfn>[ <var>3</var> ];</td></tr>
+<tr><th id="499">499</th><td>   <em>int</em>            <dfn class="decl" id="st_lwPolVert::nvmaps" title='st_lwPolVert::nvmaps' data-ref="st_lwPolVert::nvmaps">nvmaps</dfn>;</td></tr>
+<tr><th id="500">500</th><td>   <a class="typedef" href="#lwVMapPt" title='lwVMapPt' data-type='struct st_lwVMapPt' data-ref="lwVMapPt">lwVMapPt</a>      *<dfn class="decl" id="st_lwPolVert::vm" title='st_lwPolVert::vm' data-ref="st_lwPolVert::vm">vm</dfn>;                  <i>/* array of vmap references */</i></td></tr>
+<tr><th id="501">501</th><td>} <dfn class="typedef" id="lwPolVert" title='lwPolVert' data-type='struct st_lwPolVert' data-ref="lwPolVert">lwPolVert</dfn>;</td></tr>
+<tr><th id="502">502</th><td></td></tr>
+<tr><th id="503">503</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwPolygon" title='st_lwPolygon' data-ref="st_lwPolygon"><a class="type" href="#st_lwPolygon" title='st_lwPolygon' data-ref="st_lwPolygon">st_lwPolygon</a></dfn> {</td></tr>
+<tr><th id="504">504</th><td>   <a class="typedef" href="#lwSurface" title='lwSurface' data-type='struct st_lwSurface' data-ref="lwSurface">lwSurface</a>     *<dfn class="decl" id="st_lwPolygon::surf" title='st_lwPolygon::surf' data-ref="st_lwPolygon::surf">surf</dfn>;</td></tr>
+<tr><th id="505">505</th><td>   <em>int</em>            <dfn class="decl" id="st_lwPolygon::part" title='st_lwPolygon::part' data-ref="st_lwPolygon::part">part</dfn>;                <i>/* part index */</i></td></tr>
+<tr><th id="506">506</th><td>   <em>int</em>            <dfn class="decl" id="st_lwPolygon::smoothgrp" title='st_lwPolygon::smoothgrp' data-ref="st_lwPolygon::smoothgrp">smoothgrp</dfn>;           <i>/* smoothing group */</i></td></tr>
+<tr><th id="507">507</th><td>   <em>int</em>            <dfn class="decl" id="st_lwPolygon::flags" title='st_lwPolygon::flags' data-ref="st_lwPolygon::flags">flags</dfn>;</td></tr>
+<tr><th id="508">508</th><td>   <em>unsigned</em> <em>int</em>   <dfn class="decl" id="st_lwPolygon::type" title='st_lwPolygon::type' data-ref="st_lwPolygon::type">type</dfn>;</td></tr>
+<tr><th id="509">509</th><td>   <em>float</em>          <dfn class="decl" id="st_lwPolygon::norm" title='st_lwPolygon::norm' data-ref="st_lwPolygon::norm">norm</dfn>[ <var>3</var> ];</td></tr>
+<tr><th id="510">510</th><td>   <em>int</em>            <dfn class="decl" id="st_lwPolygon::nverts" title='st_lwPolygon::nverts' data-ref="st_lwPolygon::nverts">nverts</dfn>;</td></tr>
+<tr><th id="511">511</th><td>   <a class="typedef" href="#lwPolVert" title='lwPolVert' data-type='struct st_lwPolVert' data-ref="lwPolVert">lwPolVert</a>     *<dfn class="decl" id="st_lwPolygon::v" title='st_lwPolygon::v' data-ref="st_lwPolygon::v">v</dfn>;                   <i>/* array of vertex records */</i></td></tr>
+<tr><th id="512">512</th><td>} <dfn class="typedef" id="lwPolygon" title='lwPolygon' data-type='struct st_lwPolygon' data-ref="lwPolygon">lwPolygon</dfn>;</td></tr>
+<tr><th id="513">513</th><td></td></tr>
+<tr><th id="514">514</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwPointList" title='st_lwPointList' data-ref="st_lwPointList"><a class="type" href="#st_lwPointList" title='st_lwPointList' data-ref="st_lwPointList">st_lwPointList</a></dfn> {</td></tr>
+<tr><th id="515">515</th><td>   <em>int</em>            <dfn class="decl" id="st_lwPointList::count" title='st_lwPointList::count' data-ref="st_lwPointList::count">count</dfn>;</td></tr>
+<tr><th id="516">516</th><td>   <em>int</em>            <dfn class="decl" id="st_lwPointList::offset" title='st_lwPointList::offset' data-ref="st_lwPointList::offset">offset</dfn>;              <i>/* only used during reading */</i></td></tr>
+<tr><th id="517">517</th><td>   <a class="typedef" href="#lwPoint" title='lwPoint' data-type='struct st_lwPoint' data-ref="lwPoint">lwPoint</a>       *<dfn class="decl" id="st_lwPointList::pt" title='st_lwPointList::pt' data-ref="st_lwPointList::pt">pt</dfn>;                  <i>/* array of points */</i></td></tr>
+<tr><th id="518">518</th><td>} <dfn class="typedef" id="lwPointList" title='lwPointList' data-type='struct st_lwPointList' data-ref="lwPointList">lwPointList</dfn>;</td></tr>
+<tr><th id="519">519</th><td></td></tr>
+<tr><th id="520">520</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwPolygonList" title='st_lwPolygonList' data-ref="st_lwPolygonList"><a class="type" href="#st_lwPolygonList" title='st_lwPolygonList' data-ref="st_lwPolygonList">st_lwPolygonList</a></dfn> {</td></tr>
+<tr><th id="521">521</th><td>   <em>int</em>            <dfn class="decl" id="st_lwPolygonList::count" title='st_lwPolygonList::count' data-ref="st_lwPolygonList::count">count</dfn>;</td></tr>
+<tr><th id="522">522</th><td>   <em>int</em>            <dfn class="decl" id="st_lwPolygonList::offset" title='st_lwPolygonList::offset' data-ref="st_lwPolygonList::offset">offset</dfn>;              <i>/* only used during reading */</i></td></tr>
+<tr><th id="523">523</th><td>   <em>int</em>            <dfn class="decl" id="st_lwPolygonList::vcount" title='st_lwPolygonList::vcount' data-ref="st_lwPolygonList::vcount">vcount</dfn>;              <i>/* total number of vertices */</i></td></tr>
+<tr><th id="524">524</th><td>   <em>int</em>            <dfn class="decl" id="st_lwPolygonList::voffset" title='st_lwPolygonList::voffset' data-ref="st_lwPolygonList::voffset">voffset</dfn>;             <i>/* only used during reading */</i></td></tr>
+<tr><th id="525">525</th><td>   <a class="typedef" href="#lwPolygon" title='lwPolygon' data-type='struct st_lwPolygon' data-ref="lwPolygon">lwPolygon</a>     *<dfn class="decl" id="st_lwPolygonList::pol" title='st_lwPolygonList::pol' data-ref="st_lwPolygonList::pol">pol</dfn>;                 <i>/* array of polygons */</i></td></tr>
+<tr><th id="526">526</th><td>} <dfn class="typedef" id="lwPolygonList" title='lwPolygonList' data-type='struct st_lwPolygonList' data-ref="lwPolygonList">lwPolygonList</dfn>;</td></tr>
+<tr><th id="527">527</th><td></td></tr>
+<tr><th id="528">528</th><td></td></tr>
+<tr><th id="529">529</th><td><i>/* geometry layers */</i></td></tr>
+<tr><th id="530">530</th><td></td></tr>
+<tr><th id="531">531</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwLayer" title='st_lwLayer' data-ref="st_lwLayer"><a class="type" href="#st_lwLayer" title='st_lwLayer' data-ref="st_lwLayer">st_lwLayer</a></dfn> {</td></tr>
+<tr><th id="532">532</th><td>   <b>struct</b> <a class="type" href="#st_lwLayer" title='st_lwLayer' data-ref="st_lwLayer">st_lwLayer</a> *<dfn class="decl" id="st_lwLayer::next" title='st_lwLayer::next' data-ref="st_lwLayer::next">next</dfn>, *<dfn class="decl" id="st_lwLayer::prev" title='st_lwLayer::prev' data-ref="st_lwLayer::prev">prev</dfn>;</td></tr>
+<tr><th id="533">533</th><td>   <em>char</em>          *<dfn class="decl" id="st_lwLayer::name" title='st_lwLayer::name' data-ref="st_lwLayer::name">name</dfn>;</td></tr>
+<tr><th id="534">534</th><td>   <em>int</em>            <dfn class="decl" id="st_lwLayer::index" title='st_lwLayer::index' data-ref="st_lwLayer::index">index</dfn>;</td></tr>
+<tr><th id="535">535</th><td>   <em>int</em>            <dfn class="decl" id="st_lwLayer::parent" title='st_lwLayer::parent' data-ref="st_lwLayer::parent">parent</dfn>;</td></tr>
+<tr><th id="536">536</th><td>   <em>int</em>            <dfn class="decl" id="st_lwLayer::flags" title='st_lwLayer::flags' data-ref="st_lwLayer::flags">flags</dfn>;</td></tr>
+<tr><th id="537">537</th><td>   <em>float</em>          <dfn class="decl" id="st_lwLayer::pivot" title='st_lwLayer::pivot' data-ref="st_lwLayer::pivot">pivot</dfn>[ <var>3</var> ];</td></tr>
+<tr><th id="538">538</th><td>   <em>float</em>          <dfn class="decl" id="st_lwLayer::bbox" title='st_lwLayer::bbox' data-ref="st_lwLayer::bbox">bbox</dfn>[ <var>6</var> ];</td></tr>
+<tr><th id="539">539</th><td>   <a class="typedef" href="#lwPointList" title='lwPointList' data-type='struct st_lwPointList' data-ref="lwPointList">lwPointList</a>    <dfn class="decl" id="st_lwLayer::point" title='st_lwLayer::point' data-ref="st_lwLayer::point">point</dfn>;</td></tr>
+<tr><th id="540">540</th><td>   <a class="typedef" href="#lwPolygonList" title='lwPolygonList' data-type='struct st_lwPolygonList' data-ref="lwPolygonList">lwPolygonList</a>  <dfn class="decl" id="st_lwLayer::polygon" title='st_lwLayer::polygon' data-ref="st_lwLayer::polygon">polygon</dfn>;</td></tr>
+<tr><th id="541">541</th><td>   <em>int</em>            <dfn class="decl" id="st_lwLayer::nvmaps" title='st_lwLayer::nvmaps' data-ref="st_lwLayer::nvmaps">nvmaps</dfn>;</td></tr>
+<tr><th id="542">542</th><td>   <a class="typedef" href="#lwVMap" title='lwVMap' data-type='struct st_lwVMap' data-ref="lwVMap">lwVMap</a>        *<dfn class="decl" id="st_lwLayer::vmap" title='st_lwLayer::vmap' data-ref="st_lwLayer::vmap">vmap</dfn>;                <i>/* linked list of vmaps */</i></td></tr>
+<tr><th id="543">543</th><td>} <dfn class="typedef" id="lwLayer" title='lwLayer' data-type='struct st_lwLayer' data-ref="lwLayer">lwLayer</dfn>;</td></tr>
+<tr><th id="544">544</th><td></td></tr>
+<tr><th id="545">545</th><td></td></tr>
+<tr><th id="546">546</th><td><i>/* tag strings */</i></td></tr>
+<tr><th id="547">547</th><td></td></tr>
+<tr><th id="548">548</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwTagList" title='st_lwTagList' data-ref="st_lwTagList"><a class="type" href="#st_lwTagList" title='st_lwTagList' data-ref="st_lwTagList">st_lwTagList</a></dfn> {</td></tr>
+<tr><th id="549">549</th><td>   <em>int</em>            <dfn class="decl" id="st_lwTagList::count" title='st_lwTagList::count' data-ref="st_lwTagList::count">count</dfn>;</td></tr>
+<tr><th id="550">550</th><td>   <em>int</em>            <dfn class="decl" id="st_lwTagList::offset" title='st_lwTagList::offset' data-ref="st_lwTagList::offset">offset</dfn>;              <i>/* only used during reading */</i></td></tr>
+<tr><th id="551">551</th><td>   <em>char</em>         **<dfn class="decl" id="st_lwTagList::tag" title='st_lwTagList::tag' data-ref="st_lwTagList::tag">tag</dfn>;                 <i>/* array of strings */</i></td></tr>
+<tr><th id="552">552</th><td>} <dfn class="typedef" id="lwTagList" title='lwTagList' data-type='struct st_lwTagList' data-ref="lwTagList">lwTagList</dfn>;</td></tr>
+<tr><th id="553">553</th><td></td></tr>
+<tr><th id="554">554</th><td></td></tr>
+<tr><th id="555">555</th><td><i>/* an object */</i></td></tr>
+<tr><th id="556">556</th><td></td></tr>
+<tr><th id="557">557</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="st_lwObject" title='st_lwObject' data-ref="st_lwObject"><a class="type" href="#st_lwObject" title='st_lwObject' data-ref="st_lwObject">st_lwObject</a></dfn> {</td></tr>
+<tr><th id="558">558</th><td>	<a class="macro" href="../idlib/precompiled.h.html#36" title="time_t" data-ref="_M/ID_TIME_T">ID_TIME_T</a>			<dfn class="decl" id="st_lwObject::timeStamp" title='st_lwObject::timeStamp' data-ref="st_lwObject::timeStamp">timeStamp</dfn>;</td></tr>
+<tr><th id="559">559</th><td>	<a class="typedef" href="#lwLayer" title='lwLayer' data-type='struct st_lwLayer' data-ref="lwLayer">lwLayer</a> *		<dfn class="decl" id="st_lwObject::layer" title='st_lwObject::layer' data-ref="st_lwObject::layer">layer</dfn>;               <i>/* linked list of layers */</i></td></tr>
+<tr><th id="560">560</th><td>	<a class="typedef" href="#lwEnvelope" title='lwEnvelope' data-type='struct st_lwEnvelope' data-ref="lwEnvelope">lwEnvelope</a> *	<dfn class="decl" id="st_lwObject::env" title='st_lwObject::env' data-ref="st_lwObject::env">env</dfn>;                 <i>/* linked list of envelopes */</i></td></tr>
+<tr><th id="561">561</th><td>	<a class="typedef" href="#lwClip" title='lwClip' data-type='struct st_lwClip' data-ref="lwClip">lwClip</a> *		<dfn class="decl" id="st_lwObject::clip" title='st_lwObject::clip' data-ref="st_lwObject::clip">clip</dfn>;                <i>/* linked list of clips */</i></td></tr>
+<tr><th id="562">562</th><td>	<a class="typedef" href="#lwSurface" title='lwSurface' data-type='struct st_lwSurface' data-ref="lwSurface">lwSurface</a> *		<dfn class="decl" id="st_lwObject::surf" title='st_lwObject::surf' data-ref="st_lwObject::surf">surf</dfn>;                <i>/* linked list of surfaces */</i></td></tr>
+<tr><th id="563">563</th><td>	<a class="typedef" href="#lwTagList" title='lwTagList' data-type='struct st_lwTagList' data-ref="lwTagList">lwTagList</a>		<dfn class="decl" id="st_lwObject::taglist" title='st_lwObject::taglist' data-ref="st_lwObject::taglist">taglist</dfn>;</td></tr>
+<tr><th id="564">564</th><td>	<em>int</em>				<dfn class="decl" id="st_lwObject::nlayers" title='st_lwObject::nlayers' data-ref="st_lwObject::nlayers">nlayers</dfn>;</td></tr>
+<tr><th id="565">565</th><td>	<em>int</em>				<dfn class="decl" id="st_lwObject::nenvs" title='st_lwObject::nenvs' data-ref="st_lwObject::nenvs">nenvs</dfn>;</td></tr>
+<tr><th id="566">566</th><td>	<em>int</em>				<dfn class="decl" id="st_lwObject::nclips" title='st_lwObject::nclips' data-ref="st_lwObject::nclips">nclips</dfn>;</td></tr>
+<tr><th id="567">567</th><td>	<em>int</em>				<dfn class="decl" id="st_lwObject::nsurfs" title='st_lwObject::nsurfs' data-ref="st_lwObject::nsurfs">nsurfs</dfn>;</td></tr>
+<tr><th id="568">568</th><td>} <dfn class="typedef" id="lwObject" title='lwObject' data-type='struct st_lwObject' data-ref="lwObject">lwObject</dfn>;</td></tr>
+<tr><th id="569">569</th><td></td></tr>
+<tr><th id="570">570</th><td></td></tr>
+<tr><th id="571">571</th><td><i>/* lwo2.c */</i></td></tr>
+<tr><th id="572">572</th><td></td></tr>
+<tr><th id="573">573</th><td><a class="typedef" href="#lwObject" title='lwObject' data-type='struct st_lwObject' data-ref="lwObject">lwObject</a> *<dfn class="decl" id="_Z11lwGetObjectPKcPjPi" title='lwGetObject' data-ref="_Z11lwGetObjectPKcPjPi">lwGetObject</dfn>( <em>const</em> <em>char</em> *<dfn class="local col0 decl" id="120filename" title='filename' data-type='const char *' data-ref="120filename">filename</dfn>, <em>unsigned</em> <em>int</em> *<dfn class="local col1 decl" id="121failID" title='failID' data-type='unsigned int *' data-ref="121failID">failID</dfn>, <em>int</em> *<dfn class="local col2 decl" id="122failpos" title='failpos' data-type='int *' data-ref="122failpos">failpos</dfn> );</td></tr>
+<tr><th id="574">574</th><td><em>void</em> <dfn class="decl" id="_Z12lwFreeObjectP11st_lwObject" title='lwFreeObject' data-ref="_Z12lwFreeObjectP11st_lwObject">lwFreeObject</dfn>( <a class="typedef" href="#lwObject" title='lwObject' data-type='struct st_lwObject' data-ref="lwObject">lwObject</a> *<dfn class="local col3 decl" id="123object" title='object' data-type='lwObject *' data-ref="123object">object</dfn> );</td></tr>
+<tr><th id="575">575</th><td><em>void</em> <dfn class="decl" id="_Z11lwFreeLayerP10st_lwLayer" title='lwFreeLayer' data-ref="_Z11lwFreeLayerP10st_lwLayer">lwFreeLayer</dfn>( <a class="typedef" href="#lwLayer" title='lwLayer' data-type='struct st_lwLayer' data-ref="lwLayer">lwLayer</a> *<dfn class="local col4 decl" id="124layer" title='layer' data-type='lwLayer *' data-ref="124layer">layer</dfn> );</td></tr>
+<tr><th id="576">576</th><td></td></tr>
+<tr><th id="577">577</th><td><i>/* pntspols.c */</i></td></tr>
+<tr><th id="578">578</th><td></td></tr>
+<tr><th id="579">579</th><td><em>void</em> <dfn class="decl" id="_Z12lwFreePointsP14st_lwPointList" title='lwFreePoints' data-ref="_Z12lwFreePointsP14st_lwPointList">lwFreePoints</dfn>( <a class="typedef" href="#lwPointList" title='lwPointList' data-type='struct st_lwPointList' data-ref="lwPointList">lwPointList</a> *<dfn class="local col5 decl" id="125point" title='point' data-type='lwPointList *' data-ref="125point">point</dfn> );</td></tr>
+<tr><th id="580">580</th><td><em>void</em> <dfn class="decl" id="_Z14lwFreePolygonsP16st_lwPolygonList" title='lwFreePolygons' data-ref="_Z14lwFreePolygonsP16st_lwPolygonList">lwFreePolygons</dfn>( <a class="typedef" href="#lwPolygonList" title='lwPolygonList' data-type='struct st_lwPolygonList' data-ref="lwPolygonList">lwPolygonList</a> *<dfn class="local col6 decl" id="126plist" title='plist' data-type='lwPolygonList *' data-ref="126plist">plist</dfn> );</td></tr>
+<tr><th id="581">581</th><td><em>int</em> <dfn class="decl" id="_Z11lwGetPointsP6idFileiP14st_lwPointList" title='lwGetPoints' data-ref="_Z11lwGetPointsP6idFileiP14st_lwPointList">lwGetPoints</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col7 decl" id="127fp" title='fp' data-type='idFile *' data-ref="127fp">fp</dfn>, <em>int</em> <dfn class="local col8 decl" id="128cksize" title='cksize' data-type='int' data-ref="128cksize">cksize</dfn>, <a class="typedef" href="#lwPointList" title='lwPointList' data-type='struct st_lwPointList' data-ref="lwPointList">lwPointList</a> *<dfn class="local col9 decl" id="129point" title='point' data-type='lwPointList *' data-ref="129point">point</dfn> );</td></tr>
+<tr><th id="582">582</th><td><em>void</em> <dfn class="decl" id="_Z16lwGetBoundingBoxP14st_lwPointListPf" title='lwGetBoundingBox' data-ref="_Z16lwGetBoundingBoxP14st_lwPointListPf">lwGetBoundingBox</dfn>( <a class="typedef" href="#lwPointList" title='lwPointList' data-type='struct st_lwPointList' data-ref="lwPointList">lwPointList</a> *<dfn class="local col0 decl" id="130point" title='point' data-type='lwPointList *' data-ref="130point">point</dfn>, <em>float</em> <dfn class="local col1 decl" id="131bbox" title='bbox' data-type='float *' data-ref="131bbox">bbox</dfn>[] );</td></tr>
+<tr><th id="583">583</th><td><em>int</em> <dfn class="decl" id="_Z15lwAllocPolygonsP16st_lwPolygonListii" title='lwAllocPolygons' data-ref="_Z15lwAllocPolygonsP16st_lwPolygonListii">lwAllocPolygons</dfn>( <a class="typedef" href="#lwPolygonList" title='lwPolygonList' data-type='struct st_lwPolygonList' data-ref="lwPolygonList">lwPolygonList</a> *<dfn class="local col2 decl" id="132plist" title='plist' data-type='lwPolygonList *' data-ref="132plist">plist</dfn>, <em>int</em> <dfn class="local col3 decl" id="133npols" title='npols' data-type='int' data-ref="133npols">npols</dfn>, <em>int</em> <dfn class="local col4 decl" id="134nverts" title='nverts' data-type='int' data-ref="134nverts">nverts</dfn> );</td></tr>
+<tr><th id="584">584</th><td><em>int</em> <dfn class="decl" id="_Z13lwGetPolygonsP6idFileiP16st_lwPolygonListi" title='lwGetPolygons' data-ref="_Z13lwGetPolygonsP6idFileiP16st_lwPolygonListi">lwGetPolygons</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col5 decl" id="135fp" title='fp' data-type='idFile *' data-ref="135fp">fp</dfn>, <em>int</em> <dfn class="local col6 decl" id="136cksize" title='cksize' data-type='int' data-ref="136cksize">cksize</dfn>, <a class="typedef" href="#lwPolygonList" title='lwPolygonList' data-type='struct st_lwPolygonList' data-ref="lwPolygonList">lwPolygonList</a> *<dfn class="local col7 decl" id="137plist" title='plist' data-type='lwPolygonList *' data-ref="137plist">plist</dfn>, <em>int</em> <dfn class="local col8 decl" id="138ptoffset" title='ptoffset' data-type='int' data-ref="138ptoffset">ptoffset</dfn> );</td></tr>
+<tr><th id="585">585</th><td><em>void</em> <dfn class="decl" id="_Z16lwGetPolyNormalsP14st_lwPointListP16st_lwPolygonList" title='lwGetPolyNormals' data-ref="_Z16lwGetPolyNormalsP14st_lwPointListP16st_lwPolygonList">lwGetPolyNormals</dfn>( <a class="typedef" href="#lwPointList" title='lwPointList' data-type='struct st_lwPointList' data-ref="lwPointList">lwPointList</a> *<dfn class="local col9 decl" id="139point" title='point' data-type='lwPointList *' data-ref="139point">point</dfn>, <a class="typedef" href="#lwPolygonList" title='lwPolygonList' data-type='struct st_lwPolygonList' data-ref="lwPolygonList">lwPolygonList</a> *<dfn class="local col0 decl" id="140polygon" title='polygon' data-type='lwPolygonList *' data-ref="140polygon">polygon</dfn> );</td></tr>
+<tr><th id="586">586</th><td><em>int</em> <dfn class="decl" id="_Z18lwGetPointPolygonsP14st_lwPointListP16st_lwPolygonList" title='lwGetPointPolygons' data-ref="_Z18lwGetPointPolygonsP14st_lwPointListP16st_lwPolygonList">lwGetPointPolygons</dfn>( <a class="typedef" href="#lwPointList" title='lwPointList' data-type='struct st_lwPointList' data-ref="lwPointList">lwPointList</a> *<dfn class="local col1 decl" id="141point" title='point' data-type='lwPointList *' data-ref="141point">point</dfn>, <a class="typedef" href="#lwPolygonList" title='lwPolygonList' data-type='struct st_lwPolygonList' data-ref="lwPolygonList">lwPolygonList</a> *<dfn class="local col2 decl" id="142polygon" title='polygon' data-type='lwPolygonList *' data-ref="142polygon">polygon</dfn> );</td></tr>
+<tr><th id="587">587</th><td><em>int</em> <dfn class="decl" id="_Z21lwResolvePolySurfacesP16st_lwPolygonListP12st_lwTagListPP12st_lwSurfacePi" title='lwResolvePolySurfaces' data-ref="_Z21lwResolvePolySurfacesP16st_lwPolygonListP12st_lwTagListPP12st_lwSurfacePi">lwResolvePolySurfaces</dfn>( <a class="typedef" href="#lwPolygonList" title='lwPolygonList' data-type='struct st_lwPolygonList' data-ref="lwPolygonList">lwPolygonList</a> *<dfn class="local col3 decl" id="143polygon" title='polygon' data-type='lwPolygonList *' data-ref="143polygon">polygon</dfn>, <a class="typedef" href="#lwTagList" title='lwTagList' data-type='struct st_lwTagList' data-ref="lwTagList">lwTagList</a> *<dfn class="local col4 decl" id="144tlist" title='tlist' data-type='lwTagList *' data-ref="144tlist">tlist</dfn>,</td></tr>
+<tr><th id="588">588</th><td>   <a class="typedef" href="#lwSurface" title='lwSurface' data-type='struct st_lwSurface' data-ref="lwSurface">lwSurface</a> **<dfn class="local col5 decl" id="145surf" title='surf' data-type='lwSurface **' data-ref="145surf">surf</dfn>, <em>int</em> *<dfn class="local col6 decl" id="146nsurfs" title='nsurfs' data-type='int *' data-ref="146nsurfs">nsurfs</dfn> );</td></tr>
+<tr><th id="589">589</th><td><em>void</em> <dfn class="decl" id="_Z16lwGetVertNormalsP14st_lwPointListP16st_lwPolygonList" title='lwGetVertNormals' data-ref="_Z16lwGetVertNormalsP14st_lwPointListP16st_lwPolygonList">lwGetVertNormals</dfn>( <a class="typedef" href="#lwPointList" title='lwPointList' data-type='struct st_lwPointList' data-ref="lwPointList">lwPointList</a> *<dfn class="local col7 decl" id="147point" title='point' data-type='lwPointList *' data-ref="147point">point</dfn>, <a class="typedef" href="#lwPolygonList" title='lwPolygonList' data-type='struct st_lwPolygonList' data-ref="lwPolygonList">lwPolygonList</a> *<dfn class="local col8 decl" id="148polygon" title='polygon' data-type='lwPolygonList *' data-ref="148polygon">polygon</dfn> );</td></tr>
+<tr><th id="590">590</th><td><em>void</em> <dfn class="decl" id="_Z10lwFreeTagsP12st_lwTagList" title='lwFreeTags' data-ref="_Z10lwFreeTagsP12st_lwTagList">lwFreeTags</dfn>( <a class="typedef" href="#lwTagList" title='lwTagList' data-type='struct st_lwTagList' data-ref="lwTagList">lwTagList</a> *<dfn class="local col9 decl" id="149tlist" title='tlist' data-type='lwTagList *' data-ref="149tlist">tlist</dfn> );</td></tr>
+<tr><th id="591">591</th><td><em>int</em> <dfn class="decl" id="_Z9lwGetTagsP6idFileiP12st_lwTagList" title='lwGetTags' data-ref="_Z9lwGetTagsP6idFileiP12st_lwTagList">lwGetTags</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col0 decl" id="150fp" title='fp' data-type='idFile *' data-ref="150fp">fp</dfn>, <em>int</em> <dfn class="local col1 decl" id="151cksize" title='cksize' data-type='int' data-ref="151cksize">cksize</dfn>, <a class="typedef" href="#lwTagList" title='lwTagList' data-type='struct st_lwTagList' data-ref="lwTagList">lwTagList</a> *<dfn class="local col2 decl" id="152tlist" title='tlist' data-type='lwTagList *' data-ref="152tlist">tlist</dfn> );</td></tr>
+<tr><th id="592">592</th><td><em>int</em> <dfn class="decl" id="_Z16lwGetPolygonTagsP6idFileiP12st_lwTagListP16st_lwPolygonList" title='lwGetPolygonTags' data-ref="_Z16lwGetPolygonTagsP6idFileiP12st_lwTagListP16st_lwPolygonList">lwGetPolygonTags</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col3 decl" id="153fp" title='fp' data-type='idFile *' data-ref="153fp">fp</dfn>, <em>int</em> <dfn class="local col4 decl" id="154cksize" title='cksize' data-type='int' data-ref="154cksize">cksize</dfn>, <a class="typedef" href="#lwTagList" title='lwTagList' data-type='struct st_lwTagList' data-ref="lwTagList">lwTagList</a> *<dfn class="local col5 decl" id="155tlist" title='tlist' data-type='lwTagList *' data-ref="155tlist">tlist</dfn>,</td></tr>
+<tr><th id="593">593</th><td>   <a class="typedef" href="#lwPolygonList" title='lwPolygonList' data-type='struct st_lwPolygonList' data-ref="lwPolygonList">lwPolygonList</a> *<dfn class="local col6 decl" id="156plist" title='plist' data-type='lwPolygonList *' data-ref="156plist">plist</dfn> );</td></tr>
+<tr><th id="594">594</th><td></td></tr>
+<tr><th id="595">595</th><td><i>/* vmap.c */</i></td></tr>
+<tr><th id="596">596</th><td></td></tr>
+<tr><th id="597">597</th><td><em>void</em> <dfn class="decl" id="_Z10lwFreeVMapP9st_lwVMap" title='lwFreeVMap' data-ref="_Z10lwFreeVMapP9st_lwVMap">lwFreeVMap</dfn>( <a class="typedef" href="#lwVMap" title='lwVMap' data-type='struct st_lwVMap' data-ref="lwVMap">lwVMap</a> *<dfn class="local col7 decl" id="157vmap" title='vmap' data-type='lwVMap *' data-ref="157vmap">vmap</dfn> );</td></tr>
+<tr><th id="598">598</th><td><a class="typedef" href="#lwVMap" title='lwVMap' data-type='struct st_lwVMap' data-ref="lwVMap">lwVMap</a> *<dfn class="decl" id="_Z9lwGetVMapP6idFileiiii" title='lwGetVMap' data-ref="_Z9lwGetVMapP6idFileiiii">lwGetVMap</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col8 decl" id="158fp" title='fp' data-type='idFile *' data-ref="158fp">fp</dfn>, <em>int</em> <dfn class="local col9 decl" id="159cksize" title='cksize' data-type='int' data-ref="159cksize">cksize</dfn>, <em>int</em> <dfn class="local col0 decl" id="160ptoffset" title='ptoffset' data-type='int' data-ref="160ptoffset">ptoffset</dfn>, <em>int</em> <dfn class="local col1 decl" id="161poloffset" title='poloffset' data-type='int' data-ref="161poloffset">poloffset</dfn>,</td></tr>
+<tr><th id="599">599</th><td>   <em>int</em> <dfn class="local col2 decl" id="162perpoly" title='perpoly' data-type='int' data-ref="162perpoly">perpoly</dfn> );</td></tr>
+<tr><th id="600">600</th><td><em>int</em> <dfn class="decl" id="_Z15lwGetPointVMapsP14st_lwPointListP9st_lwVMap" title='lwGetPointVMaps' data-ref="_Z15lwGetPointVMapsP14st_lwPointListP9st_lwVMap">lwGetPointVMaps</dfn>( <a class="typedef" href="#lwPointList" title='lwPointList' data-type='struct st_lwPointList' data-ref="lwPointList">lwPointList</a> *<dfn class="local col3 decl" id="163point" title='point' data-type='lwPointList *' data-ref="163point">point</dfn>, <a class="typedef" href="#lwVMap" title='lwVMap' data-type='struct st_lwVMap' data-ref="lwVMap">lwVMap</a> *<dfn class="local col4 decl" id="164vmap" title='vmap' data-type='lwVMap *' data-ref="164vmap">vmap</dfn> );</td></tr>
+<tr><th id="601">601</th><td><em>int</em> <dfn class="decl" id="_Z14lwGetPolyVMapsP16st_lwPolygonListP9st_lwVMap" title='lwGetPolyVMaps' data-ref="_Z14lwGetPolyVMapsP16st_lwPolygonListP9st_lwVMap">lwGetPolyVMaps</dfn>( <a class="typedef" href="#lwPolygonList" title='lwPolygonList' data-type='struct st_lwPolygonList' data-ref="lwPolygonList">lwPolygonList</a> *<dfn class="local col5 decl" id="165polygon" title='polygon' data-type='lwPolygonList *' data-ref="165polygon">polygon</dfn>, <a class="typedef" href="#lwVMap" title='lwVMap' data-type='struct st_lwVMap' data-ref="lwVMap">lwVMap</a> *<dfn class="local col6 decl" id="166vmap" title='vmap' data-type='lwVMap *' data-ref="166vmap">vmap</dfn> );</td></tr>
+<tr><th id="602">602</th><td></td></tr>
+<tr><th id="603">603</th><td><i>/* clip.c */</i></td></tr>
+<tr><th id="604">604</th><td></td></tr>
+<tr><th id="605">605</th><td><em>void</em> <dfn class="decl" id="_Z10lwFreeClipP9st_lwClip" title='lwFreeClip' data-ref="_Z10lwFreeClipP9st_lwClip">lwFreeClip</dfn>( <a class="typedef" href="#lwClip" title='lwClip' data-type='struct st_lwClip' data-ref="lwClip">lwClip</a> *<dfn class="local col7 decl" id="167clip" title='clip' data-type='lwClip *' data-ref="167clip">clip</dfn> );</td></tr>
+<tr><th id="606">606</th><td><a class="typedef" href="#lwClip" title='lwClip' data-type='struct st_lwClip' data-ref="lwClip">lwClip</a> *<dfn class="decl" id="_Z9lwGetClipP6idFilei" title='lwGetClip' data-ref="_Z9lwGetClipP6idFilei">lwGetClip</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col8 decl" id="168fp" title='fp' data-type='idFile *' data-ref="168fp">fp</dfn>, <em>int</em> <dfn class="local col9 decl" id="169cksize" title='cksize' data-type='int' data-ref="169cksize">cksize</dfn> );</td></tr>
+<tr><th id="607">607</th><td><a class="typedef" href="#lwClip" title='lwClip' data-type='struct st_lwClip' data-ref="lwClip">lwClip</a> *<dfn class="decl" id="_Z10lwFindClipP9st_lwClipi" title='lwFindClip' data-ref="_Z10lwFindClipP9st_lwClipi">lwFindClip</dfn>( <a class="typedef" href="#lwClip" title='lwClip' data-type='struct st_lwClip' data-ref="lwClip">lwClip</a> *<dfn class="local col0 decl" id="170list" title='list' data-type='lwClip *' data-ref="170list">list</dfn>, <em>int</em> <dfn class="local col1 decl" id="171index" title='index' data-type='int' data-ref="171index">index</dfn> );</td></tr>
+<tr><th id="608">608</th><td></td></tr>
+<tr><th id="609">609</th><td><i>/* envelope.c */</i></td></tr>
+<tr><th id="610">610</th><td></td></tr>
+<tr><th id="611">611</th><td><em>void</em> <dfn class="decl" id="_Z14lwFreeEnvelopeP13st_lwEnvelope" title='lwFreeEnvelope' data-ref="_Z14lwFreeEnvelopeP13st_lwEnvelope">lwFreeEnvelope</dfn>( <a class="typedef" href="#lwEnvelope" title='lwEnvelope' data-type='struct st_lwEnvelope' data-ref="lwEnvelope">lwEnvelope</a> *<dfn class="local col2 decl" id="172env" title='env' data-type='lwEnvelope *' data-ref="172env">env</dfn> );</td></tr>
+<tr><th id="612">612</th><td><a class="typedef" href="#lwEnvelope" title='lwEnvelope' data-type='struct st_lwEnvelope' data-ref="lwEnvelope">lwEnvelope</a> *<dfn class="decl" id="_Z13lwGetEnvelopeP6idFilei" title='lwGetEnvelope' data-ref="_Z13lwGetEnvelopeP6idFilei">lwGetEnvelope</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col3 decl" id="173fp" title='fp' data-type='idFile *' data-ref="173fp">fp</dfn>, <em>int</em> <dfn class="local col4 decl" id="174cksize" title='cksize' data-type='int' data-ref="174cksize">cksize</dfn> );</td></tr>
+<tr><th id="613">613</th><td><a class="typedef" href="#lwEnvelope" title='lwEnvelope' data-type='struct st_lwEnvelope' data-ref="lwEnvelope">lwEnvelope</a> *<dfn class="decl" id="_Z14lwFindEnvelopeP13st_lwEnvelopei" title='lwFindEnvelope' data-ref="_Z14lwFindEnvelopeP13st_lwEnvelopei">lwFindEnvelope</dfn>( <a class="typedef" href="#lwEnvelope" title='lwEnvelope' data-type='struct st_lwEnvelope' data-ref="lwEnvelope">lwEnvelope</a> *<dfn class="local col5 decl" id="175list" title='list' data-type='lwEnvelope *' data-ref="175list">list</dfn>, <em>int</em> <dfn class="local col6 decl" id="176index" title='index' data-type='int' data-ref="176index">index</dfn> );</td></tr>
+<tr><th id="614">614</th><td><em>float</em> <dfn class="decl" id="_Z14lwEvalEnvelopeP13st_lwEnvelopef" title='lwEvalEnvelope' data-ref="_Z14lwEvalEnvelopeP13st_lwEnvelopef">lwEvalEnvelope</dfn>( <a class="typedef" href="#lwEnvelope" title='lwEnvelope' data-type='struct st_lwEnvelope' data-ref="lwEnvelope">lwEnvelope</a> *<dfn class="local col7 decl" id="177env" title='env' data-type='lwEnvelope *' data-ref="177env">env</dfn>, <em>float</em> <dfn class="local col8 decl" id="178time" title='time' data-type='float' data-ref="178time">time</dfn> );</td></tr>
+<tr><th id="615">615</th><td></td></tr>
+<tr><th id="616">616</th><td><i>/* surface.c */</i></td></tr>
+<tr><th id="617">617</th><td></td></tr>
+<tr><th id="618">618</th><td><em>void</em> <dfn class="decl" id="_Z12lwFreePluginP11st_lwPlugin" title='lwFreePlugin' data-ref="_Z12lwFreePluginP11st_lwPlugin">lwFreePlugin</dfn>( <a class="typedef" href="#lwPlugin" title='lwPlugin' data-type='struct st_lwPlugin' data-ref="lwPlugin">lwPlugin</a> *<dfn class="local col9 decl" id="179p" title='p' data-type='lwPlugin *' data-ref="179p">p</dfn> );</td></tr>
+<tr><th id="619">619</th><td><em>void</em> <dfn class="decl" id="_Z13lwFreeTextureP12st_lwTexture" title='lwFreeTexture' data-ref="_Z13lwFreeTextureP12st_lwTexture">lwFreeTexture</dfn>( <a class="typedef" href="#lwTexture" title='lwTexture' data-type='struct st_lwTexture' data-ref="lwTexture">lwTexture</a> *<dfn class="local col0 decl" id="180t" title='t' data-type='lwTexture *' data-ref="180t">t</dfn> );</td></tr>
+<tr><th id="620">620</th><td><em>void</em> <dfn class="decl" id="_Z13lwFreeSurfaceP12st_lwSurface" title='lwFreeSurface' data-ref="_Z13lwFreeSurfaceP12st_lwSurface">lwFreeSurface</dfn>( <a class="typedef" href="#lwSurface" title='lwSurface' data-type='struct st_lwSurface' data-ref="lwSurface">lwSurface</a> *<dfn class="local col1 decl" id="181surf" title='surf' data-type='lwSurface *' data-ref="181surf">surf</dfn> );</td></tr>
+<tr><th id="621">621</th><td><em>int</em> <dfn class="decl" id="_Z12lwGetTHeaderP6idFileiP12st_lwTexture" title='lwGetTHeader' data-ref="_Z12lwGetTHeaderP6idFileiP12st_lwTexture">lwGetTHeader</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col2 decl" id="182fp" title='fp' data-type='idFile *' data-ref="182fp">fp</dfn>, <em>int</em> <dfn class="local col3 decl" id="183hsz" title='hsz' data-type='int' data-ref="183hsz">hsz</dfn>, <a class="typedef" href="#lwTexture" title='lwTexture' data-type='struct st_lwTexture' data-ref="lwTexture">lwTexture</a> *<dfn class="local col4 decl" id="184tex" title='tex' data-type='lwTexture *' data-ref="184tex">tex</dfn> );</td></tr>
+<tr><th id="622">622</th><td><em>int</em> <dfn class="decl" id="_Z9lwGetTMapP6idFileiP9st_lwTMap" title='lwGetTMap' data-ref="_Z9lwGetTMapP6idFileiP9st_lwTMap">lwGetTMap</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col5 decl" id="185fp" title='fp' data-type='idFile *' data-ref="185fp">fp</dfn>, <em>int</em> <dfn class="local col6 decl" id="186tmapsz" title='tmapsz' data-type='int' data-ref="186tmapsz">tmapsz</dfn>, <a class="typedef" href="#lwTMap" title='lwTMap' data-type='struct st_lwTMap' data-ref="lwTMap">lwTMap</a> *<dfn class="local col7 decl" id="187tmap" title='tmap' data-type='lwTMap *' data-ref="187tmap">tmap</dfn> );</td></tr>
+<tr><th id="623">623</th><td><em>int</em> <dfn class="decl" id="_Z13lwGetImageMapP6idFileiP12st_lwTexture" title='lwGetImageMap' data-ref="_Z13lwGetImageMapP6idFileiP12st_lwTexture">lwGetImageMap</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col8 decl" id="188fp" title='fp' data-type='idFile *' data-ref="188fp">fp</dfn>, <em>int</em> <dfn class="local col9 decl" id="189rsz" title='rsz' data-type='int' data-ref="189rsz">rsz</dfn>, <a class="typedef" href="#lwTexture" title='lwTexture' data-type='struct st_lwTexture' data-ref="lwTexture">lwTexture</a> *<dfn class="local col0 decl" id="190tex" title='tex' data-type='lwTexture *' data-ref="190tex">tex</dfn> );</td></tr>
+<tr><th id="624">624</th><td><em>int</em> <dfn class="decl" id="_Z15lwGetProceduralP6idFileiP12st_lwTexture" title='lwGetProcedural' data-ref="_Z15lwGetProceduralP6idFileiP12st_lwTexture">lwGetProcedural</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col1 decl" id="191fp" title='fp' data-type='idFile *' data-ref="191fp">fp</dfn>, <em>int</em> <dfn class="local col2 decl" id="192rsz" title='rsz' data-type='int' data-ref="192rsz">rsz</dfn>, <a class="typedef" href="#lwTexture" title='lwTexture' data-type='struct st_lwTexture' data-ref="lwTexture">lwTexture</a> *<dfn class="local col3 decl" id="193tex" title='tex' data-type='lwTexture *' data-ref="193tex">tex</dfn> );</td></tr>
+<tr><th id="625">625</th><td><em>int</em> <dfn class="decl" id="_Z13lwGetGradientP6idFileiP12st_lwTexture" title='lwGetGradient' data-ref="_Z13lwGetGradientP6idFileiP12st_lwTexture">lwGetGradient</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col4 decl" id="194fp" title='fp' data-type='idFile *' data-ref="194fp">fp</dfn>, <em>int</em> <dfn class="local col5 decl" id="195rsz" title='rsz' data-type='int' data-ref="195rsz">rsz</dfn>, <a class="typedef" href="#lwTexture" title='lwTexture' data-type='struct st_lwTexture' data-ref="lwTexture">lwTexture</a> *<dfn class="local col6 decl" id="196tex" title='tex' data-type='lwTexture *' data-ref="196tex">tex</dfn> );</td></tr>
+<tr><th id="626">626</th><td><a class="typedef" href="#lwTexture" title='lwTexture' data-type='struct st_lwTexture' data-ref="lwTexture">lwTexture</a> *<dfn class="decl" id="_Z12lwGetTextureP6idFileij" title='lwGetTexture' data-ref="_Z12lwGetTextureP6idFileij">lwGetTexture</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col7 decl" id="197fp" title='fp' data-type='idFile *' data-ref="197fp">fp</dfn>, <em>int</em> <dfn class="local col8 decl" id="198bloksz" title='bloksz' data-type='int' data-ref="198bloksz">bloksz</dfn>, <em>unsigned</em> <em>int</em> <dfn class="local col9 decl" id="199type" title='type' data-type='unsigned int' data-ref="199type">type</dfn> );</td></tr>
+<tr><th id="627">627</th><td><a class="typedef" href="#lwPlugin" title='lwPlugin' data-type='struct st_lwPlugin' data-ref="lwPlugin">lwPlugin</a> *<dfn class="decl" id="_Z11lwGetShaderP6idFilei" title='lwGetShader' data-ref="_Z11lwGetShaderP6idFilei">lwGetShader</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col0 decl" id="200fp" title='fp' data-type='idFile *' data-ref="200fp">fp</dfn>, <em>int</em> <dfn class="local col1 decl" id="201bloksz" title='bloksz' data-type='int' data-ref="201bloksz">bloksz</dfn> );</td></tr>
+<tr><th id="628">628</th><td><a class="typedef" href="#lwSurface" title='lwSurface' data-type='struct st_lwSurface' data-ref="lwSurface">lwSurface</a> *<dfn class="decl" id="_Z12lwGetSurfaceP6idFilei" title='lwGetSurface' data-ref="_Z12lwGetSurfaceP6idFilei">lwGetSurface</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col2 decl" id="202fp" title='fp' data-type='idFile *' data-ref="202fp">fp</dfn>, <em>int</em> <dfn class="local col3 decl" id="203cksize" title='cksize' data-type='int' data-ref="203cksize">cksize</dfn> );</td></tr>
+<tr><th id="629">629</th><td><a class="typedef" href="#lwSurface" title='lwSurface' data-type='struct st_lwSurface' data-ref="lwSurface">lwSurface</a> *<dfn class="decl" id="_Z16lwDefaultSurfacev" title='lwDefaultSurface' data-ref="_Z16lwDefaultSurfacev">lwDefaultSurface</dfn>( <em>void</em> );</td></tr>
+<tr><th id="630">630</th><td></td></tr>
+<tr><th id="631">631</th><td><i>/* lwob.c */</i></td></tr>
+<tr><th id="632">632</th><td></td></tr>
+<tr><th id="633">633</th><td><a class="typedef" href="#lwSurface" title='lwSurface' data-type='struct st_lwSurface' data-ref="lwSurface">lwSurface</a> *<dfn class="decl" id="_Z13lwGetSurface5P6idFileiP11st_lwObject" title='lwGetSurface5' data-ref="_Z13lwGetSurface5P6idFileiP11st_lwObject">lwGetSurface5</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col4 decl" id="204fp" title='fp' data-type='idFile *' data-ref="204fp">fp</dfn>, <em>int</em> <dfn class="local col5 decl" id="205cksize" title='cksize' data-type='int' data-ref="205cksize">cksize</dfn>, <a class="typedef" href="#lwObject" title='lwObject' data-type='struct st_lwObject' data-ref="lwObject">lwObject</a> *<dfn class="local col6 decl" id="206obj" title='obj' data-type='lwObject *' data-ref="206obj">obj</dfn> );</td></tr>
+<tr><th id="634">634</th><td><em>int</em> <dfn class="decl" id="_Z14lwGetPolygons5P6idFileiP16st_lwPolygonListi" title='lwGetPolygons5' data-ref="_Z14lwGetPolygons5P6idFileiP16st_lwPolygonListi">lwGetPolygons5</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col7 decl" id="207fp" title='fp' data-type='idFile *' data-ref="207fp">fp</dfn>, <em>int</em> <dfn class="local col8 decl" id="208cksize" title='cksize' data-type='int' data-ref="208cksize">cksize</dfn>, <a class="typedef" href="#lwPolygonList" title='lwPolygonList' data-type='struct st_lwPolygonList' data-ref="lwPolygonList">lwPolygonList</a> *<dfn class="local col9 decl" id="209plist" title='plist' data-type='lwPolygonList *' data-ref="209plist">plist</dfn>, <em>int</em> <dfn class="local col0 decl" id="210ptoffset" title='ptoffset' data-type='int' data-ref="210ptoffset">ptoffset</dfn> );</td></tr>
+<tr><th id="635">635</th><td><a class="typedef" href="#lwObject" title='lwObject' data-type='struct st_lwObject' data-ref="lwObject">lwObject</a> *<dfn class="decl" id="_Z12lwGetObject5PKcPjPi" title='lwGetObject5' data-ref="_Z12lwGetObject5PKcPjPi">lwGetObject5</dfn>( <em>const</em> <em>char</em> *<dfn class="local col1 decl" id="211filename" title='filename' data-type='const char *' data-ref="211filename">filename</dfn>, <em>unsigned</em> <em>int</em> *<dfn class="local col2 decl" id="212failID" title='failID' data-type='unsigned int *' data-ref="212failID">failID</dfn>, <em>int</em> *<dfn class="local col3 decl" id="213failpos" title='failpos' data-type='int *' data-ref="213failpos">failpos</dfn> );</td></tr>
+<tr><th id="636">636</th><td></td></tr>
+<tr><th id="637">637</th><td><i>/* list.c */</i></td></tr>
+<tr><th id="638">638</th><td></td></tr>
+<tr><th id="639">639</th><td><em>void</em> <dfn class="decl" id="_Z10lwListFreePvPFvS_E" title='lwListFree' data-ref="_Z10lwListFreePvPFvS_E">lwListFree</dfn>( <em>void</em> *<dfn class="local col4 decl" id="214list" title='list' data-type='void *' data-ref="214list">list</dfn>, <em>void</em> ( *<dfn class="local col5 decl" id="215freeNode" title='freeNode' data-type='void (*)(void *)' data-ref="215freeNode">freeNode</dfn> )( <em>void</em> * ));</td></tr>
+<tr><th id="640">640</th><td><em>void</em> <dfn class="decl" id="_Z9lwListAddPPvS_" title='lwListAdd' data-ref="_Z9lwListAddPPvS_">lwListAdd</dfn>( <em>void</em> **<dfn class="local col6 decl" id="216list" title='list' data-type='void **' data-ref="216list">list</dfn>, <em>void</em> *<dfn class="local col7 decl" id="217node" title='node' data-type='void *' data-ref="217node">node</dfn> );</td></tr>
+<tr><th id="641">641</th><td><em>void</em> <dfn class="decl" id="_Z12lwListInsertPPvS_PFiS_S_E" title='lwListInsert' data-ref="_Z12lwListInsertPPvS_PFiS_S_E">lwListInsert</dfn>( <em>void</em> **<dfn class="local col8 decl" id="218vlist" title='vlist' data-type='void **' data-ref="218vlist">vlist</dfn>, <em>void</em> *<dfn class="local col9 decl" id="219vitem" title='vitem' data-type='void *' data-ref="219vitem">vitem</dfn>,</td></tr>
+<tr><th id="642">642</th><td>   <em>int</em> ( *<dfn class="local col0 decl" id="220compare" title='compare' data-type='int (*)(void *, void *)' data-ref="220compare">compare</dfn> )( <em>void</em> *, <em>void</em> * ));</td></tr>
+<tr><th id="643">643</th><td></td></tr>
+<tr><th id="644">644</th><td><i>/* vecmath.c */</i></td></tr>
+<tr><th id="645">645</th><td></td></tr>
+<tr><th id="646">646</th><td><em>float</em> <dfn class="decl" id="_Z3dotPfS_" title='dot' data-ref="_Z3dotPfS_">dot</dfn>( <em>float</em> <dfn class="local col1 decl" id="221a" title='a' data-type='float *' data-ref="221a">a</dfn>[], <em>float</em> <dfn class="local col2 decl" id="222b" title='b' data-type='float *' data-ref="222b">b</dfn>[] );</td></tr>
+<tr><th id="647">647</th><td><em>void</em> <dfn class="decl" id="_Z5crossPfS_S_" title='cross' data-ref="_Z5crossPfS_S_">cross</dfn>( <em>float</em> <dfn class="local col3 decl" id="223a" title='a' data-type='float *' data-ref="223a">a</dfn>[], <em>float</em> <dfn class="local col4 decl" id="224b" title='b' data-type='float *' data-ref="224b">b</dfn>[], <em>float</em> <dfn class="local col5 decl" id="225c" title='c' data-type='float *' data-ref="225c">c</dfn>[] );</td></tr>
+<tr><th id="648">648</th><td><em>void</em> <dfn class="decl" id="_Z9normalizePf" title='normalize' data-ref="_Z9normalizePf">normalize</dfn>( <em>float</em> <dfn class="local col6 decl" id="226v" title='v' data-type='float *' data-ref="226v">v</dfn>[] );</td></tr>
+<tr><th id="649">649</th><td><u>#define <dfn class="macro" id="_M/vecangle" data-ref="_M/vecangle">vecangle</dfn>( a, b ) ( float ) idMath::ACos( dot( a, b ) )</u></td></tr>
+<tr><th id="650">650</th><td></td></tr>
+<tr><th id="651">651</th><td><i>/* lwio.c */</i></td></tr>
+<tr><th id="652">652</th><td></td></tr>
+<tr><th id="653">653</th><td><em>void</em>  <dfn class="decl" id="_Z8set_fleni" title='set_flen' data-ref="_Z8set_fleni">set_flen</dfn>( <em>int</em> <dfn class="local col7 decl" id="227i" title='i' data-type='int' data-ref="227i">i</dfn> );</td></tr>
+<tr><th id="654">654</th><td><em>int</em>   <dfn class="decl" id="_Z8get_flenv" title='get_flen' data-ref="_Z8get_flenv">get_flen</dfn>( <em>void</em> );</td></tr>
+<tr><th id="655">655</th><td><em>void</em> *<dfn class="decl" id="_Z8getbytesP6idFilei" title='getbytes' data-ref="_Z8getbytesP6idFilei">getbytes</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col8 decl" id="228fp" title='fp' data-type='idFile *' data-ref="228fp">fp</dfn>, <em>int</em> <dfn class="local col9 decl" id="229size" title='size' data-type='int' data-ref="229size">size</dfn> );</td></tr>
+<tr><th id="656">656</th><td><em>void</em>  <dfn class="decl" id="_Z9skipbytesP6idFilei" title='skipbytes' data-ref="_Z9skipbytesP6idFilei">skipbytes</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col0 decl" id="230fp" title='fp' data-type='idFile *' data-ref="230fp">fp</dfn>, <em>int</em> <dfn class="local col1 decl" id="231n" title='n' data-type='int' data-ref="231n">n</dfn> );</td></tr>
+<tr><th id="657">657</th><td><em>int</em>   <dfn class="decl" id="_Z5getI1P6idFile" title='getI1' data-ref="_Z5getI1P6idFile">getI1</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col2 decl" id="232fp" title='fp' data-type='idFile *' data-ref="232fp">fp</dfn> );</td></tr>
+<tr><th id="658">658</th><td><em>short</em> <dfn class="decl" id="_Z5getI2P6idFile" title='getI2' data-ref="_Z5getI2P6idFile">getI2</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col3 decl" id="233fp" title='fp' data-type='idFile *' data-ref="233fp">fp</dfn> );</td></tr>
+<tr><th id="659">659</th><td><em>int</em>   <dfn class="decl" id="_Z5getI4P6idFile" title='getI4' data-ref="_Z5getI4P6idFile">getI4</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col4 decl" id="234fp" title='fp' data-type='idFile *' data-ref="234fp">fp</dfn> );</td></tr>
+<tr><th id="660">660</th><td><em>unsigned</em> <em>char</em>  <dfn class="decl" id="_Z5getU1P6idFile" title='getU1' data-ref="_Z5getU1P6idFile">getU1</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col5 decl" id="235fp" title='fp' data-type='idFile *' data-ref="235fp">fp</dfn> );</td></tr>
+<tr><th id="661">661</th><td><em>unsigned</em> <em>short</em> <dfn class="decl" id="_Z5getU2P6idFile" title='getU2' data-ref="_Z5getU2P6idFile">getU2</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col6 decl" id="236fp" title='fp' data-type='idFile *' data-ref="236fp">fp</dfn> );</td></tr>
+<tr><th id="662">662</th><td><em>unsigned</em> <em>int</em>   <dfn class="decl" id="_Z5getU4P6idFile" title='getU4' data-ref="_Z5getU4P6idFile">getU4</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col7 decl" id="237fp" title='fp' data-type='idFile *' data-ref="237fp">fp</dfn> );</td></tr>
+<tr><th id="663">663</th><td><em>int</em>   <dfn class="decl" id="_Z5getVXP6idFile" title='getVX' data-ref="_Z5getVXP6idFile">getVX</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col8 decl" id="238fp" title='fp' data-type='idFile *' data-ref="238fp">fp</dfn> );</td></tr>
+<tr><th id="664">664</th><td><em>float</em> <dfn class="decl" id="_Z5getF4P6idFile" title='getF4' data-ref="_Z5getF4P6idFile">getF4</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col9 decl" id="239fp" title='fp' data-type='idFile *' data-ref="239fp">fp</dfn> );</td></tr>
+<tr><th id="665">665</th><td><em>char</em> *<dfn class="decl" id="_Z5getS0P6idFile" title='getS0' data-ref="_Z5getS0P6idFile">getS0</dfn>( <a class="type" href="../framework/File.h.html#idFile" title='idFile' data-ref="idFile">idFile</a> *<dfn class="local col0 decl" id="240fp" title='fp' data-type='idFile *' data-ref="240fp">fp</dfn> );</td></tr>
+<tr><th id="666">666</th><td><em>int</em>   <dfn class="decl" id="_Z6sgetI1PPh" title='sgetI1' data-ref="_Z6sgetI1PPh">sgetI1</dfn>( <em>unsigned</em> <em>char</em> **<dfn class="local col1 decl" id="241bp" title='bp' data-type='unsigned char **' data-ref="241bp">bp</dfn> );</td></tr>
+<tr><th id="667">667</th><td><em>short</em> <dfn class="decl" id="_Z6sgetI2PPh" title='sgetI2' data-ref="_Z6sgetI2PPh">sgetI2</dfn>( <em>unsigned</em> <em>char</em> **<dfn class="local col2 decl" id="242bp" title='bp' data-type='unsigned char **' data-ref="242bp">bp</dfn> );</td></tr>
+<tr><th id="668">668</th><td><em>int</em>   <dfn class="decl" id="_Z6sgetI4PPh" title='sgetI4' data-ref="_Z6sgetI4PPh">sgetI4</dfn>( <em>unsigned</em> <em>char</em> **<dfn class="local col3 decl" id="243bp" title='bp' data-type='unsigned char **' data-ref="243bp">bp</dfn> );</td></tr>
+<tr><th id="669">669</th><td><em>unsigned</em> <em>char</em>  <dfn class="decl" id="_Z6sgetU1PPh" title='sgetU1' data-ref="_Z6sgetU1PPh">sgetU1</dfn>( <em>unsigned</em> <em>char</em> **<dfn class="local col4 decl" id="244bp" title='bp' data-type='unsigned char **' data-ref="244bp">bp</dfn> );</td></tr>
+<tr><th id="670">670</th><td><em>unsigned</em> <em>short</em> <dfn class="decl" id="_Z6sgetU2PPh" title='sgetU2' data-ref="_Z6sgetU2PPh">sgetU2</dfn>( <em>unsigned</em> <em>char</em> **<dfn class="local col5 decl" id="245bp" title='bp' data-type='unsigned char **' data-ref="245bp">bp</dfn> );</td></tr>
+<tr><th id="671">671</th><td><em>unsigned</em> <em>int</em>   <dfn class="decl" id="_Z6sgetU4PPh" title='sgetU4' data-ref="_Z6sgetU4PPh">sgetU4</dfn>( <em>unsigned</em> <em>char</em> **<dfn class="local col6 decl" id="246bp" title='bp' data-type='unsigned char **' data-ref="246bp">bp</dfn> );</td></tr>
+<tr><th id="672">672</th><td><em>int</em>   <dfn class="decl" id="_Z6sgetVXPPh" title='sgetVX' data-ref="_Z6sgetVXPPh">sgetVX</dfn>( <em>unsigned</em> <em>char</em> **<dfn class="local col7 decl" id="247bp" title='bp' data-type='unsigned char **' data-ref="247bp">bp</dfn> );</td></tr>
+<tr><th id="673">673</th><td><em>float</em> <dfn class="decl" id="_Z6sgetF4PPh" title='sgetF4' data-ref="_Z6sgetF4PPh">sgetF4</dfn>( <em>unsigned</em> <em>char</em> **<dfn class="local col8 decl" id="248bp" title='bp' data-type='unsigned char **' data-ref="248bp">bp</dfn> );</td></tr>
+<tr><th id="674">674</th><td><em>char</em> *<dfn class="decl" id="_Z6sgetS0PPh" title='sgetS0' data-ref="_Z6sgetS0PPh">sgetS0</dfn>( <em>unsigned</em> <em>char</em> **<dfn class="local col9 decl" id="249bp" title='bp' data-type='unsigned char **' data-ref="249bp">bp</dfn> );</td></tr>
+<tr><th id="675">675</th><td></td></tr>
+<tr><th id="676">676</th><td><u>#<span data-ppcond="29">endif</span> /* !__LWO2_H__ */</u></td></tr>
+<tr><th id="677">677</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='Model.cpp.html'>codebrowser/renderer/Model.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,10 @@
+<dec f='codebrowser/framework/async/AsyncServer.h' l='252' type='bool idAsyncServer::VerifyChecksumMessage(int clientNum, const netadr_t * from, const idBitMsg &amp; msg, idStr &amp; reply, int OS)'/>
+<doc f='codebrowser/framework/async/AsyncServer.h' l='252'>// if from is NULL, clientNum is used for error messages</doc>
+<def f='codebrowser/framework/async/AsyncServer.cpp' l='1885' ll='1931' type='bool idAsyncServer::VerifyChecksumMessage(int clientNum, const netadr_t * from, const idBitMsg &amp; msg, idStr &amp; reply, int OS)'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1954' u='c' c='_ZN13idAsyncServer18ProcessPureMessageE8netadr_tRK8idBitMsg'/>
+<use f='codebrowser/framework/async/AsyncServer.cpp' l='1991' u='c' c='_ZN13idAsyncServer19ProcessReliablePureEiRK8idBitMsg'/>
+<doc f='codebrowser/framework/async/AsyncServer.cpp' l='1880'>/*
+==================
+idAsyncServer::VerifyChecksumMessage
+==================
+*/</doc>

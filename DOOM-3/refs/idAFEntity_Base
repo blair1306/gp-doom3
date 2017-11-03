@@ -1,0 +1,108 @@
+<inh f='codebrowser/d3xp/Entity.h' l='500' c='idAnimatedEntity'/>
+<def f='codebrowser/d3xp/AFEntity.h' l='146' ll='200'/>
+<ovr f='codebrowser/d3xp/AFEntity.h' l='213' c='idAFEntity_Gibbable'/>
+<ovr f='codebrowser/d3xp/AFEntity.h' l='334' c='idAFEntity_Vehicle'/>
+<ovr f='codebrowser/d3xp/AFEntity.h' l='477' c='idAFEntity_SteamPipe'/>
+<ovr f='codebrowser/d3xp/AFEntity.h' l='510' c='idAFEntity_ClawFourFingers'/>
+<size>2480</size>
+<doc f='codebrowser/d3xp/AFEntity.h' l='138'>/*
+===============================================================================
+
+idAFEntity_Base
+
+===============================================================================
+*/</doc>
+<smbr r='idAFEntity_Base::Type' t='idTypeInfo'/>
+<fun r='_ZN15idAFEntity_Base14CreateInstanceEv'/>
+<fun r='_ZNK15idAFEntity_Base7GetTypeEv'/>
+<smbr r='idAFEntity_Base::eventCallbacks' t='idEventFunc&lt;idAFEntity_Base&gt; []'/>
+<fun r='_ZN15idAFEntity_BaseC1Ev'/>
+<fun r='_ZN15idAFEntity_BaseD1Ev'/>
+<fun r='_ZN15idAFEntity_Base5SpawnEv'/>
+<fun r='_ZNK15idAFEntity_Base4SaveEP10idSaveGame'/>
+<fun r='_ZN15idAFEntity_Base7RestoreEP13idRestoreGame'/>
+<fun r='_ZN15idAFEntity_Base5ThinkEv'/>
+<fun r='_ZN15idAFEntity_Base13GetImpactInfoEP8idEntityiRK6idVec3P12impactInfo_s'/>
+<fun r='_ZN15idAFEntity_Base12ApplyImpulseEP8idEntityiRK6idVec3S4_'/>
+<fun r='_ZN15idAFEntity_Base8AddForceEP8idEntityiRK6idVec3S4_'/>
+<fun r='_ZN15idAFEntity_Base7CollideERK7trace_sRK6idVec3'/>
+<fun r='_ZN15idAFEntity_Base27GetPhysicsToVisualTransformER6idVec3R6idMat3'/>
+<fun r='_ZN15idAFEntity_Base26UpdateAnimationControllersEv'/>
+<fun r='_ZN15idAFEntity_Base12FreeModelDefEv'/>
+<fun r='_ZN15idAFEntity_Base6LoadAFEv'/>
+<fun r='_ZNK15idAFEntity_Base10IsActiveAFEv'/>
+<fun r='_ZNK15idAFEntity_Base9GetAFNameEv'/>
+<fun r='_ZN15idAFEntity_Base12GetAFPhysicsEv'/>
+<fun r='_ZN15idAFEntity_Base14SetCombatModelEv'/>
+<fun r='_ZNK15idAFEntity_Base14GetCombatModelEv'/>
+<fun r='_ZN15idAFEntity_Base17SetCombatContentsEb'/>
+<fun r='_ZN15idAFEntity_Base10LinkCombatEv'/>
+<fun r='_ZN15idAFEntity_Base12UnlinkCombatEv'/>
+<fun r='_ZNK15idAFEntity_Base18BodyForClipModelIdEi'/>
+<fun r='_ZNK15idAFEntity_Base9SaveStateER6idDict'/>
+<fun r='_ZN15idAFEntity_Base9LoadStateERK6idDict'/>
+<fun r='_ZN15idAFEntity_Base18AddBindConstraintsEv'/>
+<fun r='_ZN15idAFEntity_Base21RemoveBindConstraintsEv'/>
+<fun r='_ZN15idAFEntity_Base17ShowEditingDialogEv'/>
+<fun r='_ZN15idAFEntity_Base7DropAFsEP8idEntityPKcP6idListIS1_E'/>
+<mbr r='idAFEntity_Base::af' o='14848' t='idAF'/>
+<mbr r='idAFEntity_Base::combatModel' o='19360' t='idClipModel *'/>
+<mbr r='idAFEntity_Base::combatModelContents' o='19392' t='int'/>
+<mbr r='idAFEntity_Base::spawnOrigin' o='19424' t='idVec3'/>
+<mbr r='idAFEntity_Base::spawnAxis' o='19520' t='idMat3'/>
+<mbr r='idAFEntity_Base::nextSoundTime' o='19808' t='int'/>
+<fun r='_ZN15idAFEntity_Base27Event_SetConstraintPositionEPKcRK6idVec3'/>
+<inh f='codebrowser/game/Entity.h' l='477' c='idAnimatedEntity'/>
+<def f='codebrowser/game/AFEntity.h' l='146' ll='200'/>
+<ovr f='codebrowser/game/AFEntity.h' l='213' c='idAFEntity_Gibbable'/>
+<ovr f='codebrowser/game/AFEntity.h' l='318' c='idAFEntity_Vehicle'/>
+<ovr f='codebrowser/game/AFEntity.h' l='424' c='idAFEntity_SteamPipe'/>
+<ovr f='codebrowser/game/AFEntity.h' l='457' c='idAFEntity_ClawFourFingers'/>
+<size>2248</size>
+<doc f='codebrowser/game/AFEntity.h' l='138'>/*
+===============================================================================
+
+idAFEntity_Base
+
+===============================================================================
+*/</doc>
+<smbr r='idAFEntity_Base::Type' t='idTypeInfo'/>
+<fun r='_ZN15idAFEntity_Base14CreateInstanceEv'/>
+<fun r='_ZNK15idAFEntity_Base7GetTypeEv'/>
+<smbr r='idAFEntity_Base::eventCallbacks' t='idEventFunc&lt;idAFEntity_Base&gt; []'/>
+<fun r='_ZN15idAFEntity_BaseC1Ev'/>
+<fun r='_ZN15idAFEntity_BaseD1Ev'/>
+<fun r='_ZN15idAFEntity_Base5SpawnEv'/>
+<fun r='_ZNK15idAFEntity_Base4SaveEP10idSaveGame'/>
+<fun r='_ZN15idAFEntity_Base7RestoreEP13idRestoreGame'/>
+<fun r='_ZN15idAFEntity_Base5ThinkEv'/>
+<fun r='_ZN15idAFEntity_Base13GetImpactInfoEP8idEntityiRK6idVec3P12impactInfo_s'/>
+<fun r='_ZN15idAFEntity_Base12ApplyImpulseEP8idEntityiRK6idVec3S4_'/>
+<fun r='_ZN15idAFEntity_Base8AddForceEP8idEntityiRK6idVec3S4_'/>
+<fun r='_ZN15idAFEntity_Base7CollideERK7trace_sRK6idVec3'/>
+<fun r='_ZN15idAFEntity_Base27GetPhysicsToVisualTransformER6idVec3R6idMat3'/>
+<fun r='_ZN15idAFEntity_Base26UpdateAnimationControllersEv'/>
+<fun r='_ZN15idAFEntity_Base12FreeModelDefEv'/>
+<fun r='_ZN15idAFEntity_Base6LoadAFEv'/>
+<fun r='_ZNK15idAFEntity_Base10IsActiveAFEv'/>
+<fun r='_ZNK15idAFEntity_Base9GetAFNameEv'/>
+<fun r='_ZN15idAFEntity_Base12GetAFPhysicsEv'/>
+<fun r='_ZN15idAFEntity_Base14SetCombatModelEv'/>
+<fun r='_ZNK15idAFEntity_Base14GetCombatModelEv'/>
+<fun r='_ZN15idAFEntity_Base17SetCombatContentsEb'/>
+<fun r='_ZN15idAFEntity_Base10LinkCombatEv'/>
+<fun r='_ZN15idAFEntity_Base12UnlinkCombatEv'/>
+<fun r='_ZNK15idAFEntity_Base18BodyForClipModelIdEi'/>
+<fun r='_ZNK15idAFEntity_Base9SaveStateER6idDict'/>
+<fun r='_ZN15idAFEntity_Base9LoadStateERK6idDict'/>
+<fun r='_ZN15idAFEntity_Base18AddBindConstraintsEv'/>
+<fun r='_ZN15idAFEntity_Base21RemoveBindConstraintsEv'/>
+<fun r='_ZN15idAFEntity_Base17ShowEditingDialogEv'/>
+<fun r='_ZN15idAFEntity_Base7DropAFsEP8idEntityPKcP6idListIS1_E'/>
+<mbr r='idAFEntity_Base::af' o='12992' t='idAF'/>
+<mbr r='idAFEntity_Base::combatModel' o='17504' t='idClipModel *'/>
+<mbr r='idAFEntity_Base::combatModelContents' o='17536' t='int'/>
+<mbr r='idAFEntity_Base::spawnOrigin' o='17568' t='idVec3'/>
+<mbr r='idAFEntity_Base::spawnAxis' o='17664' t='idMat3'/>
+<mbr r='idAFEntity_Base::nextSoundTime' o='17952' t='int'/>
+<fun r='_ZN15idAFEntity_Base27Event_SetConstraintPositionEPKcRK6idVec3'/>

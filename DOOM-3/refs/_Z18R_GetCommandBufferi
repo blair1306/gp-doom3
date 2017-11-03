@@ -1,0 +1,16 @@
+<dec f='codebrowser/renderer/tr_local.h' l='556' type='void * R_GetCommandBuffer(int bytes)'/>
+<def f='codebrowser/renderer/RenderSystem.cpp' l='160' ll='169' type='void * R_GetCommandBuffer(int bytes)'/>
+<use f='codebrowser/renderer/RenderSystem.cpp' l='211' u='c' c='_Z16R_AddDrawViewCmdP9viewDef_s'/>
+<use f='codebrowser/renderer/RenderSystem.cpp' l='263' u='c' c='_Z18R_LockSurfaceSceneP9viewDef_s'/>
+<use f='codebrowser/renderer/RenderSystem.cpp' l='680' u='c' c='_ZN19idRenderSystemLocal10BeginFrameEii'/>
+<use f='codebrowser/renderer/RenderSystem.cpp' l='737' u='c' c='_ZN19idRenderSystemLocal8EndFrameEPiS0_'/>
+<use f='codebrowser/renderer/RenderSystem.cpp' l='935' u='c' c='_ZN19idRenderSystemLocal20CaptureRenderToImageEPKc'/>
+<doc f='codebrowser/renderer/RenderSystem.cpp' l='151'>/*
+============
+R_GetCommandBuffer
+
+Returns memory for a command buffer (stretchPicCommand_t, 
+drawSurfsCommand_t, etc) and links it to the end of the
+current command chain.
+============
+*/</doc>

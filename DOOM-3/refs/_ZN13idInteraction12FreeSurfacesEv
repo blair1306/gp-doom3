@@ -1,0 +1,14 @@
+<dec f='codebrowser/renderer/Interaction.h' l='126' type='void idInteraction::FreeSurfaces()'/>
+<doc f='codebrowser/renderer/Interaction.h' l='125'>// free the interaction surfaces</doc>
+<def f='codebrowser/renderer/Interaction.cpp' l='520' ll='546' type='void idInteraction::FreeSurfaces()'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='603' u='c' c='_ZN13idInteraction13UnlinkAndFreeEv'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='1075' u='c' c='_ZN13idInteraction20AddActiveInteractionEv'/>
+<doc f='codebrowser/renderer/Interaction.cpp' l='512'>/*
+===============
+idInteraction::FreeSurfaces
+
+Frees the surfaces, but leaves the interaction linked in, so it
+will be regenerated automatically
+===============
+*/</doc>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='702' u='c' c='_Z28R_ClearEntityDefDynamicModelP19idRenderEntityLocal'/>

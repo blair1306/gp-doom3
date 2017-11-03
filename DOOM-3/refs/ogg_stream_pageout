@@ -1,0 +1,5 @@
+<dec f='codebrowser/sound/OggVorbis/ogg/ogg.h' l='151' type='int ogg_stream_pageout(ogg_stream_state * os, ogg_page * og)'/>
+<def f='codebrowser/sound/OggVorbis/oggsrc/framing.c' l='447' ll='459' type='int ogg_stream_pageout(ogg_stream_state * os, ogg_page * og)'/>
+<doc f='codebrowser/sound/OggVorbis/oggsrc/framing.c' l='443'>/* This constructs pages from buffered packet segments.  The pointers
+returned are to static buffers; do not free. The returned buffers are
+good only until the next call (using the same ogg_stream_state) */</doc>

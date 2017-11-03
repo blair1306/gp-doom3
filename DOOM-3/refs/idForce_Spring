@@ -1,0 +1,60 @@
+<inh f='codebrowser/d3xp/physics/Force.h' l='45' c='idForce'/>
+<def f='codebrowser/d3xp/physics/Force_Spring.h' l='40' ll='73'/>
+<size>60</size>
+<doc f='codebrowser/d3xp/physics/Force_Spring.h' l='32'>/*
+===============================================================================
+
+	Spring force
+
+===============================================================================
+*/</doc>
+<smbr r='idForce_Spring::Type' t='idTypeInfo'/>
+<fun r='_ZN14idForce_Spring14CreateInstanceEv'/>
+<fun r='_ZNK14idForce_Spring7GetTypeEv'/>
+<smbr r='idForce_Spring::eventCallbacks' t='idEventFunc&lt;idForce_Spring&gt; []'/>
+<fun r='_ZN14idForce_SpringC1Ev'/>
+<fun r='_ZN14idForce_SpringD1Ev'/>
+<fun r='_ZN14idForce_Spring10InitSpringEffff'/>
+<fun r='_ZN14idForce_Spring11SetPositionEP9idPhysicsiRK6idVec3S1_iS4_'/>
+<fun r='_ZN14idForce_Spring8EvaluateEi'/>
+<fun r='_ZN14idForce_Spring13RemovePhysicsEPK9idPhysics'/>
+<mbr r='idForce_Spring::Kstretch' o='32' t='float'/>
+<mbr r='idForce_Spring::Kcompress' o='64' t='float'/>
+<mbr r='idForce_Spring::damping' o='96' t='float'/>
+<mbr r='idForce_Spring::restLength' o='128' t='float'/>
+<mbr r='idForce_Spring::physics1' o='160' t='idPhysics *'/>
+<mbr r='idForce_Spring::id1' o='192' t='int'/>
+<mbr r='idForce_Spring::p1' o='224' t='idVec3'/>
+<mbr r='idForce_Spring::physics2' o='320' t='idPhysics *'/>
+<mbr r='idForce_Spring::id2' o='352' t='int'/>
+<mbr r='idForce_Spring::p2' o='384' t='idVec3'/>
+<inh f='codebrowser/game/physics/Force.h' l='45' c='idForce'/>
+<def f='codebrowser/game/physics/Force_Spring.h' l='40' ll='73'/>
+<size>60</size>
+<doc f='codebrowser/game/physics/Force_Spring.h' l='32'>/*
+===============================================================================
+
+	Spring force
+
+===============================================================================
+*/</doc>
+<smbr r='idForce_Spring::Type' t='idTypeInfo'/>
+<fun r='_ZN14idForce_Spring14CreateInstanceEv'/>
+<fun r='_ZNK14idForce_Spring7GetTypeEv'/>
+<smbr r='idForce_Spring::eventCallbacks' t='idEventFunc&lt;idForce_Spring&gt; []'/>
+<fun r='_ZN14idForce_SpringC1Ev'/>
+<fun r='_ZN14idForce_SpringD1Ev'/>
+<fun r='_ZN14idForce_Spring10InitSpringEffff'/>
+<fun r='_ZN14idForce_Spring11SetPositionEP9idPhysicsiRK6idVec3S1_iS4_'/>
+<fun r='_ZN14idForce_Spring8EvaluateEi'/>
+<fun r='_ZN14idForce_Spring13RemovePhysicsEPK9idPhysics'/>
+<mbr r='idForce_Spring::Kstretch' o='32' t='float'/>
+<mbr r='idForce_Spring::Kcompress' o='64' t='float'/>
+<mbr r='idForce_Spring::damping' o='96' t='float'/>
+<mbr r='idForce_Spring::restLength' o='128' t='float'/>
+<mbr r='idForce_Spring::physics1' o='160' t='idPhysics *'/>
+<mbr r='idForce_Spring::id1' o='192' t='int'/>
+<mbr r='idForce_Spring::p1' o='224' t='idVec3'/>
+<mbr r='idForce_Spring::physics2' o='320' t='idPhysics *'/>
+<mbr r='idForce_Spring::id2' o='352' t='int'/>
+<mbr r='idForce_Spring::p2' o='384' t='idVec3'/>

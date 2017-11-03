@@ -1,0 +1,30 @@
+<dec f='codebrowser/d3xp/Entity.h' l='189' type='bool idEntity::CheckDormant()'/>
+<doc f='codebrowser/d3xp/Entity.h' l='189'>// dormant == on the active list, but out of PVS</doc>
+<def f='codebrowser/d3xp/Entity.cpp' l='946' ll='959' type='bool idEntity::CheckDormant()'/>
+<doc f='codebrowser/d3xp/Entity.cpp' l='938'>/*
+================
+idEntity::CheckDormant
+
+Monsters and other expensive entities that are completely closed
+off from the player can skip all of their work
+================
+*/</doc>
+<use f='codebrowser/d3xp/Misc.cpp' l='1896' u='c' c='_ZN11idFuncSmoke5ThinkEv'/>
+<use f='codebrowser/d3xp/Misc.cpp' l='3134' u='c' c='_ZN16idPhantomObjects5ThinkEv'/>
+<use f='codebrowser/d3xp/Mover.cpp' l='4355' u='c' c='_ZN16idMover_Periodic5ThinkEv'/>
+<use f='codebrowser/d3xp/ai/AI.cpp' l='1124' u='c' c='_ZN4idAI5ThinkEv'/>
+<dec f='codebrowser/game/Entity.h' l='173' type='bool idEntity::CheckDormant()'/>
+<doc f='codebrowser/game/Entity.h' l='173'>// dormant == on the active list, but out of PVS</doc>
+<def f='codebrowser/game/Entity.cpp' l='877' ll='890' type='bool idEntity::CheckDormant()'/>
+<doc f='codebrowser/game/Entity.cpp' l='869'>/*
+================
+idEntity::CheckDormant
+
+Monsters and other expensive entities that are completely closed
+off from the player can skip all of their work
+================
+*/</doc>
+<use f='codebrowser/game/Misc.cpp' l='1830' u='c' c='_ZN11idFuncSmoke5ThinkEv'/>
+<use f='codebrowser/game/Misc.cpp' l='3076' u='c' c='_ZN16idPhantomObjects5ThinkEv'/>
+<use f='codebrowser/game/Mover.cpp' l='4294' u='c' c='_ZN16idMover_Periodic5ThinkEv'/>
+<use f='codebrowser/game/ai/AI.cpp' l='1049' u='c' c='_ZN4idAI5ThinkEv'/>

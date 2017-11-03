@@ -1,0 +1,19 @@
+<def f='codebrowser/renderer/Material.h' l='458' type='bool idMaterial::IsFogLight() const'/>
+<doc f='codebrowser/renderer/Material.h' l='454'>//------------------------------------------------------------------
+	// light shader specific functions, only called for light entities
+
+						// lightshader option to fill with fog from viewer instead of light from center</doc>
+<use f='codebrowser/renderer/draw_arb.cpp' l='471' u='c' c='_ZL18RB_RenderViewLightP11viewLight_s'/>
+<use f='codebrowser/renderer/draw_arb2.cpp' l='257' u='c' c='_Z24RB_ARB2_DrawInteractionsv'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='1548' u='c' c='_Z19RB_STD_FogAllLightsv'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='1577' u='c' c='_Z19RB_STD_FogAllLightsv'/>
+<use f='codebrowser/renderer/draw_nv10.cpp' l='573' u='c' c='_ZL18RB_RenderViewLightP11viewLight_s'/>
+<use f='codebrowser/renderer/draw_nv20.cpp' l='771' u='c' c='_Z24RB_NV20_DrawInteractionsv'/>
+<use f='codebrowser/renderer/draw_r200.cpp' l='283' u='c' c='_Z24RB_R200_DrawInteractionsv'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='79' u='c' c='_Z21R_CreateLightingCachePK19idRenderEntityLocalPK18idRenderLightLocalP14srfTriangles_s'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='914' u='c' c='_Z18R_AddLightSurfacesv'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1000' u='c' c='_Z18R_AddLightSurfacesv'/>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='554' u='c' c='_Z26R_CreateLightDefFogPortalsP18idRenderLightLocal'/>
+<use f='codebrowser/tools/compilers/dmap/portals.cpp' l='624' u='c' c='_Z13FloodEntitiesP6tree_s'/>
+<use f='codebrowser/tools/compilers/dmap/usurface.cpp' l='923' u='c' c='_ZL18CarveGroupsByLightP9uEntity_tP10mapLight_t'/>
+<use f='codebrowser/tools/compilers/dmap/usurface.cpp' l='924' u='c' c='_ZL18CarveGroupsByLightP9uEntity_tP10mapLight_t'/>

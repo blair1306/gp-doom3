@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>posix_public.h source code [codebrowser/sys/posix/posix_public.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/sys/posix/posix_public.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>sys</a>/<a href='./'>posix</a>/<a href='posix_public.h.html'>posix_public.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i></i></td></tr>
+<tr><th id="4">4</th><td><i>Doom 3 GPL Source Code</i></td></tr>
+<tr><th id="5">5</th><td><i>Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. </i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  </i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Doom 3 Source Code is free software: you can redistribute it and/or modify</i></td></tr>
+<tr><th id="10">10</th><td><i>it under the terms of the GNU General Public License as published by</i></td></tr>
+<tr><th id="11">11</th><td><i>the Free Software Foundation, either version 3 of the License, or</i></td></tr>
+<tr><th id="12">12</th><td><i>(at your option) any later version.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>Doom 3 Source Code is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="15">15</th><td><i>but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="16">16</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="17">17</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="18">18</th><td><i></i></td></tr>
+<tr><th id="19">19</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="20">20</th><td><i>along with Doom 3 Source Code.  If not, see &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.</i></td></tr>
+<tr><th id="23">23</th><td><i></i></td></tr>
+<tr><th id="24">24</th><td><i>If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.</i></td></tr>
+<tr><th id="25">25</th><td><i></i></td></tr>
+<tr><th id="26">26</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/__SYS_POSIX__">__SYS_POSIX__</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/__SYS_POSIX__" data-ref="_M/__SYS_POSIX__">__SYS_POSIX__</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="../../../include/signal.h.html">&lt;signal.h&gt;</a></u></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><em>void</em>		<dfn class="decl" id="_Z14Posix_QueEvent14sysEventType_tiiiPv" title='Posix_QueEvent' data-ref="_Z14Posix_QueEvent14sysEventType_tiiiPv">Posix_QueEvent</dfn>( <a class="typedef" href="../sys_public.h.html#sysEventType_t" title='sysEventType_t' data-type='enum sysEventType_t' data-ref="sysEventType_t">sysEventType_t</a> <dfn class="local col1 decl" id="1type" title='type' data-type='sysEventType_t' data-ref="1type">type</dfn>, <em>int</em> <dfn class="local col2 decl" id="2value" title='value' data-type='int' data-ref="2value">value</dfn>, <em>int</em> <dfn class="local col3 decl" id="3value2" title='value2' data-type='int' data-ref="3value2">value2</dfn>, <em>int</em> <dfn class="local col4 decl" id="4ptrLength" title='ptrLength' data-type='int' data-ref="4ptrLength">ptrLength</dfn>, <em>void</em> *<dfn class="local col5 decl" id="5ptr" title='ptr' data-type='void *' data-ref="5ptr">ptr</dfn> );</td></tr>
+<tr><th id="35">35</th><td><em>const</em> <em>char</em>*	<dfn class="decl" id="_Z9Posix_Cwdv" title='Posix_Cwd' data-ref="_Z9Posix_Cwdv">Posix_Cwd</dfn>( <em>void</em> );</td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><i>// called first thing. does InitSigs and various things</i></td></tr>
+<tr><th id="38">38</th><td><em>void</em>		<dfn class="decl" id="_Z15Posix_EarlyInitv" title='Posix_EarlyInit' data-ref="_Z15Posix_EarlyInitv">Posix_EarlyInit</dfn>( );</td></tr>
+<tr><th id="39">39</th><td><i>// called after common has been initialized</i></td></tr>
+<tr><th id="40">40</th><td><em>void</em>		<dfn class="decl" id="_Z14Posix_LateInitv" title='Posix_LateInit' data-ref="_Z14Posix_LateInitv">Posix_LateInit</dfn>( );</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><em>void</em>		<dfn class="decl" id="_Z18Posix_InitPThreadsv" title='Posix_InitPThreads' data-ref="_Z18Posix_InitPThreadsv">Posix_InitPThreads</dfn>( );</td></tr>
+<tr><th id="43">43</th><td><em>void</em>		<dfn class="decl" id="_Z14Posix_InitSigsv" title='Posix_InitSigs' data-ref="_Z14Posix_InitSigsv">Posix_InitSigs</dfn>( );</td></tr>
+<tr><th id="44">44</th><td><em>void</em>		<dfn class="decl" id="_Z15Posix_ClearSigsv" title='Posix_ClearSigs' data-ref="_Z15Posix_ClearSigsv">Posix_ClearSigs</dfn>( );</td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td><em>void</em>		<dfn class="decl" id="_Z10Posix_Exiti" title='Posix_Exit' data-ref="_Z10Posix_Exiti">Posix_Exit</dfn>( <em>int</em> <dfn class="local col6 decl" id="6ret" title='ret' data-type='int' data-ref="6ret">ret</dfn> );</td></tr>
+<tr><th id="47">47</th><td><em>void</em>		<dfn class="decl" id="_Z13Posix_SetExiti" title='Posix_SetExit' data-ref="_Z13Posix_SetExiti">Posix_SetExit</dfn>(<em>int</em> <dfn class="local col7 decl" id="7ret" title='ret' data-type='int' data-ref="7ret">ret</dfn>); <i>// override the exit code</i></td></tr>
+<tr><th id="48">48</th><td><em>void</em>		<dfn class="decl" id="_Z18Posix_SetExitSpawnPKc" title='Posix_SetExitSpawn' data-ref="_Z18Posix_SetExitSpawnPKc">Posix_SetExitSpawn</dfn>( <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="8exeName" title='exeName' data-type='const char *' data-ref="8exeName">exeName</dfn> ); <i>// set the process to be spawned when we quit</i></td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td><em>void</em>		<dfn class="decl" id="_Z22Posix_StartAsyncThreadv" title='Posix_StartAsyncThread' data-ref="_Z22Posix_StartAsyncThreadv">Posix_StartAsyncThread</dfn>( <em>void</em> );</td></tr>
+<tr><th id="51">51</th><td><b>extern</b> <a class="typedef" href="../sys_public.h.html#xthreadInfo" title='xthreadInfo' data-type='struct xthreadInfo' data-ref="xthreadInfo">xthreadInfo</a> <dfn class="decl" id="asyncThread" title='asyncThread' data-ref="asyncThread">asyncThread</dfn>;</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td><em>bool</em>		<dfn class="decl" id="_Z26Posix_AddKeyboardPollEventib" title='Posix_AddKeyboardPollEvent' data-ref="_Z26Posix_AddKeyboardPollEventib">Posix_AddKeyboardPollEvent</dfn>( <em>int</em> <dfn class="local col9 decl" id="9key" title='key' data-type='int' data-ref="9key">key</dfn>, <em>bool</em> <dfn class="local col0 decl" id="10state" title='state' data-type='bool' data-ref="10state">state</dfn> );</td></tr>
+<tr><th id="54">54</th><td><em>bool</em>		<dfn class="decl" id="_Z23Posix_AddMousePollEventii" title='Posix_AddMousePollEvent' data-ref="_Z23Posix_AddMousePollEventii">Posix_AddMousePollEvent</dfn>( <em>int</em> <dfn class="local col1 decl" id="11action" title='action' data-type='int' data-ref="11action">action</dfn>, <em>int</em> <dfn class="local col2 decl" id="12value" title='value' data-type='int' data-ref="12value">value</dfn> );</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td><em>void</em>		<a class="decl" href="../linux/input.cpp.html#_Z15Posix_PollInputv" title='Posix_PollInput' data-ref="_Z15Posix_PollInputv" id="_Z15Posix_PollInputv">Posix_PollInput</a>( <em>void</em> );</td></tr>
+<tr><th id="57">57</th><td><em>void</em>		<dfn class="decl" id="_Z22Posix_InitConsoleInputv" title='Posix_InitConsoleInput' data-ref="_Z22Posix_InitConsoleInputv">Posix_InitConsoleInput</dfn>( <em>void</em> );</td></tr>
+<tr><th id="58">58</th><td><em>void</em>		<dfn class="decl" id="_Z14Posix_Shutdownv" title='Posix_Shutdown' data-ref="_Z14Posix_Shutdownv">Posix_Shutdown</dfn>( <em>void</em> );</td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td><em>void</em>		<dfn class="decl" id="_Z15Sys_FPE_handleriP9siginfo_tPv" title='Sys_FPE_handler' data-ref="_Z15Sys_FPE_handleriP9siginfo_tPv">Sys_FPE_handler</dfn>( <em>int</em> <dfn class="local col3 decl" id="13signum" title='signum' data-type='int' data-ref="13signum">signum</dfn>, <a class="typedef" href="../../../include/x86_64-linux-gnu/bits/siginfo.h.html#siginfo_t" title='siginfo_t' data-type='struct siginfo_t' data-ref="siginfo_t">siginfo_t</a> *<dfn class="local col4 decl" id="14info" title='info' data-type='siginfo_t *' data-ref="14info">info</dfn>, <em>void</em> *<dfn class="local col5 decl" id="15context" title='context' data-type='void *' data-ref="15context">context</dfn> );</td></tr>
+<tr><th id="61">61</th><td><em>void</em>		<dfn class="decl" id="_Z18Sys_DoStartProcessPKcb" title='Sys_DoStartProcess' data-ref="_Z18Sys_DoStartProcessPKcb">Sys_DoStartProcess</dfn>( <em>const</em> <em>char</em> *<dfn class="local col6 decl" id="16exeName" title='exeName' data-type='const char *' data-ref="16exeName">exeName</dfn>, <em>bool</em> <dfn class="local col7 decl" id="17dofork" title='dofork' data-type='bool' data-ref="17dofork">dofork</dfn> = <b>true</b> ); <i>// if not forking, current process gets replaced</i></td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td><em>void</em>		<dfn class="decl" id="_Z15Sys_AsyncThreadv" title='Sys_AsyncThread' data-ref="_Z15Sys_AsyncThreadv">Sys_AsyncThread</dfn>( <em>void</em> );</td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td><u>#<span data-ppcond="29">endif</span></u></td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../linux/input.cpp.html'>codebrowser/sys/linux/input.cpp</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

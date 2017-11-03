@@ -1,0 +1,28 @@
+<dec f='codebrowser/d3xp/Game_local.h' l='391' type='void idGameLocal::CacheDictionaryMedia(const idDict * dict)'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='1384' u='c' c='_ZN11idGameLocal16InitFromSaveGameEPKcP13idRenderWorldP12idSoundWorldP6idFile'/>
+<inh f='codebrowser/d3xp/Game.h' l='120' c='_ZN6idGame20CacheDictionaryMediaEPK6idDict'/>
+<def f='codebrowser/d3xp/Game_local.cpp' l='1823' ll='1978' type='void idGameLocal::CacheDictionaryMedia(const idDict * dict)'/>
+<use f='codebrowser/d3xp/Game_local.cpp' l='3514' u='c' c='_ZN11idGameLocal16SpawnMapEntitiesEv'/>
+<doc f='codebrowser/d3xp/Game_local.cpp' l='1814'>/*
+===================
+idGameLocal::CacheDictionaryMedia
+
+This is called after parsing an EntityDef and for each entity spawnArgs before
+merging the entitydef.  It could be done post-merge, but that would
+avoid the fast pre-cache check associated with each entityDef
+===================
+*/</doc>
+<dec f='codebrowser/game/Game_local.h' l='334' type='void idGameLocal::CacheDictionaryMedia(const idDict * dict)'/>
+<use f='codebrowser/game/Game_local.cpp' l='1248' u='c' c='_ZN11idGameLocal16InitFromSaveGameEPKcP13idRenderWorldP12idSoundWorldP6idFile'/>
+<inh f='codebrowser/game/Game.h' l='118' c='_ZN6idGame20CacheDictionaryMediaEPK6idDict'/>
+<def f='codebrowser/game/Game_local.cpp' l='1640' ll='1795' type='void idGameLocal::CacheDictionaryMedia(const idDict * dict)'/>
+<use f='codebrowser/game/Game_local.cpp' l='3224' u='c' c='_ZN11idGameLocal16SpawnMapEntitiesEv'/>
+<doc f='codebrowser/game/Game_local.cpp' l='1631'>/*
+===================
+idGameLocal::CacheDictionaryMedia
+
+This is called after parsing an EntityDef and for each entity spawnArgs before
+merging the entitydef.  It could be done post-merge, but that would
+avoid the fast pre-cache check associated with each entityDef
+===================
+*/</doc>

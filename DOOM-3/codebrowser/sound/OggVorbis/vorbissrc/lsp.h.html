@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>lsp.h source code [codebrowser/sound/OggVorbis/vorbissrc/lsp.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/sound/OggVorbis/vorbissrc/lsp.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>sound</a>/<a href='..'>OggVorbis</a>/<a href='./'>vorbissrc</a>/<a href='lsp.h.html'>lsp.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/********************************************************************</i></td></tr>
+<tr><th id="2">2</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="3">3</th><td><i> * THIS FILE IS PART OF THE OggVorbis SOFTWARE CODEC SOURCE CODE.   *</i></td></tr>
+<tr><th id="4">4</th><td><i> * USE, DISTRIBUTION AND REPRODUCTION OF THIS LIBRARY SOURCE IS     *</i></td></tr>
+<tr><th id="5">5</th><td><i> * GOVERNED BY A BSD-STYLE SOURCE LICENSE INCLUDED WITH THIS SOURCE *</i></td></tr>
+<tr><th id="6">6</th><td><i> * IN 'COPYING'. PLEASE READ THESE TERMS BEFORE DISTRIBUTING.       *</i></td></tr>
+<tr><th id="7">7</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="8">8</th><td><i> * THE OggVorbis SOURCE CODE IS (C) COPYRIGHT 1994-2002             *</i></td></tr>
+<tr><th id="9">9</th><td><i> * by the XIPHOPHORUS Company <a href="http://www.xiph.org/">http://www.xiph.org/</a>                  *</i></td></tr>
+<tr><th id="10">10</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="11">11</th><td><i> ********************************************************************</i></td></tr>
+<tr><th id="12">12</th><td><i></i></td></tr>
+<tr><th id="13">13</th><td><i>  function: LSP (also called LSF) conversion routines</i></td></tr>
+<tr><th id="14">14</th><td><i>  last mod: $Id: lsp.h,v 1.11 2002/07/11 06:40:49 xiphmont Exp $</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i> ********************************************************************/</i></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#<span data-ppcond="19">ifndef</span> <span class="macro" data-ref="_M/_V_LSP_H_">_V_LSP_H_</span></u></td></tr>
+<tr><th id="20">20</th><td><u>#define <dfn class="macro" id="_M/_V_LSP_H_" data-ref="_M/_V_LSP_H_">_V_LSP_H_</dfn></u></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><b>extern</b> <em>int</em> <dfn class="decl" id="vorbis_lpc_to_lsp" title='vorbis_lpc_to_lsp' data-ref="vorbis_lpc_to_lsp">vorbis_lpc_to_lsp</dfn>(<em>float</em> *<dfn class="local col1 decl" id="1lpc" title='lpc' data-type='float *' data-ref="1lpc">lpc</dfn>,<em>float</em> *<dfn class="local col2 decl" id="2lsp" title='lsp' data-type='float *' data-ref="2lsp">lsp</dfn>,<em>int</em> <dfn class="local col3 decl" id="3m" title='m' data-type='int' data-ref="3m">m</dfn>);</td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><b>extern</b> <em>void</em> <dfn class="decl" id="vorbis_lsp_to_curve" title='vorbis_lsp_to_curve' data-ref="vorbis_lsp_to_curve">vorbis_lsp_to_curve</dfn>(<em>float</em> *<dfn class="local col4 decl" id="4curve" title='curve' data-type='float *' data-ref="4curve">curve</dfn>,<em>int</em> *<dfn class="local col5 decl" id="5map" title='map' data-type='int *' data-ref="5map">map</dfn>,<em>int</em> <dfn class="local col6 decl" id="6n" title='n' data-type='int' data-ref="6n">n</dfn>,<em>int</em> <dfn class="local col7 decl" id="7ln" title='ln' data-type='int' data-ref="7ln">ln</dfn>,</td></tr>
+<tr><th id="25">25</th><td>				<em>float</em> *<dfn class="local col8 decl" id="8lsp" title='lsp' data-type='float *' data-ref="8lsp">lsp</dfn>,<em>int</em> <dfn class="local col9 decl" id="9m" title='m' data-type='int' data-ref="9m">m</dfn>,</td></tr>
+<tr><th id="26">26</th><td>				<em>float</em> <dfn class="local col0 decl" id="10amp" title='amp' data-type='float' data-ref="10amp">amp</dfn>,<em>float</em> <dfn class="local col1 decl" id="11ampoffset" title='ampoffset' data-type='float' data-ref="11ampoffset">ampoffset</dfn>);</td></tr>
+<tr><th id="27">27</th><td>  </td></tr>
+<tr><th id="28">28</th><td><u>#<span data-ppcond="19">endif</span></u></td></tr>
+<tr><th id="29">29</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='floor0.c.html'>codebrowser/sound/OggVorbis/vorbissrc/floor0.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

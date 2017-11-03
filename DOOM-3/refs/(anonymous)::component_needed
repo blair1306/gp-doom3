@@ -1,0 +1,14 @@
+<dec f='codebrowser/renderer/jpeg-6/jpeglib.h' l='172' type='boolean'/>
+<offset>384</offset>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='168'>/* This flag is used only for decompression.  In cases where some of the
+   * components will be ignored (eg grayscale output from YCbCr image),
+   * we can skip most computations for the unused components.
+   */</doc>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='172'>/* do we need the value of this component? */</doc>
+<use f='codebrowser/renderer/jpeg-6/jcmaster.c' l='115' u='w' c='initial_setup'/>
+<use f='codebrowser/renderer/jpeg-6/jdcoefct.c' l='182' u='r' c='decompress_onepass'/>
+<use f='codebrowser/renderer/jpeg-6/jdcolor.c' l='326' u='w' c='jinit_color_deconverter'/>
+<use f='codebrowser/renderer/jpeg-6/jddctmgr.c' l='153' u='r' c='start_pass'/>
+<use f='codebrowser/renderer/jpeg-6/jdhuff.c' l='480' u='r' c='decode_mcu'/>
+<use f='codebrowser/renderer/jpeg-6/jdinput.c' l='102' u='w' c='initial_setup'/>
+<use f='codebrowser/renderer/jpeg-6/jdsample.c' l='439' u='r' c='jinit_upsampler'/>

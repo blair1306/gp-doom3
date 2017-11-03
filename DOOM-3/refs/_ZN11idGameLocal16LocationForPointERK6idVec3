@@ -1,0 +1,25 @@
+<dec f='codebrowser/d3xp/Game_local.h' l='515' type='idLocationEntity * idGameLocal::LocationForPoint(const idVec3 &amp; point)'/>
+<doc f='codebrowser/d3xp/Game_local.h' l='515'>// May return NULL</doc>
+<def f='codebrowser/d3xp/Game_local.cpp' l='4334' ll='4349' type='idLocationEntity * idGameLocal::LocationForPoint(const idVec3 &amp; point)'/>
+<doc f='codebrowser/d3xp/Game_local.cpp' l='4326'>/*
+===================
+idGameLocal::LocationForPoint
+
+The player checks the location each frame to update the HUD text display
+May return NULL
+===================
+*/</doc>
+<use f='codebrowser/d3xp/Player.cpp' l='5265' u='c' c='_ZN8idPlayer14UpdateLocationEv'/>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='628' u='c' c='_ZL7Cmd_SaybRK9idCmdArgs'/>
+<dec f='codebrowser/game/Game_local.h' l='453' type='idLocationEntity * idGameLocal::LocationForPoint(const idVec3 &amp; point)'/>
+<doc f='codebrowser/game/Game_local.h' l='453'>// May return NULL</doc>
+<def f='codebrowser/game/Game_local.cpp' l='4036' ll='4051' type='idLocationEntity * idGameLocal::LocationForPoint(const idVec3 &amp; point)'/>
+<doc f='codebrowser/game/Game_local.cpp' l='4028'>/*
+===================
+idGameLocal::LocationForPoint
+
+The player checks the location each frame to update the HUD text display
+May return NULL
+===================
+*/</doc>
+<use f='codebrowser/game/Player.cpp' l='4294' u='c' c='_ZN8idPlayer14UpdateLocationEv'/>

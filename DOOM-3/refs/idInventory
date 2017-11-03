@@ -1,0 +1,121 @@
+<def f='codebrowser/d3xp/Player.h' l='137' ll='223'/>
+<size>2624</size>
+<mbr r='idInventory::maxHealth' o='0' t='int'/>
+<mbr r='idInventory::weapons' o='32' t='int'/>
+<mbr r='idInventory::powerups' o='64' t='int'/>
+<mbr r='idInventory::armor' o='96' t='int'/>
+<mbr r='idInventory::maxarmor' o='128' t='int'/>
+<mbr r='idInventory::ammo' o='160' t='int [16]'/>
+<mbr r='idInventory::clip' o='672' t='int [32]'/>
+<mbr r='idInventory::powerupEndTime' o='1696' t='int [8]'/>
+<mbr r='idInventory::rechargeAmmo' o='1952' t='RechargeAmmo_t [16]'/>
+<mbr r='idInventory::ammoPredictTime' o='19360' t='int'/>
+<mbr r='idInventory::deplete_armor' o='19392' t='int'/>
+<mbr r='idInventory::deplete_rate' o='19424' t='float'/>
+<mbr r='idInventory::deplete_ammount' o='19456' t='int'/>
+<mbr r='idInventory::nextArmorDepleteTime' o='19488' t='int'/>
+<mbr r='idInventory::pdasViewed' o='19520' t='int [4]'/>
+<mbr r='idInventory::selPDA' o='19648' t='int'/>
+<mbr r='idInventory::selEMail' o='19680' t='int'/>
+<mbr r='idInventory::selVideo' o='19712' t='int'/>
+<mbr r='idInventory::selAudio' o='19744' t='int'/>
+<mbr r='idInventory::pdaOpened' o='19776' t='bool'/>
+<mbr r='idInventory::turkeyScore' o='19784' t='bool'/>
+<mbr r='idInventory::items' o='19808' t='idList&lt;idDict *&gt;'/>
+<mbr r='idInventory::pdas' o='19936' t='idStrList'/>
+<mbr r='idInventory::pdaSecurity' o='20064' t='idStrList'/>
+<mbr r='idInventory::videos' o='20192' t='idStrList'/>
+<mbr r='idInventory::emails' o='20320' t='idStrList'/>
+<mbr r='idInventory::ammoPulse' o='20448' t='bool'/>
+<mbr r='idInventory::weaponPulse' o='20456' t='bool'/>
+<mbr r='idInventory::armorPulse' o='20464' t='bool'/>
+<mbr r='idInventory::lastGiveTime' o='20480' t='int'/>
+<mbr r='idInventory::levelTriggers' o='20512' t='idList&lt;idLevelTriggerInfo&gt;'/>
+<fun r='_ZN11idInventoryC1Ev'/>
+<fun r='_ZN11idInventoryD1Ev'/>
+<fun r='_ZNK11idInventory4SaveEP10idSaveGame'/>
+<fun r='_ZN11idInventory7RestoreEP13idRestoreGame'/>
+<fun r='_ZN11idInventory5ClearEv'/>
+<fun r='_ZN11idInventory11GivePowerUpEP8idPlayerii'/>
+<fun r='_ZN11idInventory13ClearPowerUpsEv'/>
+<fun r='_ZN11idInventory17GetPersistantDataER6idDict'/>
+<fun r='_ZN11idInventory16RestoreInventoryEP8idPlayerRK6idDict'/>
+<fun r='_ZN11idInventory4GiveEP8idPlayerRK6idDictPKcS6_Pib'/>
+<fun r='_ZN11idInventory4DropERK6idDictPKci'/>
+<fun r='_ZNK11idInventory21AmmoIndexForAmmoClassEPKc'/>
+<fun r='_ZNK11idInventory19MaxAmmoForAmmoClassEP8idPlayerPKc'/>
+<fun r='_ZNK11idInventory23WeaponIndexForAmmoClassERK6idDictPKc'/>
+<fun r='_ZN11idInventory23AmmoIndexForWeaponClassEPKcPi'/>
+<fun r='_ZNK11idInventory22AmmoPickupNameForIndexEi'/>
+<fun r='_ZN11idInventory13AddPickupNameEPKcS1_P8idPlayer'/>
+<fun r='_ZN11idInventory7HasAmmoEii'/>
+<fun r='_ZN11idInventory7UseAmmoEii'/>
+<fun r='_ZN11idInventory7HasAmmoEPKcbP8idPlayer'/>
+<fun r='_ZN11idInventory24HasEmptyClipCannotRefillEPKcP8idPlayer'/>
+<fun r='_ZN11idInventory11UpdateArmorEv'/>
+<mbr r='idInventory::nextItemPickup' o='20640' t='int'/>
+<mbr r='idInventory::nextItemNum' o='20672' t='int'/>
+<mbr r='idInventory::onePickupTime' o='20704' t='int'/>
+<mbr r='idInventory::pickupItemNames' o='20736' t='idList&lt;idItemInfo&gt;'/>
+<mbr r='idInventory::objectiveNames' o='20864' t='idList&lt;idObjectiveInfo&gt;'/>
+<fun r='_ZN11idInventory16InitRechargeAmmoEP8idPlayer'/>
+<fun r='_ZN11idInventory12RechargeAmmoEP8idPlayer'/>
+<fun r='_ZN11idInventory7CanGiveEP8idPlayerRK6idDictPKcS6_Pi'/>
+<def f='codebrowser/game/Player.h' l='113' ll='185'/>
+<size>368</size>
+<mbr r='idInventory::maxHealth' o='0' t='int'/>
+<mbr r='idInventory::weapons' o='32' t='int'/>
+<mbr r='idInventory::powerups' o='64' t='int'/>
+<mbr r='idInventory::armor' o='96' t='int'/>
+<mbr r='idInventory::maxarmor' o='128' t='int'/>
+<mbr r='idInventory::ammo' o='160' t='int [16]'/>
+<mbr r='idInventory::clip' o='672' t='int [16]'/>
+<mbr r='idInventory::powerupEndTime' o='1184' t='int [4]'/>
+<mbr r='idInventory::ammoPredictTime' o='1312' t='int'/>
+<mbr r='idInventory::deplete_armor' o='1344' t='int'/>
+<mbr r='idInventory::deplete_rate' o='1376' t='float'/>
+<mbr r='idInventory::deplete_ammount' o='1408' t='int'/>
+<mbr r='idInventory::nextArmorDepleteTime' o='1440' t='int'/>
+<mbr r='idInventory::pdasViewed' o='1472' t='int [4]'/>
+<mbr r='idInventory::selPDA' o='1600' t='int'/>
+<mbr r='idInventory::selEMail' o='1632' t='int'/>
+<mbr r='idInventory::selVideo' o='1664' t='int'/>
+<mbr r='idInventory::selAudio' o='1696' t='int'/>
+<mbr r='idInventory::pdaOpened' o='1728' t='bool'/>
+<mbr r='idInventory::turkeyScore' o='1736' t='bool'/>
+<mbr r='idInventory::items' o='1760' t='idList&lt;idDict *&gt;'/>
+<mbr r='idInventory::pdas' o='1888' t='idStrList'/>
+<mbr r='idInventory::pdaSecurity' o='2016' t='idStrList'/>
+<mbr r='idInventory::videos' o='2144' t='idStrList'/>
+<mbr r='idInventory::emails' o='2272' t='idStrList'/>
+<mbr r='idInventory::ammoPulse' o='2400' t='bool'/>
+<mbr r='idInventory::weaponPulse' o='2408' t='bool'/>
+<mbr r='idInventory::armorPulse' o='2416' t='bool'/>
+<mbr r='idInventory::lastGiveTime' o='2432' t='int'/>
+<mbr r='idInventory::levelTriggers' o='2464' t='idList&lt;idLevelTriggerInfo&gt;'/>
+<fun r='_ZN11idInventoryC1Ev'/>
+<fun r='_ZN11idInventoryD1Ev'/>
+<fun r='_ZNK11idInventory4SaveEP10idSaveGame'/>
+<fun r='_ZN11idInventory7RestoreEP13idRestoreGame'/>
+<fun r='_ZN11idInventory5ClearEv'/>
+<fun r='_ZN11idInventory11GivePowerUpEP8idPlayerii'/>
+<fun r='_ZN11idInventory13ClearPowerUpsEv'/>
+<fun r='_ZN11idInventory17GetPersistantDataER6idDict'/>
+<fun r='_ZN11idInventory16RestoreInventoryEP8idPlayerRK6idDict'/>
+<fun r='_ZN11idInventory4GiveEP8idPlayerRK6idDictPKcS6_Pib'/>
+<fun r='_ZN11idInventory4DropERK6idDictPKci'/>
+<fun r='_ZNK11idInventory21AmmoIndexForAmmoClassEPKc'/>
+<fun r='_ZNK11idInventory19MaxAmmoForAmmoClassEP8idPlayerPKc'/>
+<fun r='_ZNK11idInventory23WeaponIndexForAmmoClassERK6idDictPKc'/>
+<fun r='_ZN11idInventory23AmmoIndexForWeaponClassEPKcPi'/>
+<fun r='_ZNK11idInventory22AmmoPickupNameForIndexEi'/>
+<fun r='_ZN11idInventory13AddPickupNameEPKcS1_'/>
+<fun r='_ZN11idInventory7HasAmmoEii'/>
+<fun r='_ZN11idInventory7UseAmmoEii'/>
+<fun r='_ZN11idInventory7HasAmmoEPKc'/>
+<fun r='_ZN11idInventory11UpdateArmorEv'/>
+<mbr r='idInventory::nextItemPickup' o='2592' t='int'/>
+<mbr r='idInventory::nextItemNum' o='2624' t='int'/>
+<mbr r='idInventory::onePickupTime' o='2656' t='int'/>
+<mbr r='idInventory::pickupItemNames' o='2688' t='idList&lt;idItemInfo&gt;'/>
+<mbr r='idInventory::objectiveNames' o='2816' t='idList&lt;idObjectiveInfo&gt;'/>

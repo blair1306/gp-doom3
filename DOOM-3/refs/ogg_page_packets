@@ -1,0 +1,14 @@
+<dec f='codebrowser/sound/OggVorbis/ogg/ogg.h' l='187' type='int ogg_page_packets(ogg_page * og)'/>
+<def f='codebrowser/sound/OggVorbis/oggsrc/framing.c' l='91' ll='96' type='int ogg_page_packets(ogg_page * og)'/>
+<doc f='codebrowser/sound/OggVorbis/oggsrc/framing.c' l='78'>/* NOTE:
+If a page consists of a packet begun on a previous page, and a new
+packet begun (but not completed) on this page, the return will be:
+  ogg_page_packets(page)   ==1, 
+  ogg_page_continued(page) !=0
+
+If a page happens to be a single packet that was begun on a
+previous page, and spans to the next page (in the case of a three or
+more page packet), the return will be: 
+  ogg_page_packets(page)   ==0, 
+  ogg_page_continued(page) !=0
+*/</doc>

@@ -1,0 +1,192 @@
+<inh f='codebrowser/d3xp/Entity.h' l='107' c='idEntity'/>
+<def f='codebrowser/d3xp/Mover.h' l='45' ll='196'/>
+<ovr f='codebrowser/d3xp/Mover.h' l='214' c='idElevator'/>
+<size>2208</size>
+<doc f='codebrowser/d3xp/Mover.h' l='37'>/*
+===============================================================================
+
+  General movers.
+
+===============================================================================
+*/</doc>
+<smbr r='idMover::Type' t='idTypeInfo'/>
+<fun r='_ZN7idMover14CreateInstanceEv'/>
+<fun r='_ZNK7idMover7GetTypeEv'/>
+<smbr r='idMover::eventCallbacks' t='idEventFunc&lt;idMover&gt; []'/>
+<fun r='_ZN7idMoverC1Ev'/>
+<fun r='_ZN7idMover5SpawnEv'/>
+<fun r='_ZNK7idMover4SaveEP10idSaveGame'/>
+<fun r='_ZN7idMover7RestoreEP13idRestoreGame'/>
+<fun r='_ZN7idMover6KilledEP8idEntityS1_iRK6idVec3i'/>
+<fun r='_ZNK7idMover15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN7idMover16ReadFromSnapshotERK13idBitMsgDelta'/>
+<fun r='_ZN7idMover4HideEv'/>
+<fun r='_ZN7idMover4ShowEv'/>
+<fun r='_ZN7idMover14SetPortalStateEb'/>
+<mbr r='idMover::physicsObj' o='6944' t='idPhysics_Parametric'/>
+<fun r='_ZN7idMover16Event_OpenPortalEv'/>
+<fun r='_ZN7idMover17Event_ClosePortalEv'/>
+<fun r='_ZN7idMover17Event_PartBlockedEP8idEntity'/>
+<fun r='_ZN7idMover9MoveToPosERK6idVec3'/>
+<fun r='_ZN7idMover15UpdateMoveSoundENS_11moveStage_tE'/>
+<fun r='_ZN7idMover19UpdateRotationSoundENS_11moveStage_tE'/>
+<fun r='_ZN7idMover12SetGuiStatesEPKc'/>
+<fun r='_ZN7idMover14FindGuiTargetsEv'/>
+<fun r='_ZNK7idMover11SetGuiStateEPKcS1_'/>
+<fun r='_ZN7idMover10DoneMovingEv'/>
+<fun r='_ZN7idMover12DoneRotatingEv'/>
+<fun r='_ZN7idMover9BeginMoveEP8idThread'/>
+<fun r='_ZN7idMover13BeginRotationEP8idThreadb'/>
+<mbr r='idMover::move' o='16352' t='moveState_t'/>
+<mbr r='idMover::rot' o='16576' t='rotationState_t'/>
+<mbr r='idMover::move_thread' o='16800' t='int'/>
+<mbr r='idMover::rotate_thread' o='16832' t='int'/>
+<mbr r='idMover::dest_angles' o='16864' t='idAngles'/>
+<mbr r='idMover::angle_delta' o='16960' t='idAngles'/>
+<mbr r='idMover::dest_position' o='17056' t='idVec3'/>
+<mbr r='idMover::move_delta' o='17152' t='idVec3'/>
+<mbr r='idMover::move_speed' o='17248' t='float'/>
+<mbr r='idMover::move_time' o='17280' t='int'/>
+<mbr r='idMover::deceltime' o='17312' t='int'/>
+<mbr r='idMover::acceltime' o='17344' t='int'/>
+<mbr r='idMover::stopRotation' o='17376' t='bool'/>
+<mbr r='idMover::useSplineAngles' o='17384' t='bool'/>
+<mbr r='idMover::splineEnt' o='17408' t='idEntityPtr&lt;idEntity&gt;'/>
+<mbr r='idMover::lastCommand' o='17440' t='moverCommand_t'/>
+<mbr r='idMover::damage' o='17472' t='float'/>
+<mbr r='idMover::areaPortal' o='17504' t='qhandle_t'/>
+<mbr r='idMover::guiTargets' o='17536' t='idList&lt;idEntityPtr&lt;idEntity&gt; &gt;'/>
+<fun r='_ZN7idMover12VectorForDirEfR6idVec3'/>
+<fun r='_ZNK7idMover9GetSplineEP8idEntity'/>
+<fun r='_ZN7idMover17Event_SetCallbackEv'/>
+<fun r='_ZN7idMover17Event_TeamBlockedEP8idEntityS1_'/>
+<fun r='_ZN7idMover16Event_StopMovingEv'/>
+<fun r='_ZN7idMover18Event_StopRotatingEv'/>
+<fun r='_ZN7idMover16Event_UpdateMoveEv'/>
+<fun r='_ZN7idMover20Event_UpdateRotationEv'/>
+<fun r='_ZN7idMover18Event_SetMoveSpeedEf'/>
+<fun r='_ZN7idMover17Event_SetMoveTimeEf'/>
+<fun r='_ZN7idMover25Event_SetDecelerationTimeEf'/>
+<fun r='_ZN7idMover26Event_SetAccellerationTimeEf'/>
+<fun r='_ZN7idMover12Event_MoveToEP8idEntity'/>
+<fun r='_ZN7idMover15Event_MoveToPosER6idVec3'/>
+<fun r='_ZN7idMover13Event_MoveDirEff'/>
+<fun r='_ZN7idMover22Event_MoveAccelerateToEff'/>
+<fun r='_ZN7idMover22Event_MoveDecelerateToEff'/>
+<fun r='_ZN7idMover18Event_RotateDownToEif'/>
+<fun r='_ZN7idMover16Event_RotateUpToEif'/>
+<fun r='_ZN7idMover14Event_RotateToER8idAngles'/>
+<fun r='_ZN7idMover12Event_RotateER8idAngles'/>
+<fun r='_ZN7idMover16Event_RotateOnceER8idAngles'/>
+<fun r='_ZN7idMover9Event_BobEffR6idVec3'/>
+<fun r='_ZN7idMover10Event_SwayEffR8idAngles'/>
+<fun r='_ZN7idMover19Event_SetAccelSoundEPKc'/>
+<fun r='_ZN7idMover19Event_SetDecelSoundEPKc'/>
+<fun r='_ZN7idMover18Event_SetMoveSoundEPKc'/>
+<fun r='_ZN7idMover20Event_FindGuiTargetsEv'/>
+<fun r='_ZN7idMover20Event_InitGuiTargetsEv'/>
+<fun r='_ZN7idMover24Event_EnableSplineAnglesEv'/>
+<fun r='_ZN7idMover25Event_DisableSplineAnglesEv'/>
+<fun r='_ZN7idMover31Event_RemoveInitialSplineAnglesEv'/>
+<fun r='_ZN7idMover17Event_StartSplineEP8idEntity'/>
+<fun r='_ZN7idMover16Event_StopSplineEv'/>
+<fun r='_ZN7idMover14Event_ActivateEP8idEntity'/>
+<fun r='_ZN7idMover17Event_PostRestoreEiiiii'/>
+<fun r='_ZN7idMover14Event_IsMovingEv'/>
+<fun r='_ZN7idMover16Event_IsRotatingEv'/>
+<inh f='codebrowser/game/Entity.h' l='107' c='idEntity'/>
+<def f='codebrowser/game/Mover.h' l='45' ll='196'/>
+<ovr f='codebrowser/game/Mover.h' l='214' c='idElevator'/>
+<size>1976</size>
+<doc f='codebrowser/game/Mover.h' l='37'>/*
+===============================================================================
+
+  General movers.
+
+===============================================================================
+*/</doc>
+<smbr r='idMover::Type' t='idTypeInfo'/>
+<fun r='_ZN7idMover14CreateInstanceEv'/>
+<fun r='_ZNK7idMover7GetTypeEv'/>
+<smbr r='idMover::eventCallbacks' t='idEventFunc&lt;idMover&gt; []'/>
+<fun r='_ZN7idMoverC1Ev'/>
+<fun r='_ZN7idMover5SpawnEv'/>
+<fun r='_ZNK7idMover4SaveEP10idSaveGame'/>
+<fun r='_ZN7idMover7RestoreEP13idRestoreGame'/>
+<fun r='_ZN7idMover6KilledEP8idEntityS1_iRK6idVec3i'/>
+<fun r='_ZNK7idMover15WriteToSnapshotER13idBitMsgDelta'/>
+<fun r='_ZN7idMover16ReadFromSnapshotERK13idBitMsgDelta'/>
+<fun r='_ZN7idMover4HideEv'/>
+<fun r='_ZN7idMover4ShowEv'/>
+<fun r='_ZN7idMover14SetPortalStateEb'/>
+<mbr r='idMover::physicsObj' o='5088' t='idPhysics_Parametric'/>
+<fun r='_ZN7idMover16Event_OpenPortalEv'/>
+<fun r='_ZN7idMover17Event_ClosePortalEv'/>
+<fun r='_ZN7idMover17Event_PartBlockedEP8idEntity'/>
+<fun r='_ZN7idMover9MoveToPosERK6idVec3'/>
+<fun r='_ZN7idMover15UpdateMoveSoundENS_11moveStage_tE'/>
+<fun r='_ZN7idMover19UpdateRotationSoundENS_11moveStage_tE'/>
+<fun r='_ZN7idMover12SetGuiStatesEPKc'/>
+<fun r='_ZN7idMover14FindGuiTargetsEv'/>
+<fun r='_ZNK7idMover11SetGuiStateEPKcS1_'/>
+<fun r='_ZN7idMover10DoneMovingEv'/>
+<fun r='_ZN7idMover12DoneRotatingEv'/>
+<fun r='_ZN7idMover9BeginMoveEP8idThread'/>
+<fun r='_ZN7idMover13BeginRotationEP8idThreadb'/>
+<mbr r='idMover::move' o='14496' t='moveState_t'/>
+<mbr r='idMover::rot' o='14720' t='rotationState_t'/>
+<mbr r='idMover::move_thread' o='14944' t='int'/>
+<mbr r='idMover::rotate_thread' o='14976' t='int'/>
+<mbr r='idMover::dest_angles' o='15008' t='idAngles'/>
+<mbr r='idMover::angle_delta' o='15104' t='idAngles'/>
+<mbr r='idMover::dest_position' o='15200' t='idVec3'/>
+<mbr r='idMover::move_delta' o='15296' t='idVec3'/>
+<mbr r='idMover::move_speed' o='15392' t='float'/>
+<mbr r='idMover::move_time' o='15424' t='int'/>
+<mbr r='idMover::deceltime' o='15456' t='int'/>
+<mbr r='idMover::acceltime' o='15488' t='int'/>
+<mbr r='idMover::stopRotation' o='15520' t='bool'/>
+<mbr r='idMover::useSplineAngles' o='15528' t='bool'/>
+<mbr r='idMover::splineEnt' o='15552' t='idEntityPtr&lt;idEntity&gt;'/>
+<mbr r='idMover::lastCommand' o='15584' t='moverCommand_t'/>
+<mbr r='idMover::damage' o='15616' t='float'/>
+<mbr r='idMover::areaPortal' o='15648' t='qhandle_t'/>
+<mbr r='idMover::guiTargets' o='15680' t='idList&lt;idEntityPtr&lt;idEntity&gt; &gt;'/>
+<fun r='_ZN7idMover12VectorForDirEfR6idVec3'/>
+<fun r='_ZNK7idMover9GetSplineEP8idEntity'/>
+<fun r='_ZN7idMover17Event_SetCallbackEv'/>
+<fun r='_ZN7idMover17Event_TeamBlockedEP8idEntityS1_'/>
+<fun r='_ZN7idMover16Event_StopMovingEv'/>
+<fun r='_ZN7idMover18Event_StopRotatingEv'/>
+<fun r='_ZN7idMover16Event_UpdateMoveEv'/>
+<fun r='_ZN7idMover20Event_UpdateRotationEv'/>
+<fun r='_ZN7idMover18Event_SetMoveSpeedEf'/>
+<fun r='_ZN7idMover17Event_SetMoveTimeEf'/>
+<fun r='_ZN7idMover25Event_SetDecelerationTimeEf'/>
+<fun r='_ZN7idMover26Event_SetAccellerationTimeEf'/>
+<fun r='_ZN7idMover12Event_MoveToEP8idEntity'/>
+<fun r='_ZN7idMover15Event_MoveToPosER6idVec3'/>
+<fun r='_ZN7idMover13Event_MoveDirEff'/>
+<fun r='_ZN7idMover22Event_MoveAccelerateToEff'/>
+<fun r='_ZN7idMover22Event_MoveDecelerateToEff'/>
+<fun r='_ZN7idMover18Event_RotateDownToEif'/>
+<fun r='_ZN7idMover16Event_RotateUpToEif'/>
+<fun r='_ZN7idMover14Event_RotateToER8idAngles'/>
+<fun r='_ZN7idMover12Event_RotateER8idAngles'/>
+<fun r='_ZN7idMover16Event_RotateOnceER8idAngles'/>
+<fun r='_ZN7idMover9Event_BobEffR6idVec3'/>
+<fun r='_ZN7idMover10Event_SwayEffR8idAngles'/>
+<fun r='_ZN7idMover19Event_SetAccelSoundEPKc'/>
+<fun r='_ZN7idMover19Event_SetDecelSoundEPKc'/>
+<fun r='_ZN7idMover18Event_SetMoveSoundEPKc'/>
+<fun r='_ZN7idMover20Event_FindGuiTargetsEv'/>
+<fun r='_ZN7idMover20Event_InitGuiTargetsEv'/>
+<fun r='_ZN7idMover24Event_EnableSplineAnglesEv'/>
+<fun r='_ZN7idMover25Event_DisableSplineAnglesEv'/>
+<fun r='_ZN7idMover31Event_RemoveInitialSplineAnglesEv'/>
+<fun r='_ZN7idMover17Event_StartSplineEP8idEntity'/>
+<fun r='_ZN7idMover16Event_StopSplineEv'/>
+<fun r='_ZN7idMover14Event_ActivateEP8idEntity'/>
+<fun r='_ZN7idMover17Event_PostRestoreEiiiii'/>
+<fun r='_ZN7idMover14Event_IsMovingEv'/>
+<fun r='_ZN7idMover16Event_IsRotatingEv'/>

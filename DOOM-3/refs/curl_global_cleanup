@@ -1,0 +1,15 @@
+<dec f='codebrowser/curl/include/curl/curl.h' l='1058' type='void curl_global_cleanup()'/>
+<doc f='codebrowser/curl/include/curl/curl.h' l='1050'>/*
+ * NAME curl_global_cleanup()
+ *
+ * DESCRIPTION
+ *
+ * curl_global_cleanup() should be invoked exactly once for each application
+ * that uses libcurl
+ */</doc>
+<def f='codebrowser/curl/lib/easy.c' l='174' ll='193' type='void curl_global_cleanup()'/>
+<doc f='codebrowser/curl/lib/easy.c' l='170'>/**
+ * Globally cleanup cURL, uses the value of &quot;init_flags&quot; to determine
+ * what needs to be cleaned up and what doesn&apos;t
+ */</doc>
+<use f='codebrowser/curl/src/main.c' l='226' u='c' c='main_free'/>

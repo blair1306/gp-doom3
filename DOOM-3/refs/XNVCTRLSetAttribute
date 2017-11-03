@@ -1,0 +1,15 @@
+<dec f='codebrowser/sys/linux/libXNVCtrl/NVCtrlLib.h' l='62' type='void XNVCTRLSetAttribute(Display * dpy, int screen, unsigned int display_mask, unsigned int attribute, int value)'/>
+<doc f='codebrowser/sys/linux/libXNVCtrl/NVCtrlLib.h' l='48'>/*
+ *  XNVCTRLSetAttribute -
+ *
+ *  Sets the attribute to the given value.  The attributes and their
+ *  possible values are listed in NVCtrl.h.
+ *
+ *  Not all attributes require the display_mask parameter; see
+ *  NVCtrl.h for details.
+ *
+ *  Possible errors:
+ *     BadValue - The screen or attribute doesn&apos;t exist.
+ *     BadMatch - The NVIDIA driver is not present on that screen.
+ */</doc>
+<def f='codebrowser/sys/linux/libXNVCtrl/NVCtrl.c' l='125' ll='147' type='void XNVCTRLSetAttribute(Display * dpy, int screen, unsigned int display_mask, unsigned int attribute, int value)'/>

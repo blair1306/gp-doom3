@@ -1,0 +1,31 @@
+<dec f='codebrowser/renderer/jpeg-6/jpeglib.h' l='278' type='JDIMENSION'/>
+<offset>192</offset>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='273'>/* Description of source image --- these fields must be filled in by
+   * outer application before starting compression.  in_color_space must
+   * be correct before you can even call jpeg_set_defaults().
+   */</doc>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='278'>/* input image width */</doc>
+<use f='codebrowser/renderer/jpeg-6/jccolor.c' l='140' u='r' c='rgb_ycc_convert'/>
+<use f='codebrowser/renderer/jpeg-6/jccolor.c' l='196' u='r' c='rgb_gray_convert'/>
+<use f='codebrowser/renderer/jpeg-6/jccolor.c' l='235' u='r' c='cmyk_ycck_convert'/>
+<use f='codebrowser/renderer/jpeg-6/jccolor.c' l='287' u='r' c='grayscale_convert'/>
+<use f='codebrowser/renderer/jpeg-6/jccolor.c' l='318' u='r' c='null_convert'/>
+<use f='codebrowser/renderer/jpeg-6/jcmarker.c' l='276' u='r' c='emit_sof'/>
+<use f='codebrowser/renderer/jpeg-6/jcmarker.c' l='281' u='r' c='emit_sof'/>
+<use f='codebrowser/renderer/jpeg-6/jcmaster.c' l='55' u='r' c='initial_setup'/>
+<use f='codebrowser/renderer/jpeg-6/jcmaster.c' l='61' u='r' c='initial_setup'/>
+<use f='codebrowser/renderer/jpeg-6/jcmaster.c' l='65' u='r' c='initial_setup'/>
+<use f='codebrowser/renderer/jpeg-6/jcmaster.c' l='102' u='r' c='initial_setup'/>
+<use f='codebrowser/renderer/jpeg-6/jcmaster.c' l='109' u='r' c='initial_setup'/>
+<use f='codebrowser/renderer/jpeg-6/jcmaster.c' l='338' u='r' c='per_scan_setup'/>
+<use f='codebrowser/renderer/jpeg-6/jcprepct.c' l='156' u='r' c='pre_process_data'/>
+<use f='codebrowser/renderer/jpeg-6/jcprepct.c' l='224' u='r' c='pre_process_context'/>
+<use f='codebrowser/renderer/jpeg-6/jcprepct.c' l='240' u='r' c='pre_process_context'/>
+<use f='codebrowser/renderer/jpeg-6/jcsample.c' l='159' u='r' c='int_downsample'/>
+<use f='codebrowser/renderer/jpeg-6/jcsample.c' l='192' u='r' c='fullsize_downsample'/>
+<use f='codebrowser/renderer/jpeg-6/jcsample.c' l='195' u='r' c='fullsize_downsample'/>
+<use f='codebrowser/renderer/jpeg-6/jcsample.c' l='226' u='r' c='h2v1_downsample'/>
+<use f='codebrowser/renderer/jpeg-6/jcsample.c' l='263' u='r' c='h2v2_downsample'/>
+<use f='codebrowser/renderer/jpeg-6/jcsample.c' l='306' u='r' c='h2v2_smooth_downsample'/>
+<use f='codebrowser/renderer/jpeg-6/jcsample.c' l='407' u='r' c='fullsize_smooth_downsample'/>
+<use f='codebrowser/tools/compilers/roqvq/roq.cpp' l='456' u='w' c='_ZN3roq13WriteLosslessEv'/>

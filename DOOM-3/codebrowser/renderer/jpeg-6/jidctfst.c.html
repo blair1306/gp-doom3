@@ -1,0 +1,385 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>jidctfst.c source code [codebrowser/renderer/jpeg-6/jidctfst.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/renderer/jpeg-6/jidctfst.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>renderer</a>/<a href='./'>jpeg-6</a>/<a href='jidctfst.c.html'>jidctfst.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i> * jidctfst.c</i></td></tr>
+<tr><th id="3">3</th><td><i> *</i></td></tr>
+<tr><th id="4">4</th><td><i> * Copyright (C) 1994-1995, Thomas G. Lane.</i></td></tr>
+<tr><th id="5">5</th><td><i> * This file is part of the Independent JPEG Group's software.</i></td></tr>
+<tr><th id="6">6</th><td><i> * For conditions of distribution and use, see the accompanying README file.</i></td></tr>
+<tr><th id="7">7</th><td><i> *</i></td></tr>
+<tr><th id="8">8</th><td><i> * This file contains a fast, not so accurate integer implementation of the</i></td></tr>
+<tr><th id="9">9</th><td><i> * inverse DCT (Discrete Cosine Transform).  In the IJG code, this routine</i></td></tr>
+<tr><th id="10">10</th><td><i> * must also perform dequantization of the input coefficients.</i></td></tr>
+<tr><th id="11">11</th><td><i> *</i></td></tr>
+<tr><th id="12">12</th><td><i> * A 2-D IDCT can be done by 1-D IDCT on each column followed by 1-D IDCT</i></td></tr>
+<tr><th id="13">13</th><td><i> * on each row (or vice versa, but it's more convenient to emit a row at</i></td></tr>
+<tr><th id="14">14</th><td><i> * a time).  Direct algorithms are also available, but they are much more</i></td></tr>
+<tr><th id="15">15</th><td><i> * complex and seem not to be any faster when reduced to code.</i></td></tr>
+<tr><th id="16">16</th><td><i> *</i></td></tr>
+<tr><th id="17">17</th><td><i> * This implementation is based on Arai, Agui, and Nakajima's algorithm for</i></td></tr>
+<tr><th id="18">18</th><td><i> * scaled DCT.  Their original paper (Trans. IEICE E-71(11):1095) is in</i></td></tr>
+<tr><th id="19">19</th><td><i> * Japanese, but the algorithm is described in the Pennebaker &amp; Mitchell</i></td></tr>
+<tr><th id="20">20</th><td><i> * JPEG textbook (see REFERENCES section in file README).  The following code</i></td></tr>
+<tr><th id="21">21</th><td><i> * is based directly on figure 4-8 in P&amp;M.</i></td></tr>
+<tr><th id="22">22</th><td><i> * While an 8-point DCT cannot be done in less than 11 multiplies, it is</i></td></tr>
+<tr><th id="23">23</th><td><i> * possible to arrange the computation so that many of the multiplies are</i></td></tr>
+<tr><th id="24">24</th><td><i> * simple scalings of the final outputs.  These multiplies can then be</i></td></tr>
+<tr><th id="25">25</th><td><i> * folded into the multiplications or divisions by the JPEG quantization</i></td></tr>
+<tr><th id="26">26</th><td><i> * table entries.  The AA&amp;N method leaves only 5 multiplies and 29 adds</i></td></tr>
+<tr><th id="27">27</th><td><i> * to be done in the DCT itself.</i></td></tr>
+<tr><th id="28">28</th><td><i> * The primary disadvantage of this method is that with fixed-point math,</i></td></tr>
+<tr><th id="29">29</th><td><i> * accuracy is lost due to imprecise representation of the scaled</i></td></tr>
+<tr><th id="30">30</th><td><i> * quantization values.  The smaller the quantization table entry, the less</i></td></tr>
+<tr><th id="31">31</th><td><i> * precise the scaled value, so this implementation does worse with high-</i></td></tr>
+<tr><th id="32">32</th><td><i> * quality-setting files than with low-quality ones.</i></td></tr>
+<tr><th id="33">33</th><td><i> */</i></td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><u>#define <dfn class="macro" id="_M/JPEG_INTERNALS" data-ref="_M/JPEG_INTERNALS">JPEG_INTERNALS</dfn></u></td></tr>
+<tr><th id="36">36</th><td><u>#include <a href="jinclude.h.html">"jinclude.h"</a></u></td></tr>
+<tr><th id="37">37</th><td><u>#include <a href="jpeglib.h.html">"jpeglib.h"</a></u></td></tr>
+<tr><th id="38">38</th><td><u>#include <a href="jdct.h.html">"jdct.h"</a>		/* Private declarations for DCT subsystem */</u></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><u>#<span data-ppcond="40">ifdef</span> <span class="macro" data-ref="_M/DCT_IFAST_SUPPORTED">DCT_IFAST_SUPPORTED</span></u></td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td><i>/*</i></td></tr>
+<tr><th id="44">44</th><td><i> * This module is specialized to the case DCTSIZE = 8.</i></td></tr>
+<tr><th id="45">45</th><td><i> */</i></td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td><u>#if DCTSIZE != 8</u></td></tr>
+<tr><th id="48">48</th><td>  Sorry, this code only copes with <var>8x8</var> DCTs. <i>/* deliberate syntax err */</i></td></tr>
+<tr><th id="49">49</th><td><u>#endif</u></td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td><i>/* Scaling decisions are generally the same as in the LL&amp;M algorithm;</i></td></tr>
+<tr><th id="53">53</th><td><i> * see jidctint.c for more details.  However, we choose to descale</i></td></tr>
+<tr><th id="54">54</th><td><i> * (right shift) multiplication products as soon as they are formed,</i></td></tr>
+<tr><th id="55">55</th><td><i> * rather than carrying additional fractional bits into subsequent additions.</i></td></tr>
+<tr><th id="56">56</th><td><i> * This compromises accuracy slightly, but it lets us save a few shifts.</i></td></tr>
+<tr><th id="57">57</th><td><i> * More importantly, 16-bit arithmetic is then adequate (for 8-bit samples)</i></td></tr>
+<tr><th id="58">58</th><td><i> * everywhere except in the multiplications proper; this saves a good deal</i></td></tr>
+<tr><th id="59">59</th><td><i> * of work on 16-bit-int machines.</i></td></tr>
+<tr><th id="60">60</th><td><i> *</i></td></tr>
+<tr><th id="61">61</th><td><i> * The dequantized coefficients are not integers because the AA&amp;N scaling</i></td></tr>
+<tr><th id="62">62</th><td><i> * factors have been incorporated.  We represent them scaled up by PASS1_BITS,</i></td></tr>
+<tr><th id="63">63</th><td><i> * so that the first and second IDCT rounds have the same input scaling.</i></td></tr>
+<tr><th id="64">64</th><td><i> * For 8-bit JSAMPLEs, we choose IFAST_SCALE_BITS = PASS1_BITS so as to</i></td></tr>
+<tr><th id="65">65</th><td><i> * avoid a descaling shift; this compromises accuracy rather drastically</i></td></tr>
+<tr><th id="66">66</th><td><i> * for small quantization table entries, but it saves a lot of shifts.</i></td></tr>
+<tr><th id="67">67</th><td><i> * For 12-bit JSAMPLEs, there's no hope of using 16x16 multiplies anyway,</i></td></tr>
+<tr><th id="68">68</th><td><i> * so we use a much larger scaling factor to preserve accuracy.</i></td></tr>
+<tr><th id="69">69</th><td><i> *</i></td></tr>
+<tr><th id="70">70</th><td><i> * A final compromise is to represent the multiplicative constants to only</i></td></tr>
+<tr><th id="71">71</th><td><i> * 8 fractional bits, rather than 13.  This saves some shifting work on some</i></td></tr>
+<tr><th id="72">72</th><td><i> * machines, and may also reduce the cost of multiplication (since there</i></td></tr>
+<tr><th id="73">73</th><td><i> * are fewer one-bits in the constants).</i></td></tr>
+<tr><th id="74">74</th><td><i> */</i></td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td><u>#if BITS_IN_JSAMPLE == 8</u></td></tr>
+<tr><th id="77">77</th><td><u>#define CONST_BITS  8</u></td></tr>
+<tr><th id="78">78</th><td><u>#define PASS1_BITS  2</u></td></tr>
+<tr><th id="79">79</th><td><u>#else</u></td></tr>
+<tr><th id="80">80</th><td><u>#define CONST_BITS  8</u></td></tr>
+<tr><th id="81">81</th><td><u>#define PASS1_BITS  1		/* lose a little precision to avoid overflow */</u></td></tr>
+<tr><th id="82">82</th><td><u>#endif</u></td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td><i>/* Some C compilers fail to reduce "FIX(constant)" at compile time, thus</i></td></tr>
+<tr><th id="85">85</th><td><i> * causing a lot of useless floating-point operations at run time.</i></td></tr>
+<tr><th id="86">86</th><td><i> * To get around this we use the following pre-calculated constants.</i></td></tr>
+<tr><th id="87">87</th><td><i> * If you change CONST_BITS you may want to add appropriate values.</i></td></tr>
+<tr><th id="88">88</th><td><i> * (With a reasonable C compiler, you can just rely on the FIX() macro...)</i></td></tr>
+<tr><th id="89">89</th><td><i> */</i></td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td><u>#if CONST_BITS == 8</u></td></tr>
+<tr><th id="92">92</th><td><u>#define FIX_1_082392200  ((INT32)  277)		/* FIX(1.082392200) */</u></td></tr>
+<tr><th id="93">93</th><td><u>#define FIX_1_414213562  ((INT32)  362)		/* FIX(1.414213562) */</u></td></tr>
+<tr><th id="94">94</th><td><u>#define FIX_1_847759065  ((INT32)  473)		/* FIX(1.847759065) */</u></td></tr>
+<tr><th id="95">95</th><td><u>#define FIX_2_613125930  ((INT32)  669)		/* FIX(2.613125930) */</u></td></tr>
+<tr><th id="96">96</th><td><u>#else</u></td></tr>
+<tr><th id="97">97</th><td><u>#define FIX_1_082392200  FIX(1.082392200)</u></td></tr>
+<tr><th id="98">98</th><td><u>#define FIX_1_414213562  FIX(1.414213562)</u></td></tr>
+<tr><th id="99">99</th><td><u>#define FIX_1_847759065  FIX(1.847759065)</u></td></tr>
+<tr><th id="100">100</th><td><u>#define FIX_2_613125930  FIX(2.613125930)</u></td></tr>
+<tr><th id="101">101</th><td><u>#endif</u></td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td></td></tr>
+<tr><th id="104">104</th><td><i>/* We can gain a little more speed, with a further compromise in accuracy,</i></td></tr>
+<tr><th id="105">105</th><td><i> * by omitting the addition in a descaling shift.  This yields an incorrectly</i></td></tr>
+<tr><th id="106">106</th><td><i> * rounded result half the time...</i></td></tr>
+<tr><th id="107">107</th><td><i> */</i></td></tr>
+<tr><th id="108">108</th><td></td></tr>
+<tr><th id="109">109</th><td><u>#ifndef USE_ACCURATE_ROUNDING</u></td></tr>
+<tr><th id="110">110</th><td><u>#undef DESCALE</u></td></tr>
+<tr><th id="111">111</th><td><u>#define DESCALE(x,n)  RIGHT_SHIFT(x, n)</u></td></tr>
+<tr><th id="112">112</th><td><u>#endif</u></td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td></td></tr>
+<tr><th id="115">115</th><td><i>/* Multiply a DCTELEM variable by an INT32 constant, and immediately</i></td></tr>
+<tr><th id="116">116</th><td><i> * descale to yield a DCTELEM result.</i></td></tr>
+<tr><th id="117">117</th><td><i> */</i></td></tr>
+<tr><th id="118">118</th><td></td></tr>
+<tr><th id="119">119</th><td><u>#define MULTIPLY(var,const)  ((DCTELEM) DESCALE((var) * (const), CONST_BITS))</u></td></tr>
+<tr><th id="120">120</th><td></td></tr>
+<tr><th id="121">121</th><td></td></tr>
+<tr><th id="122">122</th><td><i>/* Dequantize a coefficient by multiplying it by the multiplier-table</i></td></tr>
+<tr><th id="123">123</th><td><i> * entry; produce a DCTELEM result.  For 8-bit data a 16x16-&gt;16</i></td></tr>
+<tr><th id="124">124</th><td><i> * multiplication will do.  For 12-bit data, the multiplier table is</i></td></tr>
+<tr><th id="125">125</th><td><i> * declared INT32, so a 32-bit multiply will be used.</i></td></tr>
+<tr><th id="126">126</th><td><i> */</i></td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td><u>#if BITS_IN_JSAMPLE == 8</u></td></tr>
+<tr><th id="129">129</th><td><u>#define DEQUANTIZE(coef,quantval)  (((IFAST_MULT_TYPE) (coef)) * (quantval))</u></td></tr>
+<tr><th id="130">130</th><td><u>#else</u></td></tr>
+<tr><th id="131">131</th><td><u>#define DEQUANTIZE(coef,quantval)  \</u></td></tr>
+<tr><th id="132">132</th><td><u>	DESCALE((coef)*(quantval), IFAST_SCALE_BITS-PASS1_BITS)</u></td></tr>
+<tr><th id="133">133</th><td><u>#endif</u></td></tr>
+<tr><th id="134">134</th><td></td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td><i>/* Like DESCALE, but applies to a DCTELEM and produces an int.</i></td></tr>
+<tr><th id="137">137</th><td><i> * We assume that int right shift is unsigned if INT32 right shift is.</i></td></tr>
+<tr><th id="138">138</th><td><i> */</i></td></tr>
+<tr><th id="139">139</th><td></td></tr>
+<tr><th id="140">140</th><td><u>#ifdef RIGHT_SHIFT_IS_UNSIGNED</u></td></tr>
+<tr><th id="141">141</th><td><u>#define ISHIFT_TEMPS	DCTELEM ishift_temp;</u></td></tr>
+<tr><th id="142">142</th><td><u>#if BITS_IN_JSAMPLE == 8</u></td></tr>
+<tr><th id="143">143</th><td><u>#define DCTELEMBITS  16		/* DCTELEM may be 16 or 32 bits */</u></td></tr>
+<tr><th id="144">144</th><td><u>#else</u></td></tr>
+<tr><th id="145">145</th><td><u>#define DCTELEMBITS  32		/* DCTELEM must be 32 bits */</u></td></tr>
+<tr><th id="146">146</th><td><u>#endif</u></td></tr>
+<tr><th id="147">147</th><td><u>#define IRIGHT_SHIFT(x,shft)  \</u></td></tr>
+<tr><th id="148">148</th><td><u>    ((ishift_temp = (x)) &lt; 0 ? \</u></td></tr>
+<tr><th id="149">149</th><td><u>     (ishift_temp &gt;&gt; (shft)) | ((~((DCTELEM) 0)) &lt;&lt; (DCTELEMBITS-(shft))) : \</u></td></tr>
+<tr><th id="150">150</th><td><u>     (ishift_temp &gt;&gt; (shft)))</u></td></tr>
+<tr><th id="151">151</th><td><u>#else</u></td></tr>
+<tr><th id="152">152</th><td><u>#define ISHIFT_TEMPS</u></td></tr>
+<tr><th id="153">153</th><td><u>#define IRIGHT_SHIFT(x,shft)	((x) &gt;&gt; (shft))</u></td></tr>
+<tr><th id="154">154</th><td><u>#endif</u></td></tr>
+<tr><th id="155">155</th><td></td></tr>
+<tr><th id="156">156</th><td><u>#ifdef USE_ACCURATE_ROUNDING</u></td></tr>
+<tr><th id="157">157</th><td><u>#define IDESCALE(x,n)  ((int) IRIGHT_SHIFT((x) + (1 &lt;&lt; ((n)-1)), n))</u></td></tr>
+<tr><th id="158">158</th><td><u>#else</u></td></tr>
+<tr><th id="159">159</th><td><u>#define IDESCALE(x,n)  ((int) IRIGHT_SHIFT(x, n))</u></td></tr>
+<tr><th id="160">160</th><td><u>#endif</u></td></tr>
+<tr><th id="161">161</th><td></td></tr>
+<tr><th id="162">162</th><td></td></tr>
+<tr><th id="163">163</th><td><i>/*</i></td></tr>
+<tr><th id="164">164</th><td><i> * Perform dequantization and inverse DCT on one block of coefficients.</i></td></tr>
+<tr><th id="165">165</th><td><i> */</i></td></tr>
+<tr><th id="166">166</th><td></td></tr>
+<tr><th id="167">167</th><td>GLOBAL <em>void</em></td></tr>
+<tr><th id="168">168</th><td>jpeg_idct_ifast (j_decompress_ptr cinfo, jpeg_component_info * compptr,</td></tr>
+<tr><th id="169">169</th><td>		 JCOEFPTR coef_block,</td></tr>
+<tr><th id="170">170</th><td>		 JSAMPARRAY output_buf, JDIMENSION output_col)</td></tr>
+<tr><th id="171">171</th><td>{</td></tr>
+<tr><th id="172">172</th><td>  DCTELEM tmp0, tmp1, tmp2, tmp3, tmp4, tmp5, tmp6, tmp7;</td></tr>
+<tr><th id="173">173</th><td>  DCTELEM tmp10, tmp11, tmp12, tmp13;</td></tr>
+<tr><th id="174">174</th><td>  DCTELEM z5, z10, z11, z12, z13;</td></tr>
+<tr><th id="175">175</th><td>  JCOEFPTR inptr;</td></tr>
+<tr><th id="176">176</th><td>  IFAST_MULT_TYPE * quantptr;</td></tr>
+<tr><th id="177">177</th><td>  <em>int</em> * wsptr;</td></tr>
+<tr><th id="178">178</th><td>  JSAMPROW outptr;</td></tr>
+<tr><th id="179">179</th><td>  JSAMPLE *range_limit = IDCT_range_limit(cinfo);</td></tr>
+<tr><th id="180">180</th><td>  <em>int</em> ctr;</td></tr>
+<tr><th id="181">181</th><td>  <em>int</em> workspace[DCTSIZE2];	<i>/* buffers data between passes */</i></td></tr>
+<tr><th id="182">182</th><td>  SHIFT_TEMPS			<i>/* for DESCALE */</i></td></tr>
+<tr><th id="183">183</th><td>  ISHIFT_TEMPS			<i>/* for IDESCALE */</i></td></tr>
+<tr><th id="184">184</th><td></td></tr>
+<tr><th id="185">185</th><td>  <i>/* Pass 1: process columns from input, store into work array. */</i></td></tr>
+<tr><th id="186">186</th><td></td></tr>
+<tr><th id="187">187</th><td>  inptr = coef_block;</td></tr>
+<tr><th id="188">188</th><td>  quantptr = (IFAST_MULT_TYPE *) compptr-&gt;dct_table;</td></tr>
+<tr><th id="189">189</th><td>  wsptr = workspace;</td></tr>
+<tr><th id="190">190</th><td>  <b>for</b> (ctr = DCTSIZE; ctr &gt; <var>0</var>; ctr--) {</td></tr>
+<tr><th id="191">191</th><td>    <i>/* Due to quantization, we will usually find that many of the input</i></td></tr>
+<tr><th id="192">192</th><td><i>     * coefficients are zero, especially the AC terms.  We can exploit this</i></td></tr>
+<tr><th id="193">193</th><td><i>     * by short-circuiting the IDCT calculation for any column in which all</i></td></tr>
+<tr><th id="194">194</th><td><i>     * the AC terms are zero.  In that case each output is equal to the</i></td></tr>
+<tr><th id="195">195</th><td><i>     * DC coefficient (with scale factor as needed).</i></td></tr>
+<tr><th id="196">196</th><td><i>     * With typical images and quantization tables, half or more of the</i></td></tr>
+<tr><th id="197">197</th><td><i>     * column DCT calculations can be simplified this way.</i></td></tr>
+<tr><th id="198">198</th><td><i>     */</i></td></tr>
+<tr><th id="199">199</th><td>    </td></tr>
+<tr><th id="200">200</th><td>    <b>if</b> ((inptr[DCTSIZE*<var>1</var>] | inptr[DCTSIZE*<var>2</var>] | inptr[DCTSIZE*<var>3</var>] |</td></tr>
+<tr><th id="201">201</th><td>	 inptr[DCTSIZE*<var>4</var>] | inptr[DCTSIZE*<var>5</var>] | inptr[DCTSIZE*<var>6</var>] |</td></tr>
+<tr><th id="202">202</th><td>	 inptr[DCTSIZE*<var>7</var>]) == <var>0</var>) {</td></tr>
+<tr><th id="203">203</th><td>      <i>/* AC terms all zero */</i></td></tr>
+<tr><th id="204">204</th><td>      <em>int</em> dcval = (<em>int</em>) DEQUANTIZE(inptr[DCTSIZE*<var>0</var>], quantptr[DCTSIZE*<var>0</var>]);</td></tr>
+<tr><th id="205">205</th><td></td></tr>
+<tr><th id="206">206</th><td>      wsptr[DCTSIZE*<var>0</var>] = dcval;</td></tr>
+<tr><th id="207">207</th><td>      wsptr[DCTSIZE*<var>1</var>] = dcval;</td></tr>
+<tr><th id="208">208</th><td>      wsptr[DCTSIZE*<var>2</var>] = dcval;</td></tr>
+<tr><th id="209">209</th><td>      wsptr[DCTSIZE*<var>3</var>] = dcval;</td></tr>
+<tr><th id="210">210</th><td>      wsptr[DCTSIZE*<var>4</var>] = dcval;</td></tr>
+<tr><th id="211">211</th><td>      wsptr[DCTSIZE*<var>5</var>] = dcval;</td></tr>
+<tr><th id="212">212</th><td>      wsptr[DCTSIZE*<var>6</var>] = dcval;</td></tr>
+<tr><th id="213">213</th><td>      wsptr[DCTSIZE*<var>7</var>] = dcval;</td></tr>
+<tr><th id="214">214</th><td>      </td></tr>
+<tr><th id="215">215</th><td>      inptr++;			<i>/* advance pointers to next column */</i></td></tr>
+<tr><th id="216">216</th><td>      quantptr++;</td></tr>
+<tr><th id="217">217</th><td>      wsptr++;</td></tr>
+<tr><th id="218">218</th><td>      <b>continue</b>;</td></tr>
+<tr><th id="219">219</th><td>    }</td></tr>
+<tr><th id="220">220</th><td>    </td></tr>
+<tr><th id="221">221</th><td>    <i>/* Even part */</i></td></tr>
+<tr><th id="222">222</th><td></td></tr>
+<tr><th id="223">223</th><td>    tmp0 = DEQUANTIZE(inptr[DCTSIZE*<var>0</var>], quantptr[DCTSIZE*<var>0</var>]);</td></tr>
+<tr><th id="224">224</th><td>    tmp1 = DEQUANTIZE(inptr[DCTSIZE*<var>2</var>], quantptr[DCTSIZE*<var>2</var>]);</td></tr>
+<tr><th id="225">225</th><td>    tmp2 = DEQUANTIZE(inptr[DCTSIZE*<var>4</var>], quantptr[DCTSIZE*<var>4</var>]);</td></tr>
+<tr><th id="226">226</th><td>    tmp3 = DEQUANTIZE(inptr[DCTSIZE*<var>6</var>], quantptr[DCTSIZE*<var>6</var>]);</td></tr>
+<tr><th id="227">227</th><td></td></tr>
+<tr><th id="228">228</th><td>    tmp10 = tmp0 + tmp2;	<i>/* phase 3 */</i></td></tr>
+<tr><th id="229">229</th><td>    tmp11 = tmp0 - tmp2;</td></tr>
+<tr><th id="230">230</th><td></td></tr>
+<tr><th id="231">231</th><td>    tmp13 = tmp1 + tmp3;	<i>/* phases 5-3 */</i></td></tr>
+<tr><th id="232">232</th><td>    tmp12 = MULTIPLY(tmp1 - tmp3, FIX_1_414213562) - tmp13; <i>/* 2*c4 */</i></td></tr>
+<tr><th id="233">233</th><td></td></tr>
+<tr><th id="234">234</th><td>    tmp0 = tmp10 + tmp13;	<i>/* phase 2 */</i></td></tr>
+<tr><th id="235">235</th><td>    tmp3 = tmp10 - tmp13;</td></tr>
+<tr><th id="236">236</th><td>    tmp1 = tmp11 + tmp12;</td></tr>
+<tr><th id="237">237</th><td>    tmp2 = tmp11 - tmp12;</td></tr>
+<tr><th id="238">238</th><td>    </td></tr>
+<tr><th id="239">239</th><td>    <i>/* Odd part */</i></td></tr>
+<tr><th id="240">240</th><td></td></tr>
+<tr><th id="241">241</th><td>    tmp4 = DEQUANTIZE(inptr[DCTSIZE*<var>1</var>], quantptr[DCTSIZE*<var>1</var>]);</td></tr>
+<tr><th id="242">242</th><td>    tmp5 = DEQUANTIZE(inptr[DCTSIZE*<var>3</var>], quantptr[DCTSIZE*<var>3</var>]);</td></tr>
+<tr><th id="243">243</th><td>    tmp6 = DEQUANTIZE(inptr[DCTSIZE*<var>5</var>], quantptr[DCTSIZE*<var>5</var>]);</td></tr>
+<tr><th id="244">244</th><td>    tmp7 = DEQUANTIZE(inptr[DCTSIZE*<var>7</var>], quantptr[DCTSIZE*<var>7</var>]);</td></tr>
+<tr><th id="245">245</th><td></td></tr>
+<tr><th id="246">246</th><td>    z13 = tmp6 + tmp5;		<i>/* phase 6 */</i></td></tr>
+<tr><th id="247">247</th><td>    z10 = tmp6 - tmp5;</td></tr>
+<tr><th id="248">248</th><td>    z11 = tmp4 + tmp7;</td></tr>
+<tr><th id="249">249</th><td>    z12 = tmp4 - tmp7;</td></tr>
+<tr><th id="250">250</th><td></td></tr>
+<tr><th id="251">251</th><td>    tmp7 = z11 + z13;		<i>/* phase 5 */</i></td></tr>
+<tr><th id="252">252</th><td>    tmp11 = MULTIPLY(z11 - z13, FIX_1_414213562); <i>/* 2*c4 */</i></td></tr>
+<tr><th id="253">253</th><td></td></tr>
+<tr><th id="254">254</th><td>    z5 = MULTIPLY(z10 + z12, FIX_1_847759065); <i>/* 2*c2 */</i></td></tr>
+<tr><th id="255">255</th><td>    tmp10 = MULTIPLY(z12, FIX_1_082392200) - z5; <i>/* 2*(c2-c6) */</i></td></tr>
+<tr><th id="256">256</th><td>    tmp12 = MULTIPLY(z10, - FIX_2_613125930) + z5; <i>/* -2*(c2+c6) */</i></td></tr>
+<tr><th id="257">257</th><td></td></tr>
+<tr><th id="258">258</th><td>    tmp6 = tmp12 - tmp7;	<i>/* phase 2 */</i></td></tr>
+<tr><th id="259">259</th><td>    tmp5 = tmp11 - tmp6;</td></tr>
+<tr><th id="260">260</th><td>    tmp4 = tmp10 + tmp5;</td></tr>
+<tr><th id="261">261</th><td></td></tr>
+<tr><th id="262">262</th><td>    wsptr[DCTSIZE*<var>0</var>] = (<em>int</em>) (tmp0 + tmp7);</td></tr>
+<tr><th id="263">263</th><td>    wsptr[DCTSIZE*<var>7</var>] = (<em>int</em>) (tmp0 - tmp7);</td></tr>
+<tr><th id="264">264</th><td>    wsptr[DCTSIZE*<var>1</var>] = (<em>int</em>) (tmp1 + tmp6);</td></tr>
+<tr><th id="265">265</th><td>    wsptr[DCTSIZE*<var>6</var>] = (<em>int</em>) (tmp1 - tmp6);</td></tr>
+<tr><th id="266">266</th><td>    wsptr[DCTSIZE*<var>2</var>] = (<em>int</em>) (tmp2 + tmp5);</td></tr>
+<tr><th id="267">267</th><td>    wsptr[DCTSIZE*<var>5</var>] = (<em>int</em>) (tmp2 - tmp5);</td></tr>
+<tr><th id="268">268</th><td>    wsptr[DCTSIZE*<var>4</var>] = (<em>int</em>) (tmp3 + tmp4);</td></tr>
+<tr><th id="269">269</th><td>    wsptr[DCTSIZE*<var>3</var>] = (<em>int</em>) (tmp3 - tmp4);</td></tr>
+<tr><th id="270">270</th><td></td></tr>
+<tr><th id="271">271</th><td>    inptr++;			<i>/* advance pointers to next column */</i></td></tr>
+<tr><th id="272">272</th><td>    quantptr++;</td></tr>
+<tr><th id="273">273</th><td>    wsptr++;</td></tr>
+<tr><th id="274">274</th><td>  }</td></tr>
+<tr><th id="275">275</th><td>  </td></tr>
+<tr><th id="276">276</th><td>  <i>/* Pass 2: process rows from work array, store into output array. */</i></td></tr>
+<tr><th id="277">277</th><td>  <i>/* Note that we must descale the results by a factor of 8 == 2**3, */</i></td></tr>
+<tr><th id="278">278</th><td>  <i>/* and also undo the PASS1_BITS scaling. */</i></td></tr>
+<tr><th id="279">279</th><td></td></tr>
+<tr><th id="280">280</th><td>  wsptr = workspace;</td></tr>
+<tr><th id="281">281</th><td>  <b>for</b> (ctr = <var>0</var>; ctr &lt; DCTSIZE; ctr++) {</td></tr>
+<tr><th id="282">282</th><td>    outptr = output_buf[ctr] + output_col;</td></tr>
+<tr><th id="283">283</th><td>    <i>/* Rows of zeroes can be exploited in the same way as we did with columns.</i></td></tr>
+<tr><th id="284">284</th><td><i>     * However, the column calculation has created many nonzero AC terms, so</i></td></tr>
+<tr><th id="285">285</th><td><i>     * the simplification applies less often (typically 5% to 10% of the time).</i></td></tr>
+<tr><th id="286">286</th><td><i>     * On machines with very fast multiplication, it's possible that the</i></td></tr>
+<tr><th id="287">287</th><td><i>     * test takes more time than it's worth.  In that case this section</i></td></tr>
+<tr><th id="288">288</th><td><i>     * may be commented out.</i></td></tr>
+<tr><th id="289">289</th><td><i>     */</i></td></tr>
+<tr><th id="290">290</th><td>    </td></tr>
+<tr><th id="291">291</th><td><u>#ifndef NO_ZERO_ROW_TEST</u></td></tr>
+<tr><th id="292">292</th><td>    <b>if</b> ((wsptr[<var>1</var>] | wsptr[<var>2</var>] | wsptr[<var>3</var>] | wsptr[<var>4</var>] | wsptr[<var>5</var>] | wsptr[<var>6</var>] |</td></tr>
+<tr><th id="293">293</th><td>	 wsptr[<var>7</var>]) == <var>0</var>) {</td></tr>
+<tr><th id="294">294</th><td>      <i>/* AC terms all zero */</i></td></tr>
+<tr><th id="295">295</th><td>      JSAMPLE dcval = range_limit[IDESCALE(wsptr[<var>0</var>], PASS1_BITS+<var>3</var>)</td></tr>
+<tr><th id="296">296</th><td>				  &amp; RANGE_MASK];</td></tr>
+<tr><th id="297">297</th><td>      </td></tr>
+<tr><th id="298">298</th><td>      outptr[<var>0</var>] = dcval;</td></tr>
+<tr><th id="299">299</th><td>      outptr[<var>1</var>] = dcval;</td></tr>
+<tr><th id="300">300</th><td>      outptr[<var>2</var>] = dcval;</td></tr>
+<tr><th id="301">301</th><td>      outptr[<var>3</var>] = dcval;</td></tr>
+<tr><th id="302">302</th><td>      outptr[<var>4</var>] = dcval;</td></tr>
+<tr><th id="303">303</th><td>      outptr[<var>5</var>] = dcval;</td></tr>
+<tr><th id="304">304</th><td>      outptr[<var>6</var>] = dcval;</td></tr>
+<tr><th id="305">305</th><td>      outptr[<var>7</var>] = dcval;</td></tr>
+<tr><th id="306">306</th><td></td></tr>
+<tr><th id="307">307</th><td>      wsptr += DCTSIZE;		<i>/* advance pointer to next row */</i></td></tr>
+<tr><th id="308">308</th><td>      <b>continue</b>;</td></tr>
+<tr><th id="309">309</th><td>    }</td></tr>
+<tr><th id="310">310</th><td><u>#endif</u></td></tr>
+<tr><th id="311">311</th><td>    </td></tr>
+<tr><th id="312">312</th><td>    <i>/* Even part */</i></td></tr>
+<tr><th id="313">313</th><td></td></tr>
+<tr><th id="314">314</th><td>    tmp10 = ((DCTELEM) wsptr[<var>0</var>] + (DCTELEM) wsptr[<var>4</var>]);</td></tr>
+<tr><th id="315">315</th><td>    tmp11 = ((DCTELEM) wsptr[<var>0</var>] - (DCTELEM) wsptr[<var>4</var>]);</td></tr>
+<tr><th id="316">316</th><td></td></tr>
+<tr><th id="317">317</th><td>    tmp13 = ((DCTELEM) wsptr[<var>2</var>] + (DCTELEM) wsptr[<var>6</var>]);</td></tr>
+<tr><th id="318">318</th><td>    tmp12 = MULTIPLY((DCTELEM) wsptr[<var>2</var>] - (DCTELEM) wsptr[<var>6</var>], FIX_1_414213562)</td></tr>
+<tr><th id="319">319</th><td>	    - tmp13;</td></tr>
+<tr><th id="320">320</th><td></td></tr>
+<tr><th id="321">321</th><td>    tmp0 = tmp10 + tmp13;</td></tr>
+<tr><th id="322">322</th><td>    tmp3 = tmp10 - tmp13;</td></tr>
+<tr><th id="323">323</th><td>    tmp1 = tmp11 + tmp12;</td></tr>
+<tr><th id="324">324</th><td>    tmp2 = tmp11 - tmp12;</td></tr>
+<tr><th id="325">325</th><td></td></tr>
+<tr><th id="326">326</th><td>    <i>/* Odd part */</i></td></tr>
+<tr><th id="327">327</th><td></td></tr>
+<tr><th id="328">328</th><td>    z13 = (DCTELEM) wsptr[<var>5</var>] + (DCTELEM) wsptr[<var>3</var>];</td></tr>
+<tr><th id="329">329</th><td>    z10 = (DCTELEM) wsptr[<var>5</var>] - (DCTELEM) wsptr[<var>3</var>];</td></tr>
+<tr><th id="330">330</th><td>    z11 = (DCTELEM) wsptr[<var>1</var>] + (DCTELEM) wsptr[<var>7</var>];</td></tr>
+<tr><th id="331">331</th><td>    z12 = (DCTELEM) wsptr[<var>1</var>] - (DCTELEM) wsptr[<var>7</var>];</td></tr>
+<tr><th id="332">332</th><td></td></tr>
+<tr><th id="333">333</th><td>    tmp7 = z11 + z13;		<i>/* phase 5 */</i></td></tr>
+<tr><th id="334">334</th><td>    tmp11 = MULTIPLY(z11 - z13, FIX_1_414213562); <i>/* 2*c4 */</i></td></tr>
+<tr><th id="335">335</th><td></td></tr>
+<tr><th id="336">336</th><td>    z5 = MULTIPLY(z10 + z12, FIX_1_847759065); <i>/* 2*c2 */</i></td></tr>
+<tr><th id="337">337</th><td>    tmp10 = MULTIPLY(z12, FIX_1_082392200) - z5; <i>/* 2*(c2-c6) */</i></td></tr>
+<tr><th id="338">338</th><td>    tmp12 = MULTIPLY(z10, - FIX_2_613125930) + z5; <i>/* -2*(c2+c6) */</i></td></tr>
+<tr><th id="339">339</th><td></td></tr>
+<tr><th id="340">340</th><td>    tmp6 = tmp12 - tmp7;	<i>/* phase 2 */</i></td></tr>
+<tr><th id="341">341</th><td>    tmp5 = tmp11 - tmp6;</td></tr>
+<tr><th id="342">342</th><td>    tmp4 = tmp10 + tmp5;</td></tr>
+<tr><th id="343">343</th><td></td></tr>
+<tr><th id="344">344</th><td>    <i>/* Final output stage: scale down by a factor of 8 and range-limit */</i></td></tr>
+<tr><th id="345">345</th><td></td></tr>
+<tr><th id="346">346</th><td>    outptr[<var>0</var>] = range_limit[IDESCALE(tmp0 + tmp7, PASS1_BITS+<var>3</var>)</td></tr>
+<tr><th id="347">347</th><td>			    &amp; RANGE_MASK];</td></tr>
+<tr><th id="348">348</th><td>    outptr[<var>7</var>] = range_limit[IDESCALE(tmp0 - tmp7, PASS1_BITS+<var>3</var>)</td></tr>
+<tr><th id="349">349</th><td>			    &amp; RANGE_MASK];</td></tr>
+<tr><th id="350">350</th><td>    outptr[<var>1</var>] = range_limit[IDESCALE(tmp1 + tmp6, PASS1_BITS+<var>3</var>)</td></tr>
+<tr><th id="351">351</th><td>			    &amp; RANGE_MASK];</td></tr>
+<tr><th id="352">352</th><td>    outptr[<var>6</var>] = range_limit[IDESCALE(tmp1 - tmp6, PASS1_BITS+<var>3</var>)</td></tr>
+<tr><th id="353">353</th><td>			    &amp; RANGE_MASK];</td></tr>
+<tr><th id="354">354</th><td>    outptr[<var>2</var>] = range_limit[IDESCALE(tmp2 + tmp5, PASS1_BITS+<var>3</var>)</td></tr>
+<tr><th id="355">355</th><td>			    &amp; RANGE_MASK];</td></tr>
+<tr><th id="356">356</th><td>    outptr[<var>5</var>] = range_limit[IDESCALE(tmp2 - tmp5, PASS1_BITS+<var>3</var>)</td></tr>
+<tr><th id="357">357</th><td>			    &amp; RANGE_MASK];</td></tr>
+<tr><th id="358">358</th><td>    outptr[<var>4</var>] = range_limit[IDESCALE(tmp3 + tmp4, PASS1_BITS+<var>3</var>)</td></tr>
+<tr><th id="359">359</th><td>			    &amp; RANGE_MASK];</td></tr>
+<tr><th id="360">360</th><td>    outptr[<var>3</var>] = range_limit[IDESCALE(tmp3 - tmp4, PASS1_BITS+<var>3</var>)</td></tr>
+<tr><th id="361">361</th><td>			    &amp; RANGE_MASK];</td></tr>
+<tr><th id="362">362</th><td></td></tr>
+<tr><th id="363">363</th><td>    wsptr += DCTSIZE;		<i>/* advance pointer to next row */</i></td></tr>
+<tr><th id="364">364</th><td>  }</td></tr>
+<tr><th id="365">365</th><td>}</td></tr>
+<tr><th id="366">366</th><td></td></tr>
+<tr><th id="367">367</th><td><u>#<span data-ppcond="40">endif</span> /* DCT_IFAST_SUPPORTED */</u></td></tr>
+<tr><th id="368">368</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>a9c49da</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

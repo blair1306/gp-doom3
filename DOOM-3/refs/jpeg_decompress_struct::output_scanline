@@ -1,0 +1,18 @@
+<dec f='codebrowser/renderer/jpeg-6/jpeglib.h' l='484' type='JDIMENSION'/>
+<use f='codebrowser/renderer/Cinematic.cpp' l='1540' u='r' c='_Z8JPEGBlitPhS_i'/>
+<offset>928</offset>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='480'>/* Row index of next scanline to be read from jpeg_read_scanlines().
+   * Application may use this to control its processing loop, e.g.,
+   * &quot;while (output_scanline &lt; output_height)&quot;.
+   */</doc>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='484'>/* 0 .. output_height-1  */</doc>
+<use f='codebrowser/renderer/Image_files.cpp' l='923' u='r' c='_ZL7LoadJPGPKcPPhPiS3_Pl'/>
+<use f='codebrowser/renderer/Image_files.cpp' l='928' u='r' c='_ZL7LoadJPGPKcPPhPiS3_Pl'/>
+<use f='codebrowser/renderer/jpeg-6/jdapimin.c' l='377' u='r' c='jpeg_finish_decompress'/>
+<use f='codebrowser/renderer/jpeg-6/jdapistd.c' l='100' u='w' c='output_pass_setup'/>
+<use f='codebrowser/renderer/jpeg-6/jdapistd.c' l='159' u='r' c='jpeg_read_scanlines'/>
+<use f='codebrowser/renderer/jpeg-6/jdapistd.c' l='166' u='r' c='jpeg_read_scanlines'/>
+<use f='codebrowser/renderer/jpeg-6/jdapistd.c' l='174' u='w' c='jpeg_read_scanlines'/>
+<use f='codebrowser/renderer/jpeg-6/jdapistd.c' l='192' u='r' c='jpeg_read_raw_data'/>
+<use f='codebrowser/renderer/jpeg-6/jdapistd.c' l='199' u='r' c='jpeg_read_raw_data'/>
+<use f='codebrowser/renderer/jpeg-6/jdapistd.c' l='214' u='w' c='jpeg_read_raw_data'/>

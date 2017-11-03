@@ -1,0 +1,13 @@
+<dec f='codebrowser/framework/CmdSystem.h' l='95' type='void idCmdSystem::ExecuteCommandBuffer()'/>
+<doc f='codebrowser/framework/CmdSystem.h' l='92'>// Pulls off \n \r or ; terminated lines of text from the command buffer and
+						// executes the commands. Stops when the buffer is empty.
+						// Normally called once per frame, but may be explicitly invoked.</doc>
+<use f='codebrowser/d3xp/Game_local.cpp' l='349' u='c' c='_ZN11idGameLocal4InitEv'/>
+<ovr f='codebrowser/framework/CmdSystem.cpp' l='622' c='_ZN16idCmdSystemLocal20ExecuteCommandBufferEv'/>
+<use f='codebrowser/framework/Common.cpp' l='2978' u='c' c='_ZN13idCommonLocal8InitGameEv'/>
+<use f='codebrowser/framework/Common.cpp' l='3042' u='c' c='_ZN13idCommonLocal8InitGameEv'/>
+<use f='codebrowser/framework/EventLoop.cpp' l='181' u='c' c='_ZN11idEventLoop12RunEventLoopEb'/>
+<use f='codebrowser/framework/Session.cpp' l='278' u='c' c='_ZL19Session_PromptKey_fRK9idCmdArgs'/>
+<use f='codebrowser/framework/Session.cpp' l='1168' u='c' c='_ZN14idSessionLocal12StartNewGameEPKcb'/>
+<use f='codebrowser/framework/Session_menu.cpp' l='1034' u='c' c='_ZN14idSessionLocal22HandleMainMenuCommandsEPKc'/>
+<use f='codebrowser/framework/Session_menu.cpp' l='1619' u='c' c='_ZN14idSessionLocal18HandleNoteCommandsEPKc'/>

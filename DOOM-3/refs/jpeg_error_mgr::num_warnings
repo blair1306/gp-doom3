@@ -1,0 +1,13 @@
+<dec f='codebrowser/renderer/jpeg-6/jpeglib.h' l='663' type='long'/>
+<offset>864</offset>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='657'>/* For recoverable corrupt-data errors, we emit a warning message,
+   * but keep going unless emit_message chooses to abort.  emit_message
+   * should count warnings in num_warnings.  The surrounding application
+   * can check for bad data by seeing if num_warnings is nonzero at the
+   * end of processing.
+   */</doc>
+<doc f='codebrowser/renderer/jpeg-6/jpeglib.h' l='663'>/* number of corrupt-data warnings */</doc>
+<use f='codebrowser/renderer/jpeg-6/jerror.c' l='119' u='r' c='emit_message'/>
+<use f='codebrowser/renderer/jpeg-6/jerror.c' l='122' u='w' c='emit_message'/>
+<use f='codebrowser/renderer/jpeg-6/jerror.c' l='196' u='w' c='reset_error_mgr'/>
+<use f='codebrowser/renderer/jpeg-6/jerror.c' l='222' u='w' c='jpeg_std_error'/>

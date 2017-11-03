@@ -1,0 +1,15 @@
+<dec f='codebrowser/idlib/containers/StaticList.h' l='75' type='void idStaticList::DeleteContents(bool clear)'/>
+<def f='codebrowser/idlib/containers/StaticList.h' l='135' ll='149' type='void idStaticList::DeleteContents(bool clear)'/>
+<doc f='codebrowser/idlib/containers/StaticList.h' l='75'>// delete the contents of the list</doc>
+<doc f='codebrowser/idlib/containers/StaticList.h' l='123'>/*
+================
+idStaticList&lt;type,size&gt;::DeleteContents
+
+Calls the destructor of all elements in the list.  Conditionally frees up memory used by the list.
+Note that this only works on lists containing pointers to objects and will cause a compiler error
+if called with non-pointers.  Since the list was not responsible for allocating the object, it has
+no information on whether the object still exists or not, so care must be taken to ensure that
+the pointers are still valid when this function is called.  Function will set all pointers in the
+list to NULL.
+================
+*/</doc>

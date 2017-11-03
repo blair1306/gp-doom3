@@ -1,0 +1,12 @@
+<dec f='codebrowser/curl/lib/urldata.h' l='656'/>
+<doc f='codebrowser/curl/lib/urldata.h' l='648'>/*
+ * Values that are generated, temporary or calculated internally for a
+ * &quot;session handle&quot; must be defined within the &apos;struct urlstate&apos;.  This struct
+ * will be used within the SessionHandle struct. When the &apos;SessionHandle&apos;
+ * struct is cloned, this data MUST NOT be copied.
+ *
+ * Remember that any &quot;state&quot; information goes globally for the curl handle.
+ * Session-data MUST be put in the connectdata struct and here.  */</doc>
+<use f='codebrowser/curl/lib/url.c' l='1988' u='c'/>
+<use f='codebrowser/curl/lib/url.c' l='2218' u='c'/>
+<use f='codebrowser/curl/lib/url.c' l='2343' u='c'/>

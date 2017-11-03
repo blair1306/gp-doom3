@@ -1,0 +1,22 @@
+<dec f='codebrowser/renderer/VertexCache.h' l='72' type='void idVertexCache::Alloc(void * data, int bytes, vertCache_t ** buffer, bool indexBuffer = false)'/>
+<doc f='codebrowser/renderer/VertexCache.h' l='67'>// Tries to allocate space for the given data in fast vertex
+	// memory, and copies it over.
+	// Alloc does NOT do a touch, which allows purging of things
+	// created at level load time even if a frame hasn&apos;t passed yet.
+	// These allocations can be purged, which will zero the pointer.</doc>
+<use f='codebrowser/renderer/Interaction.cpp' l='1146' u='c' c='_ZN13idInteraction20AddActiveInteractionEv'/>
+<use f='codebrowser/renderer/Interaction.cpp' l='1228' u='c' c='_ZN13idInteraction20AddActiveInteractionEv'/>
+<use f='codebrowser/renderer/VertexCache.cpp' l='185' u='c' c='_ZN13idVertexCache4InitEv'/>
+<def f='codebrowser/renderer/VertexCache.cpp' l='227' ll='300' type='void idVertexCache::Alloc(void * data, int size, vertCache_t ** buffer, bool indexBuffer = false)'/>
+<use f='codebrowser/renderer/VertexCache.cpp' l='381' u='c' c='_ZN13idVertexCache14AllocFrameTempEPvi'/>
+<doc f='codebrowser/renderer/VertexCache.cpp' l='222'>/*
+===========
+idVertexCache::Alloc
+===========
+*/</doc>
+<use f='codebrowser/renderer/tr_light.cpp' l='61' u='c' c='_Z20R_CreateAmbientCacheP14srfTriangles_sb'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='126' u='c' c='_Z21R_CreateLightingCachePK19idRenderEntityLocalPK18idRenderLightLocalP14srfTriangles_s'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='145' u='c' c='_Z26R_CreatePrivateShadowCacheP14srfTriangles_s'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='185' u='c' c='_Z32R_CreateVertexProgramShadowCacheP14srfTriangles_s'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1042' u='c' c='_Z18R_AddLightSurfacesv'/>
+<use f='codebrowser/renderer/tr_light.cpp' l='1414' u='c' c='_ZL21R_AddAmbientDrawsurfsP12viewEntity_s'/>

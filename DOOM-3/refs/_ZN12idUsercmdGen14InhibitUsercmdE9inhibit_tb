@@ -1,0 +1,8 @@
+<dec f='codebrowser/framework/UsercmdGen.h' l='138' type='void idUsercmdGen::InhibitUsercmd(inhibit_t subsystem, bool inhibit)'/>
+<doc f='codebrowser/framework/UsercmdGen.h' l='136'>// When the console is down or the menu is up, only emit default usercmd, so the player isn&apos;t moving around.
+	// Each subsystem (session and game) may want an inhibit will OR the requests.</doc>
+<use f='codebrowser/framework/Session_menu.cpp' l='1203' u='c' c='_ZN14idSessionLocal14GuiFrameEventsEv'/>
+<use f='codebrowser/framework/Session_menu.cpp' l='1205' u='c' c='_ZN14idSessionLocal14GuiFrameEventsEv'/>
+<ovr f='codebrowser/framework/UsercmdGen.cpp' l='447' c='_ZN17idUsercmdGenLocal14InhibitUsercmdE9inhibit_tb'/>
+<use f='codebrowser/framework/async/AsyncNetwork.cpp' l='175' u='c' c='_ZN14idAsyncNetwork8RunFrameEv'/>
+<use f='codebrowser/framework/async/AsyncNetwork.cpp' l='178' u='c' c='_ZN14idAsyncNetwork8RunFrameEv'/>

@@ -1,0 +1,23 @@
+<dec f='codebrowser/renderer/Model.h' l='120' type='int'/>
+<offset>736</offset>
+<doc f='codebrowser/renderer/Model.h' l='120'>// shadow volumes with the front and rear caps omitted</doc>
+<use f='codebrowser/renderer/Interaction.cpp' l='920' u='w' c='_ZN13idInteraction17CreateInteractionEPK13idRenderModel'/>
+<use f='codebrowser/renderer/RenderWorld_load.cpp' l='212' u='w' c='_ZN18idRenderWorldLocal16ParseShadowModelEP7idLexer'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='1081' u='r' c='_ZL11RB_T_ShadowPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='1084' u='r' c='_ZL11RB_T_ShadowPK10drawSurf_s'/>
+<use f='codebrowser/renderer/draw_common.cpp' l='1095' u='r' c='_ZL11RB_T_ShadowPK10drawSurf_s'/>
+<use f='codebrowser/renderer/tr_rendertools.cpp' l='666' u='r' c='_ZL18RB_ShowShadowCountv'/>
+<use f='codebrowser/renderer/tr_rendertools.cpp' l='672' u='r' c='_ZL18RB_ShowShadowCountv'/>
+<use f='codebrowser/renderer/tr_stencilshadow.cpp' l='1361' u='w' c='_Z20R_CreateShadowVolumePK19idRenderEntityLocalPK14srfTriangles_sPK18idRenderLightLocal11shadowGen_tR13srfCullInfo_t'/>
+<use f='codebrowser/renderer/tr_stencilshadow.cpp' l='1364' u='r' c='_Z20R_CreateShadowVolumePK19idRenderEntityLocalPK14srfTriangles_sPK18idRenderLightLocal11shadowGen_tR13srfCullInfo_t'/>
+<use f='codebrowser/renderer/tr_stencilshadow.cpp' l='1366' u='w' c='_Z20R_CreateShadowVolumePK19idRenderEntityLocalPK14srfTriangles_sPK18idRenderLightLocal11shadowGen_tR13srfCullInfo_t'/>
+<use f='codebrowser/renderer/tr_stencilshadow.cpp' l='1369' u='r' c='_Z20R_CreateShadowVolumePK19idRenderEntityLocalPK14srfTriangles_sPK18idRenderLightLocal11shadowGen_tR13srfCullInfo_t'/>
+<use f='codebrowser/renderer/tr_turboshadow.cpp' l='142' u='w' c='_Z38R_CreateVertexProgramTurboShadowVolumePK19idRenderEntityLocalPK14srfTriangles_sPK18idRenderLightLocalR13srfCullInfo_t'/>
+<use f='codebrowser/renderer/tr_turboshadow.cpp' l='318' u='w' c='_Z25R_CreateTurboShadowVolumePK19idRenderEntityLocalPK14srfTriangles_sPK18idRenderLightLocalR13srfCullInfo_t'/>
+<use f='codebrowser/tools/compilers/dmap/output.cpp' l='327' u='r' c='_ZL20WriteShadowTrianglesPK14srfTriangles_s'/>
+<use f='codebrowser/tools/compilers/dmap/shadowopt3.cpp' l='1111' u='r' c='_ZL25RemoveDegenerateTrianglesP14srfTriangles_s'/>
+<use f='codebrowser/tools/compilers/dmap/shadowopt3.cpp' l='1112' u='w' c='_ZL25RemoveDegenerateTrianglesP14srfTriangles_s'/>
+<use f='codebrowser/tools/compilers/dmap/shadowopt3.cpp' l='1167' u='r' c='_Z26CleanupOptimizedShadowTrisP14srfTriangles_s'/>
+<use f='codebrowser/tools/compilers/dmap/shadowopt3.cpp' l='1199' u='r' c='_Z26CleanupOptimizedShadowTrisP14srfTriangles_s'/>
+<use f='codebrowser/tools/compilers/dmap/shadowopt3.cpp' l='1202' u='w' c='_Z26CleanupOptimizedShadowTrisP14srfTriangles_s'/>
+<use f='codebrowser/tools/compilers/dmap/usurface.cpp' l='892' u='w' c='_ZL17BuildLightShadowsP9uEntity_tP10mapLight_t'/>

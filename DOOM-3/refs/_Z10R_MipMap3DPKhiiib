@@ -1,0 +1,16 @@
+<dec f='codebrowser/renderer/Image.h' l='464' type='byte * R_MipMap3D(const byte * in, int width, int height, int depth, bool preserveBorder)'/>
+<use f='codebrowser/renderer/Image_load.cpp' l='789' u='c' c='_ZN7idImage15Generate3DImageEPKhiii15textureFilter_tb15textureRepeat_t14textureDepth_t'/>
+<def f='codebrowser/renderer/Image_process.cpp' l='481' ll='544' type='byte * R_MipMap3D(const byte * in, int width, int height, int depth, bool preserveBorder)'/>
+<doc f='codebrowser/renderer/Image_process.cpp' l='468'>/*
+================
+R_MipMap3D
+
+Returns a new copy of the texture, eigthed in size and filtered.
+
+If a texture is intended to be used in GL_CLAMP or GL_CLAMP_TO_EDGE mode with
+a completely transparent border, we must prevent any blurring into the outer
+ring of texels by filling it with the border from the previous level.  This
+will result in a slight shrinking of the texture as it mips, but better than
+smeared clamps...
+================
+*/</doc>

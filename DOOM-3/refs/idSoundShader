@@ -1,0 +1,35 @@
+<inh f='codebrowser/framework/DeclManager.h' l='132' c='idDecl'/>
+<def f='codebrowser/sound/sound.h' l='78' ll='133'/>
+<size>348</size>
+<doc f='codebrowser/sound/sound.h' l='76'>// it is somewhat tempting to make this a virtual class to hide the private
+// details here, but that doesn&apos;t fit easily with the decl manager at the moment.</doc>
+<fun r='_ZN13idSoundShaderC1Ev'/>
+<fun r='_ZN13idSoundShaderD1Ev'/>
+<fun r='_ZNK13idSoundShader4SizeEv'/>
+<fun r='_ZN13idSoundShader14SetDefaultTextEv'/>
+<fun r='_ZNK13idSoundShader17DefaultDefinitionEv'/>
+<fun r='_ZN13idSoundShader5ParseEPKci'/>
+<fun r='_ZN13idSoundShader8FreeDataEv'/>
+<fun r='_ZNK13idSoundShader4ListEv'/>
+<fun r='_ZNK13idSoundShader14GetDescriptionEv'/>
+<fun r='_ZNK13idSoundShader14GetMinDistanceEv'/>
+<fun r='_ZNK13idSoundShader14GetMaxDistanceEv'/>
+<fun r='_ZNK13idSoundShader11GetAltSoundEv'/>
+<fun r='_ZNK13idSoundShader15HasDefaultSoundEv'/>
+<fun r='_ZNK13idSoundShader8GetParmsEv'/>
+<fun r='_ZNK13idSoundShader12GetNumSoundsEv'/>
+<fun r='_ZNK13idSoundShader8GetSoundEi'/>
+<fun r='_ZNK13idSoundShader17CheckShakesAndOggEv'/>
+<mbr r='idSoundShader::parms' o='64' t='soundShaderParms_t'/>
+<mbr r='idSoundShader::onDemand' o='256' t='bool'/>
+<mbr r='idSoundShader::speakerMask' o='288' t='int'/>
+<mbr r='idSoundShader::altSound' o='320' t='const idSoundShader *'/>
+<mbr r='idSoundShader::desc' o='352' t='idStr'/>
+<mbr r='idSoundShader::errorDuringParse' o='608' t='bool'/>
+<mbr r='idSoundShader::leadinVolume' o='640' t='float'/>
+<mbr r='idSoundShader::leadins' o='672' t='idSoundSample *[32]'/>
+<mbr r='idSoundShader::numLeadins' o='1696' t='int'/>
+<mbr r='idSoundShader::entries' o='1728' t='idSoundSample *[32]'/>
+<mbr r='idSoundShader::numEntries' o='2752' t='int'/>
+<fun r='_ZN13idSoundShader4InitEv'/>
+<fun r='_ZN13idSoundShader11ParseShaderER7idLexer'/>

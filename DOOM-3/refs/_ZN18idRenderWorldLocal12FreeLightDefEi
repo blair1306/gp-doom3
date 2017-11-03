@@ -1,0 +1,14 @@
+<dec f='codebrowser/renderer/RenderWorld_local.h' l='90' type='void idRenderWorldLocal::FreeLightDef(qhandle_t lightHandle)'/>
+<inh f='codebrowser/renderer/RenderWorld.h' l='288' c='_ZN13idRenderWorld12FreeLightDefEi'/>
+<def f='codebrowser/renderer/RenderWorld.cpp' l='451' ll='473' type='void idRenderWorldLocal::FreeLightDef(qhandle_t lightHandle)'/>
+<doc f='codebrowser/renderer/RenderWorld.cpp' l='443'>/*
+====================
+FreeLightDef
+
+Frees all references and lit surfaces from the light, and
+NULL&apos;s out it&apos;s entry in the world list
+====================
+*/</doc>
+<use f='codebrowser/renderer/RenderWorld_demo.cpp' l='179' u='c' c='_ZN18idRenderWorldLocal18ProcessDemoCommandEP10idDemoFileP12renderView_sPi'/>
+<use f='codebrowser/renderer/RenderWorld_load.cpp' l='454' u='c' c='_ZN18idRenderWorldLocal8FreeDefsEv'/>
+<use f='codebrowser/renderer/tr_lightrun.cpp' l='849' u='c' c='_Z25R_ReCreateWorldReferencesv'/>

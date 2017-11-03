@@ -1,0 +1,10 @@
+<dec f='codebrowser/sound/snd_local.h' l='698' type='int idSoundSystemLocal::AsyncMix(int soundTime, float * mixBuffer)'/>
+<doc f='codebrowser/sound/snd_local.h' l='697'>// direct mixing called from the sound driver thread for OSes that support it</doc>
+<inh f='codebrowser/sound/sound.h' l='339' c='_ZN13idSoundSystem8AsyncMixEiPf'/>
+<def f='codebrowser/sound/snd_system.cpp' l='600' ll='618' type='int idSoundSystemLocal::AsyncMix(int soundTime, float * mixBuffer)'/>
+<doc f='codebrowser/sound/snd_system.cpp' l='594'>/*
+===================
+idSoundSystemLocal::AsyncMix
+Mac OSX version. The system uses it&apos;s own thread and an IOProc callback
+===================
+*/</doc>

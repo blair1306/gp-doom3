@@ -1,0 +1,13 @@
+<dec f='codebrowser/sys/sys_public.h' l='381' type='int Sys_ListFiles(const char * directory, const char * extension, idList&lt;class idStr&gt; &amp; list)'/>
+<doc f='codebrowser/sys/sys_public.h' l='379'>// use fs_debug to verbose Sys_ListFiles
+// returns -1 if directory was not found (the list is cleared)</doc>
+<use f='codebrowser/framework/Common.cpp' l='1926' u='c' c='_Z11GetFileListPKcS0_R6idListI5idStrE'/>
+<use f='codebrowser/framework/Common.cpp' l='1936' u='c' c='_Z11GetFileListPKcS0_R6idListI5idStrE'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='1848' u='c' c='_ZN17idFileSystemLocal11ListOSFilesEPKcS1_R6idListI5idStrE'/>
+<use f='codebrowser/framework/FileSystem.cpp' l='1869' u='c' c='_ZN17idFileSystemLocal11ListOSFilesEPKcS1_R6idListI5idStrE'/>
+<def f='codebrowser/sys/posix/posix_main.cpp' l='198' ll='254' type='int Sys_ListFiles(const char * directory, const char * extension, idStrList &amp; list)'/>
+<doc f='codebrowser/sys/posix/posix_main.cpp' l='193'>/*
+================
+Sys_ListFiles
+================
+*/</doc>

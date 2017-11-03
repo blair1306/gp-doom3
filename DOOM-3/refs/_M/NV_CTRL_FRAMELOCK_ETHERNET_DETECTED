@@ -1,0 +1,13 @@
+<dec f='codebrowser/sys/linux/libXNVCtrl/NVCtrl.h' l='396'/>
+<doc f='codebrowser/sys/linux/libXNVCtrl/NVCtrl.h' l='383'>/*
+ * NV_CTRL_FRAMELOCK_ETHERNET_DETECTED - The FrameLock boards are
+ * cabled together using regular cat5 cable, connecting to rj45 ports
+ * on the backplane of the card.  There is some concern that users may
+ * think these are ethernet ports and connect them to a
+ * router/hub/etc.  The hardware can detect this and will shut off to
+ * prevent damage (either to itself or to the router).
+ * NV_CTRL_FRAMELOCK_ETHERNET_DETECTED may be called to find out if
+ * ethernet is connected to one of the rj45 ports.  An appropriate
+ * error message should then be displayed.  The _PORT0 and PORT1
+ * values may be or&apos;ed together.
+ */</doc>

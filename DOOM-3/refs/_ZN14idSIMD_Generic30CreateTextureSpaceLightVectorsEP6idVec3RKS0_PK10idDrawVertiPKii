@@ -1,0 +1,12 @@
+<dec f='codebrowser/idlib/math/Simd_Generic.h' l='123' type='void idSIMD_Generic::CreateTextureSpaceLightVectors(idVec3 * lightVectors, const idVec3 &amp; lightOrigin, const idDrawVert * verts, const int numVerts, const int * indexes, const int numIndexes)'/>
+<inh f='codebrowser/idlib/math/Simd.h' l='186' c='_ZN15idSIMDProcessor30CreateTextureSpaceLightVectorsEP6idVec3RKS0_PK10idDrawVertiPKii'/>
+<def f='codebrowser/idlib/math/Simd_Generic.cpp' l='2716' ll='2738' type='void idSIMD_Generic::CreateTextureSpaceLightVectors(idVec3 * lightVectors, const idVec3 &amp; lightOrigin, const idDrawVert * verts, const int numVerts, const int * indexes, const int numIndexes)'/>
+<doc f='codebrowser/idlib/math/Simd_Generic.cpp' l='2707'>/*
+============
+idSIMD_Generic::CreateTextureSpaceLightVectors
+
+	Calculates light vectors in texture space for the given triangle vertices.
+	For each vertex the direction towards the light origin is projected onto texture space.
+	The light vectors are only calculated for the vertices referenced by the indexes.
+============
+*/</doc>

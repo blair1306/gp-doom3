@@ -1,0 +1,15 @@
+<dec f='codebrowser/renderer/RenderWorld_local.h' l='95' type='void idRenderWorldLocal::GenerateAllInteractions()'/>
+<inh f='codebrowser/renderer/RenderWorld.h' l='293' c='_ZN13idRenderWorld23GenerateAllInteractionsEv'/>
+<def f='codebrowser/renderer/RenderWorld.cpp' l='1445' ll='1504' type='void idRenderWorldLocal::GenerateAllInteractions()'/>
+<doc f='codebrowser/renderer/RenderWorld.cpp' l='1433'>/*
+===================
+GenerateAllInteractions
+
+Force the generation of all light / surface interactions at the start of a level
+If this isn&apos;t called, they will all be dynamically generated
+
+This really isn&apos;t all that helpful anymore, because the calculation of shadows
+and light interactions is deferred from idRenderWorldLocal::CreateLightDefInteractions(), but we
+use it as an oportunity to size the interactionTable
+===================
+*/</doc>

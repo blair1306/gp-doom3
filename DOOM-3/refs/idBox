@@ -1,0 +1,95 @@
+<def f='codebrowser/idlib/bv/Box.h' l='40' ll='113'/>
+<size>60</size>
+<doc f='codebrowser/idlib/bv/Box.h' l='32'>/*
+===============================================================================
+
+	Oriented Bounding Box
+
+===============================================================================
+*/</doc>
+<fun r='_ZN5idBoxC1Ev'/>
+<fun r='_ZN5idBoxC1ERK6idVec3S2_RK6idMat3'/>
+<fun r='_ZN5idBoxC1ERK6idVec3'/>
+<fun r='_ZN5idBoxC1ERK8idBounds'/>
+<fun r='_ZN5idBoxC1ERK8idBoundsRK6idVec3RK6idMat3'/>
+<fun r='_ZNK5idBoxplERK6idVec3'/>
+<fun r='_ZN5idBoxpLERK6idVec3'/>
+<fun r='_ZNK5idBoxmlERK6idMat3'/>
+<fun r='_ZN5idBoxmLERK6idMat3'/>
+<fun r='_ZNK5idBoxplERKS_'/>
+<fun r='_ZN5idBoxpLERKS_'/>
+<fun r='_ZNK5idBoxmiERKS_'/>
+<fun r='_ZN5idBoxmIERKS_'/>
+<fun r='_ZNK5idBox7CompareERKS_'/>
+<fun r='_ZNK5idBox7CompareERKS_f'/>
+<fun r='_ZNK5idBoxeqERKS_'/>
+<fun r='_ZNK5idBoxneERKS_'/>
+<fun r='_ZN5idBox5ClearEv'/>
+<fun r='_ZN5idBox4ZeroEv'/>
+<fun r='_ZNK5idBox9GetCenterEv'/>
+<fun r='_ZNK5idBox10GetExtentsEv'/>
+<fun r='_ZNK5idBox7GetAxisEv'/>
+<fun r='_ZNK5idBox9GetVolumeEv'/>
+<fun r='_ZNK5idBox9IsClearedEv'/>
+<fun r='_ZN5idBox8AddPointERK6idVec3'/>
+<fun r='_ZN5idBox6AddBoxERKS_'/>
+<fun r='_ZNK5idBox6ExpandEf'/>
+<fun r='_ZN5idBox10ExpandSelfEf'/>
+<fun r='_ZNK5idBox9TranslateERK6idVec3'/>
+<fun r='_ZN5idBox13TranslateSelfERK6idVec3'/>
+<fun r='_ZNK5idBox6RotateERK6idMat3'/>
+<fun r='_ZN5idBox10RotateSelfERK6idMat3'/>
+<fun r='_ZNK5idBox13PlaneDistanceERK7idPlane'/>
+<fun r='_ZNK5idBox9PlaneSideERK7idPlanef'/>
+<fun r='_ZNK5idBox13ContainsPointERK6idVec3'/>
+<fun r='_ZNK5idBox13IntersectsBoxERKS_'/>
+<fun r='_ZNK5idBox16LineIntersectionERK6idVec3S2_'/>
+<fun r='_ZNK5idBox15RayIntersectionERK6idVec3S2_RfS3_'/>
+<fun r='_ZN5idBox10FromPointsEPK6idVec3i'/>
+<fun r='_ZN5idBox20FromPointTranslationERK6idVec3S2_'/>
+<fun r='_ZN5idBox18FromBoxTranslationERKS_RK6idVec3'/>
+<fun r='_ZN5idBox17FromPointRotationERK6idVec3RK10idRotation'/>
+<fun r='_ZN5idBox15FromBoxRotationERKS_RK10idRotation'/>
+<fun r='_ZNK5idBox8ToPointsEP6idVec3'/>
+<fun r='_ZNK5idBox8ToSphereEv'/>
+<fun r='_ZNK5idBox14AxisProjectionERK6idVec3RfS3_'/>
+<fun r='_ZNK5idBox14AxisProjectionERK6idMat3R8idBounds'/>
+<fun r='_ZNK5idBox28GetProjectionSilhouetteVertsERK6idVec3PS0_'/>
+<fun r='_ZNK5idBox36GetParallelProjectionSilhouetteVertsERK6idVec3PS0_'/>
+<mbr r='idBox::center' o='0' t='idVec3'/>
+<mbr r='idBox::extents' o='96' t='idVec3'/>
+<mbr r='idBox::axis' o='192' t='idMat3'/>
+<fun r='_ZN5idBoxC1Ev'/>
+<fun r='_ZN5idBoxC1ERK6idVec3S2_RK6idMat3'/>
+<fun r='_ZN5idBoxC1ERK6idVec3'/>
+<fun r='_ZN5idBoxC1ERK8idBounds'/>
+<fun r='_ZN5idBoxC1ERK8idBoundsRK6idVec3RK6idMat3'/>
+<fun r='_ZNK5idBoxplERK6idVec3'/>
+<fun r='_ZN5idBoxpLERK6idVec3'/>
+<fun r='_ZNK5idBoxmlERK6idMat3'/>
+<fun r='_ZN5idBoxmLERK6idMat3'/>
+<fun r='_ZNK5idBoxplERKS_'/>
+<fun r='_ZN5idBoxpLERKS_'/>
+<fun r='_ZNK5idBoxmiERKS_'/>
+<fun r='_ZN5idBoxmIERKS_'/>
+<fun r='_ZNK5idBox7CompareERKS_'/>
+<fun r='_ZNK5idBox7CompareERKS_f'/>
+<fun r='_ZNK5idBoxeqERKS_'/>
+<fun r='_ZNK5idBoxneERKS_'/>
+<fun r='_ZN5idBox5ClearEv'/>
+<fun r='_ZN5idBox4ZeroEv'/>
+<fun r='_ZNK5idBox9GetCenterEv'/>
+<fun r='_ZNK5idBox10GetExtentsEv'/>
+<fun r='_ZNK5idBox7GetAxisEv'/>
+<fun r='_ZNK5idBox9GetVolumeEv'/>
+<fun r='_ZNK5idBox9IsClearedEv'/>
+<fun r='_ZNK5idBox6ExpandEf'/>
+<fun r='_ZN5idBox10ExpandSelfEf'/>
+<fun r='_ZNK5idBox9TranslateERK6idVec3'/>
+<fun r='_ZN5idBox13TranslateSelfERK6idVec3'/>
+<fun r='_ZNK5idBox6RotateERK6idMat3'/>
+<fun r='_ZN5idBox10RotateSelfERK6idMat3'/>
+<fun r='_ZNK5idBox13ContainsPointERK6idVec3'/>
+<fun r='_ZNK5idBox8ToSphereEv'/>
+<fun r='_ZNK5idBox14AxisProjectionERK6idVec3RfS3_'/>
+<fun r='_ZNK5idBox14AxisProjectionERK6idMat3R8idBounds'/>

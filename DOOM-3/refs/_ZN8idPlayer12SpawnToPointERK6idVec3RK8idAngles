@@ -1,0 +1,30 @@
+<dec f='codebrowser/d3xp/Player.h' l='413' type='void idPlayer::SpawnToPoint(const idVec3 &amp; spawn_origin, const idAngles &amp; spawn_angles)'/>
+<use f='codebrowser/d3xp/Player.cpp' l='2654' u='c' c='_ZN8idPlayer18SpawnFromSpawnSpotEv'/>
+<def f='codebrowser/d3xp/Player.cpp' l='2668' ll='2764' type='void idPlayer::SpawnToPoint(const idVec3 &amp; spawn_origin, const idAngles &amp; spawn_angles)'/>
+<doc f='codebrowser/d3xp/Player.cpp' l='2657'>/*
+===========
+idPlayer::SpawnToPoint
+
+Called every time a client is placed fresh in the world:
+after the first ClientBegin, and after each respawn
+Initializes all non-persistant parts of playerState
+
+when called here with spectating set to true, just place yourself and init
+============
+*/</doc>
+<use f='codebrowser/d3xp/gamesys/SysCmds.cpp' l='582' u='c' c='_Z17Cmd_PlayerModel_fRK9idCmdArgs'/>
+<dec f='codebrowser/game/Player.h' l='341' type='void idPlayer::SpawnToPoint(const idVec3 &amp; spawn_origin, const idAngles &amp; spawn_angles)'/>
+<use f='codebrowser/game/Player.cpp' l='2162' u='c' c='_ZN8idPlayer18SpawnFromSpawnSpotEv'/>
+<def f='codebrowser/game/Player.cpp' l='2176' ll='2272' type='void idPlayer::SpawnToPoint(const idVec3 &amp; spawn_origin, const idAngles &amp; spawn_angles)'/>
+<doc f='codebrowser/game/Player.cpp' l='2165'>/*
+===========
+idPlayer::SpawnToPoint
+
+Called every time a client is placed fresh in the world:
+after the first ClientBegin, and after each respawn
+Initializes all non-persistant parts of playerState
+
+when called here with spectating set to true, just place yourself and init
+============
+*/</doc>
+<use f='codebrowser/game/gamesys/SysCmds.cpp' l='531' u='c' c='_Z17Cmd_PlayerModel_fRK9idCmdArgs'/>
